@@ -25,7 +25,7 @@ These dimensions are not points to average. They answer different questions. For
 
 **Unfamiliar knowledge** (`term-unfamiliar-knowledge`) means no usable response model appears yet. Evidence may be no attempt, an explicit lack of prior encounter, or an unsupported guess that cannot be explained. Nonresponse has alternative causes, so the label remains provisional and may require an accessible re-prompt.
 
-**Fragile knowledge** (`term-fragile-knowledge`) means that some relevant knowledge is accessible, but it is incomplete, inconsistent, cue-dependent, weakly explained, or unable to survive a bounded variation. Fragile is the conservative classification when the record mixes strong and weak evidence and another discriminating probe is still needed.
+**Fragile knowledge** (`term-fragile-knowledge`) means that some relevant knowledge is accessible, but it is incomplete, inconsistent, cue-dependent, weakly explained, or unable to survive a bounded variation. When some knowledge is present but a probe needed to justify secure has not been attempted, report **provisionally fragile/unresolved** and collect that probe. “Unresolved” qualifies the fragile routing decision; it is not a fourth knowledge state, and it does not mean the unattempted operation would fail.
 
 **Secure knowledge** (`term-secure-knowledge`) requires a pattern: accurate independent responses, defensible reasoning, and successful use under bounded variation. “Secure” here is still provisional. It does not by itself mean mastered, retained after a delay, or transferable to every context.
 

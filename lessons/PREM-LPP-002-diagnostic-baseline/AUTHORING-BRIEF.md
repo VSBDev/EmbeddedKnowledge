@@ -5,9 +5,9 @@
 - **Target outcome:** `topic-orientation-diagnostic-baseline` (`PREM-01.02`) — use a low-stakes diagnostic to distinguish unfamiliar, fragile, and secure knowledge.
 - **Declared learner:** a foundation-level Premed learner who has completed the curriculum-map orientation but may have very uneven prior science knowledge.
 - **Required prerequisite:** `topic-orientation-map-and-pathways`; the learner should be able to locate a node and its prerequisite route.
-- **Prerequisite diagnostic:** reconstruct, from memory, the meaning of a node and a prerequisite edge, then locate the first dependency to reopen in a short route. If either operation is unavailable, return to `PREM-LPP-001` before interpreting a baseline.
+- **Prerequisite diagnostic:** reconstruct, from memory, the meaning of a node and a prerequisite edge, then diagnose a short chain without assuming an untested predecessor is insecure. If either operation is unavailable, use the bounded in-scene restatement and fresh-chain retry, and record `topic-orientation-map-and-pathways` as the prerequisite recovery target.
 - **Central question:** what response evidence justifies calling one knowledge node unfamiliar, fragile, or secure, and what should the label change about the next study action?
-- **Target explanatory model:** a diagnostic is a sequence of probe, evidence, provisional classification, and proportionate route. Evidence is interpreted across access, accuracy, reasoning, adaptation, and confidence calibration. Unfamiliar means there is not yet a usable response model; fragile means some knowledge is accessible but performance is incomplete, cue-dependent, inconsistent, or not adaptable; secure means accurate independent reasoning survives bounded variation. Confidence modifies the interpretation but cannot replace performance evidence. Each label is node-specific, provisional, and revisable.
+- **Target explanatory model:** a diagnostic is a sequence of probe, evidence, provisional classification, and proportionate route. Evidence is interpreted across access, accuracy, reasoning, adaptation, and confidence calibration. Unfamiliar means there is not yet a usable response model; fragile means some knowledge is accessible but performance is incomplete, cue-dependent, inconsistent, not adaptable, or unresolved because a discriminating secure probe is missing; secure means accurate independent reasoning survives bounded variation. Confidence modifies the interpretation but cannot replace performance evidence. Each label is node-specific, provisional, and revisable; an unattempted operation is not treated as a failed one.
 - **Assumptions and limits:** the three labels are an operational course model, not a validated psychological scale, diagnosis, identity, proof of retained mastery, or admissions decision. A short baseline samples current performance and must preserve uncertainty.
 - **Observable mastery evidence:** classify mixed fictional response records; justify each classification with observed evidence; identify when another probe is required; choose a proportionate next route; and redesign a self-rating-only diagnostic so it remains low stakes, evidence-producing, and accessible.
 
@@ -20,7 +20,7 @@
 - **Practice progression:** completed classification with explicit prompts, supported classification with one missing field, independent mixed case, then a transfer redesign of a self-rating survey.
 - **Retrieval:** prerequisite retrieval precedes explanation; a later three-case check precedes feedback; the synthesis schedules a fresh delayed classification and carries the baseline into the downstream mastery-and-retrieval outcome.
 - **Transfer:** replace a familiarity-only placement form with a low-stakes diagnostic that elicits retrieval, explanation, and bounded adaptation while retaining an equivalent keyboard/text route.
-- **Remediation:** reopen the earliest insecure prerequisite for unfamiliar knowledge; use a contrasting example and faded varied practice for fragile knowledge; verify secure knowledge with delayed variation; add a calibration repair when confidence and performance disagree.
+- **Remediation:** probe along the prerequisite chain and reopen the earliest dependency actually shown insecure; use a contrasting example and faded varied practice for fragile knowledge; collect a missing discriminating probe for fragile/unresolved evidence; verify secure knowledge with delayed variation; add a calibration repair when confidence and performance disagree.
 
 ## Accessibility, safety, and rights
 
@@ -50,4 +50,3 @@
 - Transfer: the final task redesigns an inadequate instrument rather than changing names in a prior case.
 - Accessibility and export parity: the complete operation is available in semantic prose/tables and untimed text response.
 - Rights and provenance: no copied expression or third-party asset; complete source-use, access, principal, and agent disclosure.
-

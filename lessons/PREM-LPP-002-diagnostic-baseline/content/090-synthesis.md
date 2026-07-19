@@ -9,7 +9,7 @@ Probe before feedback. Observe access, accuracy, reasoning, adaptation, and cali
 | State | Minimum defensible interpretation | Route | Do not infer |
 | --- | --- | --- | --- |
 | Unfamiliar | No usable response model appears yet | Initial explanation and complete model, then an explained attempt | Inability, low potential, or a personal trait |
-| Fragile | Some knowledge is accessible but incomplete, cue-dependent, inconsistent, weakly explained, or not adaptable | Contrast the failed and successful forms, fade support, and retry with variation | That nothing is known, or that more rereading alone is enough |
+| Fragile | Some knowledge is accessible but incomplete, cue-dependent, inconsistent, weakly explained, not adaptable, or unresolved because a secure-discriminating probe is missing | Contrast failed and successful forms, or collect the missing probe; then fade support and retry with variation | That nothing is known, that an unattempted operation failed, or that more rereading alone is enough |
 | Secure | A pattern of accurate independent reasoning survives bounded variation | Advance provisionally and schedule delayed varied retrieval | Permanent mastery, retention, or universal transfer |
 
 Confidence adds a calibration flag. It never replaces the state evidence.
@@ -25,7 +25,7 @@ If performance is secure, do not use immediate repetition as the only check. Sch
 If access to a response format caused the gap, change the medium—such as table to ordered sentences, speech to keyboard, or pointer selection to named options—while preserving the classification operation. A format barrier is not evidence that the knowledge node is unfamiliar.
 
 :::{source-note}
-:claims: claim-baseline-purpose, claim-three-state-model, claim-retrieval-before-feedback, claim-guidance-fades, claim-confidence-calibration, claim-curriculum-link
+:claims: claim-baseline-purpose, claim-three-state-model, claim-pattern-over-snapshot, claim-retrieval-before-feedback, claim-guidance-fades, claim-confidence-calibration, claim-curriculum-link
 :sources: source-premed-syllabus, source-content-standard, source-authoring-evidence, source-premed-graph
 
 The state-to-route synthesis is grounded in course policy and evidence on guidance fading. The downstream graph relationship is a curriculum dependency, not proof that one fixed schedule is optimal for every learner.

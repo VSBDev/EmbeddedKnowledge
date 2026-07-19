@@ -12,7 +12,7 @@ A learner produces the relevant relation, succeeds on the familiar form, gives o
 “The state is provisionally ______ because ______. The missing evidence is ______. The next probe should ______.”
 :::
 
-**Feedback.** Fragile is the conservative state because some usable knowledge appears but independence and adaptation are not established. A useful next probe changes the representation while preserving the relation and asks for a reason before feedback. If you chose secure, identify which observation established bounded adaptation; none was supplied.
+**Feedback.** Provisionally **fragile/unresolved** is the conservative routing label because some usable knowledge appears but the record lacks the explanation and variation needed to justify secure. This does not establish that adaptation would fail; no adaptation probe was attempted. A useful next probe changes the representation while preserving the relation and asks for a reason before feedback. If you chose secure, identify which observation established bounded adaptation; none was supplied.
 
 ## Stage 2: supported comparison
 
@@ -27,7 +27,7 @@ Compare two records.
 Classify each node, then state the one observation that most strongly distinguishes the classifications.
 :::
 
-**Feedback.** Juniper is fragile or unresolved pending an explanation-and-variation probe; repeated familiar accuracy alone does not establish adaptable knowledge. Kite supports provisionally secure performance with a calibration flag. The strongest distinction is not confidence but the independent explanation plus bounded adaptation.
+**Feedback.** Juniper is provisionally **fragile/unresolved** pending an explanation-and-variation probe; repeated familiar accuracy alone does not establish adaptable knowledge, but the missing probe is not a failed probe. Kite supports provisionally secure performance with a calibration flag. The strongest distinction is not confidence but the independent explanation plus bounded adaptation.
 
 ## Stage 3: independent mixed case
 
