@@ -18,3 +18,10 @@ Continue if you can state both a target performance and a recent unaided observa
 If you cannot state a target performance or have no unaided observation, return to `topic-orientation-diagnostic-baseline` (`PREM-01.02`). Complete one low-stakes closed-source attempt, compare it with the relevant criteria, and record the result. Then restart this scene. The route supplies missing planning information; it is not a penalty or a grade.
 
 If the word **secure** appears in your baseline but the record contains only rereading, copying, or following a displayed solution, leave the label undecided and collect an unaided attempt before continuing.
+
+:::{source-note}
+:claims: claim-mastery-performance
+:sources: source-authoring-evidence, source-content-standard
+
+The instruction to withhold a mastery classification from familiarity or displayed performance alone applies the lesson's bounded mastery-evidence model. The sources support judging later unaided performance rather than exposure fluency; they do not establish one universal mastery threshold.
+:::

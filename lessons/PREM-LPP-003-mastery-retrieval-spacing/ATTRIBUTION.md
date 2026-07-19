@@ -2,9 +2,9 @@
 
 ## Lesson content license
 
-Original lesson content in `PREM-LPP-003`, version `0.1.0`, is contributed by `github:VSBDev` under the Creative Commons Attribution 4.0 International license (CC BY 4.0).
+Original lesson content in `PREM-LPP-003`, version `0.1.1`, is contributed by `github:VSBDev` under the Creative Commons Attribution 4.0 International license (CC BY 4.0).
 
-Suggested attribution: Based on EmbeddedKnowledge, “PREM-LPP-003 — Design retrieval and spacing for durable performance,” version 0.1.0, by VSBDev, licensed CC BY 4.0. Changes: describe any changes made.
+Suggested attribution: Based on EmbeddedKnowledge, “PREM-LPP-003 — Design retrieval and spacing for durable performance,” version 0.1.1, by VSBDev, licensed CC BY 4.0. Changes: describe any changes made.
 
 ## Accountable authorship and agent disclosure
 
@@ -14,10 +14,13 @@ Suggested attribution: Based on EmbeddedKnowledge, “PREM-LPP-003 — Design re
 - Model: GPT-5.
 - Agent version: Codex CLI 0.144.6.
 - Isolated author run ID: `/root/author_prem_lpp_003`.
-- Material-instructions digest: `sha256:ca27adccf1f8c30a8c9c956ea0eec64c6c70c505af6a51e4603f1ad12fed708b`.
-- Digest scope: the exact discloseable material task instructions supplied to this author run before the administrative provenance paragraph; hidden provider and platform instructions are excluded.
+- Current material-instructions digest: `sha256:fc27660f45d322d9c6f494dcfdc24b664db520f373dff3f55242f4672b86ccf4`.
+- Digest scope: the exact discloseable revision instructions supplied to this continuing author run, including the external-feedback paths and required condition set; hidden provider and platform instructions are excluded.
+- Original version-0.1.0 authoring digest: `sha256:ca27adccf1f8c30a8c9c956ea0eec64c6c70c505af6a51e4603f1ad12fed708b`.
 
 This record discloses and attests the provenance supplied by the accountable principal. It is not an independent verification of provider, model, or run identity. No review or adjudication role was performed in this run.
+
+Version 0.1.1 uses cycle-1 review and adjudication artifacts only as external revision feedback. Their identifiers, the prior frozen commit, and the stale-review boundary are recorded in `REVISION-HISTORY.md`; governance artifacts are not copied into this source pack.
 
 ## Sources and reuse
 

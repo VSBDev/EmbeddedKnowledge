@@ -79,7 +79,7 @@ Delayed retrieval links:
 ### `source-authoring-evidence`
 
 - **Repository source:** `research/CONTENT-AUTHORING-EVIDENCE-2026-07-19.md`.
-- **Exact support:** sections 6 and 7 support retrieval before answer reveal, delayed/cumulative retrieval, spacing, the dependence of useful spacing on the retention interval, and conditional use of interleaving; sections 4, 5, and 12 support guided examples, self-explanation, and information-rich feedback; the executive conclusion and limitations constrain overclaiming.
+- **Exact support:** sections 6 and 7 support retrieval before answer reveal, delayed/cumulative retrieval, spacing, the dependence of useful spacing on the retention interval, and conditional use of interleaving; sections 4, 5, and 12 support guided examples, self-explanation, and information-rich feedback; section 8 supplies contextual evidence on analogous and contrasting case comparison; the executive conclusion and limitations constrain overclaiming. The lesson's exact variation sequence remains an original task-alignment choice rather than a claimed universal default.
 - **Scope and uncertainty:** rapid decision-oriented synthesis, not a registered systematic review; studies vary in learners, materials, delay, feedback, and outcomes; no universal spacing schedule follows.
 - **Use:** facts-only research followed by original structure, prose, examples, tables, and assessment items.
 - **Rights:** repository research prose is declared CC BY 4.0 in `CONTENT-LICENSE.md`, but no protected expression is copied or adapted.
@@ -109,3 +109,16 @@ Delayed retrieval links:
 - **Learning:** attempt every prompt without answer access; verify support fades and the transfer task changes the governing constraints; ensure every error receives a recovery route.
 - **Clarity:** preserve the distinction among retrieval, feedback, spacing, and interleaving; eliminate ambiguous uses of “mastery” and “practice.”
 - **Accessibility and rights:** verify continuous reading order, nonvisual equivalence, print continuity, original expression, agent-access records, attribution, and absence of personal data or unlicensed material.
+
+## Revision brief for version 0.1.1
+
+The continuing author run received cycle-1 academic review and final adjudication as external feedback after candidate commit `49ae5e2151a6dbed7ba20bbb2aac34eecdaa0039`. Version 0.1.1 must:
+
+1. make the diagnostic scene's mastery-evidence assertions claim-mapped with a same-scene source note;
+2. stop presenting the worked example's exact variation sequence as an evidence-supported universal default while making the section-8 evidence locator discoverable;
+3. state that Ari's fresh day-0 attempt recovered one of the two links missing at baseline;
+4. retain the six cycle-1-reviewed claims without changing their statements, confidence, scope, uncertainty, support, risk, or source IDs;
+5. record the reviewed claim state and a bounded `medium-high` lesson source confidence without claiming current-candidate approval, publication, or coverage; and
+6. preserve the new revision digest and the original authoring digest in an auditable history.
+
+Teaching-content changes make the cycle-1 approvals and adjudication stale for the new candidate. Fresh role-isolated reviews and a fresh adjudication remain required after the revised source is frozen.
