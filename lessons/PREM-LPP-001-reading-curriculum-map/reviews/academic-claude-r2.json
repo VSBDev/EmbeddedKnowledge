@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-LPP-001-ACADEMIC-CLAUDE-OPUS-48-R2",
+  "lessonId": "PREM-LPP-001",
+  "lessonVersion": "0.1.1",
+  "candidateCommit": "851f56eea851e79e819b699939196ad9ea1d6fa4",
+  "role": "academic",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev (accountable operator) — academic review agent, cycle 2",
+    "agent": {
+      "system": "Claude Code",
+      "provider": "Anthropic",
+      "model": "claude-opus-4-8",
+      "version": "2.1.215",
+      "runId": "claude-academic-r2-27de3cf2-44f6-4c1e-b2a7-ed52e5b91eee",
+      "instructionsDigest": "sha256:e282393e7fe0440b363e0153f542e0c4d86acdfc6f53ba07570d6ef96831ae87"
+    }
+  },
+  "conflictOfInterest": { "declared": false, "details": null },
+  "evidenceChecked": [
+    "lesson.json#identity-version-0.1.1-outcomes-objectives-scenes",
+    "content/010-orientation.md#scope-exclusions-and-non-admissions-boundary",
+    "content/020-diagnostic.md#invented-fragment-disclaimer",
+    "content/030-concept.md#three-layers-one-tracked-target",
+    "content/030-concept.md#scope-labels-are-not-dependency-links",
+    "content/030-concept.md#route-resolution-paragraph",
+    "content/030-concept.md#four-pass-planning-model",
+    "content/040-worked-example.md#givens-prerequisite-chain-table",
+    "content/040-worked-example.md#worked-example-orientation-route",
+    "content/050-misconception.md#misconception-every-edge-is-order",
+    "content/060-practice.md#supported-route-filter",
+    "content/060-practice.md#mixed-label-discrimination",
+    "content/070-retrieval.md#retrieval-map-legend",
+    "content/080-transfer.md#route-plan-task-steps",
+    "content/090-synthesis.md#map-reading-card",
+    "claims.json#claim-map-route-resolution",
+    "claims.json#claim-map-label-scope",
+    "claims.json#claim-map-layers",
+    "claims.json#claim-map-link-types",
+    "claims.json#claim-map-stable-identity",
+    "references.json#source-premed-knowledge-graph",
+    "glossary.json#term-core",
+    "glossary.json#term-pathway",
+    "glossary.json#term-evidence-confidence",
+    "assessment.json#item-map-order",
+    "assessment.json#item-cross-link-order",
+    "assessment.json#item-label-boundary",
+    "assessment.json#item-route-plan",
+    "assessment.json#rubric-route-plan",
+    "ATTRIBUTION.md#source-use-and-rights",
+    "course/PREMED-KNOWLEDGE-GRAPH.md#section-2-data-contract-node-and-link-semantics",
+    "course/PREMED-KNOWLEDGE-GRAPH.md#section-3-identity-and-versioning-rules",
+    "course/PREMED-KNOWLEDGE-GRAPH.md#section-5.1-route-resolution-rule",
+    "course/PREMED-KNOWLEDGE-GRAPH.md#section-6-source-and-evidence-model",
+    "site/data/premed-graph.json#schema.routeResolutionRule",
+    "site/data/premed-graph.json#schema.requirementLegend",
+    "site/data/premed-graph.json#pathways[].includesPortableCore",
+    "site/data/premed-graph.json#metrics.routeTopicCounts",
+    "site/data/premed-graph.json#topic-orientation-map-and-pathways",
+    "scripts/build-premed-graph.mjs#effectiveRouteTopics-and-core-derivation"
+  ],
+  "findings": [
+    {
+      "severity": "note",
+      "target": "content/030-concept.md#route-resolution-paragraph",
+      "finding": "Independently verified: version 0.1.1 resolves the route-resolution defect, and the correction is non-trivially right rather than merely reworded. I recomputed the rule against the canonical dataset and the builder. `scripts/build-premed-graph.mjs` resolves a route as `t.pathway.includes(pathway.id) || (pathway.includesPortableCore && t.core)`, and derives `core: requirement === \"portable-core\"`. Both halves of the lesson's revised statement hold in the data: `core === true` and `requirement === 'portable-core'` agree on all 404 topics with zero mismatches (212 each, matching `metrics.portableCoreTopics`), and the portable-core route carries `includesPortableCore: false` with `tagged === effective === 221`, exactly as the lesson's sentence \"The portable-core route itself resolves to its own pathway-tagged set\" states. The lesson's added warning that \"a `portable-core` entry in the `pathway` array is not the field that supplies common-core membership for this rule\" is load-bearing and not hypothetical: 9 topics (all `topic-integrative-capstones-*`, `requirement: medicine-bridge`) carry `portable-core` in their `pathway` array while `core` is false, which is precisely the 221-vs-212 gap. The prior 0.1.0 phrasing (\"combines topics tagged for that route with portable-core topics\") was ambiguous across exactly that gap and omitted the includes-common-core condition. The correction is applied consistently across the concept, practice, retrieval, transfer, claims ledger, glossary `term-core`, the `item-route-plan` answer key, and `criterion-route-scope`; I found no residual 0.1.0 phrasing anywhere in the pack.",
+      "resolution": "No change required. The route-resolution defect is resolved and independently confirmed against the builder and the canonical dataset."
+    },
+    {
+      "severity": "note",
+      "target": "content/030-concept.md#scope-labels-are-not-dependency-links",
+      "finding": "Independently verified: the label defects are resolved. The five-value `requirement` legend in the lesson matches `schema.requirementLegend` exactly (`portable-core`, `medicine-bridge`, `pathway`, `on-ramp`, `enrichment`). The newly separated `core` bullet matches the graph specification's \"Convenience boolean; true only for `portable-core`\". The new explicit warning not to confuse `requirement: pathway` with the `pathway` route-tag array removes a real collision in the data contract, and glossary `term-pathway` now carries the same disambiguation. The `evidenceConfidence` boundary is stated in the strongest defensible form and matches section 6 of the graph specification almost point for point: placement confidence, \"not the probability that a scientific claim is true and not the percentage of institutions requiring it\". The `sourceTags` bullet correctly reflects the specification's load-bearing corollary that source tags never determine route membership. All four scored assessment items and their rubrics are academically correct as keyed: I re-derived `item-map-order` (domain → module → topic), `item-cross-link-order` (only A before B is warranted; a cross-link is explicitly excluded from topological ordering), `item-label-boundary`, and `item-route-plan`, and none rewards a scientifically false shortcut. Rubric point totals also reconcile with item points (3/3, 2/2, 5/5, 10/10).",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "minor",
+      "target": "content/040-worked-example.md#givens-prerequisite-chain-table",
+      "finding": "The worked example asserts a specific factual state of the live dataset — \"The map records this chain\" — for five named outcome IDs and their direct prerequisites. I verified every row independently and all five are correct at this candidate commit: `topic-orientation-map-and-pathways` has no prerequisite, and the chain runs through diagnostic-baseline → mastery-and-retrieval → metacognition-and-error-log → study-plan, with each edge present in `links` as a `prerequisite` type in the direction the scene states. So this is a traceability defect, not a factual error. However, this concrete dataset assertion is not represented by any entry in `claims.json`: the scene's `{source-note}` maps only `claim-map-layers`, `claim-map-link-types`, `claim-map-label-scope`, and `claim-map-stable-identity`, all of which state generic semantics rather than the content of this particular chain. The `references.json` locator likewise cites only sections 2, 3, 5.1, 6 and the dataset keys `schema.routeResolutionRule`, `schema.requirementLegend`, and `metrics.routeTopicCounts` — none of which reaches the orientation module's node and link records. A reader cannot follow the declared claim-to-source path to the evidence that actually supports the table, and the assertion is version-sensitive: a future curriculum version could reorder this chain and silently falsify the scene while every mapped claim stayed true.",
+      "resolution": "Either add a claim (for example `claim-orientation-prerequisite-chain`) scoped to the current curriculum version and mapped into the worked-example scene's source note, or extend the `source-premed-knowledge-graph` locator to name the orientation module's `nodes`/`links` records. Consider a short version qualifier in the scene so the chain reads as the current graph's state rather than a timeless fact."
+    },
+    {
+      "severity": "minor",
+      "target": "content/030-concept.md#route-resolution-paragraph",
+      "finding": "The revised route rule is correctly conditional — it applies \"For a named route that includes the common core\" — but the lesson never tells the learner where that condition is recorded or how to evaluate it. The condition lives in a specific published field, `pathways[].includesPortableCore`, and it is currently false for exactly one route (`portable-core`) and true for the other eight. As written, a learner who has completed the four-pass planning model and turns to real graph data has an operational gap at step 2 (\"Scope\"): they know the rule is conditional but not which artifact settles the condition. `content/080-transfer.md` inherits the same gap, since its step 1 asks the learner to apply the condition without naming its source. This is a bounded completeness issue in an otherwise accurate treatment; it does not make any statement in the lesson false.",
+      "resolution": "Name `pathways[].includesPortableCore` (and optionally note that `portable-core` is currently the only route for which it is false) at the point where the conditional rule is introduced, so the scope pass is executable against published data."
+    },
+    {
+      "severity": "minor",
+      "target": "references.json#source-premed-knowledge-graph",
+      "finding": "The locator does not cite the evidence key that the revised central claim most depends on. `claim-map-route-resolution` now explicitly scopes itself to \"route pathway membership OR core membership when includesPortableCore is true\", but the reference locator lists only `schema.routeResolutionRule`, `schema.requirementLegend`, and `metrics.routeTopicCounts`. `pathways[].includesPortableCore` is absent, as is the `core` field's derivation. This matters because the published `schema.routeResolutionRule` string is itself unconditional — \"A route's effective topic set is the union of its own route tag and every portable-core topic\" — so a verifier following the locator to that key alone would find a statement that appears to contradict the lesson's conditional framing, and would have to consult section 5.1 or the builder to discover that the lesson is the more precise of the two. The claim's `scope` field does honestly say \"and its implementation\", which is why this is a locator gap rather than a misrepresentation of the source.",
+      "resolution": "Add `pathways[].includesPortableCore` to the locator (and optionally the `core` derivation), so the cited keys alone are sufficient to verify the conditional route rule."
+    },
+    {
+      "severity": "note",
+      "target": "content/030-concept.md#scope-labels-are-not-dependency-links",
+      "finding": "Accuracy observation on the requirement legend, offered as calibration rather than a correction. The lesson describes the five-value legend as \"complete current\", which is correct with respect to `schema.requirementLegend` and section 2 of the graph specification. In the current dataset, however, only four of the five values are instantiated: topic `requirement` values are `portable-core`, `medicine-bridge`, `pathway`, and `on-ramp`, and no topic currently carries `enrichment`. The lesson's wording is defensible because it describes the legend rather than the observed distribution, but a learner practising the four-pass model against live data will not encounter `enrichment` and may wonder whether they have mis-read the field.",
+      "resolution": "Optional. If a future revision touches this bullet, a half-sentence noting that `enrichment` is defined in the legend but currently unused in curriculum version 1.0 would remove the ambiguity."
+    },
+    {
+      "severity": "note",
+      "target": "content/010-orientation.md#scope-exclusions-and-non-admissions-boundary",
+      "finding": "Verified strength: the non-clinical, non-admissions boundary is handled correctly and consistently, which is the main academic risk surface for a curriculum-navigation lesson. The orientation boundary callout disclaims admission decisions, institution-specific prerequisite audits, and mastery certification; the four-pass model routes external requirements to \"its current primary source\"; the misconception scene separates placement confidence from readiness; the transfer scene deliberately withholds the fictional institution's rule and requires a separate dated external check; and the synthesis card repeats the instruction to keep institution-specific requirements in a dated external audit. `item-label-boundary` and `item-route-plan` both score the boundary rather than merely stating it, and `item-route-plan`'s key correctly makes the next-topic choice conditional on demonstrated prerequisites rather than on lesson completion or confidence. I found no statement in the pack that could reasonably be read as medical advice, admissions guarantee, or professional authorization. The invented diagnostic fragment in `content/020-diagnostic.md` is explicitly disclaimed as not describing the Premed course, so its `no-material-claims` declaration is accurate, as is the same declaration on the orientation scene.",
+      "resolution": "No change required."
+    }
+  ],
+  "limitations": [
+    "This is one academic review run and one eligible vote. It is not quorum, not adjudication, and not a merge-readiness determination.",
+    "Scope was the academic role only: factual accuracy, calculations, scope, uncertainty, source interpretation, assessment correctness, and route relevance. Learning-design and accessibility/rights judgments are outside this artifact and were not made.",
+    "The lesson's single source is an internal project document (course/PREMED-KNOWLEDGE-GRAPH.md) and its generated dataset, whose agentAccess status is checked-no-agent-restriction-found. Verification therefore establishes internal consistency between the lesson, the specification, the canonical dataset, and the generator; it cannot establish that the underlying curriculum placements are externally correct, since those adjudications (for example research/ADJUDICATION-2026-07-19.md and the cited exam-board and legal-curriculum sources) were outside this review's scope.",
+    "Verification was performed against the frozen candidate commit 851f56eea851e79e819b699939196ad9ea1d6fa4 as checked out locally. Provenance in this artifact is disclosed and attested by the accountable operator, not cryptographically verified.",
+    "Comparison with version 0.1.0 was made by diffing lesson content between commits 03de493 and 851f56e. No prior review artifact, adjudication draft, or authoring conversation was read; the cycle-1 academic artifact was consulted only for its runId string, to confirm this run's identifier is distinct.",
+    "The instructionsDigest is the SHA-256 of the concatenation, in order, of this run's operator task prompt, AGENTS.md, and .agents/skills/review-embeddedknowledge-academic/SKILL.md as read at this commit (14157 bytes). It excludes hidden platform instructions, which the runtime does not expose.",
+    "No external network sources were retrieved during this run; all verification used the local repository checkout."
+  ],
+  "signedAt": "2026-07-19T23:38:10Z"
+}
