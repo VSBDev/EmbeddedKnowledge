@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-LPP-002-ACCESS-CODEX-AA575FAF",
+  "lessonId": "PREM-LPP-002",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "11c5b8b39e75cda2bc349c71758528f27fa0eacf",
+  "role": "accessibility-rights",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accessibility-and-rights reviewer",
+    "agent": {
+      "system": "Codex",
+      "provider": "OpenAI",
+      "model": "GPT-5",
+      "version": "Codex CLI 0.144.6",
+      "runId": "/root/review_accessibility_rights_prem_lpp_002_aa575faf-7cb7-45c8-9263-875b644e2da5",
+      "instructionsDigest": "sha256:aa69946bec12601238b8057b99b70240c85f1619a65f8278dafe7832064ad7f6"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "11c5b8b39e75cda2bc349c71758528f27fa0eacf:lesson.json#identity-scenes-authors-license-thirdPartyAssets",
+    "11c5b8b39e75cda2bc349c71758528f27fa0eacf:content/010-orientation.md through content/110-references.md in declared scene order",
+    "11c5b8b39e75cda2bc349c71758528f27fa0eacf:assessment.json#attemptPolicy-items-responseSpec-answer-rubrics",
+    "11c5b8b39e75cda2bc349c71758528f27fa0eacf:claims.json and glossary.json",
+    "11c5b8b39e75cda2bc349c71758528f27fa0eacf:references.json#source-use-rights-and-agent-access",
+    "11c5b8b39e75cda2bc349c71758528f27fa0eacf:ATTRIBUTION.md and AUTHORING-BRIEF.md#accessibility-safety-rights-source-dossier",
+    "Cited repository blobs at 76882799c7614eeb9307687bceab33896a79bb13 plus CONTENT-LICENSE.md and RIGHTS-POLICY.md for source scope, rights, and agent access",
+    "Targeted node scripts/validate-lessons.mjs: one production pack and one excluded specimen valid before review artifact creation",
+    "Time-boxed rendered audit of all 11 scenes: keyboard navigation/focus, semantic accessibility tree, reduced motion, reading/print flow, and 22 reflow cases at 640 px and 390 px",
+    "Static pack tree and active-content/privacy/secret/path scan; all candidate entries are regular blobs and no executable lesson asset or remote embed is present",
+    "Original-synthesis comparison across learner-facing prose, assessment, and glossary against all four cited sources; no shared sequence of eight or more normalized words was found"
+  ],
+  "findings": [
+    {
+      "severity": "note",
+      "target": "content/010-orientation.md#accessibility-and-alternatives; assessment.json#attemptPolicy-and-responseSpec",
+      "finding": "The complete classify–justify–route operation is available in semantic source-order prose, headed tables, and untimed text or choice responses. The lesson supplies keyboard, speech-to-text, scribe, ordered-sentence table, and format-change routes without changing the reasoning standard; it does not depend on color, position, sound, motion, hover, dragging, handwriting, or speed. The rendered candidate exposed one main landmark, one visible level-one scene heading, table and header semantics, visible keyboard focus, working keyboard frame navigation, reduced-motion recognition, continuous reading and print flow, and no page-level overflow across all 11 scenes at 640 px and 390 px.",
+      "resolution": "No lesson change required."
+    },
+    {
+      "severity": "note",
+      "target": "references.json#sources; lesson.json#authors-license-thirdPartyAssets; ATTRIBUTION.md",
+      "finding": "All four sources are repository-owned, version-pinned records used on a facts-only/original-expression basis with dated checked-no-agent-restriction-found declarations. The cited content is covered by the project's CC BY 4.0 content license, no source is marked human-only, and no third-party expression, asset, media, or dataset is incorporated. The accountable author, agent system, provider, model, CLI version, isolated author run, and material-instructions digest agree across lesson.json and ATTRIBUTION.md. A targeted expression comparison found no shared source sequence of eight or more normalized words in the learner-facing prose, assessment, or glossary.",
+      "resolution": "No lesson change required."
+    },
+    {
+      "severity": "note",
+      "target": "content/080-transfer.md#design-constraints; lesson.json#files-and-thirdPartyAssets",
+      "finding": "The transfer task expressly excludes names, grades, disability details, health information, and other private data, while every worked record is labelled fictional or self-generated. The pack contains no images, diagrams, structured molecules, media, executable code, raw HTML, scripts, remote embeds, active SVG, unsafe TeX, traversal path, secret, patient record, learner record, or copyrighted answer-bank material. Declared paths remain pack-local and every candidate entry is a regular file.",
+      "resolution": "No lesson change required."
+    }
+  ],
+  "limitations": [
+    "This is an accessibility-and-rights policy review, not legal advice. Copyright, privacy, consent, and license conclusions may vary by jurisdiction; qualified counsel remains necessary for jurisdiction-specific reliance or a rights dispute.",
+    "The interface audit was time-boxed and used headless Chrome, DOM/accessibility-tree inspection, keyboard operation, reduced-motion emulation, print media, and narrow/reflow viewports. It did not include a human screen-reader session, disabled-user study, hardware switch device, speech-recognition product, or formal legal conformance certification.",
+    "The generated production lesson detail currently declares schemaVersion 2 while the repository reader accepts schemaVersion 3. Direct loading therefore failed before candidate content rendered; the bounded audit normalized only that discriminator in memory and made no lesson or repository change. This is a repository renderer integration limitation, not a defect in this candidate's schemaVersion 3 source.",
+    "The founding-stage policy permits the same disclosed accountable principal to operate author and review agents. This review used a fresh agent run and did not reuse the author run, but it is not an independent human or organizational rights review.",
+    "The instructions digest covers exactly the discloseable reviewer task paragraph supplied in the current user message, encoded as UTF-8 without a trailing newline. It excludes hidden provider instructions and the repository authorities read during the run."
+  ],
+  "signedAt": "2026-07-19T23:22:23Z"
+}
