@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-LPP-001-ACCESS-CODEX-2577B97E",
+  "lessonId": "PREM-LPP-001",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "03de493a5a84548ac7de6809963084ab2bef401c",
+  "role": "accessibility-rights",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — isolated accessibility-and-rights reviewer",
+    "agent": {
+      "system": "Codex",
+      "provider": "OpenAI",
+      "model": "GPT-5",
+      "version": "Codex CLI 0.144.6",
+      "runId": "codex-access-2577b97e-cf46-4230-8e79-18bfb134906c",
+      "instructionsDigest": "sha256:3171e24507007eb716155eb879edbee70623166c31cb8223100a4e0b6a8108f7"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "The accountable operator github:VSBDev is also the candidate's accountable author and operates this reviewer under the founding-stage policy. This designated reviewer run was isolated and did not consult the authoring conversation, other review conclusions, or an adjudication draft."
+  },
+  "evidenceChecked": [
+    "Detached HEAD identity, exact 40-character candidate commit, pack identity PREM-LPP-001 version 0.1.0, and PR #3 candidate ancestry",
+    "lesson.json ordered scenes, objectives, authorship, AI disclosure, CC BY 4.0 declaration, files, and empty thirdPartyAssets ledger",
+    "All nine declared content/*.md scenes for semantic order, headings, tables, text equivalents, recovery, timing, sensory and motor dependencies, privacy, and unsafe content",
+    "assessment.json attempt policy and all four item paths; keyboard-only text and single-choice attempts with visible focus, status feedback, retry controls, and untimed operation",
+    "references.json, claims.json, glossary.json, ATTRIBUTION.md, CONTENT-LICENSE.md, and the sole local source course/PREMED-KNOWLEDGE-GRAPH.md",
+    "Source-expression comparison covering lesson prose, organization, fictional examples, questions, tables, worked route, assessment items, and glossary against the declared graph specification",
+    "Pack file inventory: no diagrams, images, SVG, structured molecules, audio, video, datasets, remote embeds, third-party assets, or personal learner/patient records",
+    "npm ci and npm run validate on the exact candidate: deterministic validation passed before and after review-artifact creation",
+    "npm test: 23 protocol tests passed; 14 browser tests passed, 3 failed, and 11 container-only tests skipped; failures were stale zero-contribution expectations after generating this candidate",
+    "Exact production build output and lesson-commons delivery path; generated detail schema, reader compatibility, discoverability, and direct load failure",
+    "Manual Playwright keyboard, representative accessibility-tree, reduced-motion, 390px narrow-screen, 640px 200%-reflow proxy, guided-frame overflow, and current-scene print checks",
+    "In-memory schema-version normalization used only to isolate downstream reader behavior; no lesson or repository content was repaired during review"
+  ],
+  "findings": [
+    {
+      "severity": "blocking",
+      "target": "lesson.json#schemaVersion-and-files",
+      "finding": "The exact schema-v3 pack validates, but `npm run site:build` emits its production detail artifact with `schemaVersion: 2`, while the implemented lesson reader accepts only version 3. Loading the exact generated PREM-LPP-001 output produced 'Artifact unavailable' before any scene or assessment. The lesson index records only `dataUrl`, while the published-state UI exposes a reader link only from `url` or `href`, so no discoverable production reader route exists either. This makes every core outcome inaccessible through the implemented web delivery path.",
+      "resolution": "Align the production detail artifact and reader schema contract, expose a reachable reviewed-lesson URL from the lesson commons, and demonstrate that the exact regenerated artifact opens from that route with keyboard and representative screen-reader navigation. Freeze a new candidate and rerun review; do not shorten lesson content to mask the delivery failure."
+    },
+    {
+      "severity": "major",
+      "target": "lesson.json#scenes",
+      "finding": "After an in-memory schema-version normalization used only to isolate downstream behavior, print media rendered all frames of the selected synthesis scene but none of the other eight required scenes. The printable route therefore omits orientation, diagnostic, model construction, worked example, misconception repair, practice, retrieval, transfer, and their assessment paths, so it is not an outcome-equivalent lesson path.",
+      "resolution": "Make the implemented print or accessible export path render every required scene, assessment condition, feedback reference, source note, glossary entry, and attribution record in authoritative order, then verify continuity from the exact candidate output."
+    },
+    {
+      "severity": "minor",
+      "target": "content/090-synthesis.md; ATTRIBUTION.md#attribution",
+      "finding": "The normalized reader's synthesis resources insert `ATTRIBUTION.md` beneath an `Attribution and provenance` level-two frame heading without demoting its own level-one `Attribution` heading. This creates a second level-one heading after level two; frame splitting also repeats several level-two headings. The content remains understandable, but representative heading navigation is not a clean hierarchy.",
+      "resolution": "Preserve the pack's canonical headings while making the reader embed attribution and continuation frames with one logical scene-level heading and non-duplicative subordinate headings."
+    },
+    {
+      "severity": "minor",
+      "target": "assessment.json#item-map-order",
+      "finding": "The normalized keyboard path gives the ordering item a correctly labelled textarea and visible 3px focus outline, but its visible placeholder says 'Explain the donor, acceptor, and tracked electron pair in your own words.' That acid-base instruction is unrelated to this map-order task and can mislead learners with cognitive or attention-related access needs.",
+      "resolution": "Use an item-derived or neutral placeholder for text and ordering responses while retaining the persistent prompt as the accessible label."
+    },
+    {
+      "severity": "note",
+      "target": "lesson.json#scenes; assessment.json#items",
+      "finding": "With schema compatibility normalized in memory, all nine scenes reflowed without page-level horizontal overflow at 390px and at a 640px viewport used as a 200% reflow proxy. Keyboard-only text and choice responses exposed visible focus and live status feedback, reduced-motion preference was honored, and the default guided path kept longer material reachable through bounded vertical scrolling. Eight 1280x720 frames required such scrolling, including concept tables, the worked route, one transfer assessment, and the glossary.",
+      "resolution": "No lesson-content change is required for bounded scrolling. After resolving the blocking delivery path, retest scroll affordance, focus persistence, and complete content reachability in the actual production reader."
+    },
+    {
+      "severity": "note",
+      "target": "references.json#source-premed-knowledge-graph; lesson.json#thirdPartyAssets; ATTRIBUTION.md",
+      "finding": "The sole declared source is a local EmbeddedKnowledge graph specification covered by the repository's CC BY 4.0 content license and recorded as facts-only research with dated `checked-no-agent-restriction-found` access. Comparison found independently organized teaching, fictional examples, assessment items, tables, and wording rather than copied source expression. No quotation, adapted media, dataset extraction, human-only source, third-party asset, personal data, secret, unsafe clinical media, active content, remote dependency, or path traversal was present; accountable author and agent provenance are complete.",
+      "resolution": null
+    }
+  ],
+  "limitations": [
+    "This is evidence and project-policy review, not legal advice. License compatibility, privacy, consent, and copyright exceptions can vary by jurisdiction; no qualified counsel opinion was obtained.",
+    "The exact generated production artifact could not enter the implemented reader because of the blocking schema mismatch. Downstream keyboard, reflow, focus, status, and semantic checks therefore used a schemaVersion-only normalization in memory and do not prove the production route works.",
+    "Representative accessibility-tree inspection used Chromium/Playwright rather than a human test with each screen reader, browser, operating system, magnifier, switch device, or speech-input tool.",
+    "The 200% reflow check used a halved 640 CSS-pixel viewport proxy. Non-web PDF, EPUB, DOCX, and JATS exporters are unavailable, and the implemented browser print check failed complete-lesson parity as recorded above.",
+    "The same accountable operator is disclosed for authoring and this isolated review, as permitted only by the current founding-stage policy; this does not provide independent human or legal verification."
+  ],
+  "signedAt": "2026-07-19T23:16:48Z"
+}
