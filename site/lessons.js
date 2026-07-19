@@ -247,9 +247,10 @@
       create("h2", null, lesson.title || "Reviewed lesson"),
       create("p", null, `${lesson.id} · ${lesson.license || "CC BY 4.0"} · version ${lesson.version || "published"}`)
     );
-    if (lesson.url || lesson.href) {
+    const destination = lesson.readerUrl || lesson.url || lesson.href;
+    if (destination) {
       const link = create("a", "lesson-contribute-link", "Open reviewed lesson →");
-      link.href = lesson.url || lesson.href;
+      link.href = destination.startsWith("/") ? new URL(destination.slice(1), siteRoot).href : destination;
       section.append(link);
     }
     fragment.append(section);
