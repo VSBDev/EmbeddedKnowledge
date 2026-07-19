@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
+import { lessonPrOutsideFiles } from "./lib/lesson-pr-file-scope.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const eventPath = process.env.GITHUB_EVENT_PATH;
@@ -28,19 +29,6 @@ if (!packPaths.length) {
 const errors = [];
 if (packPaths.length !== 1) errors.push(`A lesson PR must change exactly one lesson pack; found ${packPaths.length}.`);
 const packPath = packPaths[0];
-
-// A lesson PR must not touch anything outside its single lesson pack. This
-// includes scripts/**, .github/**, package.json and every other repository
-// file: on pull_request events GitHub runs the workflows and validators from
-// the PR merge ref, so a lesson PR that also edits the gate could otherwise
-// silently disable the checks that police it.
-const outsideFiles = changedFiles.filter((file) => !file.startsWith(`${packPath}/`));
-if (outsideFiles.length) {
-  errors.push(
-    `A lesson PR may only change files inside ${packPath}/. It also changes: ${outsideFiles.join(", ")}. ` +
-    "Move infrastructure, workflow, validator, or other-pack changes into a separate non-lesson pull request."
-  );
-}
 const metadataPath = path.join(root, packPath, "lesson.json");
 const adjudicationPath = path.join(root, packPath, "adjudication.json");
 if (!fs.existsSync(metadataPath)) errors.push(`${packPath}/lesson.json is required.`);
@@ -52,6 +40,31 @@ try {
   if (fs.existsSync(metadataPath)) metadata = JSON.parse(fs.readFileSync(metadataPath, "utf8"));
 } catch (error) {
   errors.push(`lesson.json is not valid JSON: ${error.message}`);
+}
+
+let baseMetadata;
+try {
+  baseMetadata = JSON.parse(git("show", `${baseSha}:${packPath}/lesson.json`));
+} catch {
+  // A new lesson pack has no metadata at the base commit.
+}
+
+// A lesson PR may include only its source pack and the exact public files that
+// the trusted site build derives from that pack. The workflow rebuilds site/
+// before this check and rejects any byte that does not match the fresh build.
+// Gate, workflow, test, package, sibling-pack, and unrelated site changes stay
+// outside this allowlist so infrastructure must travel in a separate PR.
+const outsideFiles = lessonPrOutsideFiles({
+  changedFiles,
+  packPath,
+  lessonIds: [metadata?.id, baseMetadata?.id]
+});
+if (outsideFiles.length) {
+  errors.push(
+    `A lesson PR may only change files inside ${packPath}/ and its deterministic generated site outputs. ` +
+    `It also changes: ${outsideFiles.join(", ")}. ` +
+    "Move infrastructure, workflow, validator, or other-pack changes into a separate non-lesson pull request."
+  );
 }
 try {
   if (fs.existsSync(adjudicationPath)) adjudication = JSON.parse(fs.readFileSync(adjudicationPath, "utf8"));
