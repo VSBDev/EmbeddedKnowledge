@@ -65,7 +65,10 @@ for (const [name, role] of roles) {
     }
     const zip = spawnSync("zip", ["-X", "-q", bundlePath, "SKILL.md", "agents/openai.yaml"], {
       cwd: bundleSource,
-      encoding: "utf8"
+      encoding: "utf8",
+      // ZIP stores DOS timestamps without a timezone. Force UTC so the same
+      // canonical source produces identical archive bytes on every runner.
+      env: { ...process.env, TZ: "UTC" }
     });
     if (zip.status !== 0) throw new Error(`Could not package ${name}: ${zip.stderr || zip.stdout}`);
   } finally {
