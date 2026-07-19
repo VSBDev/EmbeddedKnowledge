@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-LPP-003-ACCESS-CODEX-35895F28",
+  "lessonId": "PREM-LPP-003",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "49ae5e2151a6dbed7ba20bbb2aac34eecdaa0039",
+  "role": "accessibility-rights",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accessibility-and-rights reviewer",
+    "agent": {
+      "system": "Codex CLI",
+      "provider": "OpenAI",
+      "model": "GPT-5",
+      "version": "0.144.6",
+      "runId": "/root/accessibility_rights_prem_lpp_003_35895f28-3bf9-4e6b-9c83-f8bd06f6c15d",
+      "instructionsDigest": "sha256:019db0193569836ad769ecc6a2ed5bbab99d1a59f4714ec4795fb6931df9157d"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "Frozen Git object 49ae5e2151a6dbed7ba20bbb2aac34eecdaa0039 and PR 6 REST identity; the newer PR head changes only another review artifact and deterministic generated outputs, not the candidate pack.",
+    "lesson.json#scenes-authors-aiAssistance-license-thirdPartyAssets and every declared content/010-orientation.md through content/100-synthesis.md scene in authoritative order.",
+    "assessment.json#attemptPolicy-items-rubrics and glossary.json; prompts, choice controls, open responses, feedback, retakes, untimed route, error identification, and recovery paths were inspected.",
+    "content/030-concept.md#one-representation-two-reading-routes, content/040-worked-example.md#worked-example-fourteen-day-plan, and content/100-synthesis.md#accessibility-and-alternatives.",
+    "references.json, claims.json, ATTRIBUTION.md, lesson.json#thirdPartyAssets, CONTENT-LICENSE.md, and RIGHTS-POLICY.md for source use, CC BY 4.0 scope, attribution, agent access, and reuse basis.",
+    "Manual expression and structure comparison against CONTENT-STANDARD.md and research/CONTENT-AUTHORING-EVIDENCE-2026-07-19.md, plus an exact shared 12-word-window scan across lesson prose, assessment, and authoring brief.",
+    "Targeted static security inspection for active markup, unsafe schemes, path traversal, symlinks, remote embeds, secret patterns, personal data, and executable or external asset dependencies.",
+    "node scripts/validate-lessons.mjs: one production pack and one excluded format specimen validated before artifact creation.",
+    "Time-boxed headless Chrome audit of the compiled candidate: ten scenes, 92 guided frames, keyboard navigation and answer feedback, visible 3 px focus, semantic accessibility tree, reduced motion, print, and reading-mode reflow at 640 px and 390 px.",
+    "Material-instructions digest scope: SHA-256 of the exact discloseable user assignment text as 1,522 UTF-8 bytes with no trailing newline; unavailable hidden provider and platform instructions are excluded."
+  ],
+  "findings": [
+    {
+      "severity": "minor",
+      "target": "content/040-worked-example.md#worked-example-fourteen-day-plan",
+      "finding": "In the current desktop guided renderer at 1280 by 720, this directive becomes a 2,883 px scroll-height frame inside a 439 px viewport. The frame uses bounded overflow but is not keyboard-focusable: with focus on the reader page, Arrow Down and Space did not scroll it, while Page Down advanced to the next frame. Several shorter frames also overflowed. The keyboard-accessible Reading-mode toggle exposes the same canonical content in continuous source order, and the 640 px and 390 px reading routes reflowed without document-level horizontal overflow, so the lesson retains an outcome-equivalent keyboard path and this defect does not block approval.",
+      "resolution": "Make guided frames with bounded overflow programmatically labelled and keyboard-scrollable, or split oversized directive output into semantic keyboard-operable frames. Preserve the existing continuous Reading mode and canonical source order."
+    },
+    {
+      "severity": "note",
+      "target": "content/100-synthesis.md#accessibility-and-alternatives",
+      "finding": "The lesson supplies an equivalent continuous text route for every required relationship. Tables are paired with ordered prose, no distinction depends on color, position, motion, sound, hover, dragging, or timing, and learners may type, dictate, handwrite, or use another text-producing route without changing the assessed reasoning standard.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lesson.json#license-and-thirdPartyAssets; references.json; ATTRIBUTION.md",
+      "finding": "The accountable principal and material authoring agent are disclosed with a distinct run and digest; original lesson content is granted under CC BY 4.0; the two repository-owned sources have complete facts-only use, rights evidence, and dated agent-access records; and no quotation, adaptation, dataset, third-party asset, patient or learner data, active content, secret, or remote dependency was found. Manual comparison and the exact-window scan found no evidence of close paraphrase or source-mirrored instructional expression.",
+      "resolution": null
+    }
+  ],
+  "limitations": [
+    "This is a policy and evidence review, not legal advice. Copyright, database, privacy, consent, and license conclusions can vary by jurisdiction; no external counsel or source-owner warranty was available.",
+    "The interface audit was time-boxed and used headless Chrome, DOM/accessibility-tree inspection, keyboard operation, reduced-motion emulation, print media, and responsive widths. It was not a manual test with representative disabled learners or a full desktop screen-reader/browser matrix.",
+    "The production detail builder emitted schemaVersion 2 while the available specimen reader accepts schemaVersion 3 and no dedicated production lesson route was exposed at this commit. The live audit therefore injected the compiled candidate into the reader with only that schema discriminator normalized in memory; this repository-infrastructure mismatch was not attributed to the schema-valid v3 lesson pack.",
+    "No figures, diagrams, raster or SVG assets, audio, video, chemistry, mathematics, structured molecules, datasets, practical work, personal records, or third-party media were present, so those access and rights paths were not applicable."
+  ],
+  "signedAt": "2026-07-19T23:24:39Z"
+}
