@@ -15,6 +15,7 @@ const routes = [
   "/premed/syllabus/",
   "/premed/graph/",
   "/premed/lessons/",
+  "/premed/lessons/read/?lesson=PREM-LPP-001",
   "/premed/lessons/specimen/",
   "/contribute/",
   "/contribute/format/",

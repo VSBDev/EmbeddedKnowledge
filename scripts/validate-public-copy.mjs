@@ -17,6 +17,7 @@ const publicFiles = [
   "site/premed/syllabus/index.html",
   "site/premed/graph/index.html",
   "site/premed/lessons/index.html",
+  "site/premed/lessons/read/index.html",
   "site/premed/lessons/specimen/index.html",
   "site/contribute/index.html",
   "site/contribute/format/index.html",
