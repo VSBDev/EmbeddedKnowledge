@@ -570,6 +570,53 @@ test("guided frames keep dense prose screen-sized while reading mode restores co
   expect(errors).toEqual([]);
 });
 
+test("an overflowing guided frame is a labelled keyboard scroll region without replacing global navigation", async ({ page }) => {
+  await page.setViewportSize({ width: 1100, height: 620 });
+  const specimen = await getJson(page.request, "data/lessons/specimen.json");
+  const markers = Array.from({ length: 72 }, (_, index) => `Overflow paragraph ${String(index + 1).padStart(2, "0")}`);
+  specimen.scenes[0].contentHtml = [
+    `<h1>${specimen.scenes[0].title}</h1>`,
+    "<h2>Overflowing guided content</h2>",
+    `<div>${markers.map((marker, index) => `<p data-overflow-marker="${index}">${marker}. This deliberately indivisible block exercises measured overflow.</p>`).join("")}</div>`
+  ].join("");
+  await page.route("**/data/lessons/specimen.json", (route) => route.fulfill({ contentType: "application/json", body: JSON.stringify(specimen) }));
+  const errors = collectRuntimeErrors(page);
+  await page.goto(route("premed/lessons/specimen/"), { waitUntil: "networkidle" });
+  await page.keyboard.press("ArrowRight");
+
+  const scrollRegion = page.locator('[data-frame-id="frame-overflowing-guided-content"]');
+  await expect(page.getByRole("region", { name: "Overflowing guided content" })).toBeVisible();
+  await expect(scrollRegion).toHaveAttribute("tabindex", "0");
+  await expect(scrollRegion).toHaveAttribute("data-guided-scroll-region", "");
+  const dimensions = await scrollRegion.evaluate((element) => ({
+    clientHeight: element.clientHeight,
+    scrollHeight: element.scrollHeight,
+  }));
+  expect(dimensions.scrollHeight).toBeGreaterThan(dimensions.clientHeight + 2);
+
+  await scrollRegion.focus();
+  for (const key of ["ArrowDown", "Space", "PageDown"]) {
+    await scrollRegion.evaluate((element) => { element.scrollTop = 0; });
+    await page.keyboard.press(key);
+    await expect.poll(() => scrollRegion.evaluate((element) => element.scrollTop), `${key} should scroll the focused frame`).toBeGreaterThan(0);
+    await expect(scrollRegion).toBeVisible();
+  }
+
+  await page.locator("[data-view-toggle]").click();
+  await expect(page.locator("[data-reader-app]")).toHaveClass(/reader-reading-mode/);
+  await expect(scrollRegion).not.toHaveAttribute("tabindex");
+  await expect(scrollRegion).not.toHaveAttribute("role");
+  expect(await page.locator("[data-scene-container] [data-overflow-marker]").evaluateAll((elements) => elements.map((element) => element.textContent.split(".")[0]))).toEqual(markers);
+
+  await page.locator("[data-view-toggle]").click();
+  await expect(scrollRegion).toHaveAttribute("data-guided-scroll-region", "");
+  const locationBeforeNavigation = await page.locator("[data-scene-location]").textContent();
+  await page.locator("[data-scene-container]").focus();
+  await page.keyboard.press("PageDown");
+  await expect(page.locator("[data-scene-location]")).not.toHaveText(locationBeforeNavigation);
+  expect(errors).toEqual([]);
+});
+
 test("every guided specimen frame fits a 1280 by 720 viewport without internal scrolling", async ({ page }) => {
   await page.setViewportSize({ width: 1280, height: 720 });
   const errors = collectRuntimeErrors(page);
