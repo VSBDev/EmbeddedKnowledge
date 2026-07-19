@@ -1,7 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { copyLessonAssetTree, renderLessonMarkdown } from "./render-lesson-format.mjs";
+import { copyLessonAssetTree } from "./render-lesson-format.mjs";
+import { buildProductionLessonArtifact, productionLessonReaderUrl } from "./lib/production-lesson-artifact.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const lessonsRoot = path.join(root, "lessons");
@@ -9,16 +10,6 @@ const lessonDataRoot = path.join(root, "site", "data", "lessons");
 const lessonAssetRoot = path.join(root, "site", "assets", "lessons");
 const outputPath = path.join(root, "site", "data", "premed-lessons.json");
 const graph = JSON.parse(fs.readFileSync(path.join(root, "site/data/premed-graph.json"), "utf8"));
-
-function readOptionalJson(filePath) {
-  return fs.existsSync(filePath) ? JSON.parse(fs.readFileSync(filePath, "utf8")) : null;
-}
-
-function renderPackMarkdown(packPath, relativePath, publicAssetBase) {
-  const sourcePath = path.join(packPath, relativePath);
-  if (!fs.existsSync(sourcePath)) return null;
-  return renderLessonMarkdown(fs.readFileSync(sourcePath, "utf8"), { packPath, sourcePath, publicAssetBase });
-}
 
 fs.rmSync(lessonDataRoot, { recursive: true, force: true });
 fs.mkdirSync(lessonDataRoot, { recursive: true });
@@ -39,32 +30,7 @@ for (const entry of packDirectories) {
     const source = path.join(packPath, directory);
     copyLessonAssetTree(source, path.join(outputAssetPath, directory));
   }
-  const detail = {
-    schemaVersion: 2,
-    format: metadata.format,
-    id: metadata.id,
-    version: metadata.version,
-    title: metadata.title,
-    status: metadata.status,
-    riskTier: metadata.riskTier,
-    estimatedMinutes: metadata.estimatedMinutes,
-    outcomes: metadata.outcomes,
-    prerequisites: metadata.prerequisites,
-    objectives: metadata.objectives,
-    scenes: metadata.scenes.map((scene) => ({
-      ...scene,
-      contentHtml: renderPackMarkdown(packPath, scene.source, publicAssetBase)
-    })),
-    authors: metadata.authors,
-    license: metadata.license,
-    sourceConfidence: metadata.sourceConfidence,
-    aiAssistance: metadata.aiAssistance,
-    assessment: readOptionalJson(path.join(packPath, metadata.files.assessment)),
-    references: readOptionalJson(path.join(packPath, metadata.files.references)),
-    claims: readOptionalJson(path.join(packPath, metadata.files.claims)),
-    glossary: readOptionalJson(path.join(packPath, metadata.files.glossary)),
-    attributionHtml: renderPackMarkdown(packPath, metadata.files.attribution, publicAssetBase)
-  };
+  const detail = buildProductionLessonArtifact({ packPath, metadata, publicAssetBase });
   const dataFile = `${metadata.id}.json`;
   fs.writeFileSync(path.join(lessonDataRoot, dataFile), `${JSON.stringify(detail, null, 2)}\n`);
   lessons.push({
@@ -78,7 +44,8 @@ for (const entry of packDirectories) {
     prerequisiteIds: metadata.prerequisites,
     license: metadata.license,
     sourceConfidence: metadata.sourceConfidence,
-    dataUrl: `/data/lessons/${dataFile}`
+    dataUrl: `/data/lessons/${dataFile}`,
+    readerUrl: productionLessonReaderUrl(metadata.id)
   });
 }
 

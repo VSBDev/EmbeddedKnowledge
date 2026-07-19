@@ -9,6 +9,7 @@ import { fileURLToPath } from "node:url";
 import { copyLessonAssetTree, renderLessonMarkdown } from "../../scripts/render-lesson-format.mjs";
 import { validateLessonEvidenceContract } from "../../scripts/lib/lesson-evidence.mjs";
 import { validateLessonRightsContract } from "../../scripts/lib/lesson-rights.mjs";
+import { buildProductionLessonArtifact, productionLessonReaderUrl } from "../../scripts/lib/production-lesson-artifact.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const specimenPack = path.join(root, "examples", "lesson-pack");
@@ -71,6 +72,22 @@ test("the lesson specimen derives deterministically from the canonical pack", ()
       `${relativePath} should be copied byte-for-byte`
     );
   }
+});
+
+test("a production pack compiles to the reader's schema and a discoverable reader route", () => {
+  const metadata = readJson(path.join(specimenPack, "lesson.json"));
+  const artifact = buildProductionLessonArtifact({
+    packPath: specimenPack,
+    metadata,
+    publicAssetBase: `/assets/lessons/${metadata.id}`
+  });
+
+  assert.equal(artifact.schemaVersion, 3);
+  assert.equal(artifact.artifactType, "production-lesson");
+  assert.equal(artifact.id, metadata.id);
+  assert.equal(artifact.scenes.length, metadata.scenes.length);
+  assert.ok(artifact.scenes.every((scene) => typeof scene.contentHtml === "string" && scene.contentHtml.startsWith("<h1>")));
+  assert.equal(productionLessonReaderUrl(metadata.id), `/premed/lessons/read/?lesson=${metadata.id}`);
 });
 
 test("math, chemistry, diagrams, and figures render to semantic accessible HTML", () => {

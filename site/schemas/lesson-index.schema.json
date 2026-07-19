@@ -62,7 +62,7 @@
       "type": "array",
       "items": {
         "type": "object", "additionalProperties": false,
-        "required": ["id", "version", "title", "status", "riskTier", "estimatedMinutes", "outcomeIds", "prerequisiteIds", "license", "sourceConfidence", "dataUrl"],
+        "required": ["id", "version", "title", "status", "riskTier", "estimatedMinutes", "outcomeIds", "prerequisiteIds", "license", "sourceConfidence", "dataUrl", "readerUrl"],
         "properties": {
           "id": { "type": "string", "pattern": "^PREM-" },
           "version": { "type": "string" },
@@ -74,7 +74,8 @@
           "prerequisiteIds": { "type": "array", "uniqueItems": true, "items": { "type": "string", "pattern": "^topic-" } },
           "license": { "const": "CC-BY-4.0" },
           "sourceConfidence": { "type": "string" },
-          "dataUrl": { "type": "string", "pattern": "^/data/lessons/" }
+          "dataUrl": { "type": "string", "pattern": "^/data/lessons/PREM-[A-Z]{3}-[0-9]{3}\\.json$" },
+          "readerUrl": { "type": "string", "pattern": "^/premed/lessons/read/\\?lesson=PREM-[A-Z]{3}-[0-9]{3}$" }
         }
       }
     }

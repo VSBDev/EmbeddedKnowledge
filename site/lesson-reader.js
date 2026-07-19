@@ -7,7 +7,8 @@
 
   const scriptUrl = document.currentScript?.src || new URL("lesson-reader.js", document.baseURI).href;
   const siteRoot = new URL("./", scriptUrl);
-  const dataUrl = new URL("data/lessons/specimen.json", siteRoot);
+  const readerKind = app.dataset.readerKind === "production" ? "production" : "specimen";
+  const isSpecimen = readerKind === "specimen";
   const stage = document.querySelector("[data-reader-stage]");
   const sceneNav = document.querySelector("[data-scene-nav]");
   const previousButton = document.querySelector("[data-scene-prev]");
@@ -42,6 +43,15 @@
   let marginCollapsed = false;
   let focusMode = false;
   let viewMode = "guided";
+
+  function resolveArtifactUrl() {
+    if (isSpecimen) return new URL("data/lessons/specimen.json", siteRoot);
+    const lessonId = new URL(location.href).searchParams.get("lesson") || "";
+    if (!/^PREM-[A-Z]{3}-[0-9]{3}$/.test(lessonId)) {
+      throw new Error("Choose a valid production lesson from the lesson commons.");
+    }
+    return new URL(`data/lessons/${lessonId}.json`, siteRoot);
+  }
 
   function readPreference(key) {
     try {
@@ -253,12 +263,47 @@
     return template.content;
   }
 
+  function nestedDocumentBody(markup, { idPrefix = "" } = {}) {
+    const fragment = sanitizeCompiledHtml(markup);
+    const firstElement = [...fragment.childNodes].find((node) => node.nodeType === Node.ELEMENT_NODE);
+    if (firstElement?.tagName === "H1") firstElement.remove();
+    for (const heading of [...fragment.querySelectorAll("h1, h2, h3, h4, h5")]) {
+      const level = Math.min(6, Number(heading.tagName.slice(1)) + 1);
+      const replacement = create(`h${level}`);
+      for (const attribute of [...heading.attributes]) replacement.setAttribute(attribute.name, attribute.value);
+      replacement.append(...heading.childNodes);
+      heading.replaceWith(replacement);
+    }
+    if (idPrefix) {
+      const idMap = new Map();
+      for (const element of fragment.querySelectorAll("[id]")) {
+        const original = element.id;
+        const prefixed = `${idPrefix}${original}`;
+        idMap.set(original, prefixed);
+        element.id = prefixed;
+      }
+      for (const element of fragment.querySelectorAll("[href^='#'], [aria-labelledby], [aria-describedby]")) {
+        const href = element.getAttribute("href");
+        if (href?.startsWith("#") && idMap.has(href.slice(1))) element.setAttribute("href", `#${idMap.get(href.slice(1))}`);
+        for (const attribute of ["aria-labelledby", "aria-describedby"]) {
+          if (!element.hasAttribute(attribute)) continue;
+          const ids = element.getAttribute(attribute).split(/\s+/).map((id) => idMap.get(id) || id);
+          element.setAttribute(attribute, ids.join(" "));
+        }
+      }
+    }
+    return fragment;
+  }
+
   function validateArtifact(candidate) {
     if (!candidate || candidate.schemaVersion !== 3 || candidate.format !== "embeddedknowledge-lesson-v1") {
-      throw new Error("The specimen is not a Lesson Format v1 rendered artifact.");
+      throw new Error("The file is not a Lesson Format v1 rendered artifact.");
+    }
+    if (!isSpecimen && candidate.artifactType !== "production-lesson") {
+      throw new Error("The requested file is not a production lesson artifact.");
     }
     if (!candidate.id || !candidate.title || !Array.isArray(candidate.scenes) || !candidate.scenes.length) {
-      throw new Error("The rendered specimen is missing identity or scenes.");
+      throw new Error("The rendered lesson is missing identity or scenes.");
     }
     const sceneIds = new Set();
     for (const scene of candidate.scenes) {
@@ -341,7 +386,7 @@
       feedback.replaceChildren();
       feedback.hidden = false;
       if (!selected) {
-        feedback.append(create("strong", null, "Choose one response first."), create("p", null, "This specimen has no time limit."));
+        feedback.append(create("strong", null, "Choose one response first."), create("p", null, "This check has no time limit."));
         feedback.classList.remove("is-correct");
         return;
       }
@@ -367,7 +412,7 @@
     const textarea = create("textarea");
     textarea.name = `response-${item.id}`;
     textarea.maxLength = item.responseSpec?.maxLength || 2000;
-    textarea.placeholder = "Explain the donor, acceptor, and tracked electron pair in your own words.";
+    textarea.placeholder = "Write your response in your own words.";
     label.append(textarea);
     const actions = create("div", "reader-check-actions");
     const reveal = create("button", null, "Compare reasoning");
@@ -397,7 +442,7 @@
     if (!items.length) return;
     const section = create("section", "reader-assessment");
     section.setAttribute("aria-label", "Interactive knowledge check");
-    section.append(create("span", null, "UNTIMED SPECIMEN CHECK · DOES NOT RECORD PROGRESS"));
+    section.append(create("span", null, isSpecimen ? "UNTIMED SPECIMEN CHECK · DOES NOT RECORD PROGRESS" : "UNTIMED CHECK · DOES NOT RECORD PROGRESS"));
     for (const item of items) {
       section.append(item.type === "single-choice" ? renderChoiceAssessment(item) : renderTextAssessment(item));
     }
@@ -408,7 +453,7 @@
     const sources = artifact.references?.sources || [];
     if (!sources.length) return;
     const section = create("section", "reader-references");
-    section.append(create("h2", null, "References in this specimen"));
+    section.append(create("h2", null, isSpecimen ? "References in this specimen" : "References"));
     const list = create("ol");
     for (const source of sources) {
       const item = create("li");
@@ -436,6 +481,80 @@
     }
     section.append(list);
     fragment.append(section);
+  }
+
+  function renderPrintAssessment(fragment) {
+    const items = artifact.assessment?.items || [];
+    if (!items.length) return;
+    const section = create("section", "reader-print-resource reader-print-assessment");
+    section.append(create("h2", null, artifact.assessment.title || "Assessment"));
+    for (const item of items) {
+      const block = create("article", "reader-print-assessment-item");
+      block.dataset.assessmentItemId = item.id;
+      block.append(create("h3", null, item.prompt));
+      if (item.stimulus) block.append(create("p", "reader-print-stimulus", item.stimulus));
+      const options = item.responseSpec?.options || [];
+      if (options.length) {
+        const list = create("ol");
+        options.forEach((option) => list.append(create("li", null, option.text)));
+        block.append(list);
+      } else {
+        block.append(create("p", "reader-print-response-space", "Response space"));
+      }
+      const guidance = create("div", "reader-print-answer");
+      guidance.append(create("h4", null, "Answer guidance"), create("p", null, item.answer?.reasoning || item.answer?.summary || "Use the lesson model to justify the response."));
+      block.append(guidance);
+      section.append(block);
+    }
+    const rubrics = artifact.assessment?.rubrics || [];
+    if (rubrics.length) {
+      const rubricSection = create("section", "reader-print-rubrics");
+      rubricSection.append(create("h3", null, "Rubrics"));
+      for (const rubric of rubrics) {
+        rubricSection.append(create("h4", null, rubric.title));
+        const list = create("ul");
+        for (const criterion of rubric.criteria || []) list.append(create("li", null, `${criterion.description} (${criterion.maxPoints} points)`));
+        rubricSection.append(list);
+      }
+      section.append(rubricSection);
+    }
+    fragment.append(section);
+  }
+
+  function renderPrintDocument() {
+    let documentRoot = app.querySelector("[data-print-document]");
+    if (!documentRoot) {
+      documentRoot = create("article", "reader-print-document");
+      documentRoot.dataset.printDocument = "true";
+      app.append(documentRoot);
+    }
+    documentRoot.replaceChildren();
+    const header = create("header", "reader-print-title");
+    header.append(
+      create("p", null, `${artifact.id} · version ${artifact.version} · ${artifact.license}`),
+      create("h1", null, artifact.title)
+    );
+    documentRoot.append(header);
+
+    for (const scene of scenes) {
+      const section = create("section", "reader-print-scene");
+      section.dataset.printSceneId = scene.id;
+      section.dataset.required = String(Boolean(scene.required));
+      section.append(create("h2", null, scene.title), nestedDocumentBody(scene.contentHtml, { idPrefix: `print-${scene.id}-` }));
+      documentRoot.append(section);
+    }
+
+    const resources = document.createDocumentFragment();
+    renderPrintAssessment(resources);
+    renderReferences(resources);
+    renderGlossary(resources);
+    if (artifact.attributionHtml) {
+      const attribution = create("section", "reader-print-resource reader-print-attribution");
+      attribution.append(create("h2", null, "Attribution and provenance"), nestedDocumentBody(artifact.attributionHtml, { idPrefix: "print-attribution-" }));
+      resources.append(attribution);
+    }
+    documentRoot.append(resources);
+    for (const image of documentRoot.querySelectorAll("img")) image.loading = "eager";
   }
 
   function renderSpecimenBoundary(fragment) {
@@ -612,7 +731,7 @@
         const attribution = create("details", "reader-references");
         attribution.append(create("summary", null, "Attribution and provenance"));
         const body = create("div", "reader-scene-content");
-        body.append(sanitizeCompiledHtml(artifact.attributionHtml));
+        body.append(nestedDocumentBody(artifact.attributionHtml));
         attribution.append(body);
         resourceGroups.push({ id: "attribution", title: "Attribution and provenance", nodes: [attribution] });
       }
@@ -660,7 +779,7 @@
       ? `Scene ${activeIndex + 1} / ${scenes.length} · Frame ${activeFrameIndex + 1} / ${currentFrames.length}`
       : `Scene ${activeIndex + 1} / ${scenes.length}`;
     document.querySelector("[data-prev-title]").textContent = previous?.title || "Beginning";
-    document.querySelector("[data-next-title]").textContent = next?.title || "End of specimen";
+    document.querySelector("[data-next-title]").textContent = next?.title || (isSpecimen ? "End of specimen" : "End of lesson");
     document.querySelector("[data-frame-status]")?.replaceChildren(document.createTextNode(guided ? `Guided frame ${activeFrameIndex + 1} of ${currentFrames.length}` : "Continuous scene reading"));
     if (copyLinkButton && !copyLinkButton.dataset.transientLabel) copyLinkButton.textContent = guided ? "Copy frame link" : "Copy scene link";
     previousButton.disabled = !previous;
@@ -827,30 +946,33 @@
   applyTheme(readPreference("theme") || (systemDark.matches ? "dark" : "light"), { persist: false });
   applyViewMode(readPreference("view") || "guided", { persist: false });
 
-  fetch(dataUrl, { cache: "no-store" })
+  Promise.resolve()
+    .then(resolveArtifactUrl)
+    .then((dataUrl) => fetch(dataUrl, { cache: "no-store" }))
     .then((response) => {
-      if (!response.ok) throw new Error(`Rendered specimen returned ${response.status}`);
+      if (!response.ok) throw new Error(`Rendered lesson returned ${response.status}`);
       return response.json();
     })
     .then(validateArtifact)
     .then((loaded) => {
       artifact = loaded;
       scenes = artifact.scenes;
-      document.title = `${artifact.title} — Lesson specimen · EmbeddedKnowledge`;
+      document.title = `${artifact.title} — ${isSpecimen ? "Lesson specimen" : "Premed lesson"} · EmbeddedKnowledge`;
       document.querySelector("[data-reader-duration]").textContent = `${artifact.estimatedMinutes} min`;
       document.querySelector("[data-artifact-id]").textContent = artifact.id;
-      document.querySelector("[data-artifact-status]").textContent = `${artifact.status} specimen · ${artifact.version}`;
+      document.querySelector("[data-artifact-status]").textContent = isSpecimen ? `${artifact.status} specimen · ${artifact.version}` : `${artifact.status} · ${artifact.version}`;
       document.querySelector("[data-artifact-license]").textContent = artifact.license;
       const requested = requestedLocation();
       activeIndex = requested.sceneIndex;
       buildSceneNav();
+      renderPrintDocument();
       showScene(activeIndex, { frameId: requested.frameId });
     })
     .catch((error) => {
       const panel = create("div", "reader-error");
-      panel.append(create("span", null, "SPECIMEN UNAVAILABLE"), create("h1", null, "The generated lesson artifact could not be opened."), create("p", null, error.message));
-      const link = create("a", null, "Read the format contract instead →");
-      link.href = "../../../contribute/format/";
+      panel.append(create("span", null, isSpecimen ? "SPECIMEN UNAVAILABLE" : "LESSON UNAVAILABLE"), create("h1", null, "The generated lesson artifact could not be opened."), create("p", null, error.message));
+      const link = create("a", null, isSpecimen ? "Read the format contract instead →" : "Return to the lesson commons →");
+      link.href = isSpecimen ? "../../../contribute/format/" : "../";
       panel.append(link);
       sceneContainer.replaceChildren(panel);
       document.querySelector("[data-scene-location]").textContent = "Artifact unavailable";
