@@ -707,6 +707,33 @@ test("the lesson reader collapses its rails and preserves focus and theme contro
   expect(errors).toEqual([]);
 });
 
+test("the narrow Contents drawer receives and returns keyboard focus", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  const errors = collectRuntimeErrors(page);
+  await page.goto(route("premed/lessons/specimen/"), { waitUntil: "networkidle" });
+
+  const contents = page.locator("[data-index-open]");
+  const drawer = page.locator("[data-reader-index]");
+  const close = page.locator("[data-index-close]");
+  await contents.focus();
+  await page.keyboard.press("Enter");
+  await expect(drawer).toBeVisible();
+  await expect(contents).toHaveAttribute("aria-expanded", "true");
+  await expect(close).toBeFocused();
+
+  await page.keyboard.press("Escape");
+  await expect(drawer).toBeHidden();
+  await expect(contents).toHaveAttribute("aria-expanded", "false");
+  await expect(contents).toBeFocused();
+
+  await page.keyboard.press("Enter");
+  await expect(close).toBeFocused();
+  await page.keyboard.press("Enter");
+  await expect(drawer).toBeHidden();
+  await expect(contents).toBeFocused();
+  expect(errors).toEqual([]);
+});
+
 test("chemistry and equation cards fit narrow pages without lateral scrolling", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   const errors = collectRuntimeErrors(page);
