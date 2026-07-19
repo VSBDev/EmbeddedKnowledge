@@ -31,22 +31,18 @@ Consequences to accept or resolve before intake opens:
 - Granting any collaborator write access grants them merge rights over lessons. Use read access plus fork-based pull requests for contributors who do not need write.
 - To make sole-merger status a genuine policy rather than a circumstance, move the repository into a GitHub organization and restrict pushes to `main` to a named team.
 
-## Administrator bypass
+## Administrator bypass removed
 
-The ruleset grants `RepositoryRole 5` (repository admin) an `always` bypass. This exists because the repository was empty when the ruleset was created: without a bypass, `main` could not be created at all, since a pull request cannot target a branch that does not exist.
+The ruleset originally granted `RepositoryRole 5` (repository admin) an `always` bypass because an empty repository could not create protected `main` through a pull request. That bootstrap bypass was used to create the branch and land the first release, then removed on 20 July 2026 after both `agent-protocol` and the Pages deployment passed on the protected branch.
 
-This is the "emergency break-glass" allowance, and it currently means the accountable operator can push directly to `main`.
+The current ruleset reports an empty `bypass_actors` list and `current_user_can_bypass: never`. Administrators must now use a pull request and satisfy the same required checks. Any future emergency bypass is a material governance change and must be documented publicly when introduced and removed.
 
-**Remove the bypass once `main` exists and the first push has landed**, so the contract binds administrators as intended:
+Verify that the bypass remains absent with:
 
 ```bash
-gh api --method PUT repos/VSBDev/EmbeddedKnowledge/rulesets/19180386 \
-  --input - <<'JSON'
-{ "bypass_actors": [] }
-JSON
+gh api repos/VSBDev/EmbeddedKnowledge/rulesets/19180386 \
+  --jq '{bypass_actors, current_user_can_bypass}'
 ```
-
-Until that is done, this document overstates its own enforcement for administrators. Do not describe `main` as administrator-proof while the bypass is present.
 
 ## Quorum source of truth
 
