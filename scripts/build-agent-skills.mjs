@@ -1,8 +1,6 @@
 import crypto from "node:crypto";
 import fs from "node:fs";
-import os from "node:os";
 import path from "node:path";
-import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -17,6 +15,79 @@ const roles = new Map([
   ["review-embeddedknowledge-accessibility-rights", "accessibility-rights-review"],
   ["adjudicate-embeddedknowledge-lesson", "adjudicator"]
 ]);
+
+function crc32(bytes) {
+  let crc = 0xffffffff;
+  for (const byte of bytes) {
+    crc ^= byte;
+    for (let bit = 0; bit < 8; bit += 1) crc = (crc >>> 1) ^ (0xedb88320 & -(crc & 1));
+  }
+  return (crc ^ 0xffffffff) >>> 0;
+}
+
+// A deliberately small ZIP writer for the two-file public skill bundles. It
+// stores bytes without compression and fixes every header field, avoiding the
+// host timestamps and implementation metadata emitted by external zip tools.
+function createDeterministicZip(entries) {
+  const localParts = [];
+  const centralParts = [];
+  let localOffset = 0;
+  const dosDate = 0x0021; // 1980-01-01
+
+  for (const entry of entries) {
+    const name = Buffer.from(entry.name, "utf8");
+    const data = Buffer.from(entry.data);
+    const checksum = crc32(data);
+
+    const localHeader = Buffer.alloc(30);
+    localHeader.writeUInt32LE(0x04034b50, 0);
+    localHeader.writeUInt16LE(10, 4);
+    localHeader.writeUInt16LE(0, 6);
+    localHeader.writeUInt16LE(0, 8);
+    localHeader.writeUInt16LE(0, 10);
+    localHeader.writeUInt16LE(dosDate, 12);
+    localHeader.writeUInt32LE(checksum, 14);
+    localHeader.writeUInt32LE(data.length, 18);
+    localHeader.writeUInt32LE(data.length, 22);
+    localHeader.writeUInt16LE(name.length, 26);
+    localHeader.writeUInt16LE(0, 28);
+    localParts.push(localHeader, name, data);
+
+    const centralHeader = Buffer.alloc(46);
+    centralHeader.writeUInt32LE(0x02014b50, 0);
+    centralHeader.writeUInt16LE(20, 4);
+    centralHeader.writeUInt16LE(10, 6);
+    centralHeader.writeUInt16LE(0, 8);
+    centralHeader.writeUInt16LE(0, 10);
+    centralHeader.writeUInt16LE(0, 12);
+    centralHeader.writeUInt16LE(dosDate, 14);
+    centralHeader.writeUInt32LE(checksum, 16);
+    centralHeader.writeUInt32LE(data.length, 20);
+    centralHeader.writeUInt32LE(data.length, 24);
+    centralHeader.writeUInt16LE(name.length, 28);
+    centralHeader.writeUInt16LE(0, 30);
+    centralHeader.writeUInt16LE(0, 32);
+    centralHeader.writeUInt16LE(0, 34);
+    centralHeader.writeUInt16LE(0, 36);
+    centralHeader.writeUInt32LE(0, 38);
+    centralHeader.writeUInt32LE(localOffset, 42);
+    centralParts.push(centralHeader, name);
+
+    localOffset += localHeader.length + name.length + data.length;
+  }
+
+  const centralDirectory = Buffer.concat(centralParts);
+  const end = Buffer.alloc(22);
+  end.writeUInt32LE(0x06054b50, 0);
+  end.writeUInt16LE(0, 4);
+  end.writeUInt16LE(0, 6);
+  end.writeUInt16LE(entries.length, 8);
+  end.writeUInt16LE(entries.length, 10);
+  end.writeUInt32LE(centralDirectory.length, 12);
+  end.writeUInt32LE(localOffset, 16);
+  end.writeUInt16LE(0, 20);
+  return Buffer.concat([...localParts, centralDirectory, end]);
+}
 
 function parseFrontmatter(source, file) {
   const match = source.match(/^---\n([\s\S]*?)\n---\n/);
@@ -54,26 +125,10 @@ for (const [name, role] of roles) {
 
   const bundleName = `${name}.zip`;
   const bundlePath = path.join(destination, bundleName);
-  const bundleSource = fs.mkdtempSync(path.join(os.tmpdir(), "embeddedknowledge-skill-"));
-  try {
-    fs.mkdirSync(path.join(bundleSource, "agents"), { recursive: true });
-    fs.copyFileSync(skillPath, path.join(bundleSource, "SKILL.md"));
-    fs.copyFileSync(agentMetadataPath, path.join(bundleSource, "agents", "openai.yaml"));
-    const stableTime = new Date("1980-01-01T00:00:00.000Z");
-    for (const relativePath of ["SKILL.md", "agents/openai.yaml", "agents"]) {
-      fs.utimesSync(path.join(bundleSource, relativePath), stableTime, stableTime);
-    }
-    const zip = spawnSync("zip", ["-X", "-q", bundlePath, "SKILL.md", "agents/openai.yaml"], {
-      cwd: bundleSource,
-      encoding: "utf8",
-      // ZIP stores DOS timestamps without a timezone. Force UTC so the same
-      // canonical source produces identical archive bytes on every runner.
-      env: { ...process.env, TZ: "UTC" }
-    });
-    if (zip.status !== 0) throw new Error(`Could not package ${name}: ${zip.stderr || zip.stdout}`);
-  } finally {
-    fs.rmSync(bundleSource, { recursive: true, force: true });
-  }
+  fs.writeFileSync(bundlePath, createDeterministicZip([
+    { name: "SKILL.md", data: fs.readFileSync(skillPath) },
+    { name: "agents/openai.yaml", data: fs.readFileSync(agentMetadataPath) }
+  ]));
 
   skills.push({
     name,
