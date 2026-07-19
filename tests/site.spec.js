@@ -30,7 +30,7 @@ function collectRuntimeErrors(page) {
 }
 
 async function advanceUntilVisible(page, selector, maximumFrames = 20) {
-  const target = page.locator(selector);
+  const target = page.locator("[data-scene-container]").locator(selector);
   for (let index = 0; index < maximumFrames; index += 1) {
     if (await target.isVisible()) return target;
     await page.keyboard.press("ArrowRight");
@@ -412,19 +412,19 @@ test("the generated lesson specimen behaves as a no-body-scroll interactive book
   await advanceUntilVisible(page, '[data-directive="chemistry"] math');
   await expect(page).toHaveURL(/#scene-concept\/frame-bronsted-lowry-model/);
   await advanceUntilVisible(page, '[data-directive="diagram"]');
-  await expect(page.locator(".ek-long-description")).toContainText("Read the diagram as text");
+  await expect(page.locator("[data-scene-container] .ek-long-description")).toContainText("Read the diagram as text");
 
   await page.locator(".reader-scene-link", { hasText: "Annotating conjugate pairs" }).click();
   await advanceUntilVisible(page, '[data-directive="figure"]');
-  const specimenImage = page.locator('[data-directive="figure"] img');
+  const specimenImage = page.locator('[data-scene-container] [data-directive="figure"] img');
   await expect(specimenImage).toBeVisible();
   expect(await specimenImage.evaluate((image) => image.complete && image.naturalWidth > 0)).toBeTruthy();
   await expect(specimenImage).toHaveAttribute("src", /\/assets\/lesson-specimen\/assets\/conjugate-pairs\.svg$/);
 
   await page.locator(".reader-scene-link", { hasText: "A buffer under perturbation" }).click();
   await advanceUntilVisible(page, '[data-directive="equation"] math');
-  await expect(page.locator('[data-directive="equation"] math')).toBeVisible();
-  await expect(page.locator('[data-directive="equation"] annotation')).toContainText("A^- + H^+");
+  await expect(page.locator('[data-scene-container] [data-directive="equation"] math')).toBeVisible();
+  await expect(page.locator('[data-scene-container] [data-directive="equation"] annotation')).toContainText("A^- + H^+");
 
   await page.locator(".reader-scene-link", { hasText: "Model-choice practice" }).click();
   await page.locator("[data-view-toggle]").click();
@@ -440,6 +440,101 @@ test("the generated lesson specimen behaves as a no-body-scroll interactive book
   expect(artifactResponse.ok()).toBeTruthy();
   const artifact = await artifactResponse.json();
   expect(artifact).toMatchObject({ artifactType: "lesson-specimen", nonProduction: true, countsTowardCoverage: false });
+  expect(errors).toEqual([]);
+});
+
+test("a published lesson opens through its production route with keyboard and complete print paths", async ({ page }) => {
+  const [lessonIndex, specimen] = await Promise.all([
+    getJson(page.request, "data/premed-lessons.json"),
+    getJson(page.request, "data/lessons/specimen.json")
+  ]);
+  const lessonId = "PREM-LPP-001";
+  const targetOutcome = lessonIndex.outcomes[0];
+  const productionArtifact = {
+    ...specimen,
+    artifactType: "production-lesson",
+    id: lessonId,
+    version: "1.0.0",
+    status: "published",
+    nonProduction: undefined,
+    countsTowardCoverage: undefined,
+    disclaimer: undefined
+  };
+  const productionLesson = {
+    id: lessonId,
+    version: productionArtifact.version,
+    title: productionArtifact.title,
+    status: "published",
+    riskTier: productionArtifact.riskTier,
+    estimatedMinutes: productionArtifact.estimatedMinutes,
+    outcomeIds: [targetOutcome.id],
+    prerequisiteIds: [],
+    license: productionArtifact.license,
+    sourceConfidence: productionArtifact.sourceConfidence,
+    dataUrl: `/data/lessons/${lessonId}.json`,
+    readerUrl: `/premed/lessons/read/?lesson=${lessonId}`
+  };
+  const routedIndex = structuredClone(lessonIndex);
+  routedIndex.lessons = [...routedIndex.lessons.filter((lesson) => lesson.id !== lessonId), productionLesson];
+  const routedOutcome = routedIndex.outcomes.find((outcome) => outcome.id === targetOutcome.id);
+  routedOutcome.lessonIds = [...new Set([...(routedOutcome.lessonIds || []), lessonId])];
+  routedOutcome.publishedLessonIds = [...new Set([...(routedOutcome.publishedLessonIds || []), lessonId])];
+
+  await page.route("**/data/premed-lessons.json", (route) => route.fulfill({ contentType: "application/json", body: JSON.stringify(routedIndex) }));
+  await page.route(`**/data/lessons/${lessonId}.json`, (route) => route.fulfill({ contentType: "application/json", body: JSON.stringify(productionArtifact) }));
+  const errors = collectRuntimeErrors(page);
+  await page.goto(route(`premed/lessons/?outcome=${targetOutcome.id}`), { waitUntil: "networkidle" });
+
+  const openLesson = page.getByRole("link", { name: "Open reviewed lesson" });
+  await expect(openLesson).toHaveAttribute("href", new RegExp(`/premed/lessons/read/\\?lesson=${lessonId}$`));
+  await openLesson.click();
+  await expect(page).toHaveURL(new RegExp(`/premed/lessons/read/\\?lesson=${lessonId}$`));
+  await expect(page.locator("[data-artifact-id]")).toHaveText(lessonId);
+  await expect(page.locator("[data-artifact-status]")).toHaveText("published · 1.0.0");
+  await expect(page.locator(".reader-production-banner")).toContainText("OPEN PREMED LESSON");
+  await expect(page.locator("[data-scene-location]")).not.toHaveText("Artifact unavailable");
+
+  await expect(page.locator(".reader-scene-header h1")).toHaveText(productionArtifact.scenes[0].title);
+  await page.keyboard.press("End");
+  await expect(page.locator(".reader-scene-header h1")).toHaveText(productionArtifact.scenes.at(-1).title);
+  await expect(page).toHaveURL(new RegExp(`#${productionArtifact.scenes.at(-1).id}$`));
+  await page.keyboard.press("Home");
+  await expect(page.locator(".reader-scene-header h1")).toHaveText(productionArtifact.scenes[0].title);
+  await page.keyboard.press("ArrowRight");
+  await expect(page.locator("[data-reader-announcer]")).toContainText(/frame 2 of/i);
+
+  const shortAnswer = productionArtifact.assessment.items.find((item) => item.responseSpec?.mode === "text");
+  const shortAnswerScene = productionArtifact.scenes.find((scene) => scene.id === shortAnswer.sceneId);
+  await page.locator(".reader-scene-link", { hasText: shortAnswerScene.title }).click();
+  const shortAnswerSelector = `textarea[name="response-${shortAnswer.id}"]`;
+  await advanceUntilVisible(page, shortAnswerSelector);
+  await expect(page.locator(shortAnswerSelector)).toHaveAttribute("placeholder", "Write your response in your own words.");
+
+  const resourceScene = productionArtifact.scenes.findLast((scene) => ["synthesis", "references"].includes(scene.kind));
+  await page.locator(".reader-scene-link", { hasText: resourceScene.title }).click();
+  const attributionFrame = page.locator('[data-frame-id="frame-attribution"]');
+  await expect(attributionFrame).toHaveCount(1);
+  await expect(attributionFrame.locator("h1")).toHaveCount(0);
+  await expect(attributionFrame.locator("h2")).toHaveCount(1);
+  await expect(attributionFrame.locator("h2")).toHaveText("Attribution and provenance");
+
+  await page.emulateMedia({ media: "print" });
+  const printDocument = page.locator("[data-print-document]");
+  await expect(printDocument).toBeVisible();
+  await expect(printDocument.locator(".reader-print-scene")).toHaveCount(productionArtifact.scenes.length);
+  await expect(printDocument.locator('.reader-print-scene[data-required="true"]')).toHaveCount(productionArtifact.scenes.filter((scene) => scene.required).length);
+  await expect(printDocument.locator(".reader-print-assessment-item")).toHaveCount(productionArtifact.assessment.items.length);
+  await expect(printDocument.locator(".reader-references")).toContainText(productionArtifact.references.sources[0].title);
+  await expect(printDocument.locator(".reader-glossary dt")).toHaveCount(productionArtifact.glossary.terms.length);
+  await expect(printDocument.locator(".reader-print-attribution")).toContainText("Attribution and provenance");
+  await expect(printDocument.locator("h1")).toHaveCount(1);
+  const duplicateIds = await page.locator("body").evaluate((body) => {
+    const counts = new Map();
+    body.querySelectorAll("[id]").forEach((element) => counts.set(element.id, (counts.get(element.id) || 0) + 1));
+    return [...counts].filter(([, count]) => count > 1).map(([id]) => id);
+  });
+  expect(duplicateIds).toEqual([]);
+  await expect(page.locator(".reader-shell")).toBeHidden();
   expect(errors).toEqual([]);
 });
 
@@ -469,8 +564,9 @@ test("guided frames keep dense prose screen-sized while reading mode restores co
   expect(readingFlow.scrollHeight).toBeGreaterThan(readingFlow.clientHeight * 2);
 
   await page.emulateMedia({ media: "print" });
-  const printedDisplays = await page.locator(".reader-frame").evaluateAll((frames) => frames.map((frame) => getComputedStyle(frame).display));
-  expect(new Set(printedDisplays)).toEqual(new Set(["block"]));
+  await expect(page.locator("[data-print-document]")).toBeVisible();
+  await expect(page.locator("[data-print-document] .reader-print-scene")).toHaveCount(8);
+  await expect(page.locator(".reader-shell")).toBeHidden();
   expect(errors).toEqual([]);
 });
 
@@ -570,7 +666,7 @@ test("chemistry and equation cards fit narrow pages without lateral scrolling", 
   await page.goto(route("premed/lessons/specimen/#scene-concept"), { waitUntil: "networkidle" });
 
   const assertFormulaFits = async (selector) => {
-    const block = page.locator(selector);
+    const block = page.locator("[data-scene-container]").locator(selector);
     await expect(block.locator('math[display="block"]')).toBeVisible();
     await expect.poll(() => block.locator("math").getAttribute("data-fit-scale")).not.toBeNull();
     const dimensions = await block.evaluate((element) => {
@@ -596,7 +692,7 @@ test("chemistry and equation cards fit narrow pages without lateral scrolling", 
   await advanceUntilVisible(page, '[data-directive="chemistry"]');
   await assertFormulaFits('[data-directive="chemistry"]');
   await advanceUntilVisible(page, '[data-directive="diagram"] .ek-diagram-visual');
-  const diagramDimensions = await page.locator('[data-directive="diagram"] .ek-diagram-visual').evaluate((element) => ({
+  const diagramDimensions = await page.locator('[data-scene-container] [data-directive="diagram"] .ek-diagram-visual').evaluate((element) => ({
     clientWidth: element.clientWidth,
     scrollWidth: element.scrollWidth,
     direction: getComputedStyle(element).flexDirection,
@@ -672,7 +768,7 @@ test("the graph page renders every node and relationship", async ({ page }) => {
 test("mobile navigation and all routes avoid horizontal page overflow", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
 
-  for (const path of ["", "premed/", "premed/syllabus/", "premed/graph/", "premed/lessons/", "premed/lessons/specimen/", "contribute/", "contribute/format/"]) {
+  for (const path of ["", "premed/", "premed/syllabus/", "premed/graph/", "premed/lessons/", "premed/lessons/read/?lesson=PREM-LPP-001", "premed/lessons/specimen/", "contribute/", "contribute/format/"]) {
     await page.goto(route(path), { waitUntil: "networkidle" });
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
     expect(overflow, `${path || "root"} should not overflow`).toBeLessThanOrEqual(1);
