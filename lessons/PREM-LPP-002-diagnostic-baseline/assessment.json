@@ -1,0 +1,270 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-assessment-v1",
+  "lessonId": "PREM-LPP-002",
+  "lessonVersion": "0.1.0",
+  "assessmentId": "assessment-diagnostic-baseline",
+  "title": "Diagnostic-baseline mastery evidence",
+  "purpose": "mastery-gate",
+  "attemptPolicy": {
+    "retakeable": true,
+    "timeLimitMinutes": null,
+    "feedback": "after-attempt"
+  },
+  "items": [
+    {
+      "id": "item-classify-pattern",
+      "type": "single-choice",
+      "sceneId": "scene-assessment",
+      "objectiveIds": [
+        "objective-classify-baseline"
+      ],
+      "outcomeIds": [
+        "topic-orientation-diagnostic-baseline"
+      ],
+      "prompt": "A learner answers a familiar ratio prompt correctly after seeing a similar example, gives no explanation beyond 'I copied the steps,' and selects the wrong operation when the same ratio is shown in a table. Which provisional state is best supported?",
+      "stimulus": null,
+      "points": 2,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-pattern-unfamiliar",
+            "text": "Unfamiliar"
+          },
+          {
+            "id": "option-pattern-fragile",
+            "text": "Fragile"
+          },
+          {
+            "id": "option-pattern-secure",
+            "text": "Secure"
+          },
+          {
+            "id": "option-pattern-unclassifiable",
+            "text": "No evidence at all is available"
+          }
+        ],
+        "maxSelections": 1
+      },
+      "answer": {
+        "correct": "option-pattern-fragile",
+        "summary": "The evidence supports a fragile classification.",
+        "reasoning": "Some relevant procedure is accessible, so the node is not wholly unfamiliar. However, the response is cue-dependent, lacks a defensible explanation, and does not survive a bounded representation change. The next step is a contrasting worked example followed by an unaided table-based retry.",
+        "acceptableResponses": [
+          "Fragile"
+        ],
+        "commonErrors": [
+          "Calling the node secure because one answer was correct ignores cue dependence and failed adaptation.",
+          "Calling the node unfamiliar ignores the usable but incomplete procedure already present."
+        ]
+      },
+      "rubricId": "rubric-classify-pattern",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-separate-confidence",
+      "type": "multiple-choice",
+      "sceneId": "scene-assessment",
+      "objectiveIds": [
+        "objective-justify-uncertainty"
+      ],
+      "outcomeIds": [
+        "topic-orientation-diagnostic-baseline"
+      ],
+      "prompt": "Across three untimed probes, a learner independently answers accurately, explains the governing relation, and adapts it to a new representation, but reports low confidence. Select the two statements that best preserve the evidence.",
+      "stimulus": null,
+      "points": 3,
+      "responseSpec": {
+        "mode": "multiple-choice",
+        "options": [
+          {
+            "id": "option-confidence-secure",
+            "text": "Record secure performance provisionally."
+          },
+          {
+            "id": "option-confidence-fragile",
+            "text": "Downgrade the knowledge state to fragile solely because confidence is low."
+          },
+          {
+            "id": "option-confidence-flag",
+            "text": "Add a confidence-calibration flag and recheck after delay."
+          },
+          {
+            "id": "option-confidence-ignore",
+            "text": "Discard the performance record and keep only the self-rating."
+          }
+        ],
+        "maxSelections": 2
+      },
+      "answer": {
+        "correct": [
+          "option-confidence-secure",
+          "option-confidence-flag"
+        ],
+        "summary": "Keep performance and confidence as related but distinct evidence.",
+        "reasoning": "The varied, accurate, independent performance supports a provisional secure classification. Low confidence does not erase that record; it identifies a calibration issue worth revisiting after a delay. The classification remains provisional because short-term performance is not proof of retention.",
+        "acceptableResponses": [
+          "Secure performance plus a calibration flag"
+        ],
+        "commonErrors": [
+          "Treating low confidence as direct proof of fragile knowledge confuses self-rating with observed performance.",
+          "Ignoring confidence loses useful evidence about calibration even though confidence does not determine the state."
+        ]
+      },
+      "rubricId": "rubric-separate-confidence",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-build-baseline",
+      "type": "open-response",
+      "sceneId": "scene-assessment",
+      "objectiveIds": [
+        "objective-classify-baseline",
+        "objective-justify-uncertainty",
+        "objective-route-and-adapt"
+      ],
+      "outcomeIds": [
+        "topic-orientation-diagnostic-baseline"
+      ],
+      "prompt": "Classify each fictional node, justify the classification from observations, name one uncertainty or next probe, and choose the next study action. Do not average the three nodes into one learner label.",
+      "stimulus": "Node Cedar: no attempted response on either prompt; learner writes that the notation has not been encountered. Node Flint: accurate on two familiar prompts, explanation names the relevant relation, but a bounded representation change produces an inconsistent strategy. Node Harbor: accurate and independently explained across two forms and one bounded application; medium confidence throughout.",
+      "points": 10,
+      "responseSpec": {
+        "mode": "text",
+        "maxLength": 5000
+      },
+      "answer": {
+        "correct": "Cedar is unfamiliar, Flint is fragile, and Harbor is provisionally secure; each needs an evidence-linked route and an uncertainty or next probe.",
+        "summary": "Classify nodes separately and make the route follow the evidence.",
+        "reasoning": "Cedar has no usable response model and should begin with a bounded explanation or worked model before retry. Flint has accessible but non-adaptable knowledge and needs a contrasting case plus faded varied practice. Harbor shows a pattern of accurate independent reasoning under bounded variation and can advance while scheduling delayed verification. A good answer also preserves uncertainty: nonresponse can have access causes, Flint needs another variation after repair, and Harbor still lacks delayed retention evidence.",
+        "acceptableResponses": [
+          "Equivalent labels and routes supported by the stated observations, with explicit uncertainty and no whole-person label."
+        ],
+        "commonErrors": [
+          "Calling Flint secure because most familiar responses were correct ignores the failed bounded variation.",
+          "Treating Cedar's nonresponse as inability rather than provisional unfamiliar evidence overstates what the diagnostic establishes.",
+          "Calling Harbor permanently mastered ignores the absence of delayed evidence."
+        ]
+      },
+      "rubricId": "rubric-build-baseline",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-transfer-redesign",
+      "type": "open-response",
+      "sceneId": "scene-assessment",
+      "objectiveIds": [
+        "objective-justify-uncertainty",
+        "objective-route-and-adapt"
+      ],
+      "outcomeIds": [
+        "topic-orientation-diagnostic-baseline"
+      ],
+      "prompt": "A placement form for interpreting measurement units asks only, 'How familiar are you with units?' on a five-point scale. Redesign it as a short low-stakes baseline that can distinguish unfamiliar, fragile, and secure knowledge. Specify the probes, evidence rule, routes, uncertainty, and an equivalent keyboard/text response path.",
+      "stimulus": null,
+      "points": 10,
+      "responseSpec": {
+        "mode": "text",
+        "maxLength": 6000
+      },
+      "answer": {
+        "correct": "A rubric-scored redesign that elicits unaided access, explanation, and bounded application; treats confidence as supplementary; applies provisional node-level rules; routes each state proportionately; preserves uncertainty; and provides an equivalent untimed keyboard/text path.",
+        "summary": "Replace familiarity alone with observable performance while preserving accessibility and low stakes.",
+        "reasoning": "Self-rating alone cannot show whether knowledge is available, accurate, explainable, or adaptable. A defensible redesign samples those operations before feedback, compares confidence with performance, and makes labels provisional. Unfamiliar evidence routes to initial instruction, fragile evidence to targeted repair and varied retry, and secure evidence to delayed verification and the next node. The response mode may change, but the reasoning operation must remain equivalent.",
+        "acceptableResponses": [
+          "Any concise redesign that preserves the same evidence dimensions, provisional state logic, proportionate routes, and accessible untimed operation."
+        ],
+        "commonErrors": [
+          "Adding more self-rating questions without eliciting performance does not repair the instrument.",
+          "Using one multiple-choice fact as proof of secure knowledge does not test explanation or adaptation.",
+          "Requiring drag, color, speed, or spoken response without an equivalent route changes access rather than measuring the declared node."
+        ]
+      },
+      "rubricId": "rubric-transfer-redesign",
+      "safetyCritical": false
+    }
+  ],
+  "rubrics": [
+    {
+      "id": "rubric-classify-pattern",
+      "title": "Classify the response pattern",
+      "criteria": [
+        {
+          "id": "criterion-pattern-state",
+          "description": "Selects the state supported by all stated observations rather than by the correct answer alone.",
+          "maxPoints": 2
+        }
+      ]
+    },
+    {
+      "id": "rubric-separate-confidence",
+      "title": "Separate performance from confidence",
+      "criteria": [
+        {
+          "id": "criterion-confidence-performance",
+          "description": "Preserves the provisional secure performance classification supported by varied independent evidence.",
+          "maxPoints": 2
+        },
+        {
+          "id": "criterion-confidence-flag",
+          "description": "Records low confidence as a calibration flag and schedules a later check.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-build-baseline",
+      "title": "Build a node-level baseline",
+      "criteria": [
+        {
+          "id": "criterion-baseline-classifications",
+          "description": "Classifies Cedar, Flint, and Harbor separately using the operational three-state model.",
+          "maxPoints": 3
+        },
+        {
+          "id": "criterion-baseline-evidence",
+          "description": "Justifies each classification with specific access, accuracy, explanation, independence, or adaptation observations.",
+          "maxPoints": 3
+        },
+        {
+          "id": "criterion-baseline-uncertainty",
+          "description": "States a meaningful uncertainty or discriminating next probe without presenting the label as permanent.",
+          "maxPoints": 2
+        },
+        {
+          "id": "criterion-baseline-routes",
+          "description": "Chooses a proportionate initial-instruction, targeted-repair, or delayed-verification route for each node.",
+          "maxPoints": 2
+        }
+      ]
+    },
+    {
+      "id": "rubric-transfer-redesign",
+      "title": "Redesign a low-stakes diagnostic",
+      "criteria": [
+        {
+          "id": "criterion-redesign-probes",
+          "description": "Designs aligned probes for unaided access, explanation, and bounded application before feedback.",
+          "maxPoints": 4
+        },
+        {
+          "id": "criterion-redesign-rules",
+          "description": "States provisional unfamiliar, fragile, and secure rules and treats confidence as supplementary evidence.",
+          "maxPoints": 2
+        },
+        {
+          "id": "criterion-redesign-routes",
+          "description": "Links each classification to a proportionate route and states an important uncertainty.",
+          "maxPoints": 2
+        },
+        {
+          "id": "criterion-redesign-access",
+          "description": "Provides an untimed keyboard/text route that preserves the same reasoning operation without private data.",
+          "maxPoints": 2
+        }
+      ]
+    }
+  ]
+}
+
