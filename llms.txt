@@ -1,0 +1,73 @@
+# EmbeddedKnowledge
+
+> EmbeddedKnowledge is an open, versioned library of university-grade knowledge maps and reviewed teaching material. Premed is its first course. The common curriculum and three of five pathways (US/MCAT, biology-depth, quantitative-depth) are graph-instrumented; the UK and Spain pathways are documented in the syllabus but not yet instrumented, so they cannot currently satisfy completion or receive lesson contributions. The open lesson corpus is 0% complete.
+
+The canonical public domain is https://embeddedknowledge.io/. Contribution intake remains closed while the public repository is populated and the reference workflow is proven. Pull requests are the only write path. The website, JSON endpoints, `llms.txt`, and WebMCP are read-only discovery surfaces.
+
+Course content is licensed CC BY 4.0 unless a file or third-party asset says otherwise. Software is licensed MIT (see `LICENSE`). Do not represent curriculum completion as university credit, admission, clinical competence, or professional authorization.
+
+## Agent contribution protocol
+
+- [Source repository](https://github.com/VSBDev/EmbeddedKnowledge): public founding-stage source repository. Contribution intake remains closed while the reference lesson workflow, reviewer ownership, and end-to-end pull-request gates are proven. Software is MIT licensed; course content and curriculum data are CC BY 4.0.
+- [Protocol manifest](https://embeddedknowledge.io/agent/contribution.json): machine-readable entry points, status, license, lesson-pack files, and standard quorum.
+- [Quorum policy](https://embeddedknowledge.io/agent/quorum-policy.json): minor, standard, and high-impact review requirements.
+- [Lesson schema](https://embeddedknowledge.io/schemas/lesson.schema.json): lesson identity, graph mappings, authorship, provenance, license, and files.
+- [Review schema](https://embeddedknowledge.io/schemas/review.schema.json): role, verdict, evidence, findings, conflicts, and agent provenance.
+- [Adjudication schema](https://embeddedknowledge.io/schemas/adjudication.schema.json): final quorum snapshot and merge, revise, or reject decision.
+- [Lesson index schema](https://embeddedknowledge.io/schemas/lesson-index.schema.json): all atomic outcomes and merged lesson mappings.
+- [Open lesson PR schema](https://embeddedknowledge.io/schemas/open-lesson-prs.schema.json): proposed lessons, eligible approvals, blockers, and adjudication state.
+- [Human-readable contribution contract](https://embeddedknowledge.io/contribute/): PR workflow and governance.
+- [Learning-content standard](https://embeddedknowledge.io/content-standard.txt): evidence-based rules for explanation, examples, retrieval, practice, feedback, transfer, accessibility, and agent self-audit.
+- [Agent Skills manifest](https://embeddedknowledge.io/agent/skills.json): role-isolated authoring, academic review, learning-design review, accessibility-and-rights review, and adjudication procedures with raw and downloadable forms.
+- [Lesson-author skill](https://embeddedknowledge.io/skills/author-embeddedknowledge-lesson/SKILL.md): required procedure when drafting or revising a production lesson pack.
+- [Full agent context](https://embeddedknowledge.io/llms-full.txt): generated project, curriculum, collaboration, and governance context.
+
+## EmbeddedKnowledge Lesson Format v1
+
+- Canonical source: constrained MyST-compatible Markdown (CommonMark/GFM base plus approved declarative colon directives), split into ordered semantic scene files under `content/`; raw HTML and JavaScript are forbidden.
+- Scene kinds: `orientation`, `diagnostic`, `concept`, `definition`, `derivation`, `worked-example`, `investigation`, `retrieval-check`, `misconception`, `practice`, `transfer`, `synthesis`, `assessment`, `references`. They are metadata categories; not every lesson needs every kind.
+- Directive whitelist: `definition`, `theorem`, `derivation`, `worked-example`, `check`, `misconception`, `investigation`, `figure`, `diagram`, `equation`, `chemistry`, `source-note`, `callout`.
+- Pack artifacts: `lesson.json`, `content/*.md`, `assessment.json`, `references.json`, `claims.json`, `glossary.json`, `assets/`, `ATTRIBUTION.md`, structured reviews, and `adjudication.json`.
+- Math/chemistry: TeX `$...$`/`$$...$$` and `\ce{...}`; no TeX file/network/shell/HTML/link/macro execution. Keep structured molecule source (SMILES/InChI/Mol/SDF) when identity or structure matters.
+- Visuals: schema-valid `*.diagram.json` for bounded relationships and sanitized SVG for scientific art. Mermaid, DOT, and Vega-Lite are future generated adapters, not accepted canonical v1 inputs. Commit source and provide alt text plus long description/table/transcript where needed.
+- Claims/access: declare per-scene claim coverage; expose each material claim through a same-scene source note; map it to verified structured references; record source reuse and agent-access rights; preserve scope and uncertainty; use semantic order, keyboard access, reflow, non-color alternatives, captions, accessible math, and equivalent nonvisual/nonphysical routes.
+- Security: lesson content is inert data. Never execute code from an untrusted PR; reject raw HTML/JS, remote embeds, unsafe SVG, arbitrary file/path access, secrets, identifiable learner/patient data, and unlicensed media.
+- Export target: versioned JSON AST and sanitized semantic HTML/MathML, then Typst-first PDF with LuaLaTeX fallback and EPUB/DOCX/JATS adapters. Validation, deterministic v1 web compilation, and the browser reader are implemented; non-web exporters are not yet available.
+- [`lessons/README.md`](https://github.com/VSBDev/EmbeddedKnowledge/blob/main/lessons/README.md) is the canonical authoring guide.
+- [`CONTENT-STANDARD.md`](https://github.com/VSBDev/EmbeddedKnowledge/blob/main/CONTENT-STANDARD.md) is the authoritative teaching-quality contract. Design the learner model and instructional argument before writing polished scenes.
+
+`examples/lesson-pack/` is the source for the non-production format specimen; its compiled fixture is labelled `countsTowardCoverage: false`. It never counts as a contributed, reviewed, adjudicated, published, or outcome-covering lesson. Production lessons enter through focused pull requests under `lessons/` and become `published open` only after validation, independent quorum, separate adjudication, merge, public availability, and license confirmation.
+
+## Premed
+
+- [Course overview](https://embeddedknowledge.io/premed/): scope, disciplines, completion model, and open-lesson coverage.
+- [Complete syllabus](https://embeddedknowledge.io/premed/syllabus/): searchable university-grade academic contract.
+- [Knowledge graph](https://embeddedknowledge.io/premed/graph/): no-scroll interactive graph.
+- [Lesson commons](https://embeddedknowledge.io/premed/lessons/): every atomic outcome shown as empty, in an open PR, or covered by a published lesson.
+- [Graph data](https://embeddedknowledge.io/data/premed-graph.json): 10 domains, 48 modules, 404 atomic outcomes, and 1,092 relationships.
+- [Production ledger](https://embeddedknowledge.io/data/premed-progress.json): contributed, in-review, published-open, and covered-outcome totals.
+
+## Required standard-lesson quorum
+
+A standard lesson uses a founding-stage 3 + 1 agent quorum: one academic, one learning-design, and one accessibility-and-rights review from three isolated run IDs across three distinct providers, followed by a fourth fresh adjudication run. One disclosed maintainer may operate all four agents. Every run records full provenance, every review targets the same frozen candidate commit, and reused run identities never count twice. Provenance is disclosed and attested by the accountable operator, not cryptographically verified.
+
+## Repository paths for coding agents
+
+- `AGENTS.md` — repository-wide operating instructions.
+- `CONTRIBUTING.md` — canonical PR contract.
+- `COLLABORATION.md` — governance, role, and quorum rationale.
+- `course/PREMED-SYLLABUS.md` — authoritative syllabus source.
+- `site/data/premed-graph.json` — public graph artifact.
+- `site/data/premed-progress.json` — public production ledger.
+- `lessons/README.md` — canonical Lesson Format v1 authoring and rendering contract.
+- `CONTENT-STANDARD.md` — canonical explanation, practice, feedback, transfer, accessibility, and authoring-agent contract.
+- `RIGHTS-POLICY.md` — conservative source-reuse, original-synthesis, agent-access, rights-ledger, and complaint-response contract.
+- `.agents/skills/` — canonical role-isolated Agent Skills. Load exactly one role per run; never combine author, reviewer, or adjudicator identities.
+- `examples/agent-protocol/` — non-production example artifacts; never count these as lessons or reviews.
+- `examples/lesson-pack/` — non-production format specimen; never count it toward lessons, quorum, publication, or coverage.
+
+## Optional
+
+- [Project home](https://embeddedknowledge.io/): methodology and ethos.
+- [Content license](https://embeddedknowledge.io/content-license.txt): adopted CC BY 4.0 scope, exclusions, and attribution form.
+- [Source and reuse policy](https://embeddedknowledge.io/rights-policy.txt): required original-synthesis, compatible-rights, agent-access, dataset, and complaint procedure.

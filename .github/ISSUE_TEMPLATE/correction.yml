@@ -1,0 +1,47 @@
+name: Flag a content correction
+description: Identify a specific claim, outcome, assessment, source, accessibility, or rights issue. Lesson changes still require a pull request.
+title: "[Correction]: "
+labels: ["correction", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: "Contribution intake remains closed. Issues report problems; they do not bypass the pull-request, quorum, or adjudication process, and they do not authorize a push."
+  - type: input
+    id: target
+    attributes:
+      label: Exact target
+      description: Lesson ID, outcome ID, file, heading, graph node, or URL.
+      placeholder: PREM-CHE-001 / content/06-transfer.md / claim-buffer-response
+    validations:
+      required: true
+  - type: textarea
+    id: issue
+    attributes:
+      label: What is wrong?
+      description: State the problem and its consequence precisely.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Link primary sources or reproducible evidence where possible.
+    validations:
+      required: true
+  - type: dropdown
+    id: impact
+    attributes:
+      label: Potential impact
+      options:
+        - Minor wording or metadata
+        - Lesson format, schema, or rendering
+        - Learning or accessibility
+        - Academic accuracy
+        - Safety-critical or rights-related
+    validations:
+      required: true
+  - type: textarea
+    id: agent
+    attributes:
+      label: Agent assistance
+      description: If an agent helped identify or analyze this issue, disclose the system/model and what you independently checked.

@@ -1,0 +1,88 @@
+# `main` protection contract
+
+Status: **active**. The repository is public at `VSBDev/EmbeddedKnowledge`. Repository ruleset `main protection contract` (id `19180386`) was created and enforced on 19 July 2026, before any content was pushed. Verify the rules against a draft lesson pull request before opening contribution intake.
+
+## Currently enforced
+
+Ruleset target: `~DEFAULT_BRANCH`. Enforcement: `active`.
+
+| Rule | Effect |
+| --- | --- |
+| `pull_request` | A pull request is required before merging. Approval count is **0** by design — see "Quorum source of truth". |
+| `pull_request.dismiss_stale_reviews_on_push` | Platform approvals are dismissed when new commits are pushed. |
+| `pull_request.required_review_thread_resolution` | All conversations must be resolved before merge. |
+| `required_status_checks` | The `agent-protocol` job in `.github/workflows/validate.yml` must pass. |
+| `required_status_checks.strict` | Branches must be up to date with `main` before merge. |
+| `non_fast_forward` | Force pushes to `main` are rejected. |
+| `deletion` | `main` cannot be deleted. |
+
+Allowed merge methods: merge and squash. Rebase is disabled so that the merge commit preserves the reviewed candidate commit.
+
+## Merge authority — read this carefully
+
+**Merge authority currently rests on access control, not on a rule.**
+
+GitHub provides no per-user merge permission on personal repositories. "Restrict who can push to matching branches" is an organization-only feature and is unavailable here. Anyone granted write access to this repository can merge any pull request that satisfies the rules above.
+
+Today the collaborator list is exactly one entry: `VSBDev` (admin). That — and only that — is why the accountable operator is the sole merger. It is a property of the current access list, not a guarantee of the ruleset.
+
+Consequences to accept or resolve before intake opens:
+
+- Granting any collaborator write access grants them merge rights over lessons. Use read access plus fork-based pull requests for contributors who do not need write.
+- To make sole-merger status a genuine policy rather than a circumstance, move the repository into a GitHub organization and restrict pushes to `main` to a named team.
+
+## Administrator bypass
+
+The ruleset grants `RepositoryRole 5` (repository admin) an `always` bypass. This exists because the repository was empty when the ruleset was created: without a bypass, `main` could not be created at all, since a pull request cannot target a branch that does not exist.
+
+This is the "emergency break-glass" allowance, and it currently means the accountable operator can push directly to `main`.
+
+**Remove the bypass once `main` exists and the first push has landed**, so the contract binds administrators as intended:
+
+```bash
+gh api --method PUT repos/VSBDev/EmbeddedKnowledge/rulesets/19180386 \
+  --input - <<'JSON'
+{ "bypass_actors": [] }
+JSON
+```
+
+Until that is done, this document overstates its own enforcement for administrators. Do not describe `main` as administrator-proof while the bypass is present.
+
+## Quorum source of truth
+
+GitHub review requests and CODEOWNERS are routing aids. The portable, enforceable quorum is the set of schema-valid review JSON artifacts and `adjudication.json` checked by `npm run agent:validate` and matched to equivalent, non-dismissed GitHub reviews by the pull-request provenance check.
+
+Platform approval counts are deliberately set to zero: a pull request author cannot formally approve their own pull request, so requiring platform approvals during the founding stage would block the disclosed single-operator model without adding any real independence.
+
+For a standard lesson this means:
+
+- 1 academic approval;
+- 1 learning-design approval;
+- 1 accessibility-and-rights approval;
+- 3 unique review run IDs across 3 distinct providers;
+- 1 additional adjudication agent with a fresh run ID;
+- one disclosed accountable operator may run all four agents during the founding stage;
+- all counted reviews target the same candidate commit;
+- no unresolved blocking findings.
+
+Agent provenance — system, provider, model, version, run ID, and instructions digest — is **disclosed and attested by the accountable operator. It is not cryptographically verified.** Do not describe the quorum as proving that three independent models reviewed a lesson; it records that the operator attested they did, in a form that is auditable and falsifiable after the fact.
+
+When a broader reviewer community exists, add required-reviewer rules as defense in depth and revise the founding-stage policy explicitly. Do not pretend platform approval counts represent the current agent quorum.
+
+## Workflow integrity
+
+`validate-lesson-pr.mjs` rejects a lesson pull request that changes any file outside its single `lessons/<pack>/` directory. This is load-bearing: workflow and validator code runs from the pull request's own merge ref, so without that restriction a lesson pull request could disable the checks that police it and still report a green `agent-protocol` status.
+
+Infrastructure changes must therefore travel in separate pull requests that contain no lesson pack. Require code-owner review on `/scripts/` and `/.github/` before granting any contributor write access.
+
+The `structured-lesson-review` workflow runs from trusted default-branch code whenever a review is submitted, edited, or dismissed. Edited and dismissed structured reviews deliberately fail until the pull request commits a reconciled artifact and reruns the head validation. The pre-intake dry run must confirm that GitHub displays these failures against the current pull request merge ref and prevents merge under the final ruleset.
+
+## Re-verifying this document
+
+```bash
+gh api repos/VSBDev/EmbeddedKnowledge/rulesets/19180386 \
+  --jq '{name,enforcement,bypass:.bypass_actors,rules:[.rules[].type]}'
+gh api repos/VSBDev/EmbeddedKnowledge/collaborators --jq '.[] | "\(.login): \(.role_name)"'
+```
+
+If the collaborator list ever contains more than the accountable operator, the "Merge authority" section above is no longer accurate and must be revised in the same change.

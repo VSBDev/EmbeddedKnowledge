@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://embeddedknowledge.io/schemas/claims.schema.json",
+  "title": "EmbeddedKnowledge lesson claim ledger v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "format", "lessonId", "lessonVersion", "claims"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "format": { "const": "embeddedknowledge-claims-v1" },
+    "lessonId": { "type": "string", "pattern": "^PREM-[A-Z]{3}-[0-9]{3}$" },
+    "lessonVersion": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "claims": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["id", "statement", "sceneIds", "sourceIds", "support", "confidence", "scope", "uncertainty", "risk", "reviewStatus"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^claim-[a-z0-9-]+$" },
+          "statement": { "type": "string", "minLength": 10, "maxLength": 2000 },
+          "sceneIds": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "pattern": "^scene-[a-z0-9-]+$" } },
+          "sourceIds": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "pattern": "^source-[a-z0-9-]+$" } },
+          "support": { "enum": ["direct", "synthesis", "context", "inference"] },
+          "confidence": { "enum": ["low", "medium", "medium-high", "high"] },
+          "scope": { "type": "string", "minLength": 3, "maxLength": 1000 },
+          "uncertainty": { "type": ["string", "null"], "maxLength": 1000 },
+          "risk": { "enum": ["routine", "health-sensitive", "safety-critical"] },
+          "reviewStatus": { "enum": ["pending-review", "reviewed", "disputed", "withdrawn"] }
+        }
+      }
+    }
+  }
+}

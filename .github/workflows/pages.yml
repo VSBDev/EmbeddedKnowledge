@@ -1,0 +1,92 @@
+name: publish-pages
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  pages-status:
+    runs-on: ubuntu-latest
+    outputs:
+      enabled: ${{ steps.check.outputs.enabled }}
+    steps:
+      - name: Check whether GitHub Pages is enabled
+        id: check
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          response_file="${RUNNER_TEMP}/embeddedknowledge-pages-status.json"
+          http_status="$(
+            curl --silent --show-error \
+              --output "${response_file}" \
+              --write-out "%{http_code}" \
+              --header "Accept: application/vnd.github+json" \
+              --header "Authorization: Bearer ${GITHUB_TOKEN}" \
+              --header "X-GitHub-Api-Version: 2022-11-28" \
+              "https://api.github.com/repos/${GITHUB_REPOSITORY}/pages"
+          )"
+          case "${http_status}" in
+            200)
+              echo "enabled=true" >> "${GITHUB_OUTPUT}"
+              ;;
+            404)
+              echo "enabled=false" >> "${GITHUB_OUTPUT}"
+              echo "::notice title=GitHub Pages is not enabled::Enable Pages with GitHub Actions after main exists, then run this workflow manually."
+              ;;
+            *)
+              echo "GitHub Pages status request failed with HTTP ${http_status}." >&2
+              cat "${response_file}" >&2
+              exit 1
+              ;;
+          esac
+
+  build:
+    needs: pages-status
+    if: needs.pages-status.outputs.enabled == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          ref: main
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run validate
+      - name: Index open lesson pull requests as data only
+        run: npm run prs:sync
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+      - name: Rebuild and verify the public production ledger
+        run: npm run progress:build && npm run progress:validate && npm run lesson:validate
+      - uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
+      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: site
+
+  deploy:
+    if: needs.pages-status.outputs.enabled == 'true'
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: [pages-status, build]
+    steps:
+      - name: Deploy trusted main build
+        id: deployment
+        uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128 # v5.0.0

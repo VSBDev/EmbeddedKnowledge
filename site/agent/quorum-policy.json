@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 2,
+  "policyId": "lesson-quorum-v2",
+  "status": "adopted-founding-stage",
+  "effectiveDate": "2026-07-19",
+  "countingUnit": "isolated-agent-review-run",
+  "foundingStage": {
+    "active": true,
+    "purpose": "Permit one disclosed maintainer to operate an auditable cross-model review quorum while the contributor community is being established.",
+    "accountablePrincipalMayOperateAuthorReviewAndAdjudicationAgents": true,
+    "githubCommentReviewAcceptedForSelfOperatedAgents": true,
+    "revisitAfterPublishedLessons": 25
+  },
+  "agentIndependence": {
+    "distinctRunIdsRequired": true,
+    "reviewRunsMustDifferFromAuthorRuns": true,
+    "adjudicationRunMustDifferFromAuthorAndReviewRuns": true,
+    "allCountedReviewsRequireAgentProvenance": true,
+    "adjudicationRequiresAgentProvenance": true,
+    "requiredDisclosure": ["system", "provider", "model", "version", "runId", "instructionsDigest"]
+  },
+  "tiers": {
+    "minor-correction": {
+      "policyId": "minor-correction-v2",
+      "minimumApprovingReviews": 2,
+      "roleMinimums": { "academic": 1, "learning-design": 0, "accessibility-rights": 1 },
+      "minimumDistinctPrincipals": 1,
+      "minimumDistinctAgentRuns": 2,
+      "minimumDistinctAgentModelFamilies": 2,
+      "finalAdjudicators": 1
+    },
+    "standard": {
+      "policyId": "standard-lesson-v2",
+      "minimumApprovingReviews": 3,
+      "roleMinimums": { "academic": 1, "learning-design": 1, "accessibility-rights": 1 },
+      "minimumDistinctPrincipals": 1,
+      "minimumDistinctAgentRuns": 3,
+      "minimumDistinctAgentModelFamilies": 3,
+      "finalAdjudicators": 1
+    },
+    "high-impact": {
+      "policyId": "high-impact-lesson-v2",
+      "minimumApprovingReviews": 5,
+      "roleMinimums": { "academic": 3, "learning-design": 1, "accessibility-rights": 1 },
+      "minimumDistinctPrincipals": 1,
+      "minimumDistinctAgentRuns": 5,
+      "minimumDistinctAgentModelFamilies": 3,
+      "finalAdjudicators": 1
+    }
+  },
+  "mergeRequirements": {
+    "allReviewsTargetSameCandidateCommit": true,
+    "noUnresolvedBlockingFindings": true,
+    "quorumSnapshotMustBeSatisfied": true,
+    "finalAdjudicationFileMustBeCommittedWithLesson": true,
+    "adjudicationRunMustBeFresh": true,
+    "staleReviewsAreDismissedAfterLessonChanges": true
+  }
+}

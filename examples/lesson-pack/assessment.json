@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-assessment-v1",
+  "lessonId": "PREM-CHE-001",
+  "lessonVersion": "0.0.0",
+  "assessmentId": "assessment-acid-base-models",
+  "title": "Acid–base model check",
+  "purpose": "mixed",
+  "attemptPolicy": {
+    "retakeable": true,
+    "timeLimitMinutes": null,
+    "feedback": "after-attempt"
+  },
+  "items": [
+    {
+      "id": "item-conjugate-pair",
+      "type": "single-choice",
+      "sceneId": "scene-practice",
+      "objectiveIds": ["objective-identify-pairs"],
+      "outcomeIds": ["topic-acids-bases-acid-base-models"],
+      "prompt": "In NH3 + H2O ⇌ NH4+ + OH-, which pair is a conjugate acid–base pair?",
+      "stimulus": null,
+      "points": 2,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          { "id": "option-ammonia-ammonium", "text": "NH3 and NH4+" },
+          { "id": "option-ammonia-hydroxide", "text": "NH3 and OH-" },
+          { "id": "option-water-ammonium", "text": "H2O and NH4+" }
+        ],
+        "units": null,
+        "tolerance": null,
+        "maxSelections": 1,
+        "maxLength": null
+      },
+      "answer": {
+        "correct": "option-ammonia-ammonium",
+        "summary": "NH3 and NH4+ differ by one proton.",
+        "reasoning": "Ammonia accepts a proton to become ammonium, so ammonia is the base and ammonium is its conjugate acid.",
+        "acceptableResponses": [],
+        "commonErrors": ["Pairing species because they appear on opposite sides rather than because they differ by one proton."]
+      },
+      "rubricId": "rubric-model-reasoning",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-model-choice",
+      "type": "short-answer",
+      "sceneId": "scene-transfer",
+      "objectiveIds": ["objective-choose-model"],
+      "outcomeIds": ["topic-acids-bases-acid-base-models"],
+      "prompt": "Explain why BF3 + NH3 can be described as a Lewis acid–base reaction even though no proton is transferred.",
+      "stimulus": null,
+      "points": 4,
+      "responseSpec": {
+        "mode": "text",
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "maxLength": 800
+      },
+      "answer": {
+        "correct": "NH3 donates a lone pair and BF3 accepts that electron pair.",
+        "summary": "The Lewis model tracks an electron-pair donation and acceptance.",
+        "reasoning": "Nitrogen in ammonia has an available lone pair, while electron-deficient boron in BF3 can accept it to form a coordinate bond.",
+        "acceptableResponses": ["Any response that identifies NH3 as electron-pair donor and BF3 as electron-pair acceptor."],
+        "commonErrors": ["Inventing a proton transfer", "Calling BF3 the Lewis base"]
+      },
+      "rubricId": "rubric-model-reasoning",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-buffer-response",
+      "type": "short-answer",
+      "sceneId": "scene-transfer",
+      "objectiveIds": ["objective-explain-buffer-response"],
+      "outcomeIds": ["topic-acids-bases-buffers"],
+      "prompt": "A closed model contains a weak acid HA and its conjugate base A-. A small amount of strong acid is added. State which component consumes most of the added proton, explain the pH consequence, and state one limit of the model.",
+      "stimulus": null,
+      "points": 4,
+      "responseSpec": {
+        "mode": "text",
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "maxLength": 800
+      },
+      "answer": {
+        "correct": "A- consumes most of the added proton to form HA, so pH changes far less than it would in unbuffered water; the resistance is finite and fails as buffer capacity is approached.",
+        "summary": "The conjugate base absorbs added proton, limiting but not preventing pH change.",
+        "reasoning": "Adding H+ shifts the model toward the weak acid. The HA/A- ratio changes, so pH moves slightly; once A- is largely consumed the buffer no longer resists further addition.",
+        "acceptableResponses": ["Any response naming A- as the proton acceptor, describing a small rather than zero pH change, and stating a limit such as finite capacity, closed-system idealization, or neglected activity effects."],
+        "commonErrors": ["Claiming a buffer holds pH exactly constant", "Naming HA as the species that consumes added acid", "Treating buffer capacity as unlimited"]
+      },
+      "rubricId": "rubric-buffer-response",
+      "safetyCritical": false
+    }
+  ],
+  "rubrics": [
+    {
+      "id": "rubric-model-reasoning",
+      "title": "Model selection and justification",
+      "criteria": [
+        { "id": "criterion-role", "description": "Identifies donor and acceptor roles correctly.", "maxPoints": 2 },
+        { "id": "criterion-evidence", "description": "Names the proton or electron pair whose transfer justifies the model.", "maxPoints": 2 }
+      ]
+    },
+    {
+      "id": "rubric-buffer-response",
+      "title": "Buffer response and model limits",
+      "criteria": [
+        { "id": "criterion-component", "description": "Identifies the conjugate base as the component consuming added proton.", "maxPoints": 2 },
+        { "id": "criterion-limit", "description": "States that pH change is reduced rather than eliminated and names one boundary of the model.", "maxPoints": 2 }
+      ]
+    }
+  ]
+}

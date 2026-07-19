@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://embeddedknowledge.io/schemas/adjudication.schema.json",
+  "title": "EmbeddedKnowledge final lesson adjudication",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion", "adjudicationId", "lessonId", "lessonVersion", "candidateCommit",
+    "riskTier", "policyId", "reviewIds", "quorum", "decision", "rationale",
+    "dissent", "conditions", "adjudicator", "adjudicatedAt"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "adjudicationId": { "type": "string", "pattern": "^ADJ-PREM-[A-Z]{3}-[0-9]{3}-[A-Z0-9-]{4,80}$" },
+    "lessonId": { "type": "string", "pattern": "^PREM-[A-Z]{3}-[0-9]{3}$" },
+    "lessonVersion": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "candidateCommit": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
+    "riskTier": { "enum": ["minor-correction", "standard", "high-impact"] },
+    "policyId": { "type": "string", "pattern": "^[a-z0-9-]+-v[0-9]+$" },
+    "reviewIds": { "type": "array", "minItems": 2, "uniqueItems": true, "items": { "type": "string", "pattern": "^REV-" } },
+    "quorum": {
+      "type": "object", "additionalProperties": false,
+      "required": ["satisfied", "approvals", "roleCounts", "distinctPrincipals", "distinctAgentRuns", "distinctAgentModelFamilies"],
+      "properties": {
+        "satisfied": { "type": "boolean" },
+        "approvals": { "type": "integer", "minimum": 0 },
+        "roleCounts": {
+          "type": "object", "additionalProperties": false,
+          "required": ["academic", "learningDesign", "accessibilityRights"],
+          "properties": {
+            "academic": { "type": "integer", "minimum": 0 },
+            "learningDesign": { "type": "integer", "minimum": 0 },
+            "accessibilityRights": { "type": "integer", "minimum": 0 }
+          }
+        },
+        "distinctPrincipals": { "type": "integer", "minimum": 0 },
+        "distinctAgentRuns": { "type": "integer", "minimum": 0 },
+        "distinctAgentModelFamilies": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "decision": { "enum": ["merge", "revise", "reject"] },
+    "rationale": { "type": "string", "minLength": 40, "maxLength": 12000 },
+    "dissent": { "type": "array", "items": { "type": "string", "minLength": 5, "maxLength": 4000 } },
+    "conditions": { "type": "array", "items": { "type": "string", "minLength": 5, "maxLength": 2000 } },
+    "adjudicator": { "$ref": "https://embeddedknowledge.io/schemas/lesson.schema.json#/$defs/actor" },
+    "adjudicatedAt": { "type": "string", "format": "date-time" }
+  }
+}

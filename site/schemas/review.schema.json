@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://embeddedknowledge.io/schemas/review.schema.json",
+  "title": "EmbeddedKnowledge independent review artifact",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion", "reviewId", "lessonId", "lessonVersion", "candidateCommit",
+    "role", "verdict", "reviewer", "conflictOfInterest", "evidenceChecked",
+    "findings", "limitations", "signedAt"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "reviewId": { "type": "string", "pattern": "^REV-PREM-[A-Z]{3}-[0-9]{3}-[A-Z0-9-]{4,80}$" },
+    "lessonId": { "type": "string", "pattern": "^PREM-[A-Z]{3}-[0-9]{3}$" },
+    "lessonVersion": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "candidateCommit": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
+    "role": { "enum": ["academic", "learning-design", "accessibility-rights"] },
+    "verdict": { "enum": ["approve", "request-changes", "abstain"] },
+    "reviewer": { "$ref": "https://embeddedknowledge.io/schemas/lesson.schema.json#/$defs/actor" },
+    "conflictOfInterest": {
+      "type": "object", "additionalProperties": false,
+      "required": ["declared", "details"],
+      "properties": {
+        "declared": { "type": "boolean" },
+        "details": { "type": ["string", "null"], "maxLength": 1000 }
+      }
+    },
+    "evidenceChecked": {
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": { "type": "string", "minLength": 3, "maxLength": 300 }
+    },
+    "findings": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["severity", "target", "finding", "resolution"],
+        "properties": {
+          "severity": { "enum": ["note", "minor", "major", "blocking"] },
+          "target": { "type": "string", "minLength": 1, "maxLength": 240 },
+          "finding": { "type": "string", "minLength": 5, "maxLength": 4000 },
+          "resolution": { "type": ["string", "null"], "maxLength": 4000 }
+        }
+      }
+    },
+    "limitations": { "type": "array", "items": { "type": "string", "minLength": 3, "maxLength": 1000 } },
+    "signedAt": { "type": "string", "format": "date-time" }
+  }
+}

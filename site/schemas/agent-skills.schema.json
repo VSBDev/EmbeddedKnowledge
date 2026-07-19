@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://embeddedknowledge.io/schemas/agent-skills.schema.json",
+  "title": "EmbeddedKnowledge Agent Skills manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "standard", "canonicalDirectory", "repositoryRequired", "discovery", "skills"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "standard": { "const": "https://agentskills.io/specification" },
+    "canonicalDirectory": { "const": ".agents/skills" },
+    "repositoryRequired": { "const": true },
+    "discovery": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["generic", "geminiCli", "claudeCode", "otherClients"],
+      "properties": {
+        "generic": { "type": "string", "minLength": 10 },
+        "geminiCli": { "type": "string", "minLength": 10 },
+        "claudeCode": { "type": "string", "minLength": 10 },
+        "otherClients": { "type": "string", "minLength": 10 }
+      }
+    },
+    "skills": {
+      "type": "array",
+      "minItems": 5,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "role", "description", "invocation", "source", "instructions", "bundle", "instructionsSha256", "bundleSha256"],
+        "properties": {
+          "name": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$", "maxLength": 64 },
+          "role": { "enum": ["author", "academic-review", "learning-design-review", "accessibility-rights-review", "adjudicator"] },
+          "description": { "type": "string", "minLength": 20, "maxLength": 1024 },
+          "invocation": { "type": "string", "pattern": "^\\$[a-z0-9]+(?:-[a-z0-9]+)*$" },
+          "source": { "type": "string", "pattern": "^\\.agents/skills/.+/SKILL\\.md$" },
+          "instructions": { "type": "string", "pattern": "^/skills/.+/SKILL\\.md$" },
+          "bundle": { "type": "string", "pattern": "^/skills/.+\\.zip$" },
+          "instructionsSha256": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" },
+          "bundleSha256": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" }
+        }
+      }
+    }
+  }
+}

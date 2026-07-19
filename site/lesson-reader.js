@@ -1,0 +1,858 @@
+(() => {
+  "use strict";
+
+  const app = document.querySelector("[data-reader-app]");
+  const sceneContainer = document.querySelector("[data-scene-container]");
+  if (!app || !sceneContainer) return;
+
+  const scriptUrl = document.currentScript?.src || new URL("lesson-reader.js", document.baseURI).href;
+  const siteRoot = new URL("./", scriptUrl);
+  const dataUrl = new URL("data/lessons/specimen.json", siteRoot);
+  const stage = document.querySelector("[data-reader-stage]");
+  const sceneNav = document.querySelector("[data-scene-nav]");
+  const previousButton = document.querySelector("[data-scene-prev]");
+  const nextButton = document.querySelector("[data-scene-next]");
+  const copyLinkButton = document.querySelector("[data-copy-link]");
+  const indexPanel = document.querySelector("[data-reader-index]");
+  const indexOpen = document.querySelector("[data-index-open]");
+  const indexClose = document.querySelector("[data-index-close]");
+  const scrim = document.querySelector("[data-reader-scrim]");
+  const announcer = document.querySelector("[data-reader-announcer]");
+  const marginPanel = document.querySelector("#reader-margin");
+  const marginToggle = document.querySelector("[data-margin-toggle]");
+  const themeToggle = document.querySelector("[data-theme-toggle]");
+  const focusToggle = document.querySelector("[data-focus-toggle]");
+  const contentsLabel = document.querySelector("[data-contents-label]");
+  const themeLabel = document.querySelector("[data-theme-label]");
+  const themeIcon = document.querySelector("[data-theme-icon]");
+  const focusLabel = document.querySelector("[data-focus-label]");
+  const viewToggle = document.querySelector("[data-view-toggle]");
+  const viewLabel = document.querySelector("[data-view-label]");
+  const viewIcon = document.querySelector("[data-view-icon]");
+  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const narrowLayout = matchMedia("(max-width: 820px)");
+  const systemDark = matchMedia("(prefers-color-scheme: dark)");
+
+  let artifact = null;
+  let scenes = [];
+  let activeIndex = 0;
+  let activeFrameIndex = 0;
+  let currentFrames = [];
+  let indexCollapsed = false;
+  let marginCollapsed = false;
+  let focusMode = false;
+  let viewMode = "guided";
+
+  function readPreference(key) {
+    try {
+      return localStorage.getItem(`embeddedknowledge.reader.${key}`);
+    } catch {
+      return null;
+    }
+  }
+
+  function writePreference(key, value) {
+    try {
+      localStorage.setItem(`embeddedknowledge.reader.${key}`, String(value));
+    } catch {
+      // Storage is optional; reader controls continue to work for this session.
+    }
+  }
+
+  function syncIndexControl() {
+    const expanded = narrowLayout.matches ? indexPanel.classList.contains("is-open") : (!indexCollapsed && !focusMode);
+    indexOpen.setAttribute("aria-expanded", String(expanded));
+    indexOpen.setAttribute("aria-label", expanded ? "Hide lesson contents" : "Show lesson contents");
+    if (contentsLabel) contentsLabel.textContent = expanded && !narrowLayout.matches ? "Hide index" : "Contents";
+  }
+
+  function setIndexCollapsed(collapsed, { persist = true } = {}) {
+    indexCollapsed = Boolean(collapsed);
+    app.classList.toggle("is-index-collapsed", indexCollapsed);
+    if (persist) writePreference("indexCollapsed", indexCollapsed);
+    syncIndexControl();
+    queueMathFit();
+  }
+
+  // Focus mode hides both rails outright, so the control labels must reflect that
+  // rather than the collapse preference alone.
+  function syncMarginControl() {
+    const hidden = marginCollapsed || focusMode;
+    marginToggle?.setAttribute("aria-expanded", String(!hidden));
+    marginToggle?.setAttribute("aria-label", hidden ? "Show lesson information" : "Hide lesson information");
+  }
+
+  function setMarginCollapsed(collapsed, { persist = true } = {}) {
+    marginCollapsed = Boolean(collapsed);
+    app.classList.toggle("is-margin-collapsed", marginCollapsed);
+    if (persist) writePreference("marginCollapsed", marginCollapsed);
+    syncMarginControl();
+    queueMathFit();
+  }
+
+  function applyTheme(theme, { persist = true } = {}) {
+    const dark = theme === "dark";
+    document.body.classList.toggle("reader-dark", dark);
+    themeToggle?.setAttribute("aria-pressed", String(dark));
+    themeToggle?.setAttribute("aria-label", dark ? "Use light theme" : "Use dark theme");
+    if (themeLabel) themeLabel.textContent = dark ? "Light" : "Dark";
+    if (themeIcon) themeIcon.textContent = dark ? "☀" : "☾";
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", dark ? "#0c0e10" : "#171714");
+    if (persist) writePreference("theme", dark ? "dark" : "light");
+  }
+
+  function setFocusMode(enabled) {
+    focusMode = Boolean(enabled);
+    document.body.classList.toggle("reader-focus-mode", focusMode);
+    focusToggle?.setAttribute("aria-pressed", String(focusMode));
+    focusToggle?.setAttribute("aria-label", focusMode ? "Exit focus mode" : "Enter focus mode");
+    if (focusLabel) focusLabel.textContent = focusMode ? "Exit focus" : "Focus";
+    if (focusMode) closeIndex();
+    syncIndexControl();
+    syncMarginControl();
+    queueMathFit();
+  }
+
+  function fitDisplayedMath(root = sceneContainer) {
+    for (const block of root.querySelectorAll('[data-directive="chemistry"], [data-directive="equation"], .ek-chemistry, .ek-equation')) {
+      const math = block.querySelector('math[display="block"]');
+      if (!math) continue;
+      math.style.fontSize = "1em";
+      const style = getComputedStyle(block);
+      const available = Math.max(1, block.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight));
+      const natural = Math.max(math.getBoundingClientRect().width, math.scrollWidth);
+      const scale = natural > available ? Math.max(0.1, (available / natural) * 0.98) : 1;
+      math.style.fontSize = `${scale}em`;
+      math.dataset.fitScale = scale.toFixed(3);
+    }
+  }
+
+  let mathFitFrame = 0;
+  function queueMathFit() {
+    cancelAnimationFrame(mathFitFrame);
+    mathFitFrame = requestAnimationFrame(() => fitDisplayedMath());
+  }
+
+  const create = (tag, className, text) => {
+    const element = document.createElement(tag);
+    if (className) element.className = className;
+    if (text !== undefined && text !== null) element.textContent = text;
+    return element;
+  };
+
+  function slug(value) {
+    return String(value || "frame")
+      .toLowerCase()
+      .normalize("NFKD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replaceAll("ø", "o")
+      .replaceAll("æ", "ae")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "") || "frame";
+  }
+
+  function syncFrameVisibility({ scroll = false } = {}) {
+    currentFrames.forEach((frame, index) => {
+      const active = index === activeFrameIndex;
+      frame.classList.toggle("is-active", active);
+      if (viewMode === "guided" && !active) {
+        frame.setAttribute("aria-hidden", "true");
+        frame.setAttribute("inert", "");
+      } else {
+        frame.removeAttribute("aria-hidden");
+        frame.removeAttribute("inert");
+      }
+    });
+    const activeFrame = currentFrames[activeFrameIndex];
+    if (activeFrame?.dataset.titleId) sceneContainer.setAttribute("aria-labelledby", activeFrame.dataset.titleId);
+    if (!scroll || !activeFrame) return;
+    if (viewMode === "reading") activeFrame.scrollIntoView({ block: "start", behavior: reduceMotion ? "auto" : "smooth" });
+    else stage.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+  }
+
+  function applyViewMode(mode, { persist = true, scroll = false } = {}) {
+    viewMode = mode === "reading" ? "reading" : "guided";
+    app.classList.toggle("reader-guided-mode", viewMode === "guided");
+    app.classList.toggle("reader-reading-mode", viewMode === "reading");
+    viewToggle?.setAttribute("aria-pressed", String(viewMode === "reading"));
+    viewToggle?.setAttribute("aria-label", viewMode === "guided" ? "Switch to continuous reading view" : "Switch to guided frame view");
+    viewToggle?.setAttribute("title", viewMode === "guided" ? "Current view: Guided. Switch to Reading." : "Current view: Reading. Switch to Guided.");
+    if (viewLabel) viewLabel.textContent = viewMode === "guided" ? "Guided" : "Reading";
+    if (viewIcon) viewIcon.textContent = viewMode === "guided" ? "▣" : "¶";
+    if (persist) writePreference("view", viewMode);
+    syncFrameVisibility({ scroll });
+    if (scenes.length) updateControls();
+    queueMathFit();
+  }
+
+  function sceneKindLabel(kind) {
+    return String(kind || "scene").replaceAll("-", " ");
+  }
+
+  function isSafeUrl(value, attribute) {
+    const raw = String(value || "").trim();
+    if (!raw) return false;
+    if (raw.startsWith("#") || raw.startsWith("/") || raw.startsWith("./") || raw.startsWith("../")) return true;
+    try {
+      const parsed = new URL(raw, document.baseURI);
+      if (attribute === "src") return parsed.protocol === "https:" || parsed.protocol === "http:";
+      return ["https:", "http:", "mailto:"].includes(parsed.protocol);
+    } catch {
+      return false;
+    }
+  }
+
+  function sanitizeCompiledHtml(markup) {
+    const template = document.createElement("template");
+    template.innerHTML = typeof markup === "string" ? markup : "";
+    const forbidden = new Set(["SCRIPT", "STYLE", "IFRAME", "OBJECT", "EMBED", "FORM", "INPUT", "BUTTON", "TEXTAREA", "SELECT", "VIDEO", "AUDIO"]);
+    const allowed = new Set([
+      "A", "ABBR", "ANNOTATION", "ARTICLE", "ASIDE", "B", "BLOCKQUOTE", "BR", "CIRCLE", "CODE", "DD", "DEL", "DESC", "DETAILS", "DIV", "DL", "DT", "EM", "FIGCAPTION", "FIGURE", "G", "H1", "H2", "H3", "H4", "HR", "I", "IMG", "INS", "LI", "LINE", "MATH", "MFRAC", "MI", "MN", "MO", "MOVER", "MPADDED", "MROW", "MSPACE", "MSQRT", "MSTYLE", "MSUB", "MSUBSUP", "MSUP", "MTABLE", "MTD", "MTEXT", "MTR", "MUNDER", "MUNDEROVER", "OL", "P", "PATH", "POLYGON", "POLYLINE", "PRE", "Q", "RECT", "SECTION", "SEMANTICS", "SMALL", "SPAN", "STRONG", "SUB", "SUMMARY", "SUP", "SVG", "TABLE", "TBODY", "TD", "TEXT", "TFOOT", "TH", "THEAD", "TITLE", "TR", "UL"
+    ]);
+    const globalAttributes = new Set(["class", "id", "role", "title", "lang", "dir", "hidden"]);
+    const svgAttributes = new Set(["viewbox", "d", "x", "y", "x1", "y1", "x2", "y2", "cx", "cy", "r", "rx", "ry", "width", "height", "fill", "stroke", "stroke-width", "stroke-linecap", "stroke-linejoin", "stroke-dasharray", "points", "transform", "preserveaspectratio", "text-anchor"]);
+    const mathmlAttributes = new Set(["accent", "accentunder", "columnalign", "columnlines", "columnspacing", "displaystyle", "encoding", "fence", "form", "height", "largeop", "linethickness", "lspace", "mathvariant", "maxsize", "minsize", "movablelimits", "notation", "rowalign", "rowlines", "rowspacing", "rspace", "scriptlevel", "separator", "stretchy", "symmetric", "voffset", "width"]);
+
+    for (const element of [...template.content.querySelectorAll("*")]) {
+      const tagName = element.localName.toUpperCase();
+      if (forbidden.has(tagName)) {
+        element.remove();
+        continue;
+      }
+      if (!allowed.has(tagName)) {
+        element.replaceWith(...element.childNodes);
+        continue;
+      }
+      for (const attribute of [...element.attributes]) {
+        const name = attribute.name.toLowerCase();
+        const isAria = name.startsWith("aria-");
+        const isData = name.startsWith("data-");
+        const tagSpecific =
+          (tagName === "A" && ["href", "target", "rel"].includes(name)) ||
+          (tagName === "IMG" && ["src", "alt", "width", "height", "loading", "decoding"].includes(name)) ||
+          (["OL", "LI"].includes(tagName) && ["start", "value"].includes(name)) ||
+          (["TH", "TD"].includes(tagName) && ["colspan", "rowspan", "scope"].includes(name)) ||
+          (["SVG", "G", "PATH", "CIRCLE", "RECT", "LINE", "POLYGON", "POLYLINE", "TEXT"].includes(tagName) && svgAttributes.has(name)) ||
+          (element.namespaceURI === "http://www.w3.org/1998/Math/MathML" && mathmlAttributes.has(name)) ||
+          (tagName === "MATH" && ["display", "xmlns"].includes(name));
+        if (name.startsWith("on") || (!globalAttributes.has(name) && !isAria && !isData && !tagSpecific)) {
+          element.removeAttribute(attribute.name);
+        }
+      }
+      if (element.hasAttribute("href") && !isSafeUrl(element.getAttribute("href"), "href")) element.removeAttribute("href");
+      if (element.hasAttribute("src") && !isSafeUrl(element.getAttribute("src"), "src")) element.removeAttribute("src");
+      if (tagName === "A" && element.getAttribute("target") === "_blank") element.setAttribute("rel", "noreferrer noopener");
+      if (tagName === "IMG") {
+        const source = element.getAttribute("src");
+        if (source?.startsWith("/assets/")) element.src = new URL(source.slice(1), siteRoot).href;
+        element.loading = "lazy";
+        element.decoding = "async";
+        if (!element.hasAttribute("alt")) element.alt = "";
+      }
+    }
+    return template.content;
+  }
+
+  function validateArtifact(candidate) {
+    if (!candidate || candidate.schemaVersion !== 3 || candidate.format !== "embeddedknowledge-lesson-v1") {
+      throw new Error("The specimen is not a Lesson Format v1 rendered artifact.");
+    }
+    if (!candidate.id || !candidate.title || !Array.isArray(candidate.scenes) || !candidate.scenes.length) {
+      throw new Error("The rendered specimen is missing identity or scenes.");
+    }
+    const sceneIds = new Set();
+    for (const scene of candidate.scenes) {
+      if (!scene.id || !scene.title || !scene.kind || typeof scene.contentHtml !== "string") throw new Error("A rendered scene is incomplete.");
+      if (sceneIds.has(scene.id)) throw new Error(`Duplicate scene ID: ${scene.id}`);
+      sceneIds.add(scene.id);
+    }
+    return candidate;
+  }
+
+  function buildSceneNav() {
+    sceneNav.replaceChildren();
+    scenes.forEach((scene, index) => {
+      const item = create("li");
+      const link = create("a", "reader-scene-link");
+      link.href = `#${encodeURIComponent(scene.id)}`;
+      link.dataset.sceneIndex = String(index);
+      link.setAttribute("aria-current", String(index === activeIndex));
+      link.append(
+        create("span", null, String(index + 1).padStart(2, "0")),
+        create("strong", null, scene.title),
+        create("small", null, `${scene.estimatedMinutes || 0}m`)
+      );
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        showScene(index, { updateUrl: true, focus: true, announce: true });
+        closeIndex();
+      });
+      item.append(link);
+      sceneNav.append(item);
+    });
+  }
+
+  function renderObjectives(scene, fragment) {
+    if (scene.kind !== "orientation" || !Array.isArray(artifact.objectives) || !artifact.objectives.length) return;
+    const block = create("aside", "scene-objectives");
+    block.append(create("span", null, "Lesson objectives"));
+    const list = create("ul");
+    artifact.objectives.forEach((objective) => list.append(create("li", null, objective.statement)));
+    block.append(list);
+    fragment.append(block);
+  }
+
+  function assessmentItemsForScene(sceneId) {
+    return artifact.assessment?.items?.filter((item) => item.sceneId === sceneId) || [];
+  }
+
+  function renderChoiceAssessment(item) {
+    const form = create("form", "reader-check");
+    form.dataset.checkId = item.id;
+    const fieldset = create("fieldset");
+    const legend = create("legend", null, item.prompt);
+    fieldset.append(legend);
+    const optionName = `check-${item.id}`;
+    for (const option of item.responseSpec?.options || []) {
+      const label = create("label", "reader-check-option");
+      const input = create("input");
+      input.type = "radio";
+      input.name = optionName;
+      input.value = option.id;
+      label.append(input, create("span", null, option.text));
+      fieldset.append(label);
+    }
+    const actions = create("div", "reader-check-actions");
+    const submit = create("button", null, "Check answer");
+    submit.type = "submit";
+    const reset = create("button", "secondary", "Try again");
+    reset.type = "reset";
+    actions.append(submit, reset);
+    const feedback = create("div", "reader-feedback");
+    feedback.hidden = true;
+    feedback.setAttribute("role", "status");
+    feedback.setAttribute("aria-live", "polite");
+    fieldset.append(actions, feedback);
+    form.append(fieldset);
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const selected = new FormData(form).get(optionName);
+      feedback.replaceChildren();
+      feedback.hidden = false;
+      if (!selected) {
+        feedback.append(create("strong", null, "Choose one response first."), create("p", null, "This specimen has no time limit."));
+        feedback.classList.remove("is-correct");
+        return;
+      }
+      const correct = selected === item.answer?.correct;
+      feedback.classList.toggle("is-correct", correct);
+      feedback.append(
+        create("strong", null, correct ? "Reasoning holds." : "Revise the mechanism."),
+        create("p", null, correct ? item.answer?.reasoning || item.answer?.summary : item.answer?.commonErrors?.[0] || item.answer?.summary || "Review the scene and try again.")
+      );
+    });
+    form.addEventListener("reset", () => {
+      feedback.hidden = true;
+      feedback.replaceChildren();
+      feedback.classList.remove("is-correct");
+    });
+    return form;
+  }
+
+  function renderTextAssessment(item) {
+    const form = create("form", "reader-check reader-short-answer");
+    const label = create("label");
+    label.append(create("strong", null, item.prompt));
+    const textarea = create("textarea");
+    textarea.name = `response-${item.id}`;
+    textarea.maxLength = item.responseSpec?.maxLength || 2000;
+    textarea.placeholder = "Explain the donor, acceptor, and tracked electron pair in your own words.";
+    label.append(textarea);
+    const actions = create("div", "reader-check-actions");
+    const reveal = create("button", null, "Compare reasoning");
+    reveal.type = "submit";
+    const reset = create("button", "secondary", "Clear response");
+    reset.type = "reset";
+    const feedback = create("div", "reader-feedback");
+    feedback.hidden = true;
+    feedback.setAttribute("role", "status");
+    feedback.setAttribute("aria-live", "polite");
+    actions.append(reveal, reset);
+    form.append(label, actions, feedback);
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      feedback.hidden = false;
+      feedback.replaceChildren(create("strong", null, "Model reasoning"), create("p", null, item.answer?.reasoning || item.answer?.correct || "Compare your response with the lesson model."));
+    });
+    form.addEventListener("reset", () => {
+      feedback.hidden = true;
+      feedback.replaceChildren();
+    });
+    return form;
+  }
+
+  function renderAssessments(scene, fragment, itemsOverride) {
+    const items = itemsOverride || assessmentItemsForScene(scene.id);
+    if (!items.length) return;
+    const section = create("section", "reader-assessment");
+    section.setAttribute("aria-label", "Interactive knowledge check");
+    section.append(create("span", null, "UNTIMED SPECIMEN CHECK · DOES NOT RECORD PROGRESS"));
+    for (const item of items) {
+      section.append(item.type === "single-choice" ? renderChoiceAssessment(item) : renderTextAssessment(item));
+    }
+    fragment.append(section);
+  }
+
+  function renderReferences(fragment) {
+    const sources = artifact.references?.sources || [];
+    if (!sources.length) return;
+    const section = create("section", "reader-references");
+    section.append(create("h2", null, "References in this specimen"));
+    const list = create("ol");
+    for (const source of sources) {
+      const item = create("li");
+      const link = create("a", null, source.title);
+      link.href = source.url;
+      link.target = "_blank";
+      link.rel = "noreferrer noopener";
+      item.append(document.createTextNode(`${(source.creators || []).join(", ")}. `), link, document.createTextNode(`. ${source.locator || ""}`));
+      list.append(item);
+    }
+    section.append(list);
+    fragment.append(section);
+  }
+
+  function renderGlossary(fragment) {
+    const terms = artifact.glossary?.terms || [];
+    if (!terms.length) return;
+    const section = create("section", "reader-glossary");
+    section.append(create("h2", null, "Working glossary"));
+    const list = create("dl");
+    for (const term of terms) {
+      const group = create("div");
+      group.append(create("dt", null, term.term), create("dd", null, term.definition));
+      list.append(group);
+    }
+    section.append(list);
+    fragment.append(section);
+  }
+
+  function renderSpecimenBoundary(fragment) {
+    const block = create("aside", "specimen-review-state");
+    block.append(
+      create("span", null, "SPECIMEN · PENDING REVIEW"),
+      create("p", null, "This generated artifact demonstrates Lesson Format v1. It has not passed quorum or adjudication and cannot alter the public lesson-coverage ledger.")
+    );
+    fragment.append(block);
+  }
+
+  function buildFrame(scene, { id, title, role, nodes = [], cover = false, part = 1, parts = 1 }) {
+    const frame = create("section", `reader-frame reader-frame--${role}`);
+    frame.classList.toggle("is-continuation", part > 1);
+    const frameId = id.startsWith("frame-") ? id : `frame-${id}`;
+    frame.id = `${scene.id}--${frameId}`;
+    frame.dataset.frameId = frameId;
+    frame.dataset.frameTitle = parts > 1 ? `${title} · ${part}/${parts}` : title;
+    frame.dataset.frameRole = role;
+
+    if (cover) {
+      const header = create("header", "reader-scene-header");
+      header.append(create("span", "scene-number", `${String(activeIndex + 1).padStart(2, "0")} / ${String(scenes.length).padStart(2, "0")} · ${sceneKindLabel(scene.kind)}`));
+      const heading = create("h1", null, scene.title);
+      heading.id = "scene-title";
+      frame.dataset.titleId = heading.id;
+      header.append(heading);
+      const meta = create("div", "scene-meta");
+      meta.append(create("span", null, `${scene.estimatedMinutes || 0} minutes`), create("span", null, scene.required ? "Required scene" : "Optional scene"), create("span", null, scene.source));
+      header.append(meta);
+      renderObjectives(scene, header);
+      frame.append(header);
+    } else {
+      const header = create("header", "reader-frame-header");
+      header.append(create("span", null, `SCENE ${String(activeIndex + 1).padStart(2, "0")} · ${sceneKindLabel(scene.kind)} · ${parts > 1 ? `PAGE ${part} / ${parts}` : role}`));
+      const context = create("p", null, scene.title);
+      const heading = create("h2", null, title);
+      heading.id = `${scene.id}-${frameId}-title`;
+      frame.dataset.titleId = heading.id;
+      header.append(context, heading);
+      frame.append(header);
+    }
+
+    const meaningfulNodes = nodes.filter((node) => node.nodeType !== Node.TEXT_NODE || node.textContent.trim());
+    if (meaningfulNodes.length) {
+      const content = create("div", "reader-scene-content reader-frame-body");
+      content.append(...nodes);
+      frame.append(content);
+    }
+    return frame;
+  }
+
+  function partitionSceneContent(scene) {
+    const compiled = sanitizeCompiledHtml(scene.contentHtml);
+    const intro = [];
+    const sections = [];
+    let current = null;
+    const usedIds = new Set();
+    for (const node of [...compiled.childNodes]) {
+      if (node.nodeType === Node.ELEMENT_NODE && node.tagName === "H1") continue;
+      if (node.nodeType === Node.ELEMENT_NODE && node.tagName === "H2") {
+        const title = node.textContent.trim() || "Continue reading";
+        let id = slug(title);
+        let suffix = 2;
+        while (usedIds.has(id)) id = `${slug(title)}-${suffix++}`;
+        usedIds.add(id);
+        current = { id, title, nodes: [] };
+        sections.push(current);
+        continue;
+      }
+      (current ? current.nodes : intro).push(node);
+    }
+    return { intro, sections };
+  }
+
+  function frameBlockWeight(node) {
+    if (node.nodeType === Node.TEXT_NODE) return node.textContent.trim() ? 10 : 0;
+    const words = node.textContent.trim().split(/\s+/).filter(Boolean).length;
+    const directive = node.dataset?.directive;
+    if (directive === "diagram" || directive === "figure") return 120;
+    if (directive === "worked-example") return 100;
+    if (directive === "chemistry" || directive === "equation") return 65;
+    if (directive) return 80;
+    if (["TABLE", "UL", "OL", "PRE"].includes(node.tagName)) return Math.max(70, words);
+    return Math.max(10, words);
+  }
+
+  function frameNodesWeight(nodes) {
+    return nodes.reduce((total, node) => total + frameBlockWeight(node), 0);
+  }
+
+  function splitFrameNodes(nodes, targetWeight = 100) {
+    const chunks = [];
+    let current = [];
+    let weight = 0;
+    let hasMeaning = false;
+    for (const node of nodes) {
+      const nodeWeight = frameBlockWeight(node);
+      const meaningful = nodeWeight > 0;
+      if (meaningful && hasMeaning && weight + nodeWeight > targetWeight) {
+        chunks.push(current);
+        current = [];
+        weight = 0;
+        hasMeaning = false;
+      }
+      current.push(node);
+      weight += nodeWeight;
+      hasMeaning ||= meaningful;
+    }
+    if (hasMeaning) chunks.push(current);
+    return chunks.length ? chunks : [nodes];
+  }
+
+  function renderScene(scene) {
+    const { intro, sections } = partitionSceneContent(scene);
+    const deck = create("div", "reader-frame-deck");
+    const introFitsCover = frameNodesWeight(intro) <= 70;
+    const frames = [buildFrame(scene, { id: "overview", title: scene.title, role: "orientation", nodes: introFitsCover ? intro : [], cover: true })];
+
+    if (!introFitsCover) {
+      const introChunks = splitFrameNodes(intro, 80);
+      introChunks.forEach((nodes, index) => {
+        frames.push(buildFrame(scene, {
+          id: `opening-context-${index + 1}`,
+          title: "Opening context",
+          role: "orientation",
+          nodes,
+          part: index + 1,
+          parts: introChunks.length
+        }));
+      });
+    }
+
+    sections.forEach((section) => {
+      const chunks = splitFrameNodes(section.nodes);
+      chunks.forEach((nodes, index) => {
+        frames.push(buildFrame(scene, {
+          id: chunks.length > 1 ? `${section.id}-${index + 1}` : section.id,
+          title: section.title,
+          role: "deep-reading",
+          nodes,
+          part: index + 1,
+          parts: chunks.length
+        }));
+      });
+    });
+
+    // One frame per assessment item: a single section wrapping every item cannot be
+    // paginated by splitFrameNodes, so multi-item checks used to overflow the frame.
+    const assessmentItems = assessmentItemsForScene(scene.id);
+    assessmentItems.forEach((item, index) => {
+      const itemFragment = document.createDocumentFragment();
+      renderAssessments(scene, itemFragment, [item]);
+      if (!itemFragment.childNodes.length) return;
+      frames.push(buildFrame(scene, {
+        id: assessmentItems.length > 1 ? `knowledge-check-${index + 1}` : "knowledge-check",
+        title: "Knowledge check",
+        role: "practice",
+        nodes: [...itemFragment.childNodes],
+        part: index + 1,
+        parts: assessmentItems.length
+      }));
+    });
+
+    if (scene.kind === "synthesis" || scene.kind === "references") {
+      const resourceGroups = [];
+      const glossary = document.createDocumentFragment();
+      renderGlossary(glossary);
+      if (glossary.childNodes.length) resourceGroups.push({ id: "glossary", title: "Working glossary", nodes: [...glossary.childNodes] });
+      const references = document.createDocumentFragment();
+      renderReferences(references);
+      if (references.childNodes.length) resourceGroups.push({ id: "references", title: "References", nodes: [...references.childNodes] });
+      if (artifact.attributionHtml) {
+        const attribution = create("details", "reader-references");
+        attribution.append(create("summary", null, "Attribution and provenance"));
+        const body = create("div", "reader-scene-content");
+        body.append(sanitizeCompiledHtml(artifact.attributionHtml));
+        attribution.append(body);
+        resourceGroups.push({ id: "attribution", title: "Attribution and provenance", nodes: [attribution] });
+      }
+      resourceGroups.forEach((group) => {
+        frames.push(buildFrame(scene, {
+          id: group.id,
+          title: group.title,
+          role: "reference",
+          nodes: group.nodes
+        }));
+      });
+    }
+    frames.forEach((frame, index) => {
+      frame.dataset.frameIndex = String(index);
+      deck.append(frame);
+    });
+    currentFrames = frames;
+    sceneContainer.replaceChildren(deck);
+    queueMathFit();
+  }
+
+  function navigationTarget(direction) {
+    if (viewMode === "guided") {
+      const frameIndex = activeFrameIndex + direction;
+      if (currentFrames[frameIndex]) return { sceneIndex: activeIndex, frameIndex, title: currentFrames[frameIndex].dataset.frameTitle };
+      const sceneIndex = activeIndex + direction;
+      if (!scenes[sceneIndex]) return null;
+      return { sceneIndex, frameIndex: direction < 0 ? Number.MAX_SAFE_INTEGER : 0, title: scenes[sceneIndex].title };
+    }
+    const sceneIndex = activeIndex + direction;
+    return scenes[sceneIndex] ? { sceneIndex, frameIndex: 0, title: scenes[sceneIndex].title } : null;
+  }
+
+  function updateControls() {
+    const scene = scenes[activeIndex];
+    const frame = currentFrames[activeFrameIndex];
+    const previous = navigationTarget(-1);
+    const next = navigationTarget(1);
+    const guided = viewMode === "guided";
+    document.querySelector("[data-scene-kind]").textContent = guided ? `Frame ${activeFrameIndex + 1} / ${currentFrames.length}` : sceneKindLabel(scene.kind);
+    document.querySelector("[data-scene-location]").textContent = frame && frame.dataset.frameTitle !== scene.title ? `${scene.title} · ${frame.dataset.frameTitle}` : scene.title;
+    document.querySelector("[data-page-current]").textContent = String(guided ? activeFrameIndex + 1 : activeIndex + 1).padStart(2, "0");
+    document.querySelector("[data-page-total]").textContent = String(guided ? currentFrames.length : scenes.length).padStart(2, "0");
+    document.querySelector("[data-index-progress]").textContent = guided
+      ? `Scene ${activeIndex + 1} / ${scenes.length} · Frame ${activeFrameIndex + 1} / ${currentFrames.length}`
+      : `Scene ${activeIndex + 1} / ${scenes.length}`;
+    document.querySelector("[data-prev-title]").textContent = previous?.title || "Beginning";
+    document.querySelector("[data-next-title]").textContent = next?.title || "End of specimen";
+    document.querySelector("[data-frame-status]")?.replaceChildren(document.createTextNode(guided ? `Guided frame ${activeFrameIndex + 1} of ${currentFrames.length}` : "Continuous scene reading"));
+    if (copyLinkButton && !copyLinkButton.dataset.transientLabel) copyLinkButton.textContent = guided ? "Copy frame link" : "Copy scene link";
+    previousButton.disabled = !previous;
+    nextButton.disabled = !next;
+    sceneNav.querySelectorAll("[data-scene-index]").forEach((link, index) => link.setAttribute("aria-current", String(index === activeIndex)));
+  }
+
+  function frameHash(scene, frameIndex = activeFrameIndex) {
+    const frame = currentFrames[frameIndex];
+    return `#${encodeURIComponent(scene.id)}${frameIndex > 0 && frame ? `/${encodeURIComponent(frame.dataset.frameId)}` : ""}`;
+  }
+
+  function showFrame(index, options = {}) {
+    if (!currentFrames.length) return;
+    activeFrameIndex = Math.max(0, Math.min(index, currentFrames.length - 1));
+    syncFrameVisibility({ scroll: true });
+    updateControls();
+    const scene = scenes[activeIndex];
+    if (options.updateUrl) history.pushState({ sceneId: scene.id, frameId: currentFrames[activeFrameIndex].dataset.frameId }, "", frameHash(scene));
+    if (options.focus) sceneContainer.focus({ preventScroll: true });
+    if (options.announce) announcer.textContent = `Scene ${activeIndex + 1} of ${scenes.length}, frame ${activeFrameIndex + 1} of ${currentFrames.length}: ${currentFrames[activeFrameIndex].dataset.frameTitle}`;
+    queueMathFit();
+  }
+
+  function showScene(index, options = {}) {
+    if (!scenes[index]) return;
+    activeIndex = index;
+    const scene = scenes[index];
+    renderScene(scene);
+    const requestedFrame = options.frameId
+      ? currentFrames.findIndex((frame) => frame.dataset.frameId === options.frameId)
+      : options.frameIndex;
+    activeFrameIndex = Number.isInteger(requestedFrame) && requestedFrame >= 0
+      ? Math.min(requestedFrame, currentFrames.length - 1)
+      : 0;
+    syncFrameVisibility({ scroll: false });
+    updateControls();
+    stage.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+    if (options.updateUrl) history.pushState({ sceneId: scene.id, frameId: currentFrames[activeFrameIndex]?.dataset.frameId }, "", frameHash(scene));
+    if (options.focus) sceneContainer.focus({ preventScroll: true });
+    if (options.announce) announcer.textContent = `Scene ${index + 1} of ${scenes.length}: ${scene.title}. ${currentFrames.length} guided frames.`;
+  }
+
+  function navigate(direction, options = {}) {
+    const target = navigationTarget(direction);
+    if (!target) return;
+    if (target.sceneIndex === activeIndex) showFrame(target.frameIndex, options);
+    else showScene(target.sceneIndex, { ...options, frameIndex: target.frameIndex });
+  }
+
+  function requestedLocation() {
+    let requested = "";
+    try { requested = decodeURIComponent(location.hash.slice(1)); } catch { requested = ""; }
+    const [sceneId, frameId = null] = requested.split("/", 2);
+    const sceneIndex = scenes.findIndex((scene) => scene.id === sceneId);
+    return { sceneIndex: sceneIndex >= 0 ? sceneIndex : 0, frameId };
+  }
+
+  function openIndex() {
+    indexPanel.classList.add("is-open");
+    scrim.classList.add("is-open");
+    syncIndexControl();
+    indexClose.focus();
+  }
+
+  function closeIndex({ returnFocus = false } = {}) {
+    indexPanel.classList.remove("is-open");
+    scrim.classList.remove("is-open");
+    syncIndexControl();
+    if (returnFocus && getComputedStyle(indexOpen).display !== "none") indexOpen.focus();
+  }
+
+  previousButton.addEventListener("click", () => navigate(-1, { updateUrl: true, focus: true, announce: true }));
+  nextButton.addEventListener("click", () => navigate(1, { updateUrl: true, focus: true, announce: true }));
+  indexOpen.addEventListener("click", () => {
+    if (narrowLayout.matches) {
+      if (indexPanel.classList.contains("is-open")) closeIndex();
+      else openIndex();
+      return;
+    }
+    // Focus mode hides the rails, so an explicit request to show one leaves focus mode
+    // instead of silently toggling a preference behind a hidden rail.
+    if (focusMode) {
+      setFocusMode(false);
+      setIndexCollapsed(false);
+      return;
+    }
+    setIndexCollapsed(!indexCollapsed);
+  });
+  indexClose.addEventListener("click", () => closeIndex({ returnFocus: true }));
+  scrim.addEventListener("click", () => closeIndex({ returnFocus: true }));
+  marginToggle?.addEventListener("click", () => {
+    if (focusMode) {
+      setFocusMode(false);
+      setMarginCollapsed(false);
+      return;
+    }
+    setMarginCollapsed(!marginCollapsed);
+  });
+  themeToggle?.addEventListener("click", () => applyTheme(document.body.classList.contains("reader-dark") ? "light" : "dark"));
+  focusToggle?.addEventListener("click", () => setFocusMode(!focusMode));
+  viewToggle?.addEventListener("click", () => applyViewMode(viewMode === "guided" ? "reading" : "guided", { scroll: true }));
+
+  copyLinkButton.addEventListener("click", async (event) => {
+    const button = event.currentTarget;
+    button.dataset.transientLabel = "true";
+    try {
+      await navigator.clipboard.writeText(location.href);
+      button.textContent = "Link copied";
+    } catch {
+      button.textContent = "Scene link is in the address bar";
+    }
+    setTimeout(() => {
+      delete button.dataset.transientLabel;
+      button.textContent = viewMode === "guided" ? "Copy frame link" : "Copy scene link";
+    }, 1800);
+  });
+
+  addEventListener("hashchange", () => {
+    const requested = requestedLocation();
+    const requestedFrameIndex = currentFrames.findIndex((frame) => frame.dataset.frameId === requested.frameId);
+    if (requested.sceneIndex !== activeIndex) showScene(requested.sceneIndex, { frameId: requested.frameId, focus: true, announce: true });
+    else if (requestedFrameIndex >= 0 && requestedFrameIndex !== activeFrameIndex) showFrame(requestedFrameIndex, { focus: true, announce: true });
+  });
+
+  addEventListener("resize", queueMathFit);
+  narrowLayout.addEventListener("change", () => {
+    closeIndex();
+    syncIndexControl();
+    queueMathFit();
+  });
+  systemDark.addEventListener("change", (event) => {
+    if (!readPreference("theme")) applyTheme(event.matches ? "dark" : "light", { persist: false });
+  });
+
+  addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      if (indexPanel.classList.contains("is-open")) closeIndex({ returnFocus: true });
+      else if (focusMode) setFocusMode(false);
+      return;
+    }
+    if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+    if (event.target.closest("input, textarea, select, button, a, [contenteditable='true']")) return;
+    if (viewMode === "reading" && (event.key === "PageUp" || event.key === "PageDown")) return;
+    const actions = {
+      f: () => setFocusMode(!focusMode),
+      F: () => setFocusMode(!focusMode),
+      ArrowLeft: () => navigate(-1, { updateUrl: true, focus: true, announce: true }),
+      PageUp: () => navigate(-1, { updateUrl: true, focus: true, announce: true }),
+      ArrowRight: () => navigate(1, { updateUrl: true, focus: true, announce: true }),
+      PageDown: () => navigate(1, { updateUrl: true, focus: true, announce: true }),
+      Home: () => showScene(0, { updateUrl: true, focus: true, announce: true }),
+      End: () => showScene(scenes.length - 1, { updateUrl: true, focus: true, announce: true })
+    };
+    if (!actions[event.key] || !scenes.length) return;
+    event.preventDefault();
+    actions[event.key]();
+  });
+
+  indexCollapsed = readPreference("indexCollapsed") === "true";
+  marginCollapsed = readPreference("marginCollapsed") === "true";
+  setIndexCollapsed(indexCollapsed, { persist: false });
+  setMarginCollapsed(marginCollapsed, { persist: false });
+  applyTheme(readPreference("theme") || (systemDark.matches ? "dark" : "light"), { persist: false });
+  applyViewMode(readPreference("view") || "guided", { persist: false });
+
+  fetch(dataUrl, { cache: "no-store" })
+    .then((response) => {
+      if (!response.ok) throw new Error(`Rendered specimen returned ${response.status}`);
+      return response.json();
+    })
+    .then(validateArtifact)
+    .then((loaded) => {
+      artifact = loaded;
+      scenes = artifact.scenes;
+      document.title = `${artifact.title} — Lesson specimen · EmbeddedKnowledge`;
+      document.querySelector("[data-reader-duration]").textContent = `${artifact.estimatedMinutes} min`;
+      document.querySelector("[data-artifact-id]").textContent = artifact.id;
+      document.querySelector("[data-artifact-status]").textContent = `${artifact.status} specimen · ${artifact.version}`;
+      document.querySelector("[data-artifact-license]").textContent = artifact.license;
+      const requested = requestedLocation();
+      activeIndex = requested.sceneIndex;
+      buildSceneNav();
+      showScene(activeIndex, { frameId: requested.frameId });
+    })
+    .catch((error) => {
+      const panel = create("div", "reader-error");
+      panel.append(create("span", null, "SPECIMEN UNAVAILABLE"), create("h1", null, "The generated lesson artifact could not be opened."), create("p", null, error.message));
+      const link = create("a", null, "Read the format contract instead →");
+      link.href = "../../../contribute/format/";
+      panel.append(link);
+      sceneContainer.replaceChildren(panel);
+      document.querySelector("[data-scene-location]").textContent = "Artifact unavailable";
+    });
+})();

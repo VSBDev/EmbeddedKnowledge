@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://embeddedknowledge.io/schemas/open-lesson-prs.schema.json",
+  "title": "EmbeddedKnowledge open lesson pull-request index",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "generatedAt", "repository", "source", "summary", "pullRequests"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "repository": { "type": "string", "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$" },
+    "source": { "enum": ["local-placeholder", "github-pull-requests", "test"] },
+    "summary": {
+      "type": "object", "additionalProperties": false,
+      "required": ["openPullRequests", "lessonProposals", "outcomesWithOpenProposals"],
+      "properties": {
+        "openPullRequests": { "type": "integer", "minimum": 0 },
+        "lessonProposals": { "type": "integer", "minimum": 0 },
+        "outcomesWithOpenProposals": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "pullRequests": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["number", "title", "url", "draft", "author", "updatedAt", "headSha", "lessons"],
+        "properties": {
+          "number": { "type": "integer", "minimum": 1 },
+          "title": { "type": "string" },
+          "url": { "type": "string", "format": "uri" },
+          "draft": { "type": "boolean" },
+          "author": { "type": "string" },
+          "updatedAt": { "type": "string", "format": "date-time" },
+          "headSha": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
+          "lessons": {
+            "type": "array", "minItems": 1,
+            "items": {
+              "type": "object", "additionalProperties": false,
+              "required": ["packPath", "id", "version", "title", "riskTier", "outcomeIds", "metadataErrors", "state", "stateLabel", "reviewSummary", "blockers"],
+              "properties": {
+                "packPath": { "type": "string", "pattern": "^lessons/" },
+                "id": { "type": ["string", "null"] },
+                "version": { "type": ["string", "null"] },
+                "title": { "type": "string" },
+                "riskTier": { "type": ["string", "null"] },
+                "outcomeIds": { "type": "array", "uniqueItems": true, "items": { "type": "string", "pattern": "^topic-" } },
+                "metadataErrors": { "type": "array", "items": { "type": "string" } },
+                "state": { "enum": ["invalid", "awaiting-reviews", "awaiting-adjudication", "ready-to-merge", "revision-requested", "rejected"] },
+                "stateLabel": { "type": "string" },
+                "reviewSummary": { "type": "object" },
+                "adjudication": { "type": ["object", "null"] },
+                "blockers": { "type": "array", "items": { "type": "string" } }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

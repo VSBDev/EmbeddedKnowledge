@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://embeddedknowledge.io/schemas/assessment.schema.json",
+  "title": "EmbeddedKnowledge lesson assessment v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "format", "lessonId", "lessonVersion", "assessmentId", "title", "purpose", "attemptPolicy", "items", "rubrics"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "format": { "const": "embeddedknowledge-assessment-v1" },
+    "lessonId": { "$ref": "#/$defs/lessonId" },
+    "lessonVersion": { "$ref": "#/$defs/semver" },
+    "assessmentId": { "type": "string", "pattern": "^assessment-[a-z0-9-]+$" },
+    "title": { "type": "string", "minLength": 5, "maxLength": 160 },
+    "purpose": { "enum": ["formative", "retrieval", "transfer", "mastery-gate", "mixed"] },
+    "attemptPolicy": {
+      "type": "object", "additionalProperties": false,
+      "required": ["retakeable", "timeLimitMinutes", "feedback"],
+      "properties": {
+        "retakeable": { "const": true },
+        "timeLimitMinutes": { "type": ["integer", "null"], "minimum": 1, "maximum": 600 },
+        "feedback": { "enum": ["immediate", "after-attempt", "after-submission", "tutor-mediated"] }
+      }
+    },
+    "items": {
+      "type": "array", "minItems": 1,
+      "items": { "$ref": "#/$defs/item" }
+    },
+    "rubrics": {
+      "type": "array", "minItems": 1,
+      "items": { "$ref": "#/$defs/rubric" }
+    }
+  },
+  "$defs": {
+    "lessonId": { "type": "string", "pattern": "^PREM-[A-Z]{3}-[0-9]{3}$" },
+    "semver": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "outcomeId": { "type": "string", "pattern": "^topic-[a-z0-9-]+$" },
+    "item": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "type", "sceneId", "objectiveIds", "outcomeIds", "prompt", "points", "responseSpec", "answer", "rubricId", "safetyCritical"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^item-[a-z0-9-]+$" },
+        "type": { "enum": ["single-choice", "multiple-choice", "numeric", "short-answer", "ordering", "matching", "data-interpretation", "open-response"] },
+        "sceneId": { "type": "string", "pattern": "^scene-[a-z0-9-]+$" },
+        "objectiveIds": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "pattern": "^objective-[a-z0-9-]+$" } },
+        "outcomeIds": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/outcomeId" } },
+        "prompt": { "type": "string", "minLength": 8, "maxLength": 5000 },
+        "stimulus": { "type": ["string", "null"], "maxLength": 10000 },
+        "points": { "type": "number", "exclusiveMinimum": 0, "maximum": 100 },
+        "responseSpec": { "$ref": "#/$defs/responseSpec" },
+        "answer": { "$ref": "#/$defs/answer" },
+        "rubricId": { "type": "string", "pattern": "^rubric-[a-z0-9-]+$" },
+        "safetyCritical": { "type": "boolean" }
+      }
+    },
+    "responseSpec": {
+      "type": "object", "additionalProperties": false,
+      "required": ["mode"],
+      "properties": {
+        "mode": { "enum": ["single-choice", "multiple-choice", "number", "text", "ordered-ids", "matched-ids"] },
+        "options": {
+          "type": "array", "minItems": 2,
+          "items": {
+            "type": "object", "additionalProperties": false,
+            "required": ["id", "text"],
+            "properties": {
+              "id": { "type": "string", "pattern": "^option-[a-z0-9-]+$" },
+              "text": { "type": "string", "minLength": 1, "maxLength": 1000 }
+            }
+          }
+        },
+        "units": { "type": ["string", "null"], "maxLength": 80 },
+        "tolerance": { "type": ["number", "null"], "minimum": 0 },
+        "maxSelections": { "type": ["integer", "null"], "minimum": 1 },
+        "maxLength": { "type": ["integer", "null"], "minimum": 1, "maximum": 20000 }
+      }
+    },
+    "answer": {
+      "type": "object", "additionalProperties": false,
+      "required": ["correct", "summary", "reasoning", "acceptableResponses", "commonErrors"],
+      "properties": {
+        "correct": {
+          "oneOf": [
+            { "type": "string", "minLength": 1 },
+            { "type": "number" },
+            { "type": "array", "minItems": 1, "items": { "type": "string" } }
+          ]
+        },
+        "summary": { "type": "string", "minLength": 3, "maxLength": 2000 },
+        "reasoning": { "type": "string", "minLength": 10, "maxLength": 8000 },
+        "acceptableResponses": { "type": "array", "items": { "type": "string", "minLength": 1, "maxLength": 2000 } },
+        "commonErrors": { "type": "array", "items": { "type": "string", "minLength": 1, "maxLength": 2000 } }
+      }
+    },
+    "rubric": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "title", "criteria"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^rubric-[a-z0-9-]+$" },
+        "title": { "type": "string", "minLength": 3, "maxLength": 160 },
+        "criteria": {
+          "type": "array", "minItems": 1,
+          "items": {
+            "type": "object", "additionalProperties": false,
+            "required": ["id", "description", "maxPoints"],
+            "properties": {
+              "id": { "type": "string", "pattern": "^criterion-[a-z0-9-]+$" },
+              "description": { "type": "string", "minLength": 5, "maxLength": 1000 },
+              "maxPoints": { "type": "number", "exclusiveMinimum": 0, "maximum": 100 }
+            }
+          }
+        }
+      }
+    }
+  }
+}

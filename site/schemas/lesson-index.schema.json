@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://embeddedknowledge.io/schemas/lesson-index.schema.json",
+  "title": "EmbeddedKnowledge Premed lesson production index",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "generatedAt", "course", "repository", "stateDefinitions", "summary", "domains", "outcomes", "lessons"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "generatedAt": { "type": "string", "minLength": 10 },
+    "course": { "const": "premed" },
+    "repository": { "type": "string", "format": "uri" },
+    "stateDefinitions": {
+      "type": "object", "additionalProperties": false,
+      "required": ["empty", "inReview", "published"],
+      "properties": { "empty": { "type": "string" }, "inReview": { "type": "string" }, "published": { "type": "string" } }
+    },
+    "summary": {
+      "type": "object", "additionalProperties": false,
+      "required": ["outcomes", "mergedLessons", "publishedLessons", "outcomesCoveredByPublishedLessons"],
+      "properties": {
+        "outcomes": { "type": "integer", "minimum": 0 },
+        "mergedLessons": { "type": "integer", "minimum": 0 },
+        "publishedLessons": { "type": "integer", "minimum": 0 },
+        "outcomesCoveredByPublishedLessons": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "domains": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["id", "title", "color", "order"],
+        "properties": { "id": { "type": "string", "pattern": "^domain-" }, "title": { "type": "string" }, "color": { "type": "string" }, "order": { "type": "number" } }
+      }
+    },
+    "outcomes": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["id", "code", "title", "outcome", "summary", "domainId", "domainTitle", "moduleId", "moduleTitle", "requirement", "level", "estimatedHours", "prerequisites", "crossLinks", "lessonIds", "publishedLessonIds"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^topic-" },
+          "code": { "type": "string" },
+          "title": { "type": "string" },
+          "outcome": { "type": "string" },
+          "summary": { "type": "string" },
+          "domainId": { "type": "string", "pattern": "^domain-" },
+          "domainTitle": { "type": "string" },
+          "moduleId": { "type": "string", "pattern": "^module-" },
+          "moduleTitle": { "type": ["string", "null"] },
+          "requirement": { "type": "string" },
+          "level": { "type": "string" },
+          "estimatedHours": { "type": "number", "minimum": 0 },
+          "prerequisites": { "type": "array", "uniqueItems": true, "items": { "type": "string", "pattern": "^topic-" } },
+          "crossLinks": { "type": "array", "uniqueItems": true, "items": { "type": "string" } },
+          "lessonIds": { "type": "array", "uniqueItems": true, "items": { "type": "string", "pattern": "^PREM-" } },
+          "publishedLessonIds": { "type": "array", "uniqueItems": true, "items": { "type": "string", "pattern": "^PREM-" } }
+        }
+      }
+    },
+    "lessons": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["id", "version", "title", "status", "riskTier", "estimatedMinutes", "outcomeIds", "prerequisiteIds", "license", "sourceConfidence", "dataUrl"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^PREM-" },
+          "version": { "type": "string" },
+          "title": { "type": "string" },
+          "status": { "enum": ["draft", "in-review", "adjudicated", "published"] },
+          "riskTier": { "enum": ["minor-correction", "standard", "high-impact"] },
+          "estimatedMinutes": { "type": "integer", "minimum": 0 },
+          "outcomeIds": { "type": "array", "uniqueItems": true, "items": { "type": "string", "pattern": "^topic-" } },
+          "prerequisiteIds": { "type": "array", "uniqueItems": true, "items": { "type": "string", "pattern": "^topic-" } },
+          "license": { "const": "CC-BY-4.0" },
+          "sourceConfidence": { "type": "string" },
+          "dataUrl": { "type": "string", "pattern": "^/data/lessons/" }
+        }
+      }
+    }
+  }
+}

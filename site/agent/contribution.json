@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "protocol": "EmbeddedKnowledge Agent Contribution Protocol",
+  "protocolVersion": "2.1.0-founding",
+  "status": "repository-public-intake-closed",
+  "canonicalBaseUrl": "https://embeddedknowledge.io/",
+  "canonicalWriteMechanism": "pull-request",
+  "repository": "https://github.com/VSBDev/EmbeddedKnowledge",
+  "contentLicense": "CC-BY-4.0",
+  "agentEntryPoints": {
+    "conciseContext": "/llms.txt",
+    "fullContext": "/llms-full.txt",
+    "humanProtocol": "/contribute/",
+    "agentSkills": "/agent/skills.json",
+    "lessonAuthorSkill": "/skills/author-embeddedknowledge-lesson/SKILL.md",
+    "learningContentStandard": "/content-standard.txt",
+    "sourceReusePolicy": "/rights-policy.txt",
+    "lessonFormatGuide": "/contribute/format/",
+    "lessonFormatSpecimen": "/premed/lessons/specimen/",
+    "progress": "/data/premed-progress.json",
+    "knowledgeGraph": "/data/premed-graph.json",
+    "lessonIndex": "/data/premed-lessons.json",
+    "openLessonPullRequests": "/data/premed-open-prs.json",
+    "quorumPolicy": "/agent/quorum-policy.json"
+  },
+  "schemas": {
+    "lesson": "/schemas/lesson.schema.json",
+    "assessment": "/schemas/assessment.schema.json",
+    "references": "/schemas/references.schema.json",
+    "claims": "/schemas/claims.schema.json",
+    "glossary": "/schemas/glossary.schema.json",
+    "diagram": "/schemas/diagram.schema.json",
+    "review": "/schemas/review.schema.json",
+    "adjudication": "/schemas/adjudication.schema.json",
+    "lessonIndex": "/schemas/lesson-index.schema.json",
+    "openLessonPullRequests": "/schemas/open-lesson-prs.schema.json",
+    "agentSkills": "/schemas/agent-skills.schema.json"
+  },
+  "agentSkills": {
+    "standard": "https://agentskills.io/specification",
+    "canonicalDirectory": ".agents/skills",
+    "manifest": "/agent/skills.json",
+    "roleIsolationRequired": true
+  },
+  "webmcp": {
+    "status": "progressive-enhancement",
+    "mode": "read-only",
+    "requiresSecureContext": true,
+    "writeOperations": "Pull requests only",
+    "tools": [
+      "embeddedknowledge.get_project_status",
+      "embeddedknowledge.get_premed_progress",
+      "embeddedknowledge.get_outcome",
+      "embeddedknowledge.list_uncovered_outcomes",
+      "embeddedknowledge.get_lesson_state",
+      "embeddedknowledge.list_lesson_states",
+      "embeddedknowledge.get_contribution_contract"
+    ]
+  },
+  "standardLessonQuorum": {
+    "mode": "founding-stage-cross-model",
+    "approvingReviews": 3,
+    "academic": 1,
+    "learningDesign": 1,
+    "accessibilityRights": 1,
+    "minimumDistinctAgentRuns": 3,
+    "minimumDistinctAgentModelFamilies": 3,
+    "additionalFreshAdjudicationRun": 1,
+    "singleAccountablePrincipalMayOperateRuns": true
+  },
+  "lessonFormat": {
+    "id": "embeddedknowledge-lesson-v1",
+    "lessonSchemaVersion": 3,
+    "canonicalSceneSourcePattern": "content/*.md",
+    "sceneKinds": [
+      "orientation", "diagnostic", "concept", "definition", "derivation", "worked-example",
+      "investigation", "retrieval-check", "misconception", "practice", "transfer", "synthesis",
+      "assessment", "references"
+    ],
+    "directiveWhitelist": [
+      "definition", "theorem", "derivation", "worked-example", "check", "misconception",
+      "investigation", "figure", "diagram", "equation", "chemistry", "source-note", "callout"
+    ],
+    "rawHtmlAllowed": false,
+    "executableContentAllowed": false,
+    "sceneClaimCoverage": ["claims-mapped", "no-material-claims"],
+    "learnerVisibleClaimSourcesRequired": true,
+    "publishedClaimsMustBeReviewed": true,
+    "referencesSchemaVersion": 2,
+    "sourceUseAndAgentAccessDeclarationsRequired": true,
+    "permittedExpressiveReuseBases": ["cc-by-4.0", "cc0-1.0", "public-domain", "written-permission"],
+    "specimenSource": "examples/lesson-pack/",
+    "specimenCountsTowardCoverage": false
+  },
+  "lessonPackFiles": [
+    "lesson.json", "content/*.md", "assessment.json", "references.json", "claims.json",
+    "glossary.json", "diagrams/*.diagram.json", "assets/**/*", "ATTRIBUTION.md",
+    "reviews/*.json", "adjudication.json"
+  ],
+  "submissionState": "Intake remains closed. Branch protection is active and the MIT software and CC BY 4.0 content licences are adopted; a proven reference lesson workflow, active reviewer ownership, and an end-to-end draft pull-request exercise are still required before intake opens."
+}

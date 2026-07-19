@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-diagram-v1",
+  "id": "diagram-model-scope",
+  "type": "concept-map",
+  "direction": "left-to-right",
+  "alt": "Brønsted–Lowry proton-transfer cases sit within the broader Lewis electron-pair model.",
+  "longDescription": "A proton-transfer node points to a Brønsted–Lowry model node. Both point to a broader Lewis electron-pair donor and acceptor node, followed by a model-choice question.",
+  "nodes": [
+    { "id": "node-proton-transfer", "label": "Proton moves", "shape": "rounded-box", "group": "bronsted" },
+    { "id": "node-bronsted", "label": "Brønsted–Lowry: proton donor and acceptor", "shape": "box", "group": "bronsted" },
+    { "id": "node-lewis", "label": "Lewis: electron-pair donor and acceptor", "shape": "box", "group": "lewis" },
+    { "id": "node-question", "label": "Which change must this model explain?", "shape": "diamond", "group": null }
+  ],
+  "edges": [
+    { "id": "edge-proton-bronsted", "from": "node-proton-transfer", "to": "node-bronsted", "kind": "directed", "label": "useful model" },
+    { "id": "edge-bronsted-lewis", "from": "node-bronsted", "to": "node-lewis", "kind": "directed", "label": "electron-pair description also applies" },
+    { "id": "edge-lewis-question", "from": "node-lewis", "to": "node-question", "kind": "directed", "label": "choose by purpose" }
+  ]
+}
