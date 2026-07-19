@@ -330,6 +330,14 @@ export function evaluateProposal(metadata, reviews, adjudication, metadataErrors
   };
 }
 
+export async function resolveGeneratedAt(pullRequests, loadFallbackTimestamp) {
+  const newestPullUpdate = pullRequests.map((pullRequest) => pullRequest.updated_at).filter(Boolean).sort().at(-1);
+  const timestamp = newestPullUpdate || await loadFallbackTimestamp();
+  const parsed = Date.parse(timestamp);
+  if (!timestamp || Number.isNaN(parsed)) throw new Error("Could not determine a valid generatedAt timestamp for the open lesson PR index.");
+  return new Date(parsed).toISOString();
+}
+
 async function buildProposal(pullRequest, packPath, githubReviews) {
   const metadataErrors = [];
   const artifactErrors = [];
@@ -404,9 +412,14 @@ if (isMain) {
     }
   }
   const outcomeIdsWithProposals = new Set(pullRequests.flatMap((pullRequest) => pullRequest.lessons.flatMap((lesson) => lesson.outcomeIds)));
-  // Deterministic timestamp: derive from the newest indexed PR update instead of
-  // the wall clock so the committed index does not diff on every scheduled run.
-  const generatedAt = pulls.map((pullRequest) => pullRequest.updated_at).filter(Boolean).sort().at(-1) || null;
+  // Derive the timestamp from versioned GitHub state rather than the wall clock
+  // so scheduled rebuilds remain stable. An empty PR queue falls back to the
+  // checked-out main commit instead of emitting a schema-invalid null.
+  const generatedAt = await resolveGeneratedAt(pulls, async () => {
+    const commitRef = process.env.GITHUB_SHA || "main";
+    const commit = await api(`/repos/${repository}/commits/${encodeURIComponent(commitRef)}`);
+    return commit.commit?.committer?.date || commit.commit?.author?.date;
+  });
   const output = {
     schemaVersion: 1,
     generatedAt,

@@ -3,7 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import test from "node:test";
 import { fileURLToPath } from "node:url";
-import { evaluateProposal } from "../../scripts/fetch-open-lesson-prs.mjs";
+import { evaluateProposal, resolveGeneratedAt } from "../../scripts/fetch-open-lesson-prs.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const read = (name) => JSON.parse(fs.readFileSync(path.join(root, "examples/agent-protocol", name), "utf8"));
@@ -81,4 +81,16 @@ test("adjudicated is an intermediate state; merge-ready requires published", () 
   const result = evaluateProposal(intermediateLesson, reviews, adjudication, [], [], githubReviews, "example-contributor");
   assert.notEqual(result.state, "ready-to-merge");
   assert.match(result.blockers.join("\n"), /requires lesson\.json status published/);
+});
+
+test("the open-PR index timestamp remains valid when the contribution queue is empty", async () => {
+  const fallback = "2026-07-19T22:15:15Z";
+  assert.equal(await resolveGeneratedAt([], async () => fallback), "2026-07-19T22:15:15.000Z");
+  assert.equal(
+    await resolveGeneratedAt([
+      { updated_at: "2026-07-18T10:00:00Z" },
+      { updated_at: "2026-07-20T09:30:00Z" }
+    ], async () => fallback),
+    "2026-07-20T09:30:00.000Z"
+  );
 });
