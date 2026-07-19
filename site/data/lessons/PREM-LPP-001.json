@@ -1,0 +1,695 @@
+{
+  "schemaVersion": 2,
+  "format": "embeddedknowledge-lesson-v1",
+  "id": "PREM-LPP-001",
+  "version": "0.1.0",
+  "title": "Reading the Premed curriculum map",
+  "status": "draft",
+  "riskTier": "standard",
+  "estimatedMinutes": 90,
+  "outcomes": [
+    "topic-orientation-map-and-pathways"
+  ],
+  "prerequisites": [],
+  "objectives": [
+    {
+      "id": "objective-navigate-map",
+      "statement": "Trace a topic from its domain and module to its stable outcome ID and read the links that affect study order.",
+      "outcomeIds": [
+        "topic-orientation-map-and-pathways"
+      ]
+    },
+    {
+      "id": "objective-distinguish-labels",
+      "statement": "Distinguish prerequisite, cross-link, pathway, requirement, source-tag, and evidence-confidence information without turning a curriculum label into an admissions or truth claim.",
+      "outcomeIds": [
+        "topic-orientation-map-and-pathways"
+      ]
+    },
+    {
+      "id": "objective-plan-route",
+      "statement": "Construct a defensible next-topic plan from a route filter, prerequisite state, and stated learning goal.",
+      "outcomeIds": [
+        "topic-orientation-map-and-pathways"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene-orientation",
+      "title": "A map is a decision tool",
+      "kind": "orientation",
+      "source": "content/010-orientation.md",
+      "estimatedMinutes": 7,
+      "required": true,
+      "claimCoverage": "no-material-claims",
+      "contentHtml": "<h1>A map is a decision tool</h1>\n<p>You open a curriculum map because you need to decide what to learn next. The useful question is not “Where should I click?” but “Which identity, scope label, and dependency justify my next step?”</p>\n<p>In this lesson you will practise three actions:</p>\n<ol>\n<li>locate a learning outcome inside a larger structure;</li>\n<li>separate study-order links from other relationships; and</li>\n<li>turn a route goal and current prerequisite state into a short plan.</li>\n</ol>\n<p>No specialist science knowledge is assumed. You will work with text and tables, so drawing or visually tracing a network is optional.</p>\n<aside class=\"ek-block ek-callout ek-block--boundary\" data-directive=\"callout\">\n    <div class=\"ek-block-label directive-label\">Callout</div>\n    \n    <div class=\"ek-block-content\"><p>This lesson teaches how to read the EmbeddedKnowledge curriculum map. It does not determine whether a school will admit you, replace a current institution-specific prerequisite audit, or certify that you have mastered any science outcome.</p>\n</div>\n  </aside>\n<h2>Deliberate exclusions</h2>\n<p>You will not learn the scientific content inside the mapped topics, calculate course completion, or build a personal admissions strategy. Those tasks require later lessons, demonstrated outcome evidence, or current information from the institution concerned.</p>\n"
+    },
+    {
+      "id": "scene-diagnostic",
+      "title": "Read before learning the legend",
+      "kind": "diagnostic",
+      "source": "content/020-diagnostic.md",
+      "estimatedMinutes": 8,
+      "required": true,
+      "claimCoverage": "no-material-claims",
+      "contentHtml": "<h1>Read before learning the legend</h1>\n<p>The following miniature map is invented for this diagnostic. Its labels do not describe the Premed course.</p>\n<pre><code class=\"language-text\">Domain: Sciences\n  Module: Cells\n    Topic A: membrane model\n    Topic B: diffusion\n\nTopic A --precedes?--&gt; Topic B\nTopic B --related?--- Topic C: osmosis\n</code></pre>\n<p>Without checking later scenes, write brief answers:</p>\n<ol>\n<li>Which label identifies the smallest assessable learning target?</li>\n<li>What extra information would you need before treating either line as a required study order?</li>\n<li>If Topic A is secure, what would justify choosing Topic B next?</li>\n<li>Which part of the map would you use to check whether this cluster belongs to your planned route?</li>\n</ol>\n<p>Record confidence as low, medium, or high. Confidence is not a score; it will help you notice whether a later correction changes both your answer and your certainty.</p>\n<h2>Recovery route</h2>\n<p>If terms such as <em>module</em>, <em>prerequisite</em>, or <em>route</em> are unfamiliar, continue to <strong>The map&#39;s grammar</strong>. The diagnostic assumes no prior map-reading skill. If the nested text is difficult to parse, rewrite it as three lines—domain, module, topic—and answer from that list.</p>\n"
+    },
+    {
+      "id": "scene-concept",
+      "title": "The map's grammar",
+      "kind": "concept",
+      "source": "content/030-concept.md",
+      "estimatedMinutes": 18,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>The map&#39;s grammar</h1>\n<p>A useful reading starts by separating five questions: <strong>What is this item? What contains it? What must normally come first? Which route includes it? What does its evidence label mean?</strong> Mixing those questions produces bad plans even when every displayed word is read correctly.</p>\n<h2>Three layers, one tracked target</h2>\n<table>\n<thead>\n<tr>\n<th>Layer</th>\n<th>Instructional job</th>\n<th>What not to infer</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>Domain</td>\n<td>A broad curricular region</td>\n<td>A domain is not one mastery score.</td>\n</tr>\n<tr>\n<td>Module</td>\n<td>A coherent cluster of related topics</td>\n<td>A module title is not an independently assessed outcome.</td>\n</tr>\n<tr>\n<td>Topic</td>\n<td>An observable outcome tracked as an atomic mastery unit</td>\n<td>Its screen position is not its identity.</td>\n</tr>\n</tbody></table>\n<p>The stable topic ID carries identity when a title is improved or the display is rearranged. A plan should therefore name <code>topic-...</code> IDs, not “the third circle on the left.”</p>\n<h2>Two links with different jobs</h2>\n<p>A <strong>prerequisite</strong> link points from an earlier dependency to the outcome that depends on it. It asserts a normal learning order. A <strong>cross-link</strong> says that two topics illuminate one another; it does not choose which one must be studied first. Containment links answer the separate question of which domain or module owns a child node.</p>\n<p>Read arrows in words. For <code>A → B</code> labelled <em>prerequisite</em>, say: “A should normally be secure before B.” For an A–B cross-link, say: “A and B are conceptually related; this edge alone specifies no order.” This verbal translation prevents visual direction or proximity from silently changing the relation.</p>\n<h2>Scope labels are not dependency links</h2>\n<p><code>requirement</code>, <code>pathway</code>, <code>sourceTags</code>, and <code>evidenceConfidence</code> answer different questions:</p>\n<ul>\n<li><strong>requirement</strong> describes curricular placement such as portable core, medicine bridge, pathway, or on-ramp;</li>\n<li><strong>pathway</strong> supports route filtering;</li>\n<li><strong>source tags</strong> identify evidence families used to justify placement, not membership of a route;</li>\n<li><strong>evidence confidence</strong> reports confidence in curricular placement, not the probability that a scientific claim is true and not the percentage of institutions requiring it.</li>\n</ul>\n<p>For a named route, the effective topic set combines topics tagged for that route with portable-core topics. The portable-core route resolves to its own tagged set. After filtering, prerequisites still decide sequence: membership makes a topic relevant, not automatically ready.</p>\n<h2>A four-pass planning model</h2>\n<ol>\n<li><strong>Identity:</strong> locate the target by stable topic ID and confirm its outcome statement.</li>\n<li><strong>Scope:</strong> apply the route rule and inspect requirement and pathway labels.</li>\n<li><strong>Order:</strong> follow prerequisite edges backward until you reach outcomes already secure or outcomes with no unmet dependencies.</li>\n<li><strong>Evidence and boundary:</strong> read placement evidence honestly, then verify any external admissions requirement with its current primary source.</li>\n</ol>\n<p>The model assumes that the published graph is current enough for curriculum planning and that your mastery record is stored separately. It does not infer mastery from time, confidence, or having opened a lesson.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-map-layers, claim-map-link-types, claim-map-route-resolution, claim-map-label-scope, claim-map-stable-identity</span><span><b>sources</b> source-premed-knowledge-graph</span></div>\n    <div class=\"ek-block-content\"><p>The project knowledge-graph specification defines these node layers, link meanings, route rule, label boundaries, and identity conventions. The claims ledger records their current-version scope.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-worked-example",
+      "title": "Build a route to a study plan",
+      "kind": "worked-example",
+      "source": "content/040-worked-example.md",
+      "estimatedMinutes": 15,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Build a route to a study plan</h1>\n<h2>Task</h2>\n<p>A learner wants to reach <code>topic-orientation-study-plan</code>. Build the shortest prerequisite-respecting route shown by the current map, and explain what the route does and does not establish.</p>\n<h2>Givens and representation</h2>\n<p>The map records this chain:</p>\n<table>\n<thead>\n<tr>\n<th>Outcome ID</th>\n<th>Direct prerequisite</th>\n</tr>\n</thead>\n<tbody><tr>\n<td><code>topic-orientation-map-and-pathways</code></td>\n<td>none</td>\n</tr>\n<tr>\n<td><code>topic-orientation-diagnostic-baseline</code></td>\n<td><code>topic-orientation-map-and-pathways</code></td>\n</tr>\n<tr>\n<td><code>topic-orientation-mastery-and-retrieval</code></td>\n<td><code>topic-orientation-diagnostic-baseline</code></td>\n</tr>\n<tr>\n<td><code>topic-orientation-metacognition-and-error-log</code></td>\n<td><code>topic-orientation-mastery-and-retrieval</code></td>\n</tr>\n<tr>\n<td><code>topic-orientation-study-plan</code></td>\n<td><code>topic-orientation-metacognition-and-error-log</code></td>\n</tr>\n</tbody></table>\n<p>The unknown is the justified study order. The relevant relation is <em>prerequisite</em>, because the task asks about sequence; containment and cross-links cannot answer that question.</p>\n<aside class=\"ek-block ek-worked-example ek-block--worked-example\" data-directive=\"worked-example\">\n    <div class=\"ek-block-label directive-label\">Worked Example</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> worked-example-orientation-route</span></div>\n    <div class=\"ek-block-content\"><ol>\n<li><strong>Select the model.</strong> Use directed prerequisite links, not screen position or module order.</li>\n<li><strong>Plan.</strong> Start at the target, follow each prerequisite backward, stop at a node without a prerequisite, then reverse the collected list.</li>\n<li><strong>Execute.</strong> The resulting order is map-and-pathways → diagnostic-baseline → mastery-and-retrieval → metacognition-and-error-log → study-plan.</li>\n<li><strong>Check direction.</strong> In every adjacent pair, the source is the listed prerequisite of the next outcome. The first topic has no graph prerequisite, so the backward trace is complete.</li>\n<li><strong>Interpret.</strong> If none of these outcomes is yet secure, begin with map-and-pathways. If the first three are already demonstrated, begin with metacognition-and-error-log; do not replay secure work solely because it appears earlier.</li>\n<li><strong>State the boundary.</strong> The chain gives a curriculum dependency, not proof of mastery, a required calendar, or an admissions rule.</li>\n</ol>\n</div>\n  </aside>\n<p>The table and the arrow sentence carry the same relation. The table is convenient for checking one dependency at a time; the arrow chain makes the whole order easier to summarize. Neither representation is the learner&#39;s actual progress record.</p>\n<p><strong>Self-explanation prompt:</strong> Which decision mattered most—choosing a target, recognizing the link type, or reversing the backward trace? Explain why choosing the wrong link type would invalidate the rest of the solution.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-map-layers, claim-map-link-types, claim-map-label-scope, claim-map-stable-identity</span><span><b>sources</b> source-premed-knowledge-graph</span></div>\n    <div class=\"ek-block-content\"><p>The worked example applies the current graph&#39;s stable topic records and directed prerequisite semantics. It makes no claim that completing or viewing a node demonstrates mastery.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-misconception",
+      "title": "A connection is not always an order",
+      "kind": "misconception",
+      "source": "content/050-misconception.md",
+      "estimatedMinutes": 8,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>A connection is not always an order</h1>\n<h2>Commit to a prediction</h2>\n<p>Suppose a map contains <code>A → B</code> as a prerequisite and a cross-link between B and C. Does the map require the order A, then B, then C? Answer before reading on.</p>\n<aside class=\"ek-block ek-misconception ek-block--misconception\" data-directive=\"misconception\">\n    <div class=\"ek-block-label directive-label\">Misconception</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> misconception-every-edge-is-order</span></div>\n    <div class=\"ek-block-content\"><p>An understandable but inadequate rule is: “Every visible connection tells me what comes next.” It works for the A-to-B prerequisite, then fails at the B-to-C cross-link. The cross-link records conceptual relevance without imposing sequence, so it cannot place C after B.</p>\n<p>A more adequate rule first reads the <strong>edge type</strong>. Use prerequisite edges for ordering, containment for hierarchy, and cross-links for integration or later comparison. On the stated evidence, only A before B is required; C&#39;s eligibility depends on C&#39;s own prerequisites.</p>\n</div>\n  </aside>\n<h2>Recheck in a changed case</h2>\n<p>Topic D and Topic E share a module. E has no declared prerequisite, while D has a cross-link to E. Which topic must come first?</p>\n<p>The map fragment imposes no order between them. Choose by the learner&#39;s goal, route, and other prerequisite records. Sharing a container or a cross-link is not a hidden dependency.</p>\n<p>The same discipline applies to labels. A high placement-confidence label does not mean “study immediately,” and a route tag does not mean “prerequisites satisfied.”</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-map-link-types, claim-map-label-scope</span><span><b>sources</b> source-premed-knowledge-graph</span></div>\n    <div class=\"ek-block-content\"><p>The repair contrasts the graph specification&#39;s ordering and non-ordering relations and keeps scope labels separate from readiness.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-practice",
+      "title": "Fade the map-reading support",
+      "kind": "practice",
+      "source": "content/060-practice.md",
+      "estimatedMinutes": 14,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Fade the map-reading support</h1>\n<p>These fictional fragments isolate the map-reading operation. Attempt each prompt before reading its feedback.</p>\n<h2>Completion problem</h2>\n<p>Complete the hierarchy: domain → ______ → topic. Then state which layer should hold an independently tracked observable outcome.</p>\n<p><strong>Feedback after an attempt:</strong> insert <em>module</em>; the topic is the atomic outcome. If you chose domain, you grouped too broadly. Next, practise locating the topic&#39;s stable ID rather than relying on its title.</p>\n<h2>Supported route filter</h2>\n<p>Route R has two R-tagged topics. Three other topics are portable core, and one is tagged only for Route S. Which sets enter Route R before prerequisite ordering?</p>\n<p>Hint: route relevance and learning readiness are separate decisions.</p>\n<p><strong>Feedback after an attempt:</strong> combine the R-tagged and portable-core sets. Do not include the S-only topic from the stated labels. Your next step is still to inspect prerequisites; a relevant topic may remain unavailable.</p>\n<h2>Independent edge selection</h2>\n<p>A fictional learner has demonstrated Topic K. Topic L lists K as a prerequisite. Topic M has only a cross-link to K. Select the next topic that the fragment justifies and name the relation that warrants your choice.</p>\n<p><strong>Feedback after an attempt:</strong> L is justified because its stated prerequisite is met. The cross-link makes M worth inspecting but cannot establish readiness. If you selected M, return to the edge-type translation in <strong>The map&#39;s grammar</strong>.</p>\n<h2>Mixed label discrimination</h2>\n<p>A topic is marked <code>evidenceConfidence: medium</code>, carries a <code>sourceTags</code> entry from an exam outline, and is tagged for a pathway. Write one warranted conclusion and two conclusions that the labels do not warrant.</p>\n<p><strong>Feedback after an attempt:</strong> a warranted conclusion concerns the topic&#39;s placement in the named route and the recorded evidence family. Do not infer that the scientific content is only “medium true,” that every institution requires it, or that the learner has met its prerequisites.</p>\n<p>For an independent scored attempt, complete <code>item-map-order</code>, <code>item-cross-link-order</code>, and <code>item-label-boundary</code> in <code>assessment.json</code>. Retry with the equivalent fragments described in the recovery route rather than memorizing option positions.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-map-layers, claim-map-link-types, claim-map-route-resolution, claim-map-label-scope, claim-map-stable-identity</span><span><b>sources</b> source-premed-knowledge-graph</span></div>\n    <div class=\"ek-block-content\"><p>The practice varies hierarchy, route filtering, edge selection, and label interpretation while applying the same graph contract.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-retrieval",
+      "title": "Reconstruct the legend",
+      "kind": "retrieval-check",
+      "source": "content/070-retrieval.md",
+      "estimatedMinutes": 6,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Reconstruct the legend</h1>\n<p>Close the concept and worked-example scenes. Write from memory before checking the compact model below.</p>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> retrieval-map-legend</span></div>\n    <div class=\"ek-block-content\"><ol>\n<li>Name the three node layers from broadest to most atomic.</li>\n<li>Say a prerequisite arrow in a complete sentence.</li>\n<li>Contrast a prerequisite with a cross-link.</li>\n<li>State how a named route combines its tagged topics with the common spine.</li>\n<li>Explain what <code>evidenceConfidence</code> does not measure.</li>\n</ol>\n</div>\n  </aside>\n<p>Record confidence before checking. Then compare your response with this model: domain → module → topic; a prerequisite normally precedes its dependent; a cross-link adds conceptual relation but no order; a named route includes its tagged topics plus portable core; evidence confidence concerns curricular placement, not factual truth or universal institutional demand.</p>\n<p>If one distinction was missing, retrieve only that distinction again after a short unrelated task. If two or more were missing, reconstruct the four-pass model before attempting the transfer.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-map-layers, claim-map-link-types, claim-map-route-resolution, claim-map-label-scope</span><span><b>sources</b> source-premed-knowledge-graph</span></div>\n    <div class=\"ek-block-content\"><p>The retrieval prompts reconstruct the same bounded node, link, route, and label semantics defined by the current specification.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-transfer",
+      "title": "Adapt the map to a real decision",
+      "kind": "transfer",
+      "source": "content/080-transfer.md",
+      "estimatedMinutes": 9,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Adapt the map to a real decision</h1>\n<p>A fictional learner, Noor, plans to apply to Harbor Medical School next year. Harbor&#39;s current website lists an institution-specific prerequisite that Noor cannot find as a Premed topic title. Noor also wants the Premed US-oriented route.</p>\n<p>This is not a request to guess Harbor&#39;s rule. It is a route-planning problem with an external-boundary check.</p>\n<h2>Your task</h2>\n<p>Write a five-step plan that:</p>\n<ol>\n<li>resolves the named route&#39;s effective topic set;</li>\n<li>locates candidate content by outcome meaning and stable ID rather than title matching alone;</li>\n<li>traces unmet prerequisite links;</li>\n<li>treats cross-links and evidence labels according to their actual jobs; and</li>\n<li>records a separate check of Harbor&#39;s current primary-source requirement.</li>\n</ol>\n<p>Then identify the first topic Noor should study <strong>only if</strong> the supplied mastery record shows its prerequisites secure. The correct response is conditional: the curriculum map can organize a route, but it cannot supply missing external policy or infer mastery.</p>\n<p>This transfer differs from the worked example. The target is not already named by an exact graph ID, the route filter and dependency order must be coordinated, and one decision belongs outside the graph. Complete <code>item-route-plan</code> in <code>assessment.json</code> for the scored version.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-map-layers, claim-map-link-types, claim-map-route-resolution, claim-map-label-scope, claim-map-stable-identity</span><span><b>sources</b> source-premed-knowledge-graph</span></div>\n    <div class=\"ek-block-content\"><p>The transfer applies the graph contract while preserving its explicit boundary: pathway labels are curriculum filters rather than institution-specific admissions promises.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-synthesis",
+      "title": "Your map-reading card",
+      "kind": "synthesis",
+      "source": "content/090-synthesis.md",
+      "estimatedMinutes": 5,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Your map-reading card</h1>\n<p>Before choosing a next topic, write five lines:</p>\n<ol>\n<li><strong>Identity:</strong> target stable topic ID and observable outcome.</li>\n<li><strong>Scope:</strong> requirement and effective route membership.</li>\n<li><strong>Order:</strong> unmet prerequisite chain, read from prerequisite to dependent.</li>\n<li><strong>Evidence:</strong> what the placement labels support and what they do not.</li>\n<li><strong>Action:</strong> the earliest relevant outcome whose prerequisites are secure, plus the evidence used to judge “secure.”</li>\n</ol>\n<p>Use cross-links after or alongside this plan to connect ideas; do not silently turn them into locks. Keep institution-specific requirements in a dated external audit rather than inferring them from graph tags.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-map-layers, claim-map-link-types, claim-map-route-resolution, claim-map-label-scope, claim-map-stable-identity</span><span><b>sources</b> source-premed-knowledge-graph</span></div>\n    <div class=\"ek-block-content\"><p>This card compresses the sourced graph-reading model without changing the meanings or the admissions boundary recorded in the claims ledger.</p>\n</div>\n  </aside>\n<h2>Accessibility and alternatives</h2>\n<p>Every relationship in this lesson is written as a sentence or table row; no answer depends on color, coordinates, visual tracing, audio, hover, dragging, or time pressure. A learner may respond with an ordered list, a table, or spoken text transcribed by an accessible tool. The operation remains the same: identify the node, name the link type, justify scope, and select a next action.</p>\n<h2>Recovery route</h2>\n<ul>\n<li>If hierarchy is unstable, rebuild three lines—domain, module, topic—and retry <code>item-map-order</code> with new labels.</li>\n<li>If order is unstable, translate each edge into a sentence before retrying <code>item-cross-link-order</code> with a different fragment.</li>\n<li>If scope labels are overinterpreted, write “placement, not truth or admission” beside <code>evidenceConfidence</code>, then retry <code>item-label-boundary</code> in your own words.</li>\n<li>If the full plan fails, return to the worked example, mark the first unsupported inference, and retry <code>item-route-plan</code> with one fewer hint. Unlimited untimed attempts are permitted.</li>\n</ul>\n<h2>Delayed retrieval</h2>\n<p>In the next lesson on diagnostic baselines, retrieve the difference between curriculum identity and learner evidence before interpreting a placement result. Reconstruct this five-line card again after at least two days and when a later lesson first asks you to open an unfamiliar prerequisite chain.</p>\n"
+    }
+  ],
+  "authors": [
+    {
+      "principalId": "github:VSBDev",
+      "displayName": "VSBDev",
+      "agent": {
+        "system": "Codex",
+        "provider": "OpenAI",
+        "model": "GPT-5",
+        "version": "Codex CLI 0.144.6",
+        "runId": "codex-author-019f7c89-e690-7180-bba6-a1602a1de10a",
+        "instructionsDigest": "sha256:2b049821cfb96565b5ce4263b1b3400e57c6feddd409547b0d84346e7762a22f"
+      }
+    }
+  ],
+  "license": "CC-BY-4.0",
+  "sourceConfidence": "pending-review",
+  "aiAssistance": {
+    "used": true,
+    "disclosure": "An OpenAI Codex authoring run designed, researched, drafted, and self-audited this local candidate under the accountable principal VSBDev. This disclosure is author provenance, not independent review or evidence of learner effectiveness."
+  },
+  "assessment": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-assessment-v1",
+    "lessonId": "PREM-LPP-001",
+    "lessonVersion": "0.1.0",
+    "assessmentId": "assessment-reading-curriculum-map",
+    "title": "Curriculum map navigation and route planning",
+    "purpose": "mixed",
+    "attemptPolicy": {
+      "retakeable": true,
+      "timeLimitMinutes": null,
+      "feedback": "after-attempt"
+    },
+    "items": [
+      {
+        "id": "item-map-order",
+        "type": "ordering",
+        "sceneId": "scene-practice",
+        "objectiveIds": [
+          "objective-navigate-map"
+        ],
+        "outcomeIds": [
+          "topic-orientation-map-and-pathways"
+        ],
+        "prompt": "Order the node layers from the broadest curricular grouping to the independently tracked observable outcome.",
+        "stimulus": null,
+        "points": 3,
+        "responseSpec": {
+          "mode": "ordered-ids",
+          "options": [
+            {
+              "id": "option-layer-domain",
+              "text": "Domain"
+            },
+            {
+              "id": "option-layer-module",
+              "text": "Module"
+            },
+            {
+              "id": "option-layer-topic",
+              "text": "Topic"
+            }
+          ],
+          "units": null,
+          "tolerance": null,
+          "maxSelections": 3,
+          "maxLength": null
+        },
+        "answer": {
+          "correct": [
+            "option-layer-domain",
+            "option-layer-module",
+            "option-layer-topic"
+          ],
+          "summary": "A domain contains modules, and a module contains atomic topic outcomes.",
+          "reasoning": "The layers answer different identity questions. Domain is the broad region, module is a coherent cluster, and topic is the observable outcome tracked independently.",
+          "acceptableResponses": [],
+          "commonErrors": [
+            "Treating a module as the smallest tracked outcome",
+            "Ordering by visual size or screen position instead of node kind"
+          ]
+        },
+        "rubricId": "rubric-map-order",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-cross-link-order",
+        "type": "single-choice",
+        "sceneId": "scene-misconception",
+        "objectiveIds": [
+          "objective-navigate-map",
+          "objective-distinguish-labels"
+        ],
+        "outcomeIds": [
+          "topic-orientation-map-and-pathways"
+        ],
+        "prompt": "Topic A is a prerequisite of Topic B. Topic B has a cross-link to Topic C. Which order is justified by those two links alone?",
+        "stimulus": null,
+        "points": 2,
+        "responseSpec": {
+          "mode": "single-choice",
+          "options": [
+            {
+              "id": "option-only-a-before-b",
+              "text": "A must normally precede B; no B–C order is established."
+            },
+            {
+              "id": "option-a-b-c",
+              "text": "A must precede B, and B must precede C."
+            },
+            {
+              "id": "option-c-b-a",
+              "text": "C must precede B, and B must precede A."
+            }
+          ],
+          "units": null,
+          "tolerance": null,
+          "maxSelections": 1,
+          "maxLength": null
+        },
+        "answer": {
+          "correct": "option-only-a-before-b",
+          "summary": "Only the prerequisite link establishes order.",
+          "reasoning": "A prerequisite edge directs study from A to B. A cross-link records conceptual connection without direction, so C's place depends on its own prerequisite record and the learner's goal.",
+          "acceptableResponses": [],
+          "commonErrors": [
+            "Treating every visible edge as a prerequisite",
+            "Reading visual proximity as an ordering rule"
+          ]
+        },
+        "rubricId": "rubric-edge-reading",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-label-boundary",
+        "type": "short-answer",
+        "sceneId": "scene-practice",
+        "objectiveIds": [
+          "objective-distinguish-labels"
+        ],
+        "outcomeIds": [
+          "topic-orientation-map-and-pathways"
+        ],
+        "prompt": "A topic has evidenceConfidence set to medium and carries a pathway tag. State what each label supports and name two claims the labels do not justify.",
+        "stimulus": null,
+        "points": 5,
+        "responseSpec": {
+          "mode": "text",
+          "units": null,
+          "tolerance": null,
+          "maxSelections": null,
+          "maxLength": 1200
+        },
+        "answer": {
+          "correct": "Evidence confidence qualifies confidence in curricular placement, and the pathway tag supports route filtering. Neither establishes that the scientific content is only partly true, that every institution requires the topic, that the learner has mastered it, or that its prerequisites are satisfied.",
+          "summary": "Placement and route labels have bounded curricular meanings.",
+          "reasoning": "Label interpretation must preserve the question each field answers. Truth, individual mastery, readiness, and current institution-specific requirements require different evidence.",
+          "acceptableResponses": [
+            "Any response that accurately identifies placement confidence and route membership and rejects at least two unwarranted inferences about truth, mastery, readiness, or universal admissions requirements."
+          ],
+          "commonErrors": [
+            "Reading medium as a probability that the science is true",
+            "Treating a pathway tag as proof of a universal admissions requirement",
+            "Treating route relevance as prerequisite completion"
+          ]
+        },
+        "rubricId": "rubric-label-boundary",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-route-plan",
+        "type": "open-response",
+        "sceneId": "scene-transfer",
+        "objectiveIds": [
+          "objective-navigate-map",
+          "objective-distinguish-labels",
+          "objective-plan-route"
+        ],
+        "outcomeIds": [
+          "topic-orientation-map-and-pathways"
+        ],
+        "prompt": "Construct a five-step plan for a learner who has named a route and an institution-specific goal but has not found an exact title match in the graph. Coordinate stable IDs, effective route membership, prerequisite order, cross-links, placement evidence, mastery evidence, and a current external requirement check.",
+        "stimulus": "The learner's record identifies some secure outcomes, but no result may be inferred merely from lesson completion or confidence. The institution's current primary-source requirement is not included in the graph excerpt.",
+        "points": 10,
+        "responseSpec": {
+          "mode": "text",
+          "units": null,
+          "tolerance": null,
+          "maxSelections": null,
+          "maxLength": 3000
+        },
+        "answer": {
+          "correct": "Resolve the route as its tagged topics plus portable core; search outcome meanings and confirm candidate stable IDs; trace candidate prerequisites backward and compare them with demonstrated mastery; use cross-links only to surface related learning and read placement labels within scope; choose the earliest relevant candidate whose prerequisites are secure while separately verifying the institution's current requirement from its primary source.",
+          "summary": "A defensible plan separates curriculum identity, route scope, dependency order, learner evidence, and external policy.",
+          "reasoning": "No single map field answers all five questions. Stable IDs protect identity, route labels filter relevance, prerequisites order learning, a separate mastery record supports readiness, and only the institution's current source can establish its rule.",
+          "acceptableResponses": [
+            "Equivalent five-step plans are acceptable when they preserve all boundaries and make the next-topic choice conditional on demonstrated prerequisites."
+          ],
+          "commonErrors": [
+            "Searching titles only",
+            "Filtering on source tags instead of the route rule",
+            "Using a cross-link as a lock",
+            "Inferring mastery from completion or confidence",
+            "Treating the map as a current admissions authority"
+          ]
+        },
+        "rubricId": "rubric-route-plan",
+        "safetyCritical": false
+      }
+    ],
+    "rubrics": [
+      {
+        "id": "rubric-map-order",
+        "title": "Hierarchy reconstruction",
+        "criteria": [
+          {
+            "id": "criterion-map-order",
+            "description": "Places domain, module, and topic in the correct containment order.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-topic-role",
+            "description": "Identifies the topic as the independently tracked observable outcome.",
+            "maxPoints": 1
+          }
+        ]
+      },
+      {
+        "id": "rubric-edge-reading",
+        "title": "Edge-type discrimination",
+        "criteria": [
+          {
+            "id": "criterion-prerequisite-direction",
+            "description": "Uses the prerequisite edge to order A before B.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-cross-link-boundary",
+            "description": "Declines to infer an order between B and C from a cross-link.",
+            "maxPoints": 1
+          }
+        ]
+      },
+      {
+        "id": "rubric-label-boundary",
+        "title": "Scope-label interpretation",
+        "criteria": [
+          {
+            "id": "criterion-label-meaning",
+            "description": "States the placement-confidence and route-filter meanings accurately.",
+            "maxPoints": 3
+          },
+          {
+            "id": "criterion-label-noninference",
+            "description": "Rejects at least two unwarranted truth, admissions, mastery, or readiness inferences.",
+            "maxPoints": 2
+          }
+        ]
+      },
+      {
+        "id": "rubric-route-plan",
+        "title": "Integrated map-reading plan",
+        "criteria": [
+          {
+            "id": "criterion-route-scope",
+            "description": "Resolves route scope using tagged topics plus portable core.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-identity-order",
+            "description": "Uses stable outcome identity and traces prerequisite order correctly.",
+            "maxPoints": 3
+          },
+          {
+            "id": "criterion-evidence-boundaries",
+            "description": "Separates cross-links, placement evidence, mastery evidence, and external policy.",
+            "maxPoints": 3
+          },
+          {
+            "id": "criterion-next-action",
+            "description": "Makes the next action conditional on demonstrated prerequisite security and names a recovery or verification step.",
+            "maxPoints": 2
+          }
+        ]
+      }
+    ]
+  },
+  "references": {
+    "schemaVersion": 2,
+    "format": "embeddedknowledge-references-v2",
+    "lessonId": "PREM-LPP-001",
+    "lessonVersion": "0.1.0",
+    "sources": [
+      {
+        "id": "source-premed-knowledge-graph",
+        "type": "official-standard",
+        "title": "Premed Knowledge Graph",
+        "creators": [
+          "EmbeddedKnowledge contributors"
+        ],
+        "publisher": "EmbeddedKnowledge",
+        "issued": "2026-07-19",
+        "url": "https://github.com/VSBDev/EmbeddedKnowledge/blob/main/course/PREMED-KNOWLEDGE-GRAPH.md",
+        "accessed": "2026-07-20",
+        "version": "1.0 candidate",
+        "locator": "Sections 1–3 and 5–8; canonical dataset site/data/premed-graph.json",
+        "license": "CC BY 4.0 under the repository CONTENT-LICENSE.md for course/ and site/data/",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "The lesson independently organizes and expresses the graph's data contract, node and link semantics, route rule, and scope boundaries; it copies no source examples, tables, prose sequence, or media."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://github.com/VSBDev/EmbeddedKnowledge/blob/main/CONTENT-LICENSE.md",
+          "checked": "2026-07-20",
+          "notes": "The agent used the operator-provided local repository checkout. The repository's content license expressly covers course/ and site/data/, and no source-specific restriction on agent processing was found in the applicable project policies."
+        }
+      }
+    ]
+  },
+  "claims": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-claims-v1",
+    "lessonId": "PREM-LPP-001",
+    "lessonVersion": "0.1.0",
+    "claims": [
+      {
+        "id": "claim-map-layers",
+        "statement": "The Premed graph uses domains for broad curricular regions, modules for coherent clusters, and topics for independently tracked observable outcomes.",
+        "sceneIds": [
+          "scene-concept",
+          "scene-worked-example",
+          "scene-practice",
+          "scene-retrieval",
+          "scene-transfer",
+          "scene-synthesis"
+        ],
+        "sourceIds": [
+          "source-premed-knowledge-graph"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "EmbeddedKnowledge Premed knowledge-graph schema version 1.0.0 and curriculum version 1.0 candidate.",
+        "uncertainty": "The graph structure may change in a future version; stable published identity and migration rules should then govern interpretation.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-map-link-types",
+        "statement": "A Premed prerequisite edge directs normal learning order from dependency to dependent, whereas a cross-link records a conceptual relation without imposing order.",
+        "sceneIds": [
+          "scene-concept",
+          "scene-worked-example",
+          "scene-misconception",
+          "scene-practice",
+          "scene-retrieval",
+          "scene-transfer",
+          "scene-synthesis"
+        ],
+        "sourceIds": [
+          "source-premed-knowledge-graph"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "The link semantics declared by the current Premed graph data contract.",
+        "uncertainty": null,
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-map-route-resolution",
+        "statement": "A named Premed route resolves to the union of topics tagged for that route and portable-core topics; source tags record placement evidence and are not route filters.",
+        "sceneIds": [
+          "scene-concept",
+          "scene-practice",
+          "scene-retrieval",
+          "scene-transfer",
+          "scene-synthesis"
+        ],
+        "sourceIds": [
+          "source-premed-knowledge-graph"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Current graph route-resolution rule; portable-core resolves to its own tagged topic set.",
+        "uncertainty": "Pathway instrumentation and route membership can change with a future curriculum version.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-map-label-scope",
+        "statement": "Requirement, pathway, source-tag, and evidence-confidence labels describe curricular scope and placement evidence, not scientific truth probability, individual mastery, prerequisite completion, or universal admissions requirements.",
+        "sceneIds": [
+          "scene-concept",
+          "scene-worked-example",
+          "scene-misconception",
+          "scene-practice",
+          "scene-retrieval",
+          "scene-transfer",
+          "scene-synthesis"
+        ],
+        "sourceIds": [
+          "source-premed-knowledge-graph"
+        ],
+        "support": "synthesis",
+        "confidence": "high",
+        "scope": "Interpretation boundary for fields in the current Premed knowledge graph.",
+        "uncertainty": "Institution-specific admission requirements are external, time-sensitive sources and are not established by these fields.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-map-stable-identity",
+        "statement": "Premed mastery records should use stable topic IDs rather than array position, title, or visual coordinates.",
+        "sceneIds": [
+          "scene-concept",
+          "scene-worked-example",
+          "scene-practice",
+          "scene-transfer",
+          "scene-synthesis"
+        ],
+        "sourceIds": [
+          "source-premed-knowledge-graph"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Identity and versioning rules for the current Premed graph.",
+        "uncertainty": "Retired or split IDs require migration records in later graph versions.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      }
+    ]
+  },
+  "glossary": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-glossary-v1",
+    "lessonId": "PREM-LPP-001",
+    "lessonVersion": "0.1.0",
+    "terms": [
+      {
+        "id": "term-domain",
+        "term": "domain",
+        "definition": "A broad curricular region that contains graph modules and does not itself represent one atomic mastery outcome.",
+        "aliases": [
+          "curriculum domain"
+        ],
+        "sceneIds": [
+          "scene-concept",
+          "scene-practice",
+          "scene-retrieval",
+          "scene-synthesis"
+        ]
+      },
+      {
+        "id": "term-module",
+        "term": "module",
+        "definition": "A coherent graph-scale cluster of related topics inside a domain.",
+        "aliases": [
+          "graph module"
+        ],
+        "sceneIds": [
+          "scene-concept",
+          "scene-practice",
+          "scene-retrieval",
+          "scene-synthesis"
+        ]
+      },
+      {
+        "id": "term-topic",
+        "term": "topic",
+        "definition": "The atomic graph unit whose outcome can be tracked independently in a mastery record.",
+        "aliases": [
+          "topic node",
+          "atomic outcome"
+        ],
+        "sceneIds": [
+          "scene-concept",
+          "scene-worked-example",
+          "scene-practice",
+          "scene-retrieval",
+          "scene-transfer",
+          "scene-synthesis"
+        ]
+      },
+      {
+        "id": "term-prerequisite",
+        "term": "prerequisite",
+        "definition": "An outcome that should normally be secure before a dependent outcome is attempted.",
+        "aliases": [
+          "dependency"
+        ],
+        "sceneIds": [
+          "scene-concept",
+          "scene-worked-example",
+          "scene-misconception",
+          "scene-practice",
+          "scene-retrieval",
+          "scene-transfer",
+          "scene-synthesis"
+        ]
+      },
+      {
+        "id": "term-cross-link",
+        "term": "cross-link",
+        "definition": "A conceptual relationship between topics that does not by itself impose a study order.",
+        "aliases": [
+          "conceptual link"
+        ],
+        "sceneIds": [
+          "scene-concept",
+          "scene-misconception",
+          "scene-practice",
+          "scene-retrieval",
+          "scene-transfer",
+          "scene-synthesis"
+        ]
+      },
+      {
+        "id": "term-pathway",
+        "term": "pathway",
+        "definition": "A route label used with the published resolution rule to select a relevant topic set.",
+        "aliases": [
+          "route"
+        ],
+        "sceneIds": [
+          "scene-concept",
+          "scene-practice",
+          "scene-transfer",
+          "scene-synthesis"
+        ]
+      },
+      {
+        "id": "term-evidence-confidence",
+        "term": "evidence confidence",
+        "definition": "The graph's confidence in a topic's curricular placement, not a probability that its scientific content is true.",
+        "aliases": [
+          "evidenceConfidence"
+        ],
+        "sceneIds": [
+          "scene-concept",
+          "scene-misconception",
+          "scene-practice",
+          "scene-retrieval",
+          "scene-transfer"
+        ]
+      },
+      {
+        "id": "term-source-tag",
+        "term": "source tag",
+        "definition": "A key identifying an evidence family used to support curricular placement; it is not a route-membership rule.",
+        "aliases": [
+          "sourceTags"
+        ],
+        "sceneIds": [
+          "scene-concept",
+          "scene-practice",
+          "scene-transfer"
+        ]
+      }
+    ]
+  },
+  "attributionHtml": "<h1>Attribution</h1>\n<p><code>PREM-LPP-001</code>, version <code>0.1.0</code>, was prepared for EmbeddedKnowledge under the accountable GitHub principal <strong>VSBDev</strong> and is offered under <strong>CC BY 4.0</strong>. The lesson is a local draft with source confidence pending independent review. It is not reviewed, adjudicated, published, or evidence of course coverage.</p>\n<p>The prose, fictional diagnostic fragments, worked reasoning, practice, transfer case, assessment items, answer logic, and glossary were newly created for this lesson. No third-party media, quotations, adapted expression, or dataset extraction is included.</p>\n<h2>Source use and rights</h2>\n<p>The EmbeddedKnowledge <em>Premed Knowledge Graph</em> specification and its canonical local dataset were used as factual references for the project&#39;s current node layers, link semantics, route-resolution rule, label boundaries, and stable-identity conventions. The lesson uses a different instructional sequence and independently written examples and wording. The source is covered by the repository&#39;s CC BY 4.0 content license, but this pack relies only on facts-only original expression. The complete dated use and agent-access record appears in <code>references.json</code>.</p>\n<h2>Agent disclosure</h2>\n<p>Material authoring assistance came from <strong>Codex</strong>, provider <strong>OpenAI</strong>, model <strong>GPT-5</strong>, running through <strong>Codex CLI 0.144.6</strong>, run ID <code>codex-author-019f7c89-e690-7180-bba6-a1602a1de10a</code>.</p>\n<p>The recorded digest is <code>sha256:2b049821cfb96565b5ce4263b1b3400e57c6feddd409547b0d84346e7762a22f</code>. Its disclosed scope is the exact UTF-8 concatenation, in order, of the two user task directives for this loop, the repository <code>AGENTS.md</code> bytes, and <code>.agents/skills/author-embeddedknowledge-lesson/SKILL.md</code> bytes. It excludes hidden provider instructions and does not claim to identify a model snapshot that the runtime did not expose.</p>\n<p>Agent provenance is disclosed and attested by the accountable principal; it is not independently verified and does not count as a review.</p>\n"
+}
