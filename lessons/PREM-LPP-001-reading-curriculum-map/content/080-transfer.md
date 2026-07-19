@@ -8,7 +8,7 @@ This is not a request to guess Harbor's rule. It is a route-planning problem wit
 
 Write a five-step plan that:
 
-1. resolves the named route's effective topic set;
+1. resolves the named route's effective topic set by combining its `pathway`-tagged topics with `core: true` topics when that route includes the common core;
 2. locates candidate content by outcome meaning and stable ID rather than title matching alone;
 3. traces unmet prerequisite links;
 4. treats cross-links and evidence labels according to their actual jobs; and

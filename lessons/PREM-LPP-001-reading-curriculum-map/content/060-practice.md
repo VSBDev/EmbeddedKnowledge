@@ -10,11 +10,11 @@ Complete the hierarchy: domain → ______ → topic. Then state which layer shou
 
 ## Supported route filter
 
-Route R has two R-tagged topics. Three other topics are portable core, and one is tagged only for Route S. Which sets enter Route R before prerequisite ordering?
+Route R is declared to include the common core. Two topics have `pathway: ["R"]`; three other topics have `core: true` because their requirement is `portable-core`; and one topic has only `pathway: ["S"]` with `core: false`. Which sets enter Route R before prerequisite ordering?
 
 Hint: route relevance and learning readiness are separate decisions.
 
-**Feedback after an attempt:** combine the R-tagged and portable-core sets. Do not include the S-only topic from the stated labels. Your next step is still to inspect prerequisites; a relevant topic may remain unavailable.
+**Feedback after an attempt:** combine the R-tagged topics with the three `core: true` topics. Do not include the S-only, `core: false` topic. Common-core membership comes from `core`/`requirement: portable-core`, not from a `portable-core` route tag. Your next step is still to inspect prerequisites; a relevant topic may remain unavailable.
 
 ## Independent edge selection
 

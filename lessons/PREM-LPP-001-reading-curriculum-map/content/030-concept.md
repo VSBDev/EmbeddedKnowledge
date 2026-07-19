@@ -20,14 +20,15 @@ Read arrows in words. For `A → B` labelled *prerequisite*, say: “A should no
 
 ## Scope labels are not dependency links
 
-`requirement`, `pathway`, `sourceTags`, and `evidenceConfidence` answer different questions:
+`requirement`, `core`, `pathway`, `sourceTags`, and `evidenceConfidence` answer different questions:
 
-- **requirement** describes curricular placement such as portable core, medicine bridge, pathway, or on-ramp;
-- **pathway** supports route filtering;
+- **requirement** describes curricular placement. Its complete current legend is `portable-core` (common guaranteed minimum), `medicine-bridge`, `pathway` (required only for a named route or broad qualification), `on-ramp`, and `enrichment` (useful extension outside the guaranteed minimum);
+- **core** is the Boolean membership field used by the route rule for the common portable core; in the current graph it is derived from `requirement: portable-core`;
+- **pathway** is an array of route tags used for route filtering. Do not confuse a topic whose requirement value is `pathway` with the separate `pathway` array;
 - **source tags** identify evidence families used to justify placement, not membership of a route;
 - **evidence confidence** reports confidence in curricular placement, not the probability that a scientific claim is true and not the percentage of institutions requiring it.
 
-For a named route, the effective topic set combines topics tagged for that route with portable-core topics. The portable-core route resolves to its own tagged set. After filtering, prerequisites still decide sequence: membership makes a topic relevant, not automatically ready.
+For a named route that includes the common core, the effective topic set combines topics whose `pathway` array names that route with topics whose `core` field is `true`—equivalently, topics with `requirement: portable-core` in the current graph. A `portable-core` entry in the `pathway` array is not the field that supplies common-core membership for this rule. The portable-core route itself resolves to its own pathway-tagged set. After filtering, prerequisites still decide sequence: membership makes a topic relevant, not automatically ready.
 
 ## A four-pass planning model
 
