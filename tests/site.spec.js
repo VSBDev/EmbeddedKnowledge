@@ -3,6 +3,23 @@ const { test, expect } = require("@playwright/test");
 const siteUrl = process.env.EK_SITE_URL || "http://127.0.0.1:4173/site/";
 const route = (path = "") => new URL(path, siteUrl).href;
 
+async function getJson(request, path) {
+  const response = await request.get(route(path));
+  expect(response.ok(), `${path} should be available`).toBeTruthy();
+  return response.json();
+}
+
+function formattedCoverage(covered, total) {
+  const percentage = total ? (covered / total) * 100 : 0;
+  return Number.isInteger(percentage) ? `${percentage}%` : `${percentage.toFixed(1)}%`;
+}
+
+function proposalOutcomeIds(openPullRequests) {
+  return new Set((openPullRequests.pullRequests || []).flatMap((pullRequest) => (
+    (pullRequest.lessons || []).flatMap((lesson) => lesson.outcomeIds || [])
+  )));
+}
+
 function collectRuntimeErrors(page) {
   const errors = [];
   page.on("console", (message) => {
@@ -39,6 +56,7 @@ test("the root is an EmbeddedKnowledge landing page with a book library", async 
 });
 
 test("Premed opens as a course workspace with explicit scientific disciplines", async ({ page }) => {
+  const progress = await getJson(page.request, "data/premed-progress.json");
   const errors = collectRuntimeErrors(page);
   await page.goto(route("premed/"), { waitUntil: "networkidle" });
 
@@ -47,11 +65,11 @@ test("Premed opens as a course workspace with explicit scientific disciplines", 
   await expect(page.locator(".discipline.gen-chem")).toContainText(/General chemistry.*220h/s);
   await expect(page.locator(".discipline.organic")).toContainText(/Organic chemistry.*150h/s);
   await expect(page.locator(".discipline.biochem")).toContainText(/Biochemistry.*200h/s);
-  await expect(page.locator("[data-coverage-percentage]")).toHaveText("0%");
-  await expect(page.locator("[data-covered-outcomes]")).toHaveText("0");
-  await expect(page.locator("[data-total-outcomes]")).toHaveText("404");
-  await expect(page.locator("[data-contributed-lessons]")).toHaveText("0");
-  await expect(page.locator("[data-open-lessons]")).toHaveText("0");
+  await expect(page.locator("[data-coverage-percentage]")).toHaveText(formattedCoverage(progress.outcomes.coveredByOpenLessons, progress.outcomes.total));
+  await expect(page.locator("[data-covered-outcomes]")).toHaveText(progress.outcomes.coveredByOpenLessons.toLocaleString());
+  await expect(page.locator("[data-total-outcomes]")).toHaveText(progress.outcomes.total.toLocaleString());
+  await expect(page.locator("[data-contributed-lessons]")).toHaveText(progress.lessons.contributed.toLocaleString());
+  await expect(page.locator("[data-open-lessons]")).toHaveText(progress.lessons.publishedOpen.toLocaleString());
   await expect(page.locator(".corpus-contribute")).toContainText("not yet open");
   await expect(page.locator('.course-action.primary[href="lessons/"]')).toContainText("Open the lesson commons");
   await expect(page.locator('.course-action[href="syllabus/"]')).toBeVisible();
@@ -70,6 +88,12 @@ test("Premed opens as a course workspace with explicit scientific disciplines", 
 });
 
 test("the collaboration page defines an agent-first PR interface and accountable quorum", async ({ page }) => {
+  const [lessonIndex, openPullRequests] = await Promise.all([
+    getJson(page.request, "data/premed-lessons.json"),
+    getJson(page.request, "data/premed-open-prs.json")
+  ]);
+  const claimed = proposalOutcomeIds(openPullRequests);
+  const available = lessonIndex.outcomes.filter((outcome) => !(outcome.lessonIds || []).length && !claimed.has(outcome.id));
   const errors = collectRuntimeErrors(page);
   await page.goto(route("contribute/"), { waitUntil: "networkidle" });
 
@@ -86,9 +110,9 @@ test("the collaboration page defines an agent-first PR interface and accountable
   await expect(page.locator(".license-policy")).toContainText("Application code uses the MIT licence");
   await expect(page.locator(".collaboration-page")).toContainText(/intake not yet open/i);
   await expect(page.locator('a[href="format/"]')).toBeVisible();
-  await expect(page.locator("[data-contribution-open-count]")).toHaveText("404");
-  await expect(page.locator("[data-contribution-available]")).toHaveText("404");
-  await expect(page.locator("[data-contribution-claimed]")).toHaveText("0");
+  await expect(page.locator("[data-contribution-open-count]")).toHaveText(available.length.toLocaleString());
+  await expect(page.locator("[data-contribution-available]")).toHaveText(available.length.toLocaleString());
+  await expect(page.locator("[data-contribution-claimed]")).toHaveText(claimed.size.toLocaleString());
   await expect(page.locator("[data-agent-skill]")).toHaveCount(5);
   await expect(page.locator(".skill-grid")).toContainText("Build the candidate");
   await expect(page.locator(".skill-grid")).toContainText("Adjudication");
@@ -96,7 +120,7 @@ test("the collaboration page defines an agent-first PR interface and accountable
   expect(await page.locator("[data-agent-prompt]").inputValue()).toContain(route("llms.txt"));
   expect(await page.locator("[data-agent-prompt]").inputValue()).toContain(route("skills/author-embeddedknowledge-lesson/SKILL.md"));
   expect(await page.locator("[data-agent-prompt]").inputValue()).toContain(route("content-standard.txt"));
-  await expect(page.locator("[data-agent-prompt]")).toHaveValue(/404 available contribution targets/);
+  await expect(page.locator("[data-agent-prompt]")).toHaveValue(new RegExp(`${available.length} available contribution targets`));
   await expect(page.locator("[data-copy-agent-prompt]")).toContainText("Copy agent prompt");
   expect(errors).toEqual([]);
 });
@@ -193,6 +217,17 @@ test("agent discovery endpoints are public, typed, and internally consistent", a
 });
 
 test("WebMCP progressively registers seven read-only discovery tools", async ({ page }) => {
+  const [lessonIndex, openPullRequests, progress] = await Promise.all([
+    getJson(page.request, "data/premed-lessons.json"),
+    getJson(page.request, "data/premed-open-prs.json"),
+    getJson(page.request, "data/premed-progress.json")
+  ]);
+  const claimed = proposalOutcomeIds(openPullRequests);
+  const covered = new Set(progress.outcomes.coveredOutcomeIds || []);
+  const uncoveredCount = lessonIndex.outcomes.filter((outcome) => !covered.has(outcome.id)).length;
+  const emptyCount = lessonIndex.outcomes.filter((outcome) => (
+    !(outcome.publishedLessonIds || []).length && !claimed.has(outcome.id)
+  )).length;
   await page.addInitScript(() => {
     window.__registeredEmbeddedKnowledgeTools = [];
     Object.defineProperty(document, "modelContext", {
@@ -222,19 +257,25 @@ test("WebMCP progressively registers seven read-only discovery tools", async ({ 
     const tool = window.__registeredEmbeddedKnowledgeTools.find((item) => item.name === "embeddedknowledge.list_uncovered_outcomes");
     return tool.execute({ limit: 3, offset: 0 });
   });
-  expect(uncovered.structuredContent).toMatchObject({ ok: true, total: 404, limit: 3, offset: 0 });
-  expect(uncovered.structuredContent.outcomes).toHaveLength(3);
+  expect(uncovered.structuredContent).toMatchObject({ ok: true, total: uncoveredCount, limit: 3, offset: 0 });
+  expect(uncovered.structuredContent.outcomes).toHaveLength(Math.min(3, uncoveredCount));
 
   const states = await page.evaluate(async () => {
     const tool = window.__registeredEmbeddedKnowledgeTools.find((item) => item.name === "embeddedknowledge.list_lesson_states");
     return tool.execute({ state: "empty", limit: 2, offset: 0 });
   });
-  expect(states.structuredContent).toMatchObject({ ok: true, total: 404, limit: 2, offset: 0 });
-  expect(states.structuredContent.states).toHaveLength(2);
+  expect(states.structuredContent).toMatchObject({ ok: true, total: emptyCount, limit: 2, offset: 0 });
+  expect(states.structuredContent.states).toHaveLength(Math.min(2, emptyCount));
   expect(errors).toEqual([]);
 });
 
-test("the Premed open book exposes all empty outcomes and open PR quorum states", async ({ page }) => {
+test("the Premed open book reflects generated publication counts and open PR quorum states", async ({ page }) => {
+  const lessonIndex = await getJson(page.request, "data/premed-lessons.json");
+  const proposalOutcomeId = "topic-acids-bases-acid-base-models";
+  const publishedCount = lessonIndex.outcomes.filter((outcome) => (outcome.publishedLessonIds || []).length).length;
+  const proposalIsPublished = lessonIndex.outcomes.some((outcome) => outcome.id === proposalOutcomeId && (outcome.publishedLessonIds || []).length);
+  const reviewCount = proposalIsPublished ? 0 : 1;
+  const emptyCount = lessonIndex.outcomes.length - publishedCount - reviewCount;
   await page.route("**/data/premed-open-prs.json", async (route) => {
     await route.fulfill({
       contentType: "application/json",
@@ -253,7 +294,7 @@ test("the Premed open book exposes all empty outcomes and open PR quorum states"
             version: "0.1.0",
             title: "Acid-base models and buffer reasoning",
             riskTier: "standard",
-            outcomeIds: ["topic-acids-bases-acid-base-models"],
+            outcomeIds: [proposalOutcomeId],
             state: "awaiting-reviews",
             stateLabel: "AWAITING REVIEWS",
             metadataErrors: [],
@@ -275,13 +316,13 @@ test("the Premed open book exposes all empty outcomes and open PR quorum states"
   await page.goto(route("premed/lessons/"), { waitUntil: "networkidle" });
 
   await expect(page.locator(".lesson-reader-app")).toBeVisible();
-  await expect(page.locator("[data-course-state]")).toContainText("0 of 404 outcomes published · 1 under review · 403 empty");
-  await expect(page.locator("[data-lesson-results]")).toHaveText("404 of 404 outcomes");
-  await expect(page.locator("[data-index-coverage]")).toHaveText("0% published");
+  await expect(page.locator("[data-course-state]")).toContainText(`${publishedCount} of ${lessonIndex.outcomes.length} outcomes published · ${reviewCount} under review · ${emptyCount} empty`);
+  await expect(page.locator("[data-lesson-results]")).toHaveText(`${lessonIndex.outcomes.length} of ${lessonIndex.outcomes.length} outcomes`);
+  await expect(page.locator("[data-index-coverage]")).toHaveText(`${formattedCoverage(publishedCount, lessonIndex.outcomes.length)} published`);
   const courseBanner = page.locator(".reader-course-banner");
   await expect(courseBanner.locator('a[href="specimen/"]')).toBeVisible();
   expect(await courseBanner.evaluate((element) => getComputedStyle(element).backgroundColor)).toBe("rgb(230, 226, 216)");
-  await expect(page.locator(".reader-outcome-link")).toHaveCount(404);
+  await expect(page.locator(".reader-outcome-link")).toHaveCount(lessonIndex.outcomes.length);
   await page.locator("[data-lesson-search]").fill("Acid-base models");
   await expect(page.locator(".reader-outcome-link")).toHaveCount(1);
   await page.locator(".reader-outcome-link").click();
@@ -289,22 +330,35 @@ test("the Premed open book exposes all empty outcomes and open PR quorum states"
   await expect(page.locator(".review-book-state")).toContainText("2/3");
   await expect(page.locator(".review-book-state")).toContainText("Adjudication pending");
 
-  const indexResponse = await page.request.get(route("data/premed-lessons.json"));
-  expect(indexResponse.ok()).toBeTruthy();
-  const lessonIndex = await indexResponse.json();
-  expect(lessonIndex.summary).toMatchObject({ outcomes: 404, mergedLessons: 0, publishedLessons: 0 });
+  expect(lessonIndex.summary).toMatchObject({
+    outcomes: lessonIndex.outcomes.length,
+    mergedLessons: lessonIndex.lessons.length,
+    publishedLessons: lessonIndex.lessons.filter((lesson) => lesson.status === "published").length
+  });
   expect(errors).toEqual([]);
 });
 
-test("Opening the lesson commons shows the empty course and every gap invites contribution", async ({ page }) => {
+test("Opening the lesson commons lets an empty outcome invite contribution", async ({ page }) => {
+  const [lessonIndex, openPullRequests] = await Promise.all([
+    getJson(page.request, "data/premed-lessons.json"),
+    getJson(page.request, "data/premed-open-prs.json")
+  ]);
+  const claimed = proposalOutcomeIds(openPullRequests);
+  const emptyOutcome = lessonIndex.outcomes.find((outcome) => (
+    !(outcome.publishedLessonIds || []).length && !claimed.has(outcome.id)
+  ));
+  expect(emptyOutcome, "the contribution-path test requires at least one empty outcome").toBeTruthy();
   const errors = collectRuntimeErrors(page);
   await page.goto(route("premed/"), { waitUntil: "networkidle" });
   await page.locator('.course-action.primary[href="lessons/"]').click();
   await expect(page).toHaveURL(/\/premed\/lessons\/$/);
   await expect(page.locator(".lesson-reader-app")).toBeVisible();
-  await expect(page.locator(".reader-outcome-link")).toHaveCount(404);
-  await expect(page.locator(".reader-outcome-link").first().locator(".reader-outcome-state")).toHaveAttribute("aria-label", "Empty — contribution needed");
-  await expect(page.locator(".outcome-page-header h1")).toHaveText("Reading the curriculum map");
+  await expect(page.locator(".reader-outcome-link")).toHaveCount(lessonIndex.outcomes.length);
+  await page.locator("[data-lesson-search]").fill(emptyOutcome.code);
+  await expect(page.locator(".reader-outcome-link")).toHaveCount(1);
+  await expect(page.locator(".reader-outcome-link").locator(".reader-outcome-state")).toHaveAttribute("aria-label", "Empty — contribution needed");
+  await page.locator(".reader-outcome-link").click();
+  await expect(page.locator(".outcome-page-header h1")).toHaveText(emptyOutcome.title);
   const viewportLayout = await page.evaluate(() => ({
     documentHeight: document.documentElement.scrollHeight,
     viewportHeight: window.innerHeight,
