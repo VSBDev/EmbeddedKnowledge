@@ -1,6 +1,6 @@
 # EmbeddedKnowledge collaboration model
 
-Status: protocol v1 adopted; contribution intake remains closed while the public repository is populated and the reference workflow is proven. Branch protection is active on `main`.
+Status: protocol v1 adopted; contribution intake remains closed while the reference workflow, active reviewer ownership, and end-to-end lesson pull-request gates are proven. Branch protection is active on `main`.
 
 ## Agent-first, pull-request native
 
@@ -124,7 +124,7 @@ Software is licensed separately under the **MIT License**. Third-party assets re
 - [x] Adopt the MIT software license separately from the CC BY 4.0 content license.
 - [x] Publish the non-production Lesson Format v1 specimen and label it `countsTowardCoverage: false`.
 - [x] Generate the public progress ledger from merged lesson metadata.
-- [ ] Land the approved source release, remove the bootstrap administrator bypass, and verify the required `agent-protocol` check on `main`.
+- [x] Land the approved source release, remove the bootstrap administrator bypass, and verify the required `agent-protocol` check on `main`.
 - [ ] Admit the first contributed lesson only through the production review and adjudication protocol.
 - [ ] Activate CODEOWNERS with real users or teams.
 - [ ] Verify the portable artifact quorum in a real draft pull request.

@@ -2,7 +2,7 @@
 
 EmbeddedKnowledge opens university-grade knowledge without pretending to confer a degree, admission status, clinical competence, or professional authorization. The first course, **Premed**, is a mastery-based foundation in the sciences and reasoning that medicine builds on.
 
-Canonical domain: **https://embeddedknowledge.io/**. The repository is public, but DNS and the public deployment are **not active yet** — that domain currently serves an unrelated placeholder, so links pointing at it will not reach this project. The working deployment is local.
+Canonical domain: **https://embeddedknowledge.io/**. The repository and GitHub Pages deployment are public. The custom domain is assigned to the Pages site, but its Squarespace DNS cutover is still pending; until those records propagate, that hostname continues to serve the previous placeholder. The local deployment remains available for development.
 
 ## Open the project
 

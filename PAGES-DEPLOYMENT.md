@@ -1,6 +1,6 @@
 # GitHub Pages and `embeddedknowledge.io`
 
-Status: deployment workflow prepared; GitHub Pages not yet activated. The project repository is public. A local Git remote is configured only when the maintainer authorizes the first push.
+Status: GitHub Pages activated and publishing from protected `main`. The custom domain `embeddedknowledge.io` is assigned to the Pages site; its Squarespace DNS record cutover and HTTPS certificate provisioning remain pending.
 
 ## Cost and visibility
 
@@ -25,9 +25,9 @@ The Pages workflow:
 
 The hourly scheduled refresh keeps open-PR quorum status visible without granting a PR workflow deployment authority or consuming the full GitHub Free Actions allowance with minute-by-minute builds. Pushes to `main` and manual dispatches refresh immediately.
 
-## Activate Pages after `main` exists
+## Pages activation record
 
-GitHub cannot create the Pages site until the repository has a default branch. After the approved first push creates `main`:
+GitHub could not create the Pages site until the repository had a default branch. After the approved first push created `main`, Pages was activated with GitHub Actions and the deployment was verified. The equivalent recovery commands are retained here:
 
 1. In repository **Settings → Pages**, choose **GitHub Actions** as the publishing source. The equivalent authenticated CLI request is:
 
@@ -42,7 +42,7 @@ GitHub cannot create the Pages site until the repository has a default branch. A
    gh run watch --repo VSBDev/EmbeddedKnowledge
    ```
 
-The workflow's API preflight means scheduled or push-triggered runs remain successful-but-skipped until this activation occurs. It does not attempt to enable Pages with `GITHUB_TOKEN`, because GitHub's official `configure-pages` action requires a different administrative token for that operation.
+The workflow's API preflight means a new fork or restored repository remains successful-but-skipped until Pages is activated. It does not attempt to enable Pages with `GITHUB_TOKEN`, because GitHub's official `configure-pages` action requires a different administrative token for that operation.
 
 ## Connect `embeddedknowledge.io`
 
