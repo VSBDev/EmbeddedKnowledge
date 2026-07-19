@@ -3,6 +3,23 @@ const { test, expect } = require("@playwright/test");
 const siteUrl = process.env.EK_SITE_URL || "http://127.0.0.1:4173/site/";
 const route = (path = "") => new URL(path, siteUrl).href;
 
+async function getJson(request, path) {
+  const response = await request.get(route(path));
+  expect(response.ok(), `${path} should be available`).toBeTruthy();
+  return response.json();
+}
+
+function formattedCoverage(covered, total) {
+  const percentage = total ? (covered / total) * 100 : 0;
+  return Number.isInteger(percentage) ? `${percentage}%` : `${percentage.toFixed(1)}%`;
+}
+
+function proposalOutcomeIds(openPullRequests) {
+  return new Set((openPullRequests.pullRequests || []).flatMap((pullRequest) => (
+    (pullRequest.lessons || []).flatMap((lesson) => lesson.outcomeIds || [])
+  )));
+}
+
 function collectRuntimeErrors(page) {
   const errors = [];
   page.on("console", (message) => {
@@ -13,7 +30,7 @@ function collectRuntimeErrors(page) {
 }
 
 async function advanceUntilVisible(page, selector, maximumFrames = 20) {
-  const target = page.locator(selector);
+  const target = page.locator("[data-scene-container]").locator(selector);
   for (let index = 0; index < maximumFrames; index += 1) {
     if (await target.isVisible()) return target;
     await page.keyboard.press("ArrowRight");
@@ -39,6 +56,7 @@ test("the root is an EmbeddedKnowledge landing page with a book library", async 
 });
 
 test("Premed opens as a course workspace with explicit scientific disciplines", async ({ page }) => {
+  const progress = await getJson(page.request, "data/premed-progress.json");
   const errors = collectRuntimeErrors(page);
   await page.goto(route("premed/"), { waitUntil: "networkidle" });
 
@@ -47,11 +65,11 @@ test("Premed opens as a course workspace with explicit scientific disciplines", 
   await expect(page.locator(".discipline.gen-chem")).toContainText(/General chemistry.*220h/s);
   await expect(page.locator(".discipline.organic")).toContainText(/Organic chemistry.*150h/s);
   await expect(page.locator(".discipline.biochem")).toContainText(/Biochemistry.*200h/s);
-  await expect(page.locator("[data-coverage-percentage]")).toHaveText("0%");
-  await expect(page.locator("[data-covered-outcomes]")).toHaveText("0");
-  await expect(page.locator("[data-total-outcomes]")).toHaveText("404");
-  await expect(page.locator("[data-contributed-lessons]")).toHaveText("0");
-  await expect(page.locator("[data-open-lessons]")).toHaveText("0");
+  await expect(page.locator("[data-coverage-percentage]")).toHaveText(formattedCoverage(progress.outcomes.coveredByOpenLessons, progress.outcomes.total));
+  await expect(page.locator("[data-covered-outcomes]")).toHaveText(progress.outcomes.coveredByOpenLessons.toLocaleString());
+  await expect(page.locator("[data-total-outcomes]")).toHaveText(progress.outcomes.total.toLocaleString());
+  await expect(page.locator("[data-contributed-lessons]")).toHaveText(progress.lessons.contributed.toLocaleString());
+  await expect(page.locator("[data-open-lessons]")).toHaveText(progress.lessons.publishedOpen.toLocaleString());
   await expect(page.locator(".corpus-contribute")).toContainText("not yet open");
   await expect(page.locator('.course-action.primary[href="lessons/"]')).toContainText("Open the lesson commons");
   await expect(page.locator('.course-action[href="syllabus/"]')).toBeVisible();
@@ -70,6 +88,12 @@ test("Premed opens as a course workspace with explicit scientific disciplines", 
 });
 
 test("the collaboration page defines an agent-first PR interface and accountable quorum", async ({ page }) => {
+  const [lessonIndex, openPullRequests] = await Promise.all([
+    getJson(page.request, "data/premed-lessons.json"),
+    getJson(page.request, "data/premed-open-prs.json")
+  ]);
+  const claimed = proposalOutcomeIds(openPullRequests);
+  const available = lessonIndex.outcomes.filter((outcome) => !(outcome.lessonIds || []).length && !claimed.has(outcome.id));
   const errors = collectRuntimeErrors(page);
   await page.goto(route("contribute/"), { waitUntil: "networkidle" });
 
@@ -86,9 +110,9 @@ test("the collaboration page defines an agent-first PR interface and accountable
   await expect(page.locator(".license-policy")).toContainText("Application code uses the MIT licence");
   await expect(page.locator(".collaboration-page")).toContainText(/intake not yet open/i);
   await expect(page.locator('a[href="format/"]')).toBeVisible();
-  await expect(page.locator("[data-contribution-open-count]")).toHaveText("404");
-  await expect(page.locator("[data-contribution-available]")).toHaveText("404");
-  await expect(page.locator("[data-contribution-claimed]")).toHaveText("0");
+  await expect(page.locator("[data-contribution-open-count]")).toHaveText(available.length.toLocaleString());
+  await expect(page.locator("[data-contribution-available]")).toHaveText(available.length.toLocaleString());
+  await expect(page.locator("[data-contribution-claimed]")).toHaveText(claimed.size.toLocaleString());
   await expect(page.locator("[data-agent-skill]")).toHaveCount(5);
   await expect(page.locator(".skill-grid")).toContainText("Build the candidate");
   await expect(page.locator(".skill-grid")).toContainText("Adjudication");
@@ -96,7 +120,7 @@ test("the collaboration page defines an agent-first PR interface and accountable
   expect(await page.locator("[data-agent-prompt]").inputValue()).toContain(route("llms.txt"));
   expect(await page.locator("[data-agent-prompt]").inputValue()).toContain(route("skills/author-embeddedknowledge-lesson/SKILL.md"));
   expect(await page.locator("[data-agent-prompt]").inputValue()).toContain(route("content-standard.txt"));
-  await expect(page.locator("[data-agent-prompt]")).toHaveValue(/404 available contribution targets/);
+  await expect(page.locator("[data-agent-prompt]")).toHaveValue(new RegExp(`${available.length} available contribution targets`));
   await expect(page.locator("[data-copy-agent-prompt]")).toContainText("Copy agent prompt");
   expect(errors).toEqual([]);
 });
@@ -193,6 +217,17 @@ test("agent discovery endpoints are public, typed, and internally consistent", a
 });
 
 test("WebMCP progressively registers seven read-only discovery tools", async ({ page }) => {
+  const [lessonIndex, openPullRequests, progress] = await Promise.all([
+    getJson(page.request, "data/premed-lessons.json"),
+    getJson(page.request, "data/premed-open-prs.json"),
+    getJson(page.request, "data/premed-progress.json")
+  ]);
+  const claimed = proposalOutcomeIds(openPullRequests);
+  const covered = new Set(progress.outcomes.coveredOutcomeIds || []);
+  const uncoveredCount = lessonIndex.outcomes.filter((outcome) => !covered.has(outcome.id)).length;
+  const emptyCount = lessonIndex.outcomes.filter((outcome) => (
+    !(outcome.publishedLessonIds || []).length && !claimed.has(outcome.id)
+  )).length;
   await page.addInitScript(() => {
     window.__registeredEmbeddedKnowledgeTools = [];
     Object.defineProperty(document, "modelContext", {
@@ -222,19 +257,25 @@ test("WebMCP progressively registers seven read-only discovery tools", async ({ 
     const tool = window.__registeredEmbeddedKnowledgeTools.find((item) => item.name === "embeddedknowledge.list_uncovered_outcomes");
     return tool.execute({ limit: 3, offset: 0 });
   });
-  expect(uncovered.structuredContent).toMatchObject({ ok: true, total: 404, limit: 3, offset: 0 });
-  expect(uncovered.structuredContent.outcomes).toHaveLength(3);
+  expect(uncovered.structuredContent).toMatchObject({ ok: true, total: uncoveredCount, limit: 3, offset: 0 });
+  expect(uncovered.structuredContent.outcomes).toHaveLength(Math.min(3, uncoveredCount));
 
   const states = await page.evaluate(async () => {
     const tool = window.__registeredEmbeddedKnowledgeTools.find((item) => item.name === "embeddedknowledge.list_lesson_states");
     return tool.execute({ state: "empty", limit: 2, offset: 0 });
   });
-  expect(states.structuredContent).toMatchObject({ ok: true, total: 404, limit: 2, offset: 0 });
-  expect(states.structuredContent.states).toHaveLength(2);
+  expect(states.structuredContent).toMatchObject({ ok: true, total: emptyCount, limit: 2, offset: 0 });
+  expect(states.structuredContent.states).toHaveLength(Math.min(2, emptyCount));
   expect(errors).toEqual([]);
 });
 
-test("the Premed open book exposes all empty outcomes and open PR quorum states", async ({ page }) => {
+test("the Premed open book reflects generated publication counts and open PR quorum states", async ({ page }) => {
+  const lessonIndex = await getJson(page.request, "data/premed-lessons.json");
+  const proposalOutcomeId = "topic-acids-bases-acid-base-models";
+  const publishedCount = lessonIndex.outcomes.filter((outcome) => (outcome.publishedLessonIds || []).length).length;
+  const proposalIsPublished = lessonIndex.outcomes.some((outcome) => outcome.id === proposalOutcomeId && (outcome.publishedLessonIds || []).length);
+  const reviewCount = proposalIsPublished ? 0 : 1;
+  const emptyCount = lessonIndex.outcomes.length - publishedCount - reviewCount;
   await page.route("**/data/premed-open-prs.json", async (route) => {
     await route.fulfill({
       contentType: "application/json",
@@ -253,7 +294,7 @@ test("the Premed open book exposes all empty outcomes and open PR quorum states"
             version: "0.1.0",
             title: "Acid-base models and buffer reasoning",
             riskTier: "standard",
-            outcomeIds: ["topic-acids-bases-acid-base-models"],
+            outcomeIds: [proposalOutcomeId],
             state: "awaiting-reviews",
             stateLabel: "AWAITING REVIEWS",
             metadataErrors: [],
@@ -275,13 +316,13 @@ test("the Premed open book exposes all empty outcomes and open PR quorum states"
   await page.goto(route("premed/lessons/"), { waitUntil: "networkidle" });
 
   await expect(page.locator(".lesson-reader-app")).toBeVisible();
-  await expect(page.locator("[data-course-state]")).toContainText("0 of 404 outcomes published · 1 under review · 403 empty");
-  await expect(page.locator("[data-lesson-results]")).toHaveText("404 of 404 outcomes");
-  await expect(page.locator("[data-index-coverage]")).toHaveText("0% published");
+  await expect(page.locator("[data-course-state]")).toContainText(`${publishedCount} of ${lessonIndex.outcomes.length} outcomes published · ${reviewCount} under review · ${emptyCount} empty`);
+  await expect(page.locator("[data-lesson-results]")).toHaveText(`${lessonIndex.outcomes.length} of ${lessonIndex.outcomes.length} outcomes`);
+  await expect(page.locator("[data-index-coverage]")).toHaveText(`${formattedCoverage(publishedCount, lessonIndex.outcomes.length)} published`);
   const courseBanner = page.locator(".reader-course-banner");
   await expect(courseBanner.locator('a[href="specimen/"]')).toBeVisible();
   expect(await courseBanner.evaluate((element) => getComputedStyle(element).backgroundColor)).toBe("rgb(230, 226, 216)");
-  await expect(page.locator(".reader-outcome-link")).toHaveCount(404);
+  await expect(page.locator(".reader-outcome-link")).toHaveCount(lessonIndex.outcomes.length);
   await page.locator("[data-lesson-search]").fill("Acid-base models");
   await expect(page.locator(".reader-outcome-link")).toHaveCount(1);
   await page.locator(".reader-outcome-link").click();
@@ -289,22 +330,35 @@ test("the Premed open book exposes all empty outcomes and open PR quorum states"
   await expect(page.locator(".review-book-state")).toContainText("2/3");
   await expect(page.locator(".review-book-state")).toContainText("Adjudication pending");
 
-  const indexResponse = await page.request.get(route("data/premed-lessons.json"));
-  expect(indexResponse.ok()).toBeTruthy();
-  const lessonIndex = await indexResponse.json();
-  expect(lessonIndex.summary).toMatchObject({ outcomes: 404, mergedLessons: 0, publishedLessons: 0 });
+  expect(lessonIndex.summary).toMatchObject({
+    outcomes: lessonIndex.outcomes.length,
+    mergedLessons: lessonIndex.lessons.length,
+    publishedLessons: lessonIndex.lessons.filter((lesson) => lesson.status === "published").length
+  });
   expect(errors).toEqual([]);
 });
 
-test("Opening the lesson commons shows the empty course and every gap invites contribution", async ({ page }) => {
+test("Opening the lesson commons lets an empty outcome invite contribution", async ({ page }) => {
+  const [lessonIndex, openPullRequests] = await Promise.all([
+    getJson(page.request, "data/premed-lessons.json"),
+    getJson(page.request, "data/premed-open-prs.json")
+  ]);
+  const claimed = proposalOutcomeIds(openPullRequests);
+  const emptyOutcome = lessonIndex.outcomes.find((outcome) => (
+    !(outcome.publishedLessonIds || []).length && !claimed.has(outcome.id)
+  ));
+  expect(emptyOutcome, "the contribution-path test requires at least one empty outcome").toBeTruthy();
   const errors = collectRuntimeErrors(page);
   await page.goto(route("premed/"), { waitUntil: "networkidle" });
   await page.locator('.course-action.primary[href="lessons/"]').click();
   await expect(page).toHaveURL(/\/premed\/lessons\/$/);
   await expect(page.locator(".lesson-reader-app")).toBeVisible();
-  await expect(page.locator(".reader-outcome-link")).toHaveCount(404);
-  await expect(page.locator(".reader-outcome-link").first().locator(".reader-outcome-state")).toHaveAttribute("aria-label", "Empty — contribution needed");
-  await expect(page.locator(".outcome-page-header h1")).toHaveText("Reading the curriculum map");
+  await expect(page.locator(".reader-outcome-link")).toHaveCount(lessonIndex.outcomes.length);
+  await page.locator("[data-lesson-search]").fill(emptyOutcome.code);
+  await expect(page.locator(".reader-outcome-link")).toHaveCount(1);
+  await expect(page.locator(".reader-outcome-link").locator(".reader-outcome-state")).toHaveAttribute("aria-label", "Empty — contribution needed");
+  await page.locator(".reader-outcome-link").click();
+  await expect(page.locator(".outcome-page-header h1")).toHaveText(emptyOutcome.title);
   const viewportLayout = await page.evaluate(() => ({
     documentHeight: document.documentElement.scrollHeight,
     viewportHeight: window.innerHeight,
@@ -358,19 +412,19 @@ test("the generated lesson specimen behaves as a no-body-scroll interactive book
   await advanceUntilVisible(page, '[data-directive="chemistry"] math');
   await expect(page).toHaveURL(/#scene-concept\/frame-bronsted-lowry-model/);
   await advanceUntilVisible(page, '[data-directive="diagram"]');
-  await expect(page.locator(".ek-long-description")).toContainText("Read the diagram as text");
+  await expect(page.locator("[data-scene-container] .ek-long-description")).toContainText("Read the diagram as text");
 
   await page.locator(".reader-scene-link", { hasText: "Annotating conjugate pairs" }).click();
   await advanceUntilVisible(page, '[data-directive="figure"]');
-  const specimenImage = page.locator('[data-directive="figure"] img');
+  const specimenImage = page.locator('[data-scene-container] [data-directive="figure"] img');
   await expect(specimenImage).toBeVisible();
   expect(await specimenImage.evaluate((image) => image.complete && image.naturalWidth > 0)).toBeTruthy();
   await expect(specimenImage).toHaveAttribute("src", /\/assets\/lesson-specimen\/assets\/conjugate-pairs\.svg$/);
 
   await page.locator(".reader-scene-link", { hasText: "A buffer under perturbation" }).click();
   await advanceUntilVisible(page, '[data-directive="equation"] math');
-  await expect(page.locator('[data-directive="equation"] math')).toBeVisible();
-  await expect(page.locator('[data-directive="equation"] annotation')).toContainText("A^- + H^+");
+  await expect(page.locator('[data-scene-container] [data-directive="equation"] math')).toBeVisible();
+  await expect(page.locator('[data-scene-container] [data-directive="equation"] annotation')).toContainText("A^- + H^+");
 
   await page.locator(".reader-scene-link", { hasText: "Model-choice practice" }).click();
   await page.locator("[data-view-toggle]").click();
@@ -386,6 +440,101 @@ test("the generated lesson specimen behaves as a no-body-scroll interactive book
   expect(artifactResponse.ok()).toBeTruthy();
   const artifact = await artifactResponse.json();
   expect(artifact).toMatchObject({ artifactType: "lesson-specimen", nonProduction: true, countsTowardCoverage: false });
+  expect(errors).toEqual([]);
+});
+
+test("a published lesson opens through its production route with keyboard and complete print paths", async ({ page }) => {
+  const [lessonIndex, specimen] = await Promise.all([
+    getJson(page.request, "data/premed-lessons.json"),
+    getJson(page.request, "data/lessons/specimen.json")
+  ]);
+  const lessonId = "PREM-LPP-001";
+  const targetOutcome = lessonIndex.outcomes[0];
+  const productionArtifact = {
+    ...specimen,
+    artifactType: "production-lesson",
+    id: lessonId,
+    version: "1.0.0",
+    status: "published",
+    nonProduction: undefined,
+    countsTowardCoverage: undefined,
+    disclaimer: undefined
+  };
+  const productionLesson = {
+    id: lessonId,
+    version: productionArtifact.version,
+    title: productionArtifact.title,
+    status: "published",
+    riskTier: productionArtifact.riskTier,
+    estimatedMinutes: productionArtifact.estimatedMinutes,
+    outcomeIds: [targetOutcome.id],
+    prerequisiteIds: [],
+    license: productionArtifact.license,
+    sourceConfidence: productionArtifact.sourceConfidence,
+    dataUrl: `/data/lessons/${lessonId}.json`,
+    readerUrl: `/premed/lessons/read/?lesson=${lessonId}`
+  };
+  const routedIndex = structuredClone(lessonIndex);
+  routedIndex.lessons = [...routedIndex.lessons.filter((lesson) => lesson.id !== lessonId), productionLesson];
+  const routedOutcome = routedIndex.outcomes.find((outcome) => outcome.id === targetOutcome.id);
+  routedOutcome.lessonIds = [...new Set([...(routedOutcome.lessonIds || []), lessonId])];
+  routedOutcome.publishedLessonIds = [...new Set([...(routedOutcome.publishedLessonIds || []), lessonId])];
+
+  await page.route("**/data/premed-lessons.json", (route) => route.fulfill({ contentType: "application/json", body: JSON.stringify(routedIndex) }));
+  await page.route(`**/data/lessons/${lessonId}.json`, (route) => route.fulfill({ contentType: "application/json", body: JSON.stringify(productionArtifact) }));
+  const errors = collectRuntimeErrors(page);
+  await page.goto(route(`premed/lessons/?outcome=${targetOutcome.id}`), { waitUntil: "networkidle" });
+
+  const openLesson = page.getByRole("link", { name: "Open reviewed lesson" });
+  await expect(openLesson).toHaveAttribute("href", new RegExp(`/premed/lessons/read/\\?lesson=${lessonId}$`));
+  await openLesson.click();
+  await expect(page).toHaveURL(new RegExp(`/premed/lessons/read/\\?lesson=${lessonId}$`));
+  await expect(page.locator("[data-artifact-id]")).toHaveText(lessonId);
+  await expect(page.locator("[data-artifact-status]")).toHaveText("published · 1.0.0");
+  await expect(page.locator(".reader-production-banner")).toContainText("OPEN PREMED LESSON");
+  await expect(page.locator("[data-scene-location]")).not.toHaveText("Artifact unavailable");
+
+  await expect(page.locator(".reader-scene-header h1")).toHaveText(productionArtifact.scenes[0].title);
+  await page.keyboard.press("End");
+  await expect(page.locator(".reader-scene-header h1")).toHaveText(productionArtifact.scenes.at(-1).title);
+  await expect(page).toHaveURL(new RegExp(`#${productionArtifact.scenes.at(-1).id}$`));
+  await page.keyboard.press("Home");
+  await expect(page.locator(".reader-scene-header h1")).toHaveText(productionArtifact.scenes[0].title);
+  await page.keyboard.press("ArrowRight");
+  await expect(page.locator("[data-reader-announcer]")).toContainText(/frame 2 of/i);
+
+  const shortAnswer = productionArtifact.assessment.items.find((item) => item.responseSpec?.mode === "text");
+  const shortAnswerScene = productionArtifact.scenes.find((scene) => scene.id === shortAnswer.sceneId);
+  await page.locator(".reader-scene-link", { hasText: shortAnswerScene.title }).click();
+  const shortAnswerSelector = `textarea[name="response-${shortAnswer.id}"]`;
+  await advanceUntilVisible(page, shortAnswerSelector);
+  await expect(page.locator(shortAnswerSelector)).toHaveAttribute("placeholder", "Write your response in your own words.");
+
+  const resourceScene = productionArtifact.scenes.findLast((scene) => ["synthesis", "references"].includes(scene.kind));
+  await page.locator(".reader-scene-link", { hasText: resourceScene.title }).click();
+  const attributionFrame = page.locator('[data-frame-id="frame-attribution"]');
+  await expect(attributionFrame).toHaveCount(1);
+  await expect(attributionFrame.locator("h1")).toHaveCount(0);
+  await expect(attributionFrame.locator("h2")).toHaveCount(1);
+  await expect(attributionFrame.locator("h2")).toHaveText("Attribution and provenance");
+
+  await page.emulateMedia({ media: "print" });
+  const printDocument = page.locator("[data-print-document]");
+  await expect(printDocument).toBeVisible();
+  await expect(printDocument.locator(".reader-print-scene")).toHaveCount(productionArtifact.scenes.length);
+  await expect(printDocument.locator('.reader-print-scene[data-required="true"]')).toHaveCount(productionArtifact.scenes.filter((scene) => scene.required).length);
+  await expect(printDocument.locator(".reader-print-assessment-item")).toHaveCount(productionArtifact.assessment.items.length);
+  await expect(printDocument.locator(".reader-references")).toContainText(productionArtifact.references.sources[0].title);
+  await expect(printDocument.locator(".reader-glossary dt")).toHaveCount(productionArtifact.glossary.terms.length);
+  await expect(printDocument.locator(".reader-print-attribution")).toContainText("Attribution and provenance");
+  await expect(printDocument.locator("h1")).toHaveCount(1);
+  const duplicateIds = await page.locator("body").evaluate((body) => {
+    const counts = new Map();
+    body.querySelectorAll("[id]").forEach((element) => counts.set(element.id, (counts.get(element.id) || 0) + 1));
+    return [...counts].filter(([, count]) => count > 1).map(([id]) => id);
+  });
+  expect(duplicateIds).toEqual([]);
+  await expect(page.locator(".reader-shell")).toBeHidden();
   expect(errors).toEqual([]);
 });
 
@@ -415,8 +564,9 @@ test("guided frames keep dense prose screen-sized while reading mode restores co
   expect(readingFlow.scrollHeight).toBeGreaterThan(readingFlow.clientHeight * 2);
 
   await page.emulateMedia({ media: "print" });
-  const printedDisplays = await page.locator(".reader-frame").evaluateAll((frames) => frames.map((frame) => getComputedStyle(frame).display));
-  expect(new Set(printedDisplays)).toEqual(new Set(["block"]));
+  await expect(page.locator("[data-print-document]")).toBeVisible();
+  await expect(page.locator("[data-print-document] .reader-print-scene")).toHaveCount(8);
+  await expect(page.locator(".reader-shell")).toBeHidden();
   expect(errors).toEqual([]);
 });
 
@@ -516,7 +666,7 @@ test("chemistry and equation cards fit narrow pages without lateral scrolling", 
   await page.goto(route("premed/lessons/specimen/#scene-concept"), { waitUntil: "networkidle" });
 
   const assertFormulaFits = async (selector) => {
-    const block = page.locator(selector);
+    const block = page.locator("[data-scene-container]").locator(selector);
     await expect(block.locator('math[display="block"]')).toBeVisible();
     await expect.poll(() => block.locator("math").getAttribute("data-fit-scale")).not.toBeNull();
     const dimensions = await block.evaluate((element) => {
@@ -542,7 +692,7 @@ test("chemistry and equation cards fit narrow pages without lateral scrolling", 
   await advanceUntilVisible(page, '[data-directive="chemistry"]');
   await assertFormulaFits('[data-directive="chemistry"]');
   await advanceUntilVisible(page, '[data-directive="diagram"] .ek-diagram-visual');
-  const diagramDimensions = await page.locator('[data-directive="diagram"] .ek-diagram-visual').evaluate((element) => ({
+  const diagramDimensions = await page.locator('[data-scene-container] [data-directive="diagram"] .ek-diagram-visual').evaluate((element) => ({
     clientWidth: element.clientWidth,
     scrollWidth: element.scrollWidth,
     direction: getComputedStyle(element).flexDirection,
@@ -618,7 +768,7 @@ test("the graph page renders every node and relationship", async ({ page }) => {
 test("mobile navigation and all routes avoid horizontal page overflow", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
 
-  for (const path of ["", "premed/", "premed/syllabus/", "premed/graph/", "premed/lessons/", "premed/lessons/specimen/", "contribute/", "contribute/format/"]) {
+  for (const path of ["", "premed/", "premed/syllabus/", "premed/graph/", "premed/lessons/", "premed/lessons/read/?lesson=PREM-LPP-001", "premed/lessons/specimen/", "contribute/", "contribute/format/"]) {
     await page.goto(route(path), { waitUntil: "networkidle" });
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
     expect(overflow, `${path || "root"} should not overflow`).toBeLessThanOrEqual(1);
