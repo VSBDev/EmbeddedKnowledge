@@ -43,6 +43,7 @@
   let marginCollapsed = false;
   let focusMode = false;
   let viewMode = "guided";
+  let indexFocusFrame = 0;
   const frameOverflowObserver = typeof ResizeObserver === "function"
     ? new ResizeObserver(() => syncGuidedFrameScrolling())
     : null;
@@ -868,18 +869,40 @@
     return { sceneIndex: sceneIndex >= 0 ? sceneIndex : 0, frameId };
   }
 
+  function focusIndexEntry(attempt = 0) {
+    cancelAnimationFrame(indexFocusFrame);
+    indexFocusFrame = requestAnimationFrame(() => {
+      indexFocusFrame = 0;
+      if (!narrowLayout.matches || !indexPanel.classList.contains("is-open")) return;
+      const currentSceneLink = sceneNav.querySelector('[aria-current="true"]');
+      const target = [indexClose, currentSceneLink].find((element) => {
+        if (!element) return false;
+        const style = getComputedStyle(element);
+        return style.display !== "none" && style.visibility !== "hidden" && element.getClientRects().length > 0;
+      });
+      if (!target) {
+        if (attempt < 12) focusIndexEntry(attempt + 1);
+        return;
+      }
+      target.focus({ preventScroll: true });
+      if (document.activeElement !== target && attempt < 12) focusIndexEntry(attempt + 1);
+    });
+  }
+
   function openIndex() {
     indexPanel.classList.add("is-open");
     scrim.classList.add("is-open");
     syncIndexControl();
-    indexClose.focus();
+    focusIndexEntry();
   }
 
   function closeIndex({ returnFocus = false } = {}) {
+    cancelAnimationFrame(indexFocusFrame);
+    indexFocusFrame = 0;
     indexPanel.classList.remove("is-open");
     scrim.classList.remove("is-open");
     syncIndexControl();
-    if (returnFocus && getComputedStyle(indexOpen).display !== "none") indexOpen.focus();
+    if (returnFocus && getComputedStyle(indexOpen).display !== "none") indexOpen.focus({ preventScroll: true });
   }
 
   previousButton.addEventListener("click", () => navigate(-1, { updateUrl: true, focus: true, announce: true }));
