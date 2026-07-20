@@ -26,6 +26,8 @@ The target model has five linked propositions:
 4. A useful error-log entry links observation to hypothesis, targeted action, and a fresh probe. The entry is a decision aid, not evidence of mastery by itself.
 5. New performance evidence can revise both the error hypothesis and the confidence judgment; neither becomes a stable label for the learner.
 
+Every fictional record that derives an observed score from process evidence declares its weights and any dependency among criteria. In particular, model-execution credit is awarded only for accurate execution of a model applicable under the stated condition. This makes each derived percentage and signed gap independently reproducible.
+
 ## Observable objectives and mastery evidence
 
 - **Objective 1:** classify a bounded error by locating the earliest unsupported operation and justify uncertainty or a discriminating probe.
@@ -54,7 +56,7 @@ No image, audio, video, third-party dataset, personal record, or physical activi
 
 ## Worked example and practice progression
 
-The worked example uses an invented two-model task whose rules are supplied in the scene. It exposes the task, givens, unknown, selected monitoring/control model, plan, ordered analysis, calibration calculation, independent check, interpretation, and self-explanation prompt.
+The worked example uses an invented two-model task whose rules and four equally weighted rubric criteria are supplied in the scene. Execution credit is explicitly contingent on selecting an applicable model, so the 50% observed score and positive 40-point gap follow from the declared rule. The example exposes the task, givens, unknown, selected monitoring/control model, plan, ordered analysis, calibration calculation, independent check, interpretation, and self-explanation prompt.
 
 Practice fades as follows:
 
@@ -86,8 +88,8 @@ Feedback states whether the chain is supported, names the first unresolved opera
 ### `source-carpenter-calibration-training`
 
 - **Source:** Carpenter et al. (2019), *Domain-general enhancements of metacognitive ability through adaptive training*.
-- **Exact support:** in the reported controlled study, feedback directed at metacognitive judgments improved calibration on the trained perceptual task relative to performance-only feedback and generalized to an untrained recognition-memory task.
-- **Scope and uncertainty:** small experimental groups, laboratory perceptual and memory tasks, and one training design. It does not establish universal educational transfer or a stable personal trait.
+- **Exact support:** in the reported controlled study, feedback directed at repeated trial-level metacognitive judgments improved calibration assessed with a quadratic score equal to one minus the Brier score on the trained perceptual task relative to performance-only feedback and generalized to an untrained recognition-memory task; the study also analysed metacognitive efficiency with signal-detection indices.
+- **Scope and uncertainty:** small experimental groups, laboratory perceptual and memory tasks, repeated trial-level judgments, and one training design. Its quadratic and signal-detection measures are not the lesson's single-task signed predicted-minus-observed rubric gap, so it does not validate that quantity, establish how it changes, show universal educational transfer, or support a stable personal trait.
 - **Use and rights:** factual reference only; no stimulus, dataset, figure, table, or wording is reused. The PMC open-access record displays CC BY.
 - **Agent access:** NCBI terms and usage guidance checked 2026-07-20; no agent restriction found for this limited access.
 
@@ -111,7 +113,7 @@ Feedback states whether the chain is supported, names the first unresolved opera
 - Monitoring, control, and calibration definitions are presented as bounded scholarly constructs.
 - Retrieval-based monitoring evidence is described within the studied tasks and never as a universal guarantee.
 - The five operation categories and error-log procedure are labelled as an author-created useful model and inference, not a validated or exhaustive taxonomy.
-- The training finding is reported as one study with explicit task and transfer limits.
+- The training finding is reported as one study with explicit task, measure, and transfer limits; its repeated-trial measures are distinguished from the lesson's single-task signed gap.
 - All claims remain `pending-review` until independent governance occurs.
 
 ## Accessibility and rights boundaries
@@ -126,8 +128,8 @@ Feedback states whether the chain is supported, names the first unresolved opera
 
 - **Accountable principal:** `github:VSBDev`, verified with `gh api user --jq .login` on 2026-07-20.
 - **Agent:** Codex / OpenAI / GPT-5 / Codex CLI 0.144.6.
-- **Run ID:** `/root/author_prem_lpp_004`.
-- **Instructions digest:** `sha256:ef391e5f1e0b8cffd5151748b33defc0c6528dd2c8881b15c24485fbbbe35758`.
-- **Digest scope:** SHA-256 of the exact UTF-8 text of the discloseable material task instructions supplied by the orchestrating parent, including its final newline; hidden provider/system instructions are excluded.
+- **Run ID:** `/root/lesson4_governance/author_revision`.
+- **Instructions digest:** `sha256:115e86520cd7fa649143870605b04226d1d8b41abea179064398dd3eedbcff7a`.
+- **Digest scope:** SHA-256 of the complete nonempty author-revision instruction file supplied to this run; hidden provider/system instructions are excluded.
 
-Self-audit checks: trace every claim to its exact scope; recompute calibration gaps; attempt all prompts before answer logic; verify the first-broken-link categories do not become personal labels; check continuous/nonvisual equivalents; verify original synthesis, source access, and absence of private data.
+Self-audit checks: trace every claim to its exact scope; reproduce every scored percentage from declared weights and dependencies; recompute calibration gaps; distinguish the external study's repeated-trial measures from the lesson's signed task-level gap; attempt all prompts before answer logic; verify the first-broken-link categories do not become personal labels; check continuous/nonvisual equivalents; verify original synthesis, source access, and absence of private data.

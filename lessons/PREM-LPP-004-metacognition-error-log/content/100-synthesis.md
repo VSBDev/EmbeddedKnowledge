@@ -21,7 +21,7 @@ Read linearly, each row states evidence, hypothesis, action, and fresh probe. Th
 
 ## Confidence route
 
-For each matched task, compute predicted rubric percentage minus observed rubric percentage. Describe the direction and size on that task. Look for a pattern across comparable, delayed, or varied probes before changing the confidence routine. If predictions repeatedly exceed performance, require the learner to cite observable response evidence before predicting a score. If predictions repeatedly fall below strong performance, compare the completed response with the rubric and schedule another independent verification. When confidence and performance do not use the same scoring rule, keep them separate. Targeted feedback can revise calibration, but no one study or log guarantees general transfer.
+For each matched task, compute predicted rubric percentage minus observed rubric percentage. Describe the direction and size on that task. Look for a pattern across comparable, delayed, or varied probes before changing the confidence routine. If predictions repeatedly exceed performance, require the learner to cite observable response evidence before predicting a score. If predictions repeatedly fall below strong performance, compare the completed response with the rubric and schedule another independent verification. When confidence and performance do not use the same scoring rule, keep them separate. Research using repeated trial-level quadratic and signal-detection measures shows that confidence–accuracy correspondence can respond to targeted feedback, but those measures are not this lesson's $G$; no one study or log establishes how the signed gap will change or guarantees general transfer.
 
 ## Recovery route
 

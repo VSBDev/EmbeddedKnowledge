@@ -3,10 +3,10 @@
 ## Lesson contribution
 
 - **Lesson:** `PREM-LPP-004` — *Use metacognition and error logs to choose the next learning action*
-- **Version:** `0.1.0`
+- **Version:** `0.1.1`
 - **Accountable contributor:** [VSBDev](https://github.com/VSBDev) (`github:VSBDev`), verified through the authenticated GitHub CLI on 2026-07-20.
 - **Content license:** [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/) (`CC-BY-4.0`).
-- **Suggested attribution:** Based on EmbeddedKnowledge, “PREM-LPP-004 — Use metacognition and error logs to choose the next learning action,” version 0.1.0, by VSBDev, licensed CC BY 4.0. Changes: describe any changes.
+- **Suggested attribution:** Based on EmbeddedKnowledge, “PREM-LPP-004 — Use metacognition and error logs to choose the next learning action,” version 0.1.1, by VSBDev, licensed CC BY 4.0. Changes: describe any changes.
 
 The contributor attests that the original lesson prose, fictional rules, examples, tables, calculations, prompts, feedback, assessment items, rubrics, and authoring brief may be licensed on those terms.
 
@@ -16,9 +16,9 @@ The contributor attests that the original lesson prose, fictional rules, example
 - **Provider:** OpenAI
 - **Model:** GPT-5
 - **Version:** Codex CLI 0.144.6
-- **Run ID:** `/root/author_prem_lpp_004`
-- **Material-instructions digest:** `sha256:ef391e5f1e0b8cffd5151748b33defc0c6528dd2c8881b15c24485fbbbe35758`
-- **Digest scope:** SHA-256 of the exact UTF-8 text of the discloseable material task instructions supplied to this isolated author run by its orchestrating parent, including the final newline. Hidden provider/system instructions that cannot be exported are excluded.
+- **Run ID:** `/root/lesson4_governance/author_revision`
+- **Material-instructions digest:** `sha256:115e86520cd7fa649143870605b04226d1d8b41abea179064398dd3eedbcff7a`
+- **Digest scope:** SHA-256 of the complete nonempty author-revision instruction file supplied to this isolated run. Hidden provider/system instructions that cannot be exported are excluded.
 - **Role boundary:** author only. This run did not review, approve, adjudicate, publish, push, or merge the lesson.
 
 ## Source use and expression

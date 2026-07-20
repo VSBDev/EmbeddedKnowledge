@@ -27,11 +27,11 @@ Avoid trait labels such as “an overconfident learner.” One result does not e
 
 The five operation categories—interpret, retrieve, select, execute, verify—organize evidence for action. They do not become more certain because a number was calculated. If intermediate work is missing, write “unresolved between selection and execution” and choose a probe that makes the plan visible.
 
-One controlled study found that adaptive feedback about metacognitive judgments improved calibration on the trained perceptual task relative to performance-only feedback and generalized to an untrained recognition-memory task. That bounded result supports treating calibration as revisable, but the small laboratory study does not prove general transfer to every Premed task or validate this lesson's log.
+One controlled study found that adaptive feedback about metacognitive judgments improved calibration on the trained perceptual task relative to performance-only feedback and generalized to an untrained recognition-memory task. The study aggregated repeated trial-level probability judgments with a quadratic score equal to one minus the Brier score and also analysed signal-detection measures; it did not use this lesson's one-task signed rubric-percentage gap. The result therefore supports the general claim that confidence–performance correspondence can be revised with feedback, not the behaviour or validity of this lesson's $G$. The small laboratory study also does not prove general transfer to every Premed task or validate this lesson's log.
 
 :::{source-note}
 :claims: claim-calibration-definition, claim-operational-categories, claim-calibration-feedback
 :sources: source-debruin-monitoring-control, source-content-standard, source-carpenter-calibration-training
 
-The definition follows the confidence–performance relation used in calibration research. The signed-gap convention, examples, and task-bounded language are original here. The training finding is stated with its experimental limits.
+The broad confidence–performance relation is source grounded. The lesson's signed-gap convention is explicitly separated from the study's repeated-trial quadratic and signal-detection measures; the examples and task-bounded language are original here.
 :::

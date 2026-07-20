@@ -18,7 +18,7 @@
 
 Suppose Learner Two predicts earning 95% of the declared rubric points before feedback. That creates a large positive confidence–performance gap on this task, but it still does not tell you whether selection failed because the condition was unnoticed, misunderstood, or confused with another condition. Calibration data and operation evidence answer related but different questions.
 
-Suppose Learner One predicts earning 30% of the declared rubric points and then performs strongly on two delayed, varied execution probes. The next action may be confidence feedback plus another later verification, not full content reteaching. A controlled laboratory study suggests that calibration can change with targeted feedback, but it does not justify a guarantee or a personality label.
+Suppose Learner One predicts earning 30% of the declared rubric points and then performs strongly on two delayed, varied execution probes. The next action may be confidence feedback plus another later verification, not full content reteaching. A controlled laboratory study suggests that repeated trial-level confidence–accuracy correspondence can change with targeted feedback. Its quadratic and signal-detection measures differ from this lesson's single-task signed gap, so the study does not establish how $G$ changes, justify a guarantee, or support a personality label.
 
 :::{source-note}
 :claims: claim-calibration-definition, claim-retrieval-cues, claim-error-log-loop, claim-operational-categories, claim-calibration-feedback

@@ -4,7 +4,7 @@ Work in order. Commit each response before reading its feedback. The support dec
 
 ## 1. Complete a log entry
 
-**Record.** The task asks which of two supplied rules applies. Mira restates the condition correctly, writes both rules, and leaves the choice blank. After committing the response, Mira predicts earning 35% of the declared rubric points; observed rubric performance is 50% because interpretation and retrieval are supported.
+**Record.** The task asks which of two supplied rules applies. Its four-part rubric assigns 25% each for interpretation, retrieval, selection, and execution; verification is not scored in this completion task. Mira restates the condition correctly, writes both rules, and leaves the choice blank. After committing the response, Mira predicts earning 35% of the declared rubric points. Observed rubric performance is 50%: interpretation and retrieval earn 25 points each, while selection and execution earn 0.
 
 Complete: “The earliest unsupported operation is ___ because ___. The signed gap is ___. The next action should ___, followed by ___.”
 
@@ -12,10 +12,10 @@ Complete: “The earliest unsupported operation is ___ because ___. The signed g
 
 ## 2. Compare two records
 
-Both tasks provide the same model and values.
+Both tasks provide the same model and values. Their five-part rubric assigns 15% to interpretation, 15% to retrieval, 10% to selection, 40% to accurate execution, and 20% to the required range check.
 
-- **Record Ash:** the learner selects the correct model, substitutes one value into the wrong location, notices that the result violates the supplied range, and predicts earning 55% of the declared rubric points. Observed rubric performance is 60%.
-- **Record Brook:** the learner selects the correct model and executes it accurately but does not perform the required range check; the unverified answer happens to be correct. The learner predicts earning 95% of the declared rubric points. Observed rubric performance is 80%.
+- **Record Ash:** the learner interprets the task, retrieves and selects the correct model, substitutes one value into the wrong location, notices that the result violates the supplied range, and predicts earning 55% of the declared rubric points. Observed rubric performance is 60%: $15+15+10+0+20$.
+- **Record Brook:** the learner interprets the task, retrieves and selects the correct model, and executes it accurately but does not perform the required range check; the unverified answer happens to be correct. The learner predicts earning 95% of the declared rubric points. Observed rubric performance is 80%: $15+15+10+40+0$.
 
 For each record, name the first unsupported operation and choose a next probe. Then interpret the confidence gap without calling either learner generally confident or unconfident.
 
@@ -23,7 +23,7 @@ For each record, name the first unsupported operation and choose a next probe. T
 
 ## 3. Resolve uncertainty instead of guessing
 
-**Record Cedar.** The final answer is wrong. No intermediate work was preserved. The learner predicted earning 80% of the declared rubric points; the observed rubric score is 0%.
+**Record Cedar.** This task uses an all-or-none 100-point rubric for the final answer: a correct answer earns 100%, and an incorrect answer earns 0%. The final answer is wrong, and no intermediate work was preserved. The learner predicted earning 80% of the declared rubric points; the observed rubric score is therefore 0%.
 
 Create the shortest defensible log entry.
 

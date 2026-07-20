@@ -8,9 +8,9 @@
 - Model A applies only when condition Alpha is present.
 - Model B applies only when condition Beta is present.
 
-The prompt states that Beta is present and asks the learner to choose a model, carry out its two supplied steps, and state a conclusion. The rubric assigns 25 points each for interpreting the condition, retrieving both model rules, selecting the applicable model, and executing the selected steps.
+The prompt states that Beta is present and asks the learner to choose a model, carry out its two supplied steps, and state a conclusion. The rubric assigns 25 points each for interpreting the condition, retrieving both model rules, selecting the applicable model, and correctly executing the applicable model's steps. The execution criterion is contingent on applicability: accurately carrying out an inapplicable model earns zero execution points.
 
-**Observed record.** Before feedback, Kai correctly restates that Beta is present, writes both model rules accurately, selects Model A, executes Model A's supplied steps without a procedural slip, and gives the wrong conclusion. After committing the response, Kai predicts earning 90% of the declared rubric points. The observed rubric performance is 50%: interpretation and retrieval are correct; selection and final execution under the applicable model are not.
+**Observed record.** Before feedback, Kai correctly restates that Beta is present, writes both model rules accurately, selects Model A, executes Model A's supplied steps without a procedural slip, and gives the wrong conclusion. After committing the response, Kai predicts earning 90% of the declared rubric points. The observed rubric performance is 50%: interpretation earns 25 points and retrieval earns 25 points; selection earns 0 because Model A is inapplicable, and execution earns 0 under the declared contingent rule.
 
 **Unknown.** Which operation first failed, how is confidence calibrated on this attempt, and what should happen next?
 
@@ -23,7 +23,7 @@ The prompt states that Beta is present and asks the learner to choose a model, c
 1. Interpretation is supported: Kai correctly records Beta.
 2. Retrieval is supported: both conditional rules are stated accurately.
 3. Selection is contradicted: Beta calls for Model B, but Kai selects Model A. This is the first broken link.
-4. Accurate execution of Model A does not rescue the answer because Model A is inapplicable. The later wrong conclusion follows from the earlier selection error.
+4. Accurate execution of Model A does not rescue the answer because Model A is inapplicable. It earns zero execution points under the declared rubric, so $25+25+0+0=50$ points. The later wrong conclusion follows from the earlier selection error.
 5. The signed calibration gap is $90-50=+40$ percentage points. Predicted rubric performance exceeded observed performance on this task.
 6. The next action is a short contrast set in which Alpha and Beta appear in varied wording and the learner must name the decisive condition before choosing a model. Rereading both full procedures would be broader than the evidence requires.
 7. The fresh probe supplies a new pair of conditions after a delay, asks for the condition–model justification before execution, and records confidence only after the response is committed.
