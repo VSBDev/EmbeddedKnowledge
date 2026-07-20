@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-LPP-002-ACCESS-CODEX-FINAL-V2-571636E7",
+  "lessonId": "PREM-LPP-002",
+  "lessonVersion": "0.1.2",
+  "candidateCommit": "2c2d339d91de3c30d924af60d4c4a378ec19f201",
+  "role": "accessibility-rights",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accessibility-and-rights reviewer via Codex",
+    "agent": {
+      "system": "Codex",
+      "provider": "OpenAI",
+      "model": "GPT-5",
+      "version": "Codex CLI 0.144.6",
+      "runId": "codex-accessibility-rights-571636e7-4342-4790-a94c-6acc8d788687",
+      "instructionsDigest": "sha256:09bf4463d445412d12d0e3ab5459f2a3b7b9222b462f74b7d116959cbdea27ef"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#version-0.1.2, ordered scenes, authorship, CC-BY-4.0 license, empty thirdPartyAssets, and pack file declarations at candidate 2c2d339d91de3c30d924af60d4c4a378ec19f201",
+    "content/010-orientation.md through content/110-references.md#semantic source order, headings, tables, accessibility alternatives, recovery, privacy boundaries, untimed prompts, and text response routes",
+    "assessment.json#attemptPolicy, all four item prompts/stimuli/responseSpec records, answer logic, common errors, rubrics, retry conditions, and production-reader operation",
+    "claims.json, glossary.json, ATTRIBUTION.md, and AUTHORING-BRIEF.md#claim scope, terminology, contributor grant, agent disclosure, original-material declaration, access alternatives, privacy, and source dossier",
+    "references.json#all four factual-reference uses, facts-only-original-expression bases, CC BY 4.0 notices, exact source versions/locators, and dated agentAccess records; no source is human-only",
+    "Referenced repository sources at commit 76882799c7614eeb9307687bceab33896a79bb13: PREMED-SYLLABUS.md sections 3.2, 4, 7, 18; CONTENT-STANDARD.md sections 2, 5.1, 6-8, 13; evidence synthesis sections 4, 6-9, 12; three graph nodes",
+    "Manual source-expression comparison across lesson prose, organization, fictional examples, questions, operational tables, assessment cases, and the cited repository-owned sources; no close paraphrase or source-derived media was identified",
+    "Chrome production-reader check at 1280x720 with reduced motion: 11 scenes, 85 guided frames, logical visible h1/h2/h3 structure, table headers, keyboard Home/End navigation, labelled controls, live feedback, bounded labelled overflow, continuous reading, and complete print resources",
+    "Chrome narrow/touch check at 390x844 with reduced motion: no document/body/stage horizontal overflow; Contents opens by keyboard, moves focus inside, closes with Escape, returns focus, and scene Home/End navigation works from the reader stage",
+    "Chrome 200% CSS-zoom check at a 1280x720 viewport: body and stage reflowed without horizontal overflow; print exposed 11 scenes, four assessment items, references, glossary, attribution, and one document h1",
+    "Security/privacy scan of candidate-owned non-governance files and Git tree modes: regular local text/JSON only; no symlinks, assets, diagrams, SVG, TeX, code fences, raw HTML, scripts, event handlers, unsafe schemes, remote embeds, traversal, secrets, or identifiable learner/patient records",
+    "npm ci; npm run validate; npm test; review.schema.json validation; candidate identity and worktree-scope checks; automated results used as supporting rather than conclusive accessibility evidence",
+    "Agent provenance: Codex/OpenAI/GPT-5/Codex CLI 0.144.6; fresh run codex-accessibility-rights-571636e7-4342-4790-a94c-6acc8d788687; digest covers the exact discloseable user assignment with no terminal newline"
+  ],
+  "findings": [
+    {
+      "severity": "blocking",
+      "target": "assessment.json#item-build-baseline (production reader response path)",
+      "finding": "The canonical item places the Cedar, Flint, and Harbor response record in its stimulus and requires the learner to classify and route those three nodes. In the implemented production reader for PREM-LPP-002, the open-response form renders the prompt and textarea but omits the stimulus completely: no node name or observation is exposed in the form. This ten-point item is the lesson's complete classify–justify–route mastery evidence, so keyboard, screen-reader, touch, and sighted learners cannot perform the declared core operation. The print document contains the stimulus but exposes answer guidance in the same output and therefore is not an equivalent attempt-before-feedback assessment route.",
+      "resolution": "Render item.stimulus adjacent to the prompt with semantic structure before the labelled response control in the interactive production reader; preserve it in narrow, zoomed, continuous-reading, keyboard, screen-reader, touch, and print paths; keep answer guidance hidden until an attempt; add a browser assertion that Cedar, Flint, and Harbor are present before response; regenerate and freeze a new candidate for review."
+    },
+    {
+      "severity": "major",
+      "target": "assessment.json#item-separate-confidence (production reader response path)",
+      "finding": "The canonical item declares a multiple-choice response with four statements, maxSelections 2, and a prompt to select the two statements that preserve the evidence. The implemented production reader treats every non-single-choice item as a short-answer form: it displays one textarea, omits all four option statements, and supplies no two-selection operation. Learners are asked to select statements they cannot perceive or operate, so the browser path does not preserve the declared assessment conditions or equivalent keyboard/screen-reader/touch participation.",
+      "resolution": "Render the four options as one fieldset with a meaningful legend and four labelled checkboxes, expose the two-selection instruction programmatically, support keyboard and touch operation without timing, and return live reasoning-rich feedback; add a browser assertion for all option texts and two checkbox selections before freezing a new candidate."
+    },
+    {
+      "severity": "note",
+      "target": "content/010-orientation.md#accessibility-and-alternatives; content/090-synthesis.md#recovery-route",
+      "finding": "The canonical lesson provides outcome-equivalent source-order prose and semantic tables, explicitly rejects color/position/sound/motion/hover/drag/handwriting/speed-only distinctions, offers keyboard/text/speech-to-text/scribe routes, distinguishes response-format barriers from knowledge evidence, and supplies actionable recovery without requiring private disability or health data.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "references.json; lesson.json#thirdPartyAssets; ATTRIBUTION.md#original-lesson-contribution",
+      "finding": "The four sources are repository-owned CC BY 4.0 factual references with exact versions, locators, concrete facts-only reuse statements, and current checked-no-agent-restriction-found records. The lesson declares no third-party assets or redistributed expression; manual comparison found independently organized prose, fictional records, examples, tables, questions, and answer logic, with no human-only source, personal data, active content, unsafe path, or unverifiable media right in the frozen pack.",
+      "resolution": null
+    }
+  ],
+  "limitations": [
+    "This review checks EmbeddedKnowledge policy evidence and accessibility behavior; it is not legal advice. Copyright, database, privacy, consent, contract, and license conclusions can vary by jurisdiction, and qualified counsel should resolve any disputed or exception-dependent use.",
+    "Manual interaction testing used headless Chrome with keyboard, touch emulation, reduced motion, 390px narrow layout, CSS 200% zoom, continuous reading, and print. No native screen reader, braille display, speech-recognition engine, OS high-contrast mode, browser-native zoom UI, or representative disabled-learner study was available.",
+    "The repository implements the web reader and browser print path, but PDF, EPUB, DOCX, JATS, and other non-web exporters remain unavailable, so equivalent behavior in those planned outputs could not be tested.",
+    "A diagnostic file-exclusion glob initially surfaced one evidence-summary line from a prior review file before the exclusion was corrected. No prior verdict, finding, reasoning, or adjudication was opened or used; the security, privacy, rights, and accessibility conclusions recorded here were reproduced independently from the frozen pack, cited sources, generated artifact, and browser behavior."
+  ],
+  "signedAt": "2026-07-20T00:10:08Z"
+}
