@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-WEL-001-LEARNING-CLAUDE-FABLE5-V042-FINAL",
+  "lessonId": "PREM-WEL-001",
+  "lessonVersion": "0.4.2",
+  "candidateCommit": "e7d864d9640266ea43650e397aff5308f3a1795e",
+  "role": "learning-design",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev accountable operator — Claude learning-design reviewer",
+    "agent": {
+      "system": "Claude Code",
+      "provider": "Anthropic",
+      "model": "claude-fable-5",
+      "version": "Claude Code 2.1.215",
+      "runId": "611ef6e4-e889-4dc0-b24e-dd3033c63568",
+      "instructionsDigest": "sha256:e4fe955e1349f02afb19b00465cf9c85d78f21f53d276584400dee8dedbf94f1"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "content/01-welcome.md through content/04-finish.md#cold-first-read-before-metadata",
+    "lesson.json#objectives-scenes-outcome-topic-welcome-course-journey",
+    "assessment.json#items-and-rubrics-4-3-3",
+    "assessment.json#rubric-subject-journey/rubric-concept-relevance/rubric-completion-capabilities-criteria",
+    "site/lesson-reader.js#renderTextAssessment-selfCheck-fieldset",
+    "site/lesson-reader.js#manualCriterionState-manualAssessmentCriteria-syncManualProgress",
+    "site/lesson-reader.js#renderAssessments-per-item-frame-and-progress-node",
+    "content/04-finish.md#welcome-check-and-recovery-route",
+    "site/lesson-reader.css#reader-self-check-and-reader-assessment-progress",
+    "narrow-delta-736b3759784301125bc726165391a0bbd4b617f5-to-e7d864d",
+    "tests/site.spec.js#self-check-interaction-delta-implementation-evidence-only"
+  ],
+  "findings": [
+    {
+      "severity": "note",
+      "target": "content/01-welcome.md through content/04-finish.md#cold-first-read",
+      "finding": "Cold first read as a no-prerequisite college-intro beginner, performed before consulting metadata, implementation, standards, or the delta, passes the first-read gate. (a) What it teaches is clear: a map of the Premed subject areas and how they build toward using scientific evidence on unfamiliar problems. (b) Why it matters is clear: it orients a beginner to the whole route and explicitly reassures that no prior science is needed to start. (c) The central subject-journey/preparation model is clear on one read: three stages (evidence and measurement; matter and living systems; people, populations, and capstone work) in which each stage supplies ideas the next stage uses, illustrated concretely by the wider-tube flow glimpse in scene 1 and the worked flow example in scene 3. Terminology is stable, transitions are causal ('because/how'), and no learner sentence depends on hidden project, schema, or validator vocabulary. The stage shape rather than the term inventory is correctly named as the target.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "site/lesson-reader.js#renderTextAssessment (reader-self-check fieldset; submit/reset handlers)",
+      "finding": "The criterion checkboxes are real learner controls and preserve retrieval before answer reveal. Each criterion renders as a genuine <input type=checkbox> inside a fieldset that is created with selfCheck.hidden=true and only set to hidden=false inside the Compare-reasoning submit handler; on reset it returns to hidden. So the operative self-marking controls stay hidden until the learner selects Compare reasoning, after they have committed a written response. Instructions ('You decide the marks; this page does not score, save, or submit them'), the section banner ('UNTIMED CHECK · DOES NOT RECORD PROGRESS'), and each item's answer.reasoning ('The page does not automatically score or record this open response') consistently state that the learner decides the marks and the page does not automatically score, save, record, submit, or credential the responses.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#rubric-subject-journey / rubric-concept-relevance / rubric-completion-capabilities vs item prompts and answer.reasoning",
+      "finding": "Each revealed checkbox carries the exact corresponding rubric criterion.description, and the operative manual judgment is neither silently stricter nor looser than the item objective, prompt, answer reasoning, or rubric. rubricForItem matches by rubricId: item-describe-journey→rubric-subject-journey (4 criteria: opening inquiry+quantitative; three-of-five middle groups with one physical/chemical and one biological; two-of-three later domains plus integration/capstone final; two explicit because/how links); item-explain-relevance→rubric-concept-relevance (3 criteria: four distinct concepts from four different areas; specific later-study link for each; plain orientation language without unsupported clinical claims); item-identify-capabilities→rubric-completion-capabilities (3 criteria: all four capabilities; an observable action for each; one accurate completion boundary). Each item's answer.reasoning enumerates precisely these criteria, and the prompts require exactly what the criteria award. The checkboxes surface the verbatim grader-facing criterion text, which guarantees fidelity, and the scene prose supplies a plain-language equivalent of each cluster.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "site/lesson-reader.js#manualCriterionState / syncManualProgress / itemStatus",
+      "finding": "Item-level and assessment-wide counting are transparent and proportionate, and state is page-session-only. Per item, itemStatus reports 'X of N criteria marked met' with N=4 for the journey item and N=3 for each of the two relevance/capability items, distinguishing incomplete ('Review each unmarked criterion before retrying') from item-complete ('Item self-check complete'). manualAssessmentCriteria aggregates all three rubrics (4+3+3=10), and syncManualProgress renders the assessment-wide total 'Criteria met: X/10 · not saved' escalating to '10/10 · complete · not saved', shown in a role=status region in every per-item assessment frame and visibly marked not saved. Criterion marks live only in the in-memory manualCriterionState Map inside the reader IIFE; no localStorage/sessionStorage/network path stores or submits them (localStorage is used only for unrelated reader UI preferences). Checkbox state rehydrates on re-render via input.checked=manualCriterionState.get(key), disappears on reload/navigation because the Map is in-memory, and Clear response resets that item's inputs, zeroes its Map keys, updates its itemStatus, and re-syncs the /10 total. The 4/3/3=10 structure and every-criterion 10/10 completion rule read as supportive orientation ('the check measures your orientation, not your prior science'), not punitive.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "content/04-finish.md#recovery-route and per-item answer.reasoning retry prompts",
+      "finding": "Every not-yet criterion routes through Compare reasoning and canonical content to a relevant recovery paragraph plus an unlimited, untimed alternate retry requiring renewed reconstruction. The Recovery route section provides four targeted paragraphs (three-stage naming; concept-to-purpose links; the four capability verbs; the completion boundary), each ending with a cover-and-reconstruct step. Each item's answer.reasoning names the matching recovery paragraph and a distinct alternate retry prompt (advise an incoming learner from evidence to capstone; choose different subjects/concepts; apply the four capabilities to a new non-diagnostic scenario), and the scene states retakes are unlimited and untimed. The alternate prompts differ from the originals so a retry demands fresh retrieval rather than replaying an answer sequence.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "narrow delta 736b3759784301125bc726165391a0bbd4b617f5 → e7d864d9640266ea43650e397aff5308f3a1795e (site/lesson-reader.js, site/lesson-reader.css)",
+      "finding": "The narrow previous-candidate-to-current-candidate delta introduces no learner-facing regression in lesson content, assessed construct, prompt fidelity, feedback, workload, or recovery. The delta only makes the open-response self-check operable: it adds the manualCriterionState Map, manualProgressNodes Set, rubricForItem/isChoiceAssessment/manualAssessmentCriteria/syncManualProgress helpers, the hidden-until-Compare self-check fieldset, the assessment-wide progress node, and supporting CSS (including dark-mode). The rubric criteria, item prompts, model-reasoning feedback (still revealed on Compare reasoning), and recovery routes are unchanged; the self-marking step the scene prose already described is now realized in the interface, aligning implementation with content rather than altering the assessed construct or workload. The tests/site.spec.js changes exercise a separate production baseline fixture's self-check through the same code path; consistent with the standard, I treat passing browser tests as implementation evidence only, never as proof that learners achieve the outcome.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json rubric criterion descriptions surfaced as learner-facing checkbox labels (e.g., rubric-subject-journey/criterion-journey-middle)",
+      "finding": "Observation, not a requested change: the checkboxes present the verbatim grader-facing criterion text ('Award 1 point only when… award 0 if…'), which is scoring-rubric register rather than learner-invitational prose. In isolation that register is the kind of validator-facing wording the content standard cautions against, but here it is the correct design choice because point-level fidelity requires the exact criterion, and the lesson mitigates the register by pairing each checkbox with a plain-language summary in the 'welcome check' scene prose ('the opening work; the required middle breadth; …'). The combination keeps the self-judgment both faithful and comprehensible to a no-prerequisite learner, so it does not rise to a minor finding requiring change; I record it so a future revision can consider a learner-voiced restatement adjacent to each control if empirical learner data later shows confusion.",
+      "resolution": "No change required; retain the plain-language prose summaries that accompany the exact criteria."
+    }
+  ],
+  "limitations": [
+    "Expert artifact inspection only: no direct learner testing, cognitive-walkthrough with real novices, or empirical scoring/inter-rater reliability data for the self-marked criteria was available.",
+    "Browser/Playwright test coverage (including the self-check interaction delta) is implementation evidence of the rendering behavior only and is not evidence that learners achieve the mapped outcome.",
+    "Non-web exporters (Typst/LuaLaTeX PDF, EPUB, DOCX, JATS) are not implemented in this repository, so export-parity of the manual self-check and counts could not be exercised; this did not affect the web-reader learning-design conclusions.",
+    "This is a single isolated learning-design run; it is one eligible vote and does not establish quorum, adjudication, or merge readiness."
+  ],
+  "signedAt": "2026-07-20T00:00:00Z"
+}

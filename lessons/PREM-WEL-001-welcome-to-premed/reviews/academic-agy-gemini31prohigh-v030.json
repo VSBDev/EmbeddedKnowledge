@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-WEL-001-ACADEMIC-AGY-4DB1ABD9",
+  "lessonId": "PREM-WEL-001",
+  "lessonVersion": "0.3.0",
+  "candidateCommit": "895913e2f323e383437a32b0a9397b3e802999c1",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev",
+    "agent": {
+      "system": "Agy CLI",
+      "provider": "Google",
+      "model": "Gemini 3.1 Pro (High)",
+      "version": "Agy CLI 1.1.3",
+      "runId": "academic-agy-gemini31prohigh-v030-4db1abd9-41d3-4173-814f-42ff1827aea0",
+      "instructionsDigest": "sha256:7be84b0cb37df49d4cc63327ec475a51d58474d3c35809764a9d2ea354b2245f"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "content/04-finish.md#check-welcome-transfer",
+    "content/03-learning.md#worked-example-flow-preview",
+    "assessment.json#item-identify-capabilities",
+    "claims.json#claim-completion-capabilities",
+    "references.json#source-premed-syllabus"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "content/04-finish.md#check-welcome-transfer",
+      "finding": "The prompt for the transfer check explicitly asks the learner to 'names two actions a finisher should perform', but the provided compare text completely omits these actions from the model answer (it only provides the subjects and one preparation link). A learner using this feedback cannot verify if they correctly identified the required actions (explain, model, investigate, or integrate).",
+      "resolution": "Update the compare text for `check-welcome-transfer` to include an example of the requested actions, such as 'and state two actions, such as explaining a relationship and investigating a question'."
+    },
+    {
+      "severity": "note",
+      "target": "content/03-learning.md#worked-example-flow-preview",
+      "finding": "The fictional tube dataset appropriately distinguishes between what the data empirically show (variation in volume) and what must be inferred or verified from external logs (that liquid, pump setting, length, and time were held constant). The qualitative estimate that Tube B passes 'about four times' more liquid is also algebraically accurate and physically plausible for the model constraints.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#item-identify-capabilities",
+      "finding": "The completion-capability assessment item correctly translates the course's explanation, modelling, investigation, and integration goals into an observable standard, and its rubric strictly enforces the syllabus boundary regarding medical competence, university credit, and professional licensure.",
+      "resolution": "No change required."
+    }
+  ],
+  "limitations": [
+    "Cannot evaluate the clinical accuracy of advanced medical concepts as this review is explicitly restricted to foundational pre-medical science.",
+    "Cannot independently verify the accessibility or persistence of the external CC BY 4.0 license link, although the stated conditions are accurately recorded."
+  ],
+  "signedAt": "2026-07-20T09:27:00Z"
+}

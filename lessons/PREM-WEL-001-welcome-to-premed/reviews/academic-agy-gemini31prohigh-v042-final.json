@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-WEL-001-ACADEMIC-AGY-V042-FINAL",
+  "lessonId": "PREM-WEL-001",
+  "lessonVersion": "0.4.2",
+  "candidateCommit": "e7d864d9640266ea43650e397aff5308f3a1795e",
+  "role": "academic",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev / VSBDev",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.1-pro-high",
+      "version": "Agy 1.1.3",
+      "runId": "agy-academic-gemini31prohigh-v042-final-24ec9809-6fb6-497f-834e-10a384674b3f",
+      "instructionsDigest": "sha256:3250ee1a808d5f0259a404d36afd0434a6f58007d9eadf6f4420e57d527c6204"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "The reviewer principal (github:VSBDev) is the same as the lesson author principal (github:VSBDev). Under the adopted site/agent/quorum-policy.json founding stage policy, a single operator is permitted to run all review and adjudication agents."
+  },
+  "evidenceChecked": [
+    "course/PREMED-SYLLABUS.md#WEL-000",
+    "lessons/PREM-WEL-001-welcome-to-premed/lesson.json",
+    "lessons/PREM-WEL-001-welcome-to-premed/assessment.json",
+    "lessons/PREM-WEL-001-welcome-to-premed/claims.json",
+    "lessons/PREM-WEL-001-welcome-to-premed/references.json",
+    "lessons/PREM-WEL-001-welcome-to-premed/glossary.json",
+    "lessons/PREM-WEL-001-welcome-to-premed/ATTRIBUTION.md",
+    "lessons/PREM-WEL-001-welcome-to-premed/content/01-welcome.md",
+    "lessons/PREM-WEL-001-welcome-to-premed/content/02-journey.md",
+    "lessons/PREM-WEL-001-welcome-to-premed/content/03-learning.md",
+    "lessons/PREM-WEL-001-welcome-to-premed/content/04-finish.md",
+    "site/lesson-reader.js#renderTextAssessment",
+    "site/lesson-reader.js#syncManualProgress",
+    "site/data/premed-graph.json#topic-welcome-course-journey"
+  ],
+  "findings": [
+    {
+      "severity": "note",
+      "target": "lessons/PREM-WEL-001-welcome-to-premed/assessment.json",
+      "finding": "Verified the total criteria score alignment: 4 (item-describe-journey) + 3 (item-explain-relevance) + 3 (item-identify-capabilities) = 10 total rubric criteria. The manual checkbox controls rendered by site/lesson-reader.js map correctly to each item criterion, and the overall check correctly counts completion out of 10 criteria.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "site/lesson-reader.js",
+      "finding": "Verified that checking manual controls in the reader UI does not affect canonical answer correctness, save state, or record progress, maintaining the clear boundary between self-report and automatic scoring.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-WEL-001-welcome-to-premed/claims.json",
+      "finding": "Verified that all material claims map accurately to their source notes in the lesson content and resolve to course/PREMED-SYLLABUS.md at the frozen commit afc8b980e1181d172b0954b7b46bfcdd32d0db85, covering syllabus module WEL-000, recommended sequence, capabilities, and boundaries.",
+      "resolution": null
+    }
+  ],
+  "limitations": [
+    "Review was executed by an AI agent under the academic review protocol.",
+    "Physical check of local files only; no external network resource was accessed.",
+    "Validation of the lesson reader is limited to compliance with its manual scoring interface design."
+  ],
+  "signedAt": "2026-07-20T11:24:14Z"
+}

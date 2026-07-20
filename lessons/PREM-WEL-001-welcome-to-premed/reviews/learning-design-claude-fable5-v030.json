@@ -1,0 +1,133 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-WEL-001-LEARNING-CLAUDE-V030",
+  "lessonId": "PREM-WEL-001",
+  "lessonVersion": "0.3.0",
+  "candidateCommit": "895913e2f323e383437a32b0a9397b3e802999c1",
+  "role": "learning-design",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev, learning-design reviewer operator",
+    "agent": {
+      "system": "Claude Code",
+      "provider": "Anthropic",
+      "model": "claude-fable-5",
+      "version": "Claude Code 2.1.215",
+      "runId": "9af09175-a451-47d6-90e6-0ca945014fed",
+      "instructionsDigest": "sha256:8758cd41afedacc004fccb65f04fe555c7227089bc8adb02e75e1051821be3d3"
+    }
+  },
+  "conflictOfInterest": { "declared": false, "details": null },
+  "evidenceChecked": [
+    "lesson.json#scenes-scene-order-only-before-cold-read",
+    "content/01-welcome.md#scene-welcome-cold-first-read",
+    "content/02-journey.md#scene-journey-cold-first-read",
+    "content/03-learning.md#scene-learning-cold-first-read",
+    "content/04-finish.md#scene-finish-cold-first-read",
+    "lesson.json#objectives-outcomes-prerequisites-estimatedMinutes",
+    "site/data/premed-graph.json#topic-welcome-course-journey",
+    "content/02-journey.md#check-sequence-why",
+    "content/03-learning.md#worked-example-flow-preview",
+    "content/03-learning.md#check-faded-comparison",
+    "content/04-finish.md#check-welcome-transfer",
+    "content/04-finish.md#misconception-prior-science-gate",
+    "content/04-finish.md#the-welcome-check-threshold-and-retry-prompts",
+    "content/04-finish.md#recovery-route",
+    "assessment.json#item-describe-journey",
+    "assessment.json#item-explain-relevance",
+    "assessment.json#item-identify-capabilities",
+    "assessment.json#rubric-subject-journey",
+    "assessment.json#rubric-concept-relevance",
+    "assessment.json#rubric-completion-capabilities",
+    "assessment.json#attemptPolicy",
+    "glossary.json#terms",
+    "claims.json#claim-scene-mapping-for-traceability-only",
+    "site/schemas/assessment.schema.json#field-availability-for-mastery-and-remediation"
+  ],
+  "findings": [
+    {
+      "severity": "note",
+      "target": "content/01-welcome.md, content/02-journey.md, content/03-learning.md, content/04-finish.md#cold-first-read",
+      "finding": "Cold-read gate PASSES. Reading the four scenes once in lesson.json order, before any ledger, assessment, or validator material, I could state unaided: the learner is about to learn what the Premed course contains, the order its subjects are taught in and why each stage feeds the next, what studying will feel like, and the four things a finisher should be able to do; it matters because it lets an adult with no science background navigate a long multi-subject course without believing prior science is required; and the central route runs from evidence and measurement, through matter and living systems, to people, populations, and an unfamiliar capstone problem, with fair comparison ('a fair comparison changes the tested feature while keeping the other conditions the same') demonstrated as the course's reasoning move. The opening gives a concrete thing to picture before any administration: 'If a wider tube carries more liquid in a model, evidence tests the pattern, physics explains how width affects flow, and physiology asks how living tissues and regulation change the picture.' Motivation comes from visible meaning rather than hype, caveats are stated once (content/04-finish.md line 10) instead of walling off the idea, and I found no sentence whose meaning depends on hidden project vocabulary. The lesson does not operate as a prior-science gate: content/01-welcome.md states 'You need not know these subjects yet' and misconception-prior-science-gate makes the non-gate stance explicit and actionable.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "major",
+      "target": "assessment.json#item-describe-journey and rubric-subject-journey criteria criterion-journey-middle, criterion-journey-destination; also rubric-concept-relevance#criterion-relevance-links",
+      "finding": "Three scoring criteria impose all-or-nothing quantity thresholds that the item prompts never state, and two of them are compound. criterion-journey-middle awards its single point 'only when the response correctly places and names at least three of these five middle subject groups' with at least one physical/chemical and one biological group; criterion-journey-destination awards its point only for 'at least two of these three later domains' AND naming integration/capstone as final. The prompt for item-describe-journey asks only to 'name representative subject areas in the middle foundations and later medicine-facing stage, and name the final stage' and discloses a count for the causal links alone ('at least two explicit because/how links'). criterion-relevance-links similarly requires that 'every one of the four concepts' carry an accurate specific purpose, so three correct links out of four score zero. Learner consequence: mastery is 8 of 10 across ten binary one-point criteria (content/04-finish.md: 'score at least 8 out of 10 and earn at least one point on each response'), so a learner has a margin of exactly two misses. A learner can write an accurate, well-ordered, coherent orientation account that names two middle areas and one later domain plus the capstone, satisfying the prompt as written, and silently lose two of those two available points to a sufficiency bar they were never given, plus the partial credit they earned inside each compound criterion. This is an alignment defect running objective to prompt to rubric: objective-describe-subject-journey quantifies only the two preparation links, and no in-lesson practice signals the counts either, since check-welcome-transfer also says only 'names the subjects that begin, develop, and complete the journey'. I record the mitigating evidence honestly: attempting all three items from memory as the intended learner, I scored 10/10, so the bar is reachable by an attentive reader and the assessment is not unusable. The defect is the validity of the score for the marginal learner, not the achievability of the outcome.",
+      "resolution": "Required. Either state the sufficiency counts in the learner-facing prompts (for example 'name at least three middle subject areas, including at least one chemical or physical and one biological, and at least two later medicine-facing domains'), or split the compound criteria into separately scored points so partial competence is credited. Do both for criterion-journey-destination, whose 'two later domains' and 'names integration/capstone as final' requirements are independent performances the prompt already requests separately."
+    },
+    {
+      "severity": "minor",
+      "target": "content/01-welcome.md#scene-welcome-subject-list",
+      "finding": "The eleven subject bullets carry well over a hundred untaught technical nouns in one pass, several bullets stacking twelve in a single sentence, for example 'atoms, bonds, molecular shape, reactions, amounts, gases, solutions, energy changes, reaction rates, equilibrium, acids, and bases' and 'proteins and enzymes, membranes, carbohydrates, fats, nucleotides, metabolism, and biological information'. The declared learner has no science and no prerequisites. Nothing at the point of the list tells them what to do with terms they cannot parse, and the two devices that resolve this arrive much later: the three-stage compression in content/02-journey.md ('from evidence through matter and cells to people, populations, and an unfamiliar problem') and the recovery route plus misconception-prior-science-gate in content/04-finish.md. Learner consequence: for the eighteen minutes the pack allots to this scene, a novice is likely to read the list as a memorization demand and a competence test, which is the exact worry the lesson later has to repair.",
+      "resolution": "Recommended. Move the three-stage compression forward as an advance organizer immediately before the bullet list in content/01-welcome.md, and add one sentence telling the learner that the stage shape, not the term inventory, is what this welcome asks them to hold."
+    },
+    {
+      "severity": "minor",
+      "target": "content/02-journey.md#check-sequence-why",
+      "finding": "check-sequence-why is declared ':kind: retrieval' but asks 'why does organic chemistry come before much of biochemistry, and why do inquiry and quantitative reasoning begin before both?' immediately after numbered steps 1 and 4 of the same scene supply both answers in the preceding paragraphs. It functions as a comprehension check on just-read text rather than retrieval after a delay or in a changed context. Learner consequence: the learner gets a fluency signal that can be mistaken for durable knowledge, at the one point in the lesson where the causal spine of the journey is being built. The lesson is not without genuine delayed retrieval: check-welcome-transfer in content/04-finish.md requires reconstructing scene 1 and 2 material 'without looking back', which is a real cumulative check.",
+      "resolution": "Recommended. Either relabel this check to its actual function, or move it to the start of content/03-learning.md so the same question is answered after a scene boundary."
+    },
+    {
+      "severity": "minor",
+      "target": "content/04-finish.md#misconception-prior-science-gate",
+      "finding": "The repair sequence is missing two of the six steps CONTENT-STANDARD.md section 7 requires: nothing elicits the learner's own prediction or commitment before the worry is named, and no step identifies what the incorrect model cannot explain. The directive states the worry accurately and without shaming, supplies the better model, works one instance ('For enzyme regulation, \"Biochemistry will teach how cells control reaction helpers called enzymes\" is enough'), and rechecks on a different term, which is the stronger half of the sequence. Placement compounds the gap: the anxiety this repairs is created by the term-dense list in content/01-welcome.md, three scenes and roughly forty minutes earlier, so the learner most affected carries it through the whole lesson before meeting the repair.",
+      "resolution": "Recommended. Add a one-line commitment prompt before the Worry, and place a short forward pointer to this repair beside the subject list in content/01-welcome.md so the strategy is available when the load lands."
+    },
+    {
+      "severity": "minor",
+      "target": "content/04-finish.md#recovery-route and assessment.json#item-identify-capabilities",
+      "finding": "The Recovery route addresses only the subject-journey objective: it gives the three-stage compression, sends the learner back to the scene 1 list, and supplies the frame 'I will learn ___ in ___ because it helps me later explain or evaluate ___', which also partly serves objective-explain-medical-relevance. There is no recovery path for objective-identify-completion-capabilities, and in particular none for criterion-capability-boundary, which is a scored point requiring the learner to state something completion does not authorize. That boundary is asserted once as flat prose (content/04-finish.md line 10) and never practiced in any check before it is scored. CONTENT-STANDARD.md requires each objective to map to instruction, supported practice, an assessment item, feedback, and a recovery route.",
+      "resolution": "Recommended. Extend the Recovery route with a capabilities line pointing back to the four bullets and the boundary sentence, and add the boundary to check-welcome-transfer so the scored performance is practiced once before it counts."
+    },
+    {
+      "severity": "minor",
+      "target": "content/04-finish.md#recovery-route and content/04-finish.md#check-welcome-transfer",
+      "finding": "Two wording issues that a teacher would not say aloud to this learner. The Recovery route instructs the learner to 'Return to scene 1's complete subject list', exposing the pack's internal scene vocabulary rather than the section the learner actually sees titled 'Welcome to Premed'; CONTENT-STANDARD.md asks that internal IDs and project machinery stay out of learner prose. In check-welcome-transfer, 'Do not teach a mechanism you have not learned' casts the learner as a teacher when the task is explaining to a friend, and the intended constraint is that they need not explain untaught science.",
+      "resolution": "Recommended. Refer to the section by its heading, and rewrite the constraint as something like 'You do not need to explain any science you have not learned yet.'"
+    },
+    {
+      "severity": "note",
+      "target": "content/03-learning.md#worked-example-flow-preview and #check-faded-comparison",
+      "finding": "Verified strength. worked-example-flow-preview carries all nine components CONTENT-STANDARD.md section 5.1 requires, including the parts most often omitted: an explicit independent check that distinguishes what the data can and cannot establish ('An investigator would inspect settings or logs to verify the claimed pump, liquid, tube length, and time; the data pattern cannot'), interpretation bounded to the model ('The data do not establish an exact law or tell us what happens in a human blood vessel'), and a self-explanation prompt aimed at the decision that most determines the answer. Support then fades genuinely: full model, then check-faded-comparison as a supported confounded-design problem with a repair requirement, then check-welcome-transfer as independent performance. The dataset is labelled fictional, and the example is explicitly framed as unassessed preview, so it does not become a hidden prior-science requirement.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#rubric-subject-journey and #rubric-concept-relevance",
+      "finding": "Verified strength on the proportionality question specific to an orientation lesson. The journey scoring asks for a representative coherent route, not exhaustive enumeration: three of five middle groups and two of three later domains, with ordinary-language equivalents explicitly accepted and 'Prose, bullets, or an outline' allowed. item-explain-relevance lets the learner choose any four concepts from any four areas rather than fixing a list. criterion-relevance-clarity caps depth at orientation level and scores zero if 'detailed untaught science is asserted' or 'any clinical claim exceeds preparation for study', which keeps the educational, non-clinical boundary inside the scoring rather than only in prose. Attempting all three items from memory, I produced a passing response using only material a careful first reader would retain. Separately, the three objectives together cover all three clauses of the mapped graph outcome topic-welcome-course-journey (describe the journey; explain how concepts connect to medical study; identify completion capabilities), with no drift beyond it.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#attemptPolicy and content/04-finish.md#the-welcome-check",
+      "finding": "Limitation of the artifact rather than an author defect. site/schemas/assessment.schema.json sets additionalProperties false and provides no field for a mastery threshold, a per-item minimum, a retry strategy, or a remediation route, so the mastery rule ('at least 8 out of 10 and earn at least one point on each response'), the three alternate retry prompts, and the recovery route exist only in learner-facing prose in content/04-finish.md and in per-item answer.reasoning text. Nothing machine-readable enforces or even records them, so the mastery decision is entirely human or tutor applied and no automated check can detect drift between the prose threshold and the rubric point totals. The totals do currently reconcile: items are 4 + 3 + 3 = 10 points against ten one-point criteria. A second consequence is that publishing the three retry prompts in scene 4 lets a learner compose retry answers with the lesson open, which weakens the renewed-retrieval intent those alternate prompts are designed to serve.",
+      "resolution": "No change required in this pack. Worth raising with the maintainers as a format gap, since a mastery threshold that no artifact can carry is invisible to every downstream tool."
+    },
+    {
+      "severity": "note",
+      "target": "content/02-journey.md#check-sequence-why, content/03-learning.md#worked-example-flow-preview, content/03-learning.md#check-faded-comparison, content/04-finish.md#check-welcome-transfer",
+      "finding": "All four retrieval prompts precede their reveals, and each opens with an explicit commitment instruction of the form 'Pause here. Cover the following text and commit an answer before continuing', with the answer following as 'Once you have answered, compare:'. The requirement that the learner commit before every reveal is therefore met in the source. It is worth recording that the barrier is honour-system only: FORMAT.md limits directive options to id, label, kind, alt, longdesc, claims, and sources, so format v1 offers no mechanism to conceal an answer, and in continuous reading mode the answer sits in the learner's eyeline. The feedback itself is information-rich rather than answer-only, telling the learner what to add when their attempt fell short, for example 'If you named only the problem, add the repaired comparison' and 'If you only listed subjects, add why a transition matters.'",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "lesson.json#scene-learning and lesson.json#objectives",
+      "finding": "scene-learning is allotted 16 of the pack's 60 minutes and contains the lesson's most substantial reasoning instruction, yet it maps to none of the three declared objectives and to no assessment item; content/03-learning.md itself says 'the welcome check does not score it'. I do not treat this as a defect, because modelling how the course teaches is defensible orientation content and the scene is honestly framed as a preview, but it means roughly a quarter of the lesson's time carries no mastery evidence and the fair-comparison reasoning the learner practices twice is never checked. Scene time otherwise reconciles exactly with the declared 60 minutes (18 + 14 + 16 + 12), and the four scenes are independently resumable with descriptive headings and no forward dependencies.",
+      "resolution": "No change required. If a future revision wants credit for this instruction, add an objective for it rather than expanding the assessment, since the mapped graph outcome does not reach it."
+    }
+  ],
+  "limitations": [
+    "No conflict of interest: this run had no part in authoring this lesson, and per the isolation boundary it read no file under lessons/PREM-WEL-001-welcome-to-premed/reviews/, no adjudication artifact, no authoring conversation, and no other EmbeddedKnowledge role skill.",
+    "This is a learning-design review only. Scientific accuracy, source interpretation, and route relevance are referred to academic review; I raise no suspected scientific error in this candidate. Accessibility and rights conclusions are referred to that role: I inspected content/04-finish.md's Accessibility and alternatives section and the glossary only where they affect whether the learning operation survives, not for conformance.",
+    "No real learner evidence exists for this lesson. Every judgment here is my own reconstruction as a simulated declared learner plus established learning-design principles. I attempted all four checks and all three assessment items from memory, but one expert simulation is not a substitute for testing with adults who genuinely lack science background, and it is likely to understate cognitive load for the declared learner.",
+    "I applied the rubrics by hand. All three items are open-response scored by human judgment, so I could not test inter-rater agreement, and my 10/10 self-score reflects one plausible reading of criteria whose all-or-nothing structure is the subject of the major finding.",
+    "npm run validate passes on this candidate (graph, progress, lesson index, public copy, agent protocol, and lesson packs all valid). I report that only as structural status. Schema validity and successful rendering are not evidence that any learner will learn, and they are independent of this verdict.",
+    "The mastery threshold, retry strategy, and remediation route could only be assessed as prose, because the assessment schema has no field for them; I could not verify how any renderer or grader would actually apply them.",
+    "Boundary verification performed: candidate 895913e2f323e383437a32b0a9397b3e802999c1 is HEAD, lesson.json declares PREM-WEL-001 version 0.3.0 as required, and git status reports the lesson pack clean, so teaching content and pack metadata are identical to the candidate. The only untracked path in the worktree is a scratch file outside the pack.",
+    "One learning-design verdict is a single eligible vote. It establishes neither quorum nor merge readiness."
+  ],
+  "signedAt": "2026-07-20T00:00:00Z"
+}

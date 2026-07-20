@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-WEL-001-ACCESS-CODEX-V040",
+  "lessonId": "PREM-WEL-001",
+  "lessonVersion": "0.4.0",
+  "candidateCommit": "a5594065ede4a3f020837be01e0f04cd5c29af00",
+  "role": "accessibility-rights",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable operator; Codex accessibility-and-rights reviewer",
+    "agent": {
+      "system": "Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-terra",
+      "version": "Codex CLI 0.144.6",
+      "runId": "accessibility-rights-codex-gpt56terra-v040-71ce59a3-e163-414f-9da5-ec0bb5e3c9a0",
+      "instructionsDigest": "sha256:6c7ca7fbefbebf47057fffea00fb87b4e37e594672a30d36ec1377bebcd18224"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "VSBDev is also the disclosed accountable author principal. The founding-stage policy permits that operating relationship; this isolated run did not author, revise, adjudicate, or read prior review conclusions."
+  },
+  "evidenceChecked": [
+    "Frozen boundary: repository root verified; clean worktree; HEAD a5594065ede4a3f020837be01e0f04cd5c29af00; lesson.json identifies PREM-WEL-001 version 0.4.0.",
+    "content/01-welcome.md, content/02-journey.md, content/03-learning.md, and content/04-finish.md: complete source order, headings, directives, learner-visible source notes, accessibility and recovery route.",
+    "assessment.json: all three untimed open-response items, retry policy, labels, response constraints, rubrics, feedback path, and no personal-data or physical-performance requirement.",
+    "Rendered production artifact site/data/lessons/PREM-WEL-001.json and reader: all four scenes rendered; guided frames use aria-hidden plus inert; the scene article is labelled by its H1; text checks use labels, textareas, status role, and polite live feedback.",
+    "Chromium headless manual path: keyboard tab sequence and Enter scene navigation; touch contents panel and scene link; visible 3px focus outline on a text response; continuous-reading mode preserved all frames.",
+    "390px mobile viewport in continuous reading: root and stage widths were each 390px with no detected element overflow; prefers-reduced-motion matched and the reader disables stage smooth scrolling/index transition.",
+    "Print emulation and in-memory PDF (154519 bytes): print view kept all frames plus accessibility, recovery, and assessment text while hiding interactive chrome.",
+    "Schema validation with draft-2020-12 Ajv: lesson.json, assessment.json, claims.json, references.json, and glossary.json all valid.",
+    "Security and privacy inspection: no declared assets or third-party media; thirdPartyAssets is empty; candidate scenes and rendered HTML contained no scripts, event handlers, unsafe URL schemes, embeds, forms, TeX, traversal, secrets, or identifiable learner/patient data.",
+    "references.json and ATTRIBUTION.md: inspected source-premed-syllabus at immutable commit afc8b980e1181d172b0954b7b46bfcdd32d0db85; CC BY 4.0 attribution/modifications and dated agent-access record were complete; both immutable GitHub URLs returned HTTP 200 on 2026-07-20.",
+    "lesson.json and ATTRIBUTION.md: VSBDev accountability and all disclosed material author-agent runs/digests were inspected; this review run ID is distinct from the listed author runs."
+  ],
+  "findings": [
+    {
+      "severity": "note",
+      "target": "content/01-welcome.md; content/04-finish.md#accessibility-and-alternatives; assessment.json; references.json; ATTRIBUTION.md",
+      "finding": "The candidate provides an equivalent text-only learning and assessment route: ordered headings and prose explain the only table; responses may be typed, pasted from assistive technology, or dictated; no speed, sight-only, physical, or personal-health disclosure is required. The rendered reader preserves semantic headings, keyboard/touch operation, reflow, reduced-motion, and print paths. No third-party asset is declared. The sole retained curriculum expression is traced to an immutable CC BY 4.0 syllabus with attribution and a clear modification notice, and the accountable author-agent provenance is complete.",
+      "resolution": "No change required."
+    }
+  ],
+  "limitations": [
+    "This accessibility-and-rights review is evidence and policy checking, not legal advice. CC BY 4.0 compatibility was checked against the declared frozen source and attribution record; jurisdiction-specific copyright, moral-rights, privacy, or contract questions require qualified counsel.",
+    "Manual rendering checks used Chromium headless with keyboard, touch, a 390px viewport, reduced-motion media, continuous/guided reading, and print emulation/PDF. They were not a test with every browser or a human screen-reader user; headless browser zoom was not separately controllable, so 390px reflow was the available layout test.",
+    "The dated agent-access declaration is an accountable-contributor attestation. The immutable GitHub source and licence routes resolved over HTTP on 2026-07-20, while the web cache fetch was unavailable; this review cannot independently prove historical source terms or agent behavior."
+  ],
+  "signedAt": "2026-07-20T10:11:38Z"
+}

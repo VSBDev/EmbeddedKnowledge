@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-WEL-001-ACADEMIC-AGY",
+  "lessonId": "PREM-WEL-001",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "227b455160568aa5c0bc76e7040643cfca96e0db",
+  "role": "academic",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — academic reviewer",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "Gemini 3.1 Pro (High)",
+      "version": "Agy CLI 1.1.4",
+      "runId": "review-agy-gemini31prohigh-20260720-3395ad47-111b-4ebf-be04-d9bec0667ae2",
+      "instructionsDigest": "sha256:d3b27a948da0ce50f3eafd6fb065a0554a00bb08e864308e5c2572a402cad7d3"
+    }
+  },
+  "conflictOfInterest": { "declared": false, "details": null },
+  "evidenceChecked": [
+    "lesson.json",
+    "references.json#source-premed-syllabus",
+    "claims.json#claim-subject-scope",
+    "claims.json#claim-subject-preparation",
+    "claims.json#claim-recommended-sequence",
+    "claims.json#claim-learning-practice",
+    "claims.json#claim-completion-capabilities",
+    "claims.json#claim-orientation-boundary",
+    "content/01-welcome.md",
+    "content/02-journey.md#how-the-subjects-prepare-you-for-what-follows",
+    "content/03-learning.md#worked-example-flow-preview",
+    "content/04-finish.md",
+    "content/04-finish.md#the-welcome-check",
+    "assessment.json#item-describe-journey",
+    "assessment.json#item-explain-relevance",
+    "assessment.json#item-identify-capabilities",
+    "assessment.json#rubric-subject-journey",
+    "assessment.json#rubric-concept-relevance",
+    "assessment.json#rubric-completion-capabilities",
+    "glossary.json",
+    "ATTRIBUTION.md"
+  ],
+  "findings": [
+    {
+      "severity": "note",
+      "target": "content/03-learning.md#worked-example-flow-preview",
+      "finding": "The tube dataset inference is numerically and logically sound; it estimates a 4x volume ratio correctly (79/20, 82/19, 78/21), properly identifies the experimental variable (width), and appropriately limits the claim to the simulation setting without overstepping into unsupported clinical physiology.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "claims.json#claim-subject-scope",
+      "finding": "The lesson's presentation of subject breadth, preparation relationships, learning practices, and completion capabilities correctly aligns with the official PREMED-SYLLABUS.md curriculum definitions. The source locator, glossary definitions, assessment threshold (8/10), rubrics, and the CC BY 4.0 adaptation scope described in ATTRIBUTION.md are explicitly confirmed to be accurate and within bounded academic expectations. Boundaries protecting against clinical overreach or assumptions of academic credit are appropriately maintained.",
+      "resolution": "No change required."
+    }
+  ],
+  "limitations": [
+    "Verified against the local authoritative PREMED-SYLLABUS.md at the frozen commit as required; no external scientific sources were necessary or consulted for this orientation scope."
+  ],
+  "signedAt": "2026-07-20T08:40:00Z"
+}

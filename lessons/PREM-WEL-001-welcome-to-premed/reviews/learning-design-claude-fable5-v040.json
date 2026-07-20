@@ -1,0 +1,130 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-WEL-001-LEARNING-CLAUDE-FABLE5-V040",
+  "lessonId": "PREM-WEL-001",
+  "lessonVersion": "0.4.0",
+  "candidateCommit": "a5594065ede4a3f020837be01e0f04cd5c29af00",
+  "role": "learning-design",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — learning-design reviewer",
+    "agent": {
+      "system": "Claude Code",
+      "provider": "Anthropic",
+      "model": "claude-fable-5",
+      "version": "Claude Code 2.1.215",
+      "runId": "e33a7724-33fd-4a44-ae3e-f18bb6253afe",
+      "instructionsDigest": "sha256:871a0c31a572efb8127b37d878dea4c066330569057d937ef8438d4af8b876a6"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "git rev-parse HEAD verified as a5594065ede4a3f020837be01e0f04cd5c29af00 with a clean worktree before any pack file was opened",
+    "content/01-welcome.md, content/02-journey.md, content/03-learning.md, content/04-finish.md read once in lesson.json scene order as a cold first read, before any ledger, assessment, glossary, graph, or validator material",
+    "lesson.json#scenes, #objectives, #outcomes, #prerequisites, #estimatedMinutes (authors and aiAssistance deliberately excluded from learning-design judgement)",
+    "content/03-learning.md#check-sequence-why attempted as the declared learner before reading its comparison paragraph",
+    "content/03-learning.md#worked-example-flow-preview traced against the nine required worked-example components, including its self-explanation prompt",
+    "content/03-learning.md#check-faded-comparison attempted as the declared learner",
+    "content/04-finish.md#check-welcome-transfer attempted as the declared learner across all four sub-parts",
+    "content/04-finish.md#misconception-prior-science-gate attempted, including its commit-first prompt and its recheck with a self-chosen term",
+    "content/04-finish.md sections 'The welcome check', 'Accessibility and alternatives', and 'Recovery route'",
+    "assessment.json#item-describe-journey, #item-explain-relevance, #item-identify-capabilities prompts, points, answer logic, acceptableResponses, and commonErrors",
+    "assessment.json#rubric-subject-journey, #rubric-concept-relevance, #rubric-completion-capabilities criteria descriptions and point totals",
+    "assessment.json#attemptPolicy checked against the completion rule stated in content/04-finish.md",
+    "claims.json claim-to-scene coverage cross-checked against each scene's learner-visible {source-note} claims and sources options",
+    "glossary.json ten term records and their sceneIds",
+    "references.json#source-premed-syllabus inspected for scope and instructional fit only, not adjudicated for rights",
+    "site/data/premed-graph.json#topic-welcome-course-journey outcome statement, level college-intro, empty prerequisites, and estimatedHours 1",
+    "CONTENT-STANDARD.md acceptance gates, FORMAT.md, lessons/README.md, REVIEWING.md, site/agent/quorum-policy.json, site/schemas/review.schema.json, site/schemas/assessment.schema.json, and .github/REVIEW_TEMPLATE/learning-design.md"
+  ],
+  "findings": [
+    {
+      "severity": "note",
+      "target": "content/01-welcome.md#scene-welcome",
+      "finding": "Cold-read gate passed. Reading the four scenes once in lesson.json order, before opening any ledger or assessment file, I could state without consulting metadata what the lesson teaches, why it matters, and how the central journey works. What it teaches: Premed is eleven named subject areas ordered so that each supplies what the next needs. Why it matters, in the lesson's own words: 'A new problem will not announce which subject to use' (content/02-journey.md, stage 7). How the journey works: each transition names the tool it hands on — inquiry and quantitative work teach you to 'frame a question, compare fairly, measure with units, read graphs, describe variation, and preserve an honest record', and 'Carbon-based structures, functional groups, three-dimensional shape, and reaction patterns prepare you to reason about proteins, membranes, nucleic acids, and metabolism'. The opening gives something concrete before any course administration: 'If a wider tube carries more liquid in a model, evidence tests the pattern, physics explains how width affects flow, and physiology asks how living tissues and regulation change the picture.' That anchor is not decorative — content/03-learning.md instantiates the same tube with real data and closes it by naming the same subjects as its limits ('Later physics, chemistry, and physiology add pressure, resistance, fluids, tissues, and biological regulation'), giving the pack a genuine spine. The 11-bullet subject list in content/01-welcome.md is dense with nouns a no-science adult cannot define, but the lesson pre-empts exactly that load one paragraph earlier ('The stage shape—not the unfamiliar term inventory—is the target for this welcome. If a term is new, place it in its named subject and note what that subject will later help explain') and repairs the resulting worry in content/04-finish.md#misconception-prior-science-gate. No internal IDs, claim-ledger vocabulary, schema fields, quorum language, or rubric leakage appears in learner prose. Two phrases sit closer to design-brief register than to teaching voice — 'the unfamiliar term inventory... is the target for this welcome', and 'Your record will name the kind completed' in content/03-learning.md, whose 'record' has no antecedent for a first-time learner — but in both cases the actionable meaning is supplied by the adjacent sentence, so neither creates a comprehension failure.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "minor",
+      "target": "content/04-finish.md#check-welcome-transfer",
+      "finding": "The lesson teaches and scaffolds a three-part shape of the journey but scores a four-part one, and the rubric additionally scores stage placement. content/01-welcome.md offers 'three stages: evidence and measurement; matter and living systems; people, populations, and capstone work', and content/04-finish.md repeats that mnemonic verbatim as the first recovery scaffold. The comparison after check-welcome-transfer models a matching three-part answer: 'begin with inquiry and quantitative work; develop chemical, physical, biological, human, microbial, behavioural, social, and population subjects; and end with capstone work' — a single 'develop' bucket. assessment.json#rubric-subject-journey instead scores four separately placed groups, awarding 0 on criterion-journey-middle if named groups 'are placed outside the middle stage' and 0 on criterion-journey-destination if later domains 'are not placed in the later stage'. Applied literally, the lesson's own model answer names enough subject areas to satisfy the breadth counts but does not separate middle from later placement, so it would not clearly earn those two points. Learner consequence: someone who faithfully reproduces the taught three-stage shape can lose up to 2 of the 4 points on item-describe-journey for a structure the lesson itself modelled. This stays minor rather than an alignment failure because the exact scored structure and its counts are stated in the same scene immediately before the check ('at least three middle subject areas... at least two later medicine-facing domains'), the recovery route sends the learner back to the complete subject list rather than leaving them with the mnemonic alone, and losing 2 points still leaves the 8/10 threshold reachable.",
+      "resolution": "Not required for this candidate. If revised later, make the correspondence explicit — state in content/01-welcome.md that the middle stage is unpacked into named chemical/physical and biological areas and that capstone work is scored as its own final stage, and bring the check-welcome-transfer comparison into line with the four-part scored structure."
+    },
+    {
+      "severity": "minor",
+      "target": "content/04-finish.md#the-welcome-check",
+      "finding": "The advertised scoring requirements omit one of the ten scored points. content/04-finish.md promises 'The scoring requirements are visible before you begin:' and then lists two requirements for the relevance response: 'choose four concepts from four different subject areas and give a specific concept-to-purpose link for all four'. assessment.json#rubric-concept-relevance has three criteria; the third, criterion-relevance-clarity, awards its point only when 'all four links are understandable in plain language, remain at orientation depth, and make no unsupported clinical claim'. That criterion is not in the advance list, so one point in ten is governed by an unstated rule despite the visibility promise. The journey and capabilities bullets match their rubrics exactly, so this is the only gap of its kind. Learner consequence is bounded: item-explain-relevance's own prompt does say 'In plain language' and 'You are describing relevance, not teaching the detailed science', and content/04-finish.md states the non-clinical completion boundary, so the requirement is discoverable at the point of performance; and with the 8/10 threshold a learner must lose this point plus two others before it decides the outcome.",
+      "resolution": "Not required for this candidate. If revised, extend the relevance bullet in 'The welcome check' to name plain-language clarity, orientation depth, and the no-clinical-claim limit so the advertised list covers all ten scored points."
+    },
+    {
+      "severity": "note",
+      "target": "lesson.json#prerequisites",
+      "finding": "The learner model has no hidden prerequisites. lesson.json declares prerequisites as empty, matching site/data/premed-graph.json#topic-welcome-course-journey, which is level college-intro with no prerequisite links. There is no diagnostic scene, which is correct here rather than a gap: with nothing to diagnose, a placement quiz would only manufacture failure. The prerequisite stance is instead stated plainly and non-punitively ('You need not know these subjects yet'; 'Nobody expects you to begin at the end. Curiosity, careful practice, and a willingness to correct your reasoning are enough to start'), and content/04-finish.md#misconception-prior-science-gate handles the one real prerequisite worry a beginner brings. I checked the strongest candidate for a hidden prerequisite — the content/03-learning.md worked example, which the lesson claims 'requires no prior science' — by attempting it as a no-science adult; the reasoning it demands is that a comparison changes one feature at a time, which the example itself supplies before asking for it. The claim holds.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "lesson.json#objectives",
+      "finding": "Constructive alignment holds across all three clauses of the mapped outcome. The graph outcome is 'Describe the Premed subject journey, explain how its major concepts connect to medical study, and identify the knowledge and scientific capabilities expected by course completion.' Clause 1 maps to objective-describe-subject-journey, taught in content/01-welcome.md and content/02-journey.md, retrieved by check-sequence-why, rehearsed in check-welcome-transfer part 1, assessed by item-describe-journey against four rubric criteria, and recovered by the three-stage plus complete-list route. Clause 2 maps to objective-explain-medical-relevance, taught by the eleven subject bullets and the seven stage-preparation statements, practised in the misconception repair and check-welcome-transfer part 2, assessed by item-explain-relevance, and recovered by the sentence frame 'I will learn ___ in ___ because it helps me later explain or evaluate ___', which is precisely the scored concept-to-purpose move. Clause 3 maps to objective-identify-completion-capabilities and is traced in a separate finding. Every objective has exactly one assessment item; every item maps to scene-finish and to topic-welcome-course-journey; estimatedMinutes 18+14+16+12 totals the declared 60 and matches the graph node's estimatedHours of 1. The one place the lesson teaches something it does not assess is the fair-comparison reasoning in content/03-learning.md, and that is explicitly declared as a demonstration rather than a requirement ('This previews the course's reasoning style; the welcome check does not score it'), so it is not assessment drift.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#items-and-rubrics",
+      "finding": "Assessment counts are sufficient and internally consistent; I checked every number against all three places it appears. Three items at 4+3+3 = 10 points match 'three untimed responses worth ten points'. Rubric points sum to their items exactly: rubric-subject-journey 4 x 1, rubric-concept-relevance 3 x 1, rubric-completion-capabilities 3 x 1. attemptPolicy is retakeable with timeLimitMinutes null, matching 'untimed' and 'You may retake it'. The completion rule 'at least 8 out of 10 and earn at least one point on each response' is attainable and non-degenerate — 3+3+2 or 4+3+1 both reach it — and the per-response floor is in fact mathematically implied, since a zero on any item caps the total at 7. Each counted requirement agrees across scene prose, item prompt, and rubric criterion: three middle areas including at least one chemical/physical and one biological, two later medicine-facing domains, integration/capstone as final, two because/how preparation links, four concepts from four different subject areas, four capabilities with one observable action each, and one accurate completion boundary. criterion-capability-boundary is notably well built: it separates omission from contradiction and directs that a response claiming credit, licensure, or clinical authority be flagged for correction rather than scored as a mere gap.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "content/03-learning.md#worked-example-flow-preview",
+      "finding": "The worked example carries all nine components the standard requires and the support genuinely fades. It states the task and question ('Does tube width affect the volume collected in this model?'), represents givens and their limits ('The pattern cannot verify those conditions'), selects a principle with a reason ('A fair comparison changes the tested feature while keeping the other conditions the same'), gives a plan, executes with reasons over three runs, keeps units, runs an independent check, interprets within the original context, and ends with a self-explanation prompt aimed at the decisive choice ('which choice protects the conclusion most—collecting a large number, using millilitres, or holding the other conditions steady'). Its comparison then explains why the two distractors are insufficient rather than only naming the right answer. It also carries an epistemic limit most orientation material omits: 'An investigator would inspect settings or logs to verify the claimed pump, liquid, tube length, and time; the data pattern cannot.' Fading is real, not nominal: complete model, then check-faded-comparison, which changes the surface to a confounded design and requires the learner to name the competing difference and propose a repair independently, then check-welcome-transfer, then three unaided graded items. I attempted each prompt in order as the declared learner and each was answerable from what preceded it.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "content/03-learning.md#check-sequence-why",
+      "finding": "Retrieval, feedback, retry, and recovery are usable. All four formative prompts put the question before the reveal and ask for an explicit commitment first ('Pause here. Without looking back, cover the following text and commit a one-sentence answer before continuing'). Feedback answers all three questions the standard requires — what was right, which principle explains it, and what to do next — and the next step is always concrete: 'If you repeated only the order, add why each step helps'; 'If you named only the problem, add the repaired comparison'; 'If you only listed subjects, add why a transition matters; if you omitted a capability, an action, or the boundary, add it before moving on.' Retakes require renewed reasoning rather than replaying an answer: content/04-finish.md supplies three alternative prompts demanding different subjects, different concepts, and a new non-diagnostic capstone scenario, and each item's answer.reasoning in assessment.json states the same constraint. Recovery is targeted rather than generic, with separate routes for blurred subject names, blurred capabilities, and a blurred completion boundary, the last including a self-check that the learner's sentence does not claim diagnosis, treatment, credit, admission, a licence, or professional authority. One honest limit: because prompts and answers sit in the same static scene, retrieval before reveal depends on the learner actually covering the text, and I could not observe how the rendered reader sequences them.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "content/04-finish.md#misconception-prior-science-gate",
+      "finding": "The misconception repair is complete and well chosen. It elicits a commitment before showing the worry ('must a beginner already explain unfamiliar scientific terms to be ready for this welcome? Write yes or no and one reason'), states the incorrect belief in the learner's own voice without caricature ('If I cannot already explain enzymes, electricity, inheritance, or immunity, I am not ready'), identifies what that belief cannot account for, supplies the more adequate model with a concrete instance ('Biochemistry will teach how cells control reaction helpers called enzymes'), and rechecks on a different term the learner chooses, which makes the recheck a genuine new case rather than a restatement. The chosen misconception is the consequential one for a no-prerequisite orientation, since it is the belief that would make a beginner stop. It also does structural work for the lesson: it teaches the exact placement move that the dense subject list in content/01-welcome.md asks learners to perform, so the repair and the load it addresses are the same design decision seen from two sides.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "content/04-finish.md#scene-finish",
+      "finding": "The four completion capabilities and the course-completion boundary are taught, practised, assessed, and recoverable — the strongest alignment thread in the pack. The capabilities are previewed in content/01-welcome.md ('explain... model... investigate... integrate'), then taught in content/04-finish.md with an observable action attached to each, including the modelling limit 'state what the model leaves out' and the investigative limit 'conclusions no stronger than the evidence'. They are rehearsed in check-welcome-transfer parts 3 and 4, assessed by item-identify-capabilities against criterion-capability-identification, criterion-capability-actions, and criterion-capability-boundary, and recovered by a four-verb reconstruction route. The boundary is stated once in plain terms ('It does not authorize diagnosis or treatment, award university credit or a professional licence, or guarantee admission'), rehearsed in the transfer check, scored by its own criterion, and given a dedicated recovery frame. Framing the capabilities item as correcting a wrong account — 'A learner says that completing Premed means remembering a large set of facts' — is a better choice than asking for a list, because it makes the recall-versus-capability distinction the thing being performed.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#item-describe-journey",
+      "finding": "Calibration of what this assessment can support. The graded check is open-book by construction and sits in the same scene as a comparison paragraph that supplies part of what two items ask for. That is appropriate for a one-hour orientation whose declared outcome is describing a journey, and copying is not sufficient for full credit: the comparison supplies one preparation link where item-describe-journey requires two, and one relevance example where item-explain-relevance requires four drawn from four different subject areas. But the evidence produced is orientation-level recall and organization under open-book conditions, not independent scientific mastery, and no downstream record should describe it as more than that. Relatedly, check-welcome-transfer is closer to structured recall repackaged for a new audience than to genuine transfer; the real bounded adaptation in this pack is the misconception recheck on a learner-chosen term and the three retry prompts, which require different subjects, different concepts, and an unfamiliar capstone scenario. For this outcome at this level I judge that sufficient, and I note it so the limit is on the record rather than assumed away. One further observation, offered without a change request: item-explain-relevance requires four concept-to-purpose links and criterion-relevance-links is all-or-nothing ('award 0 if any concept lacks a purpose'), whereas the formative prompts ask the learner to produce that move one at a time. The move itself is modelled eleven times in content/01-welcome.md and practised three times before the check, so the increase is in quantity rather than construct, and the retry route and recovery sentence frame both address it.",
+      "resolution": "No change required. Do not describe this check as mastery evidence beyond orientation-level description and organization."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#attemptPolicy",
+      "finding": "The completion rule is not machine-readable, and this is a format limit rather than an author defect. 'At least 8 out of 10 and earn at least one point on each response' exists only in content/04-finish.md prose. site/schemas/assessment.schema.json v1 sets additionalProperties to false at every level and provides no mastery-threshold or passing-score field, so there was nowhere in the pack for the author to record it. Consequence for learners: any renderer, scorer, or export consuming assessment.json alone cannot enforce or display the completion rule, and a later prose edit could drift from it with nothing to catch the drift. This belongs on the format backlog, not against this candidate.",
+      "resolution": "No change required in this pack. Consider a threshold field in a future assessment schema version so the completion rule travels with the machine-readable artifact."
+    }
+  ],
+  "limitations": [
+    "No empirical learner testing was performed. No real learner attempted this lesson; every judgement here is an expert simulation of the declared learner and is not evidence that learners achieved the outcome.",
+    "Learning-design role only. Factual accuracy of the syllabus-derived claims, source interpretation, rights basis, licence compatibility, attribution, and detailed accessibility conformance were not adjudicated and remain with the academic and accessibility-rights roles.",
+    "No rendered-interaction or environment testing was possible within the isolated Claude session. Its validator command was denied, so the deterministic web compiler and browser reader were not run there. This review claims no structural validation evidence from that run; schema and render validation would in any case be structural evidence only, never evidence of learning.",
+    "Claim-to-scene coverage, scene-minute totals, artifact version consistency, directive and option whitelisting, and required lesson-wide sections were checked by hand from source in the isolated Claude session and require separate validator confirmation.",
+    "Retrieval-before-reveal, the 'cover the following text' instruction, and the 'without looking back' conditions were assessed from canonical source only. How a guided reader actually sequences prompt and answer, and whether it can withhold a comparison paragraph, was not observed.",
+    "This review covers only the frozen candidate a5594065ede4a3f020837be01e0f04cd5c29af00 at lessons/PREM-WEL-001-welcome-to-premed, version 0.4.0. Any later change to teaching content or pack metadata stales it.",
+    "Role isolation was maintained in the Claude review run: no file under the pack's reviews/ directory, no adjudication, no authoring conversation, and no prior review conclusion was read, and lesson.json authors and aiAssistance were excluded from learning-design judgement. Author intent was not used as evidence.",
+    "The founding-stage arrangement permitting one accountable principal to operate authoring and review agents is disclosed and attested, not verified. This is one eligible learning-design vote; it establishes neither quorum nor merge readiness, and nothing here should be read as an independent-verification claim.",
+    "Claude Code was invoked with the exact selected model claude-fable-5. Returned telemetry reported usage for claude-fable-5 and also internal claude-opus-4-8 and claude-haiku-4-5-20251001 components; the provenance model field records the explicitly selected review model and does not claim exclusive internal routing."
+  ],
+  "signedAt": "2026-07-20T10:02:38Z"
+}

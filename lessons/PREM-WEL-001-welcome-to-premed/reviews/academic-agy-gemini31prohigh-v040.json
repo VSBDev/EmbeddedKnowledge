@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-WEL-001-ACADEMIC-AGY-G31P-V040-296C9F99",
+  "lessonId": "PREM-WEL-001",
+  "lessonVersion": "0.4.0",
+  "candidateCommit": "a5594065ede4a3f020837be01e0f04cd5c29af00",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev (Academic Reviewer)",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.1-pro-high",
+      "version": "Agy CLI 1.1.4",
+      "runId": "academic-agy-gemini31prohigh-v040-20260720-296c9f99-5a33-46d6-adcd-4a4fc8ab22fa",
+      "instructionsDigest": "sha256:c35078b140d00afbd4a11a1673670636210a7272ae773269422ca7361ea1c654"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lessons/PREM-WEL-001-welcome-to-premed/lesson.json",
+    "lessons/PREM-WEL-001-welcome-to-premed/content/01-welcome.md",
+    "lessons/PREM-WEL-001-welcome-to-premed/content/02-journey.md",
+    "lessons/PREM-WEL-001-welcome-to-premed/content/03-learning.md",
+    "lessons/PREM-WEL-001-welcome-to-premed/content/04-finish.md",
+    "lessons/PREM-WEL-001-welcome-to-premed/assessment.json",
+    "lessons/PREM-WEL-001-welcome-to-premed/claims.json",
+    "lessons/PREM-WEL-001-welcome-to-premed/glossary.json",
+    "lessons/PREM-WEL-001-welcome-to-premed/references.json",
+    "lessons/PREM-WEL-001-welcome-to-premed/ATTRIBUTION.md",
+    "site/data/premed-graph.json#topic-welcome-course-journey",
+    "course/PREMED-SYLLABUS.md@afc8b980e1181d172b0954b7b46bfcdd32d0db85#WEL-000"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "assessment.json#assessment-welcome-to-premed",
+      "finding": "The completion rule of scoring at least 8/10 with at least 1 point per response allows a learner to pass and be credited with outcome mastery without satisfying the explicit requirements of the course objectives. For example, a learner scoring 3/4 on the journey item (earning 0/1 on criterion-journey-links due to not explaining preparation links), 3/3 on relevance, and 3/3 on capabilities will pass the check with 9/10. However, they have failed the core requirement of objective-describe-subject-journey. Additionally, other 8/10 passing vectors allow failing critical criteria like safety and completion boundaries (criterion-capability-boundary).",
+      "resolution": "Align the completion logic in both assessment.json and content/04-finish.md to ensure that a learner cannot pass without satisfying the key rubric criteria mapped to the lesson's learning objectives. This can be achieved by: (1) raising the passing threshold or adding explicit 'must-pass' hurdle criteria in the grading engine for key rubric items (such as criterion-journey-links and criterion-capability-boundary); or (2) restructuring the assessment items/rubrics so that any mathematically passing score guarantees that the criteria of all mapped objectives are satisfied."
+    },
+    {
+      "severity": "note",
+      "target": "content/03-learning.md#worked-example-flow-preview",
+      "finding": "The tube flow model worked example provides a scientifically accurate representation of a fair test comparison. The average results (20 mL vs ~80 mL) and the ratios (~4x) clearly stand out above the small run-to-run variation (19-21 mL for Tube A, 78-82 mL for Tube B), demonstrating robust data interpretation within model limits.",
+      "resolution": null
+    }
+  ],
+  "limitations": [
+    "Review is limited to the academic accuracy and curriculum alignment of this introductory welcome lesson.",
+    "No clinical evaluation is performed as this is a non-clinical, pre-medical introductory overview.",
+    "No verification of external materials beyond the provided syllabus source commit was performed."
+  ],
+  "signedAt": "2026-07-20T12:00:40Z"
+}

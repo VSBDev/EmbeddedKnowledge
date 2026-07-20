@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-WEL-001-LEARNING-CLAUDE-FABLE5",
+  "lessonId": "PREM-WEL-001",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "227b455160568aa5c0bc76e7040643cfca96e0db",
+  "role": "learning-design",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSB — accountable operator; learning-design reviewer",
+    "agent": {
+      "system": "Claude Code",
+      "provider": "Anthropic",
+      "model": "claude-fable-5",
+      "version": "Claude Code 2.1.215",
+      "runId": "review-claude-fable5-learning-design-20260720-6ebbc998-13cb-400c-b1fa-36a0b92cd66b",
+      "instructionsDigest": "sha256:8fc817b40c9781f8e1aaead08c0584198b66bf1036dbd35469013bba7ed33d48"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "content/01-welcome.md, 02-journey.md, 03-learning.md, 04-finish.md#cold-first-read-in-lesson.json-scene-order-before-any-metadata-ledger-assessment-or-validator-output",
+    "lesson.json#scenes-order-kinds-estimatedMinutes-and-claimCoverage (18+14+16+12 = 60 minutes)",
+    "lesson.json#objectives-objective-describe-subject-journey-objective-explain-medical-relevance-objective-identify-completion-capabilities",
+    "lesson.json#outcomes-topic-welcome-course-journey-and-empty-prerequisites",
+    "site/data/premed-graph.json#topic-welcome-course-journey outcome statement, level college-intro, estimatedHours 1",
+    "content/02-journey.md#check-sequence-why retrieval prompt and its following answer paragraph",
+    "content/03-learning.md#worked-example-flow-preview attempted step by step as the intended learner",
+    "content/03-learning.md#check-faded-comparison attempted as the intended learner",
+    "content/04-finish.md#check-welcome-transfer attempted as the intended learner",
+    "content/04-finish.md#misconception-prior-science-gate",
+    "content/04-finish.md#the-welcome-check mastery threshold and retry prompts",
+    "content/04-finish.md#accessibility-and-alternatives and #recovery-route as they affect the learning operation",
+    "assessment.json#items item-describe-journey, item-explain-relevance, item-identify-capabilities with prompts, answer logic and commonErrors",
+    "assessment.json#rubrics rubric-subject-journey, rubric-concept-relevance, rubric-completion-capabilities criteria and point values",
+    "assessment.json#attemptPolicy retakeable true, no time limit, feedback after-attempt",
+    "glossary.json#terms and their sceneIds",
+    "claims.json#scene-to-claim mapping inspected only after the cold read, for alignment not for source verification",
+    "site/schemas/assessment.schema.json#attemptPolicy-and-item-fields to confirm no mastery-threshold or alternate-form field exists"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "assessment.json#items/item-describe-journey (prompt) with rubric-subject-journey criteria criterion-journey-opening, criterion-journey-middle, criterion-journey-destination",
+      "finding": "The graded item that is supposed to evidence objective-describe-subject-journey hands the learner the answer inside its own prompt. The prompt reads: \"Describe the recommended Premed subject journey to a new learner. Begin with scientific method and laboratory practice plus mathematics and statistics; include general chemistry, physics, organic chemistry, biochemistry, biology and genetics, human structure and physiology, microbiology and immunology, behaviour, society, and population health, and integration and capstone work.\" Three of the four rubric criteria then award a point each for exactly that content: criterion-journey-opening for beginning with scientific method, laboratory practice, mathematics and statistics; criterion-journey-middle for including the chemical, physical, biological, genetic, organic and biochemical subjects; and criterion-journey-destination for including human structure and physiology, microbiology and immunology, behaviour, society, population health, and integration and capstone work. I attempted the item as the intended learner: reordering the prompt's own clauses into sentences satisfies all three criteria without retrieving anything. Only criterion-journey-links, worth one point of four, requires knowledge the learner must actually hold. The consequence is that a learner who cannot name or order the journey still scores 3/4 on the item whose objective is to describe the journey, so this item cannot support the mastery claim attached to it, and the lesson's own 8-out-of-10 threshold is measured partly against copied text. The lesson already shows the correct pattern elsewhere: content/04-finish.md#check-welcome-transfer asks the learner to name \"the subjects that begin, develop, and complete the journey\" without listing them, and content/02-journey.md#check-sequence-why says \"Cover the list and answer\". The ungraded checks demand more retrieval than the graded item.",
+      "resolution": "Remove the subject enumeration from the item-describe-journey prompt and ask for the journey in the learner's own words, in the manner already used by check-welcome-transfer — for example, ask the learner to describe the journey from where it begins to where it ends, naming the subject areas along the way and explaining at least two preparation links. If a supported route is wanted for learners who stall, put the enumeration in a hint or in the recovery route rather than in the prompt whose rubric scores it, so the criteria measure recall rather than transcription."
+    },
+    {
+      "severity": "minor",
+      "target": "content/03-learning.md#worked-example-flow-preview, the \"Represent what is given\" and \"Check the reasoning\" steps",
+      "finding": "The one worked example that models the course's reasoning pattern contradicts itself about what is given. \"Represent what is given\" states: \"Liquid, tube length, pump setting, and collection time are held constant.\" Four paragraphs later, \"Check the reasoning\" states: \"We should still confirm that the simulation held the pump and liquid constant; otherwise width would not be the only planned explanation.\" A learner who took the first statement at face value has no way to tell whether the constancy of pump and liquid was established or is still open. This matters more than a slip in wording because the very next task, check-faded-comparison, turns on spotting a competing difference in pump setting; a learner who concludes that stated givens must nonetheless be re-verified, or conversely that stated givens close the question, will misread that practice item. The expert decision the check step is trying to model — distinguishing a condition asserted by the problem from a condition the investigator has actually verified — is the interesting move here, and the current wording hides it.",
+      "resolution": "Make the distinction explicit rather than contradictory. Either state in \"Represent what is given\" that the simulation description claims these conditions are constant and that the claim itself is something an investigator checks, or change \"Check the reasoning\" to say what was verified against the data and what remains an assumption carried from the problem statement. Naming that move would strengthen the example, since it is exactly the habit the lesson promises in scene one."
+    },
+    {
+      "severity": "minor",
+      "target": "content/01-welcome.md, opening paragraphs and the eleven-item subject list (scene-welcome, 18 estimated minutes)",
+      "finding": "The opening gives the learner nothing concrete to picture, explain, or predict before asking them to absorb the whole curriculum. It begins \"Welcome to Premed. You are about to begin a journey through the science that makes the human body more understandable and scientific evidence more trustworthy\", then moves after two short paragraphs into eleven bullets that between them name well over a hundred topics. Several bullets lead with long strings of abstract nouns before any action appears, for instance \"Atoms, bonds, molecular shape, reactions, amounts, gases, solutions, energy changes, reaction rates, equilibrium, acids, and bases describe the molecular setting of cells\", and \"Perception, learning, stress, social relationships, institutions, inequality, access, environment, and population evidence widen the account of health.\" The first thing a learner can actually do something with is the tube-and-liquid example in content/03-learning.md, roughly thirty-two minutes into a sixty-minute lesson by the declared scene estimates. This does not defeat the first-read gate — I could still say what the lesson teaches, why it matters, and how its central relation works after one pass — but it front-loads the heaviest, least concrete material into the scene where a nervous newcomer is most likely to disengage, and it works against the lesson's own stated aim of motivating continued study. Each bullet does close with a genuine why-it-matters clause, which is what keeps this from being a comprehension failure.",
+      "resolution": "Give the learner one small concrete anchor before the catalogue — a single question the finished course lets them answer, or a brief version of the tube comparison already written for scene three — so that the subject list arrives as the route to something they have already glimpsed. Within the bullets, lead with the actor and the action and let the topic nouns follow, so that a learner meets \"you will work out how molecules dissolve, react, and release energy\" before the inventory of topics that supports it."
+    },
+    {
+      "severity": "minor",
+      "target": "content/03-learning.md self-explanation prompt and the paragraph beginning \"The strongest answer is\"; content/04-finish.md#check-welcome-transfer and the paragraph beginning \"A strong answer begins with\"",
+      "finding": "Retrieval cueing is inconsistent across the lesson, so three of the four prompts reveal their answers without asking the learner to commit first. content/02-journey.md#check-sequence-why does this well: it opens \"Cover the list and answer in one sentence\", which gives the learner an explicit instruction to generate before reading on. The other prompts do not. The self-explanation question closing worked-example-flow-preview is followed immediately by \"The strongest answer is **holding the other conditions steady**\" in the next paragraph. check-faded-comparison is followed by \"After answering, compare: **No.** Pump setting changes with width\" — the cue is present but arrives after the answer word. check-welcome-transfer says \"Without looking back\" inside the prompt, then the answer follows in the adjacent paragraph. Because CONTENT-STANDARD section 9 requires reading mode to preserve continuous prose, a learner scrolling in reading mode sees the answer in the same visual field as the question, and the retrieval attempt that makes these prompts worth including is easy to skip without noticing.",
+      "resolution": "Apply the scene-two pattern consistently: place a short explicit commitment instruction inside each prompt (answer aloud, write one sentence, or cover the following paragraph) before any answer text, and start the following paragraph with the cue rather than the verdict, for example \"Once you have answered, compare: no — pump setting changes with width\" instead of leading with the bolded answer."
+    },
+    {
+      "severity": "minor",
+      "target": "assessment.json#rubrics (all three) and the \"The welcome check\" section of content/04-finish.md",
+      "finding": "The mastery rule and the rubric that must implement it do not fit together. content/04-finish.md states: \"The welcome check has three untimed text responses worth ten points. To complete it, score **at least 8 out of 10 and earn at least one point on each response**.\" The point totals are consistent (4 + 3 + 3 = 10), but every rubric criterion is a single all-or-nothing point with one description and no performance-level descriptors, for example criterion-journey-links, \"Explains at least two accurate ways one stage prepares later study.\" For three open text responses there is no automated scoring path, so whether a learner clears 8 of 10 rests entirely on an unstated judgment about how good an answer must be to earn each binary point. Two graders, or the same learner self-scoring on two attempts, can reach opposite completion decisions on the same response. The threshold and the retry prompts also exist only in scene prose; I checked site/schemas/assessment.schema.json and it offers no mastery-threshold or alternate-form field, so a delivery system reading assessment.json alone would not know the completion rule at all. That part is a schema limit rather than an authoring fault, but the effect on the learner is the same.",
+      "resolution": "Give each criterion at least a met/not-met boundary statement that says what the weakest passing response contains — for criterion-journey-links, for instance, what distinguishes a genuine preparation link from a restatement of the order. That makes the eight-point threshold reproducible for a self-scoring learner. Separately, consider raising with the format maintainers that assessment.schema.json has nowhere to record a mastery threshold or an equivalent retry form, since both are required by the lesson must-haves in lessons/README.md section 5."
+    },
+    {
+      "severity": "minor",
+      "target": "content/04-finish.md#misconception-prior-science-gate",
+      "finding": "The misconception block states the worry and repairs it but never rechecks the repair, so the lesson has no evidence the repair took. It quotes the worry, \"If I cannot already explain enzymes, electricity, inheritance, or immunity, I am not ready\", supplies the correction that the learner should \"Place an unfamiliar term in its subject and say what the subject will unlock\", and models it once with enzyme regulation. It then ends. Nothing asks the learner to perform that placement on a term of their own, which is the one action the repair depends on. CONTENT-STANDARD section 7 asks a repair sequence to recheck the learner in a new case, and here that recheck would cost a single sentence. Because this is an affective and boundary worry rather than a conceptual error, the missing elicitation step matters less, but a learner who is genuinely anxious about readiness gets told the right thing without ever proving it to themselves.",
+      "resolution": "Close the block with a short recheck that reuses the modelled move on a different term — for example, ask the learner to pick one term from scene one that they cannot explain, name the subject that will teach it, and complete the sentence in one line. The recovery route already ends with a similar sentence frame, so the pattern is available."
+    },
+    {
+      "severity": "note",
+      "target": "lesson.json#scenes and content/02-journey.md, closing paragraph",
+      "finding": "Delayed and cumulative retrieval is asserted rather than designed. The only forward link is the sentence \"The pace can vary, and you will revisit earlier ideas\", and no scene or metadata field identifies which later lesson should re-retrieve this orientation or when. CONTENT-STANDARD section 8 treats spacing as a property of the course sequence, and lessons/README.md section 5 item 7 asks for delayed or cumulative retrieval mapping. I am recording this as a note rather than a finding against the author because there is currently nowhere for such a link to point: lessons/README.md states the production namespace holds zero contributed and zero published lessons, so this welcome is the only lesson in the corpus. The obligation lands on whichever lesson follows, and it should not be lost when this one is merged.",
+      "resolution": "No change required in this candidate. When the first Scientific Inquiry lesson is authored, have it re-retrieve the journey and the four completion capabilities from this welcome, so that the spacing claim made here becomes real rather than promised."
+    },
+    {
+      "severity": "note",
+      "target": "content/01-welcome.md, content/03-learning.md#worked-example-flow-preview, content/03-learning.md#check-faded-comparison, content/04-finish.md#check-welcome-transfer",
+      "finding": "Verified strengths, recorded so they are not lost in a revision. First, the user's learner gate is met: content/01-welcome.md names the scientific method and laboratory practice, mathematics and statistics, physics, general chemistry, organic chemistry, biochemistry, biology and genetics, human structure and physiology, microbiology and immunology, behaviour and society and population health, and integration and capstone work, each with representative concepts and a stated reason it earns its place. No discipline has to be inferred. Second, the cold read passes the first-read gate — after one pass I could state that the lesson teaches what the Premed journey contains and where it leads, that it matters because each stage supplies reasoning the next one uses, and that its central relation is preparation dependency, demonstrated concretely by the fair-comparison reasoning in the tube example. Third, worked-example-flow-preview is a genuinely complete model rather than an answer display: it represents givens, selects a principle, plans, executes, checks, interprets, states limits, and ends with a self-explanation prompt about the decision that most determines the solution. Fourth, support fades honestly from that complete model to check-faded-comparison, which is a real completion problem with a confounded second dataset, to check-welcome-transfer, which requires assembling the account for a different audience without looking back. Fifth, the boundary statements — that the aim is \"to explain whole-body mechanisms, not make clinical decisions\", and that Premed \"does not authorize diagnosis or treatment, award university credit or a professional licence, or guarantee admission\" — are stated once, placed where they matter, and do not bury the idea.",
+      "resolution": "No change required. Preserve these properties through the revision that addresses the major finding; in particular, do not weaken check-welcome-transfer while making item-describe-journey more demanding."
+    }
+  ],
+  "limitations": [
+    "No real learner testing was available. Every judgment here comes from my own attempt at the prompts as the declared learner plus established learning-design principles; none of it is evidence that any learner achieved the outcome.",
+    "This is a learning-design review only. I make no scientific approval claim. I noticed no suspected scientific error worth referring, but the accuracy of the syllabus-derived subject descriptions, the fluid-flow example, and the glossary definitions belongs to academic review.",
+    "I read claims.json, references.json and glossary.json only after the cold read and only for instructional alignment. I did not verify source support, rights bases, or agent-access terms, and I did not browse the web.",
+    "Accessibility was considered only where it affects the learning operation — the text-response routes, the prose equivalent for the data table, and the semantic heading order. Formal accessibility and rights review is a separate role and I did not perform it.",
+    "I did not read the authoring conversation, any developmental cold-reader output, closed PR #21, any other review artifact, or any adjudication. The reviews directory contained no other artifact when I wrote this one.",
+    "Judgments about proportionality — how much retrieval, misconception repair, and spacing a sixty-minute motivating orientation owes — are my own calibration against a course-journey outcome, not a measured standard. A reviewer calibrating differently could reasonably rate the minor findings lower.",
+    "One learning-design verdict is a single eligible vote. It establishes neither quorum nor merge readiness."
+  ],
+  "signedAt": "2026-07-20T08:40:28Z"
+}

@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-WEL-001-LEARNING-CLAUDE-FABLE5-V041",
+  "lessonId": "PREM-WEL-001",
+  "lessonVersion": "0.4.1",
+  "candidateCommit": "bd6ef5438aa48142e2c404030c9f8ee72bfe091a",
+  "role": "learning-design",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev accountable operator — Claude learning-design reviewer",
+    "agent": {
+      "system": "Claude Code",
+      "provider": "Anthropic",
+      "model": "claude-fable-5",
+      "version": "Claude Code 2.1.215",
+      "runId": "38e289a8-2a4a-4b0e-9bb5-a882f8bcbacd",
+      "instructionsDigest": "sha256:a2160733c7ad2ed15aed8223250af50e73fcf6fe260674234fc7c1e50826b123"
+    }
+  },
+  "conflictOfInterest": { "declared": false, "details": null },
+  "evidenceChecked": [
+    "content/01-welcome.md#scene-welcome cold first read as a college-intro beginner with no prerequisites",
+    "content/02-journey.md#scene-journey preparation model and stage ordering",
+    "content/03-learning.md#worked-example-flow-preview, check-sequence-why, check-faded-comparison retrieval and faded practice",
+    "content/04-finish.md#check-welcome-transfer, misconception-prior-science-gate, the-welcome-check, recovery-route",
+    "lesson.json#objectives (objective-describe-subject-journey, objective-explain-medical-relevance, objective-identify-completion-capabilities) and scenes",
+    "topic-welcome-course-journey graph outcome vs objectives and assessment items",
+    "assessment.json#item-describe-journey, item-explain-relevance, item-identify-capabilities answer logic attempted as the intended learner",
+    "assessment.json#rubric-subject-journey, rubric-concept-relevance, rubric-completion-capabilities binary criteria vs learner-visible scoring requirements",
+    "assessment.json#attemptPolicy untimed unlimited retakes and renewed-reconstruction retry prompts",
+    "0.4.0 (a5594065ede4a3f020837be01e0f04cd5c29af00) to 0.4.1 learner-facing regression diff on content/04-finish.md#the-welcome-check and assessment.json answer.reasoning fields",
+    "glossary.json term-to-scene coverage for terms surfaced in learner prose"
+  ],
+  "findings": [
+    {
+      "severity": "note",
+      "target": "content/01-welcome.md#scene-welcome and content/02-journey.md#scene-journey",
+      "finding": "Cold first-read gate passes. Reading the four scenes as a college-intro beginner with no prerequisites, the lesson makes clear (a) what it teaches — the recommended Premed subject journey, how earlier subjects prepare later ones, and the four completion capabilities; (b) why it matters — separate facts become auditable explanations, motivated concretely; and (c) how the central subject-journey/preparation model works via the three-stage compression (evidence and measurement; matter and living systems; people, populations, and capstone work) plus the fictional tube-flow example that shows the reasoning style without requiring prior science. Prose is concrete, uses ordinary language, and does not leak schema, quorum, or validator vocabulary. The explicit reframing that 'the stage shape—not the unfamiliar term inventory—is the target' effectively manages the cognitive load of the eleven-subject list in scene 1.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "minor",
+      "target": "content/04-finish.md#the-welcome-check together with assessment.json#rubric-concept-relevance/criterion-relevance-clarity",
+      "finding": "Under the 0.4.1 policy that mastery is 10/10 by meeting every rubric criterion, one decisive binary criterion is not listed among the requirements the scene states are 'visible before you begin.' The relevance scoring bullet discloses only the selection and concept-to-purpose-link requirements, but criterion-relevance-clarity additionally requires plain-language, orientation-depth links with no unsupported clinical claim. Because every criterion is now decisive, a learner who satisfies all enumerated requirements could still lose the point (and therefore mastery) on an unlisted basis. This transparency gap is genuine but limited in impact: the item prompt itself instructs 'In plain language... You are describing relevance, not teaching the detailed science,' and misconception-prior-science-gate repairs exactly the untaught-science overreach the criterion polices, so a learner following the operative guidance would satisfy it. The visible scoring summary, not the learner's actual guidance, is what is incomplete.",
+      "resolution": "Add the plain-language / orientation-depth / no-clinical-overreach requirement to the relevance bullet in the 'scoring requirements are visible before you begin' list so the enumerated 10/10 policy names every criterion the rubric enforces."
+    },
+    {
+      "severity": "minor",
+      "target": "content/04-finish.md#recovery-route",
+      "finding": "The welcome-check text promises that 'if any criterion is missed, use the matching recovery route below,' but the three named recovery routes cover subject-name recall, the four completion capabilities, and the completion boundary. The subject-name route's fill-in template ('I will learn ___ in ___ because it helps me later explain or evaluate ___') does support the two because/how preparation links (criterion-journey-links) and the concept-to-purpose links (criterion-relevance-links), so those are effectively covered. The clarity criterion (criterion-relevance-clarity) has no dedicated recovery route. Because retries are untimed and unlimited and the general 'try again from memory' path plus the item prompt guidance still apply, this does not block usable recovery, but the 'matching recovery route' promise slightly overreaches relative to the criterion inventory.",
+      "resolution": "Either add a short recovery cue for the plain-language/no-clinical-overreach criterion or soften the promise to note that recovery routes address the main naming, linking, capability, and boundary criteria rather than implying a one-to-one route per criterion."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#item-describe-journey/answer.reasoning, item-explain-relevance/answer.reasoning, item-identify-capabilities/answer.reasoning",
+      "finding": "The 0.4.0-to-0.4.1 learner-facing regression diff is coherent and, for learning design, an alignment improvement rather than a regression. Scene content/04-finish.md#the-welcome-check moves from 'at least 8 out of 10 and earn at least one point on each response' to '10 out of 10 by meeting every rubric criterion,' and the three answer.reasoning fields now each add 'Assessment mastery requires 10/10, so every criterion in all three rubrics must be met. If any criterion is missed, use the corresponding recovery route and retry.' The point arithmetic is internally consistent: item-describe-journey (4 criteria, 4 points), item-explain-relevance (3 criteria, 3 points), item-identify-capabilities (3 criteria, 3 points) total ten criteria and ten points, so 10/10 exactly equals every criterion. The previous answer reasoning stated no threshold at all, so the diff removes a content/answer-logic mismatch. No new inconsistency, deleted reasoning, or altered prompt was introduced by the diff.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "content/04-finish.md#the-welcome-check and assessment.json#attemptPolicy",
+      "finding": "The raised 10/10 every-criterion threshold is proportionate for this orientation lesson because it is paired with genuinely supportive conditions that I verified against the artifact: attemptPolicy sets timeLimitMinutes to null and retakeable true; the scene states retakes are 'unlimited and untimed'; the retry prompts require renewed reconstruction rather than replay (advise an incoming learner, choose different subjects or concepts, apply the capabilities to a new non-diagnostic scenario); and recovery is criterion-aligned to the subject-journey, capabilities, and boundary constructs. Every criterion is an orientation-level performance (name the opening kinds of work, name representative middle and later subject groups, name capstone as final, give because/how links, pair four concepts with purposes, name four capabilities with actions, state one boundary) rather than untaught science, and misconception-prior-science-gate explicitly protects beginners from a prior-science reading. The threshold therefore functions as a reconstruct-until-complete orientation gate, not a high-stakes filter.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "content/03-learning.md#worked-example-flow-preview and content/03-learning.md#check-faded-comparison",
+      "finding": "The fair-comparison worked example and its self-explanation and faded-comparison checks train an investigate/fair-test reasoning skill that is not directly scored by any assessment item; the scene explicitly labels it a non-scored preview of the course's reasoning style. This is acceptable and not a misalignment for an orientation lesson: the outcome is describing the journey, medical relevance, and completion capabilities, and the worked example makes the 'investigate' capability concrete and gives the retrieval-before-reveal pattern that the assessed transfer and misconception tasks reuse. It does mean a portion of learner effort supports capability comprehension and reasoning modelling rather than assessment evidence, which is appropriate here but worth recording so a later revision does not mistake the preview for an assessed procedure.",
+      "resolution": "No change required; if later revised, keep the preview clearly marked as non-scored so its retrieval-and-limit pattern is not read as an untested assessment target."
+    }
+  ],
+  "limitations": [
+    "This is expert artifact inspection at the frozen candidate commit without direct learner testing; no empirical score distribution, item difficulty, or rubric inter-rater reliability data was available, so I cannot claim the 10/10 gate produces the intended pass/retry behavior in practice.",
+    "Validation and schema conformance were not treated as evidence of learning; I did not run repository validators as part of this learning-design judgment.",
+    "Non-web exporters (PDF/EPUB/DOCX/JATS) are unavailable, so export-parity of the check prompts, recovery routes, and table was assessed only from canonical source, not from rendered non-web output.",
+    "Per the isolation instruction I did not consult authoring conversation, prior review conclusions, or adjudication material; findings rest solely on the four learner-visible scenes, the pack metadata/assessment/rubric/glossary/claims/references, and the supplied 0.4.0-to-0.4.1 diff.",
+    "One approval is a single eligible learning-design vote and does not establish quorum or merge readiness."
+  ],
+  "signedAt": "2026-07-20T00:00:00Z"
+}

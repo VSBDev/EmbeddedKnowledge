@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-WEL-001-ACCESS-CODEX-GPT56TERRA-V030",
+  "lessonId": "PREM-WEL-001",
+  "lessonVersion": "0.3.0",
+  "candidateCommit": "895913e2f323e383437a32b0a9397b3e802999c1",
+  "role": "accessibility-rights",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accessibility-and-rights reviewer",
+    "agent": {
+      "system": "Codex",
+      "provider": "OpenAI",
+      "model": "GPT-5.6-Terra",
+      "version": "Codex CLI 0.144.6",
+      "runId": "review-accessibility-rights-codex-gpt56terra-v030-20260720-c4f5916c-4231-486e-bc7c-70f6f363aa79",
+      "instructionsDigest": "sha256:79eec0098cab6f5866b5a7e213a1822ffb942c7245bca3608c48e6fb8e831f28"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "The accountable reviewer principal is also the founding-stage principal disclosed for this lesson's authoring runs. This is a fresh, role-isolated review run against the frozen candidate; the policy permits one disclosed principal to operate these runs, but the shared principal remains a declared limitation."
+  },
+  "evidenceChecked": [
+    "Frozen identity: branch review/welcome-v030-codex and HEAD 895913e2f323e383437a32b0a9397b3e802999c1 matched the required PREM-WEL-001 v0.3.0 candidate.",
+    "All declared non-review pack files: lesson.json; content/01-welcome.md through content/04-finish.md; assessment.json; claims.json; references.json; glossary.json; and ATTRIBUTION.md.",
+    "Compiled candidate data site/data/lessons/PREM-WEL-001.json: one H1 per scene; semantic table headers for Run, Tube A, and Tube B; no unsafe active-content marker in scene HTML.",
+    "content/03-learning.md#worked-example-flow-preview and content/04-finish.md#accessibility-and-alternatives for the prose table route, nonvisual/nonphysical route, untimed operation, dictation route, and no-audio-upload statement.",
+    "assessment.json#item-describe-journey, item-explain-relevance, and item-identify-capabilities plus site/lesson-reader.js#renderTextAssessment for labelled text responses, native keyboard controls, clear-response retry, and status feedback.",
+    "npm ci; npm run site:build; npm run source:preflight -- --strict lessons/PREM-WEL-001-welcome-to-premed; and npm run validate after saving this artifact.",
+    "references.json#source-premed-syllabus; ATTRIBUTION.md#adapted-curriculum-source; exact local Git objects at afc8b980e1181d172b0954b7b46bfcdd32d0db85 for course/PREMED-SYLLABUS.md and CONTENT-LICENSE.md; and a no-delta check for those cited paths through the candidate.",
+    "lesson.json#authors-and-aiAssistance and ATTRIBUTION.md#agent-assistance-and-provenance: four distinct disclosed author run IDs and four matching SHA-256 digests; all are named consistently in the aiAssistance disclosure.",
+    "Candidate-tree inspection found no assets/ or diagrams/ files, while lesson.json#thirdPartyAssets is empty; targeted scans found no raw active markup, unsafe TeX commands, unsafe URL schemes, path escapes, or common secret patterns in non-review pack files."
+  ],
+  "findings": [
+    {
+      "severity": "note",
+      "target": "content/03-learning.md#worked-example-flow-preview; content/04-finish.md#accessibility-and-alternatives",
+      "finding": "The fictional Tube A/Tube B comparison has an outcome-equivalent prose route, not only a visual table: the text states the near-20 mL versus near-80 mL pattern, the roughly fourfold paired difference, the smaller run-to-run variation, the uncontrolled-condition limit, and the bounded model conclusion. The lesson also explicitly permits paragraphs, bullets, outlines, typing, pasted assistive-technology text, or device dictation; it states that audio upload is unavailable and that no task requires speed, sight alone, or physical work.",
+      "resolution": "No change required. Preserve this prose comparison and explicit route statement if the table or response flow changes."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#item-describe-journey; assessment.json#item-explain-relevance; assessment.json#item-identify-capabilities",
+      "finding": "Each assessed response is an untimed text route with a retakeable attempt policy and accepts prose, bullets, or an outline. The candidate renderer associates each textarea with its visible prompt label, exposes Compare reasoning and Clear response as native keyboard-operable buttons, and reports revealed feedback through a status region. This preserves the orientation outcomes without requiring speech, audio upload, pointer gestures, color, timing, or physical practical work.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "references.json#source-premed-syllabus; ATTRIBUTION.md#adapted-curriculum-source; lesson.json#thirdPartyAssets",
+      "finding": "The sole adapted source is pinned to immutable commit afc8b980e1181d172b0954b7b46bfcdd32d0db85. Its local course and content-license paths exist at that exact commit; CONTENT-LICENSE.md grants CC BY 4.0 coverage to course/ material. The reference records a dated checked-no-agent-restriction-found status, CC BY 4.0 adaptation basis, and concrete rights evidence. ATTRIBUTION.md identifies retained material, the CC BY link, and specific modifications. Manual comparison found original prose, fictional data, prompts, assessment, and recovery design rather than copied syllabus questions, table, or dataset. No third-party asset is declared or present.",
+      "resolution": "No change required. This is policy and evidence checking, not a legal opinion."
+    },
+    {
+      "severity": "note",
+      "target": "lesson.json#authors-and-aiAssistance; ATTRIBUTION.md#agent-assistance-and-provenance",
+      "finding": "The accountable author is github:VSBDev. The initial author run plus three distinct author-revision runs each disclose system, provider, model, version, run ID, and a distinct SHA-256 material-instructions digest. The first run is structurally represented in lesson.json and all four records are consistently disclosed in ATTRIBUTION.md and lesson.json.aiAssistance. No hidden instructions were requested or required.",
+      "resolution": "No change required."
+    }
+  ],
+  "limitations": [
+    "This is an accessibility-and-rights policy and evidence review, not legal advice or a jurisdiction-specific licence, copyright, privacy, or accessibility-law opinion.",
+    "The review sandbox could not resolve github.com, so live remote access to the two immutable GitHub permalinks could not be rechecked. Exact source and licence files were instead verified from the local Git object at the pinned commit, and strict source preflight passed.",
+    "The sandbox denied both a local HTTP listener and headless Chromium launch. I therefore performed manual semantic review of the compiled candidate artifact and the reader's exact interaction implementation, but did not perform live assistive-technology, device-dictation, or browser layout testing here.",
+    "The reviewer principal is also the disclosed founding-stage authoring principal; this is declared as a conflict. This single review neither establishes quorum nor merge readiness."
+  ],
+  "signedAt": "2026-07-20T09:30:41Z"
+}

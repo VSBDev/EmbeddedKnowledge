@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-WEL-001-LEARNING-CLAUDE-FABLE5-V020",
+  "lessonId": "PREM-WEL-001",
+  "lessonVersion": "0.2.0",
+  "candidateCommit": "9a3ec870dbcacf660991f7613b7ca1f74b58a4ca",
+  "role": "learning-design",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev (accountable operator) - isolated learning-design review agent",
+    "agent": {
+      "system": "Claude Code",
+      "provider": "Anthropic",
+      "model": "claude-fable-5",
+      "version": "Claude Code 2.1.215",
+      "runId": "claude-code-205dc6c2-9083-48f8-ab17-141f72659b33",
+      "instructionsDigest": "sha256:f878508f517f2f1941b0481a4f16f5799a784f6c70801bcc237135822950c2cd"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "The accountable principal github:VSBDev operates the authoring, review, and adjudication agent runs under the founding-stage allowance in AGENTS.md and site/agent/quorum-policy.json, so this review is not independent of the pack's operator. This run is a distinct isolated run (claude-code-205dc6c2-9083-48f8-ab17-141f72659b33) on a different provider and model from the disclosed authoring runs, and it read no authoring conversation, no prior review, and no adjudication material. Provenance here is disclosed and attested, not verified."
+  },
+  "evidenceChecked": [
+    "content/01-welcome.md#cold-first-read-before-metadata-claims-or-rubrics",
+    "content/02-journey.md#check-sequence-why",
+    "content/03-learning.md#worked-example-flow-preview",
+    "content/03-learning.md#check-faded-comparison",
+    "content/04-finish.md#check-welcome-transfer",
+    "content/04-finish.md#misconception-prior-science-gate",
+    "content/04-finish.md#welcome-check-threshold-retries-accessibility-recovery",
+    "lesson.json#objectives-scenes-and-estimatedMinutes-sum-18-14-16-12-equals-60",
+    "assessment.json#item-describe-journey",
+    "assessment.json#item-explain-relevance",
+    "assessment.json#item-identify-capabilities",
+    "assessment.json#rubric-subject-journey",
+    "assessment.json#rubric-concept-relevance",
+    "assessment.json#rubric-completion-capabilities",
+    "assessment.json#attemptPolicy-retakeable-true-timeLimitMinutes-null",
+    "assessment.json#independent-novice-attempt-scored-4-plus-3-plus-2-equals-9-of-10",
+    "assessment.json#second-novice-attempt-scored-2-plus-3-plus-2-equals-7-of-10-fails",
+    "glossary.json#ten-terms-compared-with-scene-01-eleven-subject-inventory",
+    "claims.json#claim-learning-practice-and-claim-orientation-boundary",
+    "references.json#source-premed-syllabus",
+    "ATTRIBUTION.md#assessment-format-note-on-missing-mastery-threshold-field",
+    "site/data/premed-graph.json#topic-welcome-course-journey",
+    "site/schemas/assessment.schema.json#additionalProperties-false-no-mastery-or-retry-field",
+    "site/schemas/lesson.schema.json#additionalProperties-false-no-delayed-retrieval-field"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "assessment.json#item-identify-capabilities; rubric-completion-capabilities#criterion-capability-boundary",
+      "finding": "The graded prompt reads: \"A learner says that completing Premed means remembering a large set of facts. Correct that account. State the four main completion capabilities and give one concrete action that shows each capability.\" It elicits only the recall-is-insufficient boundary. But criterion-capability-boundary awards its point \"only when the response states both that recall alone is insufficient and that course completion does not confer clinical or professional authority\", and awards 0 \"if either boundary is absent or contradicted\". Nothing in the prompt asks for the credential or clinical boundary, so a fully compliant response is marked down for omitting content that was never requested. The criterion also collapses \"absent\" and \"contradicted\", although only the contradicting case appears in the item's commonErrors list. I attempted this item as the intended novice: I corrected the recall account, named explaining, modelling, investigating and integrating, and gave an observable action for each, and scored 2 of 3, losing the point solely on the unprompted boundary. Learner consequence: a learner who does exactly what the prompt asks loses a mastery point with no way to know the requirement existed, and because mastery requires 8 of 10 this hidden deduction can turn a passing orientation into an unnecessary retake.",
+      "resolution": "Either add the missing demand to the prompt, for example \"...and state one thing that completing Premed does not entitle you to do\", or narrow criterion-capability-boundary so the scored point depends only on the recall-is-insufficient boundary the prompt actually elicits, keeping the clinical and professional authority claim as a contradiction check that costs the point only when a response asserts unwarranted authority."
+    },
+    {
+      "severity": "major",
+      "target": "assessment.json#rubric-subject-journey (criterion-journey-opening, criterion-journey-middle, criterion-journey-destination); content/04-finish.md#welcome-check-threshold",
+      "finding": "The three coverage criteria are all-or-nothing over eleven named subject groups recalled closed-book (\"Without looking back\"). criterion-journey-middle awards 0 \"if any subject group is missing\" among general chemistry, physics, organic chemistry, biochemistry and biology/genetics; criterion-journey-destination awards 0 if any of human structure/physiology, microbiology/immunology or behaviour/society/population health is missing, or if the capstone stage is not distinguished. The declared objective is narrower: \"Describe the recommended Premed subject journey and explain at least two ways one stage prepares the next.\" The lesson itself tells the learner the check \"checks your orientation, not your prior science\". I scored two independent novice attempts against these binary criteria. A strong attempt naming all eleven groups with two because-links earned 4 of 4. A good-faith attempt that reproduced the correct three-stage structure the lesson teaches (evidence and measurement; matter and living systems; people, populations and capstone work), but omitted behaviour/society/population health and gave one preparation link instead of two, earned 2 of 4; combined with 3 of 3 and 2 of 3 on the other items that totals 7 of 10 and fails. The retry form offered in content/04-finish.md, \"advise an incoming learner how to travel from trustworthy evidence to the capstone\", never restates the naming requirement, so the retake path does not correct the omission it penalises and may make it likelier. Learner consequence: a sixty-minute, no-prerequisite orientation can fail a learner who grasped its structure, motivation and preparation logic but forgot one label out of eleven, which contradicts the low-stakes framing the lesson promises.",
+      "resolution": "Scale the coverage criteria to the orientation construct instead of exhaustive recall: award criterion-journey-middle when the stage is correctly placed and a stated majority of its subject groups is named (for example three of five), and treat criterion-journey-destination the same way. Alternatively keep exhaustive naming but make that portion open-book while scoring the because/how preparation links closed-book, since those links are what the objective actually names. If the strict criteria are retained, restate the full naming requirement inside the retry form so a retaking learner knows what is being scored."
+    },
+    {
+      "severity": "minor",
+      "target": "content/04-finish.md#misconception-prior-science-gate",
+      "finding": "The repair states the correct model and applies it to one case: \"For enzyme regulation, 'Biochemistry will teach how cells control reaction helpers called enzymes' is enough today.\" The recheck then asks the learner to \"Choose a different unfamiliar term\" and commit \"one line that names the subject that will teach it and what it will help explain\", and the comparison says only \"your line should name a different term, its teaching subject, and a later explanation; it need not explain the science yet.\" The sequence never contrasts the incorrect and correct models on the same case, so it does not discriminate the boundary it repairs. A learner who still believes prior science is required can satisfy every stated criterion by over-explaining: \"Immunology will teach how antibodies neutralise pathogens by binding epitopes\" names a different term, its teaching subject and a later explanation, and so is confirmed rather than repaired. Learner consequence: the specific anxiety this misconception targets can survive the recheck intact, because the self-check cannot distinguish a repaired response from an over-reaching one.",
+      "resolution": "Add one contrasting non-example to the comparison paragraph, applied to the same enzyme-regulation case, showing what an over-explaining answer looks like and why it is not required today, for example noting that the learner does not need to say how enzymes lower activation energy because that is exactly what biochemistry will later teach."
+    },
+    {
+      "severity": "minor",
+      "target": "content/04-finish.md#recovery-route; glossary.json#terms",
+      "finding": "The recovery route addresses precisely the failure the rubric punishes, opening \"If the names blur together\", and directs the learner to \"Check the glossary, then try again from memory.\" glossary.json defines ten terms (scientific method, statistics, scientific model, genetics, biochemistry, physiology, microbiology, immunology, population health, capstone) and does not include general chemistry, organic chemistry, physics, mathematics or biology. Three of those omissions, general chemistry, organic chemistry and physics, are subject groups that criterion-journey-middle scores by name with no tolerance. Learner consequence: the designated remedy for blurred names does not contain several of the names that decide the score, so a learner who follows the recovery route exactly can still lose the criterion that sent them there.",
+      "resolution": "Either add brief glossary entries for the remaining named subject areas so the glossary works as a complete naming aid, or point the recovery route at the subject list in content/01-welcome.md, which is the pack's actual complete inventory, rather than at the glossary."
+    },
+    {
+      "severity": "minor",
+      "target": "lesson.json#objectives; content/03-learning.md#worked-example-flow-preview",
+      "finding": "All three objectives and all three assessment items address the subject journey, concept relevance and completion capabilities, and every item is mapped to sceneId scene-finish. No objective covers scene-learning, which carries the pack's only worked example, its faded practice check, and sixteen of the sixty minutes. The fair-comparison procedure modelled there (identify the planned difference, hold the other conditions steady, separate stated conditions from what the data can verify) is practised once in check-faded-comparison and is then never retrieved, transferred or assessed. Learner consequence: the lesson's most cognitively demanding segment produces no mastery evidence, and a learner who invests real effort in it meets a welcome check that asks nothing about it.",
+      "resolution": "Either add an observable objective for the learning-process outcome that claim-learning-practice already carries and map at least check-faded-comparison to it, or state plainly in content/03-learning.md that the flow preview demonstrates the course's reasoning pattern and is not part of the welcome check, so the learner can calibrate effort."
+    },
+    {
+      "severity": "note",
+      "target": "content/01-welcome.md; content/02-journey.md; content/03-learning.md; content/04-finish.md#first-read-gate",
+      "finding": "The cold read passes and I record no comprehension failure. After one careful reading, before opening any metadata, claims, rubric or validator material, I could state what the lesson teaches (the Premed subject map, its recommended order, how each stage prepares the next, what learning will feel like, and the four completion capabilities), why it matters (no single subject produces a whole explanation), and how the central relation works (each stage supplies ideas a later stage uses, shown concretely by organic chemistry preparing biochemistry and by inquiry and quantitative reasoning preceding both). The opening gives a concrete entry point, the wider-tube flow glimpse and the invitation \"You need not know these subjects yet\", before any administrative demand; every administrative element (threshold, retries, accessibility, recovery) sits at the end of content/04-finish.md. The voice is natural, and no claim, schema, validator, quorum or rubric vocabulary appears in learner prose. The three-stage organiser \"begins with careful questions, moves through matter and living systems, and ends with you using evidence on unfamiliar problems\" precedes the eleven dense subject bullets, which materially reduces their load. The worked example contains all nine elements required by CONTENT-STANDARD.md section 5.1, and it distinguishes stated from data-verified conditions coherently and twice: \"The description claims that liquid, tube length, pump setting, and collection time stay constant... The pattern cannot verify those conditions\", then \"An investigator would inspect settings or logs to verify the claimed pump, liquid, tube length, and time; the data pattern cannot.\" All five learner prompts place the commitment instruction before the reveal, and each reveal sits outside its directive. The graph outcome, the three objectives and the three items align one to one, and scene minutes total the declared 60.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#rubrics-scoring-reproducibility-and-retry-forms",
+      "finding": "The 8-of-10 plus at-least-one-point-per-response rule is reproducibly scorable. Item points (4, 3, 3) equal the sum of their binary rubric criteria (4, 3 and 3 criteria worth 1 point each) and total the ten points stated in content/04-finish.md. Every criterion is written as an explicit award-1-only-when and award-0-if pair, and I applied them consistently to two different novice responses, reaching 4 of 4 versus 2 of 4 on item-describe-journey and 2 of 3 on item-identify-capabilities on stable, restatable grounds. Retries are genuinely different in task framing rather than reworded: the three forms shift audience (advise an incoming learner), content (different subjects or concepts), and application (a new non-diagnostic capstone scenario), and each is independently recorded in the matching item's answer.reasoning. Retakes are unlimited and untimed. The graded prompts themselves do not reveal their answers; item-describe-journey names the four stage slots and item-identify-capabilities states that there are four capabilities, but in both cases the learner must supply the content, which I judge to be task specification rather than answer leakage.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#attemptPolicy; site/schemas/assessment.schema.json; site/schemas/lesson.schema.json; ATTRIBUTION.md#assessment-format-note",
+      "finding": "Assessment schema v1 sets additionalProperties false at the top level, on each item and on the answer object, so it has no field for a mastery threshold, a per-item minimum, alternate retry prompts, or a remediation route. lesson.schema.json is likewise closed and has no field for delayed or forward retrieval links, and topic-welcome-course-journey carries an empty crossLinks array. The pack therefore records the threshold, the retry forms and the recovery route in learner scene prose and in answer.reasoning, and ATTRIBUTION.md discloses this explicitly in its assessment format note. I record this as a format constraint the pack handles correctly rather than an authoring defect, while noting that a scorer implementing assessment.json alone would still need the scene prose to reproduce the mastery rule. Within-lesson cumulative retrieval is present even though no forward link can be recorded: check-welcome-transfer and all three graded items require closed-book recall spanning scenes 1 and 2 after roughly thirty minutes of intervening instruction, so practice is not immediate and isolated.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "content/02-journey.md#check-sequence-why; content/03-learning.md#worked-example-flow-preview; content/04-finish.md#check-welcome-transfer",
+      "finding": "Commitment before reveal rests entirely on the learner obeying a cover-the-text instruction inside continuously readable prose, because format v1 has no disclosure directive and CONTENT-STANDARD.md section 9 requires reading mode to preserve continuous, selectable text. Each answer sits in the immediately following paragraph. The cue placement is also inconsistent: content/02-journey.md and content/03-learning.md put \"Pause here. Cover the following text...\" before the question, whereas check-welcome-transfer places it after the full three-part task, by which point the reader's eye has already crossed the reveal boundary. Separately, the transfer comparison supplies \"pressure and flow preparing you to explain circulation\", which is one of the model pairs listed in item-explain-relevance's answer.correct; because that item requires four pairs drawn from four different subjects, one supplied example does not carry the response, so I treat this as bounded rather than as answer leakage. I could not verify how the reader application actually renders these reveal boundaries.",
+      "resolution": "Optional within the current format: move the pause-and-cover instruction to the start of check-welcome-transfer so all four learner prompts cue commitment before the task itself is read."
+    }
+  ],
+  "limitations": [
+    "This is expert artifact review of a frozen candidate commit, not real learner testing. Nothing here is evidence that learners did or will master topic-welcome-course-journey, and no effect or mastery claim is made.",
+    "Scope is learning design only. I did not verify factual accuracy, source interpretation, rights, licensing, attribution, or accessibility conformance; those belong to the academic and accessibility/rights roles. I identified no suspected scientific error requiring referral.",
+    "I attempted every learner check and all three graded items myself, as the intended novice, and scored them against the declared binary rubrics. Those attempts are my own reconstructions of plausible learner responses, not observations of real learners, and the scoring judgements on borderline wording (for example accepting 'biology' for the 'biology/genetics' group) could reasonably differ between human scorers.",
+    "No renderer or test-environment evidence was available. I could not run the reader application, so the actual reveal behaviour of the cover-the-text prompts, guided-mode framing, reflow, zoom, keyboard navigation, and print or export parity are unverified; this matters for the commitment-before-reveal finding.",
+    "The Bash sandbox denied node and /tmp execution, so I could not run a JSON Schema validator or npm run validate against this artifact. I verified it by inspection against site/schemas/review.schema.json and the actor definition in site/schemas/lesson.schema.json. Any structural validation failure should be reported separately from this learning-design verdict.",
+    "Isolation held throughout: I inspected candidate files only through git show at 9a3ec870dbcacf660991f7613b7ca1f74b58a4ca, read nothing under the pack's reviews directory, read no authoring conversation, prior review, or adjudication material, inspected no GitHub state, and invoked no other role skill.",
+    "This is one learning-design vote against one candidate commit. It claims no quorum, no merge readiness, and no publication readiness."
+  ],
+  "signedAt": "2026-07-20T21:15:00Z"
+}
