@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-SCI-004-LEARNING-DESIGN-2688DD5D",
+  "lessonId": "PREM-SCI-004",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "4ea0aa83dafaef750aad3c513ff48041d2043e4f",
+  "role": "learning-design",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — learning-design review operator",
+    "agent": {
+      "system": "Claude",
+      "provider": "Anthropic",
+      "model": "claude-fable-5",
+      "version": "Claude Code 2.1.215 · 2026-07-20",
+      "runId": "2688dd5d-51bd-4fba-a1e2-e33da26658ee",
+      "instructionsDigest": "sha256:d9953eb59fae2e4e639794ebee45dc4256ec2c4f4adef78688a946d2bc4df396"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Founding-stage single-operator disclosure: VSBDev (github:VSBDev) operates both the authoring agent (OpenAI Codex run 75e91d84-f365-4bd6-93b8-98193d793259) and this review agent. This review is an isolated run with a distinct provider, model, and unique run ID; it did not read the authoring conversation, any other review conclusion, or an adjudication draft."
+  },
+  "evidenceChecked": [
+    "content/01-who-creates-comparison.md#cold-first-read-in-lesson-json-scene-order-before-claims-references-or-validator",
+    "content/02-worked-choice.md#worked-example-retrospective-cohort",
+    "content/03-practise-repair.md#retrieval-practice-fading-and-both-misconception-directives",
+    "content/04-transfer-synthesis.md#transfer-mastery-check-accessibility-and-recovery-route",
+    "lesson.json#objectives-scenes-minutes-and-provenance",
+    "assessment.json#all-four-items-attempted-as-declared-learner-with-rubrics-and-retry-logic",
+    "glossary.json#terms-for-all-introduced-vocabulary",
+    "claims.json#scene-claim-mapping-and-misconception-support",
+    "references.json#source-records",
+    "site/data/premed-graph.json#topic-scientific-inquiry-study-designs-prerequisite-and-successor-links",
+    "lessons/PREM-SCI-001-from-observation-to-question/content/04-transfer.md#inquiry-chain-continuity"
+  ],
+  "findings": [
+    {
+      "severity": "note",
+      "target": "content/01-who-creates-comparison.md#opening-and-lesson-promise",
+      "finding": "First-read gate: PASS. Reading the scenes cold in lesson.json order as the declared learner, scene 1 alone let me state plainly what I am learning (how to choose among five ways of making a comparison), why it matters (\"You cannot answer honestly from the score difference alone\" — the same score difference supports different claims depending on the design), and how the central procedure works (\"Who created the exposure difference? Did researchers start with exposure, start with outcome, or take one snapshot?\"). The opening gives a concrete, picturable case — two residence halls, a quiet-hours policy, a dean's question — before any definition or objective, and no learner-facing sentence depends on hidden project vocabulary, schema language, or rubric terms.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "content/01-who-creates-comparison.md#second-decision-where-do-you-enter-the-timeline",
+      "finding": "The five designs form a coherent decision procedure rather than a terminology dump: decision one (who created the exposure difference) separates experiment, ordinary observational, and natural-experiment candidate; decision two (where the study enters the exposure–outcome timeline) separates cohort, case-control, and cross-sectional; the table consolidates both decisions, and every practice and assessment task rehearses the questions rather than label recognition. Both foreseeable comprehension hazards are explicitly handled: \"These controls are not the positive- or negative-control conditions used to check an experiment\" defuses the collision with the prerequisite lesson's experimental-control sense, and the natural experiment is consistently gated on a defensible outside assignment process (\"the label is not enough\"), reinforced by misconception-any-external-event-natural-experiment and the scene 4 transfer.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "minor",
+      "target": "content/04-transfer-synthesis.md#rebuild-the-full-scientific-handoff",
+      "finding": "The inquiry chain that learners are asked to rebuild from memory changes shape between scenes. Scene 1's check-cumulative-chain presents \"observation → bounded empirical question → ___ → conditions → ___ → variable-and-control audit\" — a six-node chain with \"conditions\" as a standalone step between hypothesis and prediction — while scene 4's rebuild presents \"observation → bounded empirical question → hypothesis → prediction → variable-and-control audit → ___\" with the \"conditions\" node silently dropped. A learner who committed the scene 1 chain hits a structural mismatch during exactly the delayed-retrieval act the design intends, and \"conditions\" as a bare node is explained only indirectly (\"names the record expected if that proposal holds under stated conditions\").",
+      "resolution": "Render one canonical chain in both scenes — either remove the standalone \"conditions\" node from the scene 1 check or retain it in the scene 4 rebuild — so retrieval targets a stable structure."
+    },
+    {
+      "severity": "minor",
+      "target": "content/03-practise-repair.md#mixed-comparisons-item-e",
+      "finding": "Item E's feedback says \"Whether assignment is random and whether the controls work affect the strength of the inference,\" using bare \"controls\" in the experimental sense (held-alike comparison conditions) inside the same practice set that has just used \"controls\" in the case-control sense (item B and the completion-table row \"select cases with the outcome and controls without it\"). Scene 1 carefully disambiguated the two senses; item E then reuses the ambiguous bare word at the precise point where the learner is discriminating the two design families, and a reader could momentarily parse \"the controls\" as comparison people.",
+      "resolution": "Say \"the control conditions\" or \"the held-alike comparison conditions\" in item E's feedback."
+    },
+    {
+      "severity": "minor",
+      "target": "content/01-who-creates-comparison.md#design-summary-table",
+      "finding": "The sentence following the design table — \"The table's words, arrows, and questions carry the same information; no conclusion depends on visual position alone.\" — is accessibility-audit phrasing spoken in the learner's voice; an informed teacher would not naturally say \"no conclusion depends on visual position alone\" to a student. The intent (assuring nonvisual readers they are missing nothing) is legitimate, but the register is compliance language and briefly breaks otherwise natural prose. The consequence is a momentary register shift, not a comprehension failure.",
+      "resolution": "Reword in learner voice, for example: \"If you read the table row by row as sentences, you have everything; the layout adds nothing extra.\" Scene 4's accessibility section already carries the formal statement."
+    },
+    {
+      "severity": "note",
+      "target": "content/03-practise-repair.md#retrieval-before-feedback",
+      "finding": "In continuous prose every practice answer sits immediately after its prompt, so genuine pre-feedback retrieval depends on the learner honoring the explicit commit instructions (\"Commit the map before reading the practice feedback\", \"Name the best-fit design before reading each answer\"). This is inherent to the format's reading mode rather than a design defect: prompts do precede answers in source order, the commit instructions are consistent, and the retakeable assessment with alternate-case retries restores enforced retrieval.",
+      "resolution": "No change required; a guided-mode reveal at these prompts would strengthen the retrieval condition."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#item-transfer-cutoff",
+      "finding": "The transfer strand clusters on one structural surface: scene 4 teaches an enrollment-cutoff grant program, practice item D uses a transit maintenance-rule rollout, assessment item-transfer-cutoff uses a transit depot-score cutoff, and its retry variant — \"a school program assigned by a fixed enrollment threshold\" — is nearly the taught scene 4 case again. The item still validly assesses the taught analysis (candidate identification, two concrete checks, bounded conditional inference, observational fallback), and the lesson-level transfer is genuine relative to the retrospective-cohort worked example, but the retry variant offers the least new surface of the set.",
+      "resolution": "Optional: move the retry variant's surface further from the taught grant-cutoff case, for example a staggered rollout by a fixed date rather than a numeric enrollment threshold."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#items-and-rubrics",
+      "finding": "I attempted all four items as the declared learner. Answer logic is correct and scorable: item 1's map (experiment / cross-sectional / natural-experiment candidate) is the only fully correct option and its distractors encode the taught misconceptions; item 2's three criteria cleanly separate selection logic from record age; item 3's calibrated option matches the taught inference boundaries; item 4's four criteria cover candidate, checks, bounded inference, and fallback. Points sum 3+3+2+4=12 and match scene 4's mastery statement exactly; retakes prescribe alternate cases requiring renewed reasoning; feedback names what was wrong, the governing distinction, and a next step. Objectives, scenes, outcome, and items are constructively aligned, the worked example exposes expert decisions with a self-explanation prompt, support fades from model through completion table to independent generation, both misconception directives follow commit → shortcut → failure → repair → recheck, and the forward retrieval links (sampling and randomization, correlation and causation, bias) match the actual graph successors of PREM-02.04.",
+      "resolution": "No change required."
+    }
+  ],
+  "limitations": [
+    "No real learner performance data exists; this review is a structured cold read and instructional-argument trace by an agent, not evidence that learners mastered the outcome.",
+    "Prerequisite lesson packs for PREM-02.02 and PREM-02.03 do not yet exist in the repository; inquiry-chain continuity was verified only against PREM-SCI-001 and the knowledge graph, and recovery for a failed chain retrieval is inline-only because no earlier lesson exists to link.",
+    "Canonical Markdown and JSON were reviewed; rendered guided-mode behavior, screen-reader output, zoom/reflow, and print export were not exercised. The accessibility-and-rights audit remains the finalizer's separate responsibility.",
+    "Verification of epidemiologic definitions against the cited sources belongs to the academic review; no suspected scientific error was noticed at learning-design reading depth.",
+    "Provenance in this artifact is disclosed and attested by the accountable operator, not platform-verified."
+  ],
+  "signedAt": "2026-07-20T17:39:14Z"
+}
