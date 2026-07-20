@@ -29,6 +29,17 @@ These dimensions are not points to average. They answer different questions. For
 
 **Secure knowledge** (`term-secure-knowledge`) requires a pattern: accurate independent responses, defensible reasoning, and successful use under bounded variation. “Secure” here is still provisional. It does not by itself mean mastered, retained after a delay, or transferable to every context.
 
+## Keep three course vocabularies separate
+
+The three labels above are the assigned outcome's vocabulary for a **single node-level diagnostic decision**. The syllabus also uses two other vocabularies at different grain sizes. They inform this decision but are not synonyms for it.
+
+| Record | Question it answers | Bounded crosswalk to this lesson |
+| --- | --- | --- |
+| Entry-station bands: **Foundational**, **Developing**, and capital-S **Secure** (syllabus section 3.2) | Which on-ramp action follows a station result based on total accuracy and critical-misconception status? | Foundational and Developing route to different amounts of on-ramp support, but either may contain unfamiliar and fragile nodes. A station Secure result permits beginning the linked core node. If the report supplies only the station percentage and critical-misconception flag, it supplies aggregate accuracy and safety evidence—not enough evidence to assign this lesson's state to an individual node. Collect node-level probes; when they show accurate access but omit explanation or bounded adaptation, record that node as fragile/unresolved rather than provisionally secure. |
+| Longitudinal states: **N** Not yet encountered, **A** Acquiring, **P** Practising, **M** Mastered, **R** Retained, and **T** Transfer (syllabus section 7) | What course status has accumulated across instruction, gates, spacing, and cross-domain use? | Unfamiliar is closest to N when no interpretable evidence exists. Fragile commonly routes through A or P. Provisionally secure performance may contribute evidence toward M, but it does not award M without the full gate, R without delayed checks, or T without a cross-domain task. Keep the N/A/P/M/R/T names in the longitudinal record. |
+
+Thus, the word **secure** is overloaded in the course documents. Capital-S **Secure station result** names the section 3.2 placement band; **provisionally secure node state** names the richer response pattern taught here. Always record which one you mean.
+
 ## Turn the state into a route
 
 | Provisional state | Immediate route | Fresh evidence to seek |
@@ -43,5 +54,5 @@ This route preserves an important asymmetry. Insufficient evidence should not re
 :claims: claim-three-state-model, claim-pattern-over-snapshot, claim-retrieval-before-feedback, claim-guidance-fades, claim-confidence-calibration
 :sources: source-premed-syllabus, source-content-standard, source-authoring-evidence, source-premed-graph
 
-The three-state definitions are an operational synthesis of the assigned curriculum outcome and the course's mastery language. Evidence on retrieval, varied performance, guidance fading, and confidence calibration supports the decision dimensions, but no source establishes these labels as a universal psychometric taxonomy.
+The three-state definitions retain the assigned graph outcome's vocabulary. The crosswalk above relates it to, without collapsing it into, the syllabus's entry-station bands and longitudinal mastery states. Evidence on retrieval, varied performance, guidance fading, and confidence calibration supports the decision dimensions, but no source establishes these labels as a universal psychometric taxonomy.
 :::
