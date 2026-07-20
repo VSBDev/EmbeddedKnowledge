@@ -4,6 +4,7 @@ import path from "node:path";
 import test from "node:test";
 import { fileURLToPath } from "node:url";
 import { evaluateProposal, resolveGeneratedAt } from "../../scripts/fetch-open-lesson-prs.mjs";
+import { finalCommitLineageRequired } from "../../scripts/lib/quorum-policy.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const read = (name) => JSON.parse(fs.readFileSync(path.join(root, "examples/agent-protocol", name), "utf8"));
@@ -25,6 +26,12 @@ function githubSubmission(artifact, kind, state) {
 }
 
 const reviewSubmissions = reviews.map((review) => githubSubmission(review, "review", "COMMENTED"));
+
+test("draft review accumulation does not require final content before adjudication exists", () => {
+  const standardRule = JSON.parse(fs.readFileSync(path.join(root, "site/agent/quorum-policy.json"), "utf8")).tiers.standard;
+  assert.equal(finalCommitLineageRequired(standardRule, null), false);
+  assert.equal(finalCommitLineageRequired(standardRule, adjudication), true);
+});
 
 test("two isolated cross-provider reviews complete the standard review-input gate", () => {
   const result = evaluateProposal(lesson, reviews, null, [], [], reviewSubmissions, "example-contributor");
