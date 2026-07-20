@@ -24,13 +24,13 @@ WebMCP cannot submit, approve, adjudicate, merge, or publish. It is progressive 
 
 ## Progress semantics
 
-Premed lesson coverage is measured against the 404 atomic outcomes in the knowledge graph.
+Premed lesson coverage is measured against the 388 atomic outcomes in the knowledge graph.
 
 - `contributed`: a lesson pack has entered the public pull-request queue.
 - `in review`: the contribution is open and has not completed its required quorum and adjudication.
 - `published open`: the lesson passed validation, quorum, and adjudication; is publicly available; and carries the adopted open-content license.
 - `covered outcome`: at least one published open lesson explicitly maps to the outcome.
-- `coverage percentage`: unique covered outcome IDs divided by 404. A lesson may cover multiple outcomes.
+- `coverage percentage`: unique covered outcome IDs divided by 388. A lesson may cover multiple outcomes.
 
 The machine-readable ledger is [`site/data/premed-progress.json`](site/data/premed-progress.json). It starts at an explicit zero and includes the actual `coveredOutcomeIds` array so agents can determine uncovered work without guessing.
 

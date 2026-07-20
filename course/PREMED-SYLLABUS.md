@@ -1,6 +1,6 @@
 # Premed: Foundations for Medical Study
 
-**Curriculum version:** 1.0 candidate · 19 July 2026<br>
+**Curriculum version:** 1.1 candidate · 20 July 2026<br>
 **Provider:** EmbeddedKnowledge<br>
 **Language:** English<br>
 **Level:** university preparatory; introductory undergraduate science with a medicine-facing bridge<br>
@@ -118,6 +118,7 @@ Route-specific outcomes (`PLO-US`, `PLO-UK`, `PLO-ES`, `PLO-BIO`, and `PLO-QNT`)
 
 | Component | Modules | Nominal hours | Required for EmbeddedKnowledge Premed completion? |
 |---|---:|---:|---|
+| Course welcome | `WEL-000` | 1 | Yes |
 | On-ramp | `ONR-000` | 0–120 | Only when prescribed by diagnostic |
 | Inquiry and quantitative spine | `QRS-100`, embedded studios | 180 | Yes |
 | General chemistry | `CHE-110`–`CHE-140` | 220 | Yes |
@@ -139,7 +140,7 @@ Completion requires all of the following:
 - all safety-critical outcomes at `M` with no compensation by average;
 - twelve practical investigations, including at least four using physical equipment if the learner wants a **blended-practical** notation;
 - the research-reading portfolio and quantitative portfolio;
-- one completed route/pathway (see the instrumentation limitation in section 12: in curriculum version 1.0 only `PW-US`, `PW-BIO` and `PW-QNT` can satisfy this requirement, because `PW-UK` and `PW-ES` are not yet represented in the knowledge graph);
+- one completed route/pathway (see the instrumentation limitation in section 12: in curriculum version 1.1 only `PW-US`, `PW-BIO` and `PW-QNT` can satisfy this requirement, because `PW-UK` and `PW-ES` are not yet represented in the knowledge graph);
 - an accepted integrative capstone and oral defence;
 - a final calibration review showing that confidence judgments track actual performance.
 
@@ -165,8 +166,8 @@ Confidence is logged before feedback on selected tasks. A high-confidence incorr
 Modules are shown in the recommended order. `||` indicates modules that can run concurrently after their shared prerequisites.
 
 ```text
-ONR-000 (if needed)
-  -> QRS-100
+WEL-000
+  -> QRS-100 (begins with Scientific Inquiry)
   -> CHE-110 || BIO-110
   -> CHE-120 || BIO-120 || PHY-110
   -> CHE-130 || BIO-130 || PHY-120
@@ -180,13 +181,29 @@ ONR-000 (if needed)
   -> CAP-400
 ```
 
-`QRS-100` begins early but its practices continue through every module. The curriculum map in `PREMED-CURRICULUM-MAP.md` gives the cross-domain edges and misconception gates.
+`WEL-000` is the only lesson before the scientific curriculum. It previews the complete journey and the capabilities learners are working toward. `QRS-100` then opens with Scientific Inquiry; its practices continue through every later module. Diagnostic-prescribed `ONR-000` refreshers are optional support, not a separate opening content block. The curriculum map in `PREMED-CURRICULUM-MAP.md` gives the cross-domain edges and misconception gates.
 
 ## 9. Detailed common-core modules
 
+### `WEL-000` Welcome to Premed — 1 hour
+
+**Purpose.** Welcome learners into the scientific journey ahead before asking them to master any new content. The lesson previews the questions each subject helps answer, shows how the subjects connect, and makes the destination concrete: by the end, learners should be able to explain, model, investigate, and integrate the science that supports later medical study.
+
+The welcome introduces the course in plain language:
+
+- **Scientific inquiry and laboratory practice:** how we turn a question into a fair test, decide what evidence can support, and make work reproducible.
+- **Mathematics, statistics, chemistry, and physics:** how we measure the world and explain matter, energy, forces, fluids, electricity, waves, and uncertainty.
+- **Biology, genetics, organic chemistry, and biochemistry:** how cells are built, use energy, store information, respond, reproduce, and change.
+- **Human systems, immunity, microbiology, behaviour, and society:** how those foundations connect across a whole person and population without pretending that premedical study is clinical practice.
+- **Integration and capstones:** how learners will combine the subjects to reason through unfamiliar problems rather than merely repeat isolated facts.
+
+**Completion evidence.** The learner can describe the subject journey, explain why its major concepts matter for medical study, and identify what they should know and be able to do by course completion. This is a motivating orientation, not a prior-knowledge test or a graded science gate.
+
 ### `QRS-100` Quantitative and scientific reasoning — 180 hours distributed
 
-**Purpose.** Establish the mathematical, statistical, experimental, and epistemic practices used everywhere else.
+**Purpose.** Begin with Scientific Inquiry—questions, hypotheses, variables, evidence, causal limits, uncertainty, and reproducibility—then establish the mathematical and statistical practices used everywhere else.
+
+Instruction begins with `QRS-105`, `QRS-110`, and `QRS-112`; the numeric IDs below are stable references, not a required teaching order. Laboratory and measurement work then make the inquiry cycle concrete before the remaining quantitative sequence expands what learners can test and interpret.
 
 | Topic ID | Topic-level scope and measurable outcome |
 |---|---|
@@ -715,7 +732,7 @@ The capstone cannot compensate for missing module outcomes. Its purpose is trans
 
 Every learner completes at least one pathway. Pathways are additions to the portable core, not claims about universal preparation. Institution-facing pathways require annual review because admissions rules change.
 
-> **Instrumentation limitation (curriculum version 1.0).** Only `PW-US`, `PW-BIO` and `PW-QNT` are instrumented in the v1 knowledge graph (`site/data/premed-graph.json`) as trackable atomic outcomes. **`PW-UK` and `PW-ES` are documented routes that are NOT yet instrumented.** Their route-defining outcomes — UCAT familiarization (`UK-240`), the QAA Access baseline (`UK-230`), the Spanish admission audit (`ES-211`), and the open-response studio (`ES-250`) — are not among the graph's 404 atomic outcomes, so a learner cannot currently satisfy the section 6.2 "one completed route/pathway" requirement through `PW-UK` or `PW-ES`, and contributors cannot yet author lessons against those outcomes. Learners on those routes should complete `PW-US`, `PW-BIO` or `PW-QNT` for the completion requirement and treat the UK/Spain material below as an uninstrumented reading and audit guide. Instrumenting both routes is planned for a later curriculum version.
+> **Instrumentation limitation (curriculum version 1.1).** Only `PW-US`, `PW-BIO` and `PW-QNT` are instrumented in the v1 knowledge graph (`site/data/premed-graph.json`) as trackable atomic outcomes. **`PW-UK` and `PW-ES` are documented routes that are NOT yet instrumented.** Their route-defining outcomes — UCAT familiarization (`UK-240`), the QAA Access baseline (`UK-230`), the Spanish admission audit (`ES-211`), and the open-response studio (`ES-250`) — are not among the graph's 388 atomic outcomes, so a learner cannot currently satisfy the section 6.2 "one completed route/pathway" requirement through `PW-UK` or `PW-ES`, and contributors cannot yet author lessons against those outcomes. Learners on those routes should complete `PW-US`, `PW-BIO` or `PW-QNT` for the completion requirement and treat the UK/Spain material below as an uninstrumented reading and audit guide. Instrumenting both routes is planned for a later curriculum version.
 
 ### `PW-US` United States graduate-entry / MCAT — 200 hours
 
@@ -735,7 +752,7 @@ Every learner completes at least one pathway. Pathways are additions to the port
 
 ### `PW-UK` UK direct-entry / Access to HE orientation — 180 hours
 
-**Status:** route-specific and institution-dependent. The UCAT is an aptitude test rather than a science syllabus. **Not instrumented in curriculum version 1.0:** no module of the v1 knowledge graph maps to `PW-UK`, and none of the outcomes below exist as trackable atomic outcomes, so this route cannot yet satisfy the section 6.2 pathway requirement and cannot yet be authored against. Planned for a later curriculum version.
+**Status:** route-specific and institution-dependent. The UCAT is an aptitude test rather than a science syllabus. **Not instrumented in curriculum version 1.1:** no module of the v1 knowledge graph maps to `PW-UK`, and none of the outcomes below exist as trackable atomic outcomes, so this route cannot yet satisfy the section 6.2 pathway requirement and cannot yet be authored against. Planned for a later curriculum version.
 
 | Module | Topic-level outcomes |
 |---|---|
@@ -751,7 +768,7 @@ The [QAA Access to HE Diploma Subject Descriptor for Medicine](https://www.qaa.a
 
 ### `PW-ES` Spain / continental direct-entry orientation — 180 hours
 
-**Status:** route-specific. PAU rules and university weighting tables must be versioned by year and jurisdiction. **Not instrumented in curriculum version 1.0:** no module of the v1 knowledge graph maps to `PW-ES`, and none of the outcomes below exist as trackable atomic outcomes, so this route cannot yet satisfy the section 6.2 pathway requirement and cannot yet be authored against. (The graph's `spain-bach-pau` *filter tag* marks Spanish-curriculum content inside other modules; it is not the same thing as an instrumented `PW-ES` route.) Planned for a later curriculum version.
+**Status:** route-specific. PAU rules and university weighting tables must be versioned by year and jurisdiction. **Not instrumented in curriculum version 1.1:** no module of the v1 knowledge graph maps to `PW-ES`, and none of the outcomes below exist as trackable atomic outcomes, so this route cannot yet satisfy the section 6.2 pathway requirement and cannot yet be authored against. (The graph's `spain-bach-pau` *filter tag* marks Spanish-curriculum content inside other modules; it is not the same thing as an instrumented `PW-ES` route.) Planned for a later curriculum version.
 
 | Module | Topic-level outcomes |
 |---|---|
@@ -1027,8 +1044,9 @@ Progress views show secure nodes, next reachable nodes, hours invested, and reco
 
 | Block | Weeks | Main modules | Milestone |
 |---|---:|---|---|
+| Welcome | Before week 1 | `WEL-000` | understand the journey and destination |
 | Placement/on-ramp | 0–6 as needed | diagnostics, `ONR-000` | individualized starting map |
-| A. Scientific language | 1–8 | `QRS-100`, `CHE-110`, `BIO-110` | `INT-301` |
+| A. Scientific inquiry and language | 1–8 | `QRS-100`, `CHE-110`, `BIO-110` | `INT-301` |
 | B. Particles to cells | 9–16 | `CHE-120`, `BIO-120`, `PHY-110` | first practical review |
 | C. Matter, inheritance, transport | 17–24 | `CHE-130`, `BIO-130`, `PHY-120` | cumulative gate + recovery week |
 | D. Regulation and measurement | 25–32 | `CHE-140`, `BIO-140`, `PHY-130` | `INT-302`/`INT-303` |

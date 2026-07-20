@@ -48,7 +48,7 @@ Course content is licensed CC BY 4.0 unless a file or third-party asset says oth
 - [Complete syllabus](https://embeddedknowledge.io/premed/syllabus/): searchable university-grade academic contract.
 - [Knowledge graph](https://embeddedknowledge.io/premed/graph/): no-scroll interactive graph.
 - [Lesson commons](https://embeddedknowledge.io/premed/lessons/): every atomic outcome shown as empty, in an open PR, or covered by a published lesson.
-- [Graph data](https://embeddedknowledge.io/data/premed-graph.json): 10 domains, 48 modules, 404 atomic outcomes, and 1,092 relationships.
+- [Graph data](https://embeddedknowledge.io/data/premed-graph.json): 10 domains, 46 modules, 388 atomic outcomes, and 1,058 relationships.
 - [Production ledger](https://embeddedknowledge.io/data/premed-progress.json): contributed, in-review, published-open, and covered-outcome totals.
 
 ## Required standard-lesson quorum
@@ -102,9 +102,9 @@ Then open <http://localhost:4173/site/>. A local server is recommended because b
 - [University-grade syllabus](course/PREMED-SYLLABUS.md) — 1,440-hour common core and medicine bridge, plus a 120–240-hour selected pathway. Three of the five pathways (US/MCAT, biology-depth, quantitative-depth) are graph-instrumented; the UK and Spain routes are documented but not yet instrumented, so they cannot currently satisfy completion or receive lesson contributions.
 - [Curriculum implementation map](course/PREMED-CURRICULUM-MAP.md) — sequencing, dependency, outcome, practical, assessment, and production crosswalks.
 - [Knowledge graph guide](course/PREMED-KNOWLEDGE-GRAPH.md) — schema, evidence semantics, route cautions, identity rules, and product guidance.
-- [Machine-readable graph](site/data/premed-graph.json) — 10 domains, 48 graph modules, 404 atomic topic outcomes, and 1,092 relationships.
+- [Machine-readable graph](site/data/premed-graph.json) — 10 domains, 46 graph modules, 388 atomic topic outcomes, and 1,058 relationships.
 - [Public site](site/index.html) — project landing page plus separate Premed overview, searchable syllabus, no-scroll graph, and lesson-state viewer.
-- [Lesson index](site/data/premed-lessons.json) and [open-PR index](site/data/premed-open-prs.json) — all 404 outcomes, merged lesson mappings, and GitHub-provenanced proposal quorum states.
+- [Lesson index](site/data/premed-lessons.json) and [open-PR index](site/data/premed-open-prs.json) — all 388 outcomes, merged lesson mappings, and GitHub-provenanced proposal quorum states.
 - [Lesson-production ledger](site/data/premed-progress.json) — separately reports contributed, in-review, published-open, and outcome-coverage totals. It begins at an explicit 0%.
 - [Lesson Format v1 contract](FORMAT.md) and [authoring guide](lessons/README.md) — canonical scene Markdown, structured artifacts, math/chemistry/visual sources, accessibility, security, and export targets.
 - [Learning-Content Standard v1](CONTENT-STANDARD.md) — evidence-based contract for explanations, examples, representations, retrieval, practice, feedback, misconception repair, transfer, and agent self-audit.
@@ -113,9 +113,9 @@ Then open <http://localhost:4173/site/>. A local server is recommended because b
 - [Role-isolated Agent Skills](.agents/skills/) — authoring, three independent review procedures, and fresh adjudication, published through the [skills manifest](site/agent/skills.json).
 - [Machine contribution contract](site/agent/contribution.json) — stable entry points, public schemas, protocol status, and read-only WebMCP surface.
 
-The graph's 1,589.5-hour total counts every optional branch and on-ramp topic. It is an inventory, not the workload a learner is expected to complete. The syllabus is authoritative for completion rules.
+The graph's 1,551-hour total counts every optional branch. It is an inventory, not the workload a learner is expected to complete. The syllabus is authoritative for completion rules.
 
-The curriculum's completeness is not the lesson corpus's completeness. Premed currently has **0 contributed lessons, 0 published open lessons, and 0 of 404 outcomes covered (0%)**. The public site reads these values from the production ledger rather than inferring them from syllabus or graph coverage.
+The curriculum's completeness is not the lesson corpus's completeness. Premed currently has **0 contributed lessons, 0 published open lessons, and 0 of 388 outcomes covered (0%)**. The public site reads these values from the production ledger rather than inferring them from syllabus or graph coverage.
 
 ## Agent-first contribution interface
 
@@ -436,13 +436,13 @@ WebMCP cannot submit, approve, adjudicate, merge, or publish. It is progressive 
 
 ## Progress semantics
 
-Premed lesson coverage is measured against the 404 atomic outcomes in the knowledge graph.
+Premed lesson coverage is measured against the 388 atomic outcomes in the knowledge graph.
 
 - `contributed`: a lesson pack has entered the public pull-request queue.
 - `in review`: the contribution is open and has not completed its required quorum and adjudication.
 - `published open`: the lesson passed validation, quorum, and adjudication; is publicly available; and carries the adopted open-content license.
 - `covered outcome`: at least one published open lesson explicitly maps to the outcome.
-- `coverage percentage`: unique covered outcome IDs divided by 404. A lesson may cover multiple outcomes.
+- `coverage percentage`: unique covered outcome IDs divided by 388. A lesson may cover multiple outcomes.
 
 The machine-readable ledger is [`site/data/premed-progress.json`](site/data/premed-progress.json). It starts at an explicit zero and includes the actual `coveredOutcomeIds` array so agents can determine uncovered work without guessing.
 
@@ -1788,7 +1788,7 @@ The review record determines whether the pack is fit to merge. The specimen and 
 
 # Premed: Foundations for Medical Study
 
-**Curriculum version:** 1.0 candidate · 19 July 2026<br>
+**Curriculum version:** 1.1 candidate · 20 July 2026<br>
 **Provider:** EmbeddedKnowledge<br>
 **Language:** English<br>
 **Level:** university preparatory; introductory undergraduate science with a medicine-facing bridge<br>
@@ -1906,6 +1906,7 @@ Route-specific outcomes (`PLO-US`, `PLO-UK`, `PLO-ES`, `PLO-BIO`, and `PLO-QNT`)
 
 | Component | Modules | Nominal hours | Required for EmbeddedKnowledge Premed completion? |
 |---|---:|---:|---|
+| Course welcome | `WEL-000` | 1 | Yes |
 | On-ramp | `ONR-000` | 0–120 | Only when prescribed by diagnostic |
 | Inquiry and quantitative spine | `QRS-100`, embedded studios | 180 | Yes |
 | General chemistry | `CHE-110`–`CHE-140` | 220 | Yes |
@@ -1927,7 +1928,7 @@ Completion requires all of the following:
 - all safety-critical outcomes at `M` with no compensation by average;
 - twelve practical investigations, including at least four using physical equipment if the learner wants a **blended-practical** notation;
 - the research-reading portfolio and quantitative portfolio;
-- one completed route/pathway (see the instrumentation limitation in section 12: in curriculum version 1.0 only `PW-US`, `PW-BIO` and `PW-QNT` can satisfy this requirement, because `PW-UK` and `PW-ES` are not yet represented in the knowledge graph);
+- one completed route/pathway (see the instrumentation limitation in section 12: in curriculum version 1.1 only `PW-US`, `PW-BIO` and `PW-QNT` can satisfy this requirement, because `PW-UK` and `PW-ES` are not yet represented in the knowledge graph);
 - an accepted integrative capstone and oral defence;
 - a final calibration review showing that confidence judgments track actual performance.
 
@@ -1953,8 +1954,8 @@ Confidence is logged before feedback on selected tasks. A high-confidence incorr
 Modules are shown in the recommended order. `||` indicates modules that can run concurrently after their shared prerequisites.
 
 ```text
-ONR-000 (if needed)
-  -> QRS-100
+WEL-000
+  -> QRS-100 (begins with Scientific Inquiry)
   -> CHE-110 || BIO-110
   -> CHE-120 || BIO-120 || PHY-110
   -> CHE-130 || BIO-130 || PHY-120
@@ -1968,13 +1969,29 @@ ONR-000 (if needed)
   -> CAP-400
 ```
 
-`QRS-100` begins early but its practices continue through every module. The curriculum map in `PREMED-CURRICULUM-MAP.md` gives the cross-domain edges and misconception gates.
+`WEL-000` is the only lesson before the scientific curriculum. It previews the complete journey and the capabilities learners are working toward. `QRS-100` then opens with Scientific Inquiry; its practices continue through every later module. Diagnostic-prescribed `ONR-000` refreshers are optional support, not a separate opening content block. The curriculum map in `PREMED-CURRICULUM-MAP.md` gives the cross-domain edges and misconception gates.
 
 ## 9. Detailed common-core modules
 
+### `WEL-000` Welcome to Premed — 1 hour
+
+**Purpose.** Welcome learners into the scientific journey ahead before asking them to master any new content. The lesson previews the questions each subject helps answer, shows how the subjects connect, and makes the destination concrete: by the end, learners should be able to explain, model, investigate, and integrate the science that supports later medical study.
+
+The welcome introduces the course in plain language:
+
+- **Scientific inquiry and laboratory practice:** how we turn a question into a fair test, decide what evidence can support, and make work reproducible.
+- **Mathematics, statistics, chemistry, and physics:** how we measure the world and explain matter, energy, forces, fluids, electricity, waves, and uncertainty.
+- **Biology, genetics, organic chemistry, and biochemistry:** how cells are built, use energy, store information, respond, reproduce, and change.
+- **Human systems, immunity, microbiology, behaviour, and society:** how those foundations connect across a whole person and population without pretending that premedical study is clinical practice.
+- **Integration and capstones:** how learners will combine the subjects to reason through unfamiliar problems rather than merely repeat isolated facts.
+
+**Completion evidence.** The learner can describe the subject journey, explain why its major concepts matter for medical study, and identify what they should know and be able to do by course completion. This is a motivating orientation, not a prior-knowledge test or a graded science gate.
+
 ### `QRS-100` Quantitative and scientific reasoning — 180 hours distributed
 
-**Purpose.** Establish the mathematical, statistical, experimental, and epistemic practices used everywhere else.
+**Purpose.** Begin with Scientific Inquiry—questions, hypotheses, variables, evidence, causal limits, uncertainty, and reproducibility—then establish the mathematical and statistical practices used everywhere else.
+
+Instruction begins with `QRS-105`, `QRS-110`, and `QRS-112`; the numeric IDs below are stable references, not a required teaching order. Laboratory and measurement work then make the inquiry cycle concrete before the remaining quantitative sequence expands what learners can test and interpret.
 
 | Topic ID | Topic-level scope and measurable outcome |
 |---|---|
@@ -2503,7 +2520,7 @@ The capstone cannot compensate for missing module outcomes. Its purpose is trans
 
 Every learner completes at least one pathway. Pathways are additions to the portable core, not claims about universal preparation. Institution-facing pathways require annual review because admissions rules change.
 
-> **Instrumentation limitation (curriculum version 1.0).** Only `PW-US`, `PW-BIO` and `PW-QNT` are instrumented in the v1 knowledge graph (`site/data/premed-graph.json`) as trackable atomic outcomes. **`PW-UK` and `PW-ES` are documented routes that are NOT yet instrumented.** Their route-defining outcomes — UCAT familiarization (`UK-240`), the QAA Access baseline (`UK-230`), the Spanish admission audit (`ES-211`), and the open-response studio (`ES-250`) — are not among the graph's 404 atomic outcomes, so a learner cannot currently satisfy the section 6.2 "one completed route/pathway" requirement through `PW-UK` or `PW-ES`, and contributors cannot yet author lessons against those outcomes. Learners on those routes should complete `PW-US`, `PW-BIO` or `PW-QNT` for the completion requirement and treat the UK/Spain material below as an uninstrumented reading and audit guide. Instrumenting both routes is planned for a later curriculum version.
+> **Instrumentation limitation (curriculum version 1.1).** Only `PW-US`, `PW-BIO` and `PW-QNT` are instrumented in the v1 knowledge graph (`site/data/premed-graph.json`) as trackable atomic outcomes. **`PW-UK` and `PW-ES` are documented routes that are NOT yet instrumented.** Their route-defining outcomes — UCAT familiarization (`UK-240`), the QAA Access baseline (`UK-230`), the Spanish admission audit (`ES-211`), and the open-response studio (`ES-250`) — are not among the graph's 388 atomic outcomes, so a learner cannot currently satisfy the section 6.2 "one completed route/pathway" requirement through `PW-UK` or `PW-ES`, and contributors cannot yet author lessons against those outcomes. Learners on those routes should complete `PW-US`, `PW-BIO` or `PW-QNT` for the completion requirement and treat the UK/Spain material below as an uninstrumented reading and audit guide. Instrumenting both routes is planned for a later curriculum version.
 
 ### `PW-US` United States graduate-entry / MCAT — 200 hours
 
@@ -2523,7 +2540,7 @@ Every learner completes at least one pathway. Pathways are additions to the port
 
 ### `PW-UK` UK direct-entry / Access to HE orientation — 180 hours
 
-**Status:** route-specific and institution-dependent. The UCAT is an aptitude test rather than a science syllabus. **Not instrumented in curriculum version 1.0:** no module of the v1 knowledge graph maps to `PW-UK`, and none of the outcomes below exist as trackable atomic outcomes, so this route cannot yet satisfy the section 6.2 pathway requirement and cannot yet be authored against. Planned for a later curriculum version.
+**Status:** route-specific and institution-dependent. The UCAT is an aptitude test rather than a science syllabus. **Not instrumented in curriculum version 1.1:** no module of the v1 knowledge graph maps to `PW-UK`, and none of the outcomes below exist as trackable atomic outcomes, so this route cannot yet satisfy the section 6.2 pathway requirement and cannot yet be authored against. Planned for a later curriculum version.
 
 | Module | Topic-level outcomes |
 |---|---|
@@ -2539,7 +2556,7 @@ The [QAA Access to HE Diploma Subject Descriptor for Medicine](https://www.qaa.a
 
 ### `PW-ES` Spain / continental direct-entry orientation — 180 hours
 
-**Status:** route-specific. PAU rules and university weighting tables must be versioned by year and jurisdiction. **Not instrumented in curriculum version 1.0:** no module of the v1 knowledge graph maps to `PW-ES`, and none of the outcomes below exist as trackable atomic outcomes, so this route cannot yet satisfy the section 6.2 pathway requirement and cannot yet be authored against. (The graph's `spain-bach-pau` *filter tag* marks Spanish-curriculum content inside other modules; it is not the same thing as an instrumented `PW-ES` route.) Planned for a later curriculum version.
+**Status:** route-specific. PAU rules and university weighting tables must be versioned by year and jurisdiction. **Not instrumented in curriculum version 1.1:** no module of the v1 knowledge graph maps to `PW-ES`, and none of the outcomes below exist as trackable atomic outcomes, so this route cannot yet satisfy the section 6.2 pathway requirement and cannot yet be authored against. (The graph's `spain-bach-pau` *filter tag* marks Spanish-curriculum content inside other modules; it is not the same thing as an instrumented `PW-ES` route.) Planned for a later curriculum version.
 
 | Module | Topic-level outcomes |
 |---|---|
@@ -2815,8 +2832,9 @@ Progress views show secure nodes, next reachable nodes, hours invested, and reco
 
 | Block | Weeks | Main modules | Milestone |
 |---|---:|---|---|
+| Welcome | Before week 1 | `WEL-000` | understand the journey and destination |
 | Placement/on-ramp | 0–6 as needed | diagnostics, `ONR-000` | individualized starting map |
-| A. Scientific language | 1–8 | `QRS-100`, `CHE-110`, `BIO-110` | `INT-301` |
+| A. Scientific inquiry and language | 1–8 | `QRS-100`, `CHE-110`, `BIO-110` | `INT-301` |
 | B. Particles to cells | 9–16 | `CHE-120`, `BIO-120`, `PHY-110` | first practical review |
 | C. Matter, inheritance, transport | 17–24 | `CHE-130`, `BIO-130`, `PHY-120` | cumulative gate + recovery week |
 | D. Regulation and measurement | 25–32 | `CHE-140`, `BIO-140`, `PHY-130` | `INT-302`/`INT-303` |
@@ -3230,7 +3248,7 @@ The syllabus skeleton is curriculum-complete when every required module and path
 
 # Premed Knowledge Graph
 
-**Version:** 1.0 candidate · 19 July 2026
+**Version:** 1.1 candidate · 20 July 2026
 **Dataset:** [`site/data/premed-graph.json`](../site/data/premed-graph.json)
 **Canonical builder:** [`scripts/build-premed-graph.mjs`](../scripts/build-premed-graph.mjs)
 **Validator:** [`scripts/validate-premed-graph.mjs`](../scripts/validate-premed-graph.mjs)
@@ -3246,32 +3264,31 @@ It is deliberately more granular than the teaching syllabus. The syllabus's stab
 | Layer | Count | Purpose |
 |---|---:|---|
 | Domains | 10 | Broad visual and curricular regions |
-| Modules | 48 | Coherent concept clusters, finer than syllabus modules |
-| Topics | 404 | Observable learning outcomes and mastery units |
-| All nodes | 462 | Domains + modules + topics |
-| Hierarchy links | 452 | Domain → module and module → topic containment |
-| Prerequisite links | 605 | Directed learning dependencies |
-| Cross-links | 35 | High-value conceptual connections that do not impose order |
-| All links | 1,092 | The complete interactive graph |
+| Modules | 46 | Coherent concept clusters, finer than syllabus modules |
+| Topics | 388 | Observable learning outcomes and mastery units |
+| All nodes | 444 | Domains + modules + topics |
+| Hierarchy links | 434 | Domain → module and module → topic containment |
+| Prerequisite links | 590 | Directed learning dependencies |
+| Cross-links | 34 | High-value conceptual connections that do not impose order |
+| All links | 1,058 | The complete interactive graph |
 
-The sum of every topic estimate is **1,589.5 hours**. That number is an all-branches graph inventory, not a completion promise: it includes the on-ramp, every route-specific topic, broad biology, calculus, and the entire medicine bridge. A learner follows a selected subgraph. The syllabus defines the official workload and completion rules; the graph's `estimatedHours` is for planning, progress, and relative scope.
+The sum of every topic estimate is **1,551 hours**. That number is an all-branches graph inventory, not a completion promise: it includes the welcome, every route-specific topic, broad biology, calculus, and the entire medicine bridge. A learner follows a selected subgraph. The syllabus defines the official workload and completion rules; the graph's `estimatedHours` is for planning, progress, and relative scope.
 
 Coverage by requirement label:
 
 | Requirement | Topics | Graph hours | Meaning |
 |---|---:|---:|---|
-| `portable-core` | 212 | 809.5 | High-confidence cross-system academic spine |
-| `medicine-bridge` | 133 | 574.5 | Deliberate EmbeddedKnowledge bridge toward medical science; not a universal entrant minimum |
+| `portable-core` | 213 | 810.5 | Course welcome plus the high-confidence cross-system academic spine |
+| `medicine-bridge` | 127 | 560 | Deliberate EmbeddedKnowledge bridge toward medical science; not a universal entrant minimum |
 | `pathway` | 48 | 180.5 | Route-specific or broad-literacy content |
-| `on-ramp` | 11 | 25 | Foundational learning and research-literacy nodes; additional on-ramp practice lives in the syllabus |
 
 ## 2. Data contract
 
-The top-level object is stable at schema version `1.0.0`:
+The top-level object is stable at schema version `2.0.0`:
 
 ```json
 {
-  "schemaVersion": "1.0.0",
+  "schemaVersion": "2.0.0",
   "course": {},
   "schema": {},
   "pathways": [],
@@ -3359,60 +3376,62 @@ node scripts/validate-premed-graph.mjs
 
 ## 4. Domain and syllabus mapping
 
-The graph's 48 modules give the interface enough resolution to show meaningful dependencies. They map onto the syllabus's larger teaching blocks as follows.
+The graph's 46 modules give the interface enough resolution to show meaningful dependencies. They map onto the syllabus's larger teaching blocks as follows.
 
 | Graph code | Graph module | Syllabus module(s) |
 |---|---|---|
-| `PREM-01` | Orientation & Learning Science | `ONR-000` |
-| `PREM-02` | Study & Research Literacy | `ONR-000`, `QRS-100` |
-| `PREM-03` | Professional Behaviours | `MED-330`, `CAP-400` |
-| `PREM-04` | Scientific Inquiry | `QRS-100` |
-| `PREM-05` | Laboratory Practice | `QRS-100`, `INT-300` |
-| `PREM-06` | Quantitative Foundations | `QRS-100` |
-| `PREM-07` | Statistics & Data | `QRS-100` |
-| `PREM-08` | Calculus Extension | `PW-QNT` |
-| `PREM-09` | Cell Biology | `BIO-110`, `BIO-120` |
-| `PREM-10` | Molecular Genetics | `BIO-130`, `BIO-140`, `BCH-240` |
-| `PREM-11` | Evolution | `BIO-150`, `PW-BIO` |
-| `PREM-12` | Ecology & Plant Biology | `PW-BIO` |
-| `PREM-13` | Biomolecules | `BIO-110`, `BCH-210`, `BCH-220` |
-| `PREM-14` | Enzymes | `BIO-120`, `BCH-210` |
-| `PREM-15` | Metabolism & Bioenergetics | `BIO-120`, `BCH-230`, `BCH-240` |
-| `PREM-16` | Atomic Structure & Periodicity | `CHE-110` |
-| `PREM-17` | Bonding & Molecular Structure | `CHE-120` |
-| `PREM-18` | Stoichiometry & Reactions | `CHE-120` |
-| `PREM-19` | States, Gases & Solutions | `CHE-130` |
-| `PREM-20` | Thermodynamics, Kinetics & Equilibrium | `CHE-130`, `CHE-140` |
-| `PREM-21` | Acids, Bases & Buffers | `CHE-140` |
-| `PREM-22` | Redox & Electrochemistry | `CHE-140` |
-| `PREM-23` | Organic Foundations | `ORG-210` |
-| `PREM-24` | Organic Reactivity | `ORG-220` |
-| `PREM-25` | Carbonyls & Biological Organic Chemistry | `ORG-220`, `BCH-220` |
-| `PREM-26` | Separation & Structure Analysis | `ORG-230` |
-| `PREM-27` | Mechanics | `PHY-110` |
-| `PREM-28` | Fluids | `PHY-120` |
-| `PREM-29` | Thermal Physics & Gases | `PHY-150` |
-| `PREM-30` | Electricity & Magnetism | `PHY-140` |
-| `PREM-31` | Waves & Sound | `PHY-130` |
-| `PREM-32` | Optics | `PHY-130` |
-| `PREM-33` | Atomic & Nuclear Physics | `PHY-150` |
-| `PREM-34` | Anatomy, Homeostasis & Tissues | `MED-310` |
-| `PREM-35` | Nervous System | `MED-310` |
-| `PREM-36` | Endocrine System | `MED-310`, `MED-320` |
-| `PREM-37` | Cardiovascular System | `MED-310` |
-| `PREM-38` | Respiratory System | `MED-310` |
-| `PREM-39` | Renal System | `MED-310` |
-| `PREM-40` | Digestive System | `MED-320` |
-| `PREM-41` | Musculoskeletal System | `MED-310`, `MED-320` |
-| `PREM-42` | Reproduction & Development | `MED-320` |
-| `PREM-43` | Immunity | `MED-330` |
-| `PREM-44` | Microbiology | `BIO-150`, `MED-330` |
-| `PREM-45` | Psychology | `PW-US`, `INT-300` |
-| `PREM-46` | Sociology & Health | `PW-US`, `INT-300` |
-| `PREM-47` | Critical Reading & Argument | `PW-US`, `QRS-100` |
-| `PREM-48` | Integrative Capstones | `INT-300`, `CAP-400` |
+| `PREM-01` | Welcome to Premed | `WEL-000` |
+| `PREM-02` | Scientific Inquiry | `QRS-100` |
+| `PREM-03` | Laboratory Practice | `QRS-100`, `INT-300` |
+| `PREM-04` | Quantitative Foundations | `QRS-100` |
+| `PREM-05` | Statistics & Data | `QRS-100` |
+| `PREM-06` | Calculus Extension | `PW-QNT` |
+| `PREM-07` | Cell Biology | `BIO-110`, `BIO-120` |
+| `PREM-08` | Molecular Genetics | `BIO-130`, `BIO-140`, `BCH-240` |
+| `PREM-09` | Evolution | `BIO-150`, `PW-BIO` |
+| `PREM-10` | Ecology & Plant Biology | `PW-BIO` |
+| `PREM-11` | Biomolecules | `BIO-110`, `BCH-210`, `BCH-220` |
+| `PREM-12` | Enzymes | `BIO-120`, `BCH-210` |
+| `PREM-13` | Metabolism & Bioenergetics | `BIO-120`, `BCH-230`, `BCH-240` |
+| `PREM-14` | Atomic Structure & Periodicity | `CHE-110` |
+| `PREM-15` | Bonding & Molecular Structure | `CHE-120` |
+| `PREM-16` | Stoichiometry & Reactions | `CHE-120` |
+| `PREM-17` | States, Gases & Solutions | `CHE-130` |
+| `PREM-18` | Thermodynamics, Kinetics & Equilibrium | `CHE-130`, `CHE-140` |
+| `PREM-19` | Acids, Bases & Buffers | `CHE-140` |
+| `PREM-20` | Redox & Electrochemistry | `CHE-140` |
+| `PREM-21` | Organic Foundations | `ORG-210` |
+| `PREM-22` | Organic Reactivity | `ORG-220` |
+| `PREM-23` | Carbonyls & Biological Organic Chemistry | `ORG-220`, `BCH-220` |
+| `PREM-24` | Separation & Structure Analysis | `ORG-230` |
+| `PREM-25` | Mechanics | `PHY-110` |
+| `PREM-26` | Fluids | `PHY-120` |
+| `PREM-27` | Thermal Physics & Gases | `PHY-150` |
+| `PREM-28` | Electricity & Magnetism | `PHY-140` |
+| `PREM-29` | Waves & Sound | `PHY-130` |
+| `PREM-30` | Optics | `PHY-130` |
+| `PREM-31` | Atomic & Nuclear Physics | `PHY-150` |
+| `PREM-32` | Anatomy, Homeostasis & Tissues | `MED-310` |
+| `PREM-33` | Nervous System | `MED-310` |
+| `PREM-34` | Endocrine System | `MED-310`, `MED-320` |
+| `PREM-35` | Cardiovascular System | `MED-310` |
+| `PREM-36` | Respiratory System | `MED-310` |
+| `PREM-37` | Renal System | `MED-310` |
+| `PREM-38` | Digestive System | `MED-320` |
+| `PREM-39` | Musculoskeletal System | `MED-310`, `MED-320` |
+| `PREM-40` | Reproduction & Development | `MED-320` |
+| `PREM-41` | Immunity | `MED-330` |
+| `PREM-42` | Microbiology | `BIO-150`, `MED-330` |
+| `PREM-43` | Psychology | `PW-US`, `INT-300` |
+| `PREM-44` | Sociology & Health | `PW-US`, `INT-300` |
+| `PREM-45` | Critical Reading & Argument | `PW-US`, `QRS-100` |
+| `PREM-46` | Integrative Capstones | `INT-300`, `CAP-400` |
 
 This is a many-to-many mapping by design. For example, the graph's `module-molecular-genetics` spans heredity, molecular control, and biochemical information flow, which the teaching sequence revisits in `BIO-130`, `BIO-140`, and `BCH-240`.
+
+### 4.1 Version 1.1 opening-sequence migration
+
+The version 1.1 candidate retires `module-orientation`, `module-study-research-literacy`, `module-professional-behaviours`, and their 17 topic IDs. No production lesson or repository learner-mastery record used those IDs when they were retired. The focused `module-welcome` and `topic-welcome-course-journey` now precede `module-scientific-inquiry`; Scientific Inquiry is the first instructional module. Because `PREM-##` is a human-readable display sequence rather than the mastery key, retained modules receive new sequential codes while their stable `module-*` and `topic-*` IDs remain unchanged. Removing published graph identities is a breaking semantic change, so the graph schema version advances to `2.0.0` even though the JSON field structure is unchanged.
 
 ## 5. Pathways and honest scope
 
@@ -3426,7 +3445,7 @@ There is exactly one rule for deciding which topics a route contains:
 
 Two corollaries follow, and both are load-bearing:
 
-1. **`sourceTags` never determine route membership.** They record which evidence families justify a topic's placement. A topic can carry `AAMC-MCAT` because the MCAT outline covers that material while its `pathway` array omits `us-mcat` because it already arrives through `portable-core` — 101 of the 404 topics are in exactly that position, including all of `PREM-16` Atomic Structure & Periodicity. Filtering on source tags instead of the rule above would hide general chemistry from an MCAT learner. Conversely, the ten `PREM-06` Quantitative Foundations topics sit in `us-mcat` under the `AAMC-MATH` source rather than `AAMC-MCAT`; a missing `AAMC-MCAT` tag is not an exclusion. One topic — `topic-organic-reactivity-multistep-synthesis` — inherits its module's `AAMC-MCAT` tag but is deliberately excluded from `us-mcat`, because extended synthesis is outside the MCAT; the rule above resolves this correctly and source tags must not override it.
+1. **`sourceTags` never determine route membership.** They record which evidence families justify a topic's placement. A topic can carry `AAMC-MCAT` because the MCAT outline covers that material while its `pathway` array omits `us-mcat` because it already arrives through `portable-core` — 101 of the 388 topics are in exactly that position, including all of `PREM-14` Atomic Structure & Periodicity. Filtering on source tags instead of the rule above would hide general chemistry from an MCAT learner. Conversely, the ten `PREM-04` Quantitative Foundations topics sit in `us-mcat` under the `AAMC-MATH` source rather than `AAMC-MCAT`; a missing `AAMC-MCAT` tag is not an exclusion. One topic — `topic-organic-reactivity-multistep-synthesis` — inherits its module's `AAMC-MCAT` tag but is deliberately excluded from `us-mcat`, because extended synthesis is outside the MCAT; the rule above resolves this correctly and source tags must not override it.
 2. The builder publishes the rule and its results so no consumer has to re-derive them: `schema.routeResolutionRule`, `pathways[].includesPortableCore`, and `metrics.routeTopicCounts` (with `tagged`, `effective`, and `estimatedHours` per route).
 
 ### 5.2 Route table
@@ -3439,16 +3458,16 @@ Two corollaries follow, and both are load-bearing:
 | `uk-direct-entry` | `PW-UK` (**tag only — route not instrumented**) | A-level and Access orientation; UK subject rules remain institution-specific |
 | `spain-bach-pau` | `PW-ES` (**tag only — route not instrumented**) | Bachillerato science coverage and PAU orientation; weightings remain annual and university-specific |
 | `continental-science` | `PW-ES` (**tag only — route not instrumented**) | French/German and related secondary-science extensions; no claim that all entrants took every science |
-| `access-foundation` | `ONR-000`, `PW-UK` | Novice entry, laboratory literacy, study skills, numeracy, and professional behaviors |
+| `access-foundation` | `ONR-000`, `PW-UK` | Novice entry, scientific inquiry, laboratory literacy, and numeracy |
 | `broad-biology` | `PW-BIO` | Evolution, ecology, and plant science retained for biological literacy |
 | `advanced-quantitative` | `PW-QNT` | Calculus and mathematical extensions explicitly outside the MCAT minimum |
 
-> **Instrumentation limitation (curriculum version 1.0).** The syllabus defines five routes; only `PW-US`, `PW-BIO` and `PW-QNT` are instrumented here. **`PW-UK` and `PW-ES` are documented routes that are NOT yet instrumented in the v1 graph.** No graph module maps to them, and their route-defining outcomes — UCAT familiarization, the QAA Access baseline, the Spanish admission audit, and the open-response studio — are not among the 404 atomic outcomes. Consequently they cannot yet satisfy the syllabus section 6.2 pathway-completion requirement, and contributors cannot yet author lessons against them. The `uk-direct-entry` and `spain-bach-pau` **pathway tags below are content filters** marking A-level/Access-shaped and Bachillerato-shaped material inside other modules; they are not implementations of `PW-UK` or `PW-ES`. Instrumenting both routes is planned for a later curriculum version.
+> **Instrumentation limitation (curriculum version 1.1).** The syllabus defines five routes; only `PW-US`, `PW-BIO` and `PW-QNT` are instrumented here. **`PW-UK` and `PW-ES` are documented routes that are NOT yet instrumented in the v1 graph.** No graph module maps to them, and their route-defining outcomes — UCAT familiarization, the QAA Access baseline, the Spanish admission audit, and the open-response studio — are not among the 388 atomic outcomes. Consequently they cannot yet satisfy the syllabus section 6.2 pathway-completion requirement, and contributors cannot yet author lessons against them. The `uk-direct-entry` and `spain-bach-pau` **pathway tags below are content filters** marking A-level/Access-shaped and Bachillerato-shaped material inside other modules; they are not implementations of `PW-UK` or `PW-ES`. Instrumenting both routes is planned for a later curriculum version.
 
 Important adjudicated boundaries are represented directly:
 
 - MCAT-aligned evolution is present, but ecology, ecosystems, plant biology, and photosynthesis are **not** tagged as MCAT content.
-- Photosynthesis is the **only** topic of `PREM-12` Ecology & Plant Biology carrying `spain-bach-pau` and the `RD243` source, because [RD 243/2022](https://www.boe.es/buscar/act.php?id=BOE-A-2022-5521) specifies autotrophic anabolism while Spain's six second-year Biology blocks contain no ecology block and no broad plant unit (see `research/ADJUDICATION-2026-07-19.md` section 1.8). The module's other six topics carry only `broad-biology` and `uk-direct-entry` with `AQA-BIO`/`AP-BIO` evidence.
+- Photosynthesis is the **only** topic of `PREM-10` Ecology & Plant Biology carrying `spain-bach-pau` and the `RD243` source, because [RD 243/2022](https://www.boe.es/buscar/act.php?id=BOE-A-2022-5521) specifies autotrophic anabolism while Spain's six second-year Biology blocks contain no ecology block and no broad plant unit (see `research/ADJUDICATION-2026-07-19.md` section 1.8). The module's other six topics carry only `broad-biology` and `uk-direct-entry` with `AQA-BIO`/`AP-BIO` evidence.
 - Human physiology is a medicine-facing bridge and MCAT-aligned survey, not mislabeled as universal upper-level physiology or a universal entrant prerequisite.
 - MCAT metabolism includes glycolysis, gluconeogenesis, pentose phosphate, the citric acid cycle, fatty-acid oxidation, ketone bodies, and oxidative phosphorylation. Nitrogen-disposal principles appear as biochemistry, but the graph does not claim the urea cycle is an explicit MCAT leaf topic.
 - Statistics and experimental reasoning are core. Calculus is a separate optional path and is explicitly excluded from the MCAT mathematical floor.
@@ -3483,7 +3502,7 @@ It must never be rendered as “probability this fact is true” or “percentag
 2. Resolve the route's topic set with the rule in section 5.1 — route tag **union** `portable-core` — and hide only what falls outside that set unless the learner asks to explore. Never filter by `sourceTags`.
 3. Topologically sort unmet prerequisite links, then rank available nodes by the learner's study plan and spaced-review needs.
 4. Roll topic mastery up to modules and domains for display only; never let an average conceal an unmastered safety-critical or prerequisite topic.
-5. Render `cross-link` edges on demand to prevent a 1,092-edge hairball.
+5. Render `cross-link` edges on demand to prevent a 1,058-edge hairball.
 6. Show `requirement`, `evidenceConfidence`, and `sourceTags` in detail views rather than implying that all visible content is compulsory.
 
 ### Suggested graph states
@@ -3504,7 +3523,7 @@ The validator checks:
 - valid JSON and required node fields;
 - unique node and link IDs;
 - valid source tags and pathway IDs;
-- valid endpoints for all 1,092 links;
+- valid endpoints for all 1,058 links;
 - exact agreement between topic `prerequisites` arrays and prerequisite links;
 - topic-only prerequisite endpoints;
 - absence of prerequisite self-links and cycles;
@@ -3513,7 +3532,7 @@ The validator checks:
 Current result:
 
 ```text
-Premed graph valid: 462 nodes, 1092 links, 404 topics, 1589.5 estimated hours.
+Premed graph valid: 444 nodes, 1058 links, 388 topics, 1551 estimated hours.
 ```
 
 The validator intentionally does not forbid cycles made only of `cross-link` edges, because those encode reciprocal conceptual relationships rather than study order.
