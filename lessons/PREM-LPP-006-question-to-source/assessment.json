@@ -1,0 +1,193 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-assessment-v1",
+  "lessonId": "PREM-LPP-006",
+  "lessonVersion": "0.1.0",
+  "assessmentId": "assessment-question-to-source",
+  "title": "From question to source mastery check",
+  "purpose": "mixed",
+  "attemptPolicy": {
+    "retakeable": true,
+    "timeLimitMinutes": null,
+    "feedback": "after-attempt"
+  },
+  "items": [
+    {
+      "id": "item-source-purpose",
+      "type": "single-choice",
+      "sceneId": "scene-source-purpose",
+      "objectiveIds": ["objective-match-source-purpose"],
+      "outcomeIds": ["topic-study-research-literacy-question-to-source"],
+      "prompt": "A learner needs a document that explicitly identifies and combines evidence from several eligible studies. Which starting document type best matches that answer product?",
+      "stimulus": null,
+      "points": 2,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          { "id": "option-source-systematic-review", "text": "A systematic review" },
+          { "id": "option-source-bibliographic-database", "text": "A bibliographic database" },
+          { "id": "option-source-primary-report", "text": "One primary research report" },
+          { "id": "option-source-unsourced-summary", "text": "An unsourced web summary" }
+        ],
+        "units": null,
+        "tolerance": null,
+        "maxSelections": 1,
+        "maxLength": null
+      },
+      "answer": {
+        "correct": "option-source-systematic-review",
+        "summary": "A systematic review matches the requested synthesis product.",
+        "reasoning": "The answer product must combine evidence from several eligible studies using explicit methods. A bibliographic database can locate candidate records but is not itself the requested synthesis; one primary report supplies one investigation.",
+        "acceptableResponses": [],
+        "commonErrors": [
+          "Choosing the database confuses a discovery environment with the document product.",
+          "Choosing one primary report does not satisfy the need to synthesize several studies."
+        ]
+      },
+      "rubricId": "rubric-source-purpose",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-concept-selection",
+      "type": "multiple-choice",
+      "sceneId": "scene-concept-blocks",
+      "objectiveIds": ["objective-build-concept-blocks"],
+      "outcomeIds": ["topic-study-research-literacy-question-to-source"],
+      "prompt": "For the need ‘Do short pre-laboratory quizzes improve practical performance among first-year biology learners?’, select the three ideas that should begin as distinct topical concept blocks.",
+      "stimulus": null,
+      "points": 3,
+      "responseSpec": {
+        "mode": "multiple-choice",
+        "options": [
+          { "id": "option-concept-first-year-biology", "text": "First-year biology learners" },
+          { "id": "option-concept-prelab-quizzes", "text": "Pre-laboratory quizzes" },
+          { "id": "option-concept-practical-performance", "text": "Practical performance" },
+          { "id": "option-concept-best-evidence", "text": "Best evidence" },
+          { "id": "option-concept-for-my-report", "text": "For my report" }
+        ],
+        "units": null,
+        "tolerance": null,
+        "maxSelections": 3,
+        "maxLength": null
+      },
+      "answer": {
+        "correct": ["option-concept-first-year-biology", "option-concept-prelab-quizzes", "option-concept-practical-performance"],
+        "summary": "The population, learning activity, and outcome determine topical relevance.",
+        "reasoning": "Changing any of the three correct ideas changes which records are relevant. ‘Best evidence’ is an appraisal demand rather than a topical concept, and ‘for my report’ states the use of the answer rather than the subject.",
+        "acceptableResponses": [],
+        "commonErrors": [
+          "Selecting ‘best evidence’ confuses appraisal with topical retrieval.",
+          "Selecting the purpose phrase turns narrative wrapping into a concept block.",
+          "Omitting the outcome allows records that study the quizzes without measuring practical performance."
+        ]
+      },
+      "rubricId": "rubric-concept-selection",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-retrieval-boundary",
+      "type": "single-choice",
+      "sceneId": "scene-misconception",
+      "objectiveIds": ["objective-revise-prototype"],
+      "outcomeIds": ["topic-study-research-literacy-question-to-source"],
+      "prompt": "A record appears first under PubMed Best Match. What is the strongest warranted conclusion at this stage?",
+      "stimulus": null,
+      "points": 2,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          { "id": "option-boundary-relevant-candidate", "text": "It is a candidate estimated to be relevant to the query and still requires appraisal." },
+          { "id": "option-boundary-highest-quality", "text": "NLM judged it to be the highest-quality available evidence." },
+          { "id": "option-boundary-current-guideline", "text": "It is necessarily a current guideline." },
+          { "id": "option-boundary-final-answer", "text": "It can be used as the final answer without checking methods or scope." }
+        ],
+        "units": null,
+        "tolerance": null,
+        "maxSelections": 1,
+        "maxLength": null
+      },
+      "answer": {
+        "correct": "option-boundary-relevant-candidate",
+        "summary": "Ranking supports retrieval relevance, not an individual quality judgment.",
+        "reasoning": "PubMed ranking helps order records for a query. NLM does not endorse or judge the quality of each individual included item, so document type, methods, authority, scope, and currency still require appraisal.",
+        "acceptableResponses": [],
+        "commonErrors": [
+          "Treating ranking as quality repeats the repaired misconception.",
+          "Inferring document type or currency from rank adds information that retrieval does not supply."
+        ]
+      },
+      "rubricId": "rubric-retrieval-boundary",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-integrated-transfer",
+      "type": "open-response",
+      "sceneId": "scene-transfer",
+      "objectiveIds": ["objective-match-source-purpose", "objective-build-concept-blocks", "objective-revise-prototype"],
+      "outcomeIds": ["topic-study-research-literacy-question-to-source"],
+      "prompt": "A university accessibility team needs (1) a synthesis of research on whether captioned instructional video affects comprehension for undergraduate science learners and (2) the institution's current accessibility requirements. Write a bounded search plan that separates the two answer products, justifies a starting source or discovery route for each, gives two to four concept blocks for the research question, names one observable signal and one corresponding block revision, and preserves the retrieval-versus-appraisal boundary.",
+      "stimulus": null,
+      "points": 8,
+      "responseSpec": {
+        "mode": "text",
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "maxLength": 4000
+      },
+      "answer": {
+        "correct": "Separate a systematic-review route from a current institutional-policy or official-guidance route; represent undergraduate science learners, captioned instructional video, and comprehension as concepts; revise one block from a translation or result-sample mismatch; state that every candidate still requires appraisal.",
+        "summary": "A complete response coordinates two products and makes each revision diagnostic.",
+        "reasoning": "The research synthesis and current requirements perform different functions and may come from different authorities. Topical blocks determine relevance for the research route. A defensible revision changes one block in response to an observed mismatch, while appraisal remains necessary for methods, authority, applicability, and currency.",
+        "acceptableResponses": [
+          "A broader evidence-synthesis type is acceptable if the learner states its explicit methods and scope.",
+          "Reasoned combinations of population and context blocks are acceptable when no essential idea is lost.",
+          "The requirements route may start at an official institutional policy register or the responsible jurisdictional authority if issuer and date are checked."
+        ],
+        "commonErrors": [
+          "Using one database as both answer products without naming the documents or authorities needed.",
+          "Adding purpose words such as ‘best’ or ‘for our policy’ as topical blocks.",
+          "Changing several blocks without linking the change to a translation or sample signal.",
+          "Treating a retrieved policy or article as current and trustworthy without appraisal."
+        ]
+      },
+      "rubricId": "rubric-integrated-transfer",
+      "safetyCritical": false
+    }
+  ],
+  "rubrics": [
+    {
+      "id": "rubric-source-purpose",
+      "title": "Source-purpose match",
+      "criteria": [
+        { "id": "criterion-source-purpose-match", "description": "Selects the document type whose function matches the requested synthesis product.", "maxPoints": 2 }
+      ]
+    },
+    {
+      "id": "rubric-concept-selection",
+      "title": "Concept-block selection",
+      "criteria": [
+        { "id": "criterion-concept-population", "description": "Selects the population concept.", "maxPoints": 1 },
+        { "id": "criterion-concept-activity", "description": "Selects the learning-activity concept.", "maxPoints": 1 },
+        { "id": "criterion-concept-outcome", "description": "Selects the measured-outcome concept and excludes narrative or appraisal phrases.", "maxPoints": 1 }
+      ]
+    },
+    {
+      "id": "rubric-retrieval-boundary",
+      "title": "Retrieval-appraisal boundary",
+      "criteria": [
+        { "id": "criterion-retrieval-boundary", "description": "Interprets ranking as a relevance aid and preserves the need for appraisal.", "maxPoints": 2 }
+      ]
+    },
+    {
+      "id": "rubric-integrated-transfer",
+      "title": "Integrated search-plan transfer",
+      "criteria": [
+        { "id": "criterion-transfer-products", "description": "Separates and justifies the two answer products and their starting routes.", "maxPoints": 2 },
+        { "id": "criterion-transfer-blocks", "description": "Constructs two to four concept blocks that preserve the research question's essential ideas.", "maxPoints": 2 },
+        { "id": "criterion-transfer-revision", "description": "Links one observable translation or result-sample signal to one reasoned block revision.", "maxPoints": 2 },
+        { "id": "criterion-transfer-boundary", "description": "States the remaining authority, methods, applicability, currency, and quality appraisal boundary.", "maxPoints": 2 }
+      ]
+    }
+  ]
+}
