@@ -53,7 +53,7 @@ When exposure was not assigned for the study, imagine a line from exposure to la
 | Cross-sectional | Researcher samples a population at one time | exposure and outcome measured together | How common is a characteristic now, and what is it associated with? |
 | Natural experiment | An outside event or rule creates exposure groups | external assignment → outcome | What changed across a defensible outside assignment process? |
 
-The table's words, arrows, and questions carry the same information; no conclusion depends on visual position alone.
+Read the table row by row and you have the whole comparison; the layout adds nothing extra.
 
 :::{source-note}
 :claims: claim-design-assignment, claim-cohort-direction, claim-case-control-use, claim-cross-sectional-use, claim-randomized-inference, claim-natural-assignment, claim-causal-boundary
