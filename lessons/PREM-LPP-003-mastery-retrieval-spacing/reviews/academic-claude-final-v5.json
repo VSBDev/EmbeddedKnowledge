@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-LPP-003-ACADEMIC-CLAUDE-FINAL-V5-89E37120",
+  "lessonId": "PREM-LPP-003",
+  "lessonVersion": "0.1.4",
+  "candidateCommit": "07728e3f05c63011d960d965784b60e4b681c565",
+  "role": "academic",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — Academic reviewer via Claude Sonnet 4.6",
+    "agent": {
+      "system": "Claude Code",
+      "provider": "Anthropic",
+      "model": "claude-sonnet-4-6",
+      "version": "2.1.215",
+      "runId": "89e37120-2bd6-4c9b-a49b-d36b2388d685",
+      "instructionsDigest": "sha256:9c064b9465b7645d088dc059f927e8a735f8c2d4d7b8ad39e10ef45e7a2852b6"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#id, version, outcomes, prerequisites, objectives, scenes, status, riskTier, and sourceConfidence",
+    "content/010-orientation.md through content/100-synthesis.md: all ten ordered scenes, source notes, definitions, examples, prompts, boundaries, and synthesis",
+    "assessment.json#item-distinguish-evidence, item-design-plan, item-adapt-plan, item-transfer-study-group, and all four rubrics",
+    "references.json#all nine current source records: identity, DOI, locator, scope, rights-use declaration, and agentAccess status",
+    "claims.json#all six current claims: scene/source mappings, support, confidence, scope, uncertainty, risk, and review status",
+    "glossary.json#all nine terms, with emphasis on mastery, retrieval practice, spacing, retention horizon, and interleaving",
+    "site/data/premed-graph.json#topic-orientation-mastery-and-retrieval and topic-orientation-diagnostic-baseline",
+    "DOI:10.1111/j.1467-9280.2006.01693.x",
+    "DOI:10.3102/0034654316689306",
+    "DOI:10.1037/0033-2909.132.3.354",
+    "DOI:10.1037/bul0000209",
+    "DOI:10.3389/fpsyg.2019.03087",
+    "DOI:10.1007/s10648-023-09745-1",
+    "DOI:10.1016/j.learninstruc.2025.102142",
+    "claims.json#claim-mastery-performance",
+    "claims.json#claim-retrieval-durability",
+    "claims.json#claim-spacing-retention-horizon",
+    "claims.json#claim-feedback-recovery",
+    "claims.json#claim-interleaving-conditional",
+    "claims.json#claim-guidance-fading",
+    "references.json"
+  ],
+  "findings": [
+    {
+      "severity": "minor",
+      "target": "claims.json#claim-guidance-fading",
+      "finding": "The exact claim wording 'can reduce demands on novice learners' asserts a cognitive-load mechanism. The two sources mapped to this claim—Barbieri et al. 2023 and Tetzlaff et al. 2025—supply behavioral performance evidence: a worked-example performance advantage (g = 0.48 in mathematics) and an assistance-by-prior-knowledge interaction, respectively. Neither source directly measures cognitive demands, working-memory load, or search effort. The review mandate itself acknowledges that the rapid-synthesis passage discussing reduced search and working-memory demands was deliberately excluded from the claim mapping after removal of an inaccessible underlying record. Consequently, the mechanistic phrase 'reduce demands' is asserted at the claim level without a directly supporting source in the mapped corpus. The directional instructional argument—use complete worked models during initial acquisition and fade support as accurate performance is demonstrated—is sustained by the performance evidence; only the mechanism is stated beyond what the mapped sources establish.",
+      "resolution": "Revise 'can reduce demands on novice learners' to language grounded in the mapped evidence, such as 'has been associated with higher performance for novice learners on average' or 'has benefited novice learners on average in prior studies', and remove or qualify the mechanistic demand-reduction phrase unless a directly supporting source is restored to the claim mapping."
+    },
+    {
+      "severity": "note",
+      "target": "claims.json#claim-retrieval-durability",
+      "finding": "Roediger and Karpicke 2006, the foundational two-experiment source for the retrieval-durability claim, used retrieval tests conducted entirely without feedback. The claim correctly lists feedback as one conditional moderator alongside task and test conditions rather than asserting it was present in that study; the feedback moderator derives from the broader heterogeneous meta-analytic literature represented by Adesope et al. 2017. No error is present, but the feedback conditional's provenance is cross-study rather than anchored to R&K 2006, and a source note explicitly distinguishing this would improve traceability without altering the claim.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "claims.json#claim-spacing-retention-horizon",
+      "finding": "The explicit extrapolation label applied to the use of Cepeda et al. 2006 in support of spaced retrieval practice is academically appropriate. The source title (Distributed Practice in Verbal Recall Tasks) and the stated absence of a universal schedule are consistent with the broader-than-spaced-retrieval scope of that synthesis. The epistemic marking is correct and no corrective action is required.",
+      "resolution": null
+    }
+  ],
+  "limitations": [
+    "The frozen candidate files and repository rapid synthesis were inspected directly in a detached worktree; the material Claude pass received a structured audit matrix after raw-file CLI ingestion exceeded the bounded runtime.",
+    "External verification was limited to permitted public abstract and bibliographic metadata routes; no paywalled full-text systematic reanalysis was performed.",
+    "The review covers foundation-level learning-science and academic study-plan design; no learner outcome data were available to validate the lesson's author-created threshold, calendar examples, or exact practice progression."
+  ],
+  "signedAt": "2026-07-20T03:15:58Z"
+}
