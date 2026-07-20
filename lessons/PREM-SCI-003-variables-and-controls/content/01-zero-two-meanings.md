@@ -8,7 +8,9 @@ By the end of this lesson, you will be able to name those jobs and use them to d
 
 ## Retrieve the chain you already built
 
-Before reading on, reconstruct the chain from the previous two lessons:
+This lesson follows [From observation to question (PREM-SCI-001)](https://embeddedknowledge.io/premed/lessons/read/?lesson=PREM-SCI-001) and [Hypotheses and predictions (planned PREM-SCI-002; outcome PREM-02.02)](https://embeddedknowledge.io/premed/graph/). The second topic does not yet have a published open lesson, so the recovery step below is included here rather than sending you to a missing page.
+
+Before reading on, reconstruct the chain from those two prior topics:
 
 :::{check}
 :id: check-prerequisite-chain
@@ -20,6 +22,8 @@ Fill both blanks from memory, then add one sentence explaining what the predicti
 :::
 
 A useful completion is **hypothesis → prediction**. A question says what you want to find out; a hypothesis proposes an answer or relationship; and a prediction names the record expected if the hypothesis holds under stated conditions.
+
+If that distinction was not available from memory, pause and make one small example: write a proposed relationship as your hypothesis, then write the result you would expect to record under one stated set of conditions as your prediction. Continue only when the second sentence names an observable record rather than repeating the proposed relationship.
 
 Variables and controls turn those stated conditions into an inspectable comparison. They show which link the record can test.
 
