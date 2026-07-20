@@ -3,7 +3,7 @@
   "format": "embeddedknowledge-lesson-v1",
   "artifactType": "production-lesson",
   "id": "PREM-LPP-001",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "title": "Reading the Premed curriculum map",
   "status": "draft",
   "riskTier": "standard",
@@ -74,7 +74,7 @@
       "estimatedMinutes": 15,
       "required": true,
       "claimCoverage": "claims-mapped",
-      "contentHtml": "<h1>Build a route to a study plan</h1>\n<h2>Task</h2>\n<p>A learner wants to reach <code>topic-orientation-study-plan</code>. Build the shortest prerequisite-respecting route shown by the current map, and explain what the route does and does not establish.</p>\n<h2>Givens and representation</h2>\n<p>The map records this chain:</p>\n<table>\n<thead>\n<tr>\n<th>Outcome ID</th>\n<th>Direct prerequisite</th>\n</tr>\n</thead>\n<tbody><tr>\n<td><code>topic-orientation-map-and-pathways</code></td>\n<td>none</td>\n</tr>\n<tr>\n<td><code>topic-orientation-diagnostic-baseline</code></td>\n<td><code>topic-orientation-map-and-pathways</code></td>\n</tr>\n<tr>\n<td><code>topic-orientation-mastery-and-retrieval</code></td>\n<td><code>topic-orientation-diagnostic-baseline</code></td>\n</tr>\n<tr>\n<td><code>topic-orientation-metacognition-and-error-log</code></td>\n<td><code>topic-orientation-mastery-and-retrieval</code></td>\n</tr>\n<tr>\n<td><code>topic-orientation-study-plan</code></td>\n<td><code>topic-orientation-metacognition-and-error-log</code></td>\n</tr>\n</tbody></table>\n<p>The unknown is the justified study order. The relevant relation is <em>prerequisite</em>, because the task asks about sequence; containment and cross-links cannot answer that question.</p>\n<aside class=\"ek-block ek-worked-example ek-block--worked-example\" data-directive=\"worked-example\">\n    <div class=\"ek-block-label directive-label\">Worked Example</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> worked-example-orientation-route</span></div>\n    <div class=\"ek-block-content\"><ol>\n<li><strong>Select the model.</strong> Use directed prerequisite links, not screen position or module order.</li>\n<li><strong>Plan.</strong> Start at the target, follow each prerequisite backward, stop at a node without a prerequisite, then reverse the collected list.</li>\n<li><strong>Execute.</strong> The resulting order is map-and-pathways → diagnostic-baseline → mastery-and-retrieval → metacognition-and-error-log → study-plan.</li>\n<li><strong>Check direction.</strong> In every adjacent pair, the source is the listed prerequisite of the next outcome. The first topic has no graph prerequisite, so the backward trace is complete.</li>\n<li><strong>Interpret.</strong> If none of these outcomes is yet secure, begin with map-and-pathways. If the first three are already demonstrated, begin with metacognition-and-error-log; do not replay secure work solely because it appears earlier.</li>\n<li><strong>State the boundary.</strong> The chain gives a curriculum dependency, not proof of mastery, a required calendar, or an admissions rule.</li>\n</ol>\n</div>\n  </aside>\n<p>The table and the arrow sentence carry the same relation. The table is convenient for checking one dependency at a time; the arrow chain makes the whole order easier to summarize. Neither representation is the learner&#39;s actual progress record.</p>\n<p><strong>Self-explanation prompt:</strong> Which decision mattered most—choosing a target, recognizing the link type, or reversing the backward trace? Explain why choosing the wrong link type would invalidate the rest of the solution.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-map-layers, claim-map-link-types, claim-map-label-scope, claim-map-stable-identity</span><span><b>sources</b> source-premed-knowledge-graph</span></div>\n    <div class=\"ek-block-content\"><p>The worked example applies the current graph&#39;s stable topic records and directed prerequisite semantics. It makes no claim that completing or viewing a node demonstrates mastery.</p>\n</div>\n  </aside>\n"
+      "contentHtml": "<h1>Build a route to a study plan</h1>\n<h2>Task</h2>\n<p>A learner wants to reach <code>topic-orientation-study-plan</code>. Build the shortest prerequisite-respecting route shown by the current map, and explain what the route does and does not establish.</p>\n<h2>Givens and representation</h2>\n<p>The map records this chain:</p>\n<table>\n<thead>\n<tr>\n<th>Outcome ID</th>\n<th>Direct prerequisite</th>\n</tr>\n</thead>\n<tbody><tr>\n<td><code>topic-orientation-map-and-pathways</code></td>\n<td>none</td>\n</tr>\n<tr>\n<td><code>topic-orientation-diagnostic-baseline</code></td>\n<td><code>topic-orientation-map-and-pathways</code></td>\n</tr>\n<tr>\n<td><code>topic-orientation-mastery-and-retrieval</code></td>\n<td><code>topic-orientation-diagnostic-baseline</code></td>\n</tr>\n<tr>\n<td><code>topic-orientation-metacognition-and-error-log</code></td>\n<td><code>topic-orientation-mastery-and-retrieval</code></td>\n</tr>\n<tr>\n<td><code>topic-orientation-study-plan</code></td>\n<td><code>topic-orientation-metacognition-and-error-log</code></td>\n</tr>\n</tbody></table>\n<p>The unknown is the justified study order. The relevant relation is <em>prerequisite</em>, because the task asks about sequence; containment and cross-links cannot answer that question.</p>\n<aside class=\"ek-block ek-worked-example ek-block--worked-example\" data-directive=\"worked-example\">\n    <div class=\"ek-block-label directive-label\">Worked Example</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> worked-example-orientation-route</span></div>\n    <div class=\"ek-block-content\"><ol>\n<li><strong>Select the model.</strong> Use directed prerequisite links, not screen position or module order.</li>\n<li><strong>Plan.</strong> Start at the target, follow each prerequisite backward, stop at a node without a prerequisite, then reverse the collected list.</li>\n<li><strong>Execute.</strong> The resulting order is map-and-pathways → diagnostic-baseline → mastery-and-retrieval → metacognition-and-error-log → study-plan.</li>\n<li><strong>Check direction.</strong> In every adjacent pair, the source is the listed prerequisite of the next outcome. The first topic has no graph prerequisite, so the backward trace is complete.</li>\n<li><strong>Interpret.</strong> If none of these outcomes is yet secure, begin with map-and-pathways. If the first three are already demonstrated, begin with metacognition-and-error-log; do not replay secure work solely because it appears earlier.</li>\n<li><strong>State the boundary.</strong> The chain gives a curriculum dependency, not proof of mastery, a required calendar, or an admissions rule.</li>\n</ol>\n</div>\n  </aside>\n<p>The table and the arrow sentence carry the same relation. The table is convenient for checking one dependency at a time; the arrow chain makes the whole order easier to summarize. Neither representation is the learner&#39;s actual progress record.</p>\n<p><strong>Self-explanation prompt:</strong> Which decision mattered most—choosing a target, recognizing the link type, or reversing the backward trace? Explain why choosing the wrong link type would invalidate the rest of the solution.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-map-layers, claim-map-link-types, claim-map-orientation-prerequisite-chain, claim-map-label-scope, claim-map-stable-identity</span><span><b>sources</b> source-premed-knowledge-graph</span></div>\n    <div class=\"ek-block-content\"><p>The worked example applies the current graph&#39;s five named topic records, their four adjacent prerequisite links, stable identity rules, and directed prerequisite semantics. It makes no claim that completing or viewing a node demonstrates mastery.</p>\n</div>\n  </aside>\n"
     },
     {
       "id": "scene-misconception",
@@ -137,7 +137,7 @@
         "model": "GPT-5",
         "version": "Codex CLI 0.144.6",
         "runId": "codex-author-019f7c89-e690-7180-bba6-a1602a1de10a",
-        "instructionsDigest": "sha256:ac9d1635c6afe0ca7d7ab8e1b556b837177ab72709716cf96f4e61a007ba69b2"
+        "instructionsDigest": "sha256:fdccb18f0a472c9e7ca029bf863bab086dbbf6dd122d9b71637c07dae1c098bf"
       }
     }
   ],
@@ -151,7 +151,7 @@
     "schemaVersion": 1,
     "format": "embeddedknowledge-assessment-v1",
     "lessonId": "PREM-LPP-001",
-    "lessonVersion": "0.1.4",
+    "lessonVersion": "0.1.5",
     "assessmentId": "assessment-reading-curriculum-map",
     "title": "Curriculum map navigation and route planning",
     "purpose": "mixed",
@@ -413,7 +413,7 @@
     "schemaVersion": 2,
     "format": "embeddedknowledge-references-v2",
     "lessonId": "PREM-LPP-001",
-    "lessonVersion": "0.1.4",
+    "lessonVersion": "0.1.5",
     "sources": [
       {
         "id": "source-premed-knowledge-graph",
@@ -427,7 +427,7 @@
         "url": "https://github.com/VSBDev/EmbeddedKnowledge/blob/main/course/PREMED-KNOWLEDGE-GRAPH.md",
         "accessed": "2026-07-20",
         "version": "1.0 candidate",
-        "locator": "Sections 2, 3, 5.1, and 6; canonical dataset site/data/premed-graph.json keys schema.routeResolutionRule, schema.requirementLegend, and metrics.routeTopicCounts",
+        "locator": "Sections 2, 3, 5.1, and 6; canonical dataset site/data/premed-graph.json keys schema.routeResolutionRule, schema.requirementLegend, and metrics.routeTopicCounts; node records topic-orientation-map-and-pathways, topic-orientation-diagnostic-baseline, topic-orientation-mastery-and-retrieval, topic-orientation-metacognition-and-error-log, and topic-orientation-study-plan plus the four adjacent prerequisite link records connecting them",
         "license": "CC BY 4.0 under the repository CONTENT-LICENSE.md for course/ and site/data/",
         "archivedUrl": null,
         "uses": [
@@ -450,7 +450,7 @@
     "schemaVersion": 1,
     "format": "embeddedknowledge-claims-v1",
     "lessonId": "PREM-LPP-001",
-    "lessonVersion": "0.1.4",
+    "lessonVersion": "0.1.5",
     "claims": [
       {
         "id": "claim-map-layers",
@@ -492,6 +492,22 @@
         "confidence": "high",
         "scope": "The link semantics declared by the current Premed graph data contract.",
         "uncertainty": null,
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-map-orientation-prerequisite-chain",
+        "statement": "In the curriculum 1.0 candidate graph, the shortest prerequisite trace to topic-orientation-study-plan is topic-orientation-map-and-pathways → topic-orientation-diagnostic-baseline → topic-orientation-mastery-and-retrieval → topic-orientation-metacognition-and-error-log → topic-orientation-study-plan: the first topic has no graph prerequisite, and each later topic lists the preceding topic as a direct prerequisite.",
+        "sceneIds": [
+          "scene-worked-example"
+        ],
+        "sourceIds": [
+          "source-premed-knowledge-graph"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "The five named topic records and four adjacent prerequisite link records in site/data/premed-graph.json for curriculum version 1.0 candidate.",
+        "uncertainty": "A later curriculum version may add, remove, or redirect prerequisites; the route must then be recomputed against that version's stable topic IDs and link records.",
         "risk": "routine",
         "reviewStatus": "pending-review"
       },
@@ -563,7 +579,7 @@
     "schemaVersion": 1,
     "format": "embeddedknowledge-glossary-v1",
     "lessonId": "PREM-LPP-001",
-    "lessonVersion": "0.1.4",
+    "lessonVersion": "0.1.5",
     "terms": [
       {
         "id": "term-domain",
@@ -705,5 +721,5 @@
       }
     ]
   },
-  "attributionHtml": "<h1>Attribution</h1>\n<p><code>PREM-LPP-001</code>, version <code>0.1.4</code>, was prepared for EmbeddedKnowledge under the accountable GitHub principal <strong>VSBDev</strong> and is offered under <strong>CC BY 4.0</strong>. The lesson remains a local draft and is not adjudicated, published, or evidence of course coverage. Claim review states and lesson source confidence are pending for this exact candidate. Historical review artifacts remain in the pack for traceability but do not count toward the fresh role quorum required before adjudication.</p>\n<p>The prose, fictional diagnostic fragments, worked reasoning, practice, transfer case, assessment items, answer logic, and glossary were newly created for this lesson. No third-party media, quotations, adapted expression, or dataset extraction is included.</p>\n<h2>Source use and rights</h2>\n<p>The EmbeddedKnowledge <em>Premed Knowledge Graph</em> specification and its canonical local dataset were used as factual references for the project&#39;s current node layers, link semantics, route-resolution rule, label boundaries, and stable-identity conventions. The lesson uses a different instructional sequence and independently written examples and wording. The source is covered by the repository&#39;s CC BY 4.0 content license, but this pack relies only on facts-only original expression. The complete dated use and agent-access record appears in <code>references.json</code>.</p>\n<h2>Agent disclosure</h2>\n<p>Material authoring assistance came from <strong>Codex</strong>, provider <strong>OpenAI</strong>, model <strong>GPT-5</strong>, running through <strong>Codex CLI 0.144.6</strong>, run ID <code>codex-author-019f7c89-e690-7180-bba6-a1602a1de10a</code>.</p>\n<p>The current revision digest is <code>sha256:ac9d1635c6afe0ca7d7ab8e1b556b837177ab72709716cf96f4e61a007ba69b2</code>. It extends the prior revision digest with the exact version-0.1.3 academic review artifact that identified the present route-instrumentation boundary and the unobservable hierarchy-rubric criterion addressed in version 0.1.4. The prior revision digest was <code>sha256:ae71d74d89474e02fb0d3d6739c30a79aba9afba19f65585e8caaa220e1eb851</code>; it extended the governance-promotion digest with the earlier final academic review artifact. The governance-promotion digest was <code>sha256:f88af583438efad9ca71d34da67c4e2f83de8f3e5743b8583394071d50cf87fc</code>; it is the SHA-256 of the prior author-revision digest line followed, in filename order, by the exact cycle-2 academic, learning-design, and accessibility/rights review artifact bytes used to promote retained claim states and source confidence. The earlier author-revision digest was <code>sha256:0d2e6113c37a593b2bd7f3a0d3070fb95f4adf2beca8e2a4e0fd6d9ae1270ec3</code>; the original digest was <code>sha256:2b049821cfb96565b5ce4263b1b3400e57c6feddd409547b0d84346e7762a22f</code>. These digests exclude hidden provider instructions and do not claim to identify a model snapshot that the runtime did not expose.</p>\n<p>Agent provenance is disclosed and attested by the accountable principal; it is not independently verified and does not count as a review.</p>\n"
+  "attributionHtml": "<h1>Attribution</h1>\n<p><code>PREM-LPP-001</code>, version <code>0.1.5</code>, was prepared for EmbeddedKnowledge under the accountable GitHub principal <strong>VSBDev</strong> and is offered under <strong>CC BY 4.0</strong>. The lesson remains a local draft and is not adjudicated, published, or evidence of course coverage. Claim review states and lesson source confidence are pending for this exact candidate. Prior review and adjudication records remain in Git history and GitHub for traceability but do not count toward the fresh role quorum required for this revision.</p>\n<p>The prose, fictional diagnostic fragments, worked reasoning, practice, transfer case, assessment items, answer logic, and glossary were newly created for this lesson. No third-party media, quotations, adapted expression, or dataset extraction is included.</p>\n<h2>Source use and rights</h2>\n<p>The EmbeddedKnowledge <em>Premed Knowledge Graph</em> specification and its canonical local dataset were used as factual references for the project&#39;s current node layers, link semantics, route-resolution rule, label boundaries, and stable-identity conventions. The lesson uses a different instructional sequence and independently written examples and wording. The source is covered by the repository&#39;s CC BY 4.0 content license, but this pack relies only on facts-only original expression. The complete dated use and agent-access record appears in <code>references.json</code>.</p>\n<h2>Agent disclosure</h2>\n<p>Material authoring assistance came from <strong>Codex</strong>, provider <strong>OpenAI</strong>, model <strong>GPT-5</strong>, running through <strong>Codex CLI 0.144.6</strong>, run ID <code>codex-author-019f7c89-e690-7180-bba6-a1602a1de10a</code>.</p>\n<p>The current revision digest is <code>sha256:fdccb18f0a472c9e7ca029bf863bab086dbbf6dd122d9b71637c07dae1c098bf</code>. It is the SHA-256 of the prior revision digest line followed by the exact revise adjudication artifact that identified the missing worked-example claim trace and source locator addressed in version 0.1.5. The prior revision digest was <code>sha256:ac9d1635c6afe0ca7d7ab8e1b556b837177ab72709716cf96f4e61a007ba69b2</code>; it extended an earlier revision digest with the academic review that identified the route-instrumentation and hierarchy-rubric issues addressed in version 0.1.4. Earlier authoring and governance digests remain available in Git history. These digests exclude hidden provider instructions and do not claim to identify a model snapshot that the runtime did not expose.</p>\n<p>Agent provenance is disclosed and attested by the accountable principal; it is not independently verified and does not count as a review.</p>\n"
 }

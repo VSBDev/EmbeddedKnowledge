@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "format": "embeddedknowledge-claims-v1",
   "lessonId": "PREM-LPP-001",
-  "lessonVersion": "0.1.4",
+  "lessonVersion": "0.1.5",
   "claims": [
     {
       "id": "claim-map-layers",
@@ -25,6 +25,22 @@
       "confidence": "high",
       "scope": "The link semantics declared by the current Premed graph data contract.",
       "uncertainty": null,
+      "risk": "routine",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-map-orientation-prerequisite-chain",
+      "statement": "In the curriculum 1.0 candidate graph, the shortest prerequisite trace to topic-orientation-study-plan is topic-orientation-map-and-pathways → topic-orientation-diagnostic-baseline → topic-orientation-mastery-and-retrieval → topic-orientation-metacognition-and-error-log → topic-orientation-study-plan: the first topic has no graph prerequisite, and each later topic lists the preceding topic as a direct prerequisite.",
+      "sceneIds": [
+        "scene-worked-example"
+      ],
+      "sourceIds": [
+        "source-premed-knowledge-graph"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "The five named topic records and four adjacent prerequisite link records in site/data/premed-graph.json for curriculum version 1.0 candidate.",
+      "uncertainty": "A later curriculum version may add, remove, or redirect prerequisites; the route must then be recomputed against that version's stable topic IDs and link records.",
       "risk": "routine",
       "reviewStatus": "pending-review"
     },

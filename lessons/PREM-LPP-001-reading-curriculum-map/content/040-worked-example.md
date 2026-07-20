@@ -34,8 +34,8 @@ The table and the arrow sentence carry the same relation. The table is convenien
 **Self-explanation prompt:** Which decision mattered most—choosing a target, recognizing the link type, or reversing the backward trace? Explain why choosing the wrong link type would invalidate the rest of the solution.
 
 :::{source-note}
-:claims: claim-map-layers, claim-map-link-types, claim-map-label-scope, claim-map-stable-identity
+:claims: claim-map-layers, claim-map-link-types, claim-map-orientation-prerequisite-chain, claim-map-label-scope, claim-map-stable-identity
 :sources: source-premed-knowledge-graph
 
-The worked example applies the current graph's stable topic records and directed prerequisite semantics. It makes no claim that completing or viewing a node demonstrates mastery.
+The worked example applies the current graph's five named topic records, their four adjacent prerequisite links, stable identity rules, and directed prerequisite semantics. It makes no claim that completing or viewing a node demonstrates mastery.
 :::
