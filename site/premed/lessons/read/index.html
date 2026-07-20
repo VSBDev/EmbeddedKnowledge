@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Read a published EmbeddedKnowledge Premed lesson in guided, continuous, or print form.">
+    <meta name="description" content="Read an EmbeddedKnowledge Premed lesson artifact with its current publication state in guided, continuous, or print form.">
     <meta name="theme-color" content="#171714">
     <title>Premed lesson reader · EmbeddedKnowledge</title>
     <link rel="canonical" href="https://embeddedknowledge.io/premed/lessons/read/">
@@ -11,9 +11,9 @@
     <link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="../../../styles.css?v=20260720-1">
     <link rel="stylesheet" href="../../../course.css?v=20260720-1">
-    <link rel="stylesheet" href="../../../lesson-reader.css?v=20260720-1">
+    <link rel="stylesheet" href="../../../lesson-reader.css?v=20260720-2">
     <script src="../../../app.js?v=20260720-1" defer></script>
-    <script src="../../../lesson-reader.js?v=20260720-1" defer></script>
+    <script src="../../../lesson-reader.js?v=20260720-2" defer></script>
   </head>
   <body class="course-body specimen-body">
     <a class="skip-link" href="#reader-scene">Skip to current scene</a>
@@ -35,20 +35,20 @@
 
     <main class="reader-app" data-reader-app data-reader-kind="production">
       <div class="reader-specimen-banner reader-production-banner" role="note">
-        <strong>OPEN PREMED LESSON</strong>
-        <span>Versioned teaching material published under the displayed open-content license.</span>
+        <strong data-publication-label>PREMED LESSON ARTIFACT</strong>
+        <span data-publication-copy>Resolving the artifact's publication and review state.</span>
         <a href="../">Lesson commons</a>
       </div>
 
       <div class="reader-shell">
         <aside class="reader-index" id="reader-index" aria-label="Current lesson contents" data-reader-index>
           <div class="reader-index-head">
-            <div><span>BOOK 01 / PREMED</span><strong>Open lesson</strong></div>
+            <div><span>BOOK 01 / PREMED</span><strong data-publication-short>Lesson artifact</strong></div>
             <button type="button" aria-label="Close contents" data-index-close>×</button>
           </div>
           <nav class="reader-syllabus" aria-label="Course position">
             <p>PREMED LESSON COMMONS</p>
-            <ol><li class="is-current"><span>OPEN</span><strong>Current published lesson</strong><i>Versioned artifact</i></li></ol>
+            <ol><li class="is-current"><span data-publication-code>STATE</span><strong data-publication-course>Current lesson artifact</strong><i data-publication-detail>Publication state loading</i></li></ol>
           </nav>
           <div class="reader-scene-index">
             <div class="reader-scene-index-title"><span>CURRENT LESSON</span><b data-index-progress>0 / 0</b></div>
@@ -86,7 +86,7 @@
           <div><span>ARTIFACT</span><strong data-artifact-id>—</strong><p data-artifact-status>Loading version…</p></div>
           <dl>
             <div><dt>Collection</dt><dd>Premed</dd></div>
-            <div><dt>Access</dt><dd>Published open</dd></div>
+            <div><dt>Access</dt><dd data-publication-access>Publication state loading</dd></div>
             <div><dt>Practice</dt><dd>Not recorded</dd></div>
             <div><dt>Presentation</dt><dd data-frame-status>Guided browser frames</dd></div>
             <div><dt>License</dt><dd data-artifact-license>—</dd></div>
@@ -99,7 +99,7 @@
 
       <div class="reader-announcer sr-only" aria-live="polite" aria-atomic="true" data-reader-announcer></div>
       <div class="reader-scrim" data-reader-scrim></div>
-      <noscript><article class="reader-noscript" id="reader-fallback"><p class="reader-noscript-label">JAVASCRIPT-FREE FALLBACK</p><h1>Production lesson reader</h1><p>This generic route needs JavaScript to resolve the requested versioned lesson. The public lesson index links each lesson to its JSON artifact and reader route.</p><p>Return to the <a href="../">Lesson commons</a>.</p></article></noscript>
+      <noscript><article class="reader-noscript" id="reader-fallback"><p class="reader-noscript-label">JAVASCRIPT-FREE FALLBACK</p><h1>Lesson artifact reader</h1><p>This generic route needs JavaScript to resolve the requested versioned lesson and show whether it is a draft, in review, adjudicated, or published. Do not infer publication from this route alone.</p><p>The public <a href="../">Lesson commons</a> provides the current corpus state and direct artifact links.</p></article></noscript>
     </main>
   </body>
 </html>
