@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-WEL-001-ACADEMIC-AGY-GEMINI31PROHIGH-V020",
+  "lessonId": "PREM-WEL-001",
+  "lessonVersion": "0.2.0",
+  "candidateCommit": "9a3ec870dbcacf660991f7613b7ca1f74b58a4ca",
+  "role": "academic",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — Academic reviewer",
+    "agent": {
+      "system": "Agy CLI",
+      "provider": "Google",
+      "model": "Gemini 3.1 Pro (High)",
+      "version": "Agy CLI 1.1.4",
+      "runId": "review-academic-agy-gemini31prohigh-20260720-278813ff-7cc5-4e9b-9c05-847c162d5752",
+      "instructionsDigest": "sha256:3de24ee9b603b58dcb56e19184f19a972a2292ef3e5b144e167c60a2dde627b0"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "Knowledge-graph node: topic-welcome-course-journey",
+    "Scene content/01-welcome.md (source-note)",
+    "Scene content/02-journey.md (check-sequence-why, source-note)",
+    "Scene content/03-learning.md (worked-example-flow-preview, check-faded-comparison, source-note)",
+    "Scene content/04-finish.md (check-welcome-transfer, misconception-prior-science-gate, section 'The welcome check', source-note)",
+    "claims.json (claim-subject-scope, claim-subject-preparation, claim-recommended-sequence, claim-learning-practice, claim-completion-capabilities, claim-orientation-boundary)",
+    "references.json (source-premed-syllabus locator)",
+    "glossary.json",
+    "assessment.json (item-describe-journey, item-explain-relevance, item-identify-capabilities, rubric-subject-journey, rubric-concept-relevance, rubric-completion-capabilities)",
+    "Syllabus commit afc8b980e1181d172b0954b7b46bfcdd32d0db85: Sections 5-11, 13-16, 19, 24, including WEL-000, program outcomes, architecture, recommended sequence, module prerequisites/scopes, bridge/pathway distinctions, modalities, accessibility alternatives, schedules, completion boundaries.",
+    "CONTENT-LICENSE.md at commit afc8b980e1181d172b0954b7b46bfcdd32d0db85 coverage of course/"
+  ],
+  "findings": [
+    {
+      "severity": "note",
+      "target": "content/03-learning.md#worked-example-flow-preview",
+      "finding": "Independently calculated Tube A mean is 20 mL and Tube B mean is 239/3 mL (about 79.67 mL). The paired B/A ratios are 79/20 = 3.95, 82/19 = about 4.316, and 78/21 = about 3.714. The prose correctly summarizes this as 'about four times'. The lesson consistently distinguishes conditions merely stated in the simulation description from conditions verified by settings/logs. It properly refrains from improperly generalizing these results to human blood vessels or asserting an exact physical law.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "content/01-welcome.md, content/02-journey.md",
+      "finding": "Orientation-depth subject/sequence and pathway qualification verified. Behavioural/social/population-health route scope is accurately framed, noting that depth varies by selected route rather than acting as a universal common core. The prose explicitly acknowledges that some modules may run concurrently, matching syllabus section 8.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json",
+      "finding": "Every retrieval, practice, transfer, and assessment task was verified. Answers, reasoning, acceptable-response rules, common errors, and rubrics align mathematically and logically with the single outcome and three objectives. The 8/10 threshold, nonzero-per-response mastery rule, point allocations (4 + 3 + 3 = 10), and retry logic in scene-finish are sound. No optional scientific depth is inappropriately required.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "claims.json, references.json",
+      "finding": "Every material claim correctly maps to its respective same-scene source-note and to references.json. All evidence coverage, support types, confidence values, scope, and uncertainty annotations are complete, matching the syllabus text without inappropriate overreach or omissions.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "ATTRIBUTION.md",
+      "finding": "The CC BY 4.0 adaptation scope was verified. The exact source commit's CONTENT-LICENSE.md appropriately covers 'course/'. The adapted-expression record, attribution, modification notice, and declared retained/adapted syllabus material accurately represent the lesson's relationship to the syllabus source without claiming unlicensed rights.",
+      "resolution": null
+    }
+  ],
+  "limitations": [
+    "The sole academic authority used for verification is the project's own frozen syllabus (commit afc8b980e1181d172b0954b7b46bfcdd32d0db85) as it establishes the intended outcomes and scope for Premed completion.",
+    "Verification of practical modalities relies entirely on the definitions in the curriculum; no laboratory environments were physically evaluated."
+  ],
+  "signedAt": "2026-07-20T09:07:42Z"
+}
