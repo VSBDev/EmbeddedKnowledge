@@ -210,7 +210,7 @@ Source expectations:
 - reuse expression, media, or datasets only under a permitted basis in `RIGHTS-POLICY.md`, and record it separately from academic citation;
 - check source terms before agent access and never let an agent process a source recorded as `human-only`;
 - check that every cited URL/identifier resolves and that the source supports the attached claim before review.
-- keep authoring claims at `pending-review`; publication requires every retained claim to be `reviewed` and lesson source confidence to be resolved by the governance workflow.
+- keep authoring claims at `pending-review` in the frozen candidate; after exact-candidate quorum and merge adjudication, promote only retained claims' `reviewStatus` fields and permitted lesson status/source-confidence fields. Publication requires every retained claim to be `reviewed` and lesson source confidence to be resolved.
 
 References are rendered from structured records. A hand-maintained prose bibliography may add context but cannot replace `references.json` and `claims.json`.
 
