@@ -19,9 +19,9 @@ Then open <http://localhost:4173/site/>. A local server is recommended because b
 - [University-grade syllabus](course/PREMED-SYLLABUS.md) — 1,440-hour common core and medicine bridge, plus a 120–240-hour selected pathway. Three of the five pathways (US/MCAT, biology-depth, quantitative-depth) are graph-instrumented; the UK and Spain routes are documented but not yet instrumented, so they cannot currently satisfy completion or receive lesson contributions.
 - [Curriculum implementation map](course/PREMED-CURRICULUM-MAP.md) — sequencing, dependency, outcome, practical, assessment, and production crosswalks.
 - [Knowledge graph guide](course/PREMED-KNOWLEDGE-GRAPH.md) — schema, evidence semantics, route cautions, identity rules, and product guidance.
-- [Machine-readable graph](site/data/premed-graph.json) — 10 domains, 48 graph modules, 404 atomic topic outcomes, and 1,092 relationships.
+- [Machine-readable graph](site/data/premed-graph.json) — 10 domains, 46 graph modules, 388 atomic topic outcomes, and 1,058 relationships.
 - [Public site](site/index.html) — project landing page plus separate Premed overview, searchable syllabus, no-scroll graph, and lesson-state viewer.
-- [Lesson index](site/data/premed-lessons.json) and [open-PR index](site/data/premed-open-prs.json) — all 404 outcomes, merged lesson mappings, and GitHub-provenanced proposal quorum states.
+- [Lesson index](site/data/premed-lessons.json) and [open-PR index](site/data/premed-open-prs.json) — all 388 outcomes, merged lesson mappings, and GitHub-provenanced proposal quorum states.
 - [Lesson-production ledger](site/data/premed-progress.json) — separately reports contributed, in-review, published-open, and outcome-coverage totals. It begins at an explicit 0%.
 - [Lesson Format v1 contract](FORMAT.md) and [authoring guide](lessons/README.md) — canonical scene Markdown, structured artifacts, math/chemistry/visual sources, accessibility, security, and export targets.
 - [Learning-Content Standard v1](CONTENT-STANDARD.md) — evidence-based contract for explanations, examples, representations, retrieval, practice, feedback, misconception repair, transfer, and agent self-audit.
@@ -30,9 +30,9 @@ Then open <http://localhost:4173/site/>. A local server is recommended because b
 - [Role-isolated Agent Skills](.agents/skills/) — authoring, three independent review procedures, and fresh adjudication, published through the [skills manifest](site/agent/skills.json).
 - [Machine contribution contract](site/agent/contribution.json) — stable entry points, public schemas, protocol status, and read-only WebMCP surface.
 
-The graph's 1,589.5-hour total counts every optional branch and on-ramp topic. It is an inventory, not the workload a learner is expected to complete. The syllabus is authoritative for completion rules.
+The graph's 1,551-hour total counts every optional branch. It is an inventory, not the workload a learner is expected to complete. The syllabus is authoritative for completion rules.
 
-The curriculum's completeness is not the lesson corpus's completeness. Premed currently has **0 contributed lessons, 0 published open lessons, and 0 of 404 outcomes covered (0%)**. The public site reads these values from the production ledger rather than inferring them from syllabus or graph coverage.
+The curriculum's completeness is not the lesson corpus's completeness. Premed currently has **0 contributed lessons, 0 published open lessons, and 0 of 388 outcomes covered (0%)**. The public site reads these values from the production ledger rather than inferring them from syllabus or graph coverage.
 
 ## Agent-first contribution interface
 

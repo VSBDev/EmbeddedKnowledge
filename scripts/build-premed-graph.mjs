@@ -43,7 +43,7 @@ const pathways = [
   { id: "uk-direct-entry", title: "UK direct entry", description: "A-level and access-course preparation; institution rules vary.", includesPortableCore: true },
   { id: "spain-bach-pau", title: "Spain Bachillerato / PAU", description: "National science curriculum coverage; admission weightings remain university-specific.", includesPortableCore: true },
   { id: "continental-science", title: "Continental direct entry", description: "French, German, and related secondary-science depth.", includesPortableCore: true },
-  { id: "access-foundation", title: "Access / foundation", description: "Novice on-ramp, study skills, laboratory practice, and professional behaviours.", includesPortableCore: true },
+  { id: "access-foundation", title: "Access / foundation", description: "Novice on-ramp, scientific inquiry, laboratory practice, and foundational quantitative work.", includesPortableCore: true },
   { id: "broad-biology", title: "Broad biological literacy", description: "Evolution, ecology, and plant science beyond the medicine-specific minimum.", includesPortableCore: true },
   { id: "advanced-quantitative", title: "Advanced quantitative", description: "Optional calculus and mathematical extensions not required by the MCAT.", includesPortableCore: true }
 ];
@@ -65,7 +65,7 @@ const levelLegend = {
 };
 
 const domains = [
-  ["learning-practice", "Learning & Professional Practice", "How to learn, investigate, communicate, and act responsibly in science.", "#a78bfa"],
+  ["learning-practice", "Scientific Practice", "Begin the course, turn questions into evidence, and work safely and reproducibly.", "#a78bfa"],
   ["quantitative", "Quantitative Foundations", "Mathematical language, statistics, and data fluency used across the sciences.", "#38bdf8"],
   ["biology", "Biology", "Cells, information, inheritance, evolution, and organismal context.", "#34d399"],
   ["biochemistry", "Biochemistry", "Molecular structure, catalysis, bioenergetics, and metabolism.", "#84cc16"],
@@ -78,9 +78,7 @@ const domains = [
 ].map(([id, title, description, color], order) => ({ id: `domain-${id}`, title, description, color, order }));
 
 const moduleRows = [
-  ["orientation", "learning-practice", "Orientation & Learning Science", "Use the graph, establish study systems, and reason about mastery.", "on-ramp", ["access-foundation"], ["QAA-MED", "AAMC-COMP"]],
-  ["study-research-literacy", "learning-practice", "Study & Research Literacy", "Find, read, cite, and synthesize trustworthy scientific information.", "on-ramp", ["access-foundation"], ["QAA-MED", "AAMC-COMP"]],
-  ["professional-behaviours", "learning-practice", "Professional Behaviours", "Communication, reliability, ethical awareness, and reflective practice.", "medicine-bridge", ["medicine-bridge", "access-foundation"], ["QAA-MED", "AAMC-COMP"]],
+  ["welcome", "learning-practice", "Welcome to Premed", "Preview the subjects and concepts ahead, why they matter, and what you will be able to do by the end.", "portable-core", ["portable-core"], ["ADJUDICATION"]],
   ["scientific-inquiry", "learning-practice", "Scientific Inquiry", "Questions, hypotheses, causal inference, uncertainty, and reproducibility.", "portable-core", ["portable-core", "us-mcat"], ["AAMC-MCAT", "AP-BIO", "AQA-BIO"]],
   ["laboratory-practice", "learning-practice", "Laboratory Practice", "Plan, perform, document, interpret, and critique experimental work.", "portable-core", ["portable-core", "uk-direct-entry", "access-foundation"], ["QAA-MED", "AQA-BIO", "AP-BIO"]],
   ["quantitative-foundations", "quantitative", "Quantitative Foundations", "Units, algebra, functions, estimation, and mathematical models.", "portable-core", ["portable-core", "us-mcat"], ["AAMC-MATH", "QAA-MED"]],
@@ -133,9 +131,7 @@ const moduleRows = [
 
 const domainBySlug = Object.fromEntries(domains.map(d => [d.id.replace("domain-", ""), d]));
 const syllabusModuleMap = {
-  orientation: ["ONR-000"],
-  "study-research-literacy": ["ONR-000", "QRS-100"],
-  "professional-behaviours": ["MED-330", "CAP-400"],
+  welcome: ["WEL-000"],
   "scientific-inquiry": ["QRS-100"],
   "laboratory-practice": ["QRS-100", "INT-300"],
   "quantitative-foundations": ["QRS-100"],
@@ -207,30 +203,8 @@ const add = (moduleSlug, rows) => {
 // optional overrides {level, requirement, pathway, sourceTags, evidenceConfidence}.
 const R = (moduleSlug, topicSlug) => `topic-${moduleSlug}-${topicSlug}`;
 
-add("orientation", [
-  ["map-and-pathways", "Reading the curriculum map", "Navigate domains, prerequisites, pathways, and evidence labels to plan a coherent route.", 1.5],
-  ["diagnostic-baseline", "Diagnostic baseline", "Use a low-stakes diagnostic to distinguish unfamiliar, fragile, and secure knowledge.", 2, [R("orientation", "map-and-pathways")]],
-  ["mastery-and-retrieval", "Mastery, retrieval, and spacing", "Design retrieval practice and spacing around durable performance rather than familiarity.", 2.5, [R("orientation", "diagnostic-baseline")]],
-  ["metacognition-and-error-log", "Metacognition and error logs", "Classify errors, calibrate confidence, and choose the next learning action from evidence.", 2, [R("orientation", "mastery-and-retrieval")]],
-  ["study-plan", "Personal study plan", "Build a sustainable weekly plan that balances concept learning, problems, labs, review, and recovery.", 2, [R("orientation", "metacognition-and-error-log")]]
-]);
-
-add("study-research-literacy", [
-  ["question-to-source", "From question to source", "Turn a knowledge need into searchable concepts and choose an appropriate source type.", 2],
-  ["source-hierarchy", "Source hierarchy and authority", "Distinguish primary research, reviews, textbooks, guidelines, and unsourced explanation.", 2, [R("study-research-literacy", "question-to-source")]],
-  ["database-search", "Database searching", "Construct a reproducible search using keywords, controlled vocabulary, and inclusion criteria.", 3, [R("study-research-literacy", "source-hierarchy")]],
-  ["paper-anatomy", "Anatomy of a scientific paper", "Locate the question, methods, results, limitations, and warranted conclusion in a research report.", 3, [R("study-research-literacy", "source-hierarchy")]],
-  ["citation-and-notes", "Citation, paraphrase, and notes", "Create traceable notes, cite claims, and avoid patchwriting and plagiarism.", 2, [R("study-research-literacy", "source-hierarchy")]],
-  ["evidence-synthesis", "Evidence synthesis", "Compare studies without averaging away differences in population, intervention, outcome, or bias.", 3, [R("study-research-literacy", "paper-anatomy"), R("statistics-data", "confidence-intervals")], [R("critical-reading", "evidence-assumptions")]]
-]);
-
-add("professional-behaviours", [
-  ["scope-and-honesty", "Scope, uncertainty, and intellectual honesty", "State what is known, inferred, uncertain, or outside one's competence.", 2],
-  ["ethical-reasoning", "Ethical reasoning", "Analyze stakeholders, harms, benefits, autonomy, justice, and conflicts of duty without mistaking a framework for an answer.", 3, [R("professional-behaviours", "scope-and-honesty")]],
-  ["confidentiality-boundaries", "Confidentiality and boundaries", "Explain privacy, consent, appropriate boundaries, and why educational knowledge is not clinical authority.", 2, [R("professional-behaviours", "ethical-reasoning")]],
-  ["inclusive-communication", "Inclusive scientific communication", "Adapt explanations respectfully across background, language, disability, and health literacy.", 3, [R("professional-behaviours", "scope-and-honesty")]],
-  ["teamwork-feedback", "Teamwork and feedback", "Give, receive, and act on specific feedback while maintaining shared accountability.", 2.5],
-  ["reliability-reflection", "Reliability and reflective practice", "Document commitments, surface errors early, and turn reflection into observable improvement.", 2, [R("professional-behaviours", "teamwork-feedback")]]
+add("welcome", [
+  ["course-journey", "Welcome to Premed", "Describe the Premed subject journey, explain how its major concepts connect to medical study, and identify the knowledge and scientific capabilities expected by course completion.", 1]
 ]);
 
 add("scientific-inquiry", [
@@ -741,7 +715,7 @@ add("critical-reading", [
   ["analogy-transfer", "Analogy and transfer", "Apply a passage principle to a novel case and test where the analogy breaks.", 3, [R("critical-reading", "evidence-assumptions")]],
   ["competing-interpretations", "Competing interpretations", "Compare explanations by consistency, evidence, assumptions, and explanatory reach.", 4, [R("critical-reading", "perspective-context"), R("critical-reading", "evidence-assumptions")]],
   ["dense-visual-text", "Integrating prose with figures", "Synthesize a dense passage with tables, graphs, diagrams, and captions while tracking units and definitions.", 4, [R("statistics-data", "graphs-tables"), R("critical-reading", "passage-structure")]],
-  ["timed-reasoning", "Timed reasoning without panic", "Use triage, passage maps, evidence checks, and post-hoc error analysis under optional time constraints.", 3, [R("critical-reading", "competing-interpretations"), R("orientation", "metacognition-and-error-log")]]
+  ["timed-reasoning", "Timed reasoning without panic", "Use triage, passage maps, evidence checks, and post-hoc error analysis under optional time constraints.", 3, [R("critical-reading", "competing-interpretations")]]
 ]);
 
 add("integrative-capstones", [
@@ -751,8 +725,8 @@ add("integrative-capstones", [
   ["acid-base-case", "Capstone: acid-base balance", "Integrate buffer chemistry, ventilation, renal function, electroneutrality, and compensatory reasoning.", 8, [R("respiratory-system", "respiratory-cases"), R("renal-system", "renal-cases"), R("acids-bases", "physiological-acid-base")]],
   ["infection-evidence", "Capstone: infection and evidence", "Integrate transmission, microbial mechanisms, immunity, diagnostics, study design, and risk communication.", 8, [R("microbiology", "epidemiology-transmission"), R("immunity", "immune-data"), R("statistics-data", "association-risk")]],
   ["drug-molecule", "Capstone: from molecule to effect", "Use structure, acid-base state, binding, kinetics, membranes, metabolism, and variability to explain a hypothetical drug.", 8, [R("organic-analysis", "structure-elucidation"), R("enzymes", "inhibition"), R("cell-biology", "cell-signaling")]],
-  ["health-inequality", "Capstone: health inequality", "Integrate biological mechanisms with behavior, social structure, causal inference, ethics, and intervention trade-offs.", 8, [R("sociology-health", "health-disparities"), R("psychology", "stress-coping"), R("professional-behaviours", "ethical-reasoning")]],
-  ["independent-investigation", "Capstone: independent investigation", "Ask a bounded question, find evidence, analyze data, communicate uncertainty, and defend a reproducible conclusion.", 12, [R("laboratory-practice", "lab-report"), R("study-research-literacy", "evidence-synthesis"), R("professional-behaviours", "reliability-reflection")]],
+  ["health-inequality", "Capstone: health inequality", "Integrate biological mechanisms with behavior, social structure, causal inference, evidence, and intervention trade-offs.", 8, [R("sociology-health", "health-disparities"), R("psychology", "stress-coping"), R("scientific-inquiry", "correlation-causation")]],
+  ["independent-investigation", "Capstone: independent investigation", "Ask a bounded question, find evidence, analyze data, communicate uncertainty, and defend a reproducible conclusion.", 12, [R("laboratory-practice", "lab-report"), R("scientific-inquiry", "replication-reproducibility"), R("statistics-data", "confidence-intervals")]],
   ["readiness-portfolio", "Premed readiness portfolio", "Demonstrate durable knowledge, quantitative reasoning, laboratory literacy, integrative problem solving, and reflective growth.", 6, [R("integrative-capstones", "oxygen-delivery"), R("integrative-capstones", "acid-base-case"), R("integrative-capstones", "infection-evidence"), R("integrative-capstones", "independent-investigation")]]
 ]);
 
@@ -837,13 +811,13 @@ const routeTopicCounts = Object.fromEntries(pathways.map(p => {
   return [p.id, { tagged: topics.filter(t => t.pathway.includes(p.id)).length, effective: routeTopics.length, estimatedHours: routeTopics.reduce((sum, t) => sum + t.estimatedHours, 0) }];
 }));
 const graph = {
-  schemaVersion: "1.0.0",
-  generatedAt: "2026-07-19",
+  schemaVersion: "2.0.0",
+  generatedAt: "2026-07-20",
   course: {
     id: "premed",
     title: "Premed",
     subtitle: "A rigorous, pathway-aware foundation for medical study",
-    description: "An evidence-backed knowledge graph spanning the portable science core, medicine-facing bridges, route-specific preparation, inquiry, laboratory practice, and professional formation.",
+    description: "An evidence-backed knowledge graph spanning the portable science core, medicine-facing bridges, route-specific preparation, scientific inquiry, laboratory practice, and integration.",
     estimatedHours: totalHours,
     disclaimer: "Educational preparation only. It is not a degree, admission guarantee, medical qualification, or medical advice."
   },

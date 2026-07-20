@@ -271,6 +271,11 @@ test("WebMCP progressively registers seven read-only discovery tools", async ({ 
 
 test("the Premed open book reflects generated publication counts and open PR quorum states", async ({ page }) => {
   const lessonIndex = await getJson(page.request, "data/premed-lessons.json");
+  expect(lessonIndex.outcomes.slice(0, 2).map((outcome) => [outcome.id, outcome.moduleTitle])).toEqual([
+    ["topic-welcome-course-journey", "Welcome to Premed"],
+    ["topic-scientific-inquiry-observations-questions", "Scientific Inquiry"]
+  ]);
+  expect(lessonIndex.outcomes.some((outcome) => /^(topic-orientation|topic-study-research-literacy|topic-professional-behaviours)-/.test(outcome.id))).toBe(false);
   const proposalOutcomeId = "topic-acids-bases-acid-base-models";
   const publishedCount = lessonIndex.outcomes.filter((outcome) => (outcome.publishedLessonIds || []).length).length;
   const proposalIsPublished = lessonIndex.outcomes.some((outcome) => outcome.id === proposalOutcomeId && (outcome.publishedLessonIds || []).length);
@@ -323,6 +328,8 @@ test("the Premed open book reflects generated publication counts and open PR quo
   await expect(courseBanner.locator('a[href="specimen/"]')).toBeVisible();
   expect(await courseBanner.evaluate((element) => getComputedStyle(element).backgroundColor)).toBe("rgb(230, 226, 216)");
   await expect(page.locator(".reader-outcome-link")).toHaveCount(lessonIndex.outcomes.length);
+  await expect(page.locator(".reader-outcome-link").nth(0)).toContainText("Welcome to Premed");
+  await expect(page.locator(".reader-outcome-link").nth(1)).toContainText("Observations and testable questions");
   await page.locator("[data-lesson-search]").fill("Acid-base models");
   await expect(page.locator(".reader-outcome-link")).toHaveCount(1);
   await page.locator(".reader-outcome-link").click();
@@ -993,9 +1000,9 @@ test("the graph page renders every node and relationship", async ({ page }) => {
   const errors = collectRuntimeErrors(page);
   await page.goto(route("premed/graph/"), { waitUntil: "networkidle" });
 
-  await expect(page.locator(".graph-node")).toHaveCount(462);
-  await expect(page.locator(".graph-link")).toHaveCount(1092);
-  await expect(page.locator("[data-graph-status]")).toContainText("462 of 462 nodes");
+  await expect(page.locator(".graph-node")).toHaveCount(444);
+  await expect(page.locator(".graph-link")).toHaveCount(1058);
+  await expect(page.locator("[data-graph-status]")).toContainText("444 of 444 nodes");
   const viewportLayout = await page.evaluate(() => ({
     documentHeight: document.documentElement.scrollHeight,
     viewportHeight: window.innerHeight,
@@ -1018,7 +1025,7 @@ test("the graph page renders every node and relationship", async ({ page }) => {
   const graphResponse = await page.request.get(route("data/premed-graph.json"));
   expect(graphResponse.ok()).toBeTruthy();
   const graph = await graphResponse.json();
-  expect(graph.metrics).toMatchObject({ domains: 10, modules: 48, topics: 404, links: 1092 });
+  expect(graph.metrics).toMatchObject({ domains: 10, modules: 46, topics: 388, links: 1058 });
   expect(errors).toEqual([]);
 });
 
