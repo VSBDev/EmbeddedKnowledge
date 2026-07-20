@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-LPP-004-ACADEMIC-V013-CLAUDE-OPUS-4-8",
+  "lessonId": "PREM-LPP-004",
+  "lessonVersion": "0.1.3",
+  "candidateCommit": "ba3107f7ac9bb9eafbac9e4886def9465f9f2320",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev (accountable operator) — isolated academic review agent run",
+    "agent": {
+      "system": "Claude Code",
+      "provider": "Anthropic",
+      "model": "claude-opus-4-8",
+      "version": "Claude Code 2.1.215",
+      "runId": "claude-code/98276f6b-b398-4aa5-9ed8-59037691f18b/academic-prem-lpp-004-v013",
+      "instructionsDigest": "sha256:12bb205d72c1618c6f7dad2026300dfac1247c79cdb9d1893396b8334f870923"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": "This run did not author, revise, or advise on PREM-LPP-004, performed no other quorum role, and read no reviews/, adjudication.json, AUTHORING-BRIEF.md, REVISION-HISTORY.md, authoring conversation, sibling pack, or prior agent output. The operating principal github:VSBDev is disclosed as both the accountable author principal and the accountable review-operator principal under the founding-stage provision in site/agent/quorum-policy.json; that structural overlap is disclosed here rather than treated as absent."
+  },
+  "evidenceChecked": [
+    "git rev-parse HEAD = ba3107f7ac9bb9eafbac9e4886def9465f9f2320; git status --porcelain empty before and after review; pack lessons/PREM-LPP-004-metacognition-error-log present with 17 files.",
+    "lesson.json: id PREM-LPP-004, version 0.1.3, riskTier standard, outcome topic-orientation-metacognition-and-error-log, prerequisite topic-orientation-mastery-and-retrieval, 11 scenes, all claimCoverage=claims-mapped.",
+    "lesson.json estimatedMinutes 120 recomputed against scene sum 6+8+16+10+14+9+7+14+10+9+17 = 120; matches graph estimatedHours 2.0 for PREM-01.04.",
+    "site/data/premed-graph.json: topic-orientation-metacognition-and-error-log = PREM-01.04, prerequisites [topic-orientation-mastery-and-retrieval] (PREM-01.03); topic-orientation-study-plan (PREM-01.05) lists PREM-01.04 as prerequisite. Confirms claim-curriculum-sequence.",
+    "Graph route check: lessons/ contains only this pack; content/010, 020, and 100 each state that the graph link does not assert a sibling lesson pack exists, and 020 supplies a self-contained five-step recovery scaffold.",
+    "content/010-orientation.md: scope exclusions (no taxonomy, no diagnosis, no causal logging claim, no admissions/clinical/credit/professional use) and privacy instruction verified against CONTENT-STANDARD sections 10 and 15.",
+    "content/030-concept.md: interpret to retrieve to select to execute to verify chain, monitor/diagnose/control/probe loop, and the explicit statement that the categories are not exhaustive psychological causes.",
+    "content/040-calibration.md definition-calibration-gap: G = C - P in percentage points; sign readings; worked readings 85-55=+30 and 45-80=-35 recomputed and correct.",
+    "content/040-calibration.md all-or-none convention: recomputed that for P in {0,100} any C strictly between 0 and 100 yields G nonzero; average signed gap across items equals mean predicted minus observed proportion correct, the standard bias measure.",
+    "content/050-worked-example.md: rubric 25x4=100; contingent execution rule; recomputed 25+25+0+0 = 50 observed and G = 90-50 = +40; first broken link selection; counterfactual independent check present.",
+    "content/070-retrieval.md prompt 3: recomputed 70-45 = +25 percentage points; criterion is placed after the prompt and gives reasoning, not answer-only feedback.",
+    "content/080-practice.md item 1: rubric 25x4=100, verification unscored; Mira 25+25+0+0 = 50, G = 35-50 = -15; feedback names selection and addresses retrieval and execution mis-picks.",
+    "content/080-practice.md item 2: rubric 15+15+10+40+20 = 100; Ash 15+15+10+0+20 = 60, G = 55-60 = -5, execution first; Brook 15+15+10+40+0 = 80, G = 95-80 = +15, verification first. All recomputed.",
+    "content/080-practice.md item 3 (Cedar): 0/100 all-or-none rubric; G = 80-0 = +80 recomputed; text correctly states the single gap records the realized miss and cannot evaluate probability-judgment quality.",
+    "content/080-practice.md item 4 (Delta): rubric 20+20+40+20 = 100 with an all-or-none 40-point application criterion; recomputed 20+20+0+0 = 40 and G = 65-40 = +25; selection-versus-execution boundary explicitly disambiguated.",
+    "content/060-misconception.md: elicits a prediction, states the reread-everything model neutrally, gives the discriminating two-learner evidence, supplies the replacement model, and rechecks with an interpretation case.",
+    "assessment.json item-classify-selection: single-choice, 3 points, rubric-classify-selection maxPoints 3; all three distractors independently checked as contradicted by the stem.",
+    "assessment.json item-calculate-gap: recomputed 75-40 = +35 percentage points; answer, acceptableResponses, rubric criterion, and commonErrors are mutually consistent.",
+    "assessment.json item-build-error-log: rubric 20+20+20+30+10 = 100; Record A 20+20+20+0+0 = 60, G = 70-60 = +10; Record B 20+20+0+0+0 = 40, G = 50-40 = +10. Both recomputed; equal gaps, different categories.",
+    "assessment.json points-to-rubric totals: 3=3, 3=3, 12=4x3, 12=4x3. All four items map to declared objectives, which jointly cover all three lesson objectives and the single mapped outcome.",
+    "Opened https://pmc.ncbi.nlm.nih.gov/articles/PMC5434949/ (agentAccess checked-no-agent-restriction-found): de Bruin, Dunlosky, Cavalcanti, Med Educ 2017;51(6):575-584, DOI 10.1111/medu.13267. Monitoring/control framework and predictive cues confirmed.",
+    "Opened https://pmc.ncbi.nlm.nih.gov/articles/PMC6390881/: Carpenter et al., JEP:General 148(1) 2019, DOI 10.1037/xge0000505. Quadratic scoring rule described as one minus the Brier score; n=29 vs n=32; meta-d'/d' analysed; recognition-memory transfer confirmed.",
+    "Opened https://pmc.ncbi.nlm.nih.gov/articles/PMC6509741/: Chen, Zhang, Liu, Front Psychol 2019;10:987, DOI 10.3389/fpsyg.2019.00987. Gamma JOL-accuracy correspondence higher after test (0.655) than restudy (0.338) in cued recall; MC 0.282 vs 0.223.",
+    "Claim-to-scene traceability recomputed for all 8 claims against the 11 {source-note} directives: every sceneIds entry has a matching source-note, and each source-note's :sources: list equals the union of sourceIds of its named claims.",
+    "glossary.json: 10 terms; definitions for calibration, signed calibration gap, confidence judgment, and first broken link cross-checked against content/030, 040, and assessment.json for consistent scope language.",
+    "ATTRIBUTION.md and references.json uses/rightsBasis records read for evidence purposes: all six sources are facts-only factual-reference uses; no human-only source appears; no quotation or copied expression detected in the scenes.",
+    "npm ci then npm run validate: graph valid (462 nodes, 1092 links), progress ledger valid, lesson indexes valid, public copy valid, agent skills/protocol valid, lesson packs valid (1 production pack). Exit 0; git status still clean."
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "content/020-diagnostic.md#criterion-and-route (and claims.json#claim-calibration-definition sceneIds)",
+      "finding": "scene-diagnostic is declared claimCoverage=claims-mapped and teaches a calibration proposition that its claim mapping and learner-visible source note do not cover. The criterion paragraph states, as a rule the learner is expected to accept and apply, that 'Confidence can be recorded beside the attempt, but it becomes informative only when compared with the observed result,' and the scene's check prompt asks why a confidence judgment 'cannot replace the performance record.' That is the core of claim-calibration-definition, whose sceneIds run only from scene-concept onward, and whose supporting record source-debruin-monitoring-control is absent from this scene's {source-note} (which lists only source-chen-retrieval-judgments, source-authoring-evidence, and source-premed-graph). The result is an omitted scene mapping and a source note that omits the supporting source for a proposition central to objective-calibrate-confidence, breaching FORMAT.md section 3 ('expose each mapped claim through a learner-visible {source-note} that lists all source IDs attached to its named claims'), FORMAT.md section 5 must-have 11, and CONTENT-STANDARD.md section 4.3 (repetition or early use does not make a sourced teaching claim cease to be material). Two weaker instances of the same pattern sit in content/010-orientation.md, where the error-log loop ('a small error log that records evidence, a provisional error hypothesis, confidence calibration, a targeted action, and a fresh probe') and the categories' boundary statement ('Its categories are a useful study-decision model whose adequacy must be tested against new performance') are taught in a scene not listed in claim-error-log-loop.sceneIds or claim-operational-categories.sceneIds. I verified independently that the underlying propositions are true and are correctly supported elsewhere in the pack, so this is a defect of evidence coverage and traceability, not of factual accuracy; but per-scene claim traceability is the pack's evidence guarantee and it does not hold as declared.",
+      "resolution": "Either (a) add scene-diagnostic to claim-calibration-definition.sceneIds and add source-debruin-monitoring-control to the content/020-diagnostic.md {source-note}, and correspondingly add scene-orientation to claim-error-log-loop.sceneIds and claim-operational-categories.sceneIds with source-content-standard added to the content/010-orientation.md {source-note}; or (b) reword the affected sentences so they are pure routing/forward-reference statements that do not assert the calibration rule, the log-loop model, or the categories' evidential status before those claims are mapped. Option (a) is preferred because the statements do useful instructional work where they stand. Either route changes teaching content or the claims ledger and therefore requires a new candidate commit."
+    },
+    {
+      "severity": "minor",
+      "target": "claims.json#claim-calibration-definition",
+      "finding": "The claim carries support type 'synthesis' with source-debruin-monitoring-control as its only source, but roughly half the claim statement is author-derived arithmetic that the de Bruin review does not establish: the probability-to-points conversion permitted only on an all-or-none 0/100 rubric, the proof that any prediction strictly between 0 and 100 yields a nonzero single-item gap, and the rule that only an average across comparable all-or-none items indicates aggregate direction. I independently confirmed all three propositions are mathematically correct (the average signed gap is exactly the standard mean-predicted-minus-proportion-correct bias statistic), so nothing here is wrong. However the pack elsewhere labels author-derived material honestly as support 'inference' (claim-error-log-loop, claim-operational-categories), and labelling this mixed claim as source-backed synthesis overstates what the cited review carries.",
+      "resolution": "Split claim-calibration-definition into a source-backed definitional claim (confidence-versus-observed-performance under a declared scoring rule, supported by source-debruin-monitoring-control) and a separate author claim with support 'inference' covering the all-or-none conversion, the single-item nonzero-gap result, and the averaging rule; or retain one claim and change support to 'inference' with the scope field naming which portion the cited review supports."
+    },
+    {
+      "severity": "minor",
+      "target": "content/050-worked-example.md#error-log-row, content/080-practice.md#3, assessment.json#rubric-build-error-log/criterion-log-calibration",
+      "finding": "The unit of G is defined in content/040-calibration.md as percentage points, but 'points' is then used as a bare shorthand for the gap in contexts where 'points' also denotes rubric credit, sometimes in the same sentence. Examples: the worked-example log row reads '90% predicted rubric score, 50% earned, +40 points' immediately after the same scene computes '25+25+0+0=50 points' of rubric credit; practice item 3 reads 'the gap is 80-0=+80 points' about a 100-point rubric; the assessment rubric criterion reads 'both positive 10-point gaps'. I checked every instance and no arithmetic error results, because every rubric in the pack totals 100 so rubric points and percentage points coincide numerically. The ambiguity is nonetheless a defined-unit lapse against CONTENT-STANDARD.md sections 4.2 and 5.5, and it would become a real error if a future revision used a rubric whose total is not 100.",
+      "resolution": "Use 'percentage points' consistently for every reported value of G, or state once in content/040-calibration.md that 'points' abbreviates 'percentage points' for the gap and that this holds only because every rubric in the lesson totals 100."
+    },
+    {
+      "severity": "minor",
+      "target": "content/040-calibration.md#all-or-none-paragraph and content/100-synthesis.md#confidence-route",
+      "finding": "Both scenes state that 'Only the average signed gap across several comparable all-or-none items can indicate an aggregate calibration direction.' The substantive point is correct and important, but the exclusive 'Only' overstates it: aggregate calibration direction can also be read from a reliability/calibration curve, from per-bin observed-minus-predicted differences, or from the calibration (reliability) component of a Murphy decomposition of the Brier score - the last of which is directly adjacent to the measure the lesson itself cites from source-carpenter-calibration-training. glossary.json#term-calibration already concedes that 'Research may use other repeated-judgment measures,' so the scene prose is stricter than the pack's own glossary.",
+      "resolution": "Qualify the sentence, for example 'Within this lesson's toolkit, only the average signed gap across several comparable all-or-none items indicates an aggregate calibration direction; research uses other repeated-judgment measures such as calibration curves and decompositions of proper scores.'"
+    },
+    {
+      "severity": "minor",
+      "target": "glossary.json#term-confidence-judgment, glossary.json#term-error-log, glossary.json#term-calibration",
+      "finding": "The sceneIds metadata is internally inconsistent for scene-orientation. term-confidence-judgment and term-error-log both list scene-orientation, but the orientation prose links only term-metacognitive-monitoring and term-metacognitive-control inline and its only related wording is the list item 'confidence calibration'; meanwhile term-calibration, the term that phrase most directly names, omits scene-orientation. The mapping therefore both over-claims and under-claims for the same scene. This is a bounded metadata inaccuracy with no effect on the instructional argument, but glossary sceneIds are part of the pack's declared traceability surface.",
+      "resolution": "Align the glossary sceneIds with actual term use in content/010-orientation.md: either add an inline term-calibration (or term-confidence-judgment) reference to the orientation prose, or remove scene-orientation from the term entries whose distinction is not actually introduced or used there."
+    },
+    {
+      "severity": "note",
+      "target": "references.json#source-carpenter-calibration-training and claims.json#claim-calibration-feedback",
+      "finding": "Verified strength with one epistemic caveat. I opened PMC6390881 directly and confirmed the record and the claim: the quadratic scoring rule is described by the authors as equal to one minus the Brier score, the experimental group (n=29) received metacognitive-judgment feedback against an active control (n=32) receiving decision-performance feedback, calibration improved relative to control and generalized to an untrained recognition-memory task, and meta-d'/d' was analysed. The caveat is that a Brier score is a composite proper score whose Murphy decomposition contains resolution and uncertainty as well as calibration, so 'improved calibration as assessed by Brier scores' inherits the study's own framing rather than isolating calibration. The lesson reports the study faithfully, repeatedly separates those measures from its own G in content/040, content/060, and content/100, and does not overclaim transfer to Premed tasks. No change is required.",
+      "resolution": "No change required. Optionally add three words to claims.json#claim-calibration-feedback.uncertainty noting that the quadratic score aggregates calibration with resolution."
+    },
+    {
+      "severity": "note",
+      "target": "references.json#source-chen-retrieval-judgments and content/030-concept.md#add-calibration-without-replacing-performance",
+      "finding": "Verified strength. I opened PMC6509741 directly and confirmed Chen, Zhang and Liu, Frontiers in Psychology 2019;10:987, DOI 10.3389/fpsyg.2019.00987, and confirmed the reported result: gamma correspondence between judgments of learning and final accuracy was higher after test trials than after restudy trials (cued recall 0.655 vs 0.338; multiple choice 0.282 vs 0.223). The lesson's characterisation of this as an 'across-item rank correspondence' is precise - gamma is a rank-order association - and content/030 correctly warns that this repeated-item correspondence is mathematically distinct from the lesson's single-task signed gap and that either measure can look favourable while the other does not. That resolution-versus-bias distinction is the single most easily botched point in this topic and the pack gets it right.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "lesson.json#scenes and site/data/premed-graph.json",
+      "finding": "Verified strength on graph fit and route availability. PREM-01.04 declares exactly the prerequisite the graph declares (PREM-01.03) and the mapped outcome statement 'Classify errors, calibrate confidence, and choose the next learning action from evidence' is fully taught by the three objectives and their scenes, with no drift beyond it. Critically, no route in the pack assumes an unavailable sibling pack: content/010, content/020, and content/100 each state that the graph link does not assert that a lesson pack exists for topic-orientation-mastery-and-retrieval or topic-orientation-study-plan, and content/020 supplies a self-contained five-step recovery scaffold plus an explicit pause instruction for a learner who cannot execute it. I confirmed lessons/ contains only this pack, so the disclaimer is factually necessary and correct.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#rubrics (all four)",
+      "finding": "Nonblocking observation for the adjudicator, flagged as measurement design rather than academic error. Every rubric criterion is conjunctive all-or-none, and content/110-assessment.md discloses that rule to the learner before the attempt. I recomputed every item and the scoring contract is internally coherent, reproducible, and free of any reward for a scientifically false shortcut: item-classify-selection's three distractors are each contradicted by the stem, item-calculate-gap requires the interpretation as well as the arithmetic, and item-build-error-log deliberately gives both records the same +10 gap so calibration cannot be used as a diagnostic shortcut. The consequence of the convention is coarse: criterion-log-observation-classification bundles four requirements (observation/hypothesis separation, execution-first for A, selection-first for B, and a defensible uncertainty statement) into a single 3-point all-or-none judgment, so a response correct on three of four scores zero and the 12-point analytic rubric behaves as four binary decisions rather than a graded scale. That is defensible and disclosed; whether it is the right measurement choice is a learning-design judgment I do not make here.",
+      "resolution": "No academic change required. Recommend the learning-design reviewer assess whether the conjunctive granularity supports the intended mastery inference."
+    },
+    {
+      "severity": "note",
+      "target": "content/060-misconception.md#misconception-wrong-means-reread",
+      "finding": "Verified handling of an epistemic risk. CONTENT-STANDARD.md section 7 permits a misconception that is common, consequential, or highly plausible from prerequisite knowledge, and prohibits inventing prevalence. The pack does not assert prevalence: the scene's {source-note} states the tempting model is 'presented as a plausible boundary error rather than a measured prevalence claim,' and no claim in claims.json asserts frequency. Plausibility is independently supported by the de Bruin review I opened, which reports that students' monitoring is often limited, leading to inefficient use of study time. The repair sequence also satisfies all six required steps including the recheck on a new interpretation case. No overclaim found.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "content/010-orientation.md#scope and content/110-assessment.md#callout-boundary",
+      "finding": "Verified boundary handling. The lesson states it does not teach a universal psychological taxonomy, does not diagnose a person, does not prove that logging causes learning, and does not support admissions, clinical, credit, or professional decisions; the assessment scene repeats an educational-only boundary and prohibits submitting a real person's identifiable grades, health information, disability details, admissions record, or clinical performance. Task-bounded language is enforced throughout (content/040 'Calibrate a judgment, not a person'), and every commonErrors list penalises trait inference. I found no statement that could be mistaken for medical advice, professional authorization, or a claim of demonstrated effectiveness, and no fabricated data, source, or access.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "reviews/ (absent by design) and this artifact",
+      "finding": "Dissent and independence record. This verdict was reached without access to any other review, adjudication draft, authoring brief, revision history, authoring conversation, or prior agent output; those files are intentionally absent from the sparse worktree and I did not seek them through Git, GitHub, another worktree, or any other route. I therefore record no dissent from another reviewer, because no other reviewer's conclusion was visible to me. If a co-reviewer or the adjudicator concludes that the scene-diagnostic and scene-orientation coverage omission is a bounded metadata correction rather than a break in the per-scene evidence guarantee, my dissent is recorded here: I judge it major because per-scene claim traceability is the mechanism by which this project's evidence guarantee is delivered to the learner, and the affected proposition is central to objective-calibrate-confidence. I do not dissent on any other point, and I found no blocking issue.",
+      "resolution": "No change required. Retained as the reviewer's independence and dissent record."
+    }
+  ],
+  "limitations": [
+    "This is a single-agent review. Automated validation, schema conformance, fluent prose, and model agreement were not treated as evidence of correctness; every score, gap, rubric total, and claim mapping reported above was recomputed by hand from the declared rules.",
+    "The candidate's reviews/, adjudication.json, AUTHORING-BRIEF.md, and REVISION-HISTORY.md are intentionally absent from this sparse worktree and were not sought through Git, GitHub, another worktree, or any other route. Prior discussions, authoring conversations, agent outputs, and sibling packs were not inspected.",
+    "Evidence verification was limited to the six declared records in references.json. All three external scholarly sources carry agentAccess.status checked-no-agent-restriction-found and were opened directly; no source is marked human-only, so no abstention on access grounds was required. I did not conduct an independent literature search for contrary findings beyond checking the cited results against the articles themselves.",
+    "My expertise covers the metacognition, calibration, and scoring-rule literature at a general research-literate level. I am not a specialist in signal-detection models of metacognition; my check of the meta-d'/d' and quadratic-scoring reporting confirmed faithful transcription of the cited article's own framing rather than re-derivation of its analyses.",
+    "No learner data exists for this pack. Nothing in this review speaks to whether the lesson produces learning; the acceptance evidence assessed is academic accuracy, traceability, calculation, boundary, and assessment correctness only.",
+    "npm run validate initially failed with ERR_MODULE_NOT_FOUND because declared dependencies were not installed. After npm ci (11 packages, untracked node_modules) the full validation passed with exit 0 and git status --porcelain remained empty, so no repository file was changed. No structural or schema failure was found; the verdict above rests on academic grounds alone.",
+    "This review is one eligible academic vote. It does not establish quorum, adjudication, merge readiness, publication, course credit, or any professional or clinical authorization."
+  ],
+  "signedAt": "2026-07-20T05:00:25Z"
+}
