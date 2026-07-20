@@ -492,7 +492,8 @@ test("a published lesson opens through its production route with keyboard and co
         correct: "Cedar is unfamiliar, Flint is fragile, and Harbor is provisionally secure.",
         summary: "Classify nodes separately and make the route follow the evidence.",
         reasoning: "Cedar needs a bounded explanation, Flint needs contrasting practice, and Harbor can advance with delayed verification. Each classification remains provisional."
-      }
+      },
+      rubricId: "rubric-build-baseline"
     }
   ];
   const digest = `sha256:${"a".repeat(64)}`;
@@ -507,7 +508,19 @@ test("a published lesson opens through its production route with keyboard and co
     disclaimer: undefined,
     assessment: {
       ...specimen.assessment,
-      items: [...specimen.assessment.items, ...baselineAssessmentItems]
+      items: [...specimen.assessment.items, ...baselineAssessmentItems],
+      rubrics: [
+        ...specimen.assessment.rubrics,
+        {
+          id: "rubric-build-baseline",
+          title: "Baseline classification self-check",
+          criteria: [
+            { id: "criterion-classification", description: "Classifies Cedar, Flint, and Harbor from the evidence.", maxPoints: 1 },
+            { id: "criterion-justification", description: "Justifies each classification with observed evidence.", maxPoints: 1 },
+            { id: "criterion-route", description: "Chooses a proportionate next route for each node.", maxPoints: 1 }
+          ]
+        }
+      ]
     },
     attributionHtml: `${specimen.attributionHtml}<p>Material-instructions digest: <code data-test-long-digest>${digest}</code></p>`
   };
@@ -599,7 +612,7 @@ test("a published lesson opens through its production route with keyboard and co
   await expect(cedarStimulus).toContainText("Node Cedar");
   await expect(cedarStimulus).toContainText("Node Flint");
   await expect(cedarStimulus).toContainText("Node Harbor");
-  await expect(cedarResponse.locator("label")).toHaveAttribute("for", "response-item-build-baseline");
+  await expect(cedarResponse.locator('label[for="response-item-build-baseline"]')).toHaveAttribute("for", "response-item-build-baseline");
   await expect(cedarResponse.locator("textarea")).toHaveAttribute("id", "response-item-build-baseline");
   await expect(cedarResponse.locator("textarea")).toHaveAttribute("aria-describedby", "item-build-baseline-stimulus");
   expect(await cedarResponse.evaluate((form) => {
@@ -611,6 +624,27 @@ test("a published lesson opens through its production route with keyboard and co
       && !label.contains(stimulus)
       && !label.contains(control);
   })).toBeTruthy();
+
+  await cedarResponse.locator("textarea").fill("A provisional classification with evidence and next routes.");
+  await cedarResponse.getByRole("button", { name: "Compare reasoning" }).click();
+  const selfCheck = cedarResponse.locator(".reader-self-check");
+  const criterionChecks = selfCheck.getByRole("checkbox");
+  await expect(selfCheck).toBeVisible();
+  await expect(selfCheck.locator("legend")).toHaveText("Manual criterion self-check");
+  await expect(selfCheck).toHaveAttribute("aria-describedby", "item-build-baseline-self-check-instructions item-build-baseline-self-check-status");
+  await expect(criterionChecks).toHaveCount(3);
+  await expect(cedarResponse.locator(".reader-self-check-status")).toHaveText("0 of 3 criteria marked met. Review each unmarked criterion before retrying.");
+  await criterionChecks.nth(0).check();
+  await expect(cedarResponse.locator(".reader-self-check-status")).toContainText("1 of 3 criteria marked met");
+  await criterionChecks.nth(1).check();
+  await criterionChecks.nth(2).check();
+  await expect(cedarResponse.locator(".reader-self-check-status")).toContainText("3 of 3 criteria marked met. Item self-check complete.");
+  const manualProgress = cedarResponse.locator("xpath=ancestor::section[contains(@class, 'reader-assessment')]").locator(".reader-assessment-progress");
+  await expect(manualProgress).toHaveAttribute("role", "status");
+  await expect(manualProgress).toHaveAttribute("aria-live", "polite");
+  await expect(manualProgress).toContainText("Criteria met: 3/7 · not saved.");
+  await cedarResponse.getByRole("button", { name: "Clear response" }).click();
+  await expect(selfCheck).toBeHidden();
 
   const resourceScene = productionArtifact.scenes.findLast((scene) => ["synthesis", "references"].includes(scene.kind));
   await page.locator(".reader-scene-link", { hasText: resourceScene.title }).click();
