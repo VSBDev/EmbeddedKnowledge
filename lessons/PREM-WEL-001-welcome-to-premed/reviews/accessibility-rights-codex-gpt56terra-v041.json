@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-WEL-001-ACCESS-CODEX-GPT56TERRA-V041-20260720",
+  "lessonId": "PREM-WEL-001",
+  "lessonVersion": "0.4.1",
+  "candidateCommit": "bd6ef5438aa48142e2c404030c9f8ee72bfe091a",
+  "role": "accessibility-rights",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev (accessibility-and-rights reviewer)",
+    "agent": {
+      "system": "Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-terra",
+      "version": "Codex CLI 0.144.6",
+      "runId": "accessibility-rights-codex-gpt56terra-v041-20260720-35bcaf83-1ea9-4501-8acf-b542a26b528f",
+      "instructionsDigest": "sha256:541f4cc4efec30925b1d97f25b44627333dc3f79f514b0fc545bdbf76230a743"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "Repository root, clean HEAD, and candidate identity: HEAD equals bd6ef5438aa48142e2c404030c9f8ee72bfe091a.",
+    "lesson.json, assessment.json, references.json, claims.json, glossary.json, ATTRIBUTION.md, and all four declared content scenes.",
+    "Immediate-parent diff: v0.4.1 provenance update and 8/10-to-10/10 correction in assessment reasoning, learner-facing finish scene, attribution, and version fields.",
+    "assessment.json and rendered open-response path: keyboard-native textareas/buttons, programmatic labels, feedback, retry behavior, scoring status, and recovery route.",
+    "390x844 Chromium reflow proxy for 200% zoom: no horizontal document overflow; narrow Contents drawer focus entry and Escape focus return passed.",
+    "Reduced-motion Chromium emulation: media query matched, stage used auto scroll behavior, and the narrow index transition was effectively disabled.",
+    "Print-media Chromium path: all four scenes, three assessment items, answer reasoning, 10/10 threshold, draft status, references, glossary, and attribution were retained.",
+    "references.json, ATTRIBUTION.md, and lesson.json: CC BY 4.0 adaptation basis, modification notice, dated agent access, no third-party assets, and disclosed author-run provenance.",
+    "npm run source:preflight -- --strict lessons/PREM-WEL-001-welcome-to-premed passed; npm run validate passed before the review artifact was written."
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "content/04-finish.md#the-welcome-check; assessment.json#item-describe-journey,item-explain-relevance,item-identify-capabilities",
+      "finding": "The candidate states that completion requires 10/10 and every rubric criterion, with recovery and retry after any miss. Each rendered open-response form instead exposes a textarea and the same model reasoning after submission. It does not determine or announce a score, identify missed rubric criteria, or programmatically link a learner to the matching recovery route. Keyboard and screen-reader users can operate the controls, but they cannot operate the declared criterion-level completion and feedback path.",
+      "resolution": "Provide an accessible, non-timed scoring and feedback route that visibly and programmatically exposes criterion status, score, and the relevant recovery/retry action for every item; or revise the completion language to describe an accurate self-comparison route without asserting an unimplemented 10/10 score. Re-test keyboard and screen-reader feedback after the change."
+    },
+    {
+      "severity": "note",
+      "target": "lesson.json#aiAssistance; ATTRIBUTION.md#agent-assistance-and-provenance; references.json#source-premed-syllabus",
+      "finding": "The v0.4.1 provenance update is internally coherent: six distinct author or revision runs are disclosed with system, provider, model, version, run IDs, and SHA-256 digests. The curriculum adaptation has an explicit CC BY 4.0 basis, immutable source link, modification notice, and dated checked-no-agent-restriction-found record. No third-party assets are declared or present.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "content/01-welcome.md; content/02-journey.md; content/03-learning.md; content/04-finish.md",
+      "finding": "Scene order, heading and list semantics, table column headers, keyboard focus return, narrow reflow, reduced-motion behavior, print continuity, text alternatives for the fictional table, untimed retry routes, and non-physical response alternatives were otherwise preserved. No raw HTML, executable content, remote embed, unsafe path, secret, personal health data, or sensory-only core information was found.",
+      "resolution": null
+    }
+  ],
+  "limitations": [
+    "This is accessibility, rights, provenance, privacy, and content-security evidence checking, not legal advice; jurisdiction-specific conclusions remain subject to qualified counsel where needed.",
+    "No representative screen-reader application, physical touch device, or learner usability study was available; keyboard and programmatic semantics were inspected in headless Chromium.",
+    "A 390 CSS-pixel viewport was used as the repository's 200% reflow proxy; native browser zoom was not separately exercised.",
+    "Print media was exercised, but the unavailable non-web PDF, EPUB, DOCX, and JATS adapters could not be tested.",
+    "Author and reviewer provenance is disclosed and internally checked but self-attested rather than cryptographically verified.",
+    "One accessibility-and-rights review is not quorum, adjudication, or merge readiness."
+  ],
+  "signedAt": "2026-07-20T10:40:21Z"
+}
