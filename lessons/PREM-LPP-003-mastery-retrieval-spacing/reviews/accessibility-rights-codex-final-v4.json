@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-LPP-003-ACCESS-CODEX-FINAL-V4-B06037E9",
+  "lessonId": "PREM-LPP-003",
+  "lessonVersion": "0.1.3",
+  "candidateCommit": "54f10aa5d4e3d0d226426dd3a70b611ad0572dc1",
+  "role": "accessibility-rights",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable operator for independent accessibility-and-rights review",
+    "agent": {
+      "system": "Codex CLI",
+      "provider": "OpenAI",
+      "model": "GPT-5",
+      "version": "0.144.6",
+      "runId": "/root/pr6_v4_accessibility_codex",
+      "instructionsDigest": "sha256:b06037e97ff247d00f2cce64c42c092de87096b56cbffbf0b3b67d8311b31cff"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "Exact detached candidate HEAD 54f10aa5d4e3d0d226426dd3a70b611ad0572dc1 and pack identity PREM-LPP-003 version 0.1.3",
+    "lesson.json ordered scenes, authors, aiAssistance, CC-BY-4.0 license, files, and empty thirdPartyAssets declaration",
+    "content/010-orientation.md through content/100-synthesis.md: headings, source order, tables and linear equivalents, modalities, recovery, boundaries, and source notes",
+    "assessment.json: untimed retake policy, response modes, answer logic, feedback, retry variation, rubrics, and remediation paths",
+    "references.json: all 10 source uses, licenses, rights bases and evidence, dated agentAccess declarations, terms locations, and access notes",
+    "claims.json and glossary.json: scene/source mappings, scope and uncertainty, stable terminology, and pending-review state",
+    "ATTRIBUTION.md, AUTHORING-BRIEF.md, and REVISION-HISTORY.md: course license, accountable authorship, material-agent disclosure, reuse assertions, privacy boundary, and author-side provenance",
+    "Generated browser reader for PREM-LPP-003 in headless Chromium: semantic landmarks/headings/tables/forms, skip link, visible focus, keyboard scene/frame navigation, focus return, assessment labels, live error/feedback status, and retry controls",
+    "Generated browser reader at 640px and 360px widths with reduced motion: no document-level horizontal overflow and keyboard-focusable bounded table overflow",
+    "Generated A4 print path inspected through PDF text extraction: all scenes, table equivalents, assessment prompts, answer conditions, feedback, citations, and attribution remained present",
+    "Automated npm run validate passed, including schema, graph, claims/source-note, rights-ledger, active-content, path, provenance, and deterministic build checks",
+    "Automated npm test passed: 30 protocol tests and 22 browser tests passed; 12 container-only CSP tests were skipped outside the container harness",
+    "Security scan of allowlisted pack source found no raw HTML, script/event payload, unsafe URL scheme, Markdown image, traversal, symlink, secret pattern, executable asset, remote embed, or personal/patient record",
+    "Crossref public REST documentation checked for public metadata access and abstract copyright boundary; NCBI E-utilities usage/copyright guidance checked for declared abstract routes",
+    "Frontiers record checked for source-wisniewski-et-al-2020 publication date, volume year, and CC BY notice; peDOCS record checked for source-tetzlaff-et-al-2025 abstract route and CC BY 4.0 document license",
+    "Digital Commons record for source-crissman-2006 and its displayed Elsevier website Terms and Conditions checked for the access boundary applicable on the declared 2026-07-20 agent-access date"
+  ],
+  "findings": [
+    {
+      "severity": "blocking",
+      "target": "references.json#source-crissman-2006.agentAccess",
+      "finding": "The source record declares checked-no-agent-restriction-found, leaves termsUrl null, and attests that the authoring agent processed the public institutional-repository citation metadata and abstract on 2026-07-20. The cited Digital Commons record displays a Copyright link to Elsevier's website Terms and Conditions, last revised 2026-03-12, which apply to Elsevier services and prohibit using service content with artificial-intelligence tools absent separate permission. That restriction predates the declared access. AUTHORING-BRIEF.md and references.json independently attest that the authoring agent used the record's abstract-level content. Under RIGHTS-POLICY.md section 4, this is evidence that an agent processed a source that should have been classified human-only. The facts-only reuse basis addresses copying but does not cure the separate source-access failure.",
+      "resolution": "Before freezing a new candidate, remove or replace source-crissman-2006 and independently reauthor every affected claim mapping, source note, evidence-dossier statement, and lesson expression from sources whose agent processing is demonstrably permitted; alternatively, record explicit permission that covers the exact AI processing. Correct the source's agentAccess status and terms evidence. Do not merely relabel the record while retaining agent-derived material. Revalidate and obtain fresh exact-candidate reviews because these changes stale this review."
+    },
+    {
+      "severity": "note",
+      "target": "content/*.md; assessment.json; generated reader PREM-LPP-003",
+      "finding": "The reviewed teaching and assessment paths otherwise provide equivalent access: source order is semantic; both tables have linear prose or ordered-list equivalents; no operation depends on color, position, motion, sound, hover, drag, or time; response modalities preserve the reasoning standard; and the browser route supports visible keyboard focus, focus return, labelled form controls, live feedback, narrow reflow, bounded table scrolling, reduced motion, retries, remediation, and complete print output.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lesson.json; ATTRIBUTION.md; allowlisted pack source",
+      "finding": "The candidate declares original course content under CC BY 4.0, no third-party assets, one accountable author and complete material-agent provenance. The inspected pack contains no media, personal or patient data, secrets, active content, unsafe TeX/SVG/diagram input, remote embed, executable notebook, physical-task dependency, or clinical/credential claim. Fictional cases and educational boundaries are explicit.",
+      "resolution": null
+    }
+  ],
+  "limitations": [
+    "This review applies EmbeddedKnowledge policy and records rights evidence; it is not legal advice. Contract, copyright, privacy, and license consequences can vary by jurisdiction and may require qualified counsel.",
+    "Manual accessibility testing used headless Chromium keyboard, semantic DOM, narrow-width, reduced-motion, and print paths. No disabled learner testing or hardware screen-reader session was performed, so automated and manual checks are evidence rather than proof of universal accessibility.",
+    "No pack-local image, audio, video, diagram, chemistry structure, or third-party asset exists in this candidate; media-alternative and asset-level provenance checks were therefore not applicable.",
+    "Close-paraphrase comparison was limited to the allowlisted pack and public metadata, abstract, license, and terms routes needed for rights verification. Publisher full text, access-controlled material, and the Crissman dissertation file were not opened.",
+    "I did not inspect pack review artifacts, adjudication artifacts, pull-request review bodies, authoring conversations, or historical review commits. REVISION-HISTORY.md was inspected only as an explicitly allowlisted author-side provenance file."
+  ],
+  "signedAt": "2026-07-20T02:33:33Z"
+}
