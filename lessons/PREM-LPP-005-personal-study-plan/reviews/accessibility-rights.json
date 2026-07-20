@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-LPP-005-ACCESS-20260720-EB2602DF",
+  "lessonId": "PREM-LPP-005",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "3de005fc0d2a9ca5c5425dba1d1a5f9ae3af3311",
+  "role": "accessibility-rights",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev accessibility-rights reviewer",
+    "agent": {
+      "system": "Codex",
+      "provider": "OpenAI",
+      "model": "GPT-5.4",
+      "version": "Codex CLI 0.144.6",
+      "runId": "codex-accessibility-rights-prem-lpp-005-20260720-eb2602df-7058-4144-8fd4-2b32e75a17d3",
+      "instructionsDigest": "sha256:91b39569bf56bf8b4142230eab3a0b899f77d12aea02728eae13f53a16d03383"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Founding-stage self-operated review: reviewer principal github:VSBDev matches the accountable author principal for this candidate. Repository policy permits this when the run is isolated and provenance-disclosed, but it remains a declared self-review limitation."
+  },
+  "evidenceChecked": [
+    "candidate commit 3de005fc0d2a9ca5c5425dba1d1a5f9ae3af3311 matches HEAD; the frozen pack tree contains no assets/, diagrams/, reviews/, or adjudication files",
+    "lesson.json#scenes-authors-license-aiAssistance-thirdPartyAssets",
+    "content/010-orientation.md#scope-and-exclusions",
+    "content/020-diagnostic.md#check-after-attempt-and-recovery-route",
+    "content/030-concept.md#read-the-complete-ledger-and-accessibility-and-alternatives",
+    "content/040-worked-example.md#worked-example-twelve-block-week",
+    "content/080-transfer.md#transfer-task-and-what-must-remain-invariant",
+    "content/100-assessment.md#mastery-rule-and-feedback-and-remediation",
+    "assessment.json#attemptPolicy-items-rubrics",
+    "references.json#sources-uses-agentAccess; claims.json#claim-scene-source-maps; ATTRIBUTION.md#source-use-and-agent-disclosure",
+    "Automated checks: candidate JSON parsed with jq; git grep found no raw HTML or Markdown image syntax in the frozen pack",
+    "npm run validate failed before pack validation because node_modules were absent and Node could not resolve package marked"
+  ],
+  "findings": [
+    {
+      "severity": "note",
+      "target": "content/030-concept.md#accessibility-and-alternatives; content/080-transfer.md#transfer-task; assessment.json#items",
+      "finding": "The canonical learning path is text-first and semantically ordered, and the lesson preserves equivalent participation without requiring drag, color, speech, timed response, precise pointer input, or private disclosure. Access-constrained cases receive explicit offline text routes, and practical work stays institutionally supervised rather than being replaced with an unsafe home substitute.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "references.json; ATTRIBUTION.md; lesson.json#thirdPartyAssets",
+      "finding": "No third-party media, diagrams, or dataset redistribution is declared in this candidate. thirdPartyAssets is empty, the four cited sources are repository-owned CC BY materials with dated agent-access records, and comparison against the cited internal sections did not reveal close paraphrase beyond reused internal course terminology.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "claims.json; content/010-orientation.md; content/020-diagnostic.md; content/110-references.md",
+      "finding": "Claims-mapped scenes expose learner-visible source notes, the references scene stays navigation-only with no-material-claims, and the lesson repeatedly instructs learners to use fictional or anonymized labels instead of health, disability, work, or caregiving details. That combination supports traceability while avoiding unnecessary personal-data collection in the learning route and assessment prompts.",
+      "resolution": "No change required."
+    }
+  ],
+  "limitations": [
+    "This accessibility-and-rights review is evidence and policy checking, not legal advice; I did not perform jurisdiction-specific exception analysis beyond the repository policy and source records.",
+    "I reviewed canonical source files and bounded technical properties at the frozen commit, but I could not inspect a freshly rendered reader, print export, or zoom/reflow output because npm run validate failed before build generation: node_modules were absent and Node could not resolve marked.",
+    "Review independence is disclosed and attested, not externally verified. The reviewer principal is also the accountable author principal under the repository's founding-stage policy."
+  ],
+  "signedAt": "2026-07-20T04:27:55Z"
+}

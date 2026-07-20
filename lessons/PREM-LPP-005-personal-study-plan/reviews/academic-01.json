@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-LPP-005-ACADEMIC-20260720-2ACF634D",
+  "lessonId": "PREM-LPP-005",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "3de005fc0d2a9ca5c5425dba1d1a5f9ae3af3311",
+  "role": "academic",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev (academic review operator)",
+    "agent": {
+      "system": "Claude Code",
+      "provider": "Anthropic",
+      "model": "Claude Opus 4.6",
+      "version": "Claude Code 2.1.215",
+      "runId": "claude-academic-prem-lpp-005-20260720-2acf634d-cf10-4c69-8844-31fbb4dada9f",
+      "instructionsDigest": "sha256:4073907d23d4303fe91664d641024ee10eca35e867d72ad1ac783e6c5108e365"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "The accountable principal for this review is the same as the lesson author. This is permitted under the founding-stage policy but means the review does not constitute an independent external check. The review agent run is isolated from the authoring run and uses a different provider."
+  },
+  "evidenceChecked": [
+    "lesson.json — identity, outcomes, prerequisites, scene order, estimatedMinutes sum (120 = 8+9+16+17+8+9+15+14+8+13+3), claimCoverage declarations, provenance",
+    "site/data/premed-graph.json#topic-orientation-study-plan — outcome statement, prerequisite link, module placement",
+    "site/data/premed-graph.json#topic-orientation-metacognition-and-error-log — prerequisite node existence and scope",
+    "course/PREMED-SYLLABUS.md#section-14 — weekly cycle functions, minimum viable study day, required recurring activities",
+    "course/PREMED-SYLLABUS.md#section-18 — error taxonomy, recovery protocol steps 1-7, motivation protection, lapse policy",
+    "course/PREMED-SYLLABUS.md#section-19 — workload model and recovery weeks",
+    "course/PREMED-SYLLABUS.md#PLO-18 — programme learning outcome for study-plan remediation",
+    "research/CONTENT-AUTHORING-EVIDENCE-2026-07-19.md#section-4 — worked-examples meta-analysis and expertise reversal",
+    "research/CONTENT-AUTHORING-EVIDENCE-2026-07-19.md#section-6 — retrieval vs repeated exposure, delayed retention",
+    "research/CONTENT-AUTHORING-EVIDENCE-2026-07-19.md#section-7 — spacing interval depends on retention goal",
+    "CONTENT-STANDARD.md#sections-3-5-6-8 — instructional arc, worked examples, retrieval, practice fading requirements",
+    "claims.json — all 7 claims verified against source records and scene mappings",
+    "references.json — 4 sources verified for type, locator, licence, agent-access status, and rights basis",
+    "assessment.json#item-repair-overfilled-plan — answer logic independently verified",
+    "assessment.json#item-build-week — rubric criteria and answer reasoning verified",
+    "assessment.json#item-adapt-week — multi-select logic and distractor reasoning verified",
+    "assessment.json#item-transfer-plan — transfer conditions, rubric, and common-error list verified",
+    "content/010-orientation.md — source-note covers claim-plan-balance, claim-recovery-route, claim-four-pass-model with all required sources",
+    "content/020-diagnostic.md — source-note covers claim-error-directed-revision; recovery route links prerequisite",
+    "content/030-concept.md — source-note covers 6 claims with all 4 sources; four-pass model structure verified against syllabus",
+    "content/040-worked-example.md — source-note covers all 7 claims; worked-example logic independently rechecked",
+    "content/050-retrieval-check.md — source-note covers claim-retrieval-spacing and claim-four-pass-model; prompt-before-feedback structure confirmed",
+    "content/060-misconception.md — source-note covers claim-recovery-route and claim-four-pass-model; repair structure verified",
+    "content/070-practice.md — source-note covers all 7 claims; fading progression verified",
+    "content/080-transfer.md — source-note covers 5 claims; access-adaptation preserves learning operations",
+    "content/090-synthesis.md — source-note covers 5 claims; control-loop structure verified",
+    "content/100-assessment.md — source-note covers 5 claims; mastery rule verified against objectives",
+    "content/110-references.md — no-material-claims declaration verified; no claim maps to scene-references",
+    "glossary.json — 9 terms verified against lesson usage and scene mappings"
+  ],
+  "findings": [
+    {
+      "severity": "minor",
+      "target": "claims.json#claim-four-pass-model",
+      "finding": "The four-pass model is declared with support type 'inference' and confidence 'medium-high', but no retained source validates the exact composite procedure or compares it with alternative personal planning systems. The uncertainty field correctly states this limitation. However, 'medium-high' confidence may slightly overstate the evidence base for the specific four-part structure as opposed to its individual components, since the lesson transparently acknowledges it is 'an instructional model for the assigned curriculum outcome, not a uniquely optimal productivity system.'",
+      "resolution": "Consider reducing confidence to 'medium' to more precisely reflect that the evidence supports the individual components (retrieval, dependency ordering, capacity bounding, evidence-based revision) but not their specific composition into exactly four passes. Alternatively, retain 'medium-high' with an expanded scope note stating that confidence applies to the components individually rather than the composite structure. This does not affect the instructional validity of the model within its declared scope."
+    },
+    {
+      "severity": "note",
+      "target": "references.json",
+      "finding": "All four sources are repository-internal documents (graph, syllabus, content standard, evidence synthesis). This is appropriate because the lesson's material claims are predominantly about what the EmbeddedKnowledge course requires rather than about external empirical phenomena. The one externally-grounded claim (claim-retrieval-spacing) is mediated through the internal evidence synthesis, which itself cites peer-reviewed meta-analyses (Cepeda et al. 2006, Roediger & Karpicke 2006, IES practice guide). The indirection is transparent and the lesson's uncertainty qualifiers are appropriate.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "content/040-worked-example.md#worked-example-twelve-block-week",
+      "finding": "The worked example is well-structured: it provides task, givens, constraints, model selection, plan, execution (tabulated), checks, interpretation, revision rule, and a self-explanation prompt. The execution table's 10 scheduled blocks plus 2 reserve correctly sum to the 12-block boundary. Prerequisite repair (sequence 1) precedes dependent problems (sequences 2, 8, 10). Lab preparation (4) precedes the fixed lab (5-6), and debrief (7) follows. Delayed retrieval (9) is separated from the original learning episode (1). All five required functions are represented. The reasoning is inspectable and supports schema construction.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#item-repair-overfilled-plan",
+      "finding": "The single-choice item is well-discriminating. Option A (correct) applies capacity-boundary reasoning and removes redundant work. Option B violates a fixed constraint. Option C contradicts capacity evidence. Option D relabels without creating genuine reserve. The distractors target distinct planning errors (ignoring constraints, fabricating capacity, cosmetic repair) rather than varying surface features alone. Answer reasoning correctly explains why each distractor fails.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "content/060-misconception.md#misconception-full-calendar",
+      "finding": "The misconception repair follows an evidence-appropriate structure: it elicits a prediction (which plan absorbs disruption better), states the incorrect model neutrally ('unused space is waste'), identifies what it cannot explain (absorbing a lost block without exceeding capacity), provides the replacement model (recovery capacity as a constraint), and rechecks with a changed case (what if the lost block contains required lab preparation). The closing sentence appropriately disclaims caricature.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lesson.json#objectives",
+      "finding": "All three objectives use observable performance verbs (construct, allocate, revise) and map to the single graph outcome. Each objective is assessed by at least one item: objective-bound-capacity by items 1, 2, and 4; objective-balance-and-sequence by items 1, 2, and 4; objective-revise-from-evidence by items 3 and 4. The alignment is complete and no assessment item tests knowledge not taught in the lesson.",
+      "resolution": null
+    }
+  ],
+  "limitations": [
+    "This reviewer cannot independently verify the original primary sources cited within the evidence synthesis (Cepeda et al. 2006, Roediger & Karpicke 2006, Barbieri et al. 2023, etc.) because the lesson's declared sources point to the internal synthesis rather than to those papers directly. The synthesis's agent-access status is checked-no-agent-restriction-found, and its content was read and assessed for internal consistency.",
+    "The lesson teaches metacognitive planning (a self-regulation skill) rather than natural-science content. The academic correctness standard therefore applies primarily to whether the lesson accurately represents its declared course requirements, uses evidence-based instructional principles within their stated scope, and avoids overclaiming — rather than to verifiable physical or chemical facts.",
+    "The reviewer agent and lesson authoring agent share an accountable principal (github:VSBDev) under the founding-stage policy. While the review run is isolated, uses a different provider (Anthropic vs OpenAI), and begins from the frozen candidate without the authoring conversation, the single-operator configuration limits the independence this review can claim.",
+    "No learner testing data exists to validate whether the four-pass model, the specific fading sequence, or the assessment items discriminate effectively in practice. The review verifies internal logic and source support, not instructional effectiveness."
+  ],
+  "signedAt": "2026-07-20T04:29:19Z"
+}
