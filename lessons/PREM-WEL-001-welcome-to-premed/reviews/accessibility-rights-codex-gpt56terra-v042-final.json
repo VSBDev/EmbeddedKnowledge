@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-WEL-001-ACCESS-CODEX-GPT56TERRA-V042-FINAL",
+  "lessonId": "PREM-WEL-001",
+  "lessonVersion": "0.4.2",
+  "candidateCommit": "e7d864d9640266ea43650e397aff5308f3a1795e",
+  "role": "accessibility-rights",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev",
+    "agent": {
+      "system": "Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-terra",
+      "version": "Codex CLI 0.144.6",
+      "runId": "accessibility-rights-codex-gpt56terra-v042-final-20260720-1fbdfbc5-e175-4923-ac36-31bdcf324b93",
+      "instructionsDigest": "sha256:95ad40f63817311cced7c067ec14e8e3c155ff299667f9f4b35adb2d0db96d43"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "Clean HEAD and exact candidate commit e7d864d9640266ea43650e397aff5308f3a1795e.",
+    "lesson.json, assessment.json, references.json, claims.json, glossary.json, and ATTRIBUTION.md for PREM-WEL-001 version 0.4.2.",
+    "content/01-welcome.md through content/04-finish.md for semantic headings, source notes, alternatives, recovery, and learner-facing assessment disclosure.",
+    "site/lesson-reader.js and site/lesson-reader.css candidate delta for labelled fieldsets, keyboard checkboxes, polite atomic status, session-only Map state, reset behavior, dark theme, and guided overflow behavior.",
+    "site/premed/lessons/index.html, site/premed/lessons/read/index.html, site/premed/lessons/specimen/index.html, and tests/site.spec.js candidate delta for cache refresh and automated-path coverage.",
+    "Static checks run in the isolated review: JSON parsing, first-line H1 verification for all scenes, node --check site/lesson-reader.js, and git diff --check for the permitted delta.",
+    "Operator verification: npm ci; strict source preflight; and the focused Playwright production-reader regression covering keyboard criterion checks, polite status, reset, 390px reflow, and print continuity."
+  ],
+  "findings": [
+    {
+      "severity": "note",
+      "target": "site/lesson-reader.js#renderTextAssessment; lessons/PREM-WEL-001-welcome-to-premed/assessment.json",
+      "finding": "The three open-response items derive semantic manual self-check fieldsets from their rubrics: 4/4, 3/3, and 3/3. Each uses native checkboxes with labels, a polite atomic item status, and a polite atomic global 0/10-to-10/10 status. The in-memory criterion map preserves marks through scene/frame rerendering; Clear response resets only that item and recalculates the total, supporting recovery and retry without presenting the result as authoritative scoring.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-WEL-001-welcome-to-premed/content/04-finish.md#the-welcome-check; ATTRIBUTION.md",
+      "finding": "The learner-facing and attribution disclosures state that open responses are manually marked and are not automatically scored or recorded; the UI additionally says it does not score, save, or submit marks. Unlimited untimed retakes, item-specific recovery routes, nonphysical alternatives, source attribution, CC BY 4.0 adaptation and modification notice, dated agent-access record, no third-party assets, and accountable author/agent provenance are present.",
+      "resolution": "No change required."
+    }
+  ],
+  "limitations": [
+    "This is an accessibility-and-rights review only; it is not legal advice and does not establish rights in every jurisdiction.",
+    "The isolated reviewer inspected only the permitted candidate files and did not inspect prior reviews, adjudication, generated lesson data, author conversation, or external sources.",
+    "The isolated reviewer did not directly execute browser, screen-reader, touch-device, contrast-measurement, or print automation. The accountable operator separately ran the focused production-reader Playwright regression; no physical assistive-technology or touch-device session was performed."
+  ],
+  "signedAt": "2026-07-20T11:38:00Z"
+}
