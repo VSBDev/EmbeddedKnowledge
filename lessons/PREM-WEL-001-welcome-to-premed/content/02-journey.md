@@ -10,16 +10,7 @@ The recommended journey has a broad order, although some subjects run together. 
 6. **Broaden the account with behaviour, society, and population health.** People live in social and physical environments, so later medical study needs evidence about behaviour, institutions, access, inequality, and populations. This helps you distinguish a molecular mechanism, an individual experience, and a population pattern.
 7. **Finish with integration and capstone work.** A new problem will not announce which subject to use. You must choose relevant ideas, connect them through cause or evidence, inspect limitations, and communicate a conclusion another person can audit.
 
-:::{check}
-:id: check-sequence-why
-:kind: retrieval
-
-Pause here. Cover the following text and commit a one-sentence answer before continuing: why does organic chemistry come before much of biochemistry, and why do inquiry and quantitative reasoning begin before both?
-:::
-
-Once you have answered, compare: organic chemistry prepares you to reason about carbon-based structures and reactions, while inquiry and quantitative reasoning provide methods for testing, measuring, and interpreting claims. If you repeated only the order, add why each step helps.
-
-The pace can vary, and later lessons will revisit earlier ideas. The broad path moves from evidence through matter and cells to people, populations, and an unfamiliar problem.
+The pace can vary, and later lessons will revisit earlier ideas.
 
 :::{source-note}
 :claims: claim-recommended-sequence, claim-subject-preparation

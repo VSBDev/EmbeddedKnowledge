@@ -6,6 +6,8 @@ You need not know these subjects yet. This welcome shows what you will learn, wh
 
 Here is one glimpse of a finished explanation. If a wider tube carries more liquid in a model, evidence tests the pattern, physics explains how width affects flow, and physiology asks how living tissues and regulation change the picture. Connecting those contributions and limits turns separate facts into an explanation.
 
+The route is easier to hold in three stages: **evidence and measurement; matter and living systems; people, populations, and capstone work**. The stage shape—not the unfamiliar term inventory—is the target for this welcome. If a term is new, place it in its named subject and note what that subject will later help explain; you will practise that move near the end.
+
 Here is the journey ahead.
 
 - **Scientific method and laboratory practice:** You will ask testable questions, choose variables and fair comparisons, measure carefully, keep reproducible records, and decide what a result supports. These habits keep evidence open to inspection and challenge.

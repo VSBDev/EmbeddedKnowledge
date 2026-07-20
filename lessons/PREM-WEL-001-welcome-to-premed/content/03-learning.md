@@ -1,5 +1,16 @@
 # What learning will look like
 
+Before you preview how the course will work, retrieve one reason for its order.
+
+:::{check}
+:id: check-sequence-why
+:kind: retrieval
+
+Pause here. Without looking back, cover the following text and commit a one-sentence answer before continuing: why does organic chemistry come before much of biochemistry, and why do inquiry and quantitative reasoning begin before both?
+:::
+
+Once you have answered, compare: organic chemistry prepares you to reason about carbon-based structures and reactions, while inquiry and quantitative reasoning provide methods for testing, measuring, and interpreting claims. If you repeated only the order, add why each step helps.
+
 You will learn by meeting an explanation, retrieving it without looking, solving or modelling something, inspecting evidence, receiving feedback, and trying again with less support.
 
 Practical work may be a **physical investigation**, **simulation**, or supplied **dataset or observation**. All can build question-design and analysis skills, but only physical work shows a hands-on action. Your record will name the kind completed; this welcome requires no physical work.
@@ -47,8 +58,8 @@ Once you have answered, compare: **No.** Pump setting changes with width, so eit
 This is the course's reasoning pattern in miniature: define the question, choose relevant ideas, work carefully, check, interpret, and state limits.
 
 :::{source-note}
-:claims: claim-learning-practice, claim-completion-capabilities
+:claims: claim-recommended-sequence, claim-subject-preparation, claim-learning-practice, claim-completion-capabilities
 :sources: source-premed-syllabus
 
-Adapted under CC BY 4.0 from the syllabus's practical modalities and learning practices; the table is an original fictional example.
+Adapted under CC BY 4.0 from the syllabus's recommended sequence, subject preparation, practical modalities, and learning practices; the table is an original fictional example.
 :::

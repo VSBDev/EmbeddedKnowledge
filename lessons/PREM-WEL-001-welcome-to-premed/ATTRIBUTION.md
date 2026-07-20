@@ -2,7 +2,7 @@
 
 ## Lesson authorship and licence
 
-*Welcome to Premed* (`PREM-WEL-001`), version 0.3.0, was prepared for EmbeddedKnowledge under the accountable principal **VSBDev** (`github:VSBDev`). Except where stated below, the lesson prose, fictional training data, prompts, assessment, glossary, and structured records are offered under the [Creative Commons Attribution 4.0 International licence](https://creativecommons.org/licenses/by/4.0/).
+*Welcome to Premed* (`PREM-WEL-001`), version 0.4.0, was prepared for EmbeddedKnowledge under the accountable principal **VSBDev** (`github:VSBDev`). Except where stated below, the lesson prose, fictional training data, prompts, assessment, glossary, and structured records are offered under the [Creative Commons Attribution 4.0 International licence](https://creativecommons.org/licenses/by/4.0/).
 
 No third-party image, audio, video, software, or dataset is included in this pack.
 
@@ -62,4 +62,15 @@ The complete 0.2.0 review cohort was consolidated in a fourth isolated author-re
 
 This fourth digest covers the exact MATERIAL INSTRUCTIONS block supplied to this run and excludes the provenance wrapper and hidden provider instructions.
 
-This pack remains a draft. Its unchanged historical reviews target versions 0.1.0 and 0.2.0 and do not approve this 0.3.0 revision; no adjudication exists. The pack makes no claim of approval, publication, course coverage, learner effectiveness, clinical sufficiency, academic credit, or admission eligibility.
+The complete 0.3.0 review cohort was consolidated in a fifth isolated author-revision run without replacing or relabelling the first four author runs:
+
+- **System:** Codex
+- **Provider:** OpenAI
+- **Model:** gpt-5.6-sol
+- **Version:** Codex CLI 0.144.6
+- **Run ID:** `019f7ee5-78ad-7652-bc8b-225426713b6b`
+- **Material-instructions digest:** `sha256:afb9427fd59af49a0f456fe59ce54084b0683187cee3485bfa5c8e4de0fb7ad6`
+
+This fifth digest covers the exact discloseable material instructions supplied to this run and excludes hidden provider/system instructions.
+
+This pack remains a draft. Its unchanged historical reviews target versions 0.1.0, 0.2.0, and 0.3.0 and do not approve this 0.4.0 revision; no adjudication exists. The pack makes no claim of approval, publication, course coverage, learner effectiveness, clinical sufficiency, academic credit, or admission eligibility.
