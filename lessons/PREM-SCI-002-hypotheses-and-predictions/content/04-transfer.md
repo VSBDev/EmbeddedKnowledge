@@ -41,7 +41,7 @@ For competing hypotheses, write one chain for each and look for a record where t
 
 ## Mastery check
 
-The assessment contains three untimed, retakeable items worth ten points. Attempt each before opening its answer and reasoning. Mastery means earning all ten points: two for distinguishing the three roles, four for deriving a prediction and a contrary result, and four for comparing hypotheses in the archived-audio case. If you miss a criterion, repair the missing link in the reasoning chain and retry with the alternate prompt in the feedback.
+The assessment contains three untimed, retakeable items worth ten points. Attempt each before opening its answer and reasoning. Mastery means earning all ten points: two for distinguishing the three roles, four for deriving a prediction and a contrary result, and four for constructing a discriminating comparison in a new two-record case. If you miss a criterion, repair the missing link in the reasoning chain and retry with the alternate prompt in the feedback.
 
 ## Accessibility and alternatives
 

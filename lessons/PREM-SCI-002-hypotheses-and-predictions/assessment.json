@@ -75,7 +75,7 @@
       "outcomeIds": [
         "topic-scientific-inquiry-hypotheses-predictions"
       ],
-      "prompt": "In a fictional sensor, the hypothesis is: 'The status light turns on when pressure on the pad exceeds 20 N.' Under the stated condition that the same calibrated sensor receives a 25 N load and then a 15 N load, write the two-part observable prediction and name one result that would count against the hypothesis as written.",
+      "prompt": "In a fictional sensor, the hypothesis is: 'The status light turns on when pressure on the pad exceeds 20 N.' The same calibrated sensor receives a 25 N load and then a 15 N load. State that fixed sensor condition, write the two-part observable prediction, and name one result that would count against the hypothesis as written.",
       "stimulus": null,
       "points": 4,
       "responseSpec": {
@@ -112,7 +112,7 @@
       "outcomeIds": [
         "topic-scientific-inquiry-hypotheses-predictions"
       ],
-      "prompt": "Use the fictional frog-audio archive, in which each file contains a calibration tone that should be detectable when the recorder operates normally. Hypothesis 1 says the apparent pattern reflects calling activity that differs with temperature while the recorder operates normally. Hypothesis 2 says calling activity does not differ systematically with temperature and cold-related recorder failure produced the apparent pattern. State one prediction from each that uses both call detections and calibration tones, identify the discriminating result, and explain what intact calibration tones plus fewer calls in colder intervals would and would not justify concluding.",
+      "prompt": "A fictional museum entry logger has an archive of detections from afternoon and late-evening intervals, but its detailed entry counts and clock-comparison records are hidden. An independent building clock can be compared with the timestamp stored for each detection. Hypothesis 1 says actual entry activity is lower during late-evening intervals while the logger clock operates normally. Hypothesis 2 says entry activity does not differ systematically by time of day and a logger-clock error would create an apparent late-evening decrease. State one prediction from each hypothesis that uses both entry detections and the clock comparison, identify the discriminating result, and explain what agreeing timestamps plus fewer entries in late-evening intervals would and would not justify concluding.",
       "stimulus": null,
       "points": 4,
       "responseSpec": {
@@ -123,16 +123,16 @@
         "maxLength": 1800
       },
       "answer": {
-        "correct": "A complete response predicts fewer calls in colder intervals with calibration tones still detectable for Hypothesis 1, and fewer recorded calls accompanied by missing or weak calibration tones for Hypothesis 2. It identifies calibration-tone integrity alongside the call pattern as discriminating. Given intact tones and fewer calls in colder intervals, it concludes that the record is consistent with Hypothesis 1 and counts against Hypothesis 2 as written, while not claiming that temperature is proven causal or that all alternatives are eliminated.",
-        "summary": "The calibration tone makes the hypotheses disagree, and the conclusion is calibrated to that comparison.",
-        "reasoning": "Score one point for a call-plus-intact-tone prediction from Hypothesis 1, one for a call-plus-failed-tone prediction from Hypothesis 2, one for explicitly identifying tone integrity as the discriminating record, and one for the paired interpretation: supports H1 over H2 as written but does not prove causation or eliminate untested alternatives. All four are required for 4/4. If both predictions mention only call counts, add the recorder check. If the conclusion says 'proves,' name an untested alternative and recalibrate the verb. On a retry, compare a real signal change with a clock failure using both event counts and a timestamp check.",
+        "correct": "A complete response predicts fewer late-evening entries with logger timestamps agreeing with the independent building clock for Hypothesis 1, and an apparent time-of-day pattern accompanied by logger timestamps that disagree with the building clock for Hypothesis 2. It identifies timestamp agreement or mismatch alongside the entry pattern as discriminating. Given agreeing timestamps and fewer late-evening entries, it concludes that the record is consistent with Hypothesis 1 and counts against Hypothesis 2 as written, while not claiming that time of day is proven causal or that all alternatives are eliminated.",
+        "summary": "The independent clock check makes the hypotheses disagree, and the conclusion is calibrated to that comparison.",
+        "reasoning": "Score one point for an entry-plus-agreeing-clock prediction from Hypothesis 1, one for an apparent-entry-pattern-plus-clock-mismatch prediction from Hypothesis 2, one for explicitly identifying clock agreement as the discriminating record, and one for the paired interpretation: supports H1 over H2 as written but does not prove causation or eliminate untested alternatives. All four are required for 4/4. If both predictions mention only entry counts, add the independent clock comparison. If the conclusion says 'proves,' name an untested alternative and recalibrate the verb. On a retry, compare a real drop in delivery scans with a scanner-clock error using both scan counts and synchronization records.",
         "acceptableResponses": [
-          "Any logically equivalent pair of predictions and cautious interpretation that uses calibration-tone status to distinguish biological-pattern and recorder-failure explanations."
+          "Any logically equivalent pair of predictions and cautious interpretation that uses agreement with the independent clock to distinguish an activity pattern from a timestamp-error explanation."
         ],
         "commonErrors": [
-          "Giving identical call-only predictions for both hypotheses",
-          "Failing to name the calibration record that separates the hypotheses",
-          "Claiming that agreement proves a temperature effect",
+          "Giving identical entry-count-only predictions for both hypotheses",
+          "Failing to name the independent clock comparison that separates the hypotheses",
+          "Claiming that agreement proves a time-of-day effect",
           "Concluding nothing at all even though one stated hypothesis is challenged"
         ]
       },
@@ -185,26 +185,26 @@
     },
     {
       "id": "rubric-discriminate-archive",
-      "title": "Discriminating archived-audio predictions",
+      "title": "Discriminating museum-logger predictions",
       "criteria": [
         {
           "id": "criterion-activity-prediction",
-          "description": "Award 1 point only when Hypothesis 1 predicts the colder-interval call pattern together with intact calibration tones.",
+          "description": "Award 1 point only when Hypothesis 1 predicts fewer late-evening entries together with logger timestamps that agree with the independent building clock.",
           "maxPoints": 1
         },
         {
           "id": "criterion-failure-prediction",
-          "description": "Award 1 point only when Hypothesis 2 predicts reduced recorded calls together with missing or weak calibration tones.",
+          "description": "Award 1 point only when Hypothesis 2 predicts the apparent entry pattern together with logger timestamps that disagree with the independent building clock.",
           "maxPoints": 1
         },
         {
           "id": "criterion-discriminating-record",
-          "description": "Award 1 point only when calibration-tone integrity alongside calls is identified as the record on which the hypotheses differ.",
+          "description": "Award 1 point only when clock agreement alongside entry detections is identified as the record on which the hypotheses differ.",
           "maxPoints": 1
         },
         {
           "id": "criterion-calibrated-inference",
-          "description": "Award 1 point only when intact tones and fewer cold-interval calls are interpreted as supporting Hypothesis 1 over Hypothesis 2 as written without claiming proof of causation or elimination of every alternative.",
+          "description": "Award 1 point only when agreeing timestamps and fewer late-evening entries are interpreted as supporting Hypothesis 1 over Hypothesis 2 as written without claiming proof of causation or elimination of every alternative.",
           "maxPoints": 1
         }
       ]

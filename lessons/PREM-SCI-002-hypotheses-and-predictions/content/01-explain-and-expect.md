@@ -4,6 +4,8 @@ Imagine that you have already asked this bounded question:
 
 > For freshly cut Granny Smith apple slices kept at 22–24 °C, what is the difference in time to reach browning level 3 between lemon-juice-coated and water-coated slices during the first 60 minutes?
 
+If you cannot yet identify the observation, comparison, and conditions in that question, pause and complete the preceding lesson, *From an observation to a testable question*, before continuing.
+
 The question tells you what you want to find out. It does not yet say why the coatings might differ or what record you expect.
 
 If the data arrived today, how could you tell whether they challenge an explanation rather than merely decorate a story made afterward? You need two more links: a proposed answer and the observable result that answer commits you to.

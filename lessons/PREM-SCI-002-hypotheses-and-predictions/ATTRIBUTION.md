@@ -12,7 +12,7 @@ The USGS publication metadata-and-abstract page listed as `source-usgs-rigor` wa
 
 The EPA page listed as `source-epa-causal-assessment` was used only to verify methodological points about specifying predictions before relevant observations, comparing candidate explanations, and keeping causal conclusions calibrated to the evidence. No EPA wording, environmental example, historical quotation, framework, scoring system, figure, table, or incorporated third-party material is reused or adapted.
 
-The apple case continues an original fictional teaching case from the preceding EmbeddedKnowledge lesson. Its hypotheses, results, comparison table, and interpretation in this lesson are newly written. The mystery box, greenhouse alarm, covered cup, sealed jar, lamp, pressure sensor, and frog-audio archive are also original fictional teaching cases. They do not report real studies, recordings, animals, learners, patients, or datasets.
+The apple case continues an original fictional teaching case from the preceding EmbeddedKnowledge lesson. Its hypotheses, results, comparison table, and interpretation in this lesson are newly written. The mystery box, greenhouse alarm, covered cup, sealed jar, lamp, pressure sensor, frog-audio archive, and museum entry logger are also original fictional teaching cases. They do not report real studies, recordings, animals, learners, patients, or datasets.
 
 No third-party assets or datasets are included.
 

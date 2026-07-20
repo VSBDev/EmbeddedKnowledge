@@ -50,7 +50,9 @@ Notice the decisions that make the comparison useful:
 - The expected records disagree.
 - The conclusion compares support without turning agreement into proof.
 
-Now alter the fictional result: both groups reach level 3 at a median of 27 minutes. That outcome counts against A as written and agrees with B's equal-time prediction. It would not prove B. A third hypothesis might also expect equal times.
+Now alter the fictional result: both groups reach level 3 at a median of 27 minutes. Before reading on, decide which hypothesis that result counts against and which it supports.
+
+The equal-time result counts against A as written and agrees with B's prediction. It would not prove B. A third hypothesis might also expect equal times.
 
 This is why contrary results are productive. They tell you which part of an explanation may need rejection, narrowing, or revision.
 
