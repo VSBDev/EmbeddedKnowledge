@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-LPP-003-ACADEMIC-CLAUDE-FINAL-V4",
+  "lessonId": "PREM-LPP-003",
+  "lessonVersion": "0.1.3",
+  "candidateCommit": "54f10aa5d4e3d0d226426dd3a70b611ad0572dc1",
+  "role": "academic",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — academic reviewer via Claude Code",
+    "agent": {
+      "system": "Claude Code",
+      "provider": "Anthropic",
+      "model": "claude-opus-4-8",
+      "version": "2.1.215",
+      "runId": "e2063cc9-c1da-4412-82f4-cb66e13724d1",
+      "instructionsDigest": "sha256:ec0e00e9465da20c0001a8795eafc6e0ea2cfb57bc03ab7256b0ffc55fbcc22b"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "site/data/premed-graph.json#topic-orientation-mastery-and-retrieval",
+    "site/data/premed-graph.json#topic-orientation-diagnostic-baseline",
+    "lesson.json#outcomes-objectives-prerequisites-scenes",
+    "content/010-orientation.md#claim-source-note-and-scope-boundary",
+    "content/020-diagnostic.md#baseline-use-and-recovery-route",
+    "content/030-concept.md#six-part-loop-definitions-and-source-note",
+    "content/040-worked-example.md#fourteen-day-plan-and-source-note",
+    "content/050-retrieval-check.md#prompt-feedback-and-source-note",
+    "content/060-misconception.md#fluency-repair-and-source-note",
+    "content/070-practice.md#practice-progression-and-source-note",
+    "content/080-transfer.md#peer-session-transfer-and-source-note",
+    "content/090-assessment.md#mastery-gate-retry-remediation-and-source-note",
+    "content/100-synthesis.md#delayed-retrieval-boundaries-and-source-note",
+    "claims.json#claim-mastery-performance",
+    "claims.json#claim-retrieval-durability",
+    "claims.json#claim-spacing-retention-horizon",
+    "claims.json#claim-feedback-recovery",
+    "claims.json#claim-interleaving-conditional",
+    "claims.json#claim-guidance-fading",
+    "references.json#source-authoring-evidence (candidate-pinned synthesis, executive conclusion, sections 4-9 and 12, and evidence-to-rule matrix)",
+    "references.json#source-roediger-karpicke-2006 (PubMed PMID 16507066 and DOI metadata)",
+    "references.json#source-adesope-et-al-2017 (Crossref DOI record and deposited abstract)",
+    "references.json#source-cepeda-et-al-2006 (PubMed PMID 16719566 abstract)",
+    "references.json#source-brunmair-richter-2019 (PubMed PMID 31556629 abstract)",
+    "references.json#source-wisniewski-et-al-2020 (Frontiers full article and DOI metadata)",
+    "references.json#source-barbieri-et-al-2023 (ERIC EJ1364058 record and DOI metadata)",
+    "references.json#source-crissman-2006 (University of Nebraska-Lincoln abstract and citation record)",
+    "references.json#source-tetzlaff-et-al-2025 (peDOCS abstract record and Crossref DOI metadata)",
+    "assessment.json#items-and-rubrics",
+    "glossary.json#terms"
+  ],
+  "findings": [
+    {
+      "severity": "minor",
+      "target": "glossary.json#term-retention-horizon",
+      "finding": "The glossary aliases retention horizon to retention interval, but the cited distributed-practice literature uses retention interval for the post-practice interval before the final test. In the worked example the planning horizon is fourteen days while the interval after the day-13 opportunity is one day. No numerical gap claim is made, so this terminology mismatch does not invalidate the plan, but it could make a learner misread the cited gap-to-interval relation.",
+      "resolution": "Remove the alias or distinguish the whole planning horizon from the post-practice retention interval in the glossary and content/030-concept.md#definition-spacing."
+    },
+    {
+      "severity": "minor",
+      "target": "assessment.json#item-design-plan.answer",
+      "finding": "The stimulus says both models are already taught and their selection conditions are confused, a case for which the verified interleaving evidence supports immediate discrimination practice. The common-errors list warns against mixing unfamiliar models and the acceptable-responses list expressly affirms only a blocked-then-interleaved route. Although the warning is correct for material without a usable initial representation, its placement here could lead a scorer to penalize a source-consistent immediate interleaving plan.",
+      "resolution": "Qualify the common error as applying when a usable initial representation is absent, and add that immediate discrimination practice is acceptable for the already-taught confusable models in this stimulus."
+    },
+    {
+      "severity": "minor",
+      "target": "assessment.json#title",
+      "finding": "The machine-readable title calls the assessment a mastery gate without the provisional qualifier used in the learner-facing scene and glossary. Because this lesson defines mastery as evidence after delay and variation, an immediate end-of-lesson assessment alone cannot establish durable mastery; indexes or exports may surface the title apart from the qualifying prose.",
+      "resolution": "Retitle the artifact as a provisional mastery gate or use another title that preserves the lesson's bounded mastery definition."
+    },
+    {
+      "severity": "note",
+      "target": "claims.json#claims",
+      "finding": "All six material claims are supported at or below their declared scope and confidence. The direct and meta-analytic records verify the retrieval, spacing, feedback, interleaving, worked-example, and adaptive-assistance propositions; the pack explicitly labels the six-part loop, exact schedules, practice ladder, decision rules, and point threshold as EmbeddedKnowledge-authored conventions rather than empirical laws.",
+      "resolution": "No change required for academic approval. Preserve the existing scope and uncertainty boundaries in future revisions."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#items-and-rubrics",
+      "finding": "Independent recalculation found internally correct quantitative and answer logic: scene minutes sum to 115, item points sum to 20, every rubric total matches its item, the 16-of-20 gate with 4-of-6 constructed-response floors is attainable and non-vacuous, and all worked, practice, transfer, and assessment timelines are consistent. No item rewards a scientifically false conclusion once the bounded answer-key qualification above is applied.",
+      "resolution": "No change required for academic approval."
+    }
+  ],
+  "limitations": [
+    "The SAGE publisher pages for the Roediger-Karpicke and Adesope records returned HTTP 403. Their bibliographic and abstract-level claims were verified through authoritative PubMed and Crossref records without bypassing access controls.",
+    "The evidence base is heterogeneous and includes verbal-recall, mathematics, and other structured learning domains; the pack's scope and uncertainty fields appropriately disclose its bounded generalization to foundation-level academic planning.",
+    "This review evaluates academic correctness and evidence only; it does not claim learner-outcome validation or perform another quorum role."
+  ],
+  "signedAt": "2026-07-20T02:39:26Z"
+}
