@@ -549,7 +549,8 @@ test("a published lesson opens through its production route with keyboard and co
   const errors = collectRuntimeErrors(page);
   await page.goto(route(`premed/lessons/?outcome=${targetOutcome.id}`), { waitUntil: "networkidle" });
 
-  const openLesson = page.getByRole("link", { name: "Open reviewed lesson" });
+  const openLesson = page.locator(`a.lesson-contribute-link[href$="/premed/lessons/read/?lesson=${lessonId}"]`);
+  await expect(openLesson).toHaveCount(1);
   await expect(openLesson).toHaveAttribute("href", new RegExp(`/premed/lessons/read/\\?lesson=${lessonId}$`));
   await openLesson.click();
   await expect(page).toHaveURL(new RegExp(`/premed/lessons/read/\\?lesson=${lessonId}$`));
