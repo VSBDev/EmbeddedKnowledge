@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-LPP-006-ACADEMIC-CLAUDE-CYCLE1",
+  "lessonId": "PREM-LPP-006",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "64d9d2069774ff0b6a31d5cc1e7e1e3a89a65a50",
+  "role": "academic",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev operating academic review agent (Claude Code, Anthropic)",
+    "agent": {
+      "system": "Claude Code",
+      "provider": "Anthropic",
+      "model": "claude-opus-4-6",
+      "version": "Claude Code 2.1.215",
+      "runId": "claude/933e3ecf-f60e-4fe2-b014-5b09f3f4c982/academic-prem-lpp-006",
+      "instructionsDigest": "sha256:9642e0452a487dfde2c6913438825276576359076b22eb9b1c84ce6063592ea5"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "The accountable principal (github:VSBDev) operates both the authoring agent and this review agent. This is permitted under the founding-stage quorum policy but constitutes a disclosed structural conflict. The review agent ran in a fresh isolated session without access to the authoring conversation."
+  },
+  "evidenceChecked": [
+    "references.json#source-pubmed-user-guide verified against https://pubmed.ncbi.nlm.nih.gov/help/ accessed 2026-07-20: confirms key-concepts guidance, Automatic Term Mapping, Search Details, Best Match ranking",
+    "references.json#source-pubmed-disclaimer verified against https://pubmed.ncbi.nlm.nih.gov/disclaimer/ accessed 2026-07-20: confirms non-endorsement, no individual quality judgment by NLM",
+    "references.json#source-bookshelf-overview verified against https://www.ncbi.nlm.nih.gov/books/about/overview/ accessed 2026-07-20: confirms multiple document types in one archive",
+    "references.json#source-nlm-publication-types verified against https://www.nlm.nih.gov/mesh/pubtypes.html accessed 2026-07-20: confirms functional distinctions among systematic review, guideline, clinical study, database",
+    "references.json#source-nlm-mesh-course verified against https://www.nlm.nih.gov/oet/ed/pubmed/mesh/index.html accessed 2026-07-20: confirms MeSH as NLM vocabulary for describing articles",
+    "claims.json#claim-key-concepts-first: PubMed guide states identify key concepts as first step; lesson's two-to-four heuristic explicitly labelled as not a PubMed rule",
+    "claims.json#claim-source-function-match: synthesized from publication-type scope notes and Bookshelf overview; functional distinctions are correctly represented",
+    "claims.json#claim-terms-and-vocabulary: MeSH description as NLM vocabulary and automatic mapping confirmed by guide and MeSH course",
+    "claims.json#claim-query-is-prototype: Search Details, term translation, and iterative revision confirmed by PubMed guide",
+    "claims.json#claim-database-not-appraisal: NLM disclaimer explicitly states no endorsement and no individual quality judgment",
+    "assessment.json#item-source-purpose: answer logic correctly identifies systematic review as the synthesis product",
+    "assessment.json#item-concept-selection: answer logic correctly separates topical concepts from appraisal and purpose phrases",
+    "assessment.json#item-retrieval-boundary: answer logic correctly distinguishes relevance ranking from quality endorsement",
+    "assessment.json#item-integrated-transfer: rubric criteria align with lesson objectives and require genuine coordination of two products",
+    "content/030-source-purpose.md: source-function table is a defensible heuristic consistent with NLM publication-type scope notes",
+    "content/050-worked-example.md: worked-example logic is internally consistent; revision responds to observed mismatch, not random change",
+    "content/060-misconception.md: misconception repair correctly represents PubMed ranking as relevance aid, not quality judgment",
+    "lesson.json#outcomes: topic-study-research-literacy-question-to-source exists in premed-graph.json",
+    "lesson.json#estimatedMinutes: sum of scene estimates (7+8+15+16+18+10+7+14+8+7) equals declared 110"
+  ],
+  "findings": [
+    {
+      "severity": "minor",
+      "target": "claims.json#claim-key-concepts-first",
+      "finding": "The claim states 'PubMed's basic search guidance begins by identifying the key concepts in an information need.' The PubMed User Guide confirms this ('Identify the key concepts for your search'). However, the lesson's two-to-four block heuristic is original pedagogical scaffolding, not a direct PubMed recommendation. The claim's uncertainty field correctly discloses this, but the claim statement itself could be read as attributing the range to PubMed. The lesson prose (content/040-concept-blocks.md) correctly separates the two ('The lesson uses two to four blocks as a manageable drafting heuristic. It is not a PubMed rule.').",
+      "resolution": "No change required. The lesson prose and claim uncertainty field together make the attribution boundary clear. A future revision could tighten the claim statement to 'PubMed's basic search guidance begins by identifying the key concepts' without the word range, but this is not materially misleading as written."
+    },
+    {
+      "severity": "minor",
+      "target": "content/030-source-purpose.md#functional-starting-map",
+      "finding": "The source-purpose table includes 'A current textbook, handbook, or reference work' for orientation but does not cite a specific NLM source for this row's function. The cited NLM publication-type scope notes cover systematic review, guideline, clinical study, and database but do not define 'textbook' as a publication type with a scope note matching the lesson's functional description. The lesson's characterization is reasonable domain knowledge but lacks a mapped structured source for this specific row.",
+      "resolution": "No change strictly required because the claim (claim-source-function-match) uses 'synthesis' support with 'medium-high' confidence and its scope explicitly identifies this as 'a foundation-level starting heuristic.' The textbook/reference-work row is uncontroversial domain knowledge. A future revision could add an explicit note that the textbook row represents general information-science consensus rather than an NLM-defined publication type."
+    },
+    {
+      "severity": "note",
+      "target": "content/050-worked-example.md#worked-example-question-to-source",
+      "finding": "The worked example uses a 'constructed result sample' and states this explicitly. The example correctly follows the lesson's decision chain and the revision logic (broadening population from 'university biology learners' to 'university learners | undergraduate students') is a defensible pedagogical demonstration of responding to an observed wording mismatch. The final paragraph correctly notes that PubMed is 'only a prototype environment' and acknowledges the need for education-focused databases. This boundary awareness is a strength.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "content/060-misconception.md#misconception-ranking-equals-quality",
+      "finding": "The misconception repair is well-structured: it elicits commitment, states the incorrect model, identifies what it cannot explain (PubMed describes Best Match as relevance ranking; NLM disclaims quality judgment), supplies the correct model (retrieval vs. appraisal as distinct operations), compares on the same case, and rechecks in a new case (Bookshelf guideline). The source evidence directly supports the correction. The PubMed User Guide confirms Best Match uses term-frequency and machine-learning relevance algorithms, not quality scoring.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lesson.json#objectives",
+      "finding": "All three objectives use observable verbs ('classify and justify,' 'convert,' 'use...to revise') and are mapped to instruction, practice, and assessment items. The lesson correctly does not assess distinctions it did not teach. The scope boundaries (deferring to PREM-02.02 and PREM-02.03) are explicit and consistent throughout.",
+      "resolution": null
+    },
+    {
+      "severity": "minor",
+      "target": "references.json#source-pubmed-user-guide",
+      "finding": "The source records 'issued: 2026-05-07' and 'accessed: 2026-07-20.' PubMed's help page was confirmed accessible and its content aligns with lesson claims as of the review date. However, the 'issued' date represents the last update stated on the page. If NLM updates the guide before this lesson is published, certain interface details (Search Details location, Best Match behavior) could change. The lesson's claim uncertainty fields acknowledge this for claim-query-is-prototype ('Result ranking and interface behavior can change').",
+      "resolution": "No change required for the candidate. The lesson correctly scopes claims to the dated guide version and records explicit uncertainty about interface changes. Standard recency review should apply before publication if significant time passes."
+    }
+  ],
+  "limitations": [
+    "This review agent cannot verify live PubMed interface behavior (e.g., actual Search Details rendering or Best Match result ordering) because the lesson correctly uses constructed instructional samples rather than live search claims.",
+    "The reviewer shares an accountable principal with the authoring agent. Independence is structural (fresh run, no shared conversation, isolated skill) but not organizational.",
+    "The reviewer's domain expertise in information science and health-science librarianship is general rather than specialist-level. No claim required specialist verification that was unavailable.",
+    "All sources were confirmed accessible with no agent restriction found, but agent-access determinations are dated observations that may change."
+  ],
+  "signedAt": "2026-07-20T12:00:00Z"
+}
