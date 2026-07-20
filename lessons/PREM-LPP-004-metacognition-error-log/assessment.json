@@ -1,0 +1,260 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-assessment-v1",
+  "lessonId": "PREM-LPP-004",
+  "lessonVersion": "0.1.0",
+  "assessmentId": "assessment-metacognition-error-log",
+  "title": "Metacognition and error-log mastery evidence",
+  "purpose": "mixed",
+  "attemptPolicy": {
+    "retakeable": true,
+    "timeLimitMinutes": null,
+    "feedback": "after-attempt"
+  },
+  "items": [
+    {
+      "id": "item-classify-selection",
+      "type": "single-choice",
+      "sceneId": "scene-assessment",
+      "objectiveIds": [
+        "objective-classify-error",
+        "objective-choose-action"
+      ],
+      "outcomeIds": [
+        "topic-orientation-metacognition-and-error-log"
+      ],
+      "prompt": "A task supplies two model rules. The learner restates the task condition accurately, recalls both rules, chooses the model whose condition is absent, and executes that model without a procedural slip. Which entry best identifies the first broken link and the next probe?",
+      "stimulus": null,
+      "points": 3,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-retrieval-restudy",
+            "text": "Retrieval error; reread both complete models and stop when they feel familiar."
+          },
+          {
+            "id": "option-selection-contrast",
+            "text": "Selection error; contrast the models' conditions, then justify a model choice in a new case before execution."
+          },
+          {
+            "id": "option-execution-repeat",
+            "text": "Execution error; repeat the same chosen model's steps with the same values."
+          },
+          {
+            "id": "option-trait-label",
+            "text": "General inability; record a permanent learner label and omit another probe."
+          }
+        ],
+        "units": null,
+        "tolerance": null,
+        "maxSelections": 1,
+        "maxLength": null
+      },
+      "answer": {
+        "correct": "option-selection-contrast",
+        "summary": "The first contradicted operation is model selection, so the next evidence should expose model choice.",
+        "reasoning": "Interpretation and retrieval are supported by the accurate condition and rules. Execution of an inapplicable model can be internally correct while the answer remains wrong; selection therefore breaks first. Contrasting the applicability conditions and requiring a justified choice in a fresh case directly tests the diagnosis.",
+        "acceptableResponses": [
+          "Selection error followed by a new discriminating model-choice probe"
+        ],
+        "commonErrors": [
+          "Calling the error retrieval ignores the accurately recalled rules.",
+          "Calling it execution confuses correct performance of the wrong procedure with choosing an applicable procedure.",
+          "Repeating the identical case does not provide a varied fresh probe.",
+          "A task record does not justify a permanent learner label."
+        ]
+      },
+      "rubricId": "rubric-classify-selection",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-calculate-gap",
+      "type": "numeric",
+      "sceneId": "scene-assessment",
+      "objectiveIds": [
+        "objective-calibrate-confidence"
+      ],
+      "outcomeIds": [
+        "topic-orientation-metacognition-and-error-log"
+      ],
+      "prompt": "After committing a response, a learner predicts earning 75% of the points on the declared analytic rubric and then earns 40%. Calculate predicted rubric percentage minus observed rubric percentage. Enter the signed gap in percentage points; then compare your interpretation with the answer reasoning.",
+      "stimulus": null,
+      "points": 3,
+      "responseSpec": {
+        "mode": "number",
+        "units": "percentage points",
+        "tolerance": 0
+      },
+      "answer": {
+        "correct": 35,
+        "summary": "The signed calibration gap is positive 35 percentage points.",
+        "reasoning": "Predicted rubric percentage minus observed rubric percentage is 75 minus 40, which equals positive 35 percentage points. The prediction exceeded observed rubric performance on this task. The result neither locates the error nor establishes an overconfident personality; those require process evidence and a pattern across comparable probes.",
+        "acceptableResponses": [
+          "+35 percentage points",
+          "35 percentage points, with confidence above performance on this task"
+        ],
+        "commonErrors": [
+          "Negative 35 reverses the declared confidence-minus-performance convention.",
+          "Calling the learner overconfident converts one task result into an unsupported trait label.",
+          "Using 75% as the performance estimate discards the rubric evidence."
+        ]
+      },
+      "rubricId": "rubric-calculate-gap",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-build-error-log",
+      "type": "open-response",
+      "sceneId": "scene-assessment",
+      "objectiveIds": [
+        "objective-classify-error",
+        "objective-calibrate-confidence",
+        "objective-choose-action"
+      ],
+      "outcomeIds": [
+        "topic-orientation-metacognition-and-error-log"
+      ],
+      "prompt": "For Records A and B, create concise error-log entries. Separate observations from the provisional category, identify the first broken link, calculate confidence minus performance, name an unresolved alternative where appropriate, choose a matching action, and specify a delayed or varied fresh probe.",
+      "stimulus": "Both fictional tasks state that condition Gamma is present and supply two model rules. Model G applies under Gamma; Model H applies under Eta. The rubric awards 20% each for interpretation, retrieval, and selection, 30% for execution, and 10% for verification. Record A: the learner restates Gamma, recalls both rules, selects Model G, transposes two supplied values during execution, performs no check, predicts earning 70% of the rubric points, and earns 60%. Record B: the learner restates Gamma, recalls both rules, selects Model H, executes Model H's supplied steps accurately, predicts earning 50% of the rubric points, and earns 40%.",
+      "points": 12,
+      "responseSpec": {
+        "mode": "text",
+        "maxLength": 6000
+      },
+      "answer": {
+        "correct": "A rubric-scored response that classifies Record A provisionally as execution first unsupported with a +10-point gap and Record B as selection first unsupported with a +10-point gap; distinguishes observations from hypotheses; records uncertainty; assigns a targeted repair to each; and specifies fresh probes that can revise the classifications.",
+        "summary": "Identical signed gaps do not imply identical errors or actions.",
+        "reasoning": "In A, interpretation, retrieval, and selection are supported. Execution first fails at the transposition; missing verification is later and may have allowed the error to persist. A targeted action exposes the substitution step, preserves a check, and retests with new values or representation. In B, interpretation and retrieval are supported, but Model H is inapplicable under Gamma, so selection first fails even though H is executed accurately. A targeted action contrasts Gamma and Eta and requires a justified choice in a new case. Both gaps are 70 minus 60 and 50 minus 40, or positive 10 points, but calibration direction alone does not locate the different errors.",
+        "acceptableResponses": [
+          "Any two auditable entries with the same supported classifications, calculations, targeted actions, fresh probes, and explicit provisional scope.",
+          "For A, an answer may record verification as a secondary error if execution remains the first broken link.",
+          "For B, an answer may request a prompt-restatement probe if it explains why interpretation still remains an alternative despite the current accurate restatement."
+        ],
+        "commonErrors": [
+          "Assigning both records the same category from their equal calibration gaps confuses calibration with diagnosis.",
+          "Calling A a selection error ignores the stated correct model choice.",
+          "Calling B an execution error ignores the accurate execution of an inapplicable model.",
+          "Assigning full-topic rereading to both records fails to match action to evidence.",
+          "Omitting a fresh probe leaves the provisional diagnosis untested."
+        ]
+      },
+      "rubricId": "rubric-build-error-log",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-transfer-review-system",
+      "type": "open-response",
+      "sceneId": "scene-assessment",
+      "objectiveIds": [
+        "objective-classify-error",
+        "objective-calibrate-confidence",
+        "objective-choose-action"
+      ],
+      "outcomeIds": [
+        "topic-orientation-metacognition-and-error-log"
+      ],
+      "prompt": "Redesign a weekly study-group dashboard that currently stores names and total scores, labels every low score red, and assigns the entire chapter again. Produce a privacy-preserving, non-color-dependent process that supports classification, calibration, targeted action, and revisable fresh probes.",
+      "stimulus": "The group needs an aggregate plan for the next week but does not need individual identities, health information, disability details, or permanent learner profiles. The process must work as ordered text and remain untimed.",
+      "points": 12,
+      "responseSpec": {
+        "mode": "text",
+        "maxLength": 7000
+      },
+      "answer": {
+        "correct": "A rubric-scored redesign using anonymous task-level records, attempts and intermediate evidence before feedback, confidence and rubric performance on matched scales, provisional first-broken-link classifications or unresolved boundaries, matching actions, varied or delayed fresh probes, aggregate action counts, local/deleted individual records, and an equivalent untimed ordered-text route.",
+        "summary": "Replace score-only labels with an evidence-to-action system while minimizing personal data.",
+        "reasoning": "A total score cannot locate the earliest unsupported operation, and color or identity adds no necessary decision evidence. Anonymous task records preserve observations and calibration; provisional categories drive targeted actions; fresh probes test the decisions. Aggregating only counts of action needs supports planning without turning task evidence into a lasting personal profile. Ordered text preserves the same operation without color, pointer input, or time pressure.",
+        "acceptableResponses": [
+          "Any concise system that preserves the same monitoring, provisional diagnosis, calibration, targeted control, fresh-probe, privacy, and accessibility operations.",
+          "The response may keep individual records locally rather than delete them if it states a bounded purpose and does not share identifying details."
+        ],
+        "commonErrors": [
+          "Replacing red and green with different colors still makes the distinction color dependent.",
+          "Keeping only total scores leaves error classification unsupported.",
+          "Storing names or personal characteristics expands the data beyond the stated planning need.",
+          "Assigning an activity without a fresh probe prevents revision from later evidence.",
+          "A drag-only or timed interface changes access without serving the target construct."
+        ]
+      },
+      "rubricId": "rubric-transfer-review-system",
+      "safetyCritical": false
+    }
+  ],
+  "rubrics": [
+    {
+      "id": "rubric-classify-selection",
+      "title": "First-broken-link classification",
+      "criteria": [
+        {
+          "id": "criterion-selection-evidence-action",
+          "description": "Identifies selection as the first contradicted operation and chooses a new probe that exposes applicability and model choice before execution.",
+          "maxPoints": 3
+        }
+      ]
+    },
+    {
+      "id": "rubric-calculate-gap",
+      "title": "Signed calibration calculation",
+      "criteria": [
+        {
+          "id": "criterion-gap-direction-scope",
+          "description": "Calculates positive 35 percentage points and interprets it as confidence exceeding rubric performance on this task without a trait inference.",
+          "maxPoints": 3
+        }
+      ]
+    },
+    {
+      "id": "rubric-build-error-log",
+      "title": "Contrasting error-log records",
+      "criteria": [
+        {
+          "id": "criterion-log-observation-classification",
+          "description": "Separates observations from hypotheses and identifies execution first for A and selection first for B with a defensible uncertainty statement.",
+          "maxPoints": 3
+        },
+        {
+          "id": "criterion-log-calibration",
+          "description": "Calculates and task-bounds both positive 10-point gaps without using them to infer the error category or a personal trait.",
+          "maxPoints": 3
+        },
+        {
+          "id": "criterion-log-actions",
+          "description": "Chooses an execution-focused action for A and a model-condition contrast for B, explaining how each matches the first broken link.",
+          "maxPoints": 3
+        },
+        {
+          "id": "criterion-log-probes",
+          "description": "Specifies varied or delayed probes that expose the relevant operation and could confirm or revise each classification.",
+          "maxPoints": 3
+        }
+      ]
+    },
+    {
+      "id": "rubric-transfer-review-system",
+      "title": "Privacy-preserving weekly review redesign",
+      "criteria": [
+        {
+          "id": "criterion-transfer-evidence",
+          "description": "Captures anonymous task conditions, committed attempts, intermediate evidence, matched confidence, and rubric performance rather than only totals.",
+          "maxPoints": 3
+        },
+        {
+          "id": "criterion-transfer-decision",
+          "description": "Uses provisional classifications or explicit unresolved boundaries to select matching actions and fresh probes.",
+          "maxPoints": 3
+        },
+        {
+          "id": "criterion-transfer-privacy-plan",
+          "description": "Minimizes personal data and creates an aggregate plan from action-need counts without permanent learner labels.",
+          "maxPoints": 3
+        },
+        {
+          "id": "criterion-transfer-access",
+          "description": "Provides an untimed ordered-text route whose meaning and operation do not depend on color, layout, pointing, dragging, or a sensory channel.",
+          "maxPoints": 3
+        }
+      ]
+    }
+  ]
+}
