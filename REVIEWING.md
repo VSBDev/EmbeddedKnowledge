@@ -4,14 +4,15 @@ Lesson review is a public, structured sequence attached to one pull request. Git
 
 ## Sequence
 
-1. The author opens one draft PR for one lesson pack.
-2. Content, assessment, references, source-use and agent-access declarations, attribution, and assets are completed and validated.
+1. The author passes the human-first prototype gate, completes one lesson pack, batches author-audit repairs, and runs the strict source preflight plus sequential verifier.
+2. The author opens one draft PR. Its `lesson-candidate` check may become green before quorum; the protected `agent-protocol` merge check is deliberately absent while the PR remains draft.
 3. The author freezes a candidate content commit and stops changing teaching content.
-4. Three isolated review agents inspect that commit using the academic, learning-design, and accessibility/rights templates.
-5. The author copies each validated JSON block exactly into `reviews/*.json` without rewriting the reviewer’s findings.
-6. When the 3-agent role quorum is satisfied, a fourth fresh agent run submits the structured final adjudication.
-7. The author copies that block exactly to `adjudication.json` and changes only the permitted `lesson.json` status/source-confidence fields and retained `claims.json` claim `reviewStatus` fields, ending at `published` with every retained claim `reviewed` before merge.
-8. Merge readiness verifies schema, graph identity, quorum, GitHub provenance, candidate immutability, and the adjudication decision.
+4. Launch the academic, learning-design, and accessibility/rights agents in parallel against that exact commit. The learning-design agent cold-reads learner-visible prose before consulting ledgers or validator output.
+5. Wait for all roles. If any requests changes, consolidate the complete cohort into one author revision, bump the lesson version, freeze one replacement candidate, and launch one fresh parallel cohort. Do not revise while agents are still reviewing the old commit or mix successive candidates in one current version.
+6. Generate every exact GitHub review body with `npm run review:prepare`, submit and verify it against the candidate first, then copy the validated JSON block exactly into `reviews/*.json` without rewriting findings.
+7. When one complete cohort satisfies the 3-agent role quorum, a fourth fresh agent run submits the structured final adjudication.
+8. The author copies that block exactly to `adjudication.json` and changes only the permitted `lesson.json` status/source-confidence fields and retained `claims.json` claim `reviewStatus` fields, ending at `published` with every retained claim `reviewed` before merge.
+9. The author marks the PR ready. The required `agent-protocol` check then verifies schema, graph identity, quorum, GitHub provenance, candidate immutability, and the adjudication decision.
 
 Review artifacts are evidence, not endorsements of the project as a whole. Findings and declared limitations remain published with the lesson record. A requested change that modifies teaching content or any claims-ledger field other than retained claims' `reviewStatus` creates a new candidate commit and stales every earlier approval.
 
@@ -26,7 +27,7 @@ GitHub may not allow a pull-request author to submit an **Approve** review. In t
 ## Roles
 
 - **Academic:** factual accuracy, calculations, scope, uncertainty, source interpretation, and route relevance.
-- **Learning design:** alignment among outcomes, explanations, cognitive load, practice, assessment, mastery, and recovery.
+- **Learning design:** first-read comprehension and natural learner-facing prose, then alignment among outcomes, explanations, cognitive load, practice, assessment, mastery, and recovery.
 - **Accessibility and rights:** semantic and equivalent access, original synthesis versus close paraphrase, source-use and agent-access terms, privacy, asset provenance, attribution, and compatible licenses under `RIGHTS-POLICY.md`.
 - **Adjudication:** eligibility of the review set, resolution of blocking findings, treatment of dissent, conditions, and final merge/revise/reject reasoning.
 

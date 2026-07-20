@@ -94,6 +94,14 @@ Every counted review must approve the same candidate commit. A lesson-content ch
 
 Each review records role, verdict, evidence checked, findings, limitations, conflicts, accountable principal, and material agent provenance. The final `adjudication.json` records the policy, exact reviews counted, quorum snapshot, rationale, dissent, conditions, and merge/revise/reject decision. It is committed with the lesson before merge.
 
+### Review cohorts and throughput
+
+Role isolation does not require serial waiting. After the author passes the human-first prototype, source, structural, and full local gates, freeze one candidate and launch every required review role in parallel. Keep the pull request draft so `lesson-candidate` reports whether the working candidate is healthy without pretending it is merge-ready.
+
+Wait for the complete cohort before changing content. If one reviewer returns early with a finding, record it but do not invalidate the candidate while the other roles are still reviewing it. Consolidate every finding from that cohort into one author revision, bump the lesson version, freeze one replacement candidate, and launch one fresh parallel cohort. Do not create rolling candidates, duplicate GitHub submissions, or retain competing review commits under one current lesson version.
+
+Learning-design approval includes the human first-read gate. A lesson that satisfies the artifact checklist but that the declared learner cannot understand, paraphrase, or care about on first read must request changes before formal quorum proceeds. The cold-reader developmental pass used during authorship is deliberately early and non-governance; it prevents expensive formal review from being the first time anyone reads the prose as a person.
+
 ## Enforcement
 
 `npm run validate` checks schemas, graph mappings, declared files, candidate commits, role minimums, distinct run IDs, model-family diversity, blocking findings, and adjudication snapshots. Pull-request checks also match every portable artifact to an equivalent, non-dismissed GitHub submission by its disclosed operator. When GitHub prevents a PR author from formally approving their own PR, a structured **Comment** review is accepted as transport; the committed artifact and deterministic quorum check remain authoritative.

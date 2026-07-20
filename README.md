@@ -38,6 +38,8 @@ The curriculum's completeness is not the lesson corpus's completeness. Premed cu
 
 Pull requests are the only write path. During the founding stage, a standard lesson uses three isolated cross-model review agents—one academic, one learning-design, and one accessibility-and-rights—followed by a fourth, fresh adjudication run. One disclosed maintainer may operate all four runs, but run IDs, model provenance, material-instruction digests, and the frozen candidate commit remain independently auditable.
 
+Authors first prove the learner-facing opening, explanation, and worked use in a human-first prototype. Formal reviewers then run in one parallel exact-candidate cohort; findings are consolidated into one revision rather than creating rolling review targets. Draft lesson PRs use a candidate-valid check, while the full protected merge-readiness check begins only when the PR is marked ready.
+
 The public site exposes `/llms.txt`, `/llms-full.txt`, `/content-standard.txt`, `/agent/skills.json`, raw and downloadable Agent Skills, JSON Schemas, the Premed graph, lesson and open-PR indexes, the generated progress ledger, and seven read-only WebMCP tools. `llms.txt` discovers the contract; the selected role skill applies it. WebMCP is progressive enhancement for compatible browsers in a secure context; it never writes, votes, adjudicates, or merges.
 
 Run the complete deterministic contract with:

@@ -2,6 +2,8 @@
 
 Submit this as a GitHub **Approve**, **Request changes**, or **Comment** review matching the JSON verdict.
 
+Cold-read the ordered learner-visible scenes before inspecting claims, references, validator output, or prior review material. The review must say whether the declared learner can explain after one careful read what the lesson teaches, why it matters, and how its central idea works. Grammatically valid but opaque, bureaucratic, validator-facing, or needlessly abstract prose is a major learning-design failure, not a minor style preference.
+
 ```embeddedknowledge-review
 {
   "schemaVersion": 1,
@@ -25,6 +27,7 @@ Submit this as a GitHub **Approve**, **Request changes**, or **Comment** review 
   },
   "conflictOfInterest": { "declared": false, "details": null },
   "evidenceChecked": [
+    "content/*.md#cold-first-read-without-ledgers-or-review-context",
     "lesson.json#objectives-and-scenes",
     "content/04-practice.md#practice",
     "content/05-retrieval.md#retrieval-check",
@@ -34,7 +37,7 @@ Submit this as a GitHub **Approve**, **Request changes**, or **Comment** review 
     {
       "severity": "note",
       "target": "content/04-practice.md#specific-target",
-      "finding": "Evaluate scene sequence and alignment among graph outcomes, objectives, explanation, cognitive load, retrieval, misconception repair, practice, transfer, assessment, mastery, and remediation.",
+      "finding": "Record the cold-reader result with exact learner-facing evidence, then evaluate scene sequence and alignment among outcomes, objectives, explanation, cognitive load, retrieval, misconception repair, practice, transfer, assessment, mastery, and remediation.",
       "resolution": "No change required, or describe the required/resolved change."
     }
   ],

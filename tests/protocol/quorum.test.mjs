@@ -67,6 +67,29 @@ test("one disclosed maintainer may operate the three isolated review agents", ()
   assert.equal(result.reviewSummary.quorumSatisfied, true);
 });
 
+test("the current lesson version never guesses between multiple candidate cohorts", () => {
+  const mixedReviews = structuredClone(reviews);
+  mixedReviews[2].candidateCommit = "f".repeat(40);
+  const submissions = mixedReviews.map((review) => githubSubmission(review, "review", "COMMENTED"));
+  const result = evaluateProposal(lesson, mixedReviews, null, [], [], submissions, "example-contributor");
+  assert.equal(result.state, "awaiting-reviews");
+  assert.equal(result.reviewSummary.approvals, 0);
+  assert.match(result.blockers.join("\n"), /multiple candidate commits/);
+});
+
+test("older lesson-version reviews remain traceability records without counting or blocking", () => {
+  const historical = structuredClone(reviews[0]);
+  historical.reviewId = "REV-PREM-AAA-001-ACADEMIC-HISTORICAL";
+  historical.lessonVersion = "0.0.9";
+  historical.candidateCommit = "e".repeat(40);
+  historical.verdict = "request-changes";
+  const result = evaluateProposal(lesson, [...reviews, historical], null, [], [], reviewSubmissions, "example-contributor");
+  assert.equal(result.state, "awaiting-adjudication");
+  assert.equal(result.reviewSummary.approvals, 3);
+  assert.equal(result.reviewSummary.quorumSatisfied, true);
+  assert.doesNotMatch(result.blockers.join("\n"), /HISTORICAL/);
+});
+
 test("a fourth fresh adjudication run produces merge-ready state", () => {
   const githubReviews = [...reviewSubmissions, githubSubmission(adjudication, "adjudication", "COMMENTED")];
   const result = evaluateProposal(lesson, reviews, adjudication, [], [], githubReviews, "example-contributor");

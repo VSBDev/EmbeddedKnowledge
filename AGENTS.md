@@ -32,6 +32,8 @@ These instructions apply to the entire EmbeddedKnowledge project.
 
 - One lesson PR should introduce or materially revise one lesson pack.
 - Design the instructional argument before drafting prose. Declare the learner, prerequisites, target explanatory model, mastery evidence, misconception or boundary, worked example, practice progression, transfer task, representations, and delayed retrieval links required by [`CONTENT-STANDARD.md`](CONTENT-STANDARD.md).
+- Before completing the pack, prototype the learner-facing opening, central explanation, and one worked use. Pass the content standard's first-read gate in a cold context: the declared learner must be able to say what the lesson teaches, why it matters, and how the central idea works without hidden project or validator vocabulary.
+- Use the smallest coherent instructional arc. Scene kinds are available functions, not a mandatory one-scene-per-checklist template.
 - Validate `lesson.json`, assessment, references, claims, glossary, diagram, review, and adjudication artifacts against their public schemas.
 - Map only to existing knowledge-graph outcome IDs.
 - Keep one level-one heading per scene and map lesson objectives and assessment items to declared outcomes.
@@ -40,7 +42,7 @@ These instructions apply to the entire EmbeddedKnowledge project.
 - Course content is licensed CC BY 4.0. Identify exceptions and third-party assets explicitly.
 - Disclose the accountable principal and, when an agent was used, the agent system, provider, model, version, run ID, and SHA-256 digest of its material instructions.
 - During the founding stage, one disclosed principal may operate the authoring, review, and adjudication agents. Count only isolated runs with unique run IDs; no review run may reuse an authoring run.
-- Reviews must target the same candidate commit. Any lesson-content change makes prior approvals stale.
+- Launch every required review role in parallel against one candidate commit and wait for the complete cohort before revising. Consolidate all findings into one author revision and fresh version/candidate; do not create rolling review targets. Any lesson-content change makes prior approvals stale.
 - Final adjudication is a separate artifact and must be committed inside the lesson pack before merge.
 
 ## Quorum

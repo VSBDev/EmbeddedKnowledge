@@ -18,7 +18,7 @@ For every mapped outcome, the lesson must enable the learner to answer:
 6. **Can I reconstruct and use it without the lesson in front of me?**
 7. **Can I select and adapt it in a new, bounded context?**
 
-The content is ready for review only when it supports all seven questions at the depth declared by the lesson. A pleasant reading experience is valuable, but fluency, familiarity, completion, and time-on-page are not evidence of learning.
+The content is ready for review only when it supports all seven questions at the depth declared by the lesson. **Comprehension is a prerequisite for learning, not a cosmetic extra.** If the declared learner cannot say what the lesson is about, why it matters, and how its central idea works after one careful first read, the lesson is not ready. Fluency, familiarity, completion, and time-on-page still are not evidence of mastery.
 
 ## 2. Design before prose
 
@@ -71,6 +71,22 @@ Use this as a functional sequence, not a demand for nine separate scenes.
 Earlier knowledge should be retrieved when it becomes useful, not recopied in full. Later lessons should revisit high-value ideas after a delay and in changed contexts.
 
 ## 4. Write explanations, not compressed notes
+
+### First-read gate: write for a learner, not for the contract
+
+The standard belongs in the authoring process, not in the voice of the lesson. Learners should encounter an inviting explanation, not the vocabulary of a design brief, schema, validator, or review rubric.
+
+- Open with a concrete question, phenomenon, surprising observation, or useful problem that the learner can picture. Make the reason to continue clear before listing objectives, definitions, exclusions, or caveats.
+- Give the concrete case before the abstract label when the label would otherwise be empty. A sentence such as “A baseline is a routing tool” does not orient a novice until *baseline*, *routing*, and the decision being routed have ordinary-language meaning.
+- Prefer people and things doing actions over strings of abstract nouns. Use the technical term once the learner has a distinction to attach it to.
+- Use the shortest ordinary word that remains accurate. Explain necessary scientific vocabulary; do not replace it with a second layer of invented course jargon.
+- Keep qualifications beside the claim they constrain, but do not make the learner cross a wall of disclaimers before reaching the idea. State routine course boundaries once and return to them only when they affect a decision.
+- Keep internal IDs, schema fields, claim-map terminology, candidate status, quorum language, and validator instructions out of learner prose unless the mapped outcome explicitly requires that project machinery.
+- Write source notes for learners: say what the evidence supports and where it is limited. Do not narrate the claims ledger or rights workflow.
+- Read representative paragraphs aloud. Rewrite any sentence that an informed teacher would not naturally say to the declared learner, or that requires a second reading because the grammar hides the main action.
+- Build motivation through visible meaning and attainable progress, not hype, fake enthusiasm, decorative stories, or claims that the topic is “important” without showing what it helps explain or do.
+
+Before completing the full pack, test the opening, central explanation, and one example as a learner-visible prototype. Give a cold reader only the declared learner, target outcome, and prototype—not the authoring brief or quality rubric. The prototype passes when that reader can explain in plain language what they are learning, why it matters, and the central relation or procedure, and can identify no sentence whose meaning depends on hidden project knowledge. This developmental read does not count toward review quorum or evidence of learning.
 
 ### 4.1 Build coherence for the declared novice
 
@@ -289,13 +305,15 @@ An authoring agent must complete these phases in order.
 2. Choose an anchor phenomenon or task and the smallest set of representations that reveal the model.
 3. Design the worked example, faded practice sequence, transfer task, retrieval schedule, feedback, and recovery routes before polishing prose.
 4. Map every objective to scenes and assessment evidence.
+5. Choose the smallest instructional arc that can teach and assess the outcome. Do not turn the nine functional stages into nine compulsory scenes or repeat the same explanation to satisfy multiple checklist labels.
 
 ### Phase C — Draft
 
-1. Write the core causal or relational explanation first.
-2. Add definitions, representations, examples, qualifications, and sources where they reduce a real learner inference gap.
-3. Add prompts before explanations they are intended to retrieve.
-4. Keep essential content in canonical source, not styling or interaction state.
+1. Draft a learner-visible prototype containing the opening, core causal or relational explanation, and one worked use before constructing the rest of the pack.
+2. Run the first-read gate above in a fresh context where possible. Repair the prototype before multiplying its voice across scenes, practice, ledgers, and assessment.
+3. Add definitions, representations, examples, qualifications, and sources where they reduce a real learner inference gap.
+4. Add prompts before explanations they are intended to retrieve.
+5. Keep essential content in canonical source, not styling or interaction state.
 
 ### Phase D — Challenge
 
@@ -303,7 +321,7 @@ Run four separate self-audits before requesting independent review:
 
 - **Academic:** recompute results; check terminology, scope, current consensus, citations, safety, and all representations against each other.
 - **Learning:** attempt every prompt as the declared learner; inspect prerequisite gaps, hidden steps, scaffolding, feedback, misconception repair, spacing, and transfer.
-- **Clarity:** remove irrelevant detail, repair ambiguous referents and terminology drift, expose causal links, and check long-form continuity.
+- **Clarity:** read learner-visible scenes without metadata or ledgers; remove irrelevant detail and rubric leakage; replace compressed abstraction with concrete meaning; repair ambiguous referents and terminology drift; expose causal links; read representative passages aloud; and check long-form continuity.
 - **Accessibility and rights:** verify equivalent meaning and operation, reflow, navigation, original synthesis versus close paraphrase, source-use and agent-access declarations, asset provenance, licence, privacy, and non-clinical boundaries.
 
 Self-audit does not create a review artifact or count toward quorum.
@@ -322,6 +340,7 @@ Every standard lesson must pass all applicable gates. A reviewer records evidenc
 | Gate | Pass evidence | Blocking failure |
 |---|---|---|
 | Alignment | Outcomes, objectives, instruction, practice, and assessment describe the same performance. | Content or assessment drifts beyond the mapped outcome. |
+| Human first read | A cold reader at the declared level can explain what the lesson teaches, why it matters, and how the central idea works; the opening and examples use natural, concrete language without hidden project machinery. | The prose is grammatically valid but opaque, bureaucratic, needlessly abstract, validator-facing, or dependent on unexplained internal vocabulary. |
 | Learner model | Declared level, prerequisites, diagnostic, and recovery route are usable. | Hidden prerequisites or no recovery path. |
 | Coherence | The central model forms a connected causal, relational, or procedural argument. | Fact list, unexplained jumps, or terminology drift. |
 | Accuracy | Claims, calculations, notation, representations, and boundaries agree with verified sources. | Material error, unsupported claim, or fabricated source. |
@@ -346,6 +365,9 @@ Do not:
 - use decorative detail to manufacture interest;
 - make readability grade level, word count, frame count, or completion rate the learning target;
 - convert exposition into fragments that no longer form a coherent explanation;
+- confuse density, abstraction, or institutional tone with rigor;
+- expose the authoring checklist, internal graph machinery, evidence ledger, or governance workflow as if it were the lesson;
+- mechanically create one scene for every stage of the instructional arc or repeat the same point under several rubric headings;
 - present a formula, diagram, or mnemonic without meaning, conditions, and use;
 - call repeated exposure “retrieval practice”;
 - call a changed number a transfer task;

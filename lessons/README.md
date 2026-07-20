@@ -59,6 +59,8 @@ lessons/
     adjudication.json
 ```
 
+This tree demonstrates available artifact and scene kinds; it is not a lesson template to copy line for line. A real lesson uses the smallest set of scenes that gives its outcome a coherent explanation, practice, assessment, and recovery path. Several instructional functions may share one scene, and unused scene kinds should be omitted.
+
 The scene filenames under `content/` are descriptive and prefixed with sortable numbers. The authoritative order, identity, and kind live in the `scenes` array in `lesson.json`; directory order is only a human convenience. Use forward-slash relative paths contained within the pack. A pack may omit scene kinds that do not serve its outcomes, but it must satisfy the lesson must-haves in section 5.
 
 `lesson.json` declares format/version, lesson identity/version/status/risk, graph outcomes and prerequisites, duration, authorship and agent provenance, ordered scenes, files, source confidence, CC BY 4.0 licensing, and third-party assets. Lesson Format v1 currently uses lesson schema v3. Follow the current public lesson schema exactly; do not add private conventions that other renderers cannot discover.
@@ -69,7 +71,7 @@ A scene is a bounded instructional purpose, not a slide and not an arbitrary pag
 
 | Scene kind | Purpose | Minimum authoring expectation |
 |---|---|---|
-| `orientation` | Establish relevance, scope, outcomes, route, and boundaries | State why the outcome matters, what learners will do, and what the lesson does not establish. |
+| `orientation` | Establish relevance, scope, outcomes, route, and boundaries | Start with a concrete reason to care and the progress learners will make; add exclusions or boundaries afterward only when they affect safe or correct use. |
 | `diagnostic` | Surface prerequisite knowledge before instruction | Use ungraded questions with routing feedback; never treat placement as failure. |
 | `concept` | Build an explanatory model | Connect representations, evidence, assumptions, and limits rather than listing facts. |
 | `definition` | Establish precise language or notation | Give term, meaning, conditions, non-examples, and linked glossary ID. |
@@ -91,7 +93,7 @@ Scene order follows learning logic, not the table order. For example, a diagnost
 - Begin with one level-one scene title; use descending headings without skipped levels inside the file.
 - Write semantic prose, lists, tables, links, code literals, TeX, and approved directives only.
 - Keep outcome-relevant explanation in the source. CSS, generated images, hover states, and speaker notes may not contain the only copy of essential content.
-- Link to stable graph outcome IDs and glossary/reference/claim IDs rather than reproducing mutable labels as identity.
+- Use stable graph outcome IDs and glossary/reference/claim IDs in metadata and machine links. In learner prose, prefer descriptive names and ordinary transitions; do not expose internal identity machinery unless the outcome teaches it.
 - Set `claimCoverage` on every scene. Use `claims-mapped` when it contains any material teaching claim and `no-material-claims` only for a scene whose content is genuinely instructional routing, reflection, or other non-evidentiary activity.
 - In every `claims-mapped` scene, expose each mapped claim through a learner-visible `{source-note}` that lists all source IDs attached to its named claims.
 - Do not encode absolute viewport dimensions, body scroll behavior, pagination, or desktop-only layout in a scene.
@@ -137,22 +139,23 @@ The v1 directive-option whitelist is `id`, `label`, `kind`, `alt`, `longdesc`, `
 
 A standard lesson is content-complete before review only when it passes the learning-quality gates in [`CONTENT-STANDARD.md`](../CONTENT-STANDARD.md) and contains all applicable evidence below:
 
-1. **Identity and scope:** valid lesson/version IDs, selected atomic graph outcomes, prerequisites, level, estimated time, explicit exclusions, and route status.
-2. **Observable objectives:** each objective maps to a graph outcome and at least one assessment item.
-3. **Prerequisite route:** a diagnostic or explicit verification path, plus recovery links for missing dependencies.
-4. **Explanatory model:** a coherent causal, relational, or procedural argument at the declared depth, with stable terminology, explicit inference links, consistent representations, assumptions, evidence, and limits.
-5. **Worked reasoning:** at least one worked example or derivation that exposes task representation, model selection, plan, reasons, execution, verification, and interpretation, followed by a route that fades support.
-6. **Retrieval:** a prompt presented before answer reveal, with reasoning-rich feedback and delayed/cumulative retrieval mapping.
-7. **Misconception repair:** at least one evidence-backed misconception, non-example, or boundary case chosen for the mapped outcomes.
-8. **Practice:** varied independent practice with fading support, feedback that diagnoses reasoning and prescribes a next step, retry, and actionable remediation.
-9. **Transfer:** a novel bounded task requiring model selection or cross-context reasoning.
-10. **Assessment:** item-to-outcome map, conditions, answer logic, misconception-sensitive feedback, analytic rubric where appropriate, equivalent retry form/strategy, and remediation route.
-11. **Claims and sources:** explicit scene coverage; material factual claims mapped in `claims.json` to complete reference records; a same-scene learner-visible `{source-note}` with every supporting source ID; exact source scope, confidence/uncertainty, review state, and retrieval/version data.
-12. **Glossary:** stable definitions for introduced technical terms, symbols, abbreviations, and ambiguous everyday words.
-13. **Accessibility:** meaningful structure; equivalents for visuals, audio, interactions, and practical modalities; no color-, sound-, motion-, hover-, pointer-, or time-only information.
-14. **Rights and provenance:** CC BY 4.0 contributor grant, complete third-party asset records, attribution, modification notices, and accountable agent disclosure.
-15. **Boundaries and safety:** no clinical advice or credential claim; investigation risks, privacy, consent, and non-physical alternatives addressed when relevant.
-16. **Export parity:** essential content and relationships survive semantic HTML, JSON AST, PDF, EPUB, DOCX, and JATS transforms.
+1. **Human first read:** a cold reader at the declared level can say what the lesson teaches, why it matters, and how its central idea works without consulting metadata, ledgers, or hidden project vocabulary.
+2. **Identity and scope:** valid lesson/version IDs, selected atomic graph outcomes, prerequisites, level, estimated time, material exclusions, and route status.
+3. **Observable objectives:** each objective maps to a graph outcome and at least one assessment item.
+4. **Prerequisite route:** a diagnostic or explicit verification path, plus recovery links for missing dependencies.
+5. **Explanatory model:** a coherent causal, relational, or procedural argument at the declared depth, with stable terminology, explicit inference links, consistent representations, assumptions, evidence, and limits.
+6. **Worked reasoning:** at least one worked example or derivation that exposes task representation, model selection, plan, reasons, execution, verification, and interpretation, followed by a route that fades support.
+7. **Retrieval:** a prompt presented before answer reveal, with reasoning-rich feedback and delayed/cumulative retrieval mapping.
+8. **Misconception repair:** at least one evidence-backed misconception, non-example, or boundary case chosen for the mapped outcomes.
+9. **Practice:** varied independent practice with fading support, feedback that diagnoses reasoning and prescribes a next step, retry, and actionable remediation.
+10. **Transfer:** a novel bounded task requiring model selection or cross-context reasoning.
+11. **Assessment:** item-to-outcome map, conditions, answer logic, misconception-sensitive feedback, analytic rubric where appropriate, equivalent retry form/strategy, and remediation route.
+12. **Claims and sources:** explicit scene coverage; material factual claims mapped in `claims.json` to complete reference records; a same-scene learner-visible `{source-note}` with every supporting source ID; exact source scope, confidence/uncertainty, review state, and retrieval/version data.
+13. **Glossary:** stable definitions for introduced technical terms, symbols, abbreviations, and ambiguous everyday words.
+14. **Accessibility:** meaningful structure; equivalents for visuals, audio, interactions, and practical modalities; no color-, sound-, motion-, hover-, pointer-, or time-only information.
+15. **Rights and provenance:** CC BY 4.0 contributor grant, complete third-party asset records, attribution, modification notices, and accountable agent disclosure.
+16. **Boundaries and safety:** no clinical advice or credential claim; investigation risks, privacy, consent, and non-physical alternatives addressed when relevant.
+17. **Export parity:** essential content and relationships survive semantic HTML, JSON AST, PDF, EPUB, DOCX, and JATS transforms.
 
 A references-only reading list, a narrated deck, a question bank without instruction, or a long essay divided into screens is not a lesson pack.
 
@@ -272,6 +275,7 @@ Before requesting review:
 
 - [ ] Read the current schema and quorum policy; build against their version.
 - [ ] Complete the learner/outcome authoring brief and every applicable acceptance gate in `CONTENT-STANDARD.md`.
+- [ ] Prototype the opening, central explanation, and one worked use; pass the first-read gate before completing the pack.
 - [ ] Confirm every outcome and prerequisite ID exists in the current graph.
 - [ ] Validate scene order, kinds, links, directives, math, chemistry, structured visuals, and pack-local paths.
 - [ ] Check all lesson must-haves and item-to-outcome mappings.
@@ -280,7 +284,7 @@ Before requesting review:
 - [ ] Confirm rights and attribution for every asset and dataset.
 - [ ] Confirm no executable content, raw HTML, unsafe SVG, remote embed, secret, personal data, or unapproved experiment appears.
 - [ ] Disclose accountable principals and material agent provenance.
-- [ ] Run `npm ci`, `npm run validate`, and the lesson-format/export checks exposed by the repository.
+- [ ] Run `npm ci`, `npm run source:preflight -- --strict lessons/<lesson-pack>`, and `npm run verify` sequentially.
 - [ ] Freeze one candidate commit before collecting review artifacts.
 
 The review record determines whether the pack is fit to merge. The specimen and automated checks are necessary implementation references, not substitutes for independent judgment.
