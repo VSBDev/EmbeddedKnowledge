@@ -60,7 +60,8 @@ test("author, reviewer, and adjudicator instructions preserve separate authoriti
   assert.match(author, /do not review, approve, adjudicate, publish, push, or merge/i);
   assert.match(academic, /Do not edit the lesson/);
   assert.match(academic, /Do not read the authoring conversation/);
-  assert.match(adjudicator, /Do not author, repair, review, push, merge, or publish/);
+  assert.match(adjudicator, /Do not perform a review role, reopen authoring, launch another review cohort, push, merge, or publish/);
+  assert.match(adjudicator, /Finalize a standard lesson exactly once/);
   assert.match(adjudicator, /Quorum is necessary but not sufficient/);
 });
 

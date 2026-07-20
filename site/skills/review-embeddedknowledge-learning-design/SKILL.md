@@ -70,4 +70,4 @@ Choose `request-changes` for unresolved major or blocking findings. Choose `abst
 5. Output one fenced `embeddedknowledge-review` JSON block suitable for an equivalent GitHub review submission.
 6. Do not write the artifact into the pack unless explicitly requested. The operator must preserve it exactly.
 7. After it is saved, run `npm run validate`. Report structural failures separately from the learning-design verdict.
-8. Never claim quorum or merge readiness; one learning-design approval is only one eligible vote.
+8. Never claim quorum or merge readiness. Under `standard-lesson-v3`, this is one advisory input to a fresh finalizer; report `request-changes` honestly when warranted and do not start a revision loop.

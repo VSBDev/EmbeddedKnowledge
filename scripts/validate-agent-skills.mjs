@@ -112,8 +112,8 @@ for (const name of [...expected.keys()].filter((name) => name.startsWith("review
   }
 }
 const adjudicator = read(".agents/skills/adjudicate-embeddedknowledge-lesson/SKILL.md");
-if (!adjudicator.includes("Do not author, repair, review") || !adjudicator.includes("Quorum is necessary but not sufficient")) {
-  errors.push("Adjudication skill must preserve fresh synthesis and non-authoring boundaries.");
+if (!adjudicator.includes("Finalize a standard lesson exactly once") || !adjudicator.includes("Quorum is necessary but not sufficient")) {
+  errors.push("Adjudication skill must define bounded standard-lesson finalization and judgment beyond quorum.");
 }
 
 const contribution = readJson("site/agent/contribution.json");

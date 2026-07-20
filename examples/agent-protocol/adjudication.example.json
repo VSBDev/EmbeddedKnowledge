@@ -4,23 +4,53 @@
   "lessonId": "PREM-CHE-001",
   "lessonVersion": "0.1.0",
   "candidateCommit": "0000000000000000000000000000000000000000",
+  "finalCommit": "1111111111111111111111111111111111111111",
   "riskTier": "standard",
-  "policyId": "standard-lesson-v2",
+  "policyId": "standard-lesson-v3",
   "reviewIds": [
     "REV-PREM-CHE-001-ACADEMIC-A1",
-    "REV-PREM-CHE-001-LEARNING-A1",
-    "REV-PREM-CHE-001-ACCESS-A1"
+    "REV-PREM-CHE-001-LEARNING-A1"
   ],
   "quorum": {
     "satisfied": true,
-    "approvals": 3,
-    "roleCounts": { "academic": 1, "learningDesign": 1, "accessibilityRights": 1 },
+    "approvals": 2,
+    "reviewInputs": 2,
+    "changeRequests": 0,
+    "roleCounts": { "academic": 1, "learningDesign": 1, "accessibilityRights": 0 },
     "distinctPrincipals": 1,
-    "distinctAgentRuns": 3,
-    "distinctAgentModelFamilies": 3
+    "distinctAgentRuns": 2,
+    "distinctAgentModelFamilies": 2
   },
   "decision": "merge",
-  "rationale": "Three isolated cross-model review runs approved the same candidate commit, no blocking findings remain, and a fresh adjudication run found that the lesson satisfies the founding-stage standard policy.",
+  "finalization": {
+    "materialChanges": [
+      "The finalizer clarified the worked comparison after reading both review records."
+    ],
+    "reviewDispositions": [
+      {
+        "reviewId": "REV-PREM-CHE-001-ACADEMIC-A1",
+        "findingIndex": 0,
+        "action": "no-change-required",
+        "rationale": "The academic note confirms the bounded comparison and requires no correction."
+      },
+      {
+        "reviewId": "REV-PREM-CHE-001-LEARNING-A1",
+        "findingIndex": 0,
+        "action": "no-change-required",
+        "rationale": "The learning-design note confirms alignment and requires no correction."
+      }
+    ],
+    "accessibilityRightsAudit": {
+      "satisfied": true,
+      "evidenceChecked": [
+        "Semantic scene structure, keyboard-readable alternatives, source provenance, attribution, and asset ledger"
+      ],
+      "limitations": [
+        "This governance fixture is not a real assistive-technology session."
+      ]
+    }
+  },
+  "rationale": "Two isolated cross-provider reviews examined the same original candidate. A fresh finalizer considered both records, produced the identified final commit, disposed every finding, completed the accessibility-and-rights audit, and accepted accountability for the final merge decision.",
   "dissent": [],
   "conditions": ["Replace example identities and hashes before any real merge."],
   "adjudicator": {

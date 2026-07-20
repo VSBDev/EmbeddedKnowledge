@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://embeddedknowledge.io/schemas/adjudication.schema.json",
-  "title": "EmbeddedKnowledge final lesson adjudication",
+  "title": "EmbeddedKnowledge lesson finalization and adjudication",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -15,6 +15,7 @@
     "lessonId": { "type": "string", "pattern": "^PREM-[A-Z]{3}-[0-9]{3}$" },
     "lessonVersion": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
     "candidateCommit": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
+    "finalCommit": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
     "riskTier": { "enum": ["minor-correction", "standard", "high-impact"] },
     "policyId": { "type": "string", "pattern": "^[a-z0-9-]+-v[0-9]+$" },
     "reviewIds": { "type": "array", "minItems": 2, "uniqueItems": true, "items": { "type": "string", "pattern": "^REV-" } },
@@ -24,6 +25,8 @@
       "properties": {
         "satisfied": { "type": "boolean" },
         "approvals": { "type": "integer", "minimum": 0 },
+        "reviewInputs": { "type": "integer", "minimum": 0 },
+        "changeRequests": { "type": "integer", "minimum": 0 },
         "roleCounts": {
           "type": "object", "additionalProperties": false,
           "required": ["academic", "learningDesign", "accessibilityRights"],
@@ -39,6 +42,44 @@
       }
     },
     "decision": { "enum": ["merge", "revise", "reject"] },
+    "finalization": {
+      "type": "object", "additionalProperties": false,
+      "required": ["materialChanges", "reviewDispositions", "accessibilityRightsAudit"],
+      "properties": {
+        "materialChanges": {
+          "type": "array", "uniqueItems": true,
+          "items": { "type": "string", "minLength": 5, "maxLength": 1000 }
+        },
+        "reviewDispositions": {
+          "type": "array",
+          "items": {
+            "type": "object", "additionalProperties": false,
+            "required": ["reviewId", "findingIndex", "action", "rationale"],
+            "properties": {
+              "reviewId": { "type": "string", "pattern": "^REV-" },
+              "findingIndex": { "type": "integer", "minimum": 0 },
+              "action": { "enum": ["incorporated", "no-change-required", "not-incorporated"] },
+              "rationale": { "type": "string", "minLength": 10, "maxLength": 2000 }
+            }
+          }
+        },
+        "accessibilityRightsAudit": {
+          "type": "object", "additionalProperties": false,
+          "required": ["satisfied", "evidenceChecked", "limitations"],
+          "properties": {
+            "satisfied": { "type": "boolean" },
+            "evidenceChecked": {
+              "type": "array", "minItems": 1, "uniqueItems": true,
+              "items": { "type": "string", "minLength": 5, "maxLength": 500 }
+            },
+            "limitations": {
+              "type": "array",
+              "items": { "type": "string", "minLength": 5, "maxLength": 1000 }
+            }
+          }
+        }
+      }
+    },
     "rationale": { "type": "string", "minLength": 40, "maxLength": 12000 },
     "dissent": { "type": "array", "items": { "type": "string", "minLength": 5, "maxLength": 4000 } },
     "conditions": { "type": "array", "items": { "type": "string", "minLength": 5, "maxLength": 2000 } },

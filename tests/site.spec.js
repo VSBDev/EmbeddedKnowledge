@@ -102,10 +102,10 @@ test("the collaboration page defines an agent-first PR interface and accountable
   await expect(page.locator(".door-grid")).toContainText("Load the contract");
   await expect(page.locator(".door-grid")).toContainText("Open one focused PR");
   await expect(page.locator(".quorum-tier-grid article")).toHaveCount(3);
-  await expect(page.locator(".quorum-tier-grid .is-standard")).toContainText(/3 \+ 1/);
-  await expect(page.locator(".review-gates li")).toHaveCount(4);
+  await expect(page.locator(".quorum-tier-grid .is-standard")).toContainText(/2 \+ 1/);
+  await expect(page.locator(".review-gates li")).toHaveCount(3);
   await expect(page.locator(".review-gates")).toContainText("Academic");
-  await expect(page.locator(".governance-grid")).toContainText("three distinct providers");
+  await expect(page.locator(".governance-grid")).toContainText("two providers");
   await expect(page.locator(".license-policy")).toContainText("CC BY 4.0");
   await expect(page.locator(".license-policy")).toContainText("Application code uses the MIT licence");
   await expect(page.locator(".collaboration-page")).toContainText(/intake not yet open/i);
@@ -303,12 +303,14 @@ test("the Premed open book reflects generated publication counts and open PR quo
             state: "awaiting-reviews",
             stateLabel: "AWAITING REVIEWS",
             metadataErrors: [],
-            blockers: ["1 additional eligible approval required."],
+            blockers: ["1 additional eligible review input required."],
             reviewSummary: {
-              approvals: 2,
-              requiredApprovals: 3,
+              reviewInputs: 1,
+              requiredReviewInputs: 2,
+              approvals: 1,
+              requiredApprovals: 0,
               roleCounts: { academic: 1, learningDesign: 1, accessibilityRights: 0 },
-              roleMinimums: { academic: 1, learningDesign: 1, accessibilityRights: 1 },
+              roleMinimums: { academic: 1, learningDesign: 1, accessibilityRights: 0 },
               quorumSatisfied: false
             },
             adjudication: null
@@ -334,8 +336,8 @@ test("the Premed open book reflects generated publication counts and open PR quo
   await expect(page.locator(".reader-outcome-link")).toHaveCount(1);
   await page.locator(".reader-outcome-link").click();
   await expect(page.locator(".outcome-page-header h1")).toHaveText("Acid-base models");
-  await expect(page.locator(".review-book-state")).toContainText("2/3");
-  await expect(page.locator(".review-book-state")).toContainText("Adjudication pending");
+  await expect(page.locator(".review-book-state")).toContainText("1/2");
+  await expect(page.locator(".review-book-state")).toContainText("Finalization pending");
 
   expect(lessonIndex.summary).toMatchObject({
     outcomes: lessonIndex.outcomes.length,

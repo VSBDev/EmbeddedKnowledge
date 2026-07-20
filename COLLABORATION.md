@@ -82,23 +82,21 @@ Files under `examples/agent-protocol/` demonstrate governance artifacts, and `ex
 
 During the founding stage, quorum counts isolated, disclosed agent review runs. One accountable maintainer may operate the runs so the initial corpus can be built before a broad reviewer community exists. This is explicit bootstrap governance, not a claim that the agents are independent people.
 
-| Risk tier | Approving reviews | Role minimums | Fresh final adjudication |
+| Risk tier | Review gate | Role minimums | Fresh final adjudication |
 | --- | ---: | --- | ---: |
 | Minor correction | 2 | 1 academic; 1 accessibility/rights | 1 fresh run |
-| Standard lesson | 3 | 1 academic; 1 learning-design; 1 accessibility/rights | 1 fresh run |
+| Standard lesson | 2 advisory inputs | 1 academic; 1 learning-design | 1 fresh finalizing run |
 | High-impact lesson | 5 | 3 academic; 1 learning-design; 1 accessibility/rights | 1 fresh run |
 
-Every counted review must approve the same candidate commit. A lesson-content change makes prior approvals stale. After merge adjudication, only lesson status/source-confidence and retained claims' review-status fields may be promoted without changing that candidate identity; every other lesson or claims-ledger edit stales the approvals. A standard set uses three unique review run IDs and three distinct providers. Review agents receive the frozen candidate and role prompt without inheriting the authoring conversation. The adjudicator receives the candidate plus complete review record in a fourth run whose ID appears nowhere in authoring or review provenance.
+Minor-correction and high-impact tiers retain approval quorums. For a standard lesson, one academic and one learning-design run inspect the same original candidate across two providers; both `approve` and `request-changes` are eligible advisory records. A third fresh run reads the original and both reviews, disposes every finding, makes the only post-review content revision, audits accessibility and rights, commits the final content, and adjudicates it. No reviewer is represented as approving that final edit. After the recorded final commit, only lesson status/source-confidence and retained claims' review-status fields may change without making adjudication stale.
 
 **Provenance is disclosed and attested, not verified.** Run IDs, providers, models, versions, and instruction digests are self-reported strings; nothing in the platform confirms that a declared run occurred or used the declared provider. The accountable operator attests to them on the public record, and the validators enforce only internal consistency: distinct run IDs, distinct declared providers, role minimums, and one frozen candidate commit. Do not describe the diversity rule as verified independence.
 
-Each review records role, verdict, evidence checked, findings, limitations, conflicts, accountable principal, and material agent provenance. The final `adjudication.json` records the policy, exact reviews counted, quorum snapshot, rationale, dissent, conditions, and merge/revise/reject decision. It is committed with the lesson before merge.
+Each review records role, verdict, evidence checked, findings, limitations, conflicts, accountable principal, and material agent provenance. A standard `adjudication.json` additionally records the original and final commits, review-input counts, indexed finding dispositions, material changes, and the finalizer's accessibility-and-rights audit. It is committed with the lesson before merge.
 
-### Review cohorts and throughput
+### One-pass standard throughput
 
-Role isolation does not require serial waiting. After the author passes the human-first prototype, source, structural, and full local gates, freeze one candidate and launch every required review role in parallel. Keep the pull request draft so `lesson-candidate` reports whether the working candidate is healthy without pretending it is merge-ready.
-
-Wait for the complete cohort before changing content. If one reviewer returns early with a finding, record it but do not invalidate the candidate while the other roles are still reviewing it. Consolidate every finding from that cohort into one author revision, bump the lesson version, freeze one replacement candidate, and launch one fresh parallel cohort. Do not create rolling candidates, duplicate GitHub submissions, or retain competing review commits under one current lesson version.
+After author preflight, freeze one original candidate and launch the academic and learning-design reviews in parallel. Wait for both, then launch the finalizer once. Do not revise between review returns, create rolling candidates, repeat a cohort, or send finalizer changes back for another vote.
 
 Learning-design approval includes the human first-read gate. A lesson that satisfies the artifact checklist but that the declared learner cannot understand, paraphrase, or care about on first read must request changes before formal quorum proceeds. The cold-reader developmental pass used during authorship is deliberately early and non-governance; it prevents expensive formal review from being the first time anyone reads the prose as a person.
 

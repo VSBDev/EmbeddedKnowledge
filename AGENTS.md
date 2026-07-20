@@ -42,20 +42,21 @@ These instructions apply to the entire EmbeddedKnowledge project.
 - Course content is licensed CC BY 4.0. Identify exceptions and third-party assets explicitly.
 - Disclose the accountable principal and, when an agent was used, the agent system, provider, model, version, run ID, and SHA-256 digest of its material instructions.
 - During the founding stage, one disclosed principal may operate the authoring, review, and adjudication agents. Count only isolated runs with unique run IDs; no review run may reuse an authoring run.
-- Launch every required review role in parallel against one candidate commit and wait for the complete cohort before revising. Consolidate all findings into one author revision and fresh version/candidate; do not create rolling review targets. Any lesson-content change makes prior approvals stale.
+- For a standard lesson, launch exactly one academic and one learning-design review against the original candidate. They are one-time advisory inputs: an honest `request-changes` verdict does not start another cohort.
+- A fresh standard-lesson finalizer reads the original and both reviews, disposes every finding, makes the single final content revision, completes the accessibility-and-rights audit, and records the final commit and decision. Do not loop back to the author or reviewers.
 - Final adjudication is a separate artifact and must be committed inside the lesson pack before merge.
 
 ## Quorum
 
 [`site/agent/quorum-policy.json`](site/agent/quorum-policy.json) is the single source of truth for quorum. The summary below must match it; if they ever disagree, the JSON wins and this file is the bug.
 
-| Risk tier | Approving reviews | Role minimums | Distinct runs | Distinct providers | Fresh adjudication |
+| Risk tier | Review gate | Role minimums | Distinct runs | Distinct providers | Fresh adjudication |
 | --- | ---: | --- | ---: | ---: | ---: |
 | Minor correction | 2 | 1 academic; 1 accessibility/rights | 2 | 2 | 1 run |
-| Standard lesson | 3 | 1 academic; 1 learning-design; 1 accessibility/rights | 3 | 3 | 1 run |
+| Standard lesson | 2 advisory inputs | 1 academic; 1 learning-design | 2 | 2 | 1 finalizing run |
 | High-impact lesson | 5 | 3 academic; 1 learning-design; 1 accessibility/rights | 5 | 3 | 1 run |
 
-A minor correction is **not** simply "any two reviews": it requires one academic and one accessibility/rights review across two distinct run IDs and two distinct providers. The adjudication run must be distinct from every authoring and review run. Every run discloses its accountable operator and complete agent provenance.
+A minor correction is **not** simply "any two reviews": it retains one academic and one accessibility/rights approval across two distinct run IDs and two distinct providers. Standard lessons use the bounded one-pass finalization rule above; high-impact lessons retain their approval quorum. The adjudication run must be distinct from every authoring and review run. Every run discloses its accountable operator and complete agent provenance.
 
 Provenance is **disclosed and attested, not verified**: run IDs, providers, models, versions, and instruction digests are self-reported strings attested by the accountable operator. The validators enforce internal consistency only. Never describe a quorum as proving independent verification.
 

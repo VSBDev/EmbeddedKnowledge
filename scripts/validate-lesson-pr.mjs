@@ -6,6 +6,7 @@ import { claimsChangeIsGovernanceOnly, lessonMetadataChangeIsGovernanceOnly } fr
 import { lessonPrOutsideFiles, validateFullLessonPackRemoval } from "./lib/lesson-pr-file-scope.mjs";
 import { lessonPrStage } from "./lib/lesson-pr-stage.mjs";
 import { applySourcePreflightExemptions, preflightSourceAccess } from "./lib/source-access-preflight.mjs";
+import { finalizationRequired, resolveRule } from "./lib/quorum-policy.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const eventPath = process.env.GITHUB_EVENT_PATH;
@@ -146,6 +147,14 @@ const candidateCommit = adjudication
   ? (countedCandidateCommits.size === 1 ? [...countedCandidateCommits][0] : null)
   : (currentCandidateCommits.size === 1 ? [...currentCandidateCommits][0] : null);
 if (candidateCommit && adjudication && adjudication.candidateCommit !== candidateCommit) errors.push("Adjudication and counted reviews must target the same candidate content commit.");
+const quorumPolicy = JSON.parse(fs.readFileSync(path.join(root, "site/agent/quorum-policy.json"), "utf8"));
+const quorumRule = metadata ? resolveRule(quorumPolicy, {
+  lessonId: metadata.id,
+  lessonVersion: metadata.version,
+  riskTier: metadata.riskTier,
+  policyId: adjudication?.policyId
+}) : null;
+const finalCommit = finalizationRequired(quorumRule) ? adjudication?.finalCommit : candidateCommit;
 
 if (metadata) {
   try {
@@ -157,7 +166,7 @@ if (metadata) {
     const filtered = applySourcePreflightExemptions({
       problems: sourcePreflight.errors,
       lesson: metadata,
-      candidateCommit,
+      candidateCommit: finalCommit || candidateCommit,
       policy: sourcePolicy
     });
     for (const exemption of filtered.applied) {
@@ -173,28 +182,45 @@ if (candidateCommit) {
   try {
     git("cat-file", "-e", `${candidateCommit}^{commit}`);
     git("merge-base", "--is-ancestor", candidateCommit, headSha);
-    const postCandidateFiles = git("diff", "--name-only", `${candidateCommit}..${headSha}`, "--", packPath).split("\n").filter(Boolean);
-    const allowed = postCandidateFiles.filter((file) =>
+    if (finalizationRequired(quorumRule)) {
+      if (!finalCommit) throw new Error("standard-lesson-v3 requires an adjudicator finalCommit");
+      if (finalCommit === candidateCommit) throw new Error("finalCommit must follow the reviewed candidate and its two review records");
+      git("cat-file", "-e", `${finalCommit}^{commit}`);
+      git("merge-base", "--is-ancestor", candidateCommit, finalCommit);
+      git("merge-base", "--is-ancestor", finalCommit, headSha);
+      const finalReviewFiles = git("ls-tree", "-r", "--name-only", finalCommit, "--", `${packPath}/reviews`).split("\n").filter(Boolean);
+      const finalReviewIds = new Set();
+      for (const file of finalReviewFiles) {
+        const review = JSON.parse(git("show", `${finalCommit}:${file}`));
+        finalReviewIds.add(review.reviewId);
+      }
+      for (const reviewId of adjudication.reviewIds || []) {
+        if (!finalReviewIds.has(reviewId)) throw new Error(`finalCommit does not contain cited review ${reviewId}`);
+      }
+    }
+    const contentAnchor = finalCommit || candidateCommit;
+    const postFinalFiles = git("diff", "--name-only", `${contentAnchor}..${headSha}`, "--", packPath).split("\n").filter(Boolean);
+    const allowed = postFinalFiles.filter((file) =>
       !file.startsWith(`${packPath}/reviews/`) &&
       file !== `${packPath}/adjudication.json` &&
       file !== `${packPath}/lesson.json` &&
       file !== `${packPath}/claims.json`
     );
-    if (allowed.length) errors.push(`Lesson content changed after the candidate commit: ${allowed.join(", ")}. Reviews are stale.`);
+    if (allowed.length) errors.push(`Lesson content changed after the final content commit: ${allowed.join(", ")}. Final adjudication is stale.`);
 
-    if (postCandidateFiles.includes(`${packPath}/lesson.json`)) {
-      const candidateMetadata = JSON.parse(git("show", `${candidateCommit}:${packPath}/lesson.json`));
+    if (postFinalFiles.includes(`${packPath}/lesson.json`)) {
+      const candidateMetadata = JSON.parse(git("show", `${contentAnchor}:${packPath}/lesson.json`));
       const currentMetadata = JSON.parse(fs.readFileSync(metadataPath, "utf8"));
       if (!lessonMetadataChangeIsGovernanceOnly(candidateMetadata, currentMetadata)) {
-        errors.push("lesson.json changed after the candidate commit beyond status or sourceConfidence; reviews are stale.");
+        errors.push("lesson.json changed after the final content commit beyond status or sourceConfidence; final adjudication is stale.");
       }
     }
 
-    if (postCandidateFiles.includes(`${packPath}/claims.json`)) {
-      const candidateClaims = JSON.parse(git("show", `${candidateCommit}:${packPath}/claims.json`));
+    if (postFinalFiles.includes(`${packPath}/claims.json`)) {
+      const candidateClaims = JSON.parse(git("show", `${contentAnchor}:${packPath}/claims.json`));
       const currentClaims = JSON.parse(fs.readFileSync(claimsPath, "utf8"));
       if (!claimsChangeIsGovernanceOnly(candidateClaims, currentClaims)) {
-        errors.push("claims.json changed after the candidate commit beyond claims[].reviewStatus; reviews are stale.");
+        errors.push("claims.json changed after the final content commit beyond claims[].reviewStatus; final adjudication is stale.");
       }
     }
   } catch (error) {
@@ -209,5 +235,5 @@ if (errors.length) {
 if (stage.name === "candidate") {
   console.log(`Lesson PR candidate-valid: ${packPath}, ${reviews.length} review artifact(s), draft workspace may continue to quorum and adjudication.`);
 } else {
-  console.log(`Lesson PR merge-ready: ${packPath}, candidate ${candidateCommit}, ${reviews.length} review artifact(s), published status and merge adjudication present.`);
+  console.log(`Lesson PR merge-ready: ${packPath}, candidate ${candidateCommit}, final content ${finalCommit || candidateCommit}, ${reviews.length} review artifact(s), published status and merge adjudication present.`);
 }

@@ -47,11 +47,11 @@ Course content is licensed CC BY 4.0 unless a file or third-party asset says oth
 - [Graph data](https://embeddedknowledge.io/data/premed-graph.json): 10 domains, 46 modules, 388 atomic outcomes, and 1,058 relationships.
 - [Production ledger](https://embeddedknowledge.io/data/premed-progress.json): contributed, in-review, published-open, and covered-outcome totals.
 
-## Required standard-lesson quorum
+## Required standard-lesson process
 
-A standard lesson uses a founding-stage 3 + 1 agent quorum: one academic, one learning-design, and one accessibility-and-rights review from three isolated run IDs across three distinct providers, followed by a fourth fresh adjudication run. One disclosed maintainer may operate all four agents. Every run records full provenance, every review targets the same frozen candidate commit, and reused run identities never count twice. Provenance is disclosed and attested by the accountable operator, not cryptographically verified.
+A standard lesson uses a founding-stage 2 + 1 one-pass process: one academic and one learning-design review from two isolated runs across two providers inspect the same original candidate, then a third fresh finalizer disposes every finding, writes the final version once, audits accessibility and rights, and adjudicates the final commit. Both `approve` and `request-changes` are usable review inputs; neither starts a new cohort. One disclosed maintainer may operate all agents. Provenance is disclosed and attested by the accountable operator, not cryptographically verified.
 
-Before formal review, the author must pass the human first-read gate on a learner-visible prototype. Launch the complete review cohort in parallel against one candidate, wait for all roles, and consolidate findings into one revision. Draft lesson PRs use `lesson-candidate`; mark them ready only after quorum and adjudication so the protected `agent-protocol` merge check can run.
+Before formal review, the author must pass the human first-read gate on a learner-visible prototype. Launch the academic and learning-design reviews once in parallel against the original candidate, wait for both, then launch one fresh finalizer. Draft lesson PRs use `lesson-candidate`; mark them ready only after finalization and adjudication so the protected `agent-protocol` merge check can run.
 
 ## Repository paths for coding agents
 
