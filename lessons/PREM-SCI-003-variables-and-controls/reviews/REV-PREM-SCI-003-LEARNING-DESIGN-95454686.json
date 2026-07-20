@@ -1,0 +1,128 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-SCI-003-LEARNING-DESIGN-95454686",
+  "lessonId": "PREM-SCI-003",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "2e08cf491b13cc51322fb535c4ae116b05ccd124",
+  "role": "learning-design",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev (accountable operator) — learning-design review",
+    "agent": {
+      "system": "Claude",
+      "provider": "Anthropic",
+      "model": "claude-fable-5",
+      "version": "Claude Code 2.1.215 · 2026-07-20",
+      "runId": "95454686-0b68-4fb2-bd94-5d44a5687014",
+      "instructionsDigest": "sha256:d4c99fcc8f37fd1d14413cbbd09d2dae1f7d3d607bb043d5ef9d48998828dad9"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Founding-stage operation: the accountable principal VSBDev operates the authoring, review, and finalization agents for this lesson, so this review is not independent at the principal level. Role isolation was maintained within this run: only AGENTS.md, CONTENT-STANDARD.md, FORMAT.md, lessons/README.md, REVIEWING.md, the quorum policy, the review schema, and the learning-design review template were loaded, no other EmbeddedKnowledge role procedure was invoked, and no authoring conversation, authoring brief, other review conclusion, or adjudication material was read. Provenance here is disclosed and attested by the operator, not platform-verified."
+  },
+  "evidenceChecked": [
+    "lesson.json#scenes-array-used-only-to-establish-scene-order-before-cold-read",
+    "content/01-zero-two-meanings.md#cold-first-read-without-claims-references-or-validator-output",
+    "content/02-worked-run.md#cold-first-read-worked-example-indicator-audit",
+    "content/03-practise-repair.md#cold-first-read-practice-and-misconception-boundary",
+    "content/04-transfer-synthesis.md#cold-first-read-transfer-mastery-accessibility-and-recovery",
+    "lesson.json#objectives-outcomes-prerequisites-and-scene-minute-totals",
+    "assessment.json#item-identify-core-roles-attempted-as-the-intended-learner",
+    "assessment.json#item-distinguish-control-confounder-attempted-as-the-intended-learner",
+    "assessment.json#item-interpret-control-results-attempted-as-the-intended-learner",
+    "assessment.json#item-transfer-sensor-audit-attempted-as-the-intended-learner",
+    "assessment.json#rubrics-attempt-policy-answer-reasoning-and-retry-contexts",
+    "glossary.json#eight-role-terms-and-control-group-alias",
+    "claims.json#four-claims-scene-mapping-scope-and-uncertainty",
+    "content/04-transfer-synthesis.md#accessibility-and-alternatives-and-recovery-route-sections",
+    "site/data/premed-graph.json#topic-scientific-inquiry-variables-controls-PREM-02.03-outcome-statement",
+    "lessons/#sibling-pack-inventory-for-PREM-SCI-001-002-continuity"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "assessment.json#item-transfer-sensor-audit / content/04-transfer-synthesis.md#compare-your-audit",
+      "finding": "The four-point integrated transfer item, which carries a third of the declared mastery weight, re-uses the same case the learner has just completed with a printed answer key in the same scene. Scene 4 sets up cartridge A or B, the same nitrate standard, the five-minute reading, held-alike standard volume/concentration/sensor model/exposure time/housing temperature, and the pairing 'Every cartridge A run uses an older battery pack; every cartridge B run uses a new battery pack.' It then supplies the complete audit under 'Compare your audit', including 'Confounder: battery age, because old batteries occur only with cartridge A and new batteries only with cartridge B, while battery condition could change the sensor reading' and 'If the positive control is near zero, the system has not demonstrated that it can reveal a nitrate response, so an unknown near-zero reading is not interpretable as \"no nitrate.\"' The assessment item then asks for exactly those elements about exactly that case. A learner who cannot select or adapt the six-role audit in an unfamiliar context can still earn 4/4 by transcribing the paragraph directly above the mastery check, so the item cannot support the mastery claim it carries and the pack has no assessed transfer beyond near practice.",
+      "resolution": "Replace the item's stimulus with a comparison the learner has not already seen worked and answered — the alternate context already named in the item's own retry line (two image-processing filters each tested on a different camera, with known-blank and known-feature reference images) is suitable — and reserve the nitrate-sensor case for scene 4 guided practice only. Keep the four rubric criteria and re-express them against the new case."
+    },
+    {
+      "severity": "major",
+      "target": "content/03-practise-repair.md#independent-mixed-practice-case-c",
+      "finding": "Case C is the pack's only build-your-own independent practice and it cannot be performed as written. It instructs: 'Choose a supplied classroom, engineering, or biological comparison that does not require new data collection.' No comparison bank is supplied anywhere in the pack, scene, assessment, or linked material, so the learner is directed to select from a set that does not exist and is left to invent a case while also being told not to collect data. The task then has no feedback: unlike Cases A and B, which state which control failed and what to do next, Case C offers only the hedge 'If you cannot create a meaningful positive control, state what system capability needs checking rather than inventing a condition that does not test it.' A learner cannot tell whether their self-generated audit was correct, so the most demanding practice in the lesson yields neither a performable task nor a diagnosis of reasoning, and the fading sequence stops one step short of independent performance with feedback.",
+      "resolution": "Supply two or three short bounded comparisons in the scene (or remove the word 'supplied' and state the constraints a learner-invented comparison must satisfy), and add self-check criteria for the six roles plus the two confounder links and the two control-failure interpretations, so the learner can diagnose their own audit before the transfer scene."
+    },
+    {
+      "severity": "minor",
+      "target": "assessment.json#item-distinguish-control-confounder (answer.reasoning retry context)",
+      "finding": "The retry route for this item says 'On a retry, compare two curing temperatures when each temperature is also fixed to a different technician.' That is the resin case from content/03-practise-repair.md#one-part-supplied, whose full answer is already printed there: 'A defensible map identifies curing temperature as the independent variable, breaking force as the dependent variable, ... and technician as a candidate confounder.' The retake can therefore be passed by recalling a supplied answer rather than by renewed reasoning, which is the failure mode the content standard's retake rule targets.",
+      "resolution": "Point the retry at a comparison not already answered in the scenes — for example a two-detergent stain-removal comparison in which each detergent is run on a different washing machine — keeping the same three rubric criteria."
+    },
+    {
+      "severity": "minor",
+      "target": "assessment.json#item-identify-core-roles + rubric-identify-core-roles; item-interpret-control-results + rubric-interpret-control-results",
+      "finding": "Both single-choice items carry analytic rubrics whose criteria award points per role, but a single-choice response cannot be scored criterion by criterion. rubric-identify-core-roles awards separate points for fan speed as independent, component temperature as dependent, and the held-alike conditions as controlled, yet a learner who chooses option-core-speed-shared-temp has the independent variable right and still scores zero. The reasoning text partly acknowledges this ('Award one point for each correct role in the selected complete map'), which makes the promised diagnostic granularity unreachable in practice and the reported score uninformative about which role the learner actually confused.",
+      "resolution": "Either convert these items to open response or multi-part selection so each rubric criterion is separately observable, or collapse each rubric to one all-or-nothing criterion at the item's full point value and move the per-role diagnosis into option-specific feedback."
+    },
+    {
+      "severity": "minor",
+      "target": "assessment.json#item-identify-core-roles responseSpec.options",
+      "finding": "Three of the four options are eliminable without the taught construct. option-core-temp-speed-shared and option-core-sensor-speed-temp both make fan speed the recorded response, and option-core-sensor-speed-temp additionally names the measuring instrument as the independent variable; option-core-speed-shared-temp calls the measured component temperature a controlled variable. A learner who knows only that the team set the fan speed can reach the key by elimination, so three of the twelve mastery points can be earned without distinguishing dependent from controlled variables.",
+      "resolution": "Rewrite at least two distractors so they are individually defensible and differ from the key on one role only — for example one option that misclassifies room temperature as a second independent variable and one that treats the 15-minute interval as the dependent variable."
+    },
+    {
+      "severity": "minor",
+      "target": "assessment.json#item-interpret-control-results (answer.reasoning retry context)",
+      "finding": "The retry instruction reads 'On a retry, diagnose the opposite pattern: both negative and unknown are high while the positive is high.' The sentence contradicts itself: 'while' signals a contrast but every named condition is high, and it is not stated what the learner should conclude. The intended alternate pattern appears to be the high-background case from content/02-worked-run.md ('suppose the negative control reads 70 while the positive control reads 74'), but a learner following the retry route cannot reconstruct which pattern to diagnose, so the remediation path for this item is unusable at the moment of failure.",
+      "resolution": "State the retry pattern unambiguously — for example 'the negative control, the positive control, and the unknown all read high; decide what the high negative control shows about background and whether the unknown can be interpreted' — and name the criterion it re-tests."
+    },
+    {
+      "severity": "minor",
+      "target": "content/01-zero-two-meanings.md#retrieve-the-chain-you-already-built (check-prerequisite-chain)",
+      "finding": "The only prerequisite activation is 'reconstruct the chain from the previous two lessons', which names neither lesson and links to neither. lesson.json declares one prerequisite outcome, topic-scientific-inquiry-hypotheses-predictions, and lessons/ currently contains PREM-SCI-001 but no PREM-SCI-002 pack, so a learner who cannot fill 'hypothesis → prediction' has nowhere to go: the Recovery route section in content/04-transfer-synthesis.md addresses only within-lesson confusions (independent versus dependent, controlled variable versus control group, over-broad confounders, reversed controls, failed controls) and never routes back to the prerequisite. The lesson supplies the answer two lines later, which repairs the blank but not the underlying gap for a learner who did not hold the prior model.",
+      "resolution": "Name the two prior lessons and link them at the retrieval check, and add one prerequisite line to the Recovery route section directing a learner who could not complete the chain back to the hypotheses-and-predictions outcome before continuing."
+    },
+    {
+      "severity": "minor",
+      "target": "content/02-worked-run.md#a-compact-audit-you-can-reuse; content/03-practise-repair.md#one-part-supplied; content/04-transfer-synthesis.md#compare-your-audit",
+      "finding": "Only content/01-zero-two-meanings.md uses the {check} directive to hold a retrieval prompt as a distinct interaction. The later prompts are ordinary prose instructions — 'Complete the role map before reading the feedback', 'Answer before continuing', 'Before reading on, make a six-row audit' — whose answers begin in the next paragraph of the same continuously readable scene. In reading mode, which the format requires to preserve continuous prose, the answer is in view at the moment the prompt is read, so the generation step depends entirely on learner self-discipline and the design cannot guarantee retrieval before reveal.",
+      "resolution": "Express these prompts as {check} directives pointing at answer logic, or move each answer behind a clear heading break with the reveal further down the scene, so the reveal is not adjacent to the prompt in continuous reading."
+    },
+    {
+      "severity": "minor",
+      "target": "lesson.json#objective-identify-variable-roles",
+      "finding": "The objective states 'Identify the independent, dependent, and controlled variables in a supplied comparison and explain the job of each', but no assessment item requires the explanation half. item-identify-core-roles is recognition only; item-distinguish-control-confounder requires reasoning about the confounder and the control condition, not about what the independent, dependent, or controlled variables do; item-transfer-sensor-audit awards its variable points for naming, with justification demanded only for battery age. The 'explain the job of each' performance is taught well in the scenes but is never assessed, so the mastery evidence is narrower than the objective claims.",
+      "resolution": "Extend one open-response item to require a one-sentence job statement for the independent, dependent, and controlled variables, and add a matching rubric criterion, or narrow the objective statement to the identification performance the assessment actually collects."
+    },
+    {
+      "severity": "note",
+      "target": "content/01-zero-two-meanings.md#opening + content/02-worked-run.md#worked-example-indicator-audit",
+      "finding": "The first-read gate passes clearly at the declared level. The opening gives a concrete thing to picture and a live problem before any label: 'A small fluorescence reader displays 0 for an unknown sample. One explanation is that the sample contains none of the target. Another is that the indicator failed, the reader was mis-set, or the reaction never had a chance to work.' After the opening and first explanation, a cold reader can state what is being learned (six jobs that parts of a comparison perform), why it matters (a zero has two live explanations until the setup proves it can respond), and how the reasoning works (name what was changed and recorded, check whether anything else travels with the change and could move the record, then read the controls before the unknown). The prose leads with the ordinary-language question and attaches the technical name afterwards, contains no project machinery, rubric vocabulary, or schema language, and reads naturally aloud. The worked example carries all nine required components including an explicit plan, a repair, two contrasting control-failure patterns, a bounded interpretation, and a self-explanation prompt about the decisive decision.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "content/01-zero-two-meanings.md#six-questions-six-jobs; content/03-practise-repair.md#less-support-a-condition-is-not-a-group and #misconception-any-uncontrolled-confounds",
+      "finding": "The three confusable distinctions the outcome depends on are made discriminable by a model and cases rather than by labels. Controlled variable versus control condition is stated directly ('A controlled variable is a condition, such as temperature. It is not the same thing as a control condition or control group'), then tested on the seedling case where the water-only group must be classified and the glossary records 'control group' as an alias of control condition, so the terminology does not drift. The independent variable versus confounder distinction rests on an explicit two-part test — it must track the independent variable and be able to affect the dependent variable — which is stated, applied to reagent lot and technician, deliberately failed on random desk position, and rechecked on the Monday/Friday recalibration case. Positive versus negative control is defined by expected response with the misreading pre-empted ('These names describe expected response roles, not whether the result is good or bad') and exercised in both failure directions, in Cases A and B and again in scene 4. Limits are stated rather than implied: 'Controls expose particular failures and rival explanations. They do not erase measurement error, sampling limits, or every unmeasured influence.'",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "content/04-transfer-synthesis.md#carry-the-whole-chain-forward and #transfer-the-audit-to-a-field-sensor",
+      "finding": "Scene coherence, continuity, and learner access are handled well. The audit sequence is reused in a stable verb form across all four scenes ('changed → recorded → held alike → confounder check → negative control → positive control'), the closing retrieval extends the cumulative chain from the two prior lessons rather than restating this lesson, and the scene explicitly bounds itself against the next outcome ('The next outcome distinguishes experimental from observational designs'). The scene 4 sensor case is genuine transfer relative to the scene 2 fluorescence worked example, changing domain, instrument, control materials, and the confounding factor rather than only names or numbers — the transfer weakness recorded above is confined to the assessment item, not to this scene. Every task is completable in prose, bullets, or a table with no equipment, sampling, color, position, drag, or timing dependence, and every table relationship is restated in adjacent prose.",
+      "resolution": "No change required."
+    }
+  ],
+  "limitations": [
+    "This is a single-pass advisory learning-design input under standard-lesson-v3 against candidate commit 2e08cf491b13cc51322fb535c4ae116b05ccd124. It is not a quorum claim, an approval of any later revision, or a statement of merge readiness.",
+    "Founding-stage conflict: the same accountable principal, VSBDev, operates the authoring, review, and finalization agents, so principal-level independence does not exist for this lesson. Agent provenance recorded here is self-reported and attested by the operator, not platform-verified.",
+    "No real learner was tested. All judgements come from an expert simulation of the declared learner performing the prompts and assessment items, and from established instructional-design principles. No claim is made about effect sizes, pass rates, or actual mastery.",
+    "Scope was restricted to learning design. Scientific correctness of the variable, confounding, and control definitions, the interpretation of the two cited sources, and rights, licensing, and attribution were not adjudicated here and remain with the academic reviewer and the finalizer's accessibility-and-rights audit.",
+    "Accessibility was assessed only as it affects the learning operation from the Markdown source. No rendered build, screen reader, keyboard traversal, 200% zoom, reflow, reduced-motion, or print/PDF path was exercised in this run.",
+    "The pack was reviewed as static source. Retrieval-before-reveal, attempt sequencing, retry delivery, and withholding of answer logic depend on renderer behaviour that could not be observed at this commit.",
+    "Continuity with PREM-SCI-002 was inferred from the prerequisite outcome declared in lesson.json and from the learner-visible scenes only; no PREM-SCI-002 pack exists under lessons/ at this commit, and no authoring, review, or adjudication material from PREM-SCI-001 or PREM-SCI-002 was consulted.",
+    "Estimated scene minutes (14, 19, 18, 12; total 63) were checked for internal consistency only and were not validated against learner completion data."
+  ],
+  "signedAt": "2026-07-20T17:21:26Z"
+}
