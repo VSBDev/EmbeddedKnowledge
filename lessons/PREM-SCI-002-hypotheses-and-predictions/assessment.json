@@ -1,0 +1,213 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-assessment-v1",
+  "lessonId": "PREM-SCI-002",
+  "lessonVersion": "0.1.0",
+  "assessmentId": "assessment-hypotheses-predictions",
+  "title": "Hypotheses and predictions mastery check",
+  "purpose": "mastery-gate",
+  "attemptPolicy": {
+    "retakeable": true,
+    "timeLimitMinutes": null,
+    "feedback": "after-attempt"
+  },
+  "items": [
+    {
+      "id": "item-distinguish-roles",
+      "type": "single-choice",
+      "sceneId": "scene-transfer",
+      "objectiveIds": [
+        "objective-distinguish-roles"
+      ],
+      "outcomeIds": [
+        "topic-scientific-inquiry-hypotheses-predictions"
+      ],
+      "prompt": "A student writes three statements about a fictional lamp: (1) 'Does the lamp's light output change as battery voltage falls?' (2) 'Lower voltage reduces the energy transferred to the lamp each second.' (3) 'If that explanation holds for this lamp, measured light output will be lower at 2.5 V than at 3.0 V.' Which option labels the statements correctly?",
+      "stimulus": null,
+      "points": 2,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-question-hypothesis-prediction",
+            "text": "1 question; 2 hypothesis; 3 prediction"
+          },
+          {
+            "id": "option-hypothesis-question-prediction",
+            "text": "1 hypothesis; 2 question; 3 prediction"
+          },
+          {
+            "id": "option-question-prediction-hypothesis",
+            "text": "1 question; 2 prediction; 3 hypothesis"
+          },
+          {
+            "id": "option-prediction-hypothesis-question",
+            "text": "1 prediction; 2 hypothesis; 3 question"
+          }
+        ],
+        "units": null,
+        "tolerance": null,
+        "maxSelections": 1,
+        "maxLength": null
+      },
+      "answer": {
+        "correct": "option-question-hypothesis-prediction",
+        "summary": "The first statement asks what happens, the second proposes why, and the third states an expected record under named conditions.",
+        "reasoning": "Statement 1 leaves an empirical result open. Statement 2 proposes an explanatory relationship. Statement 3 begins from that explanation and conditions to name the observable light-output comparison. If you reversed the last two, look for the sentence that names a measurement rather than a mechanism. On a retry, classify these three statements: 'Do wet and dry paper strips bend by different angles?', 'Water weakens bonds within the paper', and 'If that explanation holds, the wet strip will bend through a larger angle under the same load.'",
+        "acceptableResponses": [
+          "The option identifying statement 1 as the question, statement 2 as the hypothesis, and statement 3 as the prediction."
+        ],
+        "commonErrors": [
+          "Treating an explanatory mechanism as a prediction",
+          "Treating a question as if it were a true-or-false hypothesis"
+        ]
+      },
+      "rubricId": "rubric-distinguish-roles",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-derive-prediction",
+      "type": "open-response",
+      "sceneId": "scene-transfer",
+      "objectiveIds": [
+        "objective-derive-prediction"
+      ],
+      "outcomeIds": [
+        "topic-scientific-inquiry-hypotheses-predictions"
+      ],
+      "prompt": "In a fictional sensor, the hypothesis is: 'The status light turns on when pressure on the pad exceeds 20 N.' The same calibrated sensor receives a 25 N load and then a 15 N load. State that fixed sensor condition, write the two-part observable prediction, and name one result that would count against the hypothesis as written.",
+      "stimulus": null,
+      "points": 4,
+      "responseSpec": {
+        "mode": "text",
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "maxLength": 1200
+      },
+      "answer": {
+        "correct": "A complete response predicts that the status light will turn on for the 25 N load and remain off for the 15 N load on the same calibrated sensor. It also names a conflicting result, such as the light remaining off at 25 N or turning on at 15 N under those conditions.",
+        "summary": "The prediction follows the stated threshold in both directions, and a contrary observation exposes what the hypothesis risks.",
+        "reasoning": "Score one point for preserving the same calibrated-sensor condition, one for predicting light on at 25 N, one for predicting light off at 15 N, and one for a specific observed result that conflicts with at least one of those expectations. All four are required for 4/4. If your answer only restates the hypothesis, replace the pressure relationship with the actual light records expected at the two loads. On a retry, use a 50 °C threshold and predict an indicator's state at 55 °C and 45 °C.",
+        "acceptableResponses": [
+          "Any response that keeps the stated conditions, predicts on at 25 N and off at 15 N, and names an incompatible light result under the same conditions."
+        ],
+        "commonErrors": [
+          "Repeating the explanatory relationship without naming an observable light state",
+          "Predicting only one of the two loads",
+          "Calling a matching result evidence against the hypothesis",
+          "Changing the sensor or calibration when stating the contrary result"
+        ]
+      },
+      "rubricId": "rubric-derive-prediction",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-discriminate-archive",
+      "type": "open-response",
+      "sceneId": "scene-transfer",
+      "objectiveIds": [
+        "objective-discriminate-hypotheses"
+      ],
+      "outcomeIds": [
+        "topic-scientific-inquiry-hypotheses-predictions"
+      ],
+      "prompt": "A fictional museum entry logger has an archive of detections from afternoon and late-evening intervals, but its detailed entry counts and clock-comparison records are hidden. An independent building clock can be compared with the timestamp stored for each detection. Hypothesis 1 says actual entry activity is lower during late-evening intervals while the logger clock operates normally. Hypothesis 2 says entry activity does not differ systematically by time of day and a logger-clock error would create an apparent late-evening decrease. State one prediction from each hypothesis that uses both entry detections and the clock comparison, identify the discriminating result, and explain what agreeing timestamps plus fewer entries in late-evening intervals would and would not justify concluding.",
+      "stimulus": null,
+      "points": 4,
+      "responseSpec": {
+        "mode": "text",
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "maxLength": 1800
+      },
+      "answer": {
+        "correct": "A complete response predicts fewer late-evening entries with logger timestamps agreeing with the independent building clock for Hypothesis 1, and an apparent time-of-day pattern accompanied by logger timestamps that disagree with the building clock for Hypothesis 2. It identifies timestamp agreement or mismatch alongside the entry pattern as discriminating. Given agreeing timestamps and fewer late-evening entries, it concludes that the record is consistent with Hypothesis 1 and counts against Hypothesis 2 as written, while not claiming that time of day is proven causal or that all alternatives are eliminated.",
+        "summary": "The independent clock check makes the hypotheses disagree, and the conclusion is calibrated to that comparison.",
+        "reasoning": "Score one point for an entry-plus-agreeing-clock prediction from Hypothesis 1, one for an apparent-entry-pattern-plus-clock-mismatch prediction from Hypothesis 2, one for explicitly identifying clock agreement as the discriminating record, and one for the paired interpretation: supports H1 over H2 as written but does not prove causation or eliminate untested alternatives. All four are required for 4/4. If both predictions mention only entry counts, add the independent clock comparison. If the conclusion says 'proves,' name an untested alternative and recalibrate the verb. On a retry, compare a real drop in delivery scans with a scanner-clock error using both scan counts and synchronization records.",
+        "acceptableResponses": [
+          "Any logically equivalent pair of predictions and cautious interpretation that uses agreement with the independent clock to distinguish an activity pattern from a timestamp-error explanation."
+        ],
+        "commonErrors": [
+          "Giving identical entry-count-only predictions for both hypotheses",
+          "Failing to name the independent clock comparison that separates the hypotheses",
+          "Claiming that agreement proves a time-of-day effect",
+          "Concluding nothing at all even though one stated hypothesis is challenged"
+        ]
+      },
+      "rubricId": "rubric-discriminate-archive",
+      "safetyCritical": false
+    }
+  ],
+  "rubrics": [
+    {
+      "id": "rubric-distinguish-roles",
+      "title": "Question, hypothesis, and prediction distinction",
+      "criteria": [
+        {
+          "id": "criterion-question-role",
+          "description": "Award 1 point only when statement 1 is identified as the empirical question; award 0 otherwise.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-hypothesis-prediction-roles",
+          "description": "Award 1 point only when statement 2 is identified as the hypothesis and statement 3 as the prediction; award 0 if either is reversed.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-derive-prediction",
+      "title": "Prediction derived from a threshold hypothesis",
+      "criteria": [
+        {
+          "id": "criterion-preserve-condition",
+          "description": "Award 1 point only when the response keeps the same calibrated sensor or an explicitly equivalent fixed condition.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-above-threshold",
+          "description": "Award 1 point only when the light is predicted to turn on at 25 N.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-below-threshold",
+          "description": "Award 1 point only when the light is predicted to remain off at 15 N.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-contrary-result",
+          "description": "Award 1 point only when a specific light result that conflicts with the prediction under the same conditions is named.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-discriminate-archive",
+      "title": "Discriminating museum-logger predictions",
+      "criteria": [
+        {
+          "id": "criterion-activity-prediction",
+          "description": "Award 1 point only when Hypothesis 1 predicts fewer late-evening entries together with logger timestamps that agree with the independent building clock.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-failure-prediction",
+          "description": "Award 1 point only when Hypothesis 2 predicts the apparent entry pattern together with logger timestamps that disagree with the independent building clock.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-discriminating-record",
+          "description": "Award 1 point only when clock agreement alongside entry detections is identified as the record on which the hypotheses differ.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-calibrated-inference",
+          "description": "Award 1 point only when agreeing timestamps and fewer late-evening entries are interpreted as supporting Hypothesis 1 over Hypothesis 2 as written without claiming proof of causation or elimination of every alternative.",
+          "maxPoints": 1
+        }
+      ]
+    }
+  ]
+}
