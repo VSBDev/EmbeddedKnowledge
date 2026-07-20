@@ -67,7 +67,7 @@ Review must request changes when:
 
 ## 7. Complaint and removal procedure
 
-Before public launch, maintainers should publish a monitored private rights-contact address and identify the responsible operator. Until then, a claimant may open a minimal repository issue without posting personal or confidential evidence and request a private channel, or use the hosting provider's formal copyright process.
+Maintainers should publish a monitored private rights-contact address and identify the responsible operator. Until that channel exists, a claimant may open a minimal repository issue without posting personal or confidential evidence and request a private channel, or use the hosting provider's formal copyright process.
 
 On a credible complaint, maintainers should promptly preserve the relevant commit and provenance, temporarily remove or quarantine the disputed material when appropriate, acknowledge the complaint, identify the exact work and use, review the rights record, consult counsel when needed, and document the resolution. GitHub publishes its [content-removal request](https://docs.github.com/en/site-policy/content-removal-policies/submitting-content-removal-requests) and [DMCA](https://docs.github.com/en/site-policy/content-removal-policies/dmca-takedown-policy) procedures.
 

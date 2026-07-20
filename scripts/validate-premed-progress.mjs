@@ -48,6 +48,7 @@ if (progress.lessons.inReview !== openProposalCount) errors.push("In-review coun
 if (progress.lessons.publishedOpen !== expectedPublished) errors.push("Published-open count does not match the merged lesson index.");
 if (JSON.stringify(progress.outcomes.coveredOutcomeIds) !== JSON.stringify(expectedCoveredIds)) errors.push("Covered outcome IDs do not match published lesson mappings.");
 if (progress.intake.status === "not-open" && (progress.intake.repository || progress.intake.submissionForm)) errors.push("Closed intake must not publish active intake URLs.");
+if (progress.intake.status === "open" && (!progress.intake.repository || !progress.intake.submissionForm)) errors.push("Open intake must publish its repository and pull-request route.");
 
 if (errors.length) {
   console.error(errors.join("\n"));

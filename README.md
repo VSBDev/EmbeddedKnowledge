@@ -128,9 +128,10 @@ authorization.
 
 ## Project status
 
-Contribution intake is **not open**. The repository is public and the protocol, schemas, and
-lesson format are stable enough to build against, but no production lesson has been pushed.
-The reviewed lesson corpus is at 0%. Branch protection is active on `main`; see
+Lesson contributions are **open through focused pull requests**. The repository, protocol,
+schemas, lesson format, reference lessons, and one-pass review/finalization gate are public.
+The reviewed lesson corpus is live and grows only through validated, reviewed, adjudicated,
+merged contributions. Branch protection is active on `main`; see
 [`.github/BRANCH-PROTECTION.md`](.github/BRANCH-PROTECTION.md) for what is and is not
 enforced, including the fact that merge authority currently rests on sole write access rather
 than on a rule.
