@@ -340,6 +340,69 @@
     return candidate;
   }
 
+  function publicationView(candidate) {
+    const views = {
+      draft: {
+        code: "DRAFT",
+        label: "DRAFT LESSON CANDIDATE",
+        short: "Draft candidate",
+        course: "Current draft candidate",
+        detail: "Not published · review has not concluded",
+        access: "Not published — draft candidate",
+        description: "Read a draft EmbeddedKnowledge Premed lesson candidate with its review state in guided, continuous, or print form."
+      },
+      "in-review": {
+        code: "REVIEW",
+        label: "LESSON CANDIDATE IN REVIEW",
+        short: "Candidate in review",
+        course: "Current candidate in review",
+        detail: "Not published · independent review underway",
+        access: "Not published — in review",
+        description: "Read an EmbeddedKnowledge Premed lesson candidate currently under review in guided, continuous, or print form."
+      },
+      adjudicated: {
+        code: "ADJUDICATED",
+        label: "ADJUDICATED LESSON CANDIDATE",
+        short: "Adjudicated candidate",
+        course: "Current adjudicated candidate",
+        detail: "Not published · awaiting publication",
+        access: "Not published — adjudicated candidate",
+        description: "Read an adjudicated EmbeddedKnowledge Premed lesson candidate that is not yet published."
+      },
+      published: {
+        code: "OPEN",
+        label: "OPEN PREMED LESSON",
+        short: "Open lesson",
+        course: "Current published lesson",
+        detail: "Versioned published artifact",
+        access: "Published open",
+        description: "Read a published EmbeddedKnowledge Premed lesson in guided, continuous, or print form."
+      }
+    };
+    return views[candidate.status] || views.draft;
+  }
+
+  function renderPublicationState() {
+    if (isSpecimen) return;
+    const view = publicationView(artifact);
+    const sourceConfidence = String(artifact.sourceConfidence || "unspecified").replaceAll("-", " ");
+    const published = artifact.status === "published";
+    app.dataset.publicationState = artifact.status;
+    app.dataset.sourceConfidence = artifact.sourceConfidence || "unspecified";
+    document.documentElement.dataset.lessonPublicationState = artifact.status;
+    document.querySelector("[data-publication-label]").textContent = view.label;
+    document.querySelector("[data-publication-copy]").textContent = published
+      ? "Versioned teaching material published under the displayed open-content license."
+      : `Not published. Artifact status: ${artifact.status}; source confidence: ${sourceConfidence}.`;
+    document.querySelector("[data-publication-short]").textContent = view.short;
+    document.querySelector("[data-publication-code]").textContent = view.code;
+    document.querySelector("[data-publication-course]").textContent = view.course;
+    document.querySelector("[data-publication-detail]").textContent = view.detail;
+    document.querySelector("[data-publication-access]").textContent = view.access;
+    document.querySelector('meta[name="description"]')?.setAttribute("content", view.description);
+    document.querySelector(".reader-book")?.setAttribute("aria-label", published ? "Interactive published lesson" : "Interactive lesson candidate");
+  }
+
   function buildSceneNav() {
     sceneNav.replaceChildren();
     scenes.forEach((scene, index) => {
@@ -621,8 +684,14 @@
     }
     documentRoot.replaceChildren();
     const header = create("header", "reader-print-title");
+    const publication = publicationView(artifact);
+    const sourceConfidence = String(artifact.sourceConfidence || "unspecified").replaceAll("-", " ");
+    const printPublicationLabel = isSpecimen
+      ? "FORMAT SPECIMEN · NOT PUBLISHED TEACHING MATERIAL"
+      : (artifact.status === "published" ? publication.label : `${publication.label} · NOT PUBLISHED`);
     header.append(
-      create("p", null, `${artifact.id} · version ${artifact.version} · ${artifact.license}`),
+      create("p", "reader-print-publication-state", printPublicationLabel),
+      create("p", null, `${artifact.id} · version ${artifact.version} · status ${artifact.status} · source confidence ${sourceConfidence} · ${artifact.license}`),
       create("h1", null, artifact.title)
     );
     documentRoot.append(header);
@@ -1077,7 +1146,9 @@
     .then((loaded) => {
       artifact = loaded;
       scenes = artifact.scenes;
-      document.title = `${artifact.title} — ${isSpecimen ? "Lesson specimen" : "Premed lesson"} · EmbeddedKnowledge`;
+      const titleState = isSpecimen ? "Lesson specimen" : (artifact.status === "published" ? "Premed lesson" : `${artifact.status} lesson candidate`);
+      document.title = `${artifact.title} — ${titleState} · EmbeddedKnowledge`;
+      renderPublicationState();
       document.querySelector("[data-reader-duration]").textContent = `${artifact.estimatedMinutes} min`;
       document.querySelector("[data-artifact-id]").textContent = artifact.id;
       document.querySelector("[data-artifact-status]").textContent = isSpecimen ? `${artifact.status} specimen · ${artifact.version}` : `${artifact.status} · ${artifact.version}`;
