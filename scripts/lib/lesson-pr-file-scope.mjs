@@ -24,3 +24,23 @@ export function lessonPrOutsideFiles({ changedFiles, packPath, lessonIds }) {
     !file.startsWith(`${packPath}/`) && !isAllowedLessonGeneratedFile(file, lessonIds)
   ));
 }
+
+/**
+ * Classify a complete removal of a pack that existed at the pull request base.
+ * A removal is valid only when the pack directory is absent from the head, no
+ * tracked files remain beneath it, and every pack-path change is a deletion.
+ */
+export function validateFullLessonPackRemoval({ baseMetadata, packExists, trackedFiles, changedEntries }) {
+  const removed = Boolean(baseMetadata && !packExists);
+  if (!removed) return { removed: false, errors: [] };
+
+  const errors = [];
+  if (trackedFiles.length) {
+    errors.push(`A removed lesson pack must leave no tracked files; found: ${trackedFiles.join(", ")}.`);
+  }
+  const nonDeletions = changedEntries.filter((entry) => entry.status !== "D").map((entry) => entry.path);
+  if (nonDeletions.length) {
+    errors.push(`A lesson removal may contain only deletions inside the pack; found non-deletions: ${nonDeletions.join(", ")}.`);
+  }
+  return { removed: true, errors };
+}
