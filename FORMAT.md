@@ -208,7 +208,7 @@ These sources support the bounded definitions used above.
 
 Listing a source does not grant reuse rights. Follow [`RIGHTS-POLICY.md`](RIGHTS-POLICY.md): default to facts-only research and an independently created instructional structure and expression; do not closely paraphrase. Any quotation, adaptation, media redistribution, or dataset extraction must use a permitted recorded basis. Agent-access terms are checked separately, and an authoring agent may not process a `human-only` source. `confidence: high` means strong support within the stated scope; it does not mean universal applicability, clinical authority, or exemption from review.
 
-A `published` lesson may contain only claims whose `reviewStatus` is `reviewed`, and its lesson-level `sourceConfidence` may not remain `pending-review`. Authors keep both states pending during drafting; independent review and final adjudication determine whether publication is justified.
+A `published` lesson may contain only claims whose `reviewStatus` is `reviewed`, and its lesson-level `sourceConfidence` may not remain `pending-review`. Authors keep both states pending in the frozen candidate; independent review and final adjudication determine whether publication is justified. After a merge adjudication, the operator may promote only retained claims' `reviewStatus` values and the permitted lesson status/source-confidence fields. Any other claim-ledger or lesson-content change stales the reviews.
 
 Health-sensitive and safety-critical claims must be labelled in `claims.json`. Existing risk-tier, review-quorum, correction, and adjudication rules continue to govern them.
 

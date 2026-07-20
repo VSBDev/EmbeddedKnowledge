@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
+import { claimsChangeIsGovernanceOnly, lessonMetadataChangeIsGovernanceOnly } from "./lib/candidate-governance.mjs";
 import { lessonPrOutsideFiles } from "./lib/lesson-pr-file-scope.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -30,6 +31,7 @@ const errors = [];
 if (packPaths.length !== 1) errors.push(`A lesson PR must change exactly one lesson pack; found ${packPaths.length}.`);
 const packPath = packPaths[0];
 const metadataPath = path.join(root, packPath, "lesson.json");
+const claimsPath = path.join(root, packPath, "claims.json");
 const adjudicationPath = path.join(root, packPath, "adjudication.json");
 if (!fs.existsSync(metadataPath)) errors.push(`${packPath}/lesson.json is required.`);
 if (!fs.existsSync(adjudicationPath)) errors.push(`${packPath}/adjudication.json is required before merge.`);
@@ -106,18 +108,27 @@ if (candidateCommit) {
     git("cat-file", "-e", `${candidateCommit}^{commit}`);
     git("merge-base", "--is-ancestor", candidateCommit, headSha);
     const postCandidateFiles = git("diff", "--name-only", `${candidateCommit}..${headSha}`, "--", packPath).split("\n").filter(Boolean);
-    const allowed = postCandidateFiles.filter((file) => !file.startsWith(`${packPath}/reviews/`) && file !== `${packPath}/adjudication.json` && file !== `${packPath}/lesson.json`);
+    const allowed = postCandidateFiles.filter((file) =>
+      !file.startsWith(`${packPath}/reviews/`) &&
+      file !== `${packPath}/adjudication.json` &&
+      file !== `${packPath}/lesson.json` &&
+      file !== `${packPath}/claims.json`
+    );
     if (allowed.length) errors.push(`Lesson content changed after the candidate commit: ${allowed.join(", ")}. Reviews are stale.`);
 
     if (postCandidateFiles.includes(`${packPath}/lesson.json`)) {
       const candidateMetadata = JSON.parse(git("show", `${candidateCommit}:${packPath}/lesson.json`));
       const currentMetadata = JSON.parse(fs.readFileSync(metadataPath, "utf8"));
-      for (const object of [candidateMetadata, currentMetadata]) {
-        delete object.status;
-        delete object.sourceConfidence;
-      }
-      if (JSON.stringify(candidateMetadata) !== JSON.stringify(currentMetadata)) {
+      if (!lessonMetadataChangeIsGovernanceOnly(candidateMetadata, currentMetadata)) {
         errors.push("lesson.json changed after the candidate commit beyond status or sourceConfidence; reviews are stale.");
+      }
+    }
+
+    if (postCandidateFiles.includes(`${packPath}/claims.json`)) {
+      const candidateClaims = JSON.parse(git("show", `${candidateCommit}:${packPath}/claims.json`));
+      const currentClaims = JSON.parse(fs.readFileSync(claimsPath, "utf8"));
+      if (!claimsChangeIsGovernanceOnly(candidateClaims, currentClaims)) {
+        errors.push("claims.json changed after the candidate commit beyond claims[].reviewStatus; reviews are stale.");
       }
     }
   } catch (error) {

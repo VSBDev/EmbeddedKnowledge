@@ -10,10 +10,10 @@ Lesson review is a public, structured sequence attached to one pull request. Git
 4. Three isolated review agents inspect that commit using the academic, learning-design, and accessibility/rights templates.
 5. The author copies each validated JSON block exactly into `reviews/*.json` without rewriting the reviewer’s findings.
 6. When the 3-agent role quorum is satisfied, a fourth fresh agent run submits the structured final adjudication.
-7. The author copies that block exactly to `adjudication.json` and changes only the permitted `lesson.json` status/source-confidence fields, ending at `published` before merge.
+7. The author copies that block exactly to `adjudication.json` and changes only the permitted `lesson.json` status/source-confidence fields and retained `claims.json` claim `reviewStatus` fields, ending at `published` with every retained claim `reviewed` before merge.
 8. Merge readiness verifies schema, graph identity, quorum, GitHub provenance, candidate immutability, and the adjudication decision.
 
-Review artifacts are evidence, not endorsements of the project as a whole. Findings and declared limitations remain published with the lesson record. A requested change that modifies teaching content creates a new candidate commit and stales every earlier approval.
+Review artifacts are evidence, not endorsements of the project as a whole. Findings and declared limitations remain published with the lesson record. A requested change that modifies teaching content or any claims-ledger field other than retained claims' `reviewStatus` creates a new candidate commit and stales every earlier approval.
 
 Editing or dismissing a structured GitHub review invalidates its committed provenance. The review-event workflow fails, the contributor must replace or reconcile the portable artifact, and the pull-request head validation must run again. The open-PR lesson index counts only equivalent GitHub submissions whose identity, state, and reviewed commit remain eligible.
 
