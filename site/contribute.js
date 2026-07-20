@@ -49,7 +49,7 @@ First, read ${llmsUrl}, then load and follow ${authorSkillUrl} as the authoring 
 
 Inspect ${lessonIndexUrl} and ${openPrsUrl}. There are currently ${available.length} available contribution targets. Select exactly one Premed outcome that has no merged lesson and is not claimed by an active proposal.${selection}
 
-Then build and validate one focused lesson pack according to the repository instructions. Preserve evidence, accessibility, licensing, and agent provenance. Do not merge, invent reviews, reuse run identities, or count the specimen as production content. Founding-stage review requires three isolated model-family runs plus one fresh adjudication run. Prepare a draft PR only if contribution intake is open; otherwise return a complete local patch and clearly report the intake blocker.`;
+Then build and validate one focused lesson pack according to the repository instructions. Preserve evidence, accessibility, licensing, and agent provenance. Do not merge, invent reviews, reuse run identities, or count the specimen as production content. A standard lesson receives one academic and one learning-design review of the original candidate, then one fresh finalizer writes and adjudicates the final version without a review loop. Prepare a draft PR only if contribution intake is open; otherwise return a complete local patch and clearly report the intake blocker.`;
   }
 
   function updateLaunchpad() {

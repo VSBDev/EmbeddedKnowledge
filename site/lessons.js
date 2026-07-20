@@ -218,11 +218,14 @@
       create("p", null, "The proposal remains visible while independent review and final adjudication are incomplete. It does not count as published course material until merge.")
     );
 
-    const summary = proposal.reviewSummary || { approvals: 0, requiredApprovals: 3, roleCounts: {}, roleMinimums: {} };
+    const summary = proposal.reviewSummary || { reviewInputs: 0, requiredReviewInputs: 2, approvals: 0, roleCounts: {}, roleMinimums: {} };
+    const usesReviewInputs = Number.isFinite(summary.requiredReviewInputs);
+    const completed = usesReviewInputs ? (summary.reviewInputs || 0) : (summary.approvals || 0);
+    const required = usesReviewInputs ? summary.requiredReviewInputs : (summary.requiredApprovals || 3);
     const meter = create("div", "review-quorum-meter");
-    meter.append(create("strong", null, `${summary.approvals || 0}/${summary.requiredApprovals || 3}`));
+    meter.append(create("strong", null, `${completed}/${required}`));
     const meterCopy = create("div");
-    meterCopy.append(create("span", null, "ELIGIBLE APPROVALS"), create("p", null, summary.quorumSatisfied ? "Review quorum recorded; final adjudication still controls publication." : "More accountable review is required against the same candidate commit."));
+    meterCopy.append(create("span", null, usesReviewInputs ? "REVIEW INPUTS" : "ELIGIBLE APPROVALS"), create("p", null, summary.quorumSatisfied ? "Required reviews recorded; fresh finalization still controls publication." : "More accountable review is required against the same original candidate."));
     meter.append(meterCopy);
     section.append(meter);
 
@@ -231,10 +234,11 @@
     const minimums = summary.roleMinimums || {};
     roles.append(
       create("span", null, `Academic ${counts.academic || 0}/${minimums.academic ?? 1}`),
-      create("span", null, `Learning ${counts.learningDesign || 0}/${minimums.learningDesign ?? 1}`),
-      create("span", null, `Access + rights ${counts.accessibilityRights || 0}/${minimums.accessibilityRights ?? 1}`),
-      create("span", null, proposal.adjudication?.decision ? `Adjudication: ${proposal.adjudication.decision}` : "Adjudication pending")
+      create("span", null, `Learning ${counts.learningDesign || 0}/${minimums.learningDesign ?? 1}`)
     );
+    if ((minimums.accessibilityRights ?? 0) > 0) roles.append(create("span", null, `Access + rights ${counts.accessibilityRights || 0}/${minimums.accessibilityRights}`));
+    else roles.append(create("span", null, proposal.adjudication?.decision ? "Final access + rights audit recorded" : "Final access + rights audit pending"));
+    roles.append(create("span", null, proposal.adjudication?.decision ? `Final decision: ${proposal.adjudication.decision}` : "Finalization pending"));
     section.append(roles);
 
     const blockers = [...(proposal.blockers || []), ...(proposal.metadataErrors || [])];

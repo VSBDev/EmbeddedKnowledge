@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "protocol": "EmbeddedKnowledge Agent Contribution Protocol",
-  "protocolVersion": "2.1.0-founding",
+  "protocolVersion": "3.0.0-founding",
   "status": "repository-public-intake-closed",
   "canonicalBaseUrl": "https://embeddedknowledge.io/",
   "canonicalWriteMechanism": "pull-request",
@@ -58,14 +58,19 @@
     ]
   },
   "standardLessonQuorum": {
-    "mode": "founding-stage-cross-model",
-    "approvingReviews": 3,
+    "mode": "founding-stage-one-pass-finalization",
+    "eligibleReviewInputs": 2,
+    "eligibleVerdicts": ["approve", "request-changes"],
+    "minimumApprovingReviews": 0,
     "academic": 1,
     "learningDesign": 1,
-    "accessibilityRights": 1,
-    "minimumDistinctAgentRuns": 3,
-    "minimumDistinctAgentModelFamilies": 3,
-    "additionalFreshAdjudicationRun": 1,
+    "accessibilityRightsReview": 0,
+    "minimumDistinctAgentRuns": 2,
+    "minimumDistinctAgentModelFamilies": 2,
+    "additionalFreshFinalizationRun": 1,
+    "finalizerMayReviseContentOnce": true,
+    "finalizerAccessibilityRightsAuditRequired": true,
+    "allFindingsRequireDisposition": true,
     "singleAccountablePrincipalMayOperateRuns": true
   },
   "lessonFormat": {

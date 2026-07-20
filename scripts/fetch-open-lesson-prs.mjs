@@ -5,6 +5,13 @@ import Ajv2020 from "ajv/dist/2020.js";
 import addFormats from "ajv-formats";
 import { principalKey, modelFamilyKey, canonical, extractStructured, allowedReviewStates, reviewerAuthorConflict } from "./lib/provenance.mjs";
 import { githubApiJson } from "./lib/github-api.mjs";
+import {
+  eligibleReviewVerdicts,
+  resolveRule,
+  reviewInputMinimum,
+  reviewVerdictCounts,
+  validateFinalizationRecord
+} from "./lib/quorum-policy.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const outputPath = process.env.EK_OPEN_PRS_OUTPUT || path.join(root, "site/data/premed-open-prs.json");
@@ -120,14 +127,14 @@ function verifyGitHubProvenance(artifact, kind, githubReviews) {
   return { ok: true, submission };
 }
 
-function currentCandidateCohort(approvals, blockers) {
+function currentCandidateCohort(reviewInputs, blockers) {
   const groups = new Map();
-  for (const approval of approvals) {
-    if (!groups.has(approval.candidateCommit)) groups.set(approval.candidateCommit, []);
-    groups.get(approval.candidateCommit).push(approval);
+  for (const review of reviewInputs) {
+    if (!groups.has(review.candidateCommit)) groups.set(review.candidateCommit, []);
+    groups.get(review.candidateCommit).push(review);
   }
   if (groups.size > 1) {
-    blockers.push("The current lesson version has approvals for multiple candidate commits. Bump the lesson version after substantive revision and collect one fresh exact-candidate quorum.");
+    blockers.push("The current lesson version has review inputs for multiple candidate commits. Freeze one candidate and collect one exact-candidate review set.");
     return [];
   }
   return [...groups.values()][0] || [];
@@ -139,7 +146,7 @@ export function evaluateProposal(metadata, reviews, adjudication, metadataErrors
     return {
       state: "invalid",
       stateLabel: "METADATA INVALID",
-      reviewSummary: { approvals: 0, requiredApprovals: policy.tiers.standard.minimumApprovingReviews, roleCounts: {}, roleMinimums: {} },
+      reviewSummary: { reviewInputs: 0, requiredReviewInputs: reviewInputMinimum(policy.tiers.standard), approvals: 0, requiredApprovals: policy.tiers.standard.minimumApprovingReviews, roleCounts: {}, roleMinimums: {} },
       blockers: [...new Set(["A valid lesson.json is required before review quorum can be evaluated.", ...metadataErrors, ...artifactErrors])]
     };
   }
@@ -148,16 +155,21 @@ export function evaluateProposal(metadata, reviews, adjudication, metadataErrors
     return {
       state: "invalid",
       stateLabel: "PROPOSAL INVALID",
-      reviewSummary: { approvals: 0, requiredApprovals: policy.tiers[metadata.riskTier].minimumApprovingReviews, roleCounts: {}, roleMinimums: {} },
+      reviewSummary: { reviewInputs: 0, requiredReviewInputs: reviewInputMinimum(policy.tiers[metadata.riskTier]), approvals: 0, requiredApprovals: policy.tiers[metadata.riskTier].minimumApprovingReviews, roleCounts: {}, roleMinimums: {} },
       blockers: [...new Set(metadataErrors)]
     };
   }
 
-  const rule = policy.tiers[metadata.riskTier];
+  const rule = resolveRule(policy, {
+    lessonId: metadata.id,
+    lessonVersion: metadata.version,
+    riskTier: metadata.riskTier,
+    policyId: adjudication?.policyId
+  });
   const authorPrincipals = new Set(metadata.authors.map((author) => principalKey(author.principalId)));
   authorPrincipals.add(principalKey(`github:${pullRequestAuthor}`));
   const authorAgentRuns = new Set(metadata.authors.map((author) => author.agent?.runId).filter(Boolean));
-  const validApprovals = [];
+  const validReviewInputs = [];
   const blockers = [...artifactErrors];
   const seenReviewIds = new Set();
   for (const review of reviews) {
@@ -182,7 +194,7 @@ export function evaluateProposal(metadata, reviews, adjudication, metadataErrors
       blockers.push(provenance.error);
       continue;
     }
-    if (review.verdict !== "approve") continue;
+    if (!eligibleReviewVerdicts(rule).has(review.verdict)) continue;
     if (!review.reviewer.agent) {
       blockers.push(`${review.reviewId} lacks required founding-stage agent provenance.`);
       continue;
@@ -191,17 +203,17 @@ export function evaluateProposal(metadata, reviews, adjudication, metadataErrors
       blockers.push(`${review.reviewId} reuses an authoring agent run.`);
       continue;
     }
-    if (review.findings.some((finding) => finding.severity === "blocking" && !finding.resolution)) {
+    if (rule.reviewMode === "approval-quorum" && review.findings.some((finding) => finding.severity === "blocking" && !finding.resolution)) {
       blockers.push(`${review.reviewId} contains an unresolved blocking finding.`);
       continue;
     }
-    validApprovals.push(review);
+    validReviewInputs.push(review);
   }
 
   let adjudicationSchemaValid = false;
   let adjudicationValid = false;
   let adjudicationSummary = null;
-  let selectedApprovals = currentCandidateCohort(validApprovals, blockers);
+  let selectedReviews = currentCandidateCohort(validReviewInputs, blockers);
   if (adjudication) {
     if (!validateAdjudication(adjudication)) {
       blockers.push(`adjudication.json failed schema validation: ${validationErrors(validateAdjudication).join("; ")}`);
@@ -210,9 +222,9 @@ export function evaluateProposal(metadata, reviews, adjudication, metadataErrors
       const provenance = verifyGitHubProvenance(adjudication, "adjudication", githubReviews);
       if (!provenance.ok) blockers.push(provenance.error);
       else adjudicationValid = true;
-      selectedApprovals = adjudication.reviewIds.map((reviewId) => validApprovals.find((review) => review.reviewId === reviewId)).filter(Boolean);
+      selectedReviews = adjudication.reviewIds.map((reviewId) => validReviewInputs.find((review) => review.reviewId === reviewId)).filter(Boolean);
       for (const reviewId of adjudication.reviewIds) {
-        if (!selectedApprovals.some((review) => review.reviewId === reviewId)) blockers.push(`Adjudication cites missing or ineligible approval ${reviewId}.`);
+        if (!selectedReviews.some((review) => review.reviewId === reviewId)) blockers.push(`Adjudication cites missing or ineligible review input ${reviewId}.`);
       }
       adjudicationSummary = {
         decision: adjudication.decision,
@@ -226,7 +238,7 @@ export function evaluateProposal(metadata, reviews, adjudication, metadataErrors
   const eligible = [];
   const reviewPrincipals = new Set();
   const reviewAgentRuns = new Set();
-  for (const review of selectedApprovals) {
+  for (const review of selectedReviews) {
     const reviewerPrincipal = principalKey(review.reviewer.principalId);
     const runId = review.reviewer.agent?.runId;
     if (!runId) continue;
@@ -250,13 +262,14 @@ export function evaluateProposal(metadata, reviews, adjudication, metadataErrors
     accessibilityRights: eligible.filter((review) => review.role === "accessibility-rights").length
   };
   const modelFamilies = new Set(eligible.filter((review) => review.reviewer.agent).map((review) => modelFamilyKey(review.reviewer.agent)));
-  const allAgentAssisted = eligible.length > 0 && eligible.every((review) => review.reviewer.agent);
+  const verdictCounts = reviewVerdictCounts(eligible);
   const roleMinimums = {
     academic: rule.roleMinimums.academic,
     learningDesign: rule.roleMinimums["learning-design"],
     accessibilityRights: rule.roleMinimums["accessibility-rights"]
   };
-  const quorumSatisfied = eligible.length >= rule.minimumApprovingReviews &&
+  const quorumSatisfied = eligible.length >= reviewInputMinimum(rule) &&
+    verdictCounts.approvals >= rule.minimumApprovingReviews &&
     reviewPrincipals.size >= rule.minimumDistinctPrincipals &&
     reviewAgentRuns.size >= rule.minimumDistinctAgentRuns &&
     roleCounts.academic >= roleMinimums.academic &&
@@ -265,7 +278,8 @@ export function evaluateProposal(metadata, reviews, adjudication, metadataErrors
     commits.size === 1 &&
     modelFamilies.size >= rule.minimumDistinctAgentModelFamilies;
 
-  if (eligible.length < rule.minimumApprovingReviews) blockers.push(`${rule.minimumApprovingReviews - eligible.length} additional eligible approval(s) required.`);
+  if (eligible.length < reviewInputMinimum(rule)) blockers.push(`${reviewInputMinimum(rule) - eligible.length} additional eligible review input(s) required.`);
+  if (verdictCounts.approvals < rule.minimumApprovingReviews) blockers.push(`${rule.minimumApprovingReviews - verdictCounts.approvals} additional approval(s) required.`);
   if (reviewPrincipals.size < rule.minimumDistinctPrincipals) blockers.push(`${rule.minimumDistinctPrincipals - reviewPrincipals.size} additional distinct reviewer principal(s) required.`);
   if (reviewAgentRuns.size < rule.minimumDistinctAgentRuns) blockers.push(`${rule.minimumDistinctAgentRuns - reviewAgentRuns.size} additional isolated review agent run(s) required.`);
   for (const [role, minimum] of Object.entries(roleMinimums)) {
@@ -279,10 +293,12 @@ export function evaluateProposal(metadata, reviews, adjudication, metadataErrors
     else if (authorAgentRuns.has(adjudicationRun) || reviewAgentRuns.has(adjudicationRun)) blockers.push("The adjudication agent run is not fresh and distinct from authoring and review runs.");
     if (adjudication.lessonId !== metadata.id || adjudication.lessonVersion !== metadata.version || adjudication.riskTier !== metadata.riskTier) blockers.push("Adjudication identity or risk tier differs from lesson.json.");
     if (adjudication.policyId !== rule.policyId) blockers.push(`Adjudication must use policy ${rule.policyId}.`);
-    if (adjudication.candidateCommit !== [...commits][0]) blockers.push("Adjudication targets a different candidate commit from the selected approvals.");
-    if (adjudication.quorum.approvals !== eligible.length || adjudication.quorum.distinctPrincipals !== reviewPrincipals.size || adjudication.quorum.distinctAgentRuns !== reviewAgentRuns.size) blockers.push("Adjudication approval, principal, or agent-run counts do not match the eligible review set.");
+    if (adjudication.candidateCommit !== [...commits][0]) blockers.push("Adjudication targets a different candidate commit from the selected reviews.");
+    if (adjudication.quorum.approvals !== verdictCounts.approvals || adjudication.quorum.distinctPrincipals !== reviewPrincipals.size || adjudication.quorum.distinctAgentRuns !== reviewAgentRuns.size) blockers.push("Adjudication approval, principal, or agent-run counts do not match the eligible review set.");
+    if (rule.reviewMode === "advisory-finalization" && (adjudication.quorum.reviewInputs !== verdictCounts.reviewInputs || adjudication.quorum.changeRequests !== verdictCounts.changeRequests)) blockers.push("Adjudication review-input counts do not match the eligible review set.");
     if (adjudication.quorum.roleCounts.academic !== roleCounts.academic || adjudication.quorum.roleCounts.learningDesign !== roleCounts.learningDesign || adjudication.quorum.roleCounts.accessibilityRights !== roleCounts.accessibilityRights) blockers.push("Adjudication role counts do not match the eligible review set.");
     if (adjudication.quorum.distinctAgentModelFamilies !== modelFamilies.size) blockers.push("Adjudication model-family count does not match the eligible review set.");
+    blockers.push(...validateFinalizationRecord(adjudication, eligible, rule));
     if (adjudication.decision === "merge" && metadata.status !== "published") blockers.push("A merge adjudication requires lesson.json status published before merge.");
   }
 
@@ -290,7 +306,7 @@ export function evaluateProposal(metadata, reviews, adjudication, metadataErrors
   let stateLabel = "AWAITING REVIEWS";
   if (quorumSatisfied) {
     state = "awaiting-adjudication";
-    stateLabel = "QUORUM MET · ADJUDICATION PENDING";
+    stateLabel = rule.reviewMode === "advisory-finalization" ? "REVIEWS COMPLETE · FINALIZATION PENDING" : "QUORUM MET · ADJUDICATION PENDING";
   }
   if (quorumSatisfied && adjudicationValid && adjudicationSummary?.decision === "merge" && adjudicationSummary.satisfied && blockers.length === 0) {
     state = "ready-to-merge";
@@ -307,8 +323,11 @@ export function evaluateProposal(metadata, reviews, adjudication, metadataErrors
     state,
     stateLabel,
     reviewSummary: {
-      approvals: eligible.length,
+      reviewInputs: verdictCounts.reviewInputs,
+      requiredReviewInputs: reviewInputMinimum(rule),
+      approvals: verdictCounts.approvals,
       requiredApprovals: rule.minimumApprovingReviews,
+      changeRequests: verdictCounts.changeRequests,
       distinctPrincipals: reviewPrincipals.size,
       requiredDistinctPrincipals: rule.minimumDistinctPrincipals,
       distinctAgentRuns: reviewAgentRuns.size,

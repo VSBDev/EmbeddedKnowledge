@@ -22,23 +22,23 @@ Then open <http://localhost:4173/site/>. A local server is recommended because b
 - [Machine-readable graph](site/data/premed-graph.json) — 10 domains, 46 graph modules, 388 atomic topic outcomes, and 1,058 relationships.
 - [Public site](site/index.html) — project landing page plus separate Premed overview, searchable syllabus, no-scroll graph, and lesson-state viewer.
 - [Lesson index](site/data/premed-lessons.json) and [open-PR index](site/data/premed-open-prs.json) — all 388 outcomes, merged lesson mappings, and GitHub-provenanced proposal quorum states.
-- [Lesson-production ledger](site/data/premed-progress.json) — separately reports contributed, in-review, published-open, and outcome-coverage totals. It begins at an explicit 0%.
+- [Lesson-production ledger](site/data/premed-progress.json) — separately reports current contributed, in-review, published-open, and outcome-coverage totals.
 - [Lesson Format v1 contract](FORMAT.md) and [authoring guide](lessons/README.md) — canonical scene Markdown, structured artifacts, math/chemistry/visual sources, accessibility, security, and export targets.
 - [Learning-Content Standard v1](CONTENT-STANDARD.md) — evidence-based contract for explanations, examples, representations, retrieval, practice, feedback, misconception repair, transfer, and agent self-audit.
 - [Collaboration model](COLLABORATION.md) — agent-first PR workflow, lesson-pack contract, exact review quorum, adjudication, governance, and adopted CC BY 4.0 content licensing.
 - [Agent instructions](AGENTS.md) and [`llms.txt`](llms.txt) — repository-native and inference-time project maps.
-- [Role-isolated Agent Skills](.agents/skills/) — authoring, three independent review procedures, and fresh adjudication, published through the [skills manifest](site/agent/skills.json).
+- [Role-isolated Agent Skills](.agents/skills/) — authoring, specialized review procedures, and fresh finalization/adjudication, published through the [skills manifest](site/agent/skills.json).
 - [Machine contribution contract](site/agent/contribution.json) — stable entry points, public schemas, protocol status, and read-only WebMCP surface.
 
 The graph's 1,551-hour total counts every optional branch. It is an inventory, not the workload a learner is expected to complete. The syllabus is authoritative for completion rules.
 
-The curriculum's completeness is not the lesson corpus's completeness. Premed currently has **0 contributed lessons, 0 published open lessons, and 0 of 388 outcomes covered (0%)**. The public site reads these values from the production ledger rather than inferring them from syllabus or graph coverage.
+The curriculum's completeness is not the lesson corpus's completeness. The public site reads current contributed, in-review, published, and covered-outcome values from the generated production ledger rather than freezing a percentage in prose.
 
 ## Agent-first contribution interface
 
-Pull requests are the only write path. During the founding stage, a standard lesson uses three isolated cross-model review agents—one academic, one learning-design, and one accessibility-and-rights—followed by a fourth, fresh adjudication run. One disclosed maintainer may operate all four runs, but run IDs, model provenance, material-instruction digests, and the frozen candidate commit remain independently auditable.
+Pull requests are the only write path. During the founding stage, a standard lesson uses one academic and one learning-design review of the original candidate across two providers, followed by one fresh finalizer. The finalizer disposes every finding, makes the single final edit, audits accessibility and rights, and owns the decision. One disclosed maintainer may operate the runs, but run IDs, provenance, instruction digests, and both content commits remain auditable.
 
-Authors first prove the learner-facing opening, explanation, and worked use in a human-first prototype. Formal reviewers then run in one parallel exact-candidate cohort; findings are consolidated into one revision rather than creating rolling review targets. Draft lesson PRs use a candidate-valid check, while the full protected merge-readiness check begins only when the PR is marked ready.
+Authors first prove the learner-facing opening, explanation, and worked use in a human-first prototype. The two formal reviewers run once in parallel against the original candidate; a third fresh run writes the final version from their evidence, with no cohort loop. Draft lesson PRs use a candidate-valid check, while the full protected merge-readiness check begins only when the PR is marked ready.
 
 The public site exposes `/llms.txt`, `/llms-full.txt`, `/content-standard.txt`, `/agent/skills.json`, raw and downloadable Agent Skills, JSON Schemas, the Premed graph, lesson and open-PR indexes, the generated progress ledger, and seven read-only WebMCP tools. `llms.txt` discovers the contract; the selected role skill applies it. WebMCP is progressive enhancement for compatible browsers in a secure context; it never writes, votes, adjudicates, or merges.
 

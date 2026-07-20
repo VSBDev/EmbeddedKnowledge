@@ -6,6 +6,13 @@ import addFormats from "ajv-formats";
 import { principalKey, modelFamilyKey, reviewerAuthorConflict } from "./lib/provenance.mjs";
 import { validateLessonEvidenceContract } from "./lib/lesson-evidence.mjs";
 import { validateLessonRightsContract } from "./lib/lesson-rights.mjs";
+import {
+  eligibleReviewVerdicts,
+  resolveRule,
+  reviewInputMinimum,
+  reviewVerdictCounts,
+  validateFinalizationRecord
+} from "./lib/quorum-policy.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const lessonsRoot = path.join(root, "lessons");
@@ -385,7 +392,12 @@ for (const entry of packDirectories) {
   }
   if (!adjudication) continue;
 
-  const tier = policy.tiers?.[lesson.riskTier];
+  const tier = resolveRule(policy, {
+    lessonId: lesson.id,
+    lessonVersion: lesson.version,
+    riskTier: lesson.riskTier,
+    policyId: adjudication.policyId
+  });
   if (!tier) {
     error(packName, `unknown or missing riskTier '${lesson.riskTier}'; expected one of: ${Object.keys(policy.tiers || {}).join(", ")}.`);
     continue;
@@ -405,7 +417,7 @@ for (const entry of packDirectories) {
   for (const review of citedReviews) {
     if (review.lessonId !== lesson.id || review.lessonVersion !== lesson.version) error(packName, `${review.reviewId} targets a different lesson identity.`);
     if (review.candidateCommit !== adjudication.candidateCommit) error(packName, `${review.reviewId} targets a stale candidate commit.`);
-    if (review.verdict !== "approve") error(packName, `${review.reviewId} is counted but does not approve.`);
+    if (!eligibleReviewVerdicts(tier).has(review.verdict)) error(packName, `${review.reviewId} verdict ${review.verdict} is not eligible under ${tier.policyId}.`);
     const reviewerPrincipal = principalKey(review.reviewer.principalId);
     reviewerPrincipals.add(reviewerPrincipal);
     const authorConflict = reviewerAuthorConflict(policy, authorPrincipals, review.reviewer.principalId);
@@ -420,7 +432,7 @@ for (const entry of packDirectories) {
       reviewAgentRuns.add(runId);
       modelFamilies.add(modelFamilyKey(review.reviewer.agent));
     }
-    if (review.findings.some((finding) => finding.severity === "blocking" && !finding.resolution)) {
+    if (tier.reviewMode === "approval-quorum" && review.findings.some((finding) => finding.severity === "blocking" && !finding.resolution)) {
       error(packName, `${review.reviewId} has an unresolved blocking finding.`);
     }
   }
@@ -429,7 +441,9 @@ for (const entry of packDirectories) {
     error(packName, "adjudication identity or risk tier differs from lesson.json.");
   }
   if (adjudication.policyId !== tier.policyId) error(packName, `adjudication must use ${tier.policyId}.`);
-  if (citedReviews.length < tier.minimumApprovingReviews) error(packName, `requires at least ${tier.minimumApprovingReviews} approving reviews.`);
+  const verdictCounts = reviewVerdictCounts(citedReviews);
+  if (citedReviews.length < reviewInputMinimum(tier)) error(packName, `requires at least ${reviewInputMinimum(tier)} eligible review inputs.`);
+  if (verdictCounts.approvals < tier.minimumApprovingReviews) error(packName, `requires at least ${tier.minimumApprovingReviews} approving reviews.`);
   if (reviewerPrincipals.size < tier.minimumDistinctPrincipals) error(packName, `requires at least ${tier.minimumDistinctPrincipals} distinct reviewer principals.`);
   if (reviewAgentRuns.size < tier.minimumDistinctAgentRuns) error(packName, `requires at least ${tier.minimumDistinctAgentRuns} distinct review agent runs.`);
   for (const [role, minimum] of Object.entries(tier.roleMinimums)) {
@@ -440,8 +454,12 @@ for (const entry of packDirectories) {
   if (!adjudicationRun) error(packName, "founding-stage adjudication requires disclosed agent provenance.");
   else if (authorAgentRuns.has(adjudicationRun) || reviewAgentRuns.has(adjudicationRun)) error(packName, "adjudication must use a fresh agent run distinct from authoring and review runs.");
   if (!adjudication.quorum.satisfied) error(packName, "adjudication quorum must be marked satisfied.");
-  if (adjudication.quorum.approvals !== citedReviews.length || adjudication.quorum.distinctPrincipals !== reviewerPrincipals.size || adjudication.quorum.distinctAgentRuns !== reviewAgentRuns.size) {
+  if (adjudication.quorum.approvals !== verdictCounts.approvals || adjudication.quorum.distinctPrincipals !== reviewerPrincipals.size || adjudication.quorum.distinctAgentRuns !== reviewAgentRuns.size) {
     error(packName, "adjudication quorum counts do not match cited review artifacts.");
+  }
+  if (tier.reviewMode === "advisory-finalization" &&
+      (adjudication.quorum.reviewInputs !== verdictCounts.reviewInputs || adjudication.quorum.changeRequests !== verdictCounts.changeRequests)) {
+    error(packName, "adjudication review-input counts do not match cited review artifacts.");
   }
   const snapshotCounts = adjudication.quorum.roleCounts;
   if (snapshotCounts.academic !== roleCounts.academic || snapshotCounts.learningDesign !== roleCounts["learning-design"] || snapshotCounts.accessibilityRights !== roleCounts["accessibility-rights"]) {
@@ -450,6 +468,7 @@ for (const entry of packDirectories) {
   if (adjudication.quorum.distinctAgentModelFamilies !== modelFamilies.size) {
     error(packName, "adjudication model-family count does not match cited review artifacts.");
   }
+  for (const problem of validateFinalizationRecord(adjudication, citedReviews, tier)) error(packName, problem);
   if (["adjudicated", "published"].includes(lesson.status) && adjudication.decision !== "merge") {
     error(packName, `${lesson.status} lessons require a merge adjudication decision.`);
   }

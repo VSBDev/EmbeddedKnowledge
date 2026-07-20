@@ -255,7 +255,7 @@ Lesson content is data and is never executable.
 - Personal medical information, identifiable learner data, credentials, API keys, copyrighted answer banks, and unlicensed patient media are prohibited.
 - Assessments delivered to learners separate hidden answer logic from public prompts and do not trust the client for authoritative scoring or credential claims.
 
-Validation and rendering do not establish factual correctness. Academic, learning-design, accessibility/rights reviews and separate adjudication remain required.
+Validation and rendering do not establish factual correctness. Standard lessons require academic and learning-design review inputs plus a separate fresh finalizer who performs the final accessibility-and-rights audit; other risk tiers follow their declared role quorum.
 
 ## 13. Specimen versus contribution
 
