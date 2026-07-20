@@ -13,13 +13,13 @@ For a lesson contribution:
 3. Create one Lesson Format v1 pack under `lessons/` using the current public schemas and [`lessons/README.md`](lessons/README.md). Add the smallest coherent set of ordered scenes, explicit per-scene claim coverage, learner-visible claim-to-source notes, assessment logic, references, glossary, accessible assets, attribution, and agent disclosure. Do not manufacture one scene per rubric item.
 4. Complete the author audit and batch its repairs. Run the strict offline source-access preflight, then the sequential verifier once the candidate is stable: `npm run source:preflight -- --strict lessons/<pack>` followed by `npm run verify`. Do not run `npm run validate` and `npm test` concurrently in one worktree because both rebuild shared generated fixtures.
 5. Open a draft pull request using the lesson template. A green `lesson-candidate` check means the draft candidate and any artifacts already present are valid; it does not create the protected `agent-protocol` context and does not mean the lesson has quorum or is merge-ready.
-6. Freeze one candidate commit, then launch the complete required review cohort in parallel against exactly that commit. Wait for every role before editing; do not react to the first returned review while other reviewers are still inspecting the old candidate.
-7. If any role requests changes, consolidate all current-cohort findings into one author revision, create a new lesson version and candidate commit, and launch one fresh parallel cohort. Never collect a rolling mixture of approvals against successive commits. Generate each exact GitHub body with `npm run review:prepare`, submit and verify the GitHub review first, then commit the equivalent artifact.
-8. After one cohort approves, a fresh adjudication agent run writes `adjudication.json`, recording the quorum, reasoning, dissent, conditions, and decision.
-9. Commit the adjudication with the lesson, make only its authorized publication-state transition, and rerun `npm run verify` sequentially.
+6. Freeze one original candidate commit. For a standard lesson, launch exactly two isolated reviews against it in parallel: one academic and one learning-design review across two providers. Wait for both; neither reviewer edits the lesson.
+7. Generate each exact GitHub body with `npm run review:prepare`, submit and verify it against the original candidate, then commit the equivalent artifact unchanged. Both `approve` and `request-changes` are valid advisory inputs for the standard one-pass process; do not send either result back into an author/reviewer loop.
+8. Launch one fresh finalizer. It reads the original and both reviews, disposes every finding, makes one coherent final lesson revision, completes the accessibility-and-rights audit, validates, commits the final content SHA, and writes `adjudication.json` with the merge/revise/reject decision.
+9. Commit the adjudication with the lesson, make only the authorized post-finalization publication-state transition, and rerun `npm run verify` sequentially. Do not change teaching content after the recorded final commit.
 10. Mark the pull request ready for review. That lifecycle event reruns the required `agent-protocol` check with full publication readiness enforced; protected-branch checks decide whether merge is permitted.
 
-Use the matching role-isolated skill for each academic, learning-design, accessibility-and-rights, and adjudication run. A skill is a procedure, not a vote: review eligibility still depends on the frozen commit, artifact schema, disclosed provenance, GitHub submission, quorum policy, and deterministic checks.
+Use the matching role-isolated skill for each run. Standard lessons use the academic and learning-design review skills plus the finalization/adjudication skill; the finalizer's mandatory accessibility-and-rights audit replaces a third standard review without being represented as a vote. Minor and high-impact tiers retain the roles in the machine-readable policy.
 
 ## Lesson Format v1 authoring contract
 
@@ -85,15 +85,9 @@ Lesson content is data, never executable. Repository automation must not run cod
 
 `examples/lesson-pack/` is a format and accessibility specimen. It is excluded from lesson indexes, pull-request quorum, adjudication totals, coverage, and publication claims. A copy of the specimen under a different ID does not become a lesson. Production status comes only from a focused contribution under `lessons/` that passes validation, independent review quorum, separate adjudication, merge, public availability, and the open-license checks.
 
-## Standard lesson quorum
+## Standard lesson review and finalization
 
-A standard lesson uses a founding-stage **3 + 1 agent quorum**:
-
-- 1 academic review;
-- 1 learning-design review;
-- 1 accessibility and rights review.
-
-The three reviews must come from isolated runs across three distinct providers and target the same frozen candidate commit. After quorum, a fourth fresh run makes the final merge/revise/reject adjudication. Its run ID may not appear in authoring or review provenance. See `site/agent/quorum-policy.json` for minor-correction and high-impact rules.
+A standard lesson uses a founding-stage **2 + 1 one-pass process**: one academic review, one learning-design review, then one fresh finalizer. The two reviewers use isolated runs across two providers and inspect the same original candidate. Their findings are advisory evidence, so `request-changes` remains usable instead of forcing a new cohort. The finalizer alone may make the bounded post-review content revision, must dispose every finding, must complete the accessibility-and-rights audit of the resulting pack, and then records the final commit and merge/revise/reject decision. See `site/agent/quorum-policy.json` for minor-correction and high-impact approval rules.
 
 One disclosed maintainer may operate these agents during the founding stage. Each artifact still identifies the accountable operator plus system, provider, model, version, run ID, and material-instructions digest. Reusing or relabelling one run never creates another vote. This provenance is disclosed and attested by that maintainer, not verified: nothing checks that a declared run really used the declared provider or model, so the requirement buys accountability on the public record rather than proof of independence.
 

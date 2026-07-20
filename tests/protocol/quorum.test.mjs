@@ -10,8 +10,7 @@ const read = (name) => JSON.parse(fs.readFileSync(path.join(root, "examples/agen
 const lesson = { ...read("lesson.example.json"), status: "published" };
 const reviews = [
   read("review.example.json"),
-  read("review-learning-design.example.json"),
-  read("review-accessibility-rights.example.json")
+  read("review-learning-design.example.json")
 ];
 const adjudication = read("adjudication.example.json");
 
@@ -27,13 +26,14 @@ function githubSubmission(artifact, kind, state) {
 
 const reviewSubmissions = reviews.map((review) => githubSubmission(review, "review", "COMMENTED"));
 
-test("three isolated cross-model reviews satisfy the founding-stage standard quorum", () => {
+test("two isolated cross-provider reviews complete the standard review-input gate", () => {
   const result = evaluateProposal(lesson, reviews, null, [], [], reviewSubmissions, "example-contributor");
   assert.equal(result.state, "awaiting-adjudication");
-  assert.equal(result.reviewSummary.approvals, 3);
-  assert.equal(result.reviewSummary.distinctAgentRuns, 3);
-  assert.equal(result.reviewSummary.distinctAgentModelFamilies, 3);
-  assert.equal(result.reviewSummary.githubProvenanceVerifiedApprovals, 3);
+  assert.equal(result.reviewSummary.reviewInputs, 2);
+  assert.equal(result.reviewSummary.approvals, 2);
+  assert.equal(result.reviewSummary.distinctAgentRuns, 2);
+  assert.equal(result.reviewSummary.distinctAgentModelFamilies, 2);
+  assert.equal(result.reviewSummary.githubProvenanceVerifiedApprovals, 2);
   assert.equal(result.reviewSummary.quorumSatisfied, true);
 });
 
@@ -42,11 +42,11 @@ test("a dismissed or fabricated review cannot count", () => {
   dismissed[0].state = "DISMISSED";
   const dismissedResult = evaluateProposal(lesson, reviews, null, [], [], dismissed, "example-contributor");
   assert.equal(dismissedResult.state, "awaiting-reviews");
-  assert.equal(dismissedResult.reviewSummary.approvals, 2);
+  assert.equal(dismissedResult.reviewSummary.reviewInputs, 1);
   assert.match(dismissedResult.blockers.join("\n"), /requires GitHub state approved or commented; found dismissed/);
 
   const fabricatedResult = evaluateProposal(lesson, reviews, null, [], [], reviewSubmissions.slice(1), "example-contributor");
-  assert.equal(fabricatedResult.reviewSummary.approvals, 2);
+  assert.equal(fabricatedResult.reviewSummary.reviewInputs, 1);
   assert.match(fabricatedResult.blockers.join("\n"), /no equivalent structured GitHub review submission/);
 });
 
@@ -56,24 +56,24 @@ test("duplicating an agent run cannot create an extra vote", () => {
   const submissions = duplicateReviews.map((review) => githubSubmission(review, "review", "COMMENTED"));
   const result = evaluateProposal(lesson, duplicateReviews, null, [], [], submissions, "example-contributor");
   assert.equal(result.state, "awaiting-reviews");
-  assert.equal(result.reviewSummary.approvals, 2);
+  assert.equal(result.reviewSummary.reviewInputs, 1);
   assert.match(result.blockers.join("\n"), /duplicates selected review agent run/);
 });
 
-test("one disclosed maintainer may operate the three isolated review agents", () => {
+test("one disclosed maintainer may operate the two isolated review agents", () => {
   const result = evaluateProposal(lesson, reviews, null, [], [], reviewSubmissions, "example-contributor");
-  assert.equal(result.reviewSummary.approvals, 3);
+  assert.equal(result.reviewSummary.reviewInputs, 2);
   assert.equal(result.reviewSummary.distinctPrincipals, 1);
   assert.equal(result.reviewSummary.quorumSatisfied, true);
 });
 
 test("the current lesson version never guesses between multiple candidate cohorts", () => {
   const mixedReviews = structuredClone(reviews);
-  mixedReviews[2].candidateCommit = "f".repeat(40);
+  mixedReviews[1].candidateCommit = "f".repeat(40);
   const submissions = mixedReviews.map((review) => githubSubmission(review, "review", "COMMENTED"));
   const result = evaluateProposal(lesson, mixedReviews, null, [], [], submissions, "example-contributor");
   assert.equal(result.state, "awaiting-reviews");
-  assert.equal(result.reviewSummary.approvals, 0);
+  assert.equal(result.reviewSummary.reviewInputs, 0);
   assert.match(result.blockers.join("\n"), /multiple candidate commits/);
 });
 
@@ -85,17 +85,59 @@ test("older lesson-version reviews remain traceability records without counting 
   historical.verdict = "request-changes";
   const result = evaluateProposal(lesson, [...reviews, historical], null, [], [], reviewSubmissions, "example-contributor");
   assert.equal(result.state, "awaiting-adjudication");
-  assert.equal(result.reviewSummary.approvals, 3);
+  assert.equal(result.reviewSummary.reviewInputs, 2);
   assert.equal(result.reviewSummary.quorumSatisfied, true);
   assert.doesNotMatch(result.blockers.join("\n"), /HISTORICAL/);
 });
 
-test("a fourth fresh adjudication run produces merge-ready state", () => {
+test("a fresh finalizing adjudication produces merge-ready state", () => {
   const githubReviews = [...reviewSubmissions, githubSubmission(adjudication, "adjudication", "COMMENTED")];
   const result = evaluateProposal(lesson, reviews, adjudication, [], [], githubReviews, "example-contributor");
   assert.equal(result.state, "ready-to-merge");
   assert.equal(result.adjudication.githubProvenanceVerified, true);
   assert.deepEqual(result.blockers, []);
+});
+
+test("an honest request-changes review remains usable by the one-pass finalizer", () => {
+  const advisoryReviews = structuredClone(reviews);
+  advisoryReviews[1].verdict = "request-changes";
+  const advisoryAdjudication = structuredClone(adjudication);
+  advisoryAdjudication.quorum.approvals = 1;
+  advisoryAdjudication.quorum.changeRequests = 1;
+  const submissions = [
+    ...advisoryReviews.map((review) => githubSubmission(review, "review", "COMMENTED")),
+    githubSubmission(advisoryAdjudication, "adjudication", "COMMENTED")
+  ];
+  const result = evaluateProposal(lesson, advisoryReviews, advisoryAdjudication, [], [], submissions, "example-contributor");
+  assert.equal(result.state, "ready-to-merge");
+  assert.equal(result.reviewSummary.reviewInputs, 2);
+  assert.equal(result.reviewSummary.approvals, 1);
+  assert.equal(result.reviewSummary.changeRequests, 1);
+});
+
+test("the finalizer must dispose every finding and cannot waive a blocking finding", () => {
+  const incomplete = structuredClone(adjudication);
+  incomplete.finalization.reviewDispositions.pop();
+  let submissions = [...reviewSubmissions, githubSubmission(incomplete, "adjudication", "COMMENTED")];
+  let result = evaluateProposal(lesson, reviews, incomplete, [], [], submissions, "example-contributor");
+  assert.notEqual(result.state, "ready-to-merge");
+  assert.match(result.blockers.join("\n"), /does not dispose review finding/);
+
+  const blockingReviews = structuredClone(reviews);
+  blockingReviews[1].verdict = "request-changes";
+  blockingReviews[1].findings[0].severity = "blocking";
+  blockingReviews[1].findings[0].resolution = null;
+  const waived = structuredClone(adjudication);
+  waived.quorum.approvals = 1;
+  waived.quorum.changeRequests = 1;
+  waived.finalization.reviewDispositions[1].action = "not-incorporated";
+  submissions = [
+    ...blockingReviews.map((review) => githubSubmission(review, "review", "COMMENTED")),
+    githubSubmission(waived, "adjudication", "COMMENTED")
+  ];
+  result = evaluateProposal(lesson, blockingReviews, waived, [], [], submissions, "example-contributor");
+  assert.notEqual(result.state, "ready-to-merge");
+  assert.match(result.blockers.join("\n"), /Blocking finding .* cannot remain unincorporated/);
 });
 
 test("adjudicated is an intermediate state; merge-ready requires published", () => {

@@ -1,8 +1,8 @@
 {
-  "schemaVersion": 2,
-  "policyId": "lesson-quorum-v2",
+  "schemaVersion": 3,
+  "policyId": "lesson-quorum-v3",
   "status": "adopted-founding-stage",
-  "effectiveDate": "2026-07-19",
+  "effectiveDate": "2026-07-20",
   "countingUnit": "isolated-agent-review-run",
   "foundingStage": {
     "active": true,
@@ -22,6 +22,9 @@
   "tiers": {
     "minor-correction": {
       "policyId": "minor-correction-v2",
+      "reviewMode": "approval-quorum",
+      "eligibleReviewVerdicts": ["approve"],
+      "minimumReviewInputs": 2,
       "minimumApprovingReviews": 2,
       "roleMinimums": { "academic": 1, "learning-design": 0, "accessibility-rights": 1 },
       "minimumDistinctPrincipals": 1,
@@ -30,16 +33,26 @@
       "finalAdjudicators": 1
     },
     "standard": {
-      "policyId": "standard-lesson-v2",
-      "minimumApprovingReviews": 3,
-      "roleMinimums": { "academic": 1, "learning-design": 1, "accessibility-rights": 1 },
+      "policyId": "standard-lesson-v3",
+      "reviewMode": "advisory-finalization",
+      "eligibleReviewVerdicts": ["approve", "request-changes"],
+      "minimumReviewInputs": 2,
+      "minimumApprovingReviews": 0,
+      "roleMinimums": { "academic": 1, "learning-design": 1, "accessibility-rights": 0 },
       "minimumDistinctPrincipals": 1,
-      "minimumDistinctAgentRuns": 3,
-      "minimumDistinctAgentModelFamilies": 3,
-      "finalAdjudicators": 1
+      "minimumDistinctAgentRuns": 2,
+      "minimumDistinctAgentModelFamilies": 2,
+      "finalAdjudicators": 1,
+      "finalCommitRequired": true,
+      "adjudicatorMayFinalizeContentOnce": true,
+      "adjudicatorAccessibilityRightsAuditRequired": true,
+      "allReviewFindingsRequireDisposition": true
     },
     "high-impact": {
       "policyId": "high-impact-lesson-v2",
+      "reviewMode": "approval-quorum",
+      "eligibleReviewVerdicts": ["approve"],
+      "minimumReviewInputs": 5,
       "minimumApprovingReviews": 5,
       "roleMinimums": { "academic": 3, "learning-design": 1, "accessibility-rights": 1 },
       "minimumDistinctPrincipals": 1,
@@ -48,12 +61,34 @@
       "finalAdjudicators": 1
     }
   },
+  "legacyAdjudications": [
+    {
+      "lessonId": "PREM-WEL-001",
+      "lessonVersion": "0.4.2",
+      "riskTier": "standard",
+      "policyId": "standard-lesson-v2",
+      "reviewMode": "approval-quorum",
+      "eligibleReviewVerdicts": ["approve"],
+      "minimumReviewInputs": 3,
+      "minimumApprovingReviews": 3,
+      "roleMinimums": { "academic": 1, "learning-design": 1, "accessibility-rights": 1 },
+      "minimumDistinctPrincipals": 1,
+      "minimumDistinctAgentRuns": 3,
+      "minimumDistinctAgentModelFamilies": 3,
+      "finalAdjudicators": 1,
+      "finalCommitRequired": false,
+      "adjudicatorMayFinalizeContentOnce": false,
+      "adjudicatorAccessibilityRightsAuditRequired": false,
+      "allReviewFindingsRequireDisposition": false
+    }
+  ],
   "mergeRequirements": {
     "allReviewsTargetSameCandidateCommit": true,
     "noUnresolvedBlockingFindings": true,
     "quorumSnapshotMustBeSatisfied": true,
     "finalAdjudicationFileMustBeCommittedWithLesson": true,
     "adjudicationRunMustBeFresh": true,
+    "standardLessonFinalization": "Two role-isolated reviews advise one fresh adjudicator. The adjudicator may make one final content revision, must dispose every finding, and owns the final accessibility-and-rights audit and merge decision.",
     "postCandidateMutableFields": ["lesson.json.status", "lesson.json.sourceConfidence", "claims.json.claims[].reviewStatus"],
     "staleReviewsAreDismissedAfterLessonChanges": true
   }

@@ -56,4 +56,4 @@ Choose `request-changes` when any unresolved major or blocking finding exists. C
 5. Output one fenced `embeddedknowledge-review` JSON block suitable for an equivalent GitHub review submission.
 6. Do not write the artifact into the pack unless the operator explicitly asks. The operator must copy it without rewriting the findings.
 7. After it is saved, validate the artifact and full repository with `npm run validate`. Report any structural failure separately from the academic verdict.
-8. Never claim quorum or merge readiness; one academic approval is only one eligible vote.
+8. Never claim quorum or merge readiness. Under `standard-lesson-v3`, this is one advisory input to a fresh finalizer; report `request-changes` honestly when warranted and do not start a revision loop.

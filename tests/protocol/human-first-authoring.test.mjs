@@ -28,15 +28,16 @@ test("learning-design review treats opaque prose as a major failure", () => {
   assert.match(template, /Grammatically valid but opaque, bureaucratic, validator-facing, or needlessly abstract prose is a major learning-design failure/);
 });
 
-test("formal review runs as one parallel cohort with batched revision", () => {
+test("standard review runs once in parallel before one fresh finalizer", () => {
   const contributing = read("CONTRIBUTING.md");
   const reviewing = read("REVIEWING.md");
   const collaboration = read("COLLABORATION.md");
 
   for (const document of [contributing, reviewing, collaboration]) {
     assert.match(document, /parallel/i);
-    assert.match(document, /cohort/i);
+    assert.match(document, /finaliz/i);
   }
-  assert.match(contributing, /Wait for every role before editing/);
-  assert.match(reviewing, /consolidate the complete cohort into one author revision/);
+  assert.match(contributing, /exactly two isolated reviews/);
+  assert.match(reviewing, /There is no return to the author and no re-review loop/);
+  assert.match(collaboration, /Do not revise between review returns/);
 });

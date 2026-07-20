@@ -51,11 +51,11 @@ Course content is licensed CC BY 4.0 unless a file or third-party asset says oth
 - [Graph data](https://embeddedknowledge.io/data/premed-graph.json): 10 domains, 46 modules, 388 atomic outcomes, and 1,058 relationships.
 - [Production ledger](https://embeddedknowledge.io/data/premed-progress.json): contributed, in-review, published-open, and covered-outcome totals.
 
-## Required standard-lesson quorum
+## Required standard-lesson process
 
-A standard lesson uses a founding-stage 3 + 1 agent quorum: one academic, one learning-design, and one accessibility-and-rights review from three isolated run IDs across three distinct providers, followed by a fourth fresh adjudication run. One disclosed maintainer may operate all four agents. Every run records full provenance, every review targets the same frozen candidate commit, and reused run identities never count twice. Provenance is disclosed and attested by the accountable operator, not cryptographically verified.
+A standard lesson uses a founding-stage 2 + 1 one-pass process: one academic and one learning-design review from two isolated runs across two providers inspect the same original candidate, then a third fresh finalizer disposes every finding, writes the final version once, audits accessibility and rights, and adjudicates the final commit. Both `approve` and `request-changes` are usable review inputs; neither starts a new cohort. One disclosed maintainer may operate all agents. Provenance is disclosed and attested by the accountable operator, not cryptographically verified.
 
-Before formal review, the author must pass the human first-read gate on a learner-visible prototype. Launch the complete review cohort in parallel against one candidate, wait for all roles, and consolidate findings into one revision. Draft lesson PRs use `lesson-candidate`; mark them ready only after quorum and adjudication so the protected `agent-protocol` merge check can run.
+Before formal review, the author must pass the human first-read gate on a learner-visible prototype. Launch the academic and learning-design reviews once in parallel against the original candidate, wait for both, then launch one fresh finalizer. Draft lesson PRs use `lesson-candidate`; mark them ready only after finalization and adjudication so the protected `agent-protocol` merge check can run.
 
 ## Repository paths for coding agents
 
@@ -107,23 +107,23 @@ Then open <http://localhost:4173/site/>. A local server is recommended because b
 - [Machine-readable graph](site/data/premed-graph.json) — 10 domains, 46 graph modules, 388 atomic topic outcomes, and 1,058 relationships.
 - [Public site](site/index.html) — project landing page plus separate Premed overview, searchable syllabus, no-scroll graph, and lesson-state viewer.
 - [Lesson index](site/data/premed-lessons.json) and [open-PR index](site/data/premed-open-prs.json) — all 388 outcomes, merged lesson mappings, and GitHub-provenanced proposal quorum states.
-- [Lesson-production ledger](site/data/premed-progress.json) — separately reports contributed, in-review, published-open, and outcome-coverage totals. It begins at an explicit 0%.
+- [Lesson-production ledger](site/data/premed-progress.json) — separately reports current contributed, in-review, published-open, and outcome-coverage totals.
 - [Lesson Format v1 contract](FORMAT.md) and [authoring guide](lessons/README.md) — canonical scene Markdown, structured artifacts, math/chemistry/visual sources, accessibility, security, and export targets.
 - [Learning-Content Standard v1](CONTENT-STANDARD.md) — evidence-based contract for explanations, examples, representations, retrieval, practice, feedback, misconception repair, transfer, and agent self-audit.
 - [Collaboration model](COLLABORATION.md) — agent-first PR workflow, lesson-pack contract, exact review quorum, adjudication, governance, and adopted CC BY 4.0 content licensing.
 - [Agent instructions](AGENTS.md) and [`llms.txt`](llms.txt) — repository-native and inference-time project maps.
-- [Role-isolated Agent Skills](.agents/skills/) — authoring, three independent review procedures, and fresh adjudication, published through the [skills manifest](site/agent/skills.json).
+- [Role-isolated Agent Skills](.agents/skills/) — authoring, specialized review procedures, and fresh finalization/adjudication, published through the [skills manifest](site/agent/skills.json).
 - [Machine contribution contract](site/agent/contribution.json) — stable entry points, public schemas, protocol status, and read-only WebMCP surface.
 
 The graph's 1,551-hour total counts every optional branch. It is an inventory, not the workload a learner is expected to complete. The syllabus is authoritative for completion rules.
 
-The curriculum's completeness is not the lesson corpus's completeness. Premed currently has **0 contributed lessons, 0 published open lessons, and 0 of 388 outcomes covered (0%)**. The public site reads these values from the production ledger rather than inferring them from syllabus or graph coverage.
+The curriculum's completeness is not the lesson corpus's completeness. The public site reads current contributed, in-review, published, and covered-outcome values from the generated production ledger rather than freezing a percentage in prose.
 
 ## Agent-first contribution interface
 
-Pull requests are the only write path. During the founding stage, a standard lesson uses three isolated cross-model review agents—one academic, one learning-design, and one accessibility-and-rights—followed by a fourth, fresh adjudication run. One disclosed maintainer may operate all four runs, but run IDs, model provenance, material-instruction digests, and the frozen candidate commit remain independently auditable.
+Pull requests are the only write path. During the founding stage, a standard lesson uses one academic and one learning-design review of the original candidate across two providers, followed by one fresh finalizer. The finalizer disposes every finding, makes the single final edit, audits accessibility and rights, and owns the decision. One disclosed maintainer may operate the runs, but run IDs, provenance, instruction digests, and both content commits remain auditable.
 
-Authors first prove the learner-facing opening, explanation, and worked use in a human-first prototype. Formal reviewers then run in one parallel exact-candidate cohort; findings are consolidated into one revision rather than creating rolling review targets. Draft lesson PRs use a candidate-valid check, while the full protected merge-readiness check begins only when the PR is marked ready.
+Authors first prove the learner-facing opening, explanation, and worked use in a human-first prototype. The two formal reviewers run once in parallel against the original candidate; a third fresh run writes the final version from their evidence, with no cohort loop. Draft lesson PRs use a candidate-valid check, while the full protected merge-readiness check begins only when the PR is marked ready.
 
 The public site exposes `/llms.txt`, `/llms-full.txt`, `/content-standard.txt`, `/agent/skills.json`, raw and downloadable Agent Skills, JSON Schemas, the Premed graph, lesson and open-PR indexes, the generated progress ledger, and seven read-only WebMCP tools. `llms.txt` discovers the contract; the selected role skill applies it. WebMCP is progressive enhancement for compatible browsers in a secure context; it never writes, votes, adjudicates, or merges.
 
@@ -269,20 +269,21 @@ These instructions apply to the entire EmbeddedKnowledge project.
 - Course content is licensed CC BY 4.0. Identify exceptions and third-party assets explicitly.
 - Disclose the accountable principal and, when an agent was used, the agent system, provider, model, version, run ID, and SHA-256 digest of its material instructions.
 - During the founding stage, one disclosed principal may operate the authoring, review, and adjudication agents. Count only isolated runs with unique run IDs; no review run may reuse an authoring run.
-- Launch every required review role in parallel against one candidate commit and wait for the complete cohort before revising. Consolidate all findings into one author revision and fresh version/candidate; do not create rolling review targets. Any lesson-content change makes prior approvals stale.
+- For a standard lesson, launch exactly one academic and one learning-design review against the original candidate. They are one-time advisory inputs: an honest `request-changes` verdict does not start another cohort.
+- A fresh standard-lesson finalizer reads the original and both reviews, disposes every finding, makes the single final content revision, completes the accessibility-and-rights audit, and records the final commit and decision. Do not loop back to the author or reviewers.
 - Final adjudication is a separate artifact and must be committed inside the lesson pack before merge.
 
 ## Quorum
 
 [`site/agent/quorum-policy.json`](site/agent/quorum-policy.json) is the single source of truth for quorum. The summary below must match it; if they ever disagree, the JSON wins and this file is the bug.
 
-| Risk tier | Approving reviews | Role minimums | Distinct runs | Distinct providers | Fresh adjudication |
+| Risk tier | Review gate | Role minimums | Distinct runs | Distinct providers | Fresh adjudication |
 | --- | ---: | --- | ---: | ---: | ---: |
 | Minor correction | 2 | 1 academic; 1 accessibility/rights | 2 | 2 | 1 run |
-| Standard lesson | 3 | 1 academic; 1 learning-design; 1 accessibility/rights | 3 | 3 | 1 run |
+| Standard lesson | 2 advisory inputs | 1 academic; 1 learning-design | 2 | 2 | 1 finalizing run |
 | High-impact lesson | 5 | 3 academic; 1 learning-design; 1 accessibility/rights | 5 | 3 | 1 run |
 
-A minor correction is **not** simply "any two reviews": it requires one academic and one accessibility/rights review across two distinct run IDs and two distinct providers. The adjudication run must be distinct from every authoring and review run. Every run discloses its accountable operator and complete agent provenance.
+A minor correction is **not** simply "any two reviews": it retains one academic and one accessibility/rights approval across two distinct run IDs and two distinct providers. Standard lessons use the bounded one-pass finalization rule above; high-impact lessons retain their approval quorum. The adjudication run must be distinct from every authoring and review run. Every run discloses its accountable operator and complete agent provenance.
 
 Provenance is **disclosed and attested, not verified**: run IDs, providers, models, versions, and instruction digests are self-reported strings attested by the accountable operator. The validators enforce internal consistency only. Never describe a quorum as proving independent verification.
 
@@ -314,13 +315,13 @@ For a lesson contribution:
 3. Create one Lesson Format v1 pack under `lessons/` using the current public schemas and [`lessons/README.md`](lessons/README.md). Add the smallest coherent set of ordered scenes, explicit per-scene claim coverage, learner-visible claim-to-source notes, assessment logic, references, glossary, accessible assets, attribution, and agent disclosure. Do not manufacture one scene per rubric item.
 4. Complete the author audit and batch its repairs. Run the strict offline source-access preflight, then the sequential verifier once the candidate is stable: `npm run source:preflight -- --strict lessons/<pack>` followed by `npm run verify`. Do not run `npm run validate` and `npm test` concurrently in one worktree because both rebuild shared generated fixtures.
 5. Open a draft pull request using the lesson template. A green `lesson-candidate` check means the draft candidate and any artifacts already present are valid; it does not create the protected `agent-protocol` context and does not mean the lesson has quorum or is merge-ready.
-6. Freeze one candidate commit, then launch the complete required review cohort in parallel against exactly that commit. Wait for every role before editing; do not react to the first returned review while other reviewers are still inspecting the old candidate.
-7. If any role requests changes, consolidate all current-cohort findings into one author revision, create a new lesson version and candidate commit, and launch one fresh parallel cohort. Never collect a rolling mixture of approvals against successive commits. Generate each exact GitHub body with `npm run review:prepare`, submit and verify the GitHub review first, then commit the equivalent artifact.
-8. After one cohort approves, a fresh adjudication agent run writes `adjudication.json`, recording the quorum, reasoning, dissent, conditions, and decision.
-9. Commit the adjudication with the lesson, make only its authorized publication-state transition, and rerun `npm run verify` sequentially.
+6. Freeze one original candidate commit. For a standard lesson, launch exactly two isolated reviews against it in parallel: one academic and one learning-design review across two providers. Wait for both; neither reviewer edits the lesson.
+7. Generate each exact GitHub body with `npm run review:prepare`, submit and verify it against the original candidate, then commit the equivalent artifact unchanged. Both `approve` and `request-changes` are valid advisory inputs for the standard one-pass process; do not send either result back into an author/reviewer loop.
+8. Launch one fresh finalizer. It reads the original and both reviews, disposes every finding, makes one coherent final lesson revision, completes the accessibility-and-rights audit, validates, commits the final content SHA, and writes `adjudication.json` with the merge/revise/reject decision.
+9. Commit the adjudication with the lesson, make only the authorized post-finalization publication-state transition, and rerun `npm run verify` sequentially. Do not change teaching content after the recorded final commit.
 10. Mark the pull request ready for review. That lifecycle event reruns the required `agent-protocol` check with full publication readiness enforced; protected-branch checks decide whether merge is permitted.
 
-Use the matching role-isolated skill for each academic, learning-design, accessibility-and-rights, and adjudication run. A skill is a procedure, not a vote: review eligibility still depends on the frozen commit, artifact schema, disclosed provenance, GitHub submission, quorum policy, and deterministic checks.
+Use the matching role-isolated skill for each run. Standard lessons use the academic and learning-design review skills plus the finalization/adjudication skill; the finalizer's mandatory accessibility-and-rights audit replaces a third standard review without being represented as a vote. Minor and high-impact tiers retain the roles in the machine-readable policy.
 
 ## Lesson Format v1 authoring contract
 
@@ -386,15 +387,9 @@ Lesson content is data, never executable. Repository automation must not run cod
 
 `examples/lesson-pack/` is a format and accessibility specimen. It is excluded from lesson indexes, pull-request quorum, adjudication totals, coverage, and publication claims. A copy of the specimen under a different ID does not become a lesson. Production status comes only from a focused contribution under `lessons/` that passes validation, independent review quorum, separate adjudication, merge, public availability, and the open-license checks.
 
-## Standard lesson quorum
+## Standard lesson review and finalization
 
-A standard lesson uses a founding-stage **3 + 1 agent quorum**:
-
-- 1 academic review;
-- 1 learning-design review;
-- 1 accessibility and rights review.
-
-The three reviews must come from isolated runs across three distinct providers and target the same frozen candidate commit. After quorum, a fourth fresh run makes the final merge/revise/reject adjudication. Its run ID may not appear in authoring or review provenance. See `site/agent/quorum-policy.json` for minor-correction and high-impact rules.
+A standard lesson uses a founding-stage **2 + 1 one-pass process**: one academic review, one learning-design review, then one fresh finalizer. The two reviewers use isolated runs across two providers and inspect the same original candidate. Their findings are advisory evidence, so `request-changes` remains usable instead of forcing a new cohort. The finalizer alone may make the bounded post-review content revision, must dispose every finding, must complete the accessibility-and-rights audit of the resulting pack, and then records the final commit and merge/revise/reject decision. See `site/agent/quorum-policy.json` for minor-correction and high-impact approval rules.
 
 One disclosed maintainer may operate these agents during the founding stage. Each artifact still identifies the accountable operator plus system, provider, model, version, run ID, and material-instructions digest. Reusing or relabelling one run never creates another vote. This provenance is disclosed and attested by that maintainer, not verified: nothing checks that a declared run really used the declared provider or model, so the requirement buys accountability on the public record rather than proof of independence.
 
@@ -503,23 +498,21 @@ Files under `examples/agent-protocol/` demonstrate governance artifacts, and `ex
 
 During the founding stage, quorum counts isolated, disclosed agent review runs. One accountable maintainer may operate the runs so the initial corpus can be built before a broad reviewer community exists. This is explicit bootstrap governance, not a claim that the agents are independent people.
 
-| Risk tier | Approving reviews | Role minimums | Fresh final adjudication |
+| Risk tier | Review gate | Role minimums | Fresh final adjudication |
 | --- | ---: | --- | ---: |
 | Minor correction | 2 | 1 academic; 1 accessibility/rights | 1 fresh run |
-| Standard lesson | 3 | 1 academic; 1 learning-design; 1 accessibility/rights | 1 fresh run |
+| Standard lesson | 2 advisory inputs | 1 academic; 1 learning-design | 1 fresh finalizing run |
 | High-impact lesson | 5 | 3 academic; 1 learning-design; 1 accessibility/rights | 1 fresh run |
 
-Every counted review must approve the same candidate commit. A lesson-content change makes prior approvals stale. After merge adjudication, only lesson status/source-confidence and retained claims' review-status fields may be promoted without changing that candidate identity; every other lesson or claims-ledger edit stales the approvals. A standard set uses three unique review run IDs and three distinct providers. Review agents receive the frozen candidate and role prompt without inheriting the authoring conversation. The adjudicator receives the candidate plus complete review record in a fourth run whose ID appears nowhere in authoring or review provenance.
+Minor-correction and high-impact tiers retain approval quorums. For a standard lesson, one academic and one learning-design run inspect the same original candidate across two providers; both `approve` and `request-changes` are eligible advisory records. A third fresh run reads the original and both reviews, disposes every finding, makes the only post-review content revision, audits accessibility and rights, commits the final content, and adjudicates it. No reviewer is represented as approving that final edit. After the recorded final commit, only lesson status/source-confidence and retained claims' review-status fields may change without making adjudication stale.
 
 **Provenance is disclosed and attested, not verified.** Run IDs, providers, models, versions, and instruction digests are self-reported strings; nothing in the platform confirms that a declared run occurred or used the declared provider. The accountable operator attests to them on the public record, and the validators enforce only internal consistency: distinct run IDs, distinct declared providers, role minimums, and one frozen candidate commit. Do not describe the diversity rule as verified independence.
 
-Each review records role, verdict, evidence checked, findings, limitations, conflicts, accountable principal, and material agent provenance. The final `adjudication.json` records the policy, exact reviews counted, quorum snapshot, rationale, dissent, conditions, and merge/revise/reject decision. It is committed with the lesson before merge.
+Each review records role, verdict, evidence checked, findings, limitations, conflicts, accountable principal, and material agent provenance. A standard `adjudication.json` additionally records the original and final commits, review-input counts, indexed finding dispositions, material changes, and the finalizer's accessibility-and-rights audit. It is committed with the lesson before merge.
 
-### Review cohorts and throughput
+### One-pass standard throughput
 
-Role isolation does not require serial waiting. After the author passes the human-first prototype, source, structural, and full local gates, freeze one candidate and launch every required review role in parallel. Keep the pull request draft so `lesson-candidate` reports whether the working candidate is healthy without pretending it is merge-ready.
-
-Wait for the complete cohort before changing content. If one reviewer returns early with a finding, record it but do not invalidate the candidate while the other roles are still reviewing it. Consolidate every finding from that cohort into one author revision, bump the lesson version, freeze one replacement candidate, and launch one fresh parallel cohort. Do not create rolling candidates, duplicate GitHub submissions, or retain competing review commits under one current lesson version.
+After author preflight, freeze one original candidate and launch the academic and learning-design reviews in parallel. Wait for both, then launch the finalizer once. Do not revise between review returns, create rolling candidates, repeat a cohort, or send finalizer changes back for another vote.
 
 Learning-design approval includes the human first-read gate. A lesson that satisfies the artifact checklist but that the declared learner cannot understand, paraphrase, or care about on first read must request changes before formal quorum proceeds. The cold-reader developmental pass used during authorship is deliberately early and non-governance; it prevents expensive formal review from being the first time anyone reads the prose as a person.
 
@@ -566,38 +559,38 @@ Software is licensed separately under the **MIT License**. Third-party assets re
 
 # Reviewing EmbeddedKnowledge lessons
 
-Lesson review is a public, structured sequence attached to one pull request. GitHub supplies identity and conversation; repository artifacts supply portability and deterministic quorum.
+Lesson review is a public, structured sequence attached to one pull request. GitHub supplies identity and conversation; repository artifacts supply portable evidence and deterministic gates.
 
-## Sequence
+## Standard one-pass sequence
 
-1. The author passes the human-first prototype gate, completes one lesson pack, batches author-audit repairs, and runs the strict source preflight plus sequential verifier.
-2. The author opens one draft PR. Its `lesson-candidate` check may become green before quorum; the protected `agent-protocol` merge check is deliberately absent while the PR remains draft.
-3. The author freezes a candidate content commit and stops changing teaching content.
-4. Launch the academic, learning-design, and accessibility/rights agents in parallel against that exact commit. The learning-design agent cold-reads learner-visible prose before consulting ledgers or validator output.
-5. Wait for all roles. If any requests changes, consolidate the complete cohort into one author revision, bump the lesson version, freeze one replacement candidate, and launch one fresh parallel cohort. Do not revise while agents are still reviewing the old commit or mix successive candidates in one current version.
-6. Generate every exact GitHub review body with `npm run review:prepare`, submit and verify it against the candidate first, then copy the validated JSON block exactly into `reviews/*.json` without rewriting findings.
-7. When one complete cohort satisfies the 3-agent role quorum, a fourth fresh agent run submits the structured final adjudication.
-8. The author copies that block exactly to `adjudication.json` and changes only the permitted `lesson.json` status/source-confidence fields and retained `claims.json` claim `reviewStatus` fields, ending at `published` with every retained claim `reviewed` before merge.
-9. The author marks the PR ready. The required `agent-protocol` check then verifies schema, graph identity, quorum, GitHub provenance, candidate immutability, and the adjudication decision.
+1. The author completes one lesson pack, batches the author audit, runs strict source preflight and verification, opens a draft PR, and freezes one original candidate commit.
+2. Launch exactly two isolated runs in parallel against that commit: one academic reviewer and one learning-design reviewer. The learning-design reviewer cold-reads learner-visible prose before consulting ledgers or validator output.
+3. Each reviewer inspects once and emits one unchanged structured artifact. `approve` and `request-changes` are both eligible standard-lesson inputs; `abstain` is not. Reviewers never edit the lesson or start another cohort.
+4. Generate each exact GitHub review body with `npm run review:prepare`, submit and verify it against the original candidate, then commit the identical JSON under `reviews/`.
+5. Launch one fresh finalizer after both records exist. It reads the original candidate and both reviews, decides an indexed disposition for every finding, and makes one coherent final content revision. There is no return to the author and no re-review loop.
+6. The finalizer checks the resulting academic and assessment logic and personally completes the accessibility-and-rights audit, including semantic/equivalent access, source provenance, licensing, attribution, privacy, and security.
+7. After strict source preflight and repository verification pass, the finalizer commits the final lesson content and records that SHA as `finalCommit`. Both cited review artifacts must be present in that commit.
+8. Without changing teaching content again, the finalizer writes `adjudication.json` with the original candidate, final commit, two review IDs, review-input/approval/change-request counts, every finding disposition, material changes, access/rights audit, dissent, conditions, provenance, and merge/revise/reject decision.
+9. The maintainer makes only the permitted post-finalization publication transition: lesson status/source-confidence and retained claim review-status fields. The PR is then marked ready and the protected checks verify schemas, graph identity, exact GitHub provenance, commit ordering, final-content immutability, and adjudication.
 
-Review artifacts are evidence, not endorsements of the project as a whole. Findings and declared limitations remain published with the lesson record. A requested change that modifies teaching content or any claims-ledger field other than retained claims' `reviewStatus` creates a new candidate commit and stales every earlier approval.
+The original reviews do not claim to approve edits they did not see. The fresh finalizer is explicitly accountable for those edits and the final audit. If the bounded finalization cannot produce a safe, accurate, coherent, accessible, rights-compliant lesson, it records `reject` or `revise`; it does not launch a loop.
 
-Editing or dismissing a structured GitHub review invalidates its committed provenance. The review-event workflow fails, the contributor must replace or reconcile the portable artifact, and the pull-request head validation must run again. The open-PR lesson index counts only equivalent GitHub submissions whose identity, state, and reviewed commit remain eligible.
+Editing or dismissing a structured GitHub review invalidates its committed provenance. The open-PR index counts only equivalent submissions whose identity, state, and reviewed original commit remain eligible.
 
 ## Founding-stage agent use
 
-One accountable maintainer may operate all standard-lesson review and adjudication runs during the founding stage. The academic, learning-design, and accessibility/rights reviews require three unique run IDs across three distinct providers. Each starts from the frozen candidate and its bounded role prompt, without the authoring conversation. Adjudication is a fourth fresh run and may see the candidate plus all reviews. Agent provenance is mandatory in every counted artifact — and it is disclosed and attested by the accountable operator, not verified by any platform. Run IDs, providers, models, and digests are self-reported strings; checks confirm only that the declared values are internally consistent and distinct.
+One accountable maintainer may operate the author, review, and finalizer agents during the founding stage. Standard review inputs require two unique run IDs across two declared providers; the finalizer uses a third fresh run and may see the original candidate plus both complete reviews. Provenance is disclosed and attested by the operator, not verified by a platform: checks enforce internal consistency, not proof that a declared provider or model was used.
 
-GitHub may not allow a pull-request author to submit an **Approve** review. In that case the maintainer submits the exact structured block through a **Comment** review. Automation matches the committed JSON to that GitHub submission, while the v2 artifact policy—not GitHub’s platform state—determines agent quorum.
+GitHub may not allow a pull-request author to submit an **Approve** or **Request changes** review. In that case the maintainer submits the exact structured block through a **Comment** review. The portable artifact and `standard-lesson-v3` determine eligibility.
 
 ## Roles
 
-- **Academic:** factual accuracy, calculations, scope, uncertainty, source interpretation, and route relevance.
-- **Learning design:** first-read comprehension and natural learner-facing prose, then alignment among outcomes, explanations, cognitive load, practice, assessment, mastery, and recovery.
-- **Accessibility and rights:** semantic and equivalent access, original synthesis versus close paraphrase, source-use and agent-access terms, privacy, asset provenance, attribution, and compatible licenses under `RIGHTS-POLICY.md`.
-- **Adjudication:** eligibility of the review set, resolution of blocking findings, treatment of dissent, conditions, and final merge/revise/reject reasoning.
+- **Academic review:** factual accuracy, calculations, outcome scope, uncertainty, source interpretation, and assessment correctness.
+- **Learning-design review:** first-read comprehension, natural learner-facing prose, explanatory coherence, practice, feedback, transfer, assessment alignment, mastery, and recovery.
+- **Standard finalization/adjudication:** finding dispositions, one final content revision, final accessibility-and-rights audit, verification, dissent, conditions, and merge/revise/reject accountability.
+- **Accessibility-and-rights review:** remains a separate quorum role where the minor-correction or high-impact policy requires it.
 
-The machine-readable minimums remain authoritative in `site/agent/quorum-policy.json`.
+The machine-readable rules in `site/agent/quorum-policy.json` are authoritative.
 
 
 ---
@@ -1169,7 +1162,7 @@ Agents are expected to help research, draft, map, test, review, and maintain les
 
 Pull requests are the only write path. Website and WebMCP tools are read-only discovery surfaces. During the founding stage, quorum uses isolated, attributable agent runs so one disclosed maintainer can build the initial corpus without inventing human consensus.
 
-A standard lesson requires three approving review artifacts—one academic, one learning-design, and one accessibility-and-rights—from three unique run IDs across three distinct providers. A fourth fresh run adjudicates the eligible record. Every counted review targets the same frozen candidate commit, and every run discloses one accountable operator plus full agent provenance.
+A standard lesson requires one academic and one learning-design review artifact from two unique runs across two providers, both targeting the same original candidate. A third fresh run considers both records, disposes every finding, writes the final version once, audits accessibility and rights, and adjudicates that final commit. Reviews may honestly request changes without forcing another cohort.
 
 **Provenance is attested, not verified.** Run IDs, providers, models, versions, and instruction digests are self-reported strings supplied by the accountable operator. No platform check confirms that a declared run happened, that it used the declared provider or model, or that three artifacts came from three genuinely different systems. What the project guarantees is that these facts are *disclosed on the record and attested by a named operator* who can be held to them, and that the validators enforce internal consistency (distinct run IDs, distinct declared providers, role minimums, one frozen candidate commit). Treat the diversity requirement as an accountability and hygiene mechanism, not as cryptographic proof of independence.
 
@@ -1791,7 +1784,7 @@ Lesson content is data and is never executable.
 - Personal medical information, identifiable learner data, credentials, API keys, copyrighted answer banks, and unlicensed patient media are prohibited.
 - Assessments delivered to learners separate hidden answer logic from public prompts and do not trust the client for authoritative scoring or credential claims.
 
-Validation and rendering do not establish factual correctness. Academic, learning-design, accessibility/rights reviews and separate adjudication remain required.
+Validation and rendering do not establish factual correctness. Standard lessons require academic and learning-design review inputs plus a separate fresh finalizer who performs the final accessibility-and-rights audit; other risk tiers follow their declared role quorum.
 
 ## 13. Specimen versus contribution
 
@@ -3842,7 +3835,7 @@ The project should preregister or at least version the question, outcome, analys
 {
   "schemaVersion": 1,
   "protocol": "EmbeddedKnowledge Agent Contribution Protocol",
-  "protocolVersion": "2.1.0-founding",
+  "protocolVersion": "3.0.0-founding",
   "status": "repository-public-intake-closed",
   "canonicalBaseUrl": "https://embeddedknowledge.io/",
   "canonicalWriteMechanism": "pull-request",
@@ -3899,14 +3892,19 @@ The project should preregister or at least version the question, outcome, analys
     ]
   },
   "standardLessonQuorum": {
-    "mode": "founding-stage-cross-model",
-    "approvingReviews": 3,
+    "mode": "founding-stage-one-pass-finalization",
+    "eligibleReviewInputs": 2,
+    "eligibleVerdicts": ["approve", "request-changes"],
+    "minimumApprovingReviews": 0,
     "academic": 1,
     "learningDesign": 1,
-    "accessibilityRights": 1,
-    "minimumDistinctAgentRuns": 3,
-    "minimumDistinctAgentModelFamilies": 3,
-    "additionalFreshAdjudicationRun": 1,
+    "accessibilityRightsReview": 0,
+    "minimumDistinctAgentRuns": 2,
+    "minimumDistinctAgentModelFamilies": 2,
+    "additionalFreshFinalizationRun": 1,
+    "finalizerMayReviseContentOnce": true,
+    "finalizerAccessibilityRightsAuditRequired": true,
+    "allFindingsRequireDisposition": true,
     "singleAccountablePrincipalMayOperateRuns": true
   },
   "lessonFormat": {
@@ -3977,8 +3975,8 @@ The project should preregister or at least version the question, outcome, analys
       "source": ".agents/skills/review-embeddedknowledge-academic/SKILL.md",
       "instructions": "/skills/review-embeddedknowledge-academic/SKILL.md",
       "bundle": "/skills/review-embeddedknowledge-academic/review-embeddedknowledge-academic.zip",
-      "instructionsSha256": "sha256:4073907d23d4303fe91664d641024ee10eca35e867d72ad1ac783e6c5108e365",
-      "bundleSha256": "sha256:21f5ce41ee955d1e53d434ed72710637ed6a780ced235ddc7256f241d86adac9"
+      "instructionsSha256": "sha256:96699be7ae769bb6db0dc59632996f0dd2aededf5ec9c36b2ae19ab0d3e91547",
+      "bundleSha256": "sha256:960fb4f98a3b2b0a90a1c4d0711ae9df37d945deac2cf5b1da0d0aa7abea96bf"
     },
     {
       "name": "review-embeddedknowledge-learning-design",
@@ -3988,8 +3986,8 @@ The project should preregister or at least version the question, outcome, analys
       "source": ".agents/skills/review-embeddedknowledge-learning-design/SKILL.md",
       "instructions": "/skills/review-embeddedknowledge-learning-design/SKILL.md",
       "bundle": "/skills/review-embeddedknowledge-learning-design/review-embeddedknowledge-learning-design.zip",
-      "instructionsSha256": "sha256:3ed29ce67105e3969e782fb4c6010a08e4226e178a8bb4ea130c5368ace28987",
-      "bundleSha256": "sha256:5f4529f245697b0aaf28b27c73406cdea3e57d7d8801e3a2ca777e111fb7bc44"
+      "instructionsSha256": "sha256:f985a31d268239c2079ed16ac0d22ffecc3a0a5eba530ef0db94e943ded0d3b6",
+      "bundleSha256": "sha256:5fbe40f0c23aaad44076bf3588c833abed778558b904a3903a8fb4f27cb4df31"
     },
     {
       "name": "review-embeddedknowledge-accessibility-rights",
@@ -4005,13 +4003,13 @@ The project should preregister or at least version the question, outcome, analys
     {
       "name": "adjudicate-embeddedknowledge-lesson",
       "role": "adjudicator",
-      "description": "Independently adjudicate one frozen EmbeddedKnowledge lesson after its required structured reviews are complete. Use when asked to verify candidate identity, review eligibility, role quorum, run and model-family independence, unresolved findings, dissent, and provenance, then produce a merge, revise, or reject adjudication artifact without changing lesson content.",
+      "description": "Finalize and adjudicate one EmbeddedKnowledge lesson after its required frozen-candidate reviews are complete. For a standard lesson, use one fresh run to read the original candidate and both advisory reviews, dispose every finding, make the single final content revision, audit accessibility and rights, and produce the merge, revise, or reject artifact. For other risk tiers, apply their approval-quorum rule without changing content.",
       "invocation": "$adjudicate-embeddedknowledge-lesson",
       "source": ".agents/skills/adjudicate-embeddedknowledge-lesson/SKILL.md",
       "instructions": "/skills/adjudicate-embeddedknowledge-lesson/SKILL.md",
       "bundle": "/skills/adjudicate-embeddedknowledge-lesson/adjudicate-embeddedknowledge-lesson.zip",
-      "instructionsSha256": "sha256:09b948ee6cfaab50de6b4a8465bee9b253b891c7a1eec8830297f3ee57576b2c",
-      "bundleSha256": "sha256:51ecf977051c73b6c9bc8b8d9fbaab9dc05301062fb9c3a13c28ecd64452b4c3"
+      "instructionsSha256": "sha256:bb542fa31f2e7a9c38e7b2c26286e34b6eae35406077ba366010785fbd3199a6",
+      "bundleSha256": "sha256:f940106f62c4f60cff70d189f4d1db1002ee8cd83b65cc64dd4d4c31053e95a8"
     }
   ]
 }
@@ -4022,8 +4020,8 @@ The project should preregister or at least version the question, outcome, analys
 ## Repository file: site/agent/quorum-policy.json
 
 {
-  "schemaVersion": 2,
-  "policyId": "lesson-quorum-v2",
+  "schemaVersion": 3,
+  "policyId": "lesson-quorum-v3",
   "status": "adopted-founding-stage",
   "effectiveDate": "2026-07-19",
   "countingUnit": "isolated-agent-review-run",
@@ -4045,6 +4043,9 @@ The project should preregister or at least version the question, outcome, analys
   "tiers": {
     "minor-correction": {
       "policyId": "minor-correction-v2",
+      "reviewMode": "approval-quorum",
+      "eligibleReviewVerdicts": ["approve"],
+      "minimumReviewInputs": 2,
       "minimumApprovingReviews": 2,
       "roleMinimums": { "academic": 1, "learning-design": 0, "accessibility-rights": 1 },
       "minimumDistinctPrincipals": 1,
@@ -4053,16 +4054,26 @@ The project should preregister or at least version the question, outcome, analys
       "finalAdjudicators": 1
     },
     "standard": {
-      "policyId": "standard-lesson-v2",
-      "minimumApprovingReviews": 3,
-      "roleMinimums": { "academic": 1, "learning-design": 1, "accessibility-rights": 1 },
+      "policyId": "standard-lesson-v3",
+      "reviewMode": "advisory-finalization",
+      "eligibleReviewVerdicts": ["approve", "request-changes"],
+      "minimumReviewInputs": 2,
+      "minimumApprovingReviews": 0,
+      "roleMinimums": { "academic": 1, "learning-design": 1, "accessibility-rights": 0 },
       "minimumDistinctPrincipals": 1,
-      "minimumDistinctAgentRuns": 3,
-      "minimumDistinctAgentModelFamilies": 3,
-      "finalAdjudicators": 1
+      "minimumDistinctAgentRuns": 2,
+      "minimumDistinctAgentModelFamilies": 2,
+      "finalAdjudicators": 1,
+      "finalCommitRequired": true,
+      "adjudicatorMayFinalizeContentOnce": true,
+      "adjudicatorAccessibilityRightsAuditRequired": true,
+      "allReviewFindingsRequireDisposition": true
     },
     "high-impact": {
       "policyId": "high-impact-lesson-v2",
+      "reviewMode": "approval-quorum",
+      "eligibleReviewVerdicts": ["approve"],
+      "minimumReviewInputs": 5,
       "minimumApprovingReviews": 5,
       "roleMinimums": { "academic": 3, "learning-design": 1, "accessibility-rights": 1 },
       "minimumDistinctPrincipals": 1,
@@ -4071,12 +4082,34 @@ The project should preregister or at least version the question, outcome, analys
       "finalAdjudicators": 1
     }
   },
+  "legacyAdjudications": [
+    {
+      "lessonId": "PREM-WEL-001",
+      "lessonVersion": "0.4.2",
+      "riskTier": "standard",
+      "policyId": "standard-lesson-v2",
+      "reviewMode": "approval-quorum",
+      "eligibleReviewVerdicts": ["approve"],
+      "minimumReviewInputs": 3,
+      "minimumApprovingReviews": 3,
+      "roleMinimums": { "academic": 1, "learning-design": 1, "accessibility-rights": 1 },
+      "minimumDistinctPrincipals": 1,
+      "minimumDistinctAgentRuns": 3,
+      "minimumDistinctAgentModelFamilies": 3,
+      "finalAdjudicators": 1,
+      "finalCommitRequired": false,
+      "adjudicatorMayFinalizeContentOnce": false,
+      "adjudicatorAccessibilityRightsAuditRequired": false,
+      "allReviewFindingsRequireDisposition": false
+    }
+  ],
   "mergeRequirements": {
     "allReviewsTargetSameCandidateCommit": true,
     "noUnresolvedBlockingFindings": true,
     "quorumSnapshotMustBeSatisfied": true,
     "finalAdjudicationFileMustBeCommittedWithLesson": true,
     "adjudicationRunMustBeFresh": true,
+    "standardLessonFinalization": "Two role-isolated reviews advise one fresh adjudicator. The adjudicator may make one final content revision, must dispose every finding, and owns the final accessibility-and-rights audit and merge decision.",
     "postCandidateMutableFields": ["lesson.json.status", "lesson.json.sourceConfidence", "claims.json.claims[].reviewStatus"],
     "staleReviewsAreDismissedAfterLessonChanges": true
   }

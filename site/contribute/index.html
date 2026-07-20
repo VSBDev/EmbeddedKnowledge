@@ -61,7 +61,7 @@ First, read {{LLMS_URL}}, then load and follow {{AUTHOR_SKILL_URL}} as the autho
 
 Inspect {{LESSON_INDEX_URL}} and {{OPEN_PRS_URL}}. There are currently {{AVAILABLE_COUNT}} available contribution targets. Select exactly one Premed outcome that has no merged lesson and is not claimed by an active proposal.
 
-Then build and validate one focused lesson pack according to the repository instructions. Preserve evidence, accessibility, licensing, and agent provenance. Do not merge, invent reviews, reuse run identities, or count the specimen as production content. Founding-stage review requires three isolated model-family runs plus one fresh adjudication run. Prepare a draft PR only if contribution intake is open; otherwise return a complete local patch and clearly report the intake blocker.</textarea>
+Then build and validate one focused lesson pack according to the repository instructions. Preserve evidence, accessibility, licensing, and agent provenance. Do not merge, invent reviews, reuse run identities, or count the specimen as production content. A standard lesson receives one academic and one learning-design review of the original candidate, then one fresh finalizer writes and adjudicates the final version without a review loop. Prepare a draft PR only if contribution intake is open; otherwise return a complete local patch and clearly report the intake blocker.</textarea>
             <footer><p aria-live="polite" data-copy-agent-status>Prompt resolves to this deployment’s live agent context.</p><div><a href="../llms.txt">Read llms.txt</a><a href="../skills/author-embeddedknowledge-lesson/SKILL.md">Author skill</a><a href="../agent/skills.json">All skills</a></div></footer>
           </article>
 
@@ -113,31 +113,30 @@ Then build and validate one focused lesson pack according to the repository inst
       </section>
 
       <section class="collaboration-section quorum-section" aria-labelledby="quorum-title">
-        <header><span>05 / QUORUM</span><h2 id="quorum-title">Higher-risk lessons require more independent reviews.</h2><p style="grid-column:-2/-1;margin:14px 0 0;color:var(--muted);font-size:15px">More risk, more scrutiny.</p></header>
+        <header><span>05 / REVIEW GATE</span><h2 id="quorum-title">Higher-risk lessons require more independent scrutiny.</h2><p style="grid-column:-2/-1;margin:14px 0 0;color:var(--muted);font-size:15px">More risk, more scrutiny.</p></header>
         <div class="quorum-tier-grid">
           <article><span>MINOR CORRECTION</span><strong>2 + 1</strong><p>1 academic and 1 accessibility/rights agent review, then 1 fresh adjudication run.</p></article>
-          <article class="is-standard"><span>STANDARD LESSON</span><strong>3 + 1</strong><p>1 academic, 1 learning-design, and 1 accessibility/rights agent review, then 1 fresh adjudication run.</p></article>
+          <article class="is-standard"><span>STANDARD LESSON</span><strong>2 + 1</strong><p>1 academic and 1 learning-design review, then 1 fresh finalizer writes, audits, and adjudicates the final version.</p></article>
           <article><span>HIGH IMPACT</span><strong>5 + 1</strong><p>3 academic, 1 learning-design, and 1 accessibility/rights agent reviews, then 1 fresh adjudication run.</p></article>
         </div>
-        <p class="quorum-note">The number after “+” is not another review. It is a fourth, fresh agent run that receives the frozen candidate and complete review record, then commits the merge, revise, or reject rationale.</p>
+        <p class="quorum-note">For a standard lesson, the number after “+” is the fresh finalizer: it receives the original candidate and both review records, writes the final version once, audits access and rights, and owns the merge, revise, or reject rationale.</p>
       </section>
 
       <section class="collaboration-section review-pipeline" aria-labelledby="standard-title">
-        <header><span>06 / STANDARD LESSON</span><h2 id="standard-title">A standard lesson passes three reviews, then one adjudication.</h2><p style="grid-column:-2/-1;margin:14px 0 0;color:var(--muted);font-size:15px">Three review agents. One adjudication agent.</p></header>
+        <header><span>06 / STANDARD LESSON</span><h2 id="standard-title">Two reviews inform one final version.</h2><p style="grid-column:-2/-1;margin:14px 0 0;color:var(--muted);font-size:15px">One author. Two reviews. One finalizer. No loop.</p></header>
         <ol class="review-gates standard-review-gates">
           <li><span>01</span><h3>Academic</h3><p>Accuracy, scope, uncertainty, calculations, sources, and route relevance.</p></li>
           <li><span>02</span><h3>Learning design</h3><p>Outcome, explanation, practice, assessment, mastery, and remediation align.</p></li>
-          <li><span>03</span><h3>Access + rights</h3><p>Accessibility, original synthesis, source and agent-access terms, attribution, asset licences, privacy, and provenance are verified.</p></li>
-          <li><span>+1</span><h3>Adjudication</h3><p>A fresh fourth run records quorum, dissent, conditions, rationale, and decision.</p></li>
+          <li><span>+1</span><h3>Finalization</h3><p>A fresh run resolves both records, writes the final version, audits accessibility and rights, and records the decision.</p></li>
         </ol>
       </section>
 
       <section class="collaboration-section governance-section" aria-labelledby="governance-title">
         <header><span>07 / INDEPENDENCE</span><h2 id="governance-title">Review independence comes from isolated runs under one accountable operator.</h2><p style="grid-column:-2/-1;margin:14px 0 0;color:var(--muted);font-size:15px">Independent runs. One accountable operator.</p></header>
         <div class="governance-grid">
-          <div><h3>Isolate each role</h3><p>The standard quorum uses three distinct runs across three distinct providers: academic, learning design, and accessibility/rights. Review agents do not inherit the authoring conversation.</p></div>
+          <div><h3>Isolate each role</h3><p>The standard gate uses two review runs across two providers: academic and learning design. Review agents do not inherit the authoring conversation; the finalizer is a third fresh run.</p></div>
           <div><h3>Disclose provenance</h3><p>Every run records its operator, system, provider, model, version, run ID, and a SHA-256 digest of its material instructions. Provenance is disclosed and attested by the accountable operator, not cryptographically verified.</p></div>
-          <div><h3>Freeze, then adjudicate</h3><p>All reviews target one candidate commit. Lesson changes stale them. Adjudication uses a fourth run ID that appears nowhere in authoring or review provenance.</p></div>
+          <div><h3>Freeze, then finalize once</h3><p>Both reviews target the original candidate. One fresh finalizer may make the recorded final edit; any later teaching-content change makes adjudication stale.</p></div>
         </div>
       </section>
 
