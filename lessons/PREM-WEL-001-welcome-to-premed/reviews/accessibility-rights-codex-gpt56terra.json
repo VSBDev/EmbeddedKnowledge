@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-WEL-001-ACCESS-CODEX-GPT56TERRA-CF547A14",
+  "lessonId": "PREM-WEL-001",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "227b455160568aa5c0bc76e7040643cfca96e0db",
+  "role": "accessibility-rights",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSB — accessibility-and-rights reviewer",
+    "agent": {
+      "system": "Codex",
+      "provider": "OpenAI",
+      "model": "GPT-5.6-Terra",
+      "version": "Codex CLI 0.144.6",
+      "runId": "review-accessibility-codex-gpt56terra-20260720-cf547a14-5a0f-4ca6-8bbd-25df8a337e5a",
+      "instructionsDigest": "sha256:024e6127424bf8db0cfa67cae998ae3b8b70ac28128d368d770a6c524be37d9d"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "The accountable reviewer principal is also the disclosed lesson-author principal (github:VSBDev). Founding-stage policy permits disclosed self-operated, role-isolated runs; this artifact does not represent independent human verification."
+  },
+  "evidenceChecked": [
+    "Frozen boundary: HEAD 227b455160568aa5c0bc76e7040643cfca96e0db; lesson.json identifies PREM-WEL-001 version 0.1.0.",
+    "All ten candidate-pack files: lesson metadata; four ordered content scenes; assessment, claims, references, glossary, and ATTRIBUTION; no assets, diagrams, prior reviews, or adjudication at the candidate.",
+    "Rendered reader in local Chromium at 390 CSS px: four scenes, no horizontal overflow or runtime errors; continuous reading; status feedback; and print with four scenes, three items, one reference, and attribution.",
+    "site/lesson-reader.js and site/lesson-reader.css: source-order scene rendering, labelled forms and status feedback, keyboard focus-return code, reduced-motion branch, bounded guided overflow, continuous mode, and print styles.",
+    "course/PREMED-SYLLABUS.md sections 1, 4-9, 13, 16, and 24; CONTENT-LICENSE.md; RIGHTS-POLICY.md; references.json; ATTRIBUTION.md; and the two disclosed author runs.",
+    "git tree and forbidden-content scan: only regular text/JSON files; no pack assets, SVG, TeX, executable code, remote embed, unsafe URL scheme, secret, or identifiable learner/patient record found.",
+    "npm run source:preflight -- --strict lessons/PREM-WEL-001-welcome-to-premed: passed for one source record."
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "references.json#sources[source-premed-syllabus].url, references.json#sources[source-premed-syllabus].archivedUrl, references.json#sources[source-premed-syllabus].agentAccess.termsUrl; ATTRIBUTION.md#Adapted-curriculum-source",
+      "finding": "The only adapted-expression source is declared as curriculum version 1.1 candidate, but both its source URL and terms URL point to mutable GitHub main and archivedUrl is null. A future main revision could change the cited expression, licence text, or terms route, so the frozen candidate does not provide a stable public locator for the exact source and rights record reviewed here.",
+      "resolution": "Record immutable commit-permalink URLs for the exact syllabus and CONTENT-LICENSE.md used by this candidate (or a durable archive with equivalent access), populate the stable archive/permalink field, and make the attribution link identify that same frozen source. Retain a current main link only as an additional discovery route if useful."
+    },
+    {
+      "severity": "note",
+      "target": "content/03-learning.md#L5-L45; content/04-finish.md#L38-L52; assessment.json#attemptPolicy-and-items",
+      "finding": "The candidate supplies outcome-equivalent nonphysical and non-audio paths: the fictional simulation table is explained in prose, no physical practical or personal/health data is required, responses may be paragraphs, bullets, or outlines, attempts are untimed and retakeable, and rendered text feedback is exposed through polite status regions. The local rendered path also preserved semantic lists, labelled textareas, continuous reading, narrow reflow, and print continuity.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lesson.json#authors-and-aiAssistance; ATTRIBUTION.md#Agent-assistance-and-provenance",
+      "finding": "Both material author runs are disclosed rather than collapsing provenance to one run: author-codex-gpt56sol-20260720-0f9f6376-9e64-4002-8ae7-e7bc8759713d and author-revision-codex-gpt56sol-20260720-382e03c4-873b-4a98-bfc4-8f1ed517dd30 each identify Codex, OpenAI, GPT-5.6-Sol, Codex CLI 0.144.6, and a lowercase sha256 instructions digest.",
+      "resolution": null
+    }
+  ],
+  "limitations": [
+    "This is an accessibility-and-rights policy and evidence review, not legal advice or a determination of copyright, licence, privacy, or contract rights in any jurisdiction.",
+    "The accountable reviewer and author share a disclosed principal; policy permits this founding-stage role-isolated run, but provenance is attested rather than independently verified.",
+    "Manual browser checks used local Chromium and a 390-CSS-pixel reflow proxy for 200% zoom. No assistive-technology user session, mobile hardware, or external-host accessibility audit was available.",
+    "The candidate has no media, diagram, SVG, dataset, chemistry, or TeX asset to inspect, and the repository's non-web export adapters are documented as unavailable.",
+    "The single source was inspected through the exact local authorized candidate checkout. Its mutable public main URLs were not treated as stable proof of the reviewed source or terms, which is the major finding."
+  ],
+  "signedAt": "2026-07-20T08:44:18Z"
+}
