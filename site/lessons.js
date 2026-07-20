@@ -63,6 +63,16 @@
     return proposalByOutcome.get(outcomeId) || [];
   }
 
+  function publishedLessonFor(outcome) {
+    return (outcome.publishedLessonIds || []).map((id) => lessonById.get(id)).find(Boolean) || null;
+  }
+
+  function lessonDestination(lesson) {
+    const destination = lesson?.readerUrl || lesson?.url || lesson?.href;
+    if (!destination) return null;
+    return destination.startsWith("/") ? new URL(destination.slice(1), siteRoot).href : destination;
+  }
+
   function outcomeState(outcome) {
     if ((outcome.publishedLessonIds || []).length) return "published";
     const proposals = proposalsFor(outcome.id);
@@ -151,21 +161,23 @@
       }
 
       const state = outcomeState(outcome);
-      const button = create("button", `reader-outcome-link${outcome.id === outcomes[selectedIndex]?.id ? " is-current" : ""}`);
-      button.type = "button";
-      button.dataset.outcomeId = outcome.id;
-      button.setAttribute("aria-current", String(outcome.id === outcomes[selectedIndex]?.id));
+      const publishedDestination = lessonDestination(publishedLessonFor(outcome));
+      const control = create(publishedDestination ? "a" : "button", `reader-outcome-link${outcome.id === outcomes[selectedIndex]?.id ? " is-current" : ""}`);
+      if (publishedDestination) control.href = publishedDestination;
+      else control.type = "button";
+      control.dataset.outcomeId = outcome.id;
+      control.setAttribute("aria-current", String(outcome.id === outcomes[selectedIndex]?.id));
       const code = create("span", null, outcome.code);
       const title = create("strong", null, outcome.title);
       const marker = create("i", `reader-outcome-state ${state}`);
       marker.title = stateLabel(state);
       marker.setAttribute("aria-label", stateLabel(state));
-      button.append(code, title, marker);
-      button.addEventListener("click", () => {
-        selectOutcome(outcome.id, { updateUrl: true, focus: true, announce: true });
+      control.append(code, title, marker);
+      control.addEventListener("click", () => {
+        if (!publishedDestination) selectOutcome(outcome.id, { updateUrl: true, focus: true, announce: true });
         if (narrowLayout.matches) closeIndex();
       });
-      listElement.append(button);
+      listElement.append(control);
     }
   }
 
@@ -247,10 +259,10 @@
       create("h2", null, lesson.title || "Reviewed lesson"),
       create("p", null, `${lesson.id} · ${lesson.license || "CC BY 4.0"} · version ${lesson.version || "published"}`)
     );
-    const destination = lesson.readerUrl || lesson.url || lesson.href;
+    const destination = lessonDestination(lesson);
     if (destination) {
       const link = create("a", "lesson-contribute-link", "Open reviewed lesson →");
-      link.href = destination.startsWith("/") ? new URL(destination.slice(1), siteRoot).href : destination;
+      link.href = destination;
       section.append(link);
     }
     fragment.append(section);
@@ -329,6 +341,11 @@
     if (nextIndex < 0) return;
     selectedIndex = nextIndex;
     const outcome = outcomes[selectedIndex];
+    const publishedDestination = lessonDestination(publishedLessonFor(outcome));
+    if (publishedDestination && options.openPublished !== false) {
+      location.assign(publishedDestination);
+      return;
+    }
     renderOutcome(outcome);
     updateMargin(outcome);
     updateControls(outcome);
@@ -463,7 +480,8 @@
 
   addEventListener("popstate", () => {
     const requested = new URL(location.href).searchParams.get("outcome");
-    selectOutcome(outcomes.some((outcome) => outcome.id === requested) ? requested : outcomes[0]?.id, { focus: true, announce: true });
+    const fallback = outcomes.find((outcome) => outcomeState(outcome) !== "published") || outcomes[0];
+    selectOutcome(outcomes.some((outcome) => outcome.id === requested) ? requested : fallback?.id, { focus: true, announce: true, openPublished: Boolean(requested) });
   });
 
   narrowLayout.addEventListener("change", () => {
@@ -519,9 +537,13 @@
     lessonById = new Map((index.lessons || []).map((lesson) => [lesson.id, lesson]));
     indexProposals();
     updateCorpusState();
-    renderIndex();
     const requested = new URL(location.href).searchParams.get("outcome");
-    selectOutcome(outcomes.some((outcome) => outcome.id === requested) ? requested : outcomes[0]?.id, { scrollIndex: false });
+    const requestedExists = outcomes.some((outcome) => outcome.id === requested);
+    const fallback = outcomes.find((outcome) => outcomeState(outcome) !== "published") || outcomes[0];
+    const initialOutcomeId = requestedExists ? requested : fallback?.id;
+    selectedIndex = Math.max(0, outcomes.findIndex((outcome) => outcome.id === initialOutcomeId));
+    renderIndex();
+    selectOutcome(initialOutcomeId, { scrollIndex: false, openPublished: requestedExists });
   }).catch((error) => {
     console.error(error);
     const panel = create("div", "reader-error");

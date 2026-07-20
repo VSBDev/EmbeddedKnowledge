@@ -456,7 +456,8 @@ test("a published lesson opens through its production route with keyboard and co
     getJson(page.request, "data/lessons/specimen.json")
   ]);
   const lessonId = "PREM-LPP-001";
-  const targetOutcome = lessonIndex.outcomes[0];
+  const targetOutcome = lessonIndex.outcomes.find((outcome) => !(outcome.publishedLessonIds || []).length);
+  expect(targetOutcome, "the production-route test requires an unpublished outcome").toBeTruthy();
   const assessmentSceneId = specimen.assessment.items[0].sceneId;
   const baselineAssessmentItems = [
     {
@@ -548,11 +549,14 @@ test("a published lesson opens through its production route with keyboard and co
   await page.route(`**/data/lessons/${lessonId}.json`, (route) => route.fulfill({ contentType: "application/json", body: JSON.stringify(productionArtifact) }));
   const errors = collectRuntimeErrors(page);
   await page.goto(route(`premed/lessons/?outcome=${targetOutcome.id}`), { waitUntil: "networkidle" });
+  await expect(page).toHaveURL(new RegExp(`/premed/lessons/read/\\?lesson=${lessonId}$`));
 
-  const openLesson = page.locator(`a.lesson-contribute-link[href$="/premed/lessons/read/?lesson=${lessonId}"]`);
-  await expect(openLesson).toHaveCount(1);
-  await expect(openLesson).toHaveAttribute("href", new RegExp(`/premed/lessons/read/\\?lesson=${lessonId}$`));
-  await openLesson.click();
+  await page.goto(route("premed/lessons/"), { waitUntil: "networkidle" });
+  await page.locator("[data-lesson-search]").fill(targetOutcome.code);
+  const publishedOutcome = page.locator(`a.reader-outcome-link[href$="/premed/lessons/read/?lesson=${lessonId}"]`);
+  await expect(publishedOutcome).toHaveCount(1);
+  await publishedOutcome.click();
+
   await expect(page).toHaveURL(new RegExp(`/premed/lessons/read/\\?lesson=${lessonId}$`));
   await expect(page.locator("[data-artifact-id]")).toHaveText(lessonId);
   await expect(page.locator("[data-artifact-status]")).toHaveText("published · 1.0.0");
