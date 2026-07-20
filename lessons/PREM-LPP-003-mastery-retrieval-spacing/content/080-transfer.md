@@ -34,8 +34,8 @@ The decision rule is learner-specific. A missing core relation triggers a focuse
 The worked example planned for one fictional learner over fourteen days. This task coordinates four different baselines, scarce shared time, peer feedback, and a nine-day horizon. The retrieval loop remains, but its allocation and safeguards must change. Merely replacing Ari's name with four names would not solve the coordination problem.
 
 :::{source-note}
-:claims: claim-mastery-performance, claim-retrieval-durability, claim-spacing-retention-horizon, claim-feedback-recovery, claim-interleaving-conditional
-:sources: source-authoring-evidence, source-content-standard
+:claims: claim-mastery-performance, claim-retrieval-durability, claim-spacing-retention-horizon, claim-feedback-recovery, claim-interleaving-conditional, claim-guidance-fading
+:sources: source-authoring-evidence, source-content-standard, source-roediger-karpicke-2006, source-adesope-et-al-2017, source-cepeda-et-al-2006, source-wisniewski-et-al-2020, source-brunmair-richter-2019, source-barbieri-et-al-2023, source-crissman-2006, source-tetzlaff-et-al-2025
 
-The transfer design preserves retrieval before feedback, delayed variation, performance-linked recovery, and conditional interleaving. The group schedule and decision rules are original examples. They operationalize bounded design principles and do not assert that this minute-by-minute allocation is empirically optimal.
+The transfer design preserves retrieval before feedback, delayed variation, performance-linked recovery, adaptive assistance, and conditional interleaving. External research supports the general principles within the recorded task and population limits; the project standard supplies the authored implementation conventions. The group schedule and decision rules are original examples and do not assert that this minute-by-minute allocation is empirically optimal.
 :::

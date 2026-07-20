@@ -21,7 +21,7 @@ Now retrieve the six-part loop in your own order. A defensible sequence is: spec
 
 :::{source-note}
 :claims: claim-mastery-performance, claim-retrieval-durability, claim-feedback-recovery
-:sources: source-authoring-evidence, source-content-standard
+:sources: source-authoring-evidence, source-content-standard, source-roediger-karpicke-2006, source-adesope-et-al-2017, source-wisniewski-et-al-2020
 
-The prompt-before-feedback order and corrective response follow the repository's bounded evidence synthesis and learning-content standard. The check is low stakes and supplies practice evidence only; completing it does not by itself establish mastery.
+The prompt-before-feedback order and corrective response follow the bounded retrieval and feedback evidence summarized by the repository. The project-internal standard supplies the lesson's design convention, not a separate empirical warrant. The check is low stakes and supplies practice evidence only; completing it does not by itself establish mastery.
 :::

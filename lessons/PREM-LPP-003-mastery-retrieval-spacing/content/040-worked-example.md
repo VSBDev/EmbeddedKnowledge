@@ -41,7 +41,7 @@ For a non-tabular route, read each row as four sentences: on the named day, Ari 
 
 :::{source-note}
 :claims: claim-mastery-performance, claim-retrieval-durability, claim-spacing-retention-horizon, claim-feedback-recovery, claim-guidance-fading
-:sources: source-authoring-evidence, source-content-standard
+:sources: source-authoring-evidence, source-content-standard, source-roediger-karpicke-2006, source-adesope-et-al-2017, source-cepeda-et-al-2006, source-wisniewski-et-al-2020, source-barbieri-et-al-2023, source-crissman-2006, source-tetzlaff-et-al-2025
 
-The example applies source-supported defaults—worked guidance, retrieval, feedback, fading support, and delay—while preserving their limits. Its particular changes of representation, audience, and case are original task-alignment choices rather than a claim that one variation sequence is a universal evidence-supported default. The schedule, case, criteria, and decision rules are original teaching constructions and are not empirical claims that these exact days optimize learning.
+The evidence supports complete worked guidance for novices, retrieval, feedback, delay, and less support after performance shows that the learner can carry more of the procedure unaided, within the limits recorded for each source. The progression used here—from a complete model through completion, supported, independent, mixed-selection, and transfer tasks—is an EmbeddedKnowledge-authored implementation, not an empirically fixed ladder. Its changes of representation, audience, and case are original task-alignment choices. The schedule, case, criteria, and decision rules are original teaching constructions and are not empirical claims that these exact days optimize learning.
 :::

@@ -71,7 +71,7 @@ The intended primary labels are retrieval, feedback, recovery, and spacing, in t
 
 :::{source-note}
 :claims: claim-mastery-performance, claim-retrieval-durability, claim-spacing-retention-horizon, claim-feedback-recovery, claim-interleaving-conditional, claim-guidance-fading
-:sources: source-authoring-evidence, source-content-standard
+:sources: source-authoring-evidence, source-content-standard, source-roediger-karpicke-2006, source-adesope-et-al-2017, source-cepeda-et-al-2006, source-wisniewski-et-al-2020, source-brunmair-richter-2019, source-barbieri-et-al-2023, source-crissman-2006, source-tetzlaff-et-al-2025
 
-The sequence moves from completion to supported selection and independent design, then mixes components for discrimination. This structure applies the repository evidence on worked guidance, fading, retrieval, feedback, spacing, and conditional interleaving. Exact plans remain learner- and task-dependent rather than universal prescriptions.
+Evidence supports complete worked guidance for novices and a performance-sensitive reduction in assistance, as well as retrieval, feedback, spacing, and conditional interleaving within the stated source limits. The exact sequence used here—completion, supported work, independent design, mixed selection, and transfer—is a project-authored progression for implementing those principles; the cited research does not establish it as a fixed ladder. Exact plans remain learner- and task-dependent rather than universal prescriptions.
 :::

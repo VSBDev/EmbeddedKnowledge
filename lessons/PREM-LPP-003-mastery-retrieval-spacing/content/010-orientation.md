@@ -21,7 +21,7 @@ The lesson teaches academic study-plan design. It does not supply a universally 
 
 :::{source-note}
 :claims: claim-mastery-performance, claim-retrieval-durability
-:sources: source-authoring-evidence, source-content-standard
+:sources: source-authoring-evidence, source-content-standard, source-roediger-karpicke-2006, source-adesope-et-al-2017
 
-The repository evidence synthesis supports retrieval for later retention across varied educational conditions and warns that familiarity and immediate fluency are not durable-learning evidence. The project standard turns that evidence into the bounded performance model used here. Effects and useful task forms still vary by learner, material, feedback, and final assessment.
+The repository synthesis, a primary prose experiment, and a broader practice-testing meta-analysis support retrieval for later retention across varied educational conditions and warn that familiarity and immediate fluency are not durable-learning evidence. The project-internal standard turns that evidence into the bounded performance model used here; it is a design convention rather than independent empirical support. Effects and useful task forms still vary by learner, material, feedback, and final assessment.
 :::

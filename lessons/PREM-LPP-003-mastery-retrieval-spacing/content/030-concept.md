@@ -68,7 +68,7 @@ The table compresses the loop for auditing. The numbered sections above are its 
 
 :::{source-note}
 :claims: claim-mastery-performance, claim-retrieval-durability, claim-spacing-retention-horizon, claim-feedback-recovery, claim-interleaving-conditional
-:sources: source-authoring-evidence, source-content-standard
+:sources: source-authoring-evidence, source-content-standard, source-roediger-karpicke-2006, source-adesope-et-al-2017, source-cepeda-et-al-2006, source-wisniewski-et-al-2020, source-brunmair-richter-2019
 
-The repository synthesis supports retrieval before answer reveal, spacing across opportunities, information-rich feedback, and conditional interleaving. It also reports substantial variation across tasks and learners. The six-part loop is an original instructional synthesis of those bounded findings and the project standard, not a validated universal algorithm.
+The external primary and meta-analytic records support retrieval before answer reveal, spacing across opportunities, information-rich feedback, and conditional interleaving within their recorded populations and task limits. The repository synthesis integrates those heterogeneous findings. The six-part loop is an original instructional synthesis aligned to the project-internal standard, not a validated universal algorithm.
 :::

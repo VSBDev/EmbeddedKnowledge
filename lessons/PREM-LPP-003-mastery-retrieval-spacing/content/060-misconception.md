@@ -23,7 +23,7 @@ If your prediction was **no** but your reason was only “rereading is bad,” r
 
 :::{source-note}
 :claims: claim-mastery-performance, claim-retrieval-durability, claim-feedback-recovery
-:sources: source-authoring-evidence, source-content-standard
+:sources: source-authoring-evidence, source-content-standard, source-roediger-karpicke-2006, source-adesope-et-al-2017, source-wisniewski-et-al-2020
 
 The repository synthesis reports that repeated study can look favorable on immediate performance while retrieval supports later retention under studied conditions. The repair therefore compares evidence conditions rather than banning rereading. Feedback and a renewed attempt remain necessary because retrieval without correction can leave an error intact.
 :::

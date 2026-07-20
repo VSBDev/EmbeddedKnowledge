@@ -54,7 +54,7 @@ No image, diagram, audio, video, personal data, or physical activity is needed.
 
 The complete example uses a fictional learner preparing to explain a scientific mechanism in fourteen days. It exposes the target performance, diagnostic evidence, selected retrieval tasks, an example sequence of days, feedback, checks, interpretation, and a self-explanation prompt. All topic details are invented at a generic level so the example does not teach unsupported biology.
 
-Practice fades as follows:
+This lesson uses the following project-authored practice progression to implement fading; the evidence supports worked guidance and performance-sensitive reduction of assistance, not this exact sequence as a fixed empirical ladder:
 
 1. completion task: fill one missing plan component;
 2. supported task: choose a retrieval action and justify it using a prompt;
@@ -122,3 +122,24 @@ The continuing author run received cycle-1 academic review and final adjudicatio
 6. preserve the new revision digest and the original authoring digest in an auditable history.
 
 Teaching-content changes make the cycle-1 approvals and adjudication stale for the new candidate. Fresh role-isolated reviews and a fresh adjudication remain required after the revised source is frozen.
+
+## Revision brief for version 0.1.2
+
+The continuing author run received the academic, learning-design, and accessibility-and-rights reviews of candidate `0439b2f35ad05674c5d4935fc7df2eb35616efc6` as external feedback. Version 0.1.2 must:
+
+1. trace each empirical instructional principle to an external primary study or systematic review already enumerated by the repository synthesis;
+2. preserve the repository synthesis as a consensus map while identifying `CONTENT-STANDARD.md` as a project-internal authoring contract rather than external empirical authority;
+3. reset every claim and lesson-level source-confidence state to `pending-review` for a new author candidate;
+4. complete the feedback mapping in `scene-synthesis` and the guidance-fading mapping in `scene-transfer`;
+5. separate the empirical principles of worked guidance and performance-sensitive assistance from the project's authored completion-to-transfer progression; and
+6. preserve every earlier review artifact as historical traceability without modifying its text or treating it as current approval.
+
+### External evidence dossier
+
+- **Retrieval:** Roediger and Karpicke (2006), DOI `10.1111/j.1467-9280.2006.01693.x`, is a primary prose experiment comparing repeated study and retrieval at immediate and delayed tests. Adesope, Trevisan, and Sundararajan (2017), DOI `10.3102/0034654316689306`, is a meta-analysis of practice testing. The studies and tests are heterogeneous, so neither record guarantees an effect for every task or learner.
+- **Spacing:** Cepeda et al. (2006), DOI `10.1037/0033-2909.132.3.354`, quantitatively synthesizes distributed practice in verbal recall and the relation between spacing and desired retention interval. It does not supply one universal retrieval schedule, and its base concerns distributed presentations more broadly than retrieval alone.
+- **Interleaving:** Brunmair and Richter (2019), DOI `10.1037/bul0000209`, analyzes interleaving and its moderators. Material similarity and task type constrain the result, so the lesson uses interleaving conditionally for discrimination after initial acquisition.
+- **Feedback:** Wisniewski, Zierer, and Hattie (2020), DOI `10.3389/fpsyg.2019.03087`, meta-analyzes educational feedback and reports substantial heterogeneity. The lesson uses correctness, process, and next-action information as a bounded design model, not a universal feedback script.
+- **Worked examples and fading:** Barbieri et al. (2023), DOI `10.1007/s10648-023-09745-1`, meta-analyzes worked examples in mathematics; Crissman (2006), durable identifier `AAI3208114`, meta-analyzes worked-example features including faded solution steps in structured domains; Tetzlaff et al. (2025), DOI `10.1016/j.learninstruc.2025.102142`, meta-analyzes assistance-by-prior-knowledge interactions. Together they support worked guidance and reducing assistance when learner performance can sustain more unaided work, not the lesson's exact five-stage progression.
+
+Crossref public REST metadata, the public ERIC record, and the University of Nebraska-Lincoln institutional repository record were checked on 2026-07-20 before use. The authoring agent used bibliographic metadata and public abstract-level information only, alongside the repository-owned synthesis; no access control was bypassed and no publisher full-text expression was copied. Each exact access route, displayed-license state, facts-only use, and limitation appears in `references.json`.

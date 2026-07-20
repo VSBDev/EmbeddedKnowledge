@@ -39,8 +39,8 @@ Every required relationship appears in ordinary text and source order. The table
 The loop helps design and interpret academic practice. A successful lesson assessment does not certify permanent retention, university credit, admissions readiness, or professional or clinical competence. Only later performance under the relevant conditions can add evidence for the corresponding bounded claim.
 
 :::{source-note}
-:claims: claim-mastery-performance, claim-retrieval-durability, claim-spacing-retention-horizon, claim-interleaving-conditional
-:sources: source-authoring-evidence, source-content-standard
+:claims: claim-mastery-performance, claim-retrieval-durability, claim-spacing-retention-horizon, claim-feedback-recovery, claim-interleaving-conditional
+:sources: source-authoring-evidence, source-content-standard, source-roediger-karpicke-2006, source-adesope-et-al-2017, source-cepeda-et-al-2006, source-wisniewski-et-al-2020, source-brunmair-richter-2019
 
-The synthesis preserves the evidence-supported defaults and their limits: retrieval rather than exposure alone, distributed later opportunities, conditional mixture, and performance-sensitive adaptation. The repository synthesis is heterogeneous and does not justify one optimal schedule or a universal mastery threshold.
+The synthesis preserves the evidence-supported principles and their limits: retrieval rather than exposure alone, distributed later opportunities, information-rich recovery, conditional mixture, and performance-sensitive adaptation. The external studies and reviews span heterogeneous learners, materials, comparisons, and outcomes, so neither they nor the repository synthesis justify one optimal schedule or a universal mastery threshold. The audit sequence itself is a project-authored implementation.
 :::
