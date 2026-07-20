@@ -2,7 +2,7 @@
 
 ## Lesson authorship and licence
 
-*Welcome to Premed* (`PREM-WEL-001`), version 0.4.1, was prepared for EmbeddedKnowledge under the accountable principal **VSBDev** (`github:VSBDev`). Except where stated below, the lesson prose, fictional training data, prompts, assessment, glossary, and structured records are offered under the [Creative Commons Attribution 4.0 International licence](https://creativecommons.org/licenses/by/4.0/).
+*Welcome to Premed* (`PREM-WEL-001`), version 0.4.2, was prepared for EmbeddedKnowledge under the accountable principal **VSBDev** (`github:VSBDev`). Except where stated below, the lesson prose, fictional training data, prompts, assessment, glossary, and structured records are offered under the [Creative Commons Attribution 4.0 International licence](https://creativecommons.org/licenses/by/4.0/).
 
 No third-party image, audio, video, software, or dataset is included in this pack.
 
@@ -14,7 +14,7 @@ This lesson adapts **EmbeddedKnowledge, *Premed: Foundations for Medical Study*,
 
 **Modifications:** the syllabus material was reorganized and rewritten as an original 60-minute, four-scene welcome for a novice learner. The adaptation separates the subjects into an explicit plain-language overview, explains how each subject prepares later medical study, supplies a fictional worked dataset, adds retrieval and transfer prompts, creates an original low-stakes assessment and retry forms, and adds learner-visible recovery and accessibility guidance. No syllabus question, table, example, media, or dataset was copied.
 
-**Assessment format note:** assessment schema v1 has no mastery-threshold or alternate-form field. The structured answer reasoning and learner scene therefore state the 10/10 mastery threshold: every rubric criterion must be met, and any missed criterion requires recovery and retry. The attempt policy retains unlimited untimed retakes, with equivalent retry forms in the learner scene and answer reasoning.
+**Assessment format note:** assessment schema v1 has no mastery-threshold, criterion-status, or alternate-form field. The interactive page does not automatically score or record open responses. After selecting **Compare reasoning**, the learner marks each visible item-specific criterion for themselves as met or not yet and counts one point per met criterion. Completion requires all ten criteria for 10/10; anything not yet met requires the matching recovery route and an untimed retry. The attempt policy retains unlimited untimed retakes, with equivalent retry forms in the learner scene and answer reasoning.
 
 ## Agent assistance and provenance
 
@@ -84,4 +84,15 @@ This scoring correction was completed in a sixth isolated author-revision run wi
 
 This sixth digest covers the exact MATERIAL INSTRUCTIONS block supplied to this run and excludes the provenance wrapper and hidden provider/system instructions.
 
-This pack remains a draft. Its unchanged historical reviews target versions 0.1.0 through 0.4.0 and do not approve this 0.4.1 correction; no adjudication exists. The pack makes no claim of approval, publication, course coverage, learner effectiveness, clinical sufficiency, academic credit, or admission eligibility.
+This lesson-level operability correction was completed in a seventh isolated author-revision run without replacing or relabelling the first six author runs:
+
+- **System:** Codex
+- **Provider:** OpenAI
+- **Model:** gpt-5.6-sol
+- **Version:** Codex CLI 0.144.6
+- **Run ID:** `019f7f22-3f6f-7ee0-bb96-6cb95ff5d215`
+- **Material-instructions digest:** `sha256:4861e0e2e8f09ac7717aaf9bbda4fe2601e12e82e8911706ff94fe5649e9b2e6`
+
+This seventh digest covers the exact MATERIAL INSTRUCTIONS block supplied to this run and excludes the provenance wrapper and hidden provider/system instructions.
+
+This pack remains a draft. Its unchanged historical reviews target versions 0.1.0 through 0.4.1 and do not approve this 0.4.2 correction; no adjudication exists. The pack makes no claim of approval, publication, course coverage, learner effectiveness, clinical sufficiency, academic credit, or admission eligibility.

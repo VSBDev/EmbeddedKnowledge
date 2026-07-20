@@ -46,13 +46,13 @@ Compare: name a different term, its teaching subject, and a later explanation—
 
 ## The welcome check
 
-The welcome check has three untimed responses worth ten points. To complete it, score **10 out of 10 by meeting every rubric criterion**. If any criterion is missed, use the matching recovery route below and retry. Retakes are unlimited and untimed; the check measures your orientation, not your prior science.
+The welcome check has three untimed responses worth ten points. The interactive page does not automatically score or record your open responses. After each response, select **Compare reasoning**, mark each visible item-specific criterion for yourself as **met** or **not yet**, and count one point per met criterion. Complete the check only when all ten criteria are met for **10 out of 10**. If any criterion is not yet met, use the matching recovery route below and take an untimed retry. Retakes are unlimited and untimed; the check measures your orientation, not your prior science.
 
-The scoring requirements are visible before you begin:
+The item-specific criteria are visible after you select **Compare reasoning**:
 
-- For the journey response, name both inquiry or laboratory work and quantitative work in the opening; at least **three** middle subject areas, including at least one chemical or physical area and at least one biological area; at least **two** later medicine-facing domains; integration or capstone work as the final stage; and at least two accurate because/how preparation links.
-- For the relevance response, choose four concepts from four different subject areas and give a specific concept-to-purpose link for **all four**.
-- For the capabilities response, name all four capabilities, give one observable action for each, and state one accurate completion boundary.
+- The journey response has four one-point criteria: the opening work; the required middle breadth; the later destination plus integration or capstone as final; and at least two accurate because/how preparation links.
+- The relevance response has three one-point criteria: four concepts from four different subjects; a specific later-study link for every concept; and plain orientation-level language without unsupported clinical claims.
+- The capabilities response has three one-point criteria: all four capabilities; an observable action for each; and one accurate completion boundary.
 
 On a retry, use different prompts:
 
@@ -67,6 +67,8 @@ Choose paragraphs, bullets, or an outline. Type, paste from assistive technology
 ## Recovery route
 
 If names blur, use three stages: **evidence and measurement; matter and living systems; people, populations, and capstone work**. Return to the complete subject list in **Welcome to Premed** and complete: “I will learn ___ in ___ because it helps me later explain or evaluate ___.” Then try again from memory.
+
+If a concept-to-purpose link or its wording blurs, choose one subject and name one concept it will teach. Complete: “___ in ___ will later help me explain or evaluate ___.” Make the later-study purpose specific, use ordinary orientation-level language, and remove any unsupported clinical claim. Repeat with four different subjects, then cover the lines and reconstruct them with different concepts.
 
 If the completion capabilities blur, use the four verbs as prompts: **explain** a relationship and why it holds; **model** a relationship and name what the model leaves out; **investigate** with a fair comparison, an auditable record, and a bounded conclusion; **integrate** several subjects in an unfamiliar problem. Write one action for each verb, then cover the list and reconstruct all four.
 
