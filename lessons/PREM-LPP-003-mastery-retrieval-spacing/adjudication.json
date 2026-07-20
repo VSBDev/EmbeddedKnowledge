@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "adjudicationId": "ADJ-PREM-LPP-003-FINAL-V5-BE197DE5",
+  "lessonId": "PREM-LPP-003",
+  "lessonVersion": "0.1.4",
+  "candidateCommit": "07728e3f05c63011d960d965784b60e4b681c565",
+  "riskTier": "standard",
+  "policyId": "standard-lesson-v2",
+  "reviewIds": [
+    "REV-PREM-LPP-003-ACADEMIC-CLAUDE-FINAL-V5-89E37120",
+    "REV-PREM-LPP-003-LEARNING-AGY-FINAL-V5",
+    "REV-PREM-LPP-003-ACCESS-CODEX-FINAL-V5-909F78F8D8F7"
+  ],
+  "quorum": {
+    "satisfied": true,
+    "approvals": 3,
+    "roleCounts": {
+      "academic": 1,
+      "learningDesign": 1,
+      "accessibilityRights": 1
+    },
+    "distinctPrincipals": 1,
+    "distinctAgentRuns": 3,
+    "distinctAgentModelFamilies": 3
+  },
+  "decision": "merge",
+  "rationale": "Boundary, conflicts, and limitations: this fresh run acted only as adjudicator for PR #6, frozen candidate 07728e3f05c63011d960d965784b60e4b681c565, and the complete review record. The accountable principal github:VSBDev is also the lesson author, PR author, and operator of the review and adjudication agents. The active founding-stage policy permits that overlap and COMMENTED GitHub transports, but it remains a governance limitation rather than evidence of independent people. Agent systems, providers, models, versions, run IDs, and instruction digests are disclosed and attested, not externally verified. This adjudication did not perform a replacement academic, learning-design, accessibility, rights, or legal review, and no learner-outcome evidence exists. Candidate integrity: the commit exists, is an ancestor of current PR head 2e30f2fec816818554e9fcff27a90b2a8aba1410, and contains a production Lesson Format v1/schema-v3 pack for PREM-LPP-003 version 0.1.4 at standard risk, mapped to topic-orientation-mastery-and-retrieval with topic-orientation-diagnostic-baseline as prerequisite. The candidate-to-head diff contains exactly the three named v5 review artifacts; no scene, assessment, claim, reference, glossary, attribution, asset, mapping, authorship, or substantive metadata changed after freezing. Review eligibility was recomputed rather than inherited. Each counted artifact is schema-valid, approves the exact candidate and lesson identity, declares complete agent provenance, has a unique run distinct from the author run, and contains no major or blocking finding. Each artifact is canonically identical to a non-dismissed COMMENTED GitHub review by VSBDev whose commit_id is the candidate: learning-design transport 4731923224, accessibility-and-rights transport 4731930415, and academic transport 4731975895. The eligible set therefore satisfies standard-lesson-v2 with three approvals, one academic, one learning-design, one accessibility-and-rights, one permitted principal, three distinct review runs, and three distinct declared provider/model families: Anthropic/Claude Sonnet 4.6, Google/Gemini 3.1 Pro, and OpenAI/GPT-5. Historical artifacts target earlier candidates and are traceability only. Synthesis: the reviews collectively cover the lesson identity and graph scope, all ten scenes, worked reasoning, retrieval, misconception repair, faded practice, genuine changed-context transfer, the four-item assessment and rubrics, claim/source-note mappings, all retained claims and references, glossary, semantic and interaction access, reflow, print, privacy, security, rights, attribution, and provenance. No dissenting verdict or unresolved major or blocking risk remains. Three credible minor concerns are retained in dissent: the academic review finds that the words 'reduce demands' state a mechanism more strongly than the mapped behavioral evidence directly measures; the learning-design review finds an ambiguous remediation locator; and the accessibility-and-rights review measures sub-4.5:1 dark-theme contrast for small shared-reader labels. The supported direction of the guidance-fading claim remains intact, the locator ambiguity does not remove the recovery route, and the contrast defect is bounded to non-outcome-exclusive labels while core prose and the light route remain accessible. I therefore judge these concerns nonblocking for this candidate while preserving them for correction in a future content or infrastructure revision. Quorum is satisfied and the complete record supports merge, subject to the governance-only transitions and checks stated below; this artifact does not itself merge or publish the pull request.",
+  "dissent": [
+    "The academic approval retains a minor evidence-scope concern: claim-guidance-fading says a complete worked model can 'reduce demands' on novices, but the mapped records directly establish performance and assistance-by-prior-knowledge effects rather than a measured cognitive-load mechanism. The central instructional direction remains supported; correct or directly support this phrase in the next content revision, which will require a new candidate and fresh reviews.",
+    "The learning-design approval retains a minor recovery-navigation concern: item 2 says to return to 'the planning table' even though both the concept and worked-example scenes contain planning tables. Clarify the intended scene in a future content revision; do not edit the frozen candidate during the governance transition.",
+    "The accessibility-and-rights approval retains a renderer-level minor: small labels and metadata in the shared reader's dark theme measured about 2.41:1 to 3.28:1, below the 4.5:1 normal-text target. Core prose remains high contrast and the light route passes; correct and retest the shared tokens in a separate infrastructure change rather than altering this lesson candidate."
+  ],
+  "conditions": [
+    "Before merge, make only the documented governance transition: set lesson.json.status to published, set lesson.json.sourceConfidence to medium-high, and set every retained claims.json claims[].reviewStatus to reviewed; regenerate only deterministic outputs derived from those allowed changes.",
+    "Do not change scenes, assessment, claim statements or mappings, references, glossary, attribution, assets, outcomes, authorship, or other substantive metadata in the governance transition. Any such edit stales all counted approvals and requires a new candidate, fresh role quorum, and fresh adjudication.",
+    "After the governance transition and deterministic rebuild, rerun npm run validate and npm test, then require the authenticated GitHub PR-readiness and review-provenance checks to pass against the final head. Protected-branch checks, not this artifact alone, decide merge eligibility.",
+    "Keep the three recorded minor concerns and review limitations public. Address content concerns only in a later reviewed content revision and the shared-reader contrast concern in a separately reviewed infrastructure change; neither correction is authorized inside the governance-only commit."
+  ],
+  "adjudicator": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — final lesson adjudicator",
+    "agent": {
+      "system": "Codex CLI",
+      "provider": "OpenAI",
+      "model": "GPT-5",
+      "version": "0.144.6",
+      "runId": "/root/pr6_v5_fresh_adjudication",
+      "instructionsDigest": "sha256:13d8eb34646d5bc46ea37926eafd0e7f63f4b8dae66eca6db128a9f5fae37902"
+    }
+  },
+  "adjudicatedAt": "2026-07-20T03:24:22Z"
+}
