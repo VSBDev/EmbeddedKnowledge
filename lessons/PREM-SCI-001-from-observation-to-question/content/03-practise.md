@@ -33,7 +33,7 @@ Draft a question without using the words *better*, *worse*, or *because*. Then c
 
 - the pond or sampling locations;
 - rainy and dry periods, or one clearly defined time series;
-- a record such as turbidity measured in the same units; and
+- a record such as turbidity—a measure of how cloudy the water is—reported in the same units; and
 - a time boundary.
 
 A defensible example is: *At the north and south sampling points of Campus Pond during September, how does turbidity measured at 09:00 differ on mornings after at least 10 millimetres of rain and mornings after 48 rain-free hours?*
@@ -60,6 +60,8 @@ One possible recheck is: *Among first-year university students who choose to joi
 ## Independent practice
 
 Choose an observation from biology, chemistry, physics, or everyday life. Write one sentence that records the observation without explaining it. Then write an empirical question with all four parts. Finally, write one possible result that would surprise you.
+
+If you get stuck, the final scene's **Recovery route** turns the four parts into four headings you can fill in before writing a full sentence.
 
 Check your work:
 
