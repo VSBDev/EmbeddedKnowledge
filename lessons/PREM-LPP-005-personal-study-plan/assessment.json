@@ -1,0 +1,274 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-assessment-v1",
+  "lessonId": "PREM-LPP-005",
+  "lessonVersion": "0.1.0",
+  "assessmentId": "assessment-personal-study-plan",
+  "title": "Personal-study-plan mastery evidence",
+  "purpose": "mastery-gate",
+  "attemptPolicy": {
+    "retakeable": true,
+    "timeLimitMinutes": null,
+    "feedback": "after-attempt"
+  },
+  "items": [
+    {
+      "id": "item-repair-overfilled-plan",
+      "type": "single-choice",
+      "sceneId": "scene-assessment",
+      "objectiveIds": [
+        "objective-bound-capacity",
+        "objective-balance-and-sequence"
+      ],
+      "outcomeIds": [
+        "topic-orientation-study-plan"
+      ],
+      "prompt": "A fictional learner has twelve usable blocks. The draft schedules twelve study tasks, including a fixed supervised lab, but leaves no recovery capacity. A lower-priority optional reading duplicates a concept explanation already scheduled. What is the best first repair?",
+      "stimulus": null,
+      "points": 3,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-repair-remove-duplicate",
+            "text": "Remove or defer the duplicate optional reading and protect that block as recovery capacity."
+          },
+          {
+            "id": "option-repair-cancel-lab",
+            "text": "Cancel the fixed supervised lab so every other task remains."
+          },
+          {
+            "id": "option-repair-add-block",
+            "text": "Declare a thirteenth usable block without changing the capacity evidence."
+          },
+          {
+            "id": "option-repair-hide-reserve",
+            "text": "Keep all tasks and relabel the final problem set as recovery."
+          }
+        ],
+        "maxSelections": 1
+      },
+      "answer": {
+        "correct": "option-repair-remove-duplicate",
+        "summary": "Remove or defer the lowest-value duplicate before inventing capacity or deleting required work.",
+        "reasoning": "The capacity boundary is twelve blocks, so the repair must occur within twelve. The fixed lab is not flexible, and relabelling a required task does not create reserve. Because the optional reading duplicates an already scheduled learning function, removing or deferring it preserves the required balance and creates genuine recovery capacity. Next, verify that prerequisite concept work still precedes dependent problems.",
+        "acceptableResponses": [
+          "Remove or defer the duplicate optional reading and protect reserve."
+        ],
+        "commonErrors": [
+          "Inventing an extra block makes the plan contradict its capacity evidence.",
+          "Calling a problem set recovery changes the label but not the workload.",
+          "Deleting the fixed supervised lab ignores a stated constraint and removes a required learning function."
+        ]
+      },
+      "rubricId": "rubric-repair-overfilled-plan",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-build-week",
+      "type": "open-response",
+      "sceneId": "scene-assessment",
+      "objectiveIds": [
+        "objective-bound-capacity",
+        "objective-balance-and-sequence"
+      ],
+      "outcomeIds": [
+        "topic-orientation-study-plan"
+      ],
+      "prompt": "Construct a one-week plan for the fictional evidence record. State the capacity boundary, place all required learning functions, preserve prerequisite order, include a delayed retrieval contact, protect recovery capacity, and give one equivalent text/offline route.",
+      "stimulus": "Fourteen self-defined blocks are realistically usable. Two blocks are occupied by a fixed supervised lab. Before the lab, the learner must acquire a bounded measurement concept and complete one preparation problem. The error log shows a representation-translation gap in the preceding topic. One later cumulative retrieval contact is due. Connectivity is reliable on only three study days.",
+      "points": 10,
+      "responseSpec": {
+        "mode": "text",
+        "maxLength": 6000
+      },
+      "answer": {
+        "correct": "A defensible plan uses no more than fourteen blocks, protects explicit reserve, places concept and preparation before the supervised lab, includes problem solving and post-lab debrief, schedules the due delayed retrieval, targets the representation-translation error, and supplies an equivalent offline text route.",
+        "summary": "Make constraints, functions, order, evidence, and contingency visible.",
+        "reasoning": "A complete response begins with the observed fourteen-block boundary rather than a wish list. The fixed two-block lab anchors the week. Prerequisite concept work and the preparation problem precede it; debrief follows it. The error record justifies a contrasting representation task, and the due cumulative contact is scheduled later than its original learning. At least one block remains protected or a clear reduced route is declared. Because connectivity is limited, readings, prompts, and response templates needed offline are prepared during a reliable-access block.",
+        "acceptableResponses": [
+          "Any sequence that satisfies the stated capacity, dependencies, five outcome functions, evidence-directed repair, delayed retrieval, reserve, and equivalent offline route."
+        ],
+        "commonErrors": [
+          "Using all fourteen blocks for tasks leaves no recovery capacity.",
+          "Placing the preparation problem or concept acquisition after the lab reverses the dependency.",
+          "Lab attendance alone omits preparation or debrief evidence.",
+          "Immediate rereading is not the due delayed retrieval contact.",
+          "An online-only plan ignores the stated access constraint."
+        ]
+      },
+      "rubricId": "rubric-build-week",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-adapt-week",
+      "type": "multiple-choice",
+      "sceneId": "scene-assessment",
+      "objectiveIds": [
+        "objective-revise-from-evidence"
+      ],
+      "outcomeIds": [
+        "topic-orientation-study-plan"
+      ],
+      "prompt": "At weekly review, an optional enrichment reading is incomplete, the required concept check is secure, and two problem attempts reveal the same prerequisite representation error. Select the two strongest revision decisions for next week.",
+      "stimulus": null,
+      "points": 4,
+      "responseSpec": {
+        "mode": "multiple-choice",
+        "options": [
+          {
+            "id": "option-adapt-protect-repair",
+            "text": "Protect a targeted contrasting representation task before the next dependent problem set."
+          },
+          {
+            "id": "option-adapt-remove-enrichment",
+            "text": "Remove or defer the optional enrichment unless it serves a current outcome."
+          },
+          {
+            "id": "option-adapt-copy-all",
+            "text": "Copy every incomplete and completed task into next week."
+          },
+          {
+            "id": "option-adapt-repeat-concept",
+            "text": "Replace all problem practice with another full reading of the secure concept."
+          }
+        ],
+        "maxSelections": 2
+      },
+      "answer": {
+        "correct": [
+          "option-adapt-protect-repair",
+          "option-adapt-remove-enrichment"
+        ],
+        "summary": "Target the observed prerequisite error and prevent optional work from becoming automatic backlog.",
+        "reasoning": "The repeated representation error identifies the earliest insecure dependency, so a contrasting representation task should be protected before more dependent problems. The optional enrichment can be removed or deferred because it does not outrank the mapped repair. Copying every task creates an evidence-blind backlog, while rereading the secure concept does not address the observed error.",
+        "acceptableResponses": [
+          "Targeted representation repair plus removal or deferral of optional enrichment."
+        ],
+        "commonErrors": [
+          "Treating every incomplete task as compulsory ignores outcome priority and current evidence.",
+          "Repeating secure content uses capacity without repairing the stated prerequisite gap."
+        ]
+      },
+      "rubricId": "rubric-adapt-week",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-transfer-plan",
+      "type": "open-response",
+      "sceneId": "scene-assessment",
+      "objectiveIds": [
+        "objective-bound-capacity",
+        "objective-balance-and-sequence",
+        "objective-revise-from-evidence"
+      ],
+      "outcomeIds": [
+        "topic-orientation-study-plan"
+      ],
+      "prompt": "Adapt the four-pass model to the fictional access-constrained week, then explain which planning relations remain invariant and what will be revised after evidence arrives. Use generic labels rather than personal information.",
+      "stimulus": "The learner has ten usable blocks, intermittent connectivity, one fixed institutionally supervised practical, and a new error-log entry showing accurate recall but weak transfer to a graph. A cumulative review is due. Midweek access may remove one online block.",
+      "points": 12,
+      "responseSpec": {
+        "mode": "text",
+        "maxLength": 7000
+      },
+      "answer": {
+        "correct": "A complete response bounds ten blocks, anchors the supervised practical, prepares offline materials during access, places graph-representation repair before dependent use, includes concept/problem/lab/review functions, protects reserve or a reduced route, and states an evidence-based next-week revision rule.",
+        "summary": "Adapt the medium and placement while preserving capacity, dependency, learning-function, retrieval, and revision relations.",
+        "reasoning": "Connectivity is a constraint, not a reason to remove the learning operation. The learner can download or print the necessary concept explanation, graph prompt, and response template during reliable access, then complete retrieval and explanation offline. The fixed practical remains institutionally supervised. The graph-transfer gap justifies a contrasting graph task before dependent problem use. Recovery capacity absorbs the possible missing online block; if the disruption occurs, the plan protects the prerequisite repair and due retrieval, then removes, replaces, splits, or moves lower-priority work rather than copying everything forward.",
+        "acceptableResponses": [
+          "Any access-equivalent plan that preserves the same functions and decision relations within ten blocks and gives an evidence-linked revision rule."
+        ],
+        "commonErrors": [
+          "Requiring constant connectivity changes access rather than adapting the plan.",
+          "Scheduling an unsupervised practical invents a safety route not authorized by the lesson.",
+          "Removing recovery capacity because the week is constrained makes the plan less able to absorb the named disruption.",
+          "Naming categories without ordering prerequisites or delayed review does not demonstrate the planning model."
+        ]
+      },
+      "rubricId": "rubric-transfer-plan",
+      "safetyCritical": false
+    }
+  ],
+  "rubrics": [
+    {
+      "id": "rubric-repair-overfilled-plan",
+      "title": "Repair an overfilled plan",
+      "criteria": [
+        {
+          "id": "criterion-repair-capacity",
+          "description": "Selects a repair that respects the observed capacity, preserves fixed required work, and creates genuine recovery capacity.",
+          "maxPoints": 3
+        }
+      ]
+    },
+    {
+      "id": "rubric-build-week",
+      "title": "Construct a defensible week",
+      "criteria": [
+        {
+          "id": "criterion-build-boundary",
+          "description": "States and respects the fourteen-block boundary while protecting explicit recovery capacity or a defensible reduced route.",
+          "maxPoints": 2
+        },
+        {
+          "id": "criterion-build-functions",
+          "description": "Represents concept learning, problems, the supervised lab with preparation or debrief, delayed review, and recovery.",
+          "maxPoints": 3
+        },
+        {
+          "id": "criterion-build-sequence",
+          "description": "Places prerequisite concept and preparation before dependent work and puts the retrieval contact after the earlier learning episode.",
+          "maxPoints": 2
+        },
+        {
+          "id": "criterion-build-evidence-access",
+          "description": "Targets the representation error and supplies an equivalent offline text route for limited-connectivity periods.",
+          "maxPoints": 3
+        }
+      ]
+    },
+    {
+      "id": "rubric-adapt-week",
+      "title": "Revise from weekly evidence",
+      "criteria": [
+        {
+          "id": "criterion-adapt-target",
+          "description": "Protects targeted repair of the earliest evidenced prerequisite error before more dependent work.",
+          "maxPoints": 2
+        },
+        {
+          "id": "criterion-adapt-backlog",
+          "description": "Removes or defers optional work rather than carrying every task forward automatically.",
+          "maxPoints": 2
+        }
+      ]
+    },
+    {
+      "id": "rubric-transfer-plan",
+      "title": "Transfer the planning model",
+      "criteria": [
+        {
+          "id": "criterion-transfer-capacity",
+          "description": "Uses no more than ten blocks, anchors the fixed supervised practical, and preserves reserve or a reduced route.",
+          "maxPoints": 2
+        },
+        {
+          "id": "criterion-transfer-relations",
+          "description": "Preserves dependency order and the distinct concept, problem, lab, delayed-review, and recovery functions.",
+          "maxPoints": 3
+        },
+        {
+          "id": "criterion-transfer-access",
+          "description": "Adapts materials and responses to an equivalent offline route without requiring personal disclosure or unsupervised practical work.",
+          "maxPoints": 3
+        },
+        {
+          "id": "criterion-transfer-evidence",
+          "description": "Uses the graph-transfer error to select targeted repair and states a protect, move, split, replace, or remove revision rule for new evidence.",
+          "maxPoints": 4
+        }
+      ]
+    }
+  ]
+}
