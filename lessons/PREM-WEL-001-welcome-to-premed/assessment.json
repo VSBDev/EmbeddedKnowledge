@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "format": "embeddedknowledge-assessment-v1",
   "lessonId": "PREM-WEL-001",
-  "lessonVersion": "0.2.0",
+  "lessonVersion": "0.3.0",
   "assessmentId": "assessment-welcome-to-premed",
   "title": "Welcome to Premed orientation check",
   "purpose": "mixed",
@@ -22,7 +22,7 @@
       "outcomeIds": [
         "topic-welcome-course-journey"
       ],
-      "prompt": "Without looking back, describe the recommended Premed subject journey to a new learner in your own words. Name the subject areas in the opening stage, the middle foundations, the later medicine-facing stage, and the final stage. Give at least two explicit because/how links showing how one named stage prepares another; order alone is not enough.",
+      "prompt": "Without looking back, describe the recommended Premed subject journey to a new learner in your own words. Identify the kinds of work in the opening stage, name representative subject areas in the middle foundations and later medicine-facing stage, and name the final stage. Give at least two explicit because/how links showing how one named stage prepares another; order alone is not enough.",
       "stimulus": null,
       "points": 4,
       "responseSpec": {
@@ -33,16 +33,16 @@
         "maxLength": 1800
       },
       "answer": {
-        "correct": "A complete response begins with inquiry, laboratory, and quantitative practices; moves through the chemical, physical, biological, and molecular foundations; carries them into human systems, microbes, immunity, behaviour, society, and populations; and ends with integration and capstone work. It explains at least two preparation links rather than giving only an unordered list.",
+        "correct": "A complete response identifies inquiry or laboratory work and quantitative work at the opening; correctly places and names at least three middle groups from general chemistry, physics, organic chemistry, biochemistry, and biology/genetics, including at least one chemical or physical group and at least one biological group; names at least two later domains from human structure/physiology, microbiology/immunology, and behaviour/society/population health; names integration/capstone as the final stage; and explains at least two accurate preparation links.",
         "summary": "The journey moves from trustworthy evidence and measurement through matter and living systems to people, populations, and an unfamiliar capstone problem.",
-        "reasoning": "Inquiry, laboratory, mathematics, and statistics come first because every later subject uses measurements and evidence. General chemistry, biology, and physics provide particle, cell, and physical explanations. Organic chemistry prepares molecular reasoning used in biochemistry; these foundations then support physiology, microbiology, immunity, and behavioural or population contexts. Integration and capstone work require selecting and connecting the relevant foundations. On retry, advise an incoming learner how to proceed from trustworthy evidence to a capstone rather than reproducing the original list.",
+        "reasoning": "Inquiry or laboratory work and quantitative work come first because later subjects use measurements and evidence. The middle needs enough correctly placed chemical, physical, and biological breadth to show how matter and living systems are developed, without requiring every label. The later stage needs representative medicine-facing domains before integration and capstone work bring the foundations together. Two explicit because/how links show preparation rather than chronology alone. On retry, advise an incoming learner how to proceed from trustworthy evidence to a capstone, still naming representative subject areas at each stage without reproducing the original response.",
         "acceptableResponses": [
-          "Prose, bullets, or an outline that names every required subject area, preserves the broad recommended chronology, and explains at least two accurate preparation relationships."
+          "Prose, bullets, or an outline using ordinary-language equivalents that meets the stated opening, representative middle, representative later, final-stage, and two-link requirements while preserving the broad recommended chronology."
         ],
         "commonErrors": [
           "Giving an unordered subject list with no explanation of why the order helps",
-          "Omitting behaviour, society, population health, or integration and capstone work",
-          "Beginning with advanced medical content instead of evidence and measurement"
+          "Naming too few representative middle or later subject groups, or omitting integration and capstone work as the final stage",
+          "Beginning with advanced medical content instead of inquiry, laboratory, and quantitative work"
         ]
       },
       "rubricId": "rubric-subject-journey",
@@ -94,7 +94,7 @@
       "outcomeIds": [
         "topic-welcome-course-journey"
       ],
-      "prompt": "A learner says that completing Premed means remembering a large set of facts. Correct that account. State the four main completion capabilities and give one concrete action that shows each capability.",
+      "prompt": "A learner says that completing Premed means remembering a large set of facts. Correct that account. State the four main completion capabilities, give one concrete action that shows each capability, and state one thing course completion does not authorize, award, or guarantee.",
       "stimulus": null,
       "points": 3,
       "responseSpec": {
@@ -105,16 +105,17 @@
         "maxLength": 1600
       },
       "answer": {
-        "correct": "Completion requires explaining scientific relationships, modelling them with appropriate representations, investigating questions with auditable methods, and integrating several subjects in unfamiliar problems. Each capability must be tied to an observable action.",
+        "correct": "Completion requires explaining scientific relationships, modelling them with appropriate representations, investigating questions with auditable methods, and integrating several subjects in unfamiliar problems. Each capability must be tied to an observable action, and the response must state one accurate boundary: completion does not authorize diagnosis or treatment, award university credit or a professional licence, guarantee admission, confer clinical competence, or grant professional authority.",
         "summary": "Premed aims at explanation, modelling, investigation, and integration rather than recall alone.",
-        "reasoning": "Facts support the four capabilities but do not replace them. Concrete evidence includes explaining a relationship, using and limiting a graph or model, designing and documenting a fair investigation, and connecting several domains in a new problem. On retry, apply the four capabilities to a new non-diagnostic capstone scenario rather than repeating their definitions.",
+        "reasoning": "Facts support the four capabilities but do not replace them. Concrete evidence includes explaining a relationship, using and limiting a graph or model, designing and documenting a fair investigation, and connecting several domains in a new problem. The explicit completion boundary prevents a study-preparation course from being mistaken for a credential or professional authorization. On retry, apply the four capabilities to a new non-diagnostic capstone scenario, give one action for each, and include one accurate completion boundary rather than repeating the original response.",
         "acceptableResponses": [
-          "Equivalent wording that identifies explain, model, investigate, and integrate and gives an observable example of each."
+          "Equivalent wording that identifies explain, model, investigate, and integrate, gives an observable example of each, and states one accurate limit on what completion authorizes, awards, or guarantees."
         ],
         "commonErrors": [
           "Treating course completion as recall or time spent",
           "Naming the four verbs without concrete actions",
-          "Claiming that completion grants clinical competence or professional authority"
+          "Omitting the requested completion boundary",
+          "Claiming that completion grants clinical competence, credit, admission, a professional licence, or professional authority"
         ]
       },
       "rubricId": "rubric-completion-capabilities",
@@ -128,17 +129,17 @@
       "criteria": [
         {
           "id": "criterion-journey-opening",
-          "description": "Award 1 point only when the response names both scientific method/laboratory practice and mathematics/statistics as the opening foundations; award 0 if either pair is missing or the opening is described only as unspecified basics.",
+          "description": "Award 1 point only when the response identifies both inquiry or laboratory work and quantitative work in the opening stage, accepting ordinary-language equivalents; award 0 if either kind of work is missing or the opening is described only as unspecified basics.",
           "maxPoints": 1
         },
         {
           "id": "criterion-journey-middle",
-          "description": "Award 1 point only when the middle names general chemistry, physics, organic chemistry, biochemistry, and biology/genetics in a defensible broad order; award 0 if any subject group is missing or the response gives only a generic science label.",
+          "description": "Award 1 point only when the response correctly places and names at least three of these five middle subject groups—general chemistry, physics, organic chemistry, biochemistry, and biology/genetics. For this rule, at least one named group must be general chemistry, physics, or organic chemistry, and at least one must be biochemistry or biology/genetics. Award 0 if fewer than three groups are named, either required breadth category is absent, or the groups are placed outside the middle stage.",
           "maxPoints": 1
         },
         {
           "id": "criterion-journey-destination",
-          "description": "Award 1 point only when the response distinguishes the later medicine-facing stage—human structure/physiology, microbiology/immunology, and behaviour/society/population health—from the final integration/capstone stage; award 0 if either stage or any named subject group is missing.",
+          "description": "Award 1 point only when the response names at least two of these three later domains—human structure/physiology, microbiology/immunology, and behaviour/society/population health—and also names integration/capstone as the final stage; award 0 if fewer than two later domains are named, they are not placed in the later stage, or integration/capstone is not named as final.",
           "maxPoints": 1
         },
         {
@@ -185,7 +186,7 @@
         },
         {
           "id": "criterion-capability-boundary",
-          "description": "Award 1 point only when the response states both that recall alone is insufficient and that course completion does not confer clinical or professional authority; award 0 if either boundary is absent or contradicted.",
+          "description": "Award 1 point only when the response explicitly states one accurate thing course completion does not authorize, award, or guarantee, consistent with the lesson's credit, admission, clinical-competence, diagnosis/treatment, professional-licence, or professional-authority boundaries. Award 0 when this requested boundary is absent because the evidence is missing. Also award 0 when the response contradicts the boundary by claiming any such entitlement; flag that contradiction for correction rather than treating it as a mere omission.",
           "maxPoints": 1
         }
       ]

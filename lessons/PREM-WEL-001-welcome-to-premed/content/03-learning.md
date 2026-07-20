@@ -4,7 +4,7 @@ You will learn by meeting an explanation, retrieving it without looking, solving
 
 Practical work may be a **physical investigation**, **simulation**, or supplied **dataset or observation**. All can build question-design and analysis skills, but only physical work shows a hands-on action. Your record will name the kind completed; this welcome requires no physical work.
 
-Here is a preview using a fictional training dataset. It requires no prior science.
+Here is a preview using a fictional training dataset. It requires no prior science. This previews the course's reasoning style; the welcome check does not score it.
 
 :::{worked-example}
 :id: worked-example-flow-preview

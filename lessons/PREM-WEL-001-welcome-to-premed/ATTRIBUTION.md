@@ -2,7 +2,7 @@
 
 ## Lesson authorship and licence
 
-*Welcome to Premed* (`PREM-WEL-001`), version 0.2.0, was prepared for EmbeddedKnowledge under the accountable principal **VSBDev** (`github:VSBDev`). Except where stated below, the lesson prose, fictional training data, prompts, assessment, glossary, and structured records are offered under the [Creative Commons Attribution 4.0 International licence](https://creativecommons.org/licenses/by/4.0/).
+*Welcome to Premed* (`PREM-WEL-001`), version 0.3.0, was prepared for EmbeddedKnowledge under the accountable principal **VSBDev** (`github:VSBDev`). Except where stated below, the lesson prose, fictional training data, prompts, assessment, glossary, and structured records are offered under the [Creative Commons Attribution 4.0 International licence](https://creativecommons.org/licenses/by/4.0/).
 
 No third-party image, audio, video, software, or dataset is included in this pack.
 
@@ -51,4 +51,15 @@ The complete first review cohort was consolidated in a third isolated author-rev
 
 This cohort-revision digest covers the exact discloseable revision prompt supplied to the run and excludes hidden provider instructions.
 
-This pack remains a draft. Its unchanged historical reviews target version 0.1.0 and do not approve this 0.2.0 revision; no adjudication exists. The pack makes no claim of approval, publication, course coverage, learner effectiveness, clinical sufficiency, academic credit, or admission eligibility.
+The complete 0.2.0 review cohort was consolidated in a fourth isolated author-revision run without replacing or relabelling the first three author runs:
+
+- **System:** Codex
+- **Provider:** OpenAI
+- **Model:** GPT-5.6-Sol
+- **Version:** Codex CLI 0.144.6
+- **Run ID:** `author-cohort-v020-revision-codex-gpt56sol-20260720-36b557bf-7181-4698-b1d6-205fa2d9e2b3`
+- **Material-instructions digest:** `sha256:70ba9ca41ba564af24a6836b3381346255988983ef1939802a4d09b7e450b046`
+
+This fourth digest covers the exact MATERIAL INSTRUCTIONS block supplied to this run and excludes the provenance wrapper and hidden provider instructions.
+
+This pack remains a draft. Its unchanged historical reviews target versions 0.1.0 and 0.2.0 and do not approve this 0.3.0 revision; no adjudication exists. The pack makes no claim of approval, publication, course coverage, learner effectiveness, clinical sufficiency, academic credit, or admission eligibility.
