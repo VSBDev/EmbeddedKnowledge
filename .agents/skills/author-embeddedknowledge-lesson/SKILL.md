@@ -73,8 +73,8 @@ Revise the brief until every learning claim has observable evidence. Do not use 
 ## Validate and challenge
 
 1. Run `npm ci` when dependencies are not installed or the lockfile changed.
-2. Run `npm run validate` after building the pack.
-3. Run `npm test` when rendering, interactions, diagrams, math, chemistry, assets, or reader behavior changed.
+2. Before candidate freeze, run `npm run source:preflight -- --strict lessons/<lesson-pack>`. Replace missing terms routes and unresolved `human-only` sources rather than leaving them for the final rights review.
+3. Run `npm run verify` after building the pack. It runs validation and tests sequentially; never run `npm run validate` and `npm test` concurrently in one worktree because they rebuild shared generated fixtures.
 4. Re-read the lesson as a novice. Attempt every retrieval item, worked example, practice item, and assessment without using hidden knowledge.
 5. Challenge every acceptance gate in `CONTENT-STANDARD.md`. Repair gaps in explanation rather than disguising them with polish.
 6. Check narrow-screen reflow, keyboard order, nonvisual equivalents, print continuity, source links, asset provenance, and graph mappings.

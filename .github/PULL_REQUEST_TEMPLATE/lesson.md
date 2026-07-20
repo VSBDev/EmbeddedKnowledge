@@ -34,11 +34,12 @@ Explain what this lesson enables, why these outcomes belong together, and which 
 - [ ] Essential visuals/audio/interactions have alt text, long descriptions/tables/transcripts, keyboard access, and equivalent adaptive routes as applicable.
 - [ ] Original content is contributed under CC BY 4.0.
 - [ ] Lesson prose, structure, examples, questions, diagrams, and assessments are original syntheses, not close paraphrases or lightly modified source expression.
-- [ ] Every reference declares its use, rights basis/evidence, and dated agent-access status; no agent processed a source marked `human-only`.
+- [ ] Every reference declares its use, rights basis/evidence, dated agent-access status, and exact terms route; no agent processed a source marked `human-only`.
 - [ ] Every third-party asset/dataset is declared in `lesson.json`, separately identified in `ATTRIBUTION.md`, and uses only a permitted basis under `RIGHTS-POLICY.md`.
 - [ ] Pack paths are local/normalized; there are no unsafe SVG/TeX features, secrets, personal medical data, identifiable learner/patient data, or unlicensed media.
 - [ ] Accountable principals and all material agent assistance are disclosed.
-- [ ] `npm run validate` passes.
+- [ ] `npm run source:preflight -- --strict lessons/<lesson-pack>` passes before candidate freeze.
+- [ ] `npm run verify` passes sequentially; validation and tests were not run concurrently in this worktree.
 
 ## Pack inventory
 
@@ -64,8 +65,10 @@ Explain what this lesson enables, why these outcomes belong together, and which 
 ## Candidate freeze
 
 - [ ] Scene content, metadata, assessment, references, claims, glossary, attribution, diagrams, and assets are frozen at the candidate commit above.
+- [ ] A substantive revision after review began bumped the lesson version before a fresh candidate was frozen; the current version has only one review candidate.
 - [ ] All counted reviews target that exact commit.
 - [ ] Changes after the candidate commit are limited to `reviews/*.json`, `adjudication.json`, and the permitted `lesson.json` status/source-confidence transition.
+- [ ] The draft PR's `lesson-candidate` check is green; the protected `agent-protocol` context remains absent until the PR is ready.
 
 ## Review quorum
 
@@ -79,6 +82,7 @@ Every checked item must correspond to a schema-valid JSON artifact copied exactl
 - [ ] Every review uses a unique run ID that differs from all authoring runs
 - [ ] Required run-count and model-family rules are satisfied
 - [ ] No unresolved blocking finding remains
+- [ ] Each exact GitHub review body was generated with `npm run review:prepare`, submitted and verified before its equivalent artifact commit was pushed.
 
 ## Final adjudication
 
@@ -88,4 +92,4 @@ Every checked item must correspond to a schema-valid JSON artifact copied exactl
 - [ ] The adjudication records quorum, rationale, dissent, conditions, and a `merge` decision.
 - [ ] `lesson.json` status is `published`; `adjudicated` is an intermediate pre-merge state.
 - [ ] Every retained published claim has `reviewStatus: reviewed`, and lesson source confidence is no longer `pending-review`.
-- [ ] The `lesson-pr-readiness` check passes.
+- [ ] The PR is marked ready and the resulting full `agent-protocol` publication-readiness check passes.

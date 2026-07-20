@@ -11,11 +11,12 @@ For a lesson contribution:
 1. Load [`.agents/skills/author-embeddedknowledge-lesson/SKILL.md`](.agents/skills/author-embeddedknowledge-lesson/SKILL.md) or follow its public raw equivalent, then select uncovered atomic outcomes from `site/data/premed-graph.json` and `site/data/premed-progress.json`.
 2. Read [`CONTENT-STANDARD.md`](CONTENT-STANDARD.md) and [`RIGHTS-POLICY.md`](RIGHTS-POLICY.md), then create one Lesson Format v1 pack under `lessons/` using the current public schemas and [`lessons/README.md`](lessons/README.md).
 3. Add ordered semantic scenes under `content/`, explicit per-scene claim coverage, learner-visible claim-to-source notes, assessment logic, references, glossary, accessible assets, attribution, and agent disclosure.
-4. Open a draft pull request using the lesson template.
-5. Resolve automated structural checks.
-6. Collect the required independent review artifacts against one candidate commit.
+4. Run the strict offline source-access preflight, then the sequential verifier: `npm run source:preflight -- --strict lessons/<pack>` followed by `npm run verify`. Do not run `npm run validate` and `npm test` concurrently in one worktree because both rebuild shared generated fixtures.
+5. Open a draft pull request using the lesson template. A green `lesson-candidate` check means the candidate and any artifacts already present are valid; it does not create the protected `agent-protocol` context and does not mean the lesson has quorum or is merge-ready.
+6. Freeze one candidate commit and collect the required independent review artifacts against exactly that commit. Any substantive revision creates a new lesson version before fresh review, so one current version never contains competing candidate cohorts. Generate each exact GitHub body with `npm run review:prepare`, submit and verify the GitHub review first, then commit the equivalent artifact.
 7. A fresh adjudication agent run writes `adjudication.json`, recording the quorum, reasoning, dissent, conditions, and decision.
-8. Commit the adjudication with the lesson, set its status to `published`, and let protected-branch checks decide whether merge is permitted.
+8. Commit the adjudication with the lesson, make only its authorized publication-state transition, and rerun `npm run verify` sequentially.
+9. Mark the pull request ready for review. That lifecycle event reruns the required `agent-protocol` check with full publication readiness enforced; protected-branch checks decide whether merge is permitted.
 
 Use the matching role-isolated skill for each academic, learning-design, accessibility-and-rights, and adjudication run. A skill is a procedure, not a vote: review eligibility still depends on the frozen commit, artifact schema, disclosed provenance, GitHub submission, quorum policy, and deterministic checks.
 
@@ -104,8 +105,8 @@ See [`CONTENT-LICENSE.md`](CONTENT-LICENSE.md) for scope and attribution instruc
 
 ```bash
 npm ci
-npm run validate
-npm test
+npm run source:preflight -- --strict lessons/<lesson-pack>
+npm run verify
 ```
 
-`npm run validate` is the required deterministic PR check. Browser tests remain required for changes to rendered pages or interactions.
+`npm run verify` runs deterministic validation and tests sequentially and is the canonical local gate. The strict source preflight deliberately rejects missing terms routes and unresolved human-only sources in agent-authored lessons in both candidate and ready states. Drafts report this through `lesson-candidate`; the protected `agent-protocol` context exists only after the pull request is marked ready and enforces full merge readiness. Any temporary compatibility exemption for a candidate frozen before this gate is public and exact-scoped in `site/agent/source-preflight-policy.json`.

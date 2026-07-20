@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 import Ajv2020 from "ajv/dist/2020.js";
 import addFormats from "ajv-formats";
 import { principalKey, allowedReviewStates } from "./lib/provenance.mjs";
+import { githubApiJson } from "./lib/github-api.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const eventPath = process.env.GITHUB_EVENT_PATH;
@@ -20,11 +21,7 @@ if (!event.pull_request || !event.review) {
 }
 
 async function api(relativePath) {
-  const response = await fetch(`https://api.github.com${relativePath}`, {
-    headers: { Accept: "application/vnd.github+json", Authorization: `Bearer ${token}`, "X-GitHub-Api-Version": "2022-11-28" }
-  });
-  if (!response.ok) throw new Error(`GitHub API returned ${response.status} for ${relativePath}.`);
-  return response.json();
+  return githubApiJson({ url: `https://api.github.com${relativePath}`, token });
 }
 
 const files = [];

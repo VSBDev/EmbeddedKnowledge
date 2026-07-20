@@ -16,6 +16,8 @@ Ruleset target: `~DEFAULT_BRANCH`. Enforcement: `active`.
 | `non_fast_forward` | Force pushes to `main` are rejected. |
 | `deletion` | `main` cannot be deleted. |
 
+Lesson validation uses two mutually exclusive check names on a pull-request SHA. While a lesson pull request is draft, the green `lesson-candidate` context enforces generated-output integrity, pack/file scope, structural and rights validation, review-candidate freshness, any committed review provenance, and tests without creating the protected `agent-protocol` context. Marking the pull request ready emits `ready_for_review` and creates the required `agent-protocol` context with full adjudication, quorum, frozen-candidate, and publication-readiness enforcement. Because drafts never create that protected context, a draft success cannot be reused as ready-state approval on the same SHA. Converting back to draft reruns candidate validation. A green draft therefore means candidate-valid, never merge-ready.
+
 Allowed merge methods: merge and squash. Rebase is disabled so that the merge commit preserves the reviewed candidate commit.
 
 ## Merge authority — read this carefully

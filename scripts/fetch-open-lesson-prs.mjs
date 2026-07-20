@@ -3,7 +3,8 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import Ajv2020 from "ajv/dist/2020.js";
 import addFormats from "ajv-formats";
-import { principalKey, modelFamilyKey, canonical, extractStructured, expectedReviewState, allowedReviewStates, reviewerAuthorConflict } from "./lib/provenance.mjs";
+import { principalKey, modelFamilyKey, canonical, extractStructured, allowedReviewStates, reviewerAuthorConflict } from "./lib/provenance.mjs";
+import { githubApiJson } from "./lib/github-api.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const outputPath = process.env.EK_OPEN_PRS_OUTPUT || path.join(root, "site/data/premed-open-prs.json");
@@ -29,21 +30,11 @@ function validationErrors(validate) {
 }
 
 async function api(relativePath) {
-  const response = await fetch(`${apiBase}${relativePath}`, {
-    headers: {
-      Accept: "application/vnd.github+json",
-      Authorization: `Bearer ${token}`,
-      "X-GitHub-Api-Version": "2022-11-28",
-      "User-Agent": "EmbeddedKnowledge-lesson-index"
-    }
+  return githubApiJson({
+    url: `${apiBase}${relativePath}`,
+    token,
+    headers: { "User-Agent": "EmbeddedKnowledge-lesson-index" }
   });
-  if (!response.ok) {
-    const message = await response.text();
-    const error = new Error(`GitHub API ${response.status} for ${relativePath}: ${message.slice(0, 240)}`);
-    error.status = response.status;
-    throw error;
-  }
-  return response.json();
 }
 
 function encodePath(filePath) {
@@ -129,16 +120,17 @@ function verifyGitHubProvenance(artifact, kind, githubReviews) {
   return { ok: true, submission };
 }
 
-function chooseCandidateCohort(approvals) {
+function currentCandidateCohort(approvals, blockers) {
   const groups = new Map();
   for (const approval of approvals) {
     if (!groups.has(approval.candidateCommit)) groups.set(approval.candidateCommit, []);
     groups.get(approval.candidateCommit).push(approval);
   }
-  return [...groups.values()].sort((left, right) => {
-    if (right.length !== left.length) return right.length - left.length;
-    return Math.max(...right.map((review) => Date.parse(review.signedAt))) - Math.max(...left.map((review) => Date.parse(review.signedAt)));
-  })[0] || [];
+  if (groups.size > 1) {
+    blockers.push("The current lesson version has approvals for multiple candidate commits. Bump the lesson version after substantive revision and collect one fresh exact-candidate quorum.");
+    return [];
+  }
+  return [...groups.values()][0] || [];
 }
 
 export function evaluateProposal(metadata, reviews, adjudication, metadataErrors, artifactErrors, githubReviews, pullRequestAuthor) {
@@ -178,10 +170,13 @@ export function evaluateProposal(metadata, reviews, adjudication, metadataErrors
       continue;
     }
     seenReviewIds.add(review.reviewId);
-    if (review.lessonId !== metadata.id || review.lessonVersion !== metadata.version) {
-      blockers.push(`${review.reviewId} targets a different lesson identity or version.`);
+    if (review.lessonId !== metadata.id) {
+      blockers.push(`${review.reviewId} targets a different lesson identity.`);
       continue;
     }
+    // Older lesson versions remain public traceability records. They cannot
+    // count toward the current cycle and do not create current-cycle blockers.
+    if (review.lessonVersion !== metadata.version) continue;
     const provenance = verifyGitHubProvenance(review, "review", githubReviews);
     if (!provenance.ok) {
       blockers.push(provenance.error);
@@ -206,7 +201,7 @@ export function evaluateProposal(metadata, reviews, adjudication, metadataErrors
   let adjudicationSchemaValid = false;
   let adjudicationValid = false;
   let adjudicationSummary = null;
-  let selectedApprovals = chooseCandidateCohort(validApprovals);
+  let selectedApprovals = currentCandidateCohort(validApprovals, blockers);
   if (adjudication) {
     if (!validateAdjudication(adjudication)) {
       blockers.push(`adjudication.json failed schema validation: ${validationErrors(validateAdjudication).join("; ")}`);
