@@ -1246,7 +1246,11 @@
 
   Promise.resolve()
     .then(resolveArtifactUrl)
-    .then((dataUrl) => fetch(dataUrl, { cache: "no-store" }))
+    .then((dataUrl) => {
+      const freshUrl = new URL(dataUrl, document.baseURI);
+      freshUrl.searchParams.set("fresh", Date.now().toString(36));
+      return fetch(freshUrl, { cache: "no-store" });
+    })
     .then((response) => {
       if (!response.ok) throw new Error(`Rendered lesson returned ${response.status}`);
       return response.json();

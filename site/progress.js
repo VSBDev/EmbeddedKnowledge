@@ -9,9 +9,15 @@
     if (element) element.textContent = value;
   };
 
+  function freshProgressUrl() {
+    const url = new URL("../data/premed-progress.json", document.baseURI);
+    url.searchParams.set("fresh", Date.now().toString(36));
+    return url;
+  }
+
   async function loadProgress() {
     try {
-      const response = await fetch("../data/premed-progress.json", { cache: "no-cache" });
+      const response = await fetch(freshProgressUrl(), { cache: "no-store" });
       if (!response.ok) throw new Error(`Progress request failed (${response.status})`);
       const progress = await response.json();
       const total = progress.outcomes.total;

@@ -281,7 +281,7 @@ test("the Premed open book reflects generated publication counts and open PR quo
   const proposalIsPublished = lessonIndex.outcomes.some((outcome) => outcome.id === proposalOutcomeId && (outcome.publishedLessonIds || []).length);
   const reviewCount = proposalIsPublished ? 0 : 1;
   const emptyCount = lessonIndex.outcomes.length - publishedCount - reviewCount;
-  await page.route("**/data/premed-open-prs.json", async (route) => {
+  await page.route("**/data/premed-open-prs.json*", async (route) => {
     await route.fulfill({
       contentType: "application/json",
       body: JSON.stringify({
@@ -345,6 +345,33 @@ test("the Premed open book reflects generated publication counts and open PR quo
     publishedLessons: lessonIndex.lessons.filter((lesson) => lesson.status === "published").length
   });
   expect(errors).toEqual([]);
+});
+
+test("publication pages bypass stale Pages caches for mutable lesson data", async ({ page }) => {
+  const lessonIndex = await getJson(page.request, "data/premed-lessons.json");
+  const publishedLesson = lessonIndex.lessons.find((lesson) => lesson.status === "published");
+  expect(publishedLesson, "the cache test requires a published lesson").toBeTruthy();
+  const mutablePaths = new Set([
+    "/site/data/premed-lessons.json",
+    "/site/data/premed-open-prs.json",
+    "/site/data/premed-progress.json",
+    `/site/data/lessons/${publishedLesson.id}.json`
+  ]);
+  const requests = [];
+  page.on("request", (request) => {
+    const url = new URL(request.url());
+    if (mutablePaths.has(url.pathname)) requests.push(url);
+  });
+
+  await page.goto(route("premed/lessons/"), { waitUntil: "networkidle" });
+  await page.goto(route("premed/"), { waitUntil: "networkidle" });
+  await page.goto(route(`premed/lessons/read/?lesson=${publishedLesson.id}`), { waitUntil: "networkidle" });
+
+  for (const path of mutablePaths) {
+    const matching = requests.filter((url) => url.pathname === path);
+    expect(matching, `${path} should be requested`).not.toHaveLength(0);
+    expect(matching.every((url) => Boolean(url.searchParams.get("fresh"))), `${path} should carry a cache-busting token`).toBeTruthy();
+  }
 });
 
 test("Opening the lesson commons lets an empty outcome invite contribution", async ({ page }) => {
@@ -547,8 +574,8 @@ test("a published lesson opens through its production route with keyboard and co
   routedOutcome.lessonIds = [...new Set([...(routedOutcome.lessonIds || []), lessonId])];
   routedOutcome.publishedLessonIds = [...new Set([...(routedOutcome.publishedLessonIds || []), lessonId])];
 
-  await page.route("**/data/premed-lessons.json", (route) => route.fulfill({ contentType: "application/json", body: JSON.stringify(routedIndex) }));
-  await page.route(`**/data/lessons/${lessonId}.json`, (route) => route.fulfill({ contentType: "application/json", body: JSON.stringify(productionArtifact) }));
+  await page.route("**/data/premed-lessons.json*", (route) => route.fulfill({ contentType: "application/json", body: JSON.stringify(routedIndex) }));
+  await page.route(`**/data/lessons/${lessonId}.json*`, (route) => route.fulfill({ contentType: "application/json", body: JSON.stringify(productionArtifact) }));
   const errors = collectRuntimeErrors(page);
   await page.goto(route(`premed/lessons/?outcome=${targetOutcome.id}`), { waitUntil: "networkidle" });
   await expect(page).toHaveURL(new RegExp(`/premed/lessons/read/\\?lesson=${lessonId}$`));
@@ -725,7 +752,7 @@ test("a draft pending-review artifact is never represented as published or open"
       };
 
   if (!indexedDraft) {
-    await page.route(`**/data/lessons/${draftArtifact.id}.json`, (route) => route.fulfill({
+    await page.route(`**/data/lessons/${draftArtifact.id}.json*`, (route) => route.fulfill({
       contentType: "application/json",
       body: JSON.stringify(draftArtifact)
     }));
@@ -795,7 +822,7 @@ test("an overflowing guided frame is a labelled keyboard scroll region without r
     "<h2>Overflowing guided content</h2>",
     `<div>${markers.map((marker, index) => `<p data-overflow-marker="${index}">${marker}. This deliberately indivisible block exercises measured overflow.</p>`).join("")}</div>`
   ].join("");
-  await page.route("**/data/lessons/specimen.json", (route) => route.fulfill({ contentType: "application/json", body: JSON.stringify(specimen) }));
+  await page.route("**/data/lessons/specimen.json*", (route) => route.fulfill({ contentType: "application/json", body: JSON.stringify(specimen) }));
   const errors = collectRuntimeErrors(page);
   await page.goto(route("premed/lessons/specimen/"), { waitUntil: "networkidle" });
   await page.keyboard.press("ArrowRight");

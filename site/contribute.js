@@ -13,6 +13,12 @@
   let lessonIndex = null;
   let openPrIndex = null;
 
+  function freshJsonUrl(relativePath) {
+    const url = new URL(relativePath, siteRoot);
+    url.searchParams.set("fresh", Date.now().toString(36));
+    return url;
+  }
+
   const setText = (selector, value) => {
     document.querySelectorAll(selector).forEach((element) => { element.textContent = value; });
   };
@@ -90,11 +96,11 @@ Then build and validate one focused lesson pack according to the repository inst
   copyButton?.addEventListener("click", copyPrompt);
 
   Promise.all([
-    fetch(new URL("data/premed-lessons.json", siteRoot), { cache: "no-cache" }).then((response) => {
+    fetch(freshJsonUrl("data/premed-lessons.json"), { cache: "no-store" }).then((response) => {
       if (!response.ok) throw new Error(`Lesson index returned ${response.status}`);
       return response.json();
     }),
-    fetch(new URL("data/premed-open-prs.json", siteRoot), { cache: "no-cache" }).then((response) => {
+    fetch(freshJsonUrl("data/premed-open-prs.json"), { cache: "no-store" }).then((response) => {
       if (!response.ok) throw new Error(`Open PR index returned ${response.status}`);
       return response.json();
     })
