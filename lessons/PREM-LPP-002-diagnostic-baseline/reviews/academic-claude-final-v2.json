@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-LPP-002-ACADEMIC-CLAUDE-FINAL-V2",
+  "lessonId": "PREM-LPP-002",
+  "lessonVersion": "0.1.2",
+  "candidateCommit": "2c2d339d91de3c30d924af60d4c4a378ec19f201",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev (accountable operator) — isolated academic review agent",
+    "agent": {
+      "system": "Claude Code",
+      "provider": "Anthropic",
+      "model": "claude-opus-4-8",
+      "version": "Claude Code 2.1.215",
+      "runId": "claude-code/94eb62b6-c840-4229-8854-5b77878fafe9/academic-prem-lpp-002-final-v2",
+      "instructionsDigest": "sha256:6a28ec6baf0a016ebc029b9b9b948225ea2f7eb5876e195167bf508f46675d02"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "git rev-parse HEAD confirmed candidate 2c2d339d91de3c30d924af60d4c4a378ec19f201 with a clean working tree",
+    "lesson.json#scenes — 11 ordered scenes, kinds, required flags, and claimCoverage declarations",
+    "lesson.json#estimatedMinutes — recomputed scene sum 7+9+14+13+8+10+14+12+10+18+5 = 120",
+    "lesson.json#outcomes and #prerequisites resolved against site/data/premed-graph.json node IDs",
+    "lesson.json#objectives — all three objectives mapped to topic-orientation-diagnostic-baseline and to assessment items",
+    "lesson.json#sourceConfidence and #aiAssistance disclosure text",
+    "claims.json — all 8 claims: statement, sceneIds, sourceIds, support, confidence, scope, uncertainty, reviewStatus",
+    "claims.json to source-note integrity — recomputed claim and source unions for all 10 claims-mapped scenes; every mapped claim and every supporting source ID appears in the same-scene {source-note}",
+    "content/110-references.md — confirmed no-material-claims declaration carries no source note and no mapped claim",
+    "references.json — all 4 source records: URL, pinned commit, locator, license, uses, rightsBasis, agentAccess status and date",
+    "site/data/premed-graph.json#link-prerequisite-topic-orientation-map-and-pathways-topic-orientation-diagnostic-baseline",
+    "site/data/premed-graph.json#link-prerequisite-topic-orientation-diagnostic-baseline-topic-orientation-mastery-and-retrieval",
+    "site/data/premed-graph.json#topic-orientation-diagnostic-baseline outcome text and estimatedHours",
+    "course/PREMED-SYLLABUS.md sections 3.2, 4, 7, and 18 — the exact locator cited by source-premed-syllabus",
+    "CONTENT-STANDARD.md sections 2, 5.1, 6-8, and 13 — the exact locator cited by source-content-standard",
+    "research/CONTENT-AUTHORING-EVIDENCE-2026-07-19.md sections 4 and 6-9 — the exact locator cited by source-authoring-evidence",
+    "content/020-prerequisite-diagnostic.md#check-map-prerequisite — Alpha/Beta/Gamma and Delta/Epsilon/Zeta chain logic reworked independently",
+    "content/030-concept.md — five evidence dimensions and the three operational state definitions",
+    "content/040-worked-example.md#worked-example-three-node-baseline — Alder, Birch, and Copper decisions reverse-tested against the state definitions",
+    "content/050-retrieval-check.md — Delta, Elm, and Fjord classifications rechecked against the taught rules",
+    "content/060-misconception.md#misconception-confidence-equals-security — Quartz and Reed contrast and recheck case",
+    "content/070-practice.md — Stage 1 to 3 feedback, including fragile/unresolved treatment of unattempted probes",
+    "content/080-transfer.md — redesign constraints and scope disclaimer",
+    "content/090-synthesis.md — state-to-route table and recovery route",
+    "content/100-assessment.md#mastery-and-retry — the declared 20/25, 6/10, and no-zero-criterion gate",
+    "assessment.json#item-classify-pattern, #item-separate-confidence, #item-build-baseline, #item-transfer-redesign — prompts, answer keys, reasoning, and common errors",
+    "assessment.json#rubrics — recomputed criterion sums 2, 3, 10, 10 against item points; total 25",
+    "glossary.json — 7 term definitions checked against scene usage for terminology drift",
+    "ATTRIBUTION.md — revision history, promotion evidence, and disclosed digests",
+    "sha256 of reviews/*.json bytes recomputed and matched against the four digests disclosed in ATTRIBUTION.md (bytes only; findings not read, to preserve role isolation)",
+    "git diff 82ef7e209fc3d16273ac7bb1279905bdcde52fcc..2c2d339d91de3c30d924af60d4c4a378ec19f201 over the pack — content/*.md byte-identical",
+    "npm ci and npm run validate executed read-only; all validators pass and the working tree stayed clean"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "claims.json#claim-baseline-purpose (with claims.json#claim-three-state-model and content/030-concept.md#operational-state-definitions)",
+      "finding": "The lesson's operational meaning of \"secure\" conflicts, unreconciled, with the exact syllabus sections it cites as support. claim-baseline-purpose declares its scope as \"EmbeddedKnowledge Premed entry and lesson-level prerequisite routing\", and source-premed-syllabus is cited at locator \"Sections 3.2, 4, 7, and 18\". Syllabus section 3.2 attaches the label \"Secure\" to an entry-diagnostic station result of \"at least 85%, no critical misconception\" and routes it to \"Begin the linked core node\" — a purely accuracy-based rule with no explanation or adaptation probe. This lesson teaches the opposite decision rule: claim-pattern-over-snapshot and content/030-concept.md require \"a pattern of accurate independent reasoning under bounded variation\" and would classify accuracy-only evidence as at most fragile/unresolved (see the Juniper feedback in content/070-practice.md, which refuses secure for three accurate familiar responses). Separately, claim-three-state-model's uncertainty field asserts that the three labels \"synthesize the assigned graph outcome and course mastery language\", but the course's stable mastery language in syllabus section 7 is a six-state vocabulary (N Not yet encountered, A Acquiring, P Practising, M Mastered, R Retained, T Transfer) whose A row is itself glossed \"recall is fragile\". No scene, glossary entry, or claim exposes any crosswalk: grep across the pack finds no occurrence of the section 3.2 bands (Developing, Foundational, the 85% rule) or of the section 7 states. The three-state vocabulary itself is correct and mandated — the graph outcome text is verbatim \"Use a low-stakes diagnostic to distinguish unfamiliar, fragile, and secure knowledge\" — so the defect is not the model but the undisclosed collision at the scope the claims declare. The orientation disclaimer (\"does not administer the full Premed entry diagnostic\") bounds administration, not vocabulary. Consequence: a learner who applies this lesson to a real Premed entry-station report labelled \"Secure\" receives contradictory guidance about what that word licenses, and claim-three-state-model asserts a synthesis with course mastery language that the candidate never demonstrates and a reader cannot check.",
+      "resolution": "Either (a) add one bounded reconciliation — a {callout} or short subsection in content/030-concept.md or content/090-synthesis.md that names the syllabus section 3.2 station bands and the section 7 N/A/P/M/R/T mastery states, states that they are different vocabularies at different grain sizes, and gives the crosswalk this lesson intends (in particular that a section 3.2 \"Secure\" station result is accuracy evidence only and does not by itself satisfy this lesson's secure criteria); or (b) narrow the evidence claims so no unreconciled scope remains — remove \"entry\" from claim-baseline-purpose's scope and remove the \"course mastery language\" assertion from claim-three-state-model's uncertainty, leaving the graph outcome as the sole declared basis for the three labels."
+    },
+    {
+      "severity": "major",
+      "target": "claims.json (reviewStatus on all 8 claims) and lesson.json#sourceConfidence",
+      "finding": "At this candidate the machine-readable evidence ledger asserts independent-review states that no review of this candidate has produced. The 0.1.1-to-0.1.2 diff changes every claim's reviewStatus from \"pending-review\" to \"reviewed\" and resolves lesson.json#sourceConfidence from pending-review to \"medium-high\"; ATTRIBUTION.md line 43 records this as a \"metadata-only governance promotion\" performed by the disclosed author run /root/author_prem_lpp_002 on the strength of three approving artifacts that targeted a different candidate, 82ef7e209fc3d16273ac7bb1279905bdcde52fcc, at version 0.1.1. FORMAT.md section 6 is explicit that authors keep claim review state and source confidence pending during drafting and that \"independent review and final adjudication determine whether publication is justified\", and AGENTS.md requires every counted review to target the same candidate commit. The pack's own ATTRIBUTION.md concedes the point (\"the 0.1.1 approvals do not establish quorum or merge readiness for 0.1.2. Fresh reviews against one frozen 0.1.2 candidate ... remain required\"), yet the ledger has already been advanced as though those reviews existed. This is the authority-laundering failure named in CONTENT-STANDARD.md section 13 (Epistemics): a downstream reader, renderer, or validator inspecting claims.json at 2c2d339 sees eight claims presented as independently reviewed at a candidate whose review set is empty, and it inverts the review order by pre-writing the conclusion this artifact is supposed to reach. I record two genuine mitigations, both independently verified: the substantive claim content is unchanged, and the disclosure is honest and complete rather than concealed. The defect is the ledger state, not the scholarship.",
+      "resolution": "Restore claims.json reviewStatus to \"pending-review\" for all eight claims and lesson.json#sourceConfidence to its pending value on the reviewed candidate, and let the fresh 0.1.2 review set plus the separate adjudication run advance those fields. If the project intends carrying a review state across a content-identical version bump, that rule belongs in FORMAT.md and the quorum policy first — it cannot be established by an authoring run's own promotion."
+    },
+    {
+      "severity": "major",
+      "target": "content/100-assessment.md#mastery-and-retry (with assessment.json#rubric-classify-pattern and #rubric-separate-confidence)",
+      "finding": "The declared mastery gate is not deterministically applicable to the two selected-response items, so the assessment logic cannot be reproduced by two scorers. The gate states \"at least 20 of 25 points overall, at least 6 of 10 points on both item-build-baseline and item-transfer-redesign, and no rubric criterion receiving zero\". Recomputed rubric sums are correct (2 + 3 + 10 + 10 = 25). But item-classify-pattern is a single-choice item whose entire rubric is one 2-point criterion, so its only attainable scores are 0 and 2; the \"no rubric criterion receiving zero\" condition therefore silently converts one multiple-choice miss into a disqualifying result even for a learner scoring 23 of 25 with fully mastery-level open responses. That contradicts the lesson's own proportionate-evidence principle and CONTENT-STANDARD.md section 6, which warns against inferring mastery from one response — the same warning applies to inferring non-mastery from one. item-separate-confidence is worse: it is a maxSelections-2 multiple-choice item scored by two criteria (2 points for preserving the secure classification, 1 point for the calibration flag), and no rule states how a learner who selects one correct option and one distractor, or only one correct option, is scored against those criteria. The item is not decomposable into the two criteria as written. The scene labels the thresholds \"candidate authoring decisions until independent review\", which is the correct disclosure, but the numbers are still presented to learners as the operative gate.",
+      "resolution": "Make the gate computable: either restrict the \"no rubric criterion receiving zero\" condition to the two open-response rubrics and state that selected-response items contribute to the aggregate only, or replace the single-criterion selected-response rubrics with explicit partial-credit rules (for item-separate-confidence, state the points awarded for each combination of selected options, including one-correct-one-distractor and single-correct selections). Recheck the 20/25 threshold against whichever scoring rule is adopted."
+    },
+    {
+      "severity": "minor",
+      "target": "claims.json#claim-confidence-calibration",
+      "finding": "This claim is asserted at confidence \"high\" with support \"synthesis\" on a single source, source-premed-syllabus. I verified the syllabus at the cited locator and it supports only one of the claim's two conjuncts directly: section 7 provides for \"a high-confidence incorrect response\" triggering misconception remediation, and section 18.1 lists \"CAL confidence-calibration problem\" as an error class. Nothing at the cited locator addresses the second conjunct, that low confidence can accompany an accurate independent response — which is the direction the lesson leans on hardest, in the Fjord case (content/050-retrieval-check.md), the Reed case (content/060-misconception.md), the Kite case (content/070-practice.md), and item-separate-confidence. I also checked source-authoring-evidence for supporting metacognition or calibration evidence and found none: the synthesis has no calibration, metacognition, or judgment-of-learning section. The claim remains defensible as a possibility statement inside its declared course-policy scope, and the assessment consequence is not an error — the low-confidence-plus-secure answer key is right under the taught model. But the confidence rating overstates what a single policy document establishes for the direction the lesson uses most.",
+      "resolution": "Either lower claim-confidence-calibration to confidence \"medium-high\" to match the single-source policy basis, or add a source that supports the low-confidence-with-accurate-performance direction (extending research/CONTENT-AUTHORING-EVIDENCE-2026-07-19.md with a calibration section would keep the pack's existing sourcing pattern) and cite it alongside the syllabus."
+    },
+    {
+      "severity": "minor",
+      "target": "lesson.json#objective-classify-baseline",
+      "finding": "Terminology drift between the declared objective and the taught label. The objective reads \"Classify a knowledge node as unfamiliar, fragile, or secure\", while every place the learner actually meets the third label it is provisional and marked as such: content/010-orientation.md says \"unfamiliar, fragile, or provisionally secure\", content/030-concept.md says \"'Secure' here is still provisional\", and the worked example, retrieval check, practice feedback, and assessment answer keys all say \"provisionally secure\". Provisionality is the lesson's central epistemic guardrail against reading a baseline as mastery, so the one place it is dropped is the outcome-facing metadata that a renderer or lesson index surfaces. CONTENT-STANDARD.md section 4.2 requires the same name for the same entity.",
+      "resolution": "Change objective-classify-baseline to \"...as unfamiliar, fragile, or provisionally secure\" so the metadata matches the prose, glossary, and answer logic."
+    },
+    {
+      "severity": "note",
+      "target": "content/070-practice.md and assessment.json#item-build-baseline",
+      "finding": "Verified strength, recorded because it is the pack's most academically delicate distinction and it is handled correctly. The lesson consistently separates a probe that was attempted and failed from a probe that was never attempted, and never lets the second masquerade as the first. Juniper (three accurate familiar responses, no explanation or variation elicited) is routed to \"fragile/unresolved\" with the explicit caveat \"the missing probe is not a failed probe\"; Flint in item-build-baseline (accurate, explanation names the relation, but a bounded representation change produces an inconsistent strategy) is plain fragile on demonstrated failure. I reverse-tested every case in the pack — Alder, Birch, Copper, Delta, Elm, Fjord, Quartz, Reed, Morrow, Cedar, Flint, Harbor — against the operational definitions in content/030-concept.md and found no case whose stated evidence supports a different label than the one assigned. The \"unresolved\" qualifier is also correctly bounded in content/030-concept.md as a qualification of a fragile routing decision rather than a fourth state.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "claims.json#claim-map-dependency-route and claims.json#claim-curriculum-link",
+      "finding": "Both externally checkable claims verify exactly against their cited sources. claim-curriculum-link is confirmed by two prerequisite edges in site/data/premed-graph.json: link-prerequisite-topic-orientation-map-and-pathways-topic-orientation-diagnostic-baseline and link-prerequisite-topic-orientation-diagnostic-baseline-topic-orientation-mastery-and-retrieval, placing the outcome exactly where the claim says. claim-map-dependency-route matches syllabus section 18.2 step 2 verbatim in substance (\"Check prerequisite nodes; reopen the earliest insecure dependency, not the whole module\"), and I independently reworked both chains in content/020-prerequisite-diagnostic.md: probing Beta before Alpha is correct because the stem supplies no evidence about either dependency, and Epsilon is the correct reopen target in the Delta/Epsilon/Zeta retry because Delta carries current secure evidence and Epsilon is the earliest link the record actually shows insecure. The graph's estimatedHours of 2 for this topic also matches the pack's 120 scene minutes.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "ATTRIBUTION.md#promotion-evidence-and-boundary",
+      "finding": "The provenance arithmetic in ATTRIBUTION.md is byte-verifiable and verified. I recomputed SHA-256 over the review artifact bytes without reading their findings, to preserve role isolation, and all four disclosed digests match exactly: academic c7ec86b0..., accessibility-rights 4a2cf280..., learning-design c8cc76a3..., and the filename-ordered concatenation eba31026.... I also confirmed the central factual assertion of the 0.1.2 promotion — git diff from 82ef7e209fc3d16273ac7bb1279905bdcde52fcc to this candidate touches no file under content/, so \"preserves the reviewed lesson expression and claim substance\" is true as stated. This is disclosure discipline worth preserving, and it is what made the major finding above about reviewStatus checkable rather than a matter of inference. Note that verifying these digests confirms only byte identity of files present in this repository; it attests nothing about which provider, model, or run actually produced them, consistent with AGENTS.md.",
+      "resolution": "No change required."
+    }
+  ],
+  "limitations": [
+    "Single-run academic review by one agent under one role skill; this is one eligible vote and establishes neither quorum nor merge readiness.",
+    "Role isolation was preserved deliberately: I did not read the findings, verdicts, or adjudication text of any existing governance artifact in this pack, and computed SHA-256 over review-file bytes only. My conclusions are drawn from the frozen lesson and the authoritative repository sources.",
+    "All four cited sources are EmbeddedKnowledge-owned documents. I verified each cited locator directly and confirmed that research/CONTENT-AUTHORING-EVIDENCE-2026-07-19.md carries external primary citations for the retrieval and expertise-reversal claims, but I did not open those external primary studies, so the empirical claims are verified to the pack's synthesis layer rather than to the underlying literature.",
+    "I am not a specialist in psychometrics or metacognitive-judgment measurement. The lesson does not present its three labels as a validated instrument and its uncertainty fields say so, which keeps the content inside what I can responsibly judge; a genuine instrument-validation claim would exceed my expertise.",
+    "Agent provenance in this artifact and in the pack is disclosed and attested by the accountable operator, not verified by any platform. Nothing here confirms that the author run or any other review run used its declared provider or model.",
+    "No representative learner has attempted this lesson. Schema validation, my recomputation of answer keys, and internal coherence are not evidence that learners achieve the outcome.",
+    "npm run validate passed in full at this candidate, including lesson-pack validation; that is a structural result reported separately from and independently of the academic verdict above."
+  ],
+  "signedAt": "2026-07-20T00:08:33Z"
+}
