@@ -2,6 +2,8 @@
 
 Complete the four items in `assessment.json`. On the first attempt, use no notes and commit each response before viewing answer logic. The assessment is untimed and retakeable. An equivalent retake changes the fictional rules, values, surface wording, and error boundary.
 
+Each assessment-rubric criterion is all-or-none: award its full `maxPoints` only when every requirement in that criterion description is satisfied; otherwise award zero for that criterion. This rule makes the item totals reproducible while still separating the four dimensions in each 12-point open response.
+
 ## Item map
 
 1. `item-classify-selection` asks you to locate a first broken link from visible intermediate work.

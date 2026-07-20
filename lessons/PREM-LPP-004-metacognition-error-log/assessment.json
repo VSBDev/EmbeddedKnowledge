@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "format": "embeddedknowledge-assessment-v1",
   "lessonId": "PREM-LPP-004",
-  "lessonVersion": "0.1.1",
+  "lessonVersion": "0.1.2",
   "assessmentId": "assessment-metacognition-error-log",
   "title": "Metacognition and error-log mastery evidence",
   "purpose": "mixed",
@@ -30,20 +30,20 @@
         "mode": "single-choice",
         "options": [
           {
-            "id": "option-retrieval-restudy",
-            "text": "Retrieval error; reread both complete models and stop when they feel familiar."
+            "id": "option-retrieval-reconstruct",
+            "text": "Retrieval error; reconstruct both rules from memory in a new case before choosing and executing a model."
           },
           {
             "id": "option-selection-contrast",
             "text": "Selection error; contrast the models' conditions, then justify a model choice in a new case before execution."
           },
           {
-            "id": "option-execution-repeat",
-            "text": "Execution error; repeat the same chosen model's steps with the same values."
+            "id": "option-execution-varied",
+            "text": "Execution error; select a model in a varied case, then expose each execution step and verify the result."
           },
           {
-            "id": "option-trait-label",
-            "text": "General inability; record a permanent learner label and omit another probe."
+            "id": "option-interpretation-restatement",
+            "text": "Interpretation error; restate a newly worded condition before choosing and executing a model."
           }
         ],
         "units": null,
@@ -61,8 +61,7 @@
         "commonErrors": [
           "Calling the error retrieval ignores the accurately recalled rules.",
           "Calling it execution confuses correct performance of the wrong procedure with choosing an applicable procedure.",
-          "Repeating the identical case does not provide a varied fresh probe.",
-          "A task record does not justify a permanent learner label."
+          "Calling it interpretation ignores the accurate restatement of the task condition."
         ]
       },
       "rubricId": "rubric-classify-selection",
@@ -116,7 +115,7 @@
         "topic-orientation-metacognition-and-error-log"
       ],
       "prompt": "For Records A and B, create concise error-log entries. Separate observations from the provisional category, identify the first broken link, calculate confidence minus performance, name an unresolved alternative where appropriate, choose a matching action, and specify a delayed or varied fresh probe.",
-      "stimulus": "Both fictional tasks state that condition Gamma is present and supply two model rules. Model G applies under Gamma; Model H applies under Eta. The rubric awards 20% each for interpretation, retrieval, and selection, 30% for execution, and 10% for verification. Execution credit is contingent on selecting a model that is applicable under the stated condition and then executing that applicable model accurately; accurate execution of an inapplicable model earns zero execution credit. Record A: the learner restates Gamma, recalls both rules, selects Model G, transposes two supplied values during execution, performs no check, predicts earning 70% of the rubric points, and earns 60% (20 + 20 + 20 + 0 + 0). Record B: the learner restates Gamma, recalls both rules, selects Model H, executes Model H's supplied steps accurately, performs no check, predicts earning 50% of the rubric points, and earns 40% (20 + 20 + 0 + 0 + 0).",
+      "stimulus": "Both fictional tasks state that condition Gamma is present and supply two model rules. Model G applies under Gamma; Model H applies under Eta. The rubric awards 20% each for interpretation, retrieval, and selection, 30% for execution, and 10% for verification. Each criterion is all-or-none: it earns its full weight only when its complete description is satisfied and otherwise earns zero. Execution credit is also contingent on selecting a model that is applicable under the stated condition and then executing that applicable model accurately; accurate execution of an inapplicable model earns zero execution credit. Record A: the learner restates Gamma, recalls both rules, selects Model G, transposes two supplied values during execution, performs no check, predicts earning 70% of the rubric points, and earns 60% (20 + 20 + 20 + 0 + 0). Record B: the learner restates Gamma, recalls both rules, selects Model H, executes Model H's supplied steps accurately, performs no check, predicts earning 50% of the rubric points, and earns 40% (20 + 20 + 0 + 0 + 0).",
       "points": 12,
       "responseSpec": {
         "mode": "text",
@@ -188,7 +187,7 @@
       "criteria": [
         {
           "id": "criterion-selection-evidence-action",
-          "description": "Identifies selection as the first contradicted operation and chooses a new probe that exposes applicability and model choice before execution.",
+          "description": "All-or-none: identifies selection as the first contradicted operation and chooses a new probe that exposes applicability and model choice before execution.",
           "maxPoints": 3
         }
       ]
@@ -199,7 +198,7 @@
       "criteria": [
         {
           "id": "criterion-gap-direction-scope",
-          "description": "Calculates positive 35 percentage points and interprets it as confidence exceeding rubric performance on this task without a trait inference.",
+          "description": "All-or-none: calculates positive 35 percentage points and interprets it as confidence exceeding rubric performance on this task without a trait inference.",
           "maxPoints": 3
         }
       ]
@@ -210,22 +209,22 @@
       "criteria": [
         {
           "id": "criterion-log-observation-classification",
-          "description": "Separates observations from hypotheses and identifies execution first for A and selection first for B with a defensible uncertainty statement.",
+          "description": "All-or-none: separates observations from hypotheses and identifies execution first for A and selection first for B with a defensible uncertainty statement.",
           "maxPoints": 3
         },
         {
           "id": "criterion-log-calibration",
-          "description": "Calculates and task-bounds both positive 10-point gaps without using them to infer the error category or a personal trait.",
+          "description": "All-or-none: calculates and task-bounds both positive 10-point gaps without using them to infer the error category or a personal trait.",
           "maxPoints": 3
         },
         {
           "id": "criterion-log-actions",
-          "description": "Chooses an execution-focused action for A and a model-condition contrast for B, explaining how each matches the first broken link.",
+          "description": "All-or-none: chooses an execution-focused action for A and a model-condition contrast for B, explaining how each matches the first broken link.",
           "maxPoints": 3
         },
         {
           "id": "criterion-log-probes",
-          "description": "Specifies varied or delayed probes that expose the relevant operation and could confirm or revise each classification.",
+          "description": "All-or-none: specifies varied or delayed probes that expose the relevant operation and could confirm or revise each classification.",
           "maxPoints": 3
         }
       ]
@@ -236,22 +235,22 @@
       "criteria": [
         {
           "id": "criterion-transfer-evidence",
-          "description": "Captures anonymous task conditions, committed attempts, intermediate evidence, matched confidence, and rubric performance rather than only totals.",
+          "description": "All-or-none: captures anonymous task conditions, committed attempts, intermediate evidence, matched confidence, and rubric performance rather than only totals.",
           "maxPoints": 3
         },
         {
           "id": "criterion-transfer-decision",
-          "description": "Uses provisional classifications or explicit unresolved boundaries to select matching actions and fresh probes.",
+          "description": "All-or-none: uses provisional classifications or explicit unresolved boundaries to select matching actions and fresh probes.",
           "maxPoints": 3
         },
         {
           "id": "criterion-transfer-privacy-plan",
-          "description": "Minimizes personal data and creates an aggregate plan from action-need counts without permanent learner labels.",
+          "description": "All-or-none: minimizes personal data and creates an aggregate plan from action-need counts without permanent learner labels.",
           "maxPoints": 3
         },
         {
           "id": "criterion-transfer-access",
-          "description": "Provides an untimed ordered-text route whose meaning and operation do not depend on color, layout, pointing, dragging, or a sensory channel.",
+          "description": "All-or-none: provides an untimed ordered-text route whose meaning and operation do not depend on color, layout, pointing, dragging, or a sensory channel.",
           "maxPoints": 3
         }
       ]

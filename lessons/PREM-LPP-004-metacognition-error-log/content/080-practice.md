@@ -2,6 +2,8 @@
 
 Work in order. Commit each response before reading its feedback. The support decreases from a missing field to independent error-log construction.
 
+Unless a record states another rule, every listed practice-rubric criterion is **all-or-none**: it earns its full stated weight only when the complete criterion is satisfied and otherwise earns zero. Each reported total below shows or follows that rule.
+
 ## 1. Complete a log entry
 
 **Record.** The task asks which of two supplied rules applies. Its four-part rubric assigns 25% each for interpretation, retrieval, selection, and execution; verification is not scored in this completion task. Mira restates the condition correctly, writes both rules, and leaves the choice blank. After committing the response, Mira predicts earning 35% of the declared rubric points. Observed rubric performance is 50%: interpretation and retrieval earn 25 points each, while selection and execution earn 0.
@@ -23,15 +25,15 @@ For each record, name the first unsupported operation and choose a next probe. T
 
 ## 3. Resolve uncertainty instead of guessing
 
-**Record Cedar.** This task uses an all-or-none 100-point rubric for the final answer: a correct answer earns 100%, and an incorrect answer earns 0%. The final answer is wrong, and no intermediate work was preserved. The learner predicted earning 80% of the declared rubric points; the observed rubric score is therefore 0%.
+**Record Cedar.** This task uses an all-or-none 100-point rubric for the final answer: a correct answer earns 100%, and an incorrect answer earns 0%. The final answer is wrong, and no intermediate work was preserved. Before feedback, the learner assigned an 80% probability to earning full credit. This is the all-or-none exception from the calibration scene: on this 0/100 rubric, the probability of full credit is expressed as 80 predicted points and compared with the realized binary score of 0 points.
 
 Create the shortest defensible log entry.
 
-**Feedback after an attempt.** The gap is positive 80 points, but the error category is unresolved. The record does not distinguish interpretation, retrieval, selection, or execution. The next action is not “reread everything”; it is a think-aloud or written-step probe using a new bounded task, with each operation committed before feedback. The new record can then support a targeted repair.
+**Feedback after an attempt.** Under the declared all-or-none convention, the gap is $80-0=+80$ points, but the error category is unresolved. This subtraction is permitted because the probability of full credit was converted to predicted points on the same 0/100 all-or-none scale as the realized outcome; it would not be valid against a partial-credit score. The record does not distinguish interpretation, retrieval, selection, or execution. The next action is not “reread everything”; it is a think-aloud or written-step probe using a new bounded task, with each operation committed before feedback. The new record can then support a targeted repair.
 
 ## 4. Independent mixed case
 
-**Record Delta.** A fictional classification task supplies three criteria. The learner restates all three, recalls the category definitions, applies two criteria, omits the third without noticing, and selects the wrong category. After committing the response, the learner predicts earning 65% of the declared rubric points. The analytic rubric assigns 20% to interpretation, 20% to retrieval, 40% to applying all three criteria, and 20% to verification. The learner earns 40%.
+**Record Delta.** A fictional classification task supplies three criteria. The learner restates all three, recalls the category definitions, applies two criteria, omits the third without noticing, and produces the wrong category. After committing the response, the learner predicts earning 65% of the declared rubric points. The analytic rubric assigns 20% to interpretation, 20% to retrieval, 40% to applying all three criteria, and 20% to verification. The 40-point application criterion is all-or-none: all three supplied criteria must be applied to earn its 40 points, so applying only two earns zero for that criterion. No verification is performed. The total is therefore $20+20+0+0=40\%$.
 
 Without category hints:
 
@@ -41,7 +43,7 @@ Without category hints:
 4. choose one repair; and
 5. specify a delayed, varied probe.
 
-**Feedback after an attempt.** Interpretation and retrieval are supported. Execution first fails when the third criterion is omitted, although an attentional or representation issue remains an alternative because the record does not show why. The gap is positive 25 points. A matching action is to externalize and check all supplied criteria on two completion cases, then remove the checklist and attempt a new three-criterion case after a delay. If the learner cannot restate the third criterion then, revise the diagnosis toward retrieval; if the criterion is stated but again not applied, execution remains better supported.
+**Feedback after an attempt.** Interpretation and retrieval are supported. Execution first fails when the third criterion is omitted, although an attentional or representation issue remains an alternative because the record does not show why. Producing a category is the output of applying the supplied criteria; it is not a selection error in this lesson's narrower sense of choosing among available models or procedures before execution. The gap is $65-40=+25$ points. A matching action is to externalize and check all supplied criteria on two completion cases, then remove the checklist and attempt a new three-criterion case after a delay. If the learner cannot restate the third criterion then, revise the diagnosis toward retrieval; if the criterion is stated but again not applied, execution remains better supported.
 
 ## Retry rule
 

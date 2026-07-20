@@ -31,7 +31,7 @@ After committing the attempt but before feedback, predict the percentage of poin
 
 Do not subtract unlike quantities. A 70% probability that an entire answer is correct and a 40% partial-credit rubric score answer different questions. Either predict the rubric percentage directly or report the two measures separately.
 
-Retrieval supplies observable performance cues that rereading alone cannot. In bounded laboratory tasks, judgments following retrieval have corresponded more closely with later accuracy than judgments following restudy, but this does not make retrieval the only useful cue or guarantee accurate judgment in every domain.
+Retrieval supplies observable performance cues that rereading alone cannot. In the cited bounded laboratory tasks, the reported advantage concerned the across-item rank correspondence between judgments and later accuracy after retrieval versus restudy. That repeated-item correspondence is mathematically distinct from this lesson's signed gap for one task: either measure can look favourable while the other does not. The finding therefore supports retrieval performance as one useful cue; it does not make retrieval the only useful cue, validate this lesson's gap, or guarantee accurate judgment in every domain.
 
 ## Minimal error-log row
 

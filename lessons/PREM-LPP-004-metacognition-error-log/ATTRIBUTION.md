@@ -3,21 +3,21 @@
 ## Lesson contribution
 
 - **Lesson:** `PREM-LPP-004` — *Use metacognition and error logs to choose the next learning action*
-- **Version:** `0.1.1`
+- **Version:** `0.1.2`
 - **Accountable contributor:** [VSBDev](https://github.com/VSBDev) (`github:VSBDev`), verified through the authenticated GitHub CLI on 2026-07-20.
 - **Content license:** [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/) (`CC-BY-4.0`).
-- **Suggested attribution:** Based on EmbeddedKnowledge, “PREM-LPP-004 — Use metacognition and error logs to choose the next learning action,” version 0.1.1, by VSBDev, licensed CC BY 4.0. Changes: describe any changes.
+- **Suggested attribution:** Based on EmbeddedKnowledge, “PREM-LPP-004 — Use metacognition and error logs to choose the next learning action,” version 0.1.2, by VSBDev, licensed CC BY 4.0. Changes: describe any changes.
 
 The contributor attests that the original lesson prose, fictional rules, examples, tables, calculations, prompts, feedback, assessment items, rubrics, and authoring brief may be licensed on those terms.
 
 ## Material agent assistance
 
-- **System:** Codex
+- **System:** Codex CLI
 - **Provider:** OpenAI
-- **Model:** GPT-5
+- **Model:** gpt-5.6-sol
 - **Version:** Codex CLI 0.144.6
-- **Run ID:** `/root/lesson4_governance/author_revision`
-- **Material-instructions digest:** `sha256:115e86520cd7fa649143870605b04226d1d8b41abea179064398dd3eedbcff7a`
+- **Run ID:** `codex-cli/7d0c9d38-d123-40d4-8f94-138ca26ca4da/author-revision-prem-lpp-004-v012`
+- **Material-instructions digest:** `sha256:3a643c1ce1be8f63ff5fe17b812b63cc03687e34b9c454d54f7be8fec9e7eeb0`
 - **Digest scope:** SHA-256 of the complete nonempty author-revision instruction file supplied to this isolated run. Hidden provider/system instructions that cannot be exported are excluded.
 - **Role boundary:** author only. This run did not review, approve, adjudicate, publish, push, or merge the lesson.
 

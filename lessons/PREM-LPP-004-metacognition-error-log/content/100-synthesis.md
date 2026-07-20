@@ -25,7 +25,7 @@ For each matched task, compute predicted rubric percentage minus observed rubric
 
 ## Recovery route
 
-- If you cannot reconstruct the prior durable-performance loop, return to `topic-orientation-mastery-and-retrieval` and produce target → retrieve → compare → repair → retrieve later.
+- If you cannot reconstruct the prior durable-performance loop, use the five-step scaffold in `scene-diagnostic`: name a target, attempt without notes, compare after commitment, repair the earliest unsupported step, and retrieve on a delayed or varied case.
 - If you can compute a gap but cannot classify the error, revisit the five-operation chain and practise locating the earliest supported and unsupported links.
 - If you classify confidently from a final score alone, use the unresolved Cedar case and design a probe that exposes intermediate steps.
 - If your actions remain broad, force a one-sentence link: “Because the record first fails at ___, the next activity will exercise ___, and the fresh probe will show ___.”
