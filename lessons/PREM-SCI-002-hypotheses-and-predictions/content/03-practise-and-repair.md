@@ -25,8 +25,10 @@ A result that counts against the hypothesis as written would be a blue magnetic 
 
 A fictional greenhouse alarm sounds unexpectedly. Two explanations are proposed:
 
-- **Hypothesis T:** the alarm sounds when the sensor temperature is above its threshold.
-- **Hypothesis L:** stray light reaching the sensor triggers the alarm.
+For this simplified comparison, treat each hypothesis as the complete explanation of when the alarm sounds:
+
+- **Hypothesis T:** the alarm sounds when the sensor temperature is above its threshold and otherwise remains silent.
+- **Hypothesis L:** the alarm sounds when stray light reaches the sensor and otherwise remains silent.
 
 Copy the table and fill every blank before reading the feedback.
 
@@ -42,7 +44,7 @@ The discriminating expectations are:
 | Bright but below the temperature threshold | Alarm does not sound | Alarm sounds |
 | Dark but above the temperature threshold | Alarm sounds | Alarm does not sound |
 
-If you wrote “the alarm may sound” in every cell, the table cannot discriminate. Return to each hypothesis and ask what it commits you to under the two stated conditions. Real devices may be more complicated; the hypotheses are deliberately simple so their logic is visible.
+If you first thought both mechanisms could operate, that is sensible caution about a real device. This exercise instead tests each simplified hypothesis as the complete explanation, so return to that stated assumption and ask what each one commits you to under the two conditions.
 
 ## Less support
 
