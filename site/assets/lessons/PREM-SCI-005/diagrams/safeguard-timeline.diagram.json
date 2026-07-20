@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-diagram-v1",
+  "id": "diagram-safeguard-timeline",
+  "type": "timeline",
+  "direction": "left-to-right",
+  "alt": "A trial timeline with four moments — entry, assignment, the point of allocation, and follow-up — each paired with the safeguard that acts there.",
+  "longDescription": "The timeline runs left to right through four moments in the life of a study, each paired with the safeguard that protects it and the error that appears when the safeguard is absent. Moment one, who could enter: eligibility rules, recruitment, and non-response decide which population the result describes; the safeguard is a defensible sampling and eligibility route; the failure is an estimate that describes a narrower or different group than claimed, which is a limit on external validity. Moment two, how the groups are formed: a chance mechanism assigns each participant to a condition; the safeguard is random allocation; the failure is groups that differ systematically before the study begins. Moment three, the point of allocation: each participant's entry is either irrevocably committed before their assignment can be known, or still open while the assignment is already visible; the safeguard is allocation concealment, whose test is commitment first and knowability second; the failure is steering of who enters which group. Moment four, while the study runs and outcomes are measured: participants, providers, and assessors either do or do not know the assignment each participant received; the safeguard is blinding; the failure is behaviour or measurement that differs by known assignment. The dividing line is moment three: random allocation and concealment act before or at the point of allocation, and blinding acts only after it.",
+  "nodes": [
+    {
+      "id": "node-entry",
+      "label": "Moment 1 — Who could enter: eligibility, recruitment, and non-response",
+      "shape": "rounded-box",
+      "group": "moments"
+    },
+    {
+      "id": "node-entry-safeguard",
+      "label": "Safeguard: a defensible sampling and eligibility route. Failure: the answer describes a different group than claimed (external validity)",
+      "shape": "box",
+      "group": "safeguards"
+    },
+    {
+      "id": "node-assignment",
+      "label": "Moment 2 — How the groups are formed: each participant is placed in a condition",
+      "shape": "rounded-box",
+      "group": "moments"
+    },
+    {
+      "id": "node-assignment-safeguard",
+      "label": "Safeguard: random allocation. Failure: groups differ systematically before the study starts",
+      "shape": "box",
+      "group": "safeguards"
+    },
+    {
+      "id": "node-allocation-instant",
+      "label": "Moment 3 — The point of allocation: is entry committed before the assignment can be known?",
+      "shape": "diamond",
+      "group": "moments"
+    },
+    {
+      "id": "node-concealment-safeguard",
+      "label": "Safeguard: allocation concealment — commitment first, knowability second. Failure: entry into each group is steered",
+      "shape": "box",
+      "group": "safeguards"
+    },
+    {
+      "id": "node-followup",
+      "label": "Moment 4 — While the study runs and outcomes are measured: who knows what each participant received?",
+      "shape": "rounded-box",
+      "group": "moments"
+    },
+    {
+      "id": "node-blinding-safeguard",
+      "label": "Safeguard: blinding. Failure: behaviour or measurement differs by known assignment",
+      "shape": "box",
+      "group": "safeguards"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-entry-to-assignment",
+      "from": "node-entry",
+      "to": "node-assignment",
+      "kind": "directed",
+      "label": "then"
+    },
+    {
+      "id": "edge-assignment-to-instant",
+      "from": "node-assignment",
+      "to": "node-allocation-instant",
+      "kind": "directed",
+      "label": "then"
+    },
+    {
+      "id": "edge-instant-to-followup",
+      "from": "node-allocation-instant",
+      "to": "node-followup",
+      "kind": "directed",
+      "label": "then; everything after this point is blinding's territory"
+    },
+    {
+      "id": "edge-entry-safeguard",
+      "from": "node-entry",
+      "to": "node-entry-safeguard",
+      "kind": "undirected",
+      "label": "protected by"
+    },
+    {
+      "id": "edge-assignment-safeguard",
+      "from": "node-assignment",
+      "to": "node-assignment-safeguard",
+      "kind": "undirected",
+      "label": "protected by"
+    },
+    {
+      "id": "edge-concealment-safeguard",
+      "from": "node-allocation-instant",
+      "to": "node-concealment-safeguard",
+      "kind": "undirected",
+      "label": "protected by"
+    },
+    {
+      "id": "edge-blinding-safeguard",
+      "from": "node-followup",
+      "to": "node-blinding-safeguard",
+      "kind": "undirected",
+      "label": "protected by"
+    }
+  ]
+}

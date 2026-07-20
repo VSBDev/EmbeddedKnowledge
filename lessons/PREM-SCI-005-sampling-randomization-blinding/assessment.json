@@ -1,0 +1,381 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-assessment-v1",
+  "lessonId": "PREM-SCI-005",
+  "lessonVersion": "0.1.0",
+  "assessmentId": "assessment-sampling-randomization-blinding",
+  "title": "Auditing selection, allocation, concealment, and blinding",
+  "purpose": "mixed",
+  "attemptPolicy": {
+    "retakeable": true,
+    "timeLimitMinutes": null,
+    "feedback": "after-attempt"
+  },
+  "items": [
+    {
+      "id": "item-narrow-not-wrong",
+      "type": "single-choice",
+      "sceneId": "scene-two-chains",
+      "objectiveIds": [
+        "objective-trace-selection"
+      ],
+      "outcomeIds": [
+        "topic-scientific-inquiry-sampling-randomization"
+      ],
+      "prompt": "A randomized trial of a sleep-hygiene programme enrolled only night-shift nurses at one hospital. Assignment used a central randomization service, and outcomes were recorded by an assessor who did not know the assignments. A reader objects: \"The sample is far too narrow, so the comparison between the two groups cannot be trusted.\" What is the best response?",
+      "points": 2,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-narrow-bounds-applicability",
+            "text": "The objection targets the wrong thing. Because recruitment happened before anyone was assigned, both groups came from the same narrow pool, so the within-study comparison is unaffected; what the narrow sample limits is which population the result applies to."
+          },
+          {
+            "id": "option-narrow-breaks-comparison",
+            "text": "The objection is right. A narrow sample means the two groups are drawn from an unrepresentative population, so any difference between them is unreliable."
+          },
+          {
+            "id": "option-narrow-fixed-by-randomization",
+            "text": "The objection is wrong because random assignment corrects for an unrepresentative sample, making the result applicable to nurses generally."
+          },
+          {
+            "id": "option-narrow-fixed-by-size",
+            "text": "The objection is right, and the fix is to enrol many more night-shift nurses so that the sample becomes representative of the wider population."
+          }
+        ]
+      },
+      "answer": {
+        "correct": "option-narrow-bounds-applicability",
+        "summary": "A narrow entry route makes the answer narrow, not wrong.",
+        "reasoning": "Eligibility and recruitment run before allocation, so they act identically on both arms and cannot be the reason the arms differ from each other. That is why they leave internal validity intact. What they do fix is the address of the answer: this trial speaks about night-shift nurses at one hospital, and extending it to day staff or other hospitals is an external-validity judgement the trial does not license. The two other kinds of answer confuse the direction of the effect — randomization operates on assignment and cannot repair who was recruited, and enrolling more people from the same narrow pool produces a larger narrow sample, not a representative one.",
+        "acceptableResponses": [
+          "The comparison is unaffected because entry precedes allocation; the narrow sample limits generalizability or external validity only."
+        ],
+        "commonErrors": [
+          "Treating any sampling limitation as a threat to the internal comparison, which collapses external validity into internal validity.",
+          "Believing random assignment compensates for a non-representative sample.",
+          "Believing a larger sample from the same restricted pool improves representativeness."
+        ]
+      },
+      "rubricId": "rubric-single-choice-two",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-two-random-steps",
+      "type": "single-choice",
+      "sceneId": "scene-two-chains",
+      "objectiveIds": [
+        "objective-trace-selection",
+        "objective-explain-allocation"
+      ],
+      "outcomeIds": [
+        "topic-scientific-inquiry-sampling-randomization"
+      ],
+      "prompt": "Two studies in the same city both describe themselves as \"randomized.\" Study 1 obtains the city's resident register and uses a random number generator to pick 500 residents for a survey of exercise habits. Study 2 recruits 500 volunteers at a shopping centre and uses a random number generator to assign each volunteer to one of two pedometer programmes. What does the random step actually accomplish in each study?",
+      "points": 2,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-selection-vs-allocation",
+            "text": "Study 1 used random selection: chance decides who, from the whole sampling frame, enters the study, which supports generalizing the survey's description to the register's population. Study 2 used random allocation: chance decides which programme each volunteer gets, which supports the comparison between the programmes — but only among those volunteers."
+          },
+          {
+            "id": "option-random-means-generalizable",
+            "text": "The word means the same thing in both: any study whose design includes a random number generator produces results that generalize to the whole city."
+          },
+          {
+            "id": "option-allocation-repairs-sample",
+            "text": "Study 2's random allocation compensates for its volunteer sample, so its comparison generalizes to city residents just as well as Study 1's survey does."
+          },
+          {
+            "id": "option-roles-swapped",
+            "text": "Study 1's random selection is what makes compared groups comparable, while Study 2's random allocation determines which population the result describes."
+          }
+        ]
+      },
+      "answer": {
+        "correct": "option-selection-vs-allocation",
+        "summary": "Random selection decides who enters from the sampling frame; random allocation decides which arm each entrant joins. Neither does the other's job.",
+        "reasoning": "The two random steps act at different moments on different questions. Study 1's chance mechanism operates at entry, on a sampling frame — the resident register — giving every listed person a known chance of selection; that is probability sampling, and what it buys is a stronger claim that the sample describes the register's population, which is external validity. Study 2's chance mechanism operates at group formation, after a convenience sample has already entered; what it buys is arms that are comparable in expectation, which is internal validity, and it does nothing to make shopping-centre volunteers resemble the city. The reversed option swaps the two jobs, and the compensation option repeats the misconception that a fair comparison fixes a narrow sample.",
+        "acceptableResponses": [
+          "Study 1's randomness governs who is selected into the study from the frame (generalizability); Study 2's randomness governs allocation to arms (comparability). Each supports only its own kind of validity."
+        ],
+        "commonErrors": [
+          "Treating 'randomized' as one property, so that any random step is assumed to buy both representativeness and comparability.",
+          "Believing random allocation makes a self-selected sample representative of the wider population.",
+          "Swapping the jobs: attributing comparability of arms to random selection and generalizability to random allocation."
+        ]
+      },
+      "rubricId": "rubric-single-choice-two",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-expectation-limits",
+      "type": "single-choice",
+      "sceneId": "scene-two-chains",
+      "objectiveIds": [
+        "objective-explain-allocation"
+      ],
+      "outcomeIds": [
+        "topic-scientific-inquiry-sampling-randomization"
+      ],
+      "prompt": "A 40-participant trial used a computer-generated random sequence. Afterwards, the baseline table shows that the intervention group happened to be, on average, four years younger than the control group. Which statement is most accurate?",
+      "points": 2,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-chance-imbalance-expected",
+            "text": "This is consistent with correct randomization. Random allocation makes groups comparable in expectation across all the ways the assignment could have come out; it does not guarantee balance in the one allocation that actually occurred, and small trials are more exposed to such imbalance."
+          },
+          {
+            "id": "option-imbalance-proves-failure",
+            "text": "The imbalance shows the randomization was not carried out properly, because genuine random allocation produces groups that match on measured characteristics."
+          },
+          {
+            "id": "option-imbalance-irrelevant",
+            "text": "The imbalance is irrelevant, because randomization guarantees that any remaining difference between the groups is caused by the intervention."
+          },
+          {
+            "id": "option-imbalance-means-not-random",
+            "text": "Because a difference appeared, the assignment must have depended on a participant characteristic, so the study should be reclassified as observational."
+          }
+        ]
+      },
+      "answer": {
+        "correct": "option-chance-imbalance-expected",
+        "summary": "Comparable in expectation is a property of the mechanism, not a promise about the realized groups.",
+        "reasoning": "Random allocation works by ignoring every characteristic of the participant, which is what extends its protection to unmeasured factors. But averaging over the possible allocations is not the same as certifying the single allocation that happened, and with only 40 participants a four-year age gap is an ordinary chance result. This is exactly why trial reports show baseline characteristics: not to prove the randomization worked, but so readers can see what the groups actually looked like. The two strongest wrong answers move in opposite directions — one treats any imbalance as proof of failure, the other treats randomization as a guarantee that no explanation other than the intervention survives.",
+        "acceptableResponses": [
+          "Chance imbalance is compatible with correct random allocation, especially in a small trial; expectation is an average over possible allocations."
+        ],
+        "commonErrors": [
+          "Reading 'comparable in expectation' as a guarantee that the realized groups match.",
+          "Concluding from an observed imbalance that the assignment mechanism must have been non-random.",
+          "Treating randomization as removing the need to consider any alternative explanation."
+        ]
+      },
+      "rubricId": "rubric-single-choice-two",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-which-safeguard-failed",
+      "type": "single-choice",
+      "sceneId": "scene-safeguard-timing",
+      "objectiveIds": [
+        "objective-distinguish-concealment-blinding"
+      ],
+      "outcomeIds": [
+        "topic-scientific-inquiry-sampling-randomization"
+      ],
+      "prompt": "A trial coordinator keeps the full random assignment list in a shared spreadsheet that the recruiting clinician can open at any time. Once a patient is enrolled and treated, the outcome is scored from anonymized imaging by a radiologist who is told nothing about the trial arms. Which safeguard failed, and what error does that specific failure admit?",
+      "points": 3,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-concealment-failed-steering",
+            "text": "Allocation concealment failed. Because the recruiting clinician can see the next assignment before deciding whether to enrol a patient, who enters each arm can be steered, so the groups may differ before treatment begins."
+          },
+          {
+            "id": "option-blinding-failed-detection",
+            "text": "Blinding failed, which admits detection bias in how the outcome was scored."
+          },
+          {
+            "id": "option-randomization-failed",
+            "text": "Randomization failed, because a sequence stored in a spreadsheet is not a genuine chance mechanism."
+          },
+          {
+            "id": "option-nothing-failed",
+            "text": "Nothing important failed: the sequence was random and the outcome assessment was blinded, which together cover both the assignment and the measurement."
+          }
+        ]
+      },
+      "answer": {
+        "correct": "option-concealment-failed-steering",
+        "summary": "A random sequence that is visible before it is used is unconcealed, and the error is steering at entry.",
+        "reasoning": "Concealment and blinding are separated by the moment of allocation. Here the post-allocation side is well protected: the radiologist scores anonymized images with no knowledge of the arms, so detection bias is closed. The failure is on the pre-allocation side. The sequence being genuinely random is not the issue — visibility is. A clinician who can see that the next slot is the active arm can time enrolment decisions around it, so the arms may be populated by systematically different patients. This is the same failure as a random sequence pinned to a wall: the device is random, the assignment is foreseeable, and foreseeability is what concealment removes.",
+        "acceptableResponses": [
+          "Allocation concealment failed; the recruiter's foreknowledge allows selection bias in who enters each arm.",
+          "Concealment, because the assignment is knowable before the enrolment decision is committed."
+        ],
+        "commonErrors": [
+          "Naming blinding because the word 'hidden' is involved, without checking whether the assignment had already been made.",
+          "Concluding the randomization itself was invalid, when the sequence is random but visible.",
+          "Accepting blinded outcome assessment as covering the entry step, which it cannot reach."
+        ]
+      },
+      "rubricId": "rubric-single-choice-three",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-unblindable-repair",
+      "type": "multiple-choice",
+      "sceneId": "scene-practice",
+      "objectiveIds": [
+        "objective-distinguish-concealment-blinding",
+        "objective-audit-inference"
+      ],
+      "outcomeIds": [
+        "topic-scientific-inquiry-sampling-randomization"
+      ],
+      "prompt": "A trial compares a supervised exercise programme with usual care for chronic lower-back pain. Participants obviously know which one they are doing, and so do the physiotherapists delivering it. The team wants to protect the study as far as this intervention allows. Select every step that genuinely addresses a bias arising after allocation in this trial.",
+      "points": 4,
+      "responseSpec": {
+        "mode": "multiple-choice",
+        "options": [
+          {
+            "id": "option-blinded-assessor",
+            "text": "Have pain and mobility assessed by a clinician who is not told which programme each participant followed."
+          },
+          {
+            "id": "option-objective-outcome",
+            "text": "Add an outcome that does not depend on anyone's judgement, such as an instrument-recorded walking distance."
+          },
+          {
+            "id": "option-blinded-analyst",
+            "text": "Have the statistician analyse the results with the two arms labelled only as A and B."
+          },
+          {
+            "id": "option-larger-sample",
+            "text": "Recruit four times as many participants."
+          },
+          {
+            "id": "option-central-allocation",
+            "text": "Move the assignment list to a central service that releases each assignment only after the participant is registered."
+          }
+        ],
+        "maxSelections": 5
+      },
+      "answer": {
+        "correct": [
+          "option-blinded-assessor",
+          "option-objective-outcome",
+          "option-blinded-analyst"
+        ],
+        "summary": "Blind the assessor and the analyst, and add a judgement-free outcome. A larger sample and central allocation do not address post-allocation bias.",
+        "reasoning": "Participants and providers cannot be blinded to a supervised exercise programme, so the available protections are the ones that act after allocation on measurement and interpretation. A blinded assessor closes detection bias in the pain and mobility ratings. An instrument-recorded outcome reduces how much rests on judgement at all. Blinding the analyst protects the analysis stage, which is a distinct party in the blinding list. The two rejected options fail for different reasons worth keeping separate: a larger sample narrows random error but leaves any systematic distortion exactly where it was, and central allocation is a genuine improvement but it is a concealment measure, acting before allocation, so it is not an answer to the question asked. Note also what none of these steps achieve — participants still know what they are doing, so performance bias remains open, and that is a limit of the intervention rather than a fixable oversight.",
+        "acceptableResponses": [
+          "Blinded outcome assessor, objective instrument-recorded outcome, and blinded analysis."
+        ],
+        "commonErrors": [
+          "Selecting central allocation because it is good practice, without checking that it acts before allocation rather than after it.",
+          "Selecting a larger sample, which reduces random variation but not systematic distortion.",
+          "Omitting the blinded analyst on the assumption that blinding concerns only participants and clinicians.",
+          "Assuming a blinded assessor removes performance bias arising from participants' own knowledge."
+        ]
+      },
+      "rubricId": "rubric-multiple-choice-four",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-full-audit",
+      "type": "open-response",
+      "sceneId": "scene-transfer-synthesis",
+      "objectiveIds": [
+        "objective-trace-selection",
+        "objective-explain-allocation",
+        "objective-distinguish-concealment-blinding",
+        "objective-audit-inference"
+      ],
+      "outcomeIds": [
+        "topic-scientific-inquiry-sampling-randomization"
+      ],
+      "prompt": "Audit the study described in the accompanying report. Work through entry, allocation, foreknowledge at the moment of allocation, and awareness afterwards. For each, name the mechanism the study used, say which specific error it does or does not block, and say what that means for the conclusion. Finish with the strongest claim the study warrants and one material boundary on it.",
+      "stimulus": "A hospital wants to know whether a pre-appointment information leaflet reduces patient anxiety before a first outpatient consultation. Researchers approach patients in the waiting room of the Tuesday afternoon clinic and invite those who are waiting alone to take part; 180 of the 250 approached agree. A research assistant assigns each consenting patient by tossing a coin in front of them, then hands over either the leaflet or nothing. Anxiety is rated by the patient on a 0-10 scale immediately before the consultation, on a form collected by the same research assistant. The leaflet group rates 1.4 points lower.",
+      "points": 12,
+      "responseSpec": {
+        "mode": "text",
+        "maxLength": 6000
+      },
+      "answer": {
+        "correct": "See reasoning: a four-part audit identifying a self-selected non-representative entry route, a genuinely random assignment that satisfies the concealment test because each patient is committed before the coin is tossed (while leaving no auditable record), and an unblinded subjective outcome collected by the person who delivered the intervention.",
+        "summary": "Entry narrows the answer; the coin toss is random and, because entry is committed before the toss, concealed — though unrecorded; the unblinded subjective outcome is the decisive failure.",
+        "reasoning": "Entry: patients in one Tuesday afternoon clinic who were waiting alone and consented — 180 of 250, so 70 declined and nothing is known about them. Waiting alone is plausibly related to anxiety, and non-response may be too, so the result describes unaccompanied consenting patients at that clinic and may not describe the wider clinic population. This bounds applicability; it does not by itself damage the internal comparison, because both arms come from that same group. Allocation: a coin toss is a genuine chance mechanism, so assignment does not depend on any characteristic of the patient and the arms are comparable in expectation. Foreknowledge: apply the concealment test — was each entry irrevocably committed before the assignment could be known? Yes. The patient consents and is enrolled, and only then is the coin tossed in front of them; the result did not exist, and so could not be known by anyone, until after the entry was settled. Knowing an assignment at the instant it is generated, after commitment, is not foreknowledge and cannot steer who enters which arm, so allocation concealment holds in this design. A separate and real limitation is the record: the same assistant generates each assignment on the spot, with no advance sequence, no independent holder, and no witness, so the paper trail can never show that each toss was made once and honoured. That is an auditability weakness in how the procedure can be verified and reported, not a concealment failure, and the case description gives no basis for concluding that any enrolment was reversed or any toss repeated. Awareness: this is where the study fails. Patients know whether they received a leaflet, and the outcome is a self-rated anxiety score, so performance bias and their own expectation feed directly into the measurement. Worse, the same research assistant delivers the intervention and collects the form, so detection bias is open at the collection step too. Strongest warranted claim: among unaccompanied patients at that clinic who agreed to take part, those assigned a leaflet reported anxiety about 1.4 points lower on a self-report scale, in a comparison whose groups were formed by chance and could not be steered, but in which neither the patient nor the person collecting the rating was unaware of the assignment. Boundary: expectation on an unblinded self-report is a sufficient alternative explanation for a difference of this size, so the result cannot be attributed to the leaflet; and it speaks only to that self-selected clinic group. Credit is for the reasoning, not for a verdict — an answer that names a failure without saying which specific error it admits, or that lists flaws without producing a warranted claim and a boundary, has not done the task.",
+        "acceptableResponses": [
+          "An audit that identifies the self-selected, non-responding entry route as bounding applicability rather than breaking the comparison; recognizes the coin toss as genuine randomization; applies the concealment test and concludes that steering was impossible because entry was committed before the toss; identifies unblinded self-report collected by the intervention deliverer as the decisive failure; and ends with a suitably narrow claim plus a boundary.",
+          "An audit as above that additionally flags, as a separate procedural point, that an on-the-spot assignment by the enroller leaves no record by which the procedure could be audited, while still not classifying that as a concealment failure.",
+          "An audit that does not raise the record point at all, provided the concealment conclusion is argued from commitment preceding knowability and every other step is correct."
+        ],
+        "commonErrors": [
+          "Naming the sample as the fatal flaw and stopping, which confuses a narrow answer with a wrong one.",
+          "Calling the coin toss a concealment failure because the assistant sees the result as it is generated — knowledge arriving after the patient's entry is committed is not foreknowledge and cannot steer entry.",
+          "Concluding that assignments were or could have been quietly re-tossed, which imports a reversal of enrolment that the case description does not state; the defensible point is that the procedure leaves no record either way.",
+          "Treating 'the patients knew' as the whole awareness answer and missing that the same assistant delivered the intervention and collected the outcome.",
+          "Recommending a larger sample as the repair for a bias problem.",
+          "Listing flaws without stating the strongest warranted claim and a boundary on it."
+        ]
+      },
+      "rubricId": "rubric-inference-audit",
+      "safetyCritical": false
+    }
+  ],
+  "rubrics": [
+    {
+      "id": "rubric-single-choice-two",
+      "title": "Single-choice scoring (2 points)",
+      "criteria": [
+        {
+          "id": "criterion-single-two-correct",
+          "description": "The response selects the declared correct option. Full credit for the correct option; no credit otherwise.",
+          "maxPoints": 2
+        }
+      ]
+    },
+    {
+      "id": "rubric-single-choice-three",
+      "title": "Single-choice scoring (3 points)",
+      "criteria": [
+        {
+          "id": "criterion-single-three-correct",
+          "description": "The response selects the declared correct option. Full credit for the correct option; no credit otherwise.",
+          "maxPoints": 3
+        }
+      ]
+    },
+    {
+      "id": "rubric-multiple-choice-four",
+      "title": "Multiple-response scoring (4 points)",
+      "criteria": [
+        {
+          "id": "criterion-multiple-four-selection",
+          "description": "The response matches the declared correct option set. Award proportionally across the four points: full credit only when every correct option is selected and no incorrect option is selected; deduct proportionally for each missed correct option or selected incorrect option, to a minimum of zero.",
+          "maxPoints": 4
+        }
+      ]
+    },
+    {
+      "id": "rubric-inference-audit",
+      "title": "Four-question inference audit",
+      "criteria": [
+        {
+          "id": "criterion-entry",
+          "description": "Identifies the entry route and states its consequence correctly: it bounds which population the result describes, and it does not by itself damage the comparison between arms. Notes non-response or self-selection where present.",
+          "maxPoints": 3
+        },
+        {
+          "id": "criterion-allocation",
+          "description": "Judges whether the assignment mechanism is genuinely random and explains what that does and does not secure — comparability in expectation on measured and unmeasured factors, without a guarantee of balance in the realized groups.",
+          "maxPoints": 2
+        },
+        {
+          "id": "criterion-concealment",
+          "description": "Applies the concealment test — whether each participant's entry was irrevocably committed before the upcoming assignment became knowable — and distinguishes concealment from blinding by timing rather than by vocabulary. Where an assignment is generated on the spot after commitment, recognizes that steering was impossible and does not treat knowledge at the instant of generation as foreknowledge; any missing record of the assignment is credited as a separate auditability observation, not required, and never as a substitute for resolving the steering question.",
+          "maxPoints": 3
+        },
+        {
+          "id": "criterion-awareness",
+          "description": "Identifies who knew the assignment after allocation and traces it to a specific error — performance bias, detection bias, or both — naming the parties involved and the character of the outcome measure.",
+          "maxPoints": 2
+        },
+        {
+          "id": "criterion-warranted-claim",
+          "description": "States the strongest claim the study actually supports, scoped to the studied group and qualified by the safeguards that failed, plus one material boundary. A verdict without a warranted claim, or a claim not narrowed by the identified failures, does not earn this criterion.",
+          "maxPoints": 2
+        }
+      ]
+    }
+  ]
+}
