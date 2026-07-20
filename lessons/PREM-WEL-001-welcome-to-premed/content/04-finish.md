@@ -46,7 +46,7 @@ Compare: name a different term, its teaching subject, and a later explanation—
 
 ## The welcome check
 
-The welcome check has three untimed responses worth ten points. To complete it, score **at least 8 out of 10 and earn at least one point on each response**. You may retake it; it checks your orientation, not your prior science.
+The welcome check has three untimed responses worth ten points. To complete it, score **10 out of 10 by meeting every rubric criterion**. If any criterion is missed, use the matching recovery route below and retry. Retakes are unlimited and untimed; the check measures your orientation, not your prior science.
 
 The scoring requirements are visible before you begin:
 
