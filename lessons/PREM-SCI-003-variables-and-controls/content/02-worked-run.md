@@ -68,9 +68,16 @@ A defensible answer is that a zero has two live explanations until the setup dem
 
 ## A compact audit you can reuse
 
-From memory, complete this sequence:
+:::{check}
+:id: check-compact-audit
+:kind: retrieval
+
+From memory, complete this sequence before opening the feedback:
 
 > changed → recorded → held alike → ___ → expected baseline → expected response
+:::
+
+### Feedback after your attempt
 
 The missing step is **changed alongside and could affect the record**—the confounder check. The whole sequence is a practical audit, not a universal recipe for choosing a study design.
 

@@ -12,7 +12,11 @@ If **held alike** and **expected baseline** sound identical, keep going: the fir
 
 A fictional materials team compares two curing temperatures for the same resin. It records the force needed to break each cured strip. Resin volume, mould shape, curing duration, and testing machine are kept alike. The lower-temperature strips are all made by technician K and the higher-temperature strips by technician M.
 
-Complete the role map before reading the feedback:
+:::{check}
+:id: check-resin-role-map
+:kind: practice
+
+Complete the role map before opening the feedback:
 
 | Role | Part of the comparison |
 | --- | --- |
@@ -20,6 +24,9 @@ Complete the role map before reading the feedback:
 | Dependent variable | ___ |
 | Two controlled variables | ___ |
 | Candidate confounder | ___ |
+:::
+
+### Feedback after your attempt
 
 A defensible map identifies curing temperature as the independent variable, breaking force as the dependent variable, any two of resin volume, mould shape, curing duration, and testing machine as controlled variables, and technician as a candidate confounder. Technician qualifies only if technician differences could affect breaking force; the fixed pairing with temperature creates the ambiguity.
 
@@ -29,12 +36,19 @@ To repair the pairing, have both technicians prepare strips at both temperatures
 
 A fictional seedling comparison gives one group nutrient solution and another group the same volume of water. It records stem-height change over seven days. Both groups use the same seed variety, soil mass, pot size, light schedule, and liquid volume.
 
-Answer before continuing:
+:::{check}
+:id: check-seedling-control-condition
+:kind: practice
+
+Answer before opening the feedback:
 
 1. Which factor is the independent variable?
 2. Which record is the dependent variable?
 3. Name two controlled variables.
 4. Is the water-only group a controlled variable or a control condition? Explain.
+:::
+
+### Feedback after your attempt
 
 The independent variable is liquid treatment: nutrient solution or water. The dependent variable is seven-day stem-height change. Seed variety, soil mass, pot size, light schedule, and liquid volume are controlled variables. The water-only group is a **control condition** because it supplies a comparison level; it is not a condition held at one value across both groups.
 
@@ -69,13 +83,33 @@ The negative control failed because the detector produced the tested signal wher
 
 The positive control failed. The blank result is expected for the negative control, but the detector has not shown that it can reveal a crack. Repair the detection path before treating unmarked unknown images as crack-free.
 
-**Case C: build your own audit.** Choose a supplied classroom, engineering, or biological comparison that does not require new data collection. Name the independent and dependent variables, at least two controlled variables, one factor that would become a confounder if paired with the independent variable, and plausible positive- and negative-control conditions. Then explain what a failure of each control would mean.
+**Case C: complete an independent audit.** Choose one of these supplied fictional comparisons. No data collection or equipment is required.
 
-If you cannot create a meaningful positive control, state what system capability needs checking rather than inventing a condition that does not test it. Different fields use different control forms.
+- **Package seals:** A team compares sealant A with sealant B and records the force needed to open each sealed package. Package material, seal length, curing time, and test speed are held alike. Every sealant A package is tested on machine 1 and every sealant B package on machine 2. An unsealed package should require almost no opening force; a certified reference seal should open within a known force range.
+- **Motion detection:** A team compares detector algorithm A with algorithm B and records an alert score for supplied video clips. Clip length, resolution, frame rate, and decision threshold are held alike. Algorithm A always runs on computer 1 and algorithm B on computer 2. An empty-corridor clip should produce a near-baseline alert score; a reference clip with a known moving object should produce a score above the stated detection threshold.
+
+:::{check}
+:id: check-independent-six-role-audit
+:kind: practice
+
+For your chosen comparison, name the independent and dependent variables, at least two controlled variables, the candidate confounder, and the negative- and positive-control conditions. Then explain both links that make the extra factor a candidate confounder, what a failed negative control would show, and what a failed positive control would prevent you from concluding about an unknown.
+:::
+
+### Self-check after your attempt
+
+Do not check the nouns alone. Your audit is defensible only if every relationship below is present:
+
+1. The independent variable is the factor deliberately set to two levels, and the dependent variable is the response recorded.
+2. Each controlled variable you named is explicitly held alike across those levels.
+3. The candidate confounder is paired with the independent variable **and** could change the dependent variable.
+4. The negative control is the condition expected to stay near baseline; a response there exposes background or a response where none is expected.
+5. The positive control is the condition expected to produce a known response; failure there means the system has not shown that it can reveal the response, so a matching unknown cannot yet be interpreted.
+
+If one relationship is missing, revise that row and repeat the audit on the other supplied comparison. Different fields use different control forms, so use the expected response—not the label alone—to assign each control role.
 
 :::{source-note}
 :claims: claim-variable-roles, claim-confounder-ambiguity, claim-control-functions, claim-controls-have-limits
 :sources: source-nist-handbook, source-ncbi-assay-guidelines
 
-The sources support the manipulated-factor, response, extraneous-variable, and control roles used in these discrimination tasks. They also support holding some influential conditions constant while recognizing the scope limits of that choice. All resin, seedling, and image-detector cases are original fictional examples.
+The sources support the manipulated-factor, response, extraneous-variable, and control roles used in these discrimination tasks. They also support holding some influential conditions constant while recognizing the scope limits of that choice. All resin, seedling, image-detector, package-seal, and motion-detector cases are original fictional examples.
 :::

@@ -9,12 +9,17 @@ The team also records:
 - a nitrate-free standard that should produce a near-baseline reading; and
 - a second certified nitrate standard that should produce a response within a stated range.
 
-Before reading on, make a six-row audit. Identify each role, then answer these questions:
+:::{check}
+:id: check-field-sensor-transfer
+:kind: transfer
+
+Before opening the comparison, make a six-row audit. Identify each role, then answer these questions:
 
 1. What ambiguity does the battery pairing create?
 2. How would you break that pairing without changing the cartridge question?
 3. If the certified nitrate standard produces a near-zero reading, what can you conclude about an unknown near-zero reading?
 4. If the nitrate-free standard produces a large reading, what problem becomes visible?
+:::
 
 ## Compare your audit
 
@@ -33,9 +38,16 @@ This transfer does not ask you to choose a field-study design or make a causal c
 
 ## Carry the whole chain forward
 
-Complete this sequence from memory:
+:::{check}
+:id: check-cumulative-inquiry-chain
+:kind: retrieval
+
+Complete this sequence from memory before opening the suggested ending:
 
 > observation → bounded empirical question → hypothesis → conditions → prediction → ___
+:::
+
+### Suggested ending after your attempt
 
 One useful ending is:
 
@@ -45,13 +57,15 @@ The first lesson separated observations from explanations and built answerable q
 
 ## Mastery check
 
-The assessment contains four untimed, retakeable items worth twelve points. Attempt every item before opening its answer and reasoning. Mastery means earning all twelve points: three for independent, dependent, and controlled roles; three for distinguishing a controlled variable, control condition, and confounder; two for interpreting positive and negative controls; and four for an integrated transfer audit. If you miss a criterion, follow its feedback and retry with the alternate context rather than copying the original answer.
+The assessment contains four untimed, retakeable items worth twelve points. Attempt every item before opening its answer and reasoning. Mastery means earning all twelve points: three for identifying the independent, dependent, and controlled roles and explaining each job; three for distinguishing a controlled variable, control condition, and confounder; two for interpreting positive and negative controls; and four for an integrated transfer audit in a case not answered in the lesson. If you miss a criterion, follow its feedback and retry with the alternate context rather than copying the original answer.
 
 ## Accessibility and alternatives
 
 Every task can be completed in prose, bullets, or a table. You may type, dictate into your own device, or use assistive technology; no audio or image upload is required. All table relationships are also explained in nearby prose. The lesson does not depend on color, visual position, dragging, sound, speed, wet-laboratory work, field sampling, or access to equipment. The cases contain no real participant, patient, or environmental data.
 
 ## Recovery route
+
+If you could not reconstruct **hypothesis → prediction**, return to [Hypotheses and predictions (planned PREM-SCI-002; outcome PREM-02.02)](https://embeddedknowledge.io/premed/graph/). Because that topic does not yet have a published open lesson, use the recovery check in the first scene: write one proposed relationship, then a separate observable record expected under stated conditions. Seek your course text or instructor support before continuing if those two statements still collapse into one.
 
 If independent and dependent variables blur together, write **set differently → record response** and place one case detail over each phrase.
 

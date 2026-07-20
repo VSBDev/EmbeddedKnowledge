@@ -14,7 +14,7 @@
   "items": [
     {
       "id": "item-identify-core-roles",
-      "type": "single-choice",
+      "type": "open-response",
       "sceneId": "scene-transfer-synthesis",
       "objectiveIds": [
         "objective-identify-variable-roles"
@@ -22,40 +22,22 @@
       "outcomeIds": [
         "topic-scientific-inquiry-variables-controls"
       ],
-      "prompt": "A fictional electronics team sets a fan to 1000 or 2000 revolutions per minute, records component temperature after 15 minutes, and keeps the enclosure, room temperature, component model, and temperature sensor alike. Which option labels the roles correctly?",
+      "prompt": "A fictional electronics team sets a fan to 1000 or 2000 revolutions per minute, records component temperature after 15 minutes, and keeps the enclosure, room temperature, component model, and temperature sensor alike. Identify the independent variable, dependent variable, and controlled variables. For each role, explain its job in this comparison using what the team set, recorded, or held alike.",
       "stimulus": null,
       "points": 3,
       "responseSpec": {
-        "mode": "single-choice",
-        "options": [
-          {
-            "id": "option-core-speed-temp-shared",
-            "text": "Independent: fan speed; dependent: component temperature after 15 minutes; controlled: enclosure, room temperature, component model, and sensor."
-          },
-          {
-            "id": "option-core-temp-speed-shared",
-            "text": "Independent: component temperature; dependent: fan speed; controlled: enclosure, component model, and sensor."
-          },
-          {
-            "id": "option-core-speed-shared-temp",
-            "text": "Independent: fan speed; dependent: enclosure and room temperature; controlled: measured component temperature."
-          },
-          {
-            "id": "option-core-sensor-speed-temp",
-            "text": "Independent: temperature sensor; dependent: fan speed; controlled: component temperature."
-          }
-        ],
+        "mode": "text",
         "units": null,
         "tolerance": null,
-        "maxSelections": 1,
-        "maxLength": null
+        "maxSelections": null,
+        "maxLength": 1400
       },
       "answer": {
-        "correct": "option-core-speed-temp-shared",
-        "summary": "Fan speed is set differently, component temperature is recorded, and the other relevant conditions are held alike.",
-        "reasoning": "Award one point for each correct role in the selected complete map: fan speed as the independent variable, component temperature after 15 minutes as the dependent variable, and the enclosure, room temperature, component model, and sensor as controlled variables. All three roles are correct only in the first option. If you reversed independent and dependent, use the verbs: the team sets speed and records temperature. On a retry, map heater setting, final water temperature, and a shared cup, volume, and timer.",
+        "correct": "Fan speed is the independent variable because the team deliberately sets it to two levels. Component temperature after 15 minutes is the dependent variable because it is the recorded response. The enclosure, room temperature, component model, and temperature sensor are controlled variables because the team holds them alike across the fan-speed comparison.",
+        "summary": "The independent variable is set differently, the dependent variable is recorded, and the controlled variables are held alike.",
+        "reasoning": "Award one point for each role only when the correct case detail and its job are both present: fan speed is deliberately set differently; component temperature after 15 minutes is recorded as the response; and the enclosure, room temperature, component model, and temperature sensor are held alike across the main comparison. If you reversed independent and dependent, use the verbs set and record. On a retry, map the heater setting, final water temperature, and a shared cup type, water volume, starting temperature, and timer, again stating what job each role performs.",
         "acceptableResponses": [
-          "The option identifying fan speed as independent, component temperature as dependent, and the held-alike conditions as controlled variables."
+          "Any response that identifies all three roles and explains them with the set differently, recorded response, and held alike relationships."
         ],
         "commonErrors": [
           "Calling the recorded response the independent variable",
@@ -90,7 +72,7 @@
       "answer": {
         "correct": "A complete response names seed variety, soil mass, pot size, or light duration as a controlled variable; identifies the water-only group as the control condition and, under the stated nutrient-response prediction, the negative control; and identifies shelf brightness or shelf position as a confounder because brightness changes with treatment and could also change stem-height growth.",
         "summary": "A held-alike condition, an extra comparison condition, and a confounder perform different jobs.",
-        "reasoning": "Score one point for naming a condition genuinely held alike, one for identifying water-only as the control condition or negative-control condition rather than a controlled variable, and one for identifying brightness or shelf position and stating both links: it is fixed to liquid treatment and could affect stem-height change. All three are required for 3/3. If you only wrote that the shelf was uncontrolled, add why it tracks the independent variable and could influence the dependent variable. On a retry, compare two curing temperatures when each temperature is also fixed to a different technician.",
+        "reasoning": "Score one point for naming a condition genuinely held alike, one for identifying water-only as the control condition or negative-control condition rather than a controlled variable, and one for identifying brightness or shelf position and stating both links: it is fixed to liquid treatment and could affect stem-height change. All three are required for 3/3. If you only wrote that the shelf was uncontrolled, add why it tracks the independent variable and could influence the dependent variable. On a retry, compare detergent A with detergent B while recording stain removal: fabric, stain, load mass, water temperature, and wash time are held alike; a water-only wash is an extra comparison; and detergent A always runs in machine 1 while detergent B always runs in machine 2. Re-identify the same three roles and both confounder links.",
         "acceptableResponses": [
           "Any response that correctly distinguishes one held-alike condition from the water control and gives the two-link reason that shelf brightness confounds treatment with growth."
         ],
@@ -105,7 +87,7 @@
     },
     {
       "id": "item-interpret-control-results",
-      "type": "single-choice",
+      "type": "open-response",
       "sceneId": "scene-transfer-synthesis",
       "objectiveIds": [
         "objective-interpret-positive-negative-controls"
@@ -113,40 +95,22 @@
       "outcomeIds": [
         "topic-scientific-inquiry-variables-controls"
       ],
-      "prompt": "A fictional detector gives a near-zero reading for a no-target negative control, a near-zero reading for a known-target positive control, and a near-zero reading for an unknown. Which interpretation is justified?",
+      "prompt": "A fictional detector gives a near-zero reading for a no-target negative control, a near-zero reading for a known-target positive control, and a near-zero reading for an unknown. Explain what each control result shows and whether the unknown can be interpreted as lacking the target.",
       "stimulus": null,
       "points": 2,
       "responseSpec": {
-        "mode": "single-choice",
-        "options": [
-          {
-            "id": "option-controls-positive-failed",
-            "text": "The negative control shows the baseline, but the positive control failed; the unknown cannot yet be interpreted as lacking the target."
-          },
-          {
-            "id": "option-controls-unknown-absent",
-            "text": "Both controls confirm the detector, so the unknown lacks the target."
-          },
-          {
-            "id": "option-controls-negative-failed",
-            "text": "The negative control failed because it gave a near-zero reading; the unknown is therefore positive."
-          },
-          {
-            "id": "option-controls-ignore",
-            "text": "Control results do not affect interpretation of an unknown sample."
-          }
-        ],
+        "mode": "text",
         "units": null,
         "tolerance": null,
-        "maxSelections": 1,
-        "maxLength": null
+        "maxSelections": null,
+        "maxLength": 1000
       },
       "answer": {
-        "correct": "option-controls-positive-failed",
+        "correct": "The near-zero negative control is the expected baseline. The known-target positive control failed because it did not produce the expected response, so the detector has not shown that it can reveal the target. The unknown near-zero reading therefore cannot yet be interpreted as target absent; repair and retry the detection path first.",
         "summary": "The baseline behaved as expected, but the known-response condition did not show that the detector can reveal a signal.",
-        "reasoning": "Award one point for recognizing that the near-zero negative control is the expected baseline and one for recognizing that the near-zero positive control failed and blocks interpretation of the unknown zero. Both are present only in the first option. Repair the detection path and retry before interpreting the unknown. On a retry, diagnose the opposite pattern: both negative and unknown are high while the positive is high.",
+        "reasoning": "Award one point for recognizing that the near-zero negative control is the expected baseline and one for recognizing that the near-zero positive control failed and blocks a no-target interpretation of the unknown. Repair the detection path and retry before interpreting the unknown. On a retry, use this unambiguous high-background pattern: the negative control, positive control, and unknown all read high. State what the high negative control shows about background and whether the unknown can be interpreted; this re-tests the negative-baseline and unknown-interpretation criterion.",
         "acceptableResponses": [
-          "The option identifying a failed positive control and withholding the no-target interpretation for the unknown."
+          "Any response that recognizes the expected negative-control baseline, diagnoses the failed positive control, and withholds a no-target interpretation for the unknown."
         ],
         "commonErrors": [
           "Treating a matching unknown and negative control as sufficient when the positive control failed",
@@ -158,7 +122,7 @@
       "safetyCritical": false
     },
     {
-      "id": "item-transfer-sensor-audit",
+      "id": "item-transfer-acoustics-audit",
       "type": "open-response",
       "sceneId": "scene-transfer-synthesis",
       "objectiveIds": [
@@ -169,7 +133,7 @@
       "outcomeIds": [
         "topic-scientific-inquiry-variables-controls"
       ],
-      "prompt": "Audit a fictional field-sensor comparison. A team fits cartridge A or B, exposes the same sensor model to the same supplied nitrate standard, and records the reading after five minutes. Standard volume, nitrate concentration, exposure time, and housing temperature are held alike. Cartridge A is always paired with an old battery and cartridge B with a new battery. A nitrate-free standard should read near baseline; a certified nitrate standard should read within a stated higher range. Identify the independent and dependent variables, two controlled variables, the confounder with its two-link justification, and the positive and negative controls. Then state what a near-zero certified-standard result means for an unknown near-zero result.",
+      "prompt": "Audit a fictional acoustics comparison not used in the lesson examples. A team compares sound-dampening panel A with panel B and records the sound level behind each panel after 30 seconds. Speaker tone, starting volume, room, speaker-to-panel distance, panel dimensions, and recording duration are held alike. Every panel A run uses microphone X, while every panel B run uses microphone Y. A silent-input recording should remain near baseline; a supplied calibration tone should produce a reading within a known range. Identify the independent and dependent variables, two controlled variables, the confounder with its two-link justification, and the positive and negative controls. Then state what a near-zero calibration-tone reading means for an unknown near-zero sound-level reading.",
       "stimulus": null,
       "points": 4,
       "responseSpec": {
@@ -180,20 +144,20 @@
         "maxLength": 2000
       },
       "answer": {
-        "correct": "A complete audit identifies cartridge type as the independent variable and the five-minute sensor reading as the dependent variable; names any two of standard volume, nitrate concentration, exposure time, housing temperature, or sensor model as controlled variables; identifies battery age as a confounder because it is fixed to cartridge type and could affect the reading; identifies the nitrate-free standard as the negative control and the certified nitrate standard as the positive control; and explains that a near-zero positive-control result means the system has not demonstrated response capability, so an unknown near-zero result cannot be interpreted as no nitrate.",
-        "summary": "The six-role audit reveals the intended comparison, the battery ambiguity, and the failed capability check.",
-        "reasoning": "Score one point for the correct independent/dependent pair, one for two valid controlled variables, one for battery age plus both confounding links, and one for both control labels plus the failed-positive-control interpretation. All four are required for 4/4. If you listed roles without reasons, add the verbs: set, record, hold alike, travels with and can affect, should stay at baseline, and should respond. On a retry, audit two image-processing filters when each filter is tested on a different camera and known-blank and known-feature images serve as controls.",
+        "correct": "A complete audit identifies panel type as the independent variable and the sound level recorded after 30 seconds as the dependent variable; names any two of speaker tone, starting volume, room, speaker-to-panel distance, panel dimensions, or recording duration as controlled variables; identifies microphone identity as a confounder because microphone X is fixed to panel A and microphone Y to panel B while microphone differences could affect the recorded sound level; identifies the silent-input recording as the negative control and the calibration tone as the positive control; and explains that a near-zero positive-control result means the system has not demonstrated response capability, so an unknown near-zero reading cannot be interpreted as a very low sound level.",
+        "summary": "The six-role audit reveals the intended panel comparison, the microphone ambiguity, and the failed capability check.",
+        "reasoning": "Score one point for the correct independent/dependent pair, one for two valid controlled variables, one for microphone identity plus both confounding links, and one for both control labels plus the failed-positive-control interpretation. All four are required for 4/4. If you listed roles without reasons, add the verbs: set, record, hold alike, travels with and can affect, should stay at baseline, and should respond. On a retry, audit two fictional water-test strips when strip A is always read with phone camera 1 and strip B with phone camera 2; a blank solution and a supplied known-concentration standard serve as controls. Reconstruct every role rather than copying the first answer.",
         "acceptableResponses": [
-          "Any response that maps all six roles equivalently, states both links that make battery age a confounder, and withholds interpretation after the positive control fails."
+          "Any response that maps all six roles equivalently, states both links that make microphone identity a confounder, and withholds interpretation after the positive control fails."
         ],
         "commonErrors": [
-          "Calling battery age a controlled variable even though it is fixed to cartridge type",
-          "Reversing the nitrate-free and certified-standard control roles",
-          "Concluding that the unknown lacks nitrate when the positive control is near zero",
-          "Naming the sensor reading as the independent variable"
+          "Calling microphone identity a controlled variable even though it is fixed to panel type",
+          "Reversing the silent-input and calibration-tone control roles",
+          "Concluding that the unknown has a very low sound level when the positive control is near zero",
+          "Naming the recorded sound level as the independent variable"
         ]
       },
-      "rubricId": "rubric-transfer-sensor-audit",
+      "rubricId": "rubric-transfer-acoustics-audit",
       "safetyCritical": false
     }
   ],
@@ -204,17 +168,17 @@
       "criteria": [
         {
           "id": "criterion-core-independent",
-          "description": "Award 1 point only when fan speed is identified as the independent variable.",
+          "description": "Award 1 point only when fan speed is identified as the independent variable and explained as the factor deliberately set to two levels.",
           "maxPoints": 1
         },
         {
           "id": "criterion-core-dependent",
-          "description": "Award 1 point only when component temperature after 15 minutes is identified as the dependent variable.",
+          "description": "Award 1 point only when component temperature after 15 minutes is identified as the dependent variable and explained as the recorded response.",
           "maxPoints": 1
         },
         {
           "id": "criterion-core-controlled",
-          "description": "Award 1 point only when the enclosure, room temperature, component model, and sensor are identified as controlled variables.",
+          "description": "Award 1 point only when the enclosure, room temperature, component model, and sensor are identified as controlled variables and explained as conditions held alike across fan-speed levels.",
           "maxPoints": 1
         }
       ]
@@ -257,12 +221,12 @@
       ]
     },
     {
-      "id": "rubric-transfer-sensor-audit",
-      "title": "Integrated field-sensor role audit",
+      "id": "rubric-transfer-acoustics-audit",
+      "title": "Integrated acoustics role audit",
       "criteria": [
         {
           "id": "criterion-transfer-variables",
-          "description": "Award 1 point only when cartridge type is independent and the five-minute sensor reading is dependent.",
+          "description": "Award 1 point only when panel type is independent and the sound level after 30 seconds is dependent.",
           "maxPoints": 1
         },
         {
@@ -272,12 +236,12 @@
         },
         {
           "id": "criterion-transfer-confounder",
-          "description": "Award 1 point only when battery age is identified and both its fixed pairing with cartridge type and possible effect on the reading are stated.",
+          "description": "Award 1 point only when microphone identity is identified and both its fixed pairing with panel type and possible effect on recorded sound level are stated.",
           "maxPoints": 1
         },
         {
           "id": "criterion-transfer-controls",
-          "description": "Award 1 point only when nitrate-free is labelled negative, certified nitrate is labelled positive, and a near-zero positive result is used to withhold interpretation of an unknown near-zero result.",
+          "description": "Award 1 point only when silent input is labelled negative, the calibration tone is labelled positive, and a near-zero positive control is used to withhold a very-low-level interpretation of a near-zero unknown.",
           "maxPoints": 1
         }
       ]

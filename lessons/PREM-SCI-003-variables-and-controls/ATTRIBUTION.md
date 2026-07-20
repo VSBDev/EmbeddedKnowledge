@@ -32,7 +32,9 @@ Before substantive source access on 2026-07-20, the accountable run checked NIST
 - Author run ID: `5619914e-ad81-4db9-8e6e-928a2f71146c`
 - Material-instructions digest: `sha256:8dec3af49e5263519344b46ec6b8542adb07e143432dbde96f13403875253357`
 
-The digest covers the exact UTF-8 material task payload supplied by the root agent, including its final newline. It excludes hidden provider and system instructions that cannot be exported. VSBDev remains accountable for the contribution and attests the disclosed provenance.
+The bounded one-pass final lesson revision and final accessibility-and-rights audit used Codex / OpenAI / GPT-5, version `Codex agent runtime 2026-07-20`, in fresh run `6a4a4597-b6c3-4f24-8b86-3bcd59d166ed`. Its material-instructions digest is `sha256:e60d304b1451b88b6133477d8d504f14d4f0fc0b98e6af6ca01a28ae4ceb9547`; the separate `adjudication.json` records the finalizer's accountable decision provenance.
+
+Each digest covers the exact UTF-8 material task payload supplied by the root agent, including its final newline. It excludes hidden provider and system instructions that cannot be exported. VSBDev remains accountable for the contribution and attests the disclosed provenance.
 
 ## Assets and exceptions
 
