@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "format": "embeddedknowledge-claims-v1",
   "lessonId": "PREM-LPP-001",
-  "lessonVersion": "0.1.3",
+  "lessonVersion": "0.1.4",
   "claims": [
     {
       "id": "claim-map-layers",
@@ -14,7 +14,7 @@
       "scope": "EmbeddedKnowledge Premed knowledge-graph schema version 1.0.0 and curriculum version 1.0 candidate.",
       "uncertainty": "The graph structure may change in a future version; stable published identity and migration rules should then govern interpretation.",
       "risk": "routine",
-      "reviewStatus": "reviewed"
+      "reviewStatus": "pending-review"
     },
     {
       "id": "claim-map-link-types",
@@ -26,7 +26,7 @@
       "scope": "The link semantics declared by the current Premed graph data contract.",
       "uncertainty": null,
       "risk": "routine",
-      "reviewStatus": "reviewed"
+      "reviewStatus": "pending-review"
     },
     {
       "id": "claim-map-route-resolution",
@@ -35,10 +35,10 @@
       "sourceIds": ["source-premed-knowledge-graph"],
       "support": "direct",
       "confidence": "high",
-      "scope": "Current graph route-resolution rule in schema.routeResolutionRule and its implementation: route pathway membership OR core membership when includesPortableCore is true; the portable-core route resolves to its own pathway-tagged topic set.",
-      "uncertainty": "Pathway instrumentation and route membership can change with a future curriculum version.",
+      "scope": "Current graph route-resolution rule in schema.routeResolutionRule and its implementation: route pathway membership OR core membership when includesPortableCore is true; the portable-core route resolves to its own pathway-tagged topic set. Resolution is a content-filter operation and does not by itself establish that a documented syllabus route is instrumented.",
+      "uncertainty": "In curriculum version 1.0, PW-US, PW-BIO, and PW-QNT are instrumented. PW-UK and PW-ES are documented but not instrumented; uk-direct-entry and spain-bach-pau are content-filter tags rather than implementations of those routes. Instrumentation and membership may change in a later version.",
       "risk": "routine",
-      "reviewStatus": "reviewed"
+      "reviewStatus": "pending-review"
     },
     {
       "id": "claim-map-label-scope",
@@ -50,7 +50,7 @@
       "scope": "Interpretation boundary for fields in the current Premed knowledge graph.",
       "uncertainty": "Institution-specific admission requirements are external, time-sensitive sources and are not established by these fields.",
       "risk": "routine",
-      "reviewStatus": "reviewed"
+      "reviewStatus": "pending-review"
     },
     {
       "id": "claim-map-stable-identity",
@@ -62,7 +62,7 @@
       "scope": "Identity and versioning rules for the current Premed graph.",
       "uncertainty": "Retired or split IDs require migration records in later graph versions.",
       "risk": "routine",
-      "reviewStatus": "reviewed"
+      "reviewStatus": "pending-review"
     }
   ]
 }

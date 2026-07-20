@@ -1,6 +1,6 @@
 # Adapt the map to a real decision
 
-A fictional learner, Noor, plans to apply to Harbor Medical School next year. Harbor's current website lists an institution-specific prerequisite that Noor cannot find as a Premed topic title. Noor also wants the Premed US-oriented route.
+A fictional learner, Noor, plans to apply to Harbor Medical School next year. Harbor's current website lists an institution-specific prerequisite that Noor cannot find as a Premed topic title. Noor also wants the currently instrumented Premed PW-US route.
 
 This is not a request to guess Harbor's rule. It is a route-planning problem with an external-boundary check.
 
@@ -8,7 +8,7 @@ This is not a request to guess Harbor's rule. It is a route-planning problem wit
 
 Write a five-step plan that:
 
-1. resolves the named route's effective topic set by combining its `pathway`-tagged topics with `core: true` topics when that route includes the common core;
+1. confirms the documented route is instrumented in the current curriculum version, then resolves its effective topic set by combining its `pathway`-tagged topics with `core: true` topics when that route includes the common core;
 2. locates candidate content by outcome meaning and stable ID rather than title matching alone;
 3. traces unmet prerequisite links;
 4. treats cross-links and evidence labels according to their actual jobs; and
@@ -22,5 +22,5 @@ This transfer differs from the worked example. The target is not already named b
 :claims: claim-map-layers, claim-map-link-types, claim-map-route-resolution, claim-map-label-scope, claim-map-stable-identity
 :sources: source-premed-knowledge-graph
 
-The transfer applies the graph contract while preserving its explicit boundary: pathway labels are curriculum filters rather than institution-specific admissions promises.
+The transfer applies the graph contract while preserving two explicit boundaries: a pathway tag is not proof that a documented route is instrumented, and pathway labels are curriculum filters rather than institution-specific admissions promises.
 :::

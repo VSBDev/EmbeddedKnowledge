@@ -3,12 +3,12 @@
 Before choosing a next topic, write five lines:
 
 1. **Identity:** target stable topic ID and observable outcome.
-2. **Scope:** requirement and effective route membership.
+2. **Scope:** current route-instrumentation status, then requirement and effective route membership.
 3. **Order:** unmet prerequisite chain, read from prerequisite to dependent.
 4. **Evidence:** what the placement labels support and what they do not.
 5. **Action:** the earliest relevant outcome whose prerequisites are secure, plus the evidence used to judge “secure.”
 
-Use cross-links after or alongside this plan to connect ideas; do not silently turn them into locks. Keep institution-specific requirements in a dated external audit rather than inferring them from graph tags.
+Use cross-links after or alongside this plan to connect ideas; do not silently turn them into locks. Treat a non-empty route-tag set as a content filter until the current curriculum version confirms that the documented route is instrumented. Keep institution-specific requirements in a dated external audit rather than inferring them from graph tags.
 
 :::{source-note}
 :claims: claim-map-layers, claim-map-link-types, claim-map-route-resolution, claim-map-label-scope, claim-map-stable-identity

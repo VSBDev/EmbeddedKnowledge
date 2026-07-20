@@ -30,10 +30,16 @@ Read arrows in words. For `A → B` labelled *prerequisite*, say: “A should no
 
 For a named route that includes the common core, the effective topic set combines topics whose `pathway` array names that route with topics whose `core` field is `true`—equivalently, topics with `requirement: portable-core` in the current graph. A `portable-core` entry in the `pathway` array is not the field that supplies common-core membership for this rule. The portable-core route itself resolves to its own pathway-tagged set. After filtering, prerequisites still decide sequence: membership makes a topic relevant, not automatically ready.
 
+:::{callout}
+:kind: boundary
+
+**A topic filter is not an instrumented route.** A non-empty pathway-tag filter does not prove that the corresponding documented syllabus route is implemented. In curriculum version 1.0, PW-US, PW-BIO, and PW-QNT are instrumented. PW-UK and PW-ES are documented but not instrumented: the `uk-direct-entry` and `spain-bach-pau` tags filter relevant content, but they are not implementations of PW-UK or PW-ES and cannot establish pathway completion. Confirm route status before using a filtered topic set as a study route.
+:::
+
 ## A four-pass planning model
 
 1. **Identity:** locate the target by stable topic ID and confirm its outcome statement.
-2. **Scope:** apply the route rule and inspect requirement and pathway labels.
+2. **Scope:** confirm that the documented route is currently instrumented, then apply its route rule and inspect requirement and pathway labels.
 3. **Order:** follow prerequisite edges backward until you reach outcomes already secure or outcomes with no unmet dependencies.
 4. **Evidence and boundary:** read placement evidence honestly, then verify any external admissions requirement with its current primary source.
 

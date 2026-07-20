@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "format": "embeddedknowledge-assessment-v1",
   "lessonId": "PREM-LPP-001",
-  "lessonVersion": "0.1.3",
+  "lessonVersion": "0.1.4",
   "assessmentId": "assessment-reading-curriculum-map",
   "title": "Curriculum map navigation and route planning",
   "purpose": "mixed",
@@ -106,7 +106,7 @@
       "sceneId": "scene-transfer",
       "objectiveIds": ["objective-navigate-map", "objective-distinguish-labels", "objective-plan-route"],
       "outcomeIds": ["topic-orientation-map-and-pathways"],
-      "prompt": "Construct a five-step plan for a learner who has named a route and an institution-specific goal but has not found an exact title match in the graph. Coordinate stable IDs, effective route membership, prerequisite order, cross-links, placement evidence, mastery evidence, and a current external requirement check.",
+      "prompt": "Construct a five-step plan for a learner who has named a route and an institution-specific goal but has not found an exact title match in the graph. Coordinate current route-instrumentation status, stable IDs, effective route membership, prerequisite order, cross-links, placement evidence, mastery evidence, and a current external requirement check.",
       "stimulus": "The learner's record identifies some secure outcomes, but no result may be inferred merely from lesson completion or confidence. The institution's current primary-source requirement is not included in the graph excerpt.",
       "points": 10,
       "responseSpec": {
@@ -117,7 +117,7 @@
         "maxLength": 3000
       },
       "answer": {
-        "correct": "If the named route includes the common core, resolve it as topics whose pathway array names the route plus topics whose core field is true (derived from requirement: portable-core in the current graph); search outcome meanings and confirm candidate stable IDs; trace candidate prerequisites backward and compare them with demonstrated mastery; use cross-links only to surface related learning and read placement labels within scope; choose the earliest relevant candidate whose prerequisites are secure while separately verifying the institution's current requirement from its primary source.",
+        "correct": "First confirm that the documented route is instrumented in the current curriculum version; a non-empty pathway-tag filter alone is not proof. If the instrumented route includes the common core, resolve it as topics whose pathway array names the route plus topics whose core field is true (derived from requirement: portable-core in the current graph); search outcome meanings and confirm candidate stable IDs; trace candidate prerequisites backward and compare them with demonstrated mastery; use cross-links only to surface related learning and read placement labels within scope; choose the earliest relevant candidate whose prerequisites are secure while separately verifying the institution's current requirement from its primary source.",
         "summary": "A defensible plan separates curriculum identity, route scope, dependency order, learner evidence, and external policy.",
         "reasoning": "No single map field answers all five questions. Stable IDs protect identity, route labels filter relevance, prerequisites order learning, a separate mastery record supports readiness, and only the institution's current source can establish its rule.",
         "acceptableResponses": ["Equivalent five-step plans are acceptable when they preserve all boundaries and make the next-topic choice conditional on demonstrated prerequisites."],
@@ -132,8 +132,7 @@
       "id": "rubric-map-order",
       "title": "Hierarchy reconstruction",
       "criteria": [
-        { "id": "criterion-map-order", "description": "Places domain, module, and topic in the correct containment order.", "maxPoints": 2 },
-        { "id": "criterion-topic-role", "description": "Identifies the topic as the independently tracked observable outcome.", "maxPoints": 1 }
+        { "id": "criterion-map-order", "description": "Places domain, module, and topic in the correct containment order.", "maxPoints": 3 }
       ]
     },
     {
@@ -156,7 +155,7 @@
       "id": "rubric-route-plan",
       "title": "Integrated map-reading plan",
       "criteria": [
-        { "id": "criterion-route-scope", "description": "Resolves a route that includes the common core using its pathway-tagged topics plus topics with core: true, rather than treating a portable-core pathway tag as the common-core test.", "maxPoints": 2 },
+        { "id": "criterion-route-scope", "description": "Checks that the documented route is currently instrumented, then resolves a common-core route using its pathway-tagged topics plus topics with core: true rather than treating a portable-core pathway tag as the common-core test.", "maxPoints": 2 },
         { "id": "criterion-identity-order", "description": "Uses stable outcome identity and traces prerequisite order correctly.", "maxPoints": 3 },
         { "id": "criterion-evidence-boundaries", "description": "Separates cross-links, placement evidence, mastery evidence, and external policy.", "maxPoints": 3 },
         { "id": "criterion-next-action", "description": "Makes the next action conditional on demonstrated prerequisite security and names a recovery or verification step.", "maxPoints": 2 }
