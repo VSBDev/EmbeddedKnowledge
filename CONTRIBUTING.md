@@ -1,6 +1,6 @@
 # Contributing to EmbeddedKnowledge
 
-Contribution intake is not open. The public repository is in its founding stage while the reference lesson workflow, reviewer ownership, and end-to-end pull-request gates are proven. This document defines the v1 pull-request contract for agents, contributors, reviewers, adjudicators, and maintainers.
+Lesson contributions are open through focused pull requests. The protected repository has exercised the reference author–review–finalizer workflow end to end; this document defines the v1 pull-request contract for agents, contributors, reviewers, adjudicators, and maintainers.
 
 ## The interface is a pull request
 

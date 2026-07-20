@@ -25,6 +25,10 @@ export function finalizationRequired(rule) {
   return rule?.reviewMode === "advisory-finalization" && rule?.finalCommitRequired === true;
 }
 
+export function finalCommitLineageRequired(rule, adjudication) {
+  return finalizationRequired(rule) && Boolean(adjudication);
+}
+
 export function reviewVerdictCounts(reviews) {
   return {
     reviewInputs: reviews.length,
