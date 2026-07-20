@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "adjudicationId": "ADJ-PREM-LPP-005-20260720-2F238F9A",
+  "lessonId": "PREM-LPP-005",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "3de005fc0d2a9ca5c5425dba1d1a5f9ae3af3311",
+  "riskTier": "standard",
+  "policyId": "standard-lesson-v2",
+  "reviewIds": [
+    "REV-PREM-LPP-005-ACADEMIC-20260720-2ACF634D",
+    "REV-PREM-LPP-005-LEARNINGDESIGN-01",
+    "REV-PREM-LPP-005-ACCESS-20260720-EB2602DF"
+  ],
+  "quorum": {
+    "satisfied": true,
+    "approvals": 3,
+    "roleCounts": {
+      "academic": 1,
+      "learningDesign": 1,
+      "accessibilityRights": 1
+    },
+    "distinctPrincipals": 1,
+    "distinctAgentRuns": 3,
+    "distinctAgentModelFamilies": 3
+  },
+  "decision": "merge",
+  "rationale": "Candidate 3de005fc0d2a9ca5c5425dba1d1a5f9ae3af3311 is a schemaVersion 3 embeddedknowledge-lesson-v1 production pack for PREM-LPP-005 version 0.1.0 at standard risk tier, mapped to topic-orientation-study-plan with prerequisite topic-orientation-metacognition-and-error-log. The governance commit 4018c77ca01cb1de1f41bd0356646a52ae5cb107 adds only the three review artifacts, so the frozen teaching content was not changed after review. I counted only the three non-dismissed GitHub COMMENTED review submissions by actor VSBDev on July 20, 2026 that target commit 3de005fc0d2a9ca5c5425dba1d1a5f9ae3af3311 and are canonically equivalent to the committed review artifacts: REV-PREM-LPP-005-ACADEMIC-20260720-2ACF634D, REV-PREM-LPP-005-LEARNINGDESIGN-01, and REV-PREM-LPP-005-ACCESS-20260720-EB2602DF. I excluded the earlier COMMENTED submissions on superseded candidate a519ad263e28e240c74e2558ab70dffad7ccdcc3 as stale. The eligible set provides 3 approvals across the required academic, learning-design, and accessibility-rights roles, 1 distinct principal, 3 distinct agent runs, and 3 distinct declared model families, satisfying standard-lesson-v2. No counted review contains an unresolved major or blocking finding. The stale accessibility-rights blocker about learner-facing raw internal IDs was resolved in the frozen candidate, and the remaining counted concerns are non-blocking notes or bounded limitations. Limitations remain: this is founding-stage same-principal governance with disclosed and attested rather than externally verified provenance; the learning-design review shares the same accountable principal even though that overlap is permitted by policy; the accessibility-rights reviewer could not inspect a freshly rendered build in this environment; and there is no learner-effectiveness evidence. On that record, merge is justified if the maintainer makes only the allowed governance commit, preserves GitHub review provenance, and reruns repository validation and provenance checks before merge.",
+  "dissent": [],
+  "conditions": [
+    "Commit this adjudication with only the allowed governance changes: add adjudication.json, set lesson.json status and sourceConfidence to the post-review values permitted by policy, and set every retained claims.json reviewStatus to reviewed; do not edit teaching content or other claims-ledger fields.",
+    "Rerun npm ci, npm run validate, and the repository's PR-readiness and GitHub-provenance checks in an environment with the required Node dependencies before merge; if any failure requires teaching-content edits, freeze a new candidate and repeat review quorum and adjudication.",
+    "Preserve the three counted GitHub COMMENTED review submissions and their artifact equivalence; dismissing or editing those submissions, or changing candidate content from 3de005fc0d2a9ca5c5425dba1d1a5f9ae3af3311, stales this adjudication and the counted approvals."
+  ],
+  "adjudicator": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev (adjudicator)",
+    "agent": {
+      "system": "Codex",
+      "provider": "OpenAI",
+      "model": "GPT-5.4",
+      "version": "Codex CLI 0.144.6",
+      "runId": "codex-adjudicator-prem-lpp-005-20260720-2f238f9a-ef73-469a-a28e-6eb2800051d8",
+      "instructionsDigest": "sha256:09b948ee6cfaab50de6b4a8465bee9b253b891c7a1eec8830297f3ee57576b2c"
+    }
+  },
+  "adjudicatedAt": "2026-07-20T04:36:43Z"
+}
