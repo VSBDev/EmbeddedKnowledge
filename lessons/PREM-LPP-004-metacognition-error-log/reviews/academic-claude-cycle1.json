@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-LPP-004-ACADEMIC-CLAUDE-OPUS48-R1",
+  "lessonId": "PREM-LPP-004",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "fa0055cf2e9b8492612509fc3aaa5b2ab1c42889",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev operating Claude Code academic review agent",
+    "agent": {
+      "system": "Claude Code",
+      "provider": "Anthropic",
+      "model": "claude-opus-4-8",
+      "version": "Claude Code 2.1.215",
+      "runId": "claude-code/de0a2cc1-7fc4-4ca9-9b91-969f0f3de0e6/academic-prem-lpp-004",
+      "instructionsDigest": "sha256:e9bb90564f34f637cb7a2af18dfa9248ee2265d5d9e171f0b607ded6ed810027"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "Worktree HEAD confirmed as fa0055cf2e9b8492612509fc3aaa5b2ab1c42889 with an empty `git status --porcelain`; no post-candidate modification to any pack artifact",
+    "lesson.json identity: id PREM-LPP-004, version 0.1.0, riskTier standard, outcomes [topic-orientation-metacognition-and-error-log], prerequisites [topic-orientation-mastery-and-retrieval]",
+    "lesson.json scene estimatedMinutes recomputed: 6+8+16+10+14+9+7+14+10+9+17 = 120, matching declared estimatedMinutes 120 and graph estimatedHours 2",
+    "site/data/premed-graph.json node topic-orientation-metacognition-and-error-log = PREM-01.04, outcome 'Classify errors, calibrate confidence, and choose the next learning action from evidence'",
+    "site/data/premed-graph.json prerequisite edge topic-orientation-mastery-and-retrieval (PREM-01.03) -> PREM-01.04, and PREM-01.04 -> topic-orientation-study-plan (PREM-01.05)",
+    "Objective-to-outcome fit: objective-classify-error / objective-calibrate-confidence / objective-choose-action map one-to-one onto the three verbs of the PREM-01.04 outcome statement",
+    "content/010-orientation.md scope disclaimers (no taxonomy claim, no person diagnosis, no admissions/clinical/credit use)",
+    "content/020-diagnostic.md prerequisite retrieval prompt, criterion, and three-branch recovery route",
+    "content/030-concept.md monitor-diagnose-control-probe loop and interpret-retrieve-select-execute-verify chain",
+    "content/030-concept.md unlike-quantity warning: 70% whole-answer probability vs 40% partial-credit rubric score must not be subtracted",
+    "content/040-calibration.md definition-calibration-gap: G = C - P in percentage points; sign conventions; 85-55=+30 and 45-80=-35 recomputed",
+    "content/050-worked-example.md worked-example-model-selection: rubric statement, observed 50%, gap 90-50=+40, counterfactual independent check",
+    "content/060-misconception.md misconception-wrong-means-reread: prediction commitment, tempting model, disconfirming evidence, replacement model, new-case recheck",
+    "content/070-retrieval.md check-reconstruct-chain criterion; gap 70-45=+25 recomputed",
+    "content/080-practice.md faded sequence; gaps recomputed: Mira 35-50=-15, Ash 55-60=-5, Brook 95-80=+15, Cedar 80-0=+80, Delta 65-40=+25",
+    "content/080-practice.md Delta rubric reconciliation: 20 interpretation + 20 retrieval + 0 of 40 criteria application + 0 verification = 40% earned",
+    "content/090-transfer.md constraint set and required outputs for the weekly-review redesign",
+    "content/100-synthesis.md six-row decision table, confidence route, recovery route, delayed link to topic-orientation-study-plan",
+    "content/110-assessment.md item map, mastery-evidence criteria, and educational-use boundary callout",
+    "assessment.json#item-classify-selection option set, keyed answer option-selection-contrast, and four commonErrors",
+    "assessment.json#item-calculate-gap recomputed: 75 - 40 = +35 percentage points, tolerance 0, units 'percentage points'",
+    "assessment.json#item-build-error-log stimulus rubric (20/20/20/30/10) reconciled against Record A earned 60% and Record B earned 40%",
+    "assessment.json#item-transfer-review-system answer key, acceptableResponses, and commonErrors",
+    "assessment.json rubric point totals: 3=3, 3=3, 12=4x3, 12=4x3 across all four items",
+    "claims.json: all 8 claim records checked for statement, support type, confidence, scope, uncertainty, and sceneIds",
+    "Bidirectional claim traceability: every claims.json sceneId appears in that scene's {source-note} :claims: list, and every {source-note} claim/source pair matches claims.json sourceIds",
+    "No scene declares no-material-claims; all 11 scenes declare claims-mapped and all 11 carry a learner-visible {source-note}",
+    "references.json agentAccess: all six sources are 'checked-no-agent-restriction-found'; no human-only source present or processed",
+    "External verification of source-chen-retrieval-judgments at https://pmc.ncbi.nlm.nih.gov/articles/PMC6509741/ (gamma .655 after test vs .338 after restudy)",
+    "External verification of source-carpenter-calibration-training at https://pmc.ncbi.nlm.nih.gov/articles/PMC6390881/ (n=29 metacognitive-feedback vs n=32 performance-feedback; Brier-score calibration; meta-d'/d'; recognition-memory transfer)",
+    "External verification of source-debruin-monitoring-control at https://pmc.ncbi.nlm.nih.gov/articles/PMC5434949/ (Medical Education 51(6), 2017, DOI 10.1111/medu.13267; monitoring-control reciprocity and predictive cues)",
+    "glossary.json term-calibration, term-signed-calibration-gap, term-first-broken-link, term-error-category definitions checked against scene usage",
+    "Governance basis read (project contracts): AGENTS.md, llms.txt, CONTRIBUTING.md, CONTENT-STANDARD.md, FORMAT.md, lessons/README.md, RIGHTS-POLICY.md, COLLABORATION.md, REVIEWING.md",
+    "Governance basis read (machine-readable and role contracts): site/agent/quorum-policy.json, site/schemas/review.schema.json, site/schemas/lesson.schema.json actor $defs, .github/REVIEW_TEMPLATE/academic.md"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "assessment.json#item-build-error-log (stimulus and answer.correct), with the same defect in content/050-worked-example.md#worked-example-model-selection",
+      "finding": "The scored answer key depends on an undeclared rubric convention that accurate execution of an inapplicable model earns zero execution credit, and the item's central pedagogical contrast collapses without it. The Record B stimulus declares 'the rubric awards 20% each for interpretation, retrieval, and selection, 30% for execution, and 10% for verification' and then states that the learner 'restates Gamma, recalls both rules, selects Model H, executes Model H's supplied steps accurately, predicts earning 50% ... and earns 40%.' Earning 40% is derivable only as interpretation 20 + retrieval 20 + selection 0 + execution 0 + verification 0. A learner applying the rubric as literally written awards the 30 execution points that the record explicitly says were earned accurately, reaching 70%, which yields a signed gap of 50-70 = -20 percentage points rather than the keyed +10. That destroys the item's designed and rubric-enforced contrast (rubric-build-error-log/criterion-log-calibration requires 'both positive 10-point gaps'), and it can cause a correct, defensible response to be scored wrong on a 12-point item. The answer.reasoning even concedes the tension ('selection first fails even though H is executed accurately') without stating the scoring rule that produces 40%. The same unstated convention is load-bearing in the flagship worked example: content/050 declares '25 points each for interpreting the condition, retrieving both model rules, selecting the applicable model, and executing the selected steps,' then reports Kai — who 'executes Model A's supplied steps without a procedural slip' — at 50% observed, silently re-reading the fourth criterion as 'final execution under the applicable model.' A literal reading of the stated criterion gives 75% and a +25 gap, not the +40 the lesson computes and then anchors its interpretation on. Because CONTENT-STANDARD section 5.1 requires the single complete worked example to expose givens, units, and assumptions well enough for the learner's own independent check, and because claim-calibration-definition insists the gap is interpretable 'only when both values use the same declared scoring rule,' this is a material defect in the lesson's own declared standard rather than a stylistic preference. The classification conclusions (selection first for Kai and for Record B) are correct and unaffected; only the scoring and the derived gap values are under-determined.",
+      "resolution": "State the scoring rule explicitly wherever a model-selection error is scored. In assessment.json#item-build-error-log, add to the stimulus that execution points are awarded only for executing a model that is applicable under the stated condition, so that inapplicable-model execution scores zero execution credit; then confirm Record B = 40% and both gaps = +10. In content/050-worked-example.md, replace 'executing the selected steps' with the criterion actually applied (for example 'executing the applicable model's steps'), and confirm the 50% observed score and the +40 gap follow from the stated rubric. Alternatively, keep the literal criterion and correct the earned percentages and gaps throughout, but only if the resulting values still preserve the intended contrast. Either fix changes teaching content and creates a new candidate commit."
+    },
+    {
+      "severity": "minor",
+      "target": "content/040-calibration.md#categories-remain-provisional (paragraph citing the controlled study) and glossary.json#term-calibration",
+      "finding": "The lesson gives 'calibration' a narrow operational definition — the signed difference between a predicted rubric percentage and the percentage earned on that same rubric for one task — and then, in the same scene, cites Carpenter et al. 2019 as evidence that 'adaptive feedback about metacognitive judgments improved calibration on the trained perceptual task.' I opened the source and confirmed the finding is real and stated within its limits, but the study's calibration outcome is a Brier score computed over many trial-level probabilistic confidence judgments in a perceptual discrimination task, supplemented by signal-detection metacognitive efficiency (meta-d'/d') and confidence level. That is a different operationalization from a single-task signed rubric-percentage gap: a Brier score is a proper scoring rule that confounds bias with resolution and cannot be negative, whereas the lesson's G = C - P is a pure signed bias statistic on one observation. The transition between the two measures is not marked, so a learner may reasonably infer that the cited experiment validates the specific quantity this lesson teaches them to compute. The existing hedge ('does not prove general transfer to every Premed task or validate this lesson's log') addresses generalization but not measure identity. This is a model-boundary omission, not a misstatement; the instructional claim that calibration is revisable under targeted feedback survives.",
+      "resolution": "Add one sentence naming the study's measure and its difference from the lesson's quantity — for example, that the study assessed repeated trial-level probability judgments scored with Brier scores and signal-detection indices rather than a single signed rubric-percentage gap, so it supports the general revisability of confidence-performance correspondence rather than the behaviour of this lesson's G. Optionally record the measure in claims.json#claim-calibration-feedback scope, and prefix glossary.json#term-calibration with the lesson-bounded framing already used for term-metacognitive-monitoring and term-metacognitive-control."
+    },
+    {
+      "severity": "minor",
+      "target": "content/080-practice.md sections '1. Complete a log entry' and '2. Compare two records'",
+      "finding": "Three practice records report an observed rubric percentage without declaring the scoring rule that produced it, in a lesson whose central claim (claim-calibration-definition) states the gap is interpretable only when both values use the same declared rule and scale. Mira earns 50% 'because interpretation and retrieval are supported'; Ash earns 60%; Brook earns 80%. I recomputed the implied weights: Ash (interpretation, retrieval, selection and verification supported, execution failed) at 60% and Brook (all supported except verification) at 80% are jointly consistent only under an implicit weighting of roughly 40 points combined for interpretation/retrieval/selection, 40 for execution, and 20 for verification. Mira's 50% with only interpretation and retrieval supported is not reproducible under that same weighting; it instead implies an equal-quarters rubric like the worked example's. Because the tasks differ, no single record is internally wrong, and every signed gap I recomputed (-15, -5, +15) is arithmetically correct. But the learner is asked in section 2 to 'interpret the confidence gap' against a scale they were never shown, which weakens exactly the matched-scale discipline the lesson elsewhere enforces well, and it removes the learner's ability to check the stated percentages.",
+      "resolution": "Declare the rubric weighting inside each practice record, as content/080 section 4 already does correctly for Record Delta (20/20/40/20), and confirm that each stated earned percentage follows from the weights given."
+    },
+    {
+      "severity": "note",
+      "target": "references.json#source-chen-retrieval-judgments, #source-carpenter-calibration-training, #source-debruin-monitoring-control and their mapped claims",
+      "finding": "All three external research sources are declared 'checked-no-agent-restriction-found' and I opened each directly rather than relying on the pack's description. Every bibliographic detail I checked is accurate and no citation is fabricated. Chen, Zhang and Liu (Frontiers in Psychology 2019, PMC6509741) do compare judgments of learning after test versus restudy trials and report higher correspondence with later accuracy after retrieval (gamma 0.655 vs 0.338 in the cued-recall experiment), which supports claim-retrieval-cues as worded, including its restriction to bounded laboratory tasks. Carpenter et al. (JEP:General 2019, PMC6390881) used a metacognitive-feedback group (n = 29) against an active performance-feedback control (n = 32) across 8 sessions, found improved calibration on the trained perceptual task, and reported generalization to untrained stimuli and an untrained recognition-memory task, matching claim-calibration-feedback including its 'small experimental groups' scope. De Bruin, Dunlosky and Cavalcanti (Medical Education 51(6), 2017, DOI 10.1111/medu.13267, PMC5434949) frame monitoring and control reciprocally and centre cue diagnosticity, supporting claim-monitoring-control. In each case the lesson states the finding at or below the strength the source supports, and marks author inference (claim-error-log-loop and claim-operational-categories are declared 'support: inference') rather than laundering it as established evidence.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "claims.json and the {source-note} block in each of the eleven files under content/",
+      "finding": "Claim-to-scene-to-source traceability is complete in both directions, which is unusual and worth recording as verified rather than assumed. For each of the 8 claims I checked that every sceneId listed in claims.json appears in that scene's learner-visible {source-note} :claims: list, and for each of the 11 scenes I checked that the :sources: list is a superset of the sourceIds required by the claims that scene cites. I found no omitted scene mapping, no orphan claim, and no source note citing evidence it does not carry. No scene declares 'no-material-claims', so there is no false negative declaration to test. The uncertainty and scope fields are substantive rather than boilerplate: claim-operational-categories explicitly concedes that real errors may involve interacting causes, task design, access barriers, or affect not represented by the five-link chain, and invites independent review of its instructional adequacy.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "content/040-calibration.md, content/070-retrieval.md, content/080-practice.md, assessment.json#item-calculate-gap, site/data/premed-graph.json",
+      "finding": "Every quantitative example, unit convention and graph mapping I recalculated independently is correct. Signed gaps: 85-55=+30, 45-80=-35, 90-50=+40, 70-45=+25, 35-50=-15, 55-60=-5, 95-80=+15, 80-0=+80, 65-40=+25, 75-40=+35, and both +10 values in the assessment. The Delta record reconciles exactly with its declared 20/20/40/20 rubric (20+20+0+0=40). Unit handling is correct throughout: a difference of two percentages is consistently reported in percentage points, not percent, and content/030 explicitly forbids subtracting a whole-answer probability from a partial-credit score. Graph fit is exact: PREM-01.04's outcome verbs (classify errors, calibrate confidence, choose the next learning action from evidence) correspond one-to-one with the three declared objectives, the prerequisite edge from PREM-01.03 and the successor edge to PREM-01.05 both exist as claim-curriculum-sequence asserts, and no scene teaches or assesses beyond that outcome. Epistemic boundaries are handled carefully: fictional cases are labelled fictional, trait language is repeatedly refused in favour of task-bounded statements, and the non-clinical, non-admissions boundary is stated in orientation and restated in the assessment callout.",
+      "resolution": "No change required."
+    }
+  ],
+  "limitations": [
+    "This is a single agent review run by a language model, not a credentialed metacognition researcher; it is one eligible academic vote and does not by itself establish quorum or merge readiness.",
+    "Source verification of the three external research articles was performed by fetching each PMC record and reading the abstract and reported results; I did not reanalyse primary data, inspect supplementary materials, or audit the studies' internal validity.",
+    "Per the assigned scope I did not read this pack's reviews/ directory, any adjudication draft, AUTHORING-BRIEF.md, the authoring conversation, or sibling lesson packs, so I cannot state whether other reviewers reached the same conclusions or whether the findings above were already raised.",
+    "The prerequisite lesson PREM-LPP-003 was not opened, so my judgement that the diagnostic in content/020 targets the right prior model rests on the graph outcome statement for PREM-01.03 and the lesson's own restatement of the durable-performance loop.",
+    "I did not run npm run validate or any build; my identity checks were git rev-parse HEAD, git status --porcelain, and manual comparison of lesson.json fields against the assigned identity, so structural schema conformance of the pack is unverified and separate from this academic verdict.",
+    "I assessed accessibility and rights material only where it bore on academic accuracy or evidence handling; agent-access status was checked before opening each source, but rights sufficiency, licence compatibility, and close-paraphrase analysis belong to the accessibility-and-rights role.",
+    "No conflict of interest and no dissent from a prior position: this run had no access to any earlier conclusion on this candidate, so the verdict reflects only the evidence recorded above.",
+    "This artifact has not been submitted to GitHub and contains no transport identifier; the instructionsDigest remains the supplied placeholder for the neutral operator to replace."
+  ],
+  "signedAt": "2026-07-20T03:58:46Z"
+}
