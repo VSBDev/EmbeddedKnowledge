@@ -126,7 +126,8 @@
 
   function updateCorpusState() {
     const counts = corpusCounts();
-    const percentage = outcomes.length ? Math.round((counts.published / outcomes.length) * 1000) / 10 : 0;
+    const rawPercentage = outcomes.length ? (counts.published / outcomes.length) * 100 : 0;
+    const percentage = Number.isInteger(rawPercentage) ? `${rawPercentage}` : rawPercentage.toFixed(1);
     document.querySelector("[data-course-state]").textContent = `${counts.published} of ${outcomes.length} outcomes published · ${counts.review} under review · ${counts.empty} empty`;
     document.querySelector("[data-index-coverage]").textContent = `${percentage}% published`;
     document.querySelector("[data-corpus-summary]").textContent = `${counts.published} published · ${counts.review} under review`;
