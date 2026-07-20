@@ -877,6 +877,34 @@
   text-transform: uppercase;
 }
 
+.reader-assessment-progress {
+  margin: 12px 0 0;
+  padding: 10px 12px;
+  background: #fffdf7;
+  border-left: 3px solid var(--blue);
+  color: var(--muted);
+  font: 700 11px/1.45 var(--mono);
+}
+
+.reader-assessment-progress.is-complete {
+  background: #edf5d5;
+  border-left-color: #6f852f;
+  color: var(--ink);
+}
+
+.reader-guided-mode .reader-assessment-progress {
+  display: inline;
+  margin: 0 0 0 8px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  font-size: 9px;
+}
+
+.reader-guided-mode .reader-assessment-progress.is-complete {
+  background: transparent;
+}
+
 .reader-check {
   margin-top: 18px;
   padding: 24px;
@@ -985,6 +1013,49 @@
 
 .reader-feedback .reader-feedback-reasoning {
   margin-top: 10px;
+}
+
+.reader-self-check {
+  margin-top: 16px !important;
+  padding: 16px !important;
+  background: #fffdf7;
+  border: 1px solid var(--ink) !important;
+}
+
+.reader-self-check legend {
+  padding: 0 8px;
+  font: 700 13px/1.35 var(--mono);
+  letter-spacing: .03em;
+}
+
+.reader-self-check-instructions,
+.reader-self-check-status {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.reader-self-check-status {
+  font: 700 11px/1.45 var(--mono);
+}
+
+.reader-self-check-status.is-complete {
+  color: #48600d;
+}
+
+.reader-self-check-option {
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr);
+  gap: 10px;
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+  cursor: pointer;
+}
+
+.reader-self-check-option input {
+  margin-top: 3px;
+  accent-color: var(--red);
 }
 
 .reader-attribution code,
@@ -1386,6 +1457,10 @@ body.reader-dark {
 }
 .reader-dark .reader-feedback { background: #302b27; }
 .reader-dark .reader-feedback.is-correct { background: #27321f; }
+.reader-dark .reader-assessment-progress,
+.reader-dark .reader-self-check { color: var(--reader-dark-text); background: #181b1e; border-color: #7598c2 !important; }
+.reader-dark .reader-assessment-progress.is-complete { background: #27321f; border-left-color: #a5bd54 !important; }
+.reader-dark .reader-self-check-status.is-complete { color: #c2d77b; }
 .reader-dark .reader-check-actions button.secondary { color: var(--reader-dark-text); border-color: #686d72; }
 .reader-dark .specimen-review-state { color: #171714; border-color: #171714; }
 .reader-dark kbd {

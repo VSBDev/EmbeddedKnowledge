@@ -44,6 +44,8 @@
   let focusMode = false;
   let viewMode = "guided";
   let indexFocusFrame = 0;
+  const manualCriterionState = new Map();
+  const manualProgressNodes = new Set();
   const frameOverflowObserver = typeof ResizeObserver === "function"
     ? new ResizeObserver(() => syncGuidedFrameScrolling())
     : null;
@@ -440,6 +442,45 @@
     return artifact.assessment?.items?.filter((item) => item.sceneId === sceneId) || [];
   }
 
+  function rubricForItem(item) {
+    if (!item?.rubricId) return null;
+    return artifact.assessment?.rubrics?.find((rubric) => rubric.id === item.rubricId) || null;
+  }
+
+  function isChoiceAssessment(item) {
+    return ["single-choice", "multiple-choice"].includes(item?.type)
+      || ["single-choice", "multiple-choice"].includes(item?.responseSpec?.mode);
+  }
+
+  function manualAssessmentCriteria() {
+    return (artifact.assessment?.items || []).flatMap((item) => {
+      if (isChoiceAssessment(item)) return [];
+      const rubric = rubricForItem(item);
+      return (rubric?.criteria || []).map((criterion) => ({
+        itemId: item.id,
+        criterion,
+        key: `${item.id}:${criterion.id}`
+      }));
+    });
+  }
+
+  function syncManualProgress() {
+    const criteria = manualAssessmentCriteria();
+    const met = criteria.filter(({ key }) => manualCriterionState.get(key) === true).length;
+    const complete = criteria.length > 0 && met === criteria.length;
+    const message = complete
+      ? `Criteria met: ${met}/${criteria.length} · complete · not saved.`
+      : `Criteria met: ${met}/${criteria.length} · not saved.`;
+    for (const node of manualProgressNodes) {
+      if (!node.isConnected) {
+        manualProgressNodes.delete(node);
+        continue;
+      }
+      node.textContent = message;
+      node.classList.toggle("is-complete", complete);
+    }
+  }
+
   function renderChoiceAssessment(item) {
     const form = create("form", "reader-check");
     form.dataset.checkId = item.id;
@@ -573,18 +614,77 @@
     feedback.hidden = true;
     feedback.setAttribute("role", "status");
     feedback.setAttribute("aria-live", "polite");
+    const rubric = rubricForItem(item);
+    const criteria = rubric?.criteria || [];
+    let selfCheck = null;
+    let itemStatus = null;
+    const criterionInputs = [];
+    if (criteria.length) {
+      selfCheck = create("fieldset", "reader-self-check");
+      selfCheck.hidden = true;
+      const legend = create("legend", null, "Manual criterion self-check");
+      const instructions = create(
+        "p",
+        "reader-self-check-instructions",
+        "After comparing the model reasoning with your response, mark each criterion that your response meets. You decide the marks; this page does not score, save, or submit them."
+      );
+      instructions.id = `${item.id}-self-check-instructions`;
+      itemStatus = create("p", "reader-self-check-status", `0 of ${criteria.length} criteria marked met.`);
+      itemStatus.id = `${item.id}-self-check-status`;
+      itemStatus.setAttribute("role", "status");
+      itemStatus.setAttribute("aria-live", "polite");
+      itemStatus.setAttribute("aria-atomic", "true");
+      selfCheck.setAttribute("aria-describedby", `${instructions.id} ${itemStatus.id}`);
+      selfCheck.append(legend, instructions, itemStatus);
+      for (const criterion of criteria) {
+        const key = `${item.id}:${criterion.id}`;
+        const option = create("label", "reader-self-check-option");
+        const input = create("input");
+        input.type = "checkbox";
+        input.name = `criterion-${item.id}`;
+        input.value = criterion.id;
+        input.checked = manualCriterionState.get(key) === true;
+        input.addEventListener("change", () => {
+          manualCriterionState.set(key, input.checked);
+          const itemMet = criterionInputs.filter((control) => control.checked).length;
+          itemStatus.textContent = `${itemMet} of ${criteria.length} criteria marked met.${itemMet === criteria.length ? " Item self-check complete." : " Review each unmarked criterion before retrying."}`;
+          itemStatus.classList.toggle("is-complete", itemMet === criteria.length);
+          syncManualProgress();
+        });
+        criterionInputs.push(input);
+        option.append(input, create("span", null, criterion.description));
+        selfCheck.append(option);
+      }
+    }
     actions.append(reveal, reset);
     form.append(label);
     if (stimulus) form.append(stimulus);
     form.append(textarea, actions, feedback);
+    if (selfCheck) form.append(selfCheck);
     form.addEventListener("submit", (event) => {
       event.preventDefault();
       feedback.hidden = false;
       feedback.replaceChildren(create("strong", null, "Model reasoning"), create("p", null, item.answer?.reasoning || item.answer?.correct || "Compare your response with the lesson model."));
+      if (selfCheck) {
+        selfCheck.hidden = false;
+        const itemMet = criterionInputs.filter((control) => control.checked).length;
+        itemStatus.textContent = `${itemMet} of ${criteria.length} criteria marked met.${itemMet === criteria.length ? " Item self-check complete." : " Review each unmarked criterion before retrying."}`;
+        syncManualProgress();
+      }
     });
     form.addEventListener("reset", () => {
       feedback.hidden = true;
       feedback.replaceChildren();
+      if (selfCheck) {
+        selfCheck.hidden = true;
+        for (const input of criterionInputs) {
+          input.checked = false;
+          manualCriterionState.set(`${item.id}:${input.value}`, false);
+        }
+        itemStatus.textContent = `0 of ${criteria.length} criteria marked met.`;
+        itemStatus.classList.remove("is-complete");
+        requestAnimationFrame(syncManualProgress);
+      }
     });
     return form;
   }
@@ -595,9 +695,18 @@
     const section = create("section", "reader-assessment");
     section.setAttribute("aria-label", "Interactive knowledge check");
     section.append(create("span", null, isSpecimen ? "UNTIMED SPECIMEN CHECK · DOES NOT RECORD PROGRESS" : "UNTIMED CHECK · DOES NOT RECORD PROGRESS"));
+    const hasManualItem = items.some((item) => !isChoiceAssessment(item) && (rubricForItem(item)?.criteria || []).length);
+    if (hasManualItem && manualAssessmentCriteria().length) {
+      const progress = create("p", "reader-assessment-progress");
+      progress.setAttribute("role", "status");
+      progress.setAttribute("aria-live", "polite");
+      progress.setAttribute("aria-atomic", "true");
+      manualProgressNodes.add(progress);
+      section.append(progress);
+      requestAnimationFrame(syncManualProgress);
+    }
     for (const item of items) {
-      const choiceItem = ["single-choice", "multiple-choice"].includes(item.type)
-        || ["single-choice", "multiple-choice"].includes(item.responseSpec?.mode);
+      const choiceItem = isChoiceAssessment(item);
       section.append(choiceItem ? renderChoiceAssessment(item) : renderTextAssessment(item));
     }
     fragment.append(section);
