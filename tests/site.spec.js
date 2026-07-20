@@ -536,6 +536,8 @@ test("a published lesson opens through its production route with keyboard and co
   await expect(page.locator("[data-artifact-id]")).toHaveText(lessonId);
   await expect(page.locator("[data-artifact-status]")).toHaveText("published · 1.0.0");
   await expect(page.locator(".reader-production-banner")).toContainText("OPEN PREMED LESSON");
+  await expect(page.locator("[data-publication-course]")).toHaveText("Current published lesson");
+  await expect(page.locator("[data-publication-access]")).toHaveText("Published open");
   await expect(page.locator("[data-scene-location]")).not.toHaveText("Artifact unavailable");
 
   await expect(page.locator(".reader-scene-header h1")).toHaveText(productionArtifact.scenes[0].title);
@@ -636,6 +638,7 @@ test("a published lesson opens through its production route with keyboard and co
   await expect(printDocument.locator(".reader-references")).toContainText(productionArtifact.references.sources[0].title);
   await expect(printDocument.locator(".reader-glossary dt")).toHaveCount(productionArtifact.glossary.terms.length);
   await expect(printDocument.locator(".reader-print-attribution")).toContainText("Attribution and provenance");
+  await expect(printDocument.locator(".reader-print-publication-state")).toHaveText("OPEN PREMED LESSON");
   await expect(printDocument.locator("h1")).toHaveCount(1);
   const duplicateIds = await page.locator("body").evaluate((body) => {
     const counts = new Map();
@@ -644,6 +647,56 @@ test("a published lesson opens through its production route with keyboard and co
   });
   expect(duplicateIds).toEqual([]);
   await expect(page.locator(".reader-shell")).toBeHidden();
+  expect(errors).toEqual([]);
+});
+
+test("a draft pending-review artifact is never represented as published or open", async ({ page }) => {
+  const [lessonIndex, specimen] = await Promise.all([
+    getJson(page.request, "data/premed-lessons.json"),
+    getJson(page.request, "data/lessons/specimen.json")
+  ]);
+  const indexedDraft = lessonIndex.lessons.find((lesson) => lesson.status === "draft" && lesson.sourceConfidence === "pending-review");
+  const draftArtifact = indexedDraft
+    ? await getJson(page.request, indexedDraft.dataUrl.replace(/^\//, ""))
+    : {
+        ...specimen,
+        artifactType: "production-lesson",
+        id: "PREM-LPP-001",
+        version: "0.0.0-test-candidate",
+        status: "draft",
+        sourceConfidence: "pending-review",
+        nonProduction: undefined,
+        countsTowardCoverage: undefined,
+        disclaimer: undefined
+      };
+
+  if (!indexedDraft) {
+    await page.route(`**/data/lessons/${draftArtifact.id}.json`, (route) => route.fulfill({
+      contentType: "application/json",
+      body: JSON.stringify(draftArtifact)
+    }));
+  }
+
+  const errors = collectRuntimeErrors(page);
+  await page.goto(route(`premed/lessons/read/?lesson=${draftArtifact.id}`), { waitUntil: "networkidle" });
+  await expect(page.locator("[data-reader-app]")).toHaveAttribute("data-publication-state", "draft");
+  await expect(page.locator("[data-reader-app]")).toHaveAttribute("data-source-confidence", "pending-review");
+  await expect(page.locator("[data-artifact-status]")).toContainText("draft");
+  await expect(page.locator("[data-publication-label]")).toHaveText("DRAFT LESSON CANDIDATE");
+  await expect(page.locator("[data-publication-copy]")).toContainText("Not published");
+  await expect(page.locator("[data-publication-copy]")).toContainText("source confidence: pending review");
+  await expect(page.locator("[data-publication-course]")).toHaveText("Current draft candidate");
+  await expect(page.locator("[data-publication-detail]")).toContainText("Not published");
+  await expect(page.locator("[data-publication-access]")).toHaveText("Not published — draft candidate");
+  await expect(page.locator('meta[name="description"]')).toHaveAttribute("content", /draft .* candidate/i);
+  await expect(page).toHaveTitle(/draft lesson candidate/i);
+  await expect(page.locator(".reader-production-banner")).not.toContainText("OPEN PREMED LESSON");
+
+  await page.emulateMedia({ media: "print" });
+  const printState = page.locator("[data-print-document] .reader-print-publication-state");
+  await expect(printState).toBeVisible();
+  await expect(printState).toHaveText("DRAFT LESSON CANDIDATE · NOT PUBLISHED");
+  await expect(page.locator("[data-print-document] .reader-print-title")).toContainText("source confidence pending review");
   expect(errors).toEqual([]);
 });
 
