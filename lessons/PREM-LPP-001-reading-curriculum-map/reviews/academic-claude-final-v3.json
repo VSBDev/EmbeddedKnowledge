@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-LPP-001-ACADEMIC-CLAUDE-FINAL-V3",
+  "lessonId": "PREM-LPP-001",
+  "lessonVersion": "0.1.3",
+  "candidateCommit": "65450762bc08691c54f92238b4ba8cabe62f8b07",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev (accountable operator) — academic review agent",
+    "agent": {
+      "system": "Claude Code",
+      "provider": "Anthropic",
+      "model": "claude-opus-4-8",
+      "version": "Claude Code CLI 2.1.215",
+      "runId": "claude-academic-final-v3-43cde99d-506c-4565-8935-3d73ba1cb78c",
+      "instructionsDigest": "sha256:caa2dd7c12c4e832eb97f3b6dde9291805cf1ae627865b1fcac70e253cb0875d"
+    }
+  },
+  "conflictOfInterest": { "declared": false, "details": null },
+  "evidenceChecked": [
+    "lesson.json#identity-version-status-riskTier-outcomes-prerequisites",
+    "lesson.json#objectives-to-outcome-mapping",
+    "lesson.json#scenes-order-kinds-claimCoverage-estimatedMinutes-sum-90",
+    "lesson.json#sourceConfidence",
+    "claims.json#claim-map-layers",
+    "claims.json#claim-map-link-types",
+    "claims.json#claim-map-route-resolution",
+    "claims.json#claim-map-label-scope",
+    "claims.json#claim-map-stable-identity",
+    "references.json#source-premed-knowledge-graph",
+    "glossary.json#term-core",
+    "glossary.json#term-pathway",
+    "glossary.json#term-evidence-confidence",
+    "glossary.json#term-source-tag",
+    "content/010-orientation.md#deliberate-exclusions-and-boundary-callout",
+    "content/020-diagnostic.md#invented-fragment-and-recovery-route",
+    "content/030-concept.md#three-layers-one-tracked-target",
+    "content/030-concept.md#two-links-with-different-jobs",
+    "content/030-concept.md#scope-labels-are-not-dependency-links",
+    "content/030-concept.md#a-four-pass-planning-model",
+    "content/040-worked-example.md#worked-example-orientation-route",
+    "content/050-misconception.md#misconception-every-edge-is-order",
+    "content/060-practice.md#supported-route-filter",
+    "content/060-practice.md#mixed-label-discrimination",
+    "content/070-retrieval.md#retrieval-map-legend",
+    "content/080-transfer.md#your-task",
+    "content/090-synthesis.md#your-map-reading-card",
+    "assessment.json#item-map-order",
+    "assessment.json#item-cross-link-order",
+    "assessment.json#item-label-boundary",
+    "assessment.json#item-route-plan",
+    "assessment.json#rubric-map-order",
+    "assessment.json#rubric-route-plan",
+    "ATTRIBUTION.md#source-use-and-rights",
+    "course/PREMED-KNOWLEDGE-GRAPH.md#2-data-contract-node-kinds-and-link-semantics",
+    "course/PREMED-KNOWLEDGE-GRAPH.md#3-identity-and-versioning-rules",
+    "course/PREMED-KNOWLEDGE-GRAPH.md#5.1-the-route-resolution-rule",
+    "course/PREMED-KNOWLEDGE-GRAPH.md#5.2-route-table-instrumentation-limitation",
+    "course/PREMED-KNOWLEDGE-GRAPH.md#6-source-and-evidence-model",
+    "site/data/premed-graph.json#schema.requirementLegend",
+    "site/data/premed-graph.json#schema.routeResolutionRule",
+    "site/data/premed-graph.json#pathways[].includesPortableCore",
+    "site/data/premed-graph.json#nodes/topic-orientation-map-and-pathways",
+    "site/data/premed-graph.json#links/prerequisite-chain-orientation-map-to-study-plan",
+    "site/data/premed-graph.json#metrics.routeTopicCounts-and-portableCoreTopics",
+    "scripts/build-premed-graph.mjs#effectiveRouteTopics-and-core-derivation",
+    "deterministic check: npm ci && npm run validate (passed; working tree unchanged)"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "content/030-concept.md#scope-labels-are-not-dependency-links",
+      "finding": "The route-resolution instruction treats every named route tag as a usable route. The lesson tells the learner that \"for a named route that includes the common core, the effective topic set combines topics whose pathway array names that route with topics whose core field is true\", and the transfer scene, retrieval model answer, and rubric criterion-route-scope all rehearse that rule without qualification. The authoritative source states a load-bearing limitation the lesson never surfaces: PREMED-KNOWLEDGE-GRAPH.md section 5.2 records that of the five syllabus routes only PW-US, PW-BIO and PW-QNT are instrumented in curriculum version 1.0, that PW-UK and PW-ES are documented but NOT instrumented, and that the uk-direct-entry and spain-bach-pau pathway tags \"are content filters ... not implementations of PW-UK or PW-ES\", so they cannot satisfy the syllabus 6.2 pathway-completion requirement and cannot yet receive lesson contributions. llms.txt states the same limitation in its opening summary. A UK or Spanish applicant — a central audience for a route-planning lesson — can apply the taught four-pass model to uk-direct-entry or spain-bach-pau, obtain a non-empty effective topic set (242 and 225 topics respectively in metrics.routeTopicCounts), and conclude they are following an instrumented route that the project explicitly says does not yet exist. This is an omitted model boundary inside the exact scope the lesson declares, not a pedagogical preference; the mapped outcome topic-orientation-map-and-pathways is \"Navigate domains, prerequisites, pathways, and evidence labels to plan a coherent route\", and lessons/README.md must-have 1 requires explicit route status.",
+      "resolution": "State the instrumentation boundary in the concept scene where the route rule is taught (a {callout} of kind boundary is sufficient): a route tag resolving to a topic set does not mean the route is instrumented, and in curriculum version 1.0 the uk-direct-entry and spain-bach-pau tags are content filters rather than implementations of the documented PW-UK and PW-ES routes. Reinforce it in the synthesis card's scope line, and record it in claims.json#claim-map-route-resolution scope or uncertainty rather than the current generic \"pathway instrumentation and route membership can change with a future curriculum version\", which describes future change instead of a present limitation."
+    },
+    {
+      "severity": "minor",
+      "target": "claims.json (all five claims, reviewStatus) and lesson.json#sourceConfidence",
+      "finding": "Every claim in claims.json is recorded as reviewStatus \"reviewed\" and lesson.json declares sourceConfidence \"high\", while this candidate commit is the object of an in-progress review cycle and carries status \"draft\". FORMAT.md section 6 and lessons/README.md section 9 treat both states as governance outputs: authors keep them pending during drafting, and independent review plus adjudication determine whether the resolved state is justified. The states therefore assert, inside the frozen candidate, a review conclusion that no completed quorum has reached for this exact commit. ATTRIBUTION.md discloses this honestly (\"Its retained claims and high source-confidence state record the completed approving cycle-2 reviews ... a fresh role quorum must confirm this exact candidate before adjudication\"), which is why this is not treated as blocking or as an epistemic misrepresentation, and the five claim statements are themselves accurate against the cited source.",
+      "resolution": "No change to claim content is required. Either return the retained claim states and sourceConfidence to their pending values until this candidate's quorum completes, or have adjudication explicitly record that it re-confirmed the carried-forward states for commit 6545076 rather than inheriting them from a superseded candidate."
+    },
+    {
+      "severity": "minor",
+      "target": "assessment.json#item-map-order (rubric-map-order/criterion-topic-role)",
+      "finding": "item-map-order uses responseSpec mode ordered-ids over three layer options, but rubric-map-order awards 1 of its 3 points under criterion-topic-role for \"Identifies the topic as the independently tracked observable outcome\". An ordered-ids response carries no evidence for that criterion independently of the ordering already scored by criterion-map-order, so a correct ordering scores the criterion by construction and an incorrect ordering cannot separate a containment-order error from a misunderstanding of what a topic is. The prompt also embeds the discriminating definition (\"the independently tracked observable outcome\"), further reducing what the item can evidence. The scene prose asks for the layer-role statement in words, so the construct is taught; only the scored item cannot capture it.",
+      "resolution": "Either merge the two criteria into a single 3-point ordering criterion, or extend the item with a short-answer part (or add the layer-role judgment to item-label-boundary) so the criterion has an observable response to score."
+    },
+    {
+      "severity": "note",
+      "target": "content/030-concept.md#scope-labels-are-not-dependency-links",
+      "finding": "Verified as correct and non-obvious. The lesson insists that common-core membership for the route rule comes from the core field (derived from requirement: portable-core) and that \"a portable-core entry in the pathway array is not the field that supplies common-core membership for this rule\". This is load-bearing rather than pedantic: scripts/build-premed-graph.mjs resolves routes as t.pathway.includes(route) || (includesPortableCore && t.core), and the current graph contains nine topics (the PREM integrative-capstones set) tagged portable-core in the pathway array with core false, so 221 pathway-tagged topics do not equal the 212 core topics. The lesson's statement that the portable-core route resolves to its own tagged set also matches pathways[0].includesPortableCore being false. The lesson is more precise here than the one-sentence schema.routeResolutionRule string read alone.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "content/040-worked-example.md#worked-example-orientation-route",
+      "finding": "The worked example was recomputed independently against site/data/premed-graph.json. All five outcome IDs exist; the declared direct prerequisites match the node records and the four prerequisite link objects exactly; each named node has no additional prerequisite that would lengthen the chain; and topic-orientation-map-and-pathways indeed has an empty prerequisite array, so the backward trace terminates correctly. The stated order map-and-pathways to diagnostic-baseline to mastery-and-retrieval to metacognition-and-error-log to study-plan is the unique prerequisite-respecting order, and the edge direction (prerequisite to dependent) matches the section 2 link-semantics table. The example correctly refuses to infer mastery, calendar, or admissions consequences from the chain.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "content/030-concept.md and glossary.json#term-evidence-confidence",
+      "finding": "Label semantics and epistemic boundaries were checked against PREMED-KNOWLEDGE-GRAPH.md sections 2, 3, 5 and 6 and match. The requirement legend is reproduced completely and accurately (portable-core, medicine-bridge, pathway, on-ramp, enrichment); sourceTags are correctly excluded from route membership; evidenceConfidence is correctly restricted to curricular placement and explicitly denied as a truth probability or a proportion of institutions requiring the topic; stable-ID identity matches the section 3 rule that mastery records key on topic id rather than index, title, or coordinates. Prerequisite/cross-link/containment semantics match the link table, including that cross-links are excluded from topological ordering. Non-clinical and admissions boundaries are stated in the orientation callout, the transfer task, and the synthesis card, and the transfer case (Noor, Harbor Medical School) is explicitly fictional and requires an external primary-source check rather than a guess. No fabricated citation, source, or quantitative result was found; the single cited source exists at the cited path on main, its agentAccess status is checked-no-agent-restriction-found, and it supports every claim attached to it.",
+      "resolution": "No change required."
+    }
+  ],
+  "limitations": [
+    "This is one academic review run and one eligible vote. It is not quorum, adjudication, merge readiness, or evidence that any learner achieved the mapped outcome.",
+    "Scope was limited to academic accuracy, evidence traceability, calculations and mappings, model boundaries, uncertainty, outcome scope, and assessment correctness. Learning-design and accessibility/rights judgments were deliberately not formed; in particular, whether the concept scene's requirement-legend glosses are original expression or close paraphrase of the source legend is left to the accessibility-and-rights role.",
+    "The sole cited source (source-premed-knowledge-graph) is an in-repository project specification and its generated dataset. Verification therefore establishes internal consistency with the project's own data contract and builder implementation; it cannot establish that the underlying curricular placements are externally correct.",
+    "Verification used the local checkout at candidate commit 65450762bc08691c54f92238b4ba8cabe62f8b07 (git rev-parse HEAD confirmed; working tree clean before and after checks). The cited HTTPS URL was confirmed to correspond to an existing file on the main branch locally; the live GitHub URL was not fetched over the network.",
+    "npm ci and npm run validate were run read-only and passed in full (graph, progress, lesson index, public copy, agent skills, agent protocol, and lesson packs), leaving no generated-output drift. Schema validity is a structural result and is reported separately from the academic verdict; it is not evidence of correctness.",
+    "Agent provenance above is disclosed and attested by the accountable operator, not verified by any platform. The instructionsDigest is the SHA-256 of the concatenated bytes of .agents/skills/review-embeddedknowledge-academic/SKILL.md followed by the operator's verbatim task instruction for this run; it excludes hidden platform system prompts that this runtime does not expose.",
+    "Per the role boundary, no other review artifact or adjudication text in this pack was read, so this verdict is reached independently and may duplicate, omit, or contradict findings recorded by other roles."
+  ],
+  "signedAt": "2026-07-20T00:06:35Z"
+}
