@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-LPP-003-ACADEMIC-CLAUDE-FINAL-V2-70B995505C71",
+  "lessonId": "PREM-LPP-003",
+  "lessonVersion": "0.1.1",
+  "candidateCommit": "0439b2f35ad05674c5d4935fc7df2eb35616efc6",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev (accountable operator) — isolated academic review agent",
+    "agent": {
+      "system": "Claude Code",
+      "provider": "Anthropic",
+      "model": "claude-opus-4-8",
+      "version": "2.1.215",
+      "runId": "claude-code-academic-prem-lpp-003-20260720-70b995505c71",
+      "instructionsDigest": "sha256:4eff25dee6a51e827bb172e6b09581159ae6ee79fa799acea5c410901b031163"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Founding-stage disclosure: the accountable principal github:VSBDev also operates the authoring, other review, and adjudication runs for this lesson, and both cited sources (research/CONTENT-AUTHORING-EVIDENCE-2026-07-19.md and CONTENT-STANDARD.md) are owned by the same project being reviewed. This run is isolated at the agent level with a distinct provider, model, and run ID, and did not read the authoring conversation, the authoring brief, the revision history, or any other review or adjudication artifact. Provenance is disclosed and attested by the operator, not verified."
+  },
+  "evidenceChecked": [
+    "lesson.json — identity, version 0.1.1, riskTier standard, outcome/prerequisite IDs, objectives, 10-scene order and claimCoverage, estimatedMinutes",
+    "lesson.json#estimatedMinutes — recomputed scene sum 7+8+18+15+8+10+18+12+10+9 = 115",
+    "site/data/premed-graph.json#topic-orientation-mastery-and-retrieval — outcome exists (PREM-01.03, foundation, module-orientation)",
+    "site/data/premed-graph.json#topic-orientation-diagnostic-baseline — prerequisite exists (PREM-01.02), matches the code cited in content/020-diagnostic.md",
+    "claims.json — all six claim records: statement, sceneIds, sourceIds, support, confidence, scope, uncertainty, risk, reviewStatus",
+    "references.json#source-authoring-evidence — type, locator, license, use, rights basis, agentAccess status checked-no-agent-restriction-found",
+    "references.json#source-content-standard — type official-standard, locator, license, use, agentAccess status",
+    "research/CONTENT-AUTHORING-EVIDENCE-2026-07-19.md — sections 4-9 and 12-13 opened directly and compared against every mapped claim",
+    "research/CONTENT-AUTHORING-EVIDENCE-2026-07-19.md — primary/meta-analytic records named there (Roediger & Karpicke 2006; Rowland 2014; Adesope 2017; Cepeda 2006; Brunmair & Richter 2019; Wisniewski 2020; Barbieri 2023; Tetzlaff 2025) checked for existence and characterization",
+    "CONTENT-STANDARD.md sections 2-10 and 13 — acceptance gates, epistemic-integrity rules, source-preference rules",
+    "content/010-orientation.md — objectives, bounded mastery definition, scope/exclusion callout, source-note claim and source coverage",
+    "content/020-diagnostic.md — baseline classification instructions, route decision, recovery route, source-note coverage",
+    "content/030-concept.md — three definitions, six-part loop, interleaving boundary paragraph, plan-field table and its linear equivalent",
+    "content/040-worked-example.md — task, givens/constraints/unknowns, model selection, five-row schedule, day-0 execution, check, interpretation, self-explanation prompt",
+    "content/040-worked-example.md — recomputed internal consistency of five mechanism parts against four causal-link criteria and the day-0 error count",
+    "content/050-retrieval-check.md — prompt-before-feedback order and the three feedback responses",
+    "content/060-misconception.md — prediction commitment, incorrect model, disconfirming condition, replacement model, same-case comparison, new-case recheck",
+    "content/070-practice.md — completion, supported, independent, and mixed-selection tasks with their feedback and answer keys",
+    "content/080-transfer.md — group coordination constraints, model response, decision rules, transfer justification",
+    "content/090-assessment.md — point breakdown, local 16/20 mastery convention, retry strategy, four remediation routes",
+    "content/100-synthesis.md — eight-question design audit, delayed/cumulative retrieval links, accessibility statement, educational boundary",
+    "assessment.json — four items, recomputed 2+6+6+6 = 20 points and rubric criterion maxPoints sums (2, 6, 6, 6)",
+    "assessment.json#item-distinguish-evidence — option set, correct key, reasoning, and the three common-error explanations",
+    "assessment.json#item-design-plan — answer model, acceptable responses, and common errors against claim-interleaving-conditional",
+    "assessment.json#item-adapt-plan — independently re-derived the three-attempt record and confirmed the answer key's supported/unsupported split",
+    "assessment.json#item-transfer-study-group — answer model, objective and outcome mapping",
+    "glossary.json — nine term records checked against their in-scene usage for definitional drift",
+    "ATTRIBUTION.md — license grant, agent disclosure, digest scope, source-use and no-third-party-asset statements",
+    "site/schemas/review.schema.json and .github/REVIEW_TEMPLATE/academic.md — artifact shape",
+    "git — verified HEAD and PR #6 head are 0439b2f35ad05674c5d4935fc7df2eb35616efc6, clean tree, and that pack teaching content last changed in fdba597 with only governance artifacts added afterwards",
+    "node scripts/validate-lessons.mjs and npm run validate — both pass; working tree unchanged afterwards"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "references.json#source-authoring-evidence, references.json#source-content-standard, claims.json#claim-retrieval-durability",
+      "finding": "Every material claim in this lesson resolves to exactly two project-owned documents: a self-published, non-peer-reviewed rapid synthesis authored by 'EmbeddedKnowledge contributors', and CONTENT-STANDARD.md, which is the design contract that governs this lesson. No primary study, meta-analysis, or external systematic review appears in references.json, although the repository's own synthesis names and links the underlying records for exactly these findings (Roediger & Karpicke 2006 for retrieval versus restudy at delay; Rowland 2014 and Adesope et al. 2017 for the testing-effect meta-analyses; Cepeda et al. 2006 for spacing and the retention-interval interaction; Brunmair & Richter 2019 for interleaving moderation; Wisniewski et al. 2020 for information-rich feedback; Barbieri et al. 2023 and Tetzlaff et al. 2025 for worked examples and expertise reversal). I opened the synthesis and confirmed that its characterizations of those records are accurate and appropriately hedged, so this is an evidence-traceability defect rather than a factual error. Two consequences follow. First, the evidence chain is circular for a lesson whose subject matter is the empirical literature itself: a learner or reviewer who follows claim-retrieval-durability arrives at the project's own summary of the research, not at the research, and CONTENT-STANDARD.md cannot serve as independent empirical support for the very design rules it prescribes. Second, claim-retrieval-durability carries confidence 'high' while its scope field limits it to 'the educational research summarized by the repository', so the recorded confidence attaches to a self-summary rather than to the underlying evidence base. CONTENT-STANDARD.md section 10 requires preferring primary standards, primary research, and systematic reviews and using synthesis sources for consensus while citing primary sources for specific findings 'when practical'; lessons/README.md section 9 repeats this. Citing them is plainly practical here because the records are already enumerated one file away in the same repository.",
+      "resolution": "Add complete references.json records (type primary-research or systematic-review, with DOI or durable identifier, version/date, locator, retrieval date, displayed license, use type, rights basis, and agent-access status) for at least the retrieval, spacing, interleaving, feedback, and worked-example/fading evidence, and attach them to claim-retrieval-durability, claim-spacing-retention-horizon, claim-interleaving-conditional, claim-feedback-recovery, and claim-guidance-fading. Retain source-authoring-evidence as a synthesis-level consensus source, and narrow source-content-standard to supporting project design conventions rather than empirical findings. If any primary record cannot be opened under the rights and agent-access policy, record that explicitly and lower the affected claim's confidence rather than leaving the project's own documents as the sole warrant."
+    },
+    {
+      "severity": "major",
+      "target": "claims.json#claim-mastery-performance (and all six claim records), lesson.json#sourceConfidence",
+      "finding": "All six claims are recorded with reviewStatus 'reviewed' and the lesson-level sourceConfidence is already resolved to 'medium-high', while lesson.json status is still 'draft' and no review of this candidate commit exists. lessons/README.md section 9 directs authors to 'keep authoring claims at pending-review', and FORMAT.md section 6 states that authors keep both states pending during drafting and that independent review and final adjudication determine whether publication is justified. The pack's own ATTRIBUTION.md records that version 0.1.1 was written in response to cycle-1 feedback, and git history shows that the teaching content, claims, references, assessment, and glossary were all rewritten at fdba597 for this version; under AGENTS.md and the quorum policy's staleReviewsAreDismissedAfterLessonChanges rule, any earlier-cycle approval was staled by that change and cannot support a 'reviewed' state on commit 0439b2f. The deterministic validator does not catch this, because it only enforces reviewed-claim and resolved-confidence requirements for published lessons. The consequence is an epistemic-integrity problem of exactly the kind the acceptance-gate table calls authority laundering: the artifact asserts a review state that this review is only now producing, and a downstream reader of the frozen pack cannot distinguish an author's self-assessment from an independent one.",
+      "resolution": "Set reviewStatus to 'pending-review' on all six claims and sourceConfidence to 'pending-review' in lesson.json for the review candidate, then let the governance sequence resolve both states after quorum and adjudication, as REVIEWING.md step 7 permits. If the author instead intends 'reviewed' to record an earlier cycle, that is not available here: the claims were rewritten for 0.1.1, so the earlier state does not transfer. This change is metadata only, but it changes the candidate commit and therefore requires a fresh freeze and a re-run of the reviews."
+    },
+    {
+      "severity": "minor",
+      "target": "content/100-synthesis.md#a-final-design-audit and content/080-transfer.md#model-response-after-your-attempt",
+      "finding": "Two scenes re-teach a material claim that their same-scene source note does not list. The synthesis scene's design-audit item 3 ('Recovery: Does feedback locate a relation and prescribe a next action?') restates the normative content of claim-feedback-recovery, but that claim maps to seven scenes and excludes scene-synthesis, and the scene's source note lists only claim-mastery-performance, claim-retrieval-durability, claim-spacing-retention-horizon, and claim-interleaving-conditional. Likewise, the transfer scene's decision rule ('A missing core relation triggers a focused worked model and an earlier renewed retrieval') applies claim-guidance-fading, which maps only to scene-worked-example, scene-practice, and scene-assessment. FORMAT.md section 6 and lessons/README.md section 9 both state that repeating or applying a material claim in another scene still requires that scene to map and visibly cite it. The instructional effect is small because both claims are correctly sourced elsewhere, but the per-scene evidence bridge that the format promises is incomplete at these two points.",
+      "resolution": "Add scene-synthesis to claim-feedback-recovery's sceneIds and scene-transfer to claim-guidance-fading's sceneIds, and extend the corresponding source-note claim lists so each note still names every source attached to its claims. Alternatively, reword the two passages so they route the learner back to the scene that carries the claim instead of restating it."
+    },
+    {
+      "severity": "minor",
+      "target": "references.json#source-content-standard",
+      "finding": "CONTENT-STANDARD.md is recorded with type 'official-standard'. In the references schema that value sits alongside 'primary-research', 'systematic-review', and 'guideline' and, in ordinary scholarly reading, signals a standard issued by an external standards body. CONTENT-STANDARD.md is the reviewed project's own internal authoring contract, published by the same principal who authored the lesson. Typing it as an official standard confers external authority the document does not have, which matters more than usual here because it is one of only two sources in the pack and is being used to support statements about what good instruction does. The schema offers 'other', which would be truthful without weakening the document's legitimate role.",
+      "resolution": "Change the type to 'other' (or 'guideline' if the project prefers) and make the record's notes state plainly that this is a project-internal design contract authored by the same principal, so that no reader mistakes it for an external standard."
+    },
+    {
+      "severity": "minor",
+      "target": "claims.json#claim-guidance-fading",
+      "finding": "The claim reads: 'Novices generally benefit from a complete worked model before support is faded through completion, supported, independent, mixed-selection, and transfer tasks', with confidence 'high' and support type 'synthesis'. The evidence supports the first half and the general fading principle: Barbieri et al. 2023 reports a medium average worked-example benefit and Tetzlaff et al. 2025 reports the expertise-reversal asymmetry, both correctly summarized in the repository synthesis section 4. It does not establish that specific five-stage ladder, which is a project-standard authoring construct from CONTENT-STANDARD.md section 6 rather than an empirical finding. As written, an authored progression is bundled into an evidence claim at high confidence. The worked-example scene handles the same risk well for its day gaps, stating openly that the schedule is an original teaching construction and not an empirical claim; the claim record should be equally careful.",
+      "resolution": "Split the claim, or reword it so the evidence-supported part (complete worked model first for novices, with assistance fading as demonstrated knowledge rises) is separated from the named five-stage sequence, which should be identified as this project's authored progression. Adjust confidence or the uncertainty field accordingly."
+    },
+    {
+      "severity": "note",
+      "target": "lesson.json, assessment.json, content/040-worked-example.md",
+      "finding": "Verified strengths, recorded as evidence actually recomputed rather than accepted. Arithmetic and internal consistency: scene minutes sum to exactly 115, matching estimatedMinutes; assessment items total 2+6+6+6 = 20, matching the twenty points stated in content/090-assessment.md, and each rubric's criterion maxPoints sums to its item's points, so the declared local gate of 16/20 with at least 4/6 on both plan design and transfer is internally coherent. The worked example is consistent: a five-part mechanism yields the four causal-link criteria it names, and the day-0 execution (all five parts, one of two missing links recovered, the parts two-to-three relation still absent) follows from the stated fragile baseline. The answer key for item-adapt-plan is correct on independent re-derivation: attempt 3's unprompted six-of-six on the original case does support improved unaided performance but does not establish the boundary discrimination the two failed criteria concern, because the final assessment uses a new case, so the prescribed changed-case opportunity is the right next step. Outcome and prerequisite IDs both exist in the current graph, and the code PREM-01.02 cited in the diagnostic scene's recovery route matches topic-orientation-diagnostic-baseline. Scope, uncertainty, and boundaries are handled unusually carefully throughout: the day gaps, the six-part loop, the decision rules, and the 16/20 threshold are each labelled as authored constructions rather than empirical optima, and the non-clinical, non-credential boundary appears in the orientation callout, the assessment scene, the synthesis scene, and ATTRIBUTION.md. The interleaving treatment correctly states the discrimination condition instead of presenting mixed practice as universally superior, and the misconception scene compares evidence conditions rather than banning rereading, which avoids the common overcorrection. I found no fabricated citation, no fabricated result, and no statement that could be mistaken for medical advice.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "lesson.json#estimatedMinutes",
+      "finding": "The lesson declares 115 minutes against a graph topic estimate of 2.5 hours (150 minutes) for topic-orientation-mastery-and-retrieval. This is not a defect — a lesson need not consume a topic's whole budget, and much of the remainder plausibly sits in the delayed retrieval the synthesis scene schedules into later lessons — but the gap is worth recording so a later coverage decision is made deliberately rather than by omission.",
+      "resolution": "No change required; optionally note in the pack where the remaining topic time is expected to be spent."
+    }
+  ],
+  "limitations": [
+    "Role isolation: this run deliberately did not open AUTHORING-BRIEF.md, REVISION-HISTORY.md, or any file under reviews/, and did not load any other governance role skill. Conclusions rest only on the frozen candidate, the repository's authoritative contracts, and the cited evidence synthesis.",
+    "Source verification depth: I opened source-authoring-evidence and source-content-standard directly, both of which are recorded checked-no-agent-restriction-found. The primary and meta-analytic records underlying the synthesis were checked for existence and for accurate characterization as reported there; I did not open each external publication or resolve each DOI in this run, so the finding about missing primary references concerns traceability in the pack, not a demonstrated misstatement of any individual study.",
+    "Expertise: this review applies learning-science and general research-methods judgment. It is not a psychometric evaluation, so the 16/20 local mastery gate was assessed only for internal coherence and for the honesty of its declared scope, not for measurement validity or reliability.",
+    "Out of role: learning-design alignment and accessibility, licensing, and asset-rights conclusions belong to the other two quorum roles and were not decided here, even where the content touched them.",
+    "Provenance is disclosed and attested by the accountable operator, not verified. The recorded runId, provider, model, version, and instructionsDigest are self-reported; the digest covers the exact discloseable operator task instructions for this run and excludes hidden provider and platform instructions.",
+    "One academic approval is one eligible vote. This artifact does not establish quorum or merge readiness."
+  ],
+  "signedAt": "2026-07-20T00:07:50Z"
+}
