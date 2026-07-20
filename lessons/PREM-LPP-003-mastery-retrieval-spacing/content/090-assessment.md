@@ -7,9 +7,9 @@ The assessment collects twenty points:
 1. distinguish retrieval evidence from exposure activity: 2 points;
 2. design a twelve-day plan from a fragile baseline: 6 points;
 3. interpret and adapt a three-attempt record: 6 points; and
-4. transfer the loop to a peer study group: 6 points.
+4. transfer the loop to a constrained laboratory partnership: 6 points.
 
-For this lesson's local mastery gate, a provisional success is at least 16 of 20 points, including at least 4 of 6 on both plan design and transfer. This threshold is an author-created assessment convention, not a universal psychometric definition of mastery. The criterion exists to prevent a correct recognition item from compensating for an inability to construct or adapt a plan.
+For this lesson's local mastery gate, a provisional success is at least 16 of 20 points, including at least 4 of 6 on plan design, at least 4 of 6 on interpretation and adaptation, and at least 4 of 6 on transfer. This threshold is an author-created assessment convention, not a universal psychometric definition of mastery. The criterion exists to prevent a correct recognition item or strength in one constructed response from compensating for an inability to construct, interpret, adapt, or transfer a plan.
 
 ## Answer and feedback conditions
 

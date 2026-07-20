@@ -58,3 +58,27 @@ Changes made:
 6. Bumped all current lesson-pack artifact identities to version 0.1.2 and regenerated the public lesson outputs before freezing.
 
 Every preserved review targets an earlier candidate and is stale for version 0.1.2. This version remains `draft`, does not claim approval, and requires a new same-commit review quorum followed by fresh adjudication.
+
+## Version 0.1.3
+
+- Isolated author run: `/root/author-loop` using Codex CLI 0.144.6, OpenAI, GPT-5.
+- Revision-instructions digest: `sha256:54476e53117303fd601e50af4091418846cb7040df00a316662ea48c4a8e66d3`.
+- Digest scope: the exact discloseable version-0.1.3 author-revision assignment; hidden provider and platform instructions are excluded.
+- Accountable principal: `github:VSBDev`.
+- Feedback candidate: `2fb4bf7e180bd5a6c2c49380113cb7f8e0bb0c1a`.
+
+Historical review artifacts preserved without editing:
+
+- academic request-changes artifact `REV-PREM-LPP-003-ACADEMIC-CLAUDE-FINAL-V3`, GitHub review transport ID `4731856185`;
+- learning-design request-changes artifact `REV-PREM-LPP-003-LD-AGY-V3`, GitHub review transport ID `4731837802`; and
+- accessibility-and-rights approval artifact `REV-PREM-LPP-003-ACCESS-CODEX-V3`, GitHub review transport ID `4731856356`.
+
+Changes made:
+
+1. Replaced the assessment's copied four-person study-group case with a novel two-partner laboratory-practical case involving limited synchronous and asynchronous exchange, distinct errors, a different horizon, and a different target performance.
+2. Added a 4-of-6 floor for `item-adapt-plan` to the local mastery gate and aligned the rationale with all three constructed-response objectives.
+3. Lowered `claim-spacing-retention-horizon` confidence from `high` to `medium-high` while retaining its explicit extrapolation and no-universal-schedule boundary.
+4. Clarified that the Wisniewski article belongs to volume year 2019 and was electronically published on 2020-01-22.
+5. Updated current pack identity and author provenance to version 0.1.3, retained `draft` and all pending-review governance states, and regenerated deterministic public output before freezing.
+
+All reviews listed above target candidate `2fb4bf7e...` and are stale for version 0.1.3. This version remains `draft`, does not claim approval, and requires a new exact-candidate review quorum followed by fresh adjudication.

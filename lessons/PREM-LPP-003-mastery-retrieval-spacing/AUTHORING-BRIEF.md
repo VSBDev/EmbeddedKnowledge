@@ -143,3 +143,16 @@ The continuing author run received the academic, learning-design, and accessibil
 - **Worked examples and fading:** Barbieri et al. (2023), DOI `10.1007/s10648-023-09745-1`, meta-analyzes worked examples in mathematics; Crissman (2006), durable identifier `AAI3208114`, meta-analyzes worked-example features including faded solution steps in structured domains; Tetzlaff et al. (2025), DOI `10.1016/j.learninstruc.2025.102142`, meta-analyzes assistance-by-prior-knowledge interactions. Together they support worked guidance and reducing assistance when learner performance can sustain more unaided work, not the lesson's exact five-stage progression.
 
 Crossref public REST metadata, the public ERIC record, and the University of Nebraska-Lincoln institutional repository record were checked on 2026-07-20 before use. The authoring agent used bibliographic metadata and public abstract-level information only, alongside the repository-owned synthesis; no access control was bypassed and no publisher full-text expression was copied. Each exact access route, displayed-license state, facts-only use, and limitation appears in `references.json`.
+
+## Revision brief for version 0.1.3
+
+The isolated author run received the academic, learning-design, and accessibility-and-rights reviews of candidate `2fb4bf7e180bd5a6c2c49380113cb7f8e0bb0c1a` as external feedback. Version 0.1.3 must:
+
+1. replace the scored transfer case that duplicated `scene-transfer` with a novel bounded context that changes the learners, time, availability, error patterns, retention horizon, old routine, and required performance while preserving the same transfer construct;
+2. require at least 4 of 6 on the item that solely measures interpretation and adaptation, so the local mastery gate matches its stated rationale and remediation floor;
+3. lower `claim-spacing-retention-horizon` confidence to `medium-high` because the cited distributed-practice evidence is extrapolated to spaced retrieval and a heterogeneous academic planning context;
+4. distinguish the Wisniewski record's 2019 volume year from its 2020-01-22 electronic publication date;
+5. bump every current pack identity to version 0.1.3 while keeping lesson source confidence and all claim review states pending for the new candidate; and
+6. preserve every review of candidate `2fb4bf7e...` unchanged as historical traceability rather than current approval.
+
+The revised transfer assessment uses two laboratory partners, a twenty-five-minute synchronous window, one written message each, distinct causal-link and boundary-condition errors, an eleven-day oral-practical horizon, and independent mechanism explanation plus control selection. These constraints are not copied from the learner-visible four-person study-group model, so the response must select and adapt the design loop rather than reproduce its displayed allocation.
