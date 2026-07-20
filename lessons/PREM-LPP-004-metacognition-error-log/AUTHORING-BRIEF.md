@@ -21,7 +21,7 @@ The diagnostic asks the learner to reconstruct the prerequisite target → retri
 The target model has five linked propositions:
 
 1. Metacognitive monitoring produces a judgment about current performance evidence; metacognitive control selects a next action from that judgment.
-2. Confidence becomes calibration evidence only when it predicts performance on the same declared scoring rule and scale used to observe the result. For an explicitly all-or-none 0/100 rubric, a probability of full credit may be expressed as predicted points and compared with the realized binary score; it is not compared with a partial-credit score.
+2. Confidence becomes calibration evidence only when it predicts performance on the same declared scoring rule and scale used to observe the result. For an explicitly all-or-none 0/100 rubric, a probability of full credit may be expressed as predicted points and compared with the realized binary score; it is not compared with a partial-credit score. Any non-extreme prediction yields a nonzero gap on one binary item, so that single gap records the realized outcome rather than judgment quality; only the average signed gap across several comparable all-or-none items can indicate aggregate calibration direction.
 3. An error classification is a provisional hypothesis about the earliest unsupported operation in a chain: interpret, retrieve, select, execute, or verify.
 4. A useful error-log entry links observation to hypothesis, targeted action, and a fresh probe. The entry is a decision aid, not evidence of mastery by itself.
 5. New performance evidence can revise both the error hypothesis and the confidence judgment; neither becomes a stable label for the learner.
@@ -40,7 +40,7 @@ Mastery evidence is a defensible classification–calibration–action chain acr
 
 - **High-value boundary:** the same wrong final answer can originate at interpretation, model selection, or execution; the output alone does not locate the first failed operation.
 - **High-value boundary:** a predicted rubric percentage can be compared with the resulting rubric percentage, whereas a probability that the whole answer is correct cannot be subtracted meaningfully from a partial-credit score.
-- **All-or-none exception:** on an explicitly binary 0/100 rubric, a full-credit probability can be expressed as predicted points on that same scale and compared with the realized 0-or-100 score; the record must mark this convention.
+- **All-or-none exception:** on an explicitly binary 0/100 rubric, a full-credit probability can be expressed as predicted points on that same scale and compared with the realized 0-or-100 score; the record must mark this convention. Any prediction strictly between 0 and 100 necessarily yields a nonzero one-item gap, so that gap records the outcome rather than the quality of the judgment. Only the average signed gap across several comparable all-or-none items can indicate aggregate calibration direction, and the finite average remains sample dependent.
 - **High-value boundary:** high predicted rubric performance with weak observed performance is a positive gap on that task, not proof of a fixed overconfident personality.
 - **High-value boundary:** a low predicted rubric percentage with strong observed performance calls for calibration feedback and later verification, not unnecessary reteaching of content already demonstrated.
 - **Near miss:** “reread the whole chapter” may expose the learner to relevant material but does not target a known selection or execution error and does not itself test whether repair occurred.
@@ -63,7 +63,7 @@ Practice fades as follows:
 
 1. completion task: fill the missing observation-to-category link;
 2. supported comparison: distinguish selection from execution using visible intermediate steps;
-3. unresolved case: preserve uncertainty while applying the explicitly marked all-or-none calibration convention;
+3. unresolved case: preserve uncertainty while applying the explicitly marked all-or-none convention and distinguishing one binary outcome from an average across comparable items;
 4. independent mixed case: reproduce an all-or-none analytic score, distinguish criterion execution from model selection, classify, calibrate, and choose a probe without a category prompt;
 5. transfer: redesign a score-only weekly review into a privacy-preserving evidence-to-action system.
 
@@ -71,9 +71,9 @@ Feedback states whether the chain is supported, names the first unresolved opera
 
 ## Delayed retrieval, remediation, and safety
 
-- Retrieve the `PREM-01.03` performance-target and delayed-probe model before using this lesson's log.
+- Reconstruct the `PREM-01.03` performance-target and delayed-probe model with this lesson's self-contained diagnostic before using the log; the graph prerequisite does not imply that another lesson pack is available.
 - Revisit one error-log entry only after completing its repair and a delayed, varied probe; compare the new evidence rather than copying the old label.
-- Carry aggregate action needs—not names, health data, accommodations, or private educational records—into `topic-orientation-study-plan`.
+- When later working on graph outcome `topic-orientation-study-plan`, carry aggregate action needs—not names, health data, accommodations, or private educational records—into that planning work; the graph link does not imply that a successor lesson pack exists.
 - All records are fictional or learner-owned and kept local. The lesson gives academic study-process guidance only.
 
 ## Source dossier
@@ -129,8 +129,8 @@ Feedback states whether the chain is supported, names the first unresolved opera
 
 - **Accountable principal:** `github:VSBDev`, verified with `gh api user --jq .login` on 2026-07-20.
 - **Agent:** Codex CLI / OpenAI / gpt-5.6-sol / Codex CLI 0.144.6.
-- **Run ID:** `codex-cli/7d0c9d38-d123-40d4-8f94-138ca26ca4da/author-revision-prem-lpp-004-v012`.
-- **Instructions digest:** `sha256:3a643c1ce1be8f63ff5fe17b812b63cc03687e34b9c454d54f7be8fec9e7eeb0`.
+- **Run ID:** `codex-cli/7d1c226f-ef3a-4d8a-a00a-f2e2dd711f28/author-revision-prem-lpp-004-v013`.
+- **Instructions digest:** `sha256:111002bc93fa5eb45b355d9035dea6ced047a0ecaae7848f7bfa89ad9b57c41d`.
 - **Digest scope:** SHA-256 of the complete nonempty author-revision instruction file supplied to this run; hidden provider/system instructions are excluded.
 
-Self-audit checks: trace every claim to its exact scope; reproduce every scored percentage from declared weights and dependencies; recompute calibration gaps; distinguish the external study's repeated-trial measures from the lesson's signed task-level gap; attempt all prompts before answer logic; verify the first-broken-link categories do not become personal labels; check continuous/nonvisual equivalents; verify original synthesis, source access, and absence of private data.
+Self-audit checks: trace every claim to its exact scope; reproduce every scored percentage from declared weights and dependencies; recompute calibration gaps; distinguish one analytic-rubric task from an average across comparable all-or-none items; distinguish the external study's repeated-trial measures from the lesson's signed task-level gap; verify every assessment response mode captures all rubric evidence; attempt all prompts before answer logic; resolve every route only to an in-pack scene or an explicitly identified graph outcome without assuming a sibling pack; verify the first-broken-link categories do not become personal labels; check continuous/nonvisual equivalents; verify original synthesis, source access, and absence of private data.

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "format": "embeddedknowledge-claims-v1",
   "lessonId": "PREM-LPP-004",
-  "lessonVersion": "0.1.2",
+  "lessonVersion": "0.1.3",
   "claims": [
     {
       "id": "claim-monitoring-control",
@@ -29,7 +29,7 @@
     },
     {
       "id": "claim-calibration-definition",
-      "statement": "Calibration concerns the relation between a confidence judgment and observed performance on a defined task; a signed predicted-minus-observed rubric gap is interpretable only when both values use the same declared scoring rule and scale, and it describes one task rather than a stable learner trait.",
+      "statement": "Calibration concerns the relation between a confidence judgment and observed performance under a declared scoring rule. A signed predicted-minus-observed gap on one analytic-rubric task describes only that task. When a full-credit probability is converted to points on an all-or-none 0/100 rubric, any prediction strictly between 0 and 100 produces a nonzero gap on one realized item; that single gap records the outcome, while the average signed gap across several comparable all-or-none items can indicate an aggregate calibration direction.",
       "sceneIds": [
         "scene-concept",
         "scene-calibration",
@@ -46,8 +46,8 @@
       ],
       "support": "synthesis",
       "confidence": "medium-high",
-      "scope": "Task-bounded comparison where confidence predicts the percentage of points on the same declared 0-100 rubric used to score observed performance.",
-      "uncertainty": "A single gap can be affected by rubric quality, scale use, task sampling, support, and timing; it does not estimate a stable personal disposition.",
+      "scope": "Task-bounded comparisons on a matched declared 0-100 scoring scale. The probability-to-points convention applies only to comparable all-or-none 0/100 items, and its calibration direction is interpreted from an average across several such items rather than from one binary outcome.",
+      "uncertainty": "Analytic-rubric gaps can be affected by rubric quality, scale use, task sampling, support, and timing. A finite average across all-or-none items is also sample dependent, does not measure every aspect of probabilistic calibration, and does not estimate a stable personal disposition.",
       "risk": "routine",
       "reviewStatus": "pending-review"
     },

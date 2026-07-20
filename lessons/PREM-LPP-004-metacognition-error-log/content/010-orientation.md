@@ -14,7 +14,7 @@ The lesson does **not** teach a universal psychological taxonomy, diagnose a per
 
 ## Route through the lesson
 
-First retrieve the durable-performance loop from `topic-orientation-mastery-and-retrieval`. Then build the monitoring–control model, learn the calibration calculation, inspect a complete worked record, repair a score-only response, practise with fading support, and redesign a weekly review system. The final assessment uses new fictional evidence.
+First reconstruct the durable-performance loop with the self-contained diagnostic in this lesson; the graph identifies `topic-orientation-mastery-and-retrieval` as the prerequisite outcome, but no separate lesson pack is assumed to be available. Then build the monitoring–control model, learn the calibration calculation, inspect a complete worked record, repair a score-only response, practise with fading support, and redesign a weekly review system. The final assessment uses new fictional evidence.
 
 ## Accessibility and alternatives
 

@@ -1,6 +1,6 @@
 # Retrieve the durable-performance loop
 
-Attempt this low-stakes check before reopening the prerequisite lesson. The purpose is to reveal which part of the prior model is available now.
+Attempt this low-stakes check for the prerequisite graph outcome `topic-orientation-mastery-and-retrieval`. Use the self-contained criterion and recovery scaffold below as the route; the graph link does not assert that another lesson pack exists. The purpose is to reveal which part of the prior model is available now.
 
 :::{check}
 :id: check-prerequisite-loop
@@ -31,7 +31,7 @@ If your sequence stops at rereading, use this self-contained recovery before con
 
 If you included an attempt and feedback but not a later probe, add step 5 now. If you cannot yet produce the target, unaided attempt, comparison, repair, and later probe even with this scaffold, pause this lesson and practise the five-step loop on two fictional tasks. If the loop is available but confidence feels separate, continue: this lesson will connect the two records explicitly.
 
-The graph places `topic-orientation-metacognition-and-error-log` after `topic-orientation-mastery-and-retrieval` and before `topic-orientation-study-plan`. This means the error record consumes performance evidence from the prior outcome and supplies decisions to the later plan; it does not mean every learner must use one fixed schedule.
+The graph places `topic-orientation-metacognition-and-error-log` after `topic-orientation-mastery-and-retrieval` and before `topic-orientation-study-plan`. This means the error record consumes performance evidence associated with the prerequisite outcome and supplies decisions to the later planning outcome; it does not mean that a lesson pack exists for either neighboring outcome or that every learner must use one fixed schedule.
 
 :::{source-note}
 :claims: claim-retrieval-cues, claim-curriculum-sequence

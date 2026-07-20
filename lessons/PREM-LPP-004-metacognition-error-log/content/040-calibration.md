@@ -12,7 +12,9 @@ For one task, let confidence $C$ be the learner's predicted percentage of points
 
 Read the expression as “predicted rubric percentage minus observed rubric percentage.” A prediction of 85% with rubric performance of 55% gives a gap of positive 30 percentage points. A prediction of 45% with performance of 80% gives negative 35 percentage points.
 
-The sign answers direction; the magnitude answers distance on the matched scoring scale. Neither answers why the gap occurred. A learner may predict the rubric inconsistently, a rubric may omit an important operation, or a single item may be noisy. Therefore record the task, scoring rule, support, and timing beside the numbers and look for a pattern across comparable probes. If confidence instead means the probability that the whole response is correct, do not subtract it from a partial-credit score; report the measures separately or use an all-or-none outcome.
+The sign answers direction; the magnitude answers distance on the matched scoring scale. Neither answers why the gap occurred. A learner may predict the rubric inconsistently, a rubric may omit an important operation, or a single item may be noisy. Therefore record the task, scoring rule, support, and timing beside the numbers and look for a pattern across comparable probes.
+
+If confidence instead means the probability that the whole response is correct, do not subtract it from a partial-credit score. Report the measures separately, or explicitly convert the probability to predicted points only when the realized rubric is all-or-none: 0 points for incorrect and 100 points for correct. On one such item, every prediction strictly between 0 and 100 must produce a nonzero gap because the realized result can only be 0 or 100. That single gap records which binary outcome occurred, not the quality of the probability judgment. Only the average signed gap across several comparable all-or-none items can indicate an aggregate calibration direction, and even that finite average remains sample dependent.
 
 ## Calibrate a judgment, not a person
 

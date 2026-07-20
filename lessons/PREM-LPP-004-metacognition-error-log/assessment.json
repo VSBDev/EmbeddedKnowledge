@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "format": "embeddedknowledge-assessment-v1",
   "lessonId": "PREM-LPP-004",
-  "lessonVersion": "0.1.2",
+  "lessonVersion": "0.1.3",
   "assessmentId": "assessment-metacognition-error-log",
   "title": "Metacognition and error-log mastery evidence",
   "purpose": "mixed",
@@ -69,7 +69,7 @@
     },
     {
       "id": "item-calculate-gap",
-      "type": "numeric",
+      "type": "short-answer",
       "sceneId": "scene-assessment",
       "objectiveIds": [
         "objective-calibrate-confidence"
@@ -77,23 +77,23 @@
       "outcomeIds": [
         "topic-orientation-metacognition-and-error-log"
       ],
-      "prompt": "After committing a response, a learner predicts earning 75% of the points on the declared analytic rubric and then earns 40%. Calculate predicted rubric percentage minus observed rubric percentage. Enter the signed gap in percentage points; then compare your interpretation with the answer reasoning.",
+      "prompt": "After committing a response, a learner predicts earning 75% of the points on the declared analytic rubric and then earns 40%. Calculate predicted rubric percentage minus observed rubric percentage. Enter the signed gap in percentage points and one sentence interpreting what it means on this task without assigning a trait to the learner.",
       "stimulus": null,
       "points": 3,
       "responseSpec": {
-        "mode": "number",
-        "units": "percentage points",
-        "tolerance": 0
+        "mode": "text",
+        "maxLength": 500
       },
       "answer": {
-        "correct": 35,
-        "summary": "The signed calibration gap is positive 35 percentage points.",
+        "correct": "+35 percentage points; predicted rubric performance exceeded observed rubric performance on this task.",
+        "summary": "The signed calibration gap is positive 35 percentage points, and the task-bounded interpretation is required.",
         "reasoning": "Predicted rubric percentage minus observed rubric percentage is 75 minus 40, which equals positive 35 percentage points. The prediction exceeded observed rubric performance on this task. The result neither locates the error nor establishes an overconfident personality; those require process evidence and a pattern across comparable probes.",
         "acceptableResponses": [
-          "+35 percentage points",
-          "35 percentage points, with confidence above performance on this task"
+          "+35 percentage points; predicted rubric performance exceeded observed rubric performance on this task.",
+          "Positive 35 percentage points, meaning the prediction was above the earned rubric percentage for this response; it does not establish a learner trait."
         ],
         "commonErrors": [
+          "Giving only 35 omits the required task-bounded interpretation.",
           "Negative 35 reverses the declared confidence-minus-performance convention.",
           "Calling the learner overconfident converts one task result into an unsupported trait label.",
           "Using 75% as the performance estimate discards the rubric evidence."

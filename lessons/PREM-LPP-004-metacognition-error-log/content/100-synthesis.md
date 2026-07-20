@@ -21,7 +21,7 @@ Read linearly, each row states evidence, hypothesis, action, and fresh probe. Th
 
 ## Confidence route
 
-For each matched task, compute predicted rubric percentage minus observed rubric percentage. Describe the direction and size on that task. Look for a pattern across comparable, delayed, or varied probes before changing the confidence routine. If predictions repeatedly exceed performance, require the learner to cite observable response evidence before predicting a score. If predictions repeatedly fall below strong performance, compare the completed response with the rubric and schedule another independent verification. When confidence and performance do not use the same scoring rule, keep them separate. Research using repeated trial-level quadratic and signal-detection measures shows that confidence–accuracy correspondence can respond to targeted feedback, but those measures are not this lesson's $G$; no one study or log establishes how the signed gap will change or guarantees general transfer.
+For each analytic-rubric task, compute predicted rubric percentage minus observed rubric percentage and describe the direction and size only on that task. Look for a pattern across comparable, delayed, or varied probes before changing the confidence routine. For all-or-none 0/100 tasks, a non-extreme prediction necessarily produces a nonzero gap on every item, so one gap records the realized outcome rather than judgment quality; use only the average signed gap across several comparable all-or-none items to interpret aggregate calibration direction. If an adequately sampled pattern or average remains positive, require the learner to cite observable response evidence before predicting a score. If it remains negative despite strong performance, compare the completed responses with their rubrics and schedule another independent verification. When confidence and performance do not use the same scoring rule, keep them separate. Research using repeated trial-level quadratic and signal-detection measures shows that confidence–accuracy correspondence can respond to targeted feedback, but those measures are not this lesson's $G$; no one study or log establishes how the signed gap will change or guarantees general transfer.
 
 ## Recovery route
 
@@ -31,9 +31,9 @@ For each matched task, compute predicted rubric percentage minus observed rubric
 - If your actions remain broad, force a one-sentence link: “Because the record first fails at ___, the next activity will exercise ___, and the fresh probe will show ___.”
 - If a response format caused the apparent failure, change the medium while preserving the reasoning. A barrier in handwriting, visual layout, speech, pointing, or speed is not automatically a content error.
 
-## Delayed link to the study plan
+## Delayed graph link to the study-plan outcome
 
-Carry forward only the current action, fresh-probe timing, and relevant task ID into `topic-orientation-study-plan`. The Premed graph makes this lesson a prerequisite for that planning outcome. Reopen the evidence after the fresh probe and revise the plan; do not freeze the original category into a learner profile.
+When you later work on graph outcome `topic-orientation-study-plan`, carry forward only the current action, fresh-probe timing, and relevant task ID. The Premed graph makes the present outcome a prerequisite for that planning outcome, but a graph link does not assert that a separate successor lesson pack exists, and the self-contained recovery route in this lesson does not require one. Reopen the evidence after the fresh probe and revise the plan; do not freeze the original category into a learner profile.
 
 :::{source-note}
 :claims: claim-monitoring-control, claim-calibration-definition, claim-retrieval-cues, claim-error-log-loop, claim-operational-categories, claim-calibration-feedback, claim-curriculum-sequence, claim-actionable-feedback
