@@ -500,7 +500,7 @@ During the founding stage, quorum counts isolated, disclosed agent review runs. 
 | Standard lesson | 3 | 1 academic; 1 learning-design; 1 accessibility/rights | 1 fresh run |
 | High-impact lesson | 5 | 3 academic; 1 learning-design; 1 accessibility/rights | 1 fresh run |
 
-Every counted review must approve the same candidate commit. A lesson-content change makes prior approvals stale. A standard set uses three unique review run IDs and three distinct providers. Review agents receive the frozen candidate and role prompt without inheriting the authoring conversation. The adjudicator receives the candidate plus complete review record in a fourth run whose ID appears nowhere in authoring or review provenance.
+Every counted review must approve the same candidate commit. A lesson-content change makes prior approvals stale. After merge adjudication, only lesson status/source-confidence and retained claims' review-status fields may be promoted without changing that candidate identity; every other lesson or claims-ledger edit stales the approvals. A standard set uses three unique review run IDs and three distinct providers. Review agents receive the frozen candidate and role prompt without inheriting the authoring conversation. The adjudicator receives the candidate plus complete review record in a fourth run whose ID appears nowhere in authoring or review provenance.
 
 **Provenance is disclosed and attested, not verified.** Run IDs, providers, models, versions, and instruction digests are self-reported strings; nothing in the platform confirms that a declared run occurred or used the declared provider. The accountable operator attests to them on the public record, and the validators enforce only internal consistency: distinct run IDs, distinct declared providers, role minimums, and one frozen candidate commit. Do not describe the diversity rule as verified independence.
 
@@ -559,10 +559,10 @@ Lesson review is a public, structured sequence attached to one pull request. Git
 4. Three isolated review agents inspect that commit using the academic, learning-design, and accessibility/rights templates.
 5. The author copies each validated JSON block exactly into `reviews/*.json` without rewriting the reviewer’s findings.
 6. When the 3-agent role quorum is satisfied, a fourth fresh agent run submits the structured final adjudication.
-7. The author copies that block exactly to `adjudication.json` and changes only the permitted `lesson.json` status/source-confidence fields, ending at `published` before merge.
+7. The author copies that block exactly to `adjudication.json` and changes only the permitted `lesson.json` status/source-confidence fields and retained `claims.json` claim `reviewStatus` fields, ending at `published` with every retained claim `reviewed` before merge.
 8. Merge readiness verifies schema, graph identity, quorum, GitHub provenance, candidate immutability, and the adjudication decision.
 
-Review artifacts are evidence, not endorsements of the project as a whole. Findings and declared limitations remain published with the lesson record. A requested change that modifies teaching content creates a new candidate commit and stales every earlier approval.
+Review artifacts are evidence, not endorsements of the project as a whole. Findings and declared limitations remain published with the lesson record. A requested change that modifies teaching content or any claims-ledger field other than retained claims' `reviewStatus` creates a new candidate commit and stales every earlier approval.
 
 Editing or dismissing a structured GitHub review invalidates its committed provenance. The review-event workflow fails, the contributor must replace or reconcile the portable artifact, and the pull-request head validation must run again. The open-PR lesson index counts only equivalent GitHub submissions whose identity, state, and reviewed commit remain eligible.
 
@@ -1371,7 +1371,7 @@ These sources support the bounded definitions used above.
 
 Listing a source does not grant reuse rights. Follow [`RIGHTS-POLICY.md`](RIGHTS-POLICY.md): default to facts-only research and an independently created instructional structure and expression; do not closely paraphrase. Any quotation, adaptation, media redistribution, or dataset extraction must use a permitted recorded basis. Agent-access terms are checked separately, and an authoring agent may not process a `human-only` source. `confidence: high` means strong support within the stated scope; it does not mean universal applicability, clinical authority, or exemption from review.
 
-A `published` lesson may contain only claims whose `reviewStatus` is `reviewed`, and its lesson-level `sourceConfidence` may not remain `pending-review`. Authors keep both states pending during drafting; independent review and final adjudication determine whether publication is justified.
+A `published` lesson may contain only claims whose `reviewStatus` is `reviewed`, and its lesson-level `sourceConfidence` may not remain `pending-review`. Authors keep both states pending in the frozen candidate; independent review and final adjudication determine whether publication is justified. After a merge adjudication, the operator may promote only retained claims' `reviewStatus` values and the permitted lesson status/source-confidence fields. Any other claim-ledger or lesson-content change stales the reviews.
 
 Health-sensitive and safety-critical claims must be labelled in `claims.json`. Existing risk-tier, review-quorum, correction, and adjudication rules continue to govern them.
 
@@ -1706,7 +1706,7 @@ Source expectations:
 - reuse expression, media, or datasets only under a permitted basis in `RIGHTS-POLICY.md`, and record it separately from academic citation;
 - check source terms before agent access and never let an agent process a source recorded as `human-only`;
 - check that every cited URL/identifier resolves and that the source supports the attached claim before review.
-- keep authoring claims at `pending-review`; publication requires every retained claim to be `reviewed` and lesson source confidence to be resolved by the governance workflow.
+- keep authoring claims at `pending-review` in the frozen candidate; after exact-candidate quorum and merge adjudication, promote only retained claims' `reviewStatus` fields and permitted lesson status/source-confidence fields. Publication requires every retained claim to be `reviewed` and lesson source confidence to be resolved.
 
 References are rendered from structured records. A hand-maintained prose bibliography may add context but cannot replace `references.json` and `claims.json`.
 
@@ -4014,6 +4014,7 @@ The project should preregister or at least version the question, outcome, analys
     "quorumSnapshotMustBeSatisfied": true,
     "finalAdjudicationFileMustBeCommittedWithLesson": true,
     "adjudicationRunMustBeFresh": true,
+    "postCandidateMutableFields": ["lesson.json.status", "lesson.json.sourceConfidence", "claims.json.claims[].reviewStatus"],
     "staleReviewsAreDismissedAfterLessonChanges": true
   }
 }
