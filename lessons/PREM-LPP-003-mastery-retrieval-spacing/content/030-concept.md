@@ -20,7 +20,7 @@ A **target performance** states what the learner will generate or do, without wh
 :id: definition-spacing
 :label: Spacing and retention horizon
 
-**Spacing** distributes learning or retrieval opportunities across time. A **retention horizon** is the future period over which the learner needs to retain and use the target knowledge. The horizon constrains the plan, but neither the evidence nor this lesson supplies one best gap for every learner and task.
+**Spacing** distributes learning or retrieval opportunities across time. A **retention horizon** is the whole future period over which the learner needs to retain and use the target knowledge. It constrains the plan. In the cited spacing literature, the technical **retention interval** is narrower: it is the time from the last practice opportunity to the later test. Neither term supplies one best gap for every learner and task.
 :::
 
 ## The six-part loop

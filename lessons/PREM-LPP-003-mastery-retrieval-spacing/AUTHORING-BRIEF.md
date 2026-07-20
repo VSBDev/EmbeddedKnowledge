@@ -24,7 +24,7 @@ The target model has five linked propositions:
 2. Elicit that performance from memory before reopening the source.
 3. Compare the attempt with an answer model or rubric, diagnose the error, and take a specific recovery action.
 4. Retrieve again after a delay and with some contextual variation so later performance, rather than immediate fluency, informs the mastery judgment.
-5. Adapt support, delay, and mixture to the learner's performance and the required retention interval. The worked schedule is one defensible example, not a universal formula.
+5. Adapt support, delay, and mixture to the learner's performance and the required planning horizon. The cited retention interval is the narrower post-practice interval before a later test. The worked schedule is one defensible example, not a universal formula.
 
 ## Observable objectives and mastery evidence
 
@@ -140,9 +140,9 @@ The continuing author run received the academic, learning-design, and accessibil
 - **Spacing:** Cepeda et al. (2006), DOI `10.1037/0033-2909.132.3.354`, quantitatively synthesizes distributed practice in verbal recall and the relation between spacing and desired retention interval. It does not supply one universal retrieval schedule, and its base concerns distributed presentations more broadly than retrieval alone.
 - **Interleaving:** Brunmair and Richter (2019), DOI `10.1037/bul0000209`, analyzes interleaving and its moderators. Material similarity and task type constrain the result, so the lesson uses interleaving conditionally for discrimination after initial acquisition.
 - **Feedback:** Wisniewski, Zierer, and Hattie (2020), DOI `10.3389/fpsyg.2019.03087`, meta-analyzes educational feedback and reports substantial heterogeneity. The lesson uses correctness, process, and next-action information as a bounded design model, not a universal feedback script.
-- **Worked examples and fading:** Barbieri et al. (2023), DOI `10.1007/s10648-023-09745-1`, meta-analyzes worked examples in mathematics; Crissman (2006), durable identifier `AAI3208114`, meta-analyzes worked-example features including faded solution steps in structured domains; Tetzlaff et al. (2025), DOI `10.1016/j.learninstruc.2025.102142`, meta-analyzes assistance-by-prior-knowledge interactions. Together they support worked guidance and reducing assistance when learner performance can sustain more unaided work, not the lesson's exact five-stage progression.
+- **Worked examples and performance-sensitive assistance:** Barbieri et al. (2023), DOI `10.1007/s10648-023-09745-1`, meta-analyzes worked examples in mathematics; Tetzlaff et al. (2025), DOI `10.1016/j.learninstruc.2025.102142`, meta-analyzes assistance-by-prior-knowledge interactions. Independently synthesized, these permitted records support a complete model during early acquisition and adjustment of assistance as demonstrated knowledge and performance change; they do not establish the lesson's exact five-stage progression. The Crissman record listed in the version-0.1.2 brief was removed in version 0.1.4 because its linked terms did not permit agent processing, and no claim or lesson expression retains agent-derived material from it.
 
-Crossref public REST metadata, the public ERIC record, and the University of Nebraska-Lincoln institutional repository record were checked on 2026-07-20 before use. The authoring agent used bibliographic metadata and public abstract-level information only, alongside the repository-owned synthesis; no access control was bypassed and no publisher full-text expression was copied. Each exact access route, displayed-license state, facts-only use, and limitation appears in `references.json`.
+Crossref public REST metadata and the public ERIC record were checked on 2026-07-20 before retained use. The authoring agent used permitted bibliographic metadata and public abstract-level information only; no access control was bypassed and no publisher full-text expression was copied. The earlier University of Nebraska-Lincoln repository record and every agent-derived use of it were removed after its linked terms were found incompatible with agent processing. Each retained access route, displayed-license state, facts-only use, and limitation appears in `references.json`.
 
 ## Revision brief for version 0.1.3
 
@@ -156,3 +156,17 @@ The isolated author run received the academic, learning-design, and accessibilit
 6. preserve every review of candidate `2fb4bf7e...` unchanged as historical traceability rather than current approval.
 
 The revised transfer assessment uses two laboratory partners, a twenty-five-minute synchronous window, one written message each, distinct causal-link and boundary-condition errors, an eleven-day oral-practical horizon, and independent mechanism explanation plus control selection. These constraints are not copied from the learner-visible four-person study-group model, so the response must select and adapt the design loop rather than reproduce its displayed allocation.
+
+## Revision brief for version 0.1.4
+
+The isolated author run received the academic and learning-design approvals and accessibility-and-rights request-changes review of candidate `54f10aa5d4e3d0d226426dd3a70b611ad0572dc1` as external feedback. Version 0.1.4 must:
+
+1. remove `source-crissman-2006` because the linked terms prohibit the declared agent processing, and remove every agent-derived claim, source-note, and evidence-dossier use of that record;
+2. independently reauthor the guidance-fading evidence bridge from the permitted Barbieri worked-example and Tetzlaff expertise-reversal records without treating the project-authored five-stage sequence as an empirical result;
+3. distinguish the whole planning retention horizon from the technical post-practice retention interval;
+4. make clear that immediate discrimination practice is acceptable for already taught, confusable models and that the unfamiliar-model warning applies only when a usable initial representation is absent;
+5. qualify the machine-readable assessment title as a provisional mastery gate;
+6. add a concise post-attempt exemplar showing how Noor's word-cue error changes recovery, renewed retrieval, task variation, and the next opportunity; and
+7. bump current pack identity to 0.1.4 while preserving draft and pending-review governance states for a new exact candidate.
+
+The removed record is not relabelled or retained as human-only evidence. It no longer appears in `references.json`, any claim source list, or any learner-visible source note. Historical review artifacts and revision records remain unchanged evidence of what earlier candidates contained; they do not support version 0.1.4.

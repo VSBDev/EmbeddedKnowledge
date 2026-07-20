@@ -34,7 +34,7 @@ After remediation, use the equivalent retry form. Do not infer durable mastery f
 
 :::{source-note}
 :claims: claim-mastery-performance, claim-retrieval-durability, claim-spacing-retention-horizon, claim-feedback-recovery, claim-interleaving-conditional, claim-guidance-fading
-:sources: source-authoring-evidence, source-content-standard, source-roediger-karpicke-2006, source-adesope-et-al-2017, source-cepeda-et-al-2006, source-wisniewski-et-al-2020, source-brunmair-richter-2019, source-barbieri-et-al-2023, source-crissman-2006, source-tetzlaff-et-al-2025
+:sources: source-authoring-evidence, source-content-standard, source-roediger-karpicke-2006, source-adesope-et-al-2017, source-cepeda-et-al-2006, source-wisniewski-et-al-2020, source-brunmair-richter-2019, source-barbieri-et-al-2023, source-tetzlaff-et-al-2025
 
-The assessment samples discrimination, design, interpretation, and transfer rather than treating one familiar response as mastery. Its retrieval, feedback, delayed practice, and adaptive assistance are grounded in the bounded external evidence; their particular sequencing, retry form, and remediation routes follow the project-authored standard. The local point threshold is explicitly a lesson convention and awaits independent review; it is not a research-derived universal cutoff.
+The assessment samples discrimination, design, interpretation, and transfer rather than treating one familiar response as mastery. Its retrieval, feedback, delayed practice, worked-model support, and performance-sensitive assistance are grounded in the bounded permitted evidence; their particular sequencing, retry form, and remediation routes follow the project-authored standard. The local point threshold is explicitly a lesson convention and awaits independent review; it is not a research-derived universal cutoff.
 :::

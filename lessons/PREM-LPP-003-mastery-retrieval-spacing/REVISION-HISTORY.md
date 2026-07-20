@@ -50,7 +50,7 @@ Historical review artifacts preserved without editing:
 
 Changes made:
 
-1. Added direct external evidence records for retrieval, spacing, interleaving, feedback, worked examples, faded solution steps, and assistance-by-prior-knowledge effects, with exact DOI or durable identifiers, bibliographic metadata, scope limits, displayed-license states, facts-only rights bases, and dated agent-access records.
+1. Added direct external evidence records for retrieval, spacing, interleaving, feedback, worked examples, and assistance-by-prior-knowledge effects then in scope, with exact DOI or durable identifiers, bibliographic metadata, scope limits, displayed-license states, facts-only rights bases, and dated agent-access records. Version 0.1.4 later removed one incompatible record and every material use derived from it.
 2. Reclassified `source-content-standard` from `official-standard` to `other` and disclosed that it is a project-internal contract authored by the same project and principal, not external empirical authority.
 3. Reset every claim `reviewStatus` and lesson `sourceConfidence` to `pending-review` for the new author candidate.
 4. Mapped `claim-feedback-recovery` to `scene-synthesis` and `claim-guidance-fading` to `scene-transfer`, then updated their learner-visible source notes with complete source coverage.
@@ -82,3 +82,29 @@ Changes made:
 5. Updated current pack identity and author provenance to version 0.1.3, retained `draft` and all pending-review governance states, and regenerated deterministic public output before freezing.
 
 All reviews listed above target candidate `2fb4bf7e...` and are stale for version 0.1.3. This version remains `draft`, does not claim approval, and requires a new exact-candidate review quorum followed by fresh adjudication.
+
+## Version 0.1.4
+
+- Isolated author run: `/root/author-loop` using Codex CLI 0.144.6, OpenAI, GPT-5.
+- Revision-instructions digest: `sha256:f2122a6d54ed92adcf12ee5436c7be69107499f2276adf9cecebeed6f23204f9`.
+- Digest scope: the exact discloseable version-0.1.4 author-revision assignment; hidden provider and platform instructions are excluded.
+- Accountable principal: `github:VSBDev`.
+- Feedback candidate: `54f10aa5d4e3d0d226426dd3a70b611ad0572dc1`.
+
+Historical review artifacts preserved without editing:
+
+- academic approval artifact `REV-PREM-LPP-003-ACADEMIC-CLAUDE-FINAL-V4`, GitHub review transport ID `4731894150`;
+- learning-design approval artifact `REV-PREM-LPP-003-LEARNING-AGY-FINAL-V4`, GitHub review transport ID `4731880745`; and
+- accessibility-and-rights request-changes artifact `REV-PREM-LPP-003-ACCESS-CODEX-FINAL-V4-B06037E9`, GitHub review transport ID `4731884121`.
+
+Changes made:
+
+1. Removed `source-crissman-2006`, every direct claim mapping to it, and every learner-visible or author-evidence statement derived from the agent-processed repository record whose linked terms prohibited AI processing.
+2. Independently rewrote `claim-guidance-fading` and its scene evidence explanations from the retained Barbieri worked-example and Tetzlaff expertise-reversal records; removed the repository synthesis from that claim's evidence list to avoid indirect reliance on the withdrawn record.
+3. Distinguished the planning retention horizon from the technical post-practice retention interval in the glossary and concept definition.
+4. Clarified in the plan-design answer logic that immediate discrimination is acceptable for already taught, confusable models and that the unfamiliar-model warning is conditional.
+5. Retitled the structured assessment as a provisional mastery gate.
+6. Added a post-attempt Noor exemplar that links the observed word-cue error to contrasting-case recovery, renewed retrieval, task variation, and a performance-sensitive next step.
+7. Updated current pack identity and author provenance to version 0.1.4, retained `draft` and all pending-review governance states, and regenerated deterministic public output before freezing.
+
+All reviews listed above target candidate `54f10aa5...` and are stale for version 0.1.4. This version remains `draft`, does not claim approval, and requires a new exact-candidate review quorum followed by fresh adjudication.
