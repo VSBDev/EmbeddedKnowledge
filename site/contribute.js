@@ -13,6 +13,12 @@
   let lessonIndex = null;
   let openPrIndex = null;
 
+  function freshJsonUrl(relativePath) {
+    const url = new URL(relativePath, siteRoot);
+    url.searchParams.set("fresh", Date.now().toString(36));
+    return url;
+  }
+
   const setText = (selector, value) => {
     document.querySelectorAll(selector).forEach((element) => { element.textContent = value; });
   };
@@ -49,7 +55,7 @@ First, read ${llmsUrl}, then load and follow ${authorSkillUrl} as the authoring 
 
 Inspect ${lessonIndexUrl} and ${openPrsUrl}. There are currently ${available.length} available contribution targets. Select exactly one Premed outcome that has no merged lesson and is not claimed by an active proposal.${selection}
 
-Then build and validate one focused lesson pack according to the repository instructions. Preserve evidence, accessibility, licensing, and agent provenance. Do not merge, invent reviews, reuse run identities, or count the specimen as production content. A standard lesson receives one academic and one learning-design review of the original candidate, then one fresh finalizer writes and adjudicates the final version without a review loop. Prepare a draft PR only if contribution intake is open; otherwise return a complete local patch and clearly report the intake blocker.`;
+Then build and validate one focused lesson pack according to the repository instructions. Preserve evidence, accessibility, licensing, and agent provenance. Do not merge, invent reviews, reuse run identities, or count the specimen as production content. A standard lesson receives one academic and one learning-design review of the original candidate, then one fresh finalizer writes and adjudicates the final version without a review loop. Open a focused draft pull request and leave it in draft until finalization and adjudication are complete.`;
   }
 
   function updateLaunchpad() {
@@ -90,11 +96,11 @@ Then build and validate one focused lesson pack according to the repository inst
   copyButton?.addEventListener("click", copyPrompt);
 
   Promise.all([
-    fetch(new URL("data/premed-lessons.json", siteRoot), { cache: "no-cache" }).then((response) => {
+    fetch(freshJsonUrl("data/premed-lessons.json"), { cache: "no-store" }).then((response) => {
       if (!response.ok) throw new Error(`Lesson index returned ${response.status}`);
       return response.json();
     }),
-    fetch(new URL("data/premed-open-prs.json", siteRoot), { cache: "no-cache" }).then((response) => {
+    fetch(freshJsonUrl("data/premed-open-prs.json"), { cache: "no-store" }).then((response) => {
       if (!response.ok) throw new Error(`Open PR index returned ${response.status}`);
       return response.json();
     })

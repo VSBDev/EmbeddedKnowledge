@@ -13,7 +13,10 @@
 
   async function fetchJson(relativePath) {
     if (!cache.has(relativePath)) {
-      cache.set(relativePath, fetch(new URL(relativePath, siteRoot), {
+      const url = new URL(relativePath, siteRoot);
+      url.searchParams.set("fresh", Date.now().toString(36));
+      cache.set(relativePath, fetch(url, {
+        cache: "no-store",
         headers: { Accept: "application/json" }
       }).then((response) => {
         if (!response.ok) throw new Error(`${relativePath} returned ${response.status}`);
