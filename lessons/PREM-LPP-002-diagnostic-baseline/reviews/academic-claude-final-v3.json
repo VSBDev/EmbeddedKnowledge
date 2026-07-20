@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-LPP-002-ACADEMIC-389C1D36",
+  "lessonId": "PREM-LPP-002",
+  "lessonVersion": "0.1.3",
+  "candidateCommit": "c97a4516a7b40820ae434ed73cbe31e68582e38a",
+  "role": "academic",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — academic review operator",
+    "agent": {
+      "system": "Claude Code",
+      "provider": "Anthropic",
+      "model": "claude-opus-4-6",
+      "version": "Claude Code 2.1.215",
+      "runId": "389c1d36-caf3-48be-8c17-acabdf836117",
+      "instructionsDigest": "sha256:3ad6346fe02860958bb176c6b8a7d5c94d42f0222dc9b1797cf77545e8555c3f"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json — identity PREM-LPP-002 v0.1.3, standard risk tier, outcome topic-orientation-diagnostic-baseline, prerequisite topic-orientation-map-and-pathways, scene minute sum 120 matches declared estimatedMinutes",
+    "claims.json — all 8 claims traced to scene mappings and source IDs",
+    "references.json — all 4 sources verified as repository-owned CC BY 4.0, agentAccess checked-no-agent-restriction-found, pinned to commit 76882799c7614eeb9307687bceab33896a79bb13",
+    "assessment.json — point totals (2+3+10+10=25), rubric criteria sums match item points, scoring logic for item-separate-confidence verified deterministic against all possible selections",
+    "content/010-orientation.md — source-note covers claim-baseline-purpose and claim-pattern-over-snapshot with correct source IDs",
+    "content/020-prerequisite-diagnostic.md — prerequisite chain logic verified against syllabus section 18.2 step 2; source-note covers claim-baseline-purpose, claim-retrieval-before-feedback, claim-map-dependency-route",
+    "content/030-concept.md — five evidence dimensions, three-state operational definitions, and crosswalk table verified against syllabus sections 3.2, 7; source-note covers 5 claims with 4 sources",
+    "content/040-worked-example.md — Alder/Birch/Copper classifications independently verified correct against operational definitions",
+    "content/050-retrieval-check.md — Delta/Elm/Fjord answer keys verified consistent with taught model",
+    "content/060-misconception.md — confidence-vs-performance contrast correctly structured; recheck answer verified",
+    "content/070-practice.md — fading progression from completion to supported comparison to independent mixed case verified",
+    "content/080-transfer.md — genuine transfer task (instrument redesign, not surface change)",
+    "content/090-synthesis.md — curriculum-link claim verified against graph: topic-orientation-diagnostic-baseline prerequisites=['topic-orientation-map-and-pathways'], topic-orientation-mastery-and-retrieval prerequisites=['topic-orientation-diagnostic-baseline']",
+    "content/100-assessment.md — mastery gate logic (20/25 aggregate, 6/10 per open response, no-zero criterion) is deterministic and prevents compensatory gaming",
+    "glossary.json — 7 terms with correct scene mappings and definitions consistent with taught content",
+    "ATTRIBUTION.md — provenance disclosure complete; no third-party assets",
+    "source-premed-syllabus verified at pinned commit: section 3.2 entry-station bands (Foundational/Developing/Secure with percentages), section 4 philosophy 7 (sources outrank confidence), and section 6.2 (final calibration review)",
+    "source-premed-syllabus verified at pinned commit: section 7 (N/A/P/M/R/T states, confidence logging, high-confidence misconception trigger) and section 18 (error taxonomy with CAL, recovery protocol step 2)",
+    "source-content-standard verified at pinned commit: sections 2, 5.1, 6 (retrieval before feedback, pattern of performance, fading), 7 (misconception repair), 8 (transfer), 13 (acceptance gates)",
+    "source-authoring-evidence verified at pinned commit: section 4 (worked examples and fading, expertise reversal), section 6 (retrieval vs repeated exposure), section 8 (comparison reveals structure)",
+    "source-premed-graph verified at pinned commit: node prerequisites confirm the curriculum chain"
+  ],
+  "findings": [
+    {
+      "severity": "minor",
+      "target": "content/030-concept.md#crosswalk-table",
+      "finding": "The lesson carefully disambiguates the overloaded term 'secure' (node-level provisional state vs. capital-S Secure entry-station band) but does not note that 'fragile' is also overloaded: syllabus section 7 uses 'recall is fragile' informally within the Acquiring state definition, while this lesson defines 'fragile knowledge' as a formal operational node state. A learner reading both documents could conflate lesson-fragile with syllabus-Acquiring, missing that lesson-fragile can also correspond to syllabus-Practising.",
+      "resolution": "Add a brief parenthetical to the crosswalk noting that the syllabus's informal use of 'fragile' within the A-state description is not equivalent to this lesson's operational fragile state, which spans both A and P routing."
+    },
+    {
+      "severity": "note",
+      "target": "content/030-concept.md#vocabulary-crosswalk",
+      "finding": "The three-vocabulary crosswalk (node-level operational states, entry-station bands, longitudinal N/A/P/M/R/T states) is well-constructed and directly verified against the syllabus. It correctly identifies the grain-size differences, prevents false synonymy, and makes the overloading of 'secure' explicit. This disambiguation is critical for preventing a learner from equating a station-level Secure result with the richer node-level evidence pattern this lesson requires.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "claims.json#claim-confidence-calibration",
+      "finding": "This claim ('Confidence must be compared with performance evidence') cites only source-premed-syllabus. The syllabus explicitly supports the high-confidence-error direction (section 7: 'A high-confidence incorrect response triggers misconception remediation') and establishes bidirectional calibration as a course requirement (section 6.2: 'confidence judgments track actual performance'; PLO-18: 'confidence calibration'). The low-confidence-accurate scenario taught in the lesson is a logically sound inference from this framework. The 'medium-high' confidence level appropriately reflects single-source support for an operational claim that the lesson does not present as a general psychological finding.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#mastery-gate",
+      "finding": "The 25-point assessment with deterministic scoring is internally consistent: rubric criterion maxPoints sum exactly to item points for all four items, the selected-response scoring logic correctly enumerates all option combinations, and the mastery gate (20/25 aggregate, 6/10 per open response, no-zero criterion on open-response rubrics) prevents a learner from demonstrating only classification or only transfer while compensating with the other.",
+      "resolution": "No change required."
+    }
+  ],
+  "limitations": [
+    "Reviewer cannot empirically test whether the operational three-state model produces reliable classifications when applied by actual Premed learners; the lesson explicitly marks this as pending learner evaluation.",
+    "Reviewer verified claims only against the four pinned repository-owned sources; no external empirical literature on diagnostic classification reliability was independently consulted beyond what the evidence synthesis already reports.",
+    "Reviewer cannot execute the lesson in a browser or verify that the assessment interface correctly implements the described scoring logic at runtime."
+  ],
+  "signedAt": "2026-07-20T01:48:16Z"
+}
