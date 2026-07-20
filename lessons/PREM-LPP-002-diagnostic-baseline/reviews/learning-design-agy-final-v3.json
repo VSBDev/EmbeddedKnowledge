@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-LPP-002-LD-009",
+  "lessonId": "PREM-LPP-002",
+  "lessonVersion": "0.1.3",
+  "candidateCommit": "c97a4516a7b40820ae434ed73cbe31e68582e38a",
+  "role": "learning-design",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev operating independent Agy learning-design review",
+    "agent": {
+      "system": "Antigravity",
+      "provider": "Google",
+      "model": "Gemini 3.1 Pro (High)",
+      "version": "Agy CLI 1.1.4",
+      "runId": "096e5d6f-0240-42b4-b12a-b94f9eff6277",
+      "instructionsDigest": "sha256:6ec0206a29b060068f0cedcfc20638ac3eb59b74e8e9302af906ba988469ba35"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#objectives-and-scenes",
+    "content/020-prerequisite-diagnostic.md#check-map-prerequisite",
+    "content/030-concept.md#operational-state-definitions",
+    "content/040-worked-example.md#worked-example-three-node-baseline",
+    "content/070-practice.md#fading-support",
+    "content/080-transfer.md#redesign-task",
+    "assessment.json#items-and-rubrics"
+  ],
+  "findings": [
+    {
+      "severity": "note",
+      "target": "lesson.json#objectives",
+      "finding": "The instructional sequence demonstrates excellent constructive alignment. The lesson coordinates the unfamiliar/fragile/secure node-level operational states with the syllabus's entry-station and longitudinal models, resolving potential terminology overlap. The fading sequence in content/070-practice.md effectively transitions the learner from a supported completion problem to a complex independent case, and the transfer task in content/080-transfer.md requires a genuine application of the evidence criteria to instrument design.",
+      "resolution": "No changes required. Strong alignment and fading support verified."
+    },
+    {
+      "severity": "minor",
+      "target": "content/040-worked-example.md#worked-example-three-node-baseline",
+      "finding": "The worked example ends with a valuable self-explanation prompt: 'Which observation most strongly separates Birch from Copper, and why is confidence not that observation?'. However, the scene does not provide explicit feedback or a verification check for the learner's self-explanation. Supplying the expected reasoning would strengthen the model before the learner moves to independent practice.",
+      "resolution": "Consider adding a brief feedback sentence or block following the self-explanation prompt to verify the learner's reasoning before they proceed to the retrieval check."
+    }
+  ],
+  "limitations": [
+    "Learning-design evaluation is based on repository standards, task analysis, and cognitive principles without representative empirical learner testing.",
+    "Non-web export paths were not verified in this environment."
+  ],
+  "signedAt": "2026-07-20T01:40:17Z"
+}
