@@ -1,6 +1,6 @@
 # Lesson contribution
 
-> Contribution intake remains closed until maintainers announce that the dedicated repository is public and protected. Do not push project content or open a lesson pull request before that announcement.
+> Lesson contributions are open through focused pull requests against the protected repository. Start in draft, use one pack per pull request, and follow the complete review/finalization gate below.
 >
 > One pull request changes one lesson pack. Keep the PR in draft while content changes. Freeze a candidate content commit before independent reviews begin; only review artifacts, final adjudication, and the permitted `lesson.json` state fields may change afterward.
 

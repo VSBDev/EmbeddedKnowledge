@@ -36,9 +36,9 @@ const progress = {
     publishedOpen: publishedLessons.length
   },
   intake: {
-    status: "not-open",
-    repository: null,
-    submissionForm: null
+    status: "open",
+    repository: "https://github.com/VSBDev/EmbeddedKnowledge",
+    submissionForm: "https://github.com/VSBDev/EmbeddedKnowledge/compare"
   }
 };
 

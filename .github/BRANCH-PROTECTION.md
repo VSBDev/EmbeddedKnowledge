@@ -1,6 +1,6 @@
 # `main` protection contract
 
-Status: **active**. The repository is public at `VSBDev/EmbeddedKnowledge`. Repository ruleset `main protection contract` (id `19180386`) was created and enforced on 19 July 2026, before any content was pushed. Verify the rules against a draft lesson pull request before opening contribution intake.
+Status: **active and exercised**. The repository is public at `VSBDev/EmbeddedKnowledge`. Repository ruleset `main protection contract` (id `19180386`) was created and enforced on 19 July 2026, before any content was pushed. Its candidate, structured-review, finalization, publication, and Pages paths have since been exercised through real lesson pull requests.
 
 ## Currently enforced
 
@@ -28,7 +28,7 @@ GitHub provides no per-user merge permission on personal repositories. "Restrict
 
 Today the collaborator list is exactly one entry: `VSBDev` (admin). That — and only that — is why the accountable operator is the sole merger. It is a property of the current access list, not a guarantee of the ruleset.
 
-Consequences to accept or resolve before intake opens:
+Consequences that remain part of repository operations:
 
 - Granting any collaborator write access grants them merge rights over lessons. Use read access plus fork-based pull requests for contributors who do not need write.
 - To make sole-merger status a genuine policy rather than a circumstance, move the repository into a GitHub organization and restrict pushes to `main` to a named team.
@@ -54,14 +54,13 @@ Platform approval counts are deliberately set to zero: a pull request author can
 
 For a standard lesson this means:
 
-- 1 academic approval;
-- 1 learning-design approval;
-- 1 accessibility-and-rights approval;
-- 3 unique review run IDs across 3 distinct providers;
-- 1 additional adjudication agent with a fresh run ID;
-- one disclosed accountable operator may run all four agents during the founding stage;
-- all counted reviews target the same candidate commit;
-- no unresolved blocking findings.
+- 1 academic advisory review input;
+- 1 learning-design advisory review input;
+- 2 unique review run IDs across 2 distinct providers;
+- 1 additional fresh finalizer that disposes every finding, writes the final version once, audits accessibility and rights, and adjudicates the result;
+- one disclosed accountable operator may run all three agents during the founding stage;
+- both reviews target the same original candidate commit;
+- no unresolved blocking finding may remain in a merge decision.
 
 Agent provenance — system, provider, model, version, run ID, and instructions digest — is **disclosed and attested by the accountable operator. It is not cryptographically verified.** Do not describe the quorum as proving that three independent models reviewed a lesson; it records that the operator attested they did, in a form that is auditable and falsifiable after the fact.
 
@@ -75,7 +74,7 @@ A pull request may also remove one complete pack that exists at its base. In tha
 
 Infrastructure changes must therefore travel in separate pull requests that contain no lesson pack. Require code-owner review on `/scripts/` and `/.github/` before granting any contributor write access.
 
-The `structured-lesson-review` workflow runs from trusted default-branch code whenever a review is submitted, edited, or dismissed. Edited and dismissed structured reviews deliberately fail until the pull request commits a reconciled artifact and reruns the head validation. The pre-intake dry run must confirm that GitHub displays these failures against the current pull request merge ref and prevents merge under the final ruleset.
+The `structured-lesson-review` workflow runs from trusted default-branch code whenever a review is submitted, edited, or dismissed. Edited and dismissed structured reviews deliberately fail until the pull request commits a reconciled artifact and reruns the head validation. Real lesson pull requests have confirmed that GitHub displays these failures against the current pull request merge ref and prevents merge under the ruleset.
 
 ## Re-verifying this document
 

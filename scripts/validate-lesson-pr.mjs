@@ -6,7 +6,7 @@ import { claimsChangeIsGovernanceOnly, lessonMetadataChangeIsGovernanceOnly } fr
 import { lessonPrOutsideFiles, validateFullLessonPackRemoval } from "./lib/lesson-pr-file-scope.mjs";
 import { lessonPrStage } from "./lib/lesson-pr-stage.mjs";
 import { applySourcePreflightExemptions, preflightSourceAccess } from "./lib/source-access-preflight.mjs";
-import { finalizationRequired, resolveRule } from "./lib/quorum-policy.mjs";
+import { finalCommitLineageRequired, finalizationRequired, resolveRule } from "./lib/quorum-policy.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const eventPath = process.env.GITHUB_EVENT_PATH;
@@ -182,7 +182,7 @@ if (candidateCommit) {
   try {
     git("cat-file", "-e", `${candidateCommit}^{commit}`);
     git("merge-base", "--is-ancestor", candidateCommit, headSha);
-    if (finalizationRequired(quorumRule)) {
+    if (finalCommitLineageRequired(quorumRule, adjudication)) {
       if (!finalCommit) throw new Error("standard-lesson-v3 requires an adjudicator finalCommit");
       if (finalCommit === candidateCommit) throw new Error("finalCommit must follow the reviewed candidate and its two review records");
       git("cat-file", "-e", `${finalCommit}^{commit}`);
