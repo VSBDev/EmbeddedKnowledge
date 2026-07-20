@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-LPP-002-ACCESS-CODEX-FINAL-V3",
+  "lessonId": "PREM-LPP-002",
+  "lessonVersion": "0.1.3",
+  "candidateCommit": "c97a4516a7b40820ae434ed73cbe31e68582e38a",
+  "role": "accessibility-rights",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev (accountable operator; accessibility-and-rights reviewer)",
+    "agent": {
+      "system": "Codex",
+      "provider": "OpenAI",
+      "model": "GPT-5",
+      "version": "Codex CLI 0.144.6",
+      "runId": "905d50fa-f21e-4eb8-ba78-6279f9a5acd9",
+      "instructionsDigest": "sha256:ea4bceefa86879c2b24b013c8dfe855c7ed19f365266288e43a352844ab83c3c"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#scenes-authorship-ai-assistance-license-and-third-party-assets",
+    "content/010-orientation.md#accessibility-and-alternatives",
+    "content/020-prerequisite-diagnostic.md through content/110-references.md#semantic-source-order-equivalent-routes-and-recovery",
+    "assessment.json#untimed-retakeable-keyboard-selection-and-text-response-paths",
+    "references.json#pinned-source-uses-rights-bases-rights-evidence-and-agent-access",
+    "claims.json#scope-uncertainty-and-pending-review-state",
+    "ATTRIBUTION.md#original-expression-license-provenance-and-no-third-party-assets",
+    "Pinned source versions at commit 76882799c7614eeb9307687bceab33896a79bb13#expression-comparison-and-CC-BY-4.0-scope",
+    "npm run validate at candidate c97a4516a7b40820ae434ed73cbe31e68582e38a#all-schema-format-security-and-protocol-checks-passed",
+    "npm test at candidate c97a4516a7b40820ae434ed73cbe31e68582e38a#30-protocol-and-22-runnable-browser-tests-passed-12-container-only-tests-skipped",
+    "Manual Chromium review of /premed/lessons/read/?lesson=PREM-LPP-002#keyboard-reduced-motion-1280x720-guided-overflow-390px-reflow-assessment-feedback-and-print"
+  ],
+  "findings": [
+    {
+      "severity": "note",
+      "target": "content/010-orientation.md#accessibility-and-alternatives",
+      "finding": "The canonical lesson preserves the full classification operation in source-order prose and semantic tables, explicitly permits keyboard, speech-to-text, scribe, and ordered-sentence routes, and makes no distinction depend on color, position, sound, motion, hover, dragging, handwriting, or speed. The synthesis recovery route also distinguishes a response-format barrier from evidence of unfamiliar knowledge.",
+      "resolution": "No change required. Retain these equivalent-operation and format-barrier boundaries in later revisions."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#assessment-diagnostic-baseline",
+      "finding": "All four assessment paths are untimed and retakeable and use native selections or text rather than a pointer-only operation. Candidate-specific Chromium testing at reduced motion verified keyboard focus and operation, labelled selected-response groups, programmatic feedback, no page-level horizontal overflow at a 390 CSS-pixel 200%-zoom-equivalent layout, complete print output for all 11 scenes and four assessment items, one print-document level-one heading, and no duplicate IDs. All 22 guided frames that overflowed at 1280 by 720 were exposed as labelled, focusable keyboard scroll regions.",
+      "resolution": "No change required. Preserve the canonical prompt, stimulus, feedback, and rubric content in every future renderer or export."
+    },
+    {
+      "severity": "note",
+      "target": "references.json#source-use-rights-and-agent-access",
+      "finding": "All four declared sources are repository-owned, pinned to exact paths at commit 76882799c7614eeb9307687bceab33896a79bb13, covered there by the repository's CC BY 4.0 content-license scope, and recorded as facts-only use with concrete rights evidence. Their dated agent-access records are checked-no-agent-restriction-found; none is human-only. Comparison with the cited syllabus, content standard, evidence synthesis, and graph records found independently developed fictional cases, assessment prompts, operational tables, and prose rather than a copied source sequence or close paraphrase beyond necessary course labels and concise technical terminology.",
+      "resolution": "No change required. Recheck access terms and expression independence if sources or lesson wording change."
+    },
+    {
+      "severity": "note",
+      "target": "lesson.json#thirdPartyAssets",
+      "finding": "The candidate declares no third-party assets and contains no images, diagrams, audio, video, structured molecules, TeX, code fences, raw HTML, scripts, remote embeds, symlinks, traversal paths, active URLs, or learner-executable content. ATTRIBUTION.md records the accountable CC BY 4.0 contribution and material Codex author provenance. The fictional records contain no identifiable learner or patient data, and the lesson explicitly instructs learners not to enter private educational or health information.",
+      "resolution": "No change required. Any later media, dataset extraction, or expressive reuse would require a new asset/source record and a fresh rights review."
+    }
+  ],
+  "limitations": [
+    "This is a policy and evidence review, not legal advice; no jurisdiction-specific counsel assessed copyright, privacy, consent, or license enforceability.",
+    "Manual testing used headless Chromium with keyboard, reduced-motion, 1280 by 720 guided layout, a 390 CSS-pixel narrow/200%-zoom-equivalent layout, and print emulation; it did not include representative disabled learners, a full screen-reader session, voice control, switch access, or multiple browser-engine user testing.",
+    "The 12 container-only CSP and security-header tests were skipped by the normal local Playwright configuration, so this run did not verify deployed response headers; all 30 protocol tests and 22 runnable browser tests passed.",
+    "Expression comparison was limited to the candidate and its four declared, pinned source versions; this review cannot rule out undisclosed influences outside the repository record.",
+    "The candidate has no visual, audio, video, math, chemistry, or third-party asset content, so equivalent-media, contrast-within-assets, transcript, MathML, chemistry, and asset-license checks were not applicable."
+  ],
+  "signedAt": "2026-07-20T01:41:10Z"
+}
