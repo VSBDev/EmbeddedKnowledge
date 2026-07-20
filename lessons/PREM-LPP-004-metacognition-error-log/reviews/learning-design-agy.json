@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-LPP-004-LEARNING-DESIGN-AGY-114",
+  "lessonId": "PREM-LPP-004",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "fa0055cf2e9b8492612509fc3aaa5b2ab1c42889",
+  "role": "learning-design",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "Agy learning-design run",
+    "agent": {
+      "system": "Agy/Antigravity CLI",
+      "provider": "Google",
+      "model": "Gemini 3.1 Pro",
+      "version": "Agy CLI 1.1.4",
+      "runId": "agy/8f40f3b6-41db-4376-bcfc-f687bee15ccf/learning-design-prem-lpp-004",
+      "instructionsDigest": "sha256:3d98aede1c8fc1afe87da3e64d0342ca7392205fcc0ebba15391ce415f2f3bdd"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#objectives-and-scenes",
+    "content/040-calibration.md",
+    "content/080-practice.md",
+    "assessment.json#item-build-error-log"
+  ],
+  "findings": [
+    {
+      "severity": "note",
+      "target": "content/080-practice.md#2-compare-two-records",
+      "finding": "The practice sequence demonstrates excellent fading of support from worked examples to independent multi-step error classification. In section 2, the distinction between noticing a range violation (Ash) and missing a verification step entirely (Brook) effectively discriminates between distinct execution and verification failures. The immediate feedback is information-rich and actionable.",
+      "resolution": "No change required. The progression is well-aligned with the objective to classify a bounded learning error and choose a targeted action."
+    },
+    {
+      "severity": "minor",
+      "target": "assessment.json#item-build-error-log",
+      "finding": "The open-response item uses a rubric that awards 30% for execution. Record B describes a learner who selects the wrong model (Model H) but 'executes Model H's supplied steps accurately', earning a total of 40% (20% interpret, 20% retrieve, 0% select, 0% execute, 0% verify). The rubric logic implicitly scores 0% for executing an inapplicable model, which is pedagogically sound but could confuse a learner who accurately executed the wrong steps and might expect the 30% execution credit. A brief explicit note in the answer reasoning explaining that executing an inapplicable model earns zero execution credit would improve clarity.",
+      "resolution": "Consider adding a sentence to the reasoning in item-build-error-log clarifying that execution points are contingent on selecting an applicable model, or that accurate execution of an inapplicable procedure does not earn execution credit."
+    }
+  ],
+  "limitations": [
+    "I have not observed real learners interacting with these error logs. Verification of the transfer task's difficulty in a real-world setting would require authentic student data.",
+    "I did not run the assessment through an active LMS to verify functional rendering of the numeric gap input or open-response limits."
+  ],
+  "signedAt": "2026-07-20T04:00:47Z"
+}
