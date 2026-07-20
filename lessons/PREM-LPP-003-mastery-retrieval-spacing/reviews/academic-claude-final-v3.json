@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-LPP-003-ACADEMIC-CLAUDE-FINAL-V3",
+  "lessonId": "PREM-LPP-003",
+  "lessonVersion": "0.1.2",
+  "candidateCommit": "2fb4bf7e180bd5a6c2c49380113cb7f8e0bb0c1a",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev academic reviewer via Claude Code",
+    "agent": {
+      "system": "Claude Code",
+      "provider": "Anthropic",
+      "model": "claude-opus-4-8",
+      "version": "2.1.215",
+      "runId": "c29f08f5-727b-4aa5-baf7-cee301aaa40c",
+      "instructionsDigest": "sha256:8b4b6d3bcea93f0849f58405d864f057f0413571d0515203b892a05d1a4bcf25"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#PREM-LPP-003-v0.1.2-scenes-objectives-and-estimatedMinutes",
+    "content/010-orientation.md#scene-orientation",
+    "content/020-diagnostic.md#scene-diagnostic",
+    "content/030-concept.md#scene-concept",
+    "content/040-worked-example.md#worked-example-fourteen-day-plan",
+    "content/050-retrieval-check.md#check-reconstruct-loop",
+    "content/060-misconception.md#misconception-fluency-equals-mastery",
+    "content/070-practice.md#scene-practice",
+    "content/080-transfer.md#scene-transfer",
+    "content/090-assessment.md#scene-assessment",
+    "content/100-synthesis.md#scene-synthesis",
+    "claims.json#claim-mastery-performance",
+    "claims.json#claim-retrieval-durability",
+    "claims.json#claim-spacing-retention-horizon",
+    "claims.json#claim-feedback-recovery",
+    "claims.json#claim-interleaving-conditional",
+    "claims.json#claim-guidance-fading",
+    "references.json#source-roediger-karpicke-2006",
+    "references.json#source-adesope-et-al-2017",
+    "references.json#source-cepeda-et-al-2006",
+    "references.json#source-brunmair-richter-2019",
+    "references.json#source-wisniewski-et-al-2020",
+    "references.json#source-barbieri-et-al-2023",
+    "references.json#source-crissman-2006",
+    "references.json#source-tetzlaff-et-al-2025",
+    "references.json#source-authoring-evidence",
+    "references.json#source-content-standard",
+    "assessment.json#item-distinguish-evidence",
+    "assessment.json#item-design-plan",
+    "assessment.json#item-adapt-plan",
+    "assessment.json#item-transfer-study-group",
+    "assessment.json#rubric-design-plan",
+    "assessment.json#rubric-adapt-plan",
+    "assessment.json#rubric-transfer-study-group",
+    "glossary.json#term-mastery",
+    "glossary.json#term-interleaving",
+    "ATTRIBUTION.md#accountable-authorship-and-agent-disclosure",
+    "site/data/premed-graph.json#topic-orientation-mastery-and-retrieval",
+    "site/data/premed-graph.json#topic-orientation-diagnostic-baseline",
+    "PubMed PMID 16507066#Roediger-Karpicke-2006-abstract",
+    "PubMed PMID 16719566#Cepeda-et-al-2006-abstract",
+    "PubMed PMID 31556629#Brunmair-Richter-2019-abstract",
+    "PubMed PMID 32038429#Wisniewski-Zierer-Hattie-2020-abstract",
+    "Crossref DOI 10.3102/0034654316689306#Adesope-et-al-2017-record",
+    "Crossref DOI 10.1007/s10648-023-09745-1#Barbieri-et-al-2023-record",
+    "Crossref DOI 10.1016/j.learninstruc.2025.102142#Tetzlaff-et-al-2025-record",
+    "research/CONTENT-AUTHORING-EVIDENCE-2026-07-19.md#sections-4-6-7-12-and-evidence-matrix"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "assessment.json#item-transfer-study-group",
+      "finding": "The stimulus of item-transfer-study-group is materially identical to the taught case in content/080-transfer.md: four learners, forty minutes, three baseline classifications each, differing fragile targets, a shared-chapter aloud-rereading routine, and a seminar nine days later. Every parameter is unchanged, and scene-transfer already displays a complete model response (the four-phase 0-4/4-12/12-28/28-40 allocation plus the three learner-specific decision rules) whose elements the item's answer.correct, acceptableResponses, and rubric-transfer-study-group criteria then reward. Scene 090-assessment instructs learners only to avoid the concept scene, so the model answer for this item remains available. Consequently the response cannot discriminate a learner who selects and adapts the design loop under a new coordination constraint from one who reproduces the displayed model, yet the item is scored for 6 points against three objectives (including objective-adapt-plan) and the lesson's own criterion in CONTENT-STANDARD section 8 that transfer must occur in a context not copied from the worked example. The evidentiary inference the answer key and rubric assert is therefore not supported by what the item actually observes.",
+      "resolution": "Required: change the assessed stimulus so that it is not a copy of the scene-transfer case — for example alter the number of learners, the available shared time, the retention horizon, the collaboration constraint (asynchronous or unequal availability), or the prior routine — while preserving the same rubric criteria and objective mapping; or, alternatively, relocate the modelled four-phase response out of the learner-visible transfer scene and state explicitly which scenes must be closed during the assessment. The answer logic and common errors should then be checked against the revised stimulus."
+    },
+    {
+      "severity": "minor",
+      "target": "content/090-assessment.md#scene-assessment",
+      "finding": "The declared local gate is internally inconsistent with its own stated rationale. The gate requires at least 16 of 20 points including at least 4 of 6 on plan design (item-design-plan) and transfer (item-transfer-study-group), and justifies itself as preventing 'a correct recognition item from compensating for an inability to construct or adapt a plan'. No floor is set for item-adapt-plan, the only item mapped solely to objective-adapt-plan. Recomputing the arithmetic: a learner scoring 2 + 6 + 3 + 6 reaches 17 of 20 and satisfies both stated floors while scoring below the scene's own remediation trigger ('if item 3 scores below 4') for adaptation. The convention is correctly labelled as author-created and non-psychometric, so this is a bounded internal-consistency defect rather than a false empirical claim.",
+      "resolution": "Required: either add 'and at least 4 of 6 on interpretation and adaptation' to the gate condition, or amend the rationale sentence so it no longer promises protection against weak adaptation performance. Keep the explicit statement that the threshold is a lesson convention."
+    },
+    {
+      "severity": "minor",
+      "target": "claims.json#claim-spacing-retention-horizon",
+      "finding": "The claim statement asserts that 'spreading retrieval across time generally benefits later retention' and carries confidence 'high', but its only external support is Cepeda et al. (2006), whose abstract concerns distributed practice in verbal recall tasks and analyses interstudy interval between spaced learning episodes, concluding that the ISI producing maximal retention increases as the retention interval increases. The claim's own uncertainty field honestly discloses that applying this to spaced retrieval is 'a bounded planning choice', and the repository synthesis section 7 additionally notes that the IES practice guide rates spacing at moderate evidence. A 'high' confidence label sits uneasily with a disclosed construct extrapolation (study episodes to retrieval opportunities) and a materials extrapolation (laboratory verbal recall to multi-day academic model-selection tasks). The scene prose itself is correctly hedged and never prescribes an optimal gap, so the instructional argument is not affected.",
+      "resolution": "Required: lower confidence to 'medium-high' to match the disclosed extrapolation, or add a source that directly addresses spaced retrieval practice (rather than distributed study) and record it in the same claim and in the source notes of every scene mapped to this claim."
+    },
+    {
+      "severity": "minor",
+      "target": "references.json#source-wisniewski-et-al-2020",
+      "finding": "The record sets issued to 2020-01-22 while the locator gives 'Frontiers in Psychology 10, article 3087'. The PubMed record shows journal volume 10 with publication year 2019 and an electronic article date of 2020-01-22 (copyright line 2020). The two fields are therefore drawn from different date conventions without a note, which can produce an inconsistent citation year downstream. This does not affect any claim.",
+      "resolution": "Required: add a short note to the locator distinguishing the volume year (2019) from the electronic publication date (2020-01-22), or align issued with the citation year used in the locator."
+    },
+    {
+      "severity": "note",
+      "target": "claims.json#claim-retrieval-durability",
+      "finding": "Verified strength. The claim, and the prose it supports in content/010-orientation.md and content/060-misconception.md, match the cited primary record closely: the Roediger and Karpicke (2006) abstract reports that repeated studying improved recall at a five-minute final test whereas prior testing produced substantially greater retention at two days and one week, and that repeated studying increased students' confidence despite worse delayed retention. That confidence/retention dissociation is exactly the warrant the misconception scene needs, and the lesson correctly avoids claiming that rereading is ineffective, instead limiting the error to using exposure fluency as sufficient evidence. The Adesope et al. (2017) abstract independently supports the meta-analytic generalization together with its moderators. Effect sizes are not quoted in learner-facing prose, so no numerical misstatement is possible here.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "claims.json#claim-interleaving-conditional",
+      "finding": "Verified within limits. Brunmair and Richter (2019) report a moderate overall interleaving effect (Hedges' g = 0.42) with stronger effects for material more similar between categories and less similar within categories, ambiguous results for expository texts, and an advantage for blocking with word materials (g = -0.39). The claim's restriction to discrimination among confusable categories is consistent with the between-category similarity moderator, and content/030-concept.md and the practice-scene feedback correctly present mixing as conditional rather than universally superior. One boundary should be recorded: the additional condition that categories be 'already introduced' — and the accompanying 'block first when acquisition is incomplete' heuristic — is not tested by this meta-analysis; its warrant is the worked-example and expertise-reversal literature plus the repository synthesis. The claim is labelled support: synthesis and its scope statement makes this explicit, so no misattribution occurs.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "content/040-worked-example.md#worked-example-fourteen-day-plan",
+      "finding": "Independent recomputation of the worked example's internal logic found no error. A five-part mechanism yields four consecutive causal links, matching the day-0 criterion set of 'five part criteria and four link criteria'; the baseline omits two links, the fresh day-0 attempt recovers one and still misses the relation between parts two and three, leaving one — arithmetically consistent throughout. The opportunity days 0, 2, 6, 10 and 13 all precede the stated fourteen-day horizon, and the scene explicitly labels the case fictional and the gaps as one defensible schedule rather than an optimum. Scene minutes also reconcile exactly: 7+8+18+15+8+10+18+12+10+9 = 115, matching estimatedMinutes, and item points 2+6+6+6 = 20 match the twenty points stated in scene 090 and the rubric maxima.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "claims.json#claim-mastery-performance",
+      "finding": "The lesson's operational definition of mastery is correctly handled as a bounded project convention rather than an empirical finding. claim-mastery-performance is scoped as 'for this lesson's operational model', its uncertainty field denies any universal threshold, references.json#source-content-standard is explicitly typed as a project-internal authoring contract authored by the same principal rather than an external standard, and every source note that cites it repeats that it supplies a design convention and not independent empirical support. The glossary entry term-mastery and the boundary callouts in content/010-orientation.md and content/100-synthesis.md consistently disclaim credit, admissions readiness, and clinical or professional competence. I found no place where the convention is presented as empirically established or where a study-planning statement could be mistaken for medical or diagnostic advice.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "claims.json#claim-guidance-fading",
+      "finding": "Support for this claim is the weakest of the six, though it is not central to the mapped outcome. Of the three external sources, the Crossref records supplied for Barbieri et al. (2023) and Tetzlaff et al. (2025) carry no abstract, so I could verify bibliographic identity but not the reported findings, effect sizes, study counts, or domain coverage; source-crissman-2006 has no authoritative record in the dossier at all, and its recorded finding about faded solution steps is traceable in this dossier only to the repository synthesis, which is authored by the same project. The claim statement itself — novices benefit from complete worked examples, and assistance should be reduced as demonstrated performance rises — is consensus in instructional psychology and is qualified by an accurate scope and uncertainty note, so I do not treat it as an unverifiable central claim. The evidence extension from mathematics and structured domains to study-plan construction is disclosed in ATTRIBUTION.md and in the scene source notes.",
+      "resolution": "No change required for this candidate; if a future revision makes the five-stage progression load-bearing, attach a source whose findings can be independently checked rather than relying on the internal synthesis."
+    },
+    {
+      "severity": "note",
+      "target": "claims.json#claim-to-scene-source-note-integrity",
+      "finding": "Claim-to-scene-to-source-note integrity was audited exhaustively and is complete. For each of the ten scenes, the claims listed in the learner-visible source-note exactly equal the set of claims mapping to that scene in claims.json, and the sources listed in each note equal the union of sourceIds across those claims. Spot-verified asymmetries are correct rather than accidental: scene-diagnostic carries only claim-mastery-performance with its two internal sources; scene-concept omits claim-guidance-fading; scene-worked-example omits claim-interleaving-conditional; scene-synthesis omits claim-guidance-fading; and scene-orientation omits the spacing, interleaving, and fading claims, none of which it teaches. No scene declares no-material-claims, which is appropriate given that every scene applies at least one sourced teaching claim.",
+      "resolution": "No change required."
+    }
+  ],
+  "limitations": [
+    "The Claude run had no filesystem, git, or network tools and judged the sealed dossier supplied by the accountable operator. The operator separately confirmed the exact candidate commit, detached worktree identity, and source records; validation is reported separately from the academic verdict.",
+    "For source-barbieri-et-al-2023 and source-tetzlaff-et-al-2025 the supplied Crossref records contained no abstract, so the run verified title, authors, journal, date, DOI and, for Tetzlaff, the CC BY 4.0 license, but not the recorded study counts, effect sizes, or moderator findings.",
+    "No authoritative record was supplied for source-crissman-2006. Its reported finding about faded solution steps was traceable in the sealed dossier only through the project's own research synthesis.",
+    "source-authoring-evidence and source-content-standard are repository-owned documents authored by the same project and accountable principal. They were assessed as internal conventions and synthesis, not independent empirical corroboration.",
+    "The prerequisite pack for topic-orientation-diagnostic-baseline was outside this dossier, so its declared vocabulary was checked against the graph outcome rather than against a prerequisite lesson pack.",
+    "Expertise covers the cited learning-science literature, quantitative and answer-key verification, and evidence-scope reasoning. Pedagogy, cognitive load, accessibility, licensing compatibility, close-paraphrase risk, and asset provenance were not assessed as quorum roles.",
+    "No other review artifact, adjudication, PR review body, REVISION-HISTORY.md, or file under reviews/ was read, requested, or considered.",
+    "This is one academic vote on one frozen candidate; it establishes neither quorum nor merge readiness."
+  ],
+  "signedAt": "2026-07-20T02:17:05Z"
+}
