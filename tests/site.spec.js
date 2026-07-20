@@ -590,11 +590,17 @@ test("a published lesson opens through its production route with keyboard and co
   await expect(cedarStimulus).toContainText("Node Cedar");
   await expect(cedarStimulus).toContainText("Node Flint");
   await expect(cedarStimulus).toContainText("Node Harbor");
+  await expect(cedarResponse.locator("label")).toHaveAttribute("for", "response-item-build-baseline");
+  await expect(cedarResponse.locator("textarea")).toHaveAttribute("id", "response-item-build-baseline");
   await expect(cedarResponse.locator("textarea")).toHaveAttribute("aria-describedby", "item-build-baseline-stimulus");
   expect(await cedarResponse.evaluate((form) => {
+    const label = form.querySelector("label");
     const stimulus = form.querySelector(".reader-check-stimulus");
     const control = form.querySelector("textarea");
-    return Boolean(stimulus.compareDocumentPosition(control) & Node.DOCUMENT_POSITION_FOLLOWING);
+    return Boolean(label.compareDocumentPosition(stimulus) & Node.DOCUMENT_POSITION_FOLLOWING)
+      && Boolean(stimulus.compareDocumentPosition(control) & Node.DOCUMENT_POSITION_FOLLOWING)
+      && !label.contains(stimulus)
+      && !label.contains(control);
   })).toBeTruthy();
 
   const resourceScene = productionArtifact.scenes.findLast((scene) => ["synthesis", "references"].includes(scene.kind));

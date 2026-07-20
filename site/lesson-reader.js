@@ -487,19 +487,20 @@
     const form = create("form", "reader-check reader-short-answer");
     form.dataset.checkId = item.id;
     const label = create("label");
+    const responseId = `response-${item.id}`;
+    label.htmlFor = responseId;
     label.append(create("strong", null, item.prompt));
     let stimulus = null;
     if (item.stimulus) {
       stimulus = create("p", "reader-check-stimulus", item.stimulus);
       stimulus.id = `${item.id}-stimulus`;
-      label.append(stimulus);
     }
     const textarea = create("textarea");
+    textarea.id = responseId;
     textarea.name = `response-${item.id}`;
     textarea.maxLength = item.responseSpec?.maxLength || 2000;
     textarea.placeholder = "Write your response in your own words.";
     if (stimulus) textarea.setAttribute("aria-describedby", stimulus.id);
-    label.append(textarea);
     const actions = create("div", "reader-check-actions");
     const reveal = create("button", null, "Compare reasoning");
     reveal.type = "submit";
@@ -510,7 +511,9 @@
     feedback.setAttribute("role", "status");
     feedback.setAttribute("aria-live", "polite");
     actions.append(reveal, reset);
-    form.append(label, actions, feedback);
+    form.append(label);
+    if (stimulus) form.append(stimulus);
+    form.append(textarea, actions, feedback);
     form.addEventListener("submit", (event) => {
       event.preventDefault();
       feedback.hidden = false;
