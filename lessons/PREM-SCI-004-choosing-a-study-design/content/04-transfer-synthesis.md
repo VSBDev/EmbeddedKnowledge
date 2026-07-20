@@ -29,12 +29,12 @@ This is genuine design choice: the data file may stay the same while the warrant
 
 Complete the final link from memory:
 
-> observation → bounded empirical question → hypothesis → prediction → variable-and-control audit → ___
+> observation → bounded empirical question → hypothesis → conditions → prediction → variable-and-control audit → ___
 
 The missing link is **choose a study design that makes the needed comparison possible**.
 
 - The question determines what needs answering.
-- Hypotheses and predictions state what different answers commit you to observing.
+- Hypotheses, stated conditions, and predictions say what different answers commit you to observing.
 - Variables and controls determine what a supplied comparison tests.
 - Study design determines who creates the comparison, where it enters time, and how strongly it can support an inference.
 

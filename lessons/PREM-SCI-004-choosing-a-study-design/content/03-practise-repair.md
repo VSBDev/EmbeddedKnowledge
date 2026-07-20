@@ -57,7 +57,7 @@ This is a **natural-experiment candidate**, not an automatic causal result. Rese
 
 **E.** A lab team assigns cell cultures to a defined nutrient concentration or comparison condition and records growth under held-alike settings.
 
-This is an **experiment** because the researchers assign the exposure. Whether assignment is random and whether the controls work affect the strength of the inference.
+This is an **experiment** because the researchers assign the exposure. Whether assignment is random, whether the comparison condition was run as intended, and whether other settings were held alike affect the strength of the inference.
 
 :::{misconception}
 :id: misconception-retrospective-means-case-control
