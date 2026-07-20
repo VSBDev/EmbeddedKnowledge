@@ -27,7 +27,7 @@ This is an instructional model for the assigned curriculum outcome, not a unique
 
 This lesson teaches schedule reasoning. It does not diagnose fatigue, disability, illness, or difficulty; provide health or sleep advice; guarantee grades or admission; override institutional deadlines; or authorize unsupervised laboratory activity. Use generic labels such as “fixed commitment” or “low-access block” instead of recording private details.
 
-Recovery capacity (`term-recovery-capacity`) is capacity deliberately left uncommitted or assigned to a reduced route. It is part of the plan, not a reward earned after every other box is checked.
+Recovery capacity is capacity deliberately left uncommitted or assigned to a reduced route. It is part of the plan, not a reward earned after every other box is checked.
 
 :::{source-note}
 :claims: claim-plan-balance, claim-recovery-route, claim-four-pass-model

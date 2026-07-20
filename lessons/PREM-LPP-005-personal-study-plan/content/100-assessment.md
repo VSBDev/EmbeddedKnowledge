@@ -1,6 +1,6 @@
 # Study-plan mastery evidence
 
-Complete the items in `assessment.json` without opening their answer records until after each attempt. The assessment is untimed and retakeable.
+Complete the lesson assessment items without opening their answer records until after each attempt. The assessment is untimed and retakeable.
 
 The four tasks require you to:
 
@@ -36,7 +36,7 @@ After each attempt, compare the response with the item reasoning and analytic ru
 - If all misses move forward, apply protect, move, split, replace, or remove to each one.
 - If access changes the assessed operation, build a text/offline equivalent that preserves the reasoning.
 
-Retry with a new fictional constraint and error record. Do not replay the same answer sequence. If the evidence-to-action chain remains unclear, return to `topic-orientation-metacognition-and-error-log`; if retrieval and spacing remain unclear, return to `topic-orientation-mastery-and-retrieval`.
+Retry with a new fictional constraint and error record. Do not replay the same answer sequence. If the evidence-to-action chain remains unclear, return to the prerequisite outcome, Metacognition and error logs (PREM-01.04); if retrieval and spacing remain unclear, return to the earlier outcome, Mastery, retrieval, and spacing (PREM-01.03).
 
 Passing this assessment supports the mapped planning outcome within the lesson's conditions. It does not prove a plan was followed, establish delayed mastery, guarantee performance, or authorize clinical or laboratory activity.
 

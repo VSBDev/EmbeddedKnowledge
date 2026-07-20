@@ -26,7 +26,7 @@ If you can produce that chain, carry its targeted action into the weekly plan. I
 
 ## Recovery route
 
-Return to `topic-orientation-metacognition-and-error-log`. Classify one missed response, identify its earliest insecure prerequisite, and choose one contrasting repair task plus fresh evidence. Then repeat this diagnostic. Missing a prerequisite is routing evidence, not failure.
+Return to the prerequisite outcome, Metacognition and error logs (PREM-01.04). Classify one missed response, identify its earliest insecure prerequisite, and choose one contrasting repair task plus fresh evidence. Then repeat this diagnostic. Missing a prerequisite is routing evidence, not failure.
 
 :::{source-note}
 :claims: claim-error-directed-revision

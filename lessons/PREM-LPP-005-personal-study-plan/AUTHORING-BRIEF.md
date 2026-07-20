@@ -99,10 +99,14 @@ The lesson is educational planning, not medical, mental-health, employment, fina
 ## Author provenance
 
 - Accountable principal verified through `gh api user --jq .login`: `github:VSBDev`.
-- System / provider / model / version: Codex / OpenAI / GPT-5 / Codex CLI 0.144.6.
-- Unique run ID: `codex-author-prem-lpp-005-20260720-bc40b733-5b22-4848-b972-6d555a0ffa88`.
-- Material-instructions digest: `sha256:eb849c052fda3e38075e23774c0add6a1ffe20d818dee7a2ee935389c6547048`.
-- Digest scope: SHA-256 of the UTF-8 concatenation of the exact discloseable author-task payload supplied to this run, a newline delimiter, and the canonical author-role procedure read at run start. It excludes hidden provider instructions and the separately versioned repository authorities read during the run.
+- Original authoring run: Codex / OpenAI / GPT-5 / Codex CLI 0.144.6.
+- Original run ID: `codex-author-prem-lpp-005-20260720-bc40b733-5b22-4848-b972-6d555a0ffa88`.
+- Original material-instructions digest: `sha256:eb849c052fda3e38075e23774c0add6a1ffe20d818dee7a2ee935389c6547048`.
+- Original digest scope: SHA-256 of the UTF-8 concatenation of the exact discloseable author-task payload supplied to that run, a newline delimiter, and the canonical author-role procedure read at run start. It excludes hidden provider instructions and the separately versioned repository authorities read during the run.
+- Material author revision run after independent review: Codex / OpenAI / GPT-5.4 / Codex CLI 0.144.6.
+- Revision run ID: `codex-author-revision-prem-lpp-005-20260720-ba9f59e4-3504-4bde-85b1-944a198abd01`.
+- Revision material-instructions digest: `sha256:c7fcf204fd3e3aecf59a6368439144591bfd98e44c5cdfa2a8fab25551adca36`.
+- Revision digest scope: SHA-256 of the selected canonical author-role procedure used for this revision run. It excludes hidden provider instructions and the separately versioned repository authorities read during the run.
 
 ## Self-audit questions before handoff
 

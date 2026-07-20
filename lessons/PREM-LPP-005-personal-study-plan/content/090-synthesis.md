@@ -34,7 +34,7 @@ The next plan is not a moral score for the previous week. It is a revised model 
 
 At the start of the next science module, build its first week without opening this template. Explain why each problem, lab, and retrieval contact occupies its position. Later lessons should reactivate this outcome whenever an error log changes the order or amount of prerequisite work.
 
-If disruption leaves only the course's minimum viable route (`term-minimum-viable-study-day`), record that reduced evidence truthfully and begin the next review from it. Do not mark the abandoned full plan as complete, and do not dump its entire task list into the next week.
+If disruption leaves only the course's minimum viable study day, record that reduced evidence truthfully and begin the next review from it. Do not mark the abandoned full plan as complete, and do not dump its entire task list into the next week.
 
 :::{source-note}
 :claims: claim-plan-balance, claim-retrieval-spacing, claim-error-directed-revision, claim-recovery-route, claim-four-pass-model

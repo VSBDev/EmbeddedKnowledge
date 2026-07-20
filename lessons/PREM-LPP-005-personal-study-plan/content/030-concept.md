@@ -4,7 +4,7 @@ A weekly plan is a constraint-and-evidence model. It represents what is fixed, w
 
 ## Pass 1: bound capacity
 
-Start with a **capacity boundary** (`term-capacity-boundary`): the study opportunities that are realistically usable after fixed commitments and access constraints are represented. A **study block** (`term-study-block`) is a learner-defined planning unit, not a universal duration. One learner may use equal blocks; another may label them short, standard, and extended. The plan only requires that the labels are consistent enough to prevent double-booking.
+Start with a **capacity boundary**: the study opportunities that are realistically usable after fixed commitments and access constraints are represented. A **study block** is a learner-defined planning unit, not a universal duration. One learner may use equal blocks; another may label them short, standard, and extended. The plan only requires that the labels are consistent enough to prevent double-booking.
 
 Record four kinds of constraint:
 
@@ -19,7 +19,7 @@ Do not write medical, disability, employment, or caregiving details. The plan ne
 
 ## Pass 2: place dependencies and fixed work
 
-A **fixed commitment** (`term-fixed-commitment`) is time- or access-bound. Place institutionally supervised labs and true deadlines first. Then annotate dependencies:
+A **fixed commitment** is time- or access-bound. Place institutionally supervised labs and true deadlines first. Then annotate dependencies:
 
 - concept acquisition before a dependent problem or investigation;
 - lab preparation before the supervised session;
@@ -31,17 +31,17 @@ Priority is therefore relational. A short prerequisite repair can outrank a larg
 
 ## Pass 3: distribute learning functions
 
-A **learning function** (`term-learning-function`) is the job an activity performs. “Study biology” hides the job; “retrieve the transport model from memory, then explain one failed prediction” exposes it.
+A **learning function** is the job an activity performs. “Study biology” hides the job; “retrieve the transport model from memory, then explain one failed prediction” exposes it.
 
-The course distinguishes acquisition, retrieval, problem solving, investigation, application, and reflection/planning. One block may serve more than one function, but each promised function needs observable evidence. For example, reading a worked solution may support concept construction; it is not automatically evidence of independent problem solving.
+The course distinguishes acquisition, retrieval, problem solving, investigation, application, and reflection/planning. For weekly scheduling, this lesson groups that finer-grained cycle into five planning categories: concept learning covers acquisition, problem solving covers application, lab work covers investigation plus its preparation and debrief, retrieval/review remains distinct, and reflection/planning appears in the revision rule and protected recovery route rather than as a separate sixth block. One block may serve more than one function, but each promised function needs observable evidence. For example, reading a worked solution may support concept construction; it is not automatically evidence of independent problem solving.
 
-Plan a **delayed retrieval contact** (`term-delayed-retrieval-contact`) after the initial learning episode. The useful interval depends on the retention goal, material, prior knowledge, and retrieval success. The model therefore requires a visible later contact but does not impose one fixed number of days.
+Plan a **delayed retrieval contact** after the initial learning episode. The useful interval depends on the retention goal, material, prior knowledge, and retrieval success. The model therefore requires a visible later contact but does not impose one fixed number of days.
 
 ## Pass 4: reserve and revise
 
-Protect recovery capacity before disruption occurs. Add a **contingency** (`term-contingency`) for a task whose medium or access could fail. A contingency preserves the learning operation where possible: an offline text explanation and typed graph interpretation can replace an online display, whereas “skip all reasoning” cannot.
+Protect recovery capacity before disruption occurs. Add a **contingency** for a task whose medium or access could fail. A contingency preserves the learning operation where possible: an offline text explanation and typed graph interpretation can replace an online display, whereas “skip all reasoning” cannot.
 
-At weekly review, classify each unfinished or ineffective task with a **revision decision** (`term-revision-decision`):
+At weekly review, classify each unfinished or ineffective task with a **revision decision**:
 
 - **protect** because it is a required outcome, prerequisite, fixed event, or due retrieval;
 - **move** because it remains necessary and another feasible slot exists;

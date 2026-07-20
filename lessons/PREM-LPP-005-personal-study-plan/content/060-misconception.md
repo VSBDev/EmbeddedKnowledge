@@ -14,7 +14,7 @@ The tempting model is: “Unused space is waste, so the strongest plan fills eve
 
 This model cannot explain how Plan A absorbs the lost block without exceeding its capacity boundary or borrowing from a later week. Moving the task forward preserves the task name but not feasibility. If the same rule repeats, the next week begins with work that its own capacity never included.
 
-The replacement model treats recovery capacity (`term-recovery-capacity`) as a constraint. Plan B can absorb one disruption inside the declared week. If no disruption occurs, the reserve can remain recovery, support the course's reduced route, or be allocated only through a deliberate revision decision. It is not silently counted as proof of additional study.
+The replacement model treats recovery capacity as a constraint. Plan B can absorb one disruption inside the declared week. If no disruption occurs, the reserve can remain recovery, support the course's reduced route, or be allocated only through a deliberate revision decision. It is not silently counted as proof of additional study.
 
 Compare the plans on the same event: the unavailable block contained optional enrichment, while a due retrieval and prerequisite repair remain scheduled. Plan A copies the enrichment forward automatically. Plan B removes or defers it because it does not outrank the required or evidence-linked work.
 
