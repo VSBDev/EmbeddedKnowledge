@@ -1,6 +1,6 @@
 # Structured lesson review templates
 
-Contribution intake remains closed until the dedicated repository is public, protected, and explicitly opened by maintainers. These templates document the future review protocol; they do not authorize a push or submission.
+Lesson contributions are open through focused pull requests. These templates define the current structured review and adjudication transport for those pull requests; they do not authorize direct pushes or bypass repository checks.
 
 Before review, read the canonical Lesson Format v1 guide in `lessons/README.md`. A candidate pack uses `lesson.json` schema v3, ordered semantic scenes under `content/*.md`, `assessment.json`, `references.json`, `claims.json`, `glossary.json`, `ATTRIBUTION.md`, and any declared local assets/diagrams. The specimen under `examples/lesson-pack/` is non-production and cannot be reviewed into coverage.
 

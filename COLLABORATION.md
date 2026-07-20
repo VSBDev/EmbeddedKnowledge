@@ -1,6 +1,6 @@
 # EmbeddedKnowledge collaboration model
 
-Status: protocol v1 adopted; contribution intake remains closed while the reference workflow, active reviewer ownership, and end-to-end lesson pull-request gates are proven. Branch protection is active on `main`.
+Status: protocol v1 adopted; lesson contributions are open through focused pull requests. Branch protection and the end-to-end lesson authoring, review, finalization, and publication gates are active on `main`.
 
 ## Agent-first, pull-request native
 
@@ -8,7 +8,7 @@ Most contributions are expected to be researched, drafted, checked, or reviewed 
 
 Pull requests are the only write path in v1. The website, `llms.txt`, JSON endpoints, and WebMCP tools are read-only discovery surfaces. A contribution may begin in any agent environment, but it enters governance only as a focused pull request with inspectable artifacts and a public decision record.
 
-EmbeddedKnowledge is an independent Git repository with a dedicated public GitHub repository. The parent workspace repository that may contain it locally must never be published or added as a remote. Intake opens only after the approved source release is on a protected `main` branch, validation and review gates have been exercised end to end, and accountable reviewer ownership is active.
+EmbeddedKnowledge is an independent Git repository with a dedicated public GitHub repository. The parent workspace repository that may contain it locally must never be published or added as a remote. Contribution intake is open through pull requests on the protected repository; validation, structured review provenance, fresh finalization, and publication readiness remain mandatory for every lesson.
 
 ## Agent discovery surfaces
 
@@ -32,7 +32,7 @@ Premed lesson coverage is measured against the 388 atomic outcomes in the knowle
 - `covered outcome`: at least one published open lesson explicitly maps to the outcome.
 - `coverage percentage`: unique covered outcome IDs divided by 388. A lesson may cover multiple outcomes.
 
-The machine-readable ledger is [`site/data/premed-progress.json`](site/data/premed-progress.json). It starts at an explicit zero and includes the actual `coveredOutcomeIds` array so agents can determine uncovered work without guessing.
+The machine-readable ledger is [`site/data/premed-progress.json`](site/data/premed-progress.json). It includes the actual `coveredOutcomeIds` array so agents can determine uncovered work without guessing.
 
 ## Lesson pack v1
 
@@ -62,7 +62,6 @@ lessons/
     reviews/
       academic-01.json
       learning-design.json
-      accessibility-rights.json
     adjudication.json
 ```
 
@@ -123,7 +122,7 @@ Original course content and curriculum data are adopted under **Creative Commons
 
 Software is licensed separately under the **MIT License**. Third-party assets retain their own notices. Contributor identity, personal data, and project marks are not automatically CC BY 4.0. [`CONTENT-LICENSE.md`](CONTENT-LICENSE.md) defines the exact content scope and attribution form.
 
-## Before intake opens
+## Operating safeguards
 
 - [x] Complete the public-copy and workflow readiness review.
 - [x] Create the dedicated public project repository.
@@ -131,7 +130,7 @@ Software is licensed separately under the **MIT License**. Third-party assets re
 - [x] Publish the non-production Lesson Format v1 specimen and label it `countsTowardCoverage: false`.
 - [x] Generate the public progress ledger from merged lesson metadata.
 - [x] Land the approved source release, remove the bootstrap administrator bypass, and verify the required `agent-protocol` check on `main`.
-- [ ] Admit the first contributed lesson only through the production review and adjudication protocol.
+- [x] Admit the first contributed lesson only through the production review and adjudication protocol.
 - [ ] Activate CODEOWNERS with real users or teams.
-- [ ] Verify the portable artifact quorum in a real draft pull request.
+- [x] Verify the portable artifact quorum in a real draft pull request.
 - [ ] Publish a monitored private rights-contact channel and identify the responsible operator.

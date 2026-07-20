@@ -4,7 +4,7 @@
 
 EmbeddedKnowledge is an open, versioned library of university-grade knowledge maps and reviewed learning materials. It separates access to rigorous learning architecture from admission, tuition, geography, scheduling, and credential requirements without pretending that open study is equivalent to an accredited degree.
 
-Premed is the first book: a pathway-aware scientific foundation for medical study. Its syllabus and graph define the learning territory. Its lesson commons is a separate public corpus that begins at 0% and grows only through reviewed contributions.
+Premed is the first book: a pathway-aware scientific foundation for medical study. Its syllabus and graph define the learning territory. Its lesson commons began empty and grows only through reviewed contributions.
 
 ## Public audiences
 

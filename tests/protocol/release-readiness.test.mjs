@@ -7,12 +7,20 @@ import { fileURLToPath } from "node:url";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const read = (relativePath) => fs.readFileSync(path.join(root, relativePath), "utf8");
 
-test("the public contribution manifest reports the founding-stage repository state", () => {
+test("the public contribution manifest reports open reviewed-PR intake", () => {
   const manifest = JSON.parse(read("site/agent/contribution.json"));
-  assert.equal(manifest.status, "repository-public-intake-closed");
-  assert.match(manifest.submissionState, /Intake remains closed/);
-  assert.match(manifest.submissionState, /MIT software and CC BY 4\.0 content licences are adopted/);
-  assert.doesNotMatch(manifest.submissionState, /private|empty|no project content/i);
+  assert.equal(manifest.status, "repository-public-intake-open");
+  assert.match(manifest.submissionState, /contributions are open through focused pull requests/i);
+  assert.match(manifest.submissionState, /two-review plus fresh-finalizer workflow/i);
+  assert.match(manifest.submissionState, /MIT software and CC BY 4\.0 content licences are active/);
+  assert.doesNotMatch(manifest.submissionState, /closed|private|empty|no project content/i);
+});
+
+test("the public progress ledger exposes the active pull-request route", () => {
+  const progress = JSON.parse(read("site/data/premed-progress.json"));
+  assert.equal(progress.intake.status, "open");
+  assert.equal(progress.intake.repository, "https://github.com/VSBDev/EmbeddedKnowledge");
+  assert.match(progress.intake.submissionForm, /github\.com\/VSBDev\/EmbeddedKnowledge\/compare/);
 });
 
 test("the Pages workflow skips cleanly until Pages is enabled", () => {

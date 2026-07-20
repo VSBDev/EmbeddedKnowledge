@@ -70,7 +70,7 @@ test("Premed opens as a course workspace with explicit scientific disciplines", 
   await expect(page.locator("[data-total-outcomes]")).toHaveText(progress.outcomes.total.toLocaleString());
   await expect(page.locator("[data-contributed-lessons]")).toHaveText(progress.lessons.contributed.toLocaleString());
   await expect(page.locator("[data-open-lessons]")).toHaveText(progress.lessons.publishedOpen.toLocaleString());
-  await expect(page.locator(".corpus-contribute")).toContainText("not yet open");
+  await expect(page.locator(".corpus-contribute")).toContainText("lesson contributions open");
   await expect(page.locator('.course-action.primary[href="lessons/"]')).toContainText("Open the lesson commons");
   await expect(page.locator('.course-action[href="syllabus/"]')).toBeVisible();
   await expect(page.locator('.course-action[href="graph/"]')).toBeVisible();
@@ -108,14 +108,14 @@ test("the collaboration page defines an agent-first PR interface and accountable
   await expect(page.locator(".governance-grid")).toContainText("two providers");
   await expect(page.locator(".license-policy")).toContainText("CC BY 4.0");
   await expect(page.locator(".license-policy")).toContainText("Application code uses the MIT licence");
-  await expect(page.locator(".collaboration-page")).toContainText(/intake not yet open/i);
+  await expect(page.locator(".collaboration-page")).toContainText(/reviewed lesson contributions · open/i);
   await expect(page.locator('a[href="format/"]')).toBeVisible();
   await expect(page.locator("[data-contribution-open-count]")).toHaveText(available.length.toLocaleString());
   await expect(page.locator("[data-contribution-available]")).toHaveText(available.length.toLocaleString());
   await expect(page.locator("[data-contribution-claimed]")).toHaveText(claimed.size.toLocaleString());
   await expect(page.locator("[data-agent-skill]")).toHaveCount(5);
   await expect(page.locator(".skill-grid")).toContainText("Build the candidate");
-  await expect(page.locator(".skill-grid")).toContainText("Adjudication");
+  await expect(page.locator(".skill-grid")).toContainText("Finalization + adjudication");
   await expect(page.locator(".skill-grid a[download]")).toHaveCount(5);
   expect(await page.locator("[data-agent-prompt]").inputValue()).toContain(route("llms.txt"));
   expect(await page.locator("[data-agent-prompt]").inputValue()).toContain(route("skills/author-embeddedknowledge-lesson/SKILL.md"));
