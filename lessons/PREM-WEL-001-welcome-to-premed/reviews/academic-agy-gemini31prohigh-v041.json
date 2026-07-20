@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-WEL-001-ACADEMIC-VSBDEV-V041",
+  "lessonId": "PREM-WEL-001",
+  "lessonVersion": "0.4.1",
+  "candidateCommit": "bd6ef5438aa48142e2c404030c9f8ee72bfe091a",
+  "role": "academic",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.1-pro-high",
+      "version": "Agy 1.1.3",
+      "runId": "agy-academic-gemini31prohigh-v041-33bffd52-0710-4fd2-8780-b01b413337fc",
+      "instructionsDigest": "sha256:4a24b753d8d89f54d8e10e70bb6ae0f8eaf652056e43ec261a58086b958049c7"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "The operator (VSBDev) is the accountable principal who also operates author and review agents during the explicitly permitted founding stage. This is disclosed to maintain public accountability; no independent human verification or separation of operator is claimed."
+  },
+  "evidenceChecked": [
+    "lesson.json#PREM-WEL-001",
+    "claims.json#claim-subject-scope",
+    "claims.json#claim-subject-preparation",
+    "claims.json#claim-recommended-sequence",
+    "claims.json#claim-learning-practice",
+    "claims.json#claim-completion-capabilities",
+    "claims.json#claim-orientation-boundary",
+    "references.json#source-premed-syllabus",
+    "glossary.json#term-scientific-method",
+    "glossary.json#term-model",
+    "glossary.json#term-capstone",
+    "assessment.json#assessment-welcome-to-premed",
+    "assessment.json#item-describe-journey",
+    "assessment.json#item-explain-relevance",
+    "assessment.json#item-identify-capabilities",
+    "content/01-welcome.md#scene-welcome",
+    "content/02-journey.md#scene-journey",
+    "content/03-learning.md#scene-learning",
+    "content/04-finish.md#scene-finish",
+    "ATTRIBUTION.md"
+  ],
+  "findings": [
+    {
+      "severity": "note",
+      "target": "content/03-learning.md#worked-example-flow-preview",
+      "finding": "The flow-preview worked example correctly grounds abstract scientific reasoning in a concrete model comparison. The logic correctly traces variable control (pump, liquid, tube length, collection time) and exposes the danger of drawing causal conclusions when a competing difference exists. The text appropriately limits the model's validity, noting that it does not establish Poiseuille's law or represent human circulation.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "content/02-journey.md#scene-journey",
+      "finding": "The lesson operates at the university-preparatory orientation level, introducing the subject areas and their prep relationships without teaching detailed scientific concepts (e.g., Poiseuille flow, detailed biochemical metabolic pathways, or immune cell actions). These are deferred to later modules in the Premed curriculum as outlined in the syllabus.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#assessment-welcome-to-premed",
+      "finding": "Recomputed and verified that the three open-response items (describe-journey = 4 pts, explain-relevance = 3 pts, identify-capabilities = 3 pts) and their corresponding rubric criteria maxPoints total exactly 10 points. Mastery requires a score of 10/10 and satisfying every rubric criterion. Retakes are untimed (timeLimitMinutes is null) and retakeable is true (unlimited attempts permitted).",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#item-describe-journey",
+      "finding": "Verified that two preparation links ('because' or 'how' relations) are required in item-describe-journey, the four completion capabilities and one explicit course boundary are required in item-identify-capabilities, and recovery paths link to recovery text in 04-finish.md. Each prompt aligns with its answer reasoning and rubric criteria. Although the schema places retry prompts in the answer reasoning field, this placement is academically clear, though programmatically enforcing alternate-form templates could be improved by dedicated schema fields.",
+      "resolution": null
+    }
+  ],
+  "limitations": [
+    "Expertise limit: This review evaluates premedical curriculum welcome and orientation-level science practice, inquiry, and subject prep sequencing. It does not evaluate clinical medical practice, medical school admissions policies, or secondary credential equivalence.",
+    "Inaccessible evidence: No direct human test data or cohort results are available to evaluate the real-world clarity of the text for the target audience.",
+    "Environmental limits: Checked using the local workspace checkout at commit bd6ef5438aa48142e2c404030c9f8ee72bfe091a and cited syllabus commit afc8b980e1181d172b0954b7b46bfcdd32d0db85."
+  ],
+  "signedAt": "2026-07-20T10:31:20Z"
+}
