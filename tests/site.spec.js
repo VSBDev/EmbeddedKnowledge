@@ -551,7 +551,13 @@ test("a published lesson opens through its production route with keyboard and co
   await page.goto(route(`premed/lessons/?outcome=${targetOutcome.id}`), { waitUntil: "networkidle" });
   await expect(page).toHaveURL(new RegExp(`/premed/lessons/read/\\?lesson=${lessonId}$`));
 
-  await page.goto(route("premed/lessons/"), { waitUntil: "networkidle" });
+  const lessonIndexReturn = page.getByRole("link", { name: "Back to lesson index" });
+  await expect(lessonIndexReturn).toBeVisible();
+  await expect(lessonIndexReturn).toHaveAttribute("href", "../");
+  await lessonIndexReturn.click();
+  await expect(page).toHaveURL(/\/premed\/lessons\/$/);
+  await expect(page.locator(".lesson-reader-app")).toBeVisible();
+
   await page.locator("[data-lesson-search]").fill(targetOutcome.code);
   const publishedOutcome = page.locator(`a.reader-outcome-link[href$="/premed/lessons/read/?lesson=${lessonId}"]`);
   await expect(publishedOutcome).toHaveCount(1);
