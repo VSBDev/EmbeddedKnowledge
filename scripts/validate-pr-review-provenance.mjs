@@ -20,7 +20,9 @@ if (!event.pull_request) {
 
 const policy = JSON.parse(fs.readFileSync(path.join(root, "site/agent/quorum-policy.json"), "utf8"));
 const git = (...args) => execFileSync("git", args, { cwd: root, encoding: "utf8" }).trim();
-const changedFiles = git("diff", "--name-only", `${event.pull_request.base.sha}...${event.pull_request.head.sha}`).split("\n").filter(Boolean);
+// Deleted governance artifacts do not claim new GitHub provenance. Remaining
+// lesson readiness checks still validate every artifact present in the head.
+const changedFiles = git("diff", "--name-only", "--diff-filter=d", `${event.pull_request.base.sha}...${event.pull_request.head.sha}`).split("\n").filter(Boolean);
 const reviewFiles = changedFiles.filter((file) => /^lessons\/[^/]+\/reviews\/[^/]+\.json$/.test(file));
 const adjudicationFiles = changedFiles.filter((file) => /^lessons\/[^/]+\/adjudication\.json$/.test(file));
 if (!reviewFiles.length && !adjudicationFiles.length) {

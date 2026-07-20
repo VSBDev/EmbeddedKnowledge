@@ -2,7 +2,8 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import {
   isAllowedLessonGeneratedFile,
-  lessonPrOutsideFiles
+  lessonPrOutsideFiles,
+  validateFullLessonPackRemoval
 } from "../../scripts/lib/lesson-pr-file-scope.mjs";
 
 const currentId = "PREM-LPP-001";
@@ -67,4 +68,38 @@ test("invalid metadata IDs cannot widen the generated-output allowlist", () => {
   for (const lessonId of ["../scripts", "PREM-LPP-001/../../scripts", "PREM-lpp-001", "PREM-LPPP-001"]) {
     assert.equal(isAllowedLessonGeneratedFile(`site/assets/lessons/${lessonId}/payload`, [lessonId]), false);
   }
+});
+
+test("a complete existing lesson pack may be removed without retaining governance artifacts", () => {
+  assert.deepEqual(validateFullLessonPackRemoval({
+    baseMetadata: { id: currentId },
+    packExists: false,
+    trackedFiles: [],
+    changedEntries: [
+      { status: "D", path: `${packPath}/lesson.json` },
+      { status: "D", path: `${packPath}/reviews/academic.json` },
+      { status: "D", path: `${packPath}/adjudication.json` }
+    ]
+  }), { removed: true, errors: [] });
+});
+
+test("a claimed lesson removal rejects retained files and non-deletion pack changes", () => {
+  const result = validateFullLessonPackRemoval({
+    baseMetadata: { id: currentId },
+    packExists: false,
+    trackedFiles: [`${packPath}/notes.txt`],
+    changedEntries: [{ status: "M", path: `${packPath}/notes.txt` }]
+  });
+
+  assert.equal(result.removed, true);
+  assert.equal(result.errors.length, 2);
+});
+
+test("a missing manifest is not classified as removal while the pack directory remains", () => {
+  assert.deepEqual(validateFullLessonPackRemoval({
+    baseMetadata: { id: currentId },
+    packExists: true,
+    trackedFiles: [`${packPath}/content/010-orientation.md`],
+    changedEntries: [{ status: "D", path: `${packPath}/lesson.json` }]
+  }), { removed: false, errors: [] });
 });

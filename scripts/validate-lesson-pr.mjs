@@ -3,7 +3,7 @@ import path from "node:path";
 import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import { claimsChangeIsGovernanceOnly, lessonMetadataChangeIsGovernanceOnly } from "./lib/candidate-governance.mjs";
-import { lessonPrOutsideFiles } from "./lib/lesson-pr-file-scope.mjs";
+import { lessonPrOutsideFiles, validateFullLessonPackRemoval } from "./lib/lesson-pr-file-scope.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const eventPath = process.env.GITHUB_EVENT_PATH;
@@ -33,8 +33,6 @@ const packPath = packPaths[0];
 const metadataPath = path.join(root, packPath, "lesson.json");
 const claimsPath = path.join(root, packPath, "claims.json");
 const adjudicationPath = path.join(root, packPath, "adjudication.json");
-if (!fs.existsSync(metadataPath)) errors.push(`${packPath}/lesson.json is required.`);
-if (!fs.existsSync(adjudicationPath)) errors.push(`${packPath}/adjudication.json is required before merge.`);
 
 let metadata;
 let adjudication;
@@ -49,6 +47,27 @@ try {
   baseMetadata = JSON.parse(git("show", `${baseSha}:${packPath}/lesson.json`));
 } catch {
   // A new lesson pack has no metadata at the base commit.
+}
+
+const changedPackEntries = git("diff", "--name-status", "--no-renames", `${baseSha}...${headSha}`, "--", packPath)
+  .split("\n")
+  .filter(Boolean)
+  .map((line) => {
+    const [status, file] = line.split("\t", 2);
+    return { status, path: file };
+  });
+const trackedPackFiles = git("ls-files", "--", packPath).split("\n").filter(Boolean);
+const removal = validateFullLessonPackRemoval({
+  baseMetadata,
+  packExists: fs.existsSync(path.join(root, packPath)),
+  trackedFiles: trackedPackFiles,
+  changedEntries: changedPackEntries
+});
+errors.push(...removal.errors);
+
+if (!removal.removed) {
+  if (!fs.existsSync(metadataPath)) errors.push(`${packPath}/lesson.json is required.`);
+  if (!fs.existsSync(adjudicationPath)) errors.push(`${packPath}/adjudication.json is required before merge.`);
 }
 
 // A lesson PR may include only its source pack and the exact public files that
@@ -67,6 +86,19 @@ if (outsideFiles.length) {
     `It also changes: ${outsideFiles.join(", ")}. ` +
     "Move infrastructure, workflow, validator, or other-pack changes into a separate non-lesson pull request."
   );
+}
+
+if (removal.removed) {
+  const generatedDetailPath = path.join(root, "site", "data", "lessons", `${baseMetadata.id}.json`);
+  if (fs.existsSync(generatedDetailPath)) {
+    errors.push(`Removed lesson ${baseMetadata.id} still has generated detail data at site/data/lessons/${baseMetadata.id}.json.`);
+  }
+  if (errors.length) {
+    console.error(errors.join("\n"));
+    process.exit(1);
+  }
+  console.log(`Lesson removal valid: ${packPath} and the generated detail for ${baseMetadata.id} are absent.`);
+  process.exit(0);
 }
 try {
   if (fs.existsSync(adjudicationPath)) adjudication = JSON.parse(fs.readFileSync(adjudicationPath, "utf8"));
