@@ -2,7 +2,7 @@
 
 By the end of Premed, knowing the subjects means being able to use them. You should be able to:
 
-- **Explain** relationships from molecules to cells, organs, behaviour, and populations with accurate cause-and-evidence language.
+- **Explain** relationships from molecules to cells, organs, behaviour, and populations with cause-and-evidence language.
 - **Model** a relationship with words, quantities, graphs, diagrams, chemical structures, or data, while stating what the representation leaves out.
 - **Investigate** a testable question with suitable measurements and comparisons, an auditable record, and a conclusion no stronger than the evidence.
 - **Integrate** several subjects in an unfamiliar problem, distinguish mechanism from association, communicate clearly, and revise after evidence or critique.
@@ -20,9 +20,11 @@ A friend asks, “Why isn't Premed just biology?” Without looking back, give a
 3. names two actions a finisher should perform.
 
 Use sentences or an outline. Do not teach a mechanism you have not learned.
+
+Pause here. Cover the following paragraph and commit your answer before continuing.
 :::
 
-A strong answer begins with inquiry and quantitative work; includes chemical, physical, biological, human, microbial, behavioural, social, and population subjects; and ends with capstone work. It also explains one preparation link—for example, pressure and flow prepare you to explain circulation. If you gave only a list, explain why one transition matters. If you discussed only the body, add how evidence is tested.
+Once you have answered, compare: begin with inquiry and quantitative work; include chemical, physical, biological, human, microbial, behavioural, social, and population subjects; and end with capstone work. Explain one preparation link, such as pressure and flow preparing you to explain circulation. If you gave only a list, add why one transition matters.
 
 :::{misconception}
 :id: misconception-prior-science-gate
@@ -31,7 +33,11 @@ A strong answer begins with inquiry and quantitative work; includes chemical, ph
 **Worry:** “If I cannot already explain enzymes, electricity, inheritance, or immunity, I am not ready.”
 
 **Repair:** this welcome asks you to describe the journey, not perform untaught science. Place an unfamiliar term in its subject and say what the subject will unlock. For *enzyme regulation*, “Biochemistry will teach how cells control reaction helpers called enzymes” is enough today.
+
+**Recheck.** Choose a different unfamiliar term. Pause, cover the following text, and commit one line that names the subject that will teach it and what it will help explain.
 :::
+
+Once you have answered, compare: your line should name a different term, its teaching subject, and a later explanation; it need not explain the science yet.
 
 ## The welcome check
 
@@ -45,11 +51,11 @@ On a retry, use genuinely different prompts:
 
 ## Accessibility and alternatives
 
-Choose paragraphs, bullets, or an outline. You can type, paste text from assistive technology, or use device dictation in a text field; direct audio upload is not available. No task asks for personal health information, speed, sight alone, or physical practical work. Headings and lists keep a semantic reading order for keyboard, screen-reader, reflow, zoom, narrow-screen, and print use, and the table's meaning is also explained in words.
+Choose paragraphs, bullets, or an outline. You can type, paste from assistive technology, or use device dictation; direct audio upload is unavailable. No task requires personal health information, speed, sight alone, or physical work. Headings and lists preserve reading order for keyboard, screen-reader, reflow, zoom, narrow-screen, and print use; the table is also explained in words.
 
 ## Recovery route
 
-If the names blur together, start again with three stages: **evidence and measurement; matter and living systems; people, populations, and capstone work**. Add the named subjects and complete: “I will learn ___ in ___ because it helps me later explain or evaluate ___.” Check the glossary when you need it, then try again from memory.
+If the names blur together, start with three stages: **evidence and measurement; matter and living systems; people, populations, and capstone work**. Add the named subjects and complete: “I will learn ___ in ___ because it helps me later explain or evaluate ___.” Check the glossary, then try again from memory.
 
 :::{source-note}
 :claims: claim-subject-scope, claim-learning-practice, claim-completion-capabilities, claim-orientation-boundary

@@ -2,17 +2,19 @@
 
 ## Lesson authorship and licence
 
-*Welcome to Premed* (`PREM-WEL-001`), version 0.1.0, was prepared for EmbeddedKnowledge under the accountable principal **VSBDev** (`github:VSBDev`). Except where stated below, the lesson prose, fictional training data, prompts, assessment, glossary, and structured records are offered under the [Creative Commons Attribution 4.0 International licence](https://creativecommons.org/licenses/by/4.0/).
+*Welcome to Premed* (`PREM-WEL-001`), version 0.2.0, was prepared for EmbeddedKnowledge under the accountable principal **VSBDev** (`github:VSBDev`). Except where stated below, the lesson prose, fictional training data, prompts, assessment, glossary, and structured records are offered under the [Creative Commons Attribution 4.0 International licence](https://creativecommons.org/licenses/by/4.0/).
 
 No third-party image, audio, video, software, or dataset is included in this pack.
 
 ## Adapted curriculum source
 
-This lesson adapts **EmbeddedKnowledge, *Premed: Foundations for Medical Study*, curriculum version 1.1 candidate (20 July 2026)** (`source-premed-syllabus`), available in the [EmbeddedKnowledge repository](https://github.com/VSBDev/EmbeddedKnowledge/blob/main/course/PREMED-SYLLABUS.md) and licensed under [CC BY 4.0](https://github.com/VSBDev/EmbeddedKnowledge/blob/main/CONTENT-LICENSE.md).
+This lesson adapts **EmbeddedKnowledge, *Premed: Foundations for Medical Study*, curriculum version 1.1 candidate (20 July 2026)** (`source-premed-syllabus`), preserved at immutable commit `afc8b980e1181d172b0954b7b46bfcdd32d0db85` in the [EmbeddedKnowledge repository](https://github.com/VSBDev/EmbeddedKnowledge/blob/afc8b980e1181d172b0954b7b46bfcdd32d0db85/course/PREMED-SYLLABUS.md) and licensed there under [CC BY 4.0](https://github.com/VSBDev/EmbeddedKnowledge/blob/afc8b980e1181d172b0954b7b46bfcdd32d0db85/CONTENT-LICENSE.md).
 
 **Material retained and adapted:** the syllabus's named subject sequence, the relationship among successive stages of study, its physical/simulation/dataset practical modalities, and its four-part destination of explaining, modelling, investigating, and integrating science.
 
 **Modifications:** the syllabus material was reorganized and rewritten as an original 60-minute, four-scene welcome for a novice learner. The adaptation separates the subjects into an explicit plain-language overview, explains how each subject prepares later medical study, supplies a fictional worked dataset, adds retrieval and transfer prompts, creates an original low-stakes assessment and retry forms, and adds learner-visible recovery and accessibility guidance. No syllabus question, table, example, media, or dataset was copied.
+
+**Assessment format note:** assessment schema v1 has no mastery-threshold or alternate-form field. This draft therefore preserves the 8/10 threshold, the requirement to earn at least one point on every response, and equivalent retry forms in learner scene prose.
 
 ## Agent assistance and provenance
 
@@ -38,4 +40,15 @@ This tone repair was completed in a separate author-revision run without replaci
 
 This revision digest covers the exact discloseable revision prompt supplied to the run and excludes hidden provider instructions.
 
-This pack remains a draft. It contains no review or adjudication artifact and makes no claim of approval, publication, course coverage, learner effectiveness, clinical sufficiency, academic credit, or admission eligibility.
+The complete first review cohort was consolidated in a third isolated author-revision run without replacing either earlier author run:
+
+- **System:** Codex
+- **Provider:** OpenAI
+- **Model:** GPT-5.6-Sol
+- **Version:** Codex CLI 0.144.6
+- **Run ID:** `author-cohort-revision-codex-gpt56sol-20260720-a139cf25-b158-4785-8712-86c8caba7f4a`
+- **Material-instructions digest:** `sha256:4831444e0fc5307974e07fe4745acd0442e0a94fd5505e3cd52bba971002f041`
+
+This cohort-revision digest covers the exact discloseable revision prompt supplied to the run and excludes hidden provider instructions.
+
+This pack remains a draft. Its unchanged historical reviews target version 0.1.0 and do not approve this 0.2.0 revision; no adjudication exists. The pack makes no claim of approval, publication, course coverage, learner effectiveness, clinical sufficiency, academic credit, or admission eligibility.
