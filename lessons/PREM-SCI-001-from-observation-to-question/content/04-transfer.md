@@ -36,7 +36,7 @@ The next lesson will begin with a question like yours and ask what explanation a
 
 ## Mastery check
 
-The assessment contains three untimed items. Attempt each before opening its answer and reasoning. A complete response earns all ten available points: two for separating observation from explanation, four for constructing a bounded question, and four for evaluating a question in a new setting. Retakes are unlimited. On a retry, use the alternate cases in the answer feedback rather than copying your first response.
+The assessment contains three untimed items. Attempt each before opening its answer and reasoning. Mastery means meeting every rubric criterion and earning all ten available points: two for separating observation from explanation, four for constructing a bounded question, and four for evaluating a question in a new setting. If you miss a criterion, use its feedback to repair that part and retry with the alternate case rather than copying your first response. Retakes are unlimited.
 
 ## Accessibility and alternatives
 

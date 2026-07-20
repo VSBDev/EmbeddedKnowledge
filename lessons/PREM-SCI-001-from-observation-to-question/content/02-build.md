@@ -36,7 +36,7 @@ The four parts are a drafting aid, not a magic sentence pattern. Some fields com
 
 A strong answer may choose the record: “going bad” became minutes to a stated browning level, so an observation can answer the question. Choosing the contrast and boundary also matters. If you only changed the grammar, try again and name how the possible evidence became clearer.
 
-## Testable, measurable, and falsifiable
+## Empirical questions and falsifiable claims
 
 People sometimes call a question “falsifiable.” More precisely, a **question** is empirically answerable; a **hypothesis or claim** is what evidence can count against.
 
