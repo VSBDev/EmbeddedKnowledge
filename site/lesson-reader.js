@@ -43,6 +43,7 @@
   let marginCollapsed = false;
   let focusMode = false;
   let viewMode = "guided";
+  let indexFocusFrame = 0;
   const frameOverflowObserver = typeof ResizeObserver === "function"
     ? new ResizeObserver(() => syncGuidedFrameScrolling())
     : null;
@@ -383,10 +384,41 @@
     const legend = create("legend", null, item.prompt);
     fieldset.append(legend);
     const optionName = `check-${item.id}`;
-    for (const option of item.responseSpec?.options || []) {
+    const options = item.responseSpec?.options || [];
+    const multiple = item.type === "multiple-choice" || item.responseSpec?.mode === "multiple-choice";
+    const describedBy = [];
+    if (item.stimulus) {
+      const stimulus = create("p", "reader-check-stimulus", item.stimulus);
+      stimulus.id = `${item.id}-stimulus`;
+      fieldset.append(stimulus);
+      describedBy.push(stimulus.id);
+    }
+    const configuredMaximum = Number.isInteger(item.responseSpec?.maxSelections)
+      ? item.responseSpec.maxSelections
+      : null;
+    const maximum = multiple ? configuredMaximum : 1;
+    let selectionStatus = null;
+    if (multiple) {
+      const instruction = create(
+        "p",
+        "reader-check-instructions",
+        maximum ? `Select up to ${maximum} responses.` : "Select all responses that apply."
+      );
+      instruction.id = `${item.id}-selection-instructions`;
+      fieldset.append(instruction);
+      describedBy.push(instruction.id);
+
+      selectionStatus = create("p", "reader-selection-status", maximum ? `0 of ${maximum} selected.` : "0 selected.");
+      selectionStatus.setAttribute("aria-live", "polite");
+      selectionStatus.setAttribute("aria-atomic", "true");
+      fieldset.append(selectionStatus);
+    }
+    if (describedBy.length) fieldset.setAttribute("aria-describedby", describedBy.join(" "));
+
+    for (const option of options) {
       const label = create("label", "reader-check-option");
       const input = create("input");
-      input.type = "radio";
+      input.type = multiple ? "checkbox" : "radio";
       input.name = optionName;
       input.value = option.id;
       label.append(input, create("span", null, option.text));
@@ -405,40 +437,70 @@
     fieldset.append(actions, feedback);
     form.append(fieldset);
 
+    const syncSelectionLimit = () => {
+      if (!multiple) return;
+      const checkboxes = [...form.querySelectorAll(`input[name="${optionName}"]`)];
+      const selectedCount = checkboxes.filter((input) => input.checked).length;
+      const atLimit = maximum !== null && selectedCount >= maximum;
+      checkboxes.forEach((input) => {
+        input.disabled = atLimit && !input.checked;
+      });
+      if (selectionStatus) {
+        const count = maximum ? `${selectedCount} of ${maximum}` : String(selectedCount);
+        selectionStatus.textContent = `${count} selected.${atLimit ? " Clear a selection to choose a different response." : ""}`;
+      }
+    };
+
+    if (multiple) form.addEventListener("change", syncSelectionLimit);
     form.addEventListener("submit", (event) => {
       event.preventDefault();
-      const selected = new FormData(form).get(optionName);
+      const selected = new FormData(form).getAll(optionName).map(String);
       feedback.replaceChildren();
       feedback.hidden = false;
-      if (!selected) {
-        feedback.append(create("strong", null, "Choose one response first."), create("p", null, "This check has no time limit."));
+      if (!selected.length) {
+        feedback.append(
+          create("strong", null, multiple ? "Choose at least one response first." : "Choose one response first."),
+          create("p", null, "This check has no time limit. Review the evidence, then submit an attempt.")
+        );
         feedback.classList.remove("is-correct");
         return;
       }
-      const correct = selected === item.answer?.correct;
+      const expected = Array.isArray(item.answer?.correct) ? item.answer.correct.map(String) : [String(item.answer?.correct)];
+      const correct = selected.length === expected.length && selected.every((value) => expected.includes(value));
       feedback.classList.toggle("is-correct", correct);
       feedback.append(
-        create("strong", null, correct ? "Reasoning holds." : "Revise the mechanism."),
-        create("p", null, correct ? item.answer?.reasoning || item.answer?.summary : item.answer?.commonErrors?.[0] || item.answer?.summary || "Review the scene and try again.")
+        create("strong", null, correct ? "Reasoning holds." : "Revise the selection."),
+        create("p", null, correct ? item.answer?.summary || "The selected response is supported." : item.answer?.commonErrors?.[0] || item.answer?.summary || "Review the scene and try again."),
+        create("p", "reader-feedback-reasoning", item.answer?.reasoning || item.answer?.summary || "Review the scene model, then try again.")
       );
     });
     form.addEventListener("reset", () => {
       feedback.hidden = true;
       feedback.replaceChildren();
       feedback.classList.remove("is-correct");
+      requestAnimationFrame(syncSelectionLimit);
     });
     return form;
   }
 
   function renderTextAssessment(item) {
     const form = create("form", "reader-check reader-short-answer");
+    form.dataset.checkId = item.id;
     const label = create("label");
+    const responseId = `response-${item.id}`;
+    label.htmlFor = responseId;
     label.append(create("strong", null, item.prompt));
+    let stimulus = null;
+    if (item.stimulus) {
+      stimulus = create("p", "reader-check-stimulus", item.stimulus);
+      stimulus.id = `${item.id}-stimulus`;
+    }
     const textarea = create("textarea");
+    textarea.id = responseId;
     textarea.name = `response-${item.id}`;
     textarea.maxLength = item.responseSpec?.maxLength || 2000;
     textarea.placeholder = "Write your response in your own words.";
-    label.append(textarea);
+    if (stimulus) textarea.setAttribute("aria-describedby", stimulus.id);
     const actions = create("div", "reader-check-actions");
     const reveal = create("button", null, "Compare reasoning");
     reveal.type = "submit";
@@ -449,7 +511,9 @@
     feedback.setAttribute("role", "status");
     feedback.setAttribute("aria-live", "polite");
     actions.append(reveal, reset);
-    form.append(label, actions, feedback);
+    form.append(label);
+    if (stimulus) form.append(stimulus);
+    form.append(textarea, actions, feedback);
     form.addEventListener("submit", (event) => {
       event.preventDefault();
       feedback.hidden = false;
@@ -469,7 +533,9 @@
     section.setAttribute("aria-label", "Interactive knowledge check");
     section.append(create("span", null, isSpecimen ? "UNTIMED SPECIMEN CHECK · DOES NOT RECORD PROGRESS" : "UNTIMED CHECK · DOES NOT RECORD PROGRESS"));
     for (const item of items) {
-      section.append(item.type === "single-choice" ? renderChoiceAssessment(item) : renderTextAssessment(item));
+      const choiceItem = ["single-choice", "multiple-choice"].includes(item.type)
+        || ["single-choice", "multiple-choice"].includes(item.responseSpec?.mode);
+      section.append(choiceItem ? renderChoiceAssessment(item) : renderTextAssessment(item));
     }
     fragment.append(section);
   }
@@ -516,8 +582,8 @@
     for (const item of items) {
       const block = create("article", "reader-print-assessment-item");
       block.dataset.assessmentItemId = item.id;
-      block.append(create("h3", null, item.prompt));
       if (item.stimulus) block.append(create("p", "reader-print-stimulus", item.stimulus));
+      block.append(create("h3", null, item.prompt));
       const options = item.responseSpec?.options || [];
       if (options.length) {
         const list = create("ol");
@@ -753,7 +819,7 @@
       renderReferences(references);
       if (references.childNodes.length) resourceGroups.push({ id: "references", title: "References", nodes: [...references.childNodes] });
       if (artifact.attributionHtml) {
-        const attribution = create("details", "reader-references");
+        const attribution = create("details", "reader-references reader-attribution");
         attribution.append(create("summary", null, "Attribution and provenance"));
         const body = create("div", "reader-scene-content");
         body.append(nestedDocumentBody(artifact.attributionHtml));
@@ -868,18 +934,40 @@
     return { sceneIndex: sceneIndex >= 0 ? sceneIndex : 0, frameId };
   }
 
+  function focusIndexEntry(attempt = 0) {
+    cancelAnimationFrame(indexFocusFrame);
+    indexFocusFrame = requestAnimationFrame(() => {
+      indexFocusFrame = 0;
+      if (!narrowLayout.matches || !indexPanel.classList.contains("is-open")) return;
+      const currentSceneLink = sceneNav.querySelector('[aria-current="true"]');
+      const target = [indexClose, currentSceneLink].find((element) => {
+        if (!element) return false;
+        const style = getComputedStyle(element);
+        return style.display !== "none" && style.visibility !== "hidden" && element.getClientRects().length > 0;
+      });
+      if (!target) {
+        if (attempt < 12) focusIndexEntry(attempt + 1);
+        return;
+      }
+      target.focus({ preventScroll: true });
+      if (document.activeElement !== target && attempt < 12) focusIndexEntry(attempt + 1);
+    });
+  }
+
   function openIndex() {
     indexPanel.classList.add("is-open");
     scrim.classList.add("is-open");
     syncIndexControl();
-    indexClose.focus();
+    focusIndexEntry();
   }
 
   function closeIndex({ returnFocus = false } = {}) {
+    cancelAnimationFrame(indexFocusFrame);
+    indexFocusFrame = 0;
     indexPanel.classList.remove("is-open");
     scrim.classList.remove("is-open");
     syncIndexControl();
-    if (returnFocus && getComputedStyle(indexOpen).display !== "none") indexOpen.focus();
+    if (returnFocus && getComputedStyle(indexOpen).display !== "none") indexOpen.focus({ preventScroll: true });
   }
 
   previousButton.addEventListener("click", () => navigate(-1, { updateUrl: true, focus: true, announce: true }));

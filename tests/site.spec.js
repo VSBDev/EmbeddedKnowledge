@@ -450,6 +450,45 @@ test("a published lesson opens through its production route with keyboard and co
   ]);
   const lessonId = "PREM-LPP-001";
   const targetOutcome = lessonIndex.outcomes[0];
+  const assessmentSceneId = specimen.assessment.items[0].sceneId;
+  const baselineAssessmentItems = [
+    {
+      id: "item-separate-confidence",
+      type: "multiple-choice",
+      sceneId: assessmentSceneId,
+      prompt: "Across three untimed probes, a learner independently answers accurately, explains the governing relation, and adapts it to a new representation, but reports low confidence. Select the two statements that best preserve the evidence.",
+      responseSpec: {
+        mode: "multiple-choice",
+        options: [
+          { id: "option-confidence-secure", text: "Record secure performance provisionally." },
+          { id: "option-confidence-fragile", text: "Downgrade the knowledge state to fragile solely because confidence is low." },
+          { id: "option-confidence-flag", text: "Add a confidence-calibration flag and recheck after delay." },
+          { id: "option-confidence-ignore", text: "Discard the performance record and keep only the self-rating." }
+        ],
+        maxSelections: 2
+      },
+      answer: {
+        correct: ["option-confidence-secure", "option-confidence-flag"],
+        summary: "Keep performance and confidence as related but distinct evidence.",
+        reasoning: "The varied, accurate, independent performance supports a provisional secure classification. Low confidence identifies a calibration issue worth revisiting after a delay.",
+        commonErrors: ["Treating low confidence as direct proof of fragile knowledge confuses self-rating with observed performance."]
+      }
+    },
+    {
+      id: "item-build-baseline",
+      type: "open-response",
+      sceneId: assessmentSceneId,
+      prompt: "Classify each fictional node, justify the classification, and choose the next study action.",
+      stimulus: "Node Cedar: no attempted response on either prompt; learner writes that the notation has not been encountered. Node Flint: accurate on two familiar prompts, explanation names the relevant relation, but a bounded representation change produces an inconsistent strategy. Node Harbor: accurate and independently explained across two forms and one bounded application; medium confidence throughout.",
+      responseSpec: { mode: "text", maxLength: 5000 },
+      answer: {
+        correct: "Cedar is unfamiliar, Flint is fragile, and Harbor is provisionally secure.",
+        summary: "Classify nodes separately and make the route follow the evidence.",
+        reasoning: "Cedar needs a bounded explanation, Flint needs contrasting practice, and Harbor can advance with delayed verification. Each classification remains provisional."
+      }
+    }
+  ];
+  const digest = `sha256:${"a".repeat(64)}`;
   const productionArtifact = {
     ...specimen,
     artifactType: "production-lesson",
@@ -458,7 +497,12 @@ test("a published lesson opens through its production route with keyboard and co
     status: "published",
     nonProduction: undefined,
     countsTowardCoverage: undefined,
-    disclaimer: undefined
+    disclaimer: undefined,
+    assessment: {
+      ...specimen.assessment,
+      items: [...specimen.assessment.items, ...baselineAssessmentItems]
+    },
+    attributionHtml: `${specimen.attributionHtml}<p>Material-instructions digest: <code data-test-long-digest>${digest}</code></p>`
   };
   const productionLesson = {
     id: lessonId,
@@ -510,6 +554,55 @@ test("a published lesson opens through its production route with keyboard and co
   await advanceUntilVisible(page, shortAnswerSelector);
   await expect(page.locator(shortAnswerSelector)).toHaveAttribute("placeholder", "Write your response in your own words.");
 
+  const assessmentScene = productionArtifact.scenes.find((scene) => scene.id === assessmentSceneId);
+  await page.locator(".reader-scene-link", { hasText: assessmentScene.title }).click();
+  await page.locator("[data-view-toggle]").click();
+  await expect(page.locator("[data-reader-app]")).toHaveClass(/reader-reading-mode/);
+
+  const multipleChoice = page.locator('[data-check-id="item-separate-confidence"]');
+  const multipleChoiceFieldset = multipleChoice.locator("fieldset");
+  const checkboxes = multipleChoice.getByRole("checkbox");
+  await expect(multipleChoiceFieldset.locator("legend")).toContainText("Select the two statements");
+  await expect(multipleChoiceFieldset).toHaveAttribute("aria-describedby", "item-separate-confidence-selection-instructions");
+  await expect(multipleChoice.locator(".reader-check-instructions")).toHaveText("Select up to 2 responses.");
+  await expect(checkboxes).toHaveCount(4);
+  await expect(multipleChoice.locator(".reader-feedback")).toBeHidden();
+
+  await checkboxes.nth(0).focus();
+  await page.keyboard.press("Space");
+  await multipleChoice.locator('label:has(input[value="option-confidence-flag"])').click();
+  await expect(checkboxes.nth(0)).toBeChecked();
+  await expect(checkboxes.nth(2)).toBeChecked();
+  await expect(multipleChoice.locator(".reader-selection-status")).toContainText("2 of 2 selected");
+  await expect(checkboxes.nth(1)).toBeDisabled();
+  await expect(checkboxes.nth(3)).toBeDisabled();
+  await expect(multipleChoice.locator(".reader-feedback")).toBeHidden();
+  await multipleChoice.getByRole("button", { name: "Check answer" }).click();
+  await expect(multipleChoice.locator(".reader-feedback")).toHaveClass(/is-correct/);
+  await expect(multipleChoice.locator(".reader-feedback")).toContainText("varied, accurate, independent performance");
+  await multipleChoice.getByRole("button", { name: "Try again" }).click();
+  await expect(multipleChoice.locator(".reader-feedback")).toBeHidden();
+  await expect(checkboxes.nth(1)).toBeEnabled();
+  await expect(checkboxes.nth(3)).toBeEnabled();
+
+  const cedarResponse = page.locator('[data-check-id="item-build-baseline"]');
+  const cedarStimulus = cedarResponse.locator(".reader-check-stimulus");
+  await expect(cedarStimulus).toContainText("Node Cedar");
+  await expect(cedarStimulus).toContainText("Node Flint");
+  await expect(cedarStimulus).toContainText("Node Harbor");
+  await expect(cedarResponse.locator("label")).toHaveAttribute("for", "response-item-build-baseline");
+  await expect(cedarResponse.locator("textarea")).toHaveAttribute("id", "response-item-build-baseline");
+  await expect(cedarResponse.locator("textarea")).toHaveAttribute("aria-describedby", "item-build-baseline-stimulus");
+  expect(await cedarResponse.evaluate((form) => {
+    const label = form.querySelector("label");
+    const stimulus = form.querySelector(".reader-check-stimulus");
+    const control = form.querySelector("textarea");
+    return Boolean(label.compareDocumentPosition(stimulus) & Node.DOCUMENT_POSITION_FOLLOWING)
+      && Boolean(stimulus.compareDocumentPosition(control) & Node.DOCUMENT_POSITION_FOLLOWING)
+      && !label.contains(stimulus)
+      && !label.contains(control);
+  })).toBeTruthy();
+
   const resourceScene = productionArtifact.scenes.findLast((scene) => ["synthesis", "references"].includes(scene.kind));
   await page.locator(".reader-scene-link", { hasText: resourceScene.title }).click();
   const attributionFrame = page.locator('[data-frame-id="frame-attribution"]');
@@ -518,12 +611,28 @@ test("a published lesson opens through its production route with keyboard and co
   await expect(attributionFrame.locator("h2")).toHaveCount(1);
   await expect(attributionFrame.locator("h2")).toHaveText("Attribution and provenance");
 
+  // A 390 CSS-pixel layout exercises the same reflow constraint as a 780-pixel
+  // browser viewport zoomed to 200%, without changing the exact digest text.
+  await page.setViewportSize({ width: 390, height: 844 });
+  const attribution = attributionFrame.locator("details.reader-attribution");
+  await attribution.locator("summary").click();
+  const digestCode = attribution.locator("[data-test-long-digest]");
+  await expect(digestCode).toHaveText(digest);
+  const attributionReflow = await digestCode.evaluate((code) => {
+    const container = code.closest(".reader-scene-content");
+    return { clientWidth: container.clientWidth, scrollWidth: container.scrollWidth };
+  });
+  expect(attributionReflow.scrollWidth).toBeLessThanOrEqual(attributionReflow.clientWidth + 1);
+
   await page.emulateMedia({ media: "print" });
   const printDocument = page.locator("[data-print-document]");
   await expect(printDocument).toBeVisible();
   await expect(printDocument.locator(".reader-print-scene")).toHaveCount(productionArtifact.scenes.length);
   await expect(printDocument.locator('.reader-print-scene[data-required="true"]')).toHaveCount(productionArtifact.scenes.filter((scene) => scene.required).length);
   await expect(printDocument.locator(".reader-print-assessment-item")).toHaveCount(productionArtifact.assessment.items.length);
+  const printedBaseline = printDocument.locator('[data-assessment-item-id="item-build-baseline"]');
+  await expect(printedBaseline.locator(".reader-print-stimulus")).toContainText("Node Cedar");
+  await expect(printedBaseline.locator(".reader-print-answer")).toContainText("Cedar needs a bounded explanation");
   await expect(printDocument.locator(".reader-references")).toContainText(productionArtifact.references.sources[0].title);
   await expect(printDocument.locator(".reader-glossary dt")).toHaveCount(productionArtifact.glossary.terms.length);
   await expect(printDocument.locator(".reader-print-attribution")).toContainText("Attribution and provenance");
@@ -704,6 +813,54 @@ test("the lesson reader collapses its rails and preserves focus and theme contro
   expect(await page.locator(".reader-page").evaluate((element) => getComputedStyle(element).backgroundColor)).toBe("rgb(24, 27, 30)");
   await page.reload({ waitUntil: "networkidle" });
   await expect(page.locator("body")).toHaveClass(/reader-dark/);
+  expect(errors).toEqual([]);
+});
+
+test("the narrow Contents drawer receives and returns keyboard focus", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  const errors = collectRuntimeErrors(page);
+  await page.goto(route("premed/lessons/specimen/"), { waitUntil: "networkidle" });
+
+  const contents = page.locator("[data-index-open]");
+  const drawer = page.locator("[data-reader-index]");
+  const close = page.locator("[data-index-close]");
+  await contents.focus();
+  await page.keyboard.press("Enter");
+  await expect(drawer).toBeVisible();
+  await expect(contents).toHaveAttribute("aria-expanded", "true");
+  await expect(close).toBeFocused();
+
+  await page.keyboard.press("Escape");
+  await expect(drawer).toBeHidden();
+  await expect(contents).toHaveAttribute("aria-expanded", "false");
+  await expect(contents).toBeFocused();
+
+  await page.keyboard.press("Enter");
+  await expect(close).toBeFocused();
+  await page.keyboard.press("Enter");
+  await expect(drawer).toBeHidden();
+  await expect(contents).toBeFocused();
+  expect(errors).toEqual([]);
+});
+
+test("the narrow lesson header keeps its controls inside the viewport", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 720 });
+  const errors = collectRuntimeErrors(page);
+  await page.goto(route("premed/lessons/specimen/"), { waitUntil: "networkidle" });
+
+  await expect(page.locator(".reader-location")).toBeHidden();
+  const headerGeometry = await page.locator(".reader-toolbar").evaluate((header) => ({
+    clientWidth: header.clientWidth,
+    scrollWidth: header.scrollWidth,
+    controls: [...header.querySelectorAll("button:not([hidden]), a:not([hidden])")]
+      .filter((control) => getComputedStyle(control).display !== "none")
+      .map((control) => {
+        const bounds = control.getBoundingClientRect();
+        return { left: bounds.left, right: bounds.right };
+      })
+  }));
+  expect(headerGeometry.scrollWidth).toBeLessThanOrEqual(headerGeometry.clientWidth + 1);
+  expect(headerGeometry.controls.every(({ left, right }) => left >= -1 && right <= 321)).toBeTruthy();
   expect(errors).toEqual([]);
 });
 
