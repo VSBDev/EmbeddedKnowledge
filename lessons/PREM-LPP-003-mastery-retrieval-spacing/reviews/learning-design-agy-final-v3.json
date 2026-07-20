@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-LPP-003-LD-AGY-V3",
+  "lessonId": "PREM-LPP-003",
+  "lessonVersion": "0.1.2",
+  "candidateCommit": "2fb4bf7e180bd5a6c2c49380113cb7f8e0bb0c1a",
+  "role": "learning-design",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev",
+    "agent": {
+      "system": "Antigravity CLI",
+      "provider": "Google",
+      "model": "Gemini 3.1 Pro (High)",
+      "version": "Agy CLI 1.1.4",
+      "runId": "32d496d2-545e-4946-9466-eee3e0d4863d",
+      "instructionsDigest": "sha256:67c2fa79ca3c9ed52e9f32f4a5ab6a078d87b17144d890f1ac3a3751ffc924ff"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#objectives-and-scenes",
+    "content/080-transfer.md#transfer-task",
+    "assessment.json#items",
+    "content/040-worked-example.md",
+    "content/070-practice.md",
+    "content/090-assessment.md"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "assessment.json#item-transfer-study-group",
+      "finding": "The transfer assessment item reuses the identical stimulus (four learners, forty minutes, differing fragile targets, nine-day horizon, old routine of rereading aloud) as the practice transfer scene in `080-transfer.md`. Because learners have already seen the model response for this exact scenario during practice, the assessment item measures recall of that model response rather than providing independent evidence of transfer capability. This renders the assessment unable to support the mastery claim for the transfer objective.",
+      "resolution": "Replace the stimulus in `assessment.json#item-transfer-study-group` with a novel, bounded context (e.g., coordinating a lab-partner pair, a long-term project team, or a different schedule constraint) that requires learners to adapt the retrieval loop without copying a previously provided model response."
+    },
+    {
+      "severity": "note",
+      "target": "content/040-worked-example.md",
+      "finding": "The worked example effectively coordinates the central explanatory model (the six-part design loop) with explicit reasoning, execution, and interpretation. The fading of support across the subsequent practice sequence aligns well with the declared learning objectives.",
+      "resolution": "No change required."
+    }
+  ],
+  "limitations": [
+    "No learner testing or empirical learner data were available; this is a document and logic audit.",
+    "The evaluation of cognitive load and clarity relies on expert judgment rather than observed novice interaction."
+  ],
+  "signedAt": "2026-07-20T02:05:00Z"
+}
