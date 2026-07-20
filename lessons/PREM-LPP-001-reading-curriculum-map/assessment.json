@@ -1,0 +1,165 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-assessment-v1",
+  "lessonId": "PREM-LPP-001",
+  "lessonVersion": "0.1.5",
+  "assessmentId": "assessment-reading-curriculum-map",
+  "title": "Curriculum map navigation and route planning",
+  "purpose": "mixed",
+  "attemptPolicy": {
+    "retakeable": true,
+    "timeLimitMinutes": null,
+    "feedback": "after-attempt"
+  },
+  "items": [
+    {
+      "id": "item-map-order",
+      "type": "ordering",
+      "sceneId": "scene-practice",
+      "objectiveIds": ["objective-navigate-map"],
+      "outcomeIds": ["topic-orientation-map-and-pathways"],
+      "prompt": "Order the node layers from the broadest curricular grouping to the independently tracked observable outcome.",
+      "stimulus": null,
+      "points": 3,
+      "responseSpec": {
+        "mode": "ordered-ids",
+        "options": [
+          { "id": "option-layer-topic", "text": "Topic" },
+          { "id": "option-layer-domain", "text": "Domain" },
+          { "id": "option-layer-module", "text": "Module" }
+        ],
+        "units": null,
+        "tolerance": null,
+        "maxSelections": 3,
+        "maxLength": null
+      },
+      "answer": {
+        "correct": ["option-layer-domain", "option-layer-module", "option-layer-topic"],
+        "summary": "A domain contains modules, and a module contains atomic topic outcomes.",
+        "reasoning": "The layers answer different identity questions. Domain is the broad region, module is a coherent cluster, and topic is the observable outcome tracked independently.",
+        "acceptableResponses": [],
+        "commonErrors": ["Treating a module as the smallest tracked outcome", "Ordering by visual size or screen position instead of node kind"]
+      },
+      "rubricId": "rubric-map-order",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-cross-link-order",
+      "type": "single-choice",
+      "sceneId": "scene-misconception",
+      "objectiveIds": ["objective-navigate-map", "objective-distinguish-labels"],
+      "outcomeIds": ["topic-orientation-map-and-pathways"],
+      "prompt": "Topic A is a prerequisite of Topic B. Topic B has a cross-link to Topic C. Which order is justified by those two links alone?",
+      "stimulus": null,
+      "points": 2,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          { "id": "option-only-a-before-b", "text": "A must normally precede B; no B–C order is established." },
+          { "id": "option-a-b-c", "text": "A must precede B, and B must precede C." },
+          { "id": "option-c-b-a", "text": "C must precede B, and B must precede A." }
+        ],
+        "units": null,
+        "tolerance": null,
+        "maxSelections": 1,
+        "maxLength": null
+      },
+      "answer": {
+        "correct": "option-only-a-before-b",
+        "summary": "Only the prerequisite link establishes order.",
+        "reasoning": "A prerequisite edge directs study from A to B. A cross-link records conceptual connection without direction, so C's place depends on its own prerequisite record and the learner's goal.",
+        "acceptableResponses": [],
+        "commonErrors": ["Treating every visible edge as a prerequisite", "Reading visual proximity as an ordering rule"]
+      },
+      "rubricId": "rubric-edge-reading",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-label-boundary",
+      "type": "short-answer",
+      "sceneId": "scene-practice",
+      "objectiveIds": ["objective-distinguish-labels"],
+      "outcomeIds": ["topic-orientation-map-and-pathways"],
+      "prompt": "A topic has evidenceConfidence set to medium and carries a pathway tag. State what each label supports and name two claims the labels do not justify.",
+      "stimulus": null,
+      "points": 5,
+      "responseSpec": {
+        "mode": "text",
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "maxLength": 1200
+      },
+      "answer": {
+        "correct": "Evidence confidence qualifies confidence in curricular placement, and the pathway tag supports route filtering. Neither establishes that the scientific content is only partly true, that every institution requires the topic, that the learner has mastered it, or that its prerequisites are satisfied.",
+        "summary": "Placement and route labels have bounded curricular meanings.",
+        "reasoning": "Label interpretation must preserve the question each field answers. Truth, individual mastery, readiness, and current institution-specific requirements require different evidence.",
+        "acceptableResponses": ["Any response that accurately identifies placement confidence and route membership and rejects at least two unwarranted inferences about truth, mastery, readiness, or universal admissions requirements."],
+        "commonErrors": ["Reading medium as a probability that the science is true", "Treating a pathway tag as proof of a universal admissions requirement", "Treating route relevance as prerequisite completion"]
+      },
+      "rubricId": "rubric-label-boundary",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-route-plan",
+      "type": "open-response",
+      "sceneId": "scene-transfer",
+      "objectiveIds": ["objective-navigate-map", "objective-distinguish-labels", "objective-plan-route"],
+      "outcomeIds": ["topic-orientation-map-and-pathways"],
+      "prompt": "Construct a five-step plan for a learner who has named a route and an institution-specific goal but has not found an exact title match in the graph. Coordinate current route-instrumentation status, stable IDs, effective route membership, prerequisite order, cross-links, placement evidence, mastery evidence, and a current external requirement check.",
+      "stimulus": "The learner's record identifies some secure outcomes, but no result may be inferred merely from lesson completion or confidence. The institution's current primary-source requirement is not included in the graph excerpt.",
+      "points": 10,
+      "responseSpec": {
+        "mode": "text",
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "maxLength": 3000
+      },
+      "answer": {
+        "correct": "First confirm that the documented route is instrumented in the current curriculum version; a non-empty pathway-tag filter alone is not proof. If the instrumented route includes the common core, resolve it as topics whose pathway array names the route plus topics whose core field is true (derived from requirement: portable-core in the current graph); search outcome meanings and confirm candidate stable IDs; trace candidate prerequisites backward and compare them with demonstrated mastery; use cross-links only to surface related learning and read placement labels within scope; choose the earliest relevant candidate whose prerequisites are secure while separately verifying the institution's current requirement from its primary source.",
+        "summary": "A defensible plan separates curriculum identity, route scope, dependency order, learner evidence, and external policy.",
+        "reasoning": "No single map field answers all five questions. Stable IDs protect identity, route labels filter relevance, prerequisites order learning, a separate mastery record supports readiness, and only the institution's current source can establish its rule.",
+        "acceptableResponses": ["Equivalent five-step plans are acceptable when they preserve all boundaries and make the next-topic choice conditional on demonstrated prerequisites."],
+        "commonErrors": ["Searching titles only", "Filtering on source tags instead of the route rule", "Using a cross-link as a lock", "Inferring mastery from completion or confidence", "Treating the map as a current admissions authority"]
+      },
+      "rubricId": "rubric-route-plan",
+      "safetyCritical": false
+    }
+  ],
+  "rubrics": [
+    {
+      "id": "rubric-map-order",
+      "title": "Hierarchy reconstruction",
+      "criteria": [
+        { "id": "criterion-map-order", "description": "Places domain, module, and topic in the correct containment order.", "maxPoints": 3 }
+      ]
+    },
+    {
+      "id": "rubric-edge-reading",
+      "title": "Edge-type discrimination",
+      "criteria": [
+        { "id": "criterion-prerequisite-direction", "description": "Uses the prerequisite edge to order A before B.", "maxPoints": 1 },
+        { "id": "criterion-cross-link-boundary", "description": "Declines to infer an order between B and C from a cross-link.", "maxPoints": 1 }
+      ]
+    },
+    {
+      "id": "rubric-label-boundary",
+      "title": "Scope-label interpretation",
+      "criteria": [
+        { "id": "criterion-label-meaning", "description": "States the placement-confidence and route-filter meanings accurately.", "maxPoints": 3 },
+        { "id": "criterion-label-noninference", "description": "Rejects at least two unwarranted truth, admissions, mastery, or readiness inferences.", "maxPoints": 2 }
+      ]
+    },
+    {
+      "id": "rubric-route-plan",
+      "title": "Integrated map-reading plan",
+      "criteria": [
+        { "id": "criterion-route-scope", "description": "Checks that the documented route is currently instrumented, then resolves a common-core route using its pathway-tagged topics plus topics with core: true rather than treating a portable-core pathway tag as the common-core test.", "maxPoints": 2 },
+        { "id": "criterion-identity-order", "description": "Uses stable outcome identity and traces prerequisite order correctly.", "maxPoints": 3 },
+        { "id": "criterion-evidence-boundaries", "description": "Separates cross-links, placement evidence, mastery evidence, and external policy.", "maxPoints": 3 },
+        { "id": "criterion-next-action", "description": "Makes the next action conditional on demonstrated prerequisite security and names a recovery or verification step.", "maxPoints": 2 }
+      ]
+    }
+  ]
+}

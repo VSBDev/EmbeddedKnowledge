@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-LPP-001-ACCESS-CODEX-FINAL-V6",
+  "lessonId": "PREM-LPP-001",
+  "lessonVersion": "0.1.5",
+  "candidateCommit": "4c9ed6b9317bc329bc2ea88ac36f61c145cf8fcf",
+  "role": "accessibility-rights",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accessibility-and-rights reviewer",
+    "agent": {
+      "system": "Codex",
+      "provider": "OpenAI",
+      "model": "GPT-5 Codex",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-accessibility-review-final-v6-45d00e7f-ee17-4a1d-b7d1-d9b7ab57e81f",
+      "instructionsDigest": "sha256:91b39569bf56bf8b4142230eab3a0b899f77d12aea02728eae13f53a16d03383"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#ordered-scenes-authorship-license-third-party-assets-and-file-manifest",
+    "content/010-orientation.md through content/090-synthesis.md#semantic-order-boundaries-equivalent-routes-and-recovery",
+    "assessment.json#untimed-retakeable-text-ordering-choice-and-open-response-paths",
+    "references.json#source-use-rights-basis-rights-evidence-and-dated-agent-access",
+    "claims.json#scene-source-traceability-scope-uncertainty-and-review-state",
+    "glossary.json#stable-terms-and-scene-links",
+    "ATTRIBUTION.md#cc-by-4.0-source-use-originality-and-agent-disclosure",
+    "course/PREMED-KNOWLEDGE-GRAPH.md sections 1-3, 5.1, and 6 compared with the lesson's expression and organization",
+    "site/data/premed-graph.json#schema-and-five-node-four-link-orientation-prerequisite-chain",
+    "site/data/lessons/PREM-LPP-001.json#compiled-semantic-headings-tables-callouts-source-notes-references-glossary-and-attribution",
+    "site/lesson-reader.js#keyboard-focus-assessment-feedback-safe-links-reading-print-and-reduced-motion-paths",
+    "tests/site.spec.js#draft-state-keyboard-print-reflow-focus-and-mobile-overflow coverage; authoritative browser suite passed for the frozen candidate",
+    "npm run validate after saving this structured review artifact"
+  ],
+  "findings": [
+    {
+      "severity": "note",
+      "target": "content/090-synthesis.md#accessibility-and-alternatives",
+      "finding": "The core outcome does not depend on a sensory or motor channel: every hierarchy and dependency is carried in ordered prose, sentence translations, or semantic table rows; prompts accept ordered lists, tables, or transcribed speech; no visual, audio, color, pointer, drag, hover, motion, or timed-only information is present. The text-based assessments preserve the same identify-name-justify-select operation, are untimed and retakeable, and provide explicit recovery routes.",
+      "resolution": "No change required. Preserve the equivalent text/table routes and untimed retry behavior in later revisions."
+    },
+    {
+      "severity": "note",
+      "target": "references.json#source-premed-knowledge-graph",
+      "finding": "The only substantive source is a project-local specification and canonical dataset covered by the repository's CC BY 4.0 content license. Its use is recorded as facts-only original expression with concrete rights evidence and a dated checked-no-agent-restriction-found record. Comparison against the cited specification and data shows a newly organized instructional sequence, fictional cases, worked route, practice, and assessment rather than copied source expression; no quotation, third-party asset, protected dataset extraction, or human-only processing is declared or evident.",
+      "resolution": "No change required. Recheck the source-access observation and rights ledger if the source, access method, or reuse type changes."
+    },
+    {
+      "severity": "note",
+      "target": "lesson.json#authors-and-thirdPartyAssets; ATTRIBUTION.md#agent-disclosure",
+      "finding": "The accountable principal and material authoring agent system, provider, model, version, unique run ID, and SHA-256 instructions digest are disclosed consistently. The pack contains no third-party assets, executable notebooks, raw HTML, scripts, remote embeds, unsafe SVG/TeX, secrets, identifiable learner or patient data, or personal medical tasks; external policy is explicitly kept outside the graph and directed to a current primary source.",
+      "resolution": "No change required. Provenance remains disclosed and attested rather than independently verified."
+    }
+  ],
+  "limitations": [
+    "Automated validation and the passing browser suite support but do not prove accessibility; this review did not include testing by disabled users or a full assistive-technology matrix.",
+    "The candidate contains no figures, diagrams, images, audio, video, chemistry, or mathematical notation, so media-alternative and complex-notation checks were not applicable.",
+    "Rights conclusions are conservative project-policy checks, not legal advice; copyright, privacy, consent, and license effects can vary by jurisdiction, and no jurisdiction-specific counsel was obtained.",
+    "The reviewer did not independently verify the provider-side existence or identity of disclosed agent runs; provenance is assessed as internally consistent self-attestation only."
+  ],
+  "signedAt": "2026-07-20T01:17:52Z"
+}

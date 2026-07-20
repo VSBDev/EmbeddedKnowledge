@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-claims-v1",
+  "lessonId": "PREM-LPP-001",
+  "lessonVersion": "0.1.5",
+  "claims": [
+    {
+      "id": "claim-map-layers",
+      "statement": "The Premed graph uses domains for broad curricular regions, modules for coherent clusters, and topics for independently tracked observable outcomes.",
+      "sceneIds": ["scene-concept", "scene-worked-example", "scene-practice", "scene-retrieval", "scene-transfer", "scene-synthesis"],
+      "sourceIds": ["source-premed-knowledge-graph"],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "EmbeddedKnowledge Premed knowledge-graph schema version 1.0.0 and curriculum version 1.0 candidate.",
+      "uncertainty": "The graph structure may change in a future version; stable published identity and migration rules should then govern interpretation.",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-map-link-types",
+      "statement": "A Premed prerequisite edge directs normal learning order from dependency to dependent, whereas a cross-link records a conceptual relation without imposing order.",
+      "sceneIds": ["scene-concept", "scene-worked-example", "scene-misconception", "scene-practice", "scene-retrieval", "scene-transfer", "scene-synthesis"],
+      "sourceIds": ["source-premed-knowledge-graph"],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "The link semantics declared by the current Premed graph data contract.",
+      "uncertainty": null,
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-map-orientation-prerequisite-chain",
+      "statement": "In the curriculum 1.0 candidate graph, the shortest prerequisite trace to topic-orientation-study-plan is topic-orientation-map-and-pathways → topic-orientation-diagnostic-baseline → topic-orientation-mastery-and-retrieval → topic-orientation-metacognition-and-error-log → topic-orientation-study-plan: the first topic has no graph prerequisite, and each later topic lists the preceding topic as a direct prerequisite.",
+      "sceneIds": [
+        "scene-worked-example"
+      ],
+      "sourceIds": [
+        "source-premed-knowledge-graph"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "The five named topic records and four adjacent prerequisite link records in site/data/premed-graph.json for curriculum version 1.0 candidate.",
+      "uncertainty": "A later curriculum version may add, remove, or redirect prerequisites; the route must then be recomputed against that version's stable topic IDs and link records.",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-map-route-resolution",
+      "statement": "A named Premed route that includes the common core resolves to the union of topics whose pathway array names that route and topics whose core field is true, which in the current graph is derived from requirement: portable-core; source tags and portable-core pathway tags do not replace that core-membership test.",
+      "sceneIds": ["scene-concept", "scene-practice", "scene-retrieval", "scene-transfer", "scene-synthesis"],
+      "sourceIds": ["source-premed-knowledge-graph"],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "Current graph route-resolution rule in schema.routeResolutionRule and its implementation: route pathway membership OR core membership when includesPortableCore is true; the portable-core route resolves to its own pathway-tagged topic set. Resolution is a content-filter operation and does not by itself establish that a documented syllabus route is instrumented.",
+      "uncertainty": "In curriculum version 1.0, PW-US, PW-BIO, and PW-QNT are instrumented. PW-UK and PW-ES are documented but not instrumented; uk-direct-entry and spain-bach-pau are content-filter tags rather than implementations of those routes. Instrumentation and membership may change in a later version.",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-map-label-scope",
+      "statement": "Requirement, pathway, source-tag, and evidence-confidence labels describe curricular scope and placement evidence, not scientific truth probability, individual mastery, prerequisite completion, or universal admissions requirements.",
+      "sceneIds": ["scene-concept", "scene-worked-example", "scene-misconception", "scene-practice", "scene-retrieval", "scene-transfer", "scene-synthesis"],
+      "sourceIds": ["source-premed-knowledge-graph"],
+      "support": "synthesis",
+      "confidence": "high",
+      "scope": "Interpretation boundary for fields in the current Premed knowledge graph.",
+      "uncertainty": "Institution-specific admission requirements are external, time-sensitive sources and are not established by these fields.",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-map-stable-identity",
+      "statement": "Premed mastery records should use stable topic IDs rather than array position, title, or visual coordinates.",
+      "sceneIds": ["scene-concept", "scene-worked-example", "scene-practice", "scene-transfer", "scene-synthesis"],
+      "sourceIds": ["source-premed-knowledge-graph"],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "Identity and versioning rules for the current Premed graph.",
+      "uncertainty": "Retired or split IDs require migration records in later graph versions.",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    }
+  ]
+}
