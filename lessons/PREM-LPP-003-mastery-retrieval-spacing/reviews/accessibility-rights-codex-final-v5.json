@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-LPP-003-ACCESS-CODEX-FINAL-V5-909F78F8D8F7",
+  "lessonId": "PREM-LPP-003",
+  "lessonVersion": "0.1.4",
+  "candidateCommit": "07728e3f05c63011d960d965784b60e4b681c565",
+  "role": "accessibility-rights",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accessibility-and-rights reviewer",
+    "agent": {
+      "system": "Codex CLI",
+      "provider": "OpenAI",
+      "model": "GPT-5",
+      "version": "0.144.6",
+      "runId": "/root/pr6_v5_accessibility_codex",
+      "instructionsDigest": "sha256:909f78f8d8f767c4e0f6c62f073f6d47d29aec4fae69a2f83aea73b2e9c3ece0"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#identity-scenes-authorship-license-and-thirdPartyAssets",
+    "content/*.md#semantic-source-order-accessibility-alternatives-source-notes-boundaries-and-recovery",
+    "assessment.json#attempt-policy-labelled-response-paths-feedback-retry-rubrics-and-remediation",
+    "claims.json#retained-claim-source-mappings-scope-uncertainty-and-risk",
+    "glossary.json#stable-terms-and-scene-links",
+    "ATTRIBUTION.md#cc-by-4.0-original-expression-agent-disclosure-and-no-third-party-assets",
+    "AUTHORING-BRIEF.md#accessibility-safety-rights-and-original-synthesis-boundaries",
+    "REVISION-HISTORY.md#current-version-provenance-and-frozen-candidate-boundary",
+    "generated reader PREM-LPP-003#keyboard-reading-guided-320px-reflow-dark-light-reduced-motion-and-print",
+    "references.json#source-authoring-evidence.agentAccess via frozen repository CONTENT-LICENSE.md",
+    "references.json#source-content-standard.agentAccess via frozen repository CONTENT-LICENSE.md",
+    "references.json#source-roediger-karpicke-2006.agentAccess via NCBI E-utilities policy and live PubMed/Crossref records",
+    "references.json#source-adesope-et-al-2017.agentAccess via Crossref REST policy-live DOI record-and deposited SAGE TDM notice",
+    "references.json#source-cepeda-et-al-2006.agentAccess via NCBI E-utilities policy and live PubMed/Crossref records",
+    "references.json#source-brunmair-richter-2019.agentAccess via NCBI E-utilities policy and live PubMed/Crossref records",
+    "references.json#source-wisniewski-et-al-2020.agentAccess via NCBI E-utilities policy and live PubMed/Crossref records",
+    "references.json#source-barbieri-et-al-2023.agentAccess via live ERIC record-copyright route-and Crossref metadata",
+    "references.json#source-tetzlaff-et-al-2025.agentAccess via live peDOCS record-official peDOCS policy-and Crossref metadata"
+  ],
+  "findings": [
+    {
+      "severity": "note",
+      "target": "lesson.json#scenes and content/*.md#ordered-learning-route",
+      "finding": "Equivalent core access was verified. All ten declared scenes compile in authoritative order with one current scene heading, labelled navigation, a polite live-region announcement, no unlabeled visible controls, keyboard-operable guided and continuous-reading routes, and no console errors. At a 320 CSS-pixel viewport every scene kept document-level scroll width equal to viewport width. The two wide tables use bounded local overflow and are accompanied by ordered prose that teaches the same relationships. The assessment exposes a labelled radio group and three labelled text routes, accepts keyboard input, announces feedback, permits retry, imposes no timer, and preserves the same reasoning standard for typing, handwriting, speech-to-text, or another text-producing route.",
+      "resolution": "No lesson-pack change required. Preserve these semantic, equivalent, untimed, and retryable routes."
+    },
+    {
+      "severity": "minor",
+      "target": "lesson.json#id=PREM-LPP-003 (generated-reader dark-theme presentation)",
+      "finding": "The generated reader's dark theme leaves several small labels below the 4.5:1 contrast target for normal text. Computed Chromium samples include the 10 px Callout and Source Note labels at about 2.41:1, the 10 px Lesson objectives label at about 2.66:1, and 10-14 px margin metadata/help text at about 3.28:1. Core lesson prose remains high contrast, the light theme samples met the normal-text target, and the low-contrast labels do not carry the lesson outcome alone, so this is bounded rather than outcome-blocking.",
+      "resolution": "Raise the shared reader dark-theme accent and muted-text tokens to at least 4.5:1 against their actual backgrounds, then retest directive labels, scene metadata, artifact metadata, keyboard help, and margin notes in both guided and reading views. No candidate lesson-content edit is required for this renderer-level defect."
+    },
+    {
+      "severity": "note",
+      "target": "references.json#sources and ATTRIBUTION.md#Sources-and-reuse",
+      "finding": "All nine retained sources declare facts-only original expression, dated 2026-07-20 agent-access checks, and checked-no-agent-restriction-found status; none is marked human-only. The declared repository, NCBI E-utilities, Crossref REST, ERIC, and peDOCS routes and the retained DOI/record identities were independently checked. Source-specific notices were separated from citation availability. The lesson reuses no quotation, source organization, study item, table, figure, dataset, or media; its cases, plan tables, prompts, feedback, and assessment structure are independently authored. No close paraphrase or source-derived expressive sequence was found in the bounded title/abstract-level comparison.",
+      "resolution": "No change required. Continue treating factual support, agent access, and reuse permission as separate checks."
+    },
+    {
+      "severity": "note",
+      "target": "references.json#source-tetzlaff-et-al-2025.agentAccess.termsUrl",
+      "finding": "This retained record uses a null termsUrl and therefore relies on its notes for the peDOCS access route. I independently checked the live peDOCS record, the official peDOCS service policy, and the Crossref DOI record. The public record required no login or control bypass, peDOCS identifies bibliographic metadata other than abstracts as CC0, and no AI-specific prohibition was displayed for this limited record access. The author declares no full-text copying or protected-expression reuse, so the null field does not defeat the current provenance, but a concrete policy URL would make later verification more reproducible.",
+      "resolution": "No change required for this verdict. On a future content revision, prefer recording the official peDOCS policy URL rather than null while retaining the exact limited-access notes."
+    },
+    {
+      "severity": "note",
+      "target": "lesson.json#thirdPartyAssets and ATTRIBUTION.md#Boundaries",
+      "finding": "The pack contains no images, diagrams, audio, video, structured molecules, code, active SVG, remote embeds, quotations, redistributed media, datasets, secrets, identifiable learners, patients, medical records, or copyrighted answer-bank material. External links are HTTPS, fictional cases are labelled and contain no personal data, original lesson content is granted under CC BY 4.0, thirdPartyAssets is empty, and accountable author plus agent system-provider-model-version-run-digest provenance is disclosed and attested rather than represented as independently verified.",
+      "resolution": "No change required. Preserve the inert-data, privacy, attribution, and educational-boundary declarations."
+    },
+    {
+      "severity": "note",
+      "target": "generated reader PREM-LPP-003#print-and-reduced-motion",
+      "finding": "Reduced-motion emulation reduced active transition and animation durations to a negligible 0.00001 seconds. Print emulation produced all ten scenes, ten learner-visible source notes, all four assessment items, the rubric, and attribution while hiding the interactive shell; an A4 Chromium PDF rendered successfully. No essential content depends on motion, hover, sound, color, position, dragging, or timing.",
+      "resolution": "No change required."
+    }
+  ],
+  "limitations": [
+    "This is an accessibility-and-rights policy review, not legal advice. Copyright, contract, privacy, database, and accessibility obligations can vary by jurisdiction; no jurisdiction-specific counsel opinion was obtained.",
+    "Manual source and semantic review was combined with headless Chromium keyboard, reflow, computed-contrast, reduced-motion, interaction, and print checks. It did not include a human screen-reader session, refreshable braille, voice control, switch hardware, low-vision user study, or learner outcome study.",
+    "The implemented web reader was tested. Non-web PDF, EPUB, DOCX, JATS, and other planned exporters were not treated as available; Chromium print evidence does not establish parity for exporters that do not exist.",
+    "Live source terms and public record routes were checked on 2026-07-20 and can change. Agent provider, model, version, run identity, and instructions digest are disclosed and attested by the accountable principal, not independently verified by this review.",
+    "The material-instructions digest covers the exact discloseable review assignment and the complete accessibility-and-rights role procedure, separated by the literal marker --- ROLE PROCEDURE ---; hidden provider and platform instructions are excluded.",
+    "The review stayed inside the assigned allowlist and current generated reader. No pack reviews/** content, adjudication artifact, pull-request review body, historical review commit, removed source record, or removed source content was opened."
+  ],
+  "signedAt": "2026-07-20T02:58:53Z"
+}
