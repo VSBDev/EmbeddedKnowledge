@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-LPP-001-ACADEMIC-CLAUDE-FINAL-V6",
+  "lessonId": "PREM-LPP-001",
+  "lessonVersion": "0.1.5",
+  "candidateCommit": "4c9ed6b9317bc329bc2ea88ac36f61c145cf8fcf",
+  "role": "academic",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev (accountable operator) — independent academic review agent",
+    "agent": {
+      "system": "Claude Code",
+      "provider": "Anthropic",
+      "model": "claude-opus-4-8",
+      "version": "Claude Code CLI 2.0.76",
+      "runId": "claude-academic-final-v6-d2766436-2503-4165-bdce-29ccf2b815b6",
+      "instructionsDigest": "sha256:d64ac23fa2f7659d58f8c2fcbb7c08b5339932a0067c1d703a9632e4fccc0470"
+    }
+  },
+  "conflictOfInterest": { "declared": false, "details": null },
+  "evidenceChecked": [
+    "git rev-parse HEAD == 4c9ed6b9317bc329bc2ea88ac36f61c145cf8fcf, detached, working tree clean",
+    "GitHub GraphQL pullRequest(number:3).headRefOid == 4c9ed6b9317bc329bc2ea88ac36f61c145cf8fcf",
+    "lesson.json identity, outcomes, prerequisites, objectives, scene order, claimCoverage, sourceConfidence",
+    "lesson.json estimatedMinutes 90 == 7+8+18+15+8+14+6+9+5 recomputed from scenes",
+    "site/data/premed-graph.json node topic-orientation-map-and-pathways (prerequisites: [], requirement on-ramp, core false)",
+    "site/data/premed-graph.json node topic-orientation-diagnostic-baseline prerequisites [topic-orientation-map-and-pathways]",
+    "site/data/premed-graph.json node topic-orientation-mastery-and-retrieval prerequisites [topic-orientation-diagnostic-baseline]",
+    "site/data/premed-graph.json node topic-orientation-metacognition-and-error-log prerequisites [topic-orientation-mastery-and-retrieval]",
+    "site/data/premed-graph.json node topic-orientation-study-plan prerequisites [topic-orientation-metacognition-and-error-log]",
+    "site/data/premed-graph.json: exactly four adjacent prerequisite link records join those five nodes (link-prerequisite-map-and-pathways-diagnostic-baseline, -diagnostic-baseline-mastery-and-retrieval, -mastery-and-retrieval-metacognition-and-error-log, -metacognition-and-error-log-study-plan)",
+    "site/data/premed-graph.json: the fifth prerequisite edge leaving the chain (metacognition-and-error-log -> topic-critical-reading-timed-reasoning) is non-adjacent and correctly excluded from the claim",
+    "site/data/premed-graph.json schema.routeResolutionRule, schema.requirementLegend, schema.linkTypes, pathways[].includesPortableCore, metrics.routeTopicCounts",
+    "Recomputed all nine metrics.routeTopicCounts entries (tagged, effective, estimatedHours) from the stated route rule: 9/9 exact match",
+    "Recomputed core===true (212 topics) versus pathway-array tag 'portable-core' (221 topics); the 9 differing topics are the medicine-bridge PREM integrative capstones",
+    "Verified core===true is equivalent to requirement==='portable-core' across all 404 topics (0 mismatches)",
+    "course/PREMED-KNOWLEDGE-GRAPH.md sections 2, 3, 5.1, 5.2, and 6",
+    "course/PREMED-SYLLABUS.md lines 142, 718, 736-738, 752-754 (PW-UK / PW-ES instrumentation limitation)",
+    "claims.json all six claim records: statements, sceneIds, sourceIds, support, confidence, scope, uncertainty, risk, reviewStatus",
+    "content/030-concept.md requirement legend, core/pathway disambiguation, route rule paragraph, instrumentation boundary callout, and source-note",
+    "content/040-worked-example.md prerequisite table, worked-example directive steps 1-6, self-explanation prompt, and source-note claim list",
+    "content/050-misconception.md, 060-practice.md, 070-retrieval.md, 080-transfer.md, 090-synthesis.md source-notes against claims.json sceneIds",
+    "content/010-orientation.md and content/020-diagnostic.md no-material-claims declarations",
+    "references.json#source-premed-knowledge-graph locator, url, version, accessed, license, uses, agentAccess",
+    "assessment.json item-map-order, item-cross-link-order, item-label-boundary, item-route-plan answer keys recomputed independently",
+    "assessment.json rubric point sums versus item points (3/3, 1+1=2, 3+2=5, 2+3+3+2=10)",
+    "assessment.json objective coverage: objective-navigate-map, objective-distinguish-labels, objective-plan-route each mapped to at least one item",
+    "glossary.json term-core, term-pathway, term-source-tag, term-evidence-confidence definitions against the graph specification",
+    "ATTRIBUTION.md source-use, rights, and agent-disclosure statements",
+    "npm ci and npm run validate: all suites pass; working tree unchanged by the build"
+  ],
+  "findings": [
+    {
+      "severity": "note",
+      "target": "claims.json#claim-map-orientation-prerequisite-chain",
+      "finding": "I rederived the five-node chain independently from site/data/premed-graph.json rather than from the lesson table. Node prerequisites are: topic-orientation-map-and-pathways [], topic-orientation-diagnostic-baseline [map-and-pathways], topic-orientation-mastery-and-retrieval [diagnostic-baseline], topic-orientation-metacognition-and-error-log [mastery-and-retrieval], topic-orientation-study-plan [metacognition-and-error-log]. Exactly four adjacent prerequisite link records mirror those arrays, and because each node carries exactly one prerequisite the backward trace is unique, terminating, and therefore trivially shortest. The claim statement, its scope field ('five named topic records and four adjacent prerequisite link records'), the table in content/040-worked-example.md, and the arrow chain in step 3 all agree with the dataset with no rounding, no omitted edge, and no invented edge. A fifth prerequisite edge does leave the chain (metacognition-and-error-log -> topic-critical-reading-timed-reasoning); it is non-adjacent to the traced route and is correctly excluded rather than silently absorbed.",
+      "resolution": "No change required. The chain is academically correct as stated."
+    },
+    {
+      "severity": "note",
+      "target": "content/040-worked-example.md#worked-example-orientation-route",
+      "finding": "Learner-visible traceability for the chain is now complete and not padded. claim-map-orientation-prerequisite-chain is mapped to scene-worked-example only, which is the only scene that teaches the five-node trace; the scene's {source-note} names it together with the four other claims the scene actually applies (layers, link-types, label-scope, stable-identity), and each of those four independently lists scene-worked-example in claims.json. I checked the converse direction as well: claim-map-route-resolution is not mapped to scene-worked-example and the scene makes no route claim, and claim-map-stable-identity is not mapped to scene-retrieval, whose text makes no identity claim. references.json#source-premed-knowledge-graph now names all five topic records and the four adjacent link records in its locator, so a learner can move from the table to the claim to the exact dataset records without an intervening bibliography step.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "claims.json#claim-map-route-resolution",
+      "finding": "Route semantics are correct at a level of precision that is easy to get wrong. I reimplemented the published rule (union of route-tagged topics with core===true topics when includesPortableCore is true) and reproduced all nine metrics.routeTopicCounts entries — tagged, effective, and estimatedHours — exactly. The lesson's load-bearing disambiguation is verified: 221 topics carry 'portable-core' in the pathway array but only 212 have core===true, the nine differing topics being the medicine-bridge integrative capstones, so treating the pathway tag as the common-core test would over-select. Separately, core===true is equivalent to requirement==='portable-core' across all 404 topics (0 mismatches), and the portable-core route itself has includesPortableCore=false with effective===tagged===221, exactly as the claim scope and content/030-concept.md state. The lesson also correctly holds that sourceTags never determine route membership.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "minor",
+      "target": "references.json#source-premed-knowledge-graph (locator) and claims.json#claim-map-route-resolution",
+      "finding": "The route-instrumentation boundary — that PW-US, PW-BIO, and PW-QNT are instrumented in curriculum version 1.0 while PW-UK and PW-ES are documented but not instrumented, so uk-direct-entry and spain-bach-pau are content-filter tags rather than route implementations — is factually correct; I verified it against course/PREMED-KNOWLEDGE-GRAPH.md section 5.2 and course/PREMED-SYLLABUS.md lines 142, 718, 738, and 754. It is also instructionally load-bearing: it owns a boundary callout in content/030-concept.md, step 1 of the transfer plan in content/080-transfer.md, a sentence in content/090-synthesis.md, retrieval prompt 4 in content/070-retrieval.md, and half of assessment rubric criterion criterion-route-scope. However, no claim statement asserts it; it is carried only inside claim-map-route-resolution's scope and uncertainty prose, and the references locator enumerates sections 2, 3, 5.1, and 6 — omitting section 5.2, which is the only part of the cited source that supports it. The learner-visible trace therefore resolves to a source record whose stated locator does not cover this particular teaching statement. This is a bounded citation-precision gap, not an unsupported claim: the fact is accurate, the correct source is already cited, and the instructional argument does not change.",
+      "resolution": "In a future revision, add section 5.2 (route table and instrumentation limitation) to the references.json locator, and preferably promote the instrumentation boundary to its own claim statement mapped to scene-concept, scene-transfer, scene-synthesis, and scene-retrieval rather than leaving it in a scope/uncertainty field. Because references.json is not a post-candidate mutable field, this correction should not be applied to the frozen candidate; doing so would create a new candidate commit and stale every approval."
+    },
+    {
+      "severity": "minor",
+      "target": "references.json#source-premed-knowledge-graph (url, archivedUrl)",
+      "finding": "The only source record cites https://github.com/VSBDev/EmbeddedKnowledge/blob/main/course/PREMED-KNOWLEDGE-GRAPH.md, a branch-tip URL, with version '1.0 candidate', accessed 2026-07-20, and archivedUrl null. Every claim in the pack is version-sensitive by its own admission (each claim's uncertainty field anticipates a later curriculum version). A branch-tip URL will silently drift as main advances, so a future reader following the citation may not see the text that supported these claims. I could still verify every claim because the candidate commit contains both the specification and the canonical dataset, so this affects durability of the citation rather than correctness of the review.",
+      "resolution": "In a future revision, pin the source URL to a tag or commit SHA, or record an archivedUrl, so the cited state matches the declared '1.0 candidate' version. No change to the frozen candidate."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json",
+      "finding": "I recomputed all four answer keys independently of the stated reasoning. item-map-order: domain -> module -> topic is the correct containment order and 'topic' is the atomic tracked unit per schema.nodeKinds and the specification's node-kinds section. item-cross-link-order: option-only-a-before-b is correct, since schema.linkTypes defines cross-link as conceptual with no implied order, so no B–C sequence follows. item-label-boundary: the key correctly limits evidenceConfidence to curricular placement and the pathway tag to route filtering, matching the specification's explicit prohibition on rendering evidenceConfidence as truth probability or as a percentage of institutions. item-route-plan: the model answer reproduces the published route rule including the core-field test and the instrumentation precheck. No item rewards a scientifically false shortcut, and the practice fragments in content/060-practice.md are internally consistent with the same rule (R-tagged topics plus three core:true topics, excluding the S-only core:false topic). Structurally, rubric criteria sum exactly to item points (3, 2, 5, 10), each of the three objectives maps to at least one item, every item maps to the single declared outcome, and retakes are unlimited and untimed.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "lesson.json#sourceConfidence and content/010-orientation.md",
+      "finding": "Source-confidence recommendation. Every material claim in this pack is a claim about the project's own canonical, versioned data contract, and I reproduced each one directly from site/data/premed-graph.json and course/PREMED-KNOWLEDGE-GRAPH.md at this candidate commit rather than accepting the lesson's restatement. The single-source reference base is appropriate here rather than a weakness, because the cited artifact is the authoritative definition of the subject matter; it would be a weakness for an empirical science lesson. Scope boundaries are stated where they matter: the orientation boundary callout, the transfer task's external primary-source check, and claim-map-label-scope all keep curriculum labels away from admissions, mastery, and scientific-truth claims, and nothing in the pack could be mistaken for medical advice or professional authorization. On that basis a resolved sourceConfidence of 'high' is academically justified for this candidate. That is a placement judgment for the adjudicator to record, not a review outcome I can set, and it does not depend on the two minor citation findings above.",
+      "resolution": "Recommend resolving sourceConfidence from 'pending-review' to 'high' at adjudication. No content change required."
+    },
+    {
+      "severity": "note",
+      "target": "content/010-orientation.md, content/020-diagnostic.md (claimCoverage: no-material-claims)",
+      "finding": "I tested both no-material-claims declarations rather than accepting them. content/010-orientation.md contains only routing, lesson-scope statements, and a boundary callout describing what this lesson does not establish; content/020-diagnostic.md uses an explicitly invented miniature map whose labels are stated not to describe the Premed course, and poses ungraded questions with a recovery route. Neither asserts a factual, quantitative, definitional, causal, or standards-dependent statement about the real graph that a learner is expected to accept, and no claim in claims.json maps to either scene. The declarations are defensible. I also checked the reverse risk for the remaining seven scenes: each claims-mapped scene carries a source-note whose claim list matches claims.json exactly in both directions, so there is no scene where a taught graph fact escapes the ledger.",
+      "resolution": "No change required."
+    }
+  ],
+  "limitations": [
+    "This is one independent academic review run and one eligible vote; it does not establish quorum, adjudication, or merge readiness.",
+    "All six mapped claims rest on a single source, the project's own Premed knowledge-graph specification and canonical dataset. I verified them against that artifact at the candidate commit; I did not and could not independently corroborate the project's internal data contract against an external authority, because no external authority defines it.",
+    "External curricular sources referenced by the graph's own source registry (AAMC, QAA, BOE RD 243/2022, and similar) were not opened in this run. No claim mapped in claims.json depends on them, so this did not limit the verdict.",
+    "Per the role boundary I did not read prior review artifacts, adjudication drafts, GitHub review bodies, or the authoring conversation, and I did not inherit any earlier conclusion. Prior-revision artifacts referenced in ATTRIBUTION.md were not consulted.",
+    "Agent provenance in this artifact is disclosed and attested by the accountable operator, not cryptographically verified. The instructionsDigest is the SHA-256 of the concatenated material role instructions actually loaded for this run (.agents/skills/review-embeddedknowledge-academic/SKILL.md, .github/REVIEW_TEMPLATE/academic.md, and site/schemas/review.schema.json); it excludes hidden provider instructions and the operator's task prompt.",
+    "npm run validate passed in full at this commit and left the working tree unchanged. Schema validity is not evidence of academic correctness and was not treated as such.",
+    "Rendering, accessibility conformance, learning-design quality, and rights compatibility are other roles' judgments and were assessed here only where they bear on academic accuracy."
+  ],
+  "signedAt": "2026-07-20T01:11:28Z"
+}
