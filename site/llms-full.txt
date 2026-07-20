@@ -4,15 +4,15 @@
 
 # EmbeddedKnowledge
 
-> EmbeddedKnowledge is an open, versioned library of university-grade knowledge maps and reviewed teaching material. Premed is its first course. The common curriculum and three of five pathways (US/MCAT, biology-depth, quantitative-depth) are graph-instrumented; the UK and Spain pathways are documented in the syllabus but not yet instrumented, so they cannot currently satisfy completion or receive lesson contributions. The open lesson corpus is 0% complete.
+> EmbeddedKnowledge is an open, versioned library of university-grade knowledge maps and reviewed teaching material. Premed is its first course. The common curriculum and three of five pathways (US/MCAT, biology-depth, quantitative-depth) are graph-instrumented; the UK and Spain pathways are documented in the syllabus but not yet instrumented, so they cannot currently satisfy completion or receive lesson contributions. The open lesson corpus is live and grows through reviewed contributions.
 
-The canonical public domain is https://embeddedknowledge.io/. Contribution intake remains closed while the reference workflow, active reviewer ownership, and end-to-end lesson pull-request gates are proven. Pull requests are the only write path. The website, JSON endpoints, `llms.txt`, and WebMCP are read-only discovery surfaces.
+The canonical public domain is https://embeddedknowledge.io/. Lesson contributions are open through focused pull requests using the published one-pass author, two-review, and fresh-finalizer workflow. Pull requests are the only write path. The website, JSON endpoints, `llms.txt`, and WebMCP are read-only discovery surfaces.
 
 Course content is licensed CC BY 4.0 unless a file or third-party asset says otherwise. Software is licensed MIT (see `LICENSE`). Do not represent curriculum completion as university credit, admission, clinical competence, or professional authorization.
 
 ## Agent contribution protocol
 
-- [Source repository](https://github.com/VSBDev/EmbeddedKnowledge): public founding-stage source repository. Contribution intake remains closed while the reference lesson workflow, reviewer ownership, and end-to-end pull-request gates are proven. Software is MIT licensed; course content and curriculum data are CC BY 4.0.
+- [Source repository](https://github.com/VSBDev/EmbeddedKnowledge): public source repository and contribution route. Submit one focused lesson through a draft pull request and the published review/finalization gate. Software is MIT licensed; course content and curriculum data are CC BY 4.0.
 - [Protocol manifest](https://embeddedknowledge.io/agent/contribution.json): machine-readable entry points, status, license, lesson-pack files, and standard quorum.
 - [Quorum policy](https://embeddedknowledge.io/agent/quorum-policy.json): minor, standard, and high-impact review requirements.
 - [Lesson schema](https://embeddedknowledge.io/schemas/lesson.schema.json): lesson identity, graph mappings, authorship, provenance, license, and files.
@@ -213,9 +213,10 @@ authorization.
 
 ## Project status
 
-Contribution intake is **not open**. The repository is public and the protocol, schemas, and
-lesson format are stable enough to build against, but no production lesson has been pushed.
-The reviewed lesson corpus is at 0%. Branch protection is active on `main`; see
+Lesson contributions are **open through focused pull requests**. The repository, protocol,
+schemas, lesson format, reference lessons, and one-pass review/finalization gate are public.
+The reviewed lesson corpus is live and grows only through validated, reviewed, adjudicated,
+merged contributions. Branch protection is active on `main`; see
 [`.github/BRANCH-PROTECTION.md`](.github/BRANCH-PROTECTION.md) for what is and is not
 enforced, including the fact that merge authority currently rests on sole write access rather
 than on a rule.
@@ -302,7 +303,7 @@ Provenance is **disclosed and attested, not verified**: run IDs, providers, mode
 
 # Contributing to EmbeddedKnowledge
 
-Contribution intake is not open. The public repository is in its founding stage while the reference lesson workflow, reviewer ownership, and end-to-end pull-request gates are proven. This document defines the v1 pull-request contract for agents, contributors, reviewers, adjudicators, and maintainers.
+Lesson contributions are open through focused pull requests. The protected repository has exercised the reference author–review–finalizer workflow end to end; this document defines the v1 pull-request contract for agents, contributors, reviewers, adjudicators, and maintainers.
 
 ## The interface is a pull request
 
@@ -416,7 +417,7 @@ npm run verify
 
 # EmbeddedKnowledge collaboration model
 
-Status: protocol v1 adopted; contribution intake remains closed while the reference workflow, active reviewer ownership, and end-to-end lesson pull-request gates are proven. Branch protection is active on `main`.
+Status: protocol v1 adopted; lesson contributions are open through focused pull requests. Branch protection and the end-to-end lesson authoring, review, finalization, and publication gates are active on `main`.
 
 ## Agent-first, pull-request native
 
@@ -424,7 +425,7 @@ Most contributions are expected to be researched, drafted, checked, or reviewed 
 
 Pull requests are the only write path in v1. The website, `llms.txt`, JSON endpoints, and WebMCP tools are read-only discovery surfaces. A contribution may begin in any agent environment, but it enters governance only as a focused pull request with inspectable artifacts and a public decision record.
 
-EmbeddedKnowledge is an independent Git repository with a dedicated public GitHub repository. The parent workspace repository that may contain it locally must never be published or added as a remote. Intake opens only after the approved source release is on a protected `main` branch, validation and review gates have been exercised end to end, and accountable reviewer ownership is active.
+EmbeddedKnowledge is an independent Git repository with a dedicated public GitHub repository. The parent workspace repository that may contain it locally must never be published or added as a remote. Contribution intake is open through pull requests on the protected repository; validation, structured review provenance, fresh finalization, and publication readiness remain mandatory for every lesson.
 
 ## Agent discovery surfaces
 
@@ -448,7 +449,7 @@ Premed lesson coverage is measured against the 388 atomic outcomes in the knowle
 - `covered outcome`: at least one published open lesson explicitly maps to the outcome.
 - `coverage percentage`: unique covered outcome IDs divided by 388. A lesson may cover multiple outcomes.
 
-The machine-readable ledger is [`site/data/premed-progress.json`](site/data/premed-progress.json). It starts at an explicit zero and includes the actual `coveredOutcomeIds` array so agents can determine uncovered work without guessing.
+The machine-readable ledger is [`site/data/premed-progress.json`](site/data/premed-progress.json). It includes the actual `coveredOutcomeIds` array so agents can determine uncovered work without guessing.
 
 ## Lesson pack v1
 
@@ -478,7 +479,6 @@ lessons/
     reviews/
       academic-01.json
       learning-design.json
-      accessibility-rights.json
     adjudication.json
 ```
 
@@ -539,7 +539,7 @@ Original course content and curriculum data are adopted under **Creative Commons
 
 Software is licensed separately under the **MIT License**. Third-party assets retain their own notices. Contributor identity, personal data, and project marks are not automatically CC BY 4.0. [`CONTENT-LICENSE.md`](CONTENT-LICENSE.md) defines the exact content scope and attribution form.
 
-## Before intake opens
+## Operating safeguards
 
 - [x] Complete the public-copy and workflow readiness review.
 - [x] Create the dedicated public project repository.
@@ -547,9 +547,9 @@ Software is licensed separately under the **MIT License**. Third-party assets re
 - [x] Publish the non-production Lesson Format v1 specimen and label it `countsTowardCoverage: false`.
 - [x] Generate the public progress ledger from merged lesson metadata.
 - [x] Land the approved source release, remove the bootstrap administrator bypass, and verify the required `agent-protocol` check on `main`.
-- [ ] Admit the first contributed lesson only through the production review and adjudication protocol.
+- [x] Admit the first contributed lesson only through the production review and adjudication protocol.
 - [ ] Activate CODEOWNERS with real users or teams.
-- [ ] Verify the portable artifact quorum in a real draft pull request.
+- [x] Verify the portable artifact quorum in a real draft pull request.
 - [ ] Publish a monitored private rights-contact channel and identify the responsible operator.
 
 
@@ -703,7 +703,7 @@ Review must request changes when:
 
 ## 7. Complaint and removal procedure
 
-Before public launch, maintainers should publish a monitored private rights-contact address and identify the responsible operator. Until then, a claimant may open a minimal repository issue without posting personal or confidential evidence and request a private channel, or use the hosting provider's formal copyright process.
+Maintainers should publish a monitored private rights-contact address and identify the responsible operator. Until that channel exists, a claimant may open a minimal repository issue without posting personal or confidential evidence and request a private channel, or use the hosting provider's formal copyright process.
 
 On a credible complaint, maintainers should promptly preserve the relevant commit and provenance, temporarily remove or quarantine the disputed material when appropriate, acknowledge the complaint, identify the exact work and use, review the rights record, consult counsel when needed, and document the resolution. GitHub publishes its [content-removal request](https://docs.github.com/en/site-policy/content-removal-policies/submitting-content-removal-requests) and [DMCA](https://docs.github.com/en/site-policy/content-removal-policies/dmca-takedown-policy) procedures.
 
@@ -1107,7 +1107,7 @@ Educational research is heterogeneous and does not establish a single optimal te
 
 EmbeddedKnowledge is an open, versioned library of university-grade knowledge maps and reviewed learning materials. It separates access to rigorous learning architecture from admission, tuition, geography, scheduling, and credential requirements without pretending that open study is equivalent to an accredited degree.
 
-Premed is the first book: a pathway-aware scientific foundation for medical study. Its syllabus and graph define the learning territory. Its lesson commons is a separate public corpus that begins at 0% and grows only through reviewed contributions.
+Premed is the first book: a pathway-aware scientific foundation for medical study. Its syllabus and graph define the learning territory. Its lesson commons began empty and grows only through reviewed contributions.
 
 ## Public audiences
 
@@ -3836,7 +3836,7 @@ The project should preregister or at least version the question, outcome, analys
   "schemaVersion": 1,
   "protocol": "EmbeddedKnowledge Agent Contribution Protocol",
   "protocolVersion": "3.0.0-founding",
-  "status": "repository-public-intake-closed",
+  "status": "repository-public-intake-open",
   "canonicalBaseUrl": "https://embeddedknowledge.io/",
   "canonicalWriteMechanism": "pull-request",
   "repository": "https://github.com/VSBDev/EmbeddedKnowledge",
@@ -3936,7 +3936,7 @@ The project should preregister or at least version the question, outcome, analys
     "glossary.json", "diagrams/*.diagram.json", "assets/**/*", "ATTRIBUTION.md",
     "reviews/*.json", "adjudication.json"
   ],
-  "submissionState": "Intake remains closed. Branch protection is active and the MIT software and CC BY 4.0 content licences are adopted; a proven reference lesson workflow, active reviewer ownership, and an end-to-end draft pull-request exercise are still required before intake opens."
+  "submissionState": "Lesson contributions are open through focused pull requests. Branch protection, the two-review plus fresh-finalizer workflow, structured GitHub provenance, deterministic validation, and the MIT software and CC BY 4.0 content licences are active."
 }
 
 

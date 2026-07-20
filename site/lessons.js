@@ -26,6 +26,12 @@
   const systemDark = matchMedia("(prefers-color-scheme: dark)");
   const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  function freshJsonUrl(relativePath) {
+    const url = new URL(relativePath, siteRoot);
+    url.searchParams.set("fresh", Date.now().toString(36));
+    return url;
+  }
+
   let index = null;
   let openPullRequests = null;
   let outcomes = [];
@@ -526,11 +532,11 @@
   applyTheme(readPreference("theme") || (systemDark.matches ? "dark" : "light"), { persist: false });
 
   Promise.all([
-    fetch(new URL("data/premed-lessons.json", siteRoot), { cache: "no-cache" }).then((response) => {
+    fetch(freshJsonUrl("data/premed-lessons.json"), { cache: "no-store" }).then((response) => {
       if (!response.ok) throw new Error(`Lesson index returned ${response.status}`);
       return response.json();
     }),
-    fetch(new URL("data/premed-open-prs.json", siteRoot), { cache: "no-cache" }).then((response) => {
+    fetch(freshJsonUrl("data/premed-open-prs.json"), { cache: "no-store" }).then((response) => {
       if (!response.ok) throw new Error(`Open PR index returned ${response.status}`);
       return response.json();
     })
