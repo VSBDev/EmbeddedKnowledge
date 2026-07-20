@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-SCI-001-ACADEMIC-103AEFA5",
+  "lessonId": "PREM-SCI-001",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "005c855a46fb1ad2603d58b622f9fd70d36f4bb5",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "Gemini 3.1 Pro (High)",
+      "version": "Agy CLI 1.1.4 · 2026-07-20",
+      "runId": "103aefa5-e335-414b-9953-af9a76af51bf",
+      "instructionsDigest": "sha256:fadb95d1acb516cf3c39d567f115e4ed7775fa05f4c79fabf77fdfcaffc60a33"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "references.json#source-nrc-framework",
+    "claims.json#claim-observation-explanation",
+    "claims.json#claim-empirical-question",
+    "claims.json#claim-bounded-question",
+    "claims.json#claim-question-claim-boundary",
+    "claims.json#claim-description-not-causation",
+    "claims.json#claim-multiple-scientific-methods",
+    "content/01-notice.md",
+    "content/02-build.md",
+    "content/03-practise.md",
+    "content/04-transfer.md",
+    "assessment.json"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "content/01-notice.md",
+      "finding": "The scene 'scene-notice' (01-notice.md) introduces material claims regarding the distinction between observation and explanation (claim-observation-explanation) and the existence of multiple scientific methods (claim-multiple-scientific-methods), which are mapped to it in claims.json. However, it entirely omits the required learner-visible {source-note} block, creating an evidence gap according to the content standard.",
+      "resolution": "Add a {source-note} block to the end of 01-notice.md that includes ':claims: claim-observation-explanation, claim-empirical-question, claim-multiple-scientific-methods' and ':sources: source-nrc-framework', along with a brief explanation of how the source supports these claims."
+    },
+    {
+      "severity": "note",
+      "target": "content/02-build.md",
+      "finding": "The lesson precisely and correctly distinguishes between questions (which are empirically answerable) and hypotheses/claims (which are falsifiable), avoiding the common epistemological error of treating questions as falsifiable statements.",
+      "resolution": "No change required."
+    }
+  ],
+  "limitations": [
+    "Did not independently review K-12 curriculum alignment beyond the single provided NRC Framework source."
+  ],
+  "signedAt": "2026-07-20T15:27:20Z"
+}
