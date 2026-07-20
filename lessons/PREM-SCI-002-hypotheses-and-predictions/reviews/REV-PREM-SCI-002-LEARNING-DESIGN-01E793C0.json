@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-SCI-002-LEARNING-DESIGN-01E793C0",
+  "lessonId": "PREM-SCI-002",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "347c0bca7014b7e70de25019897f5f9f4713502b",
+  "role": "learning-design",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev operating the learning-design review agent",
+    "agent": {
+      "system": "Claude",
+      "provider": "Anthropic",
+      "model": "claude-fable-5",
+      "version": "Claude Code 2.1.215 · 2026-07-20",
+      "runId": "01e793c0-4e64-4f76-aa32-14eac3f164aa",
+      "instructionsDigest": "sha256:c77859991bda4b4a307bbd54602e4499f784a7d2ba4599b5864d6e3b066594d9"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Founding-stage operator conflict: the accountable principal VSBDev (github:VSBDev) operates the authoring, review, and adjudication agents for this lesson. This learning-design review is an isolated run (01e793c0-4e64-4f76-aa32-14eac3f164aa, Anthropic Claude) distinct from the OpenAI Codex authoring run a1fab976-9564-4c22-882e-ef9ded502531. The reviewer read no authoring conversation, no other review output, and no adjudication material. Provenance is disclosed and attested by the operator, not platform-verified."
+  },
+  "evidenceChecked": [
+    "content/01-explain-and-expect.md#cold-first-read-in-lesson.json-scene-order-before-claims-references-authoring-material-or-validator-output",
+    "content/02-worked-comparison.md#worked-example-apple-comparison-decision-debrief-and-altered-result-variation",
+    "content/03-practise-and-repair.md#opening-retrieval-fading-practice-sequence-greenhouse-alarm-table-cup-case-and-misconception-matching-proves",
+    "content/04-transfer.md#transfer-table-before-reveal-synthesis-chain-mastery-check-accessibility-and-alternatives-and-recovery-route",
+    "lesson.json#outcomes-prerequisites-objectives-scene-order-kinds-minutes-totals-and-provenance",
+    "assessment.json#all-three-items-attempted-as-the-intended-learner-including-rubrics-attempt-policy-retry-variants-and-feedback",
+    "glossary.json#term-definitions-aliases-and-scene-references",
+    "claims.json#claim-to-scene-mapping-read-only-after-the-cold-read",
+    "references.json#source-records-read-only-after-the-cold-read",
+    "site/data/premed-graph.json#topic-scientific-inquiry-hypotheses-predictions-PREM-02.02-and-declared-prerequisite",
+    "lessons/PREM-SCI-001-from-observation-to-question/content/02-build.md#verbatim-continuity-of-the-bounded-apple-question",
+    "ATTRIBUTION.md#originality-declarations-and-agent-disclosure"
+  ],
+  "findings": [
+    {
+      "severity": "note",
+      "target": "content/01-explain-and-expect.md#opening-and-first-explanation",
+      "finding": "Cold first read, recorded before any rubric or ledger inspection: the first-read gate passes. Reading the four scenes once in lesson.json order as an intelligent engineering-minded learner new to premed, I could state in plain language what is being learned (the distinct jobs of an empirical question, a hypothesis as a proposed explanation, and a prediction as the observable record the hypothesis commits you to), why it matters ('If the data arrived today, how could you tell whether they challenge an explanation rather than merely decorate a story made afterward?'), and how the central reasoning works ('hypothesis + stated conditions → expected observation', plus seeking records on which competing hypotheses disagree). The opening is concrete and continuous with the prior lesson's apple question, asks the learner to commit labels before revealing 'The order is hypothesis, question, prediction', and the prose reads naturally aloud. No internal project machinery, validator vocabulary, or definition-first wall appears in learner-visible prose.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "major",
+      "target": "assessment.json#item-discriminate-archive",
+      "finding": "The capstone mastery item is answerable by transcribing teaching prose the intended path guarantees the learner just read, so it cannot support the mastery claim for objective-discriminate-hypotheses on a first attempt. content/04-transfer.md correctly has the learner complete the archived-audio table before its reveal, but the scene then prints the full model answer: the completed expected-record table, 'The calibration record is useful because the hypotheses make different commitments about it', and 'That result counts against Hypothesis 2 as written and is consistent with Hypothesis 1. It does not prove that temperature caused the pattern.' The mastery check in the same scene then allocates 'four for comparing hypotheses in the archived-audio case', and item-discriminate-archive asks for exactly those predictions, that discriminating record, and that would/would-not conclusion for the same fictional case. Each of the four rubric-discriminate-archive criteria maps to a sentence visible in the scene minutes earlier, so the item measures reproduction of a worked case rather than the learner's own construction of a discriminating comparison — yet these 4 of 10 points gate mastery of the lesson's most demanding objective. Inverted, the retry variant in the item's reasoning ('compare a real signal change with a clock failure using both event counts and a timestamp check') is more novel than the first attempt.",
+      "resolution": "Make the first attempt a parallel novel two-record case at the same difficulty — the drafted clock-failure retry variant is ready-made — and keep the frog-audio case as the taught worked transfer, supplying a new equivalent retry variant. Alternatively, restructure content/04-transfer.md so the defensible completion and calibrated conclusion are revealed only after the assessment attempt. The teaching prose itself needs no change."
+    },
+    {
+      "severity": "minor",
+      "target": "content/03-practise-and-repair.md#make-two-hypotheses-disagree",
+      "finding": "The greenhouse-alarm discriminating table is only valid when each hypothesis is read as the complete explanation of the alarm, but unlike the cup case ('The different-starting-temperature hypothesis, as the complete explanation, predicts…') the alarm case never states that reading. The learner-facing hypotheses — 'Hypothesis T: the alarm sounds when the sensor temperature is above its threshold' and 'Hypothesis L: stray light reaching the sensor triggers the alarm' — do not exclude each other, so an engineering-minded learner may correctly reason that both triggers could operate and fill 'Alarm sounds' in both cells of a row. The feedback 'If you wrote \"the alarm may sound\" in every cell, the table cannot discriminate. Return to each hypothesis and ask what it commits you to' then misdiagnoses that sound reasoning as a failure to derive commitments, when the actual gap is an unstated exclusivity assumption. The hedge 'Real devices may be more complicated; the hypotheses are deliberately simple so their logic is visible' acknowledges simplification but does not name the assumption the table depends on.",
+      "resolution": "Add the same qualifier used in the cup case — for example, state that each hypothesis is being tested 'as the complete explanation' of the alarm — either in the hypothesis statements or in the feedback paragraph, so the learner who saw the compatibility of the two mechanisms is confirmed rather than corrected."
+    },
+    {
+      "severity": "minor",
+      "target": "content/01-explain-and-expect.md#opening; content/04-transfer.md#recovery-route",
+      "finding": "There is no explicit prerequisite verification or recovery route back to the declared prerequisite lesson. Scene 1 opens with 'Imagine that you have already asked this bounded question' and reuses the PREM-SCI-001 apple question verbatim (good activation and continuity), and the recovery route notes 'The previous lesson supplied bounded empirical questions', but no learner-facing sentence routes a learner who cannot parse the bounded-question form — or who entered without the prior lesson — back to the observations-and-questions lesson before proceeding. The prerequisite is declared only in lesson.json metadata, which the learner does not read. The consequence is bounded because the question is supplied rather than demanded, but a learner missing the prerequisite meets 'bounded question' and 'browning level 3' with no stated recovery path.",
+      "resolution": "Add one routing sentence in the scene-1 opening or the recovery route, for example directing a learner unfamiliar with bounded empirical questions to complete the preceding observations-and-questions lesson first."
+    },
+    {
+      "severity": "minor",
+      "target": "assessment.json#rubric-derive-prediction/criterion-preserve-condition",
+      "finding": "The prompt for item-derive-prediction does not cue that the response must explicitly carry the held-fixed condition, yet criterion-preserve-condition awards its point 'only when the response keeps the same calibrated sensor or an explicitly equivalent fixed condition.' A learner who writes a sound minimal answer — light on at 25 N, off at 15 N, contrary result named — implicitly under the stated condition may lose 1 of 4 points for not restating a condition the prompt itself supplied, and mastery requires all ten points. The feedback ('Score one point for preserving the same calibrated-sensor condition') teaches the expectation only after a lost attempt.",
+      "resolution": "Cue the requirement in the prompt (for example, ask the learner to state the condition their prediction holds under) or relax the criterion to accept an answer that leaves the supplied condition unchanged without restating it."
+    },
+    {
+      "severity": "note",
+      "target": "content/02-worked-comparison.md#altered-result-variation",
+      "finding": "The altered-result variation narrates its own answer instead of prompting first: 'Now alter the fictional result: both groups reach level 3 at a median of 27 minutes. That outcome counts against A as written and agrees with B's equal-time prediction.' In an otherwise generation-rich lesson this is a missed retrieval opportunity — the learner could be asked which hypothesis the equal-time record supports before the interpretation is revealed, matching the commit-first pattern used everywhere else.",
+      "resolution": "Optionally convert the altered result into a brief commit-first prompt before revealing the interpretation. No change is required for approval."
+    },
+    {
+      "severity": "note",
+      "target": "content/03-practise-and-repair.md#practice-sequence; content/04-transfer.md#transfer-table",
+      "finding": "Verified strengths: support fades cleanly across the practice scene (worked model → one part supplied with commitment before reveal → two-blank discriminating table → 'Less support' construction task → fully independent practice); the misconception block follows the full repair sequence (commit, neutral statement of the shortcut, why it fails, repair with calibrated language, recheck on a genuinely non-discriminating new case); the in-lesson transfer is genuine, requiring adaptation to a second record type (the calibration tone) in an unfamiliar archived-audio context with the table attempted before reveal; assessment feedback diagnoses wrong reasoning and prescribes next steps with retry variants that demand renewed reasoning; the accessibility and recovery sections preserve the learning operation in plain text; and scene boundaries follow instructional purpose rather than one-scene-per-rubric construction. Continuity with PREM-SCI-001 is exact — the anchor question is carried verbatim — and delayed links forward to variables-and-controls and models-and-limits are named in the recovery route.",
+      "resolution": "No change required."
+    }
+  ],
+  "limitations": [
+    "No real learner evidence exists; the cold read and assessment attempts were simulated by one agent reviewer, not observed in a human novice at the declared level.",
+    "This is a single-run text review of the frozen candidate source; rendered SPA behavior, frame pagination, keyboard navigation, and screen-reader output were not executed.",
+    "Learning-design scope only: factual accuracy, source interpretation, and rights are matters for the academic review and the finalizer's audit; no scientific error was suspected during this read, but that is not an academic verdict.",
+    "Reviewer provenance is disclosed and attested by the accountable operator, not platform-verified; this artifact is one advisory input under standard-lesson-v3 and claims no quorum or merge readiness."
+  ],
+  "signedAt": "2026-07-20T17:11:31Z"
+}
