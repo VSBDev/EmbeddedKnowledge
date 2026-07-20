@@ -1,0 +1,286 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-assessment-v1",
+  "lessonId": "PREM-SCI-004",
+  "lessonVersion": "0.1.0",
+  "assessmentId": "assessment-choosing-study-design",
+  "title": "Study-design choice mastery check",
+  "purpose": "mastery-gate",
+  "attemptPolicy": {
+    "retakeable": true,
+    "timeLimitMinutes": null,
+    "feedback": "after-attempt"
+  },
+  "items": [
+    {
+      "id": "item-classify-assignment-timing",
+      "type": "single-choice",
+      "sceneId": "scene-transfer-synthesis",
+      "objectiveIds": [
+        "objective-classify-designs"
+      ],
+      "outcomeIds": [
+        "topic-scientific-inquiry-study-designs"
+      ],
+      "prompt": "Choose the only complete design map. Case A: researchers assign eligible samples by chance to two temperatures and record later response. Case B: a one-week population survey measures current exposure and current outcome together. Case C: an outside policy assigns exposure using a pre-existing cutoff, and researchers must test whether that rule creates a defensible comparison.",
+      "stimulus": null,
+      "points": 3,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-map-experiment-cross-natural",
+            "text": "A randomized experiment; B cross-sectional; C natural-experiment candidate"
+          },
+          {
+            "id": "option-map-cohort-case-natural",
+            "text": "A prospective cohort; B case-control; C natural experiment with no further assignment checks needed"
+          },
+          {
+            "id": "option-map-experiment-cohort-cross",
+            "text": "A randomized experiment; B retrospective cohort; C cross-sectional"
+          },
+          {
+            "id": "option-map-natural-case-experiment",
+            "text": "A natural experiment; B case-control; C randomized experiment"
+          }
+        ],
+        "units": null,
+        "tolerance": null,
+        "maxSelections": 1,
+        "maxLength": null
+      },
+      "answer": {
+        "correct": "option-map-experiment-cross-natural",
+        "summary": "Researcher random assignment makes A an experiment, simultaneous measurement makes B cross-sectional, and outside cutoff assignment makes C a natural-experiment candidate that still needs checking.",
+        "reasoning": "Score one point for each correctly classified case in the selected complete map. In A, researchers create exposure groups by random assignment. In B, exposure and outcome are measured in one window. In C, the policy rather than the researchers assigns exposure, but the cutoff's operation and comparability must be defended before stronger inference. All three are correct only in the first option. On a retry, classify: a followed self-selected exposure group, cases selected by an uncommon outcome, and a one-day prevalence survey.",
+        "acceptableResponses": [
+          "The option mapping A to randomized experiment, B to cross-sectional study, and C to a natural-experiment candidate."
+        ],
+        "commonErrors": [
+          "Calling researcher random assignment a cohort because outcomes occur later",
+          "Calling simultaneous exposure and outcome measurement case-control",
+          "Treating every outside cutoff as automatically experiment-like without checking assignment"
+        ]
+      },
+      "rubricId": "rubric-classify-assignment-timing",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-distinguish-cohort-case-control",
+      "type": "open-response",
+      "sceneId": "scene-transfer-synthesis",
+      "objectiveIds": [
+        "objective-classify-designs",
+        "objective-choose-best-fit"
+      ],
+      "outcomeIds": [
+        "topic-scientific-inquiry-study-designs"
+      ],
+      "prompt": "A complete 2012 factory roster is divided by a noise exposure recorded that year, and existing records are then read forward to hearing-test outcomes recorded through 2022. Name and justify the design. Then state how selection would change if investigators instead began with people who had the 2022 outcome and comparison people who did not, and explain why the word 'historical' does not decide between the two designs.",
+      "stimulus": null,
+      "points": 3,
+      "responseSpec": {
+        "mode": "text",
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "maxLength": 1600
+      },
+      "answer": {
+        "correct": "The roster design is a retrospective cohort because it begins with a defined source population and earlier exposure, then compares subsequent outcomes using records that already exist. If investigators begin by selecting people with and without the 2022 outcome and reconstruct prior noise exposure comparably, it is case-control. Historical data can serve either design; selection and exposure-to-outcome direction decide the label.",
+        "summary": "Retrospective describes when records are assembled; cohort and case-control describe where selection enters the exposure–outcome sequence.",
+        "reasoning": "Score one point for naming retrospective cohort and citing source-population or exposure-first entry, one for converting the alternative to outcome-first case-control selection with comparison people from the population that produced the cases, and one for explicitly separating historical timing from selection logic. All three are required for 3/3. If your answer labels both designs retrospective without distinguishing them, draw two arrows: exposure to later outcome for the cohort and outcome to earlier exposure for case-control. On a retry, use old medication records and a later equipment-failure outcome in a complete maintenance fleet.",
+        "acceptableResponses": [
+          "Any equivalent explanation that classifies the roster as retrospective cohort, the outcome-selected alternative as case-control, and makes selection rather than record age decisive."
+        ],
+        "commonErrors": [
+          "Calling every use of past records case-control",
+          "Failing to identify outcome-first selection in the case-control alternative",
+          "Using follow-up as a calendar word without tracing exposure before outcome"
+        ]
+      },
+      "rubricId": "rubric-distinguish-cohort-case-control",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-calibrate-inference",
+      "type": "single-choice",
+      "sceneId": "scene-transfer-synthesis",
+      "objectiveIds": [
+        "objective-calibrate-inference"
+      ],
+      "outcomeIds": [
+        "topic-scientific-inquiry-study-designs"
+      ],
+      "prompt": "Which option gives calibrated conclusions for all three comparisons? (1) A well-implemented randomized experiment with comparable outcome measurement. (2) An ordinary cohort in which participants chose exposure. (3) An outside eligibility rule that may create a natural experiment but whose assignment process has not yet been checked.",
+      "stimulus": null,
+      "points": 2,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-inference-calibrated",
+            "text": "1 can support a bounded causal inference under its conditions; 2 supports association by default; 3 is not ready for an experiment-like causal claim until assignment and rivals are checked."
+          },
+          {
+            "id": "option-inference-all-causal",
+            "text": "All three establish causation because each compares exposed and unexposed groups."
+          },
+          {
+            "id": "option-inference-none-informative",
+            "text": "None can inform causal reasoning, including the randomized experiment."
+          },
+          {
+            "id": "option-inference-natural-automatic",
+            "text": "Only 3 establishes causation because outside assignment is always equivalent to random assignment."
+          }
+        ],
+        "units": null,
+        "tolerance": null,
+        "maxSelections": 1,
+        "maxLength": null
+      },
+      "answer": {
+        "correct": "option-inference-calibrated",
+        "summary": "Randomized assignment can support stronger causal inference when implementation and measurement hold; self-selected exposure supports association by default; unchecked outside assignment remains only a natural-experiment candidate.",
+        "reasoning": "Score one point for preserving the randomized experiment's bounded causal strength and one point for correctly limiting both observational cases: association for the self-selected cohort and no experiment-like claim before the outside rule is defended. Both are present only in the calibrated option. On a retry, write one sentence beginning 'because researchers assigned' and one beginning 'because exposure was selected or externally assigned.'",
+        "acceptableResponses": [
+          "The calibrated option distinguishing conditional experimental causality, ordinary observational association, and an unchecked natural-experiment candidate."
+        ],
+        "commonErrors": [
+          "Assuming any group comparison establishes causation",
+          "Treating random assignment as a guarantee independent of implementation and measurement",
+          "Treating an outside event as automatically random or as-if random"
+        ]
+      },
+      "rubricId": "rubric-calibrate-inference",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-transfer-cutoff",
+      "type": "open-response",
+      "sceneId": "scene-transfer-synthesis",
+      "objectiveIds": [
+        "objective-classify-designs",
+        "objective-choose-best-fit",
+        "objective-calibrate-inference"
+      ],
+      "outcomeIds": [
+        "topic-scientific-inquiry-study-designs"
+      ],
+      "prompt": "A fictional transit authority replaces buses first on routes whose depot score falls just below a cutoff fixed three years earlier. Researchers did not create the rule. They have comparable noise measurements before and after replacement for routes near the cutoff. Identify the best design candidate, name two assignment or implementation facts needed before treating the comparison as experiment-like, state a warranted conclusion if those checks hold, and give the ordinary observational fallback if the cutoff was manipulable or tied to expected noise change.",
+      "stimulus": null,
+      "points": 4,
+      "responseSpec": {
+        "mode": "text",
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "maxLength": 2200
+      },
+      "answer": {
+        "correct": "A complete response identifies a natural-experiment candidate because an outside cutoff assigns replacement. It checks at least two facts such as whether scores could be manipulated, whether the cutoff was applied consistently, whether other programs or exceptions used the same rule, whether nearby routes were comparable before replacement, and whether noise measurement was comparable. If the checks hold, a difference in noise change can support a bounded causal interpretation of replacement assignment for routes near the cutoff. If assignment is not defensible, the records support an observational retrospective cohort comparison of earlier replacement exposure followed by later noise outcome, interpreted as association.",
+        "summary": "The design and conclusion depend on the outside assignment rule, not merely on the existence of a cutoff or before-and-after data.",
+        "reasoning": "Score one point for identifying and justifying the natural-experiment candidate, one for two concrete assignment or implementation checks, one for a bounded conditional causal interpretation near the cutoff, and one for the retrospective-cohort fallback with an association-only default. All four are required for 4/4. If your answer says only 'natural experiment,' inspect who could cross the cutoff and what else changed. On a retry, evaluate a school program assigned by a fixed enrollment threshold.",
+        "acceptableResponses": [
+          "Any equivalent response that ties the natural-experiment candidate and conditional inference to a defensible external cutoff and supplies an observational cohort fallback when that assignment fails."
+        ],
+        "commonErrors": [
+          "Calling the design a randomized experiment even though researchers did not assign routes",
+          "Naming a natural experiment without checking the assignment process",
+          "Generalizing a near-cutoff comparison to every route",
+          "Keeping causal language after changing to an ordinary observational cohort"
+        ]
+      },
+      "rubricId": "rubric-transfer-cutoff",
+      "safetyCritical": false
+    }
+  ],
+  "rubrics": [
+    {
+      "id": "rubric-classify-assignment-timing",
+      "title": "Assignment and timing classification",
+      "criteria": [
+        {
+          "id": "criterion-classify-experiment",
+          "description": "Award 1 point only when researcher random assignment in Case A is classified as a randomized experiment.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-classify-cross-sectional",
+          "description": "Award 1 point only when simultaneous one-window measurement in Case B is classified as cross-sectional.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-classify-natural",
+          "description": "Award 1 point only when Case C is classified as a natural-experiment candidate whose outside assignment still requires checking.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-distinguish-cohort-case-control",
+      "title": "Historical cohort and case-control distinction",
+      "criteria": [
+        {
+          "id": "criterion-retrospective-cohort",
+          "description": "Award 1 point only when the roster is classified as retrospective cohort with population- or exposure-first entry followed by later outcome.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-outcome-first-case-control",
+          "description": "Award 1 point only when the alternative is classified as case-control because selection begins with cases and comparison people without the outcome.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-separate-history-selection",
+          "description": "Award 1 point only when historical record timing is explicitly separated from the selection logic that distinguishes the designs.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-calibrate-inference",
+      "title": "Inference calibrated to assignment",
+      "criteria": [
+        {
+          "id": "criterion-randomized-boundary",
+          "description": "Award 1 point only when the randomized experiment is allowed a bounded causal interpretation under implementation and measurement conditions rather than treated as a guarantee.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-observational-boundary",
+          "description": "Award 1 point only when the self-selected cohort is limited to association by default and the unchecked outside rule is kept as a candidate rather than automatic causal evidence.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-transfer-cutoff",
+      "title": "External-cutoff transfer",
+      "criteria": [
+        {
+          "id": "criterion-transfer-natural-candidate",
+          "description": "Award 1 point only when the outside cutoff justifies a natural-experiment candidate rather than a researcher-randomized experiment.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-transfer-assignment-checks",
+          "description": "Award 1 point only when at least two concrete checks address manipulation, consistent application, co-occurring changes, pre-exposure comparability, or comparable measurement.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-transfer-conditional-inference",
+          "description": "Award 1 point only when any causal interpretation is conditional, bounded to the assignment and routes near the cutoff, and linked to the stated checks.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-transfer-fallback",
+          "description": "Award 1 point only when failed assignment checks lead to a retrospective observational cohort description and an association-only default conclusion.",
+          "maxPoints": 1
+        }
+      ]
+    }
+  ]
+}
