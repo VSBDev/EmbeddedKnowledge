@@ -1,6 +1,6 @@
 ---
 name: author-embeddedknowledge-lesson
-description: Author one evidence-based EmbeddedKnowledge Lesson Format v1 pack for an uncovered Premed outcome. Use when asked to draft, build, revise, or prepare a lesson contribution, its scenes, assessment, claims, references, glossary, diagrams, accessible assets, attribution, or author provenance before independent review.
+description: Author one clear, human-readable, evidence-based EmbeddedKnowledge Lesson Format v1 pack for an uncovered Premed outcome. Use when asked to draft, build, revise, or prepare a lesson contribution, its learner-facing scenes, assessment, claims, references, glossary, diagrams, accessible assets, attribution, or author provenance before independent review.
 ---
 
 # Author an EmbeddedKnowledge lesson
@@ -39,6 +39,7 @@ Write a private authoring brief before polished scenes. Define:
 - mastery evidence, remediation, safety boundaries, and accessibility alternatives.
 
 Revise the brief until every learning claim has observable evidence. Do not use word count, scene count, visual density, interaction count, readability score, or expected completion as a proxy for learning.
+Choose the smallest instructional arc that can teach and assess the target. The standard's functions are not a demand for one scene per checklist item.
 
 ## Research and claim discipline
 
@@ -51,12 +52,22 @@ Revise the brief until every learning claim has observable evidence. Do not use 
 7. Independently synthesize facts in an original instructional structure and original language. Do not closely paraphrase, translate, mirror source organization, lightly redraw figures, or reuse source examples, questions, tables, media, or datasets unless the exact material has a permitted basis under `RIGHTS-POLICY.md`.
 8. Never invent citations, data, permissions, patient details, clinical recommendations, or confidence.
 
+## Pass a human-first prototype before multiplying the prose
+
+1. Draft only the learner-facing opening, central explanation, and one representative worked use first. Do not build the rest of the scenes, assessment, or ledgers around an untested voice.
+2. Open with something the declared learner can picture or want to explain. Show why the idea matters before listing objectives, exclusions, definitions, or routine boundaries.
+3. Write as an informed teacher speaking to one learner. Prefer concrete actors and actions over compressed strings of abstract nouns. Introduce necessary scientific terms after giving them ordinary-language meaning.
+4. Keep internal graph IDs, schema fields, claim mapping, source-access procedure, candidate status, and review vocabulary out of learner prose unless the mapped outcome explicitly teaches that machinery. Do not make the lesson sound like its validator.
+5. Run the first-read gate in `CONTENT-STANDARD.md`. When a fresh reader-proxy context is available, give it only the declared learner, target outcome, and learner-visible prototype—never the authoring brief, intended answer, or rubric. Ask it to explain what the lesson teaches, why it matters, and how the central idea works, and to quote any sentence it had to read twice. This developmental check creates no governance artifact and the run cannot count as a later review.
+6. If a fresh context is unavailable, put the prototype aside, then read it aloud without opening metadata or ledgers and answer the same questions in plain language.
+7. Repair the prototype until it passes before extending the voice across the complete pack. Alignment without first-read comprehension is failure, not rigor.
+
 ## Build the lesson pack
 
 1. Create one directory under `lessons/` using the repository naming conventions.
 2. Use `lesson.json` schema version 3 and `format: embeddedknowledge-lesson-v1`. Keep status `draft` and source confidence `pending-review` during authorship.
-3. Create ordered semantic scenes under `content/`. Set each scene's `claimCoverage` to `claims-mapped` or `no-material-claims`; never use the latter to avoid recording a factual, quantitative, definitional, causal, or evidence-dependent teaching claim. Use only documented scene kinds, directives, and options. Let instructional purpose determine scene boundaries; preserve a continuous reading path for extended explanations.
-4. Include coherent explanation, worked reasoning, explicit representation links, retrieval, misconception repair, varied and fading practice, genuine transfer, synthesis, recovery, and assessment as required by the outcome.
+3. Create ordered semantic scenes under `content/`. Set each scene's `claimCoverage` to `claims-mapped` or `no-material-claims`; never use the latter to avoid recording a factual, quantitative, definitional, causal, or evidence-dependent teaching claim. Use only documented scene kinds, directives, and options. Let instructional purpose determine scene boundaries; combine functions when that produces a clearer reading path, and never create scenes mechanically from the specimen or standard.
+4. Include coherent explanation, worked reasoning, explicit representation links, retrieval, misconception repair, varied and fading practice, genuine transfer, synthesis, recovery, and assessment only to the extent required to teach and test the outcome without repetition.
 5. Build `assessment.json`, `references.json`, `claims.json`, `glossary.json`, and `ATTRIBUTION.md`. Add only necessary local diagrams and assets.
 6. Use constrained TeX, chemistry notation, declarative diagrams, sanitized SVG, structured molecule data, and accessibility equivalents exactly as the format permits.
 7. Keep lesson content inert. Reject raw HTML or JavaScript, remote embeds, executable notebooks, active SVG, unsafe TeX, arbitrary plugins, secrets, identifiable learner or patient data, copyrighted answer banks, and media without usable rights.
@@ -73,12 +84,13 @@ Revise the brief until every learning claim has observable evidence. Do not use 
 ## Validate and challenge
 
 1. Run `npm ci` when dependencies are not installed or the lockfile changed.
-2. Run `npm run validate` after building the pack.
-3. Run `npm test` when rendering, interactions, diagrams, math, chemistry, assets, or reader behavior changed.
-4. Re-read the lesson as a novice. Attempt every retrieval item, worked example, practice item, and assessment without using hidden knowledge.
-5. Challenge every acceptance gate in `CONTENT-STANDARD.md`. Repair gaps in explanation rather than disguising them with polish.
-6. Check narrow-screen reflow, keyboard order, nonvisual equivalents, print continuity, source links, asset provenance, and graph mappings.
-7. Repeat validation after every repair.
+2. Before candidate freeze, run `npm run source:preflight -- --strict lessons/<lesson-pack>`. Replace missing terms routes and unresolved `human-only` sources rather than leaving them for the final rights review.
+3. Run `npm run verify` after building the pack. It runs validation and tests sequentially; never run `npm run validate` and `npm test` concurrently in one worktree because they rebuild shared generated fixtures.
+4. Read the complete learner-visible lesson without metadata, claims, or review context. Apply the first-read gate again, read representative passages aloud, and remove institutional or validator-facing language.
+5. Attempt every retrieval item, worked example, practice item, and assessment without using hidden knowledge.
+6. Challenge every acceptance gate in `CONTENT-STANDARD.md`. Repair gaps in explanation rather than disguising them with polish.
+7. Check narrow-screen reflow, keyboard order, nonvisual equivalents, print continuity, source links, asset provenance, and graph mappings.
+8. Complete the audit before starting formal review. Batch its repairs, then run the verifier; rerun it after any later candidate change. Do not alternate one small edit with one full build when targeted inspection can expose the remaining issues first.
 
 ## Freeze and hand off
 

@@ -20,9 +20,22 @@ Canonical format: [`lessons/README.md`](../../lessons/README.md) · schema: `sit
 
 Explain what this lesson enables, why these outcomes belong together, and which learner communities or pathways it serves.
 
+## Human-first preflight
+
+- Cold-reader context/run ID, if used:
+- In one plain sentence, what will the learner understand or be able to do?
+- What concrete question, phenomenon, or task opens the lesson?
+- What did the cold reader say the central idea was?
+- Which sentences or sections were rewritten after the first-read check?
+
+This is a developmental check, not a governance vote or evidence that learners mastered the outcome.
+
 ## Contribution declaration
 
 - [ ] This PR changes exactly one lesson pack.
+- [ ] The opening, central explanation, and one worked use passed the `CONTENT-STANDARD.md` first-read gate before the full pack was built.
+- [ ] Learner prose sounds like an informed teacher, not a schema, validator, evidence ledger, or review rubric; internal project vocabulary appears only when the mapped outcome requires it.
+- [ ] The lesson uses the smallest coherent instructional arc and does not create or repeat scenes mechanically to mirror checklist items.
 - [ ] Every mapped outcome and prerequisite exists in the Premed graph.
 - [ ] `lesson.json.scenes` orders unique sources under `content/*.md` using only the 14 documented scene kinds.
 - [ ] Scene Markdown uses only the documented declarative directives/options and contains no raw HTML, JavaScript, executable content, or remote embed.
@@ -34,11 +47,12 @@ Explain what this lesson enables, why these outcomes belong together, and which 
 - [ ] Essential visuals/audio/interactions have alt text, long descriptions/tables/transcripts, keyboard access, and equivalent adaptive routes as applicable.
 - [ ] Original content is contributed under CC BY 4.0.
 - [ ] Lesson prose, structure, examples, questions, diagrams, and assessments are original syntheses, not close paraphrases or lightly modified source expression.
-- [ ] Every reference declares its use, rights basis/evidence, and dated agent-access status; no agent processed a source marked `human-only`.
+- [ ] Every reference declares its use, rights basis/evidence, dated agent-access status, and exact terms route; no agent processed a source marked `human-only`.
 - [ ] Every third-party asset/dataset is declared in `lesson.json`, separately identified in `ATTRIBUTION.md`, and uses only a permitted basis under `RIGHTS-POLICY.md`.
 - [ ] Pack paths are local/normalized; there are no unsafe SVG/TeX features, secrets, personal medical data, identifiable learner/patient data, or unlicensed media.
 - [ ] Accountable principals and all material agent assistance are disclosed.
-- [ ] `npm run validate` passes.
+- [ ] `npm run source:preflight -- --strict lessons/<lesson-pack>` passes before candidate freeze.
+- [ ] `npm run verify` passes sequentially; validation and tests were not run concurrently in this worktree.
 
 ## Pack inventory
 
@@ -64,8 +78,12 @@ Explain what this lesson enables, why these outcomes belong together, and which 
 ## Candidate freeze
 
 - [ ] Scene content, metadata, assessment, references, claims, glossary, attribution, diagrams, and assets are frozen at the candidate commit above.
+- [ ] A substantive revision after review began bumped the lesson version before a fresh candidate was frozen; the current version has only one review candidate.
 - [ ] All counted reviews target that exact commit.
+- [ ] Every required role in the current review cohort was launched against the same commit before any finding was applied.
+- [ ] The author waited for the complete cohort and consolidated requested changes into one revision rather than creating rolling candidates.
 - [ ] Changes after the candidate commit are limited to `reviews/*.json`, `adjudication.json`, and the permitted `lesson.json` status/source-confidence transition.
+- [ ] The draft PR's `lesson-candidate` check is green; the protected `agent-protocol` context remains absent until the PR is ready.
 
 ## Review quorum
 
@@ -79,6 +97,7 @@ Every checked item must correspond to a schema-valid JSON artifact copied exactl
 - [ ] Every review uses a unique run ID that differs from all authoring runs
 - [ ] Required run-count and model-family rules are satisfied
 - [ ] No unresolved blocking finding remains
+- [ ] Each exact GitHub review body was generated with `npm run review:prepare`, submitted and verified before its equivalent artifact commit was pushed.
 
 ## Final adjudication
 
@@ -88,4 +107,4 @@ Every checked item must correspond to a schema-valid JSON artifact copied exactl
 - [ ] The adjudication records quorum, rationale, dissent, conditions, and a `merge` decision.
 - [ ] `lesson.json` status is `published`; `adjudicated` is an intermediate pre-merge state.
 - [ ] Every retained published claim has `reviewStatus: reviewed`, and lesson source confidence is no longer `pending-review`.
-- [ ] The `lesson-pr-readiness` check passes.
+- [ ] The PR is marked ready and the resulting full `agent-protocol` publication-readiness check passes.

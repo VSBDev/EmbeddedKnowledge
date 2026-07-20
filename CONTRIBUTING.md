@@ -9,13 +9,15 @@ Pull requests are the only write path. `llms.txt`, JSON Schemas, WebMCP tools, a
 For a lesson contribution:
 
 1. Load [`.agents/skills/author-embeddedknowledge-lesson/SKILL.md`](.agents/skills/author-embeddedknowledge-lesson/SKILL.md) or follow its public raw equivalent, then select uncovered atomic outcomes from `site/data/premed-graph.json` and `site/data/premed-progress.json`.
-2. Read [`CONTENT-STANDARD.md`](CONTENT-STANDARD.md) and [`RIGHTS-POLICY.md`](RIGHTS-POLICY.md), then create one Lesson Format v1 pack under `lessons/` using the current public schemas and [`lessons/README.md`](lessons/README.md).
-3. Add ordered semantic scenes under `content/`, explicit per-scene claim coverage, learner-visible claim-to-source notes, assessment logic, references, glossary, accessible assets, attribution, and agent disclosure.
-4. Open a draft pull request using the lesson template.
-5. Resolve automated structural checks.
-6. Collect the required independent review artifacts against one candidate commit.
-7. A fresh adjudication agent run writes `adjudication.json`, recording the quorum, reasoning, dissent, conditions, and decision.
-8. Commit the adjudication with the lesson, set its status to `published`, and let protected-branch checks decide whether merge is permitted.
+2. Read [`CONTENT-STANDARD.md`](CONTENT-STANDARD.md) and [`RIGHTS-POLICY.md`](RIGHTS-POLICY.md), design the lesson, and draft only its learner-facing opening, central explanation, and one worked use. Pass the standard's first-read gate before expanding that voice into a full pack. A developmental reader-proxy sees only the declared learner, outcome, and prose; it creates no governance artifact and cannot count as a formal review run.
+3. Create one Lesson Format v1 pack under `lessons/` using the current public schemas and [`lessons/README.md`](lessons/README.md). Add the smallest coherent set of ordered scenes, explicit per-scene claim coverage, learner-visible claim-to-source notes, assessment logic, references, glossary, accessible assets, attribution, and agent disclosure. Do not manufacture one scene per rubric item.
+4. Complete the author audit and batch its repairs. Run the strict offline source-access preflight, then the sequential verifier once the candidate is stable: `npm run source:preflight -- --strict lessons/<pack>` followed by `npm run verify`. Do not run `npm run validate` and `npm test` concurrently in one worktree because both rebuild shared generated fixtures.
+5. Open a draft pull request using the lesson template. A green `lesson-candidate` check means the draft candidate and any artifacts already present are valid; it does not create the protected `agent-protocol` context and does not mean the lesson has quorum or is merge-ready.
+6. Freeze one candidate commit, then launch the complete required review cohort in parallel against exactly that commit. Wait for every role before editing; do not react to the first returned review while other reviewers are still inspecting the old candidate.
+7. If any role requests changes, consolidate all current-cohort findings into one author revision, create a new lesson version and candidate commit, and launch one fresh parallel cohort. Never collect a rolling mixture of approvals against successive commits. Generate each exact GitHub body with `npm run review:prepare`, submit and verify the GitHub review first, then commit the equivalent artifact.
+8. After one cohort approves, a fresh adjudication agent run writes `adjudication.json`, recording the quorum, reasoning, dissent, conditions, and decision.
+9. Commit the adjudication with the lesson, make only its authorized publication-state transition, and rerun `npm run verify` sequentially.
+10. Mark the pull request ready for review. That lifecycle event reruns the required `agent-protocol` check with full publication readiness enforced; protected-branch checks decide whether merge is permitted.
 
 Use the matching role-isolated skill for each academic, learning-design, accessibility-and-rights, and adjudication run. A skill is a procedure, not a vote: review eligibility still depends on the frozen commit, artifact schema, disclosed provenance, GitHub submission, quorum policy, and deterministic checks.
 
@@ -47,6 +49,7 @@ The authoritative order is the `scenes` array in `lesson.json`, not filename ord
 
 [`CONTENT-STANDARD.md`](CONTENT-STANDARD.md) is the authoritative teaching-quality contract. Before a candidate commit is frozen, the lesson must have:
 
+- a human-first opening and explanation that a cold reader at the declared level can summarize in plain language after one careful read, without hidden project or validator vocabulary;
 - explicit scope, exclusions, observable objectives, prerequisites, and a recovery route;
 - an accurate, coherent explanatory model with explicit causal/logical relations, assumptions, limits, and consistent terminology;
 - representations with declared instructional jobs and explicit connections among words, diagrams, equations, chemistry, and data;
@@ -104,8 +107,8 @@ See [`CONTENT-LICENSE.md`](CONTENT-LICENSE.md) for scope and attribution instruc
 
 ```bash
 npm ci
-npm run validate
-npm test
+npm run source:preflight -- --strict lessons/<lesson-pack>
+npm run verify
 ```
 
-`npm run validate` is the required deterministic PR check. Browser tests remain required for changes to rendered pages or interactions.
+`npm run verify` runs deterministic validation and tests sequentially and is the canonical local gate. The strict source preflight deliberately rejects missing terms routes and unresolved human-only sources in agent-authored lessons in both candidate and ready states. Drafts report this through `lesson-candidate`; the protected `agent-protocol` context exists only after the pull request is marked ready and enforces full merge readiness. Any temporary compatibility exemption for a candidate frozen before this gate is public and exact-scoped in `site/agent/source-preflight-policy.json`.

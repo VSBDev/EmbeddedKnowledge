@@ -55,6 +55,8 @@ Course content is licensed CC BY 4.0 unless a file or third-party asset says oth
 
 A standard lesson uses a founding-stage 3 + 1 agent quorum: one academic, one learning-design, and one accessibility-and-rights review from three isolated run IDs across three distinct providers, followed by a fourth fresh adjudication run. One disclosed maintainer may operate all four agents. Every run records full provenance, every review targets the same frozen candidate commit, and reused run identities never count twice. Provenance is disclosed and attested by the accountable operator, not cryptographically verified.
 
+Before formal review, the author must pass the human first-read gate on a learner-visible prototype. Launch the complete review cohort in parallel against one candidate, wait for all roles, and consolidate findings into one revision. Draft lesson PRs use `lesson-candidate`; mark them ready only after quorum and adjudication so the protected `agent-protocol` merge check can run.
+
 ## Repository paths for coding agents
 
 - `AGENTS.md` — repository-wide operating instructions.
@@ -120,6 +122,8 @@ The curriculum's completeness is not the lesson corpus's completeness. Premed cu
 ## Agent-first contribution interface
 
 Pull requests are the only write path. During the founding stage, a standard lesson uses three isolated cross-model review agents—one academic, one learning-design, and one accessibility-and-rights—followed by a fourth, fresh adjudication run. One disclosed maintainer may operate all four runs, but run IDs, model provenance, material-instruction digests, and the frozen candidate commit remain independently auditable.
+
+Authors first prove the learner-facing opening, explanation, and worked use in a human-first prototype. Formal reviewers then run in one parallel exact-candidate cohort; findings are consolidated into one revision rather than creating rolling review targets. Draft lesson PRs use a candidate-valid check, while the full protected merge-readiness check begins only when the PR is marked ready.
 
 The public site exposes `/llms.txt`, `/llms-full.txt`, `/content-standard.txt`, `/agent/skills.json`, raw and downloadable Agent Skills, JSON Schemas, the Premed graph, lesson and open-PR indexes, the generated progress ledger, and seven read-only WebMCP tools. `llms.txt` discovers the contract; the selected role skill applies it. WebMCP is progressive enhancement for compatible browsers in a secure context; it never writes, votes, adjudicates, or merges.
 
@@ -255,6 +259,8 @@ These instructions apply to the entire EmbeddedKnowledge project.
 
 - One lesson PR should introduce or materially revise one lesson pack.
 - Design the instructional argument before drafting prose. Declare the learner, prerequisites, target explanatory model, mastery evidence, misconception or boundary, worked example, practice progression, transfer task, representations, and delayed retrieval links required by [`CONTENT-STANDARD.md`](CONTENT-STANDARD.md).
+- Before completing the pack, prototype the learner-facing opening, central explanation, and one worked use. Pass the content standard's first-read gate in a cold context: the declared learner must be able to say what the lesson teaches, why it matters, and how the central idea works without hidden project or validator vocabulary.
+- Use the smallest coherent instructional arc. Scene kinds are available functions, not a mandatory one-scene-per-checklist template.
 - Validate `lesson.json`, assessment, references, claims, glossary, diagram, review, and adjudication artifacts against their public schemas.
 - Map only to existing knowledge-graph outcome IDs.
 - Keep one level-one heading per scene and map lesson objectives and assessment items to declared outcomes.
@@ -263,7 +269,7 @@ These instructions apply to the entire EmbeddedKnowledge project.
 - Course content is licensed CC BY 4.0. Identify exceptions and third-party assets explicitly.
 - Disclose the accountable principal and, when an agent was used, the agent system, provider, model, version, run ID, and SHA-256 digest of its material instructions.
 - During the founding stage, one disclosed principal may operate the authoring, review, and adjudication agents. Count only isolated runs with unique run IDs; no review run may reuse an authoring run.
-- Reviews must target the same candidate commit. Any lesson-content change makes prior approvals stale.
+- Launch every required review role in parallel against one candidate commit and wait for the complete cohort before revising. Consolidate all findings into one author revision and fresh version/candidate; do not create rolling review targets. Any lesson-content change makes prior approvals stale.
 - Final adjudication is a separate artifact and must be committed inside the lesson pack before merge.
 
 ## Quorum
@@ -304,13 +310,15 @@ Pull requests are the only write path. `llms.txt`, JSON Schemas, WebMCP tools, a
 For a lesson contribution:
 
 1. Load [`.agents/skills/author-embeddedknowledge-lesson/SKILL.md`](.agents/skills/author-embeddedknowledge-lesson/SKILL.md) or follow its public raw equivalent, then select uncovered atomic outcomes from `site/data/premed-graph.json` and `site/data/premed-progress.json`.
-2. Read [`CONTENT-STANDARD.md`](CONTENT-STANDARD.md) and [`RIGHTS-POLICY.md`](RIGHTS-POLICY.md), then create one Lesson Format v1 pack under `lessons/` using the current public schemas and [`lessons/README.md`](lessons/README.md).
-3. Add ordered semantic scenes under `content/`, explicit per-scene claim coverage, learner-visible claim-to-source notes, assessment logic, references, glossary, accessible assets, attribution, and agent disclosure.
-4. Open a draft pull request using the lesson template.
-5. Resolve automated structural checks.
-6. Collect the required independent review artifacts against one candidate commit.
-7. A fresh adjudication agent run writes `adjudication.json`, recording the quorum, reasoning, dissent, conditions, and decision.
-8. Commit the adjudication with the lesson, set its status to `published`, and let protected-branch checks decide whether merge is permitted.
+2. Read [`CONTENT-STANDARD.md`](CONTENT-STANDARD.md) and [`RIGHTS-POLICY.md`](RIGHTS-POLICY.md), design the lesson, and draft only its learner-facing opening, central explanation, and one worked use. Pass the standard's first-read gate before expanding that voice into a full pack. A developmental reader-proxy sees only the declared learner, outcome, and prose; it creates no governance artifact and cannot count as a formal review run.
+3. Create one Lesson Format v1 pack under `lessons/` using the current public schemas and [`lessons/README.md`](lessons/README.md). Add the smallest coherent set of ordered scenes, explicit per-scene claim coverage, learner-visible claim-to-source notes, assessment logic, references, glossary, accessible assets, attribution, and agent disclosure. Do not manufacture one scene per rubric item.
+4. Complete the author audit and batch its repairs. Run the strict offline source-access preflight, then the sequential verifier once the candidate is stable: `npm run source:preflight -- --strict lessons/<pack>` followed by `npm run verify`. Do not run `npm run validate` and `npm test` concurrently in one worktree because both rebuild shared generated fixtures.
+5. Open a draft pull request using the lesson template. A green `lesson-candidate` check means the draft candidate and any artifacts already present are valid; it does not create the protected `agent-protocol` context and does not mean the lesson has quorum or is merge-ready.
+6. Freeze one candidate commit, then launch the complete required review cohort in parallel against exactly that commit. Wait for every role before editing; do not react to the first returned review while other reviewers are still inspecting the old candidate.
+7. If any role requests changes, consolidate all current-cohort findings into one author revision, create a new lesson version and candidate commit, and launch one fresh parallel cohort. Never collect a rolling mixture of approvals against successive commits. Generate each exact GitHub body with `npm run review:prepare`, submit and verify the GitHub review first, then commit the equivalent artifact.
+8. After one cohort approves, a fresh adjudication agent run writes `adjudication.json`, recording the quorum, reasoning, dissent, conditions, and decision.
+9. Commit the adjudication with the lesson, make only its authorized publication-state transition, and rerun `npm run verify` sequentially.
+10. Mark the pull request ready for review. That lifecycle event reruns the required `agent-protocol` check with full publication readiness enforced; protected-branch checks decide whether merge is permitted.
 
 Use the matching role-isolated skill for each academic, learning-design, accessibility-and-rights, and adjudication run. A skill is a procedure, not a vote: review eligibility still depends on the frozen commit, artifact schema, disclosed provenance, GitHub submission, quorum policy, and deterministic checks.
 
@@ -342,6 +350,7 @@ The authoritative order is the `scenes` array in `lesson.json`, not filename ord
 
 [`CONTENT-STANDARD.md`](CONTENT-STANDARD.md) is the authoritative teaching-quality contract. Before a candidate commit is frozen, the lesson must have:
 
+- a human-first opening and explanation that a cold reader at the declared level can summarize in plain language after one careful read, without hidden project or validator vocabulary;
 - explicit scope, exclusions, observable objectives, prerequisites, and a recovery route;
 - an accurate, coherent explanatory model with explicit causal/logical relations, assumptions, limits, and consistent terminology;
 - representations with declared instructional jobs and explicit connections among words, diagrams, equations, chemistry, and data;
@@ -399,11 +408,11 @@ See [`CONTENT-LICENSE.md`](CONTENT-LICENSE.md) for scope and attribution instruc
 
 ```bash
 npm ci
-npm run validate
-npm test
+npm run source:preflight -- --strict lessons/<lesson-pack>
+npm run verify
 ```
 
-`npm run validate` is the required deterministic PR check. Browser tests remain required for changes to rendered pages or interactions.
+`npm run verify` runs deterministic validation and tests sequentially and is the canonical local gate. The strict source preflight deliberately rejects missing terms routes and unresolved human-only sources in agent-authored lessons in both candidate and ready states. Drafts report this through `lesson-candidate`; the protected `agent-protocol` context exists only after the pull request is marked ready and enforces full merge readiness. Any temporary compatibility exemption for a candidate frozen before this gate is public and exact-scoped in `site/agent/source-preflight-policy.json`.
 
 
 ---
@@ -506,6 +515,14 @@ Every counted review must approve the same candidate commit. A lesson-content ch
 
 Each review records role, verdict, evidence checked, findings, limitations, conflicts, accountable principal, and material agent provenance. The final `adjudication.json` records the policy, exact reviews counted, quorum snapshot, rationale, dissent, conditions, and merge/revise/reject decision. It is committed with the lesson before merge.
 
+### Review cohorts and throughput
+
+Role isolation does not require serial waiting. After the author passes the human-first prototype, source, structural, and full local gates, freeze one candidate and launch every required review role in parallel. Keep the pull request draft so `lesson-candidate` reports whether the working candidate is healthy without pretending it is merge-ready.
+
+Wait for the complete cohort before changing content. If one reviewer returns early with a finding, record it but do not invalidate the candidate while the other roles are still reviewing it. Consolidate every finding from that cohort into one author revision, bump the lesson version, freeze one replacement candidate, and launch one fresh parallel cohort. Do not create rolling candidates, duplicate GitHub submissions, or retain competing review commits under one current lesson version.
+
+Learning-design approval includes the human first-read gate. A lesson that satisfies the artifact checklist but that the declared learner cannot understand, paraphrase, or care about on first read must request changes before formal quorum proceeds. The cold-reader developmental pass used during authorship is deliberately early and non-governance; it prevents expensive formal review from being the first time anyone reads the prose as a person.
+
 ## Enforcement
 
 `npm run validate` checks schemas, graph mappings, declared files, candidate commits, role minimums, distinct run IDs, model-family diversity, blocking findings, and adjudication snapshots. Pull-request checks also match every portable artifact to an equivalent, non-dismissed GitHub submission by its disclosed operator. When GitHub prevents a PR author from formally approving their own PR, a structured **Comment** review is accepted as transport; the committed artifact and deterministic quorum check remain authoritative.
@@ -553,14 +570,15 @@ Lesson review is a public, structured sequence attached to one pull request. Git
 
 ## Sequence
 
-1. The author opens one draft PR for one lesson pack.
-2. Content, assessment, references, source-use and agent-access declarations, attribution, and assets are completed and validated.
+1. The author passes the human-first prototype gate, completes one lesson pack, batches author-audit repairs, and runs the strict source preflight plus sequential verifier.
+2. The author opens one draft PR. Its `lesson-candidate` check may become green before quorum; the protected `agent-protocol` merge check is deliberately absent while the PR remains draft.
 3. The author freezes a candidate content commit and stops changing teaching content.
-4. Three isolated review agents inspect that commit using the academic, learning-design, and accessibility/rights templates.
-5. The author copies each validated JSON block exactly into `reviews/*.json` without rewriting the reviewer’s findings.
-6. When the 3-agent role quorum is satisfied, a fourth fresh agent run submits the structured final adjudication.
-7. The author copies that block exactly to `adjudication.json` and changes only the permitted `lesson.json` status/source-confidence fields and retained `claims.json` claim `reviewStatus` fields, ending at `published` with every retained claim `reviewed` before merge.
-8. Merge readiness verifies schema, graph identity, quorum, GitHub provenance, candidate immutability, and the adjudication decision.
+4. Launch the academic, learning-design, and accessibility/rights agents in parallel against that exact commit. The learning-design agent cold-reads learner-visible prose before consulting ledgers or validator output.
+5. Wait for all roles. If any requests changes, consolidate the complete cohort into one author revision, bump the lesson version, freeze one replacement candidate, and launch one fresh parallel cohort. Do not revise while agents are still reviewing the old commit or mix successive candidates in one current version.
+6. Generate every exact GitHub review body with `npm run review:prepare`, submit and verify it against the candidate first, then copy the validated JSON block exactly into `reviews/*.json` without rewriting findings.
+7. When one complete cohort satisfies the 3-agent role quorum, a fourth fresh agent run submits the structured final adjudication.
+8. The author copies that block exactly to `adjudication.json` and changes only the permitted `lesson.json` status/source-confidence fields and retained `claims.json` claim `reviewStatus` fields, ending at `published` with every retained claim `reviewed` before merge.
+9. The author marks the PR ready. The required `agent-protocol` check then verifies schema, graph identity, quorum, GitHub provenance, candidate immutability, and the adjudication decision.
 
 Review artifacts are evidence, not endorsements of the project as a whole. Findings and declared limitations remain published with the lesson record. A requested change that modifies teaching content or any claims-ledger field other than retained claims' `reviewStatus` creates a new candidate commit and stales every earlier approval.
 
@@ -575,7 +593,7 @@ GitHub may not allow a pull-request author to submit an **Approve** review. In t
 ## Roles
 
 - **Academic:** factual accuracy, calculations, scope, uncertainty, source interpretation, and route relevance.
-- **Learning design:** alignment among outcomes, explanations, cognitive load, practice, assessment, mastery, and recovery.
+- **Learning design:** first-read comprehension and natural learner-facing prose, then alignment among outcomes, explanations, cognitive load, practice, assessment, mastery, and recovery.
 - **Accessibility and rights:** semantic and equivalent access, original synthesis versus close paraphrase, source-use and agent-access terms, privacy, asset provenance, attribution, and compatible licenses under `RIGHTS-POLICY.md`.
 - **Adjudication:** eligibility of the review set, resolution of blocking findings, treatment of dissent, conditions, and final merge/revise/reject reasoning.
 
@@ -723,7 +741,7 @@ For every mapped outcome, the lesson must enable the learner to answer:
 6. **Can I reconstruct and use it without the lesson in front of me?**
 7. **Can I select and adapt it in a new, bounded context?**
 
-The content is ready for review only when it supports all seven questions at the depth declared by the lesson. A pleasant reading experience is valuable, but fluency, familiarity, completion, and time-on-page are not evidence of learning.
+The content is ready for review only when it supports all seven questions at the depth declared by the lesson. **Comprehension is a prerequisite for learning, not a cosmetic extra.** If the declared learner cannot say what the lesson is about, why it matters, and how its central idea works after one careful first read, the lesson is not ready. Fluency, familiarity, completion, and time-on-page still are not evidence of mastery.
 
 ## 2. Design before prose
 
@@ -776,6 +794,22 @@ Use this as a functional sequence, not a demand for nine separate scenes.
 Earlier knowledge should be retrieved when it becomes useful, not recopied in full. Later lessons should revisit high-value ideas after a delay and in changed contexts.
 
 ## 4. Write explanations, not compressed notes
+
+### First-read gate: write for a learner, not for the contract
+
+The standard belongs in the authoring process, not in the voice of the lesson. Learners should encounter an inviting explanation, not the vocabulary of a design brief, schema, validator, or review rubric.
+
+- Open with a concrete question, phenomenon, surprising observation, or useful problem that the learner can picture. Make the reason to continue clear before listing objectives, definitions, exclusions, or caveats.
+- Give the concrete case before the abstract label when the label would otherwise be empty. A sentence such as “A baseline is a routing tool” does not orient a novice until *baseline*, *routing*, and the decision being routed have ordinary-language meaning.
+- Prefer people and things doing actions over strings of abstract nouns. Use the technical term once the learner has a distinction to attach it to.
+- Use the shortest ordinary word that remains accurate. Explain necessary scientific vocabulary; do not replace it with a second layer of invented course jargon.
+- Keep qualifications beside the claim they constrain, but do not make the learner cross a wall of disclaimers before reaching the idea. State routine course boundaries once and return to them only when they affect a decision.
+- Keep internal IDs, schema fields, claim-map terminology, candidate status, quorum language, and validator instructions out of learner prose unless the mapped outcome explicitly requires that project machinery.
+- Write source notes for learners: say what the evidence supports and where it is limited. Do not narrate the claims ledger or rights workflow.
+- Read representative paragraphs aloud. Rewrite any sentence that an informed teacher would not naturally say to the declared learner, or that requires a second reading because the grammar hides the main action.
+- Build motivation through visible meaning and attainable progress, not hype, fake enthusiasm, decorative stories, or claims that the topic is “important” without showing what it helps explain or do.
+
+Before completing the full pack, test the opening, central explanation, and one example as a learner-visible prototype. Give a cold reader only the declared learner, target outcome, and prototype—not the authoring brief or quality rubric. The prototype passes when that reader can explain in plain language what they are learning, why it matters, and the central relation or procedure, and can identify no sentence whose meaning depends on hidden project knowledge. This developmental read does not count toward review quorum or evidence of learning.
 
 ### 4.1 Build coherence for the declared novice
 
@@ -994,13 +1028,15 @@ An authoring agent must complete these phases in order.
 2. Choose an anchor phenomenon or task and the smallest set of representations that reveal the model.
 3. Design the worked example, faded practice sequence, transfer task, retrieval schedule, feedback, and recovery routes before polishing prose.
 4. Map every objective to scenes and assessment evidence.
+5. Choose the smallest instructional arc that can teach and assess the outcome. Do not turn the nine functional stages into nine compulsory scenes or repeat the same explanation to satisfy multiple checklist labels.
 
 ### Phase C — Draft
 
-1. Write the core causal or relational explanation first.
-2. Add definitions, representations, examples, qualifications, and sources where they reduce a real learner inference gap.
-3. Add prompts before explanations they are intended to retrieve.
-4. Keep essential content in canonical source, not styling or interaction state.
+1. Draft a learner-visible prototype containing the opening, core causal or relational explanation, and one worked use before constructing the rest of the pack.
+2. Run the first-read gate above in a fresh context where possible. Repair the prototype before multiplying its voice across scenes, practice, ledgers, and assessment.
+3. Add definitions, representations, examples, qualifications, and sources where they reduce a real learner inference gap.
+4. Add prompts before explanations they are intended to retrieve.
+5. Keep essential content in canonical source, not styling or interaction state.
 
 ### Phase D — Challenge
 
@@ -1008,7 +1044,7 @@ Run four separate self-audits before requesting independent review:
 
 - **Academic:** recompute results; check terminology, scope, current consensus, citations, safety, and all representations against each other.
 - **Learning:** attempt every prompt as the declared learner; inspect prerequisite gaps, hidden steps, scaffolding, feedback, misconception repair, spacing, and transfer.
-- **Clarity:** remove irrelevant detail, repair ambiguous referents and terminology drift, expose causal links, and check long-form continuity.
+- **Clarity:** read learner-visible scenes without metadata or ledgers; remove irrelevant detail and rubric leakage; replace compressed abstraction with concrete meaning; repair ambiguous referents and terminology drift; expose causal links; read representative passages aloud; and check long-form continuity.
 - **Accessibility and rights:** verify equivalent meaning and operation, reflow, navigation, original synthesis versus close paraphrase, source-use and agent-access declarations, asset provenance, licence, privacy, and non-clinical boundaries.
 
 Self-audit does not create a review artifact or count toward quorum.
@@ -1027,6 +1063,7 @@ Every standard lesson must pass all applicable gates. A reviewer records evidenc
 | Gate | Pass evidence | Blocking failure |
 |---|---|---|
 | Alignment | Outcomes, objectives, instruction, practice, and assessment describe the same performance. | Content or assessment drifts beyond the mapped outcome. |
+| Human first read | A cold reader at the declared level can explain what the lesson teaches, why it matters, and how the central idea works; the opening and examples use natural, concrete language without hidden project machinery. | The prose is grammatically valid but opaque, bureaucratic, needlessly abstract, validator-facing, or dependent on unexplained internal vocabulary. |
 | Learner model | Declared level, prerequisites, diagnostic, and recovery route are usable. | Hidden prerequisites or no recovery path. |
 | Coherence | The central model forms a connected causal, relational, or procedural argument. | Fact list, unexplained jumps, or terminology drift. |
 | Accuracy | Claims, calculations, notation, representations, and boundaries agree with verified sources. | Material error, unsupported claim, or fabricated source. |
@@ -1051,6 +1088,9 @@ Do not:
 - use decorative detail to manufacture interest;
 - make readability grade level, word count, frame count, or completion rate the learning target;
 - convert exposition into fragments that no longer form a coherent explanation;
+- confuse density, abstraction, or institutional tone with rigor;
+- expose the authoring checklist, internal graph machinery, evidence ledger, or governance workflow as if it were the lesson;
+- mechanically create one scene for every stage of the instructional arc or repeat the same point under several rubric headings;
 - present a formula, diagram, or mnemonic without meaning, conditions, and use;
 - call repeated exposure “retrieval practice”;
 - call a changed number a transfer task;
@@ -1555,6 +1595,8 @@ lessons/
     adjudication.json
 ```
 
+This tree demonstrates available artifact and scene kinds; it is not a lesson template to copy line for line. A real lesson uses the smallest set of scenes that gives its outcome a coherent explanation, practice, assessment, and recovery path. Several instructional functions may share one scene, and unused scene kinds should be omitted.
+
 The scene filenames under `content/` are descriptive and prefixed with sortable numbers. The authoritative order, identity, and kind live in the `scenes` array in `lesson.json`; directory order is only a human convenience. Use forward-slash relative paths contained within the pack. A pack may omit scene kinds that do not serve its outcomes, but it must satisfy the lesson must-haves in section 5.
 
 `lesson.json` declares format/version, lesson identity/version/status/risk, graph outcomes and prerequisites, duration, authorship and agent provenance, ordered scenes, files, source confidence, CC BY 4.0 licensing, and third-party assets. Lesson Format v1 currently uses lesson schema v3. Follow the current public lesson schema exactly; do not add private conventions that other renderers cannot discover.
@@ -1565,7 +1607,7 @@ A scene is a bounded instructional purpose, not a slide and not an arbitrary pag
 
 | Scene kind | Purpose | Minimum authoring expectation |
 |---|---|---|
-| `orientation` | Establish relevance, scope, outcomes, route, and boundaries | State why the outcome matters, what learners will do, and what the lesson does not establish. |
+| `orientation` | Establish relevance, scope, outcomes, route, and boundaries | Start with a concrete reason to care and the progress learners will make; add exclusions or boundaries afterward only when they affect safe or correct use. |
 | `diagnostic` | Surface prerequisite knowledge before instruction | Use ungraded questions with routing feedback; never treat placement as failure. |
 | `concept` | Build an explanatory model | Connect representations, evidence, assumptions, and limits rather than listing facts. |
 | `definition` | Establish precise language or notation | Give term, meaning, conditions, non-examples, and linked glossary ID. |
@@ -1587,7 +1629,7 @@ Scene order follows learning logic, not the table order. For example, a diagnost
 - Begin with one level-one scene title; use descending headings without skipped levels inside the file.
 - Write semantic prose, lists, tables, links, code literals, TeX, and approved directives only.
 - Keep outcome-relevant explanation in the source. CSS, generated images, hover states, and speaker notes may not contain the only copy of essential content.
-- Link to stable graph outcome IDs and glossary/reference/claim IDs rather than reproducing mutable labels as identity.
+- Use stable graph outcome IDs and glossary/reference/claim IDs in metadata and machine links. In learner prose, prefer descriptive names and ordinary transitions; do not expose internal identity machinery unless the outcome teaches it.
 - Set `claimCoverage` on every scene. Use `claims-mapped` when it contains any material teaching claim and `no-material-claims` only for a scene whose content is genuinely instructional routing, reflection, or other non-evidentiary activity.
 - In every `claims-mapped` scene, expose each mapped claim through a learner-visible `{source-note}` that lists all source IDs attached to its named claims.
 - Do not encode absolute viewport dimensions, body scroll behavior, pagination, or desktop-only layout in a scene.
@@ -1633,22 +1675,23 @@ The v1 directive-option whitelist is `id`, `label`, `kind`, `alt`, `longdesc`, `
 
 A standard lesson is content-complete before review only when it passes the learning-quality gates in [`CONTENT-STANDARD.md`](../CONTENT-STANDARD.md) and contains all applicable evidence below:
 
-1. **Identity and scope:** valid lesson/version IDs, selected atomic graph outcomes, prerequisites, level, estimated time, explicit exclusions, and route status.
-2. **Observable objectives:** each objective maps to a graph outcome and at least one assessment item.
-3. **Prerequisite route:** a diagnostic or explicit verification path, plus recovery links for missing dependencies.
-4. **Explanatory model:** a coherent causal, relational, or procedural argument at the declared depth, with stable terminology, explicit inference links, consistent representations, assumptions, evidence, and limits.
-5. **Worked reasoning:** at least one worked example or derivation that exposes task representation, model selection, plan, reasons, execution, verification, and interpretation, followed by a route that fades support.
-6. **Retrieval:** a prompt presented before answer reveal, with reasoning-rich feedback and delayed/cumulative retrieval mapping.
-7. **Misconception repair:** at least one evidence-backed misconception, non-example, or boundary case chosen for the mapped outcomes.
-8. **Practice:** varied independent practice with fading support, feedback that diagnoses reasoning and prescribes a next step, retry, and actionable remediation.
-9. **Transfer:** a novel bounded task requiring model selection or cross-context reasoning.
-10. **Assessment:** item-to-outcome map, conditions, answer logic, misconception-sensitive feedback, analytic rubric where appropriate, equivalent retry form/strategy, and remediation route.
-11. **Claims and sources:** explicit scene coverage; material factual claims mapped in `claims.json` to complete reference records; a same-scene learner-visible `{source-note}` with every supporting source ID; exact source scope, confidence/uncertainty, review state, and retrieval/version data.
-12. **Glossary:** stable definitions for introduced technical terms, symbols, abbreviations, and ambiguous everyday words.
-13. **Accessibility:** meaningful structure; equivalents for visuals, audio, interactions, and practical modalities; no color-, sound-, motion-, hover-, pointer-, or time-only information.
-14. **Rights and provenance:** CC BY 4.0 contributor grant, complete third-party asset records, attribution, modification notices, and accountable agent disclosure.
-15. **Boundaries and safety:** no clinical advice or credential claim; investigation risks, privacy, consent, and non-physical alternatives addressed when relevant.
-16. **Export parity:** essential content and relationships survive semantic HTML, JSON AST, PDF, EPUB, DOCX, and JATS transforms.
+1. **Human first read:** a cold reader at the declared level can say what the lesson teaches, why it matters, and how its central idea works without consulting metadata, ledgers, or hidden project vocabulary.
+2. **Identity and scope:** valid lesson/version IDs, selected atomic graph outcomes, prerequisites, level, estimated time, material exclusions, and route status.
+3. **Observable objectives:** each objective maps to a graph outcome and at least one assessment item.
+4. **Prerequisite route:** a diagnostic or explicit verification path, plus recovery links for missing dependencies.
+5. **Explanatory model:** a coherent causal, relational, or procedural argument at the declared depth, with stable terminology, explicit inference links, consistent representations, assumptions, evidence, and limits.
+6. **Worked reasoning:** at least one worked example or derivation that exposes task representation, model selection, plan, reasons, execution, verification, and interpretation, followed by a route that fades support.
+7. **Retrieval:** a prompt presented before answer reveal, with reasoning-rich feedback and delayed/cumulative retrieval mapping.
+8. **Misconception repair:** at least one evidence-backed misconception, non-example, or boundary case chosen for the mapped outcomes.
+9. **Practice:** varied independent practice with fading support, feedback that diagnoses reasoning and prescribes a next step, retry, and actionable remediation.
+10. **Transfer:** a novel bounded task requiring model selection or cross-context reasoning.
+11. **Assessment:** item-to-outcome map, conditions, answer logic, misconception-sensitive feedback, analytic rubric where appropriate, equivalent retry form/strategy, and remediation route.
+12. **Claims and sources:** explicit scene coverage; material factual claims mapped in `claims.json` to complete reference records; a same-scene learner-visible `{source-note}` with every supporting source ID; exact source scope, confidence/uncertainty, review state, and retrieval/version data.
+13. **Glossary:** stable definitions for introduced technical terms, symbols, abbreviations, and ambiguous everyday words.
+14. **Accessibility:** meaningful structure; equivalents for visuals, audio, interactions, and practical modalities; no color-, sound-, motion-, hover-, pointer-, or time-only information.
+15. **Rights and provenance:** CC BY 4.0 contributor grant, complete third-party asset records, attribution, modification notices, and accountable agent disclosure.
+16. **Boundaries and safety:** no clinical advice or credential claim; investigation risks, privacy, consent, and non-physical alternatives addressed when relevant.
+17. **Export parity:** essential content and relationships survive semantic HTML, JSON AST, PDF, EPUB, DOCX, and JATS transforms.
 
 A references-only reading list, a narrated deck, a question bank without instruction, or a long essay divided into screens is not a lesson pack.
 
@@ -1768,6 +1811,7 @@ Before requesting review:
 
 - [ ] Read the current schema and quorum policy; build against their version.
 - [ ] Complete the learner/outcome authoring brief and every applicable acceptance gate in `CONTENT-STANDARD.md`.
+- [ ] Prototype the opening, central explanation, and one worked use; pass the first-read gate before completing the pack.
 - [ ] Confirm every outcome and prerequisite ID exists in the current graph.
 - [ ] Validate scene order, kinds, links, directives, math, chemistry, structured visuals, and pack-local paths.
 - [ ] Check all lesson must-haves and item-to-outcome mappings.
@@ -1776,7 +1820,7 @@ Before requesting review:
 - [ ] Confirm rights and attribution for every asset and dataset.
 - [ ] Confirm no executable content, raw HTML, unsafe SVG, remote embed, secret, personal data, or unapproved experiment appears.
 - [ ] Disclose accountable principals and material agent provenance.
-- [ ] Run `npm ci`, `npm run validate`, and the lesson-format/export checks exposed by the repository.
+- [ ] Run `npm ci`, `npm run source:preflight -- --strict lessons/<lesson-pack>`, and `npm run verify` sequentially.
 - [ ] Freeze one candidate commit before collecting review artifacts.
 
 The review record determines whether the pack is fit to merge. The specimen and automated checks are necessary implementation references, not substitutes for independent judgment.
@@ -3917,13 +3961,13 @@ The project should preregister or at least version the question, outcome, analys
     {
       "name": "author-embeddedknowledge-lesson",
       "role": "author",
-      "description": "Author one evidence-based EmbeddedKnowledge Lesson Format v1 pack for an uncovered Premed outcome. Use when asked to draft, build, revise, or prepare a lesson contribution, its scenes, assessment, claims, references, glossary, diagrams, accessible assets, attribution, or author provenance before independent review.",
+      "description": "Author one clear, human-readable, evidence-based EmbeddedKnowledge Lesson Format v1 pack for an uncovered Premed outcome. Use when asked to draft, build, revise, or prepare a lesson contribution, its learner-facing scenes, assessment, claims, references, glossary, diagrams, accessible assets, attribution, or author provenance before independent review.",
       "invocation": "$author-embeddedknowledge-lesson",
       "source": ".agents/skills/author-embeddedknowledge-lesson/SKILL.md",
       "instructions": "/skills/author-embeddedknowledge-lesson/SKILL.md",
       "bundle": "/skills/author-embeddedknowledge-lesson/author-embeddedknowledge-lesson.zip",
-      "instructionsSha256": "sha256:c7fcf204fd3e3aecf59a6368439144591bfd98e44c5cdfa2a8fab25551adca36",
-      "bundleSha256": "sha256:610fcc2126b2c1d15da74d79a93bda9bf81870e52f92e561bfe8ef4ce83d0c57"
+      "instructionsSha256": "sha256:b8384888e35160653ced6ff0e4b1c3c3728d5471c5c080d35a0e739fa17d1d7a",
+      "bundleSha256": "sha256:2c5beeab3d8d7542d7c99bde64c3c9a65b11cad71f23d0cca4a489b7ab6b2514"
     },
     {
       "name": "review-embeddedknowledge-academic",
@@ -3939,13 +3983,13 @@ The project should preregister or at least version the question, outcome, analys
     {
       "name": "review-embeddedknowledge-learning-design",
       "role": "learning-design-review",
-      "description": "Independently review one frozen EmbeddedKnowledge lesson candidate for learner fit, explanatory coherence, cognitive support, worked examples, retrieval, practice, feedback, misconception repair, transfer, assessment alignment, mastery, and remediation. Use when assigned the learning-design quorum role and asked for a structured review against an exact candidate commit.",
+      "description": "Independently review one frozen EmbeddedKnowledge lesson candidate for first-read clarity, natural learner-facing prose, learner fit, explanatory coherence, cognitive support, worked examples, retrieval, practice, feedback, misconception repair, transfer, assessment alignment, mastery, and remediation. Use when assigned the learning-design quorum role and asked for a structured review against an exact candidate commit.",
       "invocation": "$review-embeddedknowledge-learning-design",
       "source": ".agents/skills/review-embeddedknowledge-learning-design/SKILL.md",
       "instructions": "/skills/review-embeddedknowledge-learning-design/SKILL.md",
       "bundle": "/skills/review-embeddedknowledge-learning-design/review-embeddedknowledge-learning-design.zip",
-      "instructionsSha256": "sha256:7cc43ad4d952e43acc298177da91f2e2656e81fd0320968e7e2a876ca5e65fe7",
-      "bundleSha256": "sha256:3970742285eaa707f94e1e12c2f4f4b7c3201365ed115a79412824267829dfd6"
+      "instructionsSha256": "sha256:3ed29ce67105e3969e782fb4c6010a08e4226e178a8bb4ea130c5368ace28987",
+      "bundleSha256": "sha256:5f4529f245697b0aaf28b27c73406cdea3e57d7d8801e3a2ca777e111fb7bc44"
     },
     {
       "name": "review-embeddedknowledge-accessibility-rights",

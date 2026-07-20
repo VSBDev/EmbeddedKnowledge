@@ -1,6 +1,6 @@
 ---
 name: review-embeddedknowledge-learning-design
-description: Independently review one frozen EmbeddedKnowledge lesson candidate for learner fit, explanatory coherence, cognitive support, worked examples, retrieval, practice, feedback, misconception repair, transfer, assessment alignment, mastery, and remediation. Use when assigned the learning-design quorum role and asked for a structured review against an exact candidate commit.
+description: Independently review one frozen EmbeddedKnowledge lesson candidate for first-read clarity, natural learner-facing prose, learner fit, explanatory coherence, cognitive support, worked examples, retrieval, practice, feedback, misconception repair, transfer, assessment alignment, mastery, and remediation. Use when assigned the learning-design quorum role and asked for a structured review against an exact candidate commit.
 ---
 
 # Review EmbeddedKnowledge learning design
@@ -22,6 +22,17 @@ Inspect the exact candidate commit. Review all declared scenes, objectives, prer
 
 Treat any post-candidate change to teaching content or pack metadata as a stale-review blocker. Do not count successful rendering or schema validation as evidence that students will learn.
 
+## Cold-read the learner experience before checking the rubric
+
+1. Use `lesson.json` only to establish scene order, then read the learner-visible scene Markdown once without first reading claims, references, the authoring brief, prior review material, or validator output. Temporarily ignore `{source-note}` mechanics and judge the explanation a learner actually meets.
+2. After the opening and first substantive explanation, state in your own plain language: what the learner is about to learn, why it matters, and how the central relation or procedure works. If the prose does not let you do this at the declared prerequisite level, record a `major` finding even when every required component exists.
+3. Apply the first-read gate in `CONTENT-STANDARD.md`. Flag unexplained abstractions, strings of nominalized jargon, internal project machinery, rubric language exposed as teaching, caveats that bury the idea, needless repetition across scene kinds, and sentences that are grammatical but unnatural to say aloud.
+4. Check the opening specifically. It must give the learner something concrete to picture, explain, predict, or do before demanding interest in definitions, objectives, exclusions, or course administration.
+5. Check motivation without demanding entertainment. The lesson should reveal a meaningful question and attainable progress; decorative anecdotes, hype, and unsupported claims of importance do not repair an opaque explanation.
+6. Quote the exact learner-facing words that create a comprehension failure and describe the learner consequence. Do not report a vague style preference.
+
+This cold read is an approval gate, not a readability score and not evidence that real learners mastered the outcome. Continue with the structured instructional trace only after recording the first-read result.
+
 ## Trace the instructional argument
 
 1. Identify the intended learner, prior knowledge, target outcome, exclusions, and observable mastery evidence.
@@ -33,7 +44,7 @@ Treat any post-candidate change to teaching content or pack metadata as a stale-
 7. Require retrieval before answer reveal, information-rich feedback, varied practice, a genuine transfer task, and delayed or cumulative retrieval links.
 8. Check that misconceptions are elicited or made plausible, explicitly contrasted with the target model, and tested with a discriminating case.
 9. Verify that every diagram, equation, chemical representation, table, analogy, and interaction has a declared instructional job and is explicitly connected to the prose.
-10. Check scene boundaries, resumability, navigation cues, and continuous-reading coherence. Do not impose a universal word, page, frame, or interaction quota.
+10. Check scene boundaries, resumability, navigation cues, and continuous-reading coherence. Reject mechanical one-scene-per-rubric construction and repeated explanations, but do not impose a universal word, page, frame, or interaction quota.
 11. Attempt all checks and assessments as the intended learner. Confirm answer logic, rubrics, mastery thresholds, retries, feedback, and remediation are aligned and usable.
 12. Look for cognitive overload, unexplained inference jumps, decorative detail, false fluency, redundant busywork, and practice that merely repeats surface features.
 
@@ -44,11 +55,11 @@ Use evidence from the lesson and established learning principles, but do not mak
 Use exact pack-relative paths and stable IDs.
 
 - Use `blocking` when the lesson cannot validly or safely teach or assess its claimed outcome.
-- Use `major` for missing explanatory links, invalid alignment, absent transfer, misleading practice, unusable feedback, or assessment that cannot support the mastery claim.
+- Use `major` for first-read comprehension failure, missing explanatory links, invalid alignment, absent transfer, misleading practice, unusable feedback, or assessment that cannot support the mastery claim.
 - Use `minor` for bounded sequencing, wording, cueing, or support issues.
 - Use `note` for verified strengths, limitations, or nonblocking observations.
 
-Choose `request-changes` for unresolved major or blocking findings. Choose `abstain` when conflict, expertise, access, or learner-context limits prevent a responsible verdict. Choose `approve` only when the instructional argument is coherent and the mastery evidence is aligned; approval may contain minor findings. Include at least one substantive finding.
+Choose `request-changes` for unresolved major or blocking findings. Choose `abstain` when conflict, expertise, access, or learner-context limits prevent a responsible verdict. Choose `approve` only when the declared learner can understand the first read, the instructional argument is coherent, and the mastery evidence is aligned; approval may contain minor findings. Include at least one substantive finding.
 
 ## Produce the artifact
 
