@@ -1,0 +1,214 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-assessment-v1",
+  "lessonId": "PREM-SCI-001",
+  "lessonVersion": "0.1.0",
+  "assessmentId": "assessment-observation-to-question",
+  "title": "Observation and question mastery check",
+  "purpose": "mastery-gate",
+  "attemptPolicy": {
+    "retakeable": true,
+    "timeLimitMinutes": null,
+    "feedback": "after-attempt"
+  },
+  "items": [
+    {
+      "id": "item-observation-or-explanation",
+      "type": "single-choice",
+      "sceneId": "scene-transfer",
+      "objectiveIds": [
+        "objective-separate-observation-explanation"
+      ],
+      "outcomeIds": [
+        "topic-scientific-inquiry-observations-questions"
+      ],
+      "prompt": "A student writes: (1) 'After 15 minutes, the covered cup was 4 °C warmer than the uncovered cup.' (2) 'The cover trapped heat in the cup.' Which option labels the statements correctly?",
+      "stimulus": null,
+      "points": 2,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-first-observation-second-explanation",
+            "text": "Statement 1 is an observation; statement 2 is an explanation."
+          },
+          {
+            "id": "option-first-explanation-second-observation",
+            "text": "Statement 1 is an explanation; statement 2 is an observation."
+          },
+          {
+            "id": "option-both-observations",
+            "text": "Both statements are observations."
+          },
+          {
+            "id": "option-both-explanations",
+            "text": "Both statements are explanations."
+          }
+        ],
+        "units": null,
+        "tolerance": null,
+        "maxSelections": 1,
+        "maxLength": null
+      },
+      "answer": {
+        "correct": "option-first-observation-second-explanation",
+        "summary": "The temperature difference is a record; the heat-trapping statement proposes why it occurred.",
+        "reasoning": "Statement 1 names the compared cups, a measured temperature difference, and a time. Another person could inspect the record. Statement 2 introduces a mechanism that was not measured directly. The mechanism may later be supported, but it is an explanation rather than the observation itself. If you selected an option saying both are observations, look for the unseen causal action in 'trapped heat.' On a retry, classify this pair: 'The metal strip lengthened by 2 millimetres when warmed' and 'Heating increased particle motion and expanded the strip.'",
+        "acceptableResponses": [
+          "The selected option identifying statement 1 as the observation and statement 2 as the explanation."
+        ],
+        "commonErrors": [
+          "Treating a plausible causal sentence as if it were directly observed",
+          "Treating every sentence containing a number as an explanation rather than a record"
+        ]
+      },
+      "rubricId": "rubric-observation-or-explanation",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-construct-question",
+      "type": "open-response",
+      "sceneId": "scene-transfer",
+      "objectiveIds": [
+        "objective-construct-testable-question"
+      ],
+      "outcomeIds": [
+        "topic-scientific-inquiry-observations-questions"
+      ],
+      "prompt": "A student notices that bean seedlings on a classroom windowsill appear taller than seedlings on a back shelf after ten days. Write one bounded empirical question from this observation. Make the comparison, record, sample or setting, and time window explicit, and do not assume that light caused the difference.",
+      "stimulus": null,
+      "points": 4,
+      "responseSpec": {
+        "mode": "text",
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "maxLength": 1200
+      },
+      "answer": {
+        "correct": "A complete response asks a neutral question such as: 'For the bean seedlings in this classroom during the next ten days, what is the difference in stem height measured in millimetres between seedlings placed on the windowsill and seedlings placed on the back shelf?' It explicitly names the comparison, observable record, bounded sample or setting, and time window without assuming a cause.",
+        "summary": "A testable question connects a defined case or contrast to a record within stated boundaries and leaves the answer open.",
+        "reasoning": "Score one point for each visible feature: (1) windowsill and back-shelf seedlings are both named; (2) the record is operational enough to collect, such as stem height in millimetres; (3) the classroom seedlings and ten-day window are bounded; and (4) the wording asks what the difference is rather than claiming that light caused growth. All four features are required for 4/4. If one is missing, repair only that part and retry with the alternate observation: ice on a shaded pavement patch remained after ice on a sunny patch had melted.",
+        "acceptableResponses": [
+          "Any neutral empirical question that names the two locations, a defined observable growth record, the classroom seedling sample, and a time window.",
+          "A one-location time-series question is acceptable if it names the seedling sample, repeated height record, setting, and time window and does not claim a cause."
+        ],
+        "commonErrors": [
+          "Asking why light makes the plants grow without first establishing the recordable pattern",
+          "Using 'growth' without saying what will be recorded",
+          "Omitting the seedlings, setting, or time window",
+          "Writing the expected answer into the question"
+        ]
+      },
+      "rubricId": "rubric-construct-question",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-evaluate-transfer-question",
+      "type": "open-response",
+      "sceneId": "scene-transfer",
+      "objectiveIds": [
+        "objective-evaluate-testability"
+      ],
+      "outcomeIds": [
+        "topic-scientific-inquiry-observations-questions"
+      ],
+      "prompt": "A city bird count found more sparrows near outdoor cafés than in two nearby parks. Someone asks, 'Do cafés cause sparrow problems?' Identify two reasons that question is not empirically answerable as written, rewrite it as one bounded observational question, and name one possible result that would differ from the original expectation.",
+      "stimulus": null,
+      "points": 4,
+      "responseSpec": {
+        "mode": "text",
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "maxLength": 1600
+      },
+      "answer": {
+        "correct": "A complete answer identifies at least two defects, such as the undefined judgment 'problems,' an unsupported causal assumption, an unspecified bird-count record, or missing place and time boundaries. It then asks a neutral bounded question, for example: 'During 08:00–10:00 on five dry weekdays in May, what is the difference in the number of sparrows counted during ten-minute observations at the three named outdoor cafés and the two named parks?' It also gives a possible contrary or different result, such as similar counts or higher park counts.",
+        "summary": "Replacing judgment and assumed cause with a defined count, comparison, place, and time produces an answerable observational question.",
+        "reasoning": "Score one point for each criterion: (1) at least two concrete defects are identified; (2) the rewrite names the café and park comparison; (3) it names a sparrow-count record plus place and time boundaries without asserting cause; and (4) it states a result that differs from the original expectation. All four are required for 4/4. If your rewrite still uses 'problems' or 'cause,' replace the judgment with a record and make the wording descriptive. On a retry, use this case: more bicycles were parked near one library entrance than another and someone asks whether the first entrance causes better study habits.",
+        "acceptableResponses": [
+          "Any bounded, neutral observational question with a defined sparrow record, named café and park cases, a stated observation period, and a genuinely different possible result."
+        ],
+        "commonErrors": [
+          "Keeping the undefined value judgment 'sparrow problems'",
+          "Treating an observed location difference as proof of cause",
+          "Naming no count or observation procedure",
+          "Giving only the expected result instead of a result that could challenge it"
+        ]
+      },
+      "rubricId": "rubric-evaluate-transfer-question",
+      "safetyCritical": false
+    }
+  ],
+  "rubrics": [
+    {
+      "id": "rubric-observation-or-explanation",
+      "title": "Observation and explanation distinction",
+      "criteria": [
+        {
+          "id": "criterion-identify-observation",
+          "description": "Award 1 point only when the measured temperature difference is identified as the observation; award 0 if it is labelled an explanation or if no choice is made.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-identify-explanation",
+          "description": "Award 1 point only when the heat-trapping statement is identified as the explanation; award 0 if it is treated as directly observed.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-construct-question",
+      "title": "Bounded empirical question",
+      "criteria": [
+        {
+          "id": "criterion-question-contrast",
+          "description": "Award 1 point only when both windowsill and back-shelf seedlings, or a defensible single-case alternative, are explicit.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-question-record",
+          "description": "Award 1 point only when the response names a collectable record such as stem height in stated units rather than undefined growth.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-question-boundary",
+          "description": "Award 1 point only when the classroom seedling sample or equivalent setting and a time window are explicit.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-question-open",
+          "description": "Award 1 point only when the wording leaves the result open and does not assert that light or location caused the difference.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-evaluate-transfer-question",
+      "title": "Evaluation and transfer",
+      "criteria": [
+        {
+          "id": "criterion-transfer-defects",
+          "description": "Award 1 point only when at least two specific defects are identified, such as undefined judgment, assumed cause, missing record, or missing boundaries.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-transfer-contrast",
+          "description": "Award 1 point only when the rewritten question identifies the café and park cases or a comparably explicit set of locations.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-transfer-record-boundary",
+          "description": "Award 1 point only when a sparrow-count record and clear place and time boundaries are included without a causal assertion.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-transfer-open-result",
+          "description": "Award 1 point only when a possible result that differs from the original expectation is stated, such as equal counts or higher park counts.",
+          "maxPoints": 1
+        }
+      ]
+    }
+  ]
+}

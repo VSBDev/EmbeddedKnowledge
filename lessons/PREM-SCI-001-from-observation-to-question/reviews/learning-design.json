@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-SCI-001-LEARNING-DESIGN-A16139A7",
+  "lessonId": "PREM-SCI-001",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "005c855a46fb1ad2603d58b622f9fd70d36f4bb5",
+  "role": "learning-design",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev, accountable operator of this learning-design review run",
+    "agent": {
+      "system": "Claude",
+      "provider": "Anthropic",
+      "model": "Claude Fable 5",
+      "version": "Claude Code 2.1.215 · 2026-07-20",
+      "runId": "a16139a7-cd6b-4976-bd64-737bfcbbefbc",
+      "instructionsDigest": "sha256:98d06365483b6bb54004bef47e8c89b3a432bcd51b7616622681836148369f1c"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Founding-stage single-operator arrangement: the accountable principal github:VSBDev also operated the authoring agent and other governance runs for this lesson. This review is an isolated run with a unique run ID and a different provider (Anthropic) from the authoring run (OpenAI). The reviewing agent did not read the authoring conversation, any other review artifact or conversation, or any adjudication material, and has no stake in the verdict."
+  },
+  "evidenceChecked": [
+    "content/01-notice.md#scene-notice cold first read in declared scene order at candidate commit, before claims, references, or validator output",
+    "content/02-build.md#worked-example-apple-question and #testable-measurable-and-falsifiable section, read as the declared college-intro learner",
+    "content/03-practise.md#check-retrieve-builder, completion and reduced-support tasks, #misconception-cause-makes-testable, and independent-practice checklist",
+    "content/04-transfer.md#transfer task, drafting-chain retrieval, mastery-check description, accessibility-and-alternatives, and recovery-route sections",
+    "lesson.json at candidate commit: identity PREM-SCI-001 v0.1.0, scene order and kinds, objectives-to-outcome mapping, estimated minutes sum",
+    "assessment.json: all three items attempted as the declared learner; rubrics, answer reasoning, retry variants, and attempt policy checked against taught content",
+    "glossary.json term definitions and term-to-scene mappings cross-checked against scene prose at candidate commit",
+    "claims.json and references.json scene mappings cross-checked against each scene's learner-visible source-note (after the cold read)",
+    "site/data/premed-graph.json node topic-scientific-inquiry-observations-questions: college-intro level, outcome statement, no inbound prerequisite links",
+    "git diff 005c855a..HEAD for the pack: working-tree pack content identical to the frozen candidate; no stale-content condition"
+  ],
+  "findings": [
+    {
+      "severity": "note",
+      "target": "content/01-notice.md#scene-notice-opening",
+      "finding": "Cold first-read gate: pass at the declared college-intro level. The opening is concrete and pictureable ('Picture two freshly cut apple slices on a plate. One was brushed with lemon juice; the other was left alone.') and demands a commitment before the reveal ('Which sentence records what someone noticed, and which one tries to explain it? Choose before reading on.'). After scene 1 a cold reader can paraphrase the target distinction in plain language: an observation is a checkable record of what was compared and when; an explanation is the proposed reason, which the record alone does not establish; the lesson teaches how to turn a noticing into a question evidence can answer. The voice is natural and human throughout ('sounds scientific, but it moves too fast'); no schema, validator, or governance vocabulary leaks into learner prose, and the source notes are written for learners rather than narrating the claims ledger.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "minor",
+      "target": "content/03-practise.md#less-support-pond-task",
+      "finding": "The reduced-support pond task introduces 'turbidity' without a plain-language gloss: the self-check asks for 'a record such as turbidity measured in the same units' and the model answer asks 'how does turbidity measured at 09:00 differ'. The term is not in glossary.json and is never tied to the observation's word 'cloudier'. A college-intro learner who does not know turbidity is a standard measure of water cloudiness cannot confidently compare their draft record against the model answer, exactly at the point where scaffolding fades and the self-check is the only support.",
+      "resolution": "Add a first-use gloss such as 'turbidity, a standard measure of how cloudy water is,' or an equivalent glossary entry mapped to scene-practise."
+    },
+    {
+      "severity": "minor",
+      "target": "content/02-build.md#testable-measurable-and-falsifiable",
+      "finding": "The heading 'Testable, measurable, and falsifiable' promises three terms but the section explicitly treats only two: it distinguishes empirically answerable questions from falsifiable claims, while 'measurable' appears nowhere in the section body and is never anchored to the builder's 'record' part. A learner scanning or resuming by heading finds no stated meaning for 'measurable' and may conclude the three words are interchangeable, which is the very confusion the section exists to prevent.",
+      "resolution": "Either retitle the section (for example 'Testable questions versus falsifiable claims') or add one sentence connecting 'measurable' to the observable record chosen in the question builder."
+    },
+    {
+      "severity": "minor",
+      "target": "content/04-transfer.md#mastery-check; assessment.json#attemptPolicy",
+      "finding": "The mastery criterion is implicit. The lesson states 'A complete response earns all ten available points' and item reasoning requires every rubric criterion for full marks with repair-and-retry guidance, but neither the scene nor assessment.json states what result constitutes mastery of the outcome. A self-studying learner scoring 8/10 cannot tell whether to proceed to the next lesson or to repair the missing criteria and retry; the assessment's declared purpose is 'mastery-gate', so the gate's threshold should be visible to the learner.",
+      "resolution": "State the mastery rule explicitly in the mastery-check section, for example: 'You have mastered this lesson when every rubric criterion is met; use unlimited retries with the alternate cases to repair any missing part.'"
+    },
+    {
+      "severity": "note",
+      "target": "content/04-transfer.md#recovery-route",
+      "finding": "The recovery strategies (moving causal words out of observations, the four-heading drafting scaffold, descriptive question stems) live only in the final scene, while learners first meet difficulty during scene-build and scene-practise. The inline remediation in those scenes ('If your answer said \"Why does heat make sugar dissolve faster?\", remove the assumed direction and make the record visible.') is specific and usable, so the route is not missing; but a struggling learner mid-practice has no cue that a consolidated recovery section exists ahead.",
+      "resolution": "Optional: add a one-line pointer from the practice scene to the recovery route, or none."
+    },
+    {
+      "severity": "note",
+      "target": "content/02-build.md#worked-example-apple-question through content/04-transfer.md#transfer-task",
+      "finding": "Verified strength: the instructional progression is complete and correctly ordered without scene-per-rubric inflation. The worked example exposes expert decisions rather than answer steps ('Naming both sides is clearer than saying \"with lemon\" and leaving the alternative unstated'; 'Whether that card is a good measure is a later measurement question'), includes a check, an interpretation of limits, and a self-explanation prompt with information-rich follow-up. Support then fades through a completion problem (one part supplied), a reduced-support draft with a self-check list, independent practice, and a transfer task that changes both domain and evidence type (hands-on apple comparison to interrogating an existing fictional clinic record), so transfer requires selecting and adapting the model, not renaming variables. Retrieval precedes every reveal (scene-1 commitment, scene-3 builder recall 'without looking back', misconception 'Commit first', scene-4 chain reconstruction from memory), feedback diagnoses likely wrong reasoning and prescribes next steps, retry variants in assessment answer reasoning force renewed reasoning, and delayed retrieval is genuinely scheduled ('The next lesson will begin with a question like yours... Later lessons will revisit the same question'). The misconception block follows elicit, neutral statement, disconfirmation, repair, and recheck in a new case. Cognitive load is appropriate for a first Scientific Inquiry lesson: one skill, four scenes, 55 minutes, no decorative detail.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "glossary.json#term-inference; glossary.json#term-hypothesis; glossary.json#term-testable-question",
+      "finding": "Several glossary sceneIds list scenes where the term itself never appears in learner prose: 'inference' is mapped to scene-build and scene-practise but occurs only in scene-notice; 'hypothesis' is mapped to scene-transfer, where only 'explanation and prediction' appears; 'testable question' is mapped to scene-notice and scene-transfer, which use 'a question that evidence can answer' and 'empirical question' instead. No learner-facing comprehension consequence was found, and terminology within the prose itself is stable; the navigational metadata simply overstates where the terms are used.",
+      "resolution": "Optional tidy-up for the finalizer: trim sceneIds to scenes where the term or a listed alias actually appears."
+    }
+  ],
+  "limitations": [
+    "The cold first read was performed by an AI agent simulating the declared college-intro learner; no evidence from real learners was available, and this review is not evidence that students learned.",
+    "Factual accuracy, source support, and citation verification are the academic reviewer's scope; no suspected scientific errors were observed, but none are certified here.",
+    "The review inspected canonical Markdown and JSON at the frozen candidate commit; the rendered reader experience (frame pagination, check gating, keyboard and screen-reader behavior) was not executed in a browser.",
+    "Accessibility and rights compliance were considered only for their learning-design effects; the full accessibility-and-rights audit belongs to the finalizer under standard-lesson-v3."
+  ],
+  "signedAt": "2026-07-20T15:18:12Z"
+}
