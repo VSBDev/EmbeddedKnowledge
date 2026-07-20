@@ -43,6 +43,10 @@
   let marginCollapsed = false;
   let focusMode = false;
   let viewMode = "guided";
+  let indexFocusFrame = 0;
+  const frameOverflowObserver = typeof ResizeObserver === "function"
+    ? new ResizeObserver(() => syncGuidedFrameScrolling())
+    : null;
 
   function resolveArtifactUrl() {
     if (isSpecimen) return new URL("data/lessons/specimen.json", siteRoot);
@@ -137,10 +141,32 @@
     }
   }
 
+  function syncGuidedFrameScrolling() {
+    for (const frame of currentFrames) {
+      const scrollable = viewMode === "guided"
+        && frame.classList.contains("is-active")
+        && frame.clientHeight > 0
+        && frame.scrollHeight > frame.clientHeight + 2;
+      frame.toggleAttribute("data-guided-scroll-region", scrollable);
+      if (scrollable) {
+        frame.tabIndex = 0;
+        frame.setAttribute("role", "region");
+        frame.setAttribute("aria-labelledby", frame.dataset.titleId);
+      } else {
+        frame.removeAttribute("tabindex");
+        frame.removeAttribute("role");
+        frame.removeAttribute("aria-labelledby");
+      }
+    }
+  }
+
   let mathFitFrame = 0;
   function queueMathFit() {
     cancelAnimationFrame(mathFitFrame);
-    mathFitFrame = requestAnimationFrame(() => fitDisplayedMath());
+    mathFitFrame = requestAnimationFrame(() => {
+      fitDisplayedMath();
+      syncGuidedFrameScrolling();
+    });
   }
 
   const create = (tag, className, text) => {
@@ -750,6 +776,11 @@
     });
     currentFrames = frames;
     sceneContainer.replaceChildren(deck);
+    frameOverflowObserver?.disconnect();
+    currentFrames.forEach((frame) => {
+      frameOverflowObserver?.observe(frame);
+      [...frame.children].forEach((child) => frameOverflowObserver?.observe(child));
+    });
     queueMathFit();
   }
 
@@ -838,18 +869,40 @@
     return { sceneIndex: sceneIndex >= 0 ? sceneIndex : 0, frameId };
   }
 
+  function focusIndexEntry(attempt = 0) {
+    cancelAnimationFrame(indexFocusFrame);
+    indexFocusFrame = requestAnimationFrame(() => {
+      indexFocusFrame = 0;
+      if (!narrowLayout.matches || !indexPanel.classList.contains("is-open")) return;
+      const currentSceneLink = sceneNav.querySelector('[aria-current="true"]');
+      const target = [indexClose, currentSceneLink].find((element) => {
+        if (!element) return false;
+        const style = getComputedStyle(element);
+        return style.display !== "none" && style.visibility !== "hidden" && element.getClientRects().length > 0;
+      });
+      if (!target) {
+        if (attempt < 12) focusIndexEntry(attempt + 1);
+        return;
+      }
+      target.focus({ preventScroll: true });
+      if (document.activeElement !== target && attempt < 12) focusIndexEntry(attempt + 1);
+    });
+  }
+
   function openIndex() {
     indexPanel.classList.add("is-open");
     scrim.classList.add("is-open");
     syncIndexControl();
-    indexClose.focus();
+    focusIndexEntry();
   }
 
   function closeIndex({ returnFocus = false } = {}) {
+    cancelAnimationFrame(indexFocusFrame);
+    indexFocusFrame = 0;
     indexPanel.classList.remove("is-open");
     scrim.classList.remove("is-open");
     syncIndexControl();
-    if (returnFocus && getComputedStyle(indexOpen).display !== "none") indexOpen.focus();
+    if (returnFocus && getComputedStyle(indexOpen).display !== "none") indexOpen.focus({ preventScroll: true });
   }
 
   previousButton.addEventListener("click", () => navigate(-1, { updateUrl: true, focus: true, announce: true }));
@@ -923,6 +976,8 @@
     }
     if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
     if (event.target.closest("input, textarea, select, button, a, [contenteditable='true']")) return;
+    if (event.target.matches(".reader-frame[data-guided-scroll-region]")
+      && ["ArrowUp", "ArrowDown", "PageUp", "PageDown", "Home", "End", " "].includes(event.key)) return;
     if (viewMode === "reading" && (event.key === "PageUp" || event.key === "PageDown")) return;
     const actions = {
       f: () => setFocusMode(!focusMode),
