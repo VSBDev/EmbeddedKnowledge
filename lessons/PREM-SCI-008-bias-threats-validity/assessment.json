@@ -1,0 +1,256 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-assessment-v1",
+  "lessonId": "PREM-SCI-008",
+  "lessonVersion": "0.1.0",
+  "assessmentId": "assessment-bias-threats-validity",
+  "title": "Bias-pathway mastery check",
+  "purpose": "mastery-gate",
+  "attemptPolicy": {
+    "retakeable": true,
+    "timeLimitMinutes": null,
+    "feedback": "after-attempt"
+  },
+  "items": [
+    {
+      "id": "item-map-six-biases",
+      "type": "single-choice",
+      "sceneId": "scene-mastery",
+      "objectiveIds": [
+        "objective-detect-six-biases",
+        "objective-justify-threat"
+      ],
+      "outcomeIds": [
+        "topic-scientific-inquiry-bias"
+      ],
+      "prompt": "Choose the only complete bias map. A: cases come from a regional registry, but controls come only from a fitness club whose membership is related to exposure. B: a sensor reads 2 °C too low only in the high-humidity comparison chamber. C: an unmasked scorer calls borderline treated images positive more often. D: low early responders become missing after enrollment and completers alone are analyzed. E: completed null studies in a registry are less likely to have accessible reports. F: a durability analysis includes only device models still sold.",
+      "stimulus": null,
+      "points": 6,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-complete-stage-map",
+            "text": "A selection; B information; C observer; D attrition; E publication; F survivorship"
+          },
+          {
+            "id": "option-swap-entry-measurement",
+            "text": "A information; B selection; C observer; D survivorship; E publication; F attrition"
+          },
+          {
+            "id": "option-collapse-observer-reporting",
+            "text": "A selection; B observer; C publication; D attrition; E information; F survivorship"
+          },
+          {
+            "id": "option-swap-loss-visibility",
+            "text": "A survivorship; B information; C observer; D publication; E attrition; F selection"
+          }
+        ],
+        "units": null,
+        "tolerance": null,
+        "maxSelections": 1,
+        "maxLength": null
+      },
+      "answer": {
+        "correct": "option-complete-stage-map",
+        "summary": "The complete map follows the mechanism at entry, measurement, assessment, follow-up, whole-study visibility, and persistence.",
+        "reasoning": "A is selection bias because the control-entry rule is related to exposure. B is information bias because the measurement rule differs by chamber. C is observer bias, a specific information mechanism, because group knowledge changes a subjective classification. D is attrition bias because post-entry availability depends on earlier response. E is publication bias because whole-study accessibility depends on results. F is survivorship bias because current market presence determines inclusion. Award one point for each correct case only through the complete option. On retry, classify this alternate sequence: outcome-linked survey nonresponse at entry; a batch-specific calibration drift; an unmasked pathology rating; low performers lost after baseline; unfavorable completed dissertations missing from a review; and companies sampled only if still trading.",
+        "acceptableResponses": [
+          "The option mapping A selection, B information, C observer, D attrition, E publication, and F survivorship."
+        ],
+        "commonErrors": [
+          "Calling every missing case attrition without checking whether loss occurred before or after enrollment",
+          "Treating observer bias as separate from measurement and information bias rather than as a specific mechanism",
+          "Calling within-study missingness publication bias",
+          "Calling current-only sampling attrition without identifying the prior survival or persistence filter"
+        ]
+      },
+      "rubricId": "rubric-map-six-biases",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-interpret-equal-attrition",
+      "type": "data-interpretation",
+      "sceneId": "scene-mastery",
+      "objectiveIds": [
+        "objective-justify-threat",
+        "objective-audit-new-study"
+      ],
+      "outcomeIds": [
+        "topic-scientific-inquiry-bias"
+      ],
+      "prompt": "Two randomized groups each have 20% missing day-60 outcomes. In Group A, missing records follow a barcode failure spread across baseline response levels. In Group B, units with the lowest day-30 response are much more likely to be missing. Which group creates the stronger attrition concern, why, and name one record or analysis you would request next?",
+      "stimulus": null,
+      "points": 2,
+      "responseSpec": {
+        "mode": "text",
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "maxLength": 1200
+      },
+      "answer": {
+        "correct": "Group B creates the stronger attrition concern because outcome availability depends on an earlier predictor of the later outcome; equal missing percentages do not imply equal missingness mechanisms. A matching next step is to compare retained and missing units on baseline and day-30 response by assigned group, inspect reasons and timing, and test conclusions under plausible missing day-60 outcomes.",
+        "summary": "Attrition risk follows the missingness mechanism, not the percentage alone.",
+        "reasoning": "Award one point for identifying Group B and linking missingness to low earlier response, and one point for a stage-matched request such as retained-versus-missing baseline and intermediate values, reasons and timing by group, prespecified missing-data handling, or a sensitivity analysis. Group A still needs verification, but its stated mechanism gives less direct evidence of outcome-related loss. On retry, use two groups with 10% loss: one loses records after a site-wide power failure, while the other loses units immediately after an adverse intermediate reading.",
+        "acceptableResponses": [
+          "Any response that identifies Group B from the outcome-linked missingness and requests a record or sensitivity analysis capable of checking that mechanism."
+        ],
+        "commonErrors": [
+          "Declaring equal attrition risk because the percentages match",
+          "Declaring Group A unbiased without verifying the barcode-failure pattern",
+          "Requesting a larger sample instead of information about missing and retained units",
+          "Guessing the direction of bias without knowing the missing day-60 outcomes"
+        ]
+      },
+      "rubricId": "rubric-interpret-equal-attrition",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-distinguish-reporting-publication",
+      "type": "multiple-choice",
+      "sceneId": "scene-mastery",
+      "objectiveIds": [
+        "objective-detect-six-biases",
+        "objective-audit-new-study"
+      ],
+      "outcomeIds": [
+        "topic-scientific-inquiry-bias"
+      ],
+      "prompt": "Select all three warranted statements about missing evidence and its investigation.",
+      "stimulus": null,
+      "points": 3,
+      "responseSpec": {
+        "mode": "multiple-choice",
+        "options": [
+          {
+            "id": "option-unreported-outcome",
+            "text": "A prespecified outcome omitted from a published report is evidence to investigate selective outcome reporting."
+          },
+          {
+            "id": "option-unpublished-study",
+            "text": "A completed registered study with no accessible report is evidence relevant to publication bias."
+          },
+          {
+            "id": "option-funnel-proves",
+            "text": "An asymmetric funnel plot by itself proves that publication bias occurred."
+          },
+          {
+            "id": "option-matched-record-checks",
+            "text": "Protocol-to-report comparison checks within-study reporting, while searches for completed unpublished studies check whole-study visibility."
+          },
+          {
+            "id": "option-published-rules-out",
+            "text": "Once one paper is published, publication bias cannot affect the wider evidence base."
+          }
+        ],
+        "units": null,
+        "tolerance": null,
+        "maxSelections": 3,
+        "maxLength": null
+      },
+      "answer": {
+        "correct": [
+          "option-unreported-outcome",
+          "option-unpublished-study",
+          "option-matched-record-checks"
+        ],
+        "summary": "Within-study selective reporting and across-study publication bias require different comparison records; funnel asymmetry is not proof.",
+        "reasoning": "The protocol-to-report discrepancy is evidence to investigate result-dependent selection among outcomes within one study. A completed study absent from accessible literature is evidence relevant to whole-study publication. Comparing protocols with reports and searching registries, reports, and investigators for completed studies are stage-matched checks. Funnel asymmetry has competing explanations and limited power, and publication of one study says nothing about the visibility of other completed studies. Award one point for each warranted selection when no incompatible statement is chosen. On retry, sort five records into two columns: missing prespecified time point, changed primary outcome, registered null study without a paper, completed thesis absent from a database search, and an asymmetric funnel plot.",
+        "acceptableResponses": [
+          "The prespecified-outcome, unpublished-completed-study, and matched-record-check options."
+        ],
+        "commonErrors": [
+          "Treating a missing outcome and a missing whole study as the same level of selection",
+          "Treating funnel asymmetry as a definitive diagnostic test",
+          "Looking only at the published paper when the concern is missing studies",
+          "Inferring motive from a discrepancy without investigating the record"
+        ]
+      },
+      "rubricId": "rubric-distinguish-reporting-publication",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-transfer-acoustic-archive",
+      "type": "open-response",
+      "sceneId": "scene-mastery",
+      "objectiveIds": [
+        "objective-detect-six-biases",
+        "objective-justify-threat",
+        "objective-audit-new-study"
+      ],
+      "outcomeIds": [
+        "topic-scientific-inquiry-bias"
+      ],
+      "prompt": "Audit the claim that a new acoustic classifier outperforms a standard method. State the target, identify stage-specific mechanisms, calibrate direction, distinguish selective reporting from publication bias, and propose matching checks.",
+      "stimulus": "The preregistered target is all field recordings captured at 12 named sites in one season. Only storage cards readable at season end enter the archive; card loss is more common at humid sites where uncommon species were expected. Human annotators create reference labels after seeing the new classifier's suggestions. Recordings on which the new classifier times out are removed from its denominator but remain in the standard method's denominator. All 12 site comparisons were completed, but the report presents only the four sites where the new classifier performed better.",
+      "points": 5,
+      "responseSpec": {
+        "mode": "text",
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "maxLength": 2600
+      },
+      "answer": {
+        "correct": "The target is a like-for-like accuracy comparison across all prespecified recordings from all 12 sites. Card readability creates survivorship or availability selection because capture records enter only if storage survives, and the loss relates to site conditions and expected species; request the original capture log, card failures, and recovery attempts. Annotators seeing the new classifier's suggestions create an observer mechanism within information bias; request independent masked labels made under prespecified rules. Removing only the new method's timeouts creates post-entry analysis selection and incomparable denominators; restore all recordings and handle timeouts according to the protocol or test plausible timeout outcomes. Presenting only four favorable site comparisons is selective outcome or analysis reporting; compare the preregistration and analysis plan with all 12 results. These facts do not establish publication bias across whole studies, which would require a wider search for completed but inaccessible classifier studies. The direction of missing-card and masked-label corrections is unresolved from the supplied facts, while the denominator and result-selection processes visibly favor an incomplete comparison but still require omitted results to quantify their combined effect.",
+        "summary": "A complete transfer audit reconstructs the target and four evidence filters, with a check and calibrated consequence for each.",
+        "reasoning": "Award one point for the all-recordings, all-sites like-for-like target; one for the readable-card survivorship or selection mechanism plus a matching capture or failure record; one for the unmasked-annotation information or observer mechanism plus masked relabeling; one for the unequal-timeout denominator plus restoration or sensitivity analysis; and one for identifying four-of-twelve reporting as within-study selective reporting while withholding a publication-bias conclusion without evidence across whole studies. To earn the last point, the response must also avoid unsupported direction claims. On retry, audit a protein-structure benchmark that includes only proteins with solved structures, lets unmasked curators resolve ambiguous matches, drops software failures only for the new model, and reports only favorable protein families.",
+        "acceptableResponses": [
+          "Any response that makes the same target, survival or selection, observer or information, exclusion or attrition, and selective-reporting distinctions; gives stage-matched checks; and states what remains unknown about direction and publication across studies."
+        ],
+        "commonErrors": [
+          "Listing bias names without connecting each to the affected denominator, measurement, or report",
+          "Calling unreadable cards ordinary random error despite their relationship to site conditions",
+          "Ignoring that the two methods use different denominators",
+          "Calling four-of-twelve reporting publication bias without distinguishing selection within one study",
+          "Claiming every omitted result must favor or oppose the new classifier without seeing it"
+        ]
+      },
+      "rubricId": "rubric-transfer-acoustic-archive",
+      "safetyCritical": false
+    }
+  ],
+  "rubrics": [
+    {
+      "id": "rubric-map-six-biases",
+      "title": "Six-bias mechanism map",
+      "criteria": [
+        { "id": "criterion-map-selection", "description": "Award 1 point only when the fitness-club control-entry mechanism is classified as selection bias.", "maxPoints": 1 },
+        { "id": "criterion-map-information", "description": "Award 1 point only when the condition-specific sensor error is classified as information bias.", "maxPoints": 1 },
+        { "id": "criterion-map-observer", "description": "Award 1 point only when the unmasked subjective scoring mechanism is classified as observer bias.", "maxPoints": 1 },
+        { "id": "criterion-map-attrition", "description": "Award 1 point only when outcome-linked post-entry loss is classified as attrition bias.", "maxPoints": 1 },
+        { "id": "criterion-map-publication", "description": "Award 1 point only when result-dependent whole-study accessibility is classified as publication bias.", "maxPoints": 1 },
+        { "id": "criterion-map-survivorship", "description": "Award 1 point only when current-only device sampling is classified as survivorship bias.", "maxPoints": 1 }
+      ]
+    },
+    {
+      "id": "rubric-interpret-equal-attrition",
+      "title": "Attrition mechanism interpretation",
+      "criteria": [
+        { "id": "criterion-attrition-mechanism", "description": "Award 1 point for identifying Group B and linking missingness to low earlier response rather than to the equal percentage.", "maxPoints": 1 },
+        { "id": "criterion-attrition-check", "description": "Award 1 point for a record comparison or sensitivity analysis that directly tests outcome-related missingness.", "maxPoints": 1 }
+      ]
+    },
+    {
+      "id": "rubric-distinguish-reporting-publication",
+      "title": "Reporting and publication distinction",
+      "criteria": [
+        { "id": "criterion-reporting-within-study", "description": "Award 1 point for recognizing the omitted prespecified outcome as within-study selective reporting evidence.", "maxPoints": 1 },
+        { "id": "criterion-publication-whole-study", "description": "Award 1 point for recognizing the completed study without an accessible report as publication-bias evidence.", "maxPoints": 1 },
+        { "id": "criterion-reporting-matched-checks", "description": "Award 1 point for selecting the distinct protocol-to-report and completed-study search checks without treating funnel asymmetry as proof.", "maxPoints": 1 }
+      ]
+    },
+    {
+      "id": "rubric-transfer-acoustic-archive",
+      "title": "Acoustic evidence-path transfer",
+      "criteria": [
+        { "id": "criterion-transfer-target", "description": "Award 1 point for stating a like-for-like target across all prespecified recordings and all 12 sites.", "maxPoints": 1 },
+        { "id": "criterion-transfer-survival", "description": "Award 1 point for the card-readability survivorship or selection mechanism and a matching capture or failure record.", "maxPoints": 1 },
+        { "id": "criterion-transfer-observer", "description": "Award 1 point for the suggestion-visible observer or information mechanism and independent masked relabeling.", "maxPoints": 1 },
+        { "id": "criterion-transfer-denominator", "description": "Award 1 point for identifying the unequal-timeout denominator and proposing restoration or sensitivity analysis.", "maxPoints": 1 },
+        { "id": "criterion-transfer-reporting", "description": "Award 1 point for distinguishing four-of-twelve selective reporting from unestablished whole-study publication bias while calibrating unknown direction.", "maxPoints": 1 }
+      ]
+    }
+  ]
+}
