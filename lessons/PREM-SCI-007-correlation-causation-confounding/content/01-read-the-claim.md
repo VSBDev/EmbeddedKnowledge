@@ -5,7 +5,7 @@ Two research summaries land in your inbox.
 - In one course, students who **chose** to use a flashcard app scored eight points higher than students who did not.
 - In another course, eligible students were **randomly offered** the app or offered it after the final exam. The first group scored three points higher on average.
 
-Both summaries report a difference in scores. They do not answer the same scientific question. The first tells you that app use and scores travelled together in that group. The second may tell you what changed because access was offered, provided the assignment and follow-up were carried out well.
+Both summaries report a difference in scores. They do not answer the same scientific question. The first tells you that app use and scores travelled together in that group. The second may provide an estimate of what changed because access was offered, provided the assignment and follow-up were carried out well and the estimate's uncertainty is kept visible.
 
 That gap between “travelled together” and “changed because of” is the work of this lesson. You will learn to judge three kinds of conclusion:
 
@@ -50,4 +50,3 @@ This route is non-punitive. Do not continue until you can identify exposure, out
 ## Scope for this lesson
 
 You will judge causal language at an introductory level. You will not estimate formal causal models, perform multivariable regression, prove an instrumental variable valid, or decompose direct and indirect effects. Those tasks need additional assumptions and methods. This lesson is educational and does not establish clinical advice, professional authorization, or the safety or effectiveness of any intervention.
-

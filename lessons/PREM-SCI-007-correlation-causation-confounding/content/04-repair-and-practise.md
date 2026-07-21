@@ -58,7 +58,7 @@ Across a workshop network, airborne dust $C$ influences whether technicians turn
 
 > $X$ ______ $C$ ______ $Y$. Therefore $C$ is a ______, and the crude filter–particle association is ______ by default.
 
-**Feedback.** The map is $X \leftarrow C \rightarrow Y$. Dust is a confounder, and the crude association is associational by default. If you drew $X \rightarrow C$, check the timing: the background dust level affected the decision to use the filter.
+**Feedback.** The map is $X \leftarrow C \rightarrow Y$. Dust is a confounder, so the crude filter–particle comparison does not isolate a causal effect by default. If you drew $X \rightarrow C$, check the timing: the background dust level affected the decision to use the filter.
 
 ### Supported problem: separate a mechanism from a total effect
 
@@ -106,4 +106,3 @@ Confidence should decrease because the negative-control association suggests a s
 
 The sources support using negative controls as bias detectors under stated assumptions and using triangulation only when the contributing approaches have meaningfully different key sources of potential bias.
 :::
-

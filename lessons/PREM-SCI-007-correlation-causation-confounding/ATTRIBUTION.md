@@ -60,5 +60,4 @@ No third-party image, diagram, audio, video, software, or dataset is included. T
 
 ## Candidate boundary
 
-This is an author-stage draft with every claim marked `pending-review`. It contains no review or adjudication artifact and makes no claim of approval, publication, course coverage, learner effectiveness, clinical sufficiency, academic credit, admission eligibility, or merge readiness.
-
+At candidate commit `6b66a745dd99bb85ffa05cabf0252302626cc694`, this was an author-stage draft with every claim marked `pending-review` and no review or adjudication artifact. The current pack preserves its draft status and pending claim states while adding the required review and finalization records; those records do not themselves claim publication, course coverage, learner effectiveness, clinical sufficiency, academic credit, or admission eligibility.

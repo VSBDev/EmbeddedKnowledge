@@ -8,7 +8,7 @@ A result becomes easier to judge when you first name the question it is meant to
 |---|---|---|
 | Association | Do measured values of $X$ and $Y$ differ together in the sampled data? | “App users scored higher on average in this cohort.” |
 | Mechanism | What entities, activities, and ordered changes could connect $X$ to $Y$, and which links have evidence? | “The evidence supports a route from reminders to retrieval sessions to later recall.” |
-| Causal attribution | How would the outcome differ under a specified change in $X$ versus a relevant alternative? | “Randomly offering access increased the mean score by three points in the studied group under these conditions.” |
+| Causal attribution | How would the outcome differ under a specified change in $X$ versus a relevant alternative? | “The three-point observed difference estimates the effect of randomly offering access in the studied group under these conditions; its precision and transport remain limited by the evidence supplied.” |
 
 Here, $X$ names the exposure or intervention and $Y$ names the outcome. An association is a property of observed data. A causal effect is a contrast between outcomes under alternatives—for example, app access offered now versus after the exam. The same student cannot experience both alternatives at the same moment, so a design must create a comparison group that can stand in for the unobserved alternative.
 

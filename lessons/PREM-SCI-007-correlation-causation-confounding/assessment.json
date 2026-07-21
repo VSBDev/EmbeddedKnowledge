@@ -120,7 +120,7 @@
         "options": [
           {
             "id": "option-randomized-bounded",
-            "text": "Assignment to the new procedure reduced the mean error count relative to standard assignment among these eligible samples under the study conditions; transport to other samples or implementation settings needs justification."
+            "text": "The lower observed mean estimates a reduction caused by assignment to the new procedure among these eligible samples under the study conditions; without precision information, the size and even direction of the underlying effect remain uncertain, and transport needs justification."
           },
           {
             "id": "option-randomized-identical",
@@ -142,10 +142,10 @@
       },
       "answer": {
         "correct": "option-randomized-bounded",
-        "summary": "Randomization supports a bounded effect of assignment, not exact group identity, universal transport, or an effect of actual receipt under unknown adherence.",
-        "reasoning": "Award 2 points for selecting the bounded assignment-effect statement and 1 point for its explicit population or transport limit. Both features are present only in the correct option. On retry, evaluate random assignment of a microscope-cleaning protocol with the same outcome-measurement conditions.",
+        "summary": "Randomization makes the observed difference a bounded estimate of an assignment effect; it does not remove uncertainty, ensure exact group identity, establish universal transport, or prove an effect of actual receipt under unknown adherence.",
+        "reasoning": "Award 2 points for selecting the statement that treats the lower observed mean as a bounded estimate of the assignment effect while preserving uncertainty, and 1 point for its explicit population or transport limit. Both features are present only in the correct option. On retry, evaluate random assignment of a microscope-cleaning protocol with the same outcome-measurement conditions.",
         "acceptableResponses": [
-          "The option attributing a lower mean error count to assignment in the eligible study sample while preserving the transport boundary."
+          "The option treating the lower observed mean as an uncertain estimate of the assignment effect in the eligible study sample while preserving the transport boundary."
         ],
         "commonErrors": [
           "Claiming exact realized balance from randomization",
@@ -205,8 +205,8 @@
       "outcomeIds": [
         "topic-scientific-inquiry-correlation-causation"
       ],
-      "prompt": "A regional science center has 12 sensor kits for 30 volunteer field teams and says it used a public random-number lottery to allocate them. Researchers did not control the lottery. All teams submit the same blinded sample-identification test. A bench study separately shows that the kit detects one specified sensor fault. Judge the association, mechanism, and causal-attribution claims: identify the design candidate, give two assignment or implementation checks, state the strongest causal conclusion if they pass, give one scope boundary, and explain what the bench study adds without overclaiming.",
-      "stimulus": "The case is fictional and includes no unstated evidence about compliance, populations, or other fault types.",
+      "prompt": "A regional science center has 12 sensor kits for 30 volunteer field teams and says it used a public random-number lottery to allocate them. Researchers did not control the lottery. All teams submit the same blinded sample-identification test, but no between-group field-test result is reported. A bench study separately shows that the kit detects one specified sensor fault. Judge the association, mechanism, and causal-attribution claims: identify the design candidate, give two assignment or implementation checks, state what can and cannot be concluded without the field result, give one scope boundary, and explain what the bench study adds without overclaiming.",
+      "stimulus": "The case is fictional and includes no unstated field-outcome result or evidence about compliance, populations, or other fault types.",
       "points": 4,
       "responseSpec": {
         "mode": "text",
@@ -216,14 +216,15 @@
         "maxLength": 2600
       },
       "answer": {
-        "correct": "This is a natural-experiment candidate because an external lottery allocated kit access. Verify at least two facts such as genuine known lottery chances for every eligible team, no manipulation or overrides, no bundled co-intervention, complete analysis by original allocation, and comparable blinded outcome measurement. If those checks hold, allocation of a kit can be said to change the mean sample-identification result relative to no allocation among the 30 volunteer teams under the study conditions, with direction and magnitude taken from the observed comparison. The claim is about allocation and this applicant group, not actual use, every field team, every fault, or every setting. The bench study supports one detection link in a mechanism under its test conditions; it does not establish the field-outcome effect or transport it beyond the study.",
-        "summary": "A defended external lottery can support bounded causal attribution for allocation, while the bench study separately supports one mechanism link.",
-        "reasoning": "Award 1 point for identifying and justifying the natural-experiment candidate, 1 for two concrete allocation or implementation checks, 1 for a bounded effect-of-allocation statement plus a population or setting limit, and 1 for a calibrated mechanism statement that neither substitutes for nor inherits the field effect. Full credit on this item is required for lesson mastery. On retry, audit a municipal lottery for environmental data loggers with a separate controlled sensor-response study.",
+        "correct": "This is a natural-experiment candidate because an external lottery allocated kit access. Verify at least two facts such as genuine known lottery chances for every eligible team, no manipulation or overrides, no bundled co-intervention, complete analysis by original allocation, and comparable blinded outcome measurement. If those checks hold, a reported comparison could identify a bounded effect of kit allocation on the mean sample-identification result among the 30 volunteer teams under the study conditions. Because no between-group result is supplied, no field association can be described and the present evidence supports no direction, magnitude, or nonzero field effect. Any eventual claim would be about allocation and this applicant group, not actual use, every field team, every fault, or every setting. The bench study supports one detection link in a mechanism under its test conditions; it does not establish the field-outcome effect or transport it beyond the study.",
+        "summary": "A defended external lottery can make a reported allocation contrast causally interpretable, but design alone supplies no effect result; the bench study separately supports one mechanism link.",
+        "reasoning": "Award 1 point for identifying and justifying the natural-experiment candidate, 1 for two concrete allocation or implementation checks, 1 for explicitly stating that no field association, effect direction, magnitude, or nonzero effect can be inferred without a group result while naming the bounded allocation estimand or its scope, and 1 for a calibrated mechanism statement that neither substitutes for nor inherits a field effect. Full credit on this item is required for lesson mastery. On retry, audit a municipal lottery for environmental data loggers with a separate controlled sensor-response study but no reported field comparison.",
         "acceptableResponses": [
-          "Any equivalent response that defends the external assignment, preserves an effect-of-allocation estimand and scope boundary, and keeps mechanism evidence distinct from the field outcome contrast."
+          "Any equivalent response that defends the external assignment, recognizes that no field association or effect direction or magnitude follows without field results, preserves the bounded effect-of-allocation estimand and scope, and keeps mechanism evidence distinct from the missing field outcome contrast."
         ],
         "commonErrors": [
           "Calling every outside allocation random without checking it",
+          "Inferring benefit, harm, or no effect from a strong design when no outcome contrast is reported",
           "Claiming an effect of actual kit use rather than allocation",
           "Generalizing from volunteer teams to every field team",
           "Treating detection of one bench fault as proof of all field outcomes"
@@ -277,7 +278,7 @@
       "criteria": [
         {
           "id": "criterion-randomized-assignment-effect",
-          "description": "Award 2 points only for attributing the mean outcome difference to assigned procedure under the stated comparison conditions.",
+          "description": "Award 2 points only for treating the observed mean difference as an uncertain estimate of the effect of assigned procedure under the stated comparison conditions.",
           "maxPoints": 2
         },
         {
@@ -324,7 +325,7 @@
         },
         {
           "id": "criterion-transfer-bounded-cause",
-          "description": "Award 1 point for a causal statement about allocation that retains a volunteer-team, setting, outcome, or period boundary.",
+          "description": "Award 1 point for stating that no field association, effect direction, magnitude, or nonzero effect follows without group results while identifying the bounded allocation contrast that a reported result could support.",
           "maxPoints": 1
         },
         {
