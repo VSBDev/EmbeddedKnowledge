@@ -3,7 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import Ajv2020 from "ajv/dist/2020.js";
 import addFormats from "ajv-formats";
-import { principalKey, modelFamilyKey, reviewerAuthorConflict } from "./lib/provenance.mjs";
+import { principalKey, modelFamilyKey, reviewerAuthorConflict, unstampedProvenanceFields } from "./lib/provenance.mjs";
 import { validateLessonEvidenceContract } from "./lib/lesson-evidence.mjs";
 import { validateLessonRightsContract } from "./lib/lesson-rights.mjs";
 import {
@@ -431,6 +431,10 @@ for (const entry of packDirectories) {
       if (reviewAgentRuns.has(runId)) error(packName, `${review.reviewId} reuses review agent run ${runId}.`);
       reviewAgentRuns.add(runId);
       modelFamilies.add(modelFamilyKey(review.reviewer.agent));
+      const unstamped = unstampedProvenanceFields(review.reviewer.agent);
+      if (unstamped.length) {
+        error(packName, `${review.reviewId} still carries unstamped agent provenance (${unstamped.join(", ")}). Run npm run provenance:stamp before committing.`);
+      }
     }
     if (tier.reviewMode === "approval-quorum" && review.findings.some((finding) => finding.severity === "blocking" && !finding.resolution)) {
       error(packName, `${review.reviewId} has an unresolved blocking finding.`);
@@ -452,6 +456,13 @@ for (const entry of packDirectories) {
   if (modelFamilies.size < tier.minimumDistinctAgentModelFamilies) error(packName, `requires ${tier.minimumDistinctAgentModelFamilies} distinct review agent providers.`);
   const adjudicationRun = adjudication.adjudicator.agent?.runId;
   if (!adjudicationRun) error(packName, "founding-stage adjudication requires disclosed agent provenance.");
+  const unstampedAdjudicator = unstampedProvenanceFields(adjudication.adjudicator.agent);
+  if (unstampedAdjudicator.length) {
+    error(packName, `adjudication still carries unstamped agent provenance (${unstampedAdjudicator.join(", ")}). Run npm run provenance:stamp before committing.`);
+  }
+  if (adjudication.finalCommit === "PENDING-FINAL-COMMIT") {
+    error(packName, "adjudication finalCommit is still the PENDING-FINAL-COMMIT placeholder; stamp the real final content commit.");
+  }
   else if (authorAgentRuns.has(adjudicationRun) || reviewAgentRuns.has(adjudicationRun)) error(packName, "adjudication must use a fresh agent run distinct from authoring and review runs.");
   if (!adjudication.quorum.satisfied) error(packName, "adjudication quorum must be marked satisfied.");
   if (adjudication.quorum.approvals !== verdictCounts.approvals || adjudication.quorum.distinctPrincipals !== reviewerPrincipals.size || adjudication.quorum.distinctAgentRuns !== reviewAgentRuns.size) {
