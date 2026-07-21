@@ -66,4 +66,4 @@ An OpenStax textbook route was considered but excluded after access screening fo
 
 No third-party image, diagram, audio, video, dataset, patient material, or other asset is included. `diagrams/model-use-cycle.diagram.json` is original declarative course content authored for this lesson and licensed with the pack under CC BY 4.0.
 
-This is the initial `0.1.0` draft. No review or adjudication artifact exists, and no claim is made that the lesson is approved, published, merge-ready, clinically sufficient, or evidence of learner mastery.
+This remains the initial `0.1.0` draft. Two frozen-candidate advisory reviews and the fresh finalizer's single post-review revision and adjudication are recorded inside the pack. The revision distinguishes an unweighted point-sensor mean from a chamber-volume average and requires representative, volume-aware evidence before corroborating the latter. Finalizer provenance, indexed finding dispositions, audit evidence, limitations, and merge conditions are disclosed in `adjudication.json`. A merge decision is not publication, and no claim is made that the lesson is published, clinically sufficient, or evidence of learner mastery.

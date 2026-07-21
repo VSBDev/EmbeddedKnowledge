@@ -151,8 +151,8 @@
       "outcomeIds": [
         "topic-scientific-inquiry-models-and-limits"
       ],
-      "prompt": "Audit the proposed transfer. State the model's output and central assumption, identify two material scale or domain changes, explain what the new records corroborate and contradict, propose one discriminating or sensitivity test, and justify a response for both an average-only question and a zone-specific question.",
-      "stimulus": "A fictional one-value model was developed in 25 L boxes with continuous mixing and predicts an average marker level of 12 units at 15 minutes. It is proposed for a 2,500 L room with mixing that cycles. At 15 minutes, lower, middle, and upper sensors record 17, 12, and 7 units; their mean is 12.",
+      "prompt": "Audit the proposed transfer. State the model's output and central assumption, identify two material scale or domain changes, explain what the new records do and do not corroborate and what they contradict, propose one discriminating or sensitivity test, and justify a response for both an average-only question and a zone-specific question.",
+      "stimulus": "A fictional one-value model was developed in 25 L boxes with continuous mixing and predicts a chamber-volume average marker level of 12 units at 15 minutes; under its well-mixed assumption, it also predicts 12 everywhere. It is proposed for a 2,500 L room with mixing that cycles. At 15 minutes, lower, middle, and upper point sensors record 17, 12, and 7 units; their unweighted mean is 12. No information says that the sensor locations represent equal volumes or form a representative spatial sample.",
       "points": 4,
       "responseSpec": {
         "mode": "text",
@@ -162,17 +162,17 @@
         "maxLength": 2600
       },
       "answer": {
-        "correct": "The model outputs one average and assumes the represented space is sufficiently mixed for one value to answer the question. The volume increased by a factor of 100 and mixing changed from continuous to cycling; measurement now also spans zones. The mean of 12 corroborates the average for this one trial, while the 17-to-7 spread contradicts a uniform zone value. A useful next test repeats measurements across position and time under continuous versus cycling mixing. For an average-only question, restrict use to an explicitly defined average and seek independent repeats. For a zone-specific question, revise or replace the one-value structure because recalibrating one parameter cannot represent the missing spatial pattern.",
-        "summary": "A matching aggregate does not rescue a failed spatial representation; the response depends on which output the purpose requires.",
-        "reasoning": "Award one point for output plus well-mixed assumption, one for at least two scale/domain changes, one for separating average corroboration from spatial contradiction and proposing a relevant test, and one for the purpose-dependent decision: restricted provisional average use versus structural revision or replacement for zones. At least 3/4 on this item is required for lesson mastery. On a retry, audit a 30 L continuously stirred vessel model transferred to a 3,000 L tank with intermittent stirring and four depth records.",
+        "correct": "The model outputs a chamber-volume average and assumes the represented space is sufficiently mixed for one value to describe every zone. The volume increased by a factor of 100 and mixing changed from continuous to cycling; measurement now also spans zones. The unweighted mean of the three point readings equals 12, but it estimates only the sampled-location mean and does not corroborate the chamber-volume average without a representative spatial design or defensible volume weights. The 17-to-7 spread contradicts the uniform-zone prediction. A useful next test samples known represented volumes across position and time, computes a justified volume-aware average, and compares continuous with cycling mixing. For an average-only question, withhold corroboration and provisional use until representative independent records support the defined average. For a zone-specific question, revise or replace the one-value structure because recalibrating one parameter cannot represent the missing spatial pattern.",
+        "summary": "A matching point-sensor mean is not evidence for a chamber-volume average without a representative aggregation design, and it does not rescue a failed spatial representation.",
+        "reasoning": "Award one point for output plus well-mixed assumption, one for at least two scale/domain changes, one for distinguishing the sampled-point mean from a chamber-volume mean while using the spread as evidence against uniformity and proposing a relevant representative test, and one for the purpose-dependent decision: withhold average-only corroboration pending representative independent evidence and structurally revise or replace the model for zones. At least 3/4 on this item is required for lesson mastery. On a retry, audit a 30 L continuously stirred vessel model transferred to a 3,000 L tank with intermittent stirring and four depth records whose represented volumes must be stated before aggregation.",
         "acceptableResponses": [
-          "Any equivalent audit that distinguishes the matching mean from the failed zone pattern and ties model response to the requested output."
+          "Any equivalent audit that distinguishes a matching sampled-point mean from an unsupported chamber-volume mean, identifies the failed zone pattern, and ties the evidence requirement and model response to the requested output."
         ],
         "commonErrors": [
-          "Calling the model validated because the mean matches; compare the output required by the actual question.",
+          "Calling the chamber-volume average corroborated because the unweighted point mean matches; first justify how the sampled locations represent volume.",
           "Listing changed numbers without naming the well-mixed assumption or domain.",
           "Proposing only parameter recalibration for a missing spatial structure.",
-          "Rejecting the model for every purpose without considering a restricted average-only use."
+          "Rejecting the model for every purpose without stating what representative, independent average evidence could support a restricted use."
         ]
       },
       "rubricId": "rubric-transfer-mixing-model",
@@ -254,12 +254,12 @@
         },
         {
           "id": "criterion-transfer-evidence-test",
-          "description": "Award 1 point for separating mean corroboration from spatial contradiction and proposing a relevant positional, temporal, or mixing-regime test.",
+          "description": "Award 1 point for stating that the unweighted point mean does not corroborate the chamber-volume average without representative sampling or weights, using the spread as evidence against uniformity, and proposing a relevant spatial, temporal, or mixing-regime test.",
           "maxPoints": 1
         },
         {
           "id": "criterion-transfer-purpose-response",
-          "description": "Award 1 point for restricted provisional average use and structural revision or replacement for zone-specific use.",
+          "description": "Award 1 point for withholding average-only corroboration or provisional use pending representative independent evidence, and for structural revision or replacement for zone-specific use.",
           "maxPoints": 1
         }
       ]
