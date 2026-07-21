@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-SCI-009-LEARNING-F60C0C5A",
+  "lessonId": "PREM-SCI-009",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "c4c077aca43fb18fbebfae25f04c581eec33628b",
+  "role": "learning-design",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — learning-design reviewer",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.5",
+      "runId": "agy-learning-design-PREM-SCI-009-F60C0C5A-6B00-4A06-80A6-87BEAAF6056D",
+      "instructionsDigest": "sha256:c0fb86cc2b42e9dcfbf1e1eacb85623f450c86b61e129b132541ea732b7b44fe"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Operational conflict: github:VSBDev operated the authoring and packaging agents, and also operates this reviewer subagent. This is an independent run with a unique run ID and role isolation."
+  },
+  "evidenceChecked": [
+    "lessons/PREM-SCI-009-replication-reproducibility-transparency/lesson.json",
+    "lessons/PREM-SCI-009-replication-reproducibility-transparency/claims.json",
+    "lessons/PREM-SCI-009-replication-reproducibility-transparency/references.json",
+    "lessons/PREM-SCI-009-replication-reproducibility-transparency/glossary.json",
+    "lessons/PREM-SCI-009-replication-reproducibility-transparency/assessment.json",
+    "lessons/PREM-SCI-009-replication-reproducibility-transparency/ATTRIBUTION.md",
+    "lessons/PREM-SCI-009-replication-reproducibility-transparency/diagrams/four-safeguard-questions.diagram.json",
+    "lessons/PREM-SCI-009-replication-reproducibility-transparency/content/01-result-with-a-trail.md",
+    "lessons/PREM-SCI-009-replication-reproducibility-transparency/content/02-four-questions.md",
+    "lessons/PREM-SCI-009-replication-reproducibility-transparency/content/03-follow-the-seedling-claim.md",
+    "lessons/PREM-SCI-009-replication-reproducibility-transparency/content/04-shortcuts-under-stress.md",
+    "lessons/PREM-SCI-009-replication-reproducibility-transparency/content/05-transfer-and-mastery.md",
+    "lessons/PREM-SCI-009-replication-reproducibility-transparency/reviews/REV-PREM-SCI-009-ACADEMIC-F6FE137E.json",
+    "CONTENT-STANDARD.md",
+    "RIGHTS-POLICY.md"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "content/03-follow-the-seedling-claim.md#5-collect-new-data; assessment.json#item-interpret-three-checks and #rubric-interpret-three-checks",
+      "finding": "The lesson treats a smaller replication point estimate as disagreement that weakens confidence in a large effect, but the worked claim is only that supplement S increases height, so +1.8 cm and +0.4 cm are directionally consistent. Neither the worked example nor the assessed 12-unit versus 3-unit case specifies a quantitative large-effect claim, a prespecified diagnostic criterion, sample sizes, standard errors, intervals, or another uncertainty model. A difference between bare point estimates cannot establish that the new result is meaningfully inconsistent with the prior claim or determine how confidence should change; the cited replication perspective itself says the magnitude of belief change depends on prior and existing evidence. The keyed answer and rubric therefore reward an outcome-defeating shortcut precisely where objective-evaluate-evidence requires calibrated interpretation.",
+      "resolution": "Define the exact prior claim and in advance what replication outcomes would count as diagnostic, then supply enough design and uncertainty information to compare the estimates (for example sample sizes plus compatible interval or sampling-model information). Update the worked conclusion, item answer, acceptable responses, and rubric to distinguish point-estimate difference from evidence of incompatibility and to state that the strength of belief change depends on precision and the wider evidence. Alternatively, keep the bare estimates but make the correct conclusion that a new-data estimate exists and that its evidential weight cannot be determined from the supplied numbers alone."
+    },
+    {
+      "severity": "major",
+      "target": "content/03-follow-the-seedling-claim.md#4-test-plausible-assumptions-without-changing-the-question; assessment.json#item-interpret-three-checks",
+      "finding": "In both the worked seedling example and the materials assessment item, the replication point estimate (+0.4 cm and 3 units, respectively) falls directly within the sensitivity analysis range of the original study (+0.2 to +1.8 cm, and 2 to 13 units). However, the lesson fails to point out this critical relationship to the learner. Instead of showing how the safeguards work together—specifically, how the replication result confirms the sensitivity analysis's warning that the effect size is highly dependent on choices and likely smaller than the preregistered estimate—the lesson treats the replication and sensitivity checks as isolated tracks. This limits the explanatory coherence and cognitive synthesis of the safeguards as complementary tools.",
+      "resolution": "Add a sentence to both the worked example's calibrated conclusion and the assessment item's reasoning/feedback noting that the replication estimate falls within the original study's sensitivity range, and explain how this connection reinforces the calibration of confidence in a smaller, choice-dependent effect size."
+    },
+    {
+      "severity": "minor",
+      "target": "lesson.json",
+      "finding": "The lesson's estimatedMinutes is set to 150 (2.5 hours), and the sum of scene estimatedMinutes is also 150. However, the learner-visible content across the five scenes is only ~3,150 words with a 4-item assessment. Realistically, an introductory-level scientific inquiry lesson of this size will take a learner 45 to 60 minutes to complete. The current 150-minute estimate is an overestimate that may create incorrect learner expectations or pacing concerns.",
+      "resolution": "Calibrate the estimatedMinutes in lesson.json and scene metadata to reflect realistic reading and practice times (e.g., total 60-75 minutes)."
+    },
+    {
+      "severity": "note",
+      "target": "content/04-shortcuts-under-stress.md#repair-two-tempting-models; content/05-transfer-and-mastery.md#accessibility-and-alternatives",
+      "finding": "The misconception blocks (misconception-transparency-certifies-truth and misconception-replication-is-verdict) are exceptionally well-structured and comply fully with the content standard's misconception-repair sequence. Furthermore, the explicit accessibility equivalents provided in scene 5 (such as matching tables and maps for diagrams) represent a strong, inclusive learning design.",
+      "resolution": null
+    }
+  ],
+  "limitations": [
+    "No direct empirical testing of cognitive load or comprehension rates was performed with real premed students.",
+    "Accessibility compatibility (zoom, screen reader audio flow) was verified conceptually from markup standards rather than verified on live devices.",
+    "Scholarly source consensus and academic factual correctness were not independently verified, as this review is strictly bounded to the learning-design role."
+  ],
+  "signedAt": "2026-07-21T22:22:00Z"
+}
