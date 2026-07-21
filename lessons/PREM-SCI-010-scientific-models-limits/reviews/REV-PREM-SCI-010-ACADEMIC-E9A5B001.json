@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-SCI-010-ACADEMIC-E9A5B001",
+  "lessonId": "PREM-SCI-010",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "bd75204d63a87c704bd59bae0329c53d2db94590",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — formal academic review operator",
+    "agent": {
+      "system": "Codex collaborative subagent",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "Codex agent runtime 2026-07-21",
+      "runId": "e9a5b001-eb1e-4bd5-9178-3ced30b18cc6",
+      "instructionsDigest": "sha256:d764163b8a01fa48ac925f3c7bac509bbe5a25f92f596627292b9ba6fb2d1eaa"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "github:VSBDev operated the authoring and editorial-packaging agents and is also operating this academic-review subagent during the founding stage. This is a fresh role-isolated run with a unique run ID. The reviewer had no access to an authoring conversation, another review conclusion, or an adjudication draft; only the frozen candidate, required authorities, declared graph nodes, and permitted sources were inspected."
+  },
+  "evidenceChecked": [
+    "candidate commit bd75204d63a87c704bd59bae0329c53d2db94590: commit existence, exact pack tree, HEAD identity, and no pack drift",
+    "site/data/premed-graph.json#topic-scientific-inquiry-models-and-limits and #topic-scientific-inquiry-hypotheses-predictions",
+    "lesson.json#PREM-SCI-010 identity, version, risk tier, outcome, prerequisite, objectives, scene order, file declarations, authorship, and provenance",
+    "content/01-precise-answer-wrong-tool.md#equation-ideal-gas-orientation and #check-hypothesis-prediction",
+    "content/02-four-question-model-audit.md#definition-scientific-model and #diagram-model-use-cycle",
+    "content/03-worked-pressure-prediction.md#worked-example-pressure-audit and #check-temperature-sensitivity",
+    "content/04-stress-test-and-repair.md#check-ideal-gas-domain, #misconception-fit-means-true, feeder-count, sensor, and independent-audit cases",
+    "content/05-transfer-to-new-chamber.md#check-transfer-chamber and #feedback-for-a-defensible-transfer",
+    "content/06-mastery-and-retrieval.md#mastery-rule, remediation, delayed-retrieval, and final-synthesis",
+    "claims.json#claim-model-purpose, #claim-model-components, #claim-model-domain-scale, and #claim-sensitivity-analysis",
+    "claims.json#claim-model-uncertainty, #claim-ideal-gas-relation, #claim-ideal-gas-limits, and #claim-bounded-evidence",
+    "all six scene {source-note} directives: each mapped claim and complete supporting-source union traced to claims.json and references.json",
+    "references.json#source-epa-model-guidance: directly checked report pages ix, 14-16, 26-31, and 69-74 permitted by agentAccess",
+    "references.json#source-nasa-equation-state: directly checked PV=nRT, variable meanings, absolute-temperature requirement, and applicability statement permitted by agentAccess",
+    "references.json#source-nasa-real-gas-limits: directly checked chapter 1 equations 1-1 through 1-4 and qualitative pressure/temperature limits permitted by agentAccess",
+    "assessment.json#item-fit-and-mechanism answer, acceptable response, common errors, and #rubric-fit-and-mechanism",
+    "assessment.json#item-feeder-domain-failure answer, acceptable response, common errors, and #rubric-feeder-domain-failure",
+    "assessment.json#item-pressure-sensitivity answer, tolerance statement, common errors, and #rubric-pressure-sensitivity",
+    "assessment.json#item-transfer-mixing-model answer, acceptable response, common errors, and #rubric-transfer-mixing-model",
+    "independent recalculation: worked pressures 99.10288, 101.12539, and 100.76568 kPa; assessment pressures 99.768, 105.01895, and 95.01714 kPa",
+    "independent recalculation: competing-model values 8 and 9.2; feeder values 72, -40, 48, and -12; both chamber size factors 100",
+    "glossary.json#term-scientific-model through #term-variability: every definition, alias, and scene mapping",
+    "diagrams/model-use-cycle.diagram.json#diagram-model-use-cycle: all nodes, directed edges, labels, alt text, and long description",
+    "ATTRIBUTION.md#lesson-identity-and-accountability through #assets-and-modifications; no structured molecule records, third-party assets, or additional pack files exist"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "content/05-transfer-to-new-chamber.md#feedback-for-a-defensible-transfer; assessment.json#item-transfer-mixing-model",
+      "finding": "The lesson treats the unweighted arithmetic mean of three point-sensor readings (14, 10, and 6) as corroborating a chamber-average prediction, and the mastery key repeats the same inference for readings 17, 12, and 7. Without a stated sampling geometry, equal-volume zones, spatial weights, or evidence that these locations are representative, that arithmetic mean estimates only the mean of the three sampled points; it does not establish the chamber-volume average. This is not a cosmetic caveat: spatial scale and the adequacy of the one-value representation are the construct being assessed, and the declared EPA source explicitly requires corroboration data to be sufficiently representative of the modeled system. As written, learners receive credit for assuming away an untested sampling-and-aggregation condition while auditing assumptions and scale.",
+      "resolution": "Either redefine the model output explicitly as the arithmetic mean at those three fixed sensor locations, so the match is described only as agreement with the sampled-location mean, or supply a defensible spatial design such as equal-volume represented zones or stated volume weights. Revise the scene feedback and the assessment stimulus, answer, rubric, and common errors to distinguish a point-sample mean from a chamber-volume mean and to require representativeness evidence before claiming average-only corroboration or provisional use."
+    },
+    {
+      "severity": "note",
+      "target": "content/03-worked-pressure-prediction.md#worked-example-pressure-audit; assessment.json#item-pressure-sensitivity",
+      "finding": "The ideal-gas rearrangement, units, worked values, proportional checks, volume and temperature sensitivity calculations, and assessment endpoints all recalculate correctly. The prose also keeps the ideal-gas result conditional on gas identity, pressure, temperature, and required tolerance rather than asserting a universal cutoff.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "claims.json#claim-model-purpose through #claim-bounded-evidence; references.json#sources",
+      "finding": "Every mapped material claim appears in each relevant scene's learner-visible source note, and each note lists the full source set declared for its claims. Direct checks of the permitted EPA and NASA sources support the lesson's bounded model definition, domain and scale cautions, calibration/corroboration distinction, local one-at-a-time sensitivity limitation, uncertainty/variability framing, ideal-gas relation, and qualitative real-gas boundary.",
+      "resolution": "No change required apart from resolving the sampling-representativeness finding above."
+    }
+  ],
+  "limitations": [
+    "This reviewer is a generalist academic-review model, not a credentialed thermodynamics, statistics, or environmental-model-validation specialist; the judgment is limited to the declared college-intro outcome, direct checks of the three declared sources, and independent reasoning and calculations.",
+    "The chamber, feeder, sensor, and gas records are fictional. No underlying chamber geometry, sampling design, or empirical dataset exists to verify; that missing representativeness basis is the reason the chamber-average inference requires correction.",
+    "No human-only source, authoring conversation, accepted science-dossier content outside the frozen pack's own attribution, other review conclusion, adjudication draft, laboratory replication, or real-learner result was used. Schema and repository validation are treated only as structural evidence."
+  ],
+  "signedAt": "2026-07-21T15:59:19Z"
+}
