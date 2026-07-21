@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-SCI-011-ACADEMIC-A035908B",
+  "lessonId": "PREM-SCI-011",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "90d764925745ea1a3b5bea3ac6e58666653a27f6",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — formal academic reviewer (Codex collaborative subagent)",
+    "agent": {
+      "system": "Codex collaborative subagent",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "Codex agent runtime 2026-07-21",
+      "runId": "a035908b-fbb2-4aa6-b9a1-7fbfdc074d40",
+      "instructionsDigest": "sha256:dc78e2e80319916623ddf7a1e4015e3cbab69b89d2cdb906b1dd255baa1b4a75"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Operational conflict: github:VSBDev operated the authoring and packaging agents and is also operating this reviewer subagent during the founding stage. This is a distinct, role-isolated reviewer run; it did not inspect an authoring conversation, another review conclusion, or an adjudication draft."
+  },
+  "evidenceChecked": [
+    "lesson.json and site/data/premed-graph.json#topic-scientific-inquiry-mechanism-evidence: identity, version, outcome, prerequisites, objectives, scene map, minutes, risk tier, and actor provenance at candidate 90d764925745ea1a3b5bea3ac6e58666653a27f6",
+    "content/010-orientation.md through content/070-synthesis.md: every learner-visible claim, boundary, fictional case, source note, retrieval prompt, worked inference, practice feedback, transfer conclusion, and synthesis step",
+    "assessment.json#items and #rubrics: all eight Form A/Form B prompts, options, answer keys, open-response exemplars, reasoning, acceptable responses, common errors, objective/outcome mappings, and point criteria",
+    "claims.json#claims: all seven claim records, every scene/source mapping, support type, confidence, scope, uncertainty, risk, and pending-review state",
+    "references.json#source-efsa-weight-evidence: official NCBI BioC full text, abstract and sections on assembling, weighing, integrating, reliability, relevance, consistency, dependencies, conclusions, and uncertainty",
+    "references.json#source-lawlor-triangulation: official NCBI BioC full text, definition, minimum criteria, bias-direction requirements, timing, inconsistent-result response, and key messages",
+    "references.json#source-fda-ich-e9: official FDA final-guidance PDF, sections 2.3.1-2.3.2 and relevant conduct, missing-data, and generalizability passages",
+    "references.json#source-iarc-preamble: official IARC Preamble PDF, evidence-stream evaluation/integration, in-vitro system limits, mechanistic-evidence categories, pivotal evidence, and transparent rationale",
+    "glossary.json#terms: all fourteen definitions, aliases, and scene mappings checked against lesson usage and source-bounded meanings",
+    "diagrams/evidence-integration.diagram.json: all nodes, edges, labels, direction, alt text, long description, and consistency with the concept-scene table and prose",
+    "ATTRIBUTION.md and lesson.json#authors/#aiAssistance/#thirdPartyAssets: accountable principal, four blind-science actor records, Codex packaging record, original-fictional material declaration, source-use boundary, and absence of third-party assets",
+    "content/030-worked-example.md#Step-1/#Step-2/#Independent-checks: independently recomputed 49/100 minus 82/100 as -33 percentage points and 52% minus 74% as -22 percentage points; challenged denominators, missingness, line-level replication, and interval claims"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "content/030-worked-example.md#Step-2-weigh-reliability-and-relevance",
+      "finding": "The worked example calls seven missing inhibitor-study outcomes 'few and nearly balanced' and gives that result important causal weight, but the fictional givens provide neither randomized totals per arm nor the denominators used for the reported 52% and 74% survival. Four versus three missing outcomes cannot establish low missingness rates, comparable rates, or negligible missing-outcome bias; even equal rates would not resolve bias if missingness depends differently on outcome by arm. This rewards the same false shortcut the lesson says learners must avoid: judging missingness from an absolute count without its denominator, reasons, timing, or analysis handling. Because the inhibitor result is pivotal to the final moderate-support claim, its reliability cannot be responsibly graded from the supplied data.",
+      "resolution": "Add randomized totals per arm, state whether 52% and 74% use all randomized seedlings or observed outcomes, and provide enough information about missing-outcome reasons and handling for a bounded sensitivity judgment. Then re-audit the inhibitor result's weight and revise the integrated strength if the plausible missing outcomes could materially change the comparison. Alternatively, explicitly mark missingness as indeterminate and do not treat this intervention as pivotal without a sensitivity bound."
+    },
+    {
+      "severity": "minor",
+      "target": "content/030-worked-example.md#Step-2-organismal-edit-row",
+      "finding": "The reliability audit says 'Two edited lines point the same way,' but the givens report only a pooled 49 survivors among 100 edited plants and do not give line-specific denominators or survival. The pooled result cannot show that both independent edit lines have effects in the same direction; one line could carry the entire difference. That unsupported replication claim slightly overstates consistency and protection against a line-specific edit artifact.",
+      "resolution": "Provide survival counts and denominators separately for each edited line, or describe only the pooled edited-versus-control result and remove the assertion that both lines point the same way."
+    },
+    {
+      "severity": "minor",
+      "target": "content/030-worked-example.md#Independent-checks-data-check",
+      "finding": "The statement that 'no confidence interval can be computed from the summaries alone without additional assumptions and data' is too categorical. From 49/100 and 82/100, a conventional independent-binomial risk-difference interval can be calculated under explicit assumptions (the simple Wald calculation is approximately -45 to -21 percentage points around the -33-point difference). What cannot be selected from the summary is a design-appropriate interval that accounts for the two edit lines, any clustering, allocation structure, and other dependencies. The current wording conflates lack of design detail with mathematical impossibility.",
+      "resolution": "State that an assumption-dependent two-proportion interval is computable from the pooled counts, while a defensible design-based uncertainty estimate requires line-level allocation and dependence information; optionally show the assumption-dependent interval as a sensitivity calculation."
+    },
+    {
+      "severity": "note",
+      "target": "claims.json#claims; references.json#sources; assessment.json#items",
+      "finding": "Outside the worked-example data defects above, the central academic model is well bounded. Direct source checks support weighing reliability, relevance, consistency, uncertainty, and dependency; comparing approaches that address the same causal question but have differing key biases; treating randomization and blinding as protections rather than guarantees; and limiting mechanistic inference across experimental systems. All eight assessment keys and open-response exemplars preserve the intended causal scope, and the fictional cases do not introduce clinical or professional-authority claims.",
+      "resolution": null
+    }
+  ],
+  "limitations": [
+    "The accountable operator conflict is disclosed above; it prevents representing this run as independent human peer review, although the run is role-isolated and has a unique ID.",
+    "This reviewer is evaluating general scientific inference, evidence integration, causal design, and assessment logic, not claiming specialist wet-laboratory expertise across every fictional organismal domain used in the examples.",
+    "The two PMC article pages presented an automated-access challenge, so the full texts were checked through the official NCBI BioC API route that the source ledger permits; the FDA and IARC PDFs were opened directly. No source marked human-only was processed.",
+    "The biological studies and data are explicitly fictional. Academic review can verify internal calculations and inferential logic, but cannot validate empirical reproducibility, assay performance, intervention specificity, or external validity beyond the supplied summaries."
+  ],
+  "signedAt": "2026-07-21T15:59:08Z"
+}
