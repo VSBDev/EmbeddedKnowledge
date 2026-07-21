@@ -19,7 +19,7 @@ This is a randomized **experiment** because the research team assigns the curing
 
 Fill the missing entry point before opening the feedback.
 
-| Design | Entry point | What comes next? |
+| Design | Entry point | Time logic or next step |
 | --- | --- | --- |
 | Prospective cohort | groups defined now by exposure or a source population | ___ |
 | Retrospective cohort | source population and earlier exposure in existing records | ___ |

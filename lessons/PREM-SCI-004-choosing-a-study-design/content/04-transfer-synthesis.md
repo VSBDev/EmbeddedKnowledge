@@ -27,16 +27,16 @@ This is genuine design choice: the data file may stay the same while the warrant
 
 ## Rebuild the full scientific handoff
 
-Complete the final link from memory:
+Complete the final link from the same course navigation aid. Treat the arrows as memory links between course decisions, not as a rule for ordering every investigation:
 
 > observation → bounded empirical question → hypothesis → conditions → prediction → variable-and-control audit → ___
 
 The missing link is **choose a study design that makes the needed comparison possible**.
 
-- The question determines what needs answering.
-- Hypotheses, stated conditions, and predictions say what different answers commit you to observing.
-- Variables and controls determine what a supplied comparison tests.
-- Study design determines who creates the comparison, where it enters time, and how strongly it can support an inference.
+- In this map, the question slot names what needs answering.
+- The hypothesis, conditions, and prediction slots record a proposal and the observations expected under its stated conditions.
+- The variable-and-control audit slot makes the intended comparison and rival factors visible.
+- The study-design slot asks who creates the comparison, where it enters time, and how strongly it can support an inference.
 
 The next outcomes examine sampling, randomization, and blinding; measurement quality; correlation and causation; and specific biases. This lesson does not replace those checks. It gives you the first choice: experiment, cohort, case-control, cross-sectional, or natural experiment.
 

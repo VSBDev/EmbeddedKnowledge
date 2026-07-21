@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-SCI-008-ACADEMIC-34BE2923",
+  "lessonId": "PREM-SCI-008",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "9df98b58e534225725314047d88538235159bd88",
+  "role": "academic",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — formal academic reviewer",
+    "agent": {
+      "system": "Codex collaborative subagent",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "Codex agent runtime 2026-07-21",
+      "runId": "34be2923-35f0-4b4f-9a69-470216b39f11",
+      "instructionsDigest": "sha256:fcdef6c85c7235b2f300cf9282294ff7091349478dcb643370f726c40ca2bc0e"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Founding-stage operational conflict: the accountable principal github:VSBDev operated the authoring and packaging agents and also operated this formal academic-review subagent. This review is nevertheless a new role-isolated run with a unique run ID; it had no access to the authoring conversation, another review conclusion, or an adjudication draft. The conflict is disclosed rather than treated as verified independence."
+  },
+  "evidenceChecked": [
+    "candidate commit 9df98b58e534225725314047d88538235159bd88 identity, clean frozen worktree, and complete lessons/PREM-SCI-008-bias-threats-validity tree",
+    "lesson.json#PREM-SCI-008 identity, standard risk tier, objectives, scene order, outcome mapping, prerequisites, scope, authorship, and source-confidence state",
+    "site/data/premed-graph.json#topic-scientific-inquiry-bias and prerequisite nodes topic-scientific-inquiry-sampling-randomization and topic-scientific-inquiry-measurement-validity",
+    "content/01-find-the-missing-path.md#scene-find-path including diagnostic answers, scope, bias/random-error distinction, observer route, survivorship example, recovery, and source note",
+    "content/02-follow-the-evidence-pipeline.md#scene-evidence-pipeline including all six mechanisms, overlapping-category boundaries, direction cautions, funnel limits, five-part statement, and four source notes",
+    "content/03-audit-the-seedling-study.md#scene-seedling-audit including target estimand, randomization/scope boundary, denominator repair, observer uncertainty, reporting distinction, and checks",
+    "content/03-audit-the-seedling-study.md#survival-and-the-denominator independently recalculated as 72/90 = 80%, 49/70 = 70%, survivor-only difference = 10 percentage points, 72/100 = 72%, 49/100 = 49%, planned difference = 23 percentage points",
+    "content/04-practise-the-discriminations.md#scene-practice including pipeline retrieval, machine-survival direction, equal-loss mechanism comparison, six mixed cases, feedback, and source note",
+    "content/05-repair-and-transfer.md#scene-repair-transfer including fixed 2 mm calibration error, sample-size boundary, acoustic-classifier audit, denominator comparability, selective-reporting/publication distinction, recovery, and source note",
+    "content/06-demonstrate-mastery.md#scene-mastery including mastery boundary, remediation, synthesis, delayed retrieval, safe-use limits, and source note",
+    "claims.json#claim-bias-versus-random-error, claim-selection-mechanism, claim-information-misclassification, claim-observer-mechanism, claim-attrition-mechanism, claim-survivorship-filter, claim-publication-versus-reporting, and claim-funnel-limits",
+    "all same-scene claim/source-note chains: each named claim was traced to the complete union of its sourceIds in references.json, with scope and uncertainty checked against the learner-visible statement",
+    "references.json#source-bias-taxonomy and source-information-bias, checked through the permitted public PMC article routes at the recorded locators",
+    "references.json#source-selection-framework and source-misclassification-direction, checked through the permitted public PMC article routes for eligible-population selection and exceptions to direction heuristics",
+    "references.json#source-observer-systematic-review, source-attrition-reporting, and source-selection-toolkit, checked through the permitted public PMC article routes for masked assessment, outcome-related loss, differential survival, and sensitivity checks",
+    "references.json#source-publication-bias and source-outcome-reporting, checked through the permitted public PMC article routes for whole-study visibility, funnel-asymmetry alternatives/low power, and within-study selective reporting",
+    "assessment.json#item-map-six-biases, item-interpret-equal-attrition, item-distinguish-reporting-publication, and item-transfer-acoustic-archive with every key, acceptable response, common error, point total, and rubric criterion",
+    "glossary.json#all 16 term records, definitions, aliases, and scene mappings",
+    "diagrams/evidence-pipeline.diagram.json#diagram-evidence-pipeline nodes, directed edges, labels, and correspondence with the prose evidence path",
+    "ATTRIBUTION.md#original-synthesis, source-use, third-party-assets, source-access, and governance-state declarations relevant to academic provenance"
+  ],
+  "findings": [
+    {
+      "severity": "minor",
+      "target": "glossary.json#term-random-error",
+      "finding": "The record lists \"sampling variation\" as an alias for \"random error\". Sampling variation is one source of random error, but random error also includes unpredictable measurement and other experimental variation; the directly checked information-bias source explicitly discusses random measurement error. Treating the narrower phrase as a synonym can blur the lesson's otherwise accurate distinction between sampling fluctuation and systematic measurement error.",
+      "resolution": "Remove \"sampling variation\" from aliases or recast it as a narrower example in the definition, such as \"Random error includes sampling variation and unpredictable measurement variation.\""
+    },
+    {
+      "severity": "note",
+      "target": "content/03-audit-the-seedling-study.md#survival-and-the-denominator",
+      "finding": "The fictional seedling calculation and its model boundary are correct. The survivor-only comparison is 80% minus 70% = 10 percentage points, whereas the prespecified alive-and-healthy estimand is 72% minus 49% = 23 percentage points. The text correctly treats observed deaths in the composite outcome as a denominator/conditioning problem rather than unobserved attrition and leaves the unmasked-rating component's direction unresolved.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "claims.json#claim-information-misclassification",
+      "finding": "The candidate appropriately resists a scientifically false universal shortcut. The older taxonomy source presents a simplified toward-the-null rule for nondifferential dichotomous exposure misclassification, but the separately cited 2022 methodological review documents multiple exceptions. The claim, scenes, and assessments preserve the conditions-and-exceptions boundary and do not reward an unsupported direction guess.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "content/02-follow-the-evidence-pipeline.md#retention-and-survival-two-related-filters",
+      "finding": "The linear evidence-pipeline diagram is used as a timing heuristic rather than a claim that categories are mutually exclusive. The prose explicitly states that attrition, survivorship, and selection can overlap and requires the learner to name the filter and timing; this is academically defensible within the college-intro outcome and avoids label-only diagnosis.",
+      "resolution": null
+    }
+  ],
+  "limitations": [
+    "Operational independence is limited by the disclosed founding-stage conflict: github:VSBDev operated both the authoring/packaging agents and this reviewer subagent, although this was a fresh role-isolated run without authoring or adjudication context.",
+    "The reviewer is an AI scientific-methods reviewer, not a credentialed human epidemiologist or biostatistician; the verdict is limited to the declared college-intro mechanism-detection scope.",
+    "Direct source verification used the public PMC article representations for all nine sources because every ledger record permitted agent access; no human-only or inaccessible source blocked judgment, but original study datasets and unpublished protocols were not independently reanalyzed.",
+    "The seedling, machine, acoustic, and protein cases are explicitly fictional, so review verified arithmetic, internal consistency, mechanism logic, and calibrated inference rather than empirical external validity of those invented cases.",
+    "This run did not perform learning-design, accessibility-and-rights, finalization, adjudication, GitHub-submission, quorum, or merge-readiness review."
+  ],
+  "signedAt": "2026-07-21T15:54:10Z"
+}
