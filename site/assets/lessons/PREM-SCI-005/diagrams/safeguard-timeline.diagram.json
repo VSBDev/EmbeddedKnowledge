@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-diagram-v1",
+  "id": "diagram-safeguard-timeline",
+  "type": "timeline",
+  "direction": "left-to-right",
+  "alt": "A trial timeline with entry, optional prior sequence generation, one allocation event, and follow-up; assignment and concealment are two properties of that one allocation event.",
+  "longDescription": "The timeline has three broad phases and one optional preparatory step. First, eligibility and recruitment determine who can enter and therefore which population the result describes. An unpredictable allocation sequence may be prepared before recruitment, but it remains hidden from anyone who could influence entry. At the single participant-level allocation event, eligibility and consent are first committed; then the assignment is ascertained and implemented. Random allocation describes how that assignment is chosen, while allocation concealment describes whether it stayed unknowable until commitment. After allocation, participants, providers, data collectors, outcome assessors, and analysts may or may not know the received assignment; blinding limits behaviour or measurement that could differ because of that knowledge. Concealment spans the period before and until assignment is ascertained; blinding begins after assignment.",
+  "nodes": [
+    {
+      "id": "node-entry",
+      "label": "Phase 1 — Entry: eligibility, recruitment, consent, and non-response determine who can be studied",
+      "shape": "rounded-box",
+      "group": "phases"
+    },
+    {
+      "id": "node-entry-safeguard",
+      "label": "Safeguard: a defensible sampling and eligibility route. Failure: the answer describes a different or narrower group than claimed",
+      "shape": "box",
+      "group": "safeguards"
+    },
+    {
+      "id": "node-sequence-generation",
+      "label": "Optional earlier preparation — Generate an unpredictable allocation sequence; keep it concealed from enrollers",
+      "shape": "rounded-box",
+      "group": "preparation"
+    },
+    {
+      "id": "node-random-allocation-safeguard",
+      "label": "Assignment property: prespecified chance-based probabilities make the arms comparable in expectation",
+      "shape": "box",
+      "group": "safeguards"
+    },
+    {
+      "id": "node-allocation-event",
+      "label": "Phase 2 — One allocation event: commit eligibility and consent, then ascertain and implement the assignment",
+      "shape": "diamond",
+      "group": "phases"
+    },
+    {
+      "id": "node-concealment-safeguard",
+      "label": "Timing property: concealment lasts until commitment. Failure: a forthcoming assignment can steer entry",
+      "shape": "box",
+      "group": "safeguards"
+    },
+    {
+      "id": "node-followup",
+      "label": "Phase 3 — Follow-up and outcome measurement: identify who knows the assigned condition",
+      "shape": "rounded-box",
+      "group": "phases"
+    },
+    {
+      "id": "node-blinding-safeguard",
+      "label": "Safeguard: party-specific blinding after assignment. Open pathway: behaviour or measurement could differ by known assignment",
+      "shape": "box",
+      "group": "safeguards"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-entry-to-allocation",
+      "from": "node-entry",
+      "to": "node-allocation-event",
+      "kind": "directed",
+      "label": "then, after this participant's entry is irrevocably committed"
+    },
+    {
+      "id": "edge-sequence-to-allocation",
+      "from": "node-sequence-generation",
+      "to": "node-allocation-event",
+      "kind": "directed",
+      "label": "sequence remains concealed until assignment is ascertained"
+    },
+    {
+      "id": "edge-allocation-to-followup",
+      "from": "node-allocation-event",
+      "to": "node-followup",
+      "kind": "directed",
+      "label": "after the assignment is made, blinding begins where feasible"
+    },
+    {
+      "id": "edge-entry-safeguard",
+      "from": "node-entry",
+      "to": "node-entry-safeguard",
+      "kind": "undirected",
+      "label": "protected by"
+    },
+    {
+      "id": "edge-random-allocation-safeguard",
+      "from": "node-allocation-event",
+      "to": "node-random-allocation-safeguard",
+      "kind": "undirected",
+      "label": "assignment rule"
+    },
+    {
+      "id": "edge-concealment-safeguard",
+      "from": "node-allocation-event",
+      "to": "node-concealment-safeguard",
+      "kind": "undirected",
+      "label": "protected until reveal by"
+    },
+    {
+      "id": "edge-blinding-safeguard",
+      "from": "node-followup",
+      "to": "node-blinding-safeguard",
+      "kind": "undirected",
+      "label": "protected where feasible by"
+    }
+  ]
+}
