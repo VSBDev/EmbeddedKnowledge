@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-diagram-v1",
+  "id": "diagram-measurement-audit",
+  "type": "concept-map",
+  "direction": "top-to-bottom",
+  "alt": "Four connected audit questions move from the target, through the operation and error checks, to the intended interpretation.",
+  "longDescription": "The concept map starts with Target: what is meant? and points to Operation: what produces the record? The operation connects to Consistency and error: what changes within or across stated conditions, and what comparison to a reference shows? It also connects to Meaning: what interpretation and use are proposed? Both checks lead to Defensible measurement claim. The final relation means that evidence is needed across the chain; success at one check cannot substitute for the others.",
+  "nodes": [
+    {
+      "id": "node-target",
+      "label": "Target: what is meant?",
+      "shape": "rounded-box"
+    },
+    {
+      "id": "node-operation",
+      "label": "Operation: what produces the record?",
+      "shape": "rounded-box"
+    },
+    {
+      "id": "node-consistency-error",
+      "label": "Consistency and error under stated conditions and references",
+      "shape": "box"
+    },
+    {
+      "id": "node-meaning",
+      "label": "Meaning: what interpretation and use are proposed?",
+      "shape": "box"
+    },
+    {
+      "id": "node-defensible-claim",
+      "label": "Defensible measurement claim",
+      "shape": "pill"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-target-operation",
+      "from": "node-target",
+      "to": "node-operation",
+      "kind": "directed",
+      "label": "define observable operations"
+    },
+    {
+      "id": "edge-operation-consistency",
+      "from": "node-operation",
+      "to": "node-consistency-error",
+      "kind": "directed",
+      "label": "repeat and compare"
+    },
+    {
+      "id": "edge-operation-meaning",
+      "from": "node-operation",
+      "to": "node-meaning",
+      "kind": "directed",
+      "label": "connect indicator to target"
+    },
+    {
+      "id": "edge-consistency-claim",
+      "from": "node-consistency-error",
+      "to": "node-defensible-claim",
+      "kind": "directed",
+      "label": "constrain precision and error"
+    },
+    {
+      "id": "edge-meaning-claim",
+      "from": "node-meaning",
+      "to": "node-defensible-claim",
+      "kind": "directed",
+      "label": "supply validity evidence"
+    }
+  ]
+}
