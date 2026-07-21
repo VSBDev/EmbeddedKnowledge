@@ -39,6 +39,8 @@ Equal-looking error rates do not give a universal direction rule. The familiar s
 
 **Attrition bias** is distortion created by loss, withdrawal, missing outcomes, or exclusion after units entered a longitudinal study. The percentage missing is only a clue. The stronger questions are why outcomes are missing, whether those reasons differ across groups, whether they relate to the outcome, and how the analysis handled the missing cases. Equal percentages can hide different mechanisms; unequal percentages do not by themselves prove a biased estimate.
 
+The retained units and records form the **analysis set**: what is actually included in a particular analysis.
+
 **Survivorship bias** occurs when the observed set contains only cases that passed an earlier survival, persistence, success, or availability filter, while cases that failed that filter are absent. It is a form of selection bias. “Survival” can mean remaining alive, but it can also mean a business still operating, a device still functioning, or a specimen remaining usable. Attrition usually begins with an enrolled cohort whose members later become missing; survivorship often appears when the sampling frame already contains only those still observable. The boundary can overlap, so name the filter and its timing.
 
 ## Dissemination: publication bias

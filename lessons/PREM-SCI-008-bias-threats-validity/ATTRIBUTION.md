@@ -59,4 +59,4 @@ Before substantive source access on 2026-07-21, the accountable packaging run ch
 
 ## Governance state
 
-This is an author-stage draft. No review or adjudication artifact exists in the pack, every claim remains `pending-review`, and source confidence remains `pending-review`. Nothing in this attribution claims approval, publication, coverage, merge readiness, clinical sufficiency, university credit, or professional authorization.
+The original candidate remains a draft. One academic and one learning-design advisory review of candidate commit `9df98b58e534225725314047d88538235159bd88` are committed under `reviews/`; a distinct fresh finalizer made the bounded post-review revision and recorded its finding dispositions, accessibility-and-rights audit, and decision in `adjudication.json`. Every claim remains `pending-review`, source confidence remains `pending-review`, and the maintainer retains the separate publication transition. Nothing in this attribution claims publication, coverage, completed merge readiness, clinical sufficiency, university credit, or professional authorization.
