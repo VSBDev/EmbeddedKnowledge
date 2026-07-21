@@ -4,7 +4,7 @@ Welcome to Premed. You are beginning a journey through science that makes the hu
 
 You need not know these subjects yet. This welcome shows what you will learn, why each earns its place, and what you can do when they connect. The course begins with careful questions, moves through matter and living systems, and ends with you using evidence on unfamiliar problems.
 
-Here is one glimpse of a finished explanation. If a wider tube carries more liquid in a model, evidence tests the pattern, physics explains how width affects flow, and physiology asks how living tissues and regulation change the picture. Connecting those contributions and limits turns separate facts into an explanation.
+Here is one glimpse of a finished explanation. Suppose a wider tube carries more liquid than a narrow one in a simple model. Evidence tests whether that pattern holds, physics explains how width affects flow, and physiology asks how living tissues and regulation change the picture. Connecting what each subject contributes, and what each one leaves out, turns separate facts into an explanation.
 
 The route is easier to hold in three stages: **evidence and measurement; matter and living systems; people, populations, and capstone work**. The stage shape—not the unfamiliar term inventory—is the target for this welcome. If a term is new, place it in its named subject and note what that subject will later help explain; you will practise that move near the end.
 

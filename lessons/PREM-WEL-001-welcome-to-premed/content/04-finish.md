@@ -18,14 +18,14 @@ Pause here. Read the task, then cover the comparison below and commit your answe
 A friend asks, “Why isn't Premed just biology?” Without looking back, give a brief answer that:
 
 1. names the subjects that begin, develop, and complete the journey;
-2. gives one example of a concept preparing later medical study;
-3. names all four completion capabilities and two actions a finisher should perform; and
+2. gives four examples of concepts from four different subjects, each with what it prepares for in later medical study;
+3. names all four completion capabilities and one action that shows each; and
 4. states one thing Premed completion does not authorize, award, or guarantee.
 
 You do not need to explain any science you have not learned yet.
 :::
 
-Compare: begin with inquiry and quantitative work; develop chemical, physical, biological, human, microbial, behavioural, social, and population subjects; and end with capstone work. Include one preparation link, such as pressure and flow preparing circulation. Name all four capabilities—explain, model, investigate, and integrate—and two finisher actions, such as explaining a relationship and investigating a question with a fair comparison. Add one completion boundary, such as “Premed does not authorize diagnosis or treatment.” If you only listed subjects, add why a transition matters; if you omitted a capability, an action, or the boundary, add it before moving on.
+Compare: begin with inquiry and quantitative work; develop chemical, physical, biological, human, microbial, behavioural, social, and population subjects; and end with capstone work. Include four preparation links from four different subjects, such as pressure and flow preparing circulation, or gene expression preparing how cells come to differ. Name all four capabilities—explain, model, investigate, and integrate—and one action for each, such as explaining a relationship, modelling it and saying what the model omits, investigating a question with a fair comparison, and integrating subjects on an unfamiliar problem. Add one completion boundary, such as “Premed does not authorize diagnosis or treatment.” If you only listed subjects, add why a transition matters; if you omitted a capability, an action, or the boundary, add it before moving on.
 
 :::{misconception}
 :id: misconception-prior-science-gate

@@ -95,4 +95,4 @@ This lesson-level operability correction was completed in a seventh isolated aut
 
 This seventh digest covers the exact MATERIAL INSTRUCTIONS block supplied to this run and excludes the provenance wrapper and hidden provider/system instructions.
 
-This pack remains a draft. Its unchanged historical reviews target versions 0.1.0 through 0.4.1 and do not approve this 0.4.2 correction; no adjudication exists. The pack makes no claim of approval, publication, course coverage, learner effectiveness, clinical sufficiency, academic credit, or admission eligibility.
+This pack is a `0.4.3` candidate. Its retained historical reviews target versions 0.1.0 through 0.4.2 and do not approve this 0.4.3 revision; no adjudication exists for it. The pack makes no claim of approval, publication, course coverage, learner effectiveness, clinical sufficiency, academic credit, or admission eligibility.
