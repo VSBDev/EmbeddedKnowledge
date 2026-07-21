@@ -4,79 +4,79 @@
   "id": "diagram-safeguard-timeline",
   "type": "timeline",
   "direction": "left-to-right",
-  "alt": "A trial timeline with four moments — entry, assignment, the point of allocation, and follow-up — each paired with the safeguard that acts there.",
-  "longDescription": "The timeline runs left to right through four moments in the life of a study, each paired with the safeguard that protects it and the error that appears when the safeguard is absent. Moment one, who could enter: eligibility rules, recruitment, and non-response decide which population the result describes; the safeguard is a defensible sampling and eligibility route; the failure is an estimate that describes a narrower or different group than claimed, which is a limit on external validity. Moment two, how the groups are formed: a chance mechanism assigns each participant to a condition; the safeguard is random allocation; the failure is groups that differ systematically before the study begins. Moment three, the point of allocation: each participant's entry is either irrevocably committed before their assignment can be known, or still open while the assignment is already visible; the safeguard is allocation concealment, whose test is commitment first and knowability second; the failure is steering of who enters which group. Moment four, while the study runs and outcomes are measured: participants, providers, and assessors either do or do not know the assignment each participant received; the safeguard is blinding; the failure is behaviour or measurement that differs by known assignment. The dividing line is moment three: random allocation and concealment act before or at the point of allocation, and blinding acts only after it.",
+  "alt": "A trial timeline with entry, optional prior sequence generation, one allocation event, and follow-up; assignment and concealment are two properties of that one allocation event.",
+  "longDescription": "The timeline has three broad phases and one optional preparatory step. First, eligibility and recruitment determine who can enter and therefore which population the result describes. An unpredictable allocation sequence may be prepared before recruitment, but it remains hidden from anyone who could influence entry. At the single participant-level allocation event, eligibility and consent are first committed; then the assignment is ascertained and implemented. Random allocation describes how that assignment is chosen, while allocation concealment describes whether it stayed unknowable until commitment. After allocation, participants, providers, data collectors, outcome assessors, and analysts may or may not know the received assignment; blinding limits behaviour or measurement that could differ because of that knowledge. Concealment spans the period before and until assignment is ascertained; blinding begins after assignment.",
   "nodes": [
     {
       "id": "node-entry",
-      "label": "Moment 1 — Who could enter: eligibility, recruitment, and non-response",
+      "label": "Phase 1 — Entry: eligibility, recruitment, consent, and non-response determine who can be studied",
       "shape": "rounded-box",
-      "group": "moments"
+      "group": "phases"
     },
     {
       "id": "node-entry-safeguard",
-      "label": "Safeguard: a defensible sampling and eligibility route. Failure: the answer describes a different group than claimed (external validity)",
+      "label": "Safeguard: a defensible sampling and eligibility route. Failure: the answer describes a different or narrower group than claimed",
       "shape": "box",
       "group": "safeguards"
     },
     {
-      "id": "node-assignment",
-      "label": "Moment 2 — How the groups are formed: each participant is placed in a condition",
+      "id": "node-sequence-generation",
+      "label": "Optional earlier preparation — Generate an unpredictable allocation sequence; keep it concealed from enrollers",
       "shape": "rounded-box",
-      "group": "moments"
+      "group": "preparation"
     },
     {
-      "id": "node-assignment-safeguard",
-      "label": "Safeguard: random allocation. Failure: groups differ systematically before the study starts",
+      "id": "node-random-allocation-safeguard",
+      "label": "Assignment property: prespecified chance-based probabilities make the arms comparable in expectation",
       "shape": "box",
       "group": "safeguards"
     },
     {
-      "id": "node-allocation-instant",
-      "label": "Moment 3 — The point of allocation: is entry committed before the assignment can be known?",
+      "id": "node-allocation-event",
+      "label": "Phase 2 — One allocation event: commit eligibility and consent, then ascertain and implement the assignment",
       "shape": "diamond",
-      "group": "moments"
+      "group": "phases"
     },
     {
       "id": "node-concealment-safeguard",
-      "label": "Safeguard: allocation concealment — commitment first, knowability second. Failure: entry into each group is steered",
+      "label": "Timing property: concealment lasts until commitment. Failure: a forthcoming assignment can steer entry",
       "shape": "box",
       "group": "safeguards"
     },
     {
       "id": "node-followup",
-      "label": "Moment 4 — While the study runs and outcomes are measured: who knows what each participant received?",
+      "label": "Phase 3 — Follow-up and outcome measurement: identify who knows the assigned condition",
       "shape": "rounded-box",
-      "group": "moments"
+      "group": "phases"
     },
     {
       "id": "node-blinding-safeguard",
-      "label": "Safeguard: blinding. Failure: behaviour or measurement differs by known assignment",
+      "label": "Safeguard: party-specific blinding after assignment. Open pathway: behaviour or measurement could differ by known assignment",
       "shape": "box",
       "group": "safeguards"
     }
   ],
   "edges": [
     {
-      "id": "edge-entry-to-assignment",
+      "id": "edge-entry-to-allocation",
       "from": "node-entry",
-      "to": "node-assignment",
+      "to": "node-allocation-event",
       "kind": "directed",
-      "label": "then"
+      "label": "then, after this participant's entry is irrevocably committed"
     },
     {
-      "id": "edge-assignment-to-instant",
-      "from": "node-assignment",
-      "to": "node-allocation-instant",
+      "id": "edge-sequence-to-allocation",
+      "from": "node-sequence-generation",
+      "to": "node-allocation-event",
       "kind": "directed",
-      "label": "then"
+      "label": "sequence remains concealed until assignment is ascertained"
     },
     {
-      "id": "edge-instant-to-followup",
-      "from": "node-allocation-instant",
+      "id": "edge-allocation-to-followup",
+      "from": "node-allocation-event",
       "to": "node-followup",
       "kind": "directed",
-      "label": "then; everything after this point is blinding's territory"
+      "label": "after the assignment is made, blinding begins where feasible"
     },
     {
       "id": "edge-entry-safeguard",
@@ -86,25 +86,25 @@
       "label": "protected by"
     },
     {
-      "id": "edge-assignment-safeguard",
-      "from": "node-assignment",
-      "to": "node-assignment-safeguard",
+      "id": "edge-random-allocation-safeguard",
+      "from": "node-allocation-event",
+      "to": "node-random-allocation-safeguard",
       "kind": "undirected",
-      "label": "protected by"
+      "label": "assignment rule"
     },
     {
       "id": "edge-concealment-safeguard",
-      "from": "node-allocation-instant",
+      "from": "node-allocation-event",
       "to": "node-concealment-safeguard",
       "kind": "undirected",
-      "label": "protected by"
+      "label": "protected until reveal by"
     },
     {
       "id": "edge-blinding-safeguard",
       "from": "node-followup",
       "to": "node-blinding-safeguard",
       "kind": "undirected",
-      "label": "protected by"
+      "label": "protected where feasible by"
     }
   ]
 }
