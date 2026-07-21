@@ -1,0 +1,281 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-assessment-v1",
+  "lessonId": "PREM-SCI-006",
+  "lessonVersion": "0.1.0",
+  "assessmentId": "assessment-measurement-audit",
+  "title": "Measurement, repeatability, and validity mastery check",
+  "purpose": "mastery-gate",
+  "attemptPolicy": {
+    "retakeable": true,
+    "timeLimitMinutes": null,
+    "feedback": "after-attempt"
+  },
+  "items": [
+    {
+      "id": "item-scatter-shift",
+      "type": "single-choice",
+      "sceneId": "scene-defend-judgment",
+      "objectiveIds": [
+        "objective-diagnose-measurement-error",
+        "objective-evaluate-repeatability-reproducibility"
+      ],
+      "outcomeIds": [
+        "topic-scientific-inquiry-measurement-validity"
+      ],
+      "prompt": "Two devices measure a stable 100.0-unit reference under one set of repeatability conditions. Device P reads 99.5, 100.5, 99.6, 100.4, and 100.0. Device Q reads 104.9, 105.0, 105.1, 105.0, and 105.0. Which interpretation is complete?",
+      "stimulus": null,
+      "points": 3,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-p-scatter-q-shift",
+            "text": "P has more short-term scatter but its mean is 100.0; Q is more repeatable here but has an approximately +5.0-unit systematic component, which averaging alone will not remove."
+          },
+          {
+            "id": "option-q-valid-because-repeatable",
+            "text": "Q is the better and valid device because its readings agree most closely with one another; no reference comparison is needed."
+          },
+          {
+            "id": "option-p-systematic-q-random",
+            "text": "P shows only systematic error, whereas Q shows only random error because all of Q's values are above the reference."
+          },
+          {
+            "id": "option-average-removes-both",
+            "text": "Averaging enough readings from either device necessarily removes both the scatter and the shift."
+          }
+        ],
+        "units": null,
+        "tolerance": null,
+        "maxSelections": 1,
+        "maxLength": null
+      },
+      "answer": {
+        "correct": "option-p-scatter-q-shift",
+        "summary": "P is less repeatable in this set but centered on the reference; Q is tightly grouped and shifted upward together.",
+        "reasoning": "Device P has mean 100.0 and range 1.0 unit. Device Q has mean 105.0 and range 0.2 units. Award one point for recognizing P's greater scatter, one for recognizing Q's better condition-specific repeatability plus an approximately +5.0-unit systematic component, and one for rejecting averaging as a repair for that stable shift. On a retry, compare 20.0-unit reference readings from one device that alternate between 19 and 21 and another that stays between 22.9 and 23.1.",
+        "acceptableResponses": [
+          "The option that separates P's greater scatter from Q's tighter but approximately +5.0-unit shifted results."
+        ],
+        "commonErrors": [
+          "Treating tight grouping as agreement with the reference",
+          "Calling a shared one-direction shift random error",
+          "Assuming that a larger sample removes a stable offset"
+        ]
+      },
+      "rubricId": "rubric-scatter-shift",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-operational-construct",
+      "type": "open-response",
+      "sceneId": "scene-defend-judgment",
+      "objectiveIds": [
+        "objective-critique-operational-definitions",
+        "objective-evaluate-construct-validity"
+      ],
+      "outcomeIds": [
+        "topic-scientific-inquiry-measurement-validity"
+      ],
+      "prompt": "A fictional online course defines learner engagement as the number of clicks made during a 30-minute module. The software reproduces the count exactly. Critique the measure by naming the target and operation, one relevant part of engagement the count may omit, one construct-irrelevant influence it may include, and either a narrower warranted interpretation or evidence needed for the broader engagement interpretation.",
+      "stimulus": null,
+      "points": 3,
+      "responseSpec": {
+        "mode": "text",
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "maxLength": 1800
+      },
+      "answer": {
+        "correct": "The target is learner engagement and the operation is an exact count of clicks during one 30-minute module. Exact reproduction establishes processing consistency, not construct validity. The count can omit attention, effort, explanation, or persistence and can be increased by interface design, confusion, or repeated navigation. A narrow interpretation is interaction count in this module. A broader engagement interpretation needs a stated construct and predictions plus content, response-process, convergent, discriminant, population, and setting evidence appropriate to the use.",
+        "summary": "An exact behavioral count can be operationally clear and reliable while remaining an incomplete or contaminated indicator of engagement.",
+        "reasoning": "Award one point for correctly separating the target construct from the click-count operation and stating what exact reproduction establishes. Award one point for a credible omitted component and a credible irrelevant influence. Award one point for either narrowing the interpretation to interaction count or proposing relevant validity evidence tied to the intended use. A bare label of 'invalid' earns no validity point because it does not identify the failed link or repair. On a retry, evaluate 'collaboration equals the number of messages posted during a supplied group puzzle' without collecting personal communications.",
+        "acceptableResponses": [
+          "Any response that separates engagement from click count, identifies both underrepresentation and an irrelevant influence, and narrows or evidentially tests the intended interpretation."
+        ],
+        "commonErrors": [
+          "Equating exact data processing with construct validity",
+          "Naming only an omitted feature without an irrelevant influence",
+          "Calling the measure invalid without stating the proposed interpretation and missing evidence"
+        ]
+      },
+      "rubricId": "rubric-operational-construct",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-conditions-calibration",
+      "type": "data-interpretation",
+      "sceneId": "scene-defend-judgment",
+      "objectiveIds": [
+        "objective-diagnose-measurement-error",
+        "objective-evaluate-repeatability-reproducibility"
+      ],
+      "outcomeIds": [
+        "topic-scientific-inquiry-measurement-validity"
+      ],
+      "prompt": "A sample has an assigned reference value of 8.0 units. In Laboratory A, one operator using Instrument A obtains 7.9, 8.0, and 8.1 in one hour. In Laboratory B, a different operator using Instrument B obtains 8.7, 8.8, and 8.9 two days later. State what the data show about repeatability and reproducibility, explain why the cause of the between-laboratory shift is not identified, and name one reference or calibration check needed next.",
+      "stimulus": null,
+      "points": 3,
+      "responseSpec": {
+        "mode": "text",
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "maxLength": 1800
+      },
+      "answer": {
+        "correct": "Each laboratory's triplet is tightly grouped, which supports repeatability under its own stated conditions. Agreement is poor across the combined changes in laboratory, operator, instrument, and day, so reproducibility across those conditions is weak. Because all four conditions changed together, the data cannot identify which produced the shift. Each measuring system should be checked against an appropriate current reference under documented conditions, with its calibration relation, traceability chain, uncertainty, and any correction examined before use.",
+        "summary": "Tight within-laboratory groups can coexist with poor between-laboratory agreement, and changing several conditions together hides the source.",
+        "reasoning": "Award one point for the condition-specific repeatability judgment, one for the reproducibility judgment plus recognition that laboratory, operator, instrument, and day are confounded, and one for a concrete next reference/calibration check. If your answer says only 'Lab B is wrong,' name the comparison that supports concern and the calibration evidence still required. On a retry, compare two observers, two microscopes, and two image-processing versions changed together on the same supplied reference slide.",
+        "acceptableResponses": [
+          "Any equivalent interpretation that separates within-condition repeatability from across-condition reproducibility, refuses to assign cause from bundled changes, and proposes a defensible reference or calibration investigation."
+        ],
+        "commonErrors": [
+          "Calling both triplets reproducible because each is tightly grouped",
+          "Assigning the shift to the operator when instrument, laboratory, and day also changed",
+          "Treating a calibration record as proof that uncertainty is adequate for every purpose"
+        ]
+      },
+      "rubricId": "rubric-conditions-calibration",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-transfer-greenhouse",
+      "type": "open-response",
+      "sceneId": "scene-defend-judgment",
+      "objectiveIds": [
+        "objective-critique-operational-definitions",
+        "objective-diagnose-measurement-error",
+        "objective-evaluate-repeatability-reproducibility",
+        "objective-evaluate-construct-validity"
+      ],
+      "outcomeIds": [
+        "topic-scientific-inquiry-measurement-validity"
+      ],
+      "prompt": "A fictional greenhouse study compares two light treatments and defines seedling vigor as total leaf area on day 7, estimated from standardized photographs. Reprocessing the same photographs in Laboratory A gives nearly identical areas. Laboratory B uses a different camera and analysis system; for a supplied 100.0 cm² reference shape, it repeatedly reports about 108.0 cm². Build a complete measurement judgment: evaluate the operational definition, the repeatability and reproducibility evidence, the error pattern and next calibration action, the construct-validity limits of leaf area as seedling vigor, and the strongest conclusion currently warranted.",
+      "stimulus": null,
+      "points": 5,
+      "responseSpec": {
+        "mode": "text",
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "maxLength": 2600
+      },
+      "answer": {
+        "correct": "The target is seedling vigor and the operation is total leaf area on day 7 from a standardized imaging procedure; the protocol still needs explicit image capture, segmentation, exclusion, and unit rules. Near-identical reprocessing in Laboratory A supports processing repeatability, not every measurement condition. Laboratory B's tight results near 108.0 cm² for a 100.0 cm² reference suggest a reproducible within-system result with an approximately +8% systematic component and poor cross-system agreement. The team should investigate both systems against appropriate traceable area references, document calibration relations and corrections, and then recheck. Leaf area may represent one aspect of vigor while omitting roots, biomass, tissue condition, and later growth, and it may respond to leaf shape or segmentation artifacts. The current data support only a claim about day-7 image-derived leaf area under the checked system; they do not yet justify a broad vigor interpretation or a light-treatment conclusion without the study comparison and validity evidence.",
+        "summary": "A full audit keeps image-processing consistency, cross-system shift, calibration, and the broader biological construct as separate judgments.",
+        "reasoning": "Award one point for a precise target/operation critique, one for separating Laboratory A repeatability from cross-laboratory reproducibility, one for identifying the approximately +8% systematic component and a reference/calibration response, one for a substantive construct-validity analysis with at least one omission and one irrelevant influence or evidence proposal, and one for a bounded conclusion limited to image-derived leaf area and the supplied study evidence. On a retry, audit 'microbial colony health equals automated colony area after 24 hours' using a supplied non-pathogenic image dataset and a reference grid; do not propose culturing organisms.",
+        "acceptableResponses": [
+          "Any complete four-question audit that preserves the distinctions among the imaging operation, condition-specific precision, reference shift, construct evidence, and warranted conclusion."
+        ],
+        "commonErrors": [
+          "Treating reprocessing consistency as reproducibility across cameras and laboratories",
+          "Ignoring the 100.0 cm² reference when interpreting Laboratory B",
+          "Equating leaf area with every biologically relevant aspect of seedling vigor",
+          "Claiming a treatment effect without comparative treatment results"
+        ]
+      },
+      "rubricId": "rubric-transfer-greenhouse",
+      "safetyCritical": false
+    }
+  ],
+  "rubrics": [
+    {
+      "id": "rubric-scatter-shift",
+      "title": "Scatter and shift interpretation",
+      "criteria": [
+        {
+          "id": "criterion-p-scatter",
+          "description": "Award 1 point only when Device P's larger short-term dispersion and mean of 100.0 are identified.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-q-repeatable-shifted",
+          "description": "Award 1 point only when Device Q is identified as more repeatable under the checked conditions and shifted approximately +5.0 units from the reference.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-average-boundary",
+          "description": "Award 1 point only when averaging is rejected as an automatic repair for Device Q's stable shift.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-operational-construct",
+      "title": "Operational definition and construct critique",
+      "criteria": [
+        {
+          "id": "criterion-target-operation",
+          "description": "Award 1 point for separating learner engagement as the target from click count as the operation and limiting what exact reproduction establishes.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-omission-irrelevance",
+          "description": "Award 1 point for one credible omitted part of engagement and one credible construct-irrelevant influence on click count.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-narrow-or-test",
+          "description": "Award 1 point for a warranted narrower interpretation or a relevant evidence plan tied to the broader intended interpretation and use.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-conditions-calibration",
+      "title": "Condition and calibration judgment",
+      "criteria": [
+        {
+          "id": "criterion-within-repeatability",
+          "description": "Award 1 point for interpreting each tight triplet as repeatability evidence limited to its stated within-laboratory conditions.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-across-reproducibility",
+          "description": "Award 1 point for identifying weak agreement across the bundled laboratory, operator, instrument, and day changes and refusing to assign a unique cause.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-reference-action",
+          "description": "Award 1 point for a concrete reference or calibration investigation with documented conditions, traceability, uncertainty, or correction.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-transfer-greenhouse",
+      "title": "Complete greenhouse measurement audit",
+      "criteria": [
+        {
+          "id": "criterion-transfer-operation",
+          "description": "Award 1 point for separating seedling vigor from day-7 image-derived leaf area and identifying a needed procedural specification.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-transfer-conditions",
+          "description": "Award 1 point for separating same-image processing repeatability from agreement across changed camera, system, and laboratory conditions.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-transfer-error",
+          "description": "Award 1 point for identifying the approximately +8% systematic component and proposing an appropriate reference/calibration response.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-transfer-validity",
+          "description": "Award 1 point for a construct-validity analysis that names an omitted aspect, an irrelevant influence, or a relevant source of evidence.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-transfer-conclusion",
+          "description": "Award 1 point for limiting the conclusion to day-7 image-derived leaf area and refusing a broad vigor or treatment-effect claim from the supplied evidence alone.",
+          "maxPoints": 1
+        }
+      ]
+    }
+  ]
+}

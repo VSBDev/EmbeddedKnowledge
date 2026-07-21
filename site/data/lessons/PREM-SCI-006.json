@@ -1,0 +1,1104 @@
+{
+  "schemaVersion": 3,
+  "format": "embeddedknowledge-lesson-v1",
+  "artifactType": "production-lesson",
+  "id": "PREM-SCI-006",
+  "version": "0.1.0",
+  "title": "When a number earns its name: measurement, repeatability, and validity",
+  "status": "draft",
+  "riskTier": "standard",
+  "estimatedMinutes": 180,
+  "outcomes": [
+    "topic-scientific-inquiry-measurement-validity"
+  ],
+  "prerequisites": [
+    "topic-scientific-inquiry-variables-controls"
+  ],
+  "objectives": [
+    {
+      "id": "objective-critique-operational-definitions",
+      "statement": "Critique and repair an operational definition by identifying its target, observable procedure, intended use, and important omissions or irrelevant influences.",
+      "outcomeIds": [
+        "topic-scientific-inquiry-measurement-validity"
+      ]
+    },
+    {
+      "id": "objective-diagnose-measurement-error",
+      "statement": "Use repeated and reference measurements to distinguish random from systematic error and explain when averaging or correction can and cannot improve a result.",
+      "outcomeIds": [
+        "topic-scientific-inquiry-measurement-validity"
+      ]
+    },
+    {
+      "id": "objective-evaluate-repeatability-reproducibility",
+      "statement": "Evaluate repeatability and reproducibility evidence by naming the measurement conditions held fixed or deliberately changed and separating precision from accuracy.",
+      "outcomeIds": [
+        "topic-scientific-inquiry-measurement-validity"
+      ]
+    },
+    {
+      "id": "objective-evaluate-construct-validity",
+      "statement": "Judge whether convergent, discriminant, content, process, population, and setting evidence supports a proposed construct interpretation without treating consistency as sufficient.",
+      "outcomeIds": [
+        "topic-scientific-inquiry-measurement-validity"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene-when-numbers-agree",
+      "title": "When a number agrees with itself—and is still wrong",
+      "kind": "orientation",
+      "source": "content/010-when-numbers-agree.md",
+      "estimatedMinutes": 22,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>When a number agrees with itself—and is still wrong</h1>\n<p>A laboratory checks a temperature probe five times in a stable reference bath. The display reads 2.0, 2.1, 2.0, 2.0, and 2.1 °C. The readings huddle together, so the probe seems dependable. Then the laboratory discovers that the reference value was 0.0 °C.</p>\n<p>The probe answered the same way each time. It also answered the wrong question about temperature by about two degrees.</p>\n<p>That is why “Is this measure good?” is too blunt. A useful measurement audit asks four narrower questions:</p>\n<ol>\n<li><strong>Target:</strong> What quantity or idea is the study trying to represent?</li>\n<li><strong>Operation:</strong> What exactly produces the recorded value?</li>\n<li><strong>Consistency and error:</strong> What happens when the operation is repeated, and how do results compare with a defensible reference?</li>\n<li><strong>Meaning:</strong> What interpretation will researchers place on the value, and what evidence supports that interpretation?</li>\n</ol>\n<p>By the end of this lesson, you will be able to use those questions to critique an operational definition, separate random from systematic measurement error, distinguish repeatability from reproducibility, and judge whether evidence supports an intended construct interpretation.</p>\n<h2>Retrieve the comparison underneath the measure</h2>\n<p>Measurement sits inside a study design. Before continuing, try this low-stakes check from the prerequisite lesson.</p>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-prerequisite-variables</span></div>\n    <div class=\"ek-block-content\"><p>A team compares two fictional sample-storage methods. The team assigns storage method A or B, holds sample volume and storage time alike, and records enzyme activity with one instrument.</p>\n<p>Name the independent variable, dependent variable, and two controlled variables. Then identify the part of the sentence that still needs a measurement audit.</p>\n</div>\n  </aside>\n<p>The independent variable is storage method. The dependent variable is the recorded enzyme activity. Sample volume and storage time are controlled variables. The remaining audit concerns how the instrument turns “enzyme activity” into a value, how much that value varies, and what the value can justifiably mean.</p>\n<aside class=\"ek-block ek-callout ek-block--recovery\" data-directive=\"callout\">\n    <div class=\"ek-block-label directive-label\">Callout</div>\n    \n    <div class=\"ek-block-content\"><h2>Recovery route</h2>\n<p>If those variable roles were hard to retrieve, review <a href=\"https://embeddedknowledge.io/premed/lessons/read/?lesson=PREM-SCI-003\" rel=\"noreferrer noopener\">Variables and controls: what a comparison really tests</a>. Return when you can state what researchers change, what they record, and what they hold alike. You do not need its assessment score to continue.</p>\n</div>\n  </aside>\n<h2>What this lesson does not claim</h2>\n<p>This is a college-intro audit, not a full course in psychometrics or measurement uncertainty. You will not calculate reliability coefficients, design a clinical diagnostic instrument, or build a complete uncertainty budget. You will learn which evidence question to ask and which conclusions the available evidence cannot support.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-operational-definition, claim-validity-interpretation, claim-consistency-not-sufficient</span><span><b>sources</b> source-nist-operational-definition, source-jcgm-vim, source-testing-standards</span></div>\n    <div class=\"ek-block-content\"><p>The sources support the distinction between a specified measurement operation, precision or consistency, and evidence for an intended interpretation. The temperature-probe opening and storage-method diagnostic are original fictional teaching cases.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-four-question-audit",
+      "title": "Four questions connect a concept to a defensible claim",
+      "kind": "concept",
+      "source": "content/020-four-question-audit.md",
+      "estimatedMinutes": 34,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Four questions connect a concept to a defensible claim</h1>\n<p>A measurement begins before a device displays a number or an observer checks a box. It begins when researchers decide what they want the record to stand for.</p>\n<p>The chain is:</p>\n<blockquote>\n<p>target quantity or construct → operational definition → recorded result → intended interpretation and use</p>\n</blockquote>\n<p>Each arrow can fail. A vague operation can produce records that nobody can repeat. A noisy procedure can hide differences. A stable offset can move every reading. A perfectly consistent procedure can still represent only a narrow or irrelevant part of the intended construct.</p>\n<figure class=\"ek-block ek-diagram\" data-directive=\"diagram\" data-diagram-source=\"diagrams/measurement-audit.diagram.json\">\n    <div class=\"ek-block-label directive-label\">Diagram</div>\n    <div class=\"ek-diagram-visual\" role=\"img\" aria-label=\"Four connected audit questions move from the target, through the operation and error checks, to the intended interpretation.\"><span class=\"ek-diagram-node ek-diagram-node--rounded-box\">Target: what is meant?</span><span class=\"ek-diagram-arrow\" aria-hidden=\"true\">→</span><span class=\"ek-diagram-node ek-diagram-node--rounded-box\">Operation: what produces the record?</span><span class=\"ek-diagram-arrow\" aria-hidden=\"true\">→</span><span class=\"ek-diagram-node ek-diagram-node--box\">Consistency and error under stated conditions and references</span><span class=\"ek-diagram-arrow\" aria-hidden=\"true\">→</span><span class=\"ek-diagram-node ek-diagram-node--box\">Meaning: what interpretation and use are proposed?</span><span class=\"ek-diagram-arrow\" aria-hidden=\"true\">→</span><span class=\"ek-diagram-node ek-diagram-node--pill\">Defensible measurement claim</span></div>\n    <figcaption>Four connected audit questions move from the target, through the operation and error checks, to the intended interpretation.</figcaption>\n    <details class=\"ek-long-description\"><summary>Read the diagram as text</summary><p>The concept map starts with “Target: what is meant?” and points to “Operation: what produces the record?” The operation points to two linked checks: “Consistency and error: what changes within or across stated conditions, and what comparison to a reference shows?” and “Meaning: what interpretation and use are proposed?” The final relation says that a defensible measurement claim needs evidence across the chain; success at one check cannot substitute for the others.</p><ul><li><strong>Target: what is meant?</strong> → <strong>Operation: what produces the record?</strong>: define observable operations</li><li><strong>Operation: what produces the record?</strong> → <strong>Consistency and error under stated conditions and references</strong>: repeat and compare</li><li><strong>Operation: what produces the record?</strong> → <strong>Meaning: what interpretation and use are proposed?</strong>: connect indicator to target</li><li><strong>Consistency and error under stated conditions and references</strong> → <strong>Defensible measurement claim</strong>: constrain precision and error</li><li><strong>Meaning: what interpretation and use are proposed?</strong> → <strong>Defensible measurement claim</strong>: supply validity evidence</li></ul></details>\n  </figure>\n<h2>1. Name the target, then make the operation inspectable</h2>\n<p>A <strong>quantity</strong> can be expressed with a number and a reference, such as a duration in milliseconds. A <strong>construct</strong> is an idea used to organize related observations, such as alertness, belonging, or coordination. A construct is not read directly from nature; researchers choose observable indicators that they expect to represent it.</p>\n<p>An <strong>operational definition</strong> states the procedure or rule that turns the target into a record. “Measure alertness” is not operational. “Record the median response time, in milliseconds, across 20 valid trials of a specified computer task after 5 practice trials” is operational because another team can inspect and repeat the operation.</p>\n<p>Precision of wording does not prove precision of results, and neither proves construct validity. The operation may be reproducible yet omit important parts of alertness or respond to something else.</p>\n<h2>2. Look for scatter and shift</h2>\n<p>When a suitable reference value exists, a simple reasoning model is:</p>\n<figure class=\"ek-block ek-equation\" data-directive=\"equation\"><div class=\"ek-block-label directive-label\">equation-error-model</div><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><msub><mi>x</mi><mpadded lspace=\"0\"><mi>observed</mi></mpadded></msub><mo>=</mo><msub><mi>x</mi><mpadded lspace=\"0\"><mi>reference</mi></mpadded></msub><mo>+</mo><mi>b</mi><mo>+</mo><mi>ε</mi></mrow><annotation encoding=\"application/x-tex\">x_{\\mathrm{observed}} = x_{\\mathrm{reference}} + b + \\varepsilon</annotation></semantics></math><figcaption>TeX source: <code>x_{\\mathrm{observed}} = x_{\\mathrm{reference}} + b + \\varepsilon</code></figcaption></figure>\n<p>Read this as: the observed value equals the reference value, plus a component <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>b</mi><annotation encoding=\"application/x-tex\">b</annotation></semantics></math></span> that stays constant or changes predictably, plus a component <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>ε</mi><annotation encoding=\"application/x-tex\">\\varepsilon</annotation></semantics></math></span> that varies unpredictably across repeated measurements. The model is a teaching aid for a bounded case with a reference; it is not a complete uncertainty analysis, and the components are not known perfectly in ordinary work.</p>\n<ul>\n<li><strong>Random measurement error</strong> is the component that varies unpredictably across replicate measurements. It appears as scatter under stated conditions.</li>\n<li><strong>Systematic measurement error</strong> is the component that remains constant or varies predictably across replicates. It appears as a shift or pattern when results are compared with an appropriate reference or method.</li>\n</ul>\n<p>Repeating a measurement helps estimate its dispersion. Averaging can reduce the influence of a random component only when the relevant observations behave independently enough and the component is centered around zero for the intended conditions. Averaging a stable offset leaves the offset in place.</p>\n<h2>3. State what was allowed to vary</h2>\n<p><strong>Repeatability</strong> is measurement precision under repeatability conditions: the procedure, operator, measuring system, location, and a short time interval are kept the same as specified. It asks how tightly results agree when conditions change as little as the protocol permits.</p>\n<p><strong>Reproducibility</strong> is measurement precision under reproducibility conditions, where relevant conditions change. A useful report names those changes—for example, different operators and laboratories using the same written procedure. “The measure is reproducible” is incomplete if nobody says across which changes.</p>\n<p>Both ideas describe precision. Neither, by itself, shows closeness to a reference or that the intended construct was captured. For ratings, the changed condition may be the rater; agreement across independent raters then addresses one specific source of inconsistency.</p>\n<p>Other fields often use <strong>reliability</strong> for score consistency across a stated domain of replications, such as occasions, raters, or item samples. A reliability statement is incomplete unless that domain is clear: a score can be consistent across raters yet unstable across days. This lesson uses repeatability and reproducibility when discussing measurement precision so that the conditions stay visible.</p>\n<h2>4. Connect the result to a reference and to its intended meaning</h2>\n<p><strong>Calibration</strong> establishes a relation between indications and values supplied by standards under specified conditions, including their uncertainties, and then uses that relation to obtain a measurement result. Calibration may support a correction; it is not the same act as adjusting the instrument.</p>\n<p><strong>Metrological traceability</strong> is a property of a measurement result: the result can be related to a stated reference through a documented, unbroken calibration chain, with each link contributing to uncertainty. Traceability does not guarantee that uncertainty is small enough for a purpose or that no mistakes occurred.</p>\n<p>For a construct, there may be no single reference value. <strong>Construct validity</strong> is therefore evaluated through an argument: do evidence and theory support the proposed interpretation of the results for the stated use? Useful evidence can ask whether the measure covers the intended construct, whether irrelevant features contaminate it, whether the response process makes sense, and whether relationships with other variables match prior predictions.</p>\n<p>Relations with measures of the same or a closely related construct can provide <strong>convergent evidence</strong>. Weaker relations with measures of different constructs can provide <strong>discriminant evidence</strong>. Those patterns are sources of evidence, not automatic certificates. Population, language, setting, procedure, and use can change the meaning of a result, so validity belongs to an interpretation in context rather than to an instrument forever.</p>\n<table>\n<thead>\n<tr>\n<th>Audit question</th>\n<th>Evidence it can supply</th>\n<th>What it cannot establish alone</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>Is the operation explicit?</td>\n<td>Inspectability and repeatable implementation</td>\n<td>Low error or valid meaning</td>\n</tr>\n<tr>\n<td>Do replicates agree under stated conditions?</td>\n<td>Repeatability or reproducibility precision</td>\n<td>Closeness to a reference</td>\n</tr>\n<tr>\n<td>Do results agree with a defensible reference?</td>\n<td>Evidence about shift, calibration, or accuracy</td>\n<td>Representation of a broad construct</td>\n</tr>\n<tr>\n<td>Do predicted content, processes, and relationships hold?</td>\n<td>Construct-validity evidence for an interpretation and use</td>\n<td>Universal validity in every population or setting</td>\n</tr>\n</tbody></table>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-operational-definition, claim-error-components, claim-averaging-boundary, claim-repeatability-reproducibility, claim-calibration-traceability, claim-validity-interpretation, claim-construct-evidence, claim-consistency-not-sufficient</span><span><b>sources</b> source-nist-operational-definition, source-jcgm-vim, source-nist-tn1297, source-testing-standards</span></div>\n    <div class=\"ek-block-content\"><p>NIST and JCGM support the operational, error, precision, calibration, and traceability distinctions. The Testing Standards support validity as evidence for a proposed interpretation and use, the need to state replication conditions, and convergent, discriminant, population, and setting evidence. The four-question chain, equation framing, examples, and table are original synthesis.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-worked-alertness-audit",
+      "title": "Audit one measure without letting a tidy number decide for you",
+      "kind": "worked-example",
+      "source": "content/030-worked-alertness-audit.md",
+      "estimatedMinutes": 36,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Audit one measure without letting a tidy number decide for you</h1>\n<p>The following laboratory is fictional. The task uses no participant records and makes no claim about diagnosis, treatment, or safe scheduling. It asks whether a proposed measurement can support a bounded research interpretation.</p>\n<aside class=\"ek-block ek-worked-example ek-block--worked-example\" data-directive=\"worked-example\">\n    <div class=\"ek-block-label directive-label\">Worked Example</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> worked-example-alertness-audit</span><span><b>label</b> A response timer that agrees with itself</span></div>\n    <div class=\"ek-block-content\"><p><strong>1. State the task.</strong></p>\n<p>A research team wants to compare acute alertness under two simulated scheduling conditions. It proposes this operational definition:</p>\n<blockquote>\n<p>Acute alertness is the median response time, in milliseconds, across 20 valid trials of a simple computer response task, after 5 practice trials, using the same device and scripted instructions.</p>\n</blockquote>\n<p>Before using the task, the team sends five 200.0 ms reference intervals into the timer. The reference generator has a current calibration record, and its uncertainty is small relative to the timer&#39;s 1 ms display.</p>\n<table>\n<thead>\n<tr>\n<th align=\"right\">Reference interval</th>\n<th align=\"right\">Timer result</th>\n</tr>\n</thead>\n<tbody><tr>\n<td align=\"right\">200.0 ms</td>\n<td align=\"right\">211 ms</td>\n</tr>\n<tr>\n<td align=\"right\">200.0 ms</td>\n<td align=\"right\">212 ms</td>\n</tr>\n<tr>\n<td align=\"right\">200.0 ms</td>\n<td align=\"right\">212 ms</td>\n</tr>\n<tr>\n<td align=\"right\">200.0 ms</td>\n<td align=\"right\">213 ms</td>\n</tr>\n<tr>\n<td align=\"right\">200.0 ms</td>\n<td align=\"right\">212 ms</td>\n</tr>\n</tbody></table>\n<p>The team must decide what the table establishes, what needs correction, and whether the task is ready to stand for acute alertness.</p>\n<p><strong>2. Represent the givens, constraints, and unknowns.</strong></p>\n<ul>\n<li>Target construct: acute alertness in the stated simulated context.</li>\n<li>Operation: median response time from a specified 20-trial task after practice.</li>\n<li>Reference check: five identical assigned intervals under the same procedure, device, location, and short time period.</li>\n<li>Unknowns: the error pattern, the condition-specific precision, and the evidence supporting the alertness interpretation.</li>\n</ul>\n<p>The reference check evaluates the timer. It does not evaluate whether people stayed unchanged, because no people produced these five intervals.</p>\n<p><strong>3. Choose the audit plan.</strong></p>\n<p>Apply the four questions in order: inspect the operation; examine agreement among repeats; compare the repeats with the reference; then ask what evidence connects response time to the intended construct and use.</p>\n<p><strong>4. Execute the repeatability and error check.</strong></p>\n<p>The five displayed results have a mean of 212 ms and a range of 2 ms. Their tight grouping is evidence of good repeatability for this timer under the checked conditions. It does not establish reproducibility across other devices, operators, laboratories, software versions, or days because none of those conditions changed.</p>\n<p>Every result is also 11–13 ms above the 200.0 ms reference. The simplest model for these data includes an approximately +12 ms systematic component plus a smaller varying component. Calling all 12 ms “random error” would ignore the shared direction of the discrepancy.</p>\n<p><strong>5. Decide what repetition can and cannot repair.</strong></p>\n<p>More repeats could describe the short-term scatter more precisely. Averaging the five existing results gives 212 ms, so averaging has not removed the approximate +12 ms offset. The team needs to investigate the timing system and, if the calibration relation and conditions justify it, apply and document a correction or repair the system. It should then check the measurement process again.</p>\n<p><strong>6. Audit the intended meaning.</strong></p>\n<p>The operational definition is explicit enough to reproduce. That is a strength, but “median response time on this task” and “acute alertness” are not identical ideas. Response time may represent one relevant performance feature while also depending on motor response, perception of the stimulus, task familiarity, hardware, and instructions.</p>\n<p>A stronger validity argument would begin with predictions made before looking at results. For example, the team could ask whether the task samples the relevant aspects of its alertness construct, whether participants use the intended response process, whether scores relate as predicted to another defensible alertness measure, whether they relate less strongly to a measure of an irrelevant construct, and whether those patterns hold in the population and setting in which the interpretation will be used.</p>\n<p><strong>7. Check the conclusion against the task.</strong></p>\n<p>A defensible conclusion is:</p>\n<blockquote>\n<p>The timer produced tightly grouped results under one set of repeatability conditions, but its raw indications showed an approximately +12 ms offset from the stated reference. The response-time operation is explicit, yet the information supplied does not by itself justify interpreting the result as a complete measure of acute alertness.</p>\n</blockquote>\n<p>This conclusion separates three judgments that the tidy table could otherwise blur: precision under stated conditions, agreement with a reference, and validity of the construct interpretation.</p>\n<p><strong>8. Explain the decisive choice.</strong></p>\n<p>Why would five corrected readings near 200 ms still fail to prove construct validity for acute alertness?</p>\n</div>\n  </aside>\n<p>A correction could improve the timer&#39;s relation to the duration reference. It would not show that response time covers the intended alertness construct or rules out construct-irrelevant influences. That requires a different body of evidence.</p>\n<h2>Plausibility check in words</h2>\n<p>Read the result without the table: all five readings are close to one another, and all five are high relative to the reference. “Close together” supports repeatability; “high together” signals a systematic component. Neither phrase establishes what the participant score means.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-operational-definition, claim-error-components, claim-averaging-boundary, claim-repeatability-reproducibility, claim-calibration-traceability, claim-validity-interpretation, claim-construct-evidence, claim-consistency-not-sufficient</span><span><b>sources</b> source-nist-operational-definition, source-jcgm-vim, source-nist-tn1297, source-testing-standards</span></div>\n    <div class=\"ek-block-content\"><p>The sources support the audit distinctions and limits applied here. The response task, reference data, calculations, validity questions, and conclusion are original fictional teaching material; they are not empirical results about people.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-practise-and-repair",
+      "title": "Separate scatter from shift, then ask what the value means",
+      "kind": "practice",
+      "source": "content/040-practise-and-repair.md",
+      "estimatedMinutes": 34,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Separate scatter from shift, then ask what the value means</h1>\n<p>Begin without looking back. Write the four audit questions in your own words. Then complete this sentence:</p>\n<blockquote>\n<p>Repeated agreement tells me ___ under ___ conditions; it does not by itself tell me ___ or ___.</p>\n</blockquote>\n<p>A strong reconstruction says that repeated agreement supplies evidence about precision under stated conditions. It does not by itself show agreement with a reference or support the intended construct interpretation.</p>\n<h2>Completion problem: two instruments, two patterns</h2>\n<p>Two fictional instruments measure the same stable 50.0-unit reference under one set of repeatability conditions.</p>\n<table>\n<thead>\n<tr>\n<th align=\"right\">Replicate</th>\n<th align=\"right\">Instrument A</th>\n<th align=\"right\">Instrument B</th>\n</tr>\n</thead>\n<tbody><tr>\n<td align=\"right\">1</td>\n<td align=\"right\">49.6</td>\n<td align=\"right\">52.0</td>\n</tr>\n<tr>\n<td align=\"right\">2</td>\n<td align=\"right\">50.4</td>\n<td align=\"right\">52.1</td>\n</tr>\n<tr>\n<td align=\"right\">3</td>\n<td align=\"right\">49.7</td>\n<td align=\"right\">52.0</td>\n</tr>\n<tr>\n<td align=\"right\">4</td>\n<td align=\"right\">50.3</td>\n<td align=\"right\">51.9</td>\n</tr>\n<tr>\n<td align=\"right\">5</td>\n<td align=\"right\">50.0</td>\n<td align=\"right\">52.0</td>\n</tr>\n</tbody></table>\n<p>Before reading the feedback, calculate each mean and range. Decide which instrument has less short-term scatter and which has the smaller shift from the reference.</p>\n<ul>\n<li>Instrument A has mean 50.0 and range 0.8 units. Its results scatter more, but their mean matches the stated reference in this small set.</li>\n<li>Instrument B has mean 52.0 and range 0.2 units. It is more repeatable here, yet its results share an approximately +2.0-unit shift.</li>\n</ul>\n<p>The comparison does not establish each instrument&#39;s behavior outside the tested range or conditions. It does show why “more repeatable” and “closer to this reference” are different judgments.</p>\n<aside class=\"ek-block ek-misconception ek-block--misconception\" data-directive=\"misconception\">\n    <div class=\"ek-block-label directive-label\">Misconception</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> misconception-average-fixes-error</span></div>\n    <div class=\"ek-block-content\"><p><strong>Commit first.</strong> If the laboratory collects 100 more Instrument B readings and averages them, will the +2.0-unit pattern necessarily disappear?</p>\n<p><strong>Tempting model:</strong> every kind of measurement error cancels when enough readings are averaged.</p>\n<p><strong>Why it fails:</strong> repeated values that remain shifted in the same direction carry that shift into their mean. More readings can characterize or reduce suitable random variation, but they do not identify and remove a stable offset by arithmetic alone.</p>\n<p><strong>Repair:</strong> separate scatter from shift. Use replicates to study dispersion; use a defensible reference, calibration relation, method comparison, or design change to investigate a systematic component.</p>\n<p><strong>Recheck:</strong> five readings are 47, 53, 48, 52, and 50 for a 50-unit reference. Their mean is 50 despite broad scatter. The average happens to match the reference in this set, but the individual measurement process is not precise.</p>\n</div>\n  </aside>\n<h2>Supported problem: name the conditions that changed</h2>\n<p>A reference sample has an assigned value of 8.0 units. One operator uses Instrument C in Laboratory 1 on Monday and obtains 7.9, 8.0, and 8.1. A different operator uses Instrument D in Laboratory 2 on Friday and obtains 8.8, 8.9, and 9.0.</p>\n<p>Answer in three lines:</p>\n<ol>\n<li>What evidence concerns repeatability?</li>\n<li>What evidence concerns reproducibility?</li>\n<li>What should the team investigate next?</li>\n</ol>\n<p>Both triplets are tightly grouped, so each supplies condition-specific repeatability evidence. Agreement becomes worse when operator, instrument, laboratory, and day all change together, so the between-set comparison raises a reproducibility problem. Because four conditions changed at once, the table does not identify which condition caused the shift. The team should vary conditions in a planned way, check both systems against appropriate references, and document any calibration and correction.</p>\n<h2>Less support: ratings are also measurements</h2>\n<p>Two trained observers independently classify the same 20 original microscope images using a written low, medium, or high surface-damage rule. They agree on 18 classifications.</p>\n<p>Write one warranted statement and two unwarranted statements before reading on.</p>\n<p>A warranted statement is that the observers show high agreement on this image set under the stated coding rule. It would be unwarranted to claim that the rule measures the full biological construct of “cell health” or that the same agreement will hold for other observers, microscopes, preparations, or image sets. Agreement across raters addresses rater-related consistency; it does not settle every other error source or the intended meaning.</p>\n<h2>Independent audit: a narrow indicator with a broad name</h2>\n<p>A fictional campus study defines <strong>social belonging</strong> as “the number of messages a student sends in one week.” The automated count is exact and gives the same result whenever the stored log is processed again.</p>\n<p>Without using personal data or proposing surveillance, write a four-part critique:</p>\n<ol>\n<li>identify the target construct and the operation;</li>\n<li>state what the processing consistency does establish;</li>\n<li>identify one way the operation may omit part of belonging and one irrelevant influence it may include; and</li>\n<li>propose two kinds of evidence that could test the intended interpretation in an ethically collected, consented study.</li>\n</ol>\n<p>Use this feedback after attempting the critique:</p>\n<ul>\n<li>If you wrote only “invalid,” name the proposed interpretation and why the available evidence is insufficient.</li>\n<li>If you treated an exact count as proof of belonging, separate record accuracy from construct meaning.</li>\n<li>If you proposed another measure with the same messaging bias, choose a different method or a theoretically distinct comparison.</li>\n<li>If your evidence plan requires private communication logs, replace it with consented, purpose-limited data or a non-identifying supplied dataset. Measurement quality never removes privacy obligations.</li>\n</ul>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-operational-definition, claim-error-components, claim-averaging-boundary, claim-repeatability-reproducibility, claim-calibration-traceability, claim-validity-interpretation, claim-construct-evidence, claim-consistency-not-sufficient</span><span><b>sources</b> source-nist-operational-definition, source-jcgm-vim, source-nist-tn1297, source-testing-standards</span></div>\n    <div class=\"ek-block-content\"><p>The sources support the scatter/shift distinction, conditional meanings of repeatability and reproducibility, limits of averaging, rater-related error, and construct-validity questions. All values, images, instruments, and campus scenarios are original fictional teaching material.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-transfer-team-coordination",
+      "title": "Transfer the audit to an observer-coded construct",
+      "kind": "transfer",
+      "source": "content/050-transfer-to-team-coordination.md",
+      "estimatedMinutes": 30,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Transfer the audit to an observer-coded construct</h1>\n<p>A fictional teaching laboratory compares two training formats in a colored-water simulation. Nobody treats a patient, handles biological material, or receives a clinical credential. The laboratory wants to interpret one score as <strong>team coordination during the simulation</strong>.</p>\n<p>Its first operational definition is:</p>\n<blockquote>\n<p>Count the number of spoken handoff phrases during a 12-minute simulation. Two observers independently code each recording with the same written phrase list.</p>\n</blockquote>\n<p>For three teams, the observers report:</p>\n<table>\n<thead>\n<tr>\n<th>Team</th>\n<th align=\"right\">Observer 1</th>\n<th align=\"right\">Observer 2</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>A</td>\n<td align=\"right\">14</td>\n<td align=\"right\">14</td>\n</tr>\n<tr>\n<td>B</td>\n<td align=\"right\">9</td>\n<td align=\"right\">10</td>\n</tr>\n<tr>\n<td>C</td>\n<td align=\"right\">7</td>\n<td align=\"right\">7</td>\n</tr>\n</tbody></table>\n<p>The laboratory concludes, “The observers nearly agree, so phrase count is a valid measure of team coordination and can show which training format produces clinically competent teams.”</p>\n<p>Audit that conclusion before reading the analysis. Your response should contain the target and use, the exact operation, the consistency evidence, at least two remaining error questions, one construct-underrepresentation risk, one construct-irrelevant influence, and a bounded conclusion.</p>\n<h2>A defensible transfer analysis</h2>\n<p><strong>Target and use.</strong> The proposed target is coordination during this particular simulation. The proposed clinical-competence conclusion reaches far beyond the supplied operation and evidence, so it must be rejected. Simulation phrase count cannot by itself establish clinical competence.</p>\n<p><strong>Operation.</strong> The rule is inspectable but incomplete. It names a duration, record type, observers, and phrase list, yet it should also define where a phrase begins and ends, how overlapping speech and repeats are coded, how inaudible sections are handled, and what training and masking the observers receive.</p>\n<p><strong>Consistency.</strong> Observer agreement is close for these three recordings. That is evidence about one condition allowed to vary—the observer—on a very small supplied set. It says nothing yet about the same observer coding twice, new observers, revised phrase lists, other simulations, audio quality, or laboratories.</p>\n<p><strong>Error.</strong> The one-count difference for Team B may reflect a varying coding decision, an ambiguous phrase boundary, or audio quality. A stable rule that excludes quiet but well-timed handoffs could create a predictable distortion. The three rows cannot determine every error source, but they identify checks to design.</p>\n<p><strong>Construct meaning.</strong> Phrase count may omit timing, accuracy, mutual monitoring, correction of misunderstandings, and useful silence. It may also include talkativeness or repeated unnecessary phrases. Those are respectively risks of leaving out relevant parts of coordination and including influences that are not the intended construct.</p>\n<p><strong>Validity evidence.</strong> Before collecting outcome data, the laboratory should state predictions. Experts could examine whether the coding rule covers the intended coordination domain. Researchers could check whether phrase scores relate as predicted to a different, defensible coordination measure and less strongly to a theoretically distinct feature. They should inspect the response and coding process and test whether the interpretation holds across the populations, formats, and simulation conditions in which it will be used.</p>\n<p><strong>Bounded conclusion.</strong> The table suggests close inter-observer agreement for phrase counts on three recordings. It does not establish that phrase count adequately represents team coordination, that either training caused a difference, or that any team is clinically competent.</p>\n<h2>Change one fact and update the judgment</h2>\n<p>For each change, write the audit question it affects most directly.</p>\n<ol>\n<li>Both observers use the same audio track but one receives a phrase list with an omitted category.</li>\n<li>The same observer obtains different counts when recoding a recording one week later.</li>\n<li>Counts are stable across observers and weeks, but teams learn to repeat phrases without improving the timing or accuracy of handoffs.</li>\n<li>A second laboratory uses new observers and different recording equipment, yet results remain close when both laboratories code the same supplied recordings.</li>\n</ol>\n<p>Suggested checks:</p>\n<ol>\n<li>The operational definition and a systematic between-observer difference need attention.</li>\n<li>Within-observer repeatability is weak under the stated time change.</li>\n<li>Consistency may be high while construct validity is weak because the operation responds to coached repetition rather than the intended coordination.</li>\n<li>This adds reproducibility evidence across the named laboratory, observer, and equipment changes; it still does not settle construct validity.</li>\n</ol>\n<h2>Link backward and forward</h2>\n<p>The prerequisite variable audit asks what researchers change, record, and hold alike. This lesson adds: <strong>Does the recorded dependent variable deserve the interpretation given to it?</strong></p>\n<p>Later work on bias can ask whether measurement error differs systematically between groups. Later work on replication can ask whether a full finding survives a new study. Those are not the same as measurement repeatability or reproducibility, which concern agreement among measurement results under stated conditions.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-operational-definition, claim-error-components, claim-averaging-boundary, claim-repeatability-reproducibility, claim-calibration-traceability, claim-validity-interpretation, claim-construct-evidence, claim-consistency-not-sufficient</span><span><b>sources</b> source-nist-operational-definition, source-jcgm-vim, source-nist-tn1297, source-testing-standards</span></div>\n    <div class=\"ek-block-content\"><p>The sources support the observer-agreement boundary, named replication conditions, construct underrepresentation and irrelevant influences, and context-specific validity argument. The simulation, phrase rule, values, changed facts, and analysis are original fictional teaching material.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-defend-judgment",
+      "title": "Defend the measurement judgment",
+      "kind": "assessment",
+      "source": "content/060-defend-the-judgment.md",
+      "estimatedMinutes": 24,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Defend the measurement judgment</h1>\n<p>The four-question audit is now one continuous argument:</p>\n<ol>\n<li>Name the target quantity or construct and the intended use.</li>\n<li>Specify the operation that produces the record.</li>\n<li>Test the relevant error sources under named repeatability or reproducibility conditions and, where appropriate, against a defensible reference and calibration chain.</li>\n<li>Decide whether the accumulated evidence supports the intended interpretation in the stated population and setting.</li>\n</ol>\n<p>No single result can stand in for the whole chain. An explicit operation can be noisy. A repeatable instrument can have a stable offset. A calibrated device can feed a poor construct indicator. A plausible construct indicator can still behave differently across populations or settings.</p>\n<h2>Mastery check</h2>\n<p>The assessment contains four untimed, retakeable items worth 14 points:</p>\n<ul>\n<li><code>item-scatter-shift</code>: interpret repeated reference measurements;</li>\n<li><code>item-operational-construct</code>: critique and repair an operational definition;</li>\n<li><code>item-conditions-calibration</code>: distinguish repeatability, reproducibility, and reference evidence; and</li>\n<li><code>item-transfer-greenhouse</code>: defend a complete judgment in a new biological-imaging context.</li>\n</ul>\n<p>Attempt every item before opening its answer and reasoning. Mastery means at least 11 of 14 points, including at least 2 points on <code>item-operational-construct</code> and at least 3 points on <code>item-transfer-greenhouse</code>. Those minimums prevent a strong error calculation from hiding a weak construct-validity judgment.</p>\n<p>On a retry, use the alternate context named in each item&#39;s feedback rather than replaying the same answer sequence. Explain what changed in your reasoning.</p>\n<h2>Recovery route</h2>\n<p>If you miss the scatter/shift item, return to the two-instrument table in the previous scene. Calculate a mean and range, then write separate sentences for dispersion and reference difference.</p>\n<p>If repeatability and reproducibility blur together, list every condition that stayed fixed and every condition that changed. Do not choose the label until the list is visible.</p>\n<p>If calibration sounds like “the device is now correct,” return to the four-question audit. Calibration establishes a relation under specified conditions; correction, adjustment, fitness for purpose, and construct meaning remain separate questions.</p>\n<p>If the operational-definition or transfer item is weak, write four headings—target, operation, consistency/error, meaning—and put one claim and one missing piece of evidence under each. Then retry with the alternate case.</p>\n<h2>Accessibility and alternatives</h2>\n<p>Every essential relation in the concept diagram is repeated in ordered prose. Every quantitative table can be read row by row, and its relevant mean, range, and direction are stated in words after the learner&#39;s attempt. No distinction depends on color, position, sound, motion, hover, dragging, speed, or a physical procedure.</p>\n<p>Responses may be typed, dictated into the learner&#39;s own assistive technology, or organized as prose, headings, or a table. The assessment is untimed and retakeable. All people, instruments, organizations, and data are fictional, and no personal, patient, workplace, message-log, or health information is required.</p>\n<h2>Keep the boundary</h2>\n<p>This lesson supports evaluation of measurement claims in bounded scientific examples. It does not validate a real clinical instrument, establish diagnostic or treatment guidance, certify laboratory competence, or replace field-specific standards and expert review.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-operational-definition, claim-error-components, claim-averaging-boundary, claim-repeatability-reproducibility, claim-calibration-traceability, claim-validity-interpretation, claim-construct-evidence, claim-consistency-not-sufficient</span><span><b>sources</b> source-nist-operational-definition, source-jcgm-vim, source-nist-tn1297, source-testing-standards</span></div>\n    <div class=\"ek-block-content\"><p>The sources support the final audit and its boundaries. Mastery thresholds, remediation routes, accessibility alternatives, and retry design are original instructional decisions for this lesson.</p>\n</div>\n  </aside>\n"
+    }
+  ],
+  "authors": [
+    {
+      "principalId": "github:VSBDev",
+      "displayName": "VSBDev",
+      "agent": null
+    },
+    {
+      "principalId": "agent:anthropic/fable/0015f26e-82bd-47b4-aa02-99cd53856a4c",
+      "displayName": "Claude Fable 5 science fragment 1 (operated by VSBDev)",
+      "agent": {
+        "system": "Claude CLI",
+        "provider": "Anthropic",
+        "model": "claude-fable-5",
+        "version": "CLI version not recorded in accepted dossier",
+        "runId": "0015f26e-82bd-47b4-aa02-99cd53856a4c",
+        "instructionsDigest": "sha256:2728a6f2c1a20808616c142c07f5027f179e418981ce61673c12cace604adb43"
+      }
+    },
+    {
+      "principalId": "agent:anthropic/fable/a5a29626-11ba-4a4c-8d9f-d59cd3d161fd",
+      "displayName": "Claude Fable 5 science fragment 2 (operated by VSBDev)",
+      "agent": {
+        "system": "Claude CLI",
+        "provider": "Anthropic",
+        "model": "claude-fable-5",
+        "version": "CLI version not recorded in accepted dossier",
+        "runId": "a5a29626-11ba-4a4c-8d9f-d59cd3d161fd",
+        "instructionsDigest": "sha256:41650c034874a4f9cf387e13e14a581bac7bf3165f3f6e934e9f23132812c0de"
+      }
+    },
+    {
+      "principalId": "agent:anthropic/fable/d8f7ba40-ccbb-4b87-944d-6640e2b0c420",
+      "displayName": "Claude Fable 5 science fragment 3 (operated by VSBDev)",
+      "agent": {
+        "system": "Claude CLI",
+        "provider": "Anthropic",
+        "model": "claude-fable-5",
+        "version": "CLI version not recorded in accepted dossier",
+        "runId": "d8f7ba40-ccbb-4b87-944d-6640e2b0c420",
+        "instructionsDigest": "sha256:446e1b6efc9dc6fbcc58938bcdc93d9ece28bd1c7b1bfa2539b6150a0c36fd31"
+      }
+    },
+    {
+      "principalId": "agent:anthropic/fable/611a4122-36ce-4693-ad2e-b38d0c0fa3ed",
+      "displayName": "Claude Fable 5 science fragment 4 (operated by VSBDev)",
+      "agent": {
+        "system": "Claude CLI",
+        "provider": "Anthropic",
+        "model": "claude-fable-5",
+        "version": "CLI version not recorded in accepted dossier",
+        "runId": "611a4122-36ce-4693-ad2e-b38d0c0fa3ed",
+        "instructionsDigest": "sha256:578f178f8da9586818de8d859caf0eb12c09669a1dd5a5fb4245e212151e866a"
+      }
+    },
+    {
+      "principalId": "agent:anthropic/fable/65d6feab-7cbe-4b92-98bb-580ba2df2154",
+      "displayName": "Claude Fable 5 science fragment 5 (operated by VSBDev)",
+      "agent": {
+        "system": "Claude CLI",
+        "provider": "Anthropic",
+        "model": "claude-fable-5",
+        "version": "CLI version not recorded in accepted dossier",
+        "runId": "65d6feab-7cbe-4b92-98bb-580ba2df2154",
+        "instructionsDigest": "sha256:e07ce898511958f43fa2e25e39dbef4277eaf4c9ac588385590f5ad43e2ab7d8"
+      }
+    },
+    {
+      "principalId": "agent:anthropic/fable/f012fcab-790c-413e-9185-4d943ffae93d",
+      "displayName": "Claude Fable 5 science fragment 6 (operated by VSBDev)",
+      "agent": {
+        "system": "Claude CLI",
+        "provider": "Anthropic",
+        "model": "claude-fable-5",
+        "version": "CLI version not recorded in accepted dossier",
+        "runId": "f012fcab-790c-413e-9185-4d943ffae93d",
+        "instructionsDigest": "sha256:4fd336d2fea7583a51e40d2221acec73a200cc2debf43bf7f476d0ba6f4164a2"
+      }
+    },
+    {
+      "principalId": "agent:anthropic/fable/793b2986-f940-454b-8a83-4754969cada8",
+      "displayName": "Claude Fable 5 science fragment 7 (operated by VSBDev)",
+      "agent": {
+        "system": "Claude CLI",
+        "provider": "Anthropic",
+        "model": "claude-fable-5",
+        "version": "CLI version not recorded in accepted dossier",
+        "runId": "793b2986-f940-454b-8a83-4754969cada8",
+        "instructionsDigest": "sha256:e397a1a445bf61dc8ed4c6f0bb6306dbbecc1702b04f7f5da161a765846a7848"
+      }
+    },
+    {
+      "principalId": "agent:anthropic/fable/b2d5eaa7-837a-44e0-af46-f37c129556fe",
+      "displayName": "Claude Fable 5 science fragment 8 (operated by VSBDev)",
+      "agent": {
+        "system": "Claude CLI",
+        "provider": "Anthropic",
+        "model": "claude-fable-5",
+        "version": "CLI version not recorded in accepted dossier",
+        "runId": "b2d5eaa7-837a-44e0-af46-f37c129556fe",
+        "instructionsDigest": "sha256:ea8744b34c0b1fd82e7ab1731a8a080b85ad705cc2c5b398d54d191c25f705d8"
+      }
+    },
+    {
+      "principalId": "agent:anthropic/fable/8a7bdb60-ddc6-400a-9ffc-26926e4a31b8",
+      "displayName": "Claude Fable 5 science fragment 9 (operated by VSBDev)",
+      "agent": {
+        "system": "Claude CLI",
+        "provider": "Anthropic",
+        "model": "claude-fable-5",
+        "version": "CLI version not recorded in accepted dossier",
+        "runId": "8a7bdb60-ddc6-400a-9ffc-26926e4a31b8",
+        "instructionsDigest": "sha256:3694c86ac50dd74409b300b324a10565e17c162106b17926b9c47f9aaf19cd67"
+      }
+    },
+    {
+      "principalId": "agent:anthropic/fable/d85ddecf-4edb-4731-bbd9-4b8246d90440",
+      "displayName": "Claude Fable 5 science fragment 10 (operated by VSBDev)",
+      "agent": {
+        "system": "Claude CLI",
+        "provider": "Anthropic",
+        "model": "claude-fable-5",
+        "version": "CLI version not recorded in accepted dossier",
+        "runId": "d85ddecf-4edb-4731-bbd9-4b8246d90440",
+        "instructionsDigest": "sha256:116bdca5ee4db33566de70efde84a46682f9500c4404a6643d3e8d57f996f4c8"
+      }
+    },
+    {
+      "principalId": "agent:openai/codex/d43c6e44-053c-431d-8062-ca1fb27ab0f6",
+      "displayName": "Codex editorial packager (operated by VSBDev)",
+      "agent": {
+        "system": "Codex",
+        "provider": "OpenAI",
+        "model": "gpt-5.6-sol",
+        "version": "Codex CLI 0.144.6",
+        "runId": "d43c6e44-053c-431d-8062-ca1fb27ab0f6",
+        "instructionsDigest": "sha256:5f566516f715f267803a74f6363d4914ca3a023a87eeb54e791b73bbfc0bf44a"
+      }
+    }
+  ],
+  "license": "CC-BY-4.0",
+  "sourceConfidence": "pending-review",
+  "aiAssistance": {
+    "used": true,
+    "disclosure": "VSBDev (github:VSBDev) is accountable. Baseline scientific first-draft fragments came from ten isolated Anthropic Claude CLI sessions whose machine-readable modelUsage included claude-fable-5; accepted calls received science-only prompts and no repository, Premed, outcome-ID, or packaging context, and all Opus-routed outputs were excluded. OpenAI Codex, model gpt-5.6-sol, version Codex CLI 0.144.6, run d43c6e44-053c-431d-8062-ca1fb27ab0f6, supplied material editorial, research-verification, pedagogical, assessment, and packaging assistance. Separate actor records preserve every accepted Fable run and digest; ATTRIBUTION.md states roles and digest scope. Provenance is disclosed and attested by the accountable principal, not independently verified by the repository."
+  },
+  "assessment": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-assessment-v1",
+    "lessonId": "PREM-SCI-006",
+    "lessonVersion": "0.1.0",
+    "assessmentId": "assessment-measurement-audit",
+    "title": "Measurement, repeatability, and validity mastery check",
+    "purpose": "mastery-gate",
+    "attemptPolicy": {
+      "retakeable": true,
+      "timeLimitMinutes": null,
+      "feedback": "after-attempt"
+    },
+    "items": [
+      {
+        "id": "item-scatter-shift",
+        "type": "single-choice",
+        "sceneId": "scene-defend-judgment",
+        "objectiveIds": [
+          "objective-diagnose-measurement-error",
+          "objective-evaluate-repeatability-reproducibility"
+        ],
+        "outcomeIds": [
+          "topic-scientific-inquiry-measurement-validity"
+        ],
+        "prompt": "Two devices measure a stable 100.0-unit reference under one set of repeatability conditions. Device P reads 99.5, 100.5, 99.6, 100.4, and 100.0. Device Q reads 104.9, 105.0, 105.1, 105.0, and 105.0. Which interpretation is complete?",
+        "stimulus": null,
+        "points": 3,
+        "responseSpec": {
+          "mode": "single-choice",
+          "options": [
+            {
+              "id": "option-p-scatter-q-shift",
+              "text": "P has more short-term scatter but its mean is 100.0; Q is more repeatable here but has an approximately +5.0-unit systematic component, which averaging alone will not remove."
+            },
+            {
+              "id": "option-q-valid-because-repeatable",
+              "text": "Q is the better and valid device because its readings agree most closely with one another; no reference comparison is needed."
+            },
+            {
+              "id": "option-p-systematic-q-random",
+              "text": "P shows only systematic error, whereas Q shows only random error because all of Q's values are above the reference."
+            },
+            {
+              "id": "option-average-removes-both",
+              "text": "Averaging enough readings from either device necessarily removes both the scatter and the shift."
+            }
+          ],
+          "units": null,
+          "tolerance": null,
+          "maxSelections": 1,
+          "maxLength": null
+        },
+        "answer": {
+          "correct": "option-p-scatter-q-shift",
+          "summary": "P is less repeatable in this set but centered on the reference; Q is tightly grouped and shifted upward together.",
+          "reasoning": "Device P has mean 100.0 and range 1.0 unit. Device Q has mean 105.0 and range 0.2 units. Award one point for recognizing P's greater scatter, one for recognizing Q's better condition-specific repeatability plus an approximately +5.0-unit systematic component, and one for rejecting averaging as a repair for that stable shift. On a retry, compare 20.0-unit reference readings from one device that alternate between 19 and 21 and another that stays between 22.9 and 23.1.",
+          "acceptableResponses": [
+            "The option that separates P's greater scatter from Q's tighter but approximately +5.0-unit shifted results."
+          ],
+          "commonErrors": [
+            "Treating tight grouping as agreement with the reference",
+            "Calling a shared one-direction shift random error",
+            "Assuming that a larger sample removes a stable offset"
+          ]
+        },
+        "rubricId": "rubric-scatter-shift",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-operational-construct",
+        "type": "open-response",
+        "sceneId": "scene-defend-judgment",
+        "objectiveIds": [
+          "objective-critique-operational-definitions",
+          "objective-evaluate-construct-validity"
+        ],
+        "outcomeIds": [
+          "topic-scientific-inquiry-measurement-validity"
+        ],
+        "prompt": "A fictional online course defines learner engagement as the number of clicks made during a 30-minute module. The software reproduces the count exactly. Critique the measure by naming the target and operation, one relevant part of engagement the count may omit, one construct-irrelevant influence it may include, and either a narrower warranted interpretation or evidence needed for the broader engagement interpretation.",
+        "stimulus": null,
+        "points": 3,
+        "responseSpec": {
+          "mode": "text",
+          "units": null,
+          "tolerance": null,
+          "maxSelections": null,
+          "maxLength": 1800
+        },
+        "answer": {
+          "correct": "The target is learner engagement and the operation is an exact count of clicks during one 30-minute module. Exact reproduction establishes processing consistency, not construct validity. The count can omit attention, effort, explanation, or persistence and can be increased by interface design, confusion, or repeated navigation. A narrow interpretation is interaction count in this module. A broader engagement interpretation needs a stated construct and predictions plus content, response-process, convergent, discriminant, population, and setting evidence appropriate to the use.",
+          "summary": "An exact behavioral count can be operationally clear and reliable while remaining an incomplete or contaminated indicator of engagement.",
+          "reasoning": "Award one point for correctly separating the target construct from the click-count operation and stating what exact reproduction establishes. Award one point for a credible omitted component and a credible irrelevant influence. Award one point for either narrowing the interpretation to interaction count or proposing relevant validity evidence tied to the intended use. A bare label of 'invalid' earns no validity point because it does not identify the failed link or repair. On a retry, evaluate 'collaboration equals the number of messages posted during a supplied group puzzle' without collecting personal communications.",
+          "acceptableResponses": [
+            "Any response that separates engagement from click count, identifies both underrepresentation and an irrelevant influence, and narrows or evidentially tests the intended interpretation."
+          ],
+          "commonErrors": [
+            "Equating exact data processing with construct validity",
+            "Naming only an omitted feature without an irrelevant influence",
+            "Calling the measure invalid without stating the proposed interpretation and missing evidence"
+          ]
+        },
+        "rubricId": "rubric-operational-construct",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-conditions-calibration",
+        "type": "data-interpretation",
+        "sceneId": "scene-defend-judgment",
+        "objectiveIds": [
+          "objective-diagnose-measurement-error",
+          "objective-evaluate-repeatability-reproducibility"
+        ],
+        "outcomeIds": [
+          "topic-scientific-inquiry-measurement-validity"
+        ],
+        "prompt": "A sample has an assigned reference value of 8.0 units. In Laboratory A, one operator using Instrument A obtains 7.9, 8.0, and 8.1 in one hour. In Laboratory B, a different operator using Instrument B obtains 8.7, 8.8, and 8.9 two days later. State what the data show about repeatability and reproducibility, explain why the cause of the between-laboratory shift is not identified, and name one reference or calibration check needed next.",
+        "stimulus": null,
+        "points": 3,
+        "responseSpec": {
+          "mode": "text",
+          "units": null,
+          "tolerance": null,
+          "maxSelections": null,
+          "maxLength": 1800
+        },
+        "answer": {
+          "correct": "Each laboratory's triplet is tightly grouped, which supports repeatability under its own stated conditions. Agreement is poor across the combined changes in laboratory, operator, instrument, and day, so reproducibility across those conditions is weak. Because all four conditions changed together, the data cannot identify which produced the shift. Each measuring system should be checked against an appropriate current reference under documented conditions, with its calibration relation, traceability chain, uncertainty, and any correction examined before use.",
+          "summary": "Tight within-laboratory groups can coexist with poor between-laboratory agreement, and changing several conditions together hides the source.",
+          "reasoning": "Award one point for the condition-specific repeatability judgment, one for the reproducibility judgment plus recognition that laboratory, operator, instrument, and day are confounded, and one for a concrete next reference/calibration check. If your answer says only 'Lab B is wrong,' name the comparison that supports concern and the calibration evidence still required. On a retry, compare two observers, two microscopes, and two image-processing versions changed together on the same supplied reference slide.",
+          "acceptableResponses": [
+            "Any equivalent interpretation that separates within-condition repeatability from across-condition reproducibility, refuses to assign cause from bundled changes, and proposes a defensible reference or calibration investigation."
+          ],
+          "commonErrors": [
+            "Calling both triplets reproducible because each is tightly grouped",
+            "Assigning the shift to the operator when instrument, laboratory, and day also changed",
+            "Treating a calibration record as proof that uncertainty is adequate for every purpose"
+          ]
+        },
+        "rubricId": "rubric-conditions-calibration",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-transfer-greenhouse",
+        "type": "open-response",
+        "sceneId": "scene-defend-judgment",
+        "objectiveIds": [
+          "objective-critique-operational-definitions",
+          "objective-diagnose-measurement-error",
+          "objective-evaluate-repeatability-reproducibility",
+          "objective-evaluate-construct-validity"
+        ],
+        "outcomeIds": [
+          "topic-scientific-inquiry-measurement-validity"
+        ],
+        "prompt": "A fictional greenhouse study compares two light treatments and defines seedling vigor as total leaf area on day 7, estimated from standardized photographs. Reprocessing the same photographs in Laboratory A gives nearly identical areas. Laboratory B uses a different camera and analysis system; for a supplied 100.0 cm² reference shape, it repeatedly reports about 108.0 cm². Build a complete measurement judgment: evaluate the operational definition, the repeatability and reproducibility evidence, the error pattern and next calibration action, the construct-validity limits of leaf area as seedling vigor, and the strongest conclusion currently warranted.",
+        "stimulus": null,
+        "points": 5,
+        "responseSpec": {
+          "mode": "text",
+          "units": null,
+          "tolerance": null,
+          "maxSelections": null,
+          "maxLength": 2600
+        },
+        "answer": {
+          "correct": "The target is seedling vigor and the operation is total leaf area on day 7 from a standardized imaging procedure; the protocol still needs explicit image capture, segmentation, exclusion, and unit rules. Near-identical reprocessing in Laboratory A supports processing repeatability, not every measurement condition. Laboratory B's tight results near 108.0 cm² for a 100.0 cm² reference suggest a reproducible within-system result with an approximately +8% systematic component and poor cross-system agreement. The team should investigate both systems against appropriate traceable area references, document calibration relations and corrections, and then recheck. Leaf area may represent one aspect of vigor while omitting roots, biomass, tissue condition, and later growth, and it may respond to leaf shape or segmentation artifacts. The current data support only a claim about day-7 image-derived leaf area under the checked system; they do not yet justify a broad vigor interpretation or a light-treatment conclusion without the study comparison and validity evidence.",
+          "summary": "A full audit keeps image-processing consistency, cross-system shift, calibration, and the broader biological construct as separate judgments.",
+          "reasoning": "Award one point for a precise target/operation critique, one for separating Laboratory A repeatability from cross-laboratory reproducibility, one for identifying the approximately +8% systematic component and a reference/calibration response, one for a substantive construct-validity analysis with at least one omission and one irrelevant influence or evidence proposal, and one for a bounded conclusion limited to image-derived leaf area and the supplied study evidence. On a retry, audit 'microbial colony health equals automated colony area after 24 hours' using a supplied non-pathogenic image dataset and a reference grid; do not propose culturing organisms.",
+          "acceptableResponses": [
+            "Any complete four-question audit that preserves the distinctions among the imaging operation, condition-specific precision, reference shift, construct evidence, and warranted conclusion."
+          ],
+          "commonErrors": [
+            "Treating reprocessing consistency as reproducibility across cameras and laboratories",
+            "Ignoring the 100.0 cm² reference when interpreting Laboratory B",
+            "Equating leaf area with every biologically relevant aspect of seedling vigor",
+            "Claiming a treatment effect without comparative treatment results"
+          ]
+        },
+        "rubricId": "rubric-transfer-greenhouse",
+        "safetyCritical": false
+      }
+    ],
+    "rubrics": [
+      {
+        "id": "rubric-scatter-shift",
+        "title": "Scatter and shift interpretation",
+        "criteria": [
+          {
+            "id": "criterion-p-scatter",
+            "description": "Award 1 point only when Device P's larger short-term dispersion and mean of 100.0 are identified.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-q-repeatable-shifted",
+            "description": "Award 1 point only when Device Q is identified as more repeatable under the checked conditions and shifted approximately +5.0 units from the reference.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-average-boundary",
+            "description": "Award 1 point only when averaging is rejected as an automatic repair for Device Q's stable shift.",
+            "maxPoints": 1
+          }
+        ]
+      },
+      {
+        "id": "rubric-operational-construct",
+        "title": "Operational definition and construct critique",
+        "criteria": [
+          {
+            "id": "criterion-target-operation",
+            "description": "Award 1 point for separating learner engagement as the target from click count as the operation and limiting what exact reproduction establishes.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-omission-irrelevance",
+            "description": "Award 1 point for one credible omitted part of engagement and one credible construct-irrelevant influence on click count.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-narrow-or-test",
+            "description": "Award 1 point for a warranted narrower interpretation or a relevant evidence plan tied to the broader intended interpretation and use.",
+            "maxPoints": 1
+          }
+        ]
+      },
+      {
+        "id": "rubric-conditions-calibration",
+        "title": "Condition and calibration judgment",
+        "criteria": [
+          {
+            "id": "criterion-within-repeatability",
+            "description": "Award 1 point for interpreting each tight triplet as repeatability evidence limited to its stated within-laboratory conditions.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-across-reproducibility",
+            "description": "Award 1 point for identifying weak agreement across the bundled laboratory, operator, instrument, and day changes and refusing to assign a unique cause.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-reference-action",
+            "description": "Award 1 point for a concrete reference or calibration investigation with documented conditions, traceability, uncertainty, or correction.",
+            "maxPoints": 1
+          }
+        ]
+      },
+      {
+        "id": "rubric-transfer-greenhouse",
+        "title": "Complete greenhouse measurement audit",
+        "criteria": [
+          {
+            "id": "criterion-transfer-operation",
+            "description": "Award 1 point for separating seedling vigor from day-7 image-derived leaf area and identifying a needed procedural specification.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-transfer-conditions",
+            "description": "Award 1 point for separating same-image processing repeatability from agreement across changed camera, system, and laboratory conditions.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-transfer-error",
+            "description": "Award 1 point for identifying the approximately +8% systematic component and proposing an appropriate reference/calibration response.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-transfer-validity",
+            "description": "Award 1 point for a construct-validity analysis that names an omitted aspect, an irrelevant influence, or a relevant source of evidence.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-transfer-conclusion",
+            "description": "Award 1 point for limiting the conclusion to day-7 image-derived leaf area and refusing a broad vigor or treatment-effect claim from the supplied evidence alone.",
+            "maxPoints": 1
+          }
+        ]
+      }
+    ]
+  },
+  "references": {
+    "schemaVersion": 2,
+    "format": "embeddedknowledge-references-v2",
+    "lessonId": "PREM-SCI-006",
+    "lessonVersion": "0.1.0",
+    "sources": [
+      {
+        "id": "source-nist-operational-definition",
+        "type": "other",
+        "title": "A Framework for Research Inventory of Manufacturing Sustainability Assessment",
+        "creators": [
+          "Juyeon Lee",
+          "Yung-Tsun T. Lee"
+        ],
+        "publisher": "National Institute of Standards and Technology",
+        "issued": "2014-05-19",
+        "url": "https://doi.org/10.6028/NIST.IR.7959",
+        "accessed": "2026-07-21",
+        "version": "NISTIR 7959; official NIST publication record",
+        "locator": "Section 3.1, Requirements for Operational Definition, printed page 8",
+        "license": "NIST public information; see Copyrights & Disclaimers",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only to verify the general function and requirements of an operational definition; no source wording, manufacturing example, organization, figure, table, or assessment was copied or adapted."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://www.nist.gov/copyrights-disclaimers",
+          "checked": "2026-07-21",
+          "notes": "The accountable run checked NIST's current copyright and disclaimer route before substantive access. NIST presents unmarked web information as public information, and no term prohibiting this limited agent reading was found. The DOI and official PDF were accessed with ordinary browser requests."
+        }
+      },
+      {
+        "id": "source-jcgm-vim",
+        "type": "official-standard",
+        "title": "International Vocabulary of Metrology—Basic and General Concepts and Associated Terms (VIM), 3rd edition",
+        "creators": [
+          "Joint Committee for Guides in Metrology"
+        ],
+        "publisher": "Bureau International des Poids et Mesures",
+        "issued": "2012",
+        "url": "https://doi.org/10.59161/JCGM200-2012",
+        "accessed": "2026-07-21",
+        "version": "JCGM 200:2012; 2008 edition with minor corrections; Annotated VIM3 consulted for approved clarifications",
+        "locator": "Entries 2.13–2.21, 2.24–2.26, 2.39, 2.41, and 2.45",
+        "license": "CC BY 4.0 for BIPM website materials unless otherwise stated",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used to verify metrology concepts and boundaries for measurement error, precision, repeatability, reproducibility, calibration, traceability, accuracy, and validation; the lesson independently synthesizes wording, structure, examples, diagram, and tasks."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://www.bipm.org/en/copyright",
+          "checked": "2026-07-21",
+          "notes": "The accountable run checked BIPM's Terms and Conditions of Use before opening the VIM entries. BIPM states an open-access policy and applies CC BY 4.0 to website materials unless otherwise stated; no agent-ingestion restriction was found. Only ordinary public pages and the DOI route were used."
+        }
+      },
+      {
+        "id": "source-nist-tn1297",
+        "type": "guideline",
+        "title": "Guidelines for Evaluating and Expressing the Uncertainty of NIST Measurement Results",
+        "creators": [
+          "Barry N. Taylor",
+          "Chris E. Kuyatt"
+        ],
+        "publisher": "National Institute of Standards and Technology",
+        "issued": "1994",
+        "url": "https://www.nist.gov/pml/nist-technical-note-1297",
+        "accessed": "2026-07-21",
+        "version": "NIST Technical Note 1297, 1994 edition; web version updated 2026-05-06",
+        "locator": "Sections 3 and 5.2; Appendix D.1.1 terminology and correction guidance",
+        "license": "NIST public information; see Copyrights & Disclaimers",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only to verify statistical treatment of independent repeated observations, random and systematic effects, correction, and the need to address recognized systematic effects; no wording, example, table, or formula was copied."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://www.nist.gov/copyrights-disclaimers",
+          "checked": "2026-07-21",
+          "notes": "The NIST copyright and disclaimer route was checked before substantive access. No term prohibiting limited agent reading was found. The public HTML technical-note sections were read using ordinary browser requests without login, bulk retrieval, or bypass."
+        }
+      },
+      {
+        "id": "source-testing-standards",
+        "type": "official-standard",
+        "title": "Standards for Educational and Psychological Testing",
+        "creators": [
+          "American Educational Research Association",
+          "American Psychological Association",
+          "National Council on Measurement in Education"
+        ],
+        "publisher": "American Educational Research Association",
+        "issued": "2014",
+        "url": "https://www.testingstandards.net/uploads/7/6/6/4/76643089/standards_2014edition.pdf",
+        "accessed": "2026-07-21",
+        "version": "2014 English edition; official open-access file",
+        "locator": "Introduction; Chapter 1, Validity, printed pages 11–32; Chapter 2, Reliability/Precision and Errors of Measurement, printed pages 33–47; Chapter 3, Fairness in Testing, printed pages 49–72; glossary",
+        "license": "Copyrighted official open-access edition; facts-only use in this lesson",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only to verify validity as an evidence-based judgment about proposed interpretations and uses, relevant replication conditions, sources of construct-validity evidence, construct underrepresentation and irrelevant variance, and population/setting boundaries. No wording, examples, test content, tables, or organization were copied or adapted."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://www.testingstandards.net/open-access-files.html",
+          "checked": "2026-07-21",
+          "notes": "Before substantive access, the accountable run searched the official site for current terms, copyright, robots, and AI-ingestion restrictions. No dedicated terms route or agent restriction surfaced; the official page explicitly provides the 2014 edition as open access. The public PDF was read through ordinary browser access. Open access was not treated as permission to reuse expression, and lesson use is facts-only original synthesis."
+        }
+      }
+    ]
+  },
+  "claims": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-claims-v1",
+    "lessonId": "PREM-SCI-006",
+    "lessonVersion": "0.1.0",
+    "claims": [
+      {
+        "id": "claim-operational-definition",
+        "statement": "An operational definition makes a target inspectable by specifying the observable procedure or rule that produces its record, but an explicit operation does not by itself establish low error or valid construct meaning.",
+        "sceneIds": [
+          "scene-when-numbers-agree",
+          "scene-four-question-audit",
+          "scene-worked-alertness-audit",
+          "scene-practise-and-repair",
+          "scene-transfer-team-coordination",
+          "scene-defend-judgment"
+        ],
+        "sourceIds": [
+          "source-nist-operational-definition",
+          "source-testing-standards"
+        ],
+        "support": "synthesis",
+        "confidence": "high",
+        "scope": "General introductory scientific measurement; the exact procedural detail needed depends on the target, field, population, and intended use.",
+        "uncertainty": "Operational-definition terminology varies somewhat across disciplines; this lesson uses the shared function of linking a concept or quantity to observable operations.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-error-components",
+        "statement": "Measurement error can contain a random component that varies unpredictably across replicate measurements and a systematic component that remains constant or varies predictably; repeated and reference data can reveal different patterns without making either component perfectly known.",
+        "sceneIds": [
+          "scene-four-question-audit",
+          "scene-worked-alertness-audit",
+          "scene-practise-and-repair",
+          "scene-transfer-team-coordination",
+          "scene-defend-judgment"
+        ],
+        "sourceIds": [
+          "source-jcgm-vim",
+          "source-nist-tn1297"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Measurement results compared under stated replicate conditions and, when available, with an appropriate reference quantity value.",
+        "uncertainty": "The true value and the sizes and causes of error components are generally not known perfectly; observed scatter or shift is evidence for a model, not proof of a unique cause.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-averaging-boundary",
+        "statement": "Averaging repeated observations can reduce the influence of suitable centered random variation when independence and other assumptions are adequate, but averaging does not remove a stable systematic offset.",
+        "sceneIds": [
+          "scene-four-question-audit",
+          "scene-worked-alertness-audit",
+          "scene-practise-and-repair",
+          "scene-transfer-team-coordination",
+          "scene-defend-judgment"
+        ],
+        "sourceIds": [
+          "source-jcgm-vim",
+          "source-nist-tn1297"
+        ],
+        "support": "synthesis",
+        "confidence": "high",
+        "scope": "Repeated quantitative measurements for which the averaging target, error structure, dependence, stability, and reference conditions are defensible.",
+        "uncertainty": "Averaging may fail or mislead when errors are dependent, drifting, non-centered, selection-dependent, or attached to explanatory variables in more complex models.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-repeatability-reproducibility",
+        "statement": "Repeatability is precision under specified conditions with minimal planned change, whereas reproducibility is precision under specified changed conditions; both require the relevant conditions to be named and neither alone establishes accuracy or construct validity.",
+        "sceneIds": [
+          "scene-four-question-audit",
+          "scene-worked-alertness-audit",
+          "scene-practise-and-repair",
+          "scene-transfer-team-coordination",
+          "scene-defend-judgment"
+        ],
+        "sourceIds": [
+          "source-jcgm-vim",
+          "source-testing-standards"
+        ],
+        "support": "synthesis",
+        "confidence": "high",
+        "scope": "Measurement precision, including instrument and observer-coded results, under an explicitly described domain of replicate conditions.",
+        "uncertainty": "Fields use reliability and reproducibility terminology differently; this lesson states the metrology meaning whenever it uses measurement repeatability or reproducibility.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-calibration-traceability",
+        "statement": "Calibration establishes a relation between indications and standard-provided values under specified conditions, while metrological traceability relates a result to a reference through a documented unbroken calibration chain; neither property alone guarantees fitness for purpose or absence of mistakes.",
+        "sceneIds": [
+          "scene-four-question-audit",
+          "scene-worked-alertness-audit",
+          "scene-practise-and-repair",
+          "scene-transfer-team-coordination",
+          "scene-defend-judgment"
+        ],
+        "sourceIds": [
+          "source-jcgm-vim",
+          "source-nist-tn1297"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Metrological measurement results and standards under documented calibration conditions and uncertainty contributions.",
+        "uncertainty": "This lesson does not teach construction of calibration hierarchies, uncertainty budgets, or field-specific acceptance limits.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-validity-interpretation",
+        "statement": "Validity is an evidence-based judgment about whether theory and accumulated evidence support a proposed interpretation for a stated use, population, and setting, rather than a timeless property attached to an instrument alone.",
+        "sceneIds": [
+          "scene-when-numbers-agree",
+          "scene-four-question-audit",
+          "scene-worked-alertness-audit",
+          "scene-practise-and-repair",
+          "scene-transfer-team-coordination",
+          "scene-defend-judgment"
+        ],
+        "sourceIds": [
+          "source-testing-standards"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Interpretations and uses of scores or measurement results, especially for constructed attributes and observer- or test-based measures.",
+        "uncertainty": "Some disciplines use validity more loosely for closeness to an intended target; the lesson makes the interpretation-and-use sense explicit when discussing construct validity.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-construct-evidence",
+        "statement": "Construct-validity evidence can address content coverage, response processes, internal structure, predicted relations with similar or different constructs, relevant criteria, and whether irrelevant features or omitted content change meaning across populations and settings.",
+        "sceneIds": [
+          "scene-four-question-audit",
+          "scene-worked-alertness-audit",
+          "scene-practise-and-repair",
+          "scene-transfer-team-coordination",
+          "scene-defend-judgment"
+        ],
+        "sourceIds": [
+          "source-testing-standards"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Evidence selected because it bears on the specific construct interpretation and proposed use; not every source of evidence is required in every setting.",
+        "uncertainty": "No single convergent, discriminant, content, or criterion result is an automatic certificate; evidential sufficiency depends on relevance, quality, stakes, and credible rival explanations.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-consistency-not-sufficient",
+        "statement": "Consistency is necessary for many stable interpretations but is not sufficient for accuracy or construct validity, because results can agree while sharing a systematic shift or consistently representing the wrong or an incomplete attribute.",
+        "sceneIds": [
+          "scene-when-numbers-agree",
+          "scene-four-question-audit",
+          "scene-worked-alertness-audit",
+          "scene-practise-and-repair",
+          "scene-transfer-team-coordination",
+          "scene-defend-judgment"
+        ],
+        "sourceIds": [
+          "source-jcgm-vim",
+          "source-testing-standards"
+        ],
+        "support": "synthesis",
+        "confidence": "high",
+        "scope": "Stable quantities or constructs when an interpretation presumes consistency across a stated domain of replications.",
+        "uncertainty": "For constructs expected to change over time, disagreement may reflect real change rather than error; the replication domain must match the intended interpretation.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      }
+    ]
+  },
+  "glossary": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-glossary-v1",
+    "lessonId": "PREM-SCI-006",
+    "lessonVersion": "0.1.0",
+    "terms": [
+      {
+        "id": "term-target-quantity",
+        "term": "target quantity",
+        "definition": "The quantity that a measurement is intended to estimate, such as the duration of a specified event.",
+        "aliases": [
+          "quantity of interest"
+        ],
+        "sceneIds": [
+          "scene-four-question-audit",
+          "scene-defend-judgment"
+        ]
+      },
+      {
+        "id": "term-construct",
+        "term": "construct",
+        "definition": "An idea used to organize related observations, such as alertness or coordination, that is represented through chosen indicators rather than observed directly as a single reading.",
+        "aliases": [
+          "target construct"
+        ],
+        "sceneIds": [
+          "scene-four-question-audit",
+          "scene-worked-alertness-audit",
+          "scene-practise-and-repair",
+          "scene-transfer-team-coordination",
+          "scene-defend-judgment"
+        ]
+      },
+      {
+        "id": "term-operational-definition",
+        "term": "operational definition",
+        "definition": "A specified procedure or rule that turns a target quantity or construct into an observable record.",
+        "aliases": [
+          "measurement operation"
+        ],
+        "sceneIds": [
+          "scene-when-numbers-agree",
+          "scene-four-question-audit",
+          "scene-worked-alertness-audit",
+          "scene-practise-and-repair",
+          "scene-transfer-team-coordination",
+          "scene-defend-judgment"
+        ]
+      },
+      {
+        "id": "term-measurement-error",
+        "term": "measurement error",
+        "definition": "The difference between a measured value and an appropriate reference quantity value; it can be described as having random and systematic components in a stated measurement model.",
+        "aliases": [],
+        "sceneIds": [
+          "scene-when-numbers-agree",
+          "scene-four-question-audit",
+          "scene-worked-alertness-audit",
+          "scene-practise-and-repair",
+          "scene-transfer-team-coordination",
+          "scene-defend-judgment"
+        ]
+      },
+      {
+        "id": "term-random-measurement-error",
+        "term": "random measurement error",
+        "definition": "The component of measurement error that varies unpredictably across replicate measurements under stated conditions and appears as dispersion among results.",
+        "aliases": [
+          "random error component"
+        ],
+        "sceneIds": [
+          "scene-when-numbers-agree",
+          "scene-four-question-audit",
+          "scene-worked-alertness-audit",
+          "scene-practise-and-repair"
+        ]
+      },
+      {
+        "id": "term-systematic-measurement-error",
+        "term": "systematic measurement error",
+        "definition": "The component of measurement error that remains constant or varies predictably across replicate measurements and appears as a shared shift or pattern relative to an appropriate reference.",
+        "aliases": [
+          "systematic error component",
+          "measurement bias"
+        ],
+        "sceneIds": [
+          "scene-when-numbers-agree",
+          "scene-four-question-audit",
+          "scene-worked-alertness-audit",
+          "scene-practise-and-repair",
+          "scene-transfer-team-coordination",
+          "scene-defend-judgment"
+        ]
+      },
+      {
+        "id": "term-measurement-precision",
+        "term": "measurement precision",
+        "definition": "How closely replicate measured values agree when obtained under specified conditions; precision describes dispersion and does not by itself establish closeness to a reference.",
+        "aliases": [
+          "precision"
+        ],
+        "sceneIds": [
+          "scene-four-question-audit",
+          "scene-worked-alertness-audit",
+          "scene-practise-and-repair"
+        ]
+      },
+      {
+        "id": "term-repeatability",
+        "term": "repeatability",
+        "definition": "Measurement precision when specified conditions are kept the same, commonly including the procedure, operator, measuring system, location, and a short time interval.",
+        "aliases": [
+          "measurement repeatability"
+        ],
+        "sceneIds": [
+          "scene-when-numbers-agree",
+          "scene-four-question-audit",
+          "scene-worked-alertness-audit",
+          "scene-practise-and-repair",
+          "scene-transfer-team-coordination",
+          "scene-defend-judgment"
+        ]
+      },
+      {
+        "id": "term-reproducibility",
+        "term": "reproducibility",
+        "definition": "Measurement precision when specified conditions change; a useful reproducibility claim names the changed conditions, such as operator, instrument, laboratory, or day.",
+        "aliases": [
+          "measurement reproducibility"
+        ],
+        "sceneIds": [
+          "scene-when-numbers-agree",
+          "scene-four-question-audit",
+          "scene-worked-alertness-audit",
+          "scene-practise-and-repair",
+          "scene-transfer-team-coordination",
+          "scene-defend-judgment"
+        ]
+      },
+      {
+        "id": "term-calibration",
+        "term": "calibration",
+        "definition": "An operation that establishes a relation, under specified conditions, between indications and values supplied by measurement standards with associated uncertainties, then uses that relation to obtain a measurement result.",
+        "aliases": [],
+        "sceneIds": [
+          "scene-four-question-audit",
+          "scene-worked-alertness-audit",
+          "scene-practise-and-repair",
+          "scene-transfer-team-coordination",
+          "scene-defend-judgment"
+        ]
+      },
+      {
+        "id": "term-metrological-traceability",
+        "term": "metrological traceability",
+        "definition": "A property of a measurement result that relates it to a stated reference through a documented, unbroken calibration chain in which each link contributes to measurement uncertainty.",
+        "aliases": [
+          "traceability"
+        ],
+        "sceneIds": [
+          "scene-four-question-audit",
+          "scene-worked-alertness-audit",
+          "scene-defend-judgment"
+        ]
+      },
+      {
+        "id": "term-measurement-accuracy",
+        "term": "measurement accuracy",
+        "definition": "Closeness of agreement between a measured value and the value of the quantity being measured; accuracy is a qualitative concept and is not the same as precision.",
+        "aliases": [
+          "accuracy"
+        ],
+        "sceneIds": [
+          "scene-four-question-audit"
+        ]
+      },
+      {
+        "id": "term-reliability",
+        "term": "reliability",
+        "definition": "Consistency of scores or measurements across specified replications, such as occasions, raters, or item samples; its interpretation depends on which sources of variation are included.",
+        "aliases": [
+          "measurement reliability"
+        ],
+        "sceneIds": [
+          "scene-when-numbers-agree",
+          "scene-four-question-audit"
+        ]
+      },
+      {
+        "id": "term-construct-validity",
+        "term": "construct validity",
+        "definition": "The degree to which evidence and theory support the proposed interpretation of measurement results for a stated use, including how well the operation represents the intended construct and excludes irrelevant influences.",
+        "aliases": [
+          "validity argument"
+        ],
+        "sceneIds": [
+          "scene-when-numbers-agree",
+          "scene-four-question-audit",
+          "scene-worked-alertness-audit",
+          "scene-practise-and-repair",
+          "scene-transfer-team-coordination",
+          "scene-defend-judgment"
+        ]
+      },
+      {
+        "id": "term-convergent-evidence",
+        "term": "convergent evidence",
+        "definition": "Evidence from a predicted relationship between a measure and another defensible measure of the same or a closely related construct.",
+        "aliases": [],
+        "sceneIds": [
+          "scene-four-question-audit",
+          "scene-worked-alertness-audit"
+        ]
+      },
+      {
+        "id": "term-discriminant-evidence",
+        "term": "discriminant evidence",
+        "definition": "Evidence from a predicted weak or distinct relationship between a measure and measures of different constructs.",
+        "aliases": [],
+        "sceneIds": [
+          "scene-four-question-audit",
+          "scene-worked-alertness-audit"
+        ]
+      },
+      {
+        "id": "term-inter-rater-agreement",
+        "term": "inter-rater agreement",
+        "definition": "The degree to which independent raters give the same ratings or classifications to the same cases under a stated coding rule and conditions.",
+        "aliases": [
+          "inter-observer agreement"
+        ],
+        "sceneIds": [
+          "scene-four-question-audit",
+          "scene-practise-and-repair",
+          "scene-transfer-team-coordination"
+        ]
+      },
+      {
+        "id": "term-construct-underrepresentation",
+        "term": "construct underrepresentation",
+        "definition": "A validity problem in which the measurement operation leaves out important parts of the intended construct.",
+        "aliases": [],
+        "sceneIds": [
+          "scene-practise-and-repair",
+          "scene-transfer-team-coordination"
+        ]
+      },
+      {
+        "id": "term-construct-irrelevant-influence",
+        "term": "construct-irrelevant influence",
+        "definition": "A feature outside the intended construct that changes measurement results and can therefore distort the proposed interpretation.",
+        "aliases": [
+          "construct-irrelevant variance"
+        ],
+        "sceneIds": [
+          "scene-four-question-audit",
+          "scene-worked-alertness-audit",
+          "scene-practise-and-repair",
+          "scene-transfer-team-coordination"
+        ]
+      }
+    ]
+  },
+  "attributionHtml": "<h1>Attribution and provenance</h1>\n<h2>Pack identity and licence</h2>\n<p>This is the draft Lesson Format v1 pack for <strong>PREM-SCI-006, “When can you trust a measurement?”</strong>, version 0.1.0. It maps to <code>topic-scientific-inquiry-measurement-validity</code>, declares <code>topic-scientific-inquiry-variables-controls</code> as its prerequisite outcome, and has nominal learning time of 180 minutes.</p>\n<p>VSBDev (<code>github:VSBDev</code>) is the accountable principal. Except for the factual sources listed below, the lesson prose, instructional sequence, fictional cases and data, assessment items, feedback, remediation, glossary wording, and declarative diagram were newly synthesized for EmbeddedKnowledge and are offered under <strong>CC BY 4.0</strong>. There are no third-party assets, embedded media, datasets, quotations, or licence exceptions in this pack.</p>\n<h2>Blind scientific first-draft assistance</h2>\n<p>The accepted scientific starting material came from <code>/tmp/fable-dossier-02-06.md</code>. The dossier records ten isolated Claude CLI calls. Each accepted call received only its displayed science prompt, had machine-readable <code>modelUsage</code> containing <code>claude-fable-5</code> (the dossier also reports <code>claude-haiku-4-5-20251001</code>), and received no repository, EmbeddedKnowledge, Premed, graph-outcome, or lesson-packaging context. The dossier states that every Opus-routed output was excluded.</p>\n<p>The accepted fragments were used as a baseline scientific first draft, not as a packaged lesson. Their scientific substance was checked against the authoritative sources below and corrected or bounded where needed. In particular, the pack treats repeatability and reproducibility as condition-specific precision rather than proof of accuracy; limits averaging to suitable centered, sufficiently independent varying components; does not treat calibration, reliability, or reproducibility as a certificate of accuracy or construct validity; and frames validity as evidence for a proposed interpretation and use. The correlation-attenuation fragment is not taught because its necessary assumptions lie outside this lesson&#39;s scope. Nothing in the lesson implies that Fable saw this repository or authored its editorial, pedagogical, assessment, or schema packaging.</p>\n<p>The Claude CLI version was not recorded in the accepted dossier. All Fable provenance below is disclosed exactly at the granularity available there:</p>\n<table>\n<thead>\n<tr>\n<th>Fragment</th>\n<th>Accepted Claude session ID</th>\n<th>Prompt SHA-256</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>1</td>\n<td><code>0015f26e-82bd-47b4-aa02-99cd53856a4c</code></td>\n<td><code>sha256:2728a6f2c1a20808616c142c07f5027f179e418981ce61673c12cace604adb43</code></td>\n</tr>\n<tr>\n<td>2</td>\n<td><code>a5a29626-11ba-4a4c-8d9f-d59cd3d161fd</code></td>\n<td><code>sha256:41650c034874a4f9cf387e13e14a581bac7bf3165f3f6e934e9f23132812c0de</code></td>\n</tr>\n<tr>\n<td>3</td>\n<td><code>d8f7ba40-ccbb-4b87-944d-6640e2b0c420</code></td>\n<td><code>sha256:446e1b6efc9dc6fbcc58938bcdc93d9ece28bd1c7b1bfa2539b6150a0c36fd31</code></td>\n</tr>\n<tr>\n<td>4</td>\n<td><code>611a4122-36ce-4693-ad2e-b38d0c0fa3ed</code></td>\n<td><code>sha256:578f178f8da9586818de8d859caf0eb12c09669a1dd5a5fb4245e212151e866a</code></td>\n</tr>\n<tr>\n<td>5</td>\n<td><code>65d6feab-7cbe-4b92-98bb-580ba2df2154</code></td>\n<td><code>sha256:e07ce898511958f43fa2e25e39dbef4277eaf4c9ac588385590f5ad43e2ab7d8</code></td>\n</tr>\n<tr>\n<td>6</td>\n<td><code>f012fcab-790c-413e-9185-4d943ffae93d</code></td>\n<td><code>sha256:4fd336d2fea7583a51e40d2221acec73a200cc2debf43bf7f476d0ba6f4164a2</code></td>\n</tr>\n<tr>\n<td>7</td>\n<td><code>793b2986-f940-454b-8a83-4754969cada8</code></td>\n<td><code>sha256:e397a1a445bf61dc8ed4c6f0bb6306dbbecc1702b04f7f5da161a765846a7848</code></td>\n</tr>\n<tr>\n<td>8</td>\n<td><code>b2d5eaa7-837a-44e0-af46-f37c129556fe</code></td>\n<td><code>sha256:ea8744b34c0b1fd82e7ab1731a8a080b85ad705cc2c5b398d54d191c25f705d8</code></td>\n</tr>\n<tr>\n<td>9</td>\n<td><code>8a7bdb60-ddc6-400a-9ffc-26926e4a31b8</code></td>\n<td><code>sha256:3694c86ac50dd74409b300b324a10565e17c162106b17926b9c47f9aaf19cd67</code></td>\n</tr>\n<tr>\n<td>10</td>\n<td><code>d85ddecf-4edb-4731-bbd9-4b8246d90440</code></td>\n<td><code>sha256:116bdca5ee4db33566de70efde84a46682f9500c4404a6643d3e8d57f996f4c8</code></td>\n</tr>\n</tbody></table>\n<h2>Editorial and pedagogical packaging assistance</h2>\n<p>OpenAI Codex supplied material editorial, evidence-verification, learning-design, assessment, accessibility, rights-recording, and typed-packaging assistance. This was a separate role from the blind scientific first-draft calls:</p>\n<ul>\n<li>System: Codex</li>\n<li>Provider: OpenAI</li>\n<li>Model: <code>gpt-5.6-sol</code></li>\n<li>Version: <code>Codex CLI 0.144.6</code></li>\n<li>Run ID: <code>d43c6e44-053c-431d-8062-ca1fb27ab0f6</code></li>\n<li>Material-instructions digest: <code>sha256:5f566516f715f267803a74f6363d4914ca3a023a87eeb54e791b73bbfc0bf44a</code></li>\n</ul>\n<p>The digest is the SHA-256 of the exact discloseable UTF-8 editorial-packaging task prompt supplied to this run through <code>EK_PACKAGER_PROMPT_SHA256</code>; it does not claim to digest hidden provider, platform, system, or skill instructions. Provenance records are self-reported and attested by the accountable principal; repository validation checks internal consistency, not independent identity verification.</p>\n<h2>Sources and reuse basis</h2>\n<p>The complete machine-readable source and agent-access record is in <code>references.json</code>; claim-level and scene-level evidence mappings are in <code>claims.json</code> and the learner-visible source notes. The sources were used only as factual references. No source prose, examples, figures, tables, test content, or organization was copied or adapted.</p>\n<ul>\n<li>Lee and Lee, NISTIR 7959, DOI <code>10.6028/NIST.IR.7959</code>: requirements and function of an operational definition.</li>\n<li>Joint Committee for Guides in Metrology, VIM, DOI <code>10.59161/JCGM200-2012</code>: measurement error, precision, repeatability, reproducibility, calibration, traceability, accuracy, and their boundaries.</li>\n<li>Taylor and Kuyatt, NIST Technical Note 1297: repeated observations, random and systematic effects, correction, and limitations of averaging.</li>\n<li>AERA, APA, and NCME, <em>Standards for Educational and Psychological Testing</em> (2014): validity arguments, reliability/precision conditions, construct evidence, and population and setting boundaries.</li>\n</ul>\n<p>The <code>measurement-audit</code> diagram is original declarative data authored for this pack. Its visible labels, ordered structure, and long description communicate the same four-question audit; it contains no active content or external asset.</p>\n"
+}
