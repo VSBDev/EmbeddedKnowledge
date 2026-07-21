@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-SCI-006-LEARNING-DESIGN-7FBC32D1",
+  "lessonId": "PREM-SCI-006",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "150ac2da6ead05828d888bd9def5e1393cd2566e",
+  "role": "learning-design",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev operating the learning-design reviewer",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.5",
+      "runId": "agy-learning-design-PREM-SCI-006-7FBC32D1-DD3F-48E8-BA29-1E95E8769963",
+      "instructionsDigest": "sha256:96abf973f65c30b2f39a38d035dbec5da67a137dc2e502053e065c658bb515ad"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Founding-stage operational conflict: github:VSBDev operated the authoring and packaging agents and also operates this learning-design review run. This is a new role-isolated run with a unique run ID; it had no access to the authoring conversation. The conflict is disclosed rather than treated as independent human peer review."
+  },
+  "evidenceChecked": [
+    "lessons/PREM-SCI-006-measurement-reliability-validity/lesson.json",
+    "lessons/PREM-SCI-006-measurement-reliability-validity/content/010-when-numbers-agree.md",
+    "lessons/PREM-SCI-006-measurement-reliability-validity/content/020-four-question-audit.md",
+    "lessons/PREM-SCI-006-measurement-reliability-validity/content/030-worked-alertness-audit.md",
+    "lessons/PREM-SCI-006-measurement-reliability-validity/content/040-practise-and-repair.md",
+    "lessons/PREM-SCI-006-measurement-reliability-validity/content/050-transfer-to-team-coordination.md",
+    "lessons/PREM-SCI-006-measurement-reliability-validity/content/060-defend-the-judgment.md",
+    "lessons/PREM-SCI-006-measurement-reliability-validity/assessment.json",
+    "lessons/PREM-SCI-006-measurement-reliability-validity/claims.json",
+    "lessons/PREM-SCI-006-measurement-reliability-validity/references.json",
+    "lessons/PREM-SCI-006-measurement-reliability-validity/glossary.json",
+    "lessons/PREM-SCI-006-measurement-reliability-validity/diagrams/measurement-audit.diagram.json",
+    "lessons/PREM-SCI-006-measurement-reliability-validity/ATTRIBUTION.md",
+    "CONTENT-STANDARD.md"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "assessment.json#item-transfer-greenhouse.answer.correct",
+      "finding": "The keyed answer calls Laboratory B's repeated measurements on a single 100.0 cm² reference shape a 'reproducible within-system result.' However, since these measurements are taken under unchanged within-system conditions, they constitute repeatability rather than reproducibility. Additionally, the answer references 'poor cross-system agreement' for this reference shape, which is unsupported since the prompt does not supply Laboratory A's measurement of the reference shape. This misclassification defeats the learning objective to distinguish repeatability from reproducibility.",
+      "resolution": "Update the answer and corresponding reasoning/rubrics to classify Laboratory B's reference results as repeatability plus a +8% systematic component, and remove the unsupported claim of cross-system disagreement on the reference shape."
+    },
+    {
+      "severity": "major",
+      "target": "content/050-transfer-to-team-coordination.md#L49",
+      "finding": "The suggested feedback for item 2 classifies different counts obtained by the same observer recoding the same recording one week later as weak 'within-observer repeatability.' The lesson and VIM define repeatability as keeping conditions the same, specifically including a short time interval. Deliberately changing the occasion to one week later violates the repeatability conditions. Labelling it as repeatability contradicts the definition taught in the concept scene.",
+      "resolution": "Describe this as weak consistency across occasions or stability over time, or change the scenario to recoding within a short time interval under identical conditions to preserve the definition of repeatability."
+    },
+    {
+      "severity": "note",
+      "target": "content/010-when-numbers-agree.md through content/060-defend-the-judgment.md",
+      "finding": "The orientation scene is highly concrete and motivating. The worked example in scene 3 contains all necessary steps (givens representation, plan, execution, self-explanation prompt) required by CONTENT-STANDARD.md. The practice progression is logically structured with faded support and diagnostic feedback.",
+      "resolution": null
+    }
+  ],
+  "limitations": [
+    "The accountable operator conflict is material even though this run was role-isolated; this artifact is not independent human peer review.",
+    "No learner-performance data or classroom trials exist for these fictional cases; the review evaluates internal learning design and alignment, not actual student outcomes.",
+    "The reviewer is an AI agent system and does not represent a real human student's cognitive processing or first-hand experience.",
+    "This review targets candidate commit 150ac2da6ead05828d888bd9def5e1393cd2566e only."
+  ],
+  "signedAt": "2026-07-21T22:15:24Z"
+}
