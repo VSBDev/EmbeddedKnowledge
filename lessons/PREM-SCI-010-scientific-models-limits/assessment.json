@@ -1,0 +1,268 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-assessment-v1",
+  "lessonId": "PREM-SCI-010",
+  "lessonVersion": "0.1.0",
+  "assessmentId": "assessment-scientific-models-limits",
+  "title": "Scientific model use and limits mastery check",
+  "purpose": "mastery-gate",
+  "attemptPolicy": {
+    "retakeable": true,
+    "timeLimitMinutes": null,
+    "feedback": "after-attempt"
+  },
+  "items": [
+    {
+      "id": "item-fit-and-mechanism",
+      "type": "single-choice",
+      "sceneId": "scene-mastery-retrieval",
+      "objectiveIds": [
+        "objective-diagnose-response"
+      ],
+      "outcomeIds": [
+        "topic-scientific-inquiry-models-and-limits"
+      ],
+      "prompt": "Models A and B both match three observations inside the same tested range but predict different outcomes at a fourth input. Which conclusion is most defensible before the fourth observation is collected?",
+      "stimulus": null,
+      "points": 2,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-both-bounded-test",
+            "text": "Both remain possible for the tested purpose; collect the fourth observation because it can discriminate between their predictions."
+          },
+          {
+            "id": "option-simpler-proven",
+            "text": "The simpler-looking model is proven true, so the fourth observation is unnecessary."
+          },
+          {
+            "id": "option-both-unusable",
+            "text": "Because two models fit, neither observation nor model can support any conclusion."
+          },
+          {
+            "id": "option-average-predictions",
+            "text": "Average the two fourth-input predictions and treat that average as validated."
+          }
+        ],
+        "units": null,
+        "tolerance": null,
+        "maxSelections": 1,
+        "maxLength": null
+      },
+      "answer": {
+        "correct": "option-both-bounded-test",
+        "summary": "Existing agreement supports both models only in a bounded way; a case where their predictions diverge can supply discriminating evidence.",
+        "reasoning": "Award one point for preserving the evidential value of the existing fit without calling either model uniquely true, and one point for selecting the fourth observation as a discriminating test. On a retry, compare two fictional temperature models that agree from 10 to 20 units but diverge at 30, and state in advance what each result would favor.",
+        "acceptableResponses": [
+          "The option that keeps both models provisionally possible and calls for the discriminating fourth observation."
+        ],
+        "commonErrors": [
+          "Treating successful fit as proof of a unique mechanism; return to the competing-model repair and identify where predictions diverge.",
+          "Treating non-uniqueness as meaning evidence is worthless; state the tested range in which the fit remains informative.",
+          "Averaging incompatible model outputs without a reasoned ensemble model or validation."
+        ]
+      },
+      "rubricId": "rubric-fit-and-mechanism",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-feeder-domain-failure",
+      "type": "data-interpretation",
+      "sceneId": "scene-mastery-retrieval",
+      "objectiveIds": [
+        "objective-audit-model",
+        "objective-diagnose-response"
+      ],
+      "outcomeIds": [
+        "topic-scientific-inquiry-models-and-limits"
+      ],
+      "prompt": "Use the supplied model and records to judge each use. Calculate the predictions at 8 h and 18 h, classify each use relative to the fitted time range, identify the 18 h failure evidence, and choose a justified response.",
+      "stimulus": "A fictional dispenser-count model is N(t) = 96 - 6t, where N is a count and t is hours. It was fitted with records from 0 through 12 h. The observed count is 49 at 8 h and 7 at 18 h.",
+      "points": 3,
+      "responseSpec": {
+        "mode": "text",
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "maxLength": 1800
+      },
+      "answer": {
+        "correct": "At 8 h, N = 48, an interpolation that is close to the observed 49. At 18 h, N = -12, an extrapolation outside 0-12 h that conflicts with the observed 7 and with the nonnegative boundary of a count. Restrict the linear model to its supported range and revise or replace its structure before later-time use; parameter recalibration alone is not shown to solve the impossible-output problem.",
+        "summary": "The early use is a supported interpolation; the later use crosses the fitted domain and reveals a structural failure.",
+        "reasoning": "Award one point for both correct predictions and range classifications, one for naming both the observed mismatch and impossible negative count at 18 h, and one for restricting the current model plus proposing structural revision or replacement before later-time use. On a retry, use M(t) = 75 - 5t fitted from 0 through 10 h with records at 6 h and 16 h.",
+        "acceptableResponses": [
+          "Any equivalent calculation and audit that treats 8 h as an interpolation, 18 h as failed extrapolation, and responds by restricting and structurally revising or replacing the model."
+        ],
+        "commonErrors": [
+          "Calling both calculations valid because the algebra can be evaluated; return to the distinction between numerical output and defensible domain.",
+          "Not using the observed 18 h record as failure evidence.",
+          "Changing only the slope without addressing the model's ability to produce impossible negative counts."
+        ]
+      },
+      "rubricId": "rubric-feeder-domain-failure",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-pressure-sensitivity",
+      "type": "open-response",
+      "sceneId": "scene-mastery-retrieval",
+      "objectiveIds": [
+        "objective-use-and-stress"
+      ],
+      "outcomeIds": [
+        "topic-scientific-inquiry-models-and-limits"
+      ],
+      "prompt": "Use P = nRT/V to calculate the base pressure. Then calculate the two pressures when only volume varies across its stated plausible range, and interpret what this local sensitivity check does and does not test.",
+      "stimulus": "For a fictional equilibrium gas record, n = 0.200 mol, T = 300 K, V = 5.00 L, and R = 8.314 L kPa mol^-1 K^-1. A measurement audit says V could range from 4.75 L to 5.25 L while the other inputs remain fixed.",
+      "points": 3,
+      "responseSpec": {
+        "mode": "text",
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "maxLength": 1800
+      },
+      "answer": {
+        "correct": "The base prediction is 99.8 kPa. At 4.75 L it is about 105.0 kPa, and at 5.25 L it is about 95.0 kPa. Thus a roughly plus or minus 5% volume range creates an approximately minus or plus 5% pressure response near this baseline because volume is in the denominator. This is a local one-input sensitivity check; it does not test interacting input changes, measurement bias in other inputs, or whether the real gas satisfies the ideal-gas assumptions.",
+        "summary": "The pressure prediction is locally sensitive to volume by a similar percentage in the opposite direction, but the check does not validate the model structure.",
+        "reasoning": "Award one point for the base result near 99.8 kPa with units, one for both endpoint results near 105.0 and 95.0 kPa, and one for interpreting the inverse local sensitivity while naming at least one untested structural, interaction, or domain issue. On a retry, use n = 0.150 mol, T = 310 K, V = 3.80 L with a volume range of 3.60-4.00 L.",
+        "acceptableResponses": [
+          "Values within 0.2 kPa of 99.8, 105.0, and 95.0 kPa, with an equivalent bounded interpretation."
+        ],
+        "commonErrors": [
+          "Reporting numbers without units or without interpreting direction; write the proportional relation before recalculating.",
+          "Reversing the response to volume; remember that volume is the denominator when other inputs are fixed.",
+          "Calling the sensitivity range a validation of ideal-gas behavior; return to the separate assumption and domain check."
+        ]
+      },
+      "rubricId": "rubric-pressure-sensitivity",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-transfer-mixing-model",
+      "type": "open-response",
+      "sceneId": "scene-mastery-retrieval",
+      "objectiveIds": [
+        "objective-audit-model",
+        "objective-use-and-stress",
+        "objective-diagnose-response"
+      ],
+      "outcomeIds": [
+        "topic-scientific-inquiry-models-and-limits"
+      ],
+      "prompt": "Audit the proposed transfer. State the model's output and central assumption, identify two material scale or domain changes, explain what the new records corroborate and contradict, propose one discriminating or sensitivity test, and justify a response for both an average-only question and a zone-specific question.",
+      "stimulus": "A fictional one-value model was developed in 25 L boxes with continuous mixing and predicts an average marker level of 12 units at 15 minutes. It is proposed for a 2,500 L room with mixing that cycles. At 15 minutes, lower, middle, and upper sensors record 17, 12, and 7 units; their mean is 12.",
+      "points": 4,
+      "responseSpec": {
+        "mode": "text",
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "maxLength": 2600
+      },
+      "answer": {
+        "correct": "The model outputs one average and assumes the represented space is sufficiently mixed for one value to answer the question. The volume increased by a factor of 100 and mixing changed from continuous to cycling; measurement now also spans zones. The mean of 12 corroborates the average for this one trial, while the 17-to-7 spread contradicts a uniform zone value. A useful next test repeats measurements across position and time under continuous versus cycling mixing. For an average-only question, restrict use to an explicitly defined average and seek independent repeats. For a zone-specific question, revise or replace the one-value structure because recalibrating one parameter cannot represent the missing spatial pattern.",
+        "summary": "A matching aggregate does not rescue a failed spatial representation; the response depends on which output the purpose requires.",
+        "reasoning": "Award one point for output plus well-mixed assumption, one for at least two scale/domain changes, one for separating average corroboration from spatial contradiction and proposing a relevant test, and one for the purpose-dependent decision: restricted provisional average use versus structural revision or replacement for zones. At least 3/4 on this item is required for lesson mastery. On a retry, audit a 30 L continuously stirred vessel model transferred to a 3,000 L tank with intermittent stirring and four depth records.",
+        "acceptableResponses": [
+          "Any equivalent audit that distinguishes the matching mean from the failed zone pattern and ties model response to the requested output."
+        ],
+        "commonErrors": [
+          "Calling the model validated because the mean matches; compare the output required by the actual question.",
+          "Listing changed numbers without naming the well-mixed assumption or domain.",
+          "Proposing only parameter recalibration for a missing spatial structure.",
+          "Rejecting the model for every purpose without considering a restricted average-only use."
+        ]
+      },
+      "rubricId": "rubric-transfer-mixing-model",
+      "safetyCritical": false
+    }
+  ],
+  "rubrics": [
+    {
+      "id": "rubric-fit-and-mechanism",
+      "title": "Bounded interpretation of fit",
+      "criteria": [
+        {
+          "id": "criterion-fit-bounded",
+          "description": "Award 1 point only when the existing fit is treated as bounded support rather than proof or uselessness.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-fit-discrimination",
+          "description": "Award 1 point only when the fourth observation is selected because the models make different predictions there.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-feeder-domain-failure",
+      "title": "Range, boundary, and failure response",
+      "criteria": [
+        {
+          "id": "criterion-feeder-calculate-range",
+          "description": "Award 1 point for predictions of 48 at 8 h and -12 at 18 h plus correct interpolation and extrapolation labels.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-feeder-failure-evidence",
+          "description": "Award 1 point for using both the observed mismatch and the impossible negative count as 18 h failure evidence.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-feeder-response",
+          "description": "Award 1 point for restricting the current range and revising or replacing the structure before later-time use.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-pressure-sensitivity",
+      "title": "Productive calculation and local sensitivity",
+      "criteria": [
+        {
+          "id": "criterion-pressure-base",
+          "description": "Award 1 point for a base prediction near 99.8 kPa with compatible units.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-pressure-endpoints",
+          "description": "Award 1 point for endpoint predictions near 105.0 kPa at 4.75 L and 95.0 kPa at 5.25 L.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-pressure-interpret",
+          "description": "Award 1 point for interpreting the inverse local response and naming at least one structural, interaction, or domain issue that remains untested.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-transfer-mixing-model",
+      "title": "Purpose-bound scale transfer",
+      "criteria": [
+        {
+          "id": "criterion-transfer-output-assumption",
+          "description": "Award 1 point for identifying the one-average output and the well-mixed assumption.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-transfer-domain-changes",
+          "description": "Award 1 point for at least two material changes among volume, mixing regime, spatial measurement, or desired output.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-transfer-evidence-test",
+          "description": "Award 1 point for separating mean corroboration from spatial contradiction and proposing a relevant positional, temporal, or mixing-regime test.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-transfer-purpose-response",
+          "description": "Award 1 point for restricted provisional average use and structural revision or replacement for zone-specific use.",
+          "maxPoints": 1
+        }
+      ]
+    }
+  ]
+}
