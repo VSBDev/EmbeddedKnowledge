@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-SCI-004-ACADEMIC-9CB247CF",
+  "lessonId": "PREM-SCI-004",
+  "lessonVersion": "0.1.1",
+  "candidateCommit": "98d9269eebf04c20e0efe08e4fa91b422316ac85",
+  "role": "academic",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev / academic review",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "9CB247CF-E55E-4201-AE13-75D9EF620221",
+      "instructionsDigest": "sha256:b7382068176f57ba70dbe198f6a77ea03a7e330c3282cc904bd5496b8ccb681c"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Founding-stage single-operator disclosure: github:VSBDev is the accountable principal for both the authoring agent and this isolated academic-review agent. This review uses a distinct run ID and independently evaluates candidate 98d9269eebf04c20e0efe08e4fa91b422316ac85."
+  },
+  "evidenceChecked": [
+    "lessons/PREM-SCI-004-choosing-a-study-design/lesson.json#identity-version-outcomes-prerequisite-objectives-scenes-and-provenance",
+    "lessons/PREM-SCI-004-choosing-a-study-design/content/01-who-creates-comparison.md#complete-scene-and-source-note",
+    "lessons/PREM-SCI-004-choosing-a-study-design/content/02-worked-choice.md#complete-worked-example-and-source-note",
+    "lessons/PREM-SCI-004-choosing-a-study-design/content/03-practise-repair.md#complete-practice-sequence-misconceptions-and-source-note",
+    "lessons/PREM-SCI-004-choosing-a-study-design/content/04-transfer-synthesis.md#complete-cutoff-transfer-inference-boundaries-recovery-and-source-note",
+    "lessons/PREM-SCI-004-choosing-a-study-design/assessment.json#all-four-items-answer-logic-rubrics-retry-strategies-and-12-point-total",
+    "lessons/PREM-SCI-004-choosing-a-study-design/claims.json#all-seven-claims-scene-mappings-source-mappings-scope-uncertainty-and-review-status",
+    "lessons/PREM-SCI-004-choosing-a-study-design/references.json#all-four-source-records-bibliographic-identities-locators-and-agent-access-status",
+    "lessons/PREM-SCI-004-choosing-a-study-design/glossary.json#all-thirteen-definitions-and-scene-links",
+    "lessons/PREM-SCI-004-choosing-a-study-design/ATTRIBUTION.md#lesson-identity-agent-disclosure-original-synthesis-and-source-use",
+    "lessons/PREM-SCI-004-choosing-a-study-design/reviews/*.json#candidate-pack-completeness-only; prior verdicts and findings were not used as academic evidence",
+    "site/data/premed-graph.json#topic-scientific-inquiry-study-designs-and-topic-scientific-inquiry-variables-controls",
+    "references.json#source-study-design-overview and #source-clinical-design-essentials bibliographic identities and available NLM records",
+    "references.json#source-observational-designs full-text sections on cohort, case-control, cross-sectional, source-population controls, and uncommon outcomes",
+    "references.json#source-natural-experiments full-text and abstract sections on assignment mechanisms, selective exposure, exchangeability, and alternative explanations",
+    "Independent comparison against CDC and WHO/IARC study-design definitions for experimental, cohort, case-control, and cross-sectional classifications"
+  ],
+  "findings": [
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-SCI-004-choosing-a-study-design/content/02-worked-choice.md#5-check-the-nearest-alternatives; claims.json#claim-cross-sectional-use",
+      "finding": "Scene 2 materially teaches that a cross-sectional study measures shift status and alertness in the same survey window and lacks the archive's temporal order. However, claim-cross-sectional-use omits scene-worked-choice from sceneIds, and the same-scene source note omits that claim ID. The supporting source IDs are already present in the note, so this is a bounded claim-to-scene evidence gap rather than an unsupported instructional conclusion.",
+      "resolution": "Add scene-worked-choice to claim-cross-sectional-use.sceneIds and add claim-cross-sectional-use to the scene 2 source-note claims list."
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-SCI-004-choosing-a-study-design/content/01-who-creates-comparison.md#retrieve-the-inquiry-chain; content/04-transfer-synthesis.md#rebuild-the-full-scientific-handoff; claims.json",
+      "finding": "The lesson gives material definitional statements about the roles of empirical questions, hypotheses, predictions, conditions, and variable-and-control audits, then requires retrieval of that chain in two scenes. No claim record or supporting reference covers those prerequisite definitions. Their recurrence as retrieval and synthesis does not remove the evidence obligation, although the gap is peripheral to the mapped study-design outcome.",
+      "resolution": "Map the prerequisite-chain definitions to an appropriately scoped claim and source in both scenes, or explicitly frame the chain as a project-local navigation mnemonic without presenting its ordering as a general scientific definition."
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-SCI-004-choosing-a-study-design/claims.json#claims[*].reviewStatus",
+      "finding": "All seven claims are marked reviewed even though lesson version 0.1.1 is a draft with pending-review source confidence and the supplied 0.1.0 adjudication was removed as superseded. The retained status therefore overstates the exact-candidate review state; the prior adjudication was not treated as evidence in this review.",
+      "resolution": "Reset the seven claim reviewStatus values to pending-review for this frozen 0.1.1 candidate. Promote retained claims only through the authorized exact-candidate finalization transition."
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-SCI-004-choosing-a-study-design/content/*.md#central-study-design-model",
+      "finding": "The central academic model is sound at the declared college-intro scope. Researcher assignment, exposure-to-outcome cohort logic, outcome-first case-control selection, simultaneous cross-sectional measurement, and externally created natural-experiment opportunities are distinguished correctly. Causal language remains conditional on randomization or a defensible outside assignment process, and ordinary observational comparisons default appropriately to association.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-SCI-004-choosing-a-study-design/assessment.json#items-and-rubrics",
+      "finding": "Independent answer-key and rubric checks found all four items academically correct. Item points sum to 12, rubric points match item totals, retrospective cohort is separated correctly from case-control selection, and the cutoff transfer item requires assignment checks, a bounded near-cutoff inference, and an association-only retrospective-cohort fallback when assignment is not defensible.",
+      "resolution": null
+    }
+  ],
+  "limitations": [
+    "The PMC web frontend returned a reCAPTCHA page during direct reopening, and the read-only sandbox could not resolve the NCBI BioC API host. NLM-indexed full-text excerpts, PubMed records and abstracts, and independent CDC and WHO/IARC materials were accessible, but every exact locator in source-study-design-overview and source-clinical-design-essentials could not be reprocessed.",
+    "This review addresses introductory academic correctness and evidence mapping, not specialist estimation details for regression discontinuity, difference-in-differences, adherence estimands, missingness, or formal observational causal identification beyond the lesson's declared scope.",
+    "The retained prior reviews and the deleted superseded adjudication were not used to establish any finding or verdict.",
+    "No repository validator was run because the requested review was read-only and validation may rebuild generated artifacts; no file was created or modified."
+  ],
+  "signedAt": "2026-07-21T20:28:39Z"
+}

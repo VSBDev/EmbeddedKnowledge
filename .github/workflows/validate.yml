@@ -3,6 +3,13 @@ name: validate
 on:
   pull_request:
     types: [opened, synchronize, reopened, ready_for_review, converted_to_draft]
+  # A structured review or adjudication submission is evidence this gate reads, but posting one
+  # is a pull_request_review event. Without this trigger the gate keeps reporting the state it
+  # saw before the artifact was submitted, and a maintainer sees a stale red check.
+  pull_request_review:
+    types: [submitted, dismissed]
+  # Lets a maintainer re-run the required context without an empty commit or a draft toggle.
+  workflow_dispatch:
   push:
     branches: [main]
 
@@ -12,7 +19,7 @@ permissions:
 
 jobs:
   agent-protocol:
-    name: ${{ github.event_name == 'pull_request' && github.event.pull_request.draft && 'lesson-candidate' || 'agent-protocol' }}
+    name: ${{ github.event.pull_request.draft && 'lesson-candidate' || 'agent-protocol' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
@@ -37,12 +44,12 @@ jobs:
           fi
       - run: npm run validate
       - name: Verify structured review provenance
-        if: github.event_name == 'pull_request'
+        if: github.event_name == 'pull_request' || github.event_name == 'pull_request_review'
         run: node scripts/validate-pr-review-provenance.mjs
         env:
           GITHUB_TOKEN: ${{ github.token }}
       - name: Verify lesson candidate or merge readiness
-        if: github.event_name == 'pull_request'
+        if: github.event_name == 'pull_request' || github.event_name == 'pull_request_review'
         run: node scripts/validate-lesson-pr.mjs
       - name: Install Playwright browser
         run: npx playwright install --with-deps chromium
