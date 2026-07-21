@@ -2,6 +2,8 @@
 
 Lesson review is a public, structured sequence attached to one pull request. GitHub supplies identity and conversation; repository artifacts supply portable evidence and deterministic gates.
 
+Operational guidance for executing this sequence — working CLI invocations, provenance stamping, and the CI trigger traps — is in [`REVIEW-RUNBOOK.md`](REVIEW-RUNBOOK.md).
+
 ## Standard one-pass sequence
 
 1. The author completes one lesson pack, batches the author audit, runs strict source preflight and verification, opens a draft PR, and freezes one original candidate commit.

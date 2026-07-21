@@ -13,6 +13,24 @@ export const principalKey = (principalId) => String(principalId).toLowerCase();
  */
 export const modelFamilyKey = (agent) => String(agent?.provider ?? "").toLowerCase();
 
+/**
+ * Placeholder an agent is instructed to emit for fields it cannot report reliably about itself.
+ * `scripts/stamp-agent-provenance.mjs` replaces these from the runtime before the artifact is
+ * committed; `unstampedProvenanceFields` fails the build if one ever survives to a commit.
+ */
+export const RUNTIME_STAMP_PLACEHOLDER = "RUNTIME-STAMPED";
+
+/**
+ * Agent self-report of identity is not evidence. Two of four runs in the PREM-SCI-004 0.1.1
+ * cycle declared a model they were not running, and the schema types these as free strings, so
+ * only an explicit check catches a placeholder that was never stamped from the runtime.
+ * Returns the field names still carrying the placeholder.
+ */
+export function unstampedProvenanceFields(agent) {
+  if (!agent) return [];
+  return ["system", "provider", "model", "version"].filter((field) => agent[field] === RUNTIME_STAMP_PLACEHOLDER);
+}
+
 /** Deterministic canonical JSON serialization used to compare structured artifacts. */
 export function canonical(value) {
   if (Array.isArray(value)) return `[${value.map(canonical).join(",")}]`;

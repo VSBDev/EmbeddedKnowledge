@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-diagram-v1",
+  "id": "diagram-model-use-cycle",
+  "type": "flow",
+  "direction": "top-to-bottom",
+  "alt": "A model-use flow checks purpose, structure, scale and domain before prediction, then uses evidence to interpret, restrict, revise, or replace the model.",
+  "longDescription": "The flow begins by defining the question and output. It then records inputs, parameters, assumptions, and omitted processes, followed by the spatial, temporal, and organizational scale and the model's defensible conditions. Only then is the model used to predict or explain. The result is stress-tested against observations, boundary cases, input changes, and competing explanations. If the model is adequate for the stated purpose, the result is interpreted only within its domain. If it is not adequate, the user restricts the claim, recalibrates parameters, revises the structure, or replaces the model, and then repeats the checks.",
+  "nodes": [
+    {
+      "id": "node-question",
+      "label": "Define the question and output",
+      "shape": "rounded-box",
+      "group": "audit"
+    },
+    {
+      "id": "node-structure",
+      "label": "Record inputs, parameters, assumptions, and omissions",
+      "shape": "box",
+      "group": "audit"
+    },
+    {
+      "id": "node-domain",
+      "label": "Check scale and defensible conditions",
+      "shape": "box",
+      "group": "audit"
+    },
+    {
+      "id": "node-use",
+      "label": "Predict, explain, or estimate",
+      "shape": "rounded-box",
+      "group": "use"
+    },
+    {
+      "id": "node-stress",
+      "label": "Compare evidence, boundaries, sensitivity, and alternatives",
+      "shape": "box",
+      "group": "test"
+    },
+    {
+      "id": "node-adequate",
+      "label": "Adequate for this purpose?",
+      "shape": "diamond",
+      "group": "decision"
+    },
+    {
+      "id": "node-interpret",
+      "label": "Interpret within the stated domain",
+      "shape": "pill",
+      "group": "decision"
+    },
+    {
+      "id": "node-repair",
+      "label": "Restrict, recalibrate, revise, or replace",
+      "shape": "pill",
+      "group": "decision"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-question-structure",
+      "from": "node-question",
+      "to": "node-structure",
+      "kind": "directed",
+      "label": "purpose sets needed detail"
+    },
+    {
+      "id": "edge-structure-domain",
+      "from": "node-structure",
+      "to": "node-domain",
+      "kind": "directed",
+      "label": "assumptions constrain use"
+    },
+    {
+      "id": "edge-domain-use",
+      "from": "node-domain",
+      "to": "node-use",
+      "kind": "directed",
+      "label": "conditions fit"
+    },
+    {
+      "id": "edge-use-stress",
+      "from": "node-use",
+      "to": "node-stress",
+      "kind": "directed",
+      "label": "output needs a check"
+    },
+    {
+      "id": "edge-stress-adequate",
+      "from": "node-stress",
+      "to": "node-adequate",
+      "kind": "directed",
+      "label": "weigh the evidence"
+    },
+    {
+      "id": "edge-adequate-interpret",
+      "from": "node-adequate",
+      "to": "node-interpret",
+      "kind": "directed",
+      "label": "yes"
+    },
+    {
+      "id": "edge-adequate-repair",
+      "from": "node-adequate",
+      "to": "node-repair",
+      "kind": "directed",
+      "label": "no or uncertain"
+    },
+    {
+      "id": "edge-repair-structure",
+      "from": "node-repair",
+      "to": "node-structure",
+      "kind": "directed",
+      "label": "repeat the audit"
+    }
+  ]
+}
