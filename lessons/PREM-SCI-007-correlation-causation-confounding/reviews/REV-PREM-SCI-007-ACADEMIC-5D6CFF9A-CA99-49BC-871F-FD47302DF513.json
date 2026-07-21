@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-SCI-007-ACADEMIC-5D6CFF9A-CA99-49BC-871F-FD47302DF513",
+  "lessonId": "PREM-SCI-007",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "6b66a745dd99bb85ffa05cabf0252302626cc694",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable operator for the academic reviewer",
+    "agent": {
+      "system": "Codex collaborative subagent",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "Codex agent runtime 2026-07-21",
+      "runId": "5d6cff9a-ca99-49bc-871f-fd47302df513",
+      "instructionsDigest": "sha256:55d67691279ec645c1bb77aaa7f5b2d14c4853d9c026cdc1114425d0cfc2cbe6"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "During the founding stage, github:VSBDev operated the authoring and packaging agents and also operated this academic reviewer subagent. This is an operational conflict, although this review used a fresh isolated run and did not access an authoring conversation, another review conclusion, or an adjudication draft."
+  },
+  "evidenceChecked": [
+    "lesson.json#identity, outcomes, prerequisites, objectives, ordered scenes, authorship, agent provenance, files, sourceConfidence, and thirdPartyAssets at candidate 6b66a745dd99bb85ffa05cabf0252302626cc694",
+    "site/data/premed-graph.json#topic-scientific-inquiry-correlation-causation and #topic-scientific-inquiry-study-designs",
+    "content/01-read-the-claim.md#complete-scene including diagnostic, scope, recovery route, and source note",
+    "content/02-build-the-map.md#complete-scene including inference targets, causal contrast, randomization limits, third-variable roles, reverse causation, and mechanism boundaries",
+    "content/03-audit-the-app-study.md#worked-example-app-evidence including all fictional values, calculations, estimands, missing outcomes, checks, conclusions, and source note",
+    "content/04-repair-and-practise.md#complete-scene including retrieval answer, misconception repair, fork/chain/collider cases, negative control, triangulation, and source notes",
+    "content/05-transfer-the-judgment.md#complete-scene including routine-record, bench, lottery, model-response, stress-test, and source-note logic",
+    "content/06-mastery-and-spacing.md#complete-scene including audit, mastery rule, recovery, accessibility alternative, delayed retrieval, and source note",
+    "assessment.json#all five items, response specifications, answer keys, acceptable responses, common errors, point totals, rubrics, mastery threshold, retry routes, and safetyCritical flags",
+    "claims.json#all eight claims, every scene/source mapping, support type, scope, uncertainty, confidence, risk, and pending review state",
+    "references.json#all six bibliographic, locator, use, rights-basis, and checked-no-agent-restriction-found records",
+    "references.json#source-causal-diagrams verified through the permitted NCBI BioC text for PMC11588567: counterfactual contrasts, assignment effects, attrition, fork/chain/collider structures, reverse causation, and adjustment rules",
+    "references.json#source-natural-experiments verified through the permitted NCBI BioC text for PMC6485604: external assignment, exchangeability, ITT scope, selective exposure, alternative explanations, and transport limits",
+    "references.json#source-randomized-trials verified through the permitted NCBI BioC text for PMC6019115: balance in expectation, realized imbalance, uncertainty, post-randomization threats, and generalization limits",
+    "references.json#source-mechanistic-evidence verified through the permitted NCBI BioC text for PMC6175306: evidence for mechanism existence/details and limits on efficacy, effectiveness, and external validity",
+    "references.json#source-negative-controls verified through the permitted NCBI BioC text for PMC3053408: no-effect and shared-bias conditions, residual-bias detection, and nonconclusive null/non-null controls",
+    "references.json#source-triangulation verified through the permitted NCBI BioC text for PMC5841843: same causal question, differing largely unrelated key biases, timing/scope comparability, convergence, and inconsistency",
+    "glossary.json#all twenty entries and their scene mappings, including association, causal contrast, counterfactual, confounder, mediator, collider, random assignment, ITT, natural experiment, negative control, and triangulation",
+    "diagrams/third-variable-roles.diagram.json#all nodes, edges, labels, alt text, and long description against the scene's fork, chain, and collider claims",
+    "ATTRIBUTION.md#lesson identity, accountable principal, author-agent provenance, original-synthesis statement, fictional-material statement, source-access attestation, and candidate boundary",
+    "Independent recalculation: scene minutes 25+42+38+35+25+15=180; Packet A mean difference 81-73=8 and prior-course difference 84-76=8; Packet C observed mean difference 77-74=3; assessment points and rubric maxima both sum to 15"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "content/03-audit-the-app-study.md#worked-example-app-evidence-packet-c",
+      "finding": "Packet C reports that 7% of each randomized group lacks an exam score, but then concludes that offering immediate access increased the mean score by three points among all eligible students. Equal missing-outcome percentages do not show that missingness is independent of assignment and potential outcome, do not preserve exchangeability among observed cases, and do not identify the assigned-population mean effect. The independently recalculated 77-74=3 is only the displayed observed-score contrast unless a defensible missing-data analysis or assumption is supplied. The scene's later statement that equal percentages do not prove missingness harmless correctly recognizes this problem but contradicts the preceding causal conclusion.",
+      "resolution": "Either make outcome ascertainment complete in Packet C, or specify and defend the missing-outcome assumptions and analysis, identify the estimand actually recovered, and rewrite the conclusion so it does not attribute the observed-case difference to assignment for all eligible students without support. Propagate the corrected boundary into feedback and assessment language."
+    },
+    {
+      "severity": "major",
+      "target": "content/05-transfer-the-judgment.md#model-response-external-allocation",
+      "finding": "The external-allocation packet gives the lottery process and outcome-measurement procedure but no station-versus-control outcome values. The model response nevertheless states that allocation reduced the mean recorded transfer-error rate. Assignment can make a contrast causally interpretable; it cannot supply an unreported direction or magnitude. The modeled answer therefore fabricates a result and teaches the outcome-defeating shortcut that a strong design alone establishes benefit.",
+      "resolution": "Add explicit fictional group results, together with enough uncertainty information to calibrate the conclusion, or change the model response to say that a verified lottery would identify a bounded effect-of-allocation contrast while the present packet provides no result from which to infer benefit, harm, or no effect."
+    },
+    {
+      "severity": "major",
+      "target": "assessment.json#item-transfer-external-allocation",
+      "finding": "The safety-critical final mastery item supplies an external lottery, common blinded measurement, and a separate bench result but no between-group field-test result. Its key still says allocation can be said to change the mean result and its rubric requires a causal statement about allocation, while referring to a direction and magnitude that are absent from the stimulus. A scientifically correct learner who says that the design may identify an effect but no effect result can be stated from the supplied evidence is not represented by the key and may lose the mandatory full credit.",
+      "resolution": "Supply the fictional allocation-group outcome comparison and calibrate the keyed claim to it, or make recognition that no direction, magnitude, or nonzero effect can be inferred without results an explicit required answer and rubric criterion. Keep the mechanism claim separate in either version."
+    },
+    {
+      "severity": "minor",
+      "target": "content/03-audit-the-app-study.md#packets-b-and-c; assessment.json#item-calibrate-randomized-claim",
+      "finding": "The randomized examples state that an intervention increased or reduced an outcome from a point difference alone, without outcome dispersion, a standard error, an interval, or even the word estimated. Randomization addresses systematic confounding in expectation; it does not remove sampling uncertainty or chance realized imbalance. The cited randomized-trial source expressly emphasizes this distinction, so categorical direction language is not fully calibrated to the evidence supplied.",
+      "resolution": "Use estimated-effect language and state that direction and precision remain uncertain, or provide fictional dispersion and uncertainty information that supports the intended strength of conclusion."
+    },
+    {
+      "severity": "note",
+      "target": "claims.json#claim-third-variable-roles and diagrams/third-variable-roles.diagram.json#diagram-third-variable-roles",
+      "finding": "Within the lesson's declared simple acyclic total-effect scope, the fork, chain, and collider arrows, timing distinctions, adjustment consequences, reverse-causation warning, and diagram text agree with each other and with the directly checked causal-diagram source. The worked numerical differences, scene-minute total, assessment-point total, and rubric maxima also recalculate correctly.",
+      "resolution": "No change required for these verified structures and calculations."
+    }
+  ],
+  "limitations": [
+    "The accountable operator's simultaneous founding-stage operation of authoring, packaging, and reviewer agents is a declared operational conflict; this review is not evidence of independent human review.",
+    "The reviewer is an AI agent without human academic credentials. Its judgment is limited to introductory causal-inference content, direct source checks, internal consistency, and formal recalculation; no empirical learner testing was performed.",
+    "Direct source verification used only the public NCBI BioC routes that references.json marked checked-no-agent-restriction-found. No human-only, paywalled, login-gated, or disallowed PMC article route was processed.",
+    "All app, workshop, cell-culture, laboratory-station, checklist, and sensor-kit data are declared fictional, so review could test their internal logic but could not externally validate the invented observations.",
+    "Accessibility, legal-rights sufficiency, learning design, adjudication, quorum, and merge readiness are outside this academic role; attribution and access records were inspected only where they bear on academic evidence and provenance.",
+    "No authoring conversation, other review conclusion, review artifact, or adjudication draft was inspected."
+  ],
+  "signedAt": "2026-07-21T15:54:23Z"
+}
