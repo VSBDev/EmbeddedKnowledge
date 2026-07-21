@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-SCI-007-LEARNING-DESIGN-25966EF9-A1D0-4641-9CDD-F38839B0747A",
+  "lessonId": "PREM-SCI-007",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "6b66a745dd99bb85ffa05cabf0252302626cc694",
+  "role": "learning-design",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev \u2014 accountable operator for the learning-design reviewer",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.5",
+      "runId": "agy-learning-design-PREM-SCI-007-25966EF9-A1D0-4641-9CDD-F38839B0747A",
+      "instructionsDigest": "sha256:fe788f87b360bcbd93cc38205e5c1600405a65a9edffb9713ff9f358e1fe1208"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "During the founding stage, github:VSBDev operated the authoring and packaging agents and also operated this learning-design reviewer agent. This is an operational conflict, although this review used a fresh isolated run and did not access an authoring conversation, another review conclusion, or an adjudication draft."
+  },
+  "evidenceChecked": [
+    "lesson.json#identity, outcomes, prerequisites, objectives, ordered scenes, authorship, agent provenance, files, sourceConfidence, and thirdPartyAssets at candidate b81597774c63a9d7eaccd07892a2890cce9f2e10",
+    "content/01-read-the-claim.md#complete-scene including diagnostic, scope, recovery route, and source note",
+    "content/02-build-the-map.md#complete-scene including inference targets, causal contrast, randomization limits, third-variable roles, reverse causation, and mechanism boundaries",
+    "content/03-audit-the-app-study.md#worked-example-app-evidence including all fictional values, calculations, estimands, missing outcomes, checks, conclusions, and source note",
+    "content/04-repair-and-practise.md#complete-scene including retrieval answer, misconception repair, fork/chain/collider cases, negative control, triangulation, and source notes",
+    "content/05-transfer-the-judgment.md#complete-scene including routine-record, bench, lottery, model-response, stress-test, and source-note logic",
+    "content/06-mastery-and-spacing.md#complete-scene including audit, mastery rule, recovery, accessibility alternative, delayed retrieval, and source note",
+    "assessment.json#all five items, response specifications, answer keys, acceptable responses, common errors, point totals, rubrics, mastery threshold, retry routes, and safetyCritical flags",
+    "claims.json#all eight claims, every scene/source mapping, support type, scope, uncertainty, confidence, risk, and pending review state",
+    "references.json#all six bibliographic, locator, use, rights-basis, and checked-no-agent-restriction-found records",
+    "glossary.json#all twenty entries and their scene mappings, including association, causal contrast, counterfactual, confounder, mediator, collider, random assignment, ITT, natural experiment, negative control, and triangulation",
+    "diagrams/third-variable-roles.diagram.json#all nodes, edges, labels, alt text, and long description against the scene's fork, chain, and collider claims",
+    "ATTRIBUTION.md#lesson identity, accountable principal, author-agent provenance, original-synthesis statement, fictional-material statement, source-access attestation, and candidate commit boundary",
+    "reviews/REV-PREM-SCI-007-ACADEMIC-5D6CFF9A-CA99-49BC-871F-FD47302DF513.json"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "content/03-audit-the-app-study.md#worked-example-app-evidence-packet-c",
+      "finding": "Packet C reports that 7% of each randomized group lacks an exam score, but the scene's worked example concludes that offering immediate access increased the mean score by three points among 'eligible students in this course.' Ignoring the missing-outcome percentage (attrition) in the main conclusion is a major instructional design flaw. It contradicts the lesson's goal of teaching learners to write calibrated claims and state identifying assumptions (Objective 3). Modeling a causal conclusion that ignores missingness, while stating later in the same scene that equal percentages do not prove missingness harmless, creates severe cognitive conflict and confusion for a novice learner.",
+      "resolution": "Rewrite the Packet C conclusion to qualify that the 3-point increase is observed among students with exam scores (non-missing outcomes), or specify the missing-data assumptions required to extend the conclusion to all eligible students."
+    },
+    {
+      "severity": "major",
+      "target": "content/05-transfer-the-judgment.md#model-response-external-allocation",
+      "finding": "The external-allocation scenario describes the lottery process but provides no outcome results. The model response nevertheless claims that allocation 'reduced the mean recorded transfer-error rate.' Stating a specific direction of effect ('reduced') when no data or outcomes are supplied in the evidence packet is a major didactical error. It teaches the learner a critical misconception: that a strong research design alone allows one to infer the direction or existence of an effect before looking at the results.",
+      "resolution": "Provide fictional group outcome values in the scenario description to justify the directional claim in the model response, or change the model response to state that the direction and magnitude cannot be determined without results."
+    },
+    {
+      "severity": "major",
+      "target": "assessment.json#item-transfer-external-allocation",
+      "finding": "The safety-critical final mastery item describes a public random lottery and a bench study but provides no outcome results. However, the answer key states that 'allocation of a kit can be said to change the mean sample-identification result... with direction and magnitude taken from the observed comparison.' Since no results are supplied in the stimulus, a learner cannot state a causal conclusion. This is a severe alignment and usability failure: a scientifically rigorous learner who correctly points out that no direction or magnitude can be stated from the evidence will lose points on a safety-critical item, preventing them from achieving mastery.",
+      "resolution": "Add fictional group outcomes to the item stimulus, or adjust the answer key and rubric to require that the learner identify that no causal effect direction or magnitude can be concluded without observed results."
+    },
+    {
+      "severity": "minor",
+      "target": "content/04-repair-and-practise.md#practice-completion-dust-filter",
+      "finding": "In the practice completion task, the feedback statement reads: 'Dust is a confounder, and the crude association is associational by default.' The phrasing 'the crude association is associational by default' is tautological and circular, which can confuse novice learners who are trying to distinguish between descriptive association and causal attribution.",
+      "resolution": "Change 'associational by default' to 'confounded by default' or 'does not isolate a causal effect by default' to clarify the causal reasoning."
+    },
+    {
+      "severity": "note",
+      "target": "content/01-read-the-claim.md#scene-read-the-claim-diagnostic",
+      "finding": "The diagnostic check 'check-prerequisite-design' at the opening of Scene 1 successfully activates prerequisite knowledge about observational vs experimental designs and exposure/outcome identification, providing a clear non-punitive recovery route to PREM-SCI-004. This is a strong learning-design choice that helps prevent cognitive overload for novice learners.",
+      "resolution": "No changes required; preserve this active prerequisite check."
+    },
+    {
+      "severity": "note",
+      "target": "content/04-repair-and-practise.md#misconception-adjust-everything",
+      "finding": "The misconception repair block 'misconception-adjust-everything' accurately targets a common learner error (adjusting for all variables associated with exposure and outcome) and uses a structured sequence (commit, why 'yes' fails, better model, recheck) that aligns well with the content standard's didactical requirements.",
+      "resolution": "No changes required; preserve this structured misconception repair."
+    }
+  ],
+  "limitations": [
+    "The reviewer is an AI agent without human credentials or empirical learner testing capabilities. Its judgment is limited to theoretical learning design principles, internal consistency, and alignment check against standard schemas and guidelines.",
+    "The review did not involve real learner cohort testing or interactive user experience evaluation.",
+    "Direct source checking of bibliographic references was performed only to verify alignment of terminology and definitions, not for independent academic validation.",
+    "All data and settings analyzed are fictional teaching materials and are treated as such."
+  ],
+  "signedAt": "2026-07-21T23:29:36Z"
+}
