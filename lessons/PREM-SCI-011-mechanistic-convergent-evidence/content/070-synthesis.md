@@ -27,19 +27,19 @@ If your reconstruction said only “collect four types and see whether they agre
 
 The assessment contains two equivalent, untimed forms. Complete Form A first:
 
-- `item-a-evidence-contribution`
-- `item-a-convergence`
-- `item-a-calibrated-claim`
-- `item-a-conflict`
+- **Evidence contribution and boundary**
+- **Quality and independence of convergence**
+- **An integrated, calibrated claim**
+- **Conflict diagnosis and a discriminating study**
 
 Each form is worth 16 points. Mastery-quality evidence requires at least 13 points and at least one point on every rubric criterion; a high total cannot compensate for omitting a whole dimension such as scope or conflict diagnosis. Attempt each item before opening its answer, reasoning, or common-error feedback.
 
 If you do not yet meet the criterion, classify the error, use the route below, and complete Form B rather than replaying the same answers:
 
-- `item-b-evidence-contribution`
-- `item-b-convergence`
-- `item-b-calibrated-claim`
-- `item-b-conflict`
+- **Evidence contribution and boundary — new case**
+- **Quality and independence of convergence — new case**
+- **An integrated, calibrated claim — new case**
+- **Conflict diagnosis and a discriminating study — new case**
 
 After both forms, a further retry should use a new fictional bundle with the same four demands: distinguish contributions, weigh convergence, calibrate a claim, and resolve a conflict. Changing only names or option order is not an adequate retry.
 
