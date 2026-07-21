@@ -62,7 +62,7 @@ Use two lines when a label is unclear:
 If your two lines disagree with the proposed label, trust the design description rather than a word such as *old*, *follow-up*, or *natural* in the title.
 
 :::{source-note}
-:claims: claim-design-assignment, claim-cohort-direction, claim-case-control-use, claim-natural-assignment, claim-causal-boundary
+:claims: claim-design-assignment, claim-cohort-direction, claim-case-control-use, claim-cross-sectional-use, claim-natural-assignment, claim-causal-boundary
 :sources: source-study-design-overview, source-clinical-design-essentials, source-observational-designs, source-natural-experiments
 
 The sources support exposure-to-outcome cohort logic, outcome-first case-control logic, prospective and retrospective timing, externally created exposure in natural experiments, and cautious interpretation without defensible assignment. The employer archive, decision table, constraints, and result are original fictional teaching material.
