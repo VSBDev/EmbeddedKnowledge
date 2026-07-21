@@ -8,7 +8,7 @@ By the end of this lesson, you will be able to name those jobs and use them to d
 
 ## Retrieve the chain you already built
 
-This lesson follows [From observation to question (PREM-SCI-001)](https://embeddedknowledge.io/premed/lessons/read/?lesson=PREM-SCI-001) and [Hypotheses and predictions (planned PREM-SCI-002; outcome PREM-02.02)](https://embeddedknowledge.io/premed/graph/). The second topic does not yet have a published open lesson, so the recovery step below is included here rather than sending you to a missing page.
+This lesson follows [From observation to question (PREM-SCI-001)](https://embeddedknowledge.io/premed/lessons/read/?lesson=PREM-SCI-001) and [Hypotheses and predictions (PREM-SCI-002)](https://embeddedknowledge.io/premed/lessons/read/?lesson=PREM-SCI-002). If either step is unfamiliar, the quick check below rebuilds the chain; return to those lessons for the full treatment.
 
 Before reading on, reconstruct the chain from those two prior topics:
 
@@ -59,7 +59,7 @@ Controls expose particular failures and rival explanations. They do not erase me
 
 :::{source-note}
 :claims: claim-variable-roles, claim-confounder-ambiguity, claim-control-functions, claim-controls-have-limits
-:sources: source-nist-handbook, source-ncbi-assay-guidelines
+:sources: source-nist-handbook, source-ncbi-assay-guidelines, source-confounding-observational
 
-The NIST handbook and the NCBI-hosted assay guidance support the factor/response distinction, the need to manage other influential variables, and the comparison and quality-check functions of controls. Terminology and concrete control materials vary across fields; the fictional indicator, six-question table, and wording are original teaching material.
+The NIST handbook and the NCBI-hosted assay guidance support the factor/response distinction, the need to manage other influential variables, and the comparison and quality-check functions of controls. The confounder definition follows the standard third-variable account in the cited review, not the design-of-experiments aliasing sense the NIST glossary uses for that word. Terminology and concrete control materials vary across fields; the fictional indicator, six-question table, and wording are original teaching material.
 :::

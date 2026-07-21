@@ -83,7 +83,7 @@ The missing step is **changed alongside and could affect the record**—the conf
 
 :::{source-note}
 :claims: claim-variable-roles, claim-confounder-ambiguity, claim-control-functions, claim-controls-have-limits
-:sources: source-nist-handbook, source-ncbi-assay-guidelines
+:sources: source-nist-handbook, source-ncbi-assay-guidelines, source-confounding-observational
 
 The sources support treating manipulated factors and recorded responses as different roles, addressing extraneous factors through design, and using negative and positive controls as comparison and performance checks. The complete indicator case, target units, result values, audit sequence, and repairs are independently created fictional material.
 :::

@@ -65,7 +65,7 @@ Every task can be completed in prose, bullets, or a table. You may type, dictate
 
 ## Recovery route
 
-If you could not reconstruct **hypothesis → prediction**, return to [Hypotheses and predictions (planned PREM-SCI-002; outcome PREM-02.02)](https://embeddedknowledge.io/premed/graph/). Because that topic does not yet have a published open lesson, use the recovery check in the first scene: write one proposed relationship, then a separate observable record expected under stated conditions. Seek your course text or instructor support before continuing if those two statements still collapse into one.
+If you could not reconstruct **hypothesis → prediction**, return to [Hypotheses and predictions (PREM-SCI-002)](https://embeddedknowledge.io/premed/lessons/read/?lesson=PREM-SCI-002). For a quicker repair, use the recovery check in the first scene: write one proposed relationship, then a separate observable record expected under stated conditions. Seek your course text or instructor support before continuing if those two statements still collapse into one.
 
 If independent and dependent variables blur together, write **set differently → record response** and place one case detail over each phrase.
 
@@ -79,7 +79,7 @@ If a control fails, stop interpreting the unknown. State which capability or bac
 
 :::{source-note}
 :claims: claim-variable-roles, claim-confounder-ambiguity, claim-control-functions, claim-controls-have-limits
-:sources: source-nist-handbook, source-ncbi-assay-guidelines
+:sources: source-nist-handbook, source-ncbi-assay-guidelines, source-confounding-observational
 
 The sources support the role audit and the limited conclusions drawn when a comparison factor, extraneous influence, or control result is unresolved. The sensor case, battery pairing, retrieval chain, and feedback are independently created fictional teaching material.
 :::

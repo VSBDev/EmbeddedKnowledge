@@ -109,7 +109,7 @@ If one relationship is missing, revise that row and repeat the audit on the othe
 
 :::{source-note}
 :claims: claim-variable-roles, claim-confounder-ambiguity, claim-control-functions, claim-controls-have-limits
-:sources: source-nist-handbook, source-ncbi-assay-guidelines
+:sources: source-nist-handbook, source-ncbi-assay-guidelines, source-confounding-observational
 
 The sources support the manipulated-factor, response, extraneous-variable, and control roles used in these discrimination tasks. They also support holding some influential conditions constant while recognizing the scope limits of that choice. All resin, seedling, image-detector, package-seal, and motion-detector cases are original fictional examples.
 :::
