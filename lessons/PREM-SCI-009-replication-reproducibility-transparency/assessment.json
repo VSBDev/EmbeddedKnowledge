@@ -78,7 +78,7 @@
         "topic-scientific-inquiry-replication-reproducibility"
       ],
       "prompt": "Interpret the three records together. Name the safeguard represented by each record and write a calibrated conclusion about the size and stability of the claim. Do not choose one estimate as the winner.",
-      "stimulus": "Fictional materials study: the preregistered analysis reports a 12-unit difference. A second analyst obtains 12 units from the original files. Three justified analyses for the same target question produce 2, 11, and 13 units. A second laboratory measures new samples and reports 3 units.",
+      "stimulus": "Fictional materials study: before results, the team defines a large stable difference as at least 8 units and specifies that a replication 95% interval with an upper end below 8 will count against that claim. The preregistered analysis reports 12 units, with a 95% interval from 9 to 15. A second analyst obtains the same result from the original files. Three justified analyses for the same target question produce point estimates of 2, 11, and 13 units. A second laboratory measures new samples and reports 3 units, with a 95% interval from 1 to 5.",
       "points": 3,
       "responseSpec": {
         "mode": "text",
@@ -88,16 +88,17 @@
         "maxLength": 1800
       },
       "answer": {
-        "correct": "The 12-unit re-run shows computational reproducibility for the original files. The 2-to-13-unit range is a sensitivity result showing dependence on plausible analytic choices. The 3-unit new-sample result is a replication that weakens confidence in a large, stable effect. Together the records support a cautious, bounded claim rather than selecting 12 or declaring the effect absent.",
-        "summary": "The files re-run, but both sensitivity and new-data evidence weaken a claim of a large stable difference.",
-        "reasoning": "Each record answers a different question. Regenerating 12 from the same inputs checks the computational trail. The spread from 2 to 13 checks how the same target conclusion depends on justified analytic alternatives. The new laboratory's 3-unit estimate tests the claim with new data. The appropriate conclusion reports reproducibility and the two sources of caution; it does not average the values without a model or treat one study as a final verdict. For a retry, substitute a fictional sound-measurement study with same-file 8, sensitivity values 1 to 9, and a new-sample value of 2, then repeat the three labels and one-sentence calibration.",
+        "correct": "The 12-unit re-run shows computational reproducibility for the original files. The 2-to-13-unit range is a sensitivity result showing dependence on plausible analytic choices. The 3-unit new-sample result is a replication; its 1-to-5 interval lies below the prespecified 8-unit threshold, so it counts against the large stable-difference claim without proving no difference. The replication point estimate also falls inside the sensitivity range. These distinct checks both warn against treating 12 as a stable estimate, but they do not identify one combined effect size or explain the variation by themselves.",
+        "summary": "The files re-run, while sensitivity and a prespecified new-data comparison both count against a large stable difference.",
+        "reasoning": "Each record answers a different question. Regenerating 12 and its interval from the same inputs checks the computational trail. The spread from 2 to 13 checks how the same target conclusion depends on justified analytic alternatives. The new laboratory's estimate tests the claim with new data, and its 1-to-5 interval lies below the prespecified 8-unit large-effect threshold. The replication point estimate of 3 also lies within the sensitivity range of 2 to 13. That connection shows that a smaller estimate was already possible under a justified analysis of the original data, but it does not make sensitivity analysis and replication interchangeable or reveal why results vary. The appropriate conclusion reports reproducibility and both sources of caution; it does not average the values without a model, infer a zero effect, or treat one study as a final verdict. For a retry, substitute a fictional sound-measurement study with a prespecified large-effect threshold of 6, same-file 8 with interval 7 to 9, sensitivity values 1 to 9, and a new-sample value of 2 with interval 1 to 4, then repeat the three labels and one-sentence calibration.",
         "acceptableResponses": [
-          "Any answer that correctly labels same-file regeneration, justified alternative analyses, and new-sample testing, then limits confidence in a large robust effect.",
-          "An answer may say that the evidence is compatible with a smaller effect or a result dependent on conditions, provided it does not claim proof or infer misconduct."
+          "Any answer that correctly labels same-file regeneration, justified alternative analyses, and new-sample testing, then uses the prespecified threshold and interval to limit confidence in a large robust effect.",
+          "An answer may say that the evidence is compatible with a smaller effect or a result dependent on conditions, provided it notes that the replication estimate lies within the sensitivity range and does not claim proof, no effect, or misconduct."
         ],
         "commonErrors": [
           "Calling the same-file re-run a replication.",
           "Reporting only the preregistered or largest estimate and ignoring the sensitivity range.",
+          "Treating a difference between bare point estimates as decisive without using the prespecified threshold and interval.",
           "Treating the smaller replication estimate as proof that the original investigators erred or acted improperly."
         ]
       },
@@ -211,7 +212,7 @@
         },
         {
           "id": "criterion-calibrate-combined-evidence",
-          "description": "Writes a bounded conclusion that weakens confidence in a large stable effect without claiming proof, zero effect, or misconduct.",
+          "description": "Uses the prespecified threshold and replication interval, notes that the replication estimate lies within the sensitivity range, and writes a bounded conclusion without claiming proof, zero effect, or misconduct.",
           "maxPoints": 1
         }
       ]

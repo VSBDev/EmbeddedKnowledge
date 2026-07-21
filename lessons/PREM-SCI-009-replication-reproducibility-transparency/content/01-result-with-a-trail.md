@@ -37,8 +37,8 @@ That four-line audit is enough prerequisite knowledge for this lesson. You do no
 By the end, you will be able to inspect a study description, assign each safeguard its proper job, and design a transparent verification plan. You will also know where the safeguards stop: preregistration can preserve a poor plan, open files can expose an error without correcting it, a replication can disagree for several reasons, and a sensitivity analysis is only as informative as the alternatives it tests.
 
 :::{source-note}
-:claims: claim-four-safeguards-complementary, claim-preregistration-role, claim-open-methods-role, claim-replication-role, claim-sensitivity-role
-:sources: source-reproducibility-consensus, source-replication-perspective, source-cos-preregistration, source-fda-sensitivity
+:claims: claim-four-safeguards-complementary, claim-researcher-flexibility-bias, claim-preregistration-role, claim-open-methods-role, claim-replication-role, claim-sensitivity-role
+:sources: source-reproducibility-consensus, source-replication-perspective, source-cos-preregistration, source-fda-sensitivity, source-multiverse-analysis
 
-The sources support the distinct functions and limits of the four safeguards. The plant-science opening, bias audit, recovery route, and four-question teaching sequence are original. Terminology differs across fields, so the next scene declares the meanings used in this lesson.
+The sources support the distinct functions and limits of the four safeguards and the risk created when outcome-informed analytic choices are selectively reported. The plant-science opening, bias-audit wording, recovery route, and four-question teaching sequence are original. Terminology differs across fields, so the next scene declares the meanings used in this lesson.
 :::

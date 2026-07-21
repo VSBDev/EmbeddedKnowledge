@@ -8,9 +8,11 @@ The following study, numbers, laboratories, and results are fictional teaching m
 
 **1. State the claim to be checked.**
 
-A campus lab asks whether adding supplement S to a standard growth medium increases day-14 height in one bean cultivar under specified greenhouse conditions.
+A campus lab asks whether adding supplement S to a standard growth medium increases day-14 height in one bean cultivar under specified greenhouse conditions. Its preregistered **large-effect claim** is that the mean increase is at least **+1.0 cm**.
 
 The claim is deliberately bounded. It does not say that S improves every plant, every measure of growth, or every growing condition.
+
+Before collecting the replication data, the teams also define how that new-data test will bear on the large-effect claim. A 95% interval whose upper end is below +1.0 cm will count against that claim; an interval that includes zero will leave the direction unresolved; and an interval above zero but below +1.0 cm will support a smaller positive effect under the tested conditions. These teaching rules make the comparison diagnostic rather than treating two bare point estimates as verdicts. They do not replace scrutiny of design quality or the wider evidence.
 
 **2. Record the before-results decisions.**
 
@@ -21,7 +23,8 @@ Before outcomes are visible, the team registers:
 - the cultivar, growth period, and greenhouse settings;
 - the sample-size and stopping rule;
 - the rule for excluding a damaged measurement;
-- the main comparison and planned way to handle missing day-14 measurements.
+- the main comparison, 95% interval, and planned way to handle missing day-14 measurements;
+- the replication criteria for interpreting the large-effect claim.
 
 This plan does not make those choices correct. It makes their timing inspectable. If a sensor failure later requires a different rule, the team can explain the deviation and label the revised analysis.
 
@@ -29,7 +32,7 @@ This plan does not make those choices correct. It makes their timing inspectable
 
 The team deposits the protocol, supplier and batch information, allocation procedure, measurement instructions, variable definitions, raw observations, analysis script, and software environment. A second analyst can now trace how each recorded height became the reported estimate.
 
-The planned analysis reports a mean difference of **+1.8 cm** for S compared with the standard medium. A second analyst uses the same files and obtains +1.8 cm. That is a successful computational re-run. It has not produced replication evidence because no new seedlings were measured.
+The planned analysis reports a mean difference of **+1.8 cm**, with a fictional 95% interval from **+1.1 to +2.5 cm**, for S compared with the standard medium. A second analyst uses the same files and obtains the same estimate and interval. That is a successful computational re-run. It has not produced replication evidence because no new seedlings were measured.
 
 **4. Test plausible assumptions without changing the question.**
 
@@ -45,13 +48,13 @@ The result is computationally reproducible, yet the size of the estimated differ
 
 **5. Collect new data.**
 
-Another lab follows the disclosed method with new seeds from the stated cultivar and reports **+0.4 cm**. This is a replication because it uses new data to test the bounded claim. The smaller estimate weakens confidence in a large effect under the stated conditions. It does not, by itself, tell us whether the difference arose from sampling variation, a hidden procedural detail, seed batches, greenhouse conditions, or a problem in one of the studies.
+Another lab follows the disclosed method with new seeds from the stated cultivar and reports **+0.4 cm**, with a fictional 95% interval from **+0.1 to +0.7 cm**. This is a replication because it uses new data to test the bounded claim. Because the interval's upper end is below the prespecified +1.0 cm threshold, the result counts against the large-effect claim while remaining compatible with a smaller positive effect under the tested conditions. How much confidence should change still depends on the quality and precision of both studies and the wider evidence. The result does not, by itself, tell us whether the difference from the original estimate arose from sampling variation, a hidden procedural detail, seed batches, greenhouse conditions, or a problem in one of the studies.
 
 **6. Calibrate the conclusion.**
 
 A defensible summary is:
 
-> In this fictional example, the reported estimate can be reproduced from the original files, but it is sensitive to plausible handling of missing observations, and a new-data repeat found a smaller estimate. The evidence does not support a confident claim of a large, condition-independent effect.
+> In this fictional example, the reported estimate and interval can be reproduced from the original files, but the point estimate is sensitive to plausible handling of missing observations. The new-data estimate of +0.4 cm falls within the original study's +0.2 to +1.8 cm sensitivity range, and its interval is below the prespecified threshold for a large effect. These independent checks do not establish one combined effect size, but together they show that +1.8 cm should not be treated as a stable estimate. The evidence supports, at most, a smaller positive effect under the tested conditions and does not support a confident claim of a large, condition-independent effect.
 
 Notice what the summary does not say. It does not declare S effective because the first estimate was positive. It does not discard the first result because the repeat was smaller. It reports what each check changed about confidence.
 :::
@@ -73,14 +76,14 @@ For each event, name the safeguard and write one sentence about what it changes.
 
 1. An analyst gets +1.8 cm from the original files.
 2. The estimate ranges from +0.2 to +1.8 cm under justified missing-data assumptions.
-3. A second lab measures new seedlings and gets +0.4 cm.
+3. A second lab measures new seedlings and gets +0.4 cm, with a 95% interval from +0.1 to +0.7 cm.
 4. The original team explains that a sensor failure forced a deviation from its registered exclusion rule.
 
 A complete response says:
 
 1. **Computational reproducibility:** the disclosed inputs and steps regenerate the reported estimate, but this does not test new data.
 2. **Sensitivity analysis:** the estimate depends on a plausible assumption, so the uncertainty should appear in the conclusion.
-3. **Replication:** the new-data test supplies evidence about whether the bounded claim survives a changed sample and lab.
+3. **Replication:** the new-data interval lies below the prespecified +1.0 cm large-effect threshold, so it weakens that claim while remaining compatible with a smaller positive effect. The strength of belief change still depends on study quality and wider evidence.
 4. **Preregistration with transparent deviation:** the dated plan shows what changed; the explanation lets a reader judge the change instead of pretending it was planned.
 
 If you swapped events 1 and 3, circle the words *original files* and *new seedlings*. If you treated event 2 as a hunt for the best number, replace “Which answer wins?” with “How dependent is the conclusion on reasonable choices?”

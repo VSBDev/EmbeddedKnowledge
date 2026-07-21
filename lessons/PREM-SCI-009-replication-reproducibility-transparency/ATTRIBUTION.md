@@ -69,6 +69,12 @@ These excluded routes do not appear in `references.json` and support no lesson c
 
 No third-party image, diagram, audio, video, dataset, or other asset is included. `diagrams/four-safeguard-questions.diagram.json` is an original declarative representation authored for this pack. All numeric study results are explicitly labeled fictional teaching material.
 
+## Post-review finalization
+
+VSBDev (`github:VSBDev`) is accountable for the single post-review revision and adjudication. Material finalizer assistance used run `codex-finalizer-PREM-SCI-009-6039609A-483F-4729-B36E-2E36D2A7B67A` under discloseable-instructions digest `sha256:be27f517ba2c2c955ecd76d527a026c546086f575737698a6409d9faf522efd3`. Runtime system, provider, model, and version are recorded as `RUNTIME-STAMPED` in `adjudication.json` for operator substitution from the runtime banner.
+
+The finalizer independently revised the original fictional quantitative cases, their answer logic, the researcher-flexibility claim mapping, source classification, and pacing estimate in response to the two preserved reviews. These changes reuse no third-party expression, media, or dataset.
+
 ## Governance boundary
 
-This authoring pack contains no review or adjudication artifact and makes no claim of approval, publication, merge readiness, independent verification, clinical sufficiency, or course credit. Any later review or finalization must occur in the separate runs required by project policy.
+The original candidate made no claim of approval, publication, merge readiness, independent verification, clinical sufficiency, or course credit. The preserved reviews and final adjudication are separate governance records. A `merge` adjudication value is an evidence-based recommendation, not a claim that GitHub merged or published the lesson.
