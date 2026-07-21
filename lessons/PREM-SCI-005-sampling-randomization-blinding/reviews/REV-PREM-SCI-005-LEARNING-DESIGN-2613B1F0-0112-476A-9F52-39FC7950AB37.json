@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-SCI-005-LEARNING-DESIGN-2613B1F0-0112-476A-9F52-39FC7950AB37",
+  "lessonId": "PREM-SCI-005",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "30eb1da13469f4f040822d18482c2b739156e8f4",
+  "role": "learning-design",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — learning-design reviewer",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "Gemini 3.5 Flash High",
+      "version": "Agy CLI 1.1.4",
+      "runId": "2613b1f0-0112-476a-9f52-39fc7950ab37",
+      "instructionsDigest": "sha256:611d8df962fdacb93e1d63647cf3076cea77a68505b42eb321327b968b88eb59"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Founding-stage single-operator disclosure: VSBDev (github:VSBDev) operated the authoring agents during the founding stage. This review is an isolated new run with a distinct provider (Google Gemini 3.5 Flash High) and Agy CLI 1.1.4, unique run ID 2613b1f0-0112-476a-9f52-39fc7950ab37, and has no access to authoring conversation, bake-off scorecards, the academic review, either retired learning-design run, or any adjudication draft."
+  },
+  "evidenceChecked": [
+    "content/01-two-chains.md#cold-first-read-in-lesson-json-scene-order-before-claims-references-or-validator",
+    "content/02-worked-audit.md#worked-example-breathing-audit",
+    "content/03-same-word-different-moment.md#misconception-concealment-is-blinding",
+    "content/04-practice.md#fading-practice-scaffolding",
+    "content/05-transfer-synthesis.md#transfer-and-accessibility",
+    "lesson.json#objectives-scenes-minutes-and-provenance",
+    "assessment.json#all-six-items-attempted-as-declared-learner-with-rubrics-and-remediation-logic",
+    "glossary.json#terms-for-all-introduced-vocabulary",
+    "claims.json#scene-claim-mapping-and-misconception-support",
+    "references.json#source-records",
+    "diagrams/safeguard-timeline.diagram.json#alt-and-long-description"
+  ],
+  "findings": [
+    {
+      "severity": "note",
+      "target": "content/01-two-chains.md#opening-and-first-substantive-explanation",
+      "finding": "First-read gate: PASS. Reading the scenes cold in lesson.json order as the declared learner, scene 1 successfully introduces the two separate threads (entry route bounding external validity, and group formation/information bounding internal validity) using a concrete, picturable breathing-trial example before presenting abstract definitions. After one read, a learner can plainly state what they are learning (how selection, allocation, concealment, and blinding protect a study's conclusion), why it matters (to tell apart internal validity from external validity and identify exactly which safeguard was broken), and how the central procedure works (checking the four questions in time order: entry, assignment, foreknowledge/concealment, and awareness/blinding). No sentence depends on hidden project terminology, validation rules, or rubric names.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "minor",
+      "target": "content/03-same-word-different-moment.md#what-the-evidence-says-about-the-size-of-this",
+      "finding": "The percentages describing treatment effect overstatement (9% for sequence generation, 8% for concealment, 13% for blinding) represent relative overstatements of treatment benefit (derived from ratios of odds ratios in Cochrane reviews), rather than absolute percentage point differences in clinical outcomes. However, a novice pre-med student might easily misinterpret these percentages as absolute differences (e.g., a 9% absolute difference in patient outcomes). Clarifying this relative overstatement distinction will prevent a common statistical misconception.",
+      "resolution": "Add a brief parenthetical or clause explaining that these percentages refer to relative exaggeration of the treatment effect itself (ratios of odds ratios), rather than an absolute difference in the outcome metric."
+    },
+    {
+      "severity": "note",
+      "target": "content/02-worked-audit.md#worked-example-breathing-audit",
+      "finding": "The worked example 'worked-example-breathing-audit' perfectly follows the CONTENT-STANDARD.md 5.1 rubric: it explicitly represents givens, constraints, and unknowns; maps the four-question model and explains why it fits; follows an ordered execution in time sequence; provides an independent plausibility check; and includes a self-explanation prompt ('Explain it to yourself') that focuses on the decision determining the solution. The cognitive support is outstanding.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "content/04-practice.md#practice-progression",
+      "finding": "The practice progression in scene 4 demonstrates excellent scaffolding and fading. It transitions from a completion task with three of the four questions answered (Practice 1), to a structured audit with headings only (Practice 2), to a fully independent, unguided audit (Practice 3). Each item includes rich diagnostic feedback explaining why wrong answers are incorrect, with a structured recovery route at the end of the scene.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "content/05-transfer-synthesis.md#a-study-with-no-patients-in-it-does-the-new-marking-rubric-change-grades",
+      "finding": "The transfer task successfully requires the learner to adapt the four-question framework to a completely non-clinical domain (essay marking). It correctly guides the student to map physical entities to structural concepts ('who enrols' to 'is anyone deciding which essays get in', and 'groups' to 'essay-and-grader pairings'), which is a genuine, high-quality conceptual transfer task that satisfies CONTENT-STANDARD.md.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#assessment-items",
+      "finding": "I attempted all six assessment items as the declared learner. The items are constructively aligned with the lesson objectives: item-narrow-not-wrong tests selection and external validity; item-two-random-steps distinguishes random selection from random allocation; item-expectation-limits tests the limits of 'comparable in expectation'; item-which-safeguard-failed tests distinguishing concealment from blinding; item-unblindable-repair tests identifying valid post-allocation blinding strategies; and item-full-audit is a comprehensive open-response audit. Option logic is correct, and distractors map cleanly to taught misconceptions. The points sum to 2+2+2+3+4+12=25, matching the objective weighting.",
+      "resolution": "No change required."
+    }
+  ],
+  "limitations": [
+    "No real learner performance data exists; this review is a structured cold read and instructional-argument trace by an agent, not evidence that learners mastered the outcome.",
+    "Prerequisite lesson packs for PREM-SCI-004 are in draft in the repository, but earlier lessons in the sequence were only referenced conceptually rather than verified as fully completed dependencies.",
+    "Canonical Markdown and JSON were reviewed; rendered guided-mode behavior, screen-reader output, zoom/reflow, and print export were not exercised. The accessibility-and-rights audit remains the finalizer's separate responsibility.",
+    "Verification of epidemiologic definitions and primary trial statistics against the cited sources belongs to the academic review; no suspected scientific error was noticed at learning-design reading depth.",
+    "Provenance in this artifact is disclosed and attested by the accountable operator, not platform-verified."
+  ],
+  "signedAt": "2026-07-21T05:28:39Z"
+}

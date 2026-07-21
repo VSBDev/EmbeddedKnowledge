@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-SCI-005-ACADEMIC-EFFF9F14",
+  "lessonId": "PREM-SCI-005",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "30eb1da13469f4f040822d18482c2b739156e8f4",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev (accountable operator; academic reviewer)",
+    "agent": {
+      "system": "Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "Codex CLI 0.144.6",
+      "runId": "efff9f14-469e-45c2-88d7-564731ec09c9",
+      "instructionsDigest": "sha256:56334b59754fc05141e52a88ef885dd3845d1c15c3bffa8423a2582a3874749e"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Operational conflict: github:VSBDev operated both authoring agents and this academic-review agent during the founding stage. This was nevertheless an isolated new run with a unique run ID and an OpenAI model, distinct from the disclosed Anthropic author runs. It had no access to authoring conversations, bake-off scorecards, another formal review, or an adjudication draft."
+  },
+  "evidenceChecked": [
+    "lesson.json#id,version,outcomes,prerequisites,objectives,scenes and site/data/premed-graph.json#topic-scientific-inquiry-sampling-randomization",
+    "content/01-two-chains.md#Four questions, in the order they happen; #What each safeguard actually does; source-note",
+    "content/02-worked-audit.md#worked-example-breathing-audit and source-note",
+    "content/03-same-word-different-moment.md#check-predict-two-studies; #The distinction, laid out; #What the evidence says about the size of this; source-note",
+    "content/04-practice.md#Practice 1; #Practice 2; #Practice 3; source-note",
+    "content/05-transfer-synthesis.md#A study with no patients in it; #Putting it together; source-note",
+    "diagrams/safeguard-timeline.diagram.json#diagram-safeguard-timeline, all nodes, edges, alt text, and longDescription",
+    "assessment.json#item-narrow-not-wrong; #item-two-random-steps; #item-expectation-limits; #item-which-safeguard-failed",
+    "assessment.json#item-unblindable-repair; #item-full-audit; #rubric-inference-audit, including every declared key and point allocation",
+    "claims.json#claim-entry-bounds-applicability through #claim-concealment-mechanisms, including scene/source mappings, scope, and uncertainty",
+    "claims.json#claim-blinding-definition-scope through #claim-assessor-blinding-magnitude, including scene/source mappings, quantitative values, scope, and uncertainty",
+    "references.json#source-consort-2010-elaboration; #source-blinding-overview; #source-robes-meta-epidemiology; #source-sampling-participants",
+    "glossary.json#all terms, especially term-probability-sampling, term-random-allocation, term-allocation-concealment, term-blinding, and validity/bias terms",
+    "ATTRIBUTION.md#Sources and #Teaching cases; candidate contains no assets, structured molecules, review artifacts, or adjudication",
+    "CONSORT 2025 Explanation and Elaboration, BMJ 2025;389:e081124, items 17-20 and boxes 5-7: https://www.bmj.com/content/389/bmj-2024-081124",
+    "Savović et al. ROBES study abstract/results and institutional copy: https://www.repository.cam.ac.uk/items/9afbdbe1-9b7e-4856-8d49-4296b1435767",
+    "Moustgaard et al. MetaBLIND study, BMJ 2020;368:l6802: https://www.bmj.com/content/368/bmj.l6802",
+    "Cochrane Handbook chapter 8, effect-of-interest and outcome-measurement guidance: https://www.cochrane.org/authors/handbooks-and-manuals/handbook/current/chapter-08"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "diagrams/safeguard-timeline.diagram.json#nodes[node-assignment,node-allocation-instant] and content/01-two-chains.md#Four questions, in the order they happen",
+      "finding": "The timeline places “How groups are formed: each participant is placed in a condition” before a separate later “point of allocation.” Assignment and allocation are the same participant-level event; concealment protects the sequence before and until that event. CONSORT instead separates sequence generation, the concealment mechanism, and implementation, with enrolment committed before the assignment is ascertained. Presenting assignment and the point of allocation as consecutive moments makes the lesson’s central timing model internally impossible and can cause learners to place concealment after groups have already been formed.",
+      "resolution": "Redraw and revise the timeline so the four audit questions are not represented as four distinct chronological events. Distinguish sampling/recruitment, optional prior sequence generation, irrevocable enrolment followed by allocation/assignment reveal and implementation, and post-allocation follow-up. Show concealment spanning until assignment is ascertained and blinding operating after assignment."
+    },
+    {
+      "severity": "major",
+      "target": "claims.json#claims[id=claim-random-allocation-comparability]; glossary.json#term-random-allocation; content/04-practice.md#Practice 2 — supported",
+      "finding": "Random allocation is repeatedly defined as assignment by chance “rather than by any characteristic of the participant.” That definition excludes valid restricted and covariate-adaptive methods: stratified randomisation explicitly uses centre, age, severity, or other baseline characteristics while retaining random allocation within strata, and minimisation may use a random component. The candidate itself endorses separate within-club randomisation, which uses club membership in the assignment procedure and therefore contradicts its definition. The further statement that deterministic schemes “generally yield biased results” also needs to distinguish their failure to provide randomisation-based protection from evidence that a particular realised comparison is biased.",
+      "resolution": "Define random allocation through prespecified chance-based assignment probabilities and unpredictability, not absence of all covariate use. Introduce simple randomisation as the lesson’s main model while explicitly bounding it against blocking, stratification, and covariate-adaptive methods. State that alternation, birth date, and record number are deterministic and permit prediction/systematic imbalance; do not claim every realised study using them is demonstrably biased."
+    },
+    {
+      "severity": "major",
+      "target": "assessment.json#items[id=item-full-audit].answer; content/02-worked-audit.md#Interpreting the result; content/04-practice.md#Practice 3 — independent",
+      "finding": "The answer key treats awareness plus a participant-reported outcome as proof that the randomized result cannot be attributed to the intervention. That skips the required estimand and risk-of-bias judgements. In the leaflet trial, if the question is the total effect of assigning or offering the leaflet versus offering nothing, expectations caused by visibly receiving the leaflet may be part of the intervention effect rather than a competing non-intervention cause. Participant awareness makes differential reporting possible, and the assistant’s awareness may influence collection, but those are risks whose likelihood and consequence must be judged; collection of a self-completed form by an aware assistant does not itself prove distortion. Current Cochrane guidance classifies an aware participant-reported outcome as at least some concern and asks whether influence was likely before assigning high risk. The mandatory key therefore rewards an overconfident shortcut and rejects a defensible causal interpretation.",
+      "resolution": "State the effect of interest in every open-label example. Distinguish the total effect of assignment to the intervention package from a content-specific or physiological effect beyond attention and expectations. Describe awareness as opening specified bias pathways rather than proving that they operated. For a content-specific estimand, introduce an attention-matched comparator; for the total assignment effect, preserve the randomized contrast while qualifying participant-reported measurement and collection risks. Revise the key and rubric to accept this distinction."
+    },
+    {
+      "severity": "major",
+      "target": "content/03-same-word-different-moment.md#What the two teams actually did and #check-predict-two-studies",
+      "finding": "The lesson declares Team B more trustworthy “on balance” solely because its scores could later be re-marked. The described facts establish different risks—possible selection at enrolment for Team A and possible differential scoring for Team B—but provide no basis for ordering the magnitude of bias in their current results. Repairability of stored transcripts is a property of a hypothetical future reanalysis, not evidence that Team B’s present estimate is less biased. The prose also shifts from “may differ” to saying the failures changed who was compared or what was recorded, converting an admitted mechanism into an observed event.",
+      "resolution": "Remove the required ranking, or supply explicit assumptions under which a conditional ranking follows. Ask learners to identify and contrast the two risk pathways and the evidence needed to judge each. Use “could,” “permits,” or “places at risk” unless the case supplies evidence that steering or differential scoring actually occurred, and distinguish present validity from possible future repair."
+    },
+    {
+      "severity": "major",
+      "target": "content/03-same-word-different-moment.md#What the evidence says about the size of this; claims.json#claim-meta-epidemiological-magnitude",
+      "finding": "The ROBES sample size, ratios of odds ratios, and credible intervals match the cited study, but the learner-facing translation is not mathematically valid. RORs of 0.91, 0.92, and 0.87 mean the compared odds ratios were 9%, 8%, and 13% lower on the study’s oriented odds-ratio scale; they do not imply that an intervention’s “benefit” was a fixed 9%, 8%, or 13% larger. Translation to a risk ratio, risk difference, or proportional increase in benefit depends on the original effect and baseline risk. The section also presents the empirical signal too uniformly: MetaBLIND’s 142 meta-analyses and 1,153 trials found no average difference by participant, provider, or assessor blinding, with wide intervals, and CONSORT 2025 explicitly notes inconsistent empirical investigations while retaining blinding as a safeguard. The candidate’s caveats about confounding and individual prediction do not disclose this conflicting evidence.",
+      "resolution": "Report the RORs on their actual scale and remove the fixed-percent “larger benefit” paraphrase, or provide a correctly bounded worked conversion with an explicit baseline and effect measure. Update the evidence account and references to include CONSORT 2025 and the conflicting MetaBLIND evidence. Characterize the empirical magnitude literature as heterogeneous while retaining the mechanism-based reason for blinding."
+    },
+    {
+      "severity": "minor",
+      "target": "content/04-practice.md#Practice 3 — independent",
+      "finding": "The statement that careful trials ask participants at the end which group they believed they were in implies that this directly tests whether blinding succeeded. End-of-trial guesses can be caused by experienced outcomes or side effects rather than failure of the masking procedure; CONSORT 2025 therefore still does not recommend testing blinding as a reporting item and asks that any such results be reported with limitations.",
+      "resolution": "Retain allocation-belief questions only with the end-of-trial inference limitation, or describe prospective checks of intervention similarity and overt unblinding instead of treating treatment guesses as a direct test of blinding success."
+    },
+    {
+      "severity": "note",
+      "target": "references.json; claims.json; assessment.json#item-two-random-steps and #item-which-safeguard-failed",
+      "finding": "Several central elements were independently confirmed: random selection and random allocation perform different inferential jobs; inadequate concealment permits foreknowledge despite a random sequence; central assignment and diligently implemented numbered opaque sealed containers are accepted mechanisms; concealment acts before and until allocation whereas party-specific blinding acts afterward; concealment is implementable when needed whereas blinding may not be; and the cited ROBES and assessor-blinding numerical records reproduce their sources accurately before the interpretation problems identified above.",
+      "resolution": null
+    }
+  ],
+  "limitations": [
+    "This is an academic-methods review by an AI system, not a credential claim or a substitute for a practising biostatistician’s review.",
+    "Direct opening of PMC article pages encountered a reCAPTCHA in this environment. Relevant full-text sections were checked through indexed PMC extracts and public BMJ or Cambridge repository copies; supplements and the primary studies underlying the 2021 review’s 27% and 36% summaries were not independently re-analysed.",
+    "Repository validation was not run because the requested review was strictly read-only and the repository gate rebuilds generated artifacts. The candidate pack had no working-tree or index difference from the exact SHA; schema success would not resolve the academic findings.",
+    "The review was limited to academic accuracy, evidence, calculations, model boundaries, outcome scope, and assessment correctness. It did not perform learning-design, accessibility-and-rights, authoring, finalization, or adjudication work and did not inspect any other formal review or adjudication artifact."
+  ],
+  "signedAt": "2026-07-21T05:25:15Z"
+}
