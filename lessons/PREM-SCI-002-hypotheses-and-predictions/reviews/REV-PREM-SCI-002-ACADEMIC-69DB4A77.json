@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-SCI-002-ACADEMIC-69DB4A77",
+  "lessonId": "PREM-SCI-002",
+  "lessonVersion": "0.1.1",
+  "candidateCommit": "fe0bdb3d2ea49bbcca940d136b6a89334b9a8910",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev operating the academic review agent",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-SCI-002-69DB4A77-1093-430F-A30D-78257C6B704F",
+      "instructionsDigest": "sha256:d58a20574ab5fa8c8bd1b7d1309923376835342d670522ad15fde2b7417b6023"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Founding-stage operator conflict: the accountable principal VSBDev is also the lesson's author principal and operates this academic review agent. This review used the distinct run ID codex-academic-PREM-SCI-002-69DB4A77-1093-430F-A30D-78257C6B704F."
+  },
+  "evidenceChecked": [
+    "lesson.json#id-version-outcomes-prerequisites-objectives-scenes-and-riskTier",
+    "content/01-explain-and-expect.md#complete-scene",
+    "content/02-worked-comparison.md#complete-scene",
+    "content/03-practise-and-repair.md#complete-scene",
+    "content/04-transfer.md#complete-scene",
+    "assessment.json#all-items-answer-logic-and-rubrics",
+    "claims.json#all-five-claims-and-scene-source-mappings",
+    "references.json#source-usgs-rigor; [USGS publication page](https://pubs.usgs.gov/publication/70196876)#abstract",
+    "references.json#source-epa-causal-assessment; [EPA About Causal Assessment](https://www.epa.gov/caddis/about-causal-assessment)#comparison-of-candidate-causes-and-predictive-performance",
+    "glossary.json#all-six-terms",
+    "ATTRIBUTION.md#complete-file",
+    "reviews/REV-PREM-SCI-002-ACADEMIC-8412B223.json#complete-file",
+    "reviews/REV-PREM-SCI-002-LEARNING-DESIGN-01E793C0.json#complete-file"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "content/04-transfer.md#transfer-table-and-fictional-archive-result",
+      "finding": "The case establishes only that normal recorder operation implies a detectable automatically inserted calibration tone, then treats the converse as true: its model completion predicts that every cold-related recorder failure will make tones missing or weak, and intact tones are said to count against Hypothesis 2. Hypothesis 2 does not specify that the relevant failure lies on the calibration tone's signal path or must affect the tone. A microphone-input, call-detection, or frequency-specific failure could reduce detected calls while leaving an inserted tone intact. The displayed completion therefore is not derived from the stated hypotheses and models an invalid discriminating inference in the lesson's central transfer task.",
+      "resolution": "Define the signal path and narrow Hypothesis 2 to a cold-related failure that necessarily attenuates or omits a calibration tone passing through the same acquisition path, or replace the diagnostic with an independent record whose behavior under both hypotheses is explicitly stipulated. Revise the completed table and conclusion accordingly."
+    },
+    {
+      "severity": "minor",
+      "target": "assessment.json#item-distinguish-roles",
+      "finding": "Statement 3 is syntactically a prediction, but it does not follow solely from statement 2. A reduction in energy transferred to the lamp each second does not by itself entail lower measured light output without an additional relation between input power and light output and fixed lamp-controller conditions. The keyed classification therefore relies on an unstated auxiliary assumption despite the lesson's hypothesis-plus-stated-conditions discipline.",
+      "resolution": "Add the missing light-output relation and fixed conditions to the hypothesis, or replace statement 2 with a hypothesis that directly proposes lower light output at lower voltage under the stated lamp conditions."
+    },
+    {
+      "severity": "note",
+      "target": "claims.json#claim-before-inspection",
+      "finding": "Direct checks of the public USGS abstract and EPA guidance support the question-hypothesis-prediction sequence, comparison of candidate explanations, cautious inference, and pre-specification as protection against after-the-fact adjustment. The claim's scope and uncertainty appropriately preserve the documented debate about whether previously existing evidence is intrinsically weaker than novel evidence.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#item-derive-prediction",
+      "finding": "The threshold-item key is logically correct under its explicit complete-explanation stipulation: 25 N predicts the light on, 15 N predicts it off, and either opposite observation counts against the hypothesis under the fixed calibrated-sensor condition.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#item-discriminate-archive",
+      "finding": "The museum-logger item validly narrows its alternative to a clock error and supplies an independent timestamp comparison. Within those stipulations, agreeing timestamps plus fewer late-evening entries support Hypothesis 1 relative to Hypothesis 2 while not proving time-of-day causation or eliminating untested alternatives.",
+      "resolution": "No change required."
+    }
+  ],
+  "limitations": [
+    "The explicit task scope prohibited inspection of site/, so the exact graph-node wording, prerequisite edge, quorum policy, and local review schema were not independently read; lesson identity and mappings were checked for internal consistency only.",
+    "Mandatory pack-complete inspection included the two earlier review artifacts, so this run was not blinded to their conclusions.",
+    "Source verification was limited to the public USGS metadata-and-abstract page and the public EPA guidance page. The publisher-hosted article full text was not processed.",
+    "The lesson's devices, observations, and datasets are declared fictional; this review evaluated their logical entailments rather than attempting empirical verification of device behavior."
+  ],
+  "signedAt": "2026-07-21T23:33:34Z"
+}
