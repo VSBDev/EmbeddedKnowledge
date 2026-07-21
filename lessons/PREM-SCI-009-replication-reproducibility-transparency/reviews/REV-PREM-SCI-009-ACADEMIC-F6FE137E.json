@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-SCI-009-ACADEMIC-F6FE137E",
+  "lessonId": "PREM-SCI-009",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "e21bc237d5737864287ab590469e38d8c2564c95",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev \u2014 accountable operator, isolated academic reviewer",
+    "agent": {
+      "system": "Codex collaborative subagent",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "Codex agent runtime 2026-07-21",
+      "runId": "f6fe137e-2b59-4dfd-a67f-0ca2cd2e5912",
+      "instructionsDigest": "sha256:c8f3191323a96cb04b9e6612f3e9d0d958d0c2ebb09c193b13a377211d793702"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Founding-stage operational conflict: github:VSBDev operated the authoring and packaging agents and also operates this reviewer subagent. This is a fresh role-isolated academic run with a unique run ID. It had no access to an authoring conversation, another review conclusion, or an adjudication draft and inspected no review artifact."
+  },
+  "evidenceChecked": [
+    "lesson.json; site/data/premed-graph.json#topic-scientific-inquiry-replication-reproducibility and #topic-scientific-inquiry-bias",
+    "content/01-result-with-a-trail.md through content/05-transfer-and-mastery.md, every learner-visible scene and source note",
+    "assessment.json#item-reproduce-or-replicate, #item-interpret-three-checks, #item-responsible-openness, #item-design-four-part-plan and all four rubrics",
+    "claims.json#claim-four-safeguards-complementary through #claim-multiverse-role; every scene/source mapping and uncertainty field",
+    "references.json, all seven source records, locators, uses, and agentAccess statuses",
+    "PLOS Biology (2026), An international consensus on core reproducibility items in research: abstract, Box 1, core items, correction notice",
+    "Nosek and Errington (2020), What is replication?: abstract, replication definition, diagnosticity, belief-change qualifications, conclusion",
+    "Center for Open Science, Preregistration: timing, planned/exploratory distinction, deviations, existing-data qualifications",
+    "Center for Open Science, Registered Reports: Stage 1 review, in-principle acceptance, Stage 2 quality conditions, exploratory analyses",
+    "FDA/ICH E9(R1): sections V.B and VI, same-estimand requirement, assumptions, missing-data sensitivity, interpretation limits",
+    "NIH Principles and Best Practices for Protecting Participant Privacy: consent, law, de-identification, controlled access, data-use agreements",
+    "Steegen et al. (2016), Increasing Transparency Through a Multiverse Analysis: abstract, reasonable processing paths, result dependence, discussion",
+    "glossary.json, every term and scene link; diagrams/four-safeguard-questions.diagram.json, every node, edge, label, alt, and long description",
+    "ATTRIBUTION.md, authorship, fictional-material declarations, source-use boundaries, material provenance, and no-third-party-asset declaration",
+    "Independent checks of the fictional +1.8/+0.9/+0.2/+0.4 and 12/2/11/13/3 examples, point-estimate ranges, safeguard labels, answer keys, point totals, and mastery threshold"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "content/03-follow-the-seedling-claim.md#5-collect-new-data; assessment.json#item-interpret-three-checks and #rubric-interpret-three-checks",
+      "finding": "The lesson treats a smaller replication point estimate as disagreement that weakens confidence in a large effect, but the worked claim is only that supplement S increases height, so +1.8 cm and +0.4 cm are directionally consistent. Neither the worked example nor the assessed 12-unit versus 3-unit case specifies a quantitative large-effect claim, a prespecified diagnostic criterion, sample sizes, standard errors, intervals, or another uncertainty model. A difference between bare point estimates cannot establish that the new result is meaningfully inconsistent with the prior claim or determine how confidence should change; the cited replication perspective itself says the magnitude of belief change depends on prior and existing evidence. The keyed answer and rubric therefore reward an outcome-defeating shortcut precisely where objective-evaluate-evidence requires calibrated interpretation.",
+      "resolution": "Define the exact prior claim and in advance what replication outcomes would count as diagnostic, then supply enough design and uncertainty information to compare the estimates (for example sample sizes plus compatible interval or sampling-model information). Update the worked conclusion, item answer, acceptable responses, and rubric to distinguish point-estimate difference from evidence of incompatibility and to state that the strength of belief change depends on precision and the wider evidence. Alternatively, keep the bare estimates but make the correct conclusion that a new-data estimate exists and that its evidential weight cannot be determined from the supplied numbers alone."
+    },
+    {
+      "severity": "major",
+      "target": "content/01-result-with-a-trail.md#activate-what-you-know-about-bias; claims.json; glossary.json#term-researcher-degrees-of-freedom",
+      "finding": "The scene defines researcher degrees of freedom and makes the causal evidentiary claims that choosing among defensible outcome definitions after observing results can favor a desired story and that reporting only the winning definition hides the dependence. These are material definitional and bias claims used as the prerequisite rationale, yet no claim in claims.json states or sources them. The same-scene source note calls the bias audit original, but original expression does not remove the requirement to map and support a material scientific claim. The listed safeguard claims do not trace this full researcher-flexibility/selective-reporting chain to an exact source and locator.",
+      "resolution": "Add a specific claim record for the researcher-degrees-of-freedom and outcome-guided selective-reporting chain, map it to scene-result-trail, cite a source that directly supports its scope, and name the new claim and all its sources in that scene's source note. Preserve the distinction between original wording and evidentiary support."
+    },
+    {
+      "severity": "minor",
+      "target": "references.json#source-replication-perspective",
+      "finding": "The central replication source is recorded with type review, but PLOS labels What is replication? as a Perspective and states that it was commissioned and not externally peer reviewed. The bibliographic title, authors, date, and substantive locator are correct, and its argument does support the declared local convention, but the current type can overstate the kind of evidence being cited.",
+      "resolution": "Record the source as other (or the closest schema-valid non-review category) and state Perspective; commissioned; not externally peer reviewed in the version or locator. Consider adding a genuinely consensus or review source if the finalizer wants stronger support for a cross-field central convention."
+    },
+    {
+      "severity": "note",
+      "target": "claims.json#claim-terminology-convention through #claim-multiverse-role; content/02-four-questions.md; diagrams/four-safeguard-questions.diagram.json",
+      "finding": "Apart from the findings above, the declared same-data computational-reproducibility versus informative new-data replication convention, preregistration timeline, Registered Reports process, responsible-access boundary, same-target sensitivity logic, multiverse limit, glossary definitions, diagram relationships, and the remaining assessment labels agree with the checked sources within the stated introductory scope. The sensitivity ranges and assessment point total were recalculated correctly, and no fictional number is presented as empirical plant, algal, or materials evidence.",
+      "resolution": null
+    }
+  ],
+  "limitations": [
+    "The accountable operator conflict is disclosed above; policy permits such founding-stage operation but it is not organizational independence.",
+    "This reviewer has broad scientific-methods competence, not field-specific legal authority or clinical-trial regulatory authority; the privacy discussion was checked for academic accuracy, not offered as legal advice.",
+    "All seven substantive sources were marked checked-no-agent-restriction-found and were checked through public routes. No human-only source was opened, and no inaccessible central evidence was silently inferred.",
+    "The numerical studies are explicitly fictional and provide no raw data, sample sizes, or uncertainty estimates; the review checked internal reasoning and identifies the resulting inference limit rather than treating the numbers as empirical evidence.",
+    "Role isolation excluded learning-design, accessibility-and-rights adjudication, candidate editing, other review artifacts, authoring conversations, and any merge or quorum judgment."
+  ],
+  "signedAt": "2026-07-21T23:13:35Z"
+}
