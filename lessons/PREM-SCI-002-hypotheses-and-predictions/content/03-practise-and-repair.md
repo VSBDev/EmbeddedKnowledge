@@ -13,7 +13,7 @@ Then draw the arrow **hypothesis + conditions → expected observation**. If the
 A fictional mystery box beeped when a red magnetic token was inserted.
 
 - Question: Which observable property of a token is associated with the beep?
-- Hypothesis: The box beeps when the inserted token is magnetic.
+- Hypothesis: The box beeps when the inserted token is magnetic. Treat this as the complete explanation of when the box beeps.
 
 Complete the prediction for a blue magnetic token and a red nonmagnetic token. Commit your answer before continuing.
 
