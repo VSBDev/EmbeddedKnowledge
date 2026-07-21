@@ -1,0 +1,338 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-assessment-v1",
+  "lessonId": "PREM-SCI-007",
+  "lessonVersion": "0.1.0",
+  "assessmentId": "assessment-causal-claim-judgment",
+  "title": "Association, mechanism, and causal-attribution mastery check",
+  "purpose": "mastery-gate",
+  "attemptPolicy": {
+    "retakeable": true,
+    "timeLimitMinutes": null,
+    "feedback": "after-attempt"
+  },
+  "items": [
+    {
+      "id": "item-classify-inference-targets",
+      "type": "single-choice",
+      "sceneId": "scene-mastery-spacing",
+      "objectiveIds": [
+        "objective-distinguish-inference-targets"
+      ],
+      "outcomeIds": [
+        "topic-scientific-inquiry-correlation-causation"
+      ],
+      "prompt": "Choose the only calibrated map. Study A measures current equipment age and current failure rate in one survey. Study B perturbs one molecular component and records the ordered downstream steps but does not measure a whole-organism outcome. Study C randomly assigns a laboratory procedure and measures the same later outcome in both assigned groups.",
+      "stimulus": null,
+      "points": 2,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-map-association-mechanism-causal",
+            "text": "A supports association; B supports a bounded mechanism claim; C can support bounded causal attribution if implementation preserves the randomized comparison."
+          },
+          {
+            "id": "option-map-all-causal",
+            "text": "All three support causal attribution because each records a difference."
+          },
+          {
+            "id": "option-map-mechanism-proves-effect",
+            "text": "A supports mechanism; B proves a population effect; C supports association only."
+          },
+          {
+            "id": "option-map-randomization-universal",
+            "text": "Only C is informative, and it establishes the same effect in every population."
+          }
+        ],
+        "units": null,
+        "tolerance": null,
+        "maxSelections": 1,
+        "maxLength": null
+      },
+      "answer": {
+        "correct": "option-map-association-mechanism-causal",
+        "summary": "The three designs answer different questions: co-variation, process, and a bounded intervention contrast.",
+        "reasoning": "Award 1 point for classifying A as association and B as bounded mechanism evidence, and 1 point for allowing C a conditional, bounded causal interpretation rather than a universal one. If you chose another map, underline who assigned exposure and what outcome each study actually measured. On retry, classify a one-time habitat survey, a controlled enzyme-pathway perturbation, and a randomized materials test.",
+        "acceptableResponses": [
+          "The option mapping A to association, B to a bounded mechanism claim, and C to conditional causal attribution."
+        ],
+        "commonErrors": [
+          "Treating every measured difference as causal",
+          "Treating a process study as proof of a whole-system or population effect",
+          "Treating a randomized result as automatically universal"
+        ]
+      },
+      "rubricId": "rubric-classify-inference-targets",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-map-third-variable-roles",
+      "type": "data-interpretation",
+      "sceneId": "scene-mastery-spacing",
+      "objectiveIds": [
+        "objective-map-rival-paths"
+      ],
+      "outcomeIds": [
+        "topic-scientific-inquiry-correlation-causation"
+      ],
+      "prompt": "For a total-effect question about X on Y, interpret these assumed maps: (1) X ← Z1 → Y; (2) X → Z2 → Y; (3) X → Z3 ← Y. Name the role of Z1, Z2, and Z3, and state the default adjustment decision for each map.",
+      "stimulus": "The arrows are causal assumptions and the variables occur in the order indicated.",
+      "points": 3,
+      "responseSpec": {
+        "mode": "text",
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "maxLength": 1600
+      },
+      "answer": {
+        "correct": "Z1 is a confounder or pre-exposure common cause and should be blocked if it is correctly identified and measured. Z2 is a mediator on the causal route and should not be treated as a routine confounder when estimating the total effect. Z3 is a collider or common effect and should not be conditioned on for this simple total-effect question because doing so can induce association.",
+        "summary": "The arrowheads determine whether a third variable is a common cause, a route carrier, or a common effect.",
+        "reasoning": "Award 1 point for each correct role plus its total-effect adjustment consequence. If a label is correct but the adjustment is wrong, do not award that point: the assessment targets usable causal structure. On retry, replace Z1, Z2, and Z3 with background temperature, an intermediate sensor signal, and inclusion in an alarm-only sample.",
+        "acceptableResponses": [
+          "Equivalent wording that blocks the confounder path, preserves the mediator for a total-effect question, and avoids conditioning on the collider."
+        ],
+        "commonErrors": [
+          "Adjusting for every variable associated with both X and Y",
+          "Calling the mediator a confounder despite its post-exposure position",
+          "Calling the common effect a common cause"
+        ]
+      },
+      "rubricId": "rubric-map-third-variable-roles",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-calibrate-randomized-claim",
+      "type": "single-choice",
+      "sceneId": "scene-mastery-spacing",
+      "objectiveIds": [
+        "objective-calibrate-causal-attribution"
+      ],
+      "outcomeIds": [
+        "topic-scientific-inquiry-correlation-causation"
+      ],
+      "prompt": "Four hundred eligible samples are randomly assigned to a new preparation procedure or the standard procedure. Outcomes are measured comparably for every assigned sample. The new-procedure group has a lower mean error count. Which conclusion is strongest without adding facts?",
+      "stimulus": null,
+      "points": 3,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-randomized-bounded",
+            "text": "Assignment to the new procedure reduced the mean error count relative to standard assignment among these eligible samples under the study conditions; transport to other samples or implementation settings needs justification."
+          },
+          {
+            "id": "option-randomized-identical",
+            "text": "The two realized groups were identical in every characteristic except procedure, so every observed outcome difference must be exact."
+          },
+          {
+            "id": "option-randomized-use",
+            "text": "Actually following the new procedure reduces errors for every sample, whether or not the assigned procedure was followed."
+          },
+          {
+            "id": "option-randomized-association-only",
+            "text": "Random assignment cannot support causal inference, so only an association may be reported."
+          }
+        ],
+        "units": null,
+        "tolerance": null,
+        "maxSelections": 1,
+        "maxLength": null
+      },
+      "answer": {
+        "correct": "option-randomized-bounded",
+        "summary": "Randomization supports a bounded effect of assignment, not exact group identity, universal transport, or an effect of actual receipt under unknown adherence.",
+        "reasoning": "Award 2 points for selecting the bounded assignment-effect statement and 1 point for its explicit population or transport limit. Both features are present only in the correct option. On retry, evaluate random assignment of a microscope-cleaning protocol with the same outcome-measurement conditions.",
+        "acceptableResponses": [
+          "The option attributing a lower mean error count to assignment in the eligible study sample while preserving the transport boundary."
+        ],
+        "commonErrors": [
+          "Claiming exact realized balance from randomization",
+          "Changing an effect of assignment into an effect of actual use",
+          "Generalizing beyond the studied samples without support"
+        ]
+      },
+      "rubricId": "rubric-calibrate-randomized-claim",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-probe-observational-claim",
+      "type": "open-response",
+      "sceneId": "scene-mastery-spacing",
+      "objectiveIds": [
+        "objective-distinguish-inference-targets",
+        "objective-map-rival-paths"
+      ],
+      "outcomeIds": [
+        "topic-scientific-inquiry-correlation-causation"
+      ],
+      "prompt": "A fictional observational study finds that laboratories using an optional calibration checklist have fewer recording errors. A negative-control outcome that the checklist cannot plausibly affect shows an association of similar size. Write the strongest current conclusion, explain what the negative control changes, and name a genuinely different kind of evidence that could strengthen or weaken the causal account.",
+      "stimulus": null,
+      "points": 3,
+      "responseSpec": {
+        "mode": "text",
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "maxLength": 1800
+      },
+      "answer": {
+        "correct": "Checklist use is associated with fewer recording errors, but the observational comparison does not isolate a checklist effect. The similar negative-control association lowers causal confidence because it signals residual confounding, selection, measurement, or another shared systematic process, assuming the control's no-effect and shared-bias conditions are credible. A randomized checklist assignment, a defensible external allocation rule, or a mechanism experiment with a distinct principal bias structure could contribute independent evidence; repeating regressions on the same data would not by itself be triangulation.",
+        "summary": "The negative control turns an untested rival explanation into evidence of possible systematic error, so the claim remains associational while a different evidence route is sought.",
+        "reasoning": "Award 1 point for keeping the current conclusion associational, 1 for explaining that the unexpected negative-control association lowers confidence under the control assumptions, and 1 for proposing a genuinely different evidence route rather than another model on the same data. On retry, use optional microscope-maintenance logs and an outcome the maintenance cannot affect.",
+        "acceptableResponses": [
+          "Any answer that preserves association, interprets the negative control as a bias warning rather than proof, and proposes evidence with a meaningfully different key bias source."
+        ],
+        "commonErrors": [
+          "Calling the negative-control association evidence that the checklist works",
+          "Treating a null or non-null control as conclusive without its assumptions",
+          "Calling several analyses of the same biased data independent triangulation"
+        ]
+      },
+      "rubricId": "rubric-probe-observational-claim",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-transfer-external-allocation",
+      "type": "open-response",
+      "sceneId": "scene-mastery-spacing",
+      "objectiveIds": [
+        "objective-distinguish-inference-targets",
+        "objective-map-rival-paths",
+        "objective-calibrate-causal-attribution"
+      ],
+      "outcomeIds": [
+        "topic-scientific-inquiry-correlation-causation"
+      ],
+      "prompt": "A regional science center has 12 sensor kits for 30 volunteer field teams and says it used a public random-number lottery to allocate them. Researchers did not control the lottery. All teams submit the same blinded sample-identification test. A bench study separately shows that the kit detects one specified sensor fault. Judge the association, mechanism, and causal-attribution claims: identify the design candidate, give two assignment or implementation checks, state the strongest causal conclusion if they pass, give one scope boundary, and explain what the bench study adds without overclaiming.",
+      "stimulus": "The case is fictional and includes no unstated evidence about compliance, populations, or other fault types.",
+      "points": 4,
+      "responseSpec": {
+        "mode": "text",
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "maxLength": 2600
+      },
+      "answer": {
+        "correct": "This is a natural-experiment candidate because an external lottery allocated kit access. Verify at least two facts such as genuine known lottery chances for every eligible team, no manipulation or overrides, no bundled co-intervention, complete analysis by original allocation, and comparable blinded outcome measurement. If those checks hold, allocation of a kit can be said to change the mean sample-identification result relative to no allocation among the 30 volunteer teams under the study conditions, with direction and magnitude taken from the observed comparison. The claim is about allocation and this applicant group, not actual use, every field team, every fault, or every setting. The bench study supports one detection link in a mechanism under its test conditions; it does not establish the field-outcome effect or transport it beyond the study.",
+        "summary": "A defended external lottery can support bounded causal attribution for allocation, while the bench study separately supports one mechanism link.",
+        "reasoning": "Award 1 point for identifying and justifying the natural-experiment candidate, 1 for two concrete allocation or implementation checks, 1 for a bounded effect-of-allocation statement plus a population or setting limit, and 1 for a calibrated mechanism statement that neither substitutes for nor inherits the field effect. Full credit on this item is required for lesson mastery. On retry, audit a municipal lottery for environmental data loggers with a separate controlled sensor-response study.",
+        "acceptableResponses": [
+          "Any equivalent response that defends the external assignment, preserves an effect-of-allocation estimand and scope boundary, and keeps mechanism evidence distinct from the field outcome contrast."
+        ],
+        "commonErrors": [
+          "Calling every outside allocation random without checking it",
+          "Claiming an effect of actual kit use rather than allocation",
+          "Generalizing from volunteer teams to every field team",
+          "Treating detection of one bench fault as proof of all field outcomes"
+        ]
+      },
+      "rubricId": "rubric-transfer-external-allocation",
+      "safetyCritical": true
+    }
+  ],
+  "rubrics": [
+    {
+      "id": "rubric-classify-inference-targets",
+      "title": "Inference-target classification",
+      "criteria": [
+        {
+          "id": "criterion-classify-association-mechanism",
+          "description": "Award 1 point only when Study A is classified as association and Study B as a bounded mechanism claim.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-classify-causal-bounded",
+          "description": "Award 1 point only when Study C is allowed a conditional causal interpretation without universal generalization.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-map-third-variable-roles",
+      "title": "Third-variable causal roles",
+      "criteria": [
+        {
+          "id": "criterion-map-confounder",
+          "description": "Award 1 point for identifying Z1 as a common-cause confounder and blocking its path if correctly measured.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-map-mediator",
+          "description": "Award 1 point for identifying Z2 as a mediator and preserving it for the total-effect question.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-map-collider",
+          "description": "Award 1 point for identifying Z3 as a collider and avoiding conditioning on it in the stated map.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-calibrate-randomized-claim",
+      "title": "Randomized claim calibration",
+      "criteria": [
+        {
+          "id": "criterion-randomized-assignment-effect",
+          "description": "Award 2 points only for attributing the mean outcome difference to assigned procedure under the stated comparison conditions.",
+          "maxPoints": 2
+        },
+        {
+          "id": "criterion-randomized-scope",
+          "description": "Award 1 point only when the conclusion retains the eligible-sample or transport boundary.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-probe-observational-claim",
+      "title": "Observational bias probe",
+      "criteria": [
+        {
+          "id": "criterion-probe-association",
+          "description": "Award 1 point for keeping the checklist result as association rather than causal attribution.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-probe-negative-control",
+          "description": "Award 1 point for explaining that the unexpected negative-control association signals possible shared systematic error under its assumptions.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-probe-different-evidence",
+          "description": "Award 1 point for proposing an evidence route with a meaningfully different key bias source.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-transfer-external-allocation",
+      "title": "External-allocation causal judgment",
+      "criteria": [
+        {
+          "id": "criterion-transfer-natural-candidate",
+          "description": "Award 1 point for identifying an external-lottery natural-experiment candidate rather than assuming a researcher-run trial.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-transfer-checks",
+          "description": "Award 1 point for at least two concrete checks of lottery integrity, overrides, co-interventions, original allocation, follow-up, or outcome measurement.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-transfer-bounded-cause",
+          "description": "Award 1 point for a causal statement about allocation that retains a volunteer-team, setting, outcome, or period boundary.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-transfer-mechanism",
+          "description": "Award 1 point for treating the bench result as evidence for one mechanism link without using it as proof of the field outcome or universal transport.",
+          "maxPoints": 1
+        }
+      ]
+    }
+  ]
+}

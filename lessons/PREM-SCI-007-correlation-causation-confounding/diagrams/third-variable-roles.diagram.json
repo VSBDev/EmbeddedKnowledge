@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-diagram-v1",
+  "id": "diagram-third-variable-roles",
+  "type": "concept-map",
+  "direction": "left-to-right",
+  "alt": "Three arrow maps distinguish a confounder, mediator, and collider by their causal positions.",
+  "longDescription": "The first map is a fork: prior preparation points to both flashcard-app use and exam score, so prior preparation is a possible confounder. The second map is a chain: assigned app access points to retrieval sessions, which points to exam score, so retrieval sessions are a proposed mediator. The third map is an inverted fork: app use and seeking extra support both point to inclusion in a help-session sample, so sample inclusion is a collider. The maps express causal assumptions to be defended; the arrows are not produced by correlation alone.",
+  "nodes": [
+    {
+      "id": "node-preparation",
+      "label": "Prior preparation (possible confounder)",
+      "shape": "rounded-box",
+      "group": "confounder-map"
+    },
+    {
+      "id": "node-app-use-observed",
+      "label": "Observed app use",
+      "shape": "box",
+      "group": "confounder-map"
+    },
+    {
+      "id": "node-score-observed",
+      "label": "Exam score",
+      "shape": "box",
+      "group": "confounder-map"
+    },
+    {
+      "id": "node-assigned-access",
+      "label": "Assigned app access",
+      "shape": "box",
+      "group": "mediator-map"
+    },
+    {
+      "id": "node-retrieval-sessions",
+      "label": "Retrieval sessions (proposed mediator)",
+      "shape": "rounded-box",
+      "group": "mediator-map"
+    },
+    {
+      "id": "node-score-mediated",
+      "label": "Exam score",
+      "shape": "box",
+      "group": "mediator-map"
+    },
+    {
+      "id": "node-app-use-selected",
+      "label": "App use",
+      "shape": "box",
+      "group": "collider-map"
+    },
+    {
+      "id": "node-support-seeking",
+      "label": "Seeking extra support",
+      "shape": "box",
+      "group": "collider-map"
+    },
+    {
+      "id": "node-help-sample",
+      "label": "Included in help-session sample (collider)",
+      "shape": "rounded-box",
+      "group": "collider-map"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-preparation-app",
+      "from": "node-preparation",
+      "to": "node-app-use-observed",
+      "kind": "directed",
+      "label": "may influence"
+    },
+    {
+      "id": "edge-preparation-score",
+      "from": "node-preparation",
+      "to": "node-score-observed",
+      "kind": "directed",
+      "label": "may influence"
+    },
+    {
+      "id": "edge-access-retrieval",
+      "from": "node-assigned-access",
+      "to": "node-retrieval-sessions",
+      "kind": "directed",
+      "label": "may change"
+    },
+    {
+      "id": "edge-retrieval-score",
+      "from": "node-retrieval-sessions",
+      "to": "node-score-mediated",
+      "kind": "directed",
+      "label": "proposed route to"
+    },
+    {
+      "id": "edge-app-sample",
+      "from": "node-app-use-selected",
+      "to": "node-help-sample",
+      "kind": "directed",
+      "label": "may increase inclusion"
+    },
+    {
+      "id": "edge-support-sample",
+      "from": "node-support-seeking",
+      "to": "node-help-sample",
+      "kind": "directed",
+      "label": "may increase inclusion"
+    }
+  ]
+}
