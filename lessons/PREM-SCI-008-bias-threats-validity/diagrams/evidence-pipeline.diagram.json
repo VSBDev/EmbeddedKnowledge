@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-diagram-v1",
+  "id": "diagram-evidence-pipeline",
+  "type": "process",
+  "direction": "left-to-right",
+  "alt": "A result passes through availability, entry, measurement, retention, reporting, and publication stages.",
+  "longDescription": "Start with the target cases. An availability or survival filter determines which cases are reachable; recruitment and eligibility determine which enter; a measurement process creates recorded variables; loss and exclusion determine which records remain in the analysis; choices among outcomes and analyses determine what enters the report; and whole-study dissemination determines what reaches the visible evidence base. The corresponding threats are survivorship, selection, information or observer, attrition, selective outcome reporting, and publication bias.",
+  "nodes": [
+    { "id": "node-target", "label": "Target cases", "shape": "rounded-box", "group": "target" },
+    { "id": "node-reachable", "label": "Reachable cases", "shape": "rounded-box", "group": "study" },
+    { "id": "node-enrolled", "label": "Enrolled cases", "shape": "rounded-box", "group": "study" },
+    { "id": "node-measured", "label": "Recorded variables", "shape": "rounded-box", "group": "study" },
+    { "id": "node-retained", "label": "Retained analysis cases", "shape": "rounded-box", "group": "study" },
+    { "id": "node-report", "label": "Study report", "shape": "rounded-box", "group": "reporting" },
+    { "id": "node-visible", "label": "Visible evidence base", "shape": "rounded-box", "group": "reporting" }
+  ],
+  "edges": [
+    { "id": "edge-survival", "from": "node-target", "to": "node-reachable", "kind": "directed", "label": "availability or survival filter: survivorship" },
+    { "id": "edge-entry", "from": "node-reachable", "to": "node-enrolled", "kind": "directed", "label": "recruitment and eligibility: selection" },
+    { "id": "edge-measure", "from": "node-enrolled", "to": "node-measured", "kind": "directed", "label": "measurement and classification: information or observer" },
+    { "id": "edge-retain", "from": "node-measured", "to": "node-retained", "kind": "directed", "label": "loss and exclusion: attrition" },
+    { "id": "edge-report", "from": "node-retained", "to": "node-report", "kind": "directed", "label": "outcome and analysis selection: selective reporting" },
+    { "id": "edge-publish", "from": "node-report", "to": "node-visible", "kind": "directed", "label": "whole-study visibility: publication" }
+  ]
+}
