@@ -2,7 +2,7 @@
 
 ## Pack identity and licence
 
-This is the draft Lesson Format v1 pack for **PREM-SCI-006, “When can you trust a measurement?”**, version 0.1.0. It maps to `topic-scientific-inquiry-measurement-validity`, declares `topic-scientific-inquiry-variables-controls` as its prerequisite outcome, and has nominal learning time of 180 minutes.
+This is the draft Lesson Format v1 pack for **PREM-SCI-006, “When a number earns its name: measurement, repeatability, and validity”**, version 0.1.0. It maps to `topic-scientific-inquiry-measurement-validity`, declares `topic-scientific-inquiry-variables-controls` as its prerequisite outcome, and has nominal learning time of 180 minutes.
 
 VSBDev (`github:VSBDev`) is the accountable principal. Except for the factual sources listed below, the lesson prose, instructional sequence, fictional cases and data, assessment items, feedback, remediation, glossary wording, and declarative diagram were newly synthesized for EmbeddedKnowledge and are offered under **CC BY 4.0**. There are no third-party assets, embedded media, datasets, quotations, or licence exceptions in this pack.
 

@@ -46,7 +46,7 @@ For each change, write the audit question it affects most directly.
 Suggested checks:
 
 1. The operational definition and a systematic between-observer difference need attention.
-2. Within-observer repeatability is weak under the stated time change.
+2. Consistency across occasions is weak. Because the recoding occurs one week later, the time condition was deliberately changed; under this lesson's stated definition, this is not a repeatability check.
 3. Consistency may be high while construct validity is weak because the operation responds to coached repetition rather than the intended coordination.
 4. This adds reproducibility evidence across the named laboratory, observer, and equipment changes; it still does not settle construct validity.
 
