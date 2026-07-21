@@ -10,7 +10,7 @@ In this lesson, you will learn to choose among five ways of making a comparison:
 
 ## Retrieve the inquiry chain
 
-Before learning the five choices, rebuild the work of the previous lessons.
+Before learning the five choices, rebuild a navigation aid used in the previous lessons. It organizes decisions in this course; it is not a universal sequence that every investigation must follow.
 
 :::{check}
 :id: check-cumulative-chain
@@ -23,7 +23,7 @@ Complete the chain before reading on:
 Then say what each missing step contributes.
 :::
 
-A useful completion is **hypothesis → prediction**. The question asks what evidence should answer. The hypothesis proposes an explanation or relationship. The prediction names the record expected if that proposal holds under stated conditions. The variable-and-control audit makes the intended comparison and rival factors visible.
+A useful completion is **hypothesis → prediction**. In this course map, the question slot names what needs answering, the hypothesis slot records a proposed explanation or relationship, the conditions qualify that proposal, the prediction slot names the record expected under those conditions, and the variable-and-control audit makes the intended comparison and rival factors visible.
 
 Study design is the next decision: it determines which comparison can actually be made.
 

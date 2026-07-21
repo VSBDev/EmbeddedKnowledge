@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-SCI-011-LEARNING-DESIGN-1D41A812-A9CE-42F0-99ED-F8CDF041C846",
+  "lessonId": "PREM-SCI-011",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "90d764925745ea1a3b5bea3ac6e58666653a27f6",
+  "role": "learning-design",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev \u2014 learning-design reviewer",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.5",
+      "runId": "agy-learning-design-PREM-SCI-011-1D41A812-A9CE-42F0-99ED-F8CDF041C846",
+      "instructionsDigest": "sha256:680df31db9650abfe5f37c3faeef8d19f4d0796b8d033ef5ac59324c764c713d"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Operational conflict: github:VSBDev operated the authoring and packaging agents, and also operates this reviewer subagent. This is an independent run with a unique run ID and role isolation."
+  },
+  "evidenceChecked": [
+    "lessons/PREM-SCI-011-mechanistic-convergent-evidence/lesson.json",
+    "lessons/PREM-SCI-011-mechanistic-convergent-evidence/claims.json",
+    "lessons/PREM-SCI-011-mechanistic-convergent-evidence/references.json",
+    "lessons/PREM-SCI-011-mechanistic-convergent-evidence/glossary.json",
+    "lessons/PREM-SCI-011-mechanistic-convergent-evidence/ATTRIBUTION.md",
+    "lessons/PREM-SCI-011-mechanistic-convergent-evidence/content/010-orientation.md",
+    "lessons/PREM-SCI-011-mechanistic-convergent-evidence/content/020-concept.md",
+    "lessons/PREM-SCI-011-mechanistic-convergent-evidence/content/030-worked-example.md",
+    "lessons/PREM-SCI-011-mechanistic-convergent-evidence/content/040-misconception.md",
+    "lessons/PREM-SCI-011-mechanistic-convergent-evidence/content/050-practice.md",
+    "lessons/PREM-SCI-011-mechanistic-convergent-evidence/content/060-transfer.md",
+    "lessons/PREM-SCI-011-mechanistic-convergent-evidence/content/070-synthesis.md",
+    "lessons/PREM-SCI-011-mechanistic-convergent-evidence/assessment.json",
+    "lessons/PREM-SCI-011-mechanistic-convergent-evidence/diagrams/evidence-integration.diagram.json",
+    "lessons/PREM-SCI-011-mechanistic-convergent-evidence/reviews/REV-PREM-SCI-011-ACADEMIC-A035908B.json",
+    "CONTENT-STANDARD.md",
+    "RIGHTS-POLICY.md"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "lessons/PREM-SCI-011-mechanistic-convergent-evidence/content/030-worked-example.md#L18",
+      "finding": "The worked example requires the learner to weigh study reliability (specifying 'missing data, and reporting' as key factors in step 2), but the fictional Givens table for the inhibitor intervention provides only the survival percentages (52% and 74%) and absolute counts of missing seedlings (four versus three), without the denominators or totals per arm. Without the denominators, the learner cannot calculate the actual rate of missing outcomes or evaluate the potential for missing-outcome bias. Calling the missing outcomes 'few' in step 2 is a bare assertion that cannot be verified or reasoned through. This undercuts the explanatory coherence of the reliability audit and teaches the student to count absolute numbers instead of calculating rates, which violates the lesson's own core instruction ('Count neither papers nor methods' and 'Do not count studies').",
+      "resolution": "Provide the total seedling counts (denominators) per arm in the Givens table (e.g., 50 seedlings per arm, meaning 4/50 and 3/50 are missing) so that the learner can explicitly evaluate the missingness rate and reason about its reliability."
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-SCI-011-mechanistic-convergent-evidence/content/030-worked-example.md#L16",
+      "finding": "The worked example states in step 2 that 'Two edited lines point the same way,' but the Givens table reports only a pooled survival count of '49 of 100 edited plants' across both lines. It does not provide the survival rates for each independent line. The learner has no way to verify whether both lines actually point the same way or if the difference is driven by a single line, making the replication claim an unsupported assertion. This weakens the instructional model's guidance on verifying consistency across independent manipulations.",
+      "resolution": "Provide separate counts or survival rates for each of the two edited lines (e.g., 24/50 for line 1 and 25/50 for line 2) in the Givens table, or remove the assertion that both lines point the same way."
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-SCI-011-mechanistic-convergent-evidence/content/070-synthesis.md#L30-L42",
+      "finding": "Exposing raw schema/JSON identifiers (such as 'item-a-evidence-contribution', 'item-a-convergence', etc.) as bullet points in the learner-visible text violates the first-read gate and Content Standard rule against displaying internal project metadata or schemas.",
+      "resolution": "Replace the raw JSON IDs with descriptive, human-readable labels such as 'Form A: Evidence Contribution' and 'Form A: Convergence' in the bulleted lists."
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-SCI-011-mechanistic-convergent-evidence/content/010-orientation.md#L3-L13",
+      "finding": "First-read check: The lesson opener uses a concrete fictional biological scenario (Tide-1 protein binding salt-response DNA in a salt-tolerant marsh grass) to raise a compelling question about mechanistic gaps, motivating the learner before introducing technical vocabulary. A college-introductory learner can easily explain what the lesson is about and why it matters after one read, successfully passing the Content Standard first-read gate.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-SCI-011-mechanistic-convergent-evidence/content/040-misconception.md#L10-L46",
+      "finding": "The two misconception blocks (four votes and randomization boundaries) follow the Content Standard repair sequence: elicitation, neutral incorrect-model statement, disconfirming evidence, repair, and verification.",
+      "resolution": null
+    }
+  ],
+  "limitations": [
+    "No direct empirical testing of cognitive load, time-on-scene, or comprehension rates was performed with real premed students.",
+    "Accessibility compatibility (reflow, screen reader audio flow) was verified conceptually from markup standards rather than verified on live devices.",
+    "Academic factual correctness and source verification were not independently checked, as this review is strictly bounded to the learning-design role."
+  ],
+  "signedAt": "2026-07-21T23:20:20Z"
+}

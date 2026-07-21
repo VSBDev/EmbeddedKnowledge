@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-SCI-006-ACADEMIC-F16222F8",
+  "lessonId": "PREM-SCI-006",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "65b8835cd2a2cd20f12a3946fb8367b649967382",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev operating the formal academic reviewer",
+    "agent": {
+      "system": "Codex collaborative subagent",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "Codex agent runtime 2026-07-21",
+      "runId": "f16222f8-b91f-46a9-9a6e-d156853d57bc",
+      "instructionsDigest": "sha256:7d2a8b072081f35f85725662474063d6c26a77859d4b17f66f2728793f9ec382"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Founding-stage operational conflict: github:VSBDev operated the authoring and packaging agents and also operates this academic-review subagent. This is a new role-isolated run with a unique run ID; it had no access to an authoring conversation, another review conclusion, or an adjudication draft. The conflict is disclosed rather than treated as independent human review."
+  },
+  "evidenceChecked": [
+    "candidate commit 65b8835cd2a2cd20f12a3946fb8367b649967382 and complete frozen pack tree",
+    "lesson.json#identity-outcome-prerequisite-objectives-scenes-authorship-ai-assistance-and-no-third-party-assets",
+    "site/data/premed-graph.json#topic-scientific-inquiry-measurement-validity-and-prerequisite-link",
+    "content/010-when-numbers-agree.md#temperature-example-diagnostic-boundary-and-source-note",
+    "content/020-four-question-audit.md#definitions-error-model-repeatability-reproducibility-calibration-validity-and-source-note",
+    "content/030-worked-alertness-audit.md#all-five-reference-values-calculations-model-boundaries-and-source-note",
+    "content/040-practise-and-repair.md#all-four-practice-cases-calculations-averaging-boundary-and-source-note",
+    "content/050-transfer-to-team-coordination.md#observer-data-analysis-four-changed-facts-boundaries-and-source-note",
+    "content/060-defend-the-judgment.md#synthesis-mastery-thresholds-recovery-boundaries-and-source-note",
+    "assessment.json#all-four-items-response-specifications-answer-keys-reasoning-common-errors-and-four-rubrics",
+    "claims.json#all-eight-claims-scene-mappings-source-mappings-scope-uncertainty-risk-and-review-status",
+    "references.json#all-four-source-records-locators-uses-rights-bases-and-agent-access-status",
+    "glossary.json#all-nineteen-terms-definitions-aliases-and-scene-mappings",
+    "diagrams/measurement-audit.diagram.json#all-five-nodes-five-edges-alt-and-long-description",
+    "ATTRIBUTION.md#pack-identity-original-material-Fable-fragment-provenance-Codex-packaging-provenance-and-source-use",
+    "JCGM VIM3 entries 2.15-2.21, 2.24-2.25, 2.39, and 2.41 opened from the official BIPM/JCGM site",
+    "NIST Technical Note 1297 sections 3, 5.2, and Appendix D.1 opened from the official NIST site",
+    "NIST IR 7959 section 3.1 and official publication record opened from NIST",
+    "Standards for Educational and Psychological Testing (2014) chapters 1-2 and glossary opened from the ledger-listed official open-access PDF",
+    "independent recalculation of every displayed numeric example: means, ranges, offsets, percentage shift, point totals, and mastery thresholds",
+    "mechanical cross-check of every scene's mapped claims and complete source-note source coverage"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "assessment.json#item-transfer-greenhouse.answer.correct-and-rubric-transfer-conditions",
+      "finding": "The keyed answer calls Laboratory B's tightly repeated 108.0 cm² results a 'reproducible within-system result.' Under the lesson's own cited VIM definitions, unchanged within-system replicates support repeatability, while reproducibility is precision under specified changed conditions. The key also asserts poor cross-system agreement even though the prompt supplies no Laboratory A result for the 100.0 cm² reference shape and no same-object A-versus-B comparison. Thus the mastery item rewards both a terminology error and an inference that the supplied data cannot support, directly defeating the objective to distinguish repeatability from reproducibility.",
+      "resolution": "Classify the tight Laboratory B reference results as condition-specific repeatability plus an approximately +8% systematic component. State that cross-system reproducibility cannot be judged from the supplied data, or add a Laboratory A result for the same reference/object under explicitly named changed conditions. Update the correct answer, summary, reasoning, acceptable responses, common errors, and rubric criterion so no score is awarded for the unsupported cross-system conclusion."
+    },
+    {
+      "severity": "major",
+      "target": "content/050-transfer-to-team-coordination.md#change-one-fact-and-update-the-judgment-item-2",
+      "finding": "The suggested answer labels different counts obtained by the same observer one week later as weak 'within-observer repeatability.' The lesson and VIM 2.20 define repeatability conditions as including a short time interval; deliberately changing the occasion to one week later moves this evidence outside the stated repeatability conditions. Calling it repeatability erases exactly the condition boundary learners are expected to name.",
+      "resolution": "Describe this as weak consistency across occasions (or intermediate measurement precision if that additional term is explicitly introduced and its other conditions are specified), or change the scenario to genuine short-interval replicate coding under unchanged conditions before using the term repeatability."
+    },
+    {
+      "severity": "minor",
+      "target": "references.json#source-nist-operational-definition.issued",
+      "finding": "The source ledger records NIST IR 7959 as issued 2014-05-19, but NIST's official publication record identifies NIST IR 7959 as a 2013 publication and the official file is stored as NIST.IR.7959 under the 2013 series. The 2014 date appears to belong to a related journal-publication timeline rather than this cited NIST report.",
+      "resolution": "Replace the issued date with the date shown by the authoritative NIST IR 7959 record (at minimum the correct year 2013), keeping the NIST report distinct from the later journal article."
+    },
+    {
+      "severity": "note",
+      "target": "content/010-when-numbers-agree.md through assessment.json#quantitative-examples-and-claim-boundaries",
+      "finding": "All other displayed arithmetic checked: the alertness timer mean is 212 ms with range 2 ms and an 11-13 ms positive discrepancy; practice Instruments A and B have means 50.0 and 52.0 with ranges 0.8 and 0.2; the recheck mean is 50 with range 6; assessment Devices P and Q have means 100.0 and 105.0 with ranges 1.0 and 0.2; and 108 versus 100 is an 8% positive discrepancy. The prose generally preserves the distinctions among dispersion, reference disagreement, and context-specific construct interpretation, and every mapped claim resolves through a same-scene source note to a permitted source record.",
+      "resolution": null
+    }
+  ],
+  "limitations": [
+    "The accountable operator conflict is material even though this run was role-isolated; this artifact is not independent human peer review.",
+    "The reviewer has broad scientific-methods competence but is not acting as an accredited metrologist or licensed psychometrician; central terminology was therefore checked directly against the official VIM and Testing Standards sources.",
+    "All four ledger sources were marked checked-no-agent-restriction-found and relevant passages were accessible. This run did not independently verify the off-repository Fable dossier or hidden provider telemetry, and provenance remains the accountable principal's attestation.",
+    "No learner-performance data or external field validation exists for the original fictional cases; the review evaluates internal scientific correctness and evidential scope, not instructional effectiveness.",
+    "Schema and repository validation are structural evidence only and do not resolve the major academic findings above."
+  ],
+  "signedAt": "2026-07-21T15:53:37Z"
+}
