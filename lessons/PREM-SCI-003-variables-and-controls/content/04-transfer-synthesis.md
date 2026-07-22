@@ -26,7 +26,7 @@ Before opening the comparison, make a six-row audit. Identify each role, then an
 - **Independent variable:** cartridge type, A or B.
 - **Dependent variable:** sensor reading after five minutes.
 - **Controlled variables:** standard volume, nitrate concentration, sensor model, exposure time, and housing temperature.
-- **Confounder:** battery age, because old batteries occur only with cartridge A and new batteries only with cartridge B, while battery condition could change the sensor reading.
+- **Confounder:** battery age, because it is a separate equipment factor rather than a consequence of cartridge type, old batteries occur only with cartridge A and new batteries only with cartridge B, and battery condition could change the sensor reading.
 - **Negative control:** the nitrate-free standard, expected to show the baseline.
 - **Positive control:** the certified nitrate standard expected to produce a response in the stated range.
 
@@ -71,7 +71,7 @@ If independent and dependent variables blur together, write **set differently â†
 
 If a controlled variable looks like a control group, ask whether the feature is held at one value across the main groups or supplied as an extra comparison. Held alike means controlled variable; extra comparison means control condition.
 
-If every nuisance factor looks like a confounder, apply both tests: it must track the independent variable, and it must be able to affect the dependent variable.
+If every nuisance factor looks like a confounder, apply all three tests: it must be a separate rival factor rather than a consequence on the intended pathway, it must track the independent variable, and it must be able to affect the dependent variable. If a factor is the intermediate step through which the independent variable produces the response, treat it as a mediator instead.
 
 If positive and negative controls reverse, ignore the names at first. Ask **should respond?** for the positive control and **should stay at baseline?** for the negative control.
 

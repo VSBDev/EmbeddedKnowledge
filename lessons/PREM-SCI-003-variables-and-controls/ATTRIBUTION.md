@@ -3,7 +3,7 @@
 ## Lesson identity
 
 - Lesson: **PREM-SCI-003 — Variables and controls: what a comparison really tests**
-- Version: `0.1.0`
+- Version: `0.1.1`
 - Outcome: `topic-scientific-inquiry-variables-controls` / PREM-02.03
 - Accountable principal: VSBDev (`github:VSBDev`)
 - Course-content licence: [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/)
@@ -16,12 +16,13 @@ The published PREM-SCI-001 learner-facing pack and the frozen PREM-SCI-002 candi
 
 ## Source use and rights
 
-Two sources support factual and terminological claims. Both were used for facts only, followed by independent instructional structure and original expression. Complete locators, use records, rights evidence, and dated agent-access checks appear in `references.json`.
+Three sources support factual and terminological claims. All were used for facts only, followed by independent instructional structure and original expression. Complete locators, use records, rights evidence, and dated agent-access checks appear in `references.json`.
 
 - NIST/SEMATECH, *e-Handbook of Statistical Methods*: experimental factors, responses, controlled and uncontrolled inputs, and confounding.
 - Haas et al., *In Vivo Assay Guidelines*, NCBI Bookshelf / *Assay Guidance Manual*: manipulated, response, and extraneous variables and the functions of positive and negative controls.
+- Fumo-dos-Santos and Ferreira, *Dealing with confounding in observational studies*: the third-variable definition of confounding, including the exclusion of an intermediate factor on the causal pathway.
 
-Before substantive source access on 2026-07-20, the accountable run checked NIST's `Copyrights & Disclaimers` route and NCBI's `Website and Data Usage Policies and Disclaimers`. No term prohibiting the limited agent access used here was found. A separate OpenStax route was excluded after its current page notice identified a restriction on AI ingestion; it is not a lesson source and no OpenStax material was used.
+Before substantive source access on 2026-07-20 and 2026-07-21, the accountable runs checked NIST's `Copyrights & Disclaimers` route, NCBI's `Website and Data Usage Policies and Disclaimers`, and the PMC robots route. No term prohibiting the limited agent access recorded here was found. A separate OpenStax route was excluded after its current page notice identified a restriction on AI ingestion; it is not a lesson source and no OpenStax material was used.
 
 ## Agent assistance disclosure
 
@@ -32,7 +33,7 @@ Before substantive source access on 2026-07-20, the accountable run checked NIST
 - Author run ID: `5619914e-ad81-4db9-8e6e-928a2f71146c`
 - Material-instructions digest: `sha256:8dec3af49e5263519344b46ec6b8542adb07e143432dbde96f13403875253357`
 
-The bounded one-pass final lesson revision and final accessibility-and-rights audit used Codex / OpenAI / GPT-5, version `Codex agent runtime 2026-07-20`, in fresh run `6a4a4597-b6c3-4f24-8b86-3bcd59d166ed`. Its material-instructions digest is `sha256:e60d304b1451b88b6133477d8d504f14d4f0fc0b98e6af6ca01a28ae4ceb9547`; the separate `adjudication.json` records the finalizer's accountable decision provenance.
+The bounded one-pass final lesson revision, final accessibility-and-rights audit, and adjudication used a runtime-stamped agent in fresh run `codex-finalizer-PREM-SCI-003-5CF92166-30E6-4EE3-A0CC-6FAABFFA3A5B`. Its system, provider, model, and version are recorded as the operator-stamped literal `RUNTIME-STAMPED` in `adjudication.json`. Its material-instructions digest is `sha256:201d7302cbf65ad5030c77170804fbf21f11ae281df3d5560381704f002eabc9`.
 
 Each digest covers the exact UTF-8 material task payload supplied by the root agent, including its final newline. It excludes hidden provider and system instructions that cannot be exported. VSBDev remains accountable for the contribution and attests the disclosed provenance.
 

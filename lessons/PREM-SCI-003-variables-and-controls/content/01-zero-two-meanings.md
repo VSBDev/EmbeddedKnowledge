@@ -38,7 +38,7 @@ Ask these questions in order:
 | What factor did the team deliberately change? | **Independent variable** |
 | What response did the team record? | **Dependent variable** |
 | Which other relevant conditions did the team deliberately keep alike? | **Controlled variables** |
-| What other factor changed with the independent variable and could also change the response? | **Confounder** |
+| What separate rival factor changed with the independent variable, could also change the response, and is not a step through which the independent variable produces that response? | **Confounder** |
 | Which condition should show little or no tested response? | **Negative control** |
 | Which condition should produce a known response if the setup is working? | **Positive control** |
 
@@ -46,7 +46,9 @@ In this comparison, target concentration is the **independent variable** because
 
 Sample volume, temperature, incubation time, and reader setting are **controlled variables** when the team deliberately keeps them alike across the target-concentration groups. A controlled variable is a condition, such as temperature. It is not the same thing as a control condition or control group, which is an extra comparison included for a particular purpose.
 
-What if every low-concentration sample uses reagent lot A in the morning, while every high-concentration sample uses reagent lot B in the afternoon? Reagent lot now travels with target concentration. If reagent lot can also change fluorescence, it is a **confounder**: the fluorescence difference could reflect concentration, reagent lot, or both. The problem is not merely that reagent lot varies. It varies in step with the independent variable and could affect the dependent variable.
+What if every low-concentration sample uses reagent lot A in the morning, while every high-concentration sample uses reagent lot B in the afternoon? Reagent lot now travels with target concentration. If reagent lot can also change fluorescence, it is a **confounder**: the fluorescence difference could reflect concentration, reagent lot, or both. Reagent lot is a separate scheduling choice, not a consequence of changing concentration. All three features matter: it is a separate rival factor, it varies in step with the independent variable, and it could affect the dependent variable.
+
+Now compare a near miss. Suppose a higher target concentration causes more indicator binding, which then produces more fluorescence. Binding changes with concentration and affects fluorescence, but it is a step through which concentration produces the response. Such an intermediate step is a **mediator**, not a confounder. Calling it a confounder would mistake part of the proposed mechanism for a rival explanation.
 
 Two extra conditions make the zero reading more informative:
 
