@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-QNT-002-ACADEMIC-0C17A373-CDC5-4107-8D34-8D5C51F74B5B",
+  "lessonId": "PREM-QNT-002",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "4a2d2f874f9ae9cfbc81f97728fdef257f1b007e",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable operator, academic review",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-QNT-002-0C17A373-CDC5-4107-8D34-8D5C51F74B5B",
+      "instructionsDigest": "sha256:563dc010c22439e43bd2d431ae10ca4c1b83fa25d8a66643851f3b437306898c"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "The accountable review principal, github:VSBDev, is also the lesson's accountable author principal. The academic review was performed in the separately identified isolated run, but it is a disclosed founding-stage self-review rather than external independence."
+  },
+  "evidenceChecked": [
+    "lesson.json#PREM-QNT-002",
+    "content/010-orientation.md#a-tidy-number-with-the-wrong-unit",
+    "content/020-concept.md#treat-units-as-part-of-the-algebra",
+    "content/030-worked-example.md#worked-example-cart",
+    "content/040-misconception.md#misconception-powered-unit",
+    "content/050-practice.md#choose-orient-cancel-check",
+    "content/060-transfer.md#audit-an-unfamiliar-transport-calculation",
+    "content/070-synthesis.md#make-the-units-your-error-detector",
+    "assessment.json#all-items-and-rubrics",
+    "claims.json#all-claims",
+    "references.json#source-nist-si-chapter7",
+    "glossary.json#all-terms",
+    "ATTRIBUTION.md#all-sections",
+    "https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-7-rules-and-style-conventions-expressing-values#sections-7.1-7.2-7.11-7.14"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "content/020-concept.md#dimensions-as-a-structural-test",
+      "finding": "The lesson centrally teaches that dimensions identify unit-independent quantity types, that added or equated quantities require compatible dimensions, and that dimensional agreement is necessary but not sufficient. These claims drive objective-audit-dimensions and assessment items item-dimension-equation and item-explain-limits, but the scene's source-note maps no dimensional-analysis claim, claims.json contains no such claim, and references.json limits the NIST locator to Sections 7.1, 7.2, and 7.11. Direct inspection found the NIST definition of dimension in Section 7.14, but the recorded evidence chain neither cites that section nor directly supports the full homogeneity and necessary-not-sufficient boundary. The teaching and assessed examples are mathematically correct, but this unsupported central claim chain is a major academic evidence gap.",
+      "resolution": "Add explicit claim records for the definition and valid limits of dimensional analysis; map them in every scene that materially teaches or applies them; update learner-visible source-notes; extend the NIST locator to Section 7.14; and add an authoritative source and exact locator for any compatibility or necessary-not-sufficient proposition not directly supported there. Ensure the mastery items trace to those supported claims."
+    },
+    {
+      "severity": "note",
+      "target": "lesson.json#objectives",
+      "finding": "In the narrowest defensible reading, the objectives require learners to distinguish quantity, numerical value, and unit; construct exact multiplicative unit-factor chains; apply conversion factors to every powered occurrence; and use dimensional and magnitude checks to reject incompatibilities without treating agreement as proof. This scope is academically coherent and appropriately excludes measurement uncertainty, empirical conversion uncertainty, and clinical authorization.",
+      "resolution": "No change required to the objective scope."
+    },
+    {
+      "severity": "note",
+      "target": "content/030-worked-example.md#worked-example-cart",
+      "finding": "Independent recalculation confirms 54 km/h equals 15 m/s and 15 m/s multiplied by 25 s equals 375 m. The cancellation, reverse check, order-of-magnitude check, and constant-speed model boundary are correct.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#item-square-conversion",
+      "finding": "Independent recalculation confirms 0.45 m² multiplied by (100 cm/1 m)² equals 4500 cm². The answer, cancellation requirement, rubric, and identified one-factor error are correct.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#item-transfer-production",
+      "finding": "Independent recalculation confirms 2.4 m²/min multiplied by 45 s and 1 min/60 s equals 1.8 m², and multiplying by (100 cm/1 m)² yields 18000 cm². The unit cancellations, magnitude check, answer key, and rubric allocations are correct.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#item-explain-limits",
+      "finding": "The example d = vt versus d = 10vt correctly demonstrates that dimensional consistency cannot determine a numerical coefficient or establish the governing model. The accepted-answer boundary is academically sound, independently of the evidence-mapping defect identified above.",
+      "resolution": "No change required to the mathematical answer; connect the assessed proposition to the resolved claim-and-source chain."
+    },
+    {
+      "severity": "note",
+      "target": "references.json#source-nist-si-chapter7",
+      "finding": "Direct inspection of the public NIST page confirms Section 7.1 supports the quantity/numerical-value/unit distinction, Section 7.2 supports spacing between numerical values and unit symbols, Section 7.11 supports unit independence of quantity equations, and Section 7.14 defines dimensions in terms of base quantities. The recorded creation and update dates also match the public page.",
+      "resolution": "Retain the source, while correcting and extending its locator as required by the major finding."
+    }
+  ],
+  "limitations": [
+    "The assigned scope prohibited reading site/ and other lesson packs, so the public graph-node record and cross-lesson terminology ledger were not inspected. Outcome and terminology judgments are therefore limited to the candidate pack.",
+    "No repository validator was run because the review was not written to disk and the assigned scope prohibited scripts/ and site/ inspection; artifact structure was checked against the supplied academic review template.",
+    "The reviewer is not acting as a certified metrology specialist. The cited NIST source was directly inspected, all quantitative examples and assessment answers were independently recalculated, and no human-only or inaccessible source blocked the verdict."
+  ],
+  "signedAt": "2026-07-22T20:59:07Z"
+}
