@@ -1,0 +1,724 @@
+{
+  "schemaVersion": 3,
+  "format": "embeddedknowledge-lesson-v1",
+  "artifactType": "production-lesson",
+  "id": "PREM-QNT-001",
+  "version": "0.1.0",
+  "title": "Estimate, calculate, challenge: arithmetic across powers of ten",
+  "status": "published",
+  "riskTier": "standard",
+  "estimatedMinutes": 180,
+  "outcomes": [
+    "topic-quantitative-foundations-arithmetic-estimation"
+  ],
+  "prerequisites": [],
+  "objectives": [
+    {
+      "id": "objective-represent-scale",
+      "statement": "Convert between decimal form and normalized scientific notation and explain what the exponent says about scale.",
+      "outcomeIds": [
+        "topic-quantitative-foundations-arithmetic-estimation"
+      ]
+    },
+    {
+      "id": "objective-calculate-powers-ten",
+      "statement": "Calculate products, quotients, sums, and differences in scientific notation while selecting the correct exponent operation.",
+      "outcomeIds": [
+        "topic-quantitative-foundations-arithmetic-estimation"
+      ]
+    },
+    {
+      "id": "objective-estimate-scale",
+      "statement": "Make a defensible sign and order-of-magnitude estimate before exact calculation.",
+      "outcomeIds": [
+        "topic-quantitative-foundations-arithmetic-estimation"
+      ]
+    },
+    {
+      "id": "objective-challenge-result",
+      "statement": "Test a result against an estimate, a bound, or an inverse operation and diagnose a scale error.",
+      "outcomeIds": [
+        "topic-quantitative-foundations-arithmetic-estimation"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene-orientation",
+      "title": "Before you trust the display",
+      "kind": "orientation",
+      "source": "content/010-orientation.md",
+      "estimatedMinutes": 20,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Before you trust the display</h1>\n<p>A fictional particle counter stores <strong>7.84 million events</strong> from <strong>0.004 seconds</strong> of observation. Its software reports a rate of <code>1.96 × 10^3</code> events per second.</p>\n<p>The digits look polished. Are they believable?</p>\n<p>Without doing exact arithmetic, compare the scales. About eight million divided by about four thousandths is about</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mfrac><mrow><mn>8</mn><mo>×</mo><msup><mn>10</mn><mn>6</mn></msup></mrow><mrow><mn>4</mn><mo>×</mo><msup><mn>10</mn><mrow><mo form=\"prefix\" stretchy=\"false\" lspace=\"0em\" rspace=\"0em\">−</mo><mn>3</mn></mrow></msup></mrow></mfrac><mo>=</mo><mn>2</mn><mo>×</mo><msup><mn>10</mn><mn>9</mn></msup><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{8 \\times 10^6}{4 \\times 10^{-3}} = 2 \\times 10^9.</annotation></semantics></math></div>\n<p>The display is smaller than that estimate by roughly a millionfold. Exact arithmetic is still needed, but the estimate has already exposed a scale failure.</p>\n<p>This lesson builds a three-part reliability loop:</p>\n<ol>\n<li><strong>Estimate</strong> the sign and rough scale.</li>\n<li><strong>Calculate</strong> while keeping digits and powers of ten visible.</li>\n<li><strong>Challenge</strong> the answer with a bound or a reverse operation.</li>\n</ol>\n<p>You will use that loop to write numbers in scientific notation, perform the four arithmetic operations, and decide whether a numerical result is plausible. Unit conversion, significant-figure rules, formal uncertainty, logarithms, and calculator keystrokes are deliberately left for later lessons.</p>\n<h2>A quick starting check</h2>\n<p>Try these without a calculator.</p>\n<ol>\n<li>Is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mn>10</mn><mrow><mo form=\"prefix\" stretchy=\"false\" lspace=\"0em\" rspace=\"0em\">−</mo><mn>3</mn></mrow></msup><annotation encoding=\"application/x-tex\">10^{-3}</annotation></semantics></math></span> greater than or less than 1?</li>\n<li>After normalization, is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>6</mn><mo>×</mo><msup><mn>10</mn><mn>4</mn></msup><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>2</mn><mo>×</mo><msup><mn>10</mn><mn>2</mn></msup><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">(6 \\times 10^4)(2 \\times 10^2)</annotation></semantics></math></span> on the scale <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mn>10</mn><mn>5</mn></msup><annotation encoding=\"application/x-tex\">10^5</annotation></semantics></math></span>, <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mn>10</mn><mn>7</mn></msup><annotation encoding=\"application/x-tex\">10^7</annotation></semantics></math></span>, or <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mn>10</mn><mn>9</mn></msup><annotation encoding=\"application/x-tex\">10^9</annotation></semantics></math></span>?</li>\n<li>Which could be the result of <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>4.8</mn><mo>×</mo><msup><mn>10</mn><mn>6</mn></msup><mo>+</mo><mn>2.0</mn><mo>×</mo><msup><mn>10</mn><mn>4</mn></msup></mrow><annotation encoding=\"application/x-tex\">4.8 \\times 10^6 + 2.0 \\times 10^4</annotation></semantics></math></span>: <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>6.8</mn><mo>×</mo><msup><mn>10</mn><mn>10</mn></msup></mrow><annotation encoding=\"application/x-tex\">6.8 \\times 10^{10}</annotation></semantics></math></span> or <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>4.82</mn><mo>×</mo><msup><mn>10</mn><mn>6</mn></msup></mrow><annotation encoding=\"application/x-tex\">4.82 \\times 10^6</annotation></semantics></math></span>?</li>\n</ol>\n<p><strong>Self-check:</strong> (1) less than 1, because <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>10</mn><mrow><mo form=\"prefix\" stretchy=\"false\" lspace=\"0em\" rspace=\"0em\">−</mo><mn>3</mn></mrow></msup><mo>=</mo><mn>0.001</mn></mrow><annotation encoding=\"application/x-tex\">10^{-3}=0.001</annotation></semantics></math></span>; (2) <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mn>10</mn><mn>7</mn></msup><annotation encoding=\"application/x-tex\">10^7</annotation></semantics></math></span>, because the product is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>12</mn><mo>×</mo><msup><mn>10</mn><mn>6</mn></msup><mo>=</mo><mn>1.2</mn><mo>×</mo><msup><mn>10</mn><mn>7</mn></msup></mrow><annotation encoding=\"application/x-tex\">12\\times10^6=1.2\\times10^7</annotation></semantics></math></span>; (3) <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>4.82</mn><mo>×</mo><msup><mn>10</mn><mn>6</mn></msup></mrow><annotation encoding=\"application/x-tex\">4.82\\times10^6</annotation></semantics></math></span>, because the smaller positive term only nudges the larger one upward.</p>\n<p>If negative exponents or place value feel uncertain, write out <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>10</mn><mn>3</mn></msup><mo>=</mo><mn>1000</mn></mrow><annotation encoding=\"application/x-tex\">10^3=1000</annotation></semantics></math></span>, <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>10</mn><mn>0</mn></msup><mo>=</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">10^0=1</annotation></semantics></math></span>, and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>10</mn><mrow><mo form=\"prefix\" stretchy=\"false\" lspace=\"0em\" rspace=\"0em\">−</mo><mn>3</mn></mrow></msup><mo>=</mo><mn>1</mn><mi>/</mi><mn>1000</mn></mrow><annotation encoding=\"application/x-tex\">10^{-3}=1/1000</annotation></semantics></math></span> before continuing. If grouping is the difficulty, rewrite every expression as “coefficient operation” and “power-of-ten operation” on separate lines.</p>\n<p>Estimation is an approximation, not a random guess. Its useful job here is to predict the scale and help judge whether a computed result is reasonable.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-power-ten-arithmetic, claim-estimation-reasonableness</span><span><b>sources</b> source-nist-sp811, source-nist-everyday-estimation</span></div>\n    <div class=\"ek-block-content\"><p>NIST&#39;s notation guidance and estimation guidance support the power-of-ten representation and the use of approximate magnitude to check whether scientific results are reasonable. The lesson&#39;s fictional counter, diagnostic questions, and numbers are original.</p>\n</div>\n  </aside>\n<h2>Accessibility and alternatives</h2>\n<p>All essential relationships appear in prose and equations. No task depends on color, pointing, dragging, timing, or a particular calculator interface. Read <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi><mo>×</mo><msup><mn>10</mn><mi>n</mi></msup></mrow><annotation encoding=\"application/x-tex\">a \\times 10^n</annotation></semantics></math></span> aloud as “a times ten to the power n.” The source order is also the intended keyboard, screen-reader, narrow-screen, and print order.</p>\n"
+    },
+    {
+      "id": "scene-concept",
+      "title": "Separate the digits from the scale",
+      "kind": "concept",
+      "source": "content/020-concept.md",
+      "estimatedMinutes": 35,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Separate the digits from the scale</h1>\n<p>Scientific notation writes a nonzero number as</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mi>a</mi><mo>×</mo><msup><mn>10</mn><mi>n</mi></msup><mo separator=\"true\">,</mo></mrow><annotation encoding=\"application/x-tex\">a \\times 10^n,</annotation></semantics></math></div>\n<p>where <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>a</mi><annotation encoding=\"application/x-tex\">a</annotation></semantics></math></span> is the <strong>coefficient</strong> and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>n</mi><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span> is an integer <strong>exponent</strong>. The form is <strong>normalized</strong> when <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn><mo>≤</mo><mi>|</mi><mi>a</mi><mi>|</mi><mo>&lt;</mo><mn>10</mn></mrow><annotation encoding=\"application/x-tex\">1 \\leq |a| &lt; 10</annotation></semantics></math></span>. The coefficient carries the leading digits; the power of ten carries the scale.</p>\n<aside class=\"ek-block ek-definition ek-block--definition\" data-directive=\"definition\">\n    <div class=\"ek-block-label directive-label\">Definition</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> definition-scientific-notation</span></div>\n    <div class=\"ek-block-content\"><p><strong>Normalized scientific notation</strong> is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi><mo>×</mo><msup><mn>10</mn><mi>n</mi></msup></mrow><annotation encoding=\"application/x-tex\">a \\times 10^n</annotation></semantics></math></span> with integer <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>n</mi><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span> and exactly one nonzero digit before the coefficient&#39;s decimal point: <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn><mo>≤</mo><mi>|</mi><mi>a</mi><mi>|</mi><mo>&lt;</mo><mn>10</mn></mrow><annotation encoding=\"application/x-tex\">1 \\leq |a| &lt; 10</annotation></semantics></math></span>.</p>\n</div>\n  </aside>\n<p>For a negative number, keep the minus sign in the coefficient. For example,</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>63,000</mn><mo>=</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>6.3</mn><mo>×</mo><msup><mn>10</mn><mn>4</mn></msup><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">-63{,}000=-6.3\\times10^4.</annotation></semantics></math></div>\n<p>The exponent still describes scale: <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mn>10</mn><mi>n</mi></msup><annotation encoding=\"application/x-tex\">10^n</annotation></semantics></math></span> is positive for every integer <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>n</mi><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span>, so the sign of a product or quotient comes from the coefficient arithmetic. Zero is the boundary case. Write an exact zero result as <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mn>0</mn><annotation encoding=\"application/x-tex\">0</annotation></semantics></math></span>; it has no unique normalized exponent because <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>0</mn><mo>×</mo><msup><mn>10</mn><mi>n</mi></msup><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">0\\times10^n=0</annotation></semantics></math></span> for every integer <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>n</mi><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span>.</p>\n<p>For example,</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mn>63,000</mn><mo>=</mo><mn>6.3</mn><mo>×</mo><msup><mn>10</mn><mn>4</mn></msup></mrow><annotation encoding=\"application/x-tex\">63{,}000 = 6.3 \\times 10^4</annotation></semantics></math></div>\n<p>because multiplying by <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mn>10</mn><mn>4</mn></msup><annotation encoding=\"application/x-tex\">10^4</annotation></semantics></math></span> moves the value four decimal places upward in scale. Likewise,</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mn>0.00042</mn><mo>=</mo><mn>4.2</mn><mo>×</mo><msup><mn>10</mn><mrow><mo form=\"prefix\" stretchy=\"false\" lspace=\"0em\" rspace=\"0em\">−</mo><mn>4</mn></mrow></msup></mrow><annotation encoding=\"application/x-tex\">0.00042 = 4.2 \\times 10^{-4}</annotation></semantics></math></div>\n<p>because <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>10</mn><mrow><mo form=\"prefix\" stretchy=\"false\" lspace=\"0em\" rspace=\"0em\">−</mo><mn>4</mn></mrow></msup><mo>=</mo><mn>1</mn><mi>/</mi><mn>10,000</mn></mrow><annotation encoding=\"application/x-tex\">10^{-4}=1/10{,}000</annotation></semantics></math></span>. The negative exponent describes a scale below 1; it does not make the coefficient or the whole quantity negative.</p>\n<p>NIST also uses <code>E</code> notation in technical tables: <code>3.523907 E-02</code> means <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3.523907</mn><mo>×</mo><msup><mn>10</mn><mrow><mo form=\"prefix\" stretchy=\"false\" lspace=\"0em\" rspace=\"0em\">−</mo><mn>2</mn></mrow></msup></mrow><annotation encoding=\"application/x-tex\">3.523907 \\times 10^{-2}</annotation></semantics></math></span>. This lesson uses the multiplication-sign form because it exposes the mathematics directly.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-normalized-notation</span><span><b>sources</b> source-nist-sp811</span></div>\n    <div class=\"ek-block-content\"><p>NIST SP 811 Appendix B.2 directly documents positive conversion factors with coefficients from 1 up to but not including 10 and the meaning of E notation. The signed definition above is an elementary algebraic extension: retain the minus sign while applying the positive coefficient convention to the magnitude. NIST does not state that signed extension directly. The zero boundary follows from the definition and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>0</mn><mo>×</mo><msup><mn>10</mn><mi>n</mi></msup><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">0\\times10^n=0</annotation></semantics></math></span> for every integer <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>n</mi><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span>.</p>\n</div>\n  </aside>\n<h2>Multiplication and division</h2>\n<p>Powers of ten follow the exponent laws:</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><msup><mn>10</mn><mi>m</mi></msup><mo>×</mo><msup><mn>10</mn><mi>n</mi></msup><mo>=</mo><msup><mn>10</mn><mrow><mi>m</mi><mo>+</mo><mi>n</mi></mrow></msup><mo separator=\"true\">,</mo><mspace width=\"2em\"></mspace><mfrac><msup><mn>10</mn><mi>m</mi></msup><msup><mn>10</mn><mi>n</mi></msup></mfrac><mo>=</mo><msup><mn>10</mn><mrow><mi>m</mi><mo>−</mo><mi>n</mi></mrow></msup><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">10^m \\times 10^n = 10^{m+n}, \\qquad \\frac{10^m}{10^n}=10^{m-n}.</annotation></semantics></math></div>\n<p>So scientific-notation multiplication separates into two jobs:</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mi>a</mi><mo>×</mo><msup><mn>10</mn><mi>m</mi></msup><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mi>b</mi><mo>×</mo><msup><mn>10</mn><mi>n</mi></msup><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>=</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mi>a</mi><mi>b</mi><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>×</mo><msup><mn>10</mn><mrow><mi>m</mi><mo>+</mo><mi>n</mi></mrow></msup><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">(a \\times 10^m)(b \\times 10^n)=(ab)\\times 10^{m+n}.</annotation></semantics></math></div>\n<p>Division does the same with subtraction:</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mfrac><mrow><mi>a</mi><mo>×</mo><msup><mn>10</mn><mi>m</mi></msup></mrow><mrow><mi>b</mi><mo>×</mo><msup><mn>10</mn><mi>n</mi></msup></mrow></mfrac><mo>=</mo><mfrac><mi>a</mi><mi>b</mi></mfrac><mo>×</mo><msup><mn>10</mn><mrow><mi>m</mi><mo>−</mo><mi>n</mi></mrow></msup><mo separator=\"true\">,</mo><mspace width=\"2em\"></mspace><mi>b</mi><mo>≠</mo><mn>0.</mn></mrow><annotation encoding=\"application/x-tex\">\\frac{a \\times 10^m}{b \\times 10^n}=\\frac{a}{b}\\times 10^{m-n}, \\qquad b\\neq0.</annotation></semantics></math></div>\n<p>Because every power of ten here is positive, apply the ordinary sign rules to the coefficients: a negative coefficient times a positive one gives a negative result, while dividing two coefficients with the same sign gives a positive result.</p>\n<p>Normalize only after the coefficient operation. For example,</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>6</mn><mo>×</mo><msup><mn>10</mn><mn>4</mn></msup><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>5</mn><mo>×</mo><msup><mn>10</mn><mn>3</mn></msup><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>=</mo><mn>30</mn><mo>×</mo><msup><mn>10</mn><mn>7</mn></msup><mo>=</mo><mn>3.0</mn><mo>×</mo><msup><mn>10</mn><mn>8</mn></msup><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">(6 \\times 10^4)(5 \\times 10^3)=30\\times10^7=3.0\\times10^8.</annotation></semantics></math></div>\n<p>The last equality preserves value: shrinking the coefficient by a factor of 10 requires increasing the exponent by 1.</p>\n<h2>Addition and subtraction</h2>\n<p>Addition and subtraction require a shared power of ten. You may add coefficients only after both terms describe the same scale:</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mn>4.0</mn><mo>×</mo><msup><mn>10</mn><mn>6</mn></msup><mo>+</mo><mn>3.0</mn><mo>×</mo><msup><mn>10</mn><mn>4</mn></msup><mo>=</mo><mn>4.0</mn><mo>×</mo><msup><mn>10</mn><mn>6</mn></msup><mo>+</mo><mn>0.030</mn><mo>×</mo><msup><mn>10</mn><mn>6</mn></msup><mo>=</mo><mn>4.030</mn><mo>×</mo><msup><mn>10</mn><mn>6</mn></msup><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">4.0\\times10^6+3.0\\times10^4\n=4.0\\times10^6+0.030\\times10^6\n=4.030\\times10^6.</annotation></semantics></math></div>\n<p>Adding 4 and 3 first would treat millions and ten-thousands as though they were equal-sized pieces. Matching exponents prevents that category error.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-power-ten-arithmetic</span><span><b>sources</b> source-nist-sp811</span></div>\n    <div class=\"ek-block-content\"><p>The exponent operations here follow directly from integer exponent laws and the normalized notation documented by NIST. The derivations and numerical examples are original to this lesson.</p>\n</div>\n  </aside>\n<h2>Order of magnitude as a prediction</h2>\n<p>An <strong>order-of-magnitude estimate</strong> tracks the nearest useful power-of-ten scale rather than every digit. For a quick calculation, round coefficients to easy one-digit values while preserving the exponent. Then predict:</p>\n<ul>\n<li>the sign;</li>\n<li>whether multiplication or division should make the result larger or smaller;</li>\n<li>the rough exponent;</li>\n<li>a simple upper or lower bound when one is available.</li>\n</ul>\n<p>The estimate is intentionally coarser than the exact result. If both calculations repeat the same detailed steps, they can repeat the same error.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-estimation-reasonableness</span><span><b>sources</b> source-nist-everyday-estimation</span></div>\n    <div class=\"ek-block-content\"><p>NIST describes estimation as approximation used for magnitude, ordering, sensemaking, and checking reasonableness. This lesson narrows that purpose to a pre-calculation scale prediction.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-worked-example",
+      "title": "A calculation that checks itself",
+      "kind": "worked-example",
+      "source": "content/030-worked-example.md",
+      "estimatedMinutes": 30,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>A calculation that checks itself</h1>\n<p>Return to the fictional particle counter. The task is</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mfrac><mrow><mn>7.84</mn><mo>×</mo><msup><mn>10</mn><mn>6</mn></msup><mtext> </mtext><mtext>events</mtext></mrow><mrow><mn>4.0</mn><mo>×</mo><msup><mn>10</mn><mrow><mo form=\"prefix\" stretchy=\"false\" lspace=\"0em\" rspace=\"0em\">−</mo><mn>3</mn></mrow></msup><mtext> </mtext><mtext>seconds</mtext></mrow></mfrac><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{7.84\\times10^6\\ \\text{events}}{4.0\\times10^{-3}\\ \\text{seconds}}.</annotation></semantics></math></div>\n<p>The units are already aligned; this lesson is about the arithmetic, not conversion.</p>\n<aside class=\"ek-block ek-worked-example ek-block--worked-example\" data-directive=\"worked-example\">\n    <div class=\"ek-block-label directive-label\">Worked Example</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> worked-example-counter-rate</span></div>\n    <div class=\"ek-block-content\"><p><strong>1. Represent the givens and unknown.</strong> The numerator is a positive event count, the denominator is a positive time, and the unknown is a positive rate.</p>\n<p><strong>2. Select a model.</strong> This is division because a rate is count divided by elapsed time. Scientific notation lets us divide coefficients and subtract exponents separately.</p>\n<p><strong>3. Estimate first.</strong> Round <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mn>7.84</mn><annotation encoding=\"application/x-tex\">7.84</annotation></semantics></math></span> to <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mn>8</mn><annotation encoding=\"application/x-tex\">8</annotation></semantics></math></span> and keep <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mn>4.0</mn><annotation encoding=\"application/x-tex\">4.0</annotation></semantics></math></span> as <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mn>4</mn><annotation encoding=\"application/x-tex\">4</annotation></semantics></math></span>:</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mfrac><mrow><mn>8</mn><mo>×</mo><msup><mn>10</mn><mn>6</mn></msup></mrow><mrow><mn>4</mn><mo>×</mo><msup><mn>10</mn><mrow><mo form=\"prefix\" stretchy=\"false\" lspace=\"0em\" rspace=\"0em\">−</mo><mn>3</mn></mrow></msup></mrow></mfrac><mo>=</mo><mn>2</mn><mo>×</mo><msup><mn>10</mn><mrow><mn>6</mn><mo>−</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>3</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow></msup><mo>=</mo><mn>2</mn><mo>×</mo><msup><mn>10</mn><mn>9</mn></msup><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{8\\times10^6}{4\\times10^{-3}}=2\\times10^{6-(-3)}=2\\times10^9.</annotation></semantics></math></div>\n<p>The exact answer should be positive and near two billion events per second.</p>\n<p><strong>4. Calculate.</strong></p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mfrac><mrow><mn>7.84</mn><mo>×</mo><msup><mn>10</mn><mn>6</mn></msup></mrow><mrow><mn>4.0</mn><mo>×</mo><msup><mn>10</mn><mrow><mo form=\"prefix\" stretchy=\"false\" lspace=\"0em\" rspace=\"0em\">−</mo><mn>3</mn></mrow></msup></mrow></mfrac><mo>=</mo><mfrac><mn>7.84</mn><mn>4.0</mn></mfrac><mo>×</mo><msup><mn>10</mn><mrow><mn>6</mn><mo>−</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>3</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow></msup><mo>=</mo><mn>1.96</mn><mo>×</mo><msup><mn>10</mn><mn>9</mn></msup><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{7.84\\times10^6}{4.0\\times10^{-3}}\n=\\frac{7.84}{4.0}\\times10^{6-(-3)}\n=1.96\\times10^9.</annotation></semantics></math></div>\n<p>Subtracting a negative exponent adds 3: <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>6</mn><mo>−</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>3</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>=</mo><mn>9</mn></mrow><annotation encoding=\"application/x-tex\">6-(-3)=9</annotation></semantics></math></span>. The coefficient is already normalized.</p>\n<p><strong>5. Challenge with the inverse operation.</strong> Multiply the result by the elapsed time:</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>1.96</mn><mo>×</mo><msup><mn>10</mn><mn>9</mn></msup><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>4.0</mn><mo>×</mo><msup><mn>10</mn><mrow><mo form=\"prefix\" stretchy=\"false\" lspace=\"0em\" rspace=\"0em\">−</mo><mn>3</mn></mrow></msup><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>=</mo><mn>7.84</mn><mo>×</mo><msup><mn>10</mn><mn>6</mn></msup><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">(1.96\\times10^9)(4.0\\times10^{-3})\n=7.84\\times10^6.</annotation></semantics></math></div>\n<p>That recovers the original count. The result also lies near the prior estimate <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mo>×</mo><msup><mn>10</mn><mn>9</mn></msup></mrow><annotation encoding=\"application/x-tex\">2\\times10^9</annotation></semantics></math></span>.</p>\n<p><strong>6. Interpret.</strong> Under the fictional aggregation described, the rate is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1.96</mn><mo>×</mo><msup><mn>10</mn><mn>9</mn></msup></mrow><annotation encoding=\"application/x-tex\">1.96\\times10^9</annotation></semantics></math></span> events per second. The calculation does not establish measurement accuracy, uncertainty, or instrument validity; those require other evidence.</p>\n</div>\n  </aside>\n<p>The decisive move was not the final division. It was predicting the scale before exact calculation. That made the software&#39;s displayed <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1.96</mn><mo>×</mo><msup><mn>10</mn><mn>3</mn></msup></mrow><annotation encoding=\"application/x-tex\">1.96\\times10^3</annotation></semantics></math></span> visibly implausible even though its coefficient looked convincing.</p>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-worked-example</span></div>\n    <div class=\"ek-block-content\"><p>Which step would catch an exponent error without repeating the original division: retyping the division, comparing with <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mo>×</mo><msup><mn>10</mn><mn>9</mn></msup></mrow><annotation encoding=\"application/x-tex\">2\\times10^9</annotation></semantics></math></span>, or counting decimal places again? Explain why.</p>\n</div>\n  </aside>\n<p>The comparison with the independent estimate is the strongest choice here. Retyping can repeat the same entry error, and counting decimal places can repeat the same sign rule. The estimate predicts the scale by a simpler route.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-normalized-notation, claim-power-ten-arithmetic, claim-estimation-reasonableness, claim-independent-challenge</span><span><b>sources</b> source-nist-sp811, source-nist-everyday-estimation</span></div>\n    <div class=\"ek-block-content\"><p>NIST supports the notation convention and the use of estimation for reasonableness. The estimate–calculate–challenge procedure, fictional context, arithmetic, and inverse check are original synthesis from those mathematical relations.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-misconception",
+      "title": "The exponent does not follow the decimal point",
+      "kind": "misconception",
+      "source": "content/040-misconception.md",
+      "estimatedMinutes": 20,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>The exponent does not follow the decimal point</h1>\n<p>Before reading on, predict the normalized form of <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mn>0.00042</mn><annotation encoding=\"application/x-tex\">0.00042</annotation></semantics></math></span> and state why the exponent has its sign.</p>\n<aside class=\"ek-block ek-misconception ek-block--misconception\" data-directive=\"misconception\">\n    <div class=\"ek-block-label directive-label\">Misconception</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> misconception-decimal-direction</span></div>\n    <div class=\"ek-block-content\"><p>A tempting rule is: “I moved the decimal to the right, so the exponent should be positive.” That rule describes the editing motion but not the value.</p>\n<p>The number <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mn>0.00042</mn><annotation encoding=\"application/x-tex\">0.00042</annotation></semantics></math></span> is smaller than 1. Its normalized coefficient is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mn>4.2</mn><annotation encoding=\"application/x-tex\">4.2</annotation></semantics></math></span>, so the power of ten must shrink <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mn>4.2</mn><annotation encoding=\"application/x-tex\">4.2</annotation></semantics></math></span> back below 1:</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mn>0.00042</mn><mo>=</mo><mn>4.2</mn><mo>×</mo><msup><mn>10</mn><mrow><mo form=\"prefix\" stretchy=\"false\" lspace=\"0em\" rspace=\"0em\">−</mo><mn>4</mn></mrow></msup><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">0.00042=4.2\\times10^{-4}.</annotation></semantics></math></div>\n<p>A positive exponent would fail the value check because <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>4.2</mn><mo>×</mo><msup><mn>10</mn><mn>4</mn></msup><mo>=</mo><mn>42,000</mn></mrow><annotation encoding=\"application/x-tex\">4.2\\times10^4=42{,}000</annotation></semantics></math></span>.</p>\n<p>Use <strong>value preservation</strong> instead of a direction slogan:</p>\n<ol>\n<li>Choose the coefficient with one nonzero digit before its decimal point.</li>\n<li>Ask which power of ten reconstructs the original value.</li>\n<li>Expand the power once if the sign is uncertain.</li>\n</ol>\n<p>Now recheck with <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mn>63,000</mn><annotation encoding=\"application/x-tex\">63{,}000</annotation></semantics></math></span>. The coefficient is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mn>6.3</mn><annotation encoding=\"application/x-tex\">6.3</annotation></semantics></math></span>, and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mn>6.3</mn><annotation encoding=\"application/x-tex\">6.3</annotation></semantics></math></span> must grow to recover the original number, so <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>63,000</mn><mo>=</mo><mn>6.3</mn><mo>×</mo><msup><mn>10</mn><mn>4</mn></msup></mrow><annotation encoding=\"application/x-tex\">63{,}000=6.3\\times10^4</annotation></semantics></math></span>.</p>\n</div>\n  </aside>\n<p>The same compensation idea governs re-normalization. In <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>30</mn><mo>×</mo><msup><mn>10</mn><mn>7</mn></msup></mrow><annotation encoding=\"application/x-tex\">30\\times10^7</annotation></semantics></math></span>, changing 30 to 3 divides the coefficient by 10, so the power must multiply the scale by 10: <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn><mo>×</mo><msup><mn>10</mn><mn>8</mn></msup></mrow><annotation encoding=\"application/x-tex\">3\\times10^8</annotation></semantics></math></span>.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-normalized-notation, claim-power-ten-arithmetic</span><span><b>sources</b> source-nist-sp811</span></div>\n    <div class=\"ek-block-content\"><p>NIST&#39;s normalized coefficient and exponent notation support the value-preservation test. The error model and contrasting examples are original and are presented as a tempting boundary error, not a claim about prevalence.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-practice",
+      "title": "Fade the scaffold",
+      "kind": "practice",
+      "source": "content/050-practice.md",
+      "estimatedMinutes": 30,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Fade the scaffold</h1>\n<p>Attempt each prompt before reading its feedback. Keep three headings on your page: <strong>estimate</strong>, <strong>calculate</strong>, <strong>challenge</strong>.</p>\n<h2>1. Complete the model</h2>\n<p>Calculate <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>4.0</mn><mo>×</mo><msup><mn>10</mn><mn>6</mn></msup><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>2.0</mn><mo>×</mo><msup><mn>10</mn><mrow><mo form=\"prefix\" stretchy=\"false\" lspace=\"0em\" rspace=\"0em\">−</mo><mn>3</mn></mrow></msup><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">(4.0\\times10^6)(2.0\\times10^{-3})</annotation></semantics></math></span>.</p>\n<ul>\n<li>Estimate: positive, with scale <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>10</mn><mrow><mn>6</mn><mo>−</mo><mn>3</mn></mrow></msup><mo>=</mo><msup><mn>10</mn><mn>3</mn></msup></mrow><annotation encoding=\"application/x-tex\">10^{6-3}=10^3</annotation></semantics></math></span>.</li>\n<li>Calculate the coefficients and exponent.</li>\n<li>Challenge by dividing your product by the second factor.</li>\n</ul>\n<p><strong>Feedback after an attempt:</strong> The product is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>8.0</mn><mo>×</mo><msup><mn>10</mn><mn>3</mn></msup></mrow><annotation encoding=\"application/x-tex\">8.0\\times10^3</annotation></semantics></math></span>. If you obtained <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>8.0</mn><mo>×</mo><msup><mn>10</mn><mn>9</mn></msup></mrow><annotation encoding=\"application/x-tex\">8.0\\times10^9</annotation></semantics></math></span>, you treated <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">-3</annotation></semantics></math></span> as <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo form=\"prefix\" stretchy=\"false\">+</mo><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">+3</annotation></semantics></math></span>; expand <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>10</mn><mrow><mo form=\"prefix\" stretchy=\"false\" lspace=\"0em\" rspace=\"0em\">−</mo><mn>3</mn></mrow></msup><mo>=</mo><mn>1</mn><mi>/</mi><mn>1000</mn></mrow><annotation encoding=\"application/x-tex\">10^{-3}=1/1000</annotation></semantics></math></span> and retry. The reverse division returns <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>4.0</mn><mo>×</mo><msup><mn>10</mn><mn>6</mn></msup></mrow><annotation encoding=\"application/x-tex\">4.0\\times10^6</annotation></semantics></math></span>.</p>\n<h2>2. Use only a scale cue</h2>\n<p>Calculate</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mfrac><mrow><mn>9.6</mn><mo>×</mo><msup><mn>10</mn><mn>2</mn></msup></mrow><mrow><mn>3.0</mn><mo>×</mo><msup><mn>10</mn><mn>7</mn></msup></mrow></mfrac><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{9.6\\times10^2}{3.0\\times10^7}.</annotation></semantics></math></div>\n<p>The numerator is much smaller than the denominator, so your answer must be positive and less than 1.</p>\n<p><strong>Feedback after an attempt:</strong> <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>9.6</mn><mi>/</mi><mn>3.0</mn><mo>=</mo><mn>3.2</mn></mrow><annotation encoding=\"application/x-tex\">9.6/3.0=3.2</annotation></semantics></math></span> and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mo>−</mo><mn>7</mn><mo>=</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>5</mn></mrow><annotation encoding=\"application/x-tex\">2-7=-5</annotation></semantics></math></span>, giving <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3.2</mn><mo>×</mo><msup><mn>10</mn><mrow><mo form=\"prefix\" stretchy=\"false\" lspace=\"0em\" rspace=\"0em\">−</mo><mn>5</mn></mrow></msup></mrow><annotation encoding=\"application/x-tex\">3.2\\times10^{-5}</annotation></semantics></math></span>. If your answer exceeds 1, the sign of the exponent contradicts the scale cue. Multiply back by the denominator before moving on.</p>\n<h2>3. Select the rule</h2>\n<p>Calculate <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>5.4</mn><mo>×</mo><msup><mn>10</mn><mn>5</mn></msup><mo>+</mo><mn>8.0</mn><mo>×</mo><msup><mn>10</mn><mn>3</mn></msup></mrow><annotation encoding=\"application/x-tex\">5.4\\times10^5+8.0\\times10^3</annotation></semantics></math></span>.</p>\n<p><strong>Feedback after an attempt:</strong> Addition requires matching exponents:</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mn>5.4</mn><mo>×</mo><msup><mn>10</mn><mn>5</mn></msup><mo>+</mo><mn>0.080</mn><mo>×</mo><msup><mn>10</mn><mn>5</mn></msup><mo>=</mo><mn>5.48</mn><mo>×</mo><msup><mn>10</mn><mn>5</mn></msup><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">5.4\\times10^5+0.080\\times10^5=5.48\\times10^5.</annotation></semantics></math></div>\n<p>The smaller term should nudge <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>5.4</mn><mo>×</mo><msup><mn>10</mn><mn>5</mn></msup></mrow><annotation encoding=\"application/x-tex\">5.4\\times10^5</annotation></semantics></math></span> upward, not change its order of magnitude. If you wrote <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>13.4</mn><mo>×</mo><msup><mn>10</mn><mn>8</mn></msup></mrow><annotation encoding=\"application/x-tex\">13.4\\times10^8</annotation></semantics></math></span>, you used a multiplication rule on an addition problem.</p>\n<h2>4. Work independently</h2>\n<p>Calculate <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>7.0</mn><mo>×</mo><msup><mn>10</mn><mrow><mo form=\"prefix\" stretchy=\"false\" lspace=\"0em\" rspace=\"0em\">−</mo><mn>4</mn></mrow></msup><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>6.0</mn><mo>×</mo><msup><mn>10</mn><mn>9</mn></msup><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">(-7.0\\times10^{-4})(6.0\\times10^9)</annotation></semantics></math></span>. Predict the sign, give a one-line scale estimate, and use one independent check.</p>\n<p><strong>Feedback after an attempt:</strong> The product is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>42</mn><mo>×</mo><msup><mn>10</mn><mn>5</mn></msup><mo>=</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>4.2</mn><mo>×</mo><msup><mn>10</mn><mn>6</mn></msup></mrow><annotation encoding=\"application/x-tex\">-42\\times10^5=-4.2\\times10^6</annotation></semantics></math></span>. The sign is negative because a negative coefficient times a positive coefficient is negative; the powers of ten are positive. An estimate such as <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>7</mn><mo>×</mo><msup><mn>10</mn><mrow><mo form=\"prefix\" stretchy=\"false\" lspace=\"0em\" rspace=\"0em\">−</mo><mn>4</mn></mrow></msup><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>6</mn><mo>×</mo><msup><mn>10</mn><mn>9</mn></msup><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>≈</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>4</mn><mo>×</mo><msup><mn>10</mn><mn>6</mn></msup></mrow><annotation encoding=\"application/x-tex\">(-7\\times10^{-4})(6\\times10^9)\\approx-4\\times10^6</annotation></semantics></math></span> predicts both sign and scale. Dividing the product by either factor recovers the other, including its sign.</p>\n<h2>What your error tells you</h2>\n<ul>\n<li>Correct coefficient, wrong exponent: revisit the exponent operation and compare with the estimate.</li>\n<li>Coefficient outside <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn><mo>≤</mo><mi>|</mi><mi>a</mi><mi>|</mi><mo>&lt;</mo><mn>10</mn></mrow><annotation encoding=\"application/x-tex\">1\\leq|a|&lt;10</annotation></semantics></math></span>: normalize without changing value.</li>\n<li>Wild scale after addition: match exponents before combining coefficients.</li>\n<li>Exact answer conflicts with a bound: inspect operation choice before polishing arithmetic.</li>\n</ul>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-normalized-notation, claim-power-ten-arithmetic, claim-estimation-reasonableness, claim-independent-challenge</span><span><b>sources</b> source-nist-sp811, source-nist-everyday-estimation</span></div>\n    <div class=\"ek-block-content\"><p>The practice applies NIST-supported positive-factor notation and reasonableness checking. The negative-coefficient case uses the explicitly derived signed extension; NIST does not state that extension directly. All prompts, values, answer logic, and remediation are original course material.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-transfer",
+      "title": "Choose the arithmetic before using it",
+      "kind": "transfer",
+      "source": "content/060-transfer.md",
+      "estimatedMinutes": 25,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Choose the arithmetic before using it</h1>\n<p>A fictional sequence counter exports two values for each of <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1.2</mn><mo>×</mo><msup><mn>10</mn><mn>4</mn></msup></mrow><annotation encoding=\"application/x-tex\">1.2\\times10^4</annotation></semantics></math></span> equal batches:</p>\n<ul>\n<li>total recorded fragments: <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1.44</mn><mo>×</mo><msup><mn>10</mn><mn>11</mn></msup></mrow><annotation encoding=\"application/x-tex\">1.44\\times10^{11}</annotation></semantics></math></span>;</li>\n<li>duplicate fragments to remove from <strong>each batch</strong>: <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3.0</mn><mo>×</mo><msup><mn>10</mn><mn>6</mn></msup></mrow><annotation encoding=\"application/x-tex\">3.0\\times10^6</annotation></semantics></math></span>.</li>\n</ul>\n<p>How many nonduplicate fragments remain per batch?</p>\n<p>This is not a changed-number copy of the worked example. You must decide which quantity is total, which is per batch, and when subtraction becomes meaningful.</p>\n<h2>Build your solution</h2>\n<ol>\n<li>Write a sentence naming the first operation and why.</li>\n<li>Estimate the per-batch scale before calculating.</li>\n<li>Calculate the equal share.</li>\n<li>Subtract the per-batch duplicate count only after both values refer to one batch.</li>\n<li>Challenge the result with a bound and a reverse operation.</li>\n</ol>\n<h2>Feedback after a complete attempt</h2>\n<p>The total must first be divided by the batch count:</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mfrac><mrow><mn>1.44</mn><mo>×</mo><msup><mn>10</mn><mn>11</mn></msup></mrow><mrow><mn>1.2</mn><mo>×</mo><msup><mn>10</mn><mn>4</mn></msup></mrow></mfrac><mo>=</mo><mn>1.2</mn><mo>×</mo><msup><mn>10</mn><mn>7</mn></msup><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{1.44\\times10^{11}}{1.2\\times10^4}\n=1.2\\times10^7.</annotation></semantics></math></div>\n<p>Now both quantities are per batch, so subtraction is meaningful:</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mn>1.2</mn><mo>×</mo><msup><mn>10</mn><mn>7</mn></msup><mo>−</mo><mn>3.0</mn><mo>×</mo><msup><mn>10</mn><mn>6</mn></msup><mo>=</mo><mn>1.2</mn><mo>×</mo><msup><mn>10</mn><mn>7</mn></msup><mo>−</mo><mn>0.30</mn><mo>×</mo><msup><mn>10</mn><mn>7</mn></msup><mo>=</mo><mn>0.90</mn><mo>×</mo><msup><mn>10</mn><mn>7</mn></msup><mo>=</mo><mn>9.0</mn><mo>×</mo><msup><mn>10</mn><mn>6</mn></msup><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">1.2\\times10^7-3.0\\times10^6\n=1.2\\times10^7-0.30\\times10^7\n=0.90\\times10^7\n=9.0\\times10^6.</annotation></semantics></math></div>\n<p>The duplicate count is positive and smaller than the original per-batch share, so the corrected result must lie between <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mn>0</mn><annotation encoding=\"application/x-tex\">0</annotation></semantics></math></span> and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1.2</mn><mo>×</mo><msup><mn>10</mn><mn>7</mn></msup></mrow><annotation encoding=\"application/x-tex\">1.2\\times10^7</annotation></semantics></math></span>; <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>9.0</mn><mo>×</mo><msup><mn>10</mn><mn>6</mn></msup></mrow><annotation encoding=\"application/x-tex\">9.0\\times10^6</annotation></semantics></math></span> does. Adding the duplicates back gives <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1.2</mn><mo>×</mo><msup><mn>10</mn><mn>7</mn></msup></mrow><annotation encoding=\"application/x-tex\">1.2\\times10^7</annotation></semantics></math></span>, and multiplying that uncorrected share by <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1.2</mn><mo>×</mo><msup><mn>10</mn><mn>4</mn></msup></mrow><annotation encoding=\"application/x-tex\">1.2\\times10^4</annotation></semantics></math></span> recovers the original total.</p>\n<p>If you subtracted <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3.0</mn><mo>×</mo><msup><mn>10</mn><mn>6</mn></msup></mrow><annotation encoding=\"application/x-tex\">3.0\\times10^6</annotation></semantics></math></span> from the whole total, you combined a per-batch quantity with a total. That is an operation-choice error, not merely an exponent error.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-normalized-notation, claim-power-ten-arithmetic, claim-estimation-reasonableness, claim-independent-challenge</span><span><b>sources</b> source-nist-sp811, source-nist-everyday-estimation</span></div>\n    <div class=\"ek-block-content\"><p>The transfer task applies the documented notation and estimation purposes to an entirely fictional dataset. Its structure, values, and solution are original.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-synthesis",
+      "title": "Rebuild the reliability loop",
+      "kind": "synthesis",
+      "source": "content/070-synthesis.md",
+      "estimatedMinutes": 20,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Rebuild the reliability loop</h1>\n<p>Close the earlier scenes and reconstruct the method from memory.</p>\n<h2>The loop</h2>\n<p>For any arithmetic result across powers of ten:</p>\n<ol>\n<li><strong>Estimate:</strong> predict sign, rough coefficient, and exponent; add a bound if possible.</li>\n<li><strong>Calculate:</strong> separate coefficient arithmetic from exponent arithmetic; for addition or subtraction, match exponents first; normalize last.</li>\n<li><strong>Challenge:</strong> compare with the estimate, test the bound, or reverse the operation.</li>\n</ol>\n<p>There is one exact boundary to the “normalize last” instruction: if addition or subtraction cancels to zero, write <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mn>0</mn><annotation encoding=\"application/x-tex\">0</annotation></semantics></math></span>. For example, <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn><mo>×</mo><msup><mn>10</mn><mn>4</mn></msup><mo>−</mo><mn>3</mn><mo>×</mo><msup><mn>10</mn><mn>4</mn></msup><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">3\\times10^4-3\\times10^4=0</annotation></semantics></math></span>; zero has no unique normalized coefficient-times-power-of-ten form.</p>\n<p>In a nonvisual reading, treat these as three ordered checkpoints. The first predicts what region the result should occupy, the second produces the result, and the third tries to break it by an independent route.</p>\n<h2>Final retrieval</h2>\n<p>Without looking back, answer:</p>\n<ol>\n<li>Why does division subtract exponents?</li>\n<li>Why can coefficients not be added until exponents match?</li>\n<li>How can you determine the sign of the exponent in <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mn>0.00063</mn><annotation encoding=\"application/x-tex\">0.00063</annotation></semantics></math></span> without memorizing a decimal-motion slogan?</li>\n<li>Name one check that does not simply repeat the exact calculation.</li>\n</ol>\n<p>Then attempt the mastery items in <code>assessment.json</code>. Mastery requires correct calculation <strong>and</strong> a defensible scale prediction or challenge. If you miss a notation item, return to “Separate the digits from the scale.” If you miss an operation item, return to “Fade the scaffold.” If the arithmetic is right but the justification is missing, redo the transfer task with all three headings visible.</p>\n<h2>Recovery route</h2>\n<ul>\n<li>For place value: expand <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mn>10</mn><mn>3</mn></msup><annotation encoding=\"application/x-tex\">10^3</annotation></semantics></math></span>, <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mn>10</mn><mn>0</mn></msup><annotation encoding=\"application/x-tex\">10^0</annotation></semantics></math></span>, and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mn>10</mn><mrow><mo form=\"prefix\" stretchy=\"false\" lspace=\"0em\" rspace=\"0em\">−</mo><mn>3</mn></mrow></msup><annotation encoding=\"application/x-tex\">10^{-3}</annotation></semantics></math></span> as ordinary numbers, then rebuild one example.</li>\n<li>For exponent laws: write repeated factors of 10 once and count what cancels.</li>\n<li>For addition: rewrite both quantities using the same power before touching coefficients.</li>\n<li>For operation choice: label every value as total, per group, added, or removed before calculating.</li>\n</ul>\n<p>Later lessons on units, proportional reasoning, logarithms, and statistics will retrieve this loop in changed contexts. The habit to carry forward is simple: a calculator output is a candidate answer, not its own evidence.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-normalized-notation, claim-power-ten-arithmetic, claim-estimation-reasonableness, claim-independent-challenge</span><span><b>sources</b> source-nist-sp811, source-nist-everyday-estimation</span></div>\n    <div class=\"ek-block-content\"><p>The synthesis retains the NIST-supported positive-factor notation and estimation roles. Signed coefficients and the zero boundary are stated as elementary algebraic extensions rather than claims directly made by NIST. The three-checkpoint procedure and recovery sequence are original instructional synthesis and do not claim measured learner effectiveness.</p>\n</div>\n  </aside>\n"
+    }
+  ],
+  "authors": [
+    {
+      "principalId": "github:VSBDev",
+      "displayName": "VSBDev — accountable author with Codex assistance",
+      "agent": {
+        "system": "Codex desktop",
+        "provider": "OpenAI",
+        "model": "gpt-5.6-sol",
+        "version": "Codex desktop runtime 2026-07-22",
+        "runId": "33526f5a-4636-4b63-b4a9-466970481706",
+        "instructionsDigest": "sha256:a1452042b60e4f01a1eedf7dafffdcae4d2be8809739d57bf158d61fd40f5290"
+      }
+    }
+  ],
+  "license": "CC-BY-4.0",
+  "sourceConfidence": "medium-high",
+  "aiAssistance": {
+    "used": true,
+    "disclosure": "VSBDev (github:VSBDev) is accountable. OpenAI Codex, model gpt-5.6-sol, authored, researched, edited, and packaged this lesson in run 33526f5a-4636-4b63-b4a9-466970481706. The recorded digest covers the discloseable material packaging instructions, not hidden system or provider instructions. Two attempted Claude calls were rejected and their output was not used because execution metadata did not attribute the substantive work to the requested model; they are disclosed in ATTRIBUTION.md but are not authors or evidence."
+  },
+  "assessment": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-assessment-v1",
+    "lessonId": "PREM-QNT-001",
+    "lessonVersion": "0.1.0",
+    "assessmentId": "assessment-estimate-calculate-challenge",
+    "title": "Arithmetic reliability mastery gate",
+    "purpose": "mastery-gate",
+    "attemptPolicy": {
+      "retakeable": true,
+      "timeLimitMinutes": null,
+      "feedback": "after-attempt"
+    },
+    "items": [
+      {
+        "id": "item-normalize-small-number",
+        "type": "single-choice",
+        "sceneId": "scene-synthesis",
+        "objectiveIds": [
+          "objective-represent-scale"
+        ],
+        "outcomeIds": [
+          "topic-quantitative-foundations-arithmetic-estimation"
+        ],
+        "prompt": "Which is the normalized scientific notation for 0.000072?",
+        "points": 2,
+        "responseSpec": {
+          "mode": "single-choice",
+          "options": [
+            {
+              "id": "option-normalize-a",
+              "text": "7.2 × 10^-5"
+            },
+            {
+              "id": "option-normalize-b",
+              "text": "7.2 × 10^5"
+            },
+            {
+              "id": "option-normalize-c",
+              "text": "0.72 × 10^-4"
+            },
+            {
+              "id": "option-normalize-d",
+              "text": "72 × 10^-6"
+            }
+          ]
+        },
+        "answer": {
+          "correct": "option-normalize-a",
+          "summary": "0.000072 = 7.2 × 10^-5.",
+          "reasoning": "The normalized coefficient is 7.2. Multiplication by 10^-5 shrinks it to 0.000072. Options C and D preserve the value but are not normalized; option B has the wrong scale.",
+          "acceptableResponses": [],
+          "commonErrors": [
+            "Choosing a positive exponent because the decimal point was moved right",
+            "Accepting an equivalent but non-normalized form"
+          ]
+        },
+        "rubricId": "rubric-normalize-small-number",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-product-scale",
+        "type": "short-answer",
+        "sceneId": "scene-synthesis",
+        "objectiveIds": [
+          "objective-calculate-powers-ten",
+          "objective-estimate-scale"
+        ],
+        "outcomeIds": [
+          "topic-quantitative-foundations-arithmetic-estimation"
+        ],
+        "prompt": "Before calculating, predict the sign of (-3.0 × 10^7)(4.0 × 10^-5). Then give the ordinary-number value and one sentence explaining the sign.",
+        "points": 4,
+        "responseSpec": {
+          "mode": "text",
+          "maxLength": 600
+        },
+        "answer": {
+          "correct": "The result is -1200. It is negative because a negative coefficient times a positive coefficient is negative.",
+          "summary": "The product is -1.2 × 10^3 = -1200.",
+          "reasoning": "Predict a negative result from the coefficient signs. Multiply coefficient magnitudes to get 12 and add exponents to get 2: -12 × 10^2. Normalize to -1.2 × 10^3, which equals -1200.",
+          "acceptableResponses": [
+            "-1200, with an equivalent correct sign explanation",
+            "−1200, with an equivalent correct sign explanation"
+          ],
+          "commonErrors": [
+            "Dropping the negative sign",
+            "Writing -12 × 10^2 without completing normalization",
+            "Subtracting exponents in a product"
+          ]
+        },
+        "rubricId": "rubric-product-scale",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-add-shared-scale",
+        "type": "short-answer",
+        "sceneId": "scene-synthesis",
+        "objectiveIds": [
+          "objective-calculate-powers-ten",
+          "objective-estimate-scale"
+        ],
+        "outcomeIds": [
+          "topic-quantitative-foundations-arithmetic-estimation"
+        ],
+        "prompt": "Calculate 6.2 × 10^5 + 4.0 × 10^3. Give a normalized result and one sentence explaining why its exponent is plausible.",
+        "points": 4,
+        "responseSpec": {
+          "mode": "text",
+          "maxLength": 800
+        },
+        "answer": {
+          "correct": "6.24 × 10^5; the smaller addend changes the leading value only slightly, so the sum remains on the 10^5 scale.",
+          "summary": "Match exponents before adding: 6.24 × 10^5.",
+          "reasoning": "Rewrite 4.0 × 10^3 as 0.040 × 10^5, then add coefficients: 6.2 + 0.040 = 6.24. A positive addend about one hundred times smaller cannot move the sum to a different order of magnitude.",
+          "acceptableResponses": [
+            "624000, with an explanation that the 4,000 term only nudges 620,000 upward",
+            "6.24e5 with a valid scale explanation"
+          ],
+          "commonErrors": [
+            "Adding coefficients without matching exponents",
+            "Applying the multiplication exponent rule to addition"
+          ]
+        },
+        "rubricId": "rubric-add-shared-scale",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-diagnose-display",
+        "type": "single-choice",
+        "sceneId": "scene-synthesis",
+        "objectiveIds": [
+          "objective-estimate-scale",
+          "objective-challenge-result"
+        ],
+        "outcomeIds": [
+          "topic-quantitative-foundations-arithmetic-estimation"
+        ],
+        "prompt": "A calculation divides 8 × 10^8 by 2 × 10^-2. Software reports 4 × 10^6. Which diagnosis is best?",
+        "points": 3,
+        "responseSpec": {
+          "mode": "single-choice",
+          "options": [
+            {
+              "id": "option-diagnose-a",
+              "text": "Plausible: division always reduces a number"
+            },
+            {
+              "id": "option-diagnose-b",
+              "text": "Implausible: dividing by a number below 1 should increase the value, and the exponent should be 8 - (-2) = 10"
+            },
+            {
+              "id": "option-diagnose-c",
+              "text": "Implausible only because 4 is not a normalized coefficient"
+            },
+            {
+              "id": "option-diagnose-d",
+              "text": "Plausible because 8 ÷ 2 = 4"
+            }
+          ]
+        },
+        "answer": {
+          "correct": "option-diagnose-b",
+          "summary": "The display has a scale error; the result should be 4 × 10^10.",
+          "reasoning": "The divisor is 0.02, so the quotient must exceed the numerator. Subtracting the negative exponent gives 8 - (-2) = 10. The coefficient alone does not establish plausibility.",
+          "acceptableResponses": [],
+          "commonErrors": [
+            "Assuming division must make a number smaller",
+            "Checking only the coefficient"
+          ]
+        },
+        "rubricId": "rubric-diagnose-display",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-inverse-check",
+        "type": "short-answer",
+        "sceneId": "scene-synthesis",
+        "objectiveIds": [
+          "objective-challenge-result"
+        ],
+        "outcomeIds": [
+          "topic-quantitative-foundations-arithmetic-estimation"
+        ],
+        "prompt": "A quotient is reported as (9.0 × 10^6) ÷ (3.0 × 10^2) = 3.0 × 10^4. State an inverse-operation check and carry it out.",
+        "points": 3,
+        "responseSpec": {
+          "mode": "text",
+          "maxLength": 600
+        },
+        "answer": {
+          "correct": "Multiply 3.0 × 10^4 by 3.0 × 10^2; the product is 9.0 × 10^6, which recovers the dividend.",
+          "summary": "The inverse multiplication recovers the original dividend.",
+          "reasoning": "A correct quotient times its divisor must equal the dividend: coefficients give 9.0 and exponents add to 6.",
+          "acceptableResponses": [
+            "(3.0e4)(3.0e2)=9.0e6, so the quotient passes this check"
+          ],
+          "commonErrors": [
+            "Repeating the original division instead of reversing it",
+            "Multiplying coefficients but subtracting exponents"
+          ]
+        },
+        "rubricId": "rubric-inverse-check",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-transfer-batches",
+        "type": "open-response",
+        "sceneId": "scene-synthesis",
+        "objectiveIds": [
+          "objective-calculate-powers-ten",
+          "objective-estimate-scale",
+          "objective-challenge-result"
+        ],
+        "outcomeIds": [
+          "topic-quantitative-foundations-arithmetic-estimation"
+        ],
+        "prompt": "A fictional archive holds 2.4 × 10^10 records split equally across 8.0 × 10^3 folders. A cleanup then removes 5.0 × 10^5 duplicate records from each folder. Determine the retained records per folder. Show an estimate, the ordered operations, normalized arithmetic, and a check or bound.",
+        "points": 7,
+        "responseSpec": {
+          "mode": "text",
+          "maxLength": 3000
+        },
+        "answer": {
+          "correct": "First divide to get 3.0 × 10^6 records per folder, then subtract 5.0 × 10^5 = 0.5 × 10^6, leaving 2.5 × 10^6. The answer is positive, below 3.0 × 10^6, and adding back 5.0 × 10^5 recovers the uncorrected per-folder count.",
+          "summary": "The retained count is 2.5 × 10^6 records per folder.",
+          "reasoning": "The total and folder count must be divided before a per-folder removal can be subtracted. The estimate predicts a few million per folder. Matching exponents gives 3.0 × 10^6 - 0.5 × 10^6 = 2.5 × 10^6, and the bound and inverse addition confirm consistency.",
+          "acceptableResponses": [
+            "2500000 with the same operation order, estimate, and valid check"
+          ],
+          "commonErrors": [
+            "Subtracting the per-folder duplicate count from the total before dividing",
+            "Combining coefficients before matching exponents",
+            "Giving exact arithmetic without an estimate or check"
+          ]
+        },
+        "rubricId": "rubric-transfer-batches",
+        "safetyCritical": false
+      }
+    ],
+    "rubrics": [
+      {
+        "id": "rubric-normalize-small-number",
+        "title": "Normalized representation",
+        "criteria": [
+          {
+            "id": "criterion-normalize-value",
+            "description": "Selects the unique normalized form that preserves the value and exponent sign.",
+            "maxPoints": 2
+          }
+        ]
+      },
+      {
+        "id": "rubric-product-scale",
+        "title": "Scientific-notation product",
+        "criteria": [
+          {
+            "id": "criterion-product-sign",
+            "description": "Predicts a negative result and explains it from the coefficient signs.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-product-operation",
+            "description": "Multiplies coefficients and adds exponents correctly.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-product-normalization",
+            "description": "Normalizes and reports the equivalent ordinary-number value.",
+            "maxPoints": 1
+          }
+        ]
+      },
+      {
+        "id": "rubric-add-shared-scale",
+        "title": "Addition across scales",
+        "criteria": [
+          {
+            "id": "criterion-add-arithmetic",
+            "description": "Matches exponents and calculates the normalized sum correctly.",
+            "maxPoints": 3
+          },
+          {
+            "id": "criterion-add-plausibility",
+            "description": "Explains why the smaller positive term should only nudge the larger term.",
+            "maxPoints": 1
+          }
+        ]
+      },
+      {
+        "id": "rubric-diagnose-display",
+        "title": "Scale-error diagnosis",
+        "criteria": [
+          {
+            "id": "criterion-diagnose-scale",
+            "description": "Uses divisor size and exponent subtraction to identify the displayed scale error.",
+            "maxPoints": 3
+          }
+        ]
+      },
+      {
+        "id": "rubric-inverse-check",
+        "title": "Inverse-operation check",
+        "criteria": [
+          {
+            "id": "criterion-inverse-recovery",
+            "description": "States and executes multiplication by the divisor to recover the dividend.",
+            "maxPoints": 3
+          }
+        ]
+      },
+      {
+        "id": "rubric-transfer-batches",
+        "title": "Independent transfer solution",
+        "criteria": [
+          {
+            "id": "criterion-transfer-selection",
+            "description": "Chooses division before the per-folder subtraction and explains the quantity labels.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-transfer-estimate",
+            "description": "Predicts a defensible positive scale near a few million per folder.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-transfer-calculation",
+            "description": "Calculates and normalizes the retained count as 2.5 × 10^6.",
+            "maxPoints": 3
+          },
+          {
+            "id": "criterion-transfer-challenge",
+            "description": "Uses a valid bound or inverse addition to challenge the result.",
+            "maxPoints": 1
+          }
+        ]
+      }
+    ]
+  },
+  "references": {
+    "schemaVersion": 2,
+    "format": "embeddedknowledge-references-v2",
+    "lessonId": "PREM-QNT-001",
+    "lessonVersion": "0.1.0",
+    "sources": [
+      {
+        "id": "source-nist-sp811",
+        "type": "official-standard",
+        "title": "Guide for the Use of the International System of Units (SI), NIST Special Publication 811",
+        "creators": [
+          "Ambler Thompson",
+          "Barry N. Taylor"
+        ],
+        "publisher": "National Institute of Standards and Technology",
+        "issued": "2008",
+        "url": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "accessed": "2026-07-22",
+        "version": "2008 edition; NIST web presentation updated 2025-08-18",
+        "locator": "Appendix B.2, Notation; coefficient range and E notation examples",
+        "license": "NIST Technical Series work; U.S. government work not subject to U.S. copyright, with NIST's stated worldwide reprint and derivative-work permission subject to attribution and third-party exceptions",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "The lesson uses the underlying numerical-notation convention as a factual reference and independently creates all prose, structure, examples, tables, prompts, and assessments. No NIST expression or media is reproduced or adapted."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://www.nist.gov/copyrights-disclaimers",
+          "checked": "2026-07-22",
+          "notes": "NIST copyright/disclaimer, technical-series licensing, and robots routes were checked before substantive access. No source-specific agent restriction, login, paywall, or access-control barrier was found."
+        }
+      },
+      {
+        "id": "source-nist-everyday-estimation",
+        "type": "guideline",
+        "title": "Everyday Estimation",
+        "creators": [
+          "National Institute of Standards and Technology, Office of Weights and Measures"
+        ],
+        "publisher": "National Institute of Standards and Technology",
+        "issued": "2010-02-04",
+        "url": "https://www.nist.gov/pml/owm/metric-si/everyday-estimation",
+        "accessed": "2026-07-22",
+        "version": "Web page updated 2025-08-27",
+        "locator": "Opening section on magnitude, ordering, sensemaking, and checking reasonableness",
+        "license": "NIST public information under the agency's Copyrights & Disclaimers statement; third-party items excluded",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "The lesson cites the stated purposes of estimation but uses entirely original wording, fictional datasets, worked examples, checking procedure, feedback, and assessment content. No page imagery, tables, or expressive teaching sequence is reused."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://www.nist.gov/copyrights-disclaimers",
+          "checked": "2026-07-22",
+          "notes": "NIST copyright/disclaimer and robots routes were checked before substantive access. The page was accessed as a public government resource without bulk retrieval, login, paywall, or access-control bypass."
+        }
+      }
+    ]
+  },
+  "claims": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-claims-v1",
+    "lessonId": "PREM-QNT-001",
+    "lessonVersion": "0.1.0",
+    "claims": [
+      {
+        "id": "claim-normalized-notation",
+        "statement": "Normalized scientific notation writes a nonzero number as a coefficient times an integer power of ten, with the coefficient's absolute value at least 1 and less than 10; E notation encodes the same power-of-ten relation.",
+        "sceneIds": [
+          "scene-concept",
+          "scene-worked-example",
+          "scene-misconception",
+          "scene-practice",
+          "scene-transfer",
+          "scene-synthesis"
+        ],
+        "sourceIds": [
+          "source-nist-sp811"
+        ],
+        "support": "inference",
+        "confidence": "high",
+        "scope": "Conventional base-10 scientific notation for nonzero real numerical values at college-introductory level.",
+        "uncertainty": "NIST SP 811 Appendix B.2 directly documents positive conversion factors with coefficients from 1 up to but not including 10 and E notation. Extending that convention to a signed coefficient is an explicit elementary algebraic inference, not a direct statement from NIST. Zero is written as zero rather than assigned a unique normalized exponent; software-specific display syntax can vary.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      },
+      {
+        "id": "claim-power-ten-arithmetic",
+        "statement": "Multiplying powers of ten adds integer exponents, dividing them subtracts exponents, and addition or subtraction of scientific-notation terms requires a common power of ten before coefficients are combined.",
+        "sceneIds": [
+          "scene-orientation",
+          "scene-concept",
+          "scene-worked-example",
+          "scene-misconception",
+          "scene-practice",
+          "scene-transfer",
+          "scene-synthesis"
+        ],
+        "sourceIds": [
+          "source-nist-sp811"
+        ],
+        "support": "inference",
+        "confidence": "high",
+        "scope": "Exact arithmetic of real numbers expressed through integer powers of ten, with nonzero divisors.",
+        "uncertainty": "The arithmetic is exact; displayed decimal values may be rounded in applied contexts, which this lesson deliberately excludes.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      },
+      {
+        "id": "claim-estimation-reasonableness",
+        "statement": "Approximate magnitude and comparison can be used to predict the rough scale of a numerical result and evaluate whether an exact or machine-produced result is reasonable.",
+        "sceneIds": [
+          "scene-orientation",
+          "scene-concept",
+          "scene-worked-example",
+          "scene-practice",
+          "scene-transfer",
+          "scene-synthesis"
+        ],
+        "sourceIds": [
+          "source-nist-everyday-estimation"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Routine STEM arithmetic where a rough magnitude or comparison is meaningful before or after exact calculation.",
+        "uncertainty": "A plausible estimate cannot prove that an exact result is correct, and estimation tolerances depend on the decision context.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      },
+      {
+        "id": "claim-independent-challenge",
+        "statement": "Bounds and inverse operations can challenge an arithmetic result by checking consequences that must hold if the operation and scale were handled consistently.",
+        "sceneIds": [
+          "scene-worked-example",
+          "scene-practice",
+          "scene-transfer",
+          "scene-synthesis"
+        ],
+        "sourceIds": [
+          "source-nist-everyday-estimation",
+          "source-nist-sp811"
+        ],
+        "support": "inference",
+        "confidence": "high",
+        "scope": "The exact arithmetic examples and nonzero inverse operations used in this lesson.",
+        "uncertainty": "A check can share assumptions or errors with the original calculation; passing one check does not establish measurement validity or factual truth.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      }
+    ]
+  },
+  "glossary": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-glossary-v1",
+    "lessonId": "PREM-QNT-001",
+    "lessonVersion": "0.1.0",
+    "terms": [
+      {
+        "id": "term-scientific-notation",
+        "term": "scientific notation",
+        "definition": "A representation of a nonzero number as a coefficient multiplied by an integer power of ten; in normalized form the coefficient has absolute value at least 1 and less than 10.",
+        "aliases": [
+          "standard form",
+          "powers-of-ten notation"
+        ],
+        "sceneIds": [
+          "scene-concept",
+          "scene-worked-example",
+          "scene-misconception",
+          "scene-practice",
+          "scene-transfer",
+          "scene-synthesis"
+        ]
+      },
+      {
+        "id": "term-coefficient",
+        "term": "coefficient",
+        "definition": "The numerical factor multiplying the power of ten in scientific notation.",
+        "aliases": [
+          "significand"
+        ],
+        "sceneIds": [
+          "scene-concept",
+          "scene-worked-example",
+          "scene-misconception",
+          "scene-practice"
+        ]
+      },
+      {
+        "id": "term-exponent",
+        "term": "exponent",
+        "definition": "The integer in a power of ten that records the number's base-10 scale; a negative exponent indicates a reciprocal power below 1.",
+        "aliases": [
+          "power"
+        ],
+        "sceneIds": [
+          "scene-orientation",
+          "scene-concept",
+          "scene-worked-example",
+          "scene-misconception",
+          "scene-practice",
+          "scene-transfer",
+          "scene-synthesis"
+        ]
+      },
+      {
+        "id": "term-order-of-magnitude",
+        "term": "order of magnitude",
+        "definition": "A power-of-ten description of a number's rough scale, used here as a coarse prediction rather than an exact value.",
+        "aliases": [
+          "power-of-ten scale"
+        ],
+        "sceneIds": [
+          "scene-orientation",
+          "scene-concept",
+          "scene-worked-example",
+          "scene-practice",
+          "scene-transfer",
+          "scene-synthesis"
+        ]
+      },
+      {
+        "id": "term-plausibility-check",
+        "term": "plausibility check",
+        "definition": "A test of whether a result is consistent with an estimate, bound, inverse operation, or contextual constraint; it can expose errors but does not prove correctness.",
+        "aliases": [
+          "reasonableness check",
+          "sanity check"
+        ],
+        "sceneIds": [
+          "scene-orientation",
+          "scene-worked-example",
+          "scene-practice",
+          "scene-transfer",
+          "scene-synthesis"
+        ]
+      }
+    ]
+  },
+  "attributionHtml": "<h1>Attribution</h1>\n<h2>Lesson identity and licence</h2>\n<ul>\n<li>Lesson: <strong>PREM-QNT-001 — Estimate, calculate, challenge: arithmetic across powers of ten</strong></li>\n<li>Mapped outcome: <strong>PREM-03.01 — Arithmetic, estimation, and scientific notation</strong> (<code>topic-quantitative-foundations-arithmetic-estimation</code>)</li>\n<li>Accountable principal: <strong>VSBDev</strong> (<code>github:VSBDev</code>)</li>\n<li>Course-content licence: <strong>Creative Commons Attribution 4.0 International (CC BY 4.0)</strong></li>\n<li>Author-stage state: <strong>draft</strong>, source confidence <strong>pending-review</strong></li>\n</ul>\n<p>VSBDev is accountable for the mathematical, editorial, pedagogical, accessibility, rights, and provenance record in this pack. The authenticated GitHub identity check returned <code>VSBDev</code> on 2026-07-22.</p>\n<h2>Material agent assistance</h2>\n<p>OpenAI Codex authored, researched, edited, and packaged the lesson in one author-role run:</p>\n<table>\n<thead>\n<tr>\n<th>System</th>\n<th>Provider</th>\n<th>Model</th>\n<th>Version</th>\n<th>Run ID</th>\n<th>Material-instructions digest</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>Codex desktop</td>\n<td>OpenAI</td>\n<td><code>gpt-5.6-sol</code></td>\n<td>Codex desktop runtime 2026-07-22</td>\n<td><code>33526f5a-4636-4b63-b4a9-466970481706</code></td>\n<td><code>sha256:a1452042b60e4f01a1eedf7dafffdcae4d2be8809739d57bf158d61fd40f5290</code></td>\n</tr>\n</tbody></table>\n<p>The digest identifies the exact bytes of <code>/tmp/codex-packager-prompt-03-01.md</code>, the discloseable material task instruction for this run. It does not claim to cover hidden provider, system, runtime, or tool instructions that cannot be exported.</p>\n<p>Two Claude CLI attempts were made before the user clarified that Codex should author the lesson directly. The first requested <code>claude-fable-5</code>; the second requested the <code>fable</code> alias. Neither output was incorporated. The first execution metadata attributed substantive generation to <code>claude-opus-4-8</code>; the second was interrupted immediately after the clarification. These rejected calls are not authors, sources, reviewers, or evidence, and no Claude-generated prose appears in this pack.</p>\n<h2>Post-review finalization assistance</h2>\n<p>A fresh adjudication-role agent made the single bounded post-review content revision, completed the accessibility-and-rights audit, and produced <code>adjudication.json</code>. The operator stamps the runtime identity fields in that artifact; the stable provenance supplied to this run is:</p>\n<table>\n<thead>\n<tr>\n<th>Accountable principal</th>\n<th>Run ID</th>\n<th>Material-instructions digest</th>\n</tr>\n</thead>\n<tbody><tr>\n<td><code>github:VSBDev</code></td>\n<td><code>codex-finalizer-PREM-QNT-001-A8714132-EFBF-48BD-9EDE-4782691BE64F</code></td>\n<td><code>sha256:093df57d62560a801713d009ff9b8042dd2b8ee7d19954aafed5954b482a92a3</code></td>\n</tr>\n</tbody></table>\n<h2>Original synthesis and source use</h2>\n<p>The estimate–calculate–challenge structure, particle-counter opening, all numerical examples, sequence-counter and archive transfer cases, prompts, answer logic, feedback, recovery routes, and assessment items are original course material created for this pack. Every scientific setting and dataset is explicitly fictional.</p>\n<p>The two NIST records in <code>references.json</code> were used only as factual authorities for scientific-notation conventions and the role of estimation in magnitude and reasonableness checks. No NIST wording, organization, examples, images, tables, datasets, or other expression was copied, adapted, translated, or redistributed. The lesson&#39;s use is facts-only research followed by original expression.</p>\n<p>OpenStax material was considered during source discovery but excluded after current OpenStax pages displayed a restriction on generative-AI ingestion and nonuniform licence notices. It is not cited, paraphrased, or used as lesson evidence.</p>\n<h2>Source-access and rights attestation</h2>\n<p>Before substantive NIST access on 2026-07-22, the NIST Copyrights &amp; Disclaimers page, technical-series licensing statement, and public robots route were checked. No source-specific agent prohibition, login, paywall, or access-control barrier was found. Access was limited to the public SP 811 notation page, the public Everyday Estimation page, and the associated rights statements.</p>\n<p>No third-party image, diagram, audio, video, dataset, question bank, patient material, or other asset is included. The pack contains only original text and structured data licensed with the course content under CC BY 4.0.</p>\n<h2>Boundaries</h2>\n<p>The lesson teaches arithmetic and plausibility checking. It does not provide clinical advice, measurement-validity judgments, formal uncertainty analysis, or credential claims. No personal or patient data are used, and no physical experiment is requested.</p>\n<p>This authoring run creates no review or adjudication artifact and makes no claim of approval, publication, merge readiness, learner effectiveness, university credit, or clinical competence. Formal review must inspect a later frozen candidate under the repository&#39;s role-isolated process.</p>\n"
+}
