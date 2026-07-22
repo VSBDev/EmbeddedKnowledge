@@ -1,0 +1,732 @@
+{
+  "schemaVersion": 3,
+  "format": "embeddedknowledge-lesson-v1",
+  "artifactType": "production-lesson",
+  "id": "PREM-QNT-008",
+  "version": "0.1.0",
+  "title": "Label, relate, solve: geometry and trigonometry",
+  "status": "draft",
+  "riskTier": "standard",
+  "estimatedMinutes": 240,
+  "outcomes": [
+    "topic-quantitative-foundations-geometry-trigonometry"
+  ],
+  "prerequisites": [
+    "topic-quantitative-foundations-algebra-equations"
+  ],
+  "objectives": [
+    {
+      "id": "objective-measure-geometry",
+      "statement": "Calculate and scale lengths, perimeters, areas, and volumes while tracking the power of the linear scale factor.",
+      "outcomeIds": [
+        "topic-quantitative-foundations-geometry-trigonometry"
+      ]
+    },
+    {
+      "id": "objective-right-triangle",
+      "statement": "Use the Pythagorean relation and right-triangle trigonometric ratios to solve labeled triangles and check bounds.",
+      "outcomeIds": [
+        "topic-quantitative-foundations-geometry-trigonometry"
+      ]
+    },
+    {
+      "id": "objective-angle-units",
+      "statement": "Convert between degrees and radians and interpret sine and cosine as unit-circle coordinates.",
+      "outcomeIds": [
+        "topic-quantitative-foundations-geometry-trigonometry"
+      ]
+    },
+    {
+      "id": "objective-inverse-trig",
+      "statement": "Use inverse trigonometric functions to recover principal angles and interpret them within a stated geometric quadrant or domain.",
+      "outcomeIds": [
+        "topic-quantitative-foundations-geometry-trigonometry"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene-orientation",
+      "title": "Perpendicular lengths do not simply add",
+      "kind": "orientation",
+      "source": "content/010-orientation.md",
+      "estimatedMinutes": 25,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Perpendicular lengths do not simply add</h1>\n<p>A fictional locator reports an object 12 units east and 5 units north of the origin. Its software reports a straight-line distance of 17 units.</p>\n<p>The components are perpendicular, so they form the legs of a right triangle. The distance <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>d</mi><annotation encoding=\"application/x-tex\">d</annotation></semantics></math></span> is</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mi>d</mi><mo>=</mo><msqrt><mrow><msup><mn>12</mn><mn>2</mn></msup><mo>+</mo><msup><mn>5</mn><mn>2</mn></msup></mrow></msqrt><mo>=</mo><msqrt><mn>169</mn></msqrt><mo>=</mo><mn>13</mn><mo separator=\"true\">,</mo></mrow><annotation encoding=\"application/x-tex\">d=\\sqrt{12^2+5^2}=\\sqrt{169}=13,</annotation></semantics></math></div>\n<p>not <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>12</mn><mo>+</mo><mn>5</mn></mrow><annotation encoding=\"application/x-tex\">12+5</annotation></semantics></math></span>. The hypotenuse must be longer than either leg but shorter than their sum; 13 passes both bounds.</p>\n<p>This lesson uses a four-part geometric audit: label the quantities and angle units, choose a relation that matches the shape, solve, then check lengths, signs, scale, and units.</p>\n<h2>Starting check</h2>\n<ul>\n<li>If every length doubles, by what factor does area change?</li>\n<li>Is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mn>180</mn><mo>∘</mo></msup><annotation encoding=\"application/x-tex\">180^\\circ</annotation></semantics></math></span> equal to <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>π</mi><annotation encoding=\"application/x-tex\">\\pi</annotation></semantics></math></span> radians or <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mi>π</mi></mrow><annotation encoding=\"application/x-tex\">2\\pi</annotation></semantics></math></span> radians?</li>\n<li>In a right triangle, can a leg be longer than the hypotenuse?</li>\n</ul>\n<p>If the spatial description is difficult, list the points and perpendicular relationships in text before writing an equation.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-trig-functions, claim-angle-conversion</span><span><b>sources</b> source-nist-dlmf-trig, source-nist-si-angle</span></div>\n    <div class=\"ek-block-content\"><p>NIST records define trigonometric functions and the degree-radian conversion. The locator and Pythagorean audit are original.</p>\n</div>\n  </aside>\n<h2>Accessibility and alternatives</h2>\n<p>Every essential shape is represented with named points, perpendicular relationships, coordinates, and equations. No task requires seeing a diagram, judging an angle visually, using color, or dragging labels.</p>\n"
+    },
+    {
+      "id": "scene-concept",
+      "title": "Connect shape, scale, and angle",
+      "kind": "concept",
+      "source": "content/020-concept.md",
+      "estimatedMinutes": 45,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Connect shape, scale, and angle</h1>\n<p>Geometry relates measurements to structure. If a shape is enlarged by linear factor <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>k</mi><annotation encoding=\"application/x-tex\">k</annotation></semantics></math></span>, corresponding lengths scale by <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>k</mi><annotation encoding=\"application/x-tex\">k</annotation></semantics></math></span>, areas by <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mi>k</mi><mn>2</mn></msup><annotation encoding=\"application/x-tex\">k^2</annotation></semantics></math></span>, and volumes by <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mi>k</mi><mn>3</mn></msup><annotation encoding=\"application/x-tex\">k^3</annotation></semantics></math></span>.</p>\n<p>For a right triangle with legs <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi><mo separator=\"true\">,</mo><mi>b</mi></mrow><annotation encoding=\"application/x-tex\">a,b</annotation></semantics></math></span> and hypotenuse <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>c</mi><annotation encoding=\"application/x-tex\">c</annotation></semantics></math></span>,</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><msup><mi>a</mi><mn>2</mn></msup><mo>+</mo><msup><mi>b</mi><mn>2</mn></msup><mo>=</mo><msup><mi>c</mi><mn class=\"tml-sml-pad\">2</mn></msup><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">a^2+b^2=c^2.</annotation></semantics></math></div>\n<p>Relative to an acute angle <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>θ</mi><annotation encoding=\"application/x-tex\">\\theta</annotation></semantics></math></span>:</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mrow><mi>sin</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mi>θ</mi><mo>=</mo><mfrac><mtext>opposite</mtext><mtext>hypotenuse</mtext></mfrac><mo separator=\"true\">,</mo><mspace width=\"1em\"></mspace><mrow><mi>cos</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mi>θ</mi><mo>=</mo><mfrac><mtext>adjacent</mtext><mtext>hypotenuse</mtext></mfrac><mo separator=\"true\">,</mo><mspace width=\"1em\"></mspace><mrow><mi>tan</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mi>θ</mi><mo>=</mo><mfrac><mtext>opposite</mtext><mtext>adjacent</mtext></mfrac><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">\\sin\\theta=\\frac{\\text{opposite}}{\\text{hypotenuse}},\\quad\n\\cos\\theta=\\frac{\\text{adjacent}}{\\text{hypotenuse}},\\quad\n\\tan\\theta=\\frac{\\text{opposite}}{\\text{adjacent}}.</annotation></semantics></math></div>\n<p>The labels “opposite” and “adjacent” depend on the chosen angle; the hypotenuse is always opposite the right angle.</p>\n<aside class=\"ek-block ek-definition ek-block--definition\" data-directive=\"definition\">\n    <div class=\"ek-block-label directive-label\">Definition</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> definition-radian</span></div>\n    <div class=\"ek-block-content\"><p>One <strong>radian</strong> is the angle subtending an arc whose length equals the circle radius. A full turn is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mi>π</mi></mrow><annotation encoding=\"application/x-tex\">2\\pi</annotation></semantics></math></span> radians, so <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>180</mn><mo>∘</mo></msup><mo>=</mo><mi>π</mi></mrow><annotation encoding=\"application/x-tex\">180^\\circ=\\pi</annotation></semantics></math></span> radians and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>1</mn><mo form=\"prefix\" stretchy=\"false\">∘</mo></msup><mo>=</mo><mi>π</mi><mi>/</mi><mn>180</mn></mrow><annotation encoding=\"application/x-tex\">1^\\circ=\\pi/180</annotation></semantics></math></span> radians.</p>\n</div>\n  </aside>\n<h2>Unit-circle meaning</h2>\n<p>On a unit circle centered at the origin, the point reached by angle <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>θ</mi><annotation encoding=\"application/x-tex\">\\theta</annotation></semantics></math></span> measured counterclockwise from the positive horizontal axis has coordinates</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mrow><mi>cos</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mi>θ</mi><mo separator=\"true\">,</mo><mrow><mi>sin</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mi>θ</mi><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">(\\cos\\theta,\\sin\\theta).</annotation></semantics></math></div>\n<p>This extends sine and cosine beyond acute triangles and supplies signs by quadrant. It also gives <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>sin</mi><mn>2</mn></msup><mo>⁡</mo><mspace width=\"0.1667em\"></mspace><mi>θ</mi><mo>+</mo><msup><mi>cos</mi><mn>2</mn></msup><mo>⁡</mo><mspace width=\"0.1667em\"></mspace><mi>θ</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">\\sin^2\\theta+\\cos^2\\theta=1</annotation></semantics></math></span> from the circle equation.</p>\n<h2>Recovering an angle</h2>\n<p>If a right triangle has opposite/adjacent ratio <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>r</mi><annotation encoding=\"application/x-tex\">r</annotation></semantics></math></span>, then <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>θ</mi><mo>=</mo><mrow><mi>arctan</mi><mo>⁡</mo></mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mi>r</mi><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\theta=\\arctan(r)</annotation></semantics></math></span> returns a principal angle. Context must still identify the intended quadrant. Calculator angle mode must match the requested unit.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-trig-functions, claim-angle-conversion, claim-unit-circle</span><span><b>sources</b> source-nist-dlmf-trig, source-nist-si-angle</span></div>\n    <div class=\"ek-block-content\"><p>NIST supports trigonometric definitions/relations and exact degree-radian conversion. The geometric scaling and accessible explanations are original mathematical synthesis.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-worked-example",
+      "title": "Recover a distance and direction",
+      "kind": "worked-example",
+      "source": "content/030-worked-example.md",
+      "estimatedMinutes": 40,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Recover a distance and direction</h1>\n<p>A fictional beacon lies at coordinate <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>9,12</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(9,12)</annotation></semantics></math></span> relative to an origin. Find its straight-line distance and its counterclockwise angle from the positive horizontal axis.</p>\n<aside class=\"ek-block ek-worked-example ek-block--worked-example\" data-directive=\"worked-example\">\n    <div class=\"ek-block-label directive-label\">Worked Example</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> worked-example-beacon</span></div>\n    <div class=\"ek-block-content\"><p><strong>1. Label.</strong> Horizontal leg 9, vertical leg 12, both positive; the point lies in the first quadrant.</p>\n<p><strong>2. Distance.</strong></p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mi>d</mi><mo>=</mo><msqrt><mrow><msup><mn>9</mn><mn>2</mn></msup><mo>+</mo><msup><mn>12</mn><mn>2</mn></msup></mrow></msqrt><mo>=</mo><msqrt><mn>225</mn></msqrt><mo>=</mo><mn>15.</mn></mrow><annotation encoding=\"application/x-tex\">d=\\sqrt{9^2+12^2}=\\sqrt{225}=15.</annotation></semantics></math></div>\n<p><strong>3. Direction.</strong></p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mrow><mi>tan</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mi>θ</mi><mo>=</mo><mfrac><mn>12</mn><mn>9</mn></mfrac><mo>=</mo><mfrac><mn>4</mn><mn>3</mn></mfrac><mo separator=\"true\">,</mo></mrow><annotation encoding=\"application/x-tex\">\\tan\\theta=\\frac{12}{9}=\\frac43,</annotation></semantics></math></div>\n<p>so <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>θ</mi><mo>=</mo><mrow><mi>arctan</mi><mo>⁡</mo></mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>4</mn><mi>/</mi><mn>3</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>≈</mo><msup><mn>53.13</mn><mo>∘</mo></msup><mo>≈</mo><mn>0.9273</mn><mtext> rad</mtext></mrow><annotation encoding=\"application/x-tex\">\\theta=\\arctan(4/3)\\approx53.13^\\circ\\approx0.9273\\text{ rad}</annotation></semantics></math></span>.</p>\n<p><strong>4. Check ratios.</strong> <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mrow><mi>cos</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mi>θ</mi><mo>=</mo><mn>9</mn><mi>/</mi><mn>15</mn><mo>=</mo><mn>0.6</mn></mrow><annotation encoding=\"application/x-tex\">\\cos\\theta=9/15=0.6</annotation></semantics></math></span> and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mrow><mi>sin</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mi>θ</mi><mo>=</mo><mn>12</mn><mi>/</mi><mn>15</mn><mo>=</mo><mn>0.8</mn></mrow><annotation encoding=\"application/x-tex\">\\sin\\theta=12/15=0.8</annotation></semantics></math></span>; <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>0.6</mn><mn>2</mn></msup><mo>+</mo><msup><mn>0.8</mn><mn>2</mn></msup><mo>=</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">0.6^2+0.8^2=1</annotation></semantics></math></span>.</p>\n<p><strong>5. Check bounds and quadrant.</strong> The distance lies between 12 and 21; both coordinates are positive, so the acute first-quadrant angle is consistent.</p>\n</div>\n  </aside>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-angle-mode</span></div>\n    <div class=\"ek-block-content\"><p>If a calculator returns approximately 0.9273, why is reporting <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mn>0.9273</mn><mo>∘</mo></msup><annotation encoding=\"application/x-tex\">0.9273^\\circ</annotation></semantics></math></span> wrong?</p>\n</div>\n  </aside>\n<p>The value is in radians. It must be labeled as radians or converted to about <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mn>53.13</mn><mo>∘</mo></msup><annotation encoding=\"application/x-tex\">53.13^\\circ</annotation></semantics></math></span>.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-trig-functions, claim-angle-conversion, claim-unit-circle</span><span><b>sources</b> source-nist-dlmf-trig, source-nist-si-angle</span></div>\n    <div class=\"ek-block-content\"><p>The beacon, values, solution, and checks are original applications of the sourced relations.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-misconception",
+      "title": "Inverse sine is not reciprocal sine",
+      "kind": "misconception",
+      "source": "content/040-misconception.md",
+      "estimatedMinutes": 30,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Inverse sine is not reciprocal sine</h1>\n<aside class=\"ek-block ek-misconception ek-block--misconception\" data-directive=\"misconception\">\n    <div class=\"ek-block-label directive-label\">Misconception</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> misconception-inverse-reciprocal</span></div>\n    <div class=\"ek-block-content\"><p>The notation <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>sin</mi><mrow><mo form=\"prefix\" stretchy=\"false\" lspace=\"0em\" rspace=\"0em\">−</mo><mn>1</mn></mrow></msup><mo>⁡</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mi>x</mi><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\sin^{-1}(x)</annotation></semantics></math></span> often means the inverse function <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mrow><mi>arcsin</mi><mo>⁡</mo></mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mi>x</mi><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\arcsin(x)</annotation></semantics></math></span>: it returns an angle whose sine is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>x</mi><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span>. It does not mean <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn><mi>/</mi><mrow><mspace width=\"0.1667em\"></mspace><mi>sin</mi><mo>⁡</mo></mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mi>x</mi><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">1/\\sin(x)</annotation></semantics></math></span>, which is the reciprocal function cosecant.</p>\n<p>For example,</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mrow><mi>arcsin</mi><mo>⁡</mo></mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>0.5</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>=</mo><msup><mn>30</mn><mo>∘</mo></msup><mo>=</mo><mi>π</mi><mi>/</mi><mn>6</mn><mo separator=\"true\">,</mo></mrow><annotation encoding=\"application/x-tex\">\\arcsin(0.5)=30^\\circ=\\pi/6,</annotation></semantics></math></div>\n<p>whereas <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn><mi>/</mi><mrow><mspace width=\"0.1667em\"></mspace><mi>sin</mi><mo>⁡</mo></mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>0.5</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">1/\\sin(0.5)</annotation></semantics></math></span> treats 0.5 as an angle input and is a different calculation.</p>\n</div>\n  </aside>\n<p>Write <code>arcsin</code>, <code>arccos</code>, or <code>arctan</code> when ambiguity matters. Then label the returned angle unit and use geometric context to select or reject a quadrant.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-trig-functions, claim-inverse-trig</span><span><b>sources</b> source-nist-dlmf-trig</span></div>\n    <div class=\"ek-block-content\"><p>The distinction and numerical counterexample are original teaching expression based on standard function and inverse-function notation.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-practice",
+      "title": "Choose the relation from the labels",
+      "kind": "practice",
+      "source": "content/050-practice.md",
+      "estimatedMinutes": 40,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Choose the relation from the labels</h1>\n<h2>1. Scale a shape</h2>\n<p>A rectangle&#39;s linear dimensions are multiplied by 1.5. What happens to its area?</p>\n<p><strong>Feedback:</strong> Area is multiplied by <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>1.5</mn><mn>2</mn></msup><mo>=</mo><mn>2.25</mn></mrow><annotation encoding=\"application/x-tex\">1.5^2=2.25</annotation></semantics></math></span>.</p>\n<h2>2. Complete a right triangle</h2>\n<p>The hypotenuse is 10 and one leg is 6. Find the other leg.</p>\n<p><strong>Feedback:</strong> <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msqrt><mrow><msup><mn>10</mn><mn>2</mn></msup><mo>−</mo><msup><mn>6</mn><mn>2</mn></msup></mrow></msqrt><mo>=</mo><mn>8</mn></mrow><annotation encoding=\"application/x-tex\">\\sqrt{10^2-6^2}=8</annotation></semantics></math></span>. The leg is below the hypotenuse.</p>\n<h2>3. Convert angle units</h2>\n<p>Convert <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mn>135</mn><mo>∘</mo></msup><annotation encoding=\"application/x-tex\">135^\\circ</annotation></semantics></math></span> to radians.</p>\n<p><strong>Feedback:</strong> <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>135</mn><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mi>π</mi><mi>/</mi><mn>180</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>=</mo><mn>3</mn><mi>π</mi><mi>/</mi><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">135(\\pi/180)=3\\pi/4</annotation></semantics></math></span> radians.</p>\n<h2>4. Choose a ratio</h2>\n<p>Relative to angle <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>θ</mi><annotation encoding=\"application/x-tex\">\\theta</annotation></semantics></math></span>, the adjacent leg is 7 and hypotenuse is 25. Find <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>θ</mi><annotation encoding=\"application/x-tex\">\\theta</annotation></semantics></math></span> in degrees.</p>\n<p><strong>Feedback:</strong> <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mrow><mi>cos</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mi>θ</mi><mo>=</mo><mn>7</mn><mi>/</mi><mn>25</mn></mrow><annotation encoding=\"application/x-tex\">\\cos\\theta=7/25</annotation></semantics></math></span>, so <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>θ</mi><mo>=</mo><mrow><mi>arccos</mi><mo>⁡</mo></mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>7</mn><mi>/</mi><mn>25</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>≈</mo><msup><mn>73.74</mn><mo>∘</mo></msup></mrow><annotation encoding=\"application/x-tex\">\\theta=\\arccos(7/25)\\approx73.74^\\circ</annotation></semantics></math></span>.</p>\n<h2>Recovery route</h2>\n<ul>\n<li>Wrong side labels: name the reference angle before opposite and adjacent.</li>\n<li>Lengths added instead of squared: state whether they are collinear or perpendicular.</li>\n<li>Area or volume scaled linearly: apply the scale factor once per dimension.</li>\n<li>Inverse function confused with reciprocal: write <code>arc</code> notation explicitly.</li>\n<li>Plausible digits but wrong angle: label degrees or radians before interpreting.</li>\n</ul>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-trig-functions, claim-angle-conversion, claim-inverse-trig</span><span><b>sources</b> source-nist-dlmf-trig, source-nist-si-angle</span></div>\n    <div class=\"ek-block-content\"><p>All practice, feedback, and recovery guidance are original.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-transfer",
+      "title": "Audit an angled span",
+      "kind": "transfer",
+      "source": "content/060-transfer.md",
+      "estimatedMinutes": 35,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Audit an angled span</h1>\n<p>A fictional straight span has length 20 units and makes a <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mn>35</mn><mo>∘</mo></msup><annotation encoding=\"application/x-tex\">35^\\circ</annotation></semantics></math></span> angle above the positive horizontal direction. Determine its horizontal and vertical extents, then reconstruct the length and angle from those extents.</p>\n<h2>Feedback after a complete attempt</h2>\n<p>The horizontal extent is adjacent to the angle:</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>20</mn><mrow><mspace width=\"0.1667em\"></mspace><mi>cos</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><msup><mn>35</mn><mo>∘</mo></msup><mo>≈</mo><mn>16.38.</mn></mrow><annotation encoding=\"application/x-tex\">x=20\\cos35^\\circ\\approx16.38.</annotation></semantics></math></div>\n<p>The vertical extent is opposite:</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mi>y</mi><mo>=</mo><mn>20</mn><mrow><mspace width=\"0.1667em\"></mspace><mi>sin</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><msup><mn>35</mn><mo>∘</mo></msup><mo>≈</mo><mn>11.47.</mn></mrow><annotation encoding=\"application/x-tex\">y=20\\sin35^\\circ\\approx11.47.</annotation></semantics></math></div>\n<p>Reconstruct length:</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><msqrt><mrow><msup><mi>x</mi><mn class=\"tml-sml-pad\">2</mn></msup><mo>+</mo><msup><mi>y</mi><mn class=\"tml-sml-pad\">2</mn></msup></mrow></msqrt><mo>≈</mo><mn>20.</mn></mrow><annotation encoding=\"application/x-tex\">\\sqrt{x^2+y^2}\\approx20.</annotation></semantics></math></div>\n<p>Reconstruct direction:</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mrow><mi>arctan</mi><mo>⁡</mo></mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mi>y</mi><mi>/</mi><mi>x</mi><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>≈</mo><msup><mn>35</mn><mo>∘</mo></msup><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">\\arctan(y/x)\\approx35^\\circ.</annotation></semantics></math></div>\n<p>Both extents are positive and smaller than the length, as a first-quadrant acute span requires. The context is fictional and the calculation is not engineering certification.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-trig-functions, claim-angle-conversion, claim-unit-circle, claim-inverse-trig</span><span><b>sources</b> source-nist-dlmf-trig, source-nist-si-angle</span></div>\n    <div class=\"ek-block-content\"><p>The span, numbers, reconstruction, and boundary statement are original.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-synthesis",
+      "title": "Rebuild the geometric audit",
+      "kind": "synthesis",
+      "source": "content/070-synthesis.md",
+      "estimatedMinutes": 25,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Rebuild the geometric audit</h1>\n<ol>\n<li>Name points, perpendicular relations, side labels, scale, and angle unit.</li>\n<li>Choose a relation: scaling power, Pythagorean equation, or trigonometric ratio.</li>\n<li>Solve symbolically before rounding.</li>\n<li>Use inverse trigonometry only after forming a valid ratio.</li>\n<li>Check triangle bounds, quadrant signs, unit-circle identity, and units.</li>\n</ol>\n<h2>Retrieval</h2>\n<ul>\n<li>Why does area scale with the square of a linear factor?</li>\n<li>How do degrees convert to radians?</li>\n<li>What are cosine and sine on the unit circle?</li>\n<li>How does <code>arcsin</code> differ from reciprocal sine?</li>\n</ul>\n<p>Complete <code>assessment.json</code>. If side choice fails, return to labeled ratios. If angle mode fails, redo the beacon conversion. If a visual sketch feels essential, replace it with coordinates, named sides, and perpendicular relationships before retrying.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-trig-functions, claim-angle-conversion, claim-unit-circle, claim-inverse-trig</span><span><b>sources</b> source-nist-dlmf-trig, source-nist-si-angle</span></div>\n    <div class=\"ek-block-content\"><p>The synthesis uses sourced trigonometric and angle-unit relations through an original geometric-audit method.</p>\n</div>\n  </aside>\n"
+    }
+  ],
+  "authors": [
+    {
+      "principalId": "github:VSBDev",
+      "displayName": "VSBDev — accountable author with Codex assistance",
+      "agent": {
+        "system": "Codex desktop",
+        "provider": "OpenAI",
+        "model": "gpt-5.6-sol",
+        "version": "Codex desktop runtime 2026-07-22",
+        "runId": "d6ce8df3-939e-4724-8a5d-d7f48941a174",
+        "instructionsDigest": "sha256:738d28378229dadd70b4221a1f29b14e995ee97bc474824a9e3692eb1e5e2bfa"
+      }
+    }
+  ],
+  "license": "CC-BY-4.0",
+  "sourceConfidence": "pending-review",
+  "aiAssistance": {
+    "used": true,
+    "disclosure": "VSBDev (github:VSBDev) is accountable. OpenAI Codex, model gpt-5.6-sol, authored, researched, edited, and packaged this lesson in run d6ce8df3-939e-4724-8a5d-d7f48941a174. The digest covers discloseable material task instructions, not hidden system or provider instructions."
+  },
+  "assessment": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-assessment-v1",
+    "lessonId": "PREM-QNT-008",
+    "lessonVersion": "0.1.0",
+    "assessmentId": "assessment-geometric-audit",
+    "title": "Geometry and trigonometry mastery gate",
+    "purpose": "mastery-gate",
+    "attemptPolicy": {
+      "retakeable": true,
+      "timeLimitMinutes": null,
+      "feedback": "after-attempt"
+    },
+    "items": [
+      {
+        "id": "item-volume-scale",
+        "type": "numeric",
+        "sceneId": "scene-synthesis",
+        "objectiveIds": [
+          "objective-measure-geometry"
+        ],
+        "outcomeIds": [
+          "topic-quantitative-foundations-geometry-trigonometry"
+        ],
+        "prompt": "Every linear dimension of a solid is multiplied by 0.8. Enter the resulting volume factor.",
+        "points": 2,
+        "responseSpec": {
+          "mode": "number",
+          "units": null,
+          "tolerance": 0
+        },
+        "answer": {
+          "correct": 0.512,
+          "summary": "The volume factor is 0.8³ = 0.512.",
+          "reasoning": "Volume contains three independent length dimensions, so the linear scale factor is applied three times.",
+          "acceptableResponses": [
+            "51.2% of the original volume"
+          ],
+          "commonErrors": [
+            "Using 0.8 or 0.64",
+            "Subtracting 20% only once"
+          ]
+        },
+        "rubricId": "rubric-volume-scale",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-pythagorean",
+        "type": "short-answer",
+        "sceneId": "scene-synthesis",
+        "objectiveIds": [
+          "objective-right-triangle"
+        ],
+        "outcomeIds": [
+          "topic-quantitative-foundations-geometry-trigonometry"
+        ],
+        "prompt": "A right triangle has legs 7 and 24. Find the hypotenuse and give a bound check.",
+        "points": 4,
+        "responseSpec": {
+          "mode": "text",
+          "maxLength": 900
+        },
+        "answer": {
+          "correct": "c = √(7² + 24²) = √625 = 25. It is longer than the larger leg 24 and shorter than 7 + 24 = 31.",
+          "summary": "The hypotenuse is 25.",
+          "reasoning": "Perpendicular legs combine through their squares, and triangle bounds independently test the result.",
+          "acceptableResponses": [],
+          "commonErrors": [
+            "Adding legs to get 31",
+            "Subtracting the squares",
+            "Giving 25 without a bound check"
+          ]
+        },
+        "rubricId": "rubric-pythagorean",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-angle-convert",
+        "type": "short-answer",
+        "sceneId": "scene-synthesis",
+        "objectiveIds": [
+          "objective-angle-units"
+        ],
+        "outcomeIds": [
+          "topic-quantitative-foundations-geometry-trigonometry"
+        ],
+        "prompt": "Convert 225° to exact radians and state its quadrant in standard position.",
+        "points": 4,
+        "responseSpec": {
+          "mode": "text",
+          "maxLength": 800
+        },
+        "answer": {
+          "correct": "225° × π/180° = 5π/4 radians. It lies in quadrant III.",
+          "summary": "5π/4 radians, quadrant III.",
+          "reasoning": "The angle is 45° beyond 180°, placing both unit-circle coordinates negative.",
+          "acceptableResponses": [],
+          "commonErrors": [
+            "Using 180/π",
+            "Reporting 5π/4 without a quadrant"
+          ]
+        },
+        "rubricId": "rubric-angle-convert",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-unit-circle",
+        "type": "single-choice",
+        "sceneId": "scene-synthesis",
+        "objectiveIds": [
+          "objective-angle-units"
+        ],
+        "outcomeIds": [
+          "topic-quantitative-foundations-geometry-trigonometry"
+        ],
+        "prompt": "Which unit-circle point corresponds to 150°?",
+        "points": 3,
+        "responseSpec": {
+          "mode": "single-choice",
+          "options": [
+            {
+              "id": "option-circle-a",
+              "text": "(√3/2, 1/2)"
+            },
+            {
+              "id": "option-circle-b",
+              "text": "(-√3/2, 1/2)"
+            },
+            {
+              "id": "option-circle-c",
+              "text": "(-1/2, -√3/2)"
+            },
+            {
+              "id": "option-circle-d",
+              "text": "(1/2, -√3/2)"
+            }
+          ]
+        },
+        "answer": {
+          "correct": "option-circle-b",
+          "summary": "At 150°, cosine is negative and sine is positive.",
+          "reasoning": "The reference angle is 30° in quadrant II, so the coordinate magnitudes are √3/2 and 1/2 with signs (-,+).",
+          "acceptableResponses": [],
+          "commonErrors": [
+            "Ignoring quadrant signs",
+            "Swapping sine and cosine coordinates"
+          ]
+        },
+        "rubricId": "rubric-unit-circle",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-inverse-angle",
+        "type": "short-answer",
+        "sceneId": "scene-synthesis",
+        "objectiveIds": [
+          "objective-right-triangle",
+          "objective-inverse-trig"
+        ],
+        "outcomeIds": [
+          "topic-quantitative-foundations-geometry-trigonometry"
+        ],
+        "prompt": "In a right triangle, the side opposite acute angle θ is 15 and the adjacent side is 8. Find θ in degrees to two decimals and verify the side ordering is plausible.",
+        "points": 5,
+        "responseSpec": {
+          "mode": "text",
+          "maxLength": 1100
+        },
+        "answer": {
+          "correct": "tan θ = 15/8, so θ = arctan(15/8) ≈ 61.93°. The opposite side exceeds the adjacent side, so an angle above 45° is plausible; the hypotenuse is 17 and exceeds both legs.",
+          "summary": "θ ≈ 61.93°.",
+          "reasoning": "Tangent uses the two given legs; magnitude and the 8-15-17 triangle provide independent checks.",
+          "acceptableResponses": [
+            "61.92° or 61.93° with valid checks"
+          ],
+          "commonErrors": [
+            "Using reciprocal tangent and obtaining the complementary angle",
+            "Reporting radians as degrees",
+            "Failing to check the acute-angle range"
+          ]
+        },
+        "rubricId": "rubric-inverse-angle",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-transfer-panel",
+        "type": "open-response",
+        "sceneId": "scene-synthesis",
+        "objectiveIds": [
+          "objective-measure-geometry",
+          "objective-right-triangle",
+          "objective-angle-units",
+          "objective-inverse-trig"
+        ],
+        "outcomeIds": [
+          "topic-quantitative-foundations-geometry-trigonometry"
+        ],
+        "prompt": "A fictional right-triangular panel has hypotenuse 26 units and an acute angle of 40° between the hypotenuse and its adjacent leg. Find both legs and the area. A similar panel has every length multiplied by 1.5; predict and calculate its area. Reconstruct the original angle from your computed legs and include bounds and units checks.",
+        "points": 10,
+        "responseSpec": {
+          "mode": "text",
+          "maxLength": 3400
+        },
+        "answer": {
+          "correct": "Adjacent = 26cos40° ≈ 19.917; opposite = 26sin40° ≈ 16.712. Area = 0.5(19.917)(16.712) ≈ 166.43 square units. The similar panel's area factor is 1.5² = 2.25, so area ≈ 374.47 square units. Reconstructed angle arctan(16.712/19.917) ≈ 40°. Each leg is positive and below 26, and 19.917² + 16.712² ≈ 26².",
+          "summary": "Legs ≈ 19.92 and 16.71; area ≈ 166.43; scaled area ≈ 374.47 square units.",
+          "reasoning": "Cosine and sine resolve the hypotenuse relative to the named angle; triangular area uses both perpendicular legs; similar-area scaling squares the linear factor.",
+          "acceptableResponses": [
+            "Numerical values within rounding tolerance of 0.1 with all geometric checks and square-unit labels"
+          ],
+          "commonErrors": [
+            "Swapping adjacent and opposite labels",
+            "Using 1.5 rather than 2.25 for area scaling",
+            "Applying degrees as radians",
+            "Omitting square units"
+          ]
+        },
+        "rubricId": "rubric-transfer-panel",
+        "safetyCritical": false
+      }
+    ],
+    "rubrics": [
+      {
+        "id": "rubric-volume-scale",
+        "title": "Geometric scaling",
+        "criteria": [
+          {
+            "id": "criterion-volume-factor",
+            "description": "Cubes the linear factor and obtains 0.512.",
+            "maxPoints": 2
+          }
+        ]
+      },
+      {
+        "id": "rubric-pythagorean",
+        "title": "Right-triangle distance",
+        "criteria": [
+          {
+            "id": "criterion-pythagorean-value",
+            "description": "Obtains 25 from the squared-leg relation.",
+            "maxPoints": 3
+          },
+          {
+            "id": "criterion-pythagorean-bound",
+            "description": "Checks against the larger leg and leg sum.",
+            "maxPoints": 1
+          }
+        ]
+      },
+      {
+        "id": "rubric-angle-convert",
+        "title": "Angle units",
+        "criteria": [
+          {
+            "id": "criterion-angle-radians",
+            "description": "Obtains exact 5π/4 radians.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-angle-quadrant",
+            "description": "Identifies quadrant III.",
+            "maxPoints": 2
+          }
+        ]
+      },
+      {
+        "id": "rubric-unit-circle",
+        "title": "Unit-circle coordinate",
+        "criteria": [
+          {
+            "id": "criterion-circle-signs",
+            "description": "Selects cosine-negative, sine-positive coordinates with correct magnitudes.",
+            "maxPoints": 3
+          }
+        ]
+      },
+      {
+        "id": "rubric-inverse-angle",
+        "title": "Inverse trigonometry",
+        "criteria": [
+          {
+            "id": "criterion-inverse-ratio",
+            "description": "Forms tan θ = 15/8.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-inverse-value",
+            "description": "Obtains about 61.93°.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-inverse-check",
+            "description": "Uses side ordering or the 8-15-17 relation as a check.",
+            "maxPoints": 1
+          }
+        ]
+      },
+      {
+        "id": "rubric-transfer-panel",
+        "title": "Independent geometric audit",
+        "criteria": [
+          {
+            "id": "criterion-panel-legs",
+            "description": "Calculates and labels both legs.",
+            "maxPoints": 3
+          },
+          {
+            "id": "criterion-panel-area",
+            "description": "Calculates original area with square units.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-panel-scale",
+            "description": "Uses area factor 2.25 for the similar panel.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-panel-reconstruct",
+            "description": "Reconstructs approximately 40°.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-panel-checks",
+            "description": "Checks Pythagorean relation, bounds, and units.",
+            "maxPoints": 2
+          }
+        ]
+      }
+    ]
+  },
+  "references": {
+    "schemaVersion": 2,
+    "format": "embeddedknowledge-references-v2",
+    "lessonId": "PREM-QNT-008",
+    "lessonVersion": "0.1.0",
+    "sources": [
+      {
+        "id": "source-nist-dlmf-trig",
+        "type": "reference-work",
+        "title": "NIST Digital Library of Mathematical Functions, §4.14 Definitions and Periodicity: Trigonometric Functions",
+        "creators": [
+          "National Institute of Standards and Technology"
+        ],
+        "publisher": "National Institute of Standards and Technology",
+        "issued": "2010",
+        "url": "https://dlmf.nist.gov/4.14",
+        "accessed": "2026-07-22",
+        "version": "DLMF web edition accessed 2026-07-22",
+        "locator": "Definitions and relations for sine, cosine, tangent, and periodicity",
+        "license": "NIST public technical reference under NIST Copyrights & Disclaimers; third-party contributions and cited works excluded",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Only standard trigonometric definitions and identities are used. All geometric contexts, explanations, examples, and assessments are original."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://www.nist.gov/copyrights-disclaimers",
+          "checked": "2026-07-22",
+          "notes": "NIST rights and public robots routes were checked before DLMF access; no source-specific agent restriction, login, paywall, or access-control barrier was found."
+        }
+      },
+      {
+        "id": "source-nist-si-angle",
+        "type": "official-standard",
+        "title": "NIST Guide to the SI, Chapter 5: Units Outside the SI",
+        "creators": [
+          "National Institute of Standards and Technology"
+        ],
+        "publisher": "National Institute of Standards and Technology",
+        "issued": "2016-01-28",
+        "url": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-5-units-outside-si",
+        "accessed": "2026-07-22",
+        "version": "NIST Special Publication 811 web presentation",
+        "locator": "Section 5.1.1 and Table 6: degree of plane angle and exact relation 1 degree = pi/180 radians",
+        "license": "NIST Technical Series/public information under NIST Copyrights & Disclaimers and technical-series licensing statements, subject to attribution and third-party exceptions",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "The exact degree-radian relation is used as a fact; no NIST table, wording, or example is reproduced."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://www.nist.gov/copyrights-disclaimers",
+          "checked": "2026-07-22",
+          "notes": "NIST rights, technical-series licensing, and robots routes were checked before access; no agent restriction or access barrier was found."
+        }
+      }
+    ]
+  },
+  "claims": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-claims-v1",
+    "lessonId": "PREM-QNT-008",
+    "lessonVersion": "0.1.0",
+    "claims": [
+      {
+        "id": "claim-trig-functions",
+        "statement": "Sine, cosine, and tangent are related trigonometric functions, with tangent equal to sine divided by cosine where cosine is nonzero.",
+        "sceneIds": [
+          "scene-orientation",
+          "scene-concept",
+          "scene-worked-example",
+          "scene-misconception",
+          "scene-practice",
+          "scene-transfer",
+          "scene-synthesis"
+        ],
+        "sourceIds": [
+          "source-nist-dlmf-trig"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Real-angle trigonometry used for right triangles and unit-circle coordinates.",
+        "uncertainty": "Complex arguments and analytic continuation are outside scope.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-angle-conversion",
+        "statement": "A plane angle of one degree equals pi/180 radians, so a half turn is 180 degrees or pi radians.",
+        "sceneIds": [
+          "scene-orientation",
+          "scene-concept",
+          "scene-worked-example",
+          "scene-practice",
+          "scene-transfer",
+          "scene-synthesis"
+        ],
+        "sourceIds": [
+          "source-nist-si-angle"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Degree-radian conversions in the lesson.",
+        "uncertainty": "Rounding numerical angle values can slightly perturb reconstructed lengths.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-unit-circle",
+        "statement": "For a real angle measured from the positive horizontal axis, cosine and sine give the horizontal and vertical coordinates on the unit circle, implying sine squared plus cosine squared equals one.",
+        "sceneIds": [
+          "scene-concept",
+          "scene-worked-example",
+          "scene-transfer",
+          "scene-synthesis"
+        ],
+        "sourceIds": [
+          "source-nist-dlmf-trig"
+        ],
+        "support": "inference",
+        "confidence": "high",
+        "scope": "Standard unit-circle interpretation over real angles.",
+        "uncertainty": "Orientation conventions must be stated when a field measures angles from a different reference direction.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-inverse-trig",
+        "statement": "Inverse trigonometric functions return principal angles; geometric context and quadrant information are needed to interpret an intended direction beyond that principal range.",
+        "sceneIds": [
+          "scene-misconception",
+          "scene-practice",
+          "scene-transfer",
+          "scene-synthesis"
+        ],
+        "sourceIds": [
+          "source-nist-dlmf-trig"
+        ],
+        "support": "inference",
+        "confidence": "high",
+        "scope": "Real inverse sine, cosine, and tangent calculations in the lesson.",
+        "uncertainty": "Alternative software notation can use a superscript minus one ambiguously for inverse versus reciprocal functions.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      }
+    ]
+  },
+  "glossary": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-glossary-v1",
+    "lessonId": "PREM-QNT-008",
+    "lessonVersion": "0.1.0",
+    "terms": [
+      {
+        "id": "term-hypotenuse",
+        "term": "hypotenuse",
+        "definition": "The side opposite the right angle in a right triangle; it is the triangle's longest side.",
+        "aliases": [],
+        "sceneIds": [
+          "scene-orientation",
+          "scene-concept",
+          "scene-worked-example",
+          "scene-practice",
+          "scene-synthesis"
+        ]
+      },
+      {
+        "id": "term-radian",
+        "term": "radian",
+        "definition": "A plane-angle unit defined by arc length divided by radius; a full turn is 2 pi radians.",
+        "aliases": [
+          "rad"
+        ],
+        "sceneIds": [
+          "scene-concept",
+          "scene-worked-example",
+          "scene-practice",
+          "scene-synthesis"
+        ]
+      },
+      {
+        "id": "term-sine",
+        "term": "sine",
+        "definition": "For a right-triangle acute angle, opposite divided by hypotenuse; on the unit circle, the vertical coordinate.",
+        "aliases": [
+          "sin"
+        ],
+        "sceneIds": [
+          "scene-concept",
+          "scene-worked-example",
+          "scene-misconception",
+          "scene-transfer",
+          "scene-synthesis"
+        ]
+      },
+      {
+        "id": "term-cosine",
+        "term": "cosine",
+        "definition": "For a right-triangle acute angle, adjacent divided by hypotenuse; on the unit circle, the horizontal coordinate.",
+        "aliases": [
+          "cos"
+        ],
+        "sceneIds": [
+          "scene-concept",
+          "scene-worked-example",
+          "scene-practice",
+          "scene-transfer",
+          "scene-synthesis"
+        ]
+      },
+      {
+        "id": "term-tangent",
+        "term": "tangent",
+        "definition": "For a right-triangle acute angle, opposite divided by adjacent; equivalently sine divided by cosine where defined.",
+        "aliases": [
+          "tan"
+        ],
+        "sceneIds": [
+          "scene-concept",
+          "scene-worked-example",
+          "scene-practice",
+          "scene-transfer"
+        ]
+      },
+      {
+        "id": "term-inverse-trig",
+        "term": "inverse trigonometric function",
+        "definition": "A function such as arcsin, arccos, or arctan that returns a principal angle from a trigonometric ratio.",
+        "aliases": [
+          "arc function"
+        ],
+        "sceneIds": [
+          "scene-concept",
+          "scene-misconception",
+          "scene-practice",
+          "scene-transfer",
+          "scene-synthesis"
+        ]
+      },
+      {
+        "id": "term-scale-factor",
+        "term": "linear scale factor",
+        "definition": "The multiplier applied to corresponding lengths; areas and volumes scale by its square and cube respectively.",
+        "aliases": [
+          "length scale"
+        ],
+        "sceneIds": [
+          "scene-concept",
+          "scene-practice",
+          "scene-synthesis"
+        ]
+      }
+    ]
+  },
+  "attributionHtml": "<h1>Attribution</h1>\n<h2>Lesson identity and licence</h2>\n<ul>\n<li>Lesson: <strong>PREM-QNT-008 — Label, relate, solve: geometry and trigonometry</strong></li>\n<li>Outcome: <strong>PREM-03.08</strong> (<code>topic-quantitative-foundations-geometry-trigonometry</code>)</li>\n<li>Principal: <strong>VSBDev</strong> (<code>github:VSBDev</code>)</li>\n<li>Licence: <strong>Creative Commons Attribution 4.0 International (CC BY 4.0)</strong></li>\n<li>State: <strong>draft</strong>, source confidence <strong>pending-review</strong></li>\n</ul>\n<h2>Material agent assistance</h2>\n<p>OpenAI Codex authored, researched, edited, and packaged this lesson in one author-role run.</p>\n<table>\n<thead>\n<tr>\n<th>System</th>\n<th>Provider</th>\n<th>Model</th>\n<th>Version</th>\n<th>Run ID</th>\n<th>Material-instructions digest</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>Codex desktop</td>\n<td>OpenAI</td>\n<td><code>gpt-5.6-sol</code></td>\n<td>Codex desktop runtime 2026-07-22</td>\n<td><code>d6ce8df3-939e-4724-8a5d-d7f48941a174</code></td>\n<td><code>sha256:738d28378229dadd70b4221a1f29b14e995ee97bc474824a9e3692eb1e5e2bfa</code></td>\n</tr>\n</tbody></table>\n<p>The digest identifies <code>/tmp/codex-packager-prompt-03-08.md</code>; unavailable hidden instructions are excluded. No other model authored or reviewed this lesson.</p>\n<h2>Originality, evidence, and rights</h2>\n<p>The geometric-audit structure, locator opening, beacon example, inverse/reciprocal repair, angled-span transfer, all coordinates, values, feedback, recovery, and assessments are original. Every applied setting is fictional. NIST sources provide only standard trigonometric relations and the exact degree-radian conversion. No source expression, diagram, table, or example is copied or adapted.</p>\n<p>NIST rights and public robots routes were checked before access on 2026-07-22. No agent restriction, login, paywall, or access-control barrier was found. No third-party assets, datasets, personal data, or patient material are included.</p>\n<p>This mathematical lesson provides no clinical or engineering advice and makes no claim of review, approval, publication, measured effectiveness, credit, or competence.</p>\n"
+}
