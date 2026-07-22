@@ -39,6 +39,7 @@ async function advanceUntilVisible(page, selector, maximumFrames = 20) {
 }
 
 test("the root is an EmbeddedKnowledge landing page with a book library", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 720 });
   const errors = collectRuntimeErrors(page);
   await page.goto(route(), { waitUntil: "networkidle" });
 
@@ -56,6 +57,17 @@ test("the root is an EmbeddedKnowledge landing page with a book library", async 
   await expect(page.locator('link[rel="alternate"][href="llms.txt"]')).toHaveCount(1);
   await expect(page.locator('a[href$=".md"]')).toHaveCount(0);
   await expect(page.locator(".hero-copy")).toHaveClass(/is-visible/);
+  const heroFit = await page.locator(".hero").evaluate((hero) => {
+    const heroBounds = hero.getBoundingClientRect();
+    const finalNoteBounds = hero.querySelector(".hero-notes").getBoundingClientRect();
+    return {
+      heroBottom: Math.round(heroBounds.bottom),
+      noteBottom: Math.round(finalNoteBounds.bottom),
+      viewportBottom: window.innerHeight
+    };
+  });
+  expect(heroFit.heroBottom).toBeLessThanOrEqual(heroFit.viewportBottom);
+  expect(heroFit.noteBottom).toBeLessThanOrEqual(heroFit.heroBottom - 20);
   expect(errors).toEqual([]);
 });
 
