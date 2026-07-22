@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-WEL-001-LEARNING-DESIGN-AGY-F89251E9-C29F-4463-84AC-FD72E4167A45",
+  "lessonId": "PREM-WEL-001",
+  "lessonVersion": "0.4.3",
+  "candidateCommit": "9983b4866f6fc0864688359a77bb6c915e3d38f1",
+  "role": "learning-design",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev accountable operator \u2014 Antigravity learning-design reviewer",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.5",
+      "runId": "agy-learning-design-PREM-WEL-001-F89251E9-C29F-4463-84AC-FD72E4167A45",
+      "instructionsDigest": "sha256:43be9611a2e46769327b242ff96a053386c1dedf7871990b37303c5d4a30b8e2"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "content/01-welcome.md through content/04-finish.md#cold-first-read-before-metadata",
+    "lesson.json#objectives-scenes-outcome-topic-welcome-course-journey",
+    "assessment.json#items-and-rubrics-4-3-3",
+    "assessment.json#rubric-subject-journey/rubric-concept-relevance/rubric-completion-capabilities-criteria",
+    "content/04-finish.md#check-welcome-transfer",
+    "content/04-finish.md#welcome-check-and-recovery-route"
+  ],
+  "findings": [
+    {
+      "severity": "note",
+      "target": "content/01-welcome.md through content/04-finish.md#cold-first-read",
+      "finding": "Cold first read as a no-prerequisite college-intro beginner, performed before consulting metadata or prior reviews, passes the first-read gate. What it teaches is clear: a map of the Premed subject areas and how they build toward using scientific evidence on unfamiliar problems. Why it matters is clear: it orients a beginner to the whole route and explicitly reassures that no prior science is needed to start. The central subject-journey/preparation model is clear on one read: three stages (evidence and measurement; matter and living systems; people, populations, and capstone work) in which each stage supplies ideas the next stage uses, illustrated concretely by the wider-tube flow glimpse in scene 1 and the worked flow example in scene 3. Terminology is stable, transitions are causal, and no learner sentence depends on hidden project, schema, or validator vocabulary.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "content/04-finish.md#check-welcome-transfer vs assessment.json#item-explain-relevance / item-identify-capabilities",
+      "finding": "The candidate commit implements a complete practice-assessment alignment (constructive alignment). The transfer check prompt in check-welcome-transfer is now updated to require four examples of concepts from four different subjects and one action for each of the four capabilities. This perfectly prepares the learner for the subsequent assessment items item-explain-relevance (which requires four concepts from different subjects) and item-identify-capabilities (which requires all four capabilities with an action for each). While this increases the complexity and retrieval demands of the transfer check relative to the version 0.4.2 draft, it ensures that learners do not encounter unaligned practice and assessment constructs.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "minor",
+      "target": "content/04-finish.md#check-welcome-transfer",
+      "finding": "The transfer check check-welcome-transfer in content/04-finish.md asks the novice learner to name the subjects, recall four distinct concept-to-relevance links from memory, name all four completion capabilities, give actions for each, and state the completion boundary, all 'without looking back.' Although this is aligned with the assessment rubric in assessment.json, asking a beginner on their first day of orientation to recall and write down this entire list from memory may create high cognitive load and friction. The self-marking Compare check and recovery route mitigate this, but it remains a potential point of cognitive overload.",
+      "resolution": "Acceptable for orientation, but in future versions consider splitting this check or allowing the learner to review a summary key if testing shows high initial drop-off."
+    },
+    {
+      "severity": "note",
+      "target": "content/03-learning.md#worked-example-flow-preview",
+      "finding": "The worked example worked-example-flow-preview correctly illustrates a scientific investigation using a simple physical flow model. It explains variables (width vs volume), details constraints and assumptions (same pump, liquid, time, length), demonstrates comparison, performs an independent check for run-to-run variation, and includes a self-explanation prompt. This is followed by a faded practice prompt check-faded-comparison where the learner must identify a confound (pump changes with width) and propose a repair. This provides strong instructional scaffolding that fades support.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "content/04-finish.md#recovery-route",
+      "finding": "The Recovery route section provides excellent, structured remediation plans mapped to the specific Rubric criteria (subject-journey stage naming, concept-to-purpose links, capabilities, and boundaries). Each recovery path ends with an active cover-and-reconstruct step, and retry prompts use different scenarios and contexts (such as different subjects or capstones) to ensure retries require renewed retrieval rather than passive memorization of the answers.",
+      "resolution": "No change required."
+    }
+  ],
+  "limitations": [
+    "Expert artifact inspection only: no direct learner testing, cognitive-walkthrough with real novices, or empirical scoring/inter-rater reliability data for the self-marked criteria was available.",
+    "Browser/Playwright test coverage is implementation evidence of the rendering behavior only and is not evidence that learners achieve the mapped outcome.",
+    "This is a single isolated learning-design run; it is one eligible vote and does not establish quorum, adjudication, or merge readiness."
+  ],
+  "signedAt": "2026-07-22T07:37:30Z"
+}
