@@ -1,0 +1,943 @@
+{
+  "schemaVersion": 3,
+  "format": "embeddedknowledge-lesson-v1",
+  "artifactType": "production-lesson",
+  "id": "PREM-SCI-010",
+  "version": "0.1.0",
+  "title": "Using scientific models without outrunning their limits",
+  "status": "published",
+  "riskTier": "standard",
+  "estimatedMinutes": 150,
+  "outcomes": [
+    "topic-scientific-inquiry-models-and-limits"
+  ],
+  "prerequisites": [
+    "topic-scientific-inquiry-hypotheses-predictions"
+  ],
+  "objectives": [
+    {
+      "id": "objective-audit-model",
+      "statement": "Audit a scientific model by identifying its purpose, output, inputs, parameters, assumptions, scale, and domain.",
+      "outcomeIds": [
+        "topic-scientific-inquiry-models-and-limits"
+      ]
+    },
+    {
+      "id": "objective-use-and-stress",
+      "statement": "Use a model to make and check a prediction, then test how a plausible input or assumption change affects the result.",
+      "outcomeIds": [
+        "topic-scientific-inquiry-models-and-limits"
+      ]
+    },
+    {
+      "id": "objective-diagnose-response",
+      "statement": "Diagnose a model failure from boundary or comparison evidence and justify whether to restrict, recalibrate, revise, or replace the model.",
+      "outcomeIds": [
+        "topic-scientific-inquiry-models-and-limits"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene-precise-answer-wrong-tool",
+      "title": "A precise answer from the wrong tool",
+      "kind": "orientation",
+      "source": "content/01-precise-answer-wrong-tool.md",
+      "estimatedMinutes": 22,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>A precise answer from the wrong tool</h1>\n<p>A sealed vessel contains gas. You enter its amount, temperature, and volume into the ideal-gas equation, and the calculator returns a pressure to three significant figures. The arithmetic is clean.</p>\n<p>Now imagine a second vessel at much higher pressure and lower temperature. The same equation still returns a neat number. It does not flash a warning when the gas no longer behaves closely enough like the idealized gas that the equation represents.</p>\n<p>The difference is not better algebra. It is whether the model&#39;s assumptions and domain fit the case.</p>\n<p>A <strong>scientific model</strong> keeps selected features and relationships so that we can describe, explain, or predict something. It leaves other features out. That selectivity makes a model useful, but it also makes every result conditional: useful for <em>which question</em>, at <em>which scale</em>, and under <em>which conditions</em>?</p>\n<p>The ideal-gas model will be our first case. It relates pressure <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>P</mi><annotation encoding=\"application/x-tex\">P</annotation></semantics></math></span>, volume <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>V</mi><annotation encoding=\"application/x-tex\">V</annotation></semantics></math></span>, amount of gas <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>n</mi><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span>, and absolute temperature <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>T</mi><annotation encoding=\"application/x-tex\">T</annotation></semantics></math></span> through the gas constant <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>R</mi><annotation encoding=\"application/x-tex\">R</annotation></semantics></math></span>:</p>\n<figure class=\"ek-block ek-equation\" data-directive=\"equation\"><div class=\"ek-block-label directive-label\">equation-ideal-gas-orientation</div><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mi>P</mi><mi>V</mi><mo>=</mo><mi>n</mi><mi>R</mi><mi>T</mi></mrow><annotation encoding=\"application/x-tex\">PV=nRT</annotation></semantics></math><figcaption>TeX source: <code>PV=nRT</code></figcaption></figure>\n<p>Read the equation in words: pressure times volume equals amount of gas times the gas constant times absolute temperature. For many low-pressure or high-temperature gas states it can be a useful approximation. As gas molecules become crowded or their attractive interactions matter more, the idealization can become inadequate. The exact error depends on the gas, the conditions, and how much accuracy the task needs.</p>\n<p>By the end of the lesson, you will be able to:</p>\n<ul>\n<li>name the output, inputs, parameters, assumptions, scale, and domain of a model;</li>\n<li>make a prediction and stress-test it by changing an input or assumption; and</li>\n<li>use evidence to decide whether to restrict, recalibrate, revise, or replace the model.</li>\n</ul>\n<p>This is a lesson about disciplined model use, not a full treatment of gas chemistry, global sensitivity analysis, machine-learning validation, or clinical decision models.</p>\n<h2>Retrieve the prerequisite</h2>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-hypothesis-prediction</span></div>\n    <div class=\"ek-block-content\"><p>A model proposes that, for a fixed amount of gas in a rigid vessel, pressure rises in direct proportion to absolute temperature. Write one prediction that could test that proposal. State what must be held fixed.</p>\n</div>\n  </aside>\n<p>One defensible prediction is: if the absolute temperature rises from 300 K to 330 K while the gas amount and vessel volume remain fixed, then the measured pressure should rise by about 10%. The model supplies the relationship; the prediction states an observable outcome under named conditions.</p>\n<h2>Recovery route</h2>\n<aside class=\"ek-block ek-callout ek-block--recovery\" data-directive=\"callout\">\n    <div class=\"ek-block-label directive-label\">Callout</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> recovery-hypothesis-prediction</span></div>\n    <div class=\"ek-block-content\"><p>If your answer only repeated the proposed relationship, pause here. A <strong>hypothesis</strong> proposes an explanation or relationship. A <strong>prediction</strong> says what record should appear if that proposal holds under stated conditions. Try again with this frame: “If ___ changes while ___ stays fixed, then I expect to observe ___.” Continue when your sentence names both a change and an observable result.</p>\n</div>\n  </aside>\n<h2>Accessibility and alternatives</h2>\n<p>All essential relationships are in the reading order. Equations are also stated in words. The lesson&#39;s diagram includes a complete long description, and every table can be read row by row without color, position, dragging, sound, motion, hover, or time limits. Practice uses supplied fictional records; no physical experiment, personal data, or sensory judgment is required.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-model-purpose, claim-model-domain-scale, claim-ideal-gas-relation, claim-ideal-gas-limits</span><span><b>sources</b> source-epa-model-guidance, source-nasa-equation-state, source-nasa-real-gas-limits</span></div>\n    <div class=\"ek-block-content\"><p>The sources support the purpose-bound definition of a model, the ideal-gas relation, and its qualitative domain limits. The two-vessel opening, diagnostic, wording, and instructional sequence are original. No universal numerical cutoff for ideal behavior is asserted.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-model-audit",
+      "title": "Four questions before trusting a model",
+      "kind": "concept",
+      "source": "content/02-four-question-model-audit.md",
+      "estimatedMinutes": 32,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Four questions before trusting a model</h1>\n<p>A model becomes usable when you can finish this sentence:</p>\n<blockquote>\n<p>If this representation fits this system under these conditions, then it supports this output for this purpose—with these limits.</p>\n</blockquote>\n<p>That sentence has four parts. Ask them in order before you let a calculation, diagram, physical replica, or simulation carry an argument.</p>\n<aside class=\"ek-block ek-definition ek-block--definition\" data-directive=\"definition\">\n    <div class=\"ek-block-label directive-label\">Definition</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> definition-scientific-model</span><span><b>label</b> Scientific model</span></div>\n    <div class=\"ek-block-content\"><p>A scientific model is a selective representation of a system or process. It preserves relationships needed for a stated question and omits details that are not represented. A physical replica, a conceptual diagram, a mathematical equation, and a computer simulation can all serve as models, but none is the system itself.</p>\n</div>\n  </aside>\n<h2>1. What is the purpose and output?</h2>\n<p>Name the question before naming the model. “Model the gas” is too vague. “Estimate the equilibrium pressure of this gas sample” identifies an output and lets you judge whether the model contains the needed relationships.</p>\n<p>The <strong>output</strong> is the result you want: perhaps a prediction, estimate, explanation, or classification. A model adequate for one output may omit features needed for another. The ideal-gas equation can estimate a macroscopic pressure without tracing the path of every molecule.</p>\n<h2>2. What goes in, and what has been assumed?</h2>\n<p>List each input, parameter, starting or boundary condition, and omitted process.</p>\n<ul>\n<li>An <strong>input</strong> is supplied for a particular use or run.</li>\n<li>A <strong>variable</strong> can take different values among states, places, or times.</li>\n<li>A <strong>parameter</strong> is held fixed during one run but can change between runs or model instances.</li>\n<li>An <strong>assumption</strong> treats a relationship or omission as acceptable for the purpose—for example, that a chamber is well mixed or that an interaction is negligible.</li>\n</ul>\n<p>These roles must be declared rather than guessed. A measured rate may be an input in one model, a fitted parameter in another, and an output in a third.</p>\n<p><strong>Calibration</strong>, in the sense used here, adjusts or estimates parameter values within defensible ranges so outputs fit relevant observations according to stated criteria. A good fit can improve a model&#39;s use; it cannot by itself show that every assumption or proposed mechanism is correct.</p>\n<h2>3. At what scale and in what domain?</h2>\n<p><strong>Scale</strong> asks how large, how long, and at what level the model represents the system: seconds or years, a cell or an organ, a small chamber or a landscape, one population or another.</p>\n<p>The <strong>model domain</strong> is the set of purposes, conditions, scales, and contexts for which the use has a defensible basis. A fitted relation used inside its tested range is interpolation. Carrying it beyond the supported range or context is extrapolation. Extrapolation is not automatically forbidden, but it adds an assumption that the relationship continues. That assumption needs new evidence.</p>\n<p>A change of instrument, environment, population, or physical scale can move the case outside the domain even when every input name stays the same.</p>\n<h2>4. What evidence would reveal failure?</h2>\n<p>Plan a stress test before accepting the output.</p>\n<ul>\n<li>Compare a prediction with observations that were not used merely to set the parameters.</li>\n<li>Try a boundary case where an assumption should stop holding.</li>\n<li>Change plausible inputs or assumptions and inspect the output.</li>\n<li>Ask whether another model or parameter set could produce the same observed result.</li>\n</ul>\n<p>A <strong>sensitivity analysis</strong> changes inputs or assumptions and measures the effect on output. Changing one factor while holding the rest fixed is a useful local check, but it can miss interactions and behavior far from the chosen baseline.</p>\n<p>Uncertainty and variability also need different questions. <strong>Uncertainty</strong> concerns what is not known about the inputs, parameters, structure, or application. More information or a better model may reduce some of it. <strong>Variability</strong> describes differences or fluctuations in the represented system; more observations may characterize that variability without making it disappear. The boundary depends on the model: a finer model may explain a pattern that a coarser model treated as unexplained variation.</p>\n<h2>The complete route</h2>\n<figure class=\"ek-block ek-diagram\" data-directive=\"diagram\" data-diagram-source=\"diagrams/model-use-cycle.diagram.json\">\n    <div class=\"ek-block-label directive-label\">Diagram</div>\n    <div class=\"ek-diagram-visual\" role=\"img\" aria-label=\"A model-use flow checks purpose, structure, scale and domain before prediction, then uses evidence to interpret, restrict, revise, or replace the model.\"><span class=\"ek-diagram-node ek-diagram-node--rounded-box\">Define the question and output</span><span class=\"ek-diagram-arrow\" aria-hidden=\"true\">→</span><span class=\"ek-diagram-node ek-diagram-node--box\">Record inputs, parameters, assumptions, and omissions</span><span class=\"ek-diagram-arrow\" aria-hidden=\"true\">→</span><span class=\"ek-diagram-node ek-diagram-node--box\">Check scale and defensible conditions</span><span class=\"ek-diagram-arrow\" aria-hidden=\"true\">→</span><span class=\"ek-diagram-node ek-diagram-node--rounded-box\">Predict, explain, or estimate</span><span class=\"ek-diagram-arrow\" aria-hidden=\"true\">→</span><span class=\"ek-diagram-node ek-diagram-node--box\">Compare evidence, boundaries, sensitivity, and alternatives</span><span class=\"ek-diagram-arrow\" aria-hidden=\"true\">→</span><span class=\"ek-diagram-node ek-diagram-node--diamond\">Adequate for this purpose?</span><span class=\"ek-diagram-arrow\" aria-hidden=\"true\">→</span><span class=\"ek-diagram-node ek-diagram-node--pill\">Interpret within the stated domain</span><span class=\"ek-diagram-arrow\" aria-hidden=\"true\">→</span><span class=\"ek-diagram-node ek-diagram-node--pill\">Restrict, recalibrate, revise, or replace</span></div>\n    <figcaption>A model-use flow checks purpose, structure, scale and domain before prediction, then uses evidence to interpret, restrict, revise, or replace the model.</figcaption>\n    <details class=\"ek-long-description\"><summary>Read the diagram as text</summary><p>First define the question and desired output. Next record inputs, parameters, assumptions, and omissions. Then check spatial, temporal, and organizational scale and the defensible conditions. Use the model only after those checks. Stress-test its result with observations, boundary cases, input changes, and competing explanations. If it is adequate for the stated purpose, interpret only within that domain. If it is not adequate or remains uncertain, restrict the claim, recalibrate parameters, revise the structure, or replace the model, and repeat the audit.</p><ul><li><strong>Define the question and output</strong> → <strong>Record inputs, parameters, assumptions, and omissions</strong>: purpose sets needed detail</li><li><strong>Record inputs, parameters, assumptions, and omissions</strong> → <strong>Check scale and defensible conditions</strong>: assumptions constrain use</li><li><strong>Check scale and defensible conditions</strong> → <strong>Predict, explain, or estimate</strong>: conditions fit</li><li><strong>Predict, explain, or estimate</strong> → <strong>Compare evidence, boundaries, sensitivity, and alternatives</strong>: output needs a check</li><li><strong>Compare evidence, boundaries, sensitivity, and alternatives</strong> → <strong>Adequate for this purpose?</strong>: weigh the evidence</li><li><strong>Adequate for this purpose?</strong> → <strong>Interpret within the stated domain</strong>: yes</li><li><strong>Adequate for this purpose?</strong> → <strong>Restrict, recalibrate, revise, or replace</strong>: no or uncertain</li><li><strong>Restrict, recalibrate, revise, or replace</strong> → <strong>Record inputs, parameters, assumptions, and omissions</strong>: repeat the audit</li></ul></details>\n  </figure>\n<table>\n<thead>\n<tr>\n<th>Audit question</th>\n<th>Record in words</th>\n<th>What the record prevents</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>Purpose and output</td>\n<td>the exact question and result needed</td>\n<td>solving a different problem precisely</td>\n</tr>\n<tr>\n<td>Structure and assumptions</td>\n<td>inputs, parameters, conditions, omissions</td>\n<td>hiding decisive idealizations</td>\n</tr>\n<tr>\n<td>Scale and domain</td>\n<td>size, duration, context, supported range</td>\n<td>silent extrapolation</td>\n</tr>\n<tr>\n<td>Failure evidence</td>\n<td>comparison, boundary, sensitivity, alternative</td>\n<td>treating one successful fit as proof</td>\n</tr>\n</tbody></table>\n<p>The diagram shows sequence and revision. The table exposes what each step contributes. Neither replaces the scientific judgment needed to decide how much error is acceptable for a particular use.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-model-purpose, claim-model-components, claim-model-domain-scale, claim-sensitivity-analysis, claim-model-uncertainty, claim-bounded-evidence</span><span><b>sources</b> source-epa-model-guidance</span></div>\n    <div class=\"ek-block-content\"><p>The EPA guidance supports the model, parameter, calibration, application-domain, uncertainty, variability, sensitivity, and corroboration distinctions used here. The four-question organization, flow diagram, table, examples, and wording are original course material.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-worked-pressure",
+      "title": "Predict pressure, then test the prediction",
+      "kind": "worked-example",
+      "source": "content/03-worked-pressure-prediction.md",
+      "estimatedMinutes": 32,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Predict pressure, then test the prediction</h1>\n<p>The ideal-gas equation gives us a model simple enough to calculate by hand and rich enough to expose every decision in the audit.</p>\n<figure class=\"ek-block ek-equation\" data-directive=\"equation\"><div class=\"ek-block-label directive-label\">equation-ideal-gas-worked</div><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mi>P</mi><mo>=</mo><mfrac><mrow><mi>n</mi><mi>R</mi><mi>T</mi></mrow><mi>V</mi></mfrac></mrow><annotation encoding=\"application/x-tex\">P=\\frac{nRT}{V}</annotation></semantics></math><figcaption>TeX source: <code>P=\\frac{nRT}{V}</code></figcaption></figure>\n<p>In words, predicted pressure equals the amount of gas multiplied by the gas constant and absolute temperature, divided by volume.</p>\n<aside class=\"ek-block ek-worked-example ek-block--worked-example\" data-directive=\"worked-example\">\n    <div class=\"ek-block-label directive-label\">Worked Example</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> worked-example-pressure-audit</span><span><b>label</b> A complete model use and stress test</span></div>\n    <div class=\"ek-block-content\"><p><strong>1. State the task.</strong></p>\n<p>A fictional laboratory record describes 0.100 mol of argon in a rigid 2.50 L vessel at 298 K. Use the ideal-gas model to estimate pressure. The supplied gas constant is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>R</mi><mo>=</mo><mn>8.314</mn><mtext> </mtext><msup><mtext>L kPa mol</mtext><mrow><mo form=\"prefix\" stretchy=\"false\" lspace=\"0em\" rspace=\"0em\">−</mo><mn>1</mn></mrow></msup><msup><mtext>K</mtext><mrow><mo form=\"prefix\" stretchy=\"false\" lspace=\"0em\" rspace=\"0em\">−</mo><mn>1</mn></mrow></msup></mrow><annotation encoding=\"application/x-tex\">R=8.314\\ \\text{L kPa mol}^{-1}\\text{K}^{-1}</annotation></semantics></math></span>. Then decide what the number does and does not establish.</p>\n<p><strong>2. Represent the givens, unknown, and conditions.</strong></p>\n<table>\n<thead>\n<tr>\n<th>Role</th>\n<th>Record</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>desired output</td>\n<td>pressure <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>P</mi><annotation encoding=\"application/x-tex\">P</annotation></semantics></math></span> in kPa</td>\n</tr>\n<tr>\n<td>inputs</td>\n<td><span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi><mo>=</mo><mn>0.100</mn></mrow><annotation encoding=\"application/x-tex\">n=0.100</annotation></semantics></math></span> mol, <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>T</mi><mo>=</mo><mn>298</mn></mrow><annotation encoding=\"application/x-tex\">T=298</annotation></semantics></math></span> K, <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>V</mi><mo>=</mo><mn>2.50</mn></mrow><annotation encoding=\"application/x-tex\">V=2.50</annotation></semantics></math></span> L</td>\n</tr>\n<tr>\n<td>parameter for this run</td>\n<td><span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>R</mi><mo>=</mo><mn>8.314</mn><mtext> </mtext><msup><mtext>L kPa mol</mtext><mrow><mo form=\"prefix\" stretchy=\"false\" lspace=\"0em\" rspace=\"0em\">−</mo><mn>1</mn></mrow></msup><msup><mtext>K</mtext><mrow><mo form=\"prefix\" stretchy=\"false\" lspace=\"0em\" rspace=\"0em\">−</mo><mn>1</mn></mrow></msup></mrow><annotation encoding=\"application/x-tex\">R=8.314\\ \\text{L kPa mol}^{-1}\\text{K}^{-1}</annotation></semantics></math></span></td>\n</tr>\n<tr>\n<td>physical conditions</td>\n<td>one equilibrium gas state in a rigid vessel</td>\n</tr>\n<tr>\n<td>central idealization</td>\n<td>the real gas behaves closely enough like an ideal gas for the required accuracy</td>\n</tr>\n<tr>\n<td>scale</td>\n<td>macroscopic pressure, not individual molecular paths</td>\n</tr>\n</tbody></table>\n<p><strong>3. Select the model and explain why.</strong></p>\n<p>The task asks for a first estimate linking pressure, volume, amount, and absolute temperature. The ideal-gas equation contains exactly those quantities. The stated pressure and ordinary room temperature will be checked after calculation; selecting the equation is a provisional choice, not a guarantee.</p>\n<p><strong>4. Plan.</strong></p>\n<p>Rearrange the relation for <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>P</mi><annotation encoding=\"application/x-tex\">P</annotation></semantics></math></span>, substitute compatible units, compute, check the units and proportional direction, then stress-test a plausible input change and inspect the domain.</p>\n<p><strong>5. Execute with reasons.</strong></p>\n<p>Substitute the supplied values:</p>\n<p><span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>P</mi><mo>=</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>0.100</mn><mtext> </mtext><mtext>mol</mtext><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>8.314</mn><mtext> </mtext><msup><mtext>L kPa mol</mtext><mrow><mo form=\"prefix\" stretchy=\"false\" lspace=\"0em\" rspace=\"0em\">−</mo><mn>1</mn></mrow></msup><msup><mtext>K</mtext><mrow><mo form=\"prefix\" stretchy=\"false\" lspace=\"0em\" rspace=\"0em\">−</mo><mn>1</mn></mrow></msup><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>298</mn><mtext> </mtext><mtext>K</mtext><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mi>/</mi><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>2.50</mn><mtext> </mtext><mtext>L</mtext><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">P=(0.100\\ \\text{mol})(8.314\\ \\text{L kPa mol}^{-1}\\text{K}^{-1})(298\\ \\text{K})/(2.50\\ \\text{L})</annotation></semantics></math></span>.</p>\n<p>The mole, kelvin, and litre units cancel, leaving kPa. The result is</p>\n<p><span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>P</mi><mo>=</mo><mn>99.1</mn><mtext> </mtext><mtext>kPa</mtext></mrow><annotation encoding=\"application/x-tex\">P=99.1\\ \\text{kPa}</annotation></semantics></math></span> to three significant figures.</p>\n<p><strong>6. Check independently.</strong></p>\n<p>The direction is sensible inside the model: increasing amount or temperature raises pressure; increasing volume lowers it. One mole at these conditions would occupy about ten times this volume near the same pressure, so 0.100 mol in 2.50 L giving a pressure near 100 kPa is plausible.</p>\n<p><strong>7. Test sensitivity.</strong></p>\n<p>Suppose the true volume could be 2.45 L rather than 2.50 L while the other inputs remain fixed. The model gives <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>P</mi><mo>=</mo><mn>101.1</mn></mrow><annotation encoding=\"application/x-tex\">P=101.1</annotation></semantics></math></span> kPa, about 2% higher. A 2% decrease in a denominator produces about a 2% increase here. This local result tells us that volume uncertainty of this size matters similarly to the pressure estimate. It does not test interactions or the ideal-gas assumption itself.</p>\n<p><strong>8. Inspect the domain.</strong></p>\n<p>The calculation is a defensible first estimate only if argon at the stated conditions behaves sufficiently like an ideal gas for the intended tolerance. The same arithmetic applied at very high pressure or low temperature would need a real-gas check because molecular spacing and attractions can become important. The equation can always emit a number; evidence decides whether that number is useful.</p>\n<p><strong>9. Interpret the result.</strong></p>\n<p>The model predicts about 99.1 kPa for the stated equilibrium state. The result is not a measurement, not a claim of exactness, and not permission to use the same approximation at every pressure and temperature.</p>\n<p><strong>10. Explain the decisive choice.</strong></p>\n<p>Which decision mattered more than the arithmetic: rearranging the equation, or deciding that the model&#39;s domain and assumptions fit the vessel? Explain why.</p>\n</div>\n  </aside>\n<p>The model-choice decision mattered more. Correct algebra can only preserve the consequences of the selected assumptions. It cannot repair an inappropriate representation.</p>\n<h2>Fade one support step</h2>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-temperature-sensitivity</span></div>\n    <div class=\"ek-block-content\"><p>Keep <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>n</mi><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span> and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>V</mi><annotation encoding=\"application/x-tex\">V</annotation></semantics></math></span> fixed but change <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>T</mi><annotation encoding=\"application/x-tex\">T</annotation></semantics></math></span> from 298 K to 303 K. Before calculating, predict the direction and approximate percentage change in <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>P</mi><annotation encoding=\"application/x-tex\">P</annotation></semantics></math></span>. Then calculate the new pressure.</p>\n</div>\n  </aside>\n<p>Temperature rises by about 1.7%, so the model predicts pressure will also rise by about 1.7%. Direct substitution gives about 100.8 kPa. If your arithmetic gave a lower pressure, return to the proportional relation before repeating the calculation.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-model-components, claim-model-domain-scale, claim-sensitivity-analysis, claim-ideal-gas-relation, claim-ideal-gas-limits</span><span><b>sources</b> source-epa-model-guidance, source-nasa-equation-state, source-nasa-real-gas-limits</span></div>\n    <div class=\"ek-block-content\"><p>The sources support the input/parameter distinction, local sensitivity logic, ideal-gas relation, and qualitative real-gas boundary. The vessel record, numbers, audit table, sensitivity variation, checks, and interpretation are original fictional teaching material.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-stress-and-repair",
+      "title": "Make the model show where it breaks",
+      "kind": "practice",
+      "source": "content/04-stress-test-and-repair.md",
+      "estimatedMinutes": 28,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Make the model show where it breaks</h1>\n<p>The next tasks fade support. Answer each prompt before reading its feedback.</p>\n<h2>Retrieve the domain, not just the equation</h2>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-ideal-gas-domain</span></div>\n    <div class=\"ek-block-content\"><p>Without looking back, write the ideal-gas relation, name its four represented gas quantities, and state one condition change that should trigger a real-gas check.</p>\n</div>\n  </aside>\n<p>A complete response gives <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>P</mi><mi>V</mi><mo>=</mo><mi>n</mi><mi>R</mi><mi>T</mi></mrow><annotation encoding=\"application/x-tex\">PV=nRT</annotation></semantics></math></span>; identifies pressure, volume, amount, and absolute temperature; and names a move such as substantially higher pressure or lower temperature. If you recalled only the formula, add the boundary before continuing. Model knowledge includes conditions of use.</p>\n<h2>Repair a tempting conclusion</h2>\n<aside class=\"ek-block ek-misconception ek-block--misconception\" data-directive=\"misconception\">\n    <div class=\"ek-block-label directive-label\">Misconception</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> misconception-fit-means-true</span><span><b>label</b> “It fits, so the mechanism must be true”</span></div>\n    <div class=\"ek-block-content\"><p>Two models predict the same output at three observed input values. Model A is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo>=</mo><mn>2</mn><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">y=2x</annotation></semantics></math></span>. Model B is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo>=</mo><mn>2</mn><mi>x</mi><mo>+</mo><mn>0.2</mn><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mi>x</mi><mo>−</mo><mn>2</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mi>x</mi><mo>−</mo><mn>3</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">y=2x+0.2(x-1)(x-2)(x-3)</annotation></semantics></math></span>. At <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">x=1</annotation></semantics></math></span>, <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mn>2</mn><annotation encoding=\"application/x-tex\">2</annotation></semantics></math></span>, and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mn>3</mn><annotation encoding=\"application/x-tex\">3</annotation></semantics></math></span>, the extra term in Model B is zero, so both models match the same three observations.</p>\n<p>Commit to a prediction before calculating: will the models also agree at <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">x=4</annotation></semantics></math></span>?</p>\n<p>They do not. Model A gives 8, while Model B gives 9.2. Matching the first three records did not select a unique relation. A discriminating observation at <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">x=4</annotation></semantics></math></span>, or at another point where the predictions differ, can test the alternatives.</p>\n<p>The repair is not “a fit means nothing.” Agreement is evidence within the tested conditions. The stronger conclusion is: <em>both models remain possible for the existing purpose and data; new evidence is needed where their predictions diverge</em>.</p>\n<p>Recheck the repair: if a fourth observation is 8.1 with measurement uncertainty of plus or minus 0.2, which model is better corroborated near <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">x=4</annotation></semantics></math></span>, and what remains unproven?</p>\n</div>\n  </aside>\n<p>Model A is better corroborated near <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">x=4</annotation></semantics></math></span> because 8.1 is close to its prediction of 8 and far from 9.2 at the stated uncertainty. That result still does not prove Model A is uniquely true at every input or that its mechanism is correct.</p>\n<h2>Completion problem: inside and outside a fitted range</h2>\n<p>A fictional feeder-count model is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>N</mi><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mi>t</mi><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>=</mo><mn>120</mn><mo>−</mo><mn>8</mn><mi>t</mi></mrow><annotation encoding=\"application/x-tex\">N(t)=120-8t</annotation></semantics></math></span>, where <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>N</mi><annotation encoding=\"application/x-tex\">N</annotation></semantics></math></span> is the predicted number of tagged beads remaining and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>t</mi><annotation encoding=\"application/x-tex\">t</annotation></semantics></math></span> is hours. It was calibrated with observations from 0 through 10 hours.</p>\n<ol>\n<li>Predict <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>N</mi><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>6</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">N(6)</annotation></semantics></math></span> and classify the use as inside or outside the calibrated time range.</li>\n<li>Predict <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>N</mi><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>20</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">N(20)</annotation></semantics></math></span> and identify two warnings.</li>\n<li>Choose a next action for the 20-hour use: accept, restrict, recalibrate, revise, or replace.</li>\n</ol>\n<p>At 6 hours, the model predicts 72 beads, an interpolation inside the fitted interval. At 20 hours it predicts -40 beads. The time is outside the calibrated interval, and a negative count cannot represent the physical output. The structure is failing, not merely the parameter value. Restrict the linear model to its supported interval and test a revised model that cannot produce an impossible count before using it at later times.</p>\n<p>If you only wrote “extrapolation is bad,” make the diagnosis more precise: the fitted slope was carried beyond its evidence, the output violated a boundary of the represented quantity, and the response follows from those two observations.</p>\n<h2>Supported problem: separate calibration from a test</h2>\n<p>A fictional sensor model has one adjustable parameter. A team chooses that parameter using records 1 through 20. It then reports that the model matches records 1 through 20 closely and calls this an independent test.</p>\n<ul>\n<li>What did the team actually show?</li>\n<li>What additional comparison would better test performance?</li>\n<li>If the model is highly sensitive to small changes in the fitted parameter, what should the report say?</li>\n</ul>\n<p>The team showed calibration fit on the same records used to choose the parameter. A better test uses relevant observations not used for that choice, while keeping the intended domain visible. High sensitivity means the output is fragile to that parameter near the tested value; the report should show the range of outputs and avoid presenting one fitted value as stable.</p>\n<h2>Independent model audit</h2>\n<p>A fictional relation predicts response <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo>=</mo><mn>3.0</mn><mo>+</mo><mn>0.50</mn><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">y=3.0+0.50x</annotation></semantics></math></span>. It was fitted for <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>x</mi><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span> values from 2 through 8 under one instrument and one preparation method. A new laboratory proposes using it at <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>7</mn></mrow><annotation encoding=\"application/x-tex\">x=7</annotation></semantics></math></span> with a different instrument and at <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>14</mn></mrow><annotation encoding=\"application/x-tex\">x=14</annotation></semantics></math></span> with the original instrument.</p>\n<p>Write two short audits. For each proposed use, identify the domain question, one failure test, and the conclusion you could defend before new data arrive.</p>\n<p>Useful feedback:</p>\n<ul>\n<li>At <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>7</mn></mrow><annotation encoding=\"application/x-tex\">x=7</annotation></semantics></math></span>, the numerical range is familiar but the instrument context changed. Compare the instruments on shared samples before assuming transfer.</li>\n<li>At <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>14</mn></mrow><annotation encoding=\"application/x-tex\">x=14</annotation></semantics></math></span>, the instrument matches but the input is outside the fitted range. Gather observations where the extrapolated models or plausible alternatives differ.</li>\n<li>Neither proposal is settled by saying only “inside” or “outside.” Domain has several dimensions.</li>\n</ul>\n<p>On a retry, change both the instrument and the range and decide which check must happen before interpreting the output.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-model-domain-scale, claim-sensitivity-analysis, claim-ideal-gas-relation, claim-ideal-gas-limits, claim-bounded-evidence</span><span><b>sources</b> source-epa-model-guidance, source-nasa-equation-state, source-nasa-real-gas-limits</span></div>\n    <div class=\"ek-block-content\"><p>The sources support the ideal-gas boundary, purpose-bound model domain, calibration-versus-comparison distinction, sensitivity limits, and testing of competing representations. All functions, records, instruments, values, and feedback in this scene are original fictional teaching material.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-transfer-chamber",
+      "title": "Transfer the audit to a larger chamber",
+      "kind": "transfer",
+      "source": "content/05-transfer-to-new-chamber.md",
+      "estimatedMinutes": 22,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Transfer the audit to a larger chamber</h1>\n<p>This task removes the familiar gas equation. The model, scale, and evidence are different; the audit stays useful.</p>\n<h2>The fictional case</h2>\n<p>A research team built Model M in 20 L test chambers. Model M treats each chamber as perfectly mixed and predicts one chamber-wide tracer concentration ten minutes after a release. Under that assumption, the predicted value is both the value everywhere and the chamber-volume average. During development, a fan ran continuously and one sensor sat at the chamber centre.</p>\n<p>The team now wants to use Model M in a 2,000 L chamber whose fan cycles on and off. At ten minutes, Model M predicts 10 concentration units everywhere. Three supplied sensor records are:</p>\n<table>\n<thead>\n<tr>\n<th>Sensor position</th>\n<th align=\"right\">Recorded concentration units</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>lower zone</td>\n<td align=\"right\">14</td>\n</tr>\n<tr>\n<td>centre zone</td>\n<td align=\"right\">10</td>\n</tr>\n<tr>\n<td>upper zone</td>\n<td align=\"right\">6</td>\n</tr>\n</tbody></table>\n<p>The arithmetic mean of the three point-sensor records is 10, exactly the model output. That calculation describes only the three sampled locations. No sampling geometry, represented zone volumes, or spatial weights have been supplied to show that the three points estimate the chamber-volume average.</p>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-transfer-chamber</span></div>\n    <div class=\"ek-block-content\"><p>Before reading the feedback, write a model audit that answers all five prompts:</p>\n<ol>\n<li>What question can Model M answer in its development setting?</li>\n<li>Which assumption, scale, and domain features changed?</li>\n<li>What does the new evidence corroborate, and what does it contradict?</li>\n<li>What sensitivity or discriminating test should come next?</li>\n<li>Should the team accept, restrict, recalibrate, revise, or replace Model M for the new use? Tie the decision to the desired output.</li>\n</ol>\n</div>\n  </aside>\n<h2>Feedback for a defensible transfer</h2>\n<p><strong>Purpose and output.</strong> Model M was built to predict one chamber-wide value at ten minutes under continuous mixing in a 20 L chamber. If the new question is the chamber-volume average, comparison evidence must estimate that same quantity. If the question concerns the concentration in a particular zone, a one-value model omits the required spatial pattern.</p>\n<p><strong>Assumptions, scale, and domain.</strong> Perfect mixing, continuous fan operation, small volume, central sensing, and the ten-minute time point define important parts of the original use. Chamber volume increased by a factor of 100, the fan regime changed, and several positions are now observed. Matching variable names do not erase those differences.</p>\n<p><strong>Evidence.</strong> The unweighted point-sensor mean happens to match the prediction, but that numerical agreement does not yet corroborate the chamber-volume average. It would do so only if the sampling design justified the three readings as representative of equal volumes, or supplied defensible volume weights. The spread from 6 to 14 does contradict the prediction that the value is the same everywhere. A convenient aggregate can hide both a failed spatial distribution and an untested representativeness assumption.</p>\n<p><strong>Next test.</strong> Define the target average and collect measurements across known represented volumes, using equal-volume zones or stated volume weights, then repeat them over time under both continuous and cycling fan conditions. The spatial design tests whether a chamber-volume average can be estimated; the fan comparison tests whether the mixing assumption drives the spatial difference. Varying fan state is a sensitivity test, while measurements across position and time test whether the model&#39;s one-value structure can answer the new question.</p>\n<p><strong>Decision.</strong> For a bounded average-only question, do not claim corroboration from the three-point mean. First obtain a representative, volume-aware estimate and independent repetitions; only then could the team consider restricted provisional use for that explicitly defined average. For zone-specific decisions, parameter recalibration cannot create spatial structure that the model lacks. Revise or replace the structure with one that represents zones, then test it with observations not used merely to set its parameters.</p>\n<h2>Why this is transfer</h2>\n<p>The worked example asked whether a thermodynamic approximation fit a gas state. This case asks whether a well-mixed representation survives a change in size, operation, measurement, and desired output. You had to select the same reasoning procedure without being cued by the same formula.</p>\n<h2>Equivalent nonvisual route</h2>\n<p>The table&#39;s learning operation is fully stated in sentences: the lower, centre, and upper point records are 14, 10, and 6; their unweighted mean is 10; the readings vary by position; and no equal-volume or weighted sampling basis is supplied. No conclusion depends on seeing rows spatially or comparing colors.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-model-domain-scale, claim-sensitivity-analysis, claim-bounded-evidence</span><span><b>sources</b> source-epa-model-guidance</span></div>\n    <div class=\"ek-block-content\"><p>The source supports renewed evaluation after a context or scale transfer, representative corroboration evidence, sensitivity testing, and conclusions bounded to purpose. Model M, the chambers, records, questions, and feedback are original fictional teaching material and contain no experimental or personal data.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-mastery-retrieval",
+      "title": "Show mastery and schedule the next retrieval",
+      "kind": "assessment",
+      "source": "content/06-mastery-and-retrieval.md",
+      "estimatedMinutes": 14,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Show mastery and schedule the next retrieval</h1>\n<p>The mastery check has four retakeable items worth 12 points. Attempt them without returning to the worked example.</p>\n<p>You have demonstrated this lesson&#39;s outcome when you earn at least 9 of 12 points <strong>and</strong> at least 3 of 4 points on the chamber-transfer item. That conjunctive rule prevents a strong calculation from hiding a weak domain or failure analysis.</p>\n<p>The items ask you to:</p>\n<ol>\n<li>judge what a successful fit can support;</li>\n<li>use range and boundary evidence to diagnose a linear model failure;</li>\n<li>calculate an ideal-gas prediction and a local sensitivity range; and</li>\n<li>audit a scale transfer and justify a restrict, revise, or replace decision.</li>\n</ol>\n<h2>Remediation by error pattern</h2>\n<ul>\n<li>If you cannot name inputs, parameters, assumptions, or output, return to <strong>Four questions before trusting a model</strong> and rebuild the audit table for one model from another course.</li>\n<li>If the formula use is correct but the interpretation is overconfident, return to <strong>Predict pressure, then test the prediction</strong> and add one sentence beginning “This result is conditional on…”</li>\n<li>If interpolation, extrapolation, or sensitivity is unclear, redo the feeder-count and instrument cases in <strong>Make the model show where it breaks</strong> with different boundary values.</li>\n<li>If you notice a mismatch but cannot choose a response, return to the chamber transfer and ask whether the problem lies in the parameter values, the represented structure, or the question being asked.</li>\n</ul>\n<p>Every retry uses a changed context described in the answer reasoning. Do not memorize an option sequence. Reconstruct the audit and explain why the decision would change if the purpose or domain changed.</p>\n<h2>Delayed retrieval</h2>\n<p>In about 48 hours, choose a model from biology, chemistry, physics, or statistics and write five lines from memory: purpose/output, inputs/parameters, assumption, scale/domain, and failure test.</p>\n<p>One week later, revisit this prompt before studying mechanism evidence:</p>\n<blockquote>\n<p>Two models match the same observed output. What new prediction would discriminate between them, and what would each possible result justify?</p>\n</blockquote>\n<p>That question reconnects the earlier hypothesis–prediction prerequisite to the next scientific-inquiry task: deciding when evidence supports a proposed mechanism rather than merely an output fit.</p>\n<h2>Final synthesis</h2>\n<p>A model is productive when it earns a bounded conditional claim:</p>\n<blockquote>\n<p>Under these assumptions, at this scale, and inside this domain, the model gives this output with these known failure tests.</p>\n</blockquote>\n<p>When a test fails, name the location of failure. Restrict the claim if the use outran the evidence. Recalibrate if defensible parameter values are the problem. Revise the structure if a necessary relationship is missing. Replace the model when another representation better serves the question.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-model-domain-scale, claim-bounded-evidence</span><span><b>sources</b> source-epa-model-guidance</span></div>\n    <div class=\"ek-block-content\"><p>The source supports purpose-bound domain statements, corroboration, competing-model tests, and model revision decisions. The mastery rule, remediation map, delayed prompts, and synthesis wording are original instructional design.</p>\n</div>\n  </aside>\n"
+    }
+  ],
+  "authors": [
+    {
+      "principalId": "github:VSBDev",
+      "displayName": "VSBDev — editorial and pedagogical packager",
+      "agent": {
+        "system": "Codex",
+        "provider": "OpenAI",
+        "model": "gpt-5.6-sol",
+        "version": "Codex CLI 0.144.6",
+        "runId": "914048de-b3fb-41bd-85e2-26d71839e6d0",
+        "instructionsDigest": "sha256:d64648b745004f8ff43eccbe715e769c0fb99da3fd8f3e61c0dfde0d959809cc"
+      }
+    },
+    {
+      "principalId": "agent-session:0adeed36-b002-409f-b2fe-61b7ec2f056d",
+      "displayName": "Blind Fable science session 1, operated by VSBDev",
+      "agent": {
+        "system": "Claude CLI",
+        "provider": "Anthropic",
+        "model": "claude-fable-5",
+        "version": "not supplied in accepted dossier",
+        "runId": "0adeed36-b002-409f-b2fe-61b7ec2f056d",
+        "instructionsDigest": "sha256:dc751280269d552fe5dd79edd90f3f1cd05ec16a9ab7ceb176e0cdb9510b334e"
+      }
+    },
+    {
+      "principalId": "agent-session:1f33f961-31c4-4319-ba18-2934eeafeec0",
+      "displayName": "Blind Fable science session 2, operated by VSBDev",
+      "agent": {
+        "system": "Claude CLI",
+        "provider": "Anthropic",
+        "model": "claude-fable-5",
+        "version": "not supplied in accepted dossier",
+        "runId": "1f33f961-31c4-4319-ba18-2934eeafeec0",
+        "instructionsDigest": "sha256:cadc0b7ca2f066449d62afb4baa2d48ba9e1f0867a354ca1e4c258544ef0972c"
+      }
+    },
+    {
+      "principalId": "agent-session:26ebef5e-a7c1-485f-9fa1-146b163d3f68",
+      "displayName": "Blind Fable science session 3, operated by VSBDev",
+      "agent": {
+        "system": "Claude CLI",
+        "provider": "Anthropic",
+        "model": "claude-fable-5",
+        "version": "not supplied in accepted dossier",
+        "runId": "26ebef5e-a7c1-485f-9fa1-146b163d3f68",
+        "instructionsDigest": "sha256:4ab71b3d2332de038767e03805d0c7a26888d039cb52528dd3cfdcc078a16108"
+      }
+    },
+    {
+      "principalId": "agent-session:0024106e-67a3-426b-9e0b-88f31d131631",
+      "displayName": "Blind Fable science session 4, operated by VSBDev",
+      "agent": {
+        "system": "Claude CLI",
+        "provider": "Anthropic",
+        "model": "claude-fable-5",
+        "version": "not supplied in accepted dossier",
+        "runId": "0024106e-67a3-426b-9e0b-88f31d131631",
+        "instructionsDigest": "sha256:3bc8eac662bbb3c897feb44117467d4ab77f3856ba641aced29f6aae1ba6b66f"
+      }
+    },
+    {
+      "principalId": "agent-session:80aae675-1eda-4772-8a46-ce848c3443de",
+      "displayName": "Blind Fable science session 5, operated by VSBDev",
+      "agent": {
+        "system": "Claude CLI",
+        "provider": "Anthropic",
+        "model": "claude-fable-5",
+        "version": "not supplied in accepted dossier",
+        "runId": "80aae675-1eda-4772-8a46-ce848c3443de",
+        "instructionsDigest": "sha256:a22f422792801b87ecd9dfb945930fc47a82634050648b63a307d4ff0116af4d"
+      }
+    },
+    {
+      "principalId": "agent-session:90555445-3e89-4847-ace8-84d6002bdc99",
+      "displayName": "Blind Fable science session 6, operated by VSBDev",
+      "agent": {
+        "system": "Claude CLI",
+        "provider": "Anthropic",
+        "model": "claude-fable-5",
+        "version": "not supplied in accepted dossier",
+        "runId": "90555445-3e89-4847-ace8-84d6002bdc99",
+        "instructionsDigest": "sha256:52d3f269e139cb30b8a0ade70e58b6b4ce76e6c991978f93e4008d7024f13a30"
+      }
+    },
+    {
+      "principalId": "agent-session:22f0b3cb-3d92-4973-8698-1bca45a1ea8f",
+      "displayName": "Blind Fable science session 7, operated by VSBDev",
+      "agent": {
+        "system": "Claude CLI",
+        "provider": "Anthropic",
+        "model": "claude-fable-5",
+        "version": "not supplied in accepted dossier",
+        "runId": "22f0b3cb-3d92-4973-8698-1bca45a1ea8f",
+        "instructionsDigest": "sha256:ffa39569314564aba10944014ac6c1f7c8af272b3e98c42e8024719e411d5730"
+      }
+    },
+    {
+      "principalId": "agent-session:ef9fa40c-1460-415b-9189-e06976e7481c",
+      "displayName": "Blind Fable science session 8, operated by VSBDev",
+      "agent": {
+        "system": "Claude CLI",
+        "provider": "Anthropic",
+        "model": "claude-fable-5",
+        "version": "not supplied in accepted dossier",
+        "runId": "ef9fa40c-1460-415b-9189-e06976e7481c",
+        "instructionsDigest": "sha256:da592117e2a4ac47418e6521dae40d1a092564e63f74f53b685645a1a79f8ee9"
+      }
+    },
+    {
+      "principalId": "agent-session:4a0863f1-8238-4129-856f-522ad72561ba",
+      "displayName": "Blind Fable science session 9, operated by VSBDev",
+      "agent": {
+        "system": "Claude CLI",
+        "provider": "Anthropic",
+        "model": "claude-fable-5",
+        "version": "not supplied in accepted dossier",
+        "runId": "4a0863f1-8238-4129-856f-522ad72561ba",
+        "instructionsDigest": "sha256:7c30cb714d3b2ab4154f14656e9e86b5f50583b3755fafd09c4260b7a8bad4ae"
+      }
+    },
+    {
+      "principalId": "agent-session:53e94f46-3a47-4451-b8da-de9d5c6b2212",
+      "displayName": "Blind Fable science session 10, operated by VSBDev",
+      "agent": {
+        "system": "Claude CLI",
+        "provider": "Anthropic",
+        "model": "claude-fable-5",
+        "version": "not supplied in accepted dossier",
+        "runId": "53e94f46-3a47-4451-b8da-de9d5c6b2212",
+        "instructionsDigest": "sha256:1cf9ede3b4d6d76988f3b7c63186da4a895e8cbb7f7acb19fa6fab2cbd84e31b"
+      }
+    }
+  ],
+  "license": "CC-BY-4.0",
+  "sourceConfidence": "medium-high",
+  "aiAssistance": {
+    "used": true,
+    "disclosure": "VSBDev (github:VSBDev) is accountable. Blind science authorship comprised ten isolated Claude CLI runs whose accepted dossier reported claude-fable-5 in modelUsage; each run is a separate actor above and received science-only context, not this repository, Premed, the graph outcome, or the packaging prompt. Material editorial and pedagogical packaging used Codex by OpenAI, model gpt-5.6-sol, version Codex CLI 0.144.6, run 914048de-b3fb-41bd-85e2-26d71839e6d0. Prompt digests cover the discloseable task payloads identified in ATTRIBUTION.md and exclude hidden provider and system instructions."
+  },
+  "assessment": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-assessment-v1",
+    "lessonId": "PREM-SCI-010",
+    "lessonVersion": "0.1.0",
+    "assessmentId": "assessment-scientific-models-limits",
+    "title": "Scientific model use and limits mastery check",
+    "purpose": "mastery-gate",
+    "attemptPolicy": {
+      "retakeable": true,
+      "timeLimitMinutes": null,
+      "feedback": "after-attempt"
+    },
+    "items": [
+      {
+        "id": "item-fit-and-mechanism",
+        "type": "single-choice",
+        "sceneId": "scene-mastery-retrieval",
+        "objectiveIds": [
+          "objective-diagnose-response"
+        ],
+        "outcomeIds": [
+          "topic-scientific-inquiry-models-and-limits"
+        ],
+        "prompt": "Models A and B both match three observations inside the same tested range but predict different outcomes at a fourth input. Which conclusion is most defensible before the fourth observation is collected?",
+        "stimulus": null,
+        "points": 2,
+        "responseSpec": {
+          "mode": "single-choice",
+          "options": [
+            {
+              "id": "option-both-bounded-test",
+              "text": "Both remain possible for the tested purpose; collect the fourth observation because it can discriminate between their predictions."
+            },
+            {
+              "id": "option-simpler-proven",
+              "text": "The simpler-looking model is proven true, so the fourth observation is unnecessary."
+            },
+            {
+              "id": "option-both-unusable",
+              "text": "Because two models fit, neither observation nor model can support any conclusion."
+            },
+            {
+              "id": "option-average-predictions",
+              "text": "Average the two fourth-input predictions and treat that average as validated."
+            }
+          ],
+          "units": null,
+          "tolerance": null,
+          "maxSelections": 1,
+          "maxLength": null
+        },
+        "answer": {
+          "correct": "option-both-bounded-test",
+          "summary": "Existing agreement supports both models only in a bounded way; a case where their predictions diverge can supply discriminating evidence.",
+          "reasoning": "Award one point for preserving the evidential value of the existing fit without calling either model uniquely true, and one point for selecting the fourth observation as a discriminating test. On a retry, compare two fictional temperature models that agree from 10 to 20 units but diverge at 30, and state in advance what each result would favor.",
+          "acceptableResponses": [
+            "The option that keeps both models provisionally possible and calls for the discriminating fourth observation."
+          ],
+          "commonErrors": [
+            "Treating successful fit as proof of a unique mechanism; return to the competing-model repair and identify where predictions diverge.",
+            "Treating non-uniqueness as meaning evidence is worthless; state the tested range in which the fit remains informative.",
+            "Averaging incompatible model outputs without a reasoned ensemble model or validation."
+          ]
+        },
+        "rubricId": "rubric-fit-and-mechanism",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-feeder-domain-failure",
+        "type": "data-interpretation",
+        "sceneId": "scene-mastery-retrieval",
+        "objectiveIds": [
+          "objective-audit-model",
+          "objective-diagnose-response"
+        ],
+        "outcomeIds": [
+          "topic-scientific-inquiry-models-and-limits"
+        ],
+        "prompt": "Use the supplied model and records to judge each use. Calculate the predictions at 8 h and 18 h, classify each use relative to the fitted time range, identify the 18 h failure evidence, and choose a justified response.",
+        "stimulus": "A fictional dispenser-count model is N(t) = 96 - 6t, where N is a count and t is hours. It was fitted with records from 0 through 12 h. The observed count is 49 at 8 h and 7 at 18 h.",
+        "points": 3,
+        "responseSpec": {
+          "mode": "text",
+          "units": null,
+          "tolerance": null,
+          "maxSelections": null,
+          "maxLength": 1800
+        },
+        "answer": {
+          "correct": "At 8 h, N = 48, an interpolation that is close to the observed 49. At 18 h, N = -12, an extrapolation outside 0-12 h that conflicts with the observed 7 and with the nonnegative boundary of a count. Restrict the linear model to its supported range and revise or replace its structure before later-time use; parameter recalibration alone is not shown to solve the impossible-output problem.",
+          "summary": "The early use is a supported interpolation; the later use crosses the fitted domain and reveals a structural failure.",
+          "reasoning": "Award one point for both correct predictions and range classifications, one for naming both the observed mismatch and impossible negative count at 18 h, and one for restricting the current model plus proposing structural revision or replacement before later-time use. On a retry, use M(t) = 75 - 5t fitted from 0 through 10 h with records at 6 h and 16 h.",
+          "acceptableResponses": [
+            "Any equivalent calculation and audit that treats 8 h as an interpolation, 18 h as failed extrapolation, and responds by restricting and structurally revising or replacing the model."
+          ],
+          "commonErrors": [
+            "Calling both calculations valid because the algebra can be evaluated; return to the distinction between numerical output and defensible domain.",
+            "Not using the observed 18 h record as failure evidence.",
+            "Changing only the slope without addressing the model's ability to produce impossible negative counts."
+          ]
+        },
+        "rubricId": "rubric-feeder-domain-failure",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-pressure-sensitivity",
+        "type": "open-response",
+        "sceneId": "scene-mastery-retrieval",
+        "objectiveIds": [
+          "objective-use-and-stress"
+        ],
+        "outcomeIds": [
+          "topic-scientific-inquiry-models-and-limits"
+        ],
+        "prompt": "Use P = nRT/V to calculate the base pressure. Then calculate the two pressures when only volume varies across its stated plausible range, and interpret what this local sensitivity check does and does not test.",
+        "stimulus": "For a fictional equilibrium gas record, n = 0.200 mol, T = 300 K, V = 5.00 L, and R = 8.314 L kPa mol^-1 K^-1. A measurement audit says V could range from 4.75 L to 5.25 L while the other inputs remain fixed.",
+        "points": 3,
+        "responseSpec": {
+          "mode": "text",
+          "units": null,
+          "tolerance": null,
+          "maxSelections": null,
+          "maxLength": 1800
+        },
+        "answer": {
+          "correct": "The base prediction is 99.8 kPa. At 4.75 L it is about 105.0 kPa, and at 5.25 L it is about 95.0 kPa. Thus a roughly plus or minus 5% volume range creates an approximately minus or plus 5% pressure response near this baseline because volume is in the denominator. This is a local one-input sensitivity check; it does not test interacting input changes, measurement bias in other inputs, or whether the real gas satisfies the ideal-gas assumptions.",
+          "summary": "The pressure prediction is locally sensitive to volume by a similar percentage in the opposite direction, but the check does not validate the model structure.",
+          "reasoning": "Award one point for the base result near 99.8 kPa with units, one for both endpoint results near 105.0 and 95.0 kPa, and one for interpreting the inverse local sensitivity while naming at least one untested structural, interaction, or domain issue. On a retry, use n = 0.150 mol, T = 310 K, V = 3.80 L with a volume range of 3.60-4.00 L.",
+          "acceptableResponses": [
+            "Values within 0.2 kPa of 99.8, 105.0, and 95.0 kPa, with an equivalent bounded interpretation."
+          ],
+          "commonErrors": [
+            "Reporting numbers without units or without interpreting direction; write the proportional relation before recalculating.",
+            "Reversing the response to volume; remember that volume is the denominator when other inputs are fixed.",
+            "Calling the sensitivity range a validation of ideal-gas behavior; return to the separate assumption and domain check."
+          ]
+        },
+        "rubricId": "rubric-pressure-sensitivity",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-transfer-mixing-model",
+        "type": "open-response",
+        "sceneId": "scene-mastery-retrieval",
+        "objectiveIds": [
+          "objective-audit-model",
+          "objective-use-and-stress",
+          "objective-diagnose-response"
+        ],
+        "outcomeIds": [
+          "topic-scientific-inquiry-models-and-limits"
+        ],
+        "prompt": "Audit the proposed transfer. State the model's output and central assumption, identify two material scale or domain changes, explain what the new records do and do not corroborate and what they contradict, propose one discriminating or sensitivity test, and justify a response for both an average-only question and a zone-specific question.",
+        "stimulus": "A fictional one-value model was developed in 25 L boxes with continuous mixing and predicts a chamber-volume average marker level of 12 units at 15 minutes; under its well-mixed assumption, it also predicts 12 everywhere. It is proposed for a 2,500 L room with mixing that cycles. At 15 minutes, lower, middle, and upper point sensors record 17, 12, and 7 units; their unweighted mean is 12. No information says that the sensor locations represent equal volumes or form a representative spatial sample.",
+        "points": 4,
+        "responseSpec": {
+          "mode": "text",
+          "units": null,
+          "tolerance": null,
+          "maxSelections": null,
+          "maxLength": 2600
+        },
+        "answer": {
+          "correct": "The model outputs a chamber-volume average and assumes the represented space is sufficiently mixed for one value to describe every zone. The volume increased by a factor of 100 and mixing changed from continuous to cycling; measurement now also spans zones. The unweighted mean of the three point readings equals 12, but it estimates only the sampled-location mean and does not corroborate the chamber-volume average without a representative spatial design or defensible volume weights. The 17-to-7 spread contradicts the uniform-zone prediction. A useful next test samples known represented volumes across position and time, computes a justified volume-aware average, and compares continuous with cycling mixing. For an average-only question, withhold corroboration and provisional use until representative independent records support the defined average. For a zone-specific question, revise or replace the one-value structure because recalibrating one parameter cannot represent the missing spatial pattern.",
+          "summary": "A matching point-sensor mean is not evidence for a chamber-volume average without a representative aggregation design, and it does not rescue a failed spatial representation.",
+          "reasoning": "Award one point for output plus well-mixed assumption, one for at least two scale/domain changes, one for distinguishing the sampled-point mean from a chamber-volume mean while using the spread as evidence against uniformity and proposing a relevant representative test, and one for the purpose-dependent decision: withhold average-only corroboration pending representative independent evidence and structurally revise or replace the model for zones. At least 3/4 on this item is required for lesson mastery. On a retry, audit a 30 L continuously stirred vessel model transferred to a 3,000 L tank with intermittent stirring and four depth records whose represented volumes must be stated before aggregation.",
+          "acceptableResponses": [
+            "Any equivalent audit that distinguishes a matching sampled-point mean from an unsupported chamber-volume mean, identifies the failed zone pattern, and ties the evidence requirement and model response to the requested output."
+          ],
+          "commonErrors": [
+            "Calling the chamber-volume average corroborated because the unweighted point mean matches; first justify how the sampled locations represent volume.",
+            "Listing changed numbers without naming the well-mixed assumption or domain.",
+            "Proposing only parameter recalibration for a missing spatial structure.",
+            "Rejecting the model for every purpose without stating what representative, independent average evidence could support a restricted use."
+          ]
+        },
+        "rubricId": "rubric-transfer-mixing-model",
+        "safetyCritical": false
+      }
+    ],
+    "rubrics": [
+      {
+        "id": "rubric-fit-and-mechanism",
+        "title": "Bounded interpretation of fit",
+        "criteria": [
+          {
+            "id": "criterion-fit-bounded",
+            "description": "Award 1 point only when the existing fit is treated as bounded support rather than proof or uselessness.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-fit-discrimination",
+            "description": "Award 1 point only when the fourth observation is selected because the models make different predictions there.",
+            "maxPoints": 1
+          }
+        ]
+      },
+      {
+        "id": "rubric-feeder-domain-failure",
+        "title": "Range, boundary, and failure response",
+        "criteria": [
+          {
+            "id": "criterion-feeder-calculate-range",
+            "description": "Award 1 point for predictions of 48 at 8 h and -12 at 18 h plus correct interpolation and extrapolation labels.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-feeder-failure-evidence",
+            "description": "Award 1 point for using both the observed mismatch and the impossible negative count as 18 h failure evidence.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-feeder-response",
+            "description": "Award 1 point for restricting the current range and revising or replacing the structure before later-time use.",
+            "maxPoints": 1
+          }
+        ]
+      },
+      {
+        "id": "rubric-pressure-sensitivity",
+        "title": "Productive calculation and local sensitivity",
+        "criteria": [
+          {
+            "id": "criterion-pressure-base",
+            "description": "Award 1 point for a base prediction near 99.8 kPa with compatible units.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-pressure-endpoints",
+            "description": "Award 1 point for endpoint predictions near 105.0 kPa at 4.75 L and 95.0 kPa at 5.25 L.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-pressure-interpret",
+            "description": "Award 1 point for interpreting the inverse local response and naming at least one structural, interaction, or domain issue that remains untested.",
+            "maxPoints": 1
+          }
+        ]
+      },
+      {
+        "id": "rubric-transfer-mixing-model",
+        "title": "Purpose-bound scale transfer",
+        "criteria": [
+          {
+            "id": "criterion-transfer-output-assumption",
+            "description": "Award 1 point for identifying the one-average output and the well-mixed assumption.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-transfer-domain-changes",
+            "description": "Award 1 point for at least two material changes among volume, mixing regime, spatial measurement, or desired output.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-transfer-evidence-test",
+            "description": "Award 1 point for stating that the unweighted point mean does not corroborate the chamber-volume average without representative sampling or weights, using the spread as evidence against uniformity, and proposing a relevant spatial, temporal, or mixing-regime test.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-transfer-purpose-response",
+            "description": "Award 1 point for withholding average-only corroboration or provisional use pending representative independent evidence, and for structural revision or replacement for zone-specific use.",
+            "maxPoints": 1
+          }
+        ]
+      }
+    ]
+  },
+  "references": {
+    "schemaVersion": 2,
+    "format": "embeddedknowledge-references-v2",
+    "lessonId": "PREM-SCI-010",
+    "lessonVersion": "0.1.0",
+    "sources": [
+      {
+        "id": "source-epa-model-guidance",
+        "type": "guideline",
+        "title": "Guidance on the Development, Evaluation, and Application of Environmental Models",
+        "creators": [
+          "U.S. Environmental Protection Agency, Council for Regulatory Environmental Modeling"
+        ],
+        "publisher": "U.S. Environmental Protection Agency",
+        "issued": "2009-03",
+        "url": "https://19january2021snapshot.epa.gov/sites/static/files/2015-04/documents/cred_guidance_0309.pdf",
+        "accessed": "2026-07-21",
+        "version": "EPA/100/K-09/003",
+        "locator": "Executive summary; sections 3.1 and 4.2.3; glossary; Appendix D.5, especially report pages ix, 14-16, 26-31, 43-46, and 69-74",
+        "license": "EPA website copyright and disclaimer terms; used only as a factual reference",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Only factual definitions and modeling relationships were consulted. The lesson's wording, structure, examples, questions, diagram, calculations, and assessment were independently created; no EPA expression, media, figure, table, or dataset is reused."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://www.epa.gov/web-policies-and-procedures/epa-disclaimers",
+          "checked": "2026-07-21",
+          "notes": "The EPA disclaimer and current robots route were checked before substantive access. The public report path was not disallowed, no agent-specific prohibition was found, and no login, paywall, rate limit, or technical control was bypassed."
+        }
+      },
+      {
+        "id": "source-nasa-equation-state",
+        "type": "reference-work",
+        "title": "Equation of State",
+        "creators": [
+          "NASA Glenn Research Center"
+        ],
+        "publisher": "National Aeronautics and Space Administration",
+        "issued": "2021-05-18",
+        "url": "https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/equation-of-state/",
+        "accessed": "2026-07-21",
+        "version": "Page metadata last modified 2024-07-18",
+        "locator": "Ideal Gas section: the relations PV/T = nR and PV = nRT, variable descriptions, and the stated ideal-gas applicability boundary",
+        "license": "NASA public information under the NASA website disclaimer; used only as a factual reference",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "The source was used to verify the ideal-gas relation and its named quantities. No NASA prose, image, graph, exercise, example, or other expression is copied, adapted, or redistributed."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://www.nasa.gov/organizations/disclaimer/",
+          "checked": "2026-07-21",
+          "notes": "NASA's disclaimer and the NASA Glenn robots route were checked before substantive access. The robots route allowed all public paths, no agent-specific restriction was found, and no access control was bypassed."
+        }
+      },
+      {
+        "id": "source-nasa-real-gas-limits",
+        "type": "textbook",
+        "title": "Turbine Design and Application, Volume 1",
+        "creators": [
+          "Arthur J. Glassman"
+        ],
+        "publisher": "National Aeronautics and Space Administration",
+        "issued": "1972",
+        "url": "https://ntrs.nasa.gov/citations/19720019035",
+        "accessed": "2026-07-21",
+        "version": "NASA SP-290-VOL-1; NTRS record 19720019035",
+        "locator": "Chapter 1, Equation of State: equations 1-1 through 1-4 and the accompanying discussion of ideal and real gas behavior",
+        "license": "Publicly distributed U.S. government technical publication; used only as a factual reference",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "The source was used to verify the qualitative low-pressure/high-temperature domain and the roles of molecular free space and attractive forces. No report wording, numerical example, chart, equation numbering, image, or table is reused."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://www.nasa.gov/organizations/disclaimer/",
+          "checked": "2026-07-21",
+          "notes": "The NASA disclaimer and NTRS robots route were checked before substantive access. NTRS allowed all public paths; the report was publicly distributed and retrieved without login, paywall, rate-limit bypass, or other technical circumvention."
+        }
+      }
+    ]
+  },
+  "claims": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-claims-v1",
+    "lessonId": "PREM-SCI-010",
+    "lessonVersion": "0.1.0",
+    "claims": [
+      {
+        "id": "claim-model-purpose",
+        "statement": "A scientific model is a selective simplification or formal representation used to gain insight into specified features of a system rather than an exact copy of that system.",
+        "sceneIds": [
+          "scene-precise-answer-wrong-tool",
+          "scene-model-audit"
+        ],
+        "sourceIds": [
+          "source-epa-model-guidance"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Physical, conceptual, mathematical, statistical, and computational scientific models used for a stated question or decision.",
+        "uncertainty": "The amount and kind of simplification that is useful depend on the model's purpose; there is no single ideal level of detail.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      },
+      {
+        "id": "claim-model-components",
+        "statement": "Model outputs depend on inputs, assumptions, and model structure; a parameter can remain fixed during one run but change across runs or during parameter estimation.",
+        "sceneIds": [
+          "scene-model-audit",
+          "scene-worked-pressure"
+        ],
+        "sourceIds": [
+          "source-epa-model-guidance"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "The modeling vocabulary and run-to-run distinction used in this introductory lesson.",
+        "uncertainty": "Different disciplines use input, variable, state variable, constant, and parameter with somewhat different conventions; the role in the stated model must be declared.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      },
+      {
+        "id": "claim-model-domain-scale",
+        "statement": "A model's defensible domain is the set of purposes, conditions, and spatial or temporal scales for which its use is supported; transfer to a different context requires renewed evaluation.",
+        "sceneIds": [
+          "scene-precise-answer-wrong-tool",
+          "scene-model-audit",
+          "scene-worked-pressure",
+          "scene-stress-and-repair",
+          "scene-transfer-chamber",
+          "scene-mastery-retrieval"
+        ],
+        "sourceIds": [
+          "source-epa-model-guidance"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Purpose-bound scientific model application, including transfer across physical size, duration, environment, population, or measurement regime.",
+        "uncertainty": "The boundary is often gradual and purpose-dependent rather than a sharp universal cutoff; acceptable performance depends on the needed decision accuracy.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      },
+      {
+        "id": "claim-sensitivity-analysis",
+        "statement": "Sensitivity analysis examines how changes in model inputs or assumptions affect outputs; a one-at-a-time check is local to its baseline and can miss interactions.",
+        "sceneIds": [
+          "scene-model-audit",
+          "scene-worked-pressure",
+          "scene-stress-and-repair",
+          "scene-transfer-chamber"
+        ],
+        "sourceIds": [
+          "source-epa-model-guidance"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Introductory local sensitivity checks and their stated limitation; not a complete treatment of global or variance-based methods.",
+        "uncertainty": "A small local response does not guarantee small response elsewhere in a nonlinear model or when several inputs vary together.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      },
+      {
+        "id": "claim-model-uncertainty",
+        "statement": "Model uncertainty can arise from the application context, structure, inputs, or parameter values, while system variability may be characterizable without being removed by additional study.",
+        "sceneIds": [
+          "scene-model-audit"
+        ],
+        "sourceIds": [
+          "source-epa-model-guidance"
+        ],
+        "support": "direct",
+        "confidence": "medium-high",
+        "scope": "The introductory distinction between lack of knowledge and variability, as used to interpret model limits.",
+        "uncertainty": "The distinction depends on how the system and model are defined; a refined model may explain variation that a coarser model treated as irreducible.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      },
+      {
+        "id": "claim-ideal-gas-relation",
+        "statement": "For an ideal gas, PV = nRT relates pressure, volume, amount of substance, and absolute temperature; a real gas can use the relation only when it behaves sufficiently like an ideal gas for the intended purpose.",
+        "sceneIds": [
+          "scene-precise-answer-wrong-tool",
+          "scene-worked-pressure",
+          "scene-stress-and-repair"
+        ],
+        "sourceIds": [
+          "source-nasa-equation-state"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Macroscopic equilibrium-state calculations with compatible units and absolute temperature.",
+        "uncertainty": "The equation alone does not specify an acceptable error for a particular real gas or application.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      },
+      {
+        "id": "claim-ideal-gas-limits",
+        "statement": "Real gases tend to approximate ideal behavior better at lower pressure or higher temperature; finite molecular spacing and attractive interactions can make the ideal-gas approximation fail as conditions change.",
+        "sceneIds": [
+          "scene-precise-answer-wrong-tool",
+          "scene-worked-pressure",
+          "scene-stress-and-repair"
+        ],
+        "sourceIds": [
+          "source-nasa-real-gas-limits"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Qualitative real-gas limits used to demonstrate model-domain reasoning, not to establish gas-specific error thresholds.",
+        "uncertainty": "The size and sign of deviation depend on gas identity, temperature, pressure, and the accuracy required; no universal numerical boundary is asserted.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      },
+      {
+        "id": "claim-bounded-evidence",
+        "statement": "Agreement with selected observations supports a model only for a stated purpose and domain; competing explanations, boundary cases, sensitivity, and independent evidence are needed to probe adequacy and failure.",
+        "sceneIds": [
+          "scene-model-audit",
+          "scene-stress-and-repair",
+          "scene-transfer-chamber",
+          "scene-mastery-retrieval"
+        ],
+        "sourceIds": [
+          "source-epa-model-guidance"
+        ],
+        "support": "synthesis",
+        "confidence": "high",
+        "scope": "Scientific model evaluation at the introductory level; agreement is treated as corroboration, not proof that a representation is uniquely true.",
+        "uncertainty": "How much evidence is sufficient depends on the consequence of error, the intended use, and feasible alternatives.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      }
+    ]
+  },
+  "glossary": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-glossary-v1",
+    "lessonId": "PREM-SCI-010",
+    "lessonVersion": "0.1.0",
+    "terms": [
+      {
+        "id": "term-scientific-model",
+        "term": "scientific model",
+        "definition": "A selective representation of a system or process, built to answer a stated question by retaining some relationships and omitting others.",
+        "aliases": [
+          "model"
+        ],
+        "sceneIds": [
+          "scene-precise-answer-wrong-tool",
+          "scene-model-audit"
+        ]
+      },
+      {
+        "id": "term-model-input",
+        "term": "model input",
+        "definition": "A value, condition, or record supplied to a model for a particular use or run.",
+        "aliases": [
+          "input"
+        ],
+        "sceneIds": [
+          "scene-model-audit",
+          "scene-worked-pressure"
+        ]
+      },
+      {
+        "id": "term-model-output",
+        "term": "model output",
+        "definition": "The prediction, estimate, explanation, classification, or other result produced by applying a model.",
+        "aliases": [
+          "output"
+        ],
+        "sceneIds": [
+          "scene-model-audit",
+          "scene-worked-pressure"
+        ]
+      },
+      {
+        "id": "term-model-variable",
+        "term": "model variable",
+        "definition": "A quantity represented in the model whose value can differ among states, observations, or times.",
+        "aliases": [
+          "variable"
+        ],
+        "sceneIds": [
+          "scene-model-audit",
+          "scene-worked-pressure"
+        ]
+      },
+      {
+        "id": "term-model-parameter",
+        "term": "model parameter",
+        "definition": "A model quantity treated as fixed during one run but available to change between runs, systems, or calibration choices.",
+        "aliases": [
+          "parameter"
+        ],
+        "sceneIds": [
+          "scene-model-audit",
+          "scene-worked-pressure"
+        ]
+      },
+      {
+        "id": "term-model-assumption",
+        "term": "model assumption",
+        "definition": "A condition or simplification accepted so the model can represent selected relationships, such as treating a process as constant, negligible, or well mixed.",
+        "aliases": [
+          "assumption"
+        ],
+        "sceneIds": [
+          "scene-model-audit",
+          "scene-worked-pressure",
+          "scene-transfer-chamber"
+        ]
+      },
+      {
+        "id": "term-scale",
+        "term": "scale",
+        "definition": "The size, duration, resolution, or organizational level at which a model represents a system.",
+        "aliases": [
+          "spatial scale",
+          "temporal scale"
+        ],
+        "sceneIds": [
+          "scene-model-audit",
+          "scene-transfer-chamber"
+        ]
+      },
+      {
+        "id": "term-model-domain",
+        "term": "model domain",
+        "definition": "The purposes, conditions, scales, and contexts for which a model has a defensible basis of use.",
+        "aliases": [
+          "domain",
+          "application niche"
+        ],
+        "sceneIds": [
+          "scene-precise-answer-wrong-tool",
+          "scene-model-audit",
+          "scene-worked-pressure",
+          "scene-stress-and-repair",
+          "scene-transfer-chamber",
+          "scene-mastery-retrieval"
+        ]
+      },
+      {
+        "id": "term-calibration",
+        "term": "calibration",
+        "definition": "In this lesson, the adjustment or estimation of model parameters within defensible ranges so model output fits relevant observations according to stated criteria.",
+        "aliases": [
+          "parameter estimation"
+        ],
+        "sceneIds": [
+          "scene-model-audit",
+          "scene-stress-and-repair"
+        ]
+      },
+      {
+        "id": "term-sensitivity-analysis",
+        "term": "sensitivity analysis",
+        "definition": "A check of how model output changes when selected inputs, parameters, assumptions, boundaries, or model structure change.",
+        "aliases": [
+          "sensitivity check"
+        ],
+        "sceneIds": [
+          "scene-model-audit",
+          "scene-worked-pressure",
+          "scene-stress-and-repair",
+          "scene-transfer-chamber"
+        ]
+      },
+      {
+        "id": "term-extrapolation",
+        "term": "extrapolation",
+        "definition": "Using a fitted or calibrated relationship beyond the conditions or range that supplied its direct evidential support.",
+        "aliases": [],
+        "sceneIds": [
+          "scene-model-audit",
+          "scene-stress-and-repair",
+          "scene-transfer-chamber"
+        ]
+      },
+      {
+        "id": "term-failure-mode",
+        "term": "failure mode",
+        "definition": "A recognizable way a model becomes inadequate for its intended use, such as an assumption failing, a boundary being crossed, or output disagreeing materially with evidence.",
+        "aliases": [
+          "model failure"
+        ],
+        "sceneIds": [
+          "scene-model-audit",
+          "scene-stress-and-repair",
+          "scene-transfer-chamber",
+          "scene-mastery-retrieval"
+        ]
+      },
+      {
+        "id": "term-uncertainty",
+        "term": "uncertainty",
+        "definition": "A limitation in knowledge about a model, its inputs, parameters, structure, or application that affects confidence in its output.",
+        "aliases": [
+          "epistemic uncertainty"
+        ],
+        "sceneIds": [
+          "scene-model-audit"
+        ]
+      },
+      {
+        "id": "term-variability",
+        "term": "variability",
+        "definition": "Differences or fluctuations in the represented system that can be characterized but are not necessarily removed by collecting more information.",
+        "aliases": [
+          "aleatory variability"
+        ],
+        "sceneIds": [
+          "scene-model-audit"
+        ]
+      }
+    ]
+  },
+  "attributionHtml": "<h1>Attribution</h1>\n<h2>Lesson identity and accountability</h2>\n<ul>\n<li>Lesson: <strong>PREM-SCI-010 — Using scientific models without outrunning their limits</strong></li>\n<li>Accountable principal: <strong>VSBDev</strong> (<code>github:VSBDev</code>), verified through the authenticated GitHub CLI account on 2026-07-21</li>\n<li>Course-content licence: <strong>Creative Commons Attribution 4.0 International (CC BY 4.0)</strong></li>\n<li>Candidate state: version <code>0.1.0</code>, <code>draft</code>, source confidence <code>pending-review</code></li>\n</ul>\n<p>VSBDev is accountable for the blind science authorship runs and the editorial packaging run disclosed below. Provenance is disclosed and attested; it is not represented as independently verified by the repository.</p>\n<h2>Blind science authorship</h2>\n<p>The accepted science dossier was <code>/tmp/fable-dossier-02-10.md</code>. It states that each accepted fragment came from an isolated Claude CLI call that received only its science prompt, that machine-readable <code>modelUsage</code> included <code>claude-fable-5</code>, and that Opus-routed outputs were excluded. It also reports <code>claude-haiku-4-5-20251001</code> in each accepted call&#39;s model usage. No accepted Fable run saw this repository, Premed, the graph outcome ID, or the editorial-packaging prompt.</p>\n<p>The dossier did not supply a Claude CLI version. The separate actor records in <code>lesson.json</code> therefore say <code>not supplied in accepted dossier</code> rather than inventing one. Because the lesson validator requires unique author principal IDs, each blind run uses a project-local <code>agent-session:UUID</code> actor ID keyed exactly to its Claude session. Those IDs do not pretend to be separate people or GitHub accounts: VSBDev remains the disclosed operator and accountable principal for all ten.</p>\n<table>\n<thead>\n<tr>\n<th align=\"right\">Fragment</th>\n<th>Claude session / run ID</th>\n<th>Science-prompt SHA-256</th>\n<th>Reported accepted model usage</th>\n</tr>\n</thead>\n<tbody><tr>\n<td align=\"right\">1</td>\n<td><code>0adeed36-b002-409f-b2fe-61b7ec2f056d</code></td>\n<td><code>dc751280269d552fe5dd79edd90f3f1cd05ec16a9ab7ceb176e0cdb9510b334e</code></td>\n<td><code>claude-haiku-4-5-20251001</code>; <code>claude-fable-5</code></td>\n</tr>\n<tr>\n<td align=\"right\">2</td>\n<td><code>1f33f961-31c4-4319-ba18-2934eeafeec0</code></td>\n<td><code>cadc0b7ca2f066449d62afb4baa2d48ba9e1f0867a354ca1e4c258544ef0972c</code></td>\n<td><code>claude-haiku-4-5-20251001</code>; <code>claude-fable-5</code></td>\n</tr>\n<tr>\n<td align=\"right\">3</td>\n<td><code>26ebef5e-a7c1-485f-9fa1-146b163d3f68</code></td>\n<td><code>4ab71b3d2332de038767e03805d0c7a26888d039cb52528dd3cfdcc078a16108</code></td>\n<td><code>claude-haiku-4-5-20251001</code>; <code>claude-fable-5</code></td>\n</tr>\n<tr>\n<td align=\"right\">4</td>\n<td><code>0024106e-67a3-426b-9e0b-88f31d131631</code></td>\n<td><code>3bc8eac662bbb3c897feb44117467d4ab77f3856ba641aced29f6aae1ba6b66f</code></td>\n<td><code>claude-haiku-4-5-20251001</code>; <code>claude-fable-5</code></td>\n</tr>\n<tr>\n<td align=\"right\">5</td>\n<td><code>80aae675-1eda-4772-8a46-ce848c3443de</code></td>\n<td><code>a22f422792801b87ecd9dfb945930fc47a82634050648b63a307d4ff0116af4d</code></td>\n<td><code>claude-haiku-4-5-20251001</code>; <code>claude-fable-5</code></td>\n</tr>\n<tr>\n<td align=\"right\">6</td>\n<td><code>90555445-3e89-4847-ace8-84d6002bdc99</code></td>\n<td><code>52d3f269e139cb30b8a0ade70e58b6b4ce76e6c991978f93e4008d7024f13a30</code></td>\n<td><code>claude-haiku-4-5-20251001</code>; <code>claude-fable-5</code></td>\n</tr>\n<tr>\n<td align=\"right\">7</td>\n<td><code>22f0b3cb-3d92-4973-8698-1bca45a1ea8f</code></td>\n<td><code>ffa39569314564aba10944014ac6c1f7c8af272b3e98c42e8024719e411d5730</code></td>\n<td><code>claude-haiku-4-5-20251001</code>; <code>claude-fable-5</code></td>\n</tr>\n<tr>\n<td align=\"right\">8</td>\n<td><code>ef9fa40c-1460-415b-9189-e06976e7481c</code></td>\n<td><code>da592117e2a4ac47418e6521dae40d1a092564e63f74f53b685645a1a79f8ee9</code></td>\n<td><code>claude-haiku-4-5-20251001</code>; <code>claude-fable-5</code></td>\n</tr>\n<tr>\n<td align=\"right\">9</td>\n<td><code>4a0863f1-8238-4129-856f-522ad72561ba</code></td>\n<td><code>7c30cb714d3b2ab4154f14656e9e86b5f50583b3755fafd09c4260b7a8bad4ae</code></td>\n<td><code>claude-haiku-4-5-20251001</code>; <code>claude-fable-5</code></td>\n</tr>\n<tr>\n<td align=\"right\">10</td>\n<td><code>53e94f46-3a47-4451-b8da-de9d5c6b2212</code></td>\n<td><code>1cf9ede3b4d6d76988f3b7c63186da4a895e8cbb7f7acb19fa6fab2cbd84e31b</code></td>\n<td><code>claude-haiku-4-5-20251001</code>; <code>claude-fable-5</code></td>\n</tr>\n</tbody></table>\n<p>The prompt digests above are reproduced exactly from the accepted dossier and are recorded in <code>lesson.json</code> with the required <code>sha256:</code> prefix. They identify the science-only prompt associated with each fragment; they do not cover hidden provider or system instructions.</p>\n<h2>Editorial and pedagogical packaging</h2>\n<p>Material editorial and pedagogical assistance used <strong>Codex</strong> by <strong>OpenAI</strong>, model <strong>gpt-5.6-sol</strong>, version <strong>Codex CLI 0.144.6</strong>, in isolated packaging run <code>914048de-b3fb-41bd-85e2-26d71839e6d0</code>.</p>\n<p>The packaging prompt digest is <code>sha256:d64648b745004f8ff43eccbe715e769c0fb99da3fd8f3e61c0dfde0d959809cc</code>, supplied through <code>EK_PACKAGER_PROMPT_SHA256</code>. It covers the exact discloseable material editorial-packaging prompt supplied to this run and excludes hidden provider and system instructions. This run is disclosed as editorial and pedagogical packaging, source verification, original lesson construction, and schema assembly—not as the blind science author.</p>\n<h2>Scientific disposition of the accepted fragments</h2>\n<p>The dossier served as a baseline scientific first draft, not as evidence. Consequential claims were checked against the authoritative sources in <code>references.json</code>.</p>\n<ul>\n<li>Retained and independently expressed: selective model representation; input, variable, and run-specific parameter roles; starting and boundary conditions as model constraints; calibration in the parameter-estimation sense; interpolation and extrapolation risk; context transfer; uncertainty versus variability; non-unique fits; sensitivity analysis; and the ideal-gas relation and qualitative failure domain.</li>\n<li>Narrowed for learner fit: advanced partial-differential-equation taxonomy, high-dimensional convex-hull detail, machine-learning domain-shift subtypes, named global-sensitivity methods, and the history of equifinality were not needed to meet this atomic outcome.</li>\n<li>Corrected or excluded: the dossier&#39;s probability-frequency definition is a valid specialized sense of calibration but is not the general scientific-model calibration taught here; the lesson uses EPA&#39;s parameter-estimation sense. The dossier&#39;s numerical claim that air at atmospheric conditions deviates by under 1% was not retained because the lesson does not need a gas-specific error threshold. No universal ideal-gas cutoff is asserted.</li>\n</ul>\n<h2>Original synthesis and source use</h2>\n<p>The opening, four-question audit, flow diagram, ideal-gas vessel example, model-comparison functions, feeder and sensor cases, chamber transfer, assessment variants, feedback, remediation routes, and instructional sequence are original course material created for this pack. Source expression and dossier wording were not copied, translated, lightly rewritten, or used as an organizational template.</p>\n<p>The three records in <code>references.json</code> were used only for factual verification. No quotation, adapted expression, source example, figure, table, media, or dataset is included.</p>\n<h2>Source-access and rights preflight</h2>\n<p>Before substantive direct access on 2026-07-21, the accountable packager checked the relevant public terms and robots routes:</p>\n<ul>\n<li>EPA: the EPA disclaimer plus the current and snapshot robots routes; the public report path was not disallowed and no agent-specific restriction was found.</li>\n<li>NASA Glenn: the NASA disclaimer plus <code>www1.grc.nasa.gov/robots.txt</code>; all public paths were allowed.</li>\n<li>NASA Technical Reports Server: the NASA disclaimer plus <code>ntrs.nasa.gov/robots.txt</code>; all public paths were allowed.</li>\n</ul>\n<p>No login, paywall, access control, rate limit, or technical restriction was bypassed. Exact use, rights basis, rights evidence, terms URL, access date, and limitations are recorded per source in <code>references.json</code>.</p>\n<p>An OpenStax textbook route was considered but excluded after access screening found that its current <code>robots.txt</code> disallows GPTBot on <code>/books/</code>. It is not a lesson source, supplied no reused expression, and does not appear in the claim or reference ledgers.</p>\n<h2>Assets and modifications</h2>\n<p>No third-party image, diagram, audio, video, dataset, patient material, or other asset is included. <code>diagrams/model-use-cycle.diagram.json</code> is original declarative course content authored for this lesson and licensed with the pack under CC BY 4.0.</p>\n<p>This remains the initial <code>0.1.0</code> draft. Two frozen-candidate advisory reviews and the fresh finalizer&#39;s single post-review revision and adjudication are recorded inside the pack. The revision distinguishes an unweighted point-sensor mean from a chamber-volume average and requires representative, volume-aware evidence before corroborating the latter. Finalizer provenance, indexed finding dispositions, audit evidence, limitations, and merge conditions are disclosed in <code>adjudication.json</code>. A merge decision is not publication, and no claim is made that the lesson is published, clinically sufficient, or evidence of learner mastery.</p>\n"
+}

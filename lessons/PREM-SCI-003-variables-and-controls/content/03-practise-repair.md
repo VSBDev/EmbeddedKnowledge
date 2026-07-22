@@ -4,7 +4,7 @@ Begin without looking back. Write six short questions that recover the six jobs.
 
 A useful check is:
 
-> changed; recorded; held alike; changed alongside and able to affect the record; expected baseline; expected known response
+> changed; recorded; held alike; separate rival changed alongside, able to affect the record, and not on the intended pathway; expected baseline; expected known response
 
 If **held alike** and **expected baseline** sound identical, keep going: the first describes a condition maintained across the main groups; the second describes an extra comparison whose expected result helps interpret the system.
 
@@ -28,7 +28,7 @@ Complete the role map before opening the feedback:
 
 ### Feedback after your attempt
 
-A defensible map identifies curing temperature as the independent variable, breaking force as the dependent variable, any two of resin volume, mould shape, curing duration, and testing machine as controlled variables, and technician as a candidate confounder. Technician qualifies only if technician differences could affect breaking force; the fixed pairing with temperature creates the ambiguity.
+A defensible map identifies curing temperature as the independent variable, breaking force as the dependent variable, any two of resin volume, mould shape, curing duration, and testing machine as controlled variables, and technician as a candidate confounder. Technician qualifies only if technician differences could affect breaking force, the fixed pairing with temperature creates the ambiguity, and technician assignment is a separate preparation choice rather than a consequence through which temperature changes the resin.
 
 To repair the pairing, have both technicians prepare strips at both temperatures under the same stated conditions. If technician cannot affect the response, it is not a confounder even though it differs. The label follows the relationship, not a memorized list of suspicious factors.
 
@@ -62,11 +62,13 @@ Whether that water-only group should be called a negative control depends on the
 
 **Tempting shortcut:** every uncontrolled variable is a confounder.
 
-**Why the shortcut fails:** a confounder must create a rival explanation for the comparison. It must vary systematically with the independent variable and be able to affect the dependent variable. Random desk positions that occur across both curing temperatures are not automatically confounded with temperature.
+**Why the shortcut fails:** a confounder must create a separate rival explanation for the comparison. It must vary systematically with the independent variable, be able to affect the dependent variable, and not be a step through which the independent variable produces that response. Random desk positions that occur across both curing temperatures are not automatically confounded with temperature.
 
-**Repair:** ask two questions: “Does this factor track the independent variable?” and “Could it affect the recorded response?” Both must be plausible for the factor to confound this comparison.
+**Repair:** ask three questions: “Is this a separate rival factor rather than a consequence on the intended pathway?”, “Does it track the independent variable?”, and “Could it affect the recorded response?” All three must be plausible for the factor to confound this comparison.
 
-**Recheck:** all 20 °C strips are tested on Monday and all 30 °C strips on Friday after the machine was recalibrated. Day or calibration state could affect breaking force and is locked to temperature. That is a candidate confounder.
+**Mediator near miss:** a team changes fan speed and records component temperature. The change in fan speed causes airflow to change, and airflow then changes temperature. Airflow tracks fan speed and affects the recorded response, but here it is the intermediate mechanism being tested—a mediator—not a separate confounder.
+
+**Recheck:** all 20 °C strips are tested on Monday and all 30 °C strips on Friday after the machine was recalibrated. Day or calibration state could affect breaking force, is locked to temperature, and is a separate scheduling or equipment factor rather than a consequence of curing temperature. That is a candidate confounder.
 :::
 
 ## Independent mixed practice
@@ -92,7 +94,7 @@ The positive control failed. The blank result is expected for the negative contr
 :id: check-independent-six-role-audit
 :kind: practice
 
-For your chosen comparison, name the independent and dependent variables, at least two controlled variables, the candidate confounder, and the negative- and positive-control conditions. Then explain both links that make the extra factor a candidate confounder, what a failed negative control would show, and what a failed positive control would prevent you from concluding about an unknown.
+For your chosen comparison, name the independent and dependent variables, at least two controlled variables, the candidate confounder, and the negative- and positive-control conditions. Then explain the three confounder checks—separate rival factor, fixed pairing, and possible effect on the response—what a failed negative control would show, and what a failed positive control would prevent you from concluding about an unknown.
 :::
 
 ### Self-check after your attempt
@@ -101,7 +103,7 @@ Do not check the nouns alone. Your audit is defensible only if every relationshi
 
 1. The independent variable is the factor deliberately set to two levels, and the dependent variable is the response recorded.
 2. Each controlled variable you named is explicitly held alike across those levels.
-3. The candidate confounder is paired with the independent variable **and** could change the dependent variable.
+3. The candidate confounder is a separate rival factor rather than a step on the intended pathway, is paired with the independent variable, **and** could change the dependent variable.
 4. The negative control is the condition expected to stay near baseline; a response there exposes background or a response where none is expected.
 5. The positive control is the condition expected to produce a known response; failure there means the system has not shown that it can reveal the response, so a matching unknown cannot yet be interpreted.
 
@@ -109,7 +111,7 @@ If one relationship is missing, revise that row and repeat the audit on the othe
 
 :::{source-note}
 :claims: claim-variable-roles, claim-confounder-ambiguity, claim-control-functions, claim-controls-have-limits
-:sources: source-nist-handbook, source-ncbi-assay-guidelines
+:sources: source-nist-handbook, source-ncbi-assay-guidelines, source-confounding-observational
 
 The sources support the manipulated-factor, response, extraneous-variable, and control roles used in these discrimination tasks. They also support holding some influential conditions constant while recognizing the scope limits of that choice. All resin, seedling, image-detector, package-seal, and motion-detector cases are original fictional examples.
 :::

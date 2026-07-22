@@ -1,0 +1,268 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-assessment-v1",
+  "lessonId": "PREM-SCI-009",
+  "lessonVersion": "0.1.0",
+  "assessmentId": "assessment-evidence-trail-safeguards",
+  "title": "Evidence-trail safeguards mastery check",
+  "purpose": "mastery-gate",
+  "attemptPolicy": {
+    "retakeable": true,
+    "timeLimitMinutes": null,
+    "feedback": "after-attempt"
+  },
+  "items": [
+    {
+      "id": "item-reproduce-or-replicate",
+      "type": "single-choice",
+      "sceneId": "scene-transfer-mastery",
+      "objectiveIds": [
+        "objective-distinguish-safeguards"
+      ],
+      "outcomeIds": [
+        "topic-scientific-inquiry-replication-reproducibility"
+      ],
+      "prompt": "A second analyst receives the original observations, code, and environment description and obtains the reported estimate. No new specimens are measured. Which interpretation is best?",
+      "stimulus": null,
+      "points": 2,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-reproduced-not-replicated",
+            "text": "The result is computationally reproducible from the supplied files, but the claim has not been replicated with new data."
+          },
+          {
+            "id": "option-replicated-proven",
+            "text": "The claim has been replicated and is now proven because two analysts obtained the same estimate."
+          },
+          {
+            "id": "option-sensitivity-complete",
+            "text": "The sensitivity analysis is complete because the original code ran twice."
+          },
+          {
+            "id": "option-preregistered-retroactively",
+            "text": "The study is preregistered because its methods can now be reconstructed."
+          }
+        ],
+        "units": null,
+        "tolerance": null,
+        "maxSelections": 1,
+        "maxLength": null
+      },
+      "answer": {
+        "correct": "option-reproduced-not-replicated",
+        "summary": "Same-data regeneration is computational reproducibility, not new-data replication.",
+        "reasoning": "The analyst used the original inputs and documented computational steps, so the result can be regenerated from those files. Replication requires an informative test with newly collected data. Running the code twice does not compare plausible analytic alternatives, and reconstructing a method after outcomes are known does not create a before-outcomes preregistration. For a retry, imagine a new analyst rebuilding an old weather analysis: circle whether the data are old or newly collected before naming the safeguard.",
+        "acceptableResponses": [
+          "option-reproduced-not-replicated"
+        ],
+        "commonErrors": [
+          "Calling every repeated action a replication without checking whether the data are new.",
+          "Treating successful code execution as proof that the scientific conclusion is correct.",
+          "Confusing a recoverable workflow with a preregistered decision timeline."
+        ]
+      },
+      "rubricId": "rubric-reproduce-or-replicate",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-interpret-three-checks",
+      "type": "data-interpretation",
+      "sceneId": "scene-transfer-mastery",
+      "objectiveIds": [
+        "objective-distinguish-safeguards",
+        "objective-evaluate-evidence"
+      ],
+      "outcomeIds": [
+        "topic-scientific-inquiry-replication-reproducibility"
+      ],
+      "prompt": "Interpret the three records together. Name the safeguard represented by each record and write a calibrated conclusion about the size and stability of the claim. Do not choose one estimate as the winner.",
+      "stimulus": "Fictional materials study: before results, the team defines a large stable difference as at least 8 units and specifies that a replication 95% interval with an upper end below 8 will count against that claim. The preregistered analysis reports 12 units, with a 95% interval from 9 to 15. A second analyst obtains the same result from the original files. Three justified analyses for the same target question produce point estimates of 2, 11, and 13 units. A second laboratory measures new samples and reports 3 units, with a 95% interval from 1 to 5.",
+      "points": 3,
+      "responseSpec": {
+        "mode": "text",
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "maxLength": 1800
+      },
+      "answer": {
+        "correct": "The 12-unit re-run shows computational reproducibility for the original files. The 2-to-13-unit range is a sensitivity result showing dependence on plausible analytic choices. The 3-unit new-sample result is a replication; its 1-to-5 interval lies below the prespecified 8-unit threshold, so it counts against the large stable-difference claim without proving no difference. The replication point estimate also falls inside the sensitivity range. These distinct checks both warn against treating 12 as a stable estimate, but they do not identify one combined effect size or explain the variation by themselves.",
+        "summary": "The files re-run, while sensitivity and a prespecified new-data comparison both count against a large stable difference.",
+        "reasoning": "Each record answers a different question. Regenerating 12 and its interval from the same inputs checks the computational trail. The spread from 2 to 13 checks how the same target conclusion depends on justified analytic alternatives. The new laboratory's estimate tests the claim with new data, and its 1-to-5 interval lies below the prespecified 8-unit large-effect threshold. The replication point estimate of 3 also lies within the sensitivity range of 2 to 13. That connection shows that a smaller estimate was already possible under a justified analysis of the original data, but it does not make sensitivity analysis and replication interchangeable or reveal why results vary. The appropriate conclusion reports reproducibility and both sources of caution; it does not average the values without a model, infer a zero effect, or treat one study as a final verdict. For a retry, substitute a fictional sound-measurement study with a prespecified large-effect threshold of 6, same-file 8 with interval 7 to 9, sensitivity values 1 to 9, and a new-sample value of 2 with interval 1 to 4, then repeat the three labels and one-sentence calibration.",
+        "acceptableResponses": [
+          "Any answer that correctly labels same-file regeneration, justified alternative analyses, and new-sample testing, then uses the prespecified threshold and interval to limit confidence in a large robust effect.",
+          "An answer may say that the evidence is compatible with a smaller effect or a result dependent on conditions, provided it notes that the replication estimate lies within the sensitivity range and does not claim proof, no effect, or misconduct."
+        ],
+        "commonErrors": [
+          "Calling the same-file re-run a replication.",
+          "Reporting only the preregistered or largest estimate and ignoring the sensitivity range.",
+          "Treating a difference between bare point estimates as decisive without using the prespecified threshold and interval.",
+          "Treating the smaller replication estimate as proof that the original investigators erred or acted improperly."
+        ]
+      },
+      "rubricId": "rubric-interpret-three-checks",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-responsible-openness",
+      "type": "short-answer",
+      "sceneId": "scene-transfer-mastery",
+      "objectiveIds": [
+        "objective-evaluate-evidence",
+        "objective-design-verification"
+      ],
+      "outcomeIds": [
+        "topic-scientific-inquiry-replication-reproducibility"
+      ],
+      "prompt": "A human-participant survey publishes its protocol, variable dictionary, and analysis code, but row-level records have a meaningful re-identification risk. Explain why unrestricted public release is not required for responsible transparency, and name two concrete features the team should provide instead.",
+      "stimulus": null,
+      "points": 3,
+      "responseSpec": {
+        "mode": "text",
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "maxLength": 1500
+      },
+      "answer": {
+        "correct": "Transparency must remain consistent with consent, law, and participant privacy. The team can describe de-identification and residual risk, publish metadata and code, and provide a documented controlled-access request process with eligibility rules and a data-use agreement. Any two concrete protective and inspectable features earn the corresponding credit.",
+        "summary": "Responsible openness can use de-identification and controlled access rather than unrestricted release.",
+        "reasoning": "Open methods aim to make the evidence trail inspectable; they do not override duties to participants. Public row-level data can permit re-identification through combinations of variables. A useful record explains what is available, what is withheld and why, how de-identification was handled, and how qualified users can request access under enforceable conditions. For a retry, imagine precise wildlife-location records whose release could aid poaching: write what can be public and what needs a protected access route, while noting that the ethical basis differs from participant privacy.",
+        "acceptableResponses": [
+          "Consent and privacy can justify controlled access; provide a variable dictionary plus a reviewed request route and data-use agreement.",
+          "Describe de-identification and residual risk, publish code and aggregate or synthetic examples, and document how qualified researchers can apply for protected access."
+        ],
+        "commonErrors": [
+          "Saying that transparency always requires posting every row publicly.",
+          "Withholding the existence and structure of the data without explaining an access path.",
+          "Naming privacy without proposing any inspectable documentation or controlled-access mechanism."
+        ]
+      },
+      "rubricId": "rubric-responsible-openness",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-design-four-part-plan",
+      "type": "open-response",
+      "sceneId": "scene-transfer-mastery",
+      "objectiveIds": [
+        "objective-distinguish-safeguards",
+        "objective-evaluate-evidence",
+        "objective-design-verification"
+      ],
+      "outcomeIds": [
+        "topic-scientific-inquiry-replication-reproducibility"
+      ],
+      "prompt": "A fictional team claims that coating C reduces water loss from cut plant stems during a defined four-hour bench test. Design a four-part verification plan: one preregistration action, one open-methods action, one informative replication, and one sensitivity analysis. For each part, state what it would reveal and one limit on the conclusion.",
+      "stimulus": null,
+      "points": 4,
+      "responseSpec": {
+        "mode": "text",
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "maxLength": 3000
+      },
+      "answer": {
+        "correct": "A complete response records the outcome, stopping and exclusion rules, and primary analysis before results; shares enough coating, stem, measurement, data, code, and environment detail for inspection; specifies a new-data repeat with stated same and changed conditions; and tests justified alternative assumptions or analyses for the same four-hour water-loss question. It explains that these actions expose timing, permit audit, test the bounded claim with new samples, and reveal dependence on choices, while none proves a universal or error-free effect.",
+        "summary": "A strong plan assigns a concrete action, evidential job, and limit to each of the four safeguards.",
+        "reasoning": "The four safeguards are complementary. Preregistration exposes when consequential decisions were made. Open methods make the physical and computational trail inspectable. Replication requires new stems and a defined relation to the original conditions. Sensitivity analysis keeps the target question fixed while varying justified assumptions or analytic choices. The conclusion must remain bounded to tested conditions and alternatives. For a retry, replace the coating with a fictional filter-material test and rebuild the plan from the four questions before naming the safeguards.",
+        "acceptableResponses": [
+          "Plans may use different concrete variables or plausible alternatives if they preserve the fictional four-hour water-loss target and clearly distinguish same-data analysis from new-data replication.",
+          "A response may propose controlled rather than unrestricted access if it identifies a legitimate restriction and an inspectable access route."
+        ],
+        "commonErrors": [
+          "Listing safeguard names without a concrete action, evidential job, and limit.",
+          "Calling a second analysis of the original observations a replication.",
+          "Changing the target outcome in the sensitivity analysis.",
+          "Claiming that the four safeguards prove the coating works for all stems or settings."
+        ]
+      },
+      "rubricId": "rubric-design-four-part-plan",
+      "safetyCritical": false
+    }
+  ],
+  "rubrics": [
+    {
+      "id": "rubric-reproduce-or-replicate",
+      "title": "Distinguish same-data regeneration from new-data replication",
+      "criteria": [
+        {
+          "id": "criterion-reproduce-or-replicate-choice",
+          "description": "Selects computational reproducibility and explicitly preserves the boundary that no new-data replication occurred.",
+          "maxPoints": 2
+        }
+      ]
+    },
+    {
+      "id": "rubric-interpret-three-checks",
+      "title": "Interpret reproducibility, sensitivity, and replication together",
+      "criteria": [
+        {
+          "id": "criterion-label-three-records",
+          "description": "Correctly identifies same-file regeneration, justified analytic alternatives, and a new-sample test.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-report-dependence",
+          "description": "Uses the sensitivity range to identify dependence on plausible analytic choices rather than selecting a preferred estimate.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-calibrate-combined-evidence",
+          "description": "Uses the prespecified threshold and replication interval, notes that the replication estimate lies within the sensitivity range, and writes a bounded conclusion without claiming proof, zero effect, or misconduct.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-responsible-openness",
+      "title": "Support inspection while protecting participants",
+      "criteria": [
+        {
+          "id": "criterion-name-privacy-boundary",
+          "description": "Explains that consent, law, and re-identification risk can rule out unrestricted row-level release.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-document-protection",
+          "description": "Names a concrete documentation or protection feature, such as a de-identification description, variable dictionary, or residual-risk statement.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-provide-access-route",
+          "description": "Names a concrete inspectable access route, such as reviewed controlled access with eligibility rules and a data-use agreement.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-design-four-part-plan",
+      "title": "Design and bound four complementary safeguards",
+      "criteria": [
+        {
+          "id": "criterion-plan-preregistration",
+          "description": "Provides a before-results registration action and explains what its timing reveals and what it cannot guarantee.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-plan-open-methods",
+          "description": "Provides concrete procedural and analytic materials for inspection and states a remaining error or access limit.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-plan-replication",
+          "description": "Uses new samples in an informative repeat, states what is held close or changed, and bounds the inference.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-plan-sensitivity",
+          "description": "Tests justified alternative assumptions or analytic choices for the same target question and reports dependence rather than a preferred result.",
+          "maxPoints": 1
+        }
+      ]
+    }
+  ]
+}

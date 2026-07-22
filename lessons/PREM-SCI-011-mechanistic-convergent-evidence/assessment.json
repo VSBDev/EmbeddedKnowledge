@@ -1,0 +1,442 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-assessment-v1",
+  "lessonId": "PREM-SCI-011",
+  "lessonVersion": "0.1.0",
+  "assessmentId": "assessment-convergent-evidence",
+  "title": "Mechanistic and convergent evidence mastery check",
+  "purpose": "mastery-gate",
+  "attemptPolicy": {
+    "retakeable": true,
+    "timeLimitMinutes": null,
+    "feedback": "after-attempt"
+  },
+  "items": [
+    {
+      "id": "item-a-evidence-contribution",
+      "type": "single-choice",
+      "sceneId": "scene-synthesis",
+      "objectiveIds": [
+        "objective-distinguish-evidence-contributions"
+      ],
+      "outcomeIds": [
+        "topic-scientific-inquiry-mechanism-evidence"
+      ],
+      "prompt": "A purified-protein assay shows that fictional receptor Reed-2 binds signal S, while a changed binding pocket does not. No cells or organisms were tested. Which conclusion best matches this evidence?",
+      "stimulus": null,
+      "points": 4,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-a-binding-bounded",
+            "text": "Reed-2 can bind S under the assay conditions; consequences in cells, organisms, and populations remain open."
+          },
+          {
+            "id": "option-a-organism-causal",
+            "text": "Reed-2 causes the organismal response to S."
+          },
+          {
+            "id": "option-a-population-general",
+            "text": "S will produce the same response in every population carrying Reed-2."
+          },
+          {
+            "id": "option-a-no-contribution",
+            "text": "Molecular evidence cannot contribute to a causal explanation."
+          }
+        ],
+        "units": null,
+        "tolerance": null,
+        "maxSelections": 1,
+        "maxLength": null
+      },
+      "answer": {
+        "correct": "option-a-binding-bounded",
+        "summary": "The assay directly supports a bounded molecular interaction, not its downstream consequences.",
+        "reasoning": "The changed-pocket contrast strengthens the binding interpretation within the assay. The experiment does not include cellular regulation, an intact organism, or a population, so carrying the result to those outcomes requires additional evidence and model assumptions.",
+        "acceptableResponses": [],
+        "commonErrors": [
+          "Treating a molecular link as the complete organismal mechanism.",
+          "Rejecting molecular evidence entirely because it cannot establish the whole causal chain.",
+          "Generalizing across populations that were never studied."
+        ]
+      },
+      "rubricId": "rubric-evidence-contribution",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-a-convergence",
+      "type": "multiple-choice",
+      "sceneId": "scene-synthesis",
+      "objectiveIds": [
+        "objective-weigh-convergence"
+      ],
+      "outcomeIds": [
+        "topic-scientific-inquiry-mechanism-evidence"
+      ],
+      "prompt": "Select the two statements that correctly describe convergent evidence.",
+      "stimulus": "A programme has one cohort analysed four ways, one whole-organism intervention, and two molecular assays that use the same antibody.",
+      "points": 4,
+      "responseSpec": {
+        "mode": "multiple-choice",
+        "options": [
+          {
+            "id": "option-a-different-biases",
+            "text": "Agreement is more informative when approaches address the same question but have different key sources of bias."
+          },
+          {
+            "id": "option-a-four-independent",
+            "text": "The four analyses of one cohort count as four independent confirmations."
+          },
+          {
+            "id": "option-a-shared-antibody",
+            "text": "The two molecular assays may share a vulnerability because both depend on the same antibody."
+          },
+          {
+            "id": "option-a-largest-trumps",
+            "text": "Whichever study has the largest sample should determine the conclusion regardless of design or relevance."
+          }
+        ],
+        "units": null,
+        "tolerance": null,
+        "maxSelections": 2,
+        "maxLength": null
+      },
+      "answer": {
+        "correct": [
+          "option-a-different-biases",
+          "option-a-shared-antibody"
+        ],
+        "summary": "Convergence depends on question alignment and differing bias structures, while shared tools can create shared error.",
+        "reasoning": "Repeated analyses of one cohort can test statistical assumptions but retain the cohort's recruitment, measurement, missingness, and unmeasured-confounding vulnerabilities. The two molecular assays differ in readout but can repeat an antibody artifact. The organismal intervention may add a more distinct bias structure, subject to its own quality and relevance.",
+        "acceptableResponses": [],
+        "commonErrors": [
+          "Counting analytical methods instead of mapping shared data and biases.",
+          "Assuming different readouts make shared-reagent assays fully independent.",
+          "Using sample size as a substitute for reliability and relevance."
+        ]
+      },
+      "rubricId": "rubric-convergence",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-a-calibrated-claim",
+      "type": "open-response",
+      "sceneId": "scene-synthesis",
+      "objectiveIds": [
+        "objective-write-calibrated-claim"
+      ],
+      "outcomeIds": [
+        "topic-scientific-inquiry-mechanism-evidence"
+      ],
+      "prompt": "Write one calibrated claim about Leaf-8. Include strength, scope, pivotal support, uncertainty, one exclusion, and a next discriminating test.",
+      "stimulus": "Fictional evidence: Leaf-8 binds a water-channel regulator in a molecular assay. In one plant background, two Leaf-8 loss-of-function lines close their pores less after a controlled dry-air challenge than sibling controls. Across farms, a Leaf-8 variant is associated with crop survival, but irrigation practice and ancestry covary with the variant. A randomly assigned, target-specific restoration returns pore closure toward the control range in one edited line. All data are fictional.",
+      "points": 4,
+      "responseSpec": {
+        "mode": "text",
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "maxLength": 1800
+      },
+      "answer": {
+        "correct": "The bundle provides moderate support that Leaf-8 contributes to pore closure after the tested dry-air challenge in the studied plant background. The two loss-of-function results and target-specific restoration are pivotal, while molecular binding supplies a plausible link. The farm association is compatible but is not decisive because irrigation and ancestry remain confounded. The evidence does not establish that Leaf-8 is the sole pathway or that it determines survival across farms. Repeating restoration in additional backgrounds while measuring regulator activity and pore closure would test generality and the proposed bridge.",
+        "summary": "A strong response integrates the interventions and molecular link while narrowing the population and mechanistic claims.",
+        "reasoning": "Loss of function followed by target-specific restoration gives the most direct support for a Leaf-8 contribution under the controlled challenge. The molecular assay does not by itself connect binding to the phenotype, and the population association cannot isolate Leaf-8 from farm practices and ancestry. The final claim must preserve both contributions and limits.",
+        "acceptableResponses": [
+          "Any response that uses defensible strength language with reasons, restricts the causal statement to the tested challenge and background, identifies loss-of-function plus restoration as pivotal, treats the farm evidence as confounded, states a meaningful exclusion, and proposes a study that tests either cross-background generality or the binding-to-phenotype bridge."
+        ],
+        "commonErrors": [
+          "Writing that Leaf-8 causes farm survival without resolving confounding.",
+          "Calling the evidence weak solely because no single study answers every scale.",
+          "Omitting the tested background or dry-air challenge from scope.",
+          "Proposing only to repeat the same assay instead of testing the open bridge."
+        ]
+      },
+      "rubricId": "rubric-calibrated-claim",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-a-conflict",
+      "type": "open-response",
+      "sceneId": "scene-synthesis",
+      "objectiveIds": [
+        "objective-resolve-conflict"
+      ],
+      "outcomeIds": [
+        "topic-scientific-inquiry-mechanism-evidence"
+      ],
+      "prompt": "Explain what the null field result does and does not contradict, then propose one discriminating study with different predictions for two rival explanations.",
+      "stimulus": "In fictional laboratory chambers, Frost-6 activity rises during a maintained six-hour cooling period, and Frost-6-reduced seeds survive that period less often. In a randomized field assignment, a cooling treatment has no detectable effect on survival. Sensors show that the assigned field cooling lasted only eight minutes. All data are fictional; analyse the supplied summaries only.",
+      "points": 4,
+      "responseSpec": {
+        "mode": "text",
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "maxLength": 1600
+      },
+      "answer": {
+        "correct": "The field result supports no detectable effect of an eight-minute cooling assignment; it does not directly test the maintained six-hour exposure or refute the laboratory Frost-6 response. A supervised study that successfully assigns and verifies six hours of cooling in the relevant field setting would discriminate delivery-duration failure from field-context failure: an effect after verified six-hour cooling supports the first explanation, whereas a null result despite verified exposure supports the second.",
+        "summary": "The apparent conflict partly reflects different delivered exposures, so the next study must separate duration from field context.",
+        "reasoning": "A null effect under an eight-minute exposure and an effect under a six-hour exposure need not answer the same causal question. Verifying the intended duration in the target context makes the rival explanations predict different results and therefore creates a discriminating test.",
+        "acceptableResponses": [
+          "Any response that distinguishes the assigned field intervention from the delivered exposure, preserves the bounded laboratory result, and proposes an ethical supplied-data or supervised study in which verified duration makes delivery failure and field-context failure predict different outcomes."
+        ],
+        "commonErrors": [
+          "Declaring Frost-6 irrelevant because the field assignment was null.",
+          "Ignoring the field result and claiming universal field relevance.",
+          "Repeating the same eight-minute field assignment without testing exposure duration."
+        ]
+      },
+      "rubricId": "rubric-conflict",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-b-evidence-contribution",
+      "type": "single-choice",
+      "sceneId": "scene-synthesis",
+      "objectiveIds": [
+        "objective-distinguish-evidence-contributions"
+      ],
+      "outcomeIds": [
+        "topic-scientific-inquiry-mechanism-evidence"
+      ],
+      "prompt": "A controlled whole-organism study finds that fictional insects with reduced Wing-4 expression recover more slowly from a defined heat exposure than matched controls in one laboratory strain. No natural populations were studied. Which conclusion is best calibrated?",
+      "stimulus": null,
+      "points": 4,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-b-strain-bounded",
+            "text": "Wing-4 contributes to recovery after the tested heat exposure in the studied strain; mechanism and population generality remain open."
+          },
+          {
+            "id": "option-b-all-populations",
+            "text": "Wing-4 determines heat survival in every insect population."
+          },
+          {
+            "id": "option-b-molecular-complete",
+            "text": "The complete molecular mechanism of heat recovery has been established."
+          },
+          {
+            "id": "option-b-only-association",
+            "text": "Because the study is organismal, it can support only an uncontrolled association."
+          }
+        ],
+        "units": null,
+        "tolerance": null,
+        "maxSelections": 1,
+        "maxLength": null
+      },
+      "answer": {
+        "correct": "option-b-strain-bounded",
+        "summary": "The organismal intervention supports a bounded contribution in one strain, not a complete mechanism or universal effect.",
+        "reasoning": "The controlled reduction and matched comparison directly concern the studied organismal response. The design does not reveal every molecular link and does not include the genetic and environmental variation of natural populations.",
+        "acceptableResponses": [],
+        "commonErrors": [
+          "Treating organismal evidence as inherently observational.",
+          "Extending a one-strain result to every population.",
+          "Confusing a phenotype effect with a complete molecular mechanism."
+        ]
+      },
+      "rubricId": "rubric-evidence-contribution",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-b-convergence",
+      "type": "multiple-choice",
+      "sceneId": "scene-synthesis",
+      "objectiveIds": [
+        "objective-weigh-convergence"
+      ],
+      "outcomeIds": [
+        "topic-scientific-inquiry-mechanism-evidence"
+      ],
+      "prompt": "Select the two statements that correctly weigh this evidence bundle.",
+      "stimulus": "Three laboratories report the same molecular effect, but all received aliquots from one cell preparation. A fourth study uses a blinded whole-organism intervention and reports the same direction in one strain.",
+      "points": 4,
+      "responseSpec": {
+        "mode": "multiple-choice",
+        "options": [
+          {
+            "id": "option-b-cell-dependence",
+            "text": "The three molecular reports share a biological-sample dependency despite coming from different laboratories."
+          },
+          {
+            "id": "option-b-organism-adds",
+            "text": "The organismal intervention adds a more distinct method and endpoint, subject to its one-strain scope."
+          },
+          {
+            "id": "option-b-four-equal",
+            "text": "All four studies deserve equal weight because all point in the same direction."
+          },
+          {
+            "id": "option-b-blinding-universal",
+            "text": "Blinding makes the organismal result generalize automatically to every strain and environment."
+          }
+        ],
+        "units": null,
+        "tolerance": null,
+        "maxSelections": 2,
+        "maxLength": null
+      },
+      "answer": {
+        "correct": [
+          "option-b-cell-dependence",
+          "option-b-organism-adds"
+        ],
+        "summary": "Different laboratories do not remove dependence on one cell preparation, while the organismal intervention adds distinct evidence with bounded scope.",
+        "reasoning": "The molecular studies can repeat a sample-specific feature or artifact. Blinding protects outcome assessment in the organismal study but does not establish external validity. The combined evidence is more diverse than four equal votes and must be weighted accordingly.",
+        "acceptableResponses": [],
+        "commonErrors": [
+          "Using laboratory identity as the only test of independence.",
+          "Treating blinding as a guarantee of generalizability.",
+          "Assigning equal weight without comparing quality, relevance, and dependence."
+        ]
+      },
+      "rubricId": "rubric-convergence",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-b-calibrated-claim",
+      "type": "open-response",
+      "sceneId": "scene-synthesis",
+      "objectiveIds": [
+        "objective-write-calibrated-claim"
+      ],
+      "outcomeIds": [
+        "topic-scientific-inquiry-mechanism-evidence"
+      ],
+      "prompt": "Write one calibrated claim about Wave-9. Include strength, scope, pivotal support, uncertainty, one exclusion, and a next discriminating test.",
+      "stimulus": "Fictional evidence: Wave-9 changes conformation when salinity falls in a purified assay. Fish with reduced Wave-9 expression recover ion balance more slowly after a controlled salinity change in one strain. Across river populations, a Wave-9 variant is associated with migration success, but water temperature and ancestry differ. A randomized target-specific restoration improves ion-balance recovery in the reduced-expression fish. All data are fictional.",
+      "points": 4,
+      "responseSpec": {
+        "mode": "text",
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "maxLength": 1800
+      },
+      "answer": {
+        "correct": "The bundle provides moderate support that Wave-9 contributes to ion-balance recovery after the tested salinity change in the studied fish strain. Reduced expression and target-specific restoration are pivotal, while the molecular change is compatible with a sensing role. The river association is not decisive because temperature and ancestry remain confounded. The evidence does not establish that Wave-9 determines migration success or acts identically across populations. Repeating target-specific restoration across strains while measuring the proposed downstream ion-transport process would test generality and mechanism.",
+        "summary": "A defensible claim centres the controlled phenotype and restoration while keeping the field association and molecular link in their proper scope.",
+        "reasoning": "The organismal intervention and restoration most directly support a Wave-9 contribution under the tested conditions. The purified assay supplies a plausible upstream link, and the population line broadens context without resolving causation. The next test should address an actual gap rather than repeat the association.",
+        "acceptableResponses": [
+          "Any response that gives justified strength, limits the causal statement to the tested strain and salinity change, identifies reduction plus restoration as pivotal, treats migration success as unresolved, and proposes a target-specific cross-strain or downstream-mechanism test."
+        ],
+        "commonErrors": [
+          "Claiming Wave-9 causes migration success from the population association.",
+          "Ignoring the purified system's distance from an organismal outcome.",
+          "Omitting strength or uncertainty.",
+          "Repeating only the existing river comparison."
+        ]
+      },
+      "rubricId": "rubric-calibrated-claim",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-b-conflict",
+      "type": "open-response",
+      "sceneId": "scene-synthesis",
+      "objectiveIds": [
+        "objective-resolve-conflict"
+      ],
+      "outcomeIds": [
+        "topic-scientific-inquiry-mechanism-evidence"
+      ],
+      "prompt": "Explain whether the two intervention results test the same claim, revise the conclusion, and propose one discriminating measurement or study.",
+      "stimulus": "Fictional evidence: a target-specific intervention changes Root-3 activity and nutrient uptake when applied before root development. A second randomized intervention applied after roots are mature changes Root-3 activity but not uptake. Assignment, follow-up, and measurement are sound in both studies. All data are fictional.",
+      "points": 4,
+      "responseSpec": {
+        "mode": "text",
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "maxLength": 1600
+      },
+      "answer": {
+        "correct": "The interventions test different developmental timing, so the results support a timing-bounded claim: changing Root-3 before root development affects later nutrient uptake, whereas changing it after maturation does not under the studied conditions. Measuring the proposed developmental intermediate repeatedly from early development through maturity, with the intervention assigned at several prespecified times, would distinguish an early critical window from a mechanism that should operate continuously.",
+        "summary": "The apparent conflict reveals effect timing rather than automatically invalidating either well-conducted study.",
+        "reasoning": "Both interventions change Root-3 activity, but only one occurs before the organismal structure develops. A developmental-window explanation predicts a graded loss of uptake effect after the critical period, whereas a continuously operating mechanism predicts an effect even after maturity.",
+        "acceptableResponses": [
+          "Any response that preserves both well-conducted results, restricts the causal claim by developmental timing, and proposes measurements or interventions whose timing separates a critical-window explanation from continuous action."
+        ],
+        "commonErrors": [
+          "Averaging the two results as if timing were irrelevant.",
+          "Discarding one study despite sound design and a material difference in the question.",
+          "Proposing an exact repeat without measuring the timing-dependent bridge."
+        ]
+      },
+      "rubricId": "rubric-conflict",
+      "safetyCritical": false
+    }
+  ],
+  "rubrics": [
+    {
+      "id": "rubric-evidence-contribution",
+      "title": "Evidence contribution and boundary",
+      "criteria": [
+        {
+          "id": "criterion-contribution",
+          "description": "Identifies the narrow contribution that the evidence line can make to the specified question.",
+          "maxPoints": 2
+        },
+        {
+          "id": "criterion-boundary",
+          "description": "Preserves a material scale, design, population, timing, or mechanism boundary.",
+          "maxPoints": 2
+        }
+      ]
+    },
+    {
+      "id": "rubric-convergence",
+      "title": "Quality and independence of convergence",
+      "criteria": [
+        {
+          "id": "criterion-question-quality",
+          "description": "Checks that evidence addresses the same underlying question and considers reliability and relevance before agreement.",
+          "maxPoints": 2
+        },
+        {
+          "id": "criterion-dependence",
+          "description": "Identifies an important shared or differing source of bias rather than counting studies as equal votes.",
+          "maxPoints": 2
+        }
+      ]
+    },
+    {
+      "id": "rubric-calibrated-claim",
+      "title": "Integrated and calibrated claim",
+      "criteria": [
+        {
+          "id": "criterion-integration",
+          "description": "Uses the pivotal evidence lines to justify the relation and its strength rather than listing studies without synthesis.",
+          "maxPoints": 2
+        },
+        {
+          "id": "criterion-scope-uncertainty",
+          "description": "States scope, uncertainty, an exclusion, and a next test that addresses a material open bridge.",
+          "maxPoints": 2
+        }
+      ]
+    },
+    {
+      "id": "rubric-conflict",
+      "title": "Conflict diagnosis and discrimination",
+      "criteria": [
+        {
+          "id": "criterion-conflict-diagnosis",
+          "description": "Explains whether apparently conflicting results address the same exposure, timing, system, outcome, and causal link.",
+          "maxPoints": 2
+        },
+        {
+          "id": "criterion-discriminating-study",
+          "description": "Proposes a bounded study or measurement for which plausible rival explanations predict different results.",
+          "maxPoints": 2
+        }
+      ]
+    }
+  ]
+}

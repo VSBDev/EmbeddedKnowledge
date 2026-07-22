@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-diagram-v1",
+  "id": "diagram-four-safeguard-questions",
+  "type": "concept-map",
+  "direction": "top-to-bottom",
+  "alt": "Four parallel questions examine when decisions were fixed, whether work is inspectable, whether a claim survives new data, and whether a conclusion survives plausible analytic alternatives.",
+  "longDescription": "A starting node labeled Research claim branches to four safeguard nodes. Preregistration asks what was fixed before outcomes were known. Open methods asks whether the procedure and analytic trail can be inspected. Replication asks whether the claim survives an informative new-data test. Sensitivity analysis asks whether the conclusion survives plausible assumptions or analytic choices. All four paths lead to a final node labeled Calibrated conclusion, emphasizing that the checks inform confidence rather than certify truth.",
+  "nodes": [
+    {
+      "id": "node-research-claim",
+      "label": "Research claim",
+      "shape": "rounded-box",
+      "group": "claim"
+    },
+    {
+      "id": "node-preregister",
+      "label": "Preregister: what was fixed before outcomes were known?",
+      "shape": "box",
+      "group": "safeguards"
+    },
+    {
+      "id": "node-open-methods",
+      "label": "Open methods: can another person inspect what was done?",
+      "shape": "box",
+      "group": "safeguards"
+    },
+    {
+      "id": "node-replicate",
+      "label": "Replicate: does the claim survive an informative new-data test?",
+      "shape": "box",
+      "group": "safeguards"
+    },
+    {
+      "id": "node-sensitivity",
+      "label": "Sensitivity: does the conclusion survive plausible alternatives?",
+      "shape": "box",
+      "group": "safeguards"
+    },
+    {
+      "id": "node-calibrated-conclusion",
+      "label": "Calibrated conclusion",
+      "shape": "rounded-box",
+      "group": "conclusion"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-claim-preregister",
+      "from": "node-research-claim",
+      "to": "node-preregister",
+      "kind": "directed",
+      "label": "check decision timing"
+    },
+    {
+      "id": "edge-claim-open-methods",
+      "from": "node-research-claim",
+      "to": "node-open-methods",
+      "kind": "directed",
+      "label": "check inspectability"
+    },
+    {
+      "id": "edge-claim-replicate",
+      "from": "node-research-claim",
+      "to": "node-replicate",
+      "kind": "directed",
+      "label": "check new data"
+    },
+    {
+      "id": "edge-claim-sensitivity",
+      "from": "node-research-claim",
+      "to": "node-sensitivity",
+      "kind": "directed",
+      "label": "check plausible alternatives"
+    },
+    {
+      "id": "edge-preregister-conclusion",
+      "from": "node-preregister",
+      "to": "node-calibrated-conclusion",
+      "kind": "directed",
+      "label": "exposes planned and changed decisions"
+    },
+    {
+      "id": "edge-open-conclusion",
+      "from": "node-open-methods",
+      "to": "node-calibrated-conclusion",
+      "kind": "directed",
+      "label": "enables inspection and re-running"
+    },
+    {
+      "id": "edge-replicate-conclusion",
+      "from": "node-replicate",
+      "to": "node-calibrated-conclusion",
+      "kind": "directed",
+      "label": "raises or lowers confidence"
+    },
+    {
+      "id": "edge-sensitivity-conclusion",
+      "from": "node-sensitivity",
+      "to": "node-calibrated-conclusion",
+      "kind": "directed",
+      "label": "reveals dependence on choices"
+    }
+  ]
+}

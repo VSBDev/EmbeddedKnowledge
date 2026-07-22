@@ -25,7 +25,7 @@ The unknowns are not numerical. We need to determine which job each part perform
 
 **3. Choose a plan.**
 
-First locate what the team set differently and what it recorded. Next separate held-alike conditions from extra control conditions. Then search for any factor that moves with the intended change and could also influence the response. Finally, interpret the controls before interpreting the unknown.
+First locate what the team set differently and what it recorded. Next separate held-alike conditions from extra control conditions. Then search for a separate rival factor that moves with the intended change, could influence the response, and is not a step through which the intended change produces that response. Finally, interpret the controls before interpreting the unknown.
 
 **4. Execute the role map.**
 
@@ -35,7 +35,7 @@ First locate what the team set differently and what it recorded. Next separate h
 - **Negative control:** the no-target condition, expected to show the baseline.
 - **Positive control:** the known-target condition, expected to show that the system can produce a clear response.
 
-Reagent lot is a **confounder** because lot A appears only with 2 target units and lot B only with 8 target units, while lot could influence fluorescence. Time of day is another candidate confounder for the same reason. If the 8-unit samples fluoresce more, the record cannot separate a concentration effect from a lot or time effect.
+Reagent lot is a **confounder** because lot A appears only with 2 target units and lot B only with 8 target units, lot could influence fluorescence, and lot assignment is a separate scheduling choice rather than a consequence of concentration. Time of day is another candidate confounder for the same three reasons. If the 8-unit samples fluoresce more, the record cannot separate a concentration effect from a lot or time effect.
 
 **5. Repair the comparison.**
 
@@ -53,7 +53,7 @@ Imagine this result pattern:
 
 The negative control is near baseline, but the positive control also failed to show the known response. Therefore, the run has not demonstrated that it can detect the target. The unknown zero is not evidence that the target is absent; repair and rerun the system before interpreting it.
 
-As a second check, suppose the negative control reads 70 while the positive control reads 74. The system can display a high number, but the high background means the expected signal is not separated from the baseline. Again, the unknown would not support the intended conclusion.
+As a second check, suppose the negative control reads 70 while the positive control reads 74, even though the negative-control acceptance rule required a near-baseline reading. The negative control has failed that stated baseline check, so background signal or another failure is visible. Without a predefined separation threshold and information about measurement variability, the two values alone do not show whether 70 and 74 are distinguishable. Either way, the failed negative control means the unknown would not support the intended conclusion.
 
 **7. Interpret the bounded result.**
 
@@ -79,11 +79,11 @@ From memory, complete this sequence before opening the feedback:
 
 ### Feedback after your attempt
 
-The missing step is **changed alongside and could affect the record**—the confounder check. The whole sequence is a practical audit, not a universal recipe for choosing a study design.
+The missing step is **separate rival: changed alongside, could affect the record, and not on the intended pathway**—the confounder check. The whole sequence is a practical audit, not a universal recipe for choosing a study design.
 
 :::{source-note}
 :claims: claim-variable-roles, claim-confounder-ambiguity, claim-control-functions, claim-controls-have-limits
-:sources: source-nist-handbook, source-ncbi-assay-guidelines
+:sources: source-nist-handbook, source-ncbi-assay-guidelines, source-confounding-observational
 
 The sources support treating manipulated factors and recorded responses as different roles, addressing extraneous factors through design, and using negative and positive controls as comparison and performance checks. The complete indicator case, target units, result values, audit sequence, and repairs are independently created fictional material.
 :::
