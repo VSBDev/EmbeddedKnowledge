@@ -1,0 +1,189 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-assessment-v1",
+  "lessonId": "PREM-QNT-001",
+  "lessonVersion": "0.1.0",
+  "assessmentId": "assessment-estimate-calculate-challenge",
+  "title": "Arithmetic reliability mastery gate",
+  "purpose": "mastery-gate",
+  "attemptPolicy": {
+    "retakeable": true,
+    "timeLimitMinutes": null,
+    "feedback": "after-attempt"
+  },
+  "items": [
+    {
+      "id": "item-normalize-small-number",
+      "type": "single-choice",
+      "sceneId": "scene-synthesis",
+      "objectiveIds": ["objective-represent-scale"],
+      "outcomeIds": ["topic-quantitative-foundations-arithmetic-estimation"],
+      "prompt": "Which is the normalized scientific notation for 0.000072?",
+      "points": 2,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {"id": "option-normalize-a", "text": "7.2 × 10^-5"},
+          {"id": "option-normalize-b", "text": "7.2 × 10^5"},
+          {"id": "option-normalize-c", "text": "0.72 × 10^-4"},
+          {"id": "option-normalize-d", "text": "72 × 10^-6"}
+        ]
+      },
+      "answer": {
+        "correct": "option-normalize-a",
+        "summary": "0.000072 = 7.2 × 10^-5.",
+        "reasoning": "The normalized coefficient is 7.2. Multiplication by 10^-5 shrinks it to 0.000072. Options C and D preserve the value but are not normalized; option B has the wrong scale.",
+        "acceptableResponses": [],
+        "commonErrors": ["Choosing a positive exponent because the decimal point was moved right", "Accepting an equivalent but non-normalized form"]
+      },
+      "rubricId": "rubric-normalize-small-number",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-product-scale",
+      "type": "numeric",
+      "sceneId": "scene-synthesis",
+      "objectiveIds": ["objective-calculate-powers-ten"],
+      "outcomeIds": ["topic-quantitative-foundations-arithmetic-estimation"],
+      "prompt": "Calculate (3.0 × 10^7)(4.0 × 10^-5). Enter the ordinary-number value.",
+      "points": 3,
+      "responseSpec": {"mode": "number", "units": null, "tolerance": 0},
+      "answer": {
+        "correct": 1200,
+        "summary": "The product is 1.2 × 10^3 = 1200.",
+        "reasoning": "Multiply coefficients to get 12 and add exponents to get 2: 12 × 10^2. Normalize to 1.2 × 10^3, which equals 1200.",
+        "acceptableResponses": ["1.2 × 10^3"],
+        "commonErrors": ["Writing 12 × 10^2 without completing normalization", "Subtracting exponents in a product"]
+      },
+      "rubricId": "rubric-product-scale",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-add-shared-scale",
+      "type": "short-answer",
+      "sceneId": "scene-synthesis",
+      "objectiveIds": ["objective-calculate-powers-ten", "objective-estimate-scale"],
+      "outcomeIds": ["topic-quantitative-foundations-arithmetic-estimation"],
+      "prompt": "Calculate 6.2 × 10^5 + 4.0 × 10^3. Give a normalized result and one sentence explaining why its exponent is plausible.",
+      "points": 4,
+      "responseSpec": {"mode": "text", "maxLength": 800},
+      "answer": {
+        "correct": "6.24 × 10^5; the smaller addend changes the leading value only slightly, so the sum remains on the 10^5 scale.",
+        "summary": "Match exponents before adding: 6.24 × 10^5.",
+        "reasoning": "Rewrite 4.0 × 10^3 as 0.040 × 10^5, then add coefficients: 6.2 + 0.040 = 6.24. A positive addend about one hundred times smaller cannot move the sum to a different order of magnitude.",
+        "acceptableResponses": ["624000, with an explanation that the 4,000 term only nudges 620,000 upward", "6.24e5 with a valid scale explanation"],
+        "commonErrors": ["Adding coefficients without matching exponents", "Applying the multiplication exponent rule to addition"]
+      },
+      "rubricId": "rubric-add-shared-scale",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-diagnose-display",
+      "type": "single-choice",
+      "sceneId": "scene-synthesis",
+      "objectiveIds": ["objective-estimate-scale", "objective-challenge-result"],
+      "outcomeIds": ["topic-quantitative-foundations-arithmetic-estimation"],
+      "prompt": "A calculation divides 8 × 10^8 by 2 × 10^-2. Software reports 4 × 10^6. Which diagnosis is best?",
+      "points": 3,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {"id": "option-diagnose-a", "text": "Plausible: division always reduces a number"},
+          {"id": "option-diagnose-b", "text": "Implausible: dividing by a number below 1 should increase the value, and the exponent should be 8 - (-2) = 10"},
+          {"id": "option-diagnose-c", "text": "Implausible only because 4 is not a normalized coefficient"},
+          {"id": "option-diagnose-d", "text": "Plausible because 8 ÷ 2 = 4"}
+        ]
+      },
+      "answer": {
+        "correct": "option-diagnose-b",
+        "summary": "The display has a scale error; the result should be 4 × 10^10.",
+        "reasoning": "The divisor is 0.02, so the quotient must exceed the numerator. Subtracting the negative exponent gives 8 - (-2) = 10. The coefficient alone does not establish plausibility.",
+        "acceptableResponses": [],
+        "commonErrors": ["Assuming division must make a number smaller", "Checking only the coefficient"]
+      },
+      "rubricId": "rubric-diagnose-display",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-inverse-check",
+      "type": "short-answer",
+      "sceneId": "scene-synthesis",
+      "objectiveIds": ["objective-challenge-result"],
+      "outcomeIds": ["topic-quantitative-foundations-arithmetic-estimation"],
+      "prompt": "A quotient is reported as (9.0 × 10^6) ÷ (3.0 × 10^2) = 3.0 × 10^4. State an inverse-operation check and carry it out.",
+      "points": 3,
+      "responseSpec": {"mode": "text", "maxLength": 600},
+      "answer": {
+        "correct": "Multiply 3.0 × 10^4 by 3.0 × 10^2; the product is 9.0 × 10^6, which recovers the dividend.",
+        "summary": "The inverse multiplication recovers the original dividend.",
+        "reasoning": "A correct quotient times its divisor must equal the dividend: coefficients give 9.0 and exponents add to 6.",
+        "acceptableResponses": ["(3.0e4)(3.0e2)=9.0e6, so the quotient passes this check"],
+        "commonErrors": ["Repeating the original division instead of reversing it", "Multiplying coefficients but subtracting exponents"]
+      },
+      "rubricId": "rubric-inverse-check",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-transfer-batches",
+      "type": "open-response",
+      "sceneId": "scene-synthesis",
+      "objectiveIds": ["objective-calculate-powers-ten", "objective-estimate-scale", "objective-challenge-result"],
+      "outcomeIds": ["topic-quantitative-foundations-arithmetic-estimation"],
+      "prompt": "A fictional archive holds 2.4 × 10^10 records split equally across 8.0 × 10^3 folders. A cleanup then removes 5.0 × 10^5 duplicate records from each folder. Determine the retained records per folder. Show an estimate, the ordered operations, normalized arithmetic, and a check or bound.",
+      "points": 7,
+      "responseSpec": {"mode": "text", "maxLength": 3000},
+      "answer": {
+        "correct": "First divide to get 3.0 × 10^6 records per folder, then subtract 5.0 × 10^5 = 0.5 × 10^6, leaving 2.5 × 10^6. The answer is positive, below 3.0 × 10^6, and adding back 5.0 × 10^5 recovers the uncorrected per-folder count.",
+        "summary": "The retained count is 2.5 × 10^6 records per folder.",
+        "reasoning": "The total and folder count must be divided before a per-folder removal can be subtracted. The estimate predicts a few million per folder. Matching exponents gives 3.0 × 10^6 - 0.5 × 10^6 = 2.5 × 10^6, and the bound and inverse addition confirm consistency.",
+        "acceptableResponses": ["2500000 with the same operation order, estimate, and valid check"],
+        "commonErrors": ["Subtracting the per-folder duplicate count from the total before dividing", "Combining coefficients before matching exponents", "Giving exact arithmetic without an estimate or check"]
+      },
+      "rubricId": "rubric-transfer-batches",
+      "safetyCritical": false
+    }
+  ],
+  "rubrics": [
+    {
+      "id": "rubric-normalize-small-number",
+      "title": "Normalized representation",
+      "criteria": [{"id": "criterion-normalize-value", "description": "Selects the unique normalized form that preserves the value and exponent sign.", "maxPoints": 2}]
+    },
+    {
+      "id": "rubric-product-scale",
+      "title": "Scientific-notation product",
+      "criteria": [
+        {"id": "criterion-product-operation", "description": "Multiplies coefficients and adds exponents correctly.", "maxPoints": 2},
+        {"id": "criterion-product-normalization", "description": "Normalizes and reports the equivalent ordinary-number value.", "maxPoints": 1}
+      ]
+    },
+    {
+      "id": "rubric-add-shared-scale",
+      "title": "Addition across scales",
+      "criteria": [
+        {"id": "criterion-add-arithmetic", "description": "Matches exponents and calculates the normalized sum correctly.", "maxPoints": 3},
+        {"id": "criterion-add-plausibility", "description": "Explains why the smaller positive term should only nudge the larger term.", "maxPoints": 1}
+      ]
+    },
+    {
+      "id": "rubric-diagnose-display",
+      "title": "Scale-error diagnosis",
+      "criteria": [{"id": "criterion-diagnose-scale", "description": "Uses divisor size and exponent subtraction to identify the displayed scale error.", "maxPoints": 3}]
+    },
+    {
+      "id": "rubric-inverse-check",
+      "title": "Inverse-operation check",
+      "criteria": [{"id": "criterion-inverse-recovery", "description": "States and executes multiplication by the divisor to recover the dividend.", "maxPoints": 3}]
+    },
+    {
+      "id": "rubric-transfer-batches",
+      "title": "Independent transfer solution",
+      "criteria": [
+        {"id": "criterion-transfer-selection", "description": "Chooses division before the per-folder subtraction and explains the quantity labels.", "maxPoints": 2},
+        {"id": "criterion-transfer-estimate", "description": "Predicts a defensible positive scale near a few million per folder.", "maxPoints": 1},
+        {"id": "criterion-transfer-calculation", "description": "Calculates and normalizes the retained count as 2.5 × 10^6.", "maxPoints": 3},
+        {"id": "criterion-transfer-challenge", "description": "Uses a valid bound or inverse addition to challenge the result.", "maxPoints": 1}
+      ]
+    }
+  ]
+}
