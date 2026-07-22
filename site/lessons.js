@@ -8,6 +8,9 @@
 
   const scriptUrl = document.currentScript?.src || new URL("lessons.js", document.baseURI).href;
   const siteRoot = new URL("./", scriptUrl);
+  const courseId = app.dataset.course === "psychiatry" ? "psychiatry" : "premed";
+  const courseTitle = courseId === "psychiatry" ? "Psychiatry" : "Premed";
+  const specimenUrl = app.dataset.specimenUrl || "specimen/";
   const searchInput = document.querySelector("[data-lesson-search]");
   const resultsElement = document.querySelector("[data-lesson-results]");
   const indexPanel = document.querySelector("[data-reader-index]");
@@ -210,7 +213,7 @@
     const contribute = create("a", "lesson-contribute-link", "Contribute this lesson →");
     contribute.href = new URL(`contribute/?outcome=${encodeURIComponent(outcome.id)}`, siteRoot).href;
     const specimen = create("a", "lesson-specimen-link", "Preview a filled lesson");
-    specimen.href = "specimen/";
+    specimen.href = specimenUrl;
     actions.append(contribute, specimen);
     copy.append(actions);
     state.append(mark, copy);
@@ -336,7 +339,7 @@
     document.querySelector("[data-next-title]").textContent = next?.title || "End of syllabus";
     previousButton.disabled = !previous;
     nextButton.disabled = !next;
-    document.title = `${outcome.title} — Premed open book · EmbeddedKnowledge`;
+    document.title = `${outcome.title} — ${courseTitle} open book · EmbeddedKnowledge`;
   }
 
   function syncCurrentIndexLink() {
@@ -533,11 +536,11 @@
   applyTheme(readPreference("theme") || (systemDark.matches ? "dark" : "light"), { persist: false });
 
   Promise.all([
-    fetch(freshJsonUrl("data/premed-lessons.json"), { cache: "no-store" }).then((response) => {
+    fetch(freshJsonUrl(`data/${courseId}-lessons.json`), { cache: "no-store" }).then((response) => {
       if (!response.ok) throw new Error(`Lesson index returned ${response.status}`);
       return response.json();
     }),
-    fetch(freshJsonUrl("data/premed-open-prs.json"), { cache: "no-store" }).then((response) => {
+    fetch(freshJsonUrl(`data/${courseId}-open-prs.json`), { cache: "no-store" }).then((response) => {
       if (!response.ok) throw new Error(`Open PR index returned ${response.status}`);
       return response.json();
     })
@@ -558,7 +561,7 @@
   }).catch((error) => {
     console.error(error);
     const panel = create("div", "reader-error");
-    panel.append(create("span", null, "COURSE INDEX UNAVAILABLE"), create("h1", null, "The Premed open book could not be loaded."), create("p", null, "Please check your connection and reload the page."));
+    panel.append(create("span", null, "COURSE INDEX UNAVAILABLE"), create("h1", null, `The ${courseTitle} open book could not be loaded.`), create("p", null, "Please check your connection and reload the page."));
     const link = create("a", null, "Open the complete syllabus instead →");
     link.href = "../syllabus/";
     panel.append(link);

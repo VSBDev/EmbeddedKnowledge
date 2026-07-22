@@ -1,0 +1,670 @@
+{
+  "schemaVersion": 3,
+  "format": "embeddedknowledge-lesson-v1",
+  "artifactType": "production-lesson",
+  "id": "PREM-QNT-004",
+  "version": "0.1.0",
+  "title": "Preserve the constraint: balance, solve, and check",
+  "status": "published",
+  "riskTier": "standard",
+  "estimatedMinutes": 240,
+  "outcomes": [
+    "topic-quantitative-foundations-algebra-equations"
+  ],
+  "prerequisites": [
+    "topic-quantitative-foundations-arithmetic-estimation"
+  ],
+  "objectives": [
+    {
+      "id": "objective-read-algebra",
+      "statement": "Distinguish expressions from equations and interpret variables, coefficients, constants, and domain constraints.",
+      "outcomeIds": [
+        "topic-quantitative-foundations-algebra-equations"
+      ]
+    },
+    {
+      "id": "objective-solve-linear",
+      "statement": "Solve linear equations with parentheses, fractions, and variables on both sides using equality-preserving operations.",
+      "outcomeIds": [
+        "topic-quantitative-foundations-algebra-equations"
+      ]
+    },
+    {
+      "id": "objective-rearrange-formula",
+      "statement": "Rearrange a multivariable formula for a requested variable while recording restrictions introduced by division.",
+      "outcomeIds": [
+        "topic-quantitative-foundations-algebra-equations"
+      ]
+    },
+    {
+      "id": "objective-check-solution",
+      "statement": "Verify candidate solutions by substitution, classify contradictions or identities, and reject values outside the declared domain.",
+      "outcomeIds": [
+        "topic-quantitative-foundations-algebra-equations"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene-orientation",
+      "title": "A plausible number that violates its equation",
+      "kind": "orientation",
+      "source": "content/010-orientation.md",
+      "estimatedMinutes": 25,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>A plausible number that violates its equation</h1>\n<p>A fictional sampler stores 17 baseline records plus 6 records for each interval. Its total is 83 records. A dashboard reports <strong>12 intervals</strong>.</p>\n<p>The verbal model is</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mn>17</mn><mo>+</mo><mn>6</mn><mi>n</mi><mo>=</mo><mn>83.</mn></mrow><annotation encoding=\"application/x-tex\">17+6n=83.</annotation></semantics></math></div>\n<p>Twelve sounds plausible, but substitution rejects it: <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>17</mn><mo>+</mo><mn>6</mn><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>12</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>=</mo><mn>89</mn></mrow><annotation encoding=\"application/x-tex\">17+6(12)=89</annotation></semantics></math></span>, not 83. Solving gives <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>6</mn><mi>n</mi><mo>=</mo><mn>66</mn></mrow><annotation encoding=\"application/x-tex\">6n=66</annotation></semantics></math></span> and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi><mo>=</mo><mn>11</mn></mrow><annotation encoding=\"application/x-tex\">n=11</annotation></semantics></math></span>, which checks exactly.</p>\n<p>This lesson treats an equation as a <strong>constraint</strong>. Solving is the controlled process of rewriting that constraint without changing which values satisfy it. The loop is:</p>\n<ol>\n<li>represent the relationship and domain;</li>\n<li>preserve equality with reversible operations;</li>\n<li>isolate the requested variable;</li>\n<li>substitute into the original equation and interpret.</li>\n</ol>\n<h2>Starting check</h2>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-starting-readiness</span></div>\n    <div class=\"ek-block-content\"><p>Try all five questions before reading the feedback.</p>\n<ol>\n<li>Without exact calculation, is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>83</mn><mo>−</mo><mn>17</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mi>/</mi><mn>6</mn></mrow><annotation encoding=\"application/x-tex\">(83-17)/6</annotation></semantics></math></span> closest to 1, 10, or 100? Explain using rounded values.</li>\n<li>Is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>30</mn><mi>/</mi><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">-30/4</annotation></semantics></math></span> positive or negative, and is its magnitude between 7 and 8?</li>\n<li>Is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn><mi>x</mi><mo>+</mo><mn>7</mn></mrow><annotation encoding=\"application/x-tex\">3x+7</annotation></semantics></math></span> an expression or an equation?</li>\n<li>Does adding 4 to only one side preserve equality?</li>\n<li>If a variable counts complete intervals, is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi><mo>=</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>2.5</mn></mrow><annotation encoding=\"application/x-tex\">n=-2.5</annotation></semantics></math></span> admissible even if algebra produces it?</li>\n</ol>\n<p><strong>Feedback after your attempt:</strong> <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>83</mn><mo>−</mo><mn>17</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mi>/</mi><mn>6</mn></mrow><annotation encoding=\"application/x-tex\">(83-17)/6</annotation></semantics></math></span> is closest to 10 because <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>83</mn><mo>−</mo><mn>17</mn></mrow><annotation encoding=\"application/x-tex\">83-17</annotation></semantics></math></span> is about 60 and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>60</mn><mi>/</mi><mn>6</mn><mo>=</mo><mn>10</mn></mrow><annotation encoding=\"application/x-tex\">60/6=10</annotation></semantics></math></span>. The value <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>30</mn><mi>/</mi><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">-30/4</annotation></semantics></math></span> is negative and lies between <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>8</mn></mrow><annotation encoding=\"application/x-tex\">-8</annotation></semantics></math></span> and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>7</mn></mrow><annotation encoding=\"application/x-tex\">-7</annotation></semantics></math></span>. The form <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn><mi>x</mi><mo>+</mo><mn>7</mn></mrow><annotation encoding=\"application/x-tex\">3x+7</annotation></semantics></math></span> is an expression because it makes no equality assertion. Adding to only one side does not preserve equality. A value of <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>2.5</mn></mrow><annotation encoding=\"application/x-tex\">-2.5</annotation></semantics></math></span> is outside a complete-interval domain even if it emerged from algebra.</p>\n<p>If either estimation answer was uncertain, round the numerator before dividing and predict the sign before calculating. If an equation operation was uncertain, write the same operation on two separate lines, one for each side.</p>\n</div>\n  </aside>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-quantity-equation, claim-numerical-equation, claim-unit-independent-rearrangement</span><span><b>sources</b> source-nist-si-chapter7</span></div>\n    <div class=\"ek-block-content\"><p>NIST distinguishes quantity equations from unit-dependent numerical-value equations. The sampler model and constraint-first method are original.</p>\n</div>\n  </aside>\n<h2>Accessibility and alternatives</h2>\n<p>Every symbolic step is described in words and presented in source order. No task depends on color, spatial “movement,” dragging, or timing. Read <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mi>x</mi><mo>−</mo><mn>2</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">3(x-2)</annotation></semantics></math></span> aloud as “three times the quantity x minus two.”</p>\n"
+    },
+    {
+      "id": "scene-concept",
+      "title": "An equation describes a solution set",
+      "kind": "concept",
+      "source": "content/020-concept.md",
+      "estimatedMinutes": 45,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>An equation describes a solution set</h1>\n<p>An <strong>expression</strong> such as <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>4</mn><mi>x</mi><mo>−</mo><mn>9</mn></mrow><annotation encoding=\"application/x-tex\">4x-9</annotation></semantics></math></span> represents a value. An <strong>equation</strong> such as <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>4</mn><mi>x</mi><mo>−</mo><mn>9</mn><mo>=</mo><mn>15</mn></mrow><annotation encoding=\"application/x-tex\">4x-9=15</annotation></semantics></math></span> asserts that two expressions are equal. Its <strong>solution set</strong> contains every allowed value that makes the assertion true.</p>\n<aside class=\"ek-block ek-definition ek-block--definition\" data-directive=\"definition\">\n    <div class=\"ek-block-label directive-label\">Definition</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> definition-equivalent-equations</span></div>\n    <div class=\"ek-block-content\"><p><strong>Equivalent equations</strong> have the same solution set. Adding or subtracting the same expression on both sides preserves equality; multiplying or dividing both sides by the same nonzero quantity also preserves it.</p>\n</div>\n  </aside>\n<p>For <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>4</mn><mi>x</mi><mo>−</mo><mn>9</mn><mo>=</mo><mn>15</mn></mrow><annotation encoding=\"application/x-tex\">4x-9=15</annotation></semantics></math></span>:</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mn>4</mn><mi>x</mi><mo>−</mo><mn>9</mn><mo>+</mo><mn>9</mn><mo>=</mo><mn>15</mn><mo>+</mo><mn>9</mn><mo separator=\"true\">,</mo><mspace width=\"2em\"></mspace><mn>4</mn><mi>x</mi><mo>=</mo><mn>24</mn><mo separator=\"true\">,</mo><mspace width=\"2em\"></mspace><mi>x</mi><mo>=</mo><mn>6.</mn></mrow><annotation encoding=\"application/x-tex\">4x-9+9=15+9,\\qquad 4x=24,\\qquad x=6.</annotation></semantics></math></div>\n<p>The final substitution <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>4</mn><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>6</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>−</mo><mn>9</mn><mo>=</mo><mn>15</mn></mrow><annotation encoding=\"application/x-tex\">4(6)-9=15</annotation></semantics></math></span> confirms the candidate in the original constraint.</p>\n<h2>Structure before arithmetic</h2>\n<p>Parentheses group a single factor: <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mi>x</mi><mo>−</mo><mn>2</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>=</mo><mn>21</mn></mrow><annotation encoding=\"application/x-tex\">3(x-2)=21</annotation></semantics></math></span> means the entire difference is tripled. You may divide by 3 first or distribute first; either valid path preserves the solution set.</p>\n<p>Fractions can be cleared by multiplying every term on both sides by a common nonzero denominator. For</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mfrac><mi>x</mi><mn>3</mn></mfrac><mo>+</mo><mfrac><mi>x</mi><mn>4</mn></mfrac><mo>=</mo><mn>7</mn><mo separator=\"true\">,</mo></mrow><annotation encoding=\"application/x-tex\">\\frac{x}{3}+\\frac{x}{4}=7,</annotation></semantics></math></div>\n<p>multiplying the whole equation by 12 gives <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>4</mn><mi>x</mi><mo>+</mo><mn>3</mn><mi>x</mi><mo>=</mo><mn>84</mn></mrow><annotation encoding=\"application/x-tex\">4x+3x=84</annotation></semantics></math></span>, so <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>12</mn></mrow><annotation encoding=\"application/x-tex\">x=12</annotation></semantics></math></span>.</p>\n<h2>Three possible outcomes</h2>\n<ul>\n<li>A statement such as <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>5</mn></mrow><annotation encoding=\"application/x-tex\">x=5</annotation></semantics></math></span>: one solution.</li>\n<li>A contradiction such as <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>0</mn><mo>=</mo><mn>7</mn></mrow><annotation encoding=\"application/x-tex\">0=7</annotation></semantics></math></span>: no solution.</li>\n<li>An identity such as <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>0</mn><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">0=0</annotation></semantics></math></span>: every value in the declared domain is a solution.</li>\n</ul>\n<p>Domain restrictions remain part of the problem. Division by a variable requires recording that it is nonzero; a count may require a nonnegative integer even when the equation is defined for all real numbers.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-quantity-equation, claim-numerical-equation, claim-unit-independent-rearrangement</span><span><b>sources</b> source-nist-si-chapter7</span></div>\n    <div class=\"ek-block-content\"><p>NIST supports the separation between unit-independent quantity relations and numerical-value equations. The solution-set framework and algebraic derivations are original mathematical synthesis.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-worked-example",
+      "title": "Solve without changing the constraint",
+      "kind": "worked-example",
+      "source": "content/030-worked-example.md",
+      "estimatedMinutes": 40,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Solve without changing the constraint</h1>\n<p>A fictional counter follows <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>5</mn><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>2</mn><mi>x</mi><mo>−</mo><mn>3</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>+</mo><mn>4</mn><mo>=</mo><mn>3</mn><mi>x</mi><mo>+</mo><mn>31</mn></mrow><annotation encoding=\"application/x-tex\">5(2x-3)+4=3x+31</annotation></semantics></math></span>. Find <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>x</mi><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span> and verify it.</p>\n<aside class=\"ek-block ek-worked-example ek-block--worked-example\" data-directive=\"worked-example\">\n    <div class=\"ek-block-label directive-label\">Worked Example</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> worked-example-linear-both-sides</span></div>\n    <div class=\"ek-block-content\"><p><strong>1. Declare the domain.</strong> No denominator or contextual restriction is stated, so use real numbers.</p>\n<p><strong>2. Expose structure.</strong> Distribute 5 across both terms:</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mn>10</mn><mi>x</mi><mo>−</mo><mn>15</mn><mo>+</mo><mn>4</mn><mo>=</mo><mn>3</mn><mi>x</mi><mo>+</mo><mn>31</mn><mo separator=\"true\">,</mo></mrow><annotation encoding=\"application/x-tex\">10x-15+4=3x+31,</annotation></semantics></math></div>\n<p>so <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>10</mn><mi>x</mi><mo>−</mo><mn>11</mn><mo>=</mo><mn>3</mn><mi>x</mi><mo>+</mo><mn>31</mn></mrow><annotation encoding=\"application/x-tex\">10x-11=3x+31</annotation></semantics></math></span>.</p>\n<p><strong>3. Preserve equality.</strong> Subtract <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">3x</annotation></semantics></math></span> from both sides and add 11 to both sides:</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mn>7</mn><mi>x</mi><mo>=</mo><mn>42.</mn></mrow><annotation encoding=\"application/x-tex\">7x=42.</annotation></semantics></math></div>\n<p>Divide both sides by nonzero 7: <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>6</mn></mrow><annotation encoding=\"application/x-tex\">x=6</annotation></semantics></math></span>.</p>\n<p><strong>4. Substitute into the original.</strong> Left side: <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>5</mn><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>12</mn><mo>−</mo><mn>3</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>+</mo><mn>4</mn><mo>=</mo><mn>49</mn></mrow><annotation encoding=\"application/x-tex\">5(12-3)+4=49</annotation></semantics></math></span>. Right side: <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>18</mn><mo>+</mo><mn>31</mn><mo>=</mo><mn>49</mn></mrow><annotation encoding=\"application/x-tex\">18+31=49</annotation></semantics></math></span>. Both sides agree.</p>\n<p><strong>5. Challenge the scale.</strong> Before exact work, coefficients suggest a small positive value; the checked result is consistent.</p>\n</div>\n  </aside>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-original-equation</span></div>\n    <div class=\"ek-block-content\"><p>Why is checking the original equation stronger than checking only the final line <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>7</mn><mi>x</mi><mo>=</mo><mn>42</mn></mrow><annotation encoding=\"application/x-tex\">7x=42</annotation></semantics></math></span>?</p>\n<p><strong>Feedback after your attempt:</strong> An earlier distribution or sign error could create a valid solution to the wrong transformed equation. The original retains every initial term and grouping.</p>\n</div>\n  </aside>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-unit-independent-rearrangement</span><span><b>sources</b> source-nist-si-chapter7</span></div>\n    <div class=\"ek-block-content\"><p>The equation, derivation, check, and fictional framing are original. The source supports treating symbolic quantity relations independently of chosen numerical units.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-misconception",
+      "title": "Moving a term is shorthand, not magic",
+      "kind": "misconception",
+      "source": "content/040-misconception.md",
+      "estimatedMinutes": 30,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Moving a term is shorthand, not magic</h1>\n<p>The phrase “move <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>9</mn></mrow><annotation encoding=\"application/x-tex\">-9</annotation></semantics></math></span> across and change its sign” can hide the operation that preserves equality.</p>\n<aside class=\"ek-block ek-misconception ek-block--misconception\" data-directive=\"misconception\">\n    <div class=\"ek-block-label directive-label\">Misconception</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> misconception-moving-term</span></div>\n    <div class=\"ek-block-content\"><p>In <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>4</mn><mi>x</mi><mo>−</mo><mn>9</mn><mo>=</mo><mn>15</mn></mrow><annotation encoding=\"application/x-tex\">4x-9=15</annotation></semantics></math></span>, the <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>9</mn></mrow><annotation encoding=\"application/x-tex\">-9</annotation></semantics></math></span> does not travel. We add 9 to <strong>both</strong> sides:</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mn>4</mn><mi>x</mi><mo>−</mo><mn>9</mn><mo>+</mo><mn>9</mn><mo>=</mo><mn>15</mn><mo>+</mo><mn>9.</mn></mrow><annotation encoding=\"application/x-tex\">4x-9+9=15+9.</annotation></semantics></math></div>\n<p>The apparent sign change is the simplified result of inverse operations. Writing the operation prevents three common failures: changing only one side, changing a sign without moving the whole term, and applying an operation to only part of a grouped expression.</p>\n</div>\n  </aside>\n<p>The same care matters in formula rearrangement. From <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo>=</mo><mi>a</mi><mi>x</mi><mo>+</mo><mi>b</mi></mrow><annotation encoding=\"application/x-tex\">y=ax+b</annotation></semantics></math></span>, subtract <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>b</mi><annotation encoding=\"application/x-tex\">b</annotation></semantics></math></span> from both sides, then divide by <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>a</mi><annotation encoding=\"application/x-tex\">a</annotation></semantics></math></span> only if <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi><mo>≠</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">a\\ne0</annotation></semantics></math></span>:</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mi>x</mi><mo>=</mo><mfrac><mrow><mi>y</mi><mo>−</mo><mi>b</mi></mrow><mi>a</mi></mfrac><mo separator=\"true\">,</mo><mspace width=\"2em\"></mspace><mi>a</mi><mo>≠</mo><mn>0.</mn></mrow><annotation encoding=\"application/x-tex\">x=\\frac{y-b}{a},\\qquad a\\ne0.</annotation></semantics></math></div>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-unit-independent-rearrangement</span><span><b>sources</b> source-nist-si-chapter7</span></div>\n    <div class=\"ek-block-content\"><p>The misconception and repair are original. The resulting symbolic rearrangement preserves the source-supported quantity-equation relation without binding it to chosen units.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-practice",
+      "title": "Fade from operations to justification",
+      "kind": "practice",
+      "source": "content/050-practice.md",
+      "estimatedMinutes": 40,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Fade from operations to justification</h1>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-faded-practice</span></div>\n    <div class=\"ek-block-content\"><p>Attempt all four tasks before opening or reading the feedback. Record the operation applied to both sides.</p>\n<ol>\n<li><strong>Two-step equation:</strong> Solve <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>7</mn><mi>x</mi><mo>+</mo><mn>5</mn><mo>=</mo><mn>47</mn></mrow><annotation encoding=\"application/x-tex\">7x+5=47</annotation></semantics></math></span>.</li>\n<li><strong>Parentheses:</strong> Solve <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>4</mn><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mi>x</mi><mo>+</mo><mn>3</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>=</mo><mn>2</mn><mi>x</mi><mo>+</mo><mn>22</mn></mrow><annotation encoding=\"application/x-tex\">4(x+3)=2x+22</annotation></semantics></math></span>.</li>\n<li><strong>Fractions:</strong> Solve <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mi>/</mi><mn>5</mn><mo>−</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mi>x</mi><mo>−</mo><mn>2</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mi>/</mi><mn>3</mn><mo>=</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">x/5-(x-2)/3=2</annotation></semantics></math></span>.</li>\n<li><strong>Classify:</strong> Solve <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mi>x</mi><mo>+</mo><mn>4</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>=</mo><mn>2</mn><mi>x</mi><mo>+</mo><mn>8</mn></mrow><annotation encoding=\"application/x-tex\">2(x+4)=2x+8</annotation></semantics></math></span>.</li>\n</ol>\n<p><strong>Feedback after all four attempts:</strong></p>\n<ol>\n<li>Subtract 5, then divide by 7: <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>6</mn></mrow><annotation encoding=\"application/x-tex\">x=6</annotation></semantics></math></span>. Check: <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>42</mn><mo>+</mo><mn>5</mn><mo>=</mo><mn>47</mn></mrow><annotation encoding=\"application/x-tex\">42+5=47</annotation></semantics></math></span>.</li>\n<li>Distribute first: <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>4</mn><mi>x</mi><mo>+</mo><mn>12</mn><mo>=</mo><mn>2</mn><mi>x</mi><mo>+</mo><mn>22</mn></mrow><annotation encoding=\"application/x-tex\">4x+12=2x+22</annotation></semantics></math></span>, so <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mi>x</mi><mo>=</mo><mn>10</mn></mrow><annotation encoding=\"application/x-tex\">2x=10</annotation></semantics></math></span> and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>5</mn></mrow><annotation encoding=\"application/x-tex\">x=5</annotation></semantics></math></span>. Both original sides equal 32.</li>\n<li>Multiply every term by 15: <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn><mi>x</mi><mo>−</mo><mn>5</mn><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mi>x</mi><mo>−</mo><mn>2</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>=</mo><mn>30</mn></mrow><annotation encoding=\"application/x-tex\">3x-5(x-2)=30</annotation></semantics></math></span>. Then <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>2</mn><mi>x</mi><mo>+</mo><mn>10</mn><mo>=</mo><mn>30</mn></mrow><annotation encoding=\"application/x-tex\">-2x+10=30</annotation></semantics></math></span>, so <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>10</mn></mrow><annotation encoding=\"application/x-tex\">x=-10</annotation></semantics></math></span>. Original check: <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>2</mn><mo>−</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>12</mn><mi>/</mi><mn>3</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>=</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">-2-(-12/3)=2</annotation></semantics></math></span>.</li>\n<li>Both sides reduce to <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mi>x</mi><mo>+</mo><mn>8</mn></mrow><annotation encoding=\"application/x-tex\">2x+8</annotation></semantics></math></span>; the result <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>0</mn><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">0=0</annotation></semantics></math></span> means every real <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>x</mi><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span> satisfies the identity.</li>\n</ol>\n</div>\n  </aside>\n<h2>Recovery route</h2>\n<ul>\n<li>Sign error: write the same addition or subtraction explicitly on both sides.</li>\n<li>Lost term after clearing fractions: multiply <strong>every</strong> term by the common denominator.</li>\n<li>Contradiction mistaken for a value: stop when the variable cancels and classify the remaining statement.</li>\n<li>Candidate fails substitution: return to the first line where transformed sides ceased to be equivalent.</li>\n</ul>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-unit-independent-rearrangement</span><span><b>sources</b> source-nist-si-chapter7</span></div>\n    <div class=\"ek-block-content\"><p>All practice equations, solutions, and recovery routes are original.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-transfer",
+      "title": "Rearrange before inserting numbers",
+      "kind": "transfer",
+      "source": "content/060-transfer.md",
+      "estimatedMinutes": 35,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Rearrange before inserting numbers</h1>\n<p>A fictional process uses the quantity relation</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mi>Q</mi><mo>=</mo><mi>r</mi><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mi>t</mi><mo>−</mo><msub><mi>t</mi><mn>0</mn></msub><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo separator=\"true\">,</mo></mrow><annotation encoding=\"application/x-tex\">Q=r(t-t_0),</annotation></semantics></math></div>\n<p>where <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>Q</mi><annotation encoding=\"application/x-tex\">Q</annotation></semantics></math></span> is accumulated output in millilitres (mL), <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>r</mi><annotation encoding=\"application/x-tex\">r</annotation></semantics></math></span> is a constant rate in millilitres per minute (mL/min), and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>t</mi><annotation encoding=\"application/x-tex\">t</annotation></semantics></math></span> and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msub><mi>t</mi><mn>0</mn></msub><annotation encoding=\"application/x-tex\">t_0</annotation></semantics></math></span> are times in minutes (min).</p>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-transfer-rate-time</span></div>\n    <div class=\"ek-block-content\"><p>Solve symbolically for <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>t</mi><annotation encoding=\"application/x-tex\">t</annotation></semantics></math></span>, then evaluate for <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>Q</mi><mo>=</mo><mn>126</mn><mtext> </mtext><mpadded lspace=\"0\"><mi>mL</mi></mpadded></mrow><annotation encoding=\"application/x-tex\">Q=126\\ \\mathrm{mL}</annotation></semantics></math></span>, <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>r</mi><mo>=</mo><mn>9</mn><mtext> </mtext><mrow><mrow><mi mathvariant=\"normal\">m</mi><mspace></mspace></mrow><mrow><mi mathvariant=\"normal\">L</mi><mspace></mspace></mrow><mi>/</mi><mrow><mi mathvariant=\"normal\">m</mi><mspace></mspace></mrow><mrow><mi mathvariant=\"normal\">i</mi><mspace></mspace></mrow><mrow><mi mathvariant=\"normal\">n</mi><mspace></mspace></mrow></mrow></mrow><annotation encoding=\"application/x-tex\">r=9\\ \\mathrm{mL/min}</annotation></semantics></math></span>, and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>t</mi><mn>0</mn></msub><mo>=</mo><mn>4</mn><mtext> </mtext><mpadded lspace=\"0\"><mi>min</mi></mpadded></mrow><annotation encoding=\"application/x-tex\">t_0=4\\ \\mathrm{min}</annotation></semantics></math></span>. Before substituting, show why <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>Q</mi><mi>/</mi><mi>r</mi></mrow><annotation encoding=\"application/x-tex\">Q/r</annotation></semantics></math></span> can be added to <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msub><mi>t</mi><mn>0</mn></msub><annotation encoding=\"application/x-tex\">t_0</annotation></semantics></math></span>.</p>\n<p><strong>Feedback after a complete attempt:</strong></p>\n<p>Divide by <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>r</mi><annotation encoding=\"application/x-tex\">r</annotation></semantics></math></span> only with restriction <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>r</mi><mo>≠</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">r\\ne0</annotation></semantics></math></span>:</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mfrac><mi>Q</mi><mi>r</mi></mfrac><mo>=</mo><mi>t</mi><mo>−</mo><msub><mi>t</mi><mn>0</mn></msub><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{Q}{r}=t-t_0.</annotation></semantics></math></div>\n<p>Add <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msub><mi>t</mi><mn>0</mn></msub><annotation encoding=\"application/x-tex\">t_0</annotation></semantics></math></span> to both sides:</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mi>t</mi><mo>=</mo><msub><mi>t</mi><mn>0</mn></msub><mo>+</mo><mfrac><mi>Q</mi><mi>r</mi></mfrac><mo separator=\"true\">,</mo><mspace width=\"2em\"></mspace><mi>r</mi><mo>≠</mo><mn>0.</mn></mrow><annotation encoding=\"application/x-tex\">t=t_0+\\frac{Q}{r},\\qquad r\\ne0.</annotation></semantics></math></div>\n<p>The quotient <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>Q</mi><mi>/</mi><mi>r</mi></mrow><annotation encoding=\"application/x-tex\">Q/r</annotation></semantics></math></span> has units <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mpadded lspace=\"0\"><mi>mL</mi></mpadded><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mi>/</mi><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mrow><mrow><mi mathvariant=\"normal\">m</mi><mspace></mspace></mrow><mrow><mi mathvariant=\"normal\">L</mi><mspace></mspace></mrow><mi>/</mi><mrow><mi mathvariant=\"normal\">m</mi><mspace></mspace></mrow><mrow><mi mathvariant=\"normal\">i</mi><mspace></mspace></mrow><mrow><mi mathvariant=\"normal\">n</mi><mspace></mspace></mrow></mrow><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>=</mo><mpadded lspace=\"0\"><mi>min</mi></mpadded></mrow><annotation encoding=\"application/x-tex\">(\\mathrm{mL})/(\\mathrm{mL/min})=\\mathrm{min}</annotation></semantics></math></span>, so it can be added to <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msub><mi>t</mi><mn>0</mn></msub><annotation encoding=\"application/x-tex\">t_0</annotation></semantics></math></span>. Substitute only after rearranging: <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><mn>4</mn><mtext> </mtext><mpadded lspace=\"0\"><mi>min</mi></mpadded><mo>+</mo><mn>14</mn><mtext> </mtext><mpadded lspace=\"0\"><mi>min</mi></mpadded><mo>=</mo><mn>18</mn><mtext> </mtext><mpadded lspace=\"0\"><mi>min</mi></mpadded></mrow><annotation encoding=\"application/x-tex\">t=4\\ \\mathrm{min}+14\\ \\mathrm{min}=18\\ \\mathrm{min}</annotation></semantics></math></span>.</p>\n<p>Check in the original: <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>9</mn><mtext> </mtext><mrow><mrow><mi mathvariant=\"normal\">m</mi><mspace></mspace></mrow><mrow><mi mathvariant=\"normal\">L</mi><mspace></mspace></mrow><mi>/</mi><mrow><mi mathvariant=\"normal\">m</mi><mspace></mspace></mrow><mrow><mi mathvariant=\"normal\">i</mi><mspace></mspace></mrow><mrow><mi mathvariant=\"normal\">n</mi><mspace></mspace></mrow></mrow><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>18</mn><mtext> </mtext><mpadded lspace=\"0\"><mi>min</mi></mpadded><mo>−</mo><mn>4</mn><mtext> </mtext><mpadded lspace=\"0\"><mi>min</mi></mpadded><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>=</mo><mn>126</mn><mtext> </mtext><mpadded lspace=\"0\"><mi>mL</mi></mpadded></mrow><annotation encoding=\"application/x-tex\">(9\\ \\mathrm{mL/min})(18\\ \\mathrm{min}-4\\ \\mathrm{min})=126\\ \\mathrm{mL}</annotation></semantics></math></span>. The rearranged quantity equation remains meaningful across compatible unit choices; the numerical values must use a coherent set of units.</p>\n</div>\n  </aside>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-quantity-equation, claim-numerical-equation, claim-unit-independent-rearrangement</span><span><b>sources</b> source-nist-si-chapter7</span></div>\n    <div class=\"ek-block-content\"><p>NIST directly distinguishes quantity equations from unit-dependent numerical equations. The process relation, values, solution, and checking route are original.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-synthesis",
+      "title": "Rebuild the preserve-and-check method",
+      "kind": "synthesis",
+      "source": "content/070-synthesis.md",
+      "estimatedMinutes": 25,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Rebuild the preserve-and-check method</h1>\n<ol>\n<li>State the equation, requested variable, and domain.</li>\n<li>Expose grouping and denominators.</li>\n<li>Apply the same reversible operation to both sides.</li>\n<li>Record restrictions before dividing.</li>\n<li>Substitute into the original and interpret the result.</li>\n</ol>\n<h2>Retrieval</h2>\n<ul>\n<li>What distinguishes an expression from an equation?</li>\n<li>Why does the same nonzero multiplier preserve a solution set?</li>\n<li>What do <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>0</mn><mo>=</mo><mn>7</mn></mrow><annotation encoding=\"application/x-tex\">0=7</annotation></semantics></math></span> and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>0</mn><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">0=0</annotation></semantics></math></span> mean after a variable cancels?</li>\n<li>Why should formula rearrangement precede numerical substitution?</li>\n</ul>\n<p>Complete the lesson mastery assessment. If the operation trail is unclear, return to the misconception scene. If fractions fail, redo practice item 3 while circling every term. If a numerical answer lacks a domain or substitution check, redo the transfer task.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-quantity-equation, claim-numerical-equation, claim-unit-independent-rearrangement</span><span><b>sources</b> source-nist-si-chapter7</span></div>\n    <div class=\"ek-block-content\"><p>The synthesis uses NIST&#39;s equation distinctions; the preserve-and-check method is original and claims no measured learner effectiveness.</p>\n</div>\n  </aside>\n"
+    }
+  ],
+  "authors": [
+    {
+      "principalId": "github:VSBDev",
+      "displayName": "VSBDev — accountable author with Codex assistance",
+      "agent": {
+        "system": "Codex desktop",
+        "provider": "OpenAI",
+        "model": "gpt-5.6-sol",
+        "version": "Codex desktop runtime 2026-07-22",
+        "runId": "7fba89b3-ddb4-4730-93e4-84e04fc5dba0",
+        "instructionsDigest": "sha256:4d54e67303cf9f15f6fa95ab62fb5014e1cba051126af6482a8625a5ed34007e"
+      }
+    }
+  ],
+  "license": "CC-BY-4.0",
+  "sourceConfidence": "medium-high",
+  "aiAssistance": {
+    "used": true,
+    "disclosure": "VSBDev (github:VSBDev) is accountable. OpenAI Codex, model gpt-5.6-sol, authored, researched, edited, and packaged the original candidate in run 7fba89b3-ddb4-4730-93e4-84e04fc5dba0. Advisory-review provenance is preserved in reviews/, and the post-review finalizer provenance is recorded in adjudication.json. Digests cover discloseable material task instructions, not hidden system or provider instructions."
+  },
+  "assessment": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-assessment-v1",
+    "lessonId": "PREM-QNT-004",
+    "lessonVersion": "0.1.0",
+    "assessmentId": "assessment-preserve-constraint",
+    "title": "Algebra and equation solving mastery gate",
+    "purpose": "mastery-gate",
+    "attemptPolicy": {
+      "retakeable": true,
+      "timeLimitMinutes": null,
+      "feedback": "after-attempt"
+    },
+    "items": [
+      {
+        "id": "item-expression-equation",
+        "type": "single-choice",
+        "sceneId": "scene-synthesis",
+        "objectiveIds": [
+          "objective-read-algebra"
+        ],
+        "outcomeIds": [
+          "topic-quantitative-foundations-algebra-equations"
+        ],
+        "prompt": "Which statement is an equation rather than an expression?",
+        "points": 2,
+        "responseSpec": {
+          "mode": "single-choice",
+          "options": [
+            {
+              "id": "option-read-a",
+              "text": "5x - 8"
+            },
+            {
+              "id": "option-read-b",
+              "text": "5x - 8 = 17"
+            },
+            {
+              "id": "option-read-c",
+              "text": "3(x + 2)"
+            },
+            {
+              "id": "option-read-d",
+              "text": "x/4"
+            }
+          ]
+        },
+        "answer": {
+          "correct": "option-read-b",
+          "summary": "An equation asserts equality between expressions.",
+          "reasoning": "Only option B contains an equality relation; the others represent values without asserting a constraint.",
+          "acceptableResponses": [],
+          "commonErrors": [
+            "Treating any occurrence of a variable as an equation",
+            "Choosing the most complicated expression"
+          ]
+        },
+        "rubricId": "rubric-expression-equation",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-linear-both-sides",
+        "type": "numeric",
+        "sceneId": "scene-synthesis",
+        "objectiveIds": [
+          "objective-solve-linear"
+        ],
+        "outcomeIds": [
+          "topic-quantitative-foundations-algebra-equations"
+        ],
+        "prompt": "Solve 6x - 7 = 2x + 21.",
+        "points": 3,
+        "responseSpec": {
+          "mode": "number",
+          "units": null,
+          "tolerance": 0
+        },
+        "answer": {
+          "correct": 7,
+          "summary": "x = 7.",
+          "reasoning": "Subtract 2x and add 7 on both sides: 4x = 28, so x = 7.",
+          "acceptableResponses": [],
+          "commonErrors": [
+            "Combining terms across equality without applying an operation to both sides",
+            "Obtaining a negative value from a sign error"
+          ]
+        },
+        "rubricId": "rubric-linear-both-sides",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-fraction-equation",
+        "type": "short-answer",
+        "sceneId": "scene-synthesis",
+        "objectiveIds": [
+          "objective-solve-linear",
+          "objective-check-solution"
+        ],
+        "outcomeIds": [
+          "topic-quantitative-foundations-algebra-equations"
+        ],
+        "prompt": "Solve x/4 + (x - 1)/6 = 5. Show how the denominator is cleared and verify in the original equation.",
+        "points": 5,
+        "responseSpec": {
+          "mode": "text",
+          "maxLength": 1400
+        },
+        "answer": {
+          "correct": "Multiply every term by 12: 3x + 2(x - 1) = 60, so 5x - 2 = 60 and x = 62/5 = 12.4. Check: 12.4/4 + 11.4/6 = 3.1 + 1.9 = 5.",
+          "summary": "x = 62/5.",
+          "reasoning": "The common denominator must multiply every term on both sides; substitution confirms the fractional value.",
+          "acceptableResponses": [],
+          "commonErrors": [
+            "Multiplying only fractional terms and not the right side",
+            "Dropping the -1 inside parentheses"
+          ]
+        },
+        "rubricId": "rubric-fraction-equation",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-classify-equation",
+        "type": "single-choice",
+        "sceneId": "scene-synthesis",
+        "objectiveIds": [
+          "objective-check-solution"
+        ],
+        "outcomeIds": [
+          "topic-quantitative-foundations-algebra-equations"
+        ],
+        "prompt": "What is the solution set of 3(x - 2) = 3x + 1?",
+        "points": 3,
+        "responseSpec": {
+          "mode": "single-choice",
+          "options": [
+            {
+              "id": "option-classify-a",
+              "text": "x = 7/3"
+            },
+            {
+              "id": "option-classify-b",
+              "text": "x = -7/3"
+            },
+            {
+              "id": "option-classify-c",
+              "text": "All real numbers"
+            },
+            {
+              "id": "option-classify-d",
+              "text": "No solution"
+            }
+          ]
+        },
+        "answer": {
+          "correct": "option-classify-d",
+          "summary": "The equation reduces to the contradiction -6 = 1.",
+          "reasoning": "Distributing gives 3x - 6 = 3x + 1; subtracting 3x leaves a false statement independent of x.",
+          "acceptableResponses": [],
+          "commonErrors": [
+            "Dividing by a cancelled variable coefficient",
+            "Treating every cancellation as an identity"
+          ]
+        },
+        "rubricId": "rubric-classify-equation",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-rearrange-formula",
+        "type": "short-answer",
+        "sceneId": "scene-synthesis",
+        "objectiveIds": [
+          "objective-rearrange-formula"
+        ],
+        "outcomeIds": [
+          "topic-quantitative-foundations-algebra-equations"
+        ],
+        "prompt": "Rearrange A = b(h + k)/2 for h and state every required nonzero restriction.",
+        "points": 5,
+        "responseSpec": {
+          "mode": "text",
+          "maxLength": 1200
+        },
+        "answer": {
+          "correct": "Multiply by 2: 2A = b(h + k). If b ≠ 0, divide by b and subtract k: h = 2A/b - k. The required division restriction is b ≠ 0.",
+          "summary": "h = 2A/b - k, for b ≠ 0.",
+          "reasoning": "Each operation is applied to both sides; the only new division is by b, so its nonzero restriction must be retained.",
+          "acceptableResponses": [
+            "h = (2A - bk)/b, b ≠ 0"
+          ],
+          "commonErrors": [
+            "Dividing only A by 2",
+            "Failing to distribute division over the grouped sum",
+            "Omitting b ≠ 0"
+          ]
+        },
+        "rubricId": "rubric-rearrange-formula",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-transfer-counter",
+        "type": "open-response",
+        "sceneId": "scene-synthesis",
+        "objectiveIds": [
+          "objective-read-algebra",
+          "objective-solve-linear",
+          "objective-check-solution"
+        ],
+        "outcomeIds": [
+          "topic-quantitative-foundations-algebra-equations"
+        ],
+        "prompt": "A fictional storage model is T = 2.5n + 18, where n is a nonnegative integer batch count and T is total storage units. For T = 73, solve for n, show equality-preserving steps, verify in the original model, and interpret the domain. Then consider a separate case with T = 74 under the same model and domain: explain why n = 22.4 passes one check but fails another.",
+        "points": 8,
+        "responseSpec": {
+          "mode": "text",
+          "maxLength": 2600
+        },
+        "answer": {
+          "correct": "For T = 73: 73 = 2.5n + 18. Subtract 18 on both sides: 55 = 2.5n. Divide by 2.5: n = 22. Check: 2.5(22) + 18 = 73. The value is admissible because it is a nonnegative integer. In the separate T = 74 case, 2.5(22.4) + 18 = 74, so 22.4 satisfies the real-valued equation but is not an admissible complete-batch count.",
+          "summary": "n = 22 batches for T = 73; in the separate T = 74 case, n = 22.4 passes substitution but fails the integer-domain check.",
+          "reasoning": "Substitution tests whether a candidate satisfies the equation; the declared nonnegative-integer domain is a separate admissibility test. The T = 74 case isolates that distinction because 22.4 passes substitution but fails the domain check.",
+          "acceptableResponses": [],
+          "commonErrors": [
+            "Subtracting 18 from only one side",
+            "Dividing 73 by 2.5 before removing the baseline",
+            "Testing 22.4 against T = 73 instead of the separate T = 74 case",
+            "Ignoring the integer domain after substitution succeeds"
+          ]
+        },
+        "rubricId": "rubric-transfer-counter",
+        "safetyCritical": false
+      }
+    ],
+    "rubrics": [
+      {
+        "id": "rubric-expression-equation",
+        "title": "Algebraic reading",
+        "criteria": [
+          {
+            "id": "criterion-equation",
+            "description": "Identifies the equality assertion rather than an expression.",
+            "maxPoints": 2
+          }
+        ]
+      },
+      {
+        "id": "rubric-linear-both-sides",
+        "title": "Linear equation",
+        "criteria": [
+          {
+            "id": "criterion-linear",
+            "description": "Preserves equality and obtains x = 7.",
+            "maxPoints": 3
+          }
+        ]
+      },
+      {
+        "id": "rubric-fraction-equation",
+        "title": "Fraction equation",
+        "criteria": [
+          {
+            "id": "criterion-clear-denominator",
+            "description": "Multiplies every term by the common denominator.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-fraction-solve",
+            "description": "Obtains 62/5.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-fraction-check",
+            "description": "Verifies in the original equation.",
+            "maxPoints": 1
+          }
+        ]
+      },
+      {
+        "id": "rubric-classify-equation",
+        "title": "Solution-set classification",
+        "criteria": [
+          {
+            "id": "criterion-contradiction",
+            "description": "Recognizes the contradiction and concludes no solution.",
+            "maxPoints": 3
+          }
+        ]
+      },
+      {
+        "id": "rubric-rearrange-formula",
+        "title": "Formula rearrangement",
+        "criteria": [
+          {
+            "id": "criterion-rearrange-steps",
+            "description": "Applies inverse operations to the full equation.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-rearrange-result",
+            "description": "Isolates h in an equivalent form.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-rearrange-domain",
+            "description": "States b ≠ 0.",
+            "maxPoints": 1
+          }
+        ]
+      },
+      {
+        "id": "rubric-transfer-counter",
+        "title": "Constraint and domain transfer",
+        "criteria": [
+          {
+            "id": "criterion-transfer-model",
+            "description": "Represents T = 73 and isolates n with equality-preserving steps.",
+            "maxPoints": 3
+          },
+          {
+            "id": "criterion-transfer-check",
+            "description": "Substitutes 22 for T = 73 and 22.4 for the separate T = 74 case.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-transfer-domain",
+            "description": "Interprets 22 as admissible for T = 73 and 22.4 as equation-valid but domain-invalid for the separate T = 74 case.",
+            "maxPoints": 3
+          }
+        ]
+      }
+    ]
+  },
+  "references": {
+    "schemaVersion": 2,
+    "format": "embeddedknowledge-references-v2",
+    "lessonId": "PREM-QNT-004",
+    "lessonVersion": "0.1.0",
+    "sources": [
+      {
+        "id": "source-nist-si-chapter7",
+        "type": "official-standard",
+        "title": "NIST Guide to the SI, Chapter 7: Rules and Style Conventions for Expressing Values of Quantities",
+        "creators": [
+          "National Institute of Standards and Technology"
+        ],
+        "publisher": "National Institute of Standards and Technology",
+        "issued": "2016-01-28",
+        "url": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-7-rules-and-style-conventions-expressing-values",
+        "accessed": "2026-07-22",
+        "version": "Web presentation modified 2025-08-18; based on NIST Special Publication 811",
+        "locator": "Sections 7.1 and 7.11 on quantity values, quantity equations, and numerical-value equations",
+        "license": "NIST Technical Series/public information under NIST Copyrights & Disclaimers and technical-series licensing statements, subject to attribution and third-party exceptions",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "The lesson uses only factual distinctions between quantity and numerical-value equations. All algebra explanations, equations, examples, feedback, and assessments are original."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://www.nist.gov/copyrights-disclaimers",
+          "checked": "2026-07-22",
+          "notes": "The cited NIST page and NIST copyrights/disclaimers page were rechecked during finalization. No source-specific agent restriction, login, paywall, or access-control barrier was found."
+        }
+      }
+    ]
+  },
+  "claims": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-claims-v1",
+    "lessonId": "PREM-QNT-004",
+    "lessonVersion": "0.1.0",
+    "claims": [
+      {
+        "id": "claim-quantity-equation",
+        "statement": "A quantity equation expresses a relationship among quantities and is independent of the units chosen to express those quantities.",
+        "sceneIds": [
+          "scene-orientation",
+          "scene-concept",
+          "scene-transfer",
+          "scene-synthesis"
+        ],
+        "sourceIds": [
+          "source-nist-si-chapter7"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Symbolic quantity equations in introductory quantitative science.",
+        "uncertainty": "Unit independence does not establish that the selected equation is the correct model for a system.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      },
+      {
+        "id": "claim-numerical-equation",
+        "statement": "An equation among numerical values depends on the units in which the associated quantities are expressed.",
+        "sceneIds": [
+          "scene-orientation",
+          "scene-concept",
+          "scene-transfer",
+          "scene-synthesis"
+        ],
+        "sourceIds": [
+          "source-nist-si-chapter7"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Numerical-value equations tied to explicitly stated compatible units.",
+        "uncertainty": "The lesson does not teach unit conversion or measurement uncertainty.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      },
+      {
+        "id": "claim-unit-independent-rearrangement",
+        "statement": "Algebraically equivalent rearrangements of a valid quantity equation retain the same quantity relationship when operations are defined and restrictions such as nonzero divisors are preserved.",
+        "sceneIds": [
+          "scene-orientation",
+          "scene-concept",
+          "scene-worked-example",
+          "scene-misconception",
+          "scene-practice",
+          "scene-transfer",
+          "scene-synthesis"
+        ],
+        "sourceIds": [
+          "source-nist-si-chapter7"
+        ],
+        "support": "inference",
+        "confidence": "high",
+        "scope": "Equality-preserving elementary algebra over real-valued quantities with declared domains.",
+        "uncertainty": "Nonreversible operations can introduce or remove candidate solutions and require additional checking.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      }
+    ]
+  },
+  "glossary": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-glossary-v1",
+    "lessonId": "PREM-QNT-004",
+    "lessonVersion": "0.1.0",
+    "terms": [
+      {
+        "id": "term-expression",
+        "term": "expression",
+        "definition": "A combination of numbers, variables, and operations that represents a value but does not assert equality.",
+        "aliases": [
+          "algebraic expression"
+        ],
+        "sceneIds": [
+          "scene-orientation",
+          "scene-concept",
+          "scene-synthesis"
+        ]
+      },
+      {
+        "id": "term-equation",
+        "term": "equation",
+        "definition": "A statement asserting that two expressions are equal.",
+        "aliases": [
+          "equality constraint"
+        ],
+        "sceneIds": [
+          "scene-orientation",
+          "scene-concept",
+          "scene-worked-example",
+          "scene-misconception",
+          "scene-practice",
+          "scene-transfer",
+          "scene-synthesis"
+        ]
+      },
+      {
+        "id": "term-solution-set",
+        "term": "solution set",
+        "definition": "All values in the declared domain that make an equation true.",
+        "aliases": [
+          "solutions"
+        ],
+        "sceneIds": [
+          "scene-concept",
+          "scene-worked-example",
+          "scene-synthesis"
+        ]
+      },
+      {
+        "id": "term-equivalent-equations",
+        "term": "equivalent equations",
+        "definition": "Equations with the same solution set over the declared domain.",
+        "aliases": [
+          "equivalent forms"
+        ],
+        "sceneIds": [
+          "scene-concept",
+          "scene-worked-example",
+          "scene-misconception",
+          "scene-practice"
+        ]
+      },
+      {
+        "id": "term-identity",
+        "term": "identity",
+        "definition": "An equation true for every value in its declared domain.",
+        "aliases": [
+          "identity equation"
+        ],
+        "sceneIds": [
+          "scene-concept",
+          "scene-practice",
+          "scene-synthesis"
+        ]
+      },
+      {
+        "id": "term-domain-restriction",
+        "term": "domain restriction",
+        "definition": "A condition limiting allowed variable values, such as a nonzero denominator or a nonnegative integer count.",
+        "aliases": [
+          "constraint on values"
+        ],
+        "sceneIds": [
+          "scene-orientation",
+          "scene-concept",
+          "scene-worked-example",
+          "scene-misconception",
+          "scene-transfer",
+          "scene-synthesis"
+        ]
+      }
+    ]
+  },
+  "attributionHtml": "<h1>Attribution</h1>\n<h2>Lesson identity and licence</h2>\n<ul>\n<li>Lesson: <strong>PREM-QNT-004 — Preserve the constraint: balance, solve, and check</strong></li>\n<li>Outcome: <strong>PREM-03.04</strong> (<code>topic-quantitative-foundations-algebra-equations</code>)</li>\n<li>Accountable principal: <strong>VSBDev</strong> (<code>github:VSBDev</code>)</li>\n<li>Licence: <strong>Creative Commons Attribution 4.0 International (CC BY 4.0)</strong></li>\n<li>State: <strong>draft</strong>, source confidence <strong>pending-review</strong></li>\n</ul>\n<h2>Material agent assistance</h2>\n<p>OpenAI Codex authored, researched, edited, and packaged the original candidate in one author-role run.</p>\n<table>\n<thead>\n<tr>\n<th>System</th>\n<th>Provider</th>\n<th>Model</th>\n<th>Version</th>\n<th>Run ID</th>\n<th>Material-instructions digest</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>Codex desktop</td>\n<td>OpenAI</td>\n<td><code>gpt-5.6-sol</code></td>\n<td>Codex desktop runtime 2026-07-22</td>\n<td><code>7fba89b3-ddb4-4730-93e4-84e04fc5dba0</code></td>\n<td><code>sha256:4d54e67303cf9f15f6fa95ab62fb5014e1cba051126af6482a8625a5ed34007e</code></td>\n</tr>\n</tbody></table>\n<p>The digest identifies <code>/tmp/codex-packager-prompt-03-04.md</code>; it excludes unavailable hidden instructions. The academic and learning-design advisory runs are disclosed in the unmodified artifacts under <code>reviews/</code>. The fresh finalizer&#39;s accountable provenance, including its material-instructions digest, is disclosed in <code>adjudication.json</code>; VSBDev remains accountable for the post-review revision.</p>\n<h2>Originality, evidence, and rights</h2>\n<p>The preserve-and-check structure, sampler opening, counter equation, misconception repair, process transfer, all values, explanations, feedback, recovery routes, and assessments are original. All applied settings are fictional. NIST Chapter 7 supplies only factual authority for the distinction between quantity equations and unit-dependent numerical-value equations. No NIST expression, example, table, or image is copied or adapted.</p>\n<p>The cited NIST page and NIST copyrights/disclaimers page were rechecked on 2026-07-23. No agent restriction, login, paywall, or access-control barrier was found. No third-party assets, datasets, personal data, or patient material are included.</p>\n<p>This mathematical lesson offers no clinical advice and makes no claim of review, approval, publication, measured effectiveness, credit, or competence.</p>\n"
+}

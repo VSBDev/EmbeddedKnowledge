@@ -14,7 +14,7 @@ import {
 } from "./lib/quorum-policy.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const outputPath = process.env.EK_OPEN_PRS_OUTPUT || path.join(root, "site/data/premed-open-prs.json");
+const explicitOutputPath = process.env.EK_OPEN_PRS_OUTPUT || null;
 const repository = process.env.GITHUB_REPOSITORY || "VSBDev/EmbeddedKnowledge";
 const token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN;
 const apiBase = process.env.GITHUB_API_URL || "https://api.github.com";
@@ -23,8 +23,11 @@ const lessonSchema = readJson("site/schemas/lesson.schema.json");
 const reviewSchema = readJson("site/schemas/review.schema.json");
 const adjudicationSchema = readJson("site/schemas/adjudication.schema.json");
 const policy = readJson("site/agent/quorum-policy.json");
-const graph = readJson("site/data/premed-graph.json");
-const topicIds = new Set(graph.nodes.filter((node) => node.kind === "topic").map((node) => node.id));
+const courseTopics = new Map([
+  ["PREM-", { course: "premed", ids: new Set(readJson("site/data/premed-graph.json").nodes.filter((node) => node.kind === "topic").map((node) => node.id)) }],
+  ["PSY-", { course: "psychiatry", ids: new Set(readJson("site/data/psychiatry-graph.json").nodes.filter((node) => node.kind === "topic").map((node) => node.id)) }]
+]);
+const topicIds = new Set([...courseTopics.values()].flatMap(({ ids }) => [...ids]));
 const ajv = new Ajv2020({ allErrors: true, strict: true });
 addFormats(ajv);
 ajv.addSchema(lessonSchema).addSchema(reviewSchema).addSchema(adjudicationSchema);
@@ -369,8 +372,10 @@ async function buildProposal(pullRequest, packPath, githubReviews) {
   const adjudicationText = await readHeadFile(pullRequest, `${packPath}/adjudication.json`, true);
   const adjudication = adjudicationText ? parseJson(adjudicationText, `${packPath}/adjudication.json`, artifactErrors) : null;
   if (metadata) {
+    const expectedTopics = [...courseTopics.entries()].find(([prefix]) => metadata.id?.startsWith(prefix))?.[1];
     for (const outcomeId of [...(metadata.outcomes || []), ...(metadata.prerequisites || [])]) {
-      if (!topicIds.has(outcomeId)) metadataErrors.push(`Unknown Premed outcome ID: ${outcomeId}.`);
+      if (!topicIds.has(outcomeId)) metadataErrors.push(`Unknown course outcome ID: ${outcomeId}.`);
+      else if (expectedTopics && !expectedTopics.ids.has(outcomeId)) metadataErrors.push(`Outcome ${outcomeId} belongs to another course graph.`);
     }
   }
   const evaluation = evaluateProposal(metadata, reviews, adjudication, metadataErrors, artifactErrors, githubReviews, pullRequest.user.login);
@@ -425,7 +430,6 @@ if (isMain) {
       console.warn(`Warning: skipping PR #${pullRequest.number} (${pullRequest.html_url}): ${error.message}`);
     }
   }
-  const outcomeIdsWithProposals = new Set(pullRequests.flatMap((pullRequest) => pullRequest.lessons.flatMap((lesson) => lesson.outcomeIds)));
   // Derive the timestamp from versioned GitHub state rather than the wall clock
   // so scheduled rebuilds remain stable. An empty PR queue falls back to the
   // checked-out main commit instead of emitting a schema-invalid null.
@@ -434,18 +438,29 @@ if (isMain) {
     const commit = await api(`/repos/${repository}/commits/${encodeURIComponent(commitRef)}`);
     return commit.commit?.committer?.date || commit.commit?.author?.date;
   });
-  const output = {
-    schemaVersion: 1,
-    generatedAt,
-    repository,
-    source: "github-pull-requests",
-    summary: {
-      openPullRequests: pullRequests.length,
-      lessonProposals: pullRequests.reduce((total, pullRequest) => total + pullRequest.lessons.length, 0),
-      outcomesWithOpenProposals: outcomeIdsWithProposals.size
-    },
-    pullRequests
-  };
-  fs.writeFileSync(outputPath, `${JSON.stringify(output, null, 2)}\n`);
-  console.log(`Indexed ${output.summary.lessonProposals} lesson proposal(s) from ${output.summary.openPullRequests} open PR(s), mapping ${output.summary.outcomesWithOpenProposals} outcome(s).`);
+  for (const course of [
+    { id: "premed", prefix: "PREM-" },
+    { id: "psychiatry", prefix: "PSY-" }
+  ]) {
+    if (explicitOutputPath && course.id !== "premed") continue;
+    const coursePullRequests = pullRequests
+      .map((pullRequest) => ({ ...pullRequest, lessons: pullRequest.lessons.filter((lesson) => lesson.id?.startsWith(course.prefix)) }))
+      .filter((pullRequest) => pullRequest.lessons.length);
+    const outcomeIdsWithProposals = new Set(coursePullRequests.flatMap((pullRequest) => pullRequest.lessons.flatMap((lesson) => lesson.outcomeIds)));
+    const output = {
+      schemaVersion: 1,
+      generatedAt,
+      repository,
+      source: "github-pull-requests",
+      summary: {
+        openPullRequests: coursePullRequests.length,
+        lessonProposals: coursePullRequests.reduce((total, pullRequest) => total + pullRequest.lessons.length, 0),
+        outcomesWithOpenProposals: outcomeIdsWithProposals.size
+      },
+      pullRequests: coursePullRequests
+    };
+    const outputPath = explicitOutputPath || path.join(root, `site/data/${course.id}-open-prs.json`);
+    fs.writeFileSync(outputPath, `${JSON.stringify(output, null, 2)}\n`);
+    console.log(`Indexed ${course.id}: ${output.summary.lessonProposals} lesson proposal(s) from ${output.summary.openPullRequests} open PR(s), mapping ${output.summary.outcomesWithOpenProposals} outcome(s).`);
+  }
 }

@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-QNT-003-ACADEMIC-1C684507",
+  "lessonId": "PREM-QNT-003",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "be535bc03f5b5777d9f6b890643a1deaa91cf755",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable operator, academic review role",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-QNT-003-1C684507-50FD-4ED0-A1B9-B68907081BD9",
+      "instructionsDigest": "sha256:f01e76a258346c1ae4bab2dabd83769aebb8bba80e06757858d07d3f6cc6b613"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#PREM-QNT-003",
+    "content/010-orientation.md#Two true percentages that answer different questions",
+    "content/020-concept.md#Keep the ratio labels attached",
+    "content/030-worked-example.md#worked-example-frame-rate",
+    "content/040-misconception.md#misconception-percent-change",
+    "content/050-practice.md#Find the reference before calculating",
+    "content/060-transfer.md#Audit a changing mixture record",
+    "content/070-synthesis.md#Reconstruct the reference-first method",
+    "assessment.json#item-ratio-order,item-proportion,item-find-whole,item-percent-change,item-points-versus-percent,item-transfer-groups",
+    "claims.json#claim-ratio-quotient,claim-fraction-dimensionless",
+    "references.json#source-nist-si-chapter8",
+    "https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-8#sections-8.4-and-8.6",
+    "glossary.json#terms",
+    "ATTRIBUTION.md#Originality-sources-and-rights"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "claims.json#claim-fraction-dimensionless",
+      "finding": "The sole cited source directly supports selected scientific quotient definitions and examples of dimension-one fractions in NIST sections 8.4 and 8.6, but the checked page contains no definition of percent, percentage, or proportion and does not establish the proportion-equation definition, per-hundred convention, percent-change formula, or percentage-point distinction that form objectives 2 through 4. Nevertheless, this claim labels its support as direct and is used as the only evidence bridge for those central teachings across the concept, misconception, practice, transfer, and synthesis scenes. The claim ledger therefore overstates the source's scope and leaves central definitional claims unsupported.",
+      "resolution": "Add authoritative sources and discrete mapped claims for proportion, percentage, percent change, and percentage-point difference, with accurate support types, exact locators, and complete same-scene source notes. Alternatively, narrow and reclassify genuinely derived claims without representing NIST as direct support for material it does not cover. Record the NIST page's August 18, 2025 update in its version information."
+    },
+    {
+      "severity": "major",
+      "target": "content/020-concept.md#Percent change",
+      "finding": "The stated domain O != 0 is too broad for the formula (N-O)/O. With a negative baseline, the formula's sign can contradict the ordinary increase/decrease direction; for example, -2 to -1 produces -50% despite an increase. Percent change is also not invariant for interval-scale quantities with arbitrary origins: 10 degrees Celsius to 20 degrees Celsius appears to be 100%, whereas the same temperatures expressed in kelvin change by about 3.53%. Merely requiring compatible dimensions, as claim-fraction-dimensionless does, does not establish that a relative percentage is meaningful.",
+      "resolution": "Restrict the introductory rule to positive ratio-scale quantities with a meaningful zero and state that zero baselines, negative baselines, and interval scales such as Celsius or Fahrenheit require different handling or make ordinary percent change undefined or misleading. Align the glossary and claim scope with that boundary."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#item-transfer-groups",
+      "finding": "Independent recomputation confirms the most complex answer key: 24:56 simplifies to 3:7; the initial share is 24/80 = 30%; the new share is 40/96 = 5/12; the increase is 7/60 of the percentage scale, or about 11.67 percentage points; and the relative increase is 7/18, or about 38.89%. The rounded reverse check is consistent. The other five assessment keys and all numerical scene examples were also recomputed without arithmetic discrepancies.",
+      "resolution": "No numerical correction required."
+    }
+  ],
+  "limitations": [
+    "The assigned scope prohibited inspection of site/, so the graph-node definition, course terminology ledger, quorum policy, and review schema were not independently read. Outcome alignment was assessed from lesson.json and the learner-facing and assessment content.",
+    "The NIST source was verified through its current public HTML presentation; no archived snapshot or alternate edition was inspected.",
+    "This review assesses academic accuracy, evidence scope, calculations, model boundaries, outcome scope, and assessment correctness only; it does not adjudicate the lesson or perform another quorum role."
+  ],
+  "signedAt": "2026-07-22T21:47:24Z"
+}

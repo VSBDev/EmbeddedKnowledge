@@ -29,8 +29,11 @@ const schemas = {
   adjudication: readProjectJson("site/schemas/adjudication.schema.json")
 };
 const policy = readProjectJson("site/agent/quorum-policy.json");
-const graph = readProjectJson("site/data/premed-graph.json");
-const topicIds = new Set(graph.nodes.filter((node) => node.kind === "topic").map((node) => node.id));
+const topicIdsByCourse = new Map([
+  ["PREM-", new Set(readProjectJson("site/data/premed-graph.json").nodes.filter((node) => node.kind === "topic").map((node) => node.id))],
+  ["PSY-", new Set(readProjectJson("site/data/psychiatry-graph.json").nodes.filter((node) => node.kind === "topic").map((node) => node.id))]
+]);
+const topicIds = new Set([...topicIdsByCourse.values()].flatMap((ids) => [...ids]));
 const ajv = new Ajv2020({ allErrors: true, strict: true });
 addFormats(ajv);
 for (const schema of Object.values(schemas)) ajv.addSchema(schema);
@@ -349,8 +352,10 @@ for (const entry of packDirectories) {
   validateSchema("lesson", lesson, "lesson.json", packName);
   validateFormatPack(packName, packPath, lesson);
 
+  const courseTopicIds = [...topicIdsByCourse.entries()].find(([prefix]) => lesson.id?.startsWith(prefix))?.[1];
   for (const outcomeId of [...(lesson.outcomes || []), ...(lesson.prerequisites || [])]) {
     if (!topicIds.has(outcomeId)) error(packName, `unknown graph outcome ${outcomeId}.`);
+    else if (courseTopicIds && !courseTopicIds.has(outcomeId)) error(packName, `outcome ${outcomeId} belongs to another course graph.`);
   }
   for (const relativeFile of Object.values(lesson.files || {})) {
     const resolved = path.resolve(packPath, relativeFile);
