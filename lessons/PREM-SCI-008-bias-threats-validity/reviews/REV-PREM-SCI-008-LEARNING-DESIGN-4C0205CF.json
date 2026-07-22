@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-SCI-008-LEARNING-DESIGN-4C0205CF",
+  "lessonId": "PREM-SCI-008",
+  "lessonVersion": "0.1.1",
+  "candidateCommit": "e270afdba6c4aa1a21172886c8f810b96a338fda",
+  "role": "learning-design",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev (learning-design reviewer)",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.5",
+      "runId": "agy-learning-design-PREM-SCI-008-4C0205CF-5C16-4EFD-ABF1-793A98FFD57F",
+      "instructionsDigest": "sha256:3e7aed5fa301cc9f53823c22f345e94859f9ec254da3e3a2b76e07237de76302"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Founding-stage isolation check: the accountable principal VSBDev operates the authoring, review, and finalization agents, so principal-level independence is absent. Agent-level role isolation was strictly maintained: no authoring history, other review output, or adjudication draft was read, and no other EmbeddedKnowledge role script was run during this review execution."
+  },
+  "evidenceChecked": [
+    "lessons/PREM-SCI-008-bias-threats-validity/lesson.json",
+    "lessons/PREM-SCI-008-bias-threats-validity/claims.json",
+    "lessons/PREM-SCI-008-bias-threats-validity/references.json",
+    "lessons/PREM-SCI-008-bias-threats-validity/glossary.json",
+    "lessons/PREM-SCI-008-bias-threats-validity/ATTRIBUTION.md",
+    "lessons/PREM-SCI-008-bias-threats-validity/diagrams/evidence-pipeline.diagram.json",
+    "lessons/PREM-SCI-008-bias-threats-validity/content/01-find-the-missing-path.md",
+    "lessons/PREM-SCI-008-bias-threats-validity/content/02-follow-the-evidence-pipeline.md",
+    "lessons/PREM-SCI-008-bias-threats-validity/content/03-audit-the-seedling-study.md",
+    "lessons/PREM-SCI-008-bias-threats-validity/content/04-practise-the-discriminations.md",
+    "lessons/PREM-SCI-008-bias-threats-validity/content/05-repair-and-transfer.md",
+    "lessons/PREM-SCI-008-bias-threats-validity/content/06-demonstrate-mastery.md",
+    "lessons/PREM-SCI-008-bias-threats-validity/assessment.json",
+    "CONTENT-STANDARD.md"
+  ],
+  "findings": [
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-SCI-008-bias-threats-validity/ATTRIBUTION.md#L6",
+      "finding": "The lesson version string in the document header is declared as '0.1.0', while lesson.json and all other metadata files in the lesson pack declare the candidate version as '0.1.1'. This mismatch should be resolved to prevent version inconsistency.",
+      "resolution": "Update line 6 of ATTRIBUTION.md from '0.1.0' to '0.1.1' to align it with lesson.json."
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-SCI-008-bias-threats-validity/content/01-find-the-missing-path.md#L3-L9",
+      "finding": "The opening scene successfully employs a concrete, fictional seedling experiment as an intuitive anchor to illustrate the core problem of bias before introducing formal definitions, satisfying the Content Standard first-read gate.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-SCI-008-bias-threats-validity/content/02-follow-the-evidence-pipeline.md#L1-L22",
+      "finding": "Explanatory coherence across the six-stage evidence pipeline is exceptionally strong, establishing clear mechanisms, distinguishing related concepts (like attrition vs. survivorship, and publication bias vs. selective reporting), and avoiding simplistic rules of direction.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-SCI-008-bias-threats-validity/content/03-audit-the-seedling-study.md#L9-L63",
+      "finding": "The worked example is pedagogically strong, modeling expert decisions by showing how different denominators alter the absolute difference (from 10 to 23 percentage points) and prompting the learner with self-explanation.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-SCI-008-bias-threats-validity/glossary.json#term-random-error",
+      "finding": "Glossary scene mappings have been successfully cleaned up in version 0.1.1, resolving the mismatch issues identified in version 0.1.0. The definition of random error was also updated to explicitly include random measurement error.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-SCI-008-bias-threats-validity/content/05-repair-and-transfer.md#L15-L48",
+      "finding": "The bat species acoustic classifier transfer task is a genuine transfer scenario that requires selecting and adapting the evidence-pipeline checks to a novel acoustic context rather than merely changing names or numbers.",
+      "resolution": null
+    }
+  ],
+  "limitations": [
+    "Expert-simulation review: This review represents a single-pass advisory input by a simulated learning-design expert under standard-lesson-v3 guidelines. No real learner testing was conducted.",
+    "Conflict of interest: The same GitHub principal (VSBDev) is responsible for the authoring and review run operators. Agent-level isolation was maintained, but principal-level independence is absent.",
+    "Scope restriction: The review is strictly bounded to learning-design metrics (e.g., clarity, coherence, practice, alignment, and transfer). Scientific accuracy, rights audits, and final typesetting checks are excluded.",
+    "Technical verification limits: No rendered build environment, screen reader, or keyboard navigation pathways were evaluated physically; findings are based solely on the static Markdown and JSON source files."
+  ],
+  "signedAt": "2026-07-22T11:52:13Z"
+}

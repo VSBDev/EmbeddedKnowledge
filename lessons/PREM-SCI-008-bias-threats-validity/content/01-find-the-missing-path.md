@@ -42,8 +42,8 @@ If either distinction felt uncertain, keep these two questions beside you:
 Return to the three diagnostic questions after the next scene. If you can explain why the accurate but consistently offset scale is not rescued by repeated readings, you have enough measurement background to continue. If you can explain why random assignment says nothing about how representative the volunteers are, you have enough sampling background to continue.
 
 :::{source-note}
-:claims: claim-bias-versus-random-error, claim-observer-mechanism, claim-survivorship-filter
-:sources: source-bias-taxonomy, source-information-bias, source-observer-systematic-review, source-selection-toolkit
+:claims: claim-bias-versus-random-error, claim-sampling-versus-assignment, claim-repeatability-versus-validity, claim-observer-mechanism, claim-survivorship-filter
+:sources: source-bias-taxonomy, source-information-bias, source-selection-framework, source-observer-systematic-review, source-selection-toolkit
 
-Methodological reviews support the distinction between random imprecision and systematic error, the assessor-knowledge route to observer bias, and the treatment of differential survival as a selection process. These sources do not evaluate the fictional seedling case.
+Methodological sources support the distinction between random imprecision and systematic error, the different jobs of selecting a sample and assigning enrolled units, the possibility of repeatable but systematically invalid measurements, the assessor-knowledge route to observer bias, and the treatment of differential survival as a selection process. These sources do not evaluate the fictional seedling case.
 :::
