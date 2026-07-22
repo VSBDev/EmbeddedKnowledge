@@ -23,7 +23,7 @@ A perfect label is less important than a correct mechanism. Several labels can d
 
 ## Entry: selection bias
 
-**Selection bias** occurs when the rule that determines who or what enters a sample or analysis distorts the target quantity or comparison. The warning sign is not merely “the sample differs from the population.” Ask whether the inclusion process is related to the outcome, the compared groups, or their causes in a way that changes the result being estimated.
+**Selection bias** occurs when the rule that determines who or what enters a sample or analysis distorts the target quantity or comparison. This is a broader use than [Sampling, randomization, and blinding (PREM-SCI-005)](https://embeddedknowledge.io/premed/lessons/read/?lesson=PREM-SCI-005), where selection bias meant how people came to be in the compared groups — the arm-entry form that allocation concealment guards against. That form is one case of the inclusion-rule account used here, which also covers who enters the sample at all and who remains by the end. The warning sign is not merely “the sample differs from the population.” Ask whether the inclusion process is related to the outcome, the compared groups, or their causes in a way that changes the result being estimated.
 
 An unrepresentative sample can limit which population a result applies to without necessarily destroying a randomized comparison inside that sample. Conversely, a sample that looks demographically similar to its target can still be selected through a rule that distorts the comparison. State which target you mean before deciding.
 
