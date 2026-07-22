@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-QNT-004-LEARNING-DESIGN-92971237",
+  "lessonId": "PREM-QNT-004",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "3edb2fd5b99c5999656fc184c627482477c87425",
+  "role": "learning-design",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev (learning-design reviewer)",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.5",
+      "runId": "agy-learning-design-PREM-QNT-004-92971237-BD69-462D-9418-121AEEBCF3A4",
+      "instructionsDigest": "sha256:2b4ffd03c32bceb34a172dac5b63eb2688a30e9cd43190960021aeb825dddb75"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Founding-stage isolation check: the accountable principal VSBDev operates the authoring, review, and finalization agents, so principal-level independence is absent. Agent-level role isolation was strictly maintained: no authoring history, other review output, or adjudication draft was read, and no other EmbeddedKnowledge role script was run during this review execution."
+  },
+  "evidenceChecked": [
+    "lessons/PREM-QNT-004-balance-solve-check/lesson.json",
+    "lessons/PREM-QNT-004-balance-solve-check/claims.json",
+    "lessons/PREM-QNT-004-balance-solve-check/references.json",
+    "lessons/PREM-QNT-004-balance-solve-check/glossary.json",
+    "lessons/PREM-QNT-004-balance-solve-check/ATTRIBUTION.md",
+    "lessons/PREM-QNT-004-balance-solve-check/content/010-orientation.md",
+    "lessons/PREM-QNT-004-balance-solve-check/content/020-concept.md",
+    "lessons/PREM-QNT-004-balance-solve-check/content/030-worked-example.md",
+    "lessons/PREM-QNT-004-balance-solve-check/content/040-misconception.md",
+    "lessons/PREM-QNT-004-balance-solve-check/content/050-practice.md",
+    "lessons/PREM-QNT-004-balance-solve-check/content/060-transfer.md",
+    "lessons/PREM-QNT-004-balance-solve-check/content/070-synthesis.md",
+    "lessons/PREM-QNT-004-balance-solve-check/assessment.json",
+    "CONTENT-STANDARD.md"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-004-balance-solve-check/content/010-orientation.md#L20-L26",
+      "finding": "The diagnostic 'Starting check' questions are presented as a simple markdown bulleted list rather than using the formal ':::{check}' container directive. Furthermore, the scene completely lacks answers, explanations, or diagnostic feedback for these three starting check questions, which prevents learners from verifying their starting prerequisite skills or following a recovery route.",
+      "resolution": "Wrap the starting check questions in a ':::{check}' container block and supply clear answers and remediation explanations immediately below it to enable learner self-assessment."
+    },
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-004-balance-solve-check/content/050-practice.md#L5-L28",
+      "finding": "The practice questions (items 1 to 4) are immediately followed by their solutions in plain text labeled '**Feedback:**'. Exposing the answers directly under the prompts removes the retrieval requirement, preventing active generation and creating a high risk of false fluency as learners see the correct answers before attempting the calculations.",
+      "resolution": "Reorganize the practice scene to use ':::{check}' containers or progressive disclosure mechanics, ensuring that the prompts are separated from the feedback answers so that the learner must attempt retrieval first."
+    },
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-004-balance-solve-check/content/060-transfer.md#L9-L26",
+      "finding": "The transfer task is followed immediately by the detailed step-by-step solution under the '## Feedback after a complete attempt' header as plain visible text. Exposing the answer directly below the prompt defeats the purpose of an independent transfer performance where learners are expected to apply the model to a new context without guidance.",
+      "resolution": "Separate the transfer task prompt from the feedback by using a progressive disclosure check container, ensuring the learner attempts the transfer task before the solution is displayed."
+    },
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-004-balance-solve-check/assessment.json#items",
+      "finding": "The 'acceptableResponses' arrays for multiple items contain meta-level descriptions of correct answers or grading rules rather than actual alternative student inputs. Specifically, 'item-fraction-equation' has '12.4 with the same complete denominator-clearing and check', 'item-rearrange-formula' has 'h = (2A - bk)/b with b nonzero', and 'item-transfer-counter' has 'Equivalent exact steps, original substitution, and correct interpretation of a noninteger candidate'. Literal matching against these description strings will cause automated grading to fail when students input correct numerical/symbolic values.",
+      "resolution": "Populate the 'acceptableResponses' arrays only with actual alternative string representations of the correct answers, or leave them empty if grading is handled by a rubric/human evaluator."
+    },
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-004-balance-solve-check/lesson.json#prerequisites",
+      "finding": "The lesson lists 'topic-quantitative-foundations-arithmetic-estimation' as its prerequisite in 'lesson.json'. However, the diagnostic 'Starting check' questions in 'content/010-orientation.md' do not evaluate this prerequisite (they instead test target skills like equation classification and domain constraints). As a result, the lesson fails to verify if the learner has the required arithmetic estimation background.",
+      "resolution": "Add diagnostic questions to the starting check that specifically test the prerequisite arithmetic estimation skills (e.g., estimating fractional values or signed arithmetic bounds) before introducing the algebra content."
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-QNT-004-balance-solve-check/content/030-worked-example.md#L27-L33",
+      "finding": "The answer to the retrieval check 'check-original-equation' (lines 30-33) is written as plain markdown text directly below the container block. This exposes the explanation immediately to the learner's view, defeating the purpose of the retrieval prompt.",
+      "resolution": "Move the check answer inside the ':::{check}' container using a syntax or format that enables progressive disclosure or hides the explanation from direct view."
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-QNT-004-balance-solve-check/content/040-misconception.md",
+      "finding": "The misconception scene '040-misconception.md' is well-written and correctly targets the common 'traveling term' misconception, explaining that sign changes are the result of inverse operations applied to both sides.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-QNT-004-balance-solve-check/lesson.json",
+      "finding": "The candidate commit matches the expected target. The overall lesson structure, scene order, objectives, and file mappings are correctly declared in the lesson metadata.",
+      "resolution": null
+    }
+  ],
+  "limitations": [
+    "Expert-simulation review: This review represents a single-pass advisory input by a simulated learning-design expert under standard-lesson-v3 guidelines. No real learner testing was conducted.",
+    "Conflict of interest: The same GitHub principal (VSBDev) is responsible for the authoring and review run operators. Agent-level isolation was maintained, but principal-level independence is absent.",
+    "Scope restriction: The review is strictly bounded to learning-design metrics (e.g., clarity, coherence, practice, alignment, and transfer). Scientific accuracy, rights audits, and final typesetting checks are excluded.",
+    "Technical verification limits: No rendered build environment, screen reader, or keyboard navigation pathways were evaluated physically; findings are based solely on the static Markdown and JSON source files."
+  ],
+  "signedAt": "2026-07-22T22:11:00Z"
+}
