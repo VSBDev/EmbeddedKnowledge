@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-diagram-v1",
+  "id": "diagram-evidence-integration",
+  "type": "flow",
+  "direction": "top-to-bottom",
+  "alt": "Four evidence lines feed an audit and then an integrated, calibrated claim.",
+  "longDescription": "A bounded causal question branches to molecular, organismal, population, and intervention evidence. All four evidence nodes lead to one audit node labelled reliability, relevance, expected bias, and shared dependence. The audit leads to an integration node labelled compare agreement, conflict, and missing links. The final node is a calibrated claim containing strength, scope, pivotal support, uncertainty, and a next discriminating test. The parallel branches show that the evidence types are complementary rather than a ranked ladder.",
+  "nodes": [
+    {
+      "id": "node-question",
+      "label": "One bounded causal question",
+      "shape": "diamond",
+      "group": null
+    },
+    {
+      "id": "node-molecular",
+      "label": "Molecular evidence: interaction or molecular change",
+      "shape": "rounded-box",
+      "group": "evidence-lines"
+    },
+    {
+      "id": "node-organismal",
+      "label": "Organismal evidence: integrated phenotype",
+      "shape": "rounded-box",
+      "group": "evidence-lines"
+    },
+    {
+      "id": "node-population",
+      "label": "Population evidence: pattern and heterogeneity",
+      "shape": "rounded-box",
+      "group": "evidence-lines"
+    },
+    {
+      "id": "node-intervention",
+      "label": "Intervention evidence: outcome after assigned change",
+      "shape": "rounded-box",
+      "group": "evidence-lines"
+    },
+    {
+      "id": "node-audit",
+      "label": "Audit reliability, relevance, expected bias, and shared dependence",
+      "shape": "box",
+      "group": "integration"
+    },
+    {
+      "id": "node-compare",
+      "label": "Compare agreement, conflict, and missing links",
+      "shape": "box",
+      "group": "integration"
+    },
+    {
+      "id": "node-claim",
+      "label": "Calibrated claim: strength, scope, support, uncertainty, next test",
+      "shape": "pill",
+      "group": "integration"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-question-molecular",
+      "from": "node-question",
+      "to": "node-molecular",
+      "kind": "directed",
+      "label": "inspect one scale"
+    },
+    {
+      "id": "edge-question-organismal",
+      "from": "node-question",
+      "to": "node-organismal",
+      "kind": "directed",
+      "label": "inspect one scale"
+    },
+    {
+      "id": "edge-question-population",
+      "from": "node-question",
+      "to": "node-population",
+      "kind": "directed",
+      "label": "inspect one scale"
+    },
+    {
+      "id": "edge-question-intervention",
+      "from": "node-question",
+      "to": "node-intervention",
+      "kind": "directed",
+      "label": "inspect the assigned change"
+    },
+    {
+      "id": "edge-molecular-audit",
+      "from": "node-molecular",
+      "to": "node-audit",
+      "kind": "directed",
+      "label": "weigh"
+    },
+    {
+      "id": "edge-organismal-audit",
+      "from": "node-organismal",
+      "to": "node-audit",
+      "kind": "directed",
+      "label": "weigh"
+    },
+    {
+      "id": "edge-population-audit",
+      "from": "node-population",
+      "to": "node-audit",
+      "kind": "directed",
+      "label": "weigh"
+    },
+    {
+      "id": "edge-intervention-audit",
+      "from": "node-intervention",
+      "to": "node-audit",
+      "kind": "directed",
+      "label": "weigh"
+    },
+    {
+      "id": "edge-audit-compare",
+      "from": "node-audit",
+      "to": "node-compare",
+      "kind": "directed",
+      "label": "integrate"
+    },
+    {
+      "id": "edge-compare-claim",
+      "from": "node-compare",
+      "to": "node-claim",
+      "kind": "directed",
+      "label": "calibrate"
+    }
+  ]
+}
