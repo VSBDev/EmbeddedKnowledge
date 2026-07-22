@@ -1,6 +1,6 @@
 # Represent vectors with signed components
 
-A **scalar** has magnitude in the model; a **vector** also has direction. Once axes are declared, a vector $\mathbf v$ can be written as
+A **scalar** has magnitude but no direction; a **vector** has both magnitude and direction. Once axes are declared, a vector $\mathbf v$ can be written as
 
 $$\mathbf v=(v_x,v_y,v_z)=v_x\mathbf i+v_y\mathbf j+v_z\mathbf k,$$
 

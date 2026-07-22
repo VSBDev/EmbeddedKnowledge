@@ -12,7 +12,7 @@ This lesson uses a four-part vector audit: **resolve** every vector into signed 
 
 ## Starting check
 
-- Is temperature alone a scalar or a vector in an ordinary model?
+- Is temperature alone a scalar or a vector?
 - What sign should a westward horizontal component have if east is positive?
 - Can two nonzero vectors add to the zero vector?
 
