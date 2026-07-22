@@ -3,7 +3,7 @@
 ## Lesson identity and accountable principal
 
 - Lesson: **PREM-SCI-008 — Bias and threats to validity: follow the missing evidence**
-- Version and state: **0.1.0 / draft / pending-review**
+- Version and state: **0.1.1 / draft / pending-review**
 - Accountable principal: **VSBDev** (`github:VSBDev`), confirmed as the active GitHub identity through `gh api user` on 2026-07-21
 - Course-content licence: **Creative Commons Attribution 4.0 International (CC BY 4.0)**
 
@@ -43,6 +43,19 @@ Material editorial packaging, source verification, claim correction, instruction
 
 The Codex digest was supplied through `EK_PACKAGER_PROMPT_SHA256`. It covers the exact discloseable editorial-packaging prompt for this run and excludes hidden provider and system instructions. Codex is recorded as material editorial and pedagogical assistance, not as the blind science author.
 
+## Finalization and adjudication assistance
+
+The single post-review content revision, final accessibility-and-rights audit, and adjudication artifact were produced under the accountability of `github:VSBDev` by the fresh finalizer run below:
+
+- System: **RUNTIME-STAMPED**
+- Provider: **RUNTIME-STAMPED**
+- Model: **RUNTIME-STAMPED**
+- Version: **RUNTIME-STAMPED**
+- Run ID: `codex-finalizer-PREM-SCI-008-94B5B07F-97E8-49CD-AEA2-691AB9E3978F`
+- Material-instructions digest: `sha256:205f5c885328c9f9550525673b748d84a584829d1cd81a4dc3109e0d5ff32a46`
+
+The four agent-identity fields remain literal runtime placeholders for the accountable operator to stamp from the runtime banner. This run revised only the lesson pack, did not alter review artifacts, and did not perform the maintainer's publication-state transition.
+
 ## Original synthesis and source use
 
 The lesson's evidence-pipeline structure, seedling calculation, machine and attrition cases, computational acoustic transfer, retry cases, prompts, feedback, rubrics, assessment items, glossary wording, and `diagrams/evidence-pipeline.diagram.json` are original course material created for this pack. The accepted Fable fragments were treated as a scientific first-draft dossier rather than copied into the learner prose.
@@ -59,4 +72,6 @@ Before substantive source access on 2026-07-21, the accountable packaging run ch
 
 ## Governance state
 
-The original candidate remains a draft. One academic and one learning-design advisory review of candidate commit `9df98b58e534225725314047d88538235159bd88` are committed under `reviews/`; a distinct fresh finalizer made the bounded post-review revision and recorded its finding dispositions, accessibility-and-rights audit, and decision in `adjudication.json`. Every claim remains `pending-review`, source confidence remains `pending-review`, and the maintainer retains the separate publication transition. Nothing in this attribution claims publication, coverage, completed merge readiness, clinical sufficiency, university credit, or professional authorization.
+The frozen version 0.1.1 candidate reviewed by the eligible academic and learning-design inputs is commit `e270afdba6c4aa1a21172886c8f810b96a338fda`. The eligible artifacts are `REV-PREM-SCI-008-ACADEMIC-490EE4FC` and `REV-PREM-SCI-008-LEARNING-DESIGN-4C0205CF`; both are advisory approvals under `standard-lesson-v3`. The two retained version 0.1.0 review artifacts target an earlier candidate and are not counted for this adjudication.
+
+The fresh finalizer made the bounded post-review revision and recorded every finding disposition, the final accessibility-and-rights audit, and its decision in `adjudication.json`. Its `finalCommit` remains `PENDING-FINAL-COMMIT` until the operator commits this revision and substitutes the resulting SHA. Every claim remains `pending-review`, source confidence remains `pending-review`, and the maintainer retains the separate publication transition. Nothing in this attribution claims publication, coverage, completed merge readiness, independently verified agent identity, clinical sufficiency, university credit, or professional authorization.

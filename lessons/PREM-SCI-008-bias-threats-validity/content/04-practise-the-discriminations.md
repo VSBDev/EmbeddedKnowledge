@@ -8,7 +8,7 @@ The goal is not to collect six definitions. It is to reconstruct what became obs
 Without looking back, write the four broad checkpoints in order. Under each checkpoint, place the bias labels that can arise there. Then compare your reconstruction with the feedback below.
 :::
 
-### Retrieval feedback
+## Retrieval feedback
 
 One useful reconstruction is:
 

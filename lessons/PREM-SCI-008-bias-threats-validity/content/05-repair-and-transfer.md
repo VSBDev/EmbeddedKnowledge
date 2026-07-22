@@ -3,9 +3,9 @@
 :::{misconception}
 :id: misconception-large-sample-cures-bias
 
-**Commit before reading on.** Two laboratories use the same caliper, which adds exactly 2 mm to every length. Laboratory A measures 40 specimens; Laboratory B measures 40,000. Which laboratory's mean is closer to the true mean solely because of sample size?
+**Commit before reading on.** Two laboratories use the same caliper, which adds exactly 2 mm to every length. Laboratory A measures 40 specimens; Laboratory B measures 40,000. Which laboratory has the smaller systematic measurement offset solely because of sample size?
 
-The tempting model is “more data cures error.” More observations can reduce random sampling fluctuation, but both means retain the 2 mm systematic offset unless the instrument is calibrated or the bias is otherwise corrected. Laboratory B can produce a narrower uncertainty interval around a wrong value.
+Neither. Within each laboratory, the measured mean is exactly 2 mm above the true mean of that laboratory's specimens. The tempting model is “more data cures error.” More observations can reduce random sampling fluctuation when specimens are sampled from a population, but both means retain the 2 mm systematic offset unless the instrument is calibrated or the bias is otherwise corrected. Laboratory B can therefore estimate its systematically shifted target more precisely without making the measurement rule valid.
 
 **Recheck in a changed case.** An automated classifier systematically treats one shade of blue as a positive result. Would processing one million images remove that classification rule's distortion? No. More images help characterize the output of the flawed rule; they do not make the rule valid.
 :::
