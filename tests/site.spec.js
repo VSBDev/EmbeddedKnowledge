@@ -45,8 +45,12 @@ test("the root is an EmbeddedKnowledge landing page with a book library", async 
   await expect(page.locator("h1")).toContainText(/University\s*knowledge/);
   await expect(page.locator("#ethos h2")).toContainText("Only one of those is necessary");
   await expect(page.locator("#method h2")).toContainText("Understanding is a loop");
-  await expect(page.locator(".book-link")).toHaveAttribute("href", "premed/");
-  await expect(page.locator(".book-link .poster-title")).toContainText(/THE SCIENCE\s*BEFORE\s*THE MEDICINE/);
+  const bookLinks = page.locator(".book-link");
+  await expect(bookLinks).toHaveCount(2);
+  await expect(bookLinks.first()).toHaveAttribute("href", "premed/");
+  await expect(bookLinks.first().locator(".poster-title")).toContainText(/THE SCIENCE\s*BEFORE\s*THE MEDICINE/);
+  await expect(bookLinks.nth(1)).toHaveAttribute("href", "psychiatry/");
+  await expect(bookLinks.nth(1).locator(".poster-title")).toContainText(/MIND · BRAIN\s*PERSON\s*SOCIETY/);
   await expect(page.locator("#closing-title")).toContainText("Understanding should not depend");
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", "https://embeddedknowledge.io/");
   await expect(page.locator('link[rel="alternate"][href="llms.txt"]')).toHaveCount(1);
@@ -1070,6 +1074,25 @@ test("the syllabus page renders and searches the complete academic contract", as
   expect(errors).toEqual([]);
 });
 
+test("the psychiatry syllabus renders, searches, and preserves the clinical boundary", async ({ page }) => {
+  const errors = collectRuntimeErrors(page);
+  await page.goto(route("psychiatry/syllabus/"), { waitUntil: "networkidle" });
+
+  await expect(page.locator("h1").first()).toContainText("Psychiatry syllabus");
+  await expect(page.locator(".syllabus-section")).toHaveCount(21);
+  await expect(page.locator(".syllabus-document")).toContainText("PSY-230");
+  await expect(page.locator(".syllabus-document")).toContainText("PSY-440");
+  await expect(page.locator(".syllabus-document")).toContainText("cannot be earned from this book");
+  await expect(page.locator('a[href$=".md"]')).toHaveCount(0);
+
+  await page.locator("[data-syllabus-search]").fill("supported decision-making");
+  await expect(page.locator("[data-search-status]")).toContainText(/of 21 sections match/);
+  const visibleSections = page.locator(".syllabus-section:not(.is-search-hidden)");
+  expect(await visibleSections.count()).toBeGreaterThan(0);
+  expect(await visibleSections.count()).toBeLessThan(21);
+  expect(errors).toEqual([]);
+});
+
 test("the graph page renders every node and relationship", async ({ page }) => {
   const errors = collectRuntimeErrors(page);
   await page.goto(route("premed/graph/"), { waitUntil: "networkidle" });
@@ -1106,7 +1129,7 @@ test("the graph page renders every node and relationship", async ({ page }) => {
 test("mobile navigation and all routes avoid horizontal page overflow", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
 
-  for (const path of ["", "premed/", "premed/syllabus/", "premed/graph/", "premed/lessons/", "premed/lessons/read/?lesson=PREM-LPP-001", "premed/lessons/specimen/", "contribute/", "contribute/format/"]) {
+  for (const path of ["", "premed/", "premed/syllabus/", "premed/graph/", "premed/lessons/", "premed/lessons/read/?lesson=PREM-LPP-001", "premed/lessons/specimen/", "psychiatry/", "psychiatry/syllabus/", "contribute/", "contribute/format/"]) {
     await page.goto(route(path), { waitUntil: "networkidle" });
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
     expect(overflow, `${path || "root"} should not overflow`).toBeLessThanOrEqual(1);
