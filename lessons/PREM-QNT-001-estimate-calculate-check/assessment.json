@@ -41,19 +41,19 @@
     },
     {
       "id": "item-product-scale",
-      "type": "numeric",
+      "type": "short-answer",
       "sceneId": "scene-synthesis",
-      "objectiveIds": ["objective-calculate-powers-ten"],
+      "objectiveIds": ["objective-calculate-powers-ten", "objective-estimate-scale"],
       "outcomeIds": ["topic-quantitative-foundations-arithmetic-estimation"],
-      "prompt": "Calculate (3.0 × 10^7)(4.0 × 10^-5). Enter the ordinary-number value.",
-      "points": 3,
-      "responseSpec": {"mode": "number", "units": null, "tolerance": 0},
+      "prompt": "Before calculating, predict the sign of (-3.0 × 10^7)(4.0 × 10^-5). Then give the ordinary-number value and one sentence explaining the sign.",
+      "points": 4,
+      "responseSpec": {"mode": "text", "maxLength": 600},
       "answer": {
-        "correct": 1200,
-        "summary": "The product is 1.2 × 10^3 = 1200.",
-        "reasoning": "Multiply coefficients to get 12 and add exponents to get 2: 12 × 10^2. Normalize to 1.2 × 10^3, which equals 1200.",
-        "acceptableResponses": ["1.2 × 10^3"],
-        "commonErrors": ["Writing 12 × 10^2 without completing normalization", "Subtracting exponents in a product"]
+        "correct": "The result is -1200. It is negative because a negative coefficient times a positive coefficient is negative.",
+        "summary": "The product is -1.2 × 10^3 = -1200.",
+        "reasoning": "Predict a negative result from the coefficient signs. Multiply coefficient magnitudes to get 12 and add exponents to get 2: -12 × 10^2. Normalize to -1.2 × 10^3, which equals -1200.",
+        "acceptableResponses": ["-1200, with an equivalent correct sign explanation", "−1200, with an equivalent correct sign explanation"],
+        "commonErrors": ["Dropping the negative sign", "Writing -12 × 10^2 without completing normalization", "Subtracting exponents in a product"]
       },
       "rubricId": "rubric-product-scale",
       "safetyCritical": false
@@ -153,6 +153,7 @@
       "id": "rubric-product-scale",
       "title": "Scientific-notation product",
       "criteria": [
+        {"id": "criterion-product-sign", "description": "Predicts a negative result and explains it from the coefficient signs.", "maxPoints": 1},
         {"id": "criterion-product-operation", "description": "Multiplies coefficients and adds exponents correctly.", "maxPoints": 2},
         {"id": "criterion-product-normalization", "description": "Normalizes and reports the equivalent ordinary-number value.", "maxPoints": 1}
       ]

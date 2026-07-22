@@ -22,6 +22,14 @@ The digest identifies the exact bytes of `/tmp/codex-packager-prompt-03-01.md`, 
 
 Two Claude CLI attempts were made before the user clarified that Codex should author the lesson directly. The first requested `claude-fable-5`; the second requested the `fable` alias. Neither output was incorporated. The first execution metadata attributed substantive generation to `claude-opus-4-8`; the second was interrupted immediately after the clarification. These rejected calls are not authors, sources, reviewers, or evidence, and no Claude-generated prose appears in this pack.
 
+## Post-review finalization assistance
+
+A fresh adjudication-role agent made the single bounded post-review content revision, completed the accessibility-and-rights audit, and produced `adjudication.json`. The operator stamps the runtime identity fields in that artifact; the stable provenance supplied to this run is:
+
+| Accountable principal | Run ID | Material-instructions digest |
+| --- | --- | --- |
+| `github:VSBDev` | `codex-finalizer-PREM-QNT-001-A8714132-EFBF-48BD-9EDE-4782691BE64F` | `sha256:093df57d62560a801713d009ff9b8042dd2b8ee7d19954aafed5954b482a92a3` |
+
 ## Original synthesis and source use
 
 The estimate–calculate–challenge structure, particle-counter opening, all numerical examples, sequence-counter and archive transfer cases, prompts, answer logic, feedback, recovery routes, and assessment items are original course material created for this pack. Every scientific setting and dataset is explicitly fictional.

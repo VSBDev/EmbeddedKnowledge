@@ -10,6 +10,8 @@ For any arithmetic result across powers of ten:
 2. **Calculate:** separate coefficient arithmetic from exponent arithmetic; for addition or subtraction, match exponents first; normalize last.
 3. **Challenge:** compare with the estimate, test the bound, or reverse the operation.
 
+There is one exact boundary to the “normalize last” instruction: if addition or subtraction cancels to zero, write $0$. For example, $3\times10^4-3\times10^4=0$; zero has no unique normalized coefficient-times-power-of-ten form.
+
 In a nonvisual reading, treat these as three ordered checkpoints. The first predicts what region the result should occupy, the second produces the result, and the third tries to break it by an independent route.
 
 ## Final retrieval
@@ -36,6 +38,5 @@ Later lessons on units, proportional reasoning, logarithms, and statistics will 
 :claims: claim-normalized-notation, claim-power-ten-arithmetic, claim-estimation-reasonableness, claim-independent-challenge
 :sources: source-nist-sp811, source-nist-everyday-estimation
 
-The synthesis retains the NIST-supported notation and estimation roles. The three-checkpoint procedure and recovery sequence are original instructional synthesis and do not claim measured learner effectiveness.
+The synthesis retains the NIST-supported positive-factor notation and estimation roles. Signed coefficients and the zero boundary are stated as elementary algebraic extensions rather than claims directly made by NIST. The three-checkpoint procedure and recovery sequence are original instructional synthesis and do not claim measured learner effectiveness.
 :::
-

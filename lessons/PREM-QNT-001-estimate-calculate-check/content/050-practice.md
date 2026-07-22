@@ -38,9 +38,9 @@ The smaller term should nudge $5.4\times10^5$ upward, not change its order of ma
 
 ## 4. Work independently
 
-Calculate $(7.0\times10^{-4})(6.0\times10^9)$. Give a one-line estimate and one independent check.
+Calculate $(-7.0\times10^{-4})(6.0\times10^9)$. Predict the sign, give a one-line scale estimate, and use one independent check.
 
-**Feedback after an attempt:** The product is $42\times10^5=4.2\times10^6$. An estimate such as $(7\times10^{-4})(6\times10^9)\approx4\times10^6$ predicts the scale. Division by either factor checks the other.
+**Feedback after an attempt:** The product is $-42\times10^5=-4.2\times10^6$. The sign is negative because a negative coefficient times a positive coefficient is negative; the powers of ten are positive. An estimate such as $(-7\times10^{-4})(6\times10^9)\approx-4\times10^6$ predicts both sign and scale. Dividing the product by either factor recovers the other, including its sign.
 
 ## What your error tells you
 
@@ -53,6 +53,5 @@ Calculate $(7.0\times10^{-4})(6.0\times10^9)$. Give a one-line estimate and one 
 :claims: claim-normalized-notation, claim-power-ten-arithmetic, claim-estimation-reasonableness, claim-independent-challenge
 :sources: source-nist-sp811, source-nist-everyday-estimation
 
-The practice applies NIST-supported notation and reasonableness checking. All prompts, values, answer logic, and remediation are original course material.
+The practice applies NIST-supported positive-factor notation and reasonableness checking. The negative-coefficient case uses the explicitly derived signed extension; NIST does not state that extension directly. All prompts, values, answer logic, and remediation are original course material.
 :::
-

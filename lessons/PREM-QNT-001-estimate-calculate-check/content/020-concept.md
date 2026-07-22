@@ -14,6 +14,14 @@ where $a$ is the **coefficient** and $n$ is an integer **exponent**. The form is
 **Normalized scientific notation** is $a \times 10^n$ with integer $n$ and exactly one nonzero digit before the coefficient's decimal point: $1 \leq |a| < 10$.
 :::
 
+For a negative number, keep the minus sign in the coefficient. For example,
+
+$$
+-63{,}000=-6.3\times10^4.
+$$
+
+The exponent still describes scale: $10^n$ is positive for every integer $n$, so the sign of a product or quotient comes from the coefficient arithmetic. Zero is the boundary case. Write an exact zero result as $0$; it has no unique normalized exponent because $0\times10^n=0$ for every integer $n$.
+
 For example,
 
 $$
@@ -34,7 +42,7 @@ NIST also uses `E` notation in technical tables: `3.523907 E-02` means $3.523907
 :claims: claim-normalized-notation
 :sources: source-nist-sp811
 
-NIST SP 811 Appendix B.2 supports the coefficient range and the meaning of exponent or E notation. Its scope is notation for scientific and technical quantities, not the lesson's original examples or teaching sequence.
+NIST SP 811 Appendix B.2 directly documents positive conversion factors with coefficients from 1 up to but not including 10 and the meaning of E notation. The signed definition above is an elementary algebraic extension: retain the minus sign while applying the positive coefficient convention to the magnitude. NIST does not state that signed extension directly. The zero boundary follows from the definition and $0\times10^n=0$ for every integer $n$.
 :::
 
 ## Multiplication and division
@@ -56,6 +64,8 @@ Division does the same with subtraction:
 $$
 \frac{a \times 10^m}{b \times 10^n}=\frac{a}{b}\times 10^{m-n}, \qquad b\neq0.
 $$
+
+Because every power of ten here is positive, apply the ordinary sign rules to the coefficients: a negative coefficient times a positive one gives a negative result, while dividing two coefficients with the same sign gives a positive result.
 
 Normalize only after the coefficient operation. For example,
 
@@ -101,4 +111,3 @@ The estimate is intentionally coarser than the exact result. If both calculation
 
 NIST describes estimation as approximation used for magnitude, ordering, sensemaking, and checking reasonableness. This lesson narrows that purpose to a pre-calculation scale prediction.
 :::
-
