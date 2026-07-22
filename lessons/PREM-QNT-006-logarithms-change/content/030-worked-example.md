@@ -11,7 +11,7 @@ $$\frac{1000}{320}=1.18^t,$$
 
 so $3.125=1.18^t$.
 
-**2. Estimate.** Since $1.18^5\approx2.29$ and $1.18^10\approx5.23$, the time lies between 5 and 10 intervals.
+**2. Estimate.** Since $1.18^5\approx2.29$ and $1.18^{10}\approx5.23$, the time lies between 5 and 10 intervals.
 
 **3. Take logs of both positive sides.**
 
