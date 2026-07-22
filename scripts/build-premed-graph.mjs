@@ -80,7 +80,6 @@ const domains = [
 const moduleRows = [
   ["welcome", "learning-practice", "Welcome to Premed", "Preview the subjects and concepts ahead, why they matter, and what you will be able to do by the end.", "portable-core", ["portable-core"], ["ADJUDICATION"]],
   ["scientific-inquiry", "learning-practice", "Scientific Inquiry", "Questions, hypotheses, causal inference, uncertainty, and reproducibility.", "portable-core", ["portable-core", "us-mcat"], ["AAMC-MCAT", "AP-BIO", "AQA-BIO"]],
-  ["laboratory-practice", "learning-practice", "Laboratory Practice", "Plan, perform, document, interpret, and critique experimental work.", "portable-core", ["portable-core", "uk-direct-entry", "access-foundation"], ["QAA-MED", "AQA-BIO", "AP-BIO"]],
   ["quantitative-foundations", "quantitative", "Quantitative Foundations", "Units, algebra, functions, estimation, and mathematical models.", "portable-core", ["portable-core", "us-mcat"], ["AAMC-MATH", "QAA-MED"]],
   ["statistics-data", "quantitative", "Statistics & Data", "Describe variation, quantify uncertainty, test hypotheses, and interpret evidence.", "portable-core", ["portable-core", "us-mcat"], ["AAMC-MCAT", "QAA-MED", "AP-BIO"]],
   ["calculus-extension", "quantitative", "Calculus Extension", "Rates, accumulation, and simple differential models for optional pathways.", "pathway", ["advanced-quantitative", "continental-science"], ["ADJUDICATION"]],
@@ -105,6 +104,7 @@ const moduleRows = [
   ["organic-reactivity", "organic-chemistry", "Organic Reactivity", "Mechanistic reasoning for substitution, elimination, and addition.", "medicine-bridge", ["us-mcat", "uk-direct-entry", "continental-science"], ["AAMC-MCAT", "FR-PC"]],
   ["carbonyl-biochemistry", "organic-chemistry", "Carbonyls & Biological Organic Chemistry", "Carbonyl chemistry and reactions of biologically important functional groups.", "portable-core", ["portable-core", "us-mcat"], ["AAMC-MCAT"]],
   ["organic-analysis", "organic-chemistry", "Separation & Structure Analysis", "Purification, chromatography, and spectroscopy.", "medicine-bridge", ["us-mcat", "uk-direct-entry"], ["AAMC-MCAT", "AQA-BIO"]],
+  ["laboratory-practice", "learning-practice", "Laboratory Practice", "Plan, perform, document, interpret, and critique experimental work.", "portable-core", ["portable-core", "uk-direct-entry", "access-foundation"], ["QAA-MED", "AQA-BIO", "AP-BIO"]],
   ["mechanics", "physics", "Mechanics", "Motion, forces, work, energy, momentum, and rotation.", "portable-core", ["portable-core"], ["AAMC-MCAT", "QAA-MED", "FR-PC"]],
   ["fluids", "physics", "Fluids", "Pressure, buoyancy, flow, viscosity, and circulation applications.", "portable-core", ["portable-core", "medicine-bridge"], ["AAMC-MCAT", "QAA-MED", "FR-PC"]],
   ["thermal-physics", "physics", "Thermal Physics & Gases", "Temperature, heat transfer, thermodynamics, and gas behavior.", "portable-core", ["portable-core"], ["AAMC-MCAT", "FR-PC"]],
@@ -221,20 +221,6 @@ add("scientific-inquiry", [
   ["mechanism-evidence", "Mechanistic and convergent evidence", "Integrate molecular, organismal, population, and intervention evidence into a calibrated claim.", 3, [R("scientific-inquiry", "correlation-causation"), R("scientific-inquiry", "models-and-limits")]]
 ]);
 
-add("laboratory-practice", [
-  ["safety-risk", "Laboratory safety and risk", "Identify hazards, select controls and PPE, and respond appropriately to spills, exposure, and waste.", 3],
-  ["notebook-integrity", "Notebook practice and data integrity", "Keep a contemporaneous, reproducible record without deleting inconvenient observations.", 2, [R("laboratory-practice", "safety-risk")]],
-  ["measurement-uncertainty", "Measurement and uncertainty", "Read instruments, propagate appropriate precision, and distinguish random from systematic error.", 3, [R("quantitative-foundations", "units-dimensional")]],
-  ["solutions-dilutions", "Solutions and serial dilutions", "Prepare solutions and dilution series accurately using mass, volume, and concentration calculations.", 3.5, [R("stoichiometry", "moles-molar-mass"), R("states-solutions", "concentration")]],
-  ["pipetting-balance", "Pipetting, weighing, and calibration", "Select and verify volumetric and mass-measurement tools for the required precision.", 3, [R("laboratory-practice", "measurement-uncertainty")]],
-  ["microscopy-staining", "Microscopy, staining, and image scale", "Prepare and inspect specimens, calculate scale, and avoid common image-interpretation artifacts.", 4, [R("cell-biology", "cell-types")], [R("optics", "lenses-images")]],
-  ["spectrophotometry-curves", "Spectrophotometry and calibration curves", "Use blanks, standards, Beer-Lambert behavior, and residuals to estimate an unknown.", 4, [R("statistics-data", "graphs-tables"), R("states-solutions", "concentration")], [R("organic-analysis", "uv-visible")]],
-  ["chromatography-electrophoresis", "Chromatography and electrophoresis", "Select and interpret separations based on charge, size, polarity, or affinity.", 4, [R("bonding-molecular-structure", "intermolecular-forces")], [R("organic-analysis", "chromatography"), R("molecular-genetics", "dna-analysis")]],
-  ["enzyme-investigation", "Enzyme investigation", "Design a controlled rate experiment and estimate kinetic effects from noisy observations.", 4, [R("enzymes", "kinetics")], [R("statistics-data", "regression")]],
-  ["aseptic-culture", "Aseptic technique and microbial culture", "Explain contamination control and interpret growth while recognizing biosafety limits of home practice.", 4, [R("microbiology", "growth-control")], [R("laboratory-practice", "safety-risk")]],
-  ["dissection-simulation", "Anatomical investigation and simulation", "Orient a specimen or simulation, identify structures, and relate form to function ethically.", 3, [R("homeostasis", "anatomical-language")]],
-  ["lab-report", "Laboratory report and critique", "Present methods, results, uncertainty, interpretation, and limitations so another learner could reproduce the work.", 4, [R("laboratory-practice", "notebook-integrity"), R("laboratory-practice", "measurement-uncertainty"), R("scientific-inquiry", "bias")]]
-]);
 
 add("quantitative-foundations", [
   ["arithmetic-estimation", "Arithmetic, estimation, and scientific notation", "Calculate reliably, estimate order of magnitude, and check whether an answer is plausible.", 3],
@@ -473,6 +459,21 @@ add("organic-analysis", [
   ["nmr", "NMR spectroscopy", "Use chemical shift, integration, splitting, and symmetry to constrain simple structures.", 6, [R("electricity-magnetism", "magnetic-fields"), R("organic-foundations", "carbon-frameworks")]],
   ["uv-visible", "UV-visible spectroscopy and Beer-Lambert law", "Connect electronic absorption to conjugation and quantify concentration in the linear range.", 3.5, [R("atomic-structure", "electromagnetic-quantization"), R("states-solutions", "concentration")]],
   ["structure-elucidation", "Integrated structure elucidation", "Combine formula, reactivity, MS, IR, and NMR evidence into a justified structure.", 5, [R("organic-analysis", "mass-spectrometry"), R("organic-analysis", "infrared"), R("organic-analysis", "nmr")]]
+]);
+
+add("laboratory-practice", [
+  ["safety-risk", "Laboratory safety and risk", "Identify hazards, select controls and PPE, and respond appropriately to spills, exposure, and waste.", 3],
+  ["notebook-integrity", "Notebook practice and data integrity", "Keep a contemporaneous, reproducible record without deleting inconvenient observations.", 2, [R("laboratory-practice", "safety-risk")]],
+  ["measurement-uncertainty", "Measurement and uncertainty", "Read instruments, propagate appropriate precision, and distinguish random from systematic error.", 3, [R("quantitative-foundations", "units-dimensional")]],
+  ["solutions-dilutions", "Solutions and serial dilutions", "Prepare solutions and dilution series accurately using mass, volume, and concentration calculations.", 3.5, [R("stoichiometry", "moles-molar-mass"), R("states-solutions", "concentration")]],
+  ["pipetting-balance", "Pipetting, weighing, and calibration", "Select and verify volumetric and mass-measurement tools for the required precision.", 3, [R("laboratory-practice", "measurement-uncertainty")]],
+  ["microscopy-staining", "Microscopy, staining, and image scale", "Prepare and inspect specimens, calculate scale, and avoid common image-interpretation artifacts.", 4, [R("cell-biology", "cell-types")], [R("optics", "lenses-images")]],
+  ["spectrophotometry-curves", "Spectrophotometry and calibration curves", "Use blanks, standards, Beer-Lambert behavior, and residuals to estimate an unknown.", 4, [R("statistics-data", "graphs-tables"), R("states-solutions", "concentration")], [R("organic-analysis", "uv-visible")]],
+  ["chromatography-electrophoresis", "Chromatography and electrophoresis", "Select and interpret separations based on charge, size, polarity, or affinity.", 4, [R("bonding-molecular-structure", "intermolecular-forces")], [R("organic-analysis", "chromatography"), R("molecular-genetics", "dna-analysis")]],
+  ["enzyme-investigation", "Enzyme investigation", "Design a controlled rate experiment and estimate kinetic effects from noisy observations.", 4, [R("enzymes", "kinetics")], [R("statistics-data", "regression")]],
+  ["aseptic-culture", "Aseptic technique and microbial culture", "Explain contamination control and interpret growth while recognizing biosafety limits of home practice.", 4, [R("microbiology", "growth-control")], [R("laboratory-practice", "safety-risk")]],
+  ["dissection-simulation", "Anatomical investigation and simulation", "Orient a specimen or simulation, identify structures, and relate form to function ethically.", 3, [R("homeostasis", "anatomical-language")]],
+  ["lab-report", "Laboratory report and critique", "Present methods, results, uncertainty, interpretation, and limitations so another learner could reproduce the work.", 4, [R("laboratory-practice", "notebook-integrity"), R("laboratory-practice", "measurement-uncertainty"), R("scientific-inquiry", "bias")]]
 ]);
 
 add("mechanics", [
