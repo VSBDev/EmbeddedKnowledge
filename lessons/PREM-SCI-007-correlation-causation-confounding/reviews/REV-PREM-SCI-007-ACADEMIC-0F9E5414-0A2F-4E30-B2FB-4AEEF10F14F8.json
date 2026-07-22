@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-SCI-007-ACADEMIC-0F9E5414-0A2F-4E30-B2FB-4AEEF10F14F8",
+  "lessonId": "PREM-SCI-007",
+  "lessonVersion": "0.1.1",
+  "candidateCommit": "3a8c07f73918268817d0f49393ad0c4b15c9b013",
+  "role": "academic",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable operator for the academic reviewer",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-SCI-007-0F9E5414-0A2F-4E30-B2FB-4AEEF10F14F8",
+      "instructionsDigest": "sha256:006876ccb615c13502c8b7f8a5b191a0b0bf58ab1910df413a3683692039e948"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "During the founding stage, github:VSBDev is the accountable lesson principal and also operates this academic reviewer. This is an operational conflict. The review used the stated fresh run, but the operator-required scope also required reading every candidate-pack file, including the two pre-existing review artifacts, after the independent pack assessment."
+  },
+  "evidenceChecked": [
+    "lesson.json#identity, version 0.1.1, standard risk tier, mapped outcome and prerequisite, three objectives, six ordered scenes, 180-minute total, authorship, provenance, files, sourceConfidence, and thirdPartyAssets at candidate 3a8c07f73918268817d0f49393ad0c4b15c9b013",
+    "content/01-read-the-claim.md#complete scene: association, mechanism, causal attribution, prerequisite diagnostic, recovery route, scope boundary, and source note",
+    "content/02-build-the-map.md#complete scene: inference targets, counterfactual contrast, randomization scope, observational assumptions, confounder/mediator/collider maps, reverse causation, mechanism boundary, and all source notes",
+    "content/03-audit-the-app-study.md#worked-example-app-evidence: all three fictional packets, calculations, intention-to-treat estimand, complete follow-up, precision qualification, interpretation, and source note",
+    "content/04-repair-and-practise.md#complete scene: retrieval answer, adjustment misconception, fork/chain/collider practice, negative controls, triangulation, feedback, and all source notes",
+    "content/05-transfer-the-judgment.md#complete scene: routine-record association, bench mechanism, external lottery, absent outcome contrast, transport boundaries, stress tests, and source note",
+    "content/06-mastery-and-spacing.md#complete scene: seven-step audit, mastery rule, recovery routes, accessibility equivalent, delayed retrieval, educational boundary, and source note",
+    "assessment.json#all five items, prompts, response specifications, answer keys, acceptable responses, common errors, point values, rubrics, final-item mastery condition, retry routes, and safetyCritical flags",
+    "claims.json#all eight claims, every scene/source mapping, support classification, confidence, scope, uncertainty, risk, and pending-review state",
+    "references.json#all six bibliographic records, locators, factual-reference uses, rights bases, and checked-no-agent-restriction-found declarations",
+    "glossary.json#all twenty terms, definitions, aliases, scene mappings, and alignment blocks",
+    "diagrams/third-variable-roles.diagram.json#all nine nodes, six directed edges, labels, groups, alt text, and long description against the scene's fork, chain, and collider statements",
+    "ATTRIBUTION.md#lesson identity, accountable principal, thirteen blind-author fragments, editorial-agent provenance, original-synthesis statement, source-access attestation, third-party-asset statement, and candidate boundary",
+    "reviews/REV-PREM-SCI-007-ACADEMIC-5D6CFF9A-CA99-49BC-871F-FD47302DF513.json#complete pre-existing review artifact, read only because the operator required every pack file",
+    "reviews/REV-PREM-SCI-007-LEARNING-DESIGN-25966EF9-A1D0-4641-9CDD-F38839B0747A.json#complete pre-existing review artifact, read only because the operator required every pack file",
+    "Direct source check: [Bulbulia, causal diagrams and confounding, PMID 39600624](https://pubmed.ncbi.nlm.nih.gov/39600624/) for specified counterfactual contrasts, explicit assumptions, and causal-diagram identification",
+    "Direct source check: [Craig et al., natural experiments, PMID 28125392](https://pubmed.ncbi.nlm.nih.gov/28125392/) for external exposure assignment, selective exposure, alternative explanations, and design-strengthening checks",
+    "Direct source check: [Deaton and Cartwright, randomized trials, PMID 29331519](https://pubmed.ncbi.nlm.nih.gov/29331519/) for balance in expectation, chance/precision limits, sample scope, and transport limits",
+    "Direct source check: [Aronson et al., mechanistic evidence](https://www.cebm.ox.ac.uk/research/publications/899226) for evidence about mechanisms as complementary to clinical outcome evidence and relevant to external validity",
+    "Direct source check: [Lipsitch et al., negative controls, PMID 20335814](https://pubmed.ncbi.nlm.nih.gov/20335814/) for negative-control exposure/outcome logic and detection of confounding or other systematic error",
+    "Direct source check: [Lawlor et al., triangulation, PMID 28108528](https://pubmed.ncbi.nlm.nih.gov/28108528/) for integrating approaches with different, largely unrelated key bias sources and interpreting convergence or inconsistency",
+    "Independent recalculation: scene minutes 25+42+38+35+25+15=180; Packet A score difference 81-73=8 and prior-course difference 84-76=8; Packet C observed difference 77-74=3; item points 2+3+3+3+4=15; rubric maxima also total 15",
+    "Frozen-candidate check: the candidate commit exists, contains the stated pack, and the working-tree pack has no content difference from 3a8c07f73918268817d0f49393ad0c4b15c9b013"
+  ],
+  "findings": [
+    {
+      "severity": "minor",
+      "target": "glossary.json#term-collider",
+      "finding": "The definition calls a collider a common effect \"on a causal path.\" A collider is defined relative to a path on which two arrowheads meet; in the lesson's X → Z ← Y structure, that path is blocked by default and is not a directed causal path from X to Y. The surrounding scenes and diagram use the common-effect structure correctly, so this is a bounded terminology defect rather than a failure of the instructional argument.",
+      "resolution": "Replace \"on a causal path\" with wording such as \"on a path\" and state that conditioning or selecting on the collider can open that otherwise blocked path and induce association between its causes."
+    },
+    {
+      "severity": "minor",
+      "target": "ATTRIBUTION.md#lesson-identity-and-accountability",
+      "finding": "The attribution record identifies the lesson as version 0.1.0, while lesson.json and every structured teaching artifact at the reviewed candidate identify version 0.1.1. This stale identity statement does not alter the scientific content, but it makes the candidate's provenance record internally inconsistent.",
+      "resolution": "Update the attribution identity line to version 0.1.1 and ensure its candidate-boundary wording accurately distinguishes the original 0.1.0 review target from this 0.1.1 candidate."
+    },
+    {
+      "severity": "note",
+      "target": "content/03-audit-the-app-study.md#worked-example-app-evidence-packet-c; assessment.json#item-calibrate-randomized-claim",
+      "finding": "Packet C now records an outcome for every assigned student, the 77-74=3 calculation is correct, the conclusion is explicitly an estimate of the effect of assignment rather than actual use, and both lesson and assessment preserve sampling/randomization uncertainty and transport limits. The keyed randomized-claim option therefore rewards the scientifically calibrated conclusion.",
+      "resolution": "No academic change required; preserve the complete-follow-up, assignment-estimand, uncertainty, and transport qualifications."
+    },
+    {
+      "severity": "note",
+      "target": "content/05-transfer-the-judgment.md#model-response; assessment.json#item-transfer-external-allocation",
+      "finding": "Both targets correctly distinguish a potentially identifying external lottery from an effect result: without a between-group outcome contrast, they infer no field association, direction, magnitude, or nonzero effect. The answer key also keeps the bench mechanism evidence separate from the missing field-outcome estimate.",
+      "resolution": "No academic change required; preserve the explicit rule that design strength cannot supply an unreported result."
+    },
+    {
+      "severity": "note",
+      "target": "claims.json#claim-third-variable-roles; content/02-build-the-map.md#a-third-variable-has-a-job-not-just-a-correlation; diagrams/third-variable-roles.diagram.json#diagram-third-variable-roles; assessment.json#item-map-third-variable-roles",
+      "finding": "Within the declared simple acyclic total-effect scope, the fork, chain, and collider arrow structures, timing distinctions, adjustment consequences, diagram representation, and assessment key agree with each other and with the checked causal-diagram evidence. The lesson also correctly warns that arrows are assumptions rather than relations discovered automatically from correlation.",
+      "resolution": "No change required apart from the bounded glossary wording correction recorded separately."
+    }
+  ],
+  "limitations": [
+    "The reviewer is an AI agent without human academic credentials. The judgment is limited to introductory causal-inference content, internal consistency, direct public-source checks, and formal recalculation; no empirical learner testing was performed.",
+    "The operator explicitly prohibited reading site/, so review.schema.json, the quorum policy, the Premed graph node definitions, and the cross-course terminology ledger were not inspected in this run. Schema conformance was checked against the required academic template and existing artifact shape, but graph identity, prerequisite semantics, course-wide terminology collisions, and repository-schema validation remain unverified here.",
+    "The recorded NCBI BioC endpoint URLs were rejected by the browsing safety layer and several direct PubMed opens encountered reCAPTCHA. Source support was therefore checked through accessible indexed PubMed records and official publisher or university pages; inaccessible full-text passages were not represented as directly checked.",
+    "The operator-required instruction to read every candidate-pack file included both pre-existing review artifacts. Those artifacts were read only after the independent review of the teaching files, but this run is not independent of all prior review exposure.",
+    "All app, workshop, cell-culture, laboratory-station, checklist, and sensor-kit observations are explicitly fictional. Their arithmetic and causal logic were checked, but the invented observations cannot be externally validated.",
+    "Accessibility, legal-rights sufficiency, learning-design adjudication, quorum, and merge readiness are outside this academic role."
+  ],
+  "signedAt": "2026-07-22T11:19:12Z"
+}
