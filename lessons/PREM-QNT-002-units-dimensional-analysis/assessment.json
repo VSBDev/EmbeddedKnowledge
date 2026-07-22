@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-assessment-v1",
+  "lessonId": "PREM-QNT-002",
+  "lessonVersion": "0.1.0",
+  "assessmentId": "assessment-unit-audit",
+  "title": "Units and dimensional analysis mastery gate",
+  "purpose": "mastery-gate",
+  "attemptPolicy": {"retakeable":true,"timeLimitMinutes":null,"feedback":"after-attempt"},
+  "items": [
+    {
+      "id":"item-orient-factor","type":"single-choice","sceneId":"scene-synthesis","objectiveIds":["objective-build-chain"],"outcomeIds":["topic-quantitative-foundations-units-dimensional"],
+      "prompt":"Which factor correctly begins converting 7.5 m to centimetres?","points":2,
+      "responseSpec":{"mode":"single-choice","options":[{"id":"option-factor-a","text":"100 cm / 1 m"},{"id":"option-factor-b","text":"1 m / 100 cm"},{"id":"option-factor-c","text":"100 m / 1 cm"},{"id":"option-factor-d","text":"1 cm / 100 m"}]},
+      "answer":{"correct":"option-factor-a","summary":"Use 100 cm / 1 m so metres cancel and centimetres remain.","reasoning":"The ratio equals one because 100 cm and 1 m are equal quantities. Its denominator cancels the original metre unit.","acceptableResponses":[],"commonErrors":["Choosing the reciprocal without checking the surviving unit","Treating the equality as an instruction to divide regardless of target"]},
+      "rubricId":"rubric-orient-factor","safetyCritical":false
+    },
+    {
+      "id":"item-rate-conversion","type":"numeric","sceneId":"scene-synthesis","objectiveIds":["objective-build-chain"],"outcomeIds":["topic-quantitative-foundations-units-dimensional"],
+      "prompt":"Convert 180 m/min to m/s. Enter the numerical value in m/s.","points":3,
+      "responseSpec":{"mode":"number","units":"m/s","tolerance":0},
+      "answer":{"correct":3,"summary":"180 m/min = 3 m/s.","reasoning":"Multiply by 1 min/60 s. Minutes cancel and 180/60 = 3.","acceptableResponses":["3"],"commonErrors":["Multiplying by 60 because the denominator unit was not tracked","Reporting 10800 m/s"]},
+      "rubricId":"rubric-rate-conversion","safetyCritical":false
+    },
+    {
+      "id":"item-read-quantity","type":"single-choice","sceneId":"scene-synthesis","objectiveIds":["objective-read-quantity"],"outcomeIds":["topic-quantitative-foundations-units-dimensional"],
+      "prompt":"A fictional sample has mass q = 2.5 kg, and a speed is reported in m/s. Which statement correctly identifies these representations?","points":3,
+      "responseSpec":{"mode":"single-choice","options":[{"id":"option-read-a","text":"q (the mass) is the quantity, 2.5 is its numerical value in kilograms, kg is the unit, and m/s means metres divided by seconds."},{"id":"option-read-b","text":"2.5 is the quantity, q is the unit, and m/s means metres multiplied by seconds."},{"id":"option-read-c","text":"kg is the quantity, 2.5 is the unit, and m/s is a single unit symbol with no algebraic structure."},{"id":"option-read-d","text":"q and 2.5 are both units, while kg and m/s are numerical values."}]},
+      "answer":{"correct":"option-read-a","summary":"A quantity is represented by a numerical value and a unit; the slash in m/s denotes division.","reasoning":"Here q names the mass quantity, 2.5 is the number attached to the chosen unit kg, and m/s is a compound unit formed as metres divided by seconds.","acceptableResponses":[],"commonErrors":["Calling the numerical value the quantity","Swapping the roles of quantity and unit","Reading a quotient unit as a product"]},
+      "rubricId":"rubric-read-quantity","safetyCritical":false
+    },
+    {
+      "id":"item-square-conversion","type":"short-answer","sceneId":"scene-synthesis","objectiveIds":["objective-scale-powers"],"outcomeIds":["topic-quantitative-foundations-units-dimensional"],
+      "prompt":"Convert 0.45 m² to cm². Show the powered conversion factor and cancellation.","points":4,
+      "responseSpec":{"mode":"text","maxLength":1000},
+      "answer":{"correct":"0.45 m² × (100 cm / 1 m)² = 4500 cm²; both metre factors cancel.","summary":"The area is 4500 cm².","reasoning":"A square metre contains two length factors, so the linear conversion factor is squared: 0.45 × 100² = 4500.","acceptableResponses":["4500 cm² with an equivalent expanded two-factor chain"],"commonErrors":["Multiplying by only 100","Leaving a mixed unit such as m·cm"]},
+      "rubricId":"rubric-square-conversion","safetyCritical":false
+    },
+    {
+      "id":"item-dimension-equation","type":"single-choice","sceneId":"scene-synthesis","objectiveIds":["objective-audit-dimensions"],"outcomeIds":["topic-quantitative-foundations-units-dimensional"],
+      "prompt":"A quantity E has dimension M·L²/T², m has dimension M, and v has dimension L/T. Which expression is dimensionally compatible with E?","points":3,
+      "responseSpec":{"mode":"single-choice","options":[{"id":"option-dimension-a","text":"m + v"},{"id":"option-dimension-b","text":"mv"},{"id":"option-dimension-c","text":"mv²"},{"id":"option-dimension-d","text":"m/v²"}]},
+      "answer":{"correct":"option-dimension-c","summary":"mv² has dimension M·L²/T².","reasoning":"Squaring v gives L²/T²; multiplying by m supplies M. Dimensional compatibility does not prove that E equals mv² in a particular model.","acceptableResponses":[],"commonErrors":["Ignoring the square on velocity","Selecting an expression based only on familiar symbols"]},
+      "rubricId":"rubric-dimension-equation","safetyCritical":false
+    },
+    {
+      "id":"item-explain-limits","type":"short-answer","sceneId":"scene-synthesis","objectiveIds":["objective-audit-dimensions"],"outcomeIds":["topic-quantitative-foundations-units-dimensional"],
+      "prompt":"Explain why a dimensionally consistent equation can still be wrong. Give one concrete mathematical example.","points":4,
+      "responseSpec":{"mode":"text","maxLength":1200},
+      "answer":{"correct":"Dimensions test structural compatibility, not numerical constants, signs, assumptions, or the chosen model. For example, d = vt and d = 10vt both have dimension L, but the second is not generally the distance traveled at constant speed v for time t.","summary":"Dimensional consistency is necessary but not sufficient.","reasoning":"Many distinct expressions share the same dimension. The audit can rule out mismatches but cannot select a unique physical relation.","acceptableResponses":["Any valid example of two dimensionally matched equations where at least one has an incorrect constant, sign, or model"],"commonErrors":["Claiming dimensions prove an equation","Giving an example whose two sides have different dimensions"]},
+      "rubricId":"rubric-explain-limits","safetyCritical":false
+    },
+    {
+      "id":"item-transfer-production","type":"open-response","sceneId":"scene-synthesis","objectiveIds":["objective-build-chain","objective-scale-powers","objective-audit-dimensions"],"outcomeIds":["topic-quantitative-foundations-units-dimensional"],
+      "prompt":"A fictional coating line covers 2.4 m²/min for 45 s. Determine the covered area in cm². Show the quantity relation, a continuous conversion chain, cancellations, and a magnitude check.","points":7,
+      "responseSpec":{"mode":"text","maxLength":3000},
+      "answer":{"correct":"2.4 m²/min × 45 s × (1 min/60 s) × (100 cm/1 m)² = 18,000 cm². Seconds, minutes, and both metre factors cancel. Since 45 s is 0.75 min, the area is 1.8 m², and 1.8 × 10,000 = 18,000 cm².","summary":"The covered area is 18,000 cm².","reasoning":"Rate times time gives area. The time chain converts seconds to minutes, and the squared length factor converts both dimensions of area.","acceptableResponses":["1.8 m² followed by a separately shown squared conversion to 18000 cm², with valid cancellations and check"],"commonErrors":["Using 45 minutes instead of 45 seconds","Applying the centimetre factor only once","Giving a correct number without a unit trail or magnitude check"]},
+      "rubricId":"rubric-transfer-production","safetyCritical":false
+    }
+  ],
+  "rubrics": [
+    {"id":"rubric-orient-factor","title":"Factor orientation","criteria":[{"id":"criterion-orient","description":"Selects the equality ratio that cancels the starting unit and leaves the target unit.","maxPoints":2}]},
+    {"id":"rubric-rate-conversion","title":"Rate conversion","criteria":[{"id":"criterion-rate-factor","description":"Uses the reciprocal time factor with correct cancellation.","maxPoints":2},{"id":"criterion-rate-value","description":"Reports 3 m/s.","maxPoints":1}]},
+    {"id":"rubric-read-quantity","title":"Quantity representation","criteria":[{"id":"criterion-read-quantity","description":"Correctly distinguishes the quantity, numerical value, and unit and interprets m/s as a quotient.","maxPoints":3}]},
+    {"id":"rubric-square-conversion","title":"Powered-unit conversion","criteria":[{"id":"criterion-square-factor","description":"Squares or repeats the full linear conversion factor.","maxPoints":2},{"id":"criterion-square-result","description":"Cancels both metre factors and obtains 4500 cm².","maxPoints":2}]},
+    {"id":"rubric-dimension-equation","title":"Dimensional compatibility","criteria":[{"id":"criterion-dimension","description":"Combines the declared dimensions to identify mv² and preserves the audit's limits.","maxPoints":3}]},
+    {"id":"rubric-explain-limits","title":"Limits of dimensional analysis","criteria":[{"id":"criterion-limit","description":"States that dimensional consistency is necessary but not sufficient.","maxPoints":2},{"id":"criterion-limit-example","description":"Provides a dimensionally valid example that differs by a wrong constant, sign, or model.","maxPoints":2}]},
+    {"id":"rubric-transfer-production","title":"Independent unit audit","criteria":[{"id":"criterion-transfer-model","description":"Uses area equals area-rate times time.","maxPoints":1},{"id":"criterion-transfer-chain","description":"Builds an oriented continuous chain with complete cancellation.","maxPoints":2},{"id":"criterion-transfer-power","description":"Squares the metre-to-centimetre factor.","maxPoints":2},{"id":"criterion-transfer-result","description":"Reports 18000 cm².","maxPoints":1},{"id":"criterion-transfer-check","description":"Uses 0.75 min or 1.8 m² as an independent magnitude check.","maxPoints":1}]}
+  ]
+}
