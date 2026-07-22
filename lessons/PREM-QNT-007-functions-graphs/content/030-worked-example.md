@@ -35,11 +35,11 @@ $$\frac{g(6)-g(4)}{6-4}=\frac{23-7}{2}=8.$$
 Which substitution most directly verifies the claimed right shift: $t=0$ or $t=3$?
 :::
 
-$t=3$ makes the transformed inner expression zero and locates the parent function's key input.
+**Feedback after attempting:** $t=3$ makes the transformed inner expression zero and locates the parent function's key input.
 
 :::{source-note}
-:claims: claim-function-notation, claim-transform-inference
-:sources: source-nist-dlmf-functions
+:claims: claim-function-notation, claim-transform-inference, claim-average-rate
+:sources: source-common-core-functions
 
-The response rule, value table, and interpretation are original.
+The standards source supports the function, transformation, and average-rate relations. The response rule, value table, and interpretation are original.
 :::

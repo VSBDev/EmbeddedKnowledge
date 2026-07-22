@@ -30,7 +30,7 @@ The domain must satisfy both stages. If $f(u)=\sqrt u$ and $g(x)=x-2$, then $(f\
 
 Starting from $y=f(x)$:
 
-- $f(x-h)+k$ shifts right by $h$ and up by $k$;
+- $f(x-h)+k$ shifts right by $h$ when $h>0$ and left by $|h|$ when $h<0$; it shifts up by $k$ when $k>0$ and down by $|k|$ when $k<0$;
 - $-f(x)$ reflects outputs across the horizontal axis;
 - $f(-x)$ reflects inputs across the vertical axis;
 - $af(x)$ multiplies every output by $a$.
@@ -38,8 +38,8 @@ Starting from $y=f(x)$:
 Test a key input instead of relying on a slogan.
 
 :::{source-note}
-:claims: claim-function-notation, claim-axis-quantity, claim-transform-inference
-:sources: source-nist-dlmf-functions, source-nist-si-axis
+:claims: claim-function-notation, claim-axis-quantity, claim-transform-inference, claim-average-rate
+:sources: source-common-core-functions, source-nist-si-axis
 
-The NIST records support function notation and explicit numerical-value/axis relations. Definitions, transformations, and examples are original mathematical synthesis.
+The standards record supports function notation, graph features, average rate, and transformations; NIST supports explicit quantity and axis labels. Definitions, derivations, and examples are original mathematical synthesis.
 :::

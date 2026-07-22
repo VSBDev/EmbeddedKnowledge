@@ -15,17 +15,23 @@ A graph is not decoration: each point asserts an input-output pair, and its axes
 
 ## Starting check
 
+:::{check}
+:id: check-starting-skills
+
 - In $f(3)=11$, which number is the input?
 - If a graph contains $(2,-5)$, what does that say about the function?
-- Does $f(x-4)$ move the graph of $f(x)$ left or right?
+- Solve $u-4=0$.
+:::
 
-If coordinate order is uncertain, always read $(x,y)$ as “input first, output second.”
+**Feedback after attempting:** The input is 3. The point $(2,-5)$ says $f(2)=-5$. The equation has solution $u=4$ because adding 4 to both sides isolates $u$.
+
+If coordinate order is uncertain, always read $(x,y)$ as “input first, output second.” If solving the equation was difficult, review inverse operations in the algebra prerequisite before continuing.
 
 :::{source-note}
-:claims: claim-function-notation, claim-axis-quantity
-:sources: source-nist-dlmf-functions, source-nist-si-axis
+:claims: claim-function-notation, claim-axis-quantity, claim-average-rate
+:sources: source-common-core-functions, source-nist-si-axis
 
-NIST sources support function notation and unambiguous quantity/axis labeling. The table, rate error, and graph-audit sequence are original.
+The standards source supports function notation and average-rate interpretation; NIST supports unambiguous quantity and axis labeling. The table, rate error, and graph-audit sequence are original.
 :::
 
 ## Accessibility and alternatives
