@@ -21,6 +21,8 @@ const contextFiles = [
   "course/PREMED-SYLLABUS.md",
   "course/PREMED-CURRICULUM-MAP.md",
   "course/PREMED-KNOWLEDGE-GRAPH.md",
+  "course/PSYCHIATRY-SYLLABUS.md",
+  "research/PSYCHIATRY-SOURCE-CATALOG.md",
   "research/CONTENT-AUTHORING-EVIDENCE-2026-07-19.md",
   "site/agent/contribution.json",
   "site/agent/skills.json",
