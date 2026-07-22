@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-QNT-005-LEARNING-1A3C18EA",
+  "lessonId": "PREM-QNT-005",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "e8fb70141fac734f5c684f6560ab7c4376dee0bc",
+  "role": "learning-design",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — learning-design reviewer",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.5",
+      "runId": "agy-learning-design-PREM-QNT-005-1A3C18EA-9488-45EF-AC0D-C20C2293F335",
+      "instructionsDigest": "sha256:85a0531e8df36801adc691accaf832a37968288545862729e5e4c5d88c2ef67e"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#objectives-and-scenes",
+    "content/010-orientation.md#first-read-gate",
+    "content/020-concept.md#conceptual-explanation",
+    "content/030-worked-example.md#worked-example",
+    "content/040-misconception.md#misconception-repair",
+    "content/050-practice.md#practice-scene",
+    "content/060-transfer.md#transfer-scene",
+    "content/070-synthesis.md#synthesis-scene",
+    "assessment.json#assessment-items-and-rubrics"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "content/050-practice.md#practice-scene",
+      "finding": "The practice scene completely lacks any practice problems or prompts related to objective-compare-scale (estimating/predicting how powers and roots change order of magnitude). This leaves the learner without scaffolded practice before facing the final assessment item-magnitude-root.",
+      "resolution": "Add at least one practice prompt in content/050-practice.md that asks the learner to predict the order of magnitude of a powered or rooted expression (e.g. estimating a square root with an odd exponent of 10) and provides corresponding feedback."
+    },
+    {
+      "severity": "major",
+      "target": "assessment.json#item-transfer-cubic",
+      "finding": "The assessment item-transfer-cubic is identical in physical context and algebraic structure (C = kr³) to the transfer scene (content/060-transfer.md), changing only the linear factor (1.5 to 2.4) and target capacity increase (2 to 8). This fails the transfer gate under the Content Standard, which states that changing only numbers is near practice and not genuine transfer.",
+      "resolution": "Change the context of the transfer assessment item-transfer-cubic to a different power-law scaling relationship (such as gravity, fluid flow, or electrostatic force) to verify that the learner can select and adapt the scaling model to a novel domain."
+    },
+    {
+      "severity": "major",
+      "target": "assessment.json#item-exponent-laws",
+      "finding": "The correct answer is set to the unicode string 'x⁵/y³'. Standard keyboards do not easily support typing superscript characters. Additionally, acceptableResponses only lists 'x^5 y^-3', which lacks the standard division symbol format (x^5/y^3) and violates the prompt's request for positive exponents. A learner typing the standard plain-text representation (e.g. x^5/y^3) will be marked incorrect.",
+      "resolution": "Update the correct answer and acceptableResponses to include standard ASCII exponents (e.g., 'x^5/y^3') and ensure the grading logic handles standard input conventions."
+    },
+    {
+      "severity": "minor",
+      "target": "content/030-worked-example.md#worked-example-square-array",
+      "finding": "Step 2 of the worked example ('Estimate scale. Since N is near 10^7, s should be near 10^3.5') introduces a fractional exponent of 10. Evaluating fractional powers of 10 is not scaffolded in the concept scene (content/020-concept.md) and represents a high cognitive jump. It also diverges from the method of using even powers of 10 taught in item-magnitude-root's rubric.",
+      "resolution": "Revise the estimation step in the worked example to use bounding or even exponents of 10, e.g., showing that 7.29 x 10^6 lies between 10^6 (root 10^3) and 10^8 (root 10^4), or rewrite the term using an even power to estimate s ≈ √9 x 10^6 = 3000."
+    },
+    {
+      "severity": "minor",
+      "target": "content/030-worked-example.md#worked-example-square-array",
+      "finding": "The worked example uses N = 7.29 x 10^6, requiring the learner to evaluate √7.29 = 2.7. Since 27^2 = 729 is not a common square at this level, this introduces unnecessary arithmetic friction that could distract from the scaling and magnitude-checking lesson.",
+      "resolution": "Change the side length in the worked example to a common square coefficient (e.g., N = 2.25 x 10^6 yielding s = 1.5 x 10^3, or N = 6.25 x 10^6 yielding s = 2.5 x 10^3)."
+    },
+    {
+      "severity": "minor",
+      "target": "assessment.json#item-exponent-laws",
+      "finding": "In item-exponent-laws, acceptableResponses lists 'x^5 y^-3 with the stated nonzero domain' as acceptable, which violates the prompt's explicit instruction to 'Give a form with positive exponents'.",
+      "resolution": "Remove the negative exponent form from acceptableResponses or update the prompt to allow either form if both are considered acceptable."
+    },
+    {
+      "severity": "minor",
+      "target": "content/060-transfer.md#transfer-scene",
+      "finding": "The transfer scene feedback does not model the magnitude prediction or bounding steps that are subsequently demanded of the learner in item-transfer-cubic and assessed in rubric criterion-cubic-bound.",
+      "resolution": "Revise the feedback in content/060-transfer.md to include an explicit magnitude bounding step (e.g., showing that 1.5^3 must lie between 1^3 = 1 and 2^3 = 8) before calculating the exact value."
+    },
+    {
+      "severity": "note",
+      "target": "content/010-orientation.md#first-read-gate",
+      "finding": "The orientation scene uses an excellent concrete hook (confusing linear vs. quadratic scaling of a detector) that immediately demonstrates the real-world value of the lesson topic before introducing mathematical rules.",
+      "resolution": "Maintain this concrete opening structure."
+    },
+    {
+      "severity": "note",
+      "target": "content/040-misconception.md#misconception-root-square",
+      "finding": "The misconception scene clearly contrasts the algebraic definition of a principal root (always nonnegative) with the solution set of an equation, using a simple and effective numerical counterexample.",
+      "resolution": "Retain this clear conceptual explanation."
+    }
+  ],
+  "limitations": [
+    "No direct testing of the interactive lesson client or math rendering layout has been performed; validation was restricted to code-level review of the candidate commit. This review does not assess the final production deployment or student performance data."
+  ],
+  "signedAt": "2026-07-22T22:26:37Z"
+}
