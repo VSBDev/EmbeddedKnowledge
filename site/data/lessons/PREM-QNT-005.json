@@ -1,0 +1,690 @@
+{
+  "schemaVersion": 3,
+  "format": "embeddedknowledge-lesson-v1",
+  "artifactType": "production-lesson",
+  "id": "PREM-QNT-005",
+  "version": "0.1.0",
+  "title": "Powers change scale; roots recover it",
+  "status": "draft",
+  "riskTier": "standard",
+  "estimatedMinutes": 180,
+  "outcomes": [
+    "topic-quantitative-foundations-exponents-roots"
+  ],
+  "prerequisites": [
+    "topic-quantitative-foundations-algebra-equations"
+  ],
+  "objectives": [
+    {
+      "id": "objective-use-exponent-laws",
+      "statement": "Apply integer and rational exponent laws while preserving bases, grouping, and domain restrictions.",
+      "outcomeIds": [
+        "topic-quantitative-foundations-exponents-roots"
+      ]
+    },
+    {
+      "id": "objective-interpret-roots",
+      "statement": "Interpret principal roots and rational exponents as inverse power operations over an explicitly declared real domain.",
+      "outcomeIds": [
+        "topic-quantitative-foundations-exponents-roots"
+      ]
+    },
+    {
+      "id": "objective-solve-power-equations",
+      "statement": "Solve elementary square, cube, and power equations and verify every candidate in the original equation.",
+      "outcomeIds": [
+        "topic-quantitative-foundations-exponents-roots"
+      ]
+    },
+    {
+      "id": "objective-compare-scale",
+      "statement": "Predict how powers and roots change order of magnitude and challenge exact results against that prediction.",
+      "outcomeIds": [
+        "topic-quantitative-foundations-exponents-roots"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene-orientation",
+      "title": "Tripling a length does not triple an area",
+      "kind": "orientation",
+      "source": "content/010-orientation.md",
+      "estimatedMinutes": 20,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Tripling a length does not triple an area</h1>\n<p>A fictional square detector changes side length from 4 units to 12 units. A report says its active area also triples.</p>\n<p>The side ratio is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>12</mn><mi>/</mi><mn>4</mn><mo>=</mo><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">12/4=3</annotation></semantics></math></span>, but area depends on the square of length:</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mfrac><msup><mn>12</mn><mn>2</mn></msup><msup><mn>4</mn><mn>2</mn></msup></mfrac><mo>=</mo><msup><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"true\">(</mo><mfrac><mn>12</mn><mn>4</mn></mfrac><mo fence=\"true\" form=\"postfix\" stretchy=\"true\">)</mo></mrow><mn>2</mn></msup><mo>=</mo><msup><mn>3</mn><mn>2</mn></msup><mo>=</mo><mn>9.</mn></mrow><annotation encoding=\"application/x-tex\">\\frac{12^2}{4^2}=\\left(\\frac{12}{4}\\right)^2=3^2=9.</annotation></semantics></math></div>\n<p>The report confused linear scaling with quadratic scaling. This lesson asks four questions whenever a power appears: What is the base? What is the exponent acting on? What inverse root is valid in the declared domain? What scale should the result have?</p>\n<h2>Starting check</h2>\n<ul>\n<li>Is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>2</mn><mn>3</mn></msup><mo>⋅</mo><msup><mn>2</mn><mn>4</mn></msup></mrow><annotation encoding=\"application/x-tex\">2^3\\cdot2^4</annotation></semantics></math></span> equal to <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mn>2</mn><mn>7</mn></msup><annotation encoding=\"application/x-tex\">2^7</annotation></semantics></math></span> or <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mn>4</mn><mn>7</mn></msup><annotation encoding=\"application/x-tex\">4^7</annotation></semantics></math></span>?</li>\n<li>Does <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>x</mi><mn class=\"tml-sml-pad\">2</mn></msup><mo>=</mo><mn>25</mn></mrow><annotation encoding=\"application/x-tex\">x^2=25</annotation></semantics></math></span> have one real solution or two?</li>\n<li>Is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msqrt><msup><mi>x</mi><mn class=\"tml-sml-pad\">2</mn></msup></msqrt><annotation encoding=\"application/x-tex\">\\sqrt{x^2}</annotation></semantics></math></span> always equal to <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>x</mi><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span>?</li>\n</ul>\n<p>If exponent laws feel memorized but fragile, expand one small integer case into repeated factors before using the symbolic rule.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-power-notation, claim-magnitude-check</span><span><b>sources</b> source-nist-sp811-notation, source-nist-estimation</span></div>\n    <div class=\"ek-block-content\"><p>NIST documents power-of-ten notation and the use of magnitude estimates for reasonableness. The detector and scaling diagnosis are original.</p>\n</div>\n  </aside>\n<h2>Accessibility and alternatives</h2>\n<p>Every exponent and root is stated in prose and symbols. No task relies on superscript size, color, dragging, or a diagram. Read <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mi>x</mi><mrow class=\"tml-sml-pad\"><mn>3</mn><mi>/</mi><mn>2</mn></mrow></msup><annotation encoding=\"application/x-tex\">x^{3/2}</annotation></semantics></math></span> aloud as “x to the three-halves power.”</p>\n"
+    },
+    {
+      "id": "scene-concept",
+      "title": "Read powers as repeated structure",
+      "kind": "concept",
+      "source": "content/020-concept.md",
+      "estimatedMinutes": 35,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Read powers as repeated structure</h1>\n<p>For positive integer <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>n</mi><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span>, <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mi>a</mi><mi>n</mi></msup><annotation encoding=\"application/x-tex\">a^n</annotation></semantics></math></span> means <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>n</mi><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span> repeated factors of <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>a</mi><annotation encoding=\"application/x-tex\">a</annotation></semantics></math></span>. That definition explains the laws rather than merely naming them:</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><msup><mi>a</mi><mi>m</mi></msup><msup><mi>a</mi><mi>n</mi></msup><mo>=</mo><msup><mi>a</mi><mrow><mi>m</mi><mo>+</mo><mi>n</mi></mrow></msup><mo separator=\"true\">,</mo><mspace width=\"2em\"></mspace><mfrac><msup><mi>a</mi><mi>m</mi></msup><msup><mi>a</mi><mi>n</mi></msup></mfrac><mo>=</mo><msup><mi>a</mi><mrow><mi>m</mi><mo>−</mo><mi>n</mi></mrow></msup><mtext> </mtext><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mi>a</mi><mo>≠</mo><mn>0</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo separator=\"true\">,</mo><mspace width=\"2em\"></mspace><msup><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><msup><mi>a</mi><mi>m</mi></msup><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mi>n</mi></msup><mo>=</mo><msup><mi>a</mi><mrow><mi>m</mi><mi>n</mi></mrow></msup><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">a^m a^n=a^{m+n},\\qquad \\frac{a^m}{a^n}=a^{m-n}\\ (a\\ne0),\\qquad (a^m)^n=a^{mn}.</annotation></semantics></math></div>\n<p>Also <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mi>a</mi><mi>b</mi><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mi>n</mi></msup><mo>=</mo><msup><mi>a</mi><mi>n</mi></msup><msup><mi>b</mi><mi>n</mi></msup></mrow><annotation encoding=\"application/x-tex\">(ab)^n=a^n b^n</annotation></semantics></math></span>. This rule applies to a product, not a sum: <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mi>a</mi><mo>+</mo><mi>b</mi><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mn>2</mn></msup><annotation encoding=\"application/x-tex\">(a+b)^2</annotation></semantics></math></span> requires distribution.</p>\n<p>Zero and negative exponents preserve the laws:</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><msup><mi>a</mi><mn>0</mn></msup><mo>=</mo><mn>1</mn><mo separator=\"true\">,</mo><mspace width=\"2em\"></mspace><msup><mi>a</mi><mrow><mo form=\"prefix\" stretchy=\"false\" lspace=\"0em\" rspace=\"0em\">−</mo><mi>n</mi></mrow></msup><mo>=</mo><mfrac><mn>1</mn><msup><mi>a</mi><mi>n</mi></msup></mfrac><mo separator=\"true\">,</mo><mspace width=\"2em\"></mspace><mi>a</mi><mo>≠</mo><mn>0.</mn></mrow><annotation encoding=\"application/x-tex\">a^0=1,\\qquad a^{-n}=\\frac1{a^n},\\qquad a\\ne0.</annotation></semantics></math></div>\n<aside class=\"ek-block ek-definition ek-block--definition\" data-directive=\"definition\">\n    <div class=\"ek-block-label directive-label\">Definition</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> definition-rational-exponent</span></div>\n    <div class=\"ek-block-content\"><p>For real-number work where the indicated root exists, <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mi>a</mi><mrow><mn>1</mn><mi>/</mi><mi>n</mi></mrow></msup><annotation encoding=\"application/x-tex\">a^{1/n}</annotation></semantics></math></span> denotes the principal <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>n</mi><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span>th root of <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>a</mi><annotation encoding=\"application/x-tex\">a</annotation></semantics></math></span>, and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>a</mi><mrow><mi>m</mi><mi>/</mi><mi>n</mi></mrow></msup><mo>=</mo><msup><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><msup><mi>a</mi><mrow><mn>1</mn><mi>/</mi><mi>n</mi></mrow></msup><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mi>m</mi></msup></mrow><annotation encoding=\"application/x-tex\">a^{m/n}=(a^{1/n})^m</annotation></semantics></math></span>. For even <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>n</mi><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span>, require <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi><mo>≥</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">a\\ge0</annotation></semantics></math></span>; for negative exponents also require <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi><mo>≠</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">a\\ne0</annotation></semantics></math></span>.</p>\n</div>\n  </aside>\n<p>Thus <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>27</mn><mrow><mn>2</mn><mi>/</mi><mn>3</mn></mrow></msup><mo>=</mo><msup><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mroot><mn>27</mn><mn>3</mn></mroot><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mn>2</mn></msup><mo>=</mo><mn>9</mn></mrow><annotation encoding=\"application/x-tex\">27^{2/3}=(\\sqrt[3]{27})^2=9</annotation></semantics></math></span>. The cube root is defined for negative real inputs, but the real square root is not.</p>\n<h2>Powers and order of magnitude</h2>\n<p>If <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>≈</mo><msup><mn>10</mn><mi>k</mi></msup></mrow><annotation encoding=\"application/x-tex\">x\\approx10^k</annotation></semantics></math></span>, then <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>x</mi><mi class=\"tml-sml-pad\">p</mi></msup><mo>≈</mo><msup><mn>10</mn><mrow><mi>k</mi><mi>p</mi></mrow></msup></mrow><annotation encoding=\"application/x-tex\">x^p\\approx10^{kp}</annotation></semantics></math></span>. A square doubles the base-10 exponent; a square root halves it. So <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msqrt><msup><mn>10</mn><mn>8</mn></msup></msqrt><annotation encoding=\"application/x-tex\">\\sqrt{10^8}</annotation></semantics></math></span> should be near <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mn>10</mn><mn>4</mn></msup><annotation encoding=\"application/x-tex\">10^4</annotation></semantics></math></span>, not <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mn>10</mn><mn>8</mn></msup><annotation encoding=\"application/x-tex\">10^8</annotation></semantics></math></span>.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-power-notation, claim-exponent-laws, claim-magnitude-check</span><span><b>sources</b> source-nist-sp811-notation, source-nist-estimation</span></div>\n    <div class=\"ek-block-content\"><p>NIST supports the power-of-ten representation and magnitude-checking role. The laws and rational-exponent derivations are original mathematical inference from repeated multiplication and inverse operations.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-worked-example",
+      "title": "Use a root to recover a scale",
+      "kind": "worked-example",
+      "source": "content/030-worked-example.md",
+      "estimatedMinutes": 30,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Use a root to recover a scale</h1>\n<p>A fictional square array contains <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>N</mi><mo>=</mo><mn>7.29</mn><mo>×</mo><msup><mn>10</mn><mn>6</mn></msup></mrow><annotation encoding=\"application/x-tex\">N=7.29\\times10^6</annotation></semantics></math></span> cells arranged with the same number <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>s</mi><annotation encoding=\"application/x-tex\">s</annotation></semantics></math></span> along each side. Find <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>s</mi><annotation encoding=\"application/x-tex\">s</annotation></semantics></math></span>.</p>\n<aside class=\"ek-block ek-worked-example ek-block--worked-example\" data-directive=\"worked-example\">\n    <div class=\"ek-block-label directive-label\">Worked Example</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> worked-example-square-array</span></div>\n    <div class=\"ek-block-content\"><p><strong>1. Model.</strong> <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>N</mi><mo>=</mo><msup><mi>s</mi><mn class=\"tml-sml-pad\">2</mn></msup></mrow><annotation encoding=\"application/x-tex\">N=s^2</annotation></semantics></math></span> with domain <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>s</mi><mo>≥</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">s\\ge0</annotation></semantics></math></span> because <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>s</mi><annotation encoding=\"application/x-tex\">s</annotation></semantics></math></span> is a count along a side.</p>\n<p><strong>2. Estimate scale.</strong> Since <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>N</mi><annotation encoding=\"application/x-tex\">N</annotation></semantics></math></span> is near <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mn>10</mn><mn>7</mn></msup><annotation encoding=\"application/x-tex\">10^7</annotation></semantics></math></span>, <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>s</mi><annotation encoding=\"application/x-tex\">s</annotation></semantics></math></span> should be near <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mn>10</mn><mn>3.5</mn></msup><annotation encoding=\"application/x-tex\">10^{3.5}</annotation></semantics></math></span>, a few thousand.</p>\n<p><strong>3. Apply the principal root.</strong></p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mi>s</mi><mo>=</mo><msqrt><mrow><mn>7.29</mn><mo>×</mo><msup><mn>10</mn><mn>6</mn></msup></mrow></msqrt><mo>=</mo><msqrt><mn>7.29</mn></msqrt><msqrt><msup><mn>10</mn><mn>6</mn></msup></msqrt><mo>=</mo><mn>2.7</mn><mo>×</mo><msup><mn>10</mn><mn>3</mn></msup><mo>=</mo><mn>2700.</mn></mrow><annotation encoding=\"application/x-tex\">s=\\sqrt{7.29\\times10^6}=\\sqrt{7.29}\\sqrt{10^6}=2.7\\times10^3=2700.</annotation></semantics></math></div>\n<p><strong>4. Verify.</strong> <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>2.7</mn><mo>×</mo><msup><mn>10</mn><mn>3</mn></msup><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mn>2</mn></msup><mo>=</mo><mn>7.29</mn><mo>×</mo><msup><mn>10</mn><mn>6</mn></msup></mrow><annotation encoding=\"application/x-tex\">(2.7\\times10^3)^2=7.29\\times10^6</annotation></semantics></math></span>.</p>\n<p><strong>5. Interpret.</strong> The algebraic equation <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>s</mi><mn class=\"tml-sml-pad\">2</mn></msup><mo>=</mo><mi>N</mi></mrow><annotation encoding=\"application/x-tex\">s^2=N</annotation></semantics></math></span> has candidates <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>s</mi><mo>=</mo><mo form=\"prefix\" stretchy=\"false\">±</mo><msqrt><mi>N</mi></msqrt></mrow><annotation encoding=\"application/x-tex\">s=\\pm\\sqrt N</annotation></semantics></math></span>, but the declared nonnegative count domain retains only 2700.</p>\n</div>\n  </aside>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-root-scale</span></div>\n    <div class=\"ek-block-content\"><p>Why would <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2.7</mn><mo>×</mo><msup><mn>10</mn><mn>6</mn></msup></mrow><annotation encoding=\"application/x-tex\">2.7\\times10^6</annotation></semantics></math></span> be impossible before squaring it exactly?</p>\n</div>\n  </aside>\n<p>Squaring a million-scale number produces a trillion-scale result, far above <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>7.29</mn><mo>×</mo><msup><mn>10</mn><mn>6</mn></msup></mrow><annotation encoding=\"application/x-tex\">7.29\\times10^6</annotation></semantics></math></span>.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-power-notation, claim-exponent-laws, claim-magnitude-check</span><span><b>sources</b> source-nist-sp811-notation, source-nist-estimation</span></div>\n    <div class=\"ek-block-content\"><p>The array, derivation, and domain check are original applications of power notation and magnitude reasoning.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-misconception",
+      "title": "A root can hide a sign decision",
+      "kind": "misconception",
+      "source": "content/040-misconception.md",
+      "estimatedMinutes": 20,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>A root can hide a sign decision</h1>\n<aside class=\"ek-block ek-misconception ek-block--misconception\" data-directive=\"misconception\">\n    <div class=\"ek-block-label directive-label\">Misconception</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> misconception-root-square</span></div>\n    <div class=\"ek-block-content\"><p>It is tempting to cancel the square and root in <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msqrt><msup><mi>x</mi><mn class=\"tml-sml-pad\">2</mn></msup></msqrt><annotation encoding=\"application/x-tex\">\\sqrt{x^2}</annotation></semantics></math></span> and write <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>x</mi><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span>. But the principal square root is nonnegative:</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><msqrt><msup><mi>x</mi><mn class=\"tml-sml-pad\">2</mn></msup></msqrt><mo>=</mo><mi>|</mi><mi>x</mi><mi>|</mi><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">\\sqrt{x^2}=|x|.</annotation></semantics></math></div>\n<p>For <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">x=-4</annotation></semantics></math></span>, the left side is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msqrt><mn>16</mn></msqrt><mo>=</mo><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">\\sqrt{16}=4</annotation></semantics></math></span>, not <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">-4</annotation></semantics></math></span>.</p>\n<p>Likewise, solving <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>x</mi><mn class=\"tml-sml-pad\">2</mn></msup><mo>=</mo><mn>16</mn></mrow><annotation encoding=\"application/x-tex\">x^2=16</annotation></semantics></math></span> requires <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">x=4</annotation></semantics></math></span> <strong>or</strong> <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">x=-4</annotation></semantics></math></span>. Applying the principal-root symbol reports 4; solving the equation recovers both signed candidates unless the domain removes one.</p>\n</div>\n  </aside>\n<p>This distinction separates an operation from a solution set. Always substitute candidates into the original equation and then apply contextual restrictions.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-exponent-laws</span><span><b>sources</b> source-nist-sp811-notation</span></div>\n    <div class=\"ek-block-content\"><p>The sign-boundary explanation is original mathematical synthesis built on conventional exponent notation.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-practice",
+      "title": "Switch deliberately between power and root",
+      "kind": "practice",
+      "source": "content/050-practice.md",
+      "estimatedMinutes": 30,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Switch deliberately between power and root</h1>\n<h2>1. Combine powers</h2>\n<p>Simplify <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>x</mi><mn class=\"tml-sml-pad\">5</mn></msup><msup><mi>x</mi><mrow class=\"tml-sml-pad\"><mo form=\"prefix\" stretchy=\"false\" lspace=\"0em\" rspace=\"0em\">−</mo><mn>2</mn></mrow></msup></mrow><annotation encoding=\"application/x-tex\">x^5x^{-2}</annotation></semantics></math></span> for <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>≠</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">x\\ne0</annotation></semantics></math></span>.</p>\n<p><strong>Feedback:</strong> <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>x</mi><mrow class=\"tml-sml-pad\"><mn>5</mn><mo>−</mo><mn>2</mn></mrow></msup><mo>=</mo><msup><mi>x</mi><mn class=\"tml-sml-pad\">3</mn></msup></mrow><annotation encoding=\"application/x-tex\">x^{5-2}=x^3</annotation></semantics></math></span>. The common base remains <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>x</mi><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span>.</p>\n<h2>2. Power of a power</h2>\n<p>Simplify <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>3</mn><msup><mi>a</mi><mn>2</mn></msup><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mn>3</mn></msup><annotation encoding=\"application/x-tex\">(3a^2)^3</annotation></semantics></math></span>.</p>\n<p><strong>Feedback:</strong> <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>3</mn><mn>3</mn></msup><msup><mi>a</mi><mrow><mn>2</mn><mo>⋅</mo><mn>3</mn></mrow></msup><mo>=</mo><mn>27</mn><msup><mi>a</mi><mn>6</mn></msup></mrow><annotation encoding=\"application/x-tex\">3^3a^{2\\cdot3}=27a^6</annotation></semantics></math></span>. The outer exponent acts on the entire product.</p>\n<h2>3. Rational exponent</h2>\n<p>Evaluate <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mn>16</mn><mrow><mn>3</mn><mi>/</mi><mn>4</mn></mrow></msup><annotation encoding=\"application/x-tex\">16^{3/4}</annotation></semantics></math></span> over the reals.</p>\n<p><strong>Feedback:</strong> <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mroot><mn>16</mn><mn>4</mn></mroot><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mn>3</mn></msup><mo>=</mo><msup><mn>2</mn><mn>3</mn></msup><mo>=</mo><mn>8</mn></mrow><annotation encoding=\"application/x-tex\">(\\sqrt[4]{16})^3=2^3=8</annotation></semantics></math></span> using the principal fourth root.</p>\n<h2>4. Solve and restrict</h2>\n<p>Solve <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>y</mi><mn class=\"tml-sml-pad\">3</mn></msup><mo>=</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>125</mn></mrow><annotation encoding=\"application/x-tex\">y^3=-125</annotation></semantics></math></span> over the reals.</p>\n<p><strong>Feedback:</strong> <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo>=</mo><mroot><mrow><mo form=\"prefix\" stretchy=\"false\" lspace=\"0em\" rspace=\"0em\">−</mo><mn>125</mn></mrow><mn>3</mn></mroot><mo>=</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>5</mn></mrow><annotation encoding=\"application/x-tex\">y=\\sqrt[3]{-125}=-5</annotation></semantics></math></span>. Odd roots permit negative real inputs; check <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>5</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mn>3</mn></msup><mo>=</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>125</mn></mrow><annotation encoding=\"application/x-tex\">(-5)^3=-125</annotation></semantics></math></span>.</p>\n<h2>Recovery route</h2>\n<ul>\n<li>Bases changed while multiplying: expand one case and preserve the shared base.</li>\n<li>Exponents multiplied in a product: distinguish <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>a</mi><mi>m</mi></msup><msup><mi>a</mi><mi>n</mi></msup></mrow><annotation encoding=\"application/x-tex\">a^ma^n</annotation></semantics></math></span> from <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><msup><mi>a</mi><mi>m</mi></msup><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mi>n</mi></msup><annotation encoding=\"application/x-tex\">(a^m)^n</annotation></semantics></math></span>.</li>\n<li>Negative exponent made the value negative: rewrite it as a reciprocal.</li>\n<li>Root lost a candidate: distinguish principal-root evaluation from solving an equation.</li>\n<li>Exact result has implausible scale: predict the exponent before calculating coefficients.</li>\n</ul>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-power-notation, claim-exponent-laws, claim-magnitude-check</span><span><b>sources</b> source-nist-sp811-notation, source-nist-estimation</span></div>\n    <div class=\"ek-block-content\"><p>All practice and recovery content is original.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-transfer",
+      "title": "Audit cubic scaling",
+      "kind": "transfer",
+      "source": "content/060-transfer.md",
+      "estimatedMinutes": 25,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Audit cubic scaling</h1>\n<p>A fictional spherical storage design states only that capacity <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>C</mi><annotation encoding=\"application/x-tex\">C</annotation></semantics></math></span> is proportional to the cube of a linear scale <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>r</mi><annotation encoding=\"application/x-tex\">r</annotation></semantics></math></span>: <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>C</mi><mo>=</mo><mi>k</mi><msup><mi>r</mi><mn class=\"tml-sml-pad\">3</mn></msup></mrow><annotation encoding=\"application/x-tex\">C=kr^3</annotation></semantics></math></span>, with <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>k</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">k&gt;0</annotation></semantics></math></span>.</p>\n<p>One design increases <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>r</mi><annotation encoding=\"application/x-tex\">r</annotation></semantics></math></span> by a factor of 1.5. Determine the capacity factor. Then find the required <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>r</mi><annotation encoding=\"application/x-tex\">r</annotation></semantics></math></span> factor for doubling capacity.</p>\n<h2>Feedback after a complete attempt</h2>\n<p>For the first change,</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mfrac><msub><mi>C</mi><mn>2</mn></msub><msub><mi>C</mi><mn>1</mn></msub></mfrac><mo>=</mo><msup><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"true\">(</mo><mfrac><msub><mi>r</mi><mn>2</mn></msub><msub><mi>r</mi><mn>1</mn></msub></mfrac><mo fence=\"true\" form=\"postfix\" stretchy=\"true\">)</mo></mrow><mn>3</mn></msup><mo>=</mo><msup><mn>1.5</mn><mn>3</mn></msup><mo>=</mo><mn>3.375.</mn></mrow><annotation encoding=\"application/x-tex\">\\frac{C_2}{C_1}=\\left(\\frac{r_2}{r_1}\\right)^3=1.5^3=3.375.</annotation></semantics></math></div>\n<p>Capacity increases by a factor of 3.375, not 1.5.</p>\n<p>For doubling capacity,</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mn>2</mn><mo>=</mo><msup><mi>f</mi><mn class=\"tml-lrg-pad\">3</mn></msup><mo separator=\"true\">,</mo><mspace width=\"2em\"></mspace><mi>f</mi><mo>=</mo><msup><mn>2</mn><mrow><mn>1</mn><mi>/</mi><mn>3</mn></mrow></msup><mo>≈</mo><mn>1.260.</mn></mrow><annotation encoding=\"application/x-tex\">2=f^3,\\qquad f=2^{1/3}\\approx1.260.</annotation></semantics></math></div>\n<p>Check: <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>1.260</mn><mn>3</mn></msup><mo>≈</mo><mn>2.00</mn></mrow><annotation encoding=\"application/x-tex\">1.260^3\\approx2.00</annotation></semantics></math></span>. The positive root is selected because the scale factor is positive.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-exponent-laws, claim-magnitude-check</span><span><b>sources</b> source-nist-sp811-notation, source-nist-estimation</span></div>\n    <div class=\"ek-block-content\"><p>The scaling law is supplied as a fictional task assumption. All derivations and checks are original.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-synthesis",
+      "title": "Reconstruct the scale map",
+      "kind": "synthesis",
+      "source": "content/070-synthesis.md",
+      "estimatedMinutes": 20,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Reconstruct the scale map</h1>\n<ol>\n<li>Identify the full base and grouping.</li>\n<li>Choose the exponent law and state nonzero or real-root restrictions.</li>\n<li>Predict how the operation changes order of magnitude.</li>\n<li>Use a root to invert a power only within the declared domain.</li>\n<li>Substitute candidates and interpret signs.</li>\n</ol>\n<h2>Retrieval</h2>\n<ul>\n<li>Why do exponents add for a product with the same base?</li>\n<li>What does a negative exponent mean?</li>\n<li>Why is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msqrt><msup><mi>x</mi><mn class=\"tml-sml-pad\">2</mn></msup></msqrt><mo>=</mo><mi>|</mi><mi>x</mi><mi>|</mi></mrow><annotation encoding=\"application/x-tex\">\\sqrt{x^2}=|x|</annotation></semantics></math></span>?</li>\n<li>If a quantity near <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mn>10</mn><mn>12</mn></msup><annotation encoding=\"application/x-tex\">10^{12}</annotation></semantics></math></span> is cube-rooted, what scale should result?</li>\n</ul>\n<p>Complete <code>assessment.json</code>. If laws are mixed, return to the repeated-factor explanations. If signs fail, revisit the misconception scene. If an exact answer lacks a scale check, redo cubic transfer with the exponent prediction written first.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-power-notation, claim-exponent-laws, claim-magnitude-check</span><span><b>sources</b> source-nist-sp811-notation, source-nist-estimation</span></div>\n    <div class=\"ek-block-content\"><p>The synthesis combines conventional power notation and magnitude checking through an original scale-map procedure.</p>\n</div>\n  </aside>\n"
+    }
+  ],
+  "authors": [
+    {
+      "principalId": "github:VSBDev",
+      "displayName": "VSBDev — accountable author with Codex assistance",
+      "agent": {
+        "system": "Codex desktop",
+        "provider": "OpenAI",
+        "model": "gpt-5.6-sol",
+        "version": "Codex desktop runtime 2026-07-22",
+        "runId": "79e994f1-a0b4-4527-9f26-10b3a70baa2c",
+        "instructionsDigest": "sha256:bec5ae1936216e3a115b2d0f60c558e7f939a9639f92d1d5517f108644038b62"
+      }
+    }
+  ],
+  "license": "CC-BY-4.0",
+  "sourceConfidence": "pending-review",
+  "aiAssistance": {
+    "used": true,
+    "disclosure": "VSBDev (github:VSBDev) is accountable. OpenAI Codex, model gpt-5.6-sol, authored, researched, edited, and packaged this lesson in run 79e994f1-a0b4-4527-9f26-10b3a70baa2c. The digest covers discloseable material task instructions, not hidden system or provider instructions."
+  },
+  "assessment": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-assessment-v1",
+    "lessonId": "PREM-QNT-005",
+    "lessonVersion": "0.1.0",
+    "assessmentId": "assessment-powers-roots-scale",
+    "title": "Exponents, roots, and magnitude mastery gate",
+    "purpose": "mastery-gate",
+    "attemptPolicy": {
+      "retakeable": true,
+      "timeLimitMinutes": null,
+      "feedback": "after-attempt"
+    },
+    "items": [
+      {
+        "id": "item-exponent-laws",
+        "type": "short-answer",
+        "sceneId": "scene-synthesis",
+        "objectiveIds": [
+          "objective-use-exponent-laws"
+        ],
+        "outcomeIds": [
+          "topic-quantitative-foundations-exponents-roots"
+        ],
+        "prompt": "Simplify (x³y⁻²)²/(xy⁻¹) for nonzero x and y. Give a form with positive exponents.",
+        "points": 4,
+        "responseSpec": {
+          "mode": "text",
+          "maxLength": 800
+        },
+        "answer": {
+          "correct": "x⁵/y³",
+          "summary": "The expression simplifies to x⁵/y³.",
+          "reasoning": "The numerator is x⁶y⁻⁴; subtract denominator exponents to obtain x⁵y⁻³, then write y⁻³ as 1/y³.",
+          "acceptableResponses": [
+            "x^5 y^-3 with the stated nonzero domain"
+          ],
+          "commonErrors": [
+            "Adding exponents across a quotient",
+            "Applying the outer square only to x",
+            "Treating a negative exponent as a negative coefficient"
+          ]
+        },
+        "rubricId": "rubric-exponent-laws",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-rational-power",
+        "type": "numeric",
+        "sceneId": "scene-synthesis",
+        "objectiveIds": [
+          "objective-interpret-roots"
+        ],
+        "outcomeIds": [
+          "topic-quantitative-foundations-exponents-roots"
+        ],
+        "prompt": "Evaluate 81^(3/4) over the reals using the principal fourth root.",
+        "points": 3,
+        "responseSpec": {
+          "mode": "number",
+          "units": null,
+          "tolerance": 0
+        },
+        "answer": {
+          "correct": 27,
+          "summary": "81^(3/4) = 27.",
+          "reasoning": "The principal fourth root of 81 is 3, and 3³ = 27.",
+          "acceptableResponses": [],
+          "commonErrors": [
+            "Multiplying 81 by 3/4",
+            "Using both signs for the principal root"
+          ]
+        },
+        "rubricId": "rubric-rational-power",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-solve-square",
+        "type": "short-answer",
+        "sceneId": "scene-synthesis",
+        "objectiveIds": [
+          "objective-solve-power-equations"
+        ],
+        "outcomeIds": [
+          "topic-quantitative-foundations-exponents-roots"
+        ],
+        "prompt": "Solve (x - 1)² = 36 over the reals and verify both candidates.",
+        "points": 5,
+        "responseSpec": {
+          "mode": "text",
+          "maxLength": 1000
+        },
+        "answer": {
+          "correct": "x - 1 = ±6, so x = 7 or x = -5. Both verify because 6² = 36 and (-6)² = 36.",
+          "summary": "The solution set is {-5, 7}.",
+          "reasoning": "Solving a square equation requires both signed square-root branches before isolating x.",
+          "acceptableResponses": [
+            "x = -5, 7 with substitution into the original"
+          ],
+          "commonErrors": [
+            "Keeping only x = 7",
+            "Writing x = ±5 after applying the shift incorrectly"
+          ]
+        },
+        "rubricId": "rubric-solve-square",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-root-domain",
+        "type": "single-choice",
+        "sceneId": "scene-synthesis",
+        "objectiveIds": [
+          "objective-interpret-roots"
+        ],
+        "outcomeIds": [
+          "topic-quantitative-foundations-exponents-roots"
+        ],
+        "prompt": "Which statement is valid for every real x?",
+        "points": 3,
+        "responseSpec": {
+          "mode": "single-choice",
+          "options": [
+            {
+              "id": "option-root-a",
+              "text": "√(x²) = x"
+            },
+            {
+              "id": "option-root-b",
+              "text": "√(x²) = |x|"
+            },
+            {
+              "id": "option-root-c",
+              "text": "√(x²) = ±x"
+            },
+            {
+              "id": "option-root-d",
+              "text": "√(x²) = -x"
+            }
+          ]
+        },
+        "answer": {
+          "correct": "option-root-b",
+          "summary": "The principal square root of x² is |x|.",
+          "reasoning": "The principal square root is nonnegative; absolute value returns the nonnegative magnitude for either sign of x.",
+          "acceptableResponses": [],
+          "commonErrors": [
+            "Cancelling the root and square without considering x < 0",
+            "Confusing a principal-root value with two solutions to an equation"
+          ]
+        },
+        "rubricId": "rubric-root-domain",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-magnitude-root",
+        "type": "short-answer",
+        "sceneId": "scene-synthesis",
+        "objectiveIds": [
+          "objective-compare-scale"
+        ],
+        "outcomeIds": [
+          "topic-quantitative-foundations-exponents-roots"
+        ],
+        "prompt": "Estimate √(4.9 × 10¹¹) to one significant digit and explain the predicted order of magnitude before calculating.",
+        "points": 5,
+        "responseSpec": {
+          "mode": "text",
+          "maxLength": 1200
+        },
+        "answer": {
+          "correct": "About 7 × 10⁵. Because 10¹¹ lies between 10¹⁰ and 10¹², its square root lies between 10⁵ and 10⁶; rewriting 4.9 × 10¹¹ as 49 × 10¹⁰ gives √49 × 10⁵ = 7 × 10⁵.",
+          "summary": "Approximately 7 × 10⁵.",
+          "reasoning": "The exponent is made even before taking the root, and the coefficient 49 has exact root 7.",
+          "acceptableResponses": [
+            "700000 with the same scale argument"
+          ],
+          "commonErrors": [
+            "Halving 11 and writing a noninteger exponent without handling the coefficient",
+            "Returning a value on the 10¹¹ scale"
+          ]
+        },
+        "rubricId": "rubric-magnitude-root",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-transfer-cubic",
+        "type": "open-response",
+        "sceneId": "scene-synthesis",
+        "objectiveIds": [
+          "objective-use-exponent-laws",
+          "objective-interpret-roots",
+          "objective-solve-power-equations",
+          "objective-compare-scale"
+        ],
+        "outcomeIds": [
+          "topic-quantitative-foundations-exponents-roots"
+        ],
+        "prompt": "A fictional capacity follows C = kr³ with k > 0 and r > 0. Design B has 2.4 times the r of design A. Find C_B/C_A. Then determine the r factor needed to make capacity 8 times larger. Show exponent reasoning, a magnitude prediction, and reverse checks.",
+        "points": 8,
+        "responseSpec": {
+          "mode": "text",
+          "maxLength": 2600
+        },
+        "answer": {
+          "correct": "C_B/C_A = (2.4)³ = 13.824, plausibly a little above 2³ = 8 and below 3³ = 27. For an eightfold capacity, f³ = 8, so f = 2. Checks: 2.4³ = 13.824 and 2³ = 8.",
+          "summary": "The capacity factor is 13.824; an eightfold capacity requires a linear factor of 2.",
+          "reasoning": "The proportionality constant cancels in the ratio, leaving the cube of the linear factor; the inverse scale is the positive cube root.",
+          "acceptableResponses": [
+            "Equivalent exact reasoning with positive-domain interpretation and both checks"
+          ],
+          "commonErrors": [
+            "Using a linear factor for capacity",
+            "Multiplying 2.4 by 3",
+            "Selecting a negative cube-root factor despite r > 0"
+          ]
+        },
+        "rubricId": "rubric-transfer-cubic",
+        "safetyCritical": false
+      }
+    ],
+    "rubrics": [
+      {
+        "id": "rubric-exponent-laws",
+        "title": "Exponent-law simplification",
+        "criteria": [
+          {
+            "id": "criterion-laws",
+            "description": "Applies the outer power and quotient laws correctly.",
+            "maxPoints": 3
+          },
+          {
+            "id": "criterion-positive-form",
+            "description": "Reports x⁵/y³ with required nonzero domain.",
+            "maxPoints": 1
+          }
+        ]
+      },
+      {
+        "id": "rubric-rational-power",
+        "title": "Rational exponent",
+        "criteria": [
+          {
+            "id": "criterion-rational",
+            "description": "Uses the principal fourth root and obtains 27.",
+            "maxPoints": 3
+          }
+        ]
+      },
+      {
+        "id": "rubric-solve-square",
+        "title": "Square equation",
+        "criteria": [
+          {
+            "id": "criterion-square-branches",
+            "description": "Retains both signed branches.",
+            "maxPoints": 3
+          },
+          {
+            "id": "criterion-square-check",
+            "description": "Verifies both candidates.",
+            "maxPoints": 2
+          }
+        ]
+      },
+      {
+        "id": "rubric-root-domain",
+        "title": "Principal-root domain",
+        "criteria": [
+          {
+            "id": "criterion-absolute",
+            "description": "Identifies absolute value as the valid all-real relation.",
+            "maxPoints": 3
+          }
+        ]
+      },
+      {
+        "id": "rubric-magnitude-root",
+        "title": "Root magnitude",
+        "criteria": [
+          {
+            "id": "criterion-root-scale",
+            "description": "Predicts a result between 10⁵ and 10⁶.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-root-value",
+            "description": "Rewrites the power and obtains 7 × 10⁵.",
+            "maxPoints": 3
+          }
+        ]
+      },
+      {
+        "id": "rubric-transfer-cubic",
+        "title": "Cubic scaling transfer",
+        "criteria": [
+          {
+            "id": "criterion-cubic-ratio",
+            "description": "Forms and calculates 2.4³ = 13.824.",
+            "maxPoints": 3
+          },
+          {
+            "id": "criterion-cubic-bound",
+            "description": "Bounds the factor between 8 and 27.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-cubic-inverse",
+            "description": "Uses the positive cube root to obtain factor 2.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-cubic-check",
+            "description": "Performs both reverse checks and respects r > 0.",
+            "maxPoints": 2
+          }
+        ]
+      }
+    ]
+  },
+  "references": {
+    "schemaVersion": 2,
+    "format": "embeddedknowledge-references-v2",
+    "lessonId": "PREM-QNT-005",
+    "lessonVersion": "0.1.0",
+    "sources": [
+      {
+        "id": "source-nist-sp811-notation",
+        "type": "official-standard",
+        "title": "Guide for the Use of the International System of Units (SI), NIST Special Publication 811",
+        "creators": [
+          "Ambler Thompson",
+          "Barry N. Taylor"
+        ],
+        "publisher": "National Institute of Standards and Technology",
+        "issued": "2008",
+        "url": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+        "accessed": "2026-07-22",
+        "version": "2008 edition; NIST web presentation updated 2025-08-18",
+        "locator": "Appendix B.2, notation using powers of ten and E notation",
+        "license": "NIST Technical Series work under NIST Copyrights & Disclaimers and technical-series licensing statements, subject to attribution and third-party exceptions",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Only power-of-ten notation conventions are used. Every explanation, example, derivation, and assessment is original."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://www.nist.gov/copyrights-disclaimers",
+          "checked": "2026-07-22",
+          "notes": "NIST rights, technical-series licensing, and robots routes were checked before access. No agent restriction, login, paywall, or access-control barrier was found."
+        }
+      },
+      {
+        "id": "source-nist-estimation",
+        "type": "guideline",
+        "title": "Everyday Estimation",
+        "creators": [
+          "National Institute of Standards and Technology, Office of Weights and Measures"
+        ],
+        "publisher": "National Institute of Standards and Technology",
+        "issued": "2010-02-04",
+        "url": "https://www.nist.gov/pml/owm/metric-si/everyday-estimation",
+        "accessed": "2026-07-22",
+        "version": "Web page updated 2025-08-27",
+        "locator": "Opening discussion of magnitude, ordering, sensemaking, and reasonableness",
+        "license": "NIST public information under the agency's Copyrights & Disclaimers statement; third-party items excluded",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "The lesson uses estimation's stated reasonableness role but creates all scale checks and teaching expression independently."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://www.nist.gov/copyrights-disclaimers",
+          "checked": "2026-07-22",
+          "notes": "The public NIST rights and robots routes were checked before access; no agent restriction or access barrier was found."
+        }
+      }
+    ]
+  },
+  "claims": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-claims-v1",
+    "lessonId": "PREM-QNT-005",
+    "lessonVersion": "0.1.0",
+    "claims": [
+      {
+        "id": "claim-power-notation",
+        "statement": "Power-of-ten notation separates a coefficient from an exponent that records scale, supporting explicit comparison of orders of magnitude.",
+        "sceneIds": [
+          "scene-orientation",
+          "scene-concept",
+          "scene-worked-example",
+          "scene-practice",
+          "scene-synthesis"
+        ],
+        "sourceIds": [
+          "source-nist-sp811-notation"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Base-10 numerical scale comparisons used in the lesson.",
+        "uncertainty": "Software display conventions can vary and do not replace algebraic interpretation.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-exponent-laws",
+        "statement": "The product, quotient, and power rules for exponents follow from repeated multiplication and extend consistently to zero, negative, and rational exponents when required domain restrictions are preserved.",
+        "sceneIds": [
+          "scene-concept",
+          "scene-worked-example",
+          "scene-misconception",
+          "scene-practice",
+          "scene-transfer",
+          "scene-synthesis"
+        ],
+        "sourceIds": [
+          "source-nist-sp811-notation"
+        ],
+        "support": "inference",
+        "confidence": "high",
+        "scope": "Real-number elementary exponentiation with nonzero divisors and real roots where defined.",
+        "uncertainty": "General exponentiation over complex numbers and branch choices are outside scope.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-magnitude-check",
+        "statement": "An approximate order of magnitude can predict the scale of a powered or rooted result and help identify implausible exact outputs.",
+        "sceneIds": [
+          "scene-orientation",
+          "scene-concept",
+          "scene-worked-example",
+          "scene-practice",
+          "scene-transfer",
+          "scene-synthesis"
+        ],
+        "sourceIds": [
+          "source-nist-estimation"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Routine positive-magnitude calculations where powers of ten provide a useful scale estimate.",
+        "uncertainty": "A plausible magnitude does not prove an exact result or model is correct.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      }
+    ]
+  },
+  "glossary": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-glossary-v1",
+    "lessonId": "PREM-QNT-005",
+    "lessonVersion": "0.1.0",
+    "terms": [
+      {
+        "id": "term-base",
+        "term": "base",
+        "definition": "The quantity acted on by an exponent.",
+        "aliases": [
+          "power base"
+        ],
+        "sceneIds": [
+          "scene-orientation",
+          "scene-concept",
+          "scene-practice",
+          "scene-synthesis"
+        ]
+      },
+      {
+        "id": "term-rational-exponent",
+        "term": "rational exponent",
+        "definition": "An exponent expressible as m/n; over a valid real domain it combines an nth root with an mth power.",
+        "aliases": [
+          "fractional exponent"
+        ],
+        "sceneIds": [
+          "scene-concept",
+          "scene-practice",
+          "scene-synthesis"
+        ]
+      },
+      {
+        "id": "term-principal-root",
+        "term": "principal root",
+        "definition": "The designated nonnegative even root, or the unique real odd root, represented by a radical symbol.",
+        "aliases": [
+          "principal value"
+        ],
+        "sceneIds": [
+          "scene-concept",
+          "scene-worked-example",
+          "scene-misconception",
+          "scene-practice",
+          "scene-synthesis"
+        ]
+      },
+      {
+        "id": "term-order-of-magnitude",
+        "term": "order of magnitude",
+        "definition": "A power-of-ten description of a quantity's approximate scale.",
+        "aliases": [
+          "power-of-ten scale"
+        ],
+        "sceneIds": [
+          "scene-orientation",
+          "scene-concept",
+          "scene-worked-example",
+          "scene-practice",
+          "scene-transfer",
+          "scene-synthesis"
+        ]
+      },
+      {
+        "id": "term-scale-factor",
+        "term": "scale factor",
+        "definition": "A multiplicative factor comparing a new linear measure or quantity with its reference value.",
+        "aliases": [
+          "multiplicative change"
+        ],
+        "sceneIds": [
+          "scene-orientation",
+          "scene-transfer"
+        ]
+      },
+      {
+        "id": "term-domain",
+        "term": "domain",
+        "definition": "The set of input or candidate values for which an expression and task are defined.",
+        "aliases": [
+          "allowed values"
+        ],
+        "sceneIds": [
+          "scene-concept",
+          "scene-worked-example",
+          "scene-misconception",
+          "scene-practice",
+          "scene-transfer",
+          "scene-synthesis"
+        ]
+      }
+    ]
+  },
+  "attributionHtml": "<h1>Attribution</h1>\n<h2>Lesson identity and licence</h2>\n<ul>\n<li>Lesson: <strong>PREM-QNT-005 — Powers change scale; roots recover it</strong></li>\n<li>Outcome: <strong>PREM-03.05</strong> (<code>topic-quantitative-foundations-exponents-roots</code>)</li>\n<li>Principal: <strong>VSBDev</strong> (<code>github:VSBDev</code>)</li>\n<li>Licence: <strong>Creative Commons Attribution 4.0 International (CC BY 4.0)</strong></li>\n<li>State: <strong>draft</strong>, source confidence <strong>pending-review</strong></li>\n</ul>\n<h2>Material agent assistance</h2>\n<p>OpenAI Codex authored, researched, edited, and packaged this lesson in one author-role run.</p>\n<table>\n<thead>\n<tr>\n<th>System</th>\n<th>Provider</th>\n<th>Model</th>\n<th>Version</th>\n<th>Run ID</th>\n<th>Material-instructions digest</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>Codex desktop</td>\n<td>OpenAI</td>\n<td><code>gpt-5.6-sol</code></td>\n<td>Codex desktop runtime 2026-07-22</td>\n<td><code>79e994f1-a0b4-4527-9f26-10b3a70baa2c</code></td>\n<td><code>sha256:bec5ae1936216e3a115b2d0f60c558e7f939a9639f92d1d5517f108644038b62</code></td>\n</tr>\n</tbody></table>\n<p>The digest identifies <code>/tmp/codex-packager-prompt-03-05.md</code>; hidden provider or system instructions are not claimed. No other model authored or reviewed the lesson.</p>\n<h2>Originality, evidence, and rights</h2>\n<p>The scale-map structure, detector opening, square-array example, sign misconception, cubic transfer, all values, feedback, recovery routes, and assessments are original. All settings are fictional. NIST sources are used only for facts about power-of-ten notation and estimation&#39;s role in magnitude/reasonableness checks. No source expression, example, table, or image is copied or adapted.</p>\n<p>NIST rights, technical-series licensing, and public robots routes were checked before access on 2026-07-22. No agent restriction, login, paywall, or access-control barrier was found. No third-party assets, datasets, personal data, or patient material are included.</p>\n<p>This mathematical lesson provides no clinical advice and makes no claim of review, approval, publication, measured effectiveness, credit, or competence.</p>\n"
+}
