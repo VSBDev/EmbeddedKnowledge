@@ -3,7 +3,7 @@
 ## Lesson identity and accountability
 
 - Lesson: **PREM-SCI-007 — From correlation to a causal claim**
-- Version and state: **0.1.0 / draft / pending review**
+- Version and state: **0.1.1 / draft / pending review**
 - Accountable principal: **VSBDev** (`github:VSBDev`), verified through the authenticated GitHub CLI session on 21 July 2026
 - Course-content license: **Creative Commons Attribution 4.0 International (CC BY 4.0)**
 
@@ -60,4 +60,4 @@ No third-party image, diagram, audio, video, software, or dataset is included. T
 
 ## Candidate boundary
 
-At candidate commit `6b66a745dd99bb85ffa05cabf0252302626cc694`, this was an author-stage draft with every claim marked `pending-review` and no review or adjudication artifact. The current pack preserves its draft status and pending claim states while adding the required review and finalization records; those records do not themselves claim publication, course coverage, learner effectiveness, clinical sufficiency, academic credit, or admission eligibility.
+The first review cohort targeted the version 0.1.0 candidate at commit `6b66a745dd99bb85ffa05cabf0252302626cc694`. The eligible review cohort for this finalization targeted the version 0.1.1 original candidate at commit `3a8c07f73918268817d0f49393ad0c4b15c9b013`; the older 0.1.0 review artifacts retained in the pack do not count toward the 0.1.1 gate. The version 0.1.1 candidate and this final revision preserve draft status and `pending-review` claim states. Review and finalization records do not themselves claim publication, course coverage, learner effectiveness, clinical sufficiency, academic credit, or admission eligibility.
