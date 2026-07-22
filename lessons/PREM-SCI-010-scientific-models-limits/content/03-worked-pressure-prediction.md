@@ -24,7 +24,8 @@ A fictional laboratory record describes 0.100 mol of argon in a rigid 2.50 L ves
 | --- | --- |
 | desired output | pressure $P$ in kPa |
 | inputs | $n=0.100$ mol, $T=298$ K, $V=2.50$ L |
-| parameter for this run | $R=8.314\ \text{L kPa mol}^{-1}\text{K}^{-1}$ |
+| universal physical constant | $R=8.314\ \text{L kPa mol}^{-1}\text{K}^{-1}$, expressed in units compatible with L, kPa, mol, and K |
+| model parameters adjusted in this prediction | none |
 | physical conditions | one equilibrium gas state in a rigid vessel |
 | central idealization | the real gas behaves closely enough like an ideal gas for the required accuracy |
 | scale | macroscopic pressure, not individual molecular paths |

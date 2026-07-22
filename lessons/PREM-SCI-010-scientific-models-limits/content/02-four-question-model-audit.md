@@ -30,7 +30,7 @@ List each input, parameter, starting or boundary condition, and omitted process.
 
 These roles must be declared rather than guessed. A measured rate may be an input in one model, a fitted parameter in another, and an output in a third.
 
-**Calibration**, in the sense used here, adjusts or estimates parameter values within defensible ranges so outputs fit relevant observations according to stated criteria. A good fit can improve a model's use; it cannot by itself show that every assumption or proposed mechanism is correct.
+**Calibration**, in the sense used here, adjusts or estimates parameter values within defensible ranges so outputs fit relevant observations according to stated criteria. This is model fitting, not the instrument calibration of [Measurement, reliability, and validity (PREM-SCI-006)](https://embeddedknowledge.io/premed/lessons/read/?lesson=PREM-SCI-006), which relates a device's readings to measurement standards; both aim to make outputs trustworthy, but one tunes a model and the other a measuring instrument. A good fit can improve a model's use; it cannot by itself show that every assumption or proposed mechanism is correct.
 
 ## 3. At what scale and in what domain?
 
