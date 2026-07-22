@@ -1,0 +1,775 @@
+{
+  "schemaVersion": 3,
+  "format": "embeddedknowledge-lesson-v1",
+  "artifactType": "production-lesson",
+  "id": "PREM-QNT-010",
+  "version": "0.1.0",
+  "title": "Identify, parameterize, predict: proportional models",
+  "status": "draft",
+  "riskTier": "standard",
+  "estimatedMinutes": 240,
+  "outcomes": [
+    "topic-quantitative-foundations-proportional-models"
+  ],
+  "prerequisites": [
+    "topic-quantitative-foundations-ratios-proportions",
+    "topic-quantitative-foundations-functions-graphs"
+  ],
+  "objectives": [
+    {
+      "id": "objective-identify-family",
+      "statement": "Distinguish direct, inverse, and general power-law models using equations, scale-factor behavior, tables, and invariant ratios or products.",
+      "outcomeIds": [
+        "topic-quantitative-foundations-proportional-models"
+      ]
+    },
+    {
+      "id": "objective-parameterize-model",
+      "statement": "Determine a proportionality constant and power exponent from exact or approximate data while tracking the units and domain of each parameter.",
+      "outcomeIds": [
+        "topic-quantitative-foundations-proportional-models"
+      ]
+    },
+    {
+      "id": "objective-predict-scaling",
+      "statement": "Predict responses under changes in the input using y = kx^p and compare predictions with observed values or residuals.",
+      "outcomeIds": [
+        "topic-quantitative-foundations-proportional-models"
+      ]
+    },
+    {
+      "id": "objective-log-linearize",
+      "statement": "Linearize a positive-variable power law on logarithmic coordinates and interpret log-log slope as the exponent and intercept as the logarithm of the constant.",
+      "outcomeIds": [
+        "topic-quantitative-foundations-proportional-models"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene-orientation",
+      "title": "Predictable change is not always direct proportion",
+      "kind": "orientation",
+      "source": "content/010-orientation.md",
+      "estimatedMinutes": 25,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Predictable change is not always direct proportion</h1>\n<p>A fictional process produces this exact table:</p>\n<table>\n<thead>\n<tr>\n<th align=\"right\">Input <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>x</mi><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span></th>\n<th align=\"right\">Response <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>y</mi><annotation encoding=\"application/x-tex\">y</annotation></semantics></math></span></th>\n<th align=\"right\">Ratio <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mi>/</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">y/x</annotation></semantics></math></span></th>\n<th align=\"right\">Product <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mi>y</mi></mrow><annotation encoding=\"application/x-tex\">xy</annotation></semantics></math></span></th>\n</tr>\n</thead>\n<tbody><tr>\n<td align=\"right\">2</td>\n<td align=\"right\">24</td>\n<td align=\"right\">12</td>\n<td align=\"right\">48</td>\n</tr>\n<tr>\n<td align=\"right\">4</td>\n<td align=\"right\">12</td>\n<td align=\"right\">3</td>\n<td align=\"right\">48</td>\n</tr>\n<tr>\n<td align=\"right\">8</td>\n<td align=\"right\">6</td>\n<td align=\"right\">0.75</td>\n<td align=\"right\">48</td>\n</tr>\n</tbody></table>\n<p>The response changes predictably, but it is not directly proportional to the input: <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mi>/</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">y/x</annotation></semantics></math></span> is not constant. The product <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mi>y</mi><mo>=</mo><mn>48</mn></mrow><annotation encoding=\"application/x-tex\">xy=48</annotation></semantics></math></span> is constant, identifying the inverse model <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo>=</mo><mn>48</mn><mi>/</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">y=48/x</annotation></semantics></math></span>. Doubling <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>x</mi><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span> halves <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>y</mi><annotation encoding=\"application/x-tex\">y</annotation></semantics></math></span>.</p>\n<p>This lesson uses a four-part model audit: <strong>identify</strong> a candidate family from its invariant or scaling behavior, <strong>parameterize</strong> it, <strong>predict</strong>, then <strong>check</strong> units, residuals, and the domain over which the model is justified.</p>\n<h2>Starting check</h2>\n<ul>\n<li>Under direct proportion, what happens to <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>y</mi><annotation encoding=\"application/x-tex\">y</annotation></semantics></math></span> when <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>x</mi><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span> triples?</li>\n<li>Under inverse proportion, what happens to <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>y</mi><annotation encoding=\"application/x-tex\">y</annotation></semantics></math></span> when <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>x</mi><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span> triples?</li>\n<li>Can three smooth-looking points prove a model holds for every possible input?</li>\n</ul>\n<p>If a graph is inaccessible, use a coordinate table plus columns for candidate invariants and predicted values.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-power-law-scaling, claim-invariants</span><span><b>sources</b> source-nist-dlmf-powers</span></div>\n    <div class=\"ek-block-content\"><p>NIST DLMF supports the power and logarithm relations used. The table and model audit are original.</p>\n</div>\n  </aside>\n<h2>Accessibility and alternatives</h2>\n<p>Every essential pattern is represented by equations, coordinates, tables, and verbal scale-factor descriptions. No task requires judging curve shape visually, distinguishing colors, or interacting with a graph.</p>\n"
+    },
+    {
+      "id": "scene-concept",
+      "title": "Identify a model by what stays invariant",
+      "kind": "concept",
+      "source": "content/020-concept.md",
+      "estimatedMinutes": 45,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Identify a model by what stays invariant</h1>\n<p>Three related families can be written as power laws.</p>\n<table>\n<thead>\n<tr>\n<th>Family</th>\n<th>Equation</th>\n<th>Exact invariant</th>\n<th>If <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>x</mi><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span> is multiplied by <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>c</mi><annotation encoding=\"application/x-tex\">c</annotation></semantics></math></span></th>\n</tr>\n</thead>\n<tbody><tr>\n<td>Direct</td>\n<td><span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo>=</mo><mi>k</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">y=kx</annotation></semantics></math></span></td>\n<td><span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mi>/</mi><mi>x</mi><mo>=</mo><mi>k</mi></mrow><annotation encoding=\"application/x-tex\">y/x=k</annotation></semantics></math></span></td>\n<td><span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>y</mi><annotation encoding=\"application/x-tex\">y</annotation></semantics></math></span> is multiplied by <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>c</mi><annotation encoding=\"application/x-tex\">c</annotation></semantics></math></span></td>\n</tr>\n<tr>\n<td>Inverse</td>\n<td><span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo>=</mo><mi>k</mi><mi>/</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">y=k/x</annotation></semantics></math></span></td>\n<td><span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mi>y</mi><mo>=</mo><mi>k</mi></mrow><annotation encoding=\"application/x-tex\">xy=k</annotation></semantics></math></span></td>\n<td><span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>y</mi><annotation encoding=\"application/x-tex\">y</annotation></semantics></math></span> is divided by <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>c</mi><annotation encoding=\"application/x-tex\">c</annotation></semantics></math></span></td>\n</tr>\n<tr>\n<td>Power</td>\n<td><span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo>=</mo><mi>k</mi><msup><mi>x</mi><mi class=\"tml-sml-pad\">p</mi></msup></mrow><annotation encoding=\"application/x-tex\">y=kx^p</annotation></semantics></math></span></td>\n<td><span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mi>/</mi><msup><mi>x</mi><mi class=\"tml-sml-pad\">p</mi></msup><mo>=</mo><mi>k</mi></mrow><annotation encoding=\"application/x-tex\">y/x^p=k</annotation></semantics></math></span></td>\n<td><span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>y</mi><annotation encoding=\"application/x-tex\">y</annotation></semantics></math></span> is multiplied by <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mi>c</mi><mi class=\"tml-sml-pad\">p</mi></msup><annotation encoding=\"application/x-tex\">c^p</annotation></semantics></math></span></td>\n</tr>\n</tbody></table>\n<p>Direct and inverse models are the cases <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">p=1</annotation></semantics></math></span> and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi><mo>=</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">p=-1</annotation></semantics></math></span>. A power with <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">p=0</annotation></semantics></math></span> is constant with respect to <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>x</mi><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span>, not directly proportional.</p>\n<h2>Parameters and units</h2>\n<p>For two exact positive points on a power law,</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mfrac><msub><mi>y</mi><mn>2</mn></msub><msub><mi>y</mi><mn>1</mn></msub></mfrac><mo>=</mo><msup><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"true\">(</mo><mfrac><msub><mi>x</mi><mn>2</mn></msub><msub><mi>x</mi><mn>1</mn></msub></mfrac><mo fence=\"true\" form=\"postfix\" stretchy=\"true\">)</mo></mrow><mi>p</mi></msup><mo separator=\"true\">,</mo></mrow><annotation encoding=\"application/x-tex\">\\frac{y_2}{y_1}=\\left(\\frac{x_2}{x_1}\\right)^p,</annotation></semantics></math></div>\n<p>so</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mi>p</mi><mo>=</mo><mfrac><mrow><mrow><mi>log</mi><mo>⁡</mo></mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><msub><mi>y</mi><mn>2</mn></msub><mi>/</mi><msub><mi>y</mi><mn>1</mn></msub><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow><mrow><mrow><mi>log</mi><mo>⁡</mo></mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><msub><mi>x</mi><mn>2</mn></msub><mi>/</mi><msub><mi>x</mi><mn>1</mn></msub><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow></mfrac><mo separator=\"true\">,</mo><mspace width=\"2em\"></mspace><mi>k</mi><mo>=</mo><mfrac><msub><mi>y</mi><mn>1</mn></msub><msubsup><mi>x</mi><mn>1</mn><mi class=\"tml-sml-pad\">p</mi></msubsup></mfrac><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">p=\\frac{\\log(y_2/y_1)}{\\log(x_2/x_1)},\\qquad k=\\frac{y_1}{x_1^p}.</annotation></semantics></math></div>\n<p>The units of <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>k</mi><annotation encoding=\"application/x-tex\">k</annotation></semantics></math></span> are response units divided by input units raised to <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>p</mi><annotation encoding=\"application/x-tex\">p</annotation></semantics></math></span>. A numerical value for <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>k</mi><annotation encoding=\"application/x-tex\">k</annotation></semantics></math></span> is incomplete without the variable definitions and units.</p>\n<h2>Log-log linearization</h2>\n<p>For positive <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo separator=\"true\">,</mo><mi>y</mi><mo separator=\"true\">,</mo><mi>k</mi></mrow><annotation encoding=\"application/x-tex\">x,y,k</annotation></semantics></math></span>,</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mrow><mi>log</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mi>y</mi><mo>=</mo><mrow><mi>log</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mi>k</mi><mo>+</mo><mi>p</mi><mrow><mspace width=\"0.1667em\"></mspace><mi>log</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mi>x</mi><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">\\log y=\\log k+p\\log x.</annotation></semantics></math></div>\n<p>Thus coordinates <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mrow><mi>log</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mi>x</mi><mo separator=\"true\">,</mo><mrow><mi>log</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mi>y</mi><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(\\log x,\\log y)</annotation></semantics></math></span> follow a line with slope <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>p</mi><annotation encoding=\"application/x-tex\">p</annotation></semantics></math></span> and intercept <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mrow><mi>log</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mi>k</mi></mrow><annotation encoding=\"application/x-tex\">\\log k</annotation></semantics></math></span> under an exact power law. The logarithm base changes the coordinate numbers but not the fitted slope when used consistently.</p>\n<h2>Checking a candidate</h2>\n<p>A scatterplot can expose relationship structure, but shape alone does not establish a law. Calculate fitted values <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mover><mi>y</mi><mo stretchy=\"true\" style=\"math-depth:0;\">^</mo></mover><annotation encoding=\"application/x-tex\">\\widehat y</annotation></semantics></math></span> and residuals <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>e</mi><mo>=</mo><mi>y</mi><mo>−</mo><mover><mi>y</mi><mo stretchy=\"true\" style=\"math-depth:0;\">^</mo></mover></mrow><annotation encoding=\"application/x-tex\">e=y-\\widehat y</annotation></semantics></math></span>; look for systematic sign patterns, changing spread, or influential points. Prefer predictions inside the observed domain. Extrapolation assumes the same relationship continues beyond evidence.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-power-law-scaling, claim-invariants, claim-log-linearization, claim-model-checking</span><span><b>sources</b> source-nist-dlmf-powers, source-nist-scatterplot, source-nist-transformations</span></div>\n    <div class=\"ek-block-content\"><p>NIST supports powers/logarithms and the roles of scatterplots and transformations in checking relationships. The family comparison and audit are original synthesis.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-worked-example",
+      "title": "Recover a power law from a table",
+      "kind": "worked-example",
+      "source": "content/030-worked-example.md",
+      "estimatedMinutes": 40,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Recover a power law from a table</h1>\n<p>A fictional calibration exercise gives exact positive coordinates <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>1,5</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(1,5)</annotation></semantics></math></span>, <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>2,20</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(2,20)</annotation></semantics></math></span>, and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>4,80</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(4,80)</annotation></semantics></math></span>. Test a power model <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo>=</mo><mi>k</mi><msup><mi>x</mi><mi class=\"tml-sml-pad\">p</mi></msup></mrow><annotation encoding=\"application/x-tex\">y=kx^p</annotation></semantics></math></span>.</p>\n<aside class=\"ek-block ek-worked-example ek-block--worked-example\" data-directive=\"worked-example\">\n    <div class=\"ek-block-label directive-label\">Worked Example</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> worked-example-power-table</span></div>\n    <div class=\"ek-block-content\"><p><strong>1. Identify scaling.</strong> When <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>x</mi><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span> doubles from 1 to 2, <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>y</mi><annotation encoding=\"application/x-tex\">y</annotation></semantics></math></span> is multiplied by 4. The same happens from 2 to 4.</p>\n<p><strong>2. Recover the exponent.</strong></p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mn>4</mn><mo>=</mo><msup><mn>2</mn><mi>p</mi></msup><mo separator=\"true\">,</mo></mrow><annotation encoding=\"application/x-tex\">4=2^p,</annotation></semantics></math></div>\n<p>so <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">p=2</annotation></semantics></math></span>.</p>\n<p><strong>3. Recover the constant.</strong> Using <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>1,5</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(1,5)</annotation></semantics></math></span>,</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mi>k</mi><mo>=</mo><mfrac><mn>5</mn><msup><mn>1</mn><mn>2</mn></msup></mfrac><mo>=</mo><mn>5.</mn></mrow><annotation encoding=\"application/x-tex\">k=\\frac{5}{1^2}=5.</annotation></semantics></math></div>\n<p>The model is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo>=</mo><mn>5</mn><msup><mi>x</mi><mn class=\"tml-sml-pad\">2</mn></msup></mrow><annotation encoding=\"application/x-tex\">y=5x^2</annotation></semantics></math></span>. If <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>x</mi><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span> is measured in input units and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>y</mi><annotation encoding=\"application/x-tex\">y</annotation></semantics></math></span> in response units, <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>k</mi><annotation encoding=\"application/x-tex\">k</annotation></semantics></math></span> has response-units per input-unit squared.</p>\n<p><strong>4. Check every coordinate.</strong> The fitted responses are 5, 20, and 80, so all residuals are zero for the stated exact table.</p>\n<p><strong>5. Check on base-10 log coordinates.</strong> The points are approximately <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>0,0.699</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(0,0.699)</annotation></semantics></math></span>, <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>0.301,1.301</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(0.301,1.301)</annotation></semantics></math></span>, and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>0.602,1.903</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(0.602,1.903)</annotation></semantics></math></span>. Each step has slope <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>0.602</mn><mi>/</mi><mn>0.301</mn><mo>=</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">0.602/0.301=2</annotation></semantics></math></span>; the intercept is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>log</mi><mn>10</mn></msub><mo>⁡</mo><mspace width=\"0.1667em\"></mspace><mn>5</mn><mo>≈</mo><mn>0.699</mn></mrow><annotation encoding=\"application/x-tex\">\\log_{10}5\\approx0.699</annotation></semantics></math></span>.</p>\n<p><strong>6. Predict within a declared model.</strong> At <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">x=3</annotation></semantics></math></span>, <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mover><mi>y</mi><mo stretchy=\"true\" style=\"math-depth:0;\">^</mo></mover><mo>=</mo><mn>5</mn><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><msup><mn>3</mn><mn>2</mn></msup><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>=</mo><mn>45</mn></mrow><annotation encoding=\"application/x-tex\">\\widehat y=5(3^2)=45</annotation></semantics></math></span>. This is interpolation between observed inputs 2 and 4.</p>\n</div>\n  </aside>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-direct-versus-square</span></div>\n    <div class=\"ek-block-content\"><p>Why is this not direct proportionality even though larger <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>x</mi><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span> gives larger <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>y</mi><annotation encoding=\"application/x-tex\">y</annotation></semantics></math></span>?</p>\n</div>\n  </aside>\n<p>The ratio <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mi>/</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">y/x</annotation></semantics></math></span> changes from 5 to 10 to 20. Direct proportion requires that ratio to remain constant.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-power-law-scaling, claim-invariants, claim-log-linearization</span><span><b>sources</b> source-nist-dlmf-powers</span></div>\n    <div class=\"ek-block-content\"><p>The table, solution, log coordinates, unit analysis, and prediction are original applications of standard power and logarithm relations.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-misconception",
+      "title": "A smooth pattern does not select the model",
+      "kind": "misconception",
+      "source": "content/040-misconception.md",
+      "estimatedMinutes": 30,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>A smooth pattern does not select the model</h1>\n<aside class=\"ek-block ek-misconception ek-block--misconception\" data-directive=\"misconception\">\n    <div class=\"ek-block-label directive-label\">Misconception</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> misconception-smooth-means-direct</span></div>\n    <div class=\"ek-block-content\"><p>A response that changes smoothly with an input is not necessarily directly proportional. Direct proportionality specifically requires <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo>=</mo><mi>k</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">y=kx</annotation></semantics></math></span>, so <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mi>/</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">y/x</annotation></semantics></math></span> must be constant and the model gives zero response at zero input.</p>\n<p>For coordinates <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>2,8</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(2,8)</annotation></semantics></math></span>, <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>4,4</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(4,4)</annotation></semantics></math></span>, and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>8,2</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(8,2)</annotation></semantics></math></span>, the response decreases smoothly. The ratios are 4, 1, and 0.25, but every product is 16. These coordinates support <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo>=</mo><mn>16</mn><mi>/</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">y=16/x</annotation></semantics></math></span>, not a direct model.</p>\n</div>\n  </aside>\n<p>For approximate observations, compare candidate invariants and residuals rather than demanding exact equality. A convincing fit still does not prove causation, erase measurement uncertainty, or authorize extrapolation outside the observed range.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-power-law-scaling, claim-invariants, claim-model-checking</span><span><b>sources</b> source-nist-dlmf-powers, source-nist-scatterplot, source-nist-transformations</span></div>\n    <div class=\"ek-block-content\"><p>NIST supports the mathematical relations and the use of scatterplots and transformations to inspect relationships. The counterexample and repair are original.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-practice",
+      "title": "Test invariants before fitting",
+      "kind": "practice",
+      "source": "content/050-practice.md",
+      "estimatedMinutes": 40,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Test invariants before fitting</h1>\n<h2>1. Direct model</h2>\n<p>An exact model gives <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo>=</mo><mn>18</mn></mrow><annotation encoding=\"application/x-tex\">y=18</annotation></semantics></math></span> when <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>6</mn></mrow><annotation encoding=\"application/x-tex\">x=6</annotation></semantics></math></span> and is directly proportional. Find <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>k</mi><annotation encoding=\"application/x-tex\">k</annotation></semantics></math></span> and predict <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>y</mi><annotation encoding=\"application/x-tex\">y</annotation></semantics></math></span> at <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>10</mn></mrow><annotation encoding=\"application/x-tex\">x=10</annotation></semantics></math></span>.</p>\n<p><strong>Feedback:</strong> <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>k</mi><mo>=</mo><mi>y</mi><mi>/</mi><mi>x</mi><mo>=</mo><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">k=y/x=3</annotation></semantics></math></span>, so <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo>=</mo><mn>3</mn><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">y=3x</annotation></semantics></math></span> and the prediction is 30.</p>\n<h2>2. Inverse model</h2>\n<p>An exact inverse model gives <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo>=</mo><mn>12</mn></mrow><annotation encoding=\"application/x-tex\">y=12</annotation></semantics></math></span> at <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>5</mn></mrow><annotation encoding=\"application/x-tex\">x=5</annotation></semantics></math></span>. Predict <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>y</mi><annotation encoding=\"application/x-tex\">y</annotation></semantics></math></span> at <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>15</mn></mrow><annotation encoding=\"application/x-tex\">x=15</annotation></semantics></math></span>.</p>\n<p><strong>Feedback:</strong> <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>k</mi><mo>=</mo><mi>x</mi><mi>y</mi><mo>=</mo><mn>60</mn></mrow><annotation encoding=\"application/x-tex\">k=xy=60</annotation></semantics></math></span>. Thus <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo>=</mo><mn>60</mn><mi>/</mi><mn>15</mn><mo>=</mo><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">y=60/15=4</annotation></semantics></math></span>; tripling input divides response by 3.</p>\n<h2>3. Scale a power law</h2>\n<p>If <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo>=</mo><mi>k</mi><msup><mi>x</mi><mrow class=\"tml-sml-pad\"><mn>3</mn><mi>/</mi><mn>2</mn></mrow></msup></mrow><annotation encoding=\"application/x-tex\">y=kx^{3/2}</annotation></semantics></math></span>, by what factor does <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>y</mi><annotation encoding=\"application/x-tex\">y</annotation></semantics></math></span> change when <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>x</mi><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span> is multiplied by 4?</p>\n<p><strong>Feedback:</strong> The response factor is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>4</mn><mrow><mn>3</mn><mi>/</mi><mn>2</mn></mrow></msup><mo>=</mo><mn>8</mn></mrow><annotation encoding=\"application/x-tex\">4^{3/2}=8</annotation></semantics></math></span>.</p>\n<h2>4. Read a log-log slope</h2>\n<p>Base-10 log coordinates include <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>0,1</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(0,1)</annotation></semantics></math></span> and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>2,4</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(2,4)</annotation></semantics></math></span>. Find the power exponent.</p>\n<p><strong>Feedback:</strong> <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi><mo>=</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>4</mn><mo>−</mo><mn>1</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mi>/</mi><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>2</mn><mo>−</mo><mn>0</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>=</mo><mn>1.5</mn></mrow><annotation encoding=\"application/x-tex\">p=(4-1)/(2-0)=1.5</annotation></semantics></math></span>. The intercept is 1, so <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>k</mi><mo>=</mo><mn>10</mn></mrow><annotation encoding=\"application/x-tex\">k=10</annotation></semantics></math></span> in the declared units.</p>\n<h2>Recovery route</h2>\n<ul>\n<li>Model family unclear: calculate <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mi>/</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">y/x</annotation></semantics></math></span>, <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mi>y</mi></mrow><annotation encoding=\"application/x-tex\">xy</annotation></semantics></math></span>, and a scale-factor exponent before fitting.</li>\n<li>Constant changes across rows: distinguish exact data from rounded or noisy observations and inspect residuals.</li>\n<li>Exponent sign wrong: ask whether response rises or falls as positive input grows.</li>\n<li>Log-log intercept misread: convert <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mrow><mi>log</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mi>k</mi></mrow><annotation encoding=\"application/x-tex\">\\log k</annotation></semantics></math></span> back to <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>k</mi><annotation encoding=\"application/x-tex\">k</annotation></semantics></math></span> using the same base.</li>\n<li>Prediction seems precise but lies outside the data range: label it extrapolation and state the assumption.</li>\n</ul>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-power-law-scaling, claim-invariants, claim-log-linearization, claim-model-checking</span><span><b>sources</b> source-nist-dlmf-powers, source-nist-scatterplot, source-nist-transformations</span></div>\n    <div class=\"ek-block-content\"><p>All practice, feedback, and recovery guidance are original.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-transfer",
+      "title": "Audit a near-square scaling model",
+      "kind": "transfer",
+      "source": "content/060-transfer.md",
+      "estimatedMinutes": 35,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Audit a near-square scaling model</h1>\n<p>A fictional process returns approximate observations:</p>\n<table>\n<thead>\n<tr>\n<th align=\"right\">Input <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>x</mi><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span></th>\n<th align=\"right\">Observed <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>y</mi><annotation encoding=\"application/x-tex\">y</annotation></semantics></math></span></th>\n<th align=\"right\"><span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mi>/</mi><msup><mi>x</mi><mn class=\"tml-sml-pad\">2</mn></msup></mrow><annotation encoding=\"application/x-tex\">y/x^2</annotation></semantics></math></span></th>\n</tr>\n</thead>\n<tbody><tr>\n<td align=\"right\">1</td>\n<td align=\"right\">6.1</td>\n<td align=\"right\">6.100</td>\n</tr>\n<tr>\n<td align=\"right\">2</td>\n<td align=\"right\">24.2</td>\n<td align=\"right\">6.050</td>\n</tr>\n<tr>\n<td align=\"right\">4</td>\n<td align=\"right\">95.5</td>\n<td align=\"right\">5.969</td>\n</tr>\n<tr>\n<td align=\"right\">8</td>\n<td align=\"right\">386.0</td>\n<td align=\"right\">6.031</td>\n</tr>\n</tbody></table>\n<p>Assess the candidate model <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mover><mi>y</mi><mo stretchy=\"true\" style=\"math-depth:0;\">^</mo></mover><mo>=</mo><mn>6</mn><msup><mi>x</mi><mn class=\"tml-sml-pad\">2</mn></msup></mrow><annotation encoding=\"application/x-tex\">\\widehat y=6x^2</annotation></semantics></math></span> and predict at <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>6</mn></mrow><annotation encoding=\"application/x-tex\">x=6</annotation></semantics></math></span>.</p>\n<h2>Feedback after a complete attempt</h2>\n<p>The near-constant <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mi>/</mi><msup><mi>x</mi><mn class=\"tml-sml-pad\">2</mn></msup></mrow><annotation encoding=\"application/x-tex\">y/x^2</annotation></semantics></math></span> values support a square-law candidate with <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">p=2</annotation></semantics></math></span> and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>k</mi><mo>≈</mo><mn>6</mn></mrow><annotation encoding=\"application/x-tex\">k\\approx6</annotation></semantics></math></span>. Model predictions for the observed inputs are 6, 24, 96, and 384. Residuals <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo>−</mo><mover><mi>y</mi><mo stretchy=\"true\" style=\"math-depth:0;\">^</mo></mover></mrow><annotation encoding=\"application/x-tex\">y-\\widehat y</annotation></semantics></math></span> are 0.1, 0.2, -0.5, and 2.0.</p>\n<p>At <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>6</mn></mrow><annotation encoding=\"application/x-tex\">x=6</annotation></semantics></math></span>,</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mover><mi>y</mi><mo stretchy=\"true\" style=\"math-depth:0;\">^</mo></mover><mo>=</mo><mn>6</mn><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><msup><mn>6</mn><mn>2</mn></msup><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>=</mo><mn>216.</mn></mrow><annotation encoding=\"application/x-tex\">\\widehat y=6(6^2)=216.</annotation></semantics></math></div>\n<p>This is interpolation because 6 lies between observed inputs 4 and 8. The largest absolute residual occurs at <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>8</mn></mrow><annotation encoding=\"application/x-tex\">x=8</annotation></semantics></math></span>, but residual size should also be judged against response scale and measurement context. The model is an economical summary, not proof of a mechanism.</p>\n<p>All values are fictional, and the calculation is not forecasting or engineering advice.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-power-law-scaling, claim-invariants, claim-log-linearization, claim-model-checking</span><span><b>sources</b> source-nist-dlmf-powers, source-nist-scatterplot, source-nist-transformations</span></div>\n    <div class=\"ek-block-content\"><p>The dataset, candidate, residual audit, prediction, and boundary statement are original.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-synthesis",
+      "title": "Rebuild the proportional-model audit",
+      "kind": "synthesis",
+      "source": "content/070-synthesis.md",
+      "estimatedMinutes": 25,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Rebuild the proportional-model audit</h1>\n<ol>\n<li>Define variables, units, domain, and whether observations are exact or approximate.</li>\n<li>Identify candidates using <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mi>/</mi><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">y/x</annotation></semantics></math></span>, <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mi>y</mi></mrow><annotation encoding=\"application/x-tex\">xy</annotation></semantics></math></span>, <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mi>/</mi><msup><mi>x</mi><mi class=\"tml-sml-pad\">p</mi></msup></mrow><annotation encoding=\"application/x-tex\">y/x^p</annotation></semantics></math></span>, or scale-factor behavior.</li>\n<li>Parameterize <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>k</mi><annotation encoding=\"application/x-tex\">k</annotation></semantics></math></span> and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>p</mi><annotation encoding=\"application/x-tex\">p</annotation></semantics></math></span>; state the units of <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>k</mi><annotation encoding=\"application/x-tex\">k</annotation></semantics></math></span>.</li>\n<li>Predict, then compare fitted values and residuals with observations.</li>\n<li>Check log-log behavior only for positive values and label interpolation versus extrapolation.</li>\n</ol>\n<h2>Retrieval</h2>\n<ul>\n<li>What invariant distinguishes direct from inverse proportion?</li>\n<li>How does multiplying <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>x</mi><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span> by <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>c</mi><annotation encoding=\"application/x-tex\">c</annotation></semantics></math></span> affect <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo>=</mo><mi>k</mi><msup><mi>x</mi><mi class=\"tml-sml-pad\">p</mi></msup></mrow><annotation encoding=\"application/x-tex\">y=kx^p</annotation></semantics></math></span>?</li>\n<li>What do slope and intercept mean on log-log coordinates?</li>\n<li>Why can a good visual fit still be an inadequate model?</li>\n</ul>\n<p>Complete <code>assessment.json</code>. If family selection fails, rebuild the invariant columns. If log interpretation fails, redo the exact three-point example. If a plot feels essential, replace it with ordered coordinates, predictions, and residuals before retrying.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-power-law-scaling, claim-invariants, claim-log-linearization, claim-model-checking</span><span><b>sources</b> source-nist-dlmf-powers, source-nist-scatterplot, source-nist-transformations</span></div>\n    <div class=\"ek-block-content\"><p>The synthesis applies sourced mathematical and model-checking relations through an original identify-parameterize-predict-check method.</p>\n</div>\n  </aside>\n"
+    }
+  ],
+  "authors": [
+    {
+      "principalId": "github:VSBDev",
+      "displayName": "VSBDev — accountable author with Codex assistance",
+      "agent": {
+        "system": "Codex desktop",
+        "provider": "OpenAI",
+        "model": "gpt-5.6-sol",
+        "version": "Codex desktop runtime 2026-07-22",
+        "runId": "77688564-3387-4f64-ab15-6466cbc54176",
+        "instructionsDigest": "sha256:bc8b581f3ca1686c6adaba4bcc9c67f115658a410a92e88c5ee45bdcdfc33150"
+      }
+    }
+  ],
+  "license": "CC-BY-4.0",
+  "sourceConfidence": "pending-review",
+  "aiAssistance": {
+    "used": true,
+    "disclosure": "VSBDev (github:VSBDev) is accountable. OpenAI Codex, model gpt-5.6-sol, authored, researched, edited, and packaged this lesson in run 77688564-3387-4f64-ab15-6466cbc54176. The digest covers discloseable material task instructions, not hidden system or provider instructions."
+  },
+  "assessment": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-assessment-v1",
+    "lessonId": "PREM-QNT-010",
+    "lessonVersion": "0.1.0",
+    "assessmentId": "assessment-proportional-model-audit",
+    "title": "Proportional models mastery gate",
+    "purpose": "mastery-gate",
+    "attemptPolicy": {
+      "retakeable": true,
+      "timeLimitMinutes": null,
+      "feedback": "after-attempt"
+    },
+    "items": [
+      {
+        "id": "item-identify-direct",
+        "type": "short-answer",
+        "sceneId": "scene-synthesis",
+        "objectiveIds": [
+          "objective-identify-family"
+        ],
+        "outcomeIds": [
+          "topic-quantitative-foundations-proportional-models"
+        ],
+        "prompt": "An exact table has coordinates (1,7), (2,14), and (4,28). Identify the proportional family, calculate its invariant, and state the model.",
+        "points": 4,
+        "responseSpec": {
+          "mode": "text",
+          "maxLength": 900
+        },
+        "answer": {
+          "correct": "The ratio y/x is 7 for every point, so the relationship is direct proportionality with model y = 7x.",
+          "summary": "Direct model y = 7x; invariant y/x = 7.",
+          "reasoning": "A constant response-to-input ratio identifies exact direct proportionality.",
+          "acceptableResponses": [],
+          "commonErrors": [
+            "Calling it inverse because inputs double",
+            "Reporting only that the pattern increases",
+            "Using xy as the invariant"
+          ]
+        },
+        "rubricId": "rubric-identify-direct",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-inverse-predict",
+        "type": "short-answer",
+        "sceneId": "scene-synthesis",
+        "objectiveIds": [
+          "objective-identify-family",
+          "objective-predict-scaling"
+        ],
+        "outcomeIds": [
+          "topic-quantitative-foundations-proportional-models"
+        ],
+        "prompt": "In an exact inverse model, y = 15 when x = 4. Find k and predict y when x = 10. Include a scale-factor check.",
+        "points": 5,
+        "responseSpec": {
+          "mode": "text",
+          "maxLength": 1000
+        },
+        "answer": {
+          "correct": "k = xy = 60, so y = 60/x and y(10) = 6. Input is multiplied by 2.5, so response 15 is divided by 2.5 to give 6.",
+          "summary": "k = 60; predicted y = 6.",
+          "reasoning": "The product xy is invariant in an inverse model.",
+          "acceptableResponses": [],
+          "commonErrors": [
+            "Multiplying 15 by 2.5",
+            "Using k = y/x",
+            "Predicting 150"
+          ]
+        },
+        "rubricId": "rubric-inverse-predict",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-power-factor",
+        "type": "short-answer",
+        "sceneId": "scene-synthesis",
+        "objectiveIds": [
+          "objective-predict-scaling"
+        ],
+        "outcomeIds": [
+          "topic-quantitative-foundations-proportional-models"
+        ],
+        "prompt": "When x is multiplied by 3, y is multiplied by 1/9 under an exact power model. Determine p and describe the relationship.",
+        "points": 4,
+        "responseSpec": {
+          "mode": "text",
+          "maxLength": 800
+        },
+        "answer": {
+          "correct": "3^p = 1/9 = 3^-2, so p = -2. The model has inverse-square scaling: y = kx^-2 = k/x^2.",
+          "summary": "p = -2; inverse-square relationship.",
+          "reasoning": "The response scale factor equals the input scale factor raised to p.",
+          "acceptableResponses": [],
+          "commonErrors": [
+            "Using p = 2",
+            "Calling every decreasing model inverse proportionality with p = -1",
+            "Using p = -9"
+          ]
+        },
+        "rubricId": "rubric-power-factor",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-recover-power",
+        "type": "short-answer",
+        "sceneId": "scene-synthesis",
+        "objectiveIds": [
+          "objective-parameterize-model",
+          "objective-predict-scaling"
+        ],
+        "outcomeIds": [
+          "topic-quantitative-foundations-proportional-models"
+        ],
+        "prompt": "Exact points (2,18) and (6,162) follow y = kx^p. Recover p and k, then state the units of k if x uses length units and y uses response units.",
+        "points": 6,
+        "responseSpec": {
+          "mode": "text",
+          "maxLength": 1300
+        },
+        "answer": {
+          "correct": "The input ratio is 3 and response ratio is 9, so 3^p = 9 and p = 2. Then k = 18/2^2 = 4.5. Its units are response units per length-unit squared.",
+          "summary": "p = 2; k = 4.5 response-units per length-unit squared.",
+          "reasoning": "Ratios remove k to identify p, then either point recovers k.",
+          "acceptableResponses": [],
+          "commonErrors": [
+            "Using p = 3",
+            "Using k = 9",
+            "Omitting or linearizing the units of k"
+          ]
+        },
+        "rubricId": "rubric-recover-power",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-log-log",
+        "type": "short-answer",
+        "sceneId": "scene-synthesis",
+        "objectiveIds": [
+          "objective-log-linearize"
+        ],
+        "outcomeIds": [
+          "topic-quantitative-foundations-proportional-models"
+        ],
+        "prompt": "On base-10 log coordinates, a candidate power law passes through (log x, log y) = (0,1.2), (1,1.7), and (2,2.2). Find p and k and state the positivity condition.",
+        "points": 5,
+        "responseSpec": {
+          "mode": "text",
+          "maxLength": 1100
+        },
+        "answer": {
+          "correct": "The slope is p = 0.5. The intercept is log10 k = 1.2, so k = 10^1.2 approximately 15.85 in the declared units. Ordinary real log coordinates require positive x, y, and k for this form.",
+          "summary": "p = 0.5; k approximately 15.85, for positive variables.",
+          "reasoning": "A power law becomes log y = log k + p log x.",
+          "acceptableResponses": [
+            "k between 15.84 and 15.86 with the stated condition"
+          ],
+          "commonErrors": [
+            "Using p = 1.2",
+            "Reporting k = 1.2",
+            "Ignoring positivity"
+          ]
+        },
+        "rubricId": "rubric-log-log",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-transfer-inverse",
+        "type": "open-response",
+        "sceneId": "scene-synthesis",
+        "objectiveIds": [
+          "objective-identify-family",
+          "objective-parameterize-model",
+          "objective-predict-scaling",
+          "objective-log-linearize"
+        ],
+        "outcomeIds": [
+          "topic-quantitative-foundations-proportional-models"
+        ],
+        "prompt": "A fictional dataset has coordinates (1,40.4), (2,19.8), (5,8.2), and (10,3.9). Assess the candidate y-hat = 40/x: calculate an invariant column, fitted values and residuals, predict at x = 8, identify the equivalent power exponent and log-log slope, and state domain and extrapolation cautions.",
+        "points": 10,
+        "responseSpec": {
+          "mode": "text",
+          "maxLength": 3400
+        },
+        "answer": {
+          "correct": "Products xy are 40.4, 39.6, 41.0, and 39.0, approximately constant near 40. Fitted values from 40/x are 40, 20, 8, and 4; residuals y-y-hat are 0.4, -0.2, 0.2, and -0.1. At x = 8 the prediction is 5, which is interpolation within 1 through 10. The equivalent power model is y = 40x^-1, so p and the log-log slope are -1. The model excludes x = 0, and real positive log coordinates require positive values. Extrapolation beyond the observed range assumes the same relationship continues and should not be presented as established fact.",
+          "summary": "The near-constant products support y-hat = 40/x; prediction 5; p = log-log slope = -1.",
+          "reasoning": "Products and residuals assess inverse fit; inverse proportionality is the power-law case p = -1.",
+          "acceptableResponses": [
+            "Equivalent rounded calculations with all interpretation and boundary elements"
+          ],
+          "commonErrors": [
+            "Using y/x as the invariant",
+            "Calculating residuals with the opposite sign without declaring it",
+            "Calling x = 8 extrapolation",
+            "Allowing x = 0",
+            "Using log-log slope 1"
+          ]
+        },
+        "rubricId": "rubric-transfer-inverse",
+        "safetyCritical": false
+      }
+    ],
+    "rubrics": [
+      {
+        "id": "rubric-identify-direct",
+        "title": "Identify direct proportion",
+        "criteria": [
+          {
+            "id": "criterion-direct-invariant",
+            "description": "Calculates constant y/x = 7.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-direct-model",
+            "description": "Identifies direct family and y = 7x.",
+            "maxPoints": 2
+          }
+        ]
+      },
+      {
+        "id": "rubric-inverse-predict",
+        "title": "Inverse prediction",
+        "criteria": [
+          {
+            "id": "criterion-inverse-k",
+            "description": "Obtains k = 60 and model 60/x.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-inverse-value",
+            "description": "Predicts y = 6.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-inverse-scale",
+            "description": "Checks inverse scale factor 2.5.",
+            "maxPoints": 1
+          }
+        ]
+      },
+      {
+        "id": "rubric-power-factor",
+        "title": "Power scale factor",
+        "criteria": [
+          {
+            "id": "criterion-power-exponent",
+            "description": "Solves p = -2.",
+            "maxPoints": 3
+          },
+          {
+            "id": "criterion-power-family",
+            "description": "Interprets inverse-square scaling.",
+            "maxPoints": 1
+          }
+        ]
+      },
+      {
+        "id": "rubric-recover-power",
+        "title": "Recover a power model",
+        "criteria": [
+          {
+            "id": "criterion-recover-p",
+            "description": "Obtains p = 2 from point ratios.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-recover-k",
+            "description": "Obtains k = 4.5.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-recover-units",
+            "description": "States response per squared length units.",
+            "maxPoints": 2
+          }
+        ]
+      },
+      {
+        "id": "rubric-log-log",
+        "title": "Interpret log-log coordinates",
+        "criteria": [
+          {
+            "id": "criterion-log-slope",
+            "description": "Obtains p = 0.5.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-log-intercept",
+            "description": "Converts intercept to k approximately 15.85.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-log-domain",
+            "description": "States positivity condition.",
+            "maxPoints": 1
+          }
+        ]
+      },
+      {
+        "id": "rubric-transfer-inverse",
+        "title": "Independent proportional-model audit",
+        "criteria": [
+          {
+            "id": "criterion-transfer-invariant",
+            "description": "Calculates approximately constant products.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-transfer-residuals",
+            "description": "Calculates fitted values and declared-sign residuals.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-transfer-predict",
+            "description": "Predicts 5 at x = 8 and identifies interpolation.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-transfer-power",
+            "description": "Identifies p and log-log slope as -1.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-transfer-boundaries",
+            "description": "States zero-domain, positivity, and extrapolation cautions.",
+            "maxPoints": 2
+          }
+        ]
+      }
+    ]
+  },
+  "references": {
+    "schemaVersion": 2,
+    "format": "embeddedknowledge-references-v2",
+    "lessonId": "PREM-QNT-010",
+    "lessonVersion": "0.1.0",
+    "sources": [
+      {
+        "id": "source-nist-dlmf-powers",
+        "type": "reference-work",
+        "title": "NIST Digital Library of Mathematical Functions, §4.2 Definitions: Logarithm, Exponential, Powers",
+        "creators": [
+          "National Institute of Standards and Technology"
+        ],
+        "publisher": "National Institute of Standards and Technology",
+        "issued": "2010",
+        "url": "https://dlmf.nist.gov/4.2",
+        "accessed": "2026-07-22",
+        "version": "DLMF web edition accessed 2026-07-22",
+        "locator": "§4.2(i), §4.2(ii), and §4.2(iv): logarithms, logarithms to a general base, and powers",
+        "license": "NIST public technical reference under NIST Copyrights & Disclaimers; third-party contributions and cited works excluded",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Only standard logarithm and power definitions and identities are used. All model classifications, explanations, examples, values, and assessments are original."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://www.nist.gov/copyrights-disclaimers",
+          "checked": "2026-07-22",
+          "notes": "NIST rights and public robots routes were checked before DLMF access; no source-specific agent restriction, login, paywall, or access-control barrier was found."
+        }
+      },
+      {
+        "id": "source-nist-scatterplot",
+        "type": "reference-work",
+        "title": "NIST/SEMATECH e-Handbook of Statistical Methods, §1.3.3.26 Scatter Plot",
+        "creators": [
+          "National Institute of Standards and Technology",
+          "SEMATECH"
+        ],
+        "publisher": "National Institute of Standards and Technology",
+        "issued": "2012",
+        "url": "https://itl.nist.gov/div898/handbook/eda/section3/eda33q.htm",
+        "accessed": "2026-07-22",
+        "version": "e-Handbook web edition accessed 2026-07-22",
+        "locator": "Purpose, definition, questions, and interpretation of scatter plots for relationships between variables",
+        "license": "NIST public technical reference under NIST Copyrights & Disclaimers; SEMATECH and other third-party material excluded",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Only the role of a scatter plot in inspecting variable relationships is used. No source plot, dataset, wording, or example is reproduced."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://www.nist.gov/copyrights-disclaimers",
+          "checked": "2026-07-22",
+          "notes": "NIST rights and public robots routes were checked before handbook access; no agent restriction, login, paywall, or access-control barrier was found."
+        }
+      },
+      {
+        "id": "source-nist-transformations",
+        "type": "reference-work",
+        "title": "NIST/SEMATECH e-Handbook of Statistical Methods, §4.6.2.4 Transformations to Improve Fit and Equalize Variances",
+        "creators": [
+          "National Institute of Standards and Technology",
+          "SEMATECH"
+        ],
+        "publisher": "National Institute of Standards and Technology",
+        "issued": "2012",
+        "url": "https://www.itl.nist.gov/div898/handbook/pmd/section6/pmd624.htm",
+        "accessed": "2026-07-22",
+        "version": "e-Handbook web edition accessed 2026-07-22",
+        "locator": "Use of logarithm, reciprocal, square-root, and power transformations to examine linearity and variation",
+        "license": "NIST public technical reference under NIST Copyrights & Disclaimers; SEMATECH and other third-party material excluded",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Only the general model-checking role and cautions of transformations are used. No source plot, dataset, wording, or example is reproduced."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://www.nist.gov/copyrights-disclaimers",
+          "checked": "2026-07-22",
+          "notes": "NIST rights and public robots routes were checked before handbook access; no agent restriction, login, paywall, or access-control barrier was found."
+        }
+      }
+    ]
+  },
+  "claims": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-claims-v1",
+    "lessonId": "PREM-QNT-010",
+    "lessonVersion": "0.1.0",
+    "claims": [
+      {
+        "id": "claim-power-law-scaling",
+        "statement": "For a power-law model y = kx^p, multiplying positive x by a scale factor c multiplies y by c^p; direct and inverse proportionality are the special cases p = 1 and p = -1.",
+        "sceneIds": [
+          "scene-orientation",
+          "scene-concept",
+          "scene-worked-example",
+          "scene-misconception",
+          "scene-practice",
+          "scene-transfer",
+          "scene-synthesis"
+        ],
+        "sourceIds": [
+          "source-nist-dlmf-powers"
+        ],
+        "support": "inference",
+        "confidence": "high",
+        "scope": "Real-valued models on domains where the stated powers and quantities are defined.",
+        "uncertainty": "Empirical systems may only follow a power law approximately and over a limited input range.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-invariants",
+        "statement": "Exact direct proportionality keeps y/x constant, exact inverse proportionality keeps xy constant, and an exact power law keeps y/x^p constant for a fixed exponent.",
+        "sceneIds": [
+          "scene-orientation",
+          "scene-concept",
+          "scene-worked-example",
+          "scene-misconception",
+          "scene-practice",
+          "scene-transfer",
+          "scene-synthesis"
+        ],
+        "sourceIds": [
+          "source-nist-dlmf-powers"
+        ],
+        "support": "inference",
+        "confidence": "high",
+        "scope": "Nonzero denominators and model domains declared in the lesson.",
+        "uncertainty": "Rounded or noisy observations yield approximately rather than exactly invariant values.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-log-linearization",
+        "statement": "For positive x, y, and k, taking logarithms of y = kx^p gives log y = log k + p log x, so a log-log representation has slope p and intercept log k.",
+        "sceneIds": [
+          "scene-concept",
+          "scene-worked-example",
+          "scene-practice",
+          "scene-transfer",
+          "scene-synthesis"
+        ],
+        "sourceIds": [
+          "source-nist-dlmf-powers"
+        ],
+        "support": "inference",
+        "confidence": "high",
+        "scope": "Positive real variables with a consistent logarithm base.",
+        "uncertainty": "A straight pattern after transformation is evidence for fit, not proof of a causal law or unlimited domain.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-model-checking",
+        "statement": "Scatterplots, transformations, and residual comparisons can reveal relationship structure and model mismatch; selecting a useful model also requires attention to variation, assumptions, and the observed domain.",
+        "sceneIds": [
+          "scene-concept",
+          "scene-misconception",
+          "scene-practice",
+          "scene-transfer",
+          "scene-synthesis"
+        ],
+        "sourceIds": [
+          "source-nist-scatterplot",
+          "source-nist-transformations"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Introductory inspection and comparison of candidate proportional models.",
+        "uncertainty": "Formal model selection and uncertainty quantification require methods beyond this lesson.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      }
+    ]
+  },
+  "glossary": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-glossary-v1",
+    "lessonId": "PREM-QNT-010",
+    "lessonVersion": "0.1.0",
+    "terms": [
+      {
+        "id": "term-direct-proportion",
+        "term": "direct proportionality",
+        "definition": "A relationship y = kx in which y/x equals the constant k wherever x is nonzero.",
+        "aliases": [
+          "direct variation"
+        ],
+        "sceneIds": [
+          "scene-orientation",
+          "scene-concept",
+          "scene-misconception",
+          "scene-practice",
+          "scene-synthesis"
+        ]
+      },
+      {
+        "id": "term-inverse-proportion",
+        "term": "inverse proportionality",
+        "definition": "A relationship y = k/x in which the product xy equals the constant k wherever x is nonzero.",
+        "aliases": [
+          "inverse variation"
+        ],
+        "sceneIds": [
+          "scene-orientation",
+          "scene-concept",
+          "scene-misconception",
+          "scene-practice",
+          "scene-synthesis"
+        ]
+      },
+      {
+        "id": "term-power-law",
+        "term": "power law",
+        "definition": "A relationship y = kx^p with fixed constant k and exponent p over a stated domain.",
+        "aliases": [
+          "power model"
+        ],
+        "sceneIds": [
+          "scene-concept",
+          "scene-worked-example",
+          "scene-practice",
+          "scene-transfer",
+          "scene-synthesis"
+        ]
+      },
+      {
+        "id": "term-proportionality-constant",
+        "term": "proportionality constant",
+        "definition": "The fixed multiplier k relating variables in a proportional model; its units depend on the model exponent.",
+        "aliases": [
+          "constant of proportionality"
+        ],
+        "sceneIds": [
+          "scene-concept",
+          "scene-worked-example",
+          "scene-practice",
+          "scene-transfer"
+        ]
+      },
+      {
+        "id": "term-invariant",
+        "term": "invariant",
+        "definition": "A calculated quantity that remains constant under an exact model, such as y/x for direct proportion or xy for inverse proportion.",
+        "aliases": [],
+        "sceneIds": [
+          "scene-orientation",
+          "scene-concept",
+          "scene-misconception",
+          "scene-practice",
+          "scene-transfer"
+        ]
+      },
+      {
+        "id": "term-residual",
+        "term": "residual",
+        "definition": "Observed response minus the response predicted by a model at the same input.",
+        "aliases": [
+          "prediction error"
+        ],
+        "sceneIds": [
+          "scene-concept",
+          "scene-misconception",
+          "scene-practice",
+          "scene-transfer",
+          "scene-synthesis"
+        ]
+      },
+      {
+        "id": "term-log-log",
+        "term": "log-log representation",
+        "definition": "A table or graph using logarithms of both positive variables, in which a power law becomes linear.",
+        "aliases": [
+          "double-log representation"
+        ],
+        "sceneIds": [
+          "scene-concept",
+          "scene-worked-example",
+          "scene-practice",
+          "scene-synthesis"
+        ]
+      }
+    ]
+  },
+  "attributionHtml": "<h1>Attribution</h1>\n<h2>Lesson identity and licence</h2>\n<ul>\n<li>Lesson: <strong>PREM-QNT-010 — Identify, parameterize, predict: proportional models</strong></li>\n<li>Outcome: <strong>PREM-03.10</strong> (<code>topic-quantitative-foundations-proportional-models</code>)</li>\n<li>Principal: <strong>VSBDev</strong> (<code>github:VSBDev</code>)</li>\n<li>Licence: <strong>Creative Commons Attribution 4.0 International (CC BY 4.0)</strong></li>\n<li>State: <strong>draft</strong>, source confidence <strong>pending-review</strong></li>\n</ul>\n<h2>Material agent assistance</h2>\n<p>OpenAI Codex authored, researched, edited, and packaged this lesson in one author-role run.</p>\n<table>\n<thead>\n<tr>\n<th>System</th>\n<th>Provider</th>\n<th>Model</th>\n<th>Version</th>\n<th>Run ID</th>\n<th>Material-instructions digest</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>Codex desktop</td>\n<td>OpenAI</td>\n<td><code>gpt-5.6-sol</code></td>\n<td>Codex desktop runtime 2026-07-22</td>\n<td><code>77688564-3387-4f64-ab15-6466cbc54176</code></td>\n<td><code>sha256:bc8b581f3ca1686c6adaba4bcc9c67f115658a410a92e88c5ee45bdcdfc33150</code></td>\n</tr>\n</tbody></table>\n<p>The digest identifies <code>/tmp/codex-packager-prompt-03-10.md</code>; unavailable hidden instructions are excluded. No other model authored or reviewed this lesson.</p>\n<h2>Originality, evidence, and rights</h2>\n<p>The proportional-model audit, inverse-table opening, power-law worked example, smooth-pattern misconception repair, near-square transfer, all values, feedback, recovery, and assessments are original. Every applied setting and dataset is fictional. NIST sources provide standard powers/logarithms and general model-checking guidance only. No source expression, plot, dataset, table, or example is copied or adapted.</p>\n<p>NIST rights and public robots routes were checked before access on 2026-07-22. No agent restriction, login, paywall, or access-control barrier was found. SEMATECH and other third-party expressions within the handbooks were not reused. No third-party assets, datasets, personal data, or patient material are included.</p>\n<p>This mathematical lesson provides no clinical, forecasting, or engineering advice and makes no claim of review, approval, publication, measured effectiveness, credit, or competence.</p>\n"
+}
