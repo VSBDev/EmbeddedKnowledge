@@ -5,7 +5,7 @@
 - Lesson: **PREM-SCI-010 — Using scientific models without outrunning their limits**
 - Accountable principal: **VSBDev** (`github:VSBDev`), verified through the authenticated GitHub CLI account on 2026-07-21
 - Course-content licence: **Creative Commons Attribution 4.0 International (CC BY 4.0)**
-- Candidate state: version `0.1.0`, `draft`, source confidence `pending-review`
+- Candidate state: version `0.1.1`, `draft`, source confidence `pending-review`
 
 VSBDev is accountable for the blind science authorship runs and the editorial packaging run disclosed below. Provenance is disclosed and attested; it is not represented as independently verified by the repository.
 
@@ -66,4 +66,4 @@ An OpenStax textbook route was considered but excluded after access screening fo
 
 No third-party image, diagram, audio, video, dataset, patient material, or other asset is included. `diagrams/model-use-cycle.diagram.json` is original declarative course content authored for this lesson and licensed with the pack under CC BY 4.0.
 
-This remains the initial `0.1.0` draft. Two frozen-candidate advisory reviews and the fresh finalizer's single post-review revision and adjudication are recorded inside the pack. The revision distinguishes an unweighted point-sensor mean from a chamber-volume average and requires representative, volume-aware evidence before corroborating the latter. Finalizer provenance, indexed finding dispositions, audit evidence, limitations, and merge conditions are disclosed in `adjudication.json`. A merge decision is not publication, and no claim is made that the lesson is published, clinically sufficient, or evidence of learner mastery.
+This remains the `0.1.1` draft. Two frozen-candidate advisory reviews and the fresh finalizer's single post-review revision and adjudication are recorded inside the pack. The revision identifies $R$ as the universal physical constant in the ideal-gas worked example, states that the prediction adjusts no model parameter, and aligns this attribution record with lesson version `0.1.1`. The pack retains its explicit distinction between an unweighted point-sensor mean and a chamber-volume average and requires representative, volume-aware evidence before corroborating the latter. Finalizer provenance, indexed finding dispositions, audit evidence, limitations, and decision conditions are disclosed in `adjudication.json`. A merge decision is not publication, and no claim is made that the lesson is published, clinically sufficient, or evidence of learner mastery.
