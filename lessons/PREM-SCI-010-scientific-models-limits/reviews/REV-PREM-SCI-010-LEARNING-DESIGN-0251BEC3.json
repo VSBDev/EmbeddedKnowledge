@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-SCI-010-LEARNING-DESIGN-0251BEC3",
+  "lessonId": "PREM-SCI-010",
+  "lessonVersion": "0.1.1",
+  "candidateCommit": "80040b8cec9e4a13c464c4ac332a5c112c778934",
+  "role": "learning-design",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev (learning-design reviewer)",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.5",
+      "runId": "agy-learning-design-PREM-SCI-010-0251BEC3-A28A-436D-AB16-749F64D6BA26",
+      "instructionsDigest": "sha256:b80882cfd2e639c6609c0e0c689c0d39c4b1ff56f0d69f570e1e08e476ce7d85"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Founding-stage isolation check: the accountable principal VSBDev operates the authoring, review, and finalization agents, so principal-level independence is absent. Agent-level role isolation was strictly maintained: no authoring history, other review output, or adjudication draft was read, and no other EmbeddedKnowledge role script was run during this review execution."
+  },
+  "evidenceChecked": [
+    "lessons/PREM-SCI-010-scientific-models-limits/lesson.json",
+    "lessons/PREM-SCI-010-scientific-models-limits/claims.json",
+    "lessons/PREM-SCI-010-scientific-models-limits/references.json",
+    "lessons/PREM-SCI-010-scientific-models-limits/glossary.json",
+    "lessons/PREM-SCI-010-scientific-models-limits/ATTRIBUTION.md",
+    "lessons/PREM-SCI-010-scientific-models-limits/diagrams/model-use-cycle.diagram.json",
+    "lessons/PREM-SCI-010-scientific-models-limits/content/01-precise-answer-wrong-tool.md",
+    "lessons/PREM-SCI-010-scientific-models-limits/content/02-four-question-model-audit.md",
+    "lessons/PREM-SCI-010-scientific-models-limits/content/03-worked-pressure-prediction.md",
+    "lessons/PREM-SCI-010-scientific-models-limits/content/04-stress-test-and-repair.md",
+    "lessons/PREM-SCI-010-scientific-models-limits/content/05-transfer-to-new-chamber.md",
+    "lessons/PREM-SCI-010-scientific-models-limits/content/06-mastery-and-retrieval.md",
+    "lessons/PREM-SCI-010-scientific-models-limits/assessment.json",
+    "CONTENT-STANDARD.md"
+  ],
+  "findings": [
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-SCI-010-scientific-models-limits/ATTRIBUTION.md#L8",
+      "finding": "The candidate version is declared as '0.1.0' on line 8 ('Candidate state: version 0.1.0, draft...') and line 69 ('This remains the initial 0.1.0 draft.') of ATTRIBUTION.md, which is inconsistent with lesson.json, claims.json, and all other metadata files that list it as '0.1.1'. This mismatch should be resolved to prevent version inconsistency.",
+      "resolution": "Update lines 8 and 69 in ATTRIBUTION.md from '0.1.0' to '0.1.1' to align with the rest of the lesson pack."
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-SCI-010-scientific-models-limits/content/01-precise-answer-wrong-tool.md#check-hypothesis-prediction",
+      "finding": "The orientation scene establishes a strong concrete starting point using a two-vessel comparison. It successfully retrieves the prerequisite knowledge (hypothesis vs prediction distinction) through a diagnostic check and non-punitive recovery callout before introducing abstract modeling concepts.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-SCI-010-scientific-models-limits/content/03-worked-pressure-prediction.md#worked-example-pressure-audit",
+      "finding": "The ideal-gas worked example implements the required 10-step template perfectly. The inclusion of a self-explanation prompt (Step 10) successfully highlights the critical decision points (evaluating model assumptions and domain) over simple calculations.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-SCI-010-scientific-models-limits/content/04-stress-test-and-repair.md#misconception-fit-means-true",
+      "finding": "The misconception repair sequence is excellently designed. It forces the learner to commit to a prediction, contrasts Model A and B to show how multiple representations fit the same observations but diverge later, and rechecks understanding with an independent query.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-SCI-010-scientific-models-limits/content/05-transfer-to-new-chamber.md#check-transfer-chamber",
+      "finding": "The chamber transfer task provides an outstanding transfer context. By removing the gas equation formula, it forces the learner to apply the model audit process (assumptions, scale changes, representative evidence, and purpose-dependent actions) in a completely new domain.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-SCI-010-scientific-models-limits/assessment.json#items",
+      "finding": "The mastery check items align directly with lesson objectives and introduce excellent variations of the lesson scenarios (e.g., modified dispenser baseline/readings, altered gas sensitivity values, and a 12-unit tank model rather than the 10-unit Model M). This prevents simple answer recall and ensures the assessment measures genuine conceptual mastery.",
+      "resolution": null
+    }
+  ],
+  "limitations": [
+    "Expert-simulation review: This review represents a single-pass advisory input by a simulated learning-design expert under standard-lesson-v3 guidelines. No real learner testing was conducted.",
+    "Conflict of interest: The same GitHub principal (VSBDev) is responsible for the authoring and review run operators. Agent-level isolation was maintained, but principal-level independence is absent.",
+    "Scope restriction: The review is strictly bounded to learning-design metrics (e.g., clarity, coherence, practice, alignment, and transfer). Scientific accuracy, rights audits, and final typesetting checks are excluded.",
+    "Technical verification limits: No rendered build environment, screen reader, or keyboard navigation pathways were evaluated physically; findings are based solely on the static Markdown and JSON source files."
+  ],
+  "signedAt": "2026-07-22T12:04:15Z"
+}
