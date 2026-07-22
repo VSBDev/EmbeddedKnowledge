@@ -1,0 +1,647 @@
+{
+  "schemaVersion": 3,
+  "format": "embeddedknowledge-lesson-v1",
+  "artifactType": "production-lesson",
+  "id": "PREM-QNT-003",
+  "version": "0.1.0",
+  "title": "Name the reference: ratios, proportions, and percentages",
+  "status": "draft",
+  "riskTier": "standard",
+  "estimatedMinutes": 180,
+  "outcomes": [
+    "topic-quantitative-foundations-ratios-proportions"
+  ],
+  "prerequisites": [
+    "topic-quantitative-foundations-arithmetic-estimation"
+  ],
+  "objectives": [
+    {
+      "id": "objective-interpret-ratio",
+      "statement": "Interpret an ordered ratio in context, preserve its labels, and generate equivalent ratios.",
+      "outcomeIds": [
+        "topic-quantitative-foundations-ratios-proportions"
+      ]
+    },
+    {
+      "id": "objective-solve-proportion",
+      "statement": "Solve proportional relationships by identifying a constant multiplier and verify the solution by substitution.",
+      "outcomeIds": [
+        "topic-quantitative-foundations-ratios-proportions"
+      ]
+    },
+    {
+      "id": "objective-percent-part-whole",
+      "statement": "Calculate a part, whole, or percentage while naming the denominator that defines 100 percent.",
+      "outcomeIds": [
+        "topic-quantitative-foundations-ratios-proportions"
+      ]
+    },
+    {
+      "id": "objective-percent-change",
+      "statement": "Distinguish percent change from percentage-point difference and challenge results with bounds or reverse calculations.",
+      "outcomeIds": [
+        "topic-quantitative-foundations-ratios-proportions"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene-orientation",
+      "title": "Two true percentages that answer different questions",
+      "kind": "orientation",
+      "source": "content/010-orientation.md",
+      "estimatedMinutes": 20,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Two true percentages that answer different questions</h1>\n<p>A fictional archive marks 30 of 120 files for rechecking. Later it marks 36 of 120.</p>\n<ul>\n<li>The marked share rose from <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>30</mn><mi>/</mi><mn>120</mn><mo>=</mo><mn>25</mn><mi>%</mi></mrow><annotation encoding=\"application/x-tex\">30/120=25\\%</annotation></semantics></math></span> to <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>36</mn><mi>/</mi><mn>120</mn><mo>=</mo><mn>30</mn><mi>%</mi></mrow><annotation encoding=\"application/x-tex\">36/120=30\\%</annotation></semantics></math></span>.</li>\n<li>That is an increase of <strong>5 percentage points</strong>.</li>\n<li>Relative to the old marked share, the increase is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>30</mn><mi>%</mi><mo>−</mo><mn>25</mn><mi>%</mi><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mi>/</mi><mn>25</mn><mi>%</mi><mo>=</mo><mn>20</mn><mi>%</mi></mrow><annotation encoding=\"application/x-tex\">(30\\%-25\\%)/25\\%=20\\%</annotation></semantics></math></span>.</li>\n</ul>\n<p>Both 5 and 20 are correct, but they answer different questions. The denominator decides the meaning.</p>\n<p>This lesson uses a reference-first method: label the compared quantities, name what represents one whole or the starting value, calculate, then reverse or bound the result.</p>\n<h2>Starting check</h2>\n<ol>\n<li>Does the ratio <code>3 red : 5 blue</code> mean the same as <code>5 red : 3 blue</code>?</li>\n<li>In “18 is 30% of what number?”, which value represents 100%?</li>\n<li>Can a quantity increase by more than 100%?</li>\n</ol>\n<p>If fractions are uncertain, read <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi><mi>/</mi><mi>b</mi></mrow><annotation encoding=\"application/x-tex\">a/b</annotation></semantics></math></span> aloud as “a for every b” and attach the labels. If decimal arithmetic is the barrier, use exact fractions until the final conversion.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-ratio-quotient, claim-fraction-dimensionless</span><span><b>sources</b> source-nist-si-chapter8</span></div>\n    <div class=\"ek-block-content\"><p>NIST defines several fractions and ratios as quotients and quantities of dimension one. The archive and comparison are original.</p>\n</div>\n  </aside>\n<h2>Accessibility and alternatives</h2>\n<p>All comparisons appear in words and equations. No answer depends on color, a chart, dragging, or timing. In a nonvisual reading, say “marked files divided by all files” and name each numerator and denominator before the value.</p>\n"
+    },
+    {
+      "id": "scene-concept",
+      "title": "Keep the ratio labels attached",
+      "kind": "concept",
+      "source": "content/020-concept.md",
+      "estimatedMinutes": 35,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Keep the ratio labels attached</h1>\n<p>A <strong>ratio</strong> compares two quantities by division. Order matters:</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mtext>red-to-blue</mtext><mo>=</mo><mfrac><mrow><mn>3</mn><mtext> </mtext><mtext>red</mtext></mrow><mrow><mn>5</mn><mtext> </mtext><mtext>blue</mtext></mrow></mfrac><mo>≠</mo><mfrac><mrow><mn>5</mn><mtext> </mtext><mtext>red</mtext></mrow><mrow><mn>3</mn><mtext> </mtext><mtext>blue</mtext></mrow></mfrac><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">\\text{red-to-blue}=\\frac{3\\ \\text{red}}{5\\ \\text{blue}}\\neq\\frac{5\\ \\text{red}}{3\\ \\text{blue}}.</annotation></semantics></math></div>\n<p>Multiplying both terms by the same nonzero number creates an equivalent ratio: <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn><mo lspace=\"0.2222em\" rspace=\"0.2222em\">:</mo><mn>5</mn><mo>=</mo><mn>6</mn><mo lspace=\"0.2222em\" rspace=\"0.2222em\">:</mo><mn>10</mn></mrow><annotation encoding=\"application/x-tex\">3:5=6:10</annotation></semantics></math></span>. The compared amounts change, but the quotient does not.</p>\n<aside class=\"ek-block ek-definition ek-block--definition\" data-directive=\"definition\">\n    <div class=\"ek-block-label directive-label\">Definition</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> definition-proportion</span></div>\n    <div class=\"ek-block-content\"><p>A <strong>proportion</strong> is an equation stating that two ratios are equal, such as <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn><mi>/</mi><mn>5</mn><mo>=</mo><mi>x</mi><mi>/</mi><mn>20</mn></mrow><annotation encoding=\"application/x-tex\">3/5=x/20</annotation></semantics></math></span>.</p>\n</div>\n  </aside>\n<p>Solve by following the multiplier: <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>5</mn><mo>→</mo><mn>20</mn></mrow><annotation encoding=\"application/x-tex\">5\\to20</annotation></semantics></math></span> multiplies by 4, so <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn><mo>→</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">3\\to x</annotation></semantics></math></span> also multiplies by 4 and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>12</mn></mrow><annotation encoding=\"application/x-tex\">x=12</annotation></semantics></math></span>. Cross multiplication encodes the same equality, but the multiplier exposes why the answer scales.</p>\n<h2>Part–whole percentages</h2>\n<p>“Percent” means per hundred. For a part <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>P</mi><annotation encoding=\"application/x-tex\">P</annotation></semantics></math></span> of whole <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>W</mi><annotation encoding=\"application/x-tex\">W</annotation></semantics></math></span>,</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mi>r</mi><mo>=</mo><mfrac><mi>P</mi><mi>W</mi></mfrac><mo separator=\"true\">,</mo><mspace width=\"2em\"></mspace><mi>p</mi><mo>=</mo><mn>100</mn><mi>r</mi><mo separator=\"true\">,</mo><mspace width=\"2em\"></mspace><mi>P</mi><mo>=</mo><mfrac><mi>p</mi><mn>100</mn></mfrac><mi>W</mi><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">r=\\frac{P}{W},\\qquad p=100r,\\qquad P=\\frac{p}{100}W.</annotation></semantics></math></div>\n<p>The whole <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>W</mi><annotation encoding=\"application/x-tex\">W</annotation></semantics></math></span> is the reference that represents 100%. A result between 0% and 100% is expected only when <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>0</mn><mo>≤</mo><mi>P</mi><mo>≤</mo><mi>W</mi></mrow><annotation encoding=\"application/x-tex\">0\\le P\\le W</annotation></semantics></math></span>; ratios and percent changes can exceed 100% in other contexts.</p>\n<h2>Percent change</h2>\n<p>For old value <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>O</mi><mo>≠</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">O\\ne0</annotation></semantics></math></span> and new value <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>N</mi><annotation encoding=\"application/x-tex\">N</annotation></semantics></math></span>,</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mtext>percent change</mtext><mo>=</mo><mfrac><mrow><mi>N</mi><mo>−</mo><mi>O</mi></mrow><mi>O</mi></mfrac><mo>×</mo><mn>100</mn><mi>%</mi><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">\\text{percent change}=\\frac{N-O}{O}\\times100\\%.</annotation></semantics></math></div>\n<p>The denominator is the old value because the question asks how large the change is relative to the starting amount. Always report direction: increase or decrease.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-ratio-quotient, claim-fraction-dimensionless</span><span><b>sources</b> source-nist-si-chapter8</span></div>\n    <div class=\"ek-block-content\"><p>NIST&#39;s fraction definitions establish quotient structure and dimension-one results for like-quantity fractions. The proportion and percentage derivations are original elementary algebra.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-worked-example",
+      "title": "Solve by following one multiplier",
+      "kind": "worked-example",
+      "source": "content/030-worked-example.md",
+      "estimatedMinutes": 30,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Solve by following one multiplier</h1>\n<p>A fictional imaging queue processes 42 frames in 6 minutes at a constant rate. How many frames would it process in 15 minutes under that model?</p>\n<aside class=\"ek-block ek-worked-example ek-block--worked-example\" data-directive=\"worked-example\">\n    <div class=\"ek-block-label directive-label\">Worked Example</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> worked-example-frame-rate</span></div>\n    <div class=\"ek-block-content\"><p><strong>1. Label the ratio.</strong> <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>42</mn><mtext> frames</mtext><mi>/</mi><mn>6</mn><mtext> min</mtext></mrow><annotation encoding=\"application/x-tex\">42\\text{ frames}/6\\text{ min}</annotation></semantics></math></span>.</p>\n<p><strong>2. State the assumption.</strong> The rate is constant, so frames are proportional to time.</p>\n<p><strong>3. Find the unit rate.</strong> <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>42</mn><mi>/</mi><mn>6</mn><mo>=</mo><mn>7</mn><mtext> frames/min</mtext></mrow><annotation encoding=\"application/x-tex\">42/6=7\\text{ frames/min}</annotation></semantics></math></span>.</p>\n<p><strong>4. Scale.</strong> <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>7</mn><mtext> frames/min</mtext><mo>×</mo><mn>15</mn><mtext> min</mtext><mo>=</mo><mn>105</mn><mtext> frames</mtext></mrow><annotation encoding=\"application/x-tex\">7\\text{ frames/min}\\times15\\text{ min}=105\\text{ frames}</annotation></semantics></math></span>.</p>\n<p><strong>5. Verify.</strong> <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>105</mn><mi>/</mi><mn>15</mn><mo>=</mo><mn>7</mn></mrow><annotation encoding=\"application/x-tex\">105/15=7</annotation></semantics></math></span>, recovering the original quotient. Also, 15 minutes is 2.5 times 6 minutes, and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>42</mn><mo>×</mo><mn>2.5</mn><mo>=</mo><mn>105</mn></mrow><annotation encoding=\"application/x-tex\">42\\times2.5=105</annotation></semantics></math></span>.</p>\n<p><strong>6. Bound the claim.</strong> The result follows only under the stated constant-rate model; the arithmetic does not establish that a real queue remains constant.</p>\n</div>\n  </aside>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-proportional-assumption</span></div>\n    <div class=\"ek-block-content\"><p>If the first five minutes include a fixed startup delay, would direct proportionality necessarily remain appropriate? Explain.</p>\n</div>\n  </aside>\n<p>No. A fixed offset can break the “same multiplier” structure. Proportionality is a model to justify, not a default triggered by two numbers.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-ratio-quotient</span><span><b>sources</b> source-nist-si-chapter8</span></div>\n    <div class=\"ek-block-content\"><p>The worked example is original and applies quotient reasoning without claiming the fictional rate is empirical.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-misconception",
+      "title": "Percentage points are not percent change",
+      "kind": "misconception",
+      "source": "content/040-misconception.md",
+      "estimatedMinutes": 20,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Percentage points are not percent change</h1>\n<p>Suppose a fictional pass fraction rises from 40% to 50%.</p>\n<aside class=\"ek-block ek-misconception ek-block--misconception\" data-directive=\"misconception\">\n    <div class=\"ek-block-label directive-label\">Misconception</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> misconception-percent-change</span></div>\n    <div class=\"ek-block-content\"><p>Saying “it increased by 10%” silently treats the subtraction as a relative change. The direct subtraction is</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mn>50</mn><mi>%</mi><mo>−</mo><mn>40</mn><mi>%</mi><mo>=</mo><mn>10</mn><mtext> percentage points</mtext><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">50\\%-40\\%=10\\text{ percentage points}.</annotation></semantics></math></div>\n<p>The percent increase uses the old 40% as reference:</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mfrac><mrow><mn>50</mn><mi>%</mi><mo>−</mo><mn>40</mn><mi>%</mi></mrow><mrow><mn>40</mn><mi>%</mi></mrow></mfrac><mo>×</mo><mn>100</mn><mi>%</mi><mo>=</mo><mn>25</mn><mi>%</mi><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{50\\%-40\\%}{40\\%}\\times100\\%=25\\%.</annotation></semantics></math></div>\n<p>A reverse check confirms it: <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>40</mn><mi>%</mi><mo>×</mo><mn>1.25</mn><mo>=</mo><mn>50</mn><mi>%</mi></mrow><annotation encoding=\"application/x-tex\">40\\%\\times1.25=50\\%</annotation></semantics></math></span>.</p>\n</div>\n  </aside>\n<p>The reference-first question is: “Ten is what fraction of the starting forty?” If no starting value is named, “percent change” is incomplete.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-fraction-dimensionless</span><span><b>sources</b> source-nist-si-chapter8</span></div>\n    <div class=\"ek-block-content\"><p>The distinction follows from which dimension-one quotient is formed. The example and repair are original.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-practice",
+      "title": "Find the reference before calculating",
+      "kind": "practice",
+      "source": "content/050-practice.md",
+      "estimatedMinutes": 30,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Find the reference before calculating</h1>\n<p>For each task, write <strong>labels → reference → equation → check</strong>.</p>\n<h2>1. Equivalent ratio</h2>\n<p>Complete <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>8</mn><mo lspace=\"0.2222em\" rspace=\"0.2222em\">:</mo><mn>12</mn><mo>=</mo><mi>x</mi><mo lspace=\"0.2222em\" rspace=\"0.2222em\">:</mo><mn>30</mn></mrow><annotation encoding=\"application/x-tex\">8:12=x:30</annotation></semantics></math></span>.</p>\n<p><strong>Feedback:</strong> <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>12</mn><mo>→</mo><mn>30</mn></mrow><annotation encoding=\"application/x-tex\">12\\to30</annotation></semantics></math></span> multiplies by 2.5, so <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>20</mn></mrow><annotation encoding=\"application/x-tex\">x=20</annotation></semantics></math></span>. Both ratios simplify to <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mo lspace=\"0.2222em\" rspace=\"0.2222em\">:</mo><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">2:3</annotation></semantics></math></span>.</p>\n<h2>2. Find a part</h2>\n<p>What is 18% of 250?</p>\n<p><strong>Feedback:</strong> <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>0.18</mn><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>250</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>=</mo><mn>45</mn></mrow><annotation encoding=\"application/x-tex\">0.18(250)=45</annotation></semantics></math></span>. The result is below the whole because the percentage is below 100%.</p>\n<h2>3. Find the whole</h2>\n<p>Thirty-six objects are 24% of a collection. Find the collection size.</p>\n<p><strong>Feedback:</strong> <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>36</mn><mo>=</mo><mn>0.24</mn><mi>W</mi></mrow><annotation encoding=\"application/x-tex\">36=0.24W</annotation></semantics></math></span>, so <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>W</mi><mo>=</mo><mn>150</mn></mrow><annotation encoding=\"application/x-tex\">W=150</annotation></semantics></math></span>. Reverse: <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>0.24</mn><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>150</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>=</mo><mn>36</mn></mrow><annotation encoding=\"application/x-tex\">0.24(150)=36</annotation></semantics></math></span>.</p>\n<h2>4. Percent decrease</h2>\n<p>A fictional count falls from 80 to 62. Find the percentage decrease.</p>\n<p><strong>Feedback:</strong> The decrease is 18, referenced to 80: <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>18</mn><mi>/</mi><mn>80</mn><mo>=</mo><mn>0.225</mn><mo>=</mo><mn>22.5</mn><mi>%</mi></mrow><annotation encoding=\"application/x-tex\">18/80=0.225=22.5\\%</annotation></semantics></math></span>. Dividing by 62 would use the new value and answer a different question.</p>\n<h2>Recovery route</h2>\n<ul>\n<li>Ratio reversed: restore verbal labels before numbers.</li>\n<li>Proportion gives an implausible direction: identify the multiplier on both quantities.</li>\n<li>Part exceeds whole when percentage is below 100%: inspect multiplication versus division.</li>\n<li>Percent-change denominator uncertain: write “change relative to starting value.”</li>\n<li>Percentage points confused with percent: compute both and label them.</li>\n</ul>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-ratio-quotient, claim-fraction-dimensionless</span><span><b>sources</b> source-nist-si-chapter8</span></div>\n    <div class=\"ek-block-content\"><p>All practice items, answers, and remediation are original applications of quotient relations.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-transfer",
+      "title": "Audit a changing mixture record",
+      "kind": "transfer",
+      "source": "content/060-transfer.md",
+      "estimatedMinutes": 25,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Audit a changing mixture record</h1>\n<p>A fictional materials record describes 18 blue beads and 42 white beads. After 12 blue beads are added, no beads are removed.</p>\n<p>Determine:</p>\n<ol>\n<li>the original blue-to-white ratio;</li>\n<li>the original blue percentage of all beads;</li>\n<li>the new blue percentage;</li>\n<li>the percentage-point change and relative percent change in the blue share.</li>\n</ol>\n<h2>Feedback after a complete attempt</h2>\n<p>Original ratio: <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>18</mn><mo lspace=\"0.2222em\" rspace=\"0.2222em\">:</mo><mn>42</mn><mo>=</mo><mn>3</mn><mo lspace=\"0.2222em\" rspace=\"0.2222em\">:</mo><mn>7</mn></mrow><annotation encoding=\"application/x-tex\">18:42=3:7</annotation></semantics></math></span>. Original total: 60, so blue share is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>18</mn><mi>/</mi><mn>60</mn><mo>=</mo><mn>30</mn><mi>%</mi></mrow><annotation encoding=\"application/x-tex\">18/60=30\\%</annotation></semantics></math></span>.</p>\n<p>New blue count: 30; new total: 72. New blue share is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>30</mn><mi>/</mi><mn>72</mn><mo>=</mo><mn>5</mn><mi>/</mi><mn>12</mn><mo>≈</mo><mn>41.67</mn><mi>%</mi></mrow><annotation encoding=\"application/x-tex\">30/72=5/12\\approx41.67\\%</annotation></semantics></math></span>.</p>\n<p>Percentage-point increase: <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>41.67</mn><mo>−</mo><mn>30</mn><mo>=</mo><mn>11.67</mn></mrow><annotation encoding=\"application/x-tex\">41.67-30=11.67</annotation></semantics></math></span> points. Relative increase in the blue share:</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mfrac><mrow><mn>41.67</mn><mi>%</mi><mo>−</mo><mn>30</mn><mi>%</mi></mrow><mrow><mn>30</mn><mi>%</mi></mrow></mfrac><mo>×</mo><mn>100</mn><mi>%</mi><mo>≈</mo><mn>38.89</mn><mi>%</mi><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{41.67\\%-30\\%}{30\\%}\\times100\\%\\approx38.89\\%.</annotation></semantics></math></div>\n<p>Check: a 38.89% increase applied to 30% gives about 41.67%. If you kept 60 as the new denominator, you failed to update the whole when objects were added.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-ratio-quotient, claim-fraction-dimensionless</span><span><b>sources</b> source-nist-si-chapter8</span></div>\n    <div class=\"ek-block-content\"><p>The bead record and all calculations are fictional original material.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-synthesis",
+      "title": "Reconstruct the reference-first method",
+      "kind": "synthesis",
+      "source": "content/070-synthesis.md",
+      "estimatedMinutes": 20,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Reconstruct the reference-first method</h1>\n<ol>\n<li>Attach labels and preserve ratio order.</li>\n<li>State why proportional scaling is justified.</li>\n<li>Name the whole or starting value that supplies the denominator.</li>\n<li>Calculate with a fraction before converting to percent.</li>\n<li>Reverse, substitute, or bound the answer.</li>\n</ol>\n<h2>Retrieval</h2>\n<ul>\n<li>Why are <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn><mo lspace=\"0.2222em\" rspace=\"0.2222em\">:</mo><mn>5</mn></mrow><annotation encoding=\"application/x-tex\">3:5</annotation></semantics></math></span> and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>6</mn><mo lspace=\"0.2222em\" rspace=\"0.2222em\">:</mo><mn>10</mn></mrow><annotation encoding=\"application/x-tex\">6:10</annotation></semantics></math></span> equivalent?</li>\n<li>What assumption makes a proportion appropriate?</li>\n<li>In percent change, why is the old value the denominator?</li>\n<li>How do percentage points differ from relative percent change?</li>\n</ul>\n<p>Then complete <code>assessment.json</code>. If ratio order fails, return to “Keep the ratio labels attached.” If the wrong denominator appears, redo the mixture transfer with every whole written explicitly. If arithmetic is correct but the comparison is unlabeled, add “percentage points” or “percent increase/decrease” before retrying.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-ratio-quotient, claim-fraction-dimensionless</span><span><b>sources</b> source-nist-si-chapter8</span></div>\n    <div class=\"ek-block-content\"><p>The synthesis uses the source&#39;s quotient framework; the reference-first procedure is original and makes no claim of measured effectiveness.</p>\n</div>\n  </aside>\n"
+    }
+  ],
+  "authors": [
+    {
+      "principalId": "github:VSBDev",
+      "displayName": "VSBDev — accountable author with Codex assistance",
+      "agent": {
+        "system": "Codex desktop",
+        "provider": "OpenAI",
+        "model": "gpt-5.6-sol",
+        "version": "Codex desktop runtime 2026-07-22",
+        "runId": "704652be-a413-411c-9af3-33220ef604a9",
+        "instructionsDigest": "sha256:f4d650689a2b71e158963139db52ae6da531d6fe47652508edb15fef896f9587"
+      }
+    }
+  ],
+  "license": "CC-BY-4.0",
+  "sourceConfidence": "pending-review",
+  "aiAssistance": {
+    "used": true,
+    "disclosure": "VSBDev (github:VSBDev) is accountable. OpenAI Codex, model gpt-5.6-sol, authored, researched, edited, and packaged this lesson in run 704652be-a413-411c-9af3-33220ef604a9. The digest covers discloseable material task instructions, not hidden system or provider instructions."
+  },
+  "assessment": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-assessment-v1",
+    "lessonId": "PREM-QNT-003",
+    "lessonVersion": "0.1.0",
+    "assessmentId": "assessment-reference-first",
+    "title": "Ratios, proportions, and percentages mastery gate",
+    "purpose": "mastery-gate",
+    "attemptPolicy": {
+      "retakeable": true,
+      "timeLimitMinutes": null,
+      "feedback": "after-attempt"
+    },
+    "items": [
+      {
+        "id": "item-ratio-order",
+        "type": "single-choice",
+        "sceneId": "scene-synthesis",
+        "objectiveIds": [
+          "objective-interpret-ratio"
+        ],
+        "outcomeIds": [
+          "topic-quantitative-foundations-ratios-proportions"
+        ],
+        "prompt": "A box has 12 large and 18 small objects. What is the large-to-small ratio in simplest form?",
+        "points": 2,
+        "responseSpec": {
+          "mode": "single-choice",
+          "options": [
+            {
+              "id": "option-ratio-a",
+              "text": "2:3"
+            },
+            {
+              "id": "option-ratio-b",
+              "text": "3:2"
+            },
+            {
+              "id": "option-ratio-c",
+              "text": "2:5"
+            },
+            {
+              "id": "option-ratio-d",
+              "text": "3:5"
+            }
+          ]
+        },
+        "answer": {
+          "correct": "option-ratio-a",
+          "summary": "12:18 simplifies to 2:3.",
+          "reasoning": "The requested order is large then small; divide both terms by 6.",
+          "acceptableResponses": [],
+          "commonErrors": [
+            "Reversing the labels",
+            "Using part-to-total instead of part-to-part"
+          ]
+        },
+        "rubricId": "rubric-ratio-order",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-proportion",
+        "type": "numeric",
+        "sceneId": "scene-synthesis",
+        "objectiveIds": [
+          "objective-solve-proportion"
+        ],
+        "outcomeIds": [
+          "topic-quantitative-foundations-ratios-proportions"
+        ],
+        "prompt": "Solve 7/9 = x/45.",
+        "points": 3,
+        "responseSpec": {
+          "mode": "number",
+          "units": null,
+          "tolerance": 0
+        },
+        "answer": {
+          "correct": 35,
+          "summary": "x = 35.",
+          "reasoning": "The denominator is multiplied by 5, so the numerator must also be multiplied by 5.",
+          "acceptableResponses": [],
+          "commonErrors": [
+            "Adding 36 to both terms",
+            "Inverting only one ratio"
+          ]
+        },
+        "rubricId": "rubric-proportion",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-find-whole",
+        "type": "short-answer",
+        "sceneId": "scene-synthesis",
+        "objectiveIds": [
+          "objective-percent-part-whole"
+        ],
+        "outcomeIds": [
+          "topic-quantitative-foundations-ratios-proportions"
+        ],
+        "prompt": "Forty-two records are 28% of an archive. Find the archive size and show a reverse check.",
+        "points": 4,
+        "responseSpec": {
+          "mode": "text",
+          "maxLength": 900
+        },
+        "answer": {
+          "correct": "42 = 0.28W, so W = 150 records; 0.28 × 150 = 42.",
+          "summary": "The whole is 150 records.",
+          "reasoning": "The archive is the 100% reference, so divide the part by the decimal percentage.",
+          "acceptableResponses": [
+            "150 with an equivalent equation and reverse check"
+          ],
+          "commonErrors": [
+            "Multiplying 42 by 0.28",
+            "Treating 42 as the whole"
+          ]
+        },
+        "rubricId": "rubric-find-whole",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-percent-change",
+        "type": "numeric",
+        "sceneId": "scene-synthesis",
+        "objectiveIds": [
+          "objective-percent-change"
+        ],
+        "outcomeIds": [
+          "topic-quantitative-foundations-ratios-proportions"
+        ],
+        "prompt": "A count rises from 64 to 80. Enter the percent increase.",
+        "points": 3,
+        "responseSpec": {
+          "mode": "number",
+          "units": "%",
+          "tolerance": 0
+        },
+        "answer": {
+          "correct": 25,
+          "summary": "The increase is 25%.",
+          "reasoning": "The change is 16 and the old-value reference is 64; 16/64 = 0.25.",
+          "acceptableResponses": [
+            "25%"
+          ],
+          "commonErrors": [
+            "Dividing by the new value",
+            "Reporting the change of 16 as a percentage"
+          ]
+        },
+        "rubricId": "rubric-percent-change",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-points-versus-percent",
+        "type": "short-answer",
+        "sceneId": "scene-synthesis",
+        "objectiveIds": [
+          "objective-percent-change"
+        ],
+        "outcomeIds": [
+          "topic-quantitative-foundations-ratios-proportions"
+        ],
+        "prompt": "A share falls from 50% to 35%. Report both the percentage-point decrease and the relative percent decrease, naming each reference.",
+        "points": 5,
+        "responseSpec": {
+          "mode": "text",
+          "maxLength": 1200
+        },
+        "answer": {
+          "correct": "The decrease is 15 percentage points. Relative to the starting 50%, it is 15/50 = 30%.",
+          "summary": "15 percentage points and a 30% relative decrease.",
+          "reasoning": "Subtraction compares positions on the percentage scale; division by the starting share measures relative change.",
+          "acceptableResponses": [
+            "15 points; 30 percent decrease with the old 50 percent named"
+          ],
+          "commonErrors": [
+            "Calling 15 a percent decrease",
+            "Dividing by 35"
+          ]
+        },
+        "rubricId": "rubric-points-versus-percent",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-transfer-groups",
+        "type": "open-response",
+        "sceneId": "scene-synthesis",
+        "objectiveIds": [
+          "objective-interpret-ratio",
+          "objective-percent-part-whole",
+          "objective-percent-change"
+        ],
+        "outcomeIds": [
+          "topic-quantitative-foundations-ratios-proportions"
+        ],
+        "prompt": "A fictional collection initially has 24 tagged and 56 untagged items. Sixteen tagged items are added and none removed. Find the initial tagged-to-untagged ratio, initial and new tagged percentages, percentage-point change, and relative percent change in tagged share. Show denominators and one reverse check.",
+        "points": 8,
+        "responseSpec": {
+          "mode": "text",
+          "maxLength": 3000
+        },
+        "answer": {
+          "correct": "Initial ratio 24:56 = 3:7. Initial share 24/80 = 30%. New share 40/96 = 41.666...%. Increase 11.666... percentage points; relative increase 11.666.../30 × 100 = 38.888...%. Check: 30% × 1.38888... = 41.666...%.",
+          "summary": "3:7; 30%; about 41.67%; about 11.67 points; about 38.89% relative increase.",
+          "reasoning": "Adding tagged items changes both the tagged numerator and total denominator. Percentage points subtract shares; relative change divides by the starting share.",
+          "acceptableResponses": [
+            "Equivalent exact fractions or sensibly rounded percentages with all comparison labels"
+          ],
+          "commonErrors": [
+            "Leaving the total at 80",
+            "Using the new share as percent-change denominator",
+            "Interchanging percentage points and percent"
+          ]
+        },
+        "rubricId": "rubric-transfer-groups",
+        "safetyCritical": false
+      }
+    ],
+    "rubrics": [
+      {
+        "id": "rubric-ratio-order",
+        "title": "Ordered ratio",
+        "criteria": [
+          {
+            "id": "criterion-ratio-order",
+            "description": "Preserves labels and simplifies 12:18 to 2:3.",
+            "maxPoints": 2
+          }
+        ]
+      },
+      {
+        "id": "rubric-proportion",
+        "title": "Proportional solution",
+        "criteria": [
+          {
+            "id": "criterion-proportion",
+            "description": "Applies the same factor to both terms and obtains 35.",
+            "maxPoints": 3
+          }
+        ]
+      },
+      {
+        "id": "rubric-find-whole",
+        "title": "Part-whole reference",
+        "criteria": [
+          {
+            "id": "criterion-whole-model",
+            "description": "Names the whole and solves 42 = 0.28W.",
+            "maxPoints": 3
+          },
+          {
+            "id": "criterion-whole-check",
+            "description": "Reverses the calculation.",
+            "maxPoints": 1
+          }
+        ]
+      },
+      {
+        "id": "rubric-percent-change",
+        "title": "Percent increase",
+        "criteria": [
+          {
+            "id": "criterion-change-reference",
+            "description": "Divides the change by the old value and obtains 25%.",
+            "maxPoints": 3
+          }
+        ]
+      },
+      {
+        "id": "rubric-points-versus-percent",
+        "title": "Comparison labels",
+        "criteria": [
+          {
+            "id": "criterion-points",
+            "description": "Reports a 15-point decrease.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-relative",
+            "description": "Uses the old 50% reference to obtain a 30% decrease.",
+            "maxPoints": 3
+          }
+        ]
+      },
+      {
+        "id": "rubric-transfer-groups",
+        "title": "Independent reference audit",
+        "criteria": [
+          {
+            "id": "criterion-transfer-ratio",
+            "description": "Finds and simplifies the initial ordered ratio.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-transfer-wholes",
+            "description": "Uses totals 80 and 96 for the two shares.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-transfer-shares",
+            "description": "Obtains 30% and about 41.67%.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-transfer-comparisons",
+            "description": "Labels about 11.67 points and 38.89% relative increase correctly.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-transfer-reverse",
+            "description": "Provides a valid reverse check.",
+            "maxPoints": 1
+          }
+        ]
+      }
+    ]
+  },
+  "references": {
+    "schemaVersion": 2,
+    "format": "embeddedknowledge-references-v2",
+    "lessonId": "PREM-QNT-003",
+    "lessonVersion": "0.1.0",
+    "sources": [
+      {
+        "id": "source-nist-si-chapter8",
+        "type": "official-standard",
+        "title": "NIST Guide to the SI, Chapter 8: Comments on Some Quantities and Their Units",
+        "creators": [
+          "National Institute of Standards and Technology"
+        ],
+        "publisher": "National Institute of Standards and Technology",
+        "issued": "2016-01-28",
+        "url": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-8",
+        "accessed": "2026-07-22",
+        "version": "NIST Special Publication 811 web presentation",
+        "locator": "Sections 8.4 and 8.6, especially definitions of ratios, fractions, and quotient quantities of dimension one",
+        "license": "NIST Technical Series/public information under NIST Copyrights & Disclaimers and technical-series licensing statements, subject to attribution and third-party exceptions",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Only factual quotient and dimension-one relationships are used. All explanations, datasets, examples, prompts, and assessments are original; no NIST expression, table, or image is reproduced."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://www.nist.gov/copyrights-disclaimers",
+          "checked": "2026-07-22",
+          "notes": "NIST rights and robots routes were checked before substantive public-page access; no source-specific agent restriction, login, paywall, or access-control barrier was found."
+        }
+      }
+    ]
+  },
+  "claims": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-claims-v1",
+    "lessonId": "PREM-QNT-003",
+    "lessonVersion": "0.1.0",
+    "claims": [
+      {
+        "id": "claim-ratio-quotient",
+        "statement": "A ratio compares ordered quantities by division; several scientific ratio and fraction quantities are defined explicitly as quotients.",
+        "sceneIds": [
+          "scene-orientation",
+          "scene-concept",
+          "scene-worked-example",
+          "scene-practice",
+          "scene-transfer",
+          "scene-synthesis"
+        ],
+        "sourceIds": [
+          "source-nist-si-chapter8"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Ordered ratios and quotient quantities in introductory quantitative reasoning.",
+        "uncertainty": "Whether a proportional model applies to changing quantities requires a separate contextual assumption.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-fraction-dimensionless",
+        "statement": "A fraction formed as a ratio of like-dimension quantities is a quantity of dimension one, enabling equivalent fractional, decimal, and percent representations.",
+        "sceneIds": [
+          "scene-orientation",
+          "scene-concept",
+          "scene-misconception",
+          "scene-practice",
+          "scene-transfer",
+          "scene-synthesis"
+        ],
+        "sourceIds": [
+          "source-nist-si-chapter8"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Part-whole and change ratios whose numerator and denominator have compatible dimensions.",
+        "uncertainty": "The word percentage is incomplete without a clearly named reference quantity and comparison type.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      }
+    ]
+  },
+  "glossary": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-glossary-v1",
+    "lessonId": "PREM-QNT-003",
+    "lessonVersion": "0.1.0",
+    "terms": [
+      {
+        "id": "term-ratio",
+        "term": "ratio",
+        "definition": "An ordered comparison of two quantities by division.",
+        "aliases": [
+          "quotient comparison"
+        ],
+        "sceneIds": [
+          "scene-orientation",
+          "scene-concept",
+          "scene-worked-example",
+          "scene-practice",
+          "scene-transfer",
+          "scene-synthesis"
+        ]
+      },
+      {
+        "id": "term-proportion",
+        "term": "proportion",
+        "definition": "An equation asserting that two ratios are equal.",
+        "aliases": [
+          "equivalent-ratio equation"
+        ],
+        "sceneIds": [
+          "scene-concept",
+          "scene-worked-example",
+          "scene-practice",
+          "scene-synthesis"
+        ]
+      },
+      {
+        "id": "term-percentage",
+        "term": "percentage",
+        "definition": "A ratio expressed per hundred relative to a named whole or reference quantity.",
+        "aliases": [
+          "percent"
+        ],
+        "sceneIds": [
+          "scene-orientation",
+          "scene-concept",
+          "scene-misconception",
+          "scene-practice",
+          "scene-transfer",
+          "scene-synthesis"
+        ]
+      },
+      {
+        "id": "term-percent-change",
+        "term": "percent change",
+        "definition": "The change divided by the starting value, expressed as a percentage and labeled as an increase or decrease.",
+        "aliases": [
+          "relative percentage change"
+        ],
+        "sceneIds": [
+          "scene-orientation",
+          "scene-concept",
+          "scene-misconception",
+          "scene-practice",
+          "scene-transfer",
+          "scene-synthesis"
+        ]
+      },
+      {
+        "id": "term-percentage-point",
+        "term": "percentage point",
+        "definition": "The arithmetic difference between two percentages, distinct from their relative percent change.",
+        "aliases": [
+          "point difference"
+        ],
+        "sceneIds": [
+          "scene-orientation",
+          "scene-misconception",
+          "scene-practice",
+          "scene-transfer",
+          "scene-synthesis"
+        ]
+      },
+      {
+        "id": "term-reference-quantity",
+        "term": "reference quantity",
+        "definition": "The whole, baseline, or starting value used as the denominator that gives a ratio or percentage its meaning.",
+        "aliases": [
+          "reference value",
+          "baseline"
+        ],
+        "sceneIds": [
+          "scene-orientation",
+          "scene-concept",
+          "scene-misconception",
+          "scene-practice",
+          "scene-transfer",
+          "scene-synthesis"
+        ]
+      }
+    ]
+  },
+  "attributionHtml": "<h1>Attribution</h1>\n<h2>Lesson identity and licence</h2>\n<ul>\n<li>Lesson: <strong>PREM-QNT-003 — Name the reference: ratios, proportions, and percentages</strong></li>\n<li>Outcome: <strong>PREM-03.03</strong> (<code>topic-quantitative-foundations-ratios-proportions</code>)</li>\n<li>Accountable principal: <strong>VSBDev</strong> (<code>github:VSBDev</code>)</li>\n<li>Licence: <strong>Creative Commons Attribution 4.0 International (CC BY 4.0)</strong></li>\n<li>State: <strong>draft</strong>, source confidence <strong>pending-review</strong></li>\n</ul>\n<h2>Material agent assistance</h2>\n<p>OpenAI Codex authored, researched, edited, and packaged this lesson in one author-role run.</p>\n<table>\n<thead>\n<tr>\n<th>System</th>\n<th>Provider</th>\n<th>Model</th>\n<th>Version</th>\n<th>Run ID</th>\n<th>Material-instructions digest</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>Codex desktop</td>\n<td>OpenAI</td>\n<td><code>gpt-5.6-sol</code></td>\n<td>Codex desktop runtime 2026-07-22</td>\n<td><code>704652be-a413-411c-9af3-33220ef604a9</code></td>\n<td><code>sha256:f4d650689a2b71e158963139db52ae6da531d6fe47652508edb15fef896f9587</code></td>\n</tr>\n</tbody></table>\n<p>The digest identifies <code>/tmp/codex-packager-prompt-03-03.md</code>; it excludes unavailable hidden instructions. No other model authored or reviewed the lesson.</p>\n<h2>Originality, sources, and rights</h2>\n<p>The reference-first structure, archive opening, queue example, pass-fraction misconception, bead transfer, all values, explanations, feedback, recovery routes, and assessment content are original. All settings are fictional. NIST Chapter 8 is used only as factual authority for quotient-defined ratios and fractions of dimension one. No NIST expression, table, image, or sequence is copied or adapted.</p>\n<p>NIST rights, technical-series licensing, and public robots routes were checked before access on 2026-07-22. No agent restriction, login, paywall, or access-control barrier was found. No third-party assets, datasets, personal data, or patient material are included.</p>\n<p>This mathematical lesson provides no clinical advice and makes no claim of review, approval, publication, measured effectiveness, credit, or competence.</p>\n"
+}
