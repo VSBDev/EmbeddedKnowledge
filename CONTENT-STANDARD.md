@@ -108,6 +108,15 @@ High cohesion is not the same as low intellectual level. The goal is to expose t
 - Prefer the precise common word over ornamental academic language. Retain disciplinary terminology that learners must master; explain it instead of replacing it with an inaccurate simplification.
 - Treat readability scores as a warning signal only. Never shorten sentences, delete connectives, or substitute familiar but imprecise words merely to hit a grade-level score.
 
+#### Terminology continuity across the course
+
+A term does not belong to one lesson; it belongs to the course. A learner meets it once and carries that meaning forward. Consult the course terminology ledger (`site/data/premed-terminology.json`) before defining any term a published lesson already teaches, and then do one of two things:
+
+- **Adopt.** Keep the established meaning, use the same name for the same entity, and cross-reference the owning lesson. Reword the definition only in ways that preserve the sense.
+- **Protest, in the open.** When your field genuinely uses the same word in a different technical sense — "reliability" as measurement consistency versus evidence credibility, "reproducibility" under changed versus identical conditions, "negative control" as a lab baseline versus a causal-inference probe — say so. Declare the glossary entry's `alignment` block (prior lesson, relation, note) and bridge the two senses in prose where the term first appears in its new sense, exactly as the course already disambiguates "controlled variable versus control condition."
+
+What you may not do is silently overwrite a meaning the learner already holds. A collision is invisible in a single-lesson read — every usage is locally correct — so it is caught only against the ledger and at cross-lesson review. Reserve the same word for a genuinely different sense only when the disciplines force it, and never for stylistic variety.
+
 ### 4.3 Explain mechanisms and evidence
 
 - Distinguish description, mechanism, model, correlation, causal claim, convention, and inference.

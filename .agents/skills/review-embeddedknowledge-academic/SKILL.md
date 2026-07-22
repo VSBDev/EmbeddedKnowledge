@@ -30,6 +30,8 @@ Treat changes to scene content, metadata, assessment, claims, references, glossa
 4. Recalculate quantitative examples, units, significant assumptions, equations, chemical balances, mappings, and answer keys independently.
 5. Check mechanisms, definitions, terminology, causal language, analogies, boundary cases, uncertainty, and transitions between models or representations.
 6. Verify that examples and assessments are correct for the declared scope and do not reward a scientifically false shortcut.
+
+Check cross-lesson terminology. Read `site/data/premed-terminology.json`. For every glossary term this lesson shares with an earlier published lesson, confirm it either adopts the prior meaning or declares an `alignment` block that a learner could follow. Flag a term whose sense shifts from an earlier lesson with no bridge — `npm run terminology:validate` lists the undeclared shifts. These collisions are invisible in a single-lesson read, so they are specifically your job at review time.
 7. Check prerequisite claims, graph outcome coverage, route relevance, non-clinical boundaries, and any statement that could be mistaken for medical advice or professional authorization.
 8. Search for plausible counterexamples and common expert objections. Distinguish factual error from pedagogical preference.
 9. Do not treat model agreement, citation count, prestigious venue, fluent prose, or successful schema validation as evidence of correctness.
