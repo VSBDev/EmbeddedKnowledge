@@ -66,8 +66,8 @@ Choose `request-changes` for unresolved major or blocking findings. Choose `abst
 1. Follow `.github/REVIEW_TEMPLATE/learning-design.md` and `site/schemas/review.schema.json` exactly.
 2. Set `role` to `learning-design` and target the exact candidate commit.
 3. Record evidence actually inspected, including stable scene and assessment targets.
-4. State concrete findings, learner consequences, resolutions, limitations, conflict status, accountable principal, and real agent provenance.
-5. Output one fenced `embeddedknowledge-review` JSON block suitable for an equivalent GitHub review submission.
+4. State concrete findings, learner consequences, resolutions, limitations, conflict status, accountable principal, and agent provenance in which you emit the literal placeholder `RUNTIME-STAMPED` for the four agent-identity fields (system, provider, model, version) — the accountable operator stamps these from the runtime banner because agents cannot reliably self-report their own model — with an accurate run ID and material-instructions digest.
+5. Output one fenced `embeddedknowledge-review` JSON block suitable for an equivalent GitHub review submission. The accountable operator submits this artifact pinned to the candidate commit and fills the placeholdered provenance fields from the runtime, per [`REVIEW-RUNBOOK.md`](../../../REVIEW-RUNBOOK.md).
 6. Do not write the artifact into the pack unless explicitly requested. The operator must preserve it exactly.
 7. After it is saved, run `npm run validate`. Report structural failures separately from the learning-design verdict.
 8. Never claim quorum or merge readiness. Under `standard-lesson-v3`, this is one advisory input to a fresh finalizer; report `request-changes` honestly when warranted and do not start a revision loop.
