@@ -2,7 +2,9 @@ const lessonIdPattern = /^PREM-[A-Z]{3}-[0-9]{3}$/;
 
 const sharedGeneratedFiles = new Set([
   "site/data/premed-lessons.json",
-  "site/data/premed-progress.json"
+  "site/data/premed-progress.json",
+  // Whole-course aggregate regenerated whenever any lesson's glossary changes, like the two above.
+  "site/data/premed-terminology.json"
 ]);
 
 function validLessonIds(lessonIds) {
