@@ -28,9 +28,9 @@ Divide both sides by nonzero 7: $x=6$.
 :id: check-original-equation
 
 Why is checking the original equation stronger than checking only the final line $7x=42$?
-:::
 
-An earlier distribution or sign error could create a valid solution to the wrong transformed equation. The original retains every initial term and grouping.
+**Feedback after your attempt:** An earlier distribution or sign error could create a valid solution to the wrong transformed equation. The original retains every initial term and grouping.
+:::
 
 :::{source-note}
 :claims: claim-unit-independent-rearrangement

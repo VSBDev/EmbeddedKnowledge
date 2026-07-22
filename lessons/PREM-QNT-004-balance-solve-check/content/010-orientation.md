@@ -19,14 +19,24 @@ This lesson treats an equation as a **constraint**. Solving is the controlled pr
 
 ## Starting check
 
-- Is $3x+7$ an expression or an equation?
-- Does adding 4 to only one side preserve equality?
-- If a variable counts complete intervals, is $n=-2.5$ admissible even if algebra produces it?
+:::{check}
+:id: check-starting-readiness
 
-If signed arithmetic is uncertain, write each equality-preserving step on a separate line and estimate the sign before calculating.
+Try all five questions before reading the feedback.
+
+1. Without exact calculation, is $(83-17)/6$ closest to 1, 10, or 100? Explain using rounded values.
+2. Is $-30/4$ positive or negative, and is its magnitude between 7 and 8?
+3. Is $3x+7$ an expression or an equation?
+4. Does adding 4 to only one side preserve equality?
+5. If a variable counts complete intervals, is $n=-2.5$ admissible even if algebra produces it?
+
+**Feedback after your attempt:** $(83-17)/6$ is closest to 10 because $83-17$ is about 60 and $60/6=10$. The value $-30/4$ is negative and lies between $-8$ and $-7$. The form $3x+7$ is an expression because it makes no equality assertion. Adding to only one side does not preserve equality. A value of $-2.5$ is outside a complete-interval domain even if it emerged from algebra.
+
+If either estimation answer was uncertain, round the numerator before dividing and predict the sign before calculating. If an equation operation was uncertain, write the same operation on two separate lines, one for each side.
+:::
 
 :::{source-note}
-:claims: claim-quantity-equation, claim-numerical-equation
+:claims: claim-quantity-equation, claim-numerical-equation, claim-unit-independent-rearrangement
 :sources: source-nist-si-chapter7
 
 NIST distinguishes quantity equations from unit-dependent numerical-value equations. The sampler model and constraint-first method are original.

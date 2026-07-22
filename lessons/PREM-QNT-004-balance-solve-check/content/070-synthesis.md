@@ -13,7 +13,7 @@
 - What do $0=7$ and $0=0$ mean after a variable cancels?
 - Why should formula rearrangement precede numerical substitution?
 
-Complete `assessment.json`. If the operation trail is unclear, return to the misconception scene. If fractions fail, redo practice item 3 while circling every term. If a numerical answer lacks a domain or substitution check, redo the transfer task.
+Complete the lesson mastery assessment. If the operation trail is unclear, return to the misconception scene. If fractions fail, redo practice item 3 while circling every term. If a numerical answer lacks a domain or substitution check, redo the transfer task.
 
 :::{source-note}
 :claims: claim-quantity-equation, claim-numerical-equation, claim-unit-independent-rearrangement

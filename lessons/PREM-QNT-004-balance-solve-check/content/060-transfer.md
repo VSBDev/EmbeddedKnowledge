@@ -4,9 +4,14 @@ A fictional process uses the quantity relation
 
 $$Q=r(t-t_0),$$
 
-where $Q$ is accumulated output, $r$ is a constant rate, $t$ is final time, and $t_0$ is start time. Solve symbolically for $t$, then evaluate for $Q=126$, $r=9$, and $t_0=4$ in mutually compatible units supplied by the task.
+where $Q$ is accumulated output in millilitres (mL), $r$ is a constant rate in millilitres per minute (mL/min), and $t$ and $t_0$ are times in minutes (min).
 
-## Feedback after a complete attempt
+:::{check}
+:id: check-transfer-rate-time
+
+Solve symbolically for $t$, then evaluate for $Q=126\ \mathrm{mL}$, $r=9\ \mathrm{mL/min}$, and $t_0=4\ \mathrm{min}$. Before substituting, show why $Q/r$ can be added to $t_0$.
+
+**Feedback after a complete attempt:**
 
 Divide by $r$ only with restriction $r\ne0$:
 
@@ -20,9 +25,10 @@ $$
 t=t_0+\frac{Q}{r},\qquad r\ne0.
 $$
 
-Substitute only after rearranging: $t=4+126/9=18$.
+The quotient $Q/r$ has units $(\mathrm{mL})/(\mathrm{mL/min})=\mathrm{min}$, so it can be added to $t_0$. Substitute only after rearranging: $t=4\ \mathrm{min}+14\ \mathrm{min}=18\ \mathrm{min}$.
 
-Check in the original: $9(18-4)=9(14)=126$. The rearranged quantity equation remains meaningful across compatible unit choices; the numerical values must use a coherent set of units.
+Check in the original: $(9\ \mathrm{mL/min})(18\ \mathrm{min}-4\ \mathrm{min})=126\ \mathrm{mL}$. The rearranged quantity equation remains meaningful across compatible unit choices; the numerical values must use a coherent set of units.
+:::
 
 :::{source-note}
 :claims: claim-quantity-equation, claim-numerical-equation, claim-unit-independent-rearrangement

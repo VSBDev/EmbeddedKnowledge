@@ -1,30 +1,22 @@
 # Fade from operations to justification
 
-Attempt each before reading feedback. Record the operation applied to both sides.
+:::{check}
+:id: check-faded-practice
 
-## 1. Two-step equation
+Attempt all four tasks before opening or reading the feedback. Record the operation applied to both sides.
 
-Solve $7x+5=47$.
+1. **Two-step equation:** Solve $7x+5=47$.
+2. **Parentheses:** Solve $4(x+3)=2x+22$.
+3. **Fractions:** Solve $x/5-(x-2)/3=2$.
+4. **Classify:** Solve $2(x+4)=2x+8$.
 
-**Feedback:** Subtract 5, then divide by 7: $x=6$. Check: $42+5=47$.
+**Feedback after all four attempts:**
 
-## 2. Parentheses
-
-Solve $4(x+3)=2x+22$.
-
-**Feedback:** $4x+12=2x+22$, so $2x=10$ and $x=5$. Both original sides equal 32.
-
-## 3. Fractions
-
-Solve $x/5-(x-2)/3=2$.
-
-**Feedback:** Multiply every term by 15: $3x-5(x-2)=30$. Then $-2x+10=30$, so $x=-10$. Original check: $-2-(-12/3)=2$.
-
-## 4. Classify
-
-Solve $2(x+4)=2x+8$.
-
-**Feedback:** Both sides reduce to $2x+8$; the result $0=0$ means every real $x$ satisfies the identity.
+1. Subtract 5, then divide by 7: $x=6$. Check: $42+5=47$.
+2. Distribute first: $4x+12=2x+22$, so $2x=10$ and $x=5$. Both original sides equal 32.
+3. Multiply every term by 15: $3x-5(x-2)=30$. Then $-2x+10=30$, so $x=-10$. Original check: $-2-(-12/3)=2$.
+4. Both sides reduce to $2x+8$; the result $0=0$ means every real $x$ satisfies the identity.
+:::
 
 ## Recovery route
 
