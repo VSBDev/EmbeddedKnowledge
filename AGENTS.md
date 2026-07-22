@@ -12,7 +12,8 @@ These instructions apply to the entire EmbeddedKnowledge project.
 
 ## Canonical sources
 
-- Edit `course/PREMED-SYLLABUS.md`, then run `npm run site:build`; do not hand-edit `site/premed/syllabus/index.html`.
+- Edit `course/PREMED-SYLLABUS.md` or `course/PSYCHIATRY-SYLLABUS.md`, then run `npm run site:build`; do not hand-edit either generated `site/*/syllabus/index.html`.
+- Treat Psychiatry as a research candidate: `course/PSYCHIATRY-SYLLABUS.md` is open for curriculum review, but no Psychiatry graph or production lesson target exists yet. Do not create a Psychiatry lesson pack until a later reviewed change opens intake and publishes stable outcome IDs.
 - Edit `scripts/build-premed-graph.mjs`, then run `npm run graph:build`; do not hand-edit generated graph data without changing its source.
 - Treat `site/data/premed-progress.json` as a generated/public ledger. Lesson metadata becomes its source once lessons exist.
 - Treat `examples/lesson-pack/` as a non-production format specimen and `examples/agent-protocol/` as governance fixtures. Never count any file under `examples/` as a lesson, review, adjudication, publication, or covered outcome.
