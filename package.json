@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "serve": "python3 -m http.server 4173",
-    "site:build": "node scripts/build-syllabus-page.mjs && node scripts/build-lesson-index.mjs && node scripts/build-lesson-specimen.mjs && node scripts/build-premed-progress.mjs && node scripts/build-agent-skills.mjs && node scripts/build-agent-context.mjs",
+    "site:build": "node scripts/build-syllabus-page.mjs && node scripts/build-lesson-index.mjs && node scripts/build-lesson-specimen.mjs && node scripts/build-premed-progress.mjs && node scripts/build-agent-skills.mjs && node scripts/build-agent-context.mjs && node scripts/build-terminology-ledger.mjs",
     "graph:build": "node scripts/build-premed-graph.mjs",
     "graph:validate": "node scripts/validate-premed-graph.mjs",
     "progress:validate": "node scripts/validate-premed-progress.mjs",
@@ -20,15 +20,17 @@
     "skills:build": "node scripts/build-agent-skills.mjs",
     "skills:validate": "node scripts/validate-agent-skills.mjs",
     "agent:build": "npm run skills:build && node scripts/build-agent-context.mjs",
-    "agent:validate": "npm run skills:validate && node scripts/validate-agent-protocol.mjs && node scripts/validate-lessons.mjs",
-    "validate": "npm run site:build && node --check site/app.js && node --check site/syllabus.js && node --check site/graph.js && node --check site/progress.js && node --check site/lessons.js && node --check site/lesson-reader.js && node --check site/contribute.js && node --check site/webmcp.js && node --check scripts/render-lesson-format.mjs && node --check scripts/build-lesson-specimen.mjs && node --check scripts/build-premed-progress.mjs && node --check scripts/build-agent-skills.mjs && node --check scripts/validate-agent-skills.mjs && node --check scripts/fetch-open-lesson-prs.mjs && node --check scripts/validate-lesson-pr.mjs && node --check scripts/preflight-lesson-sources.mjs && node --check scripts/prepare-review-submission.mjs && node --check scripts/publish-lesson.mjs && node --check scripts/stamp-agent-provenance.mjs && node --check scripts/submit-pinned-review.mjs && node --check scripts/validate-review-comment.mjs && node --check scripts/validate-pr-review-provenance.mjs && npm run graph:validate && npm run progress:validate && npm run lesson:validate && npm run copy:validate && npm run agent:validate",
+    "agent:validate": "npm run skills:validate && node scripts/validate-agent-protocol.mjs && node scripts/validate-lessons.mjs && node scripts/validate-terminology-ledger.mjs",
+    "validate": "npm run site:build && node --check site/app.js && node --check site/syllabus.js && node --check site/graph.js && node --check site/progress.js && node --check site/lessons.js && node --check site/lesson-reader.js && node --check site/contribute.js && node --check site/webmcp.js && node --check scripts/render-lesson-format.mjs && node --check scripts/build-lesson-specimen.mjs && node --check scripts/build-premed-progress.mjs && node --check scripts/build-agent-skills.mjs && node --check scripts/validate-agent-skills.mjs && node --check scripts/fetch-open-lesson-prs.mjs && node --check scripts/validate-lesson-pr.mjs && node --check scripts/preflight-lesson-sources.mjs && node --check scripts/prepare-review-submission.mjs && node --check scripts/publish-lesson.mjs && node --check scripts/stamp-agent-provenance.mjs && node --check scripts/submit-pinned-review.mjs && node --check scripts/build-terminology-ledger.mjs && node --check scripts/validate-terminology-ledger.mjs && node --check scripts/validate-review-comment.mjs && node --check scripts/validate-pr-review-provenance.mjs && npm run graph:validate && npm run progress:validate && npm run lesson:validate && npm run copy:validate && npm run agent:validate",
     "test:protocol": "node --test tests/protocol/*.test.mjs",
     "test": "npm run test:protocol && playwright test",
     "verify": "npm run validate && npm test",
     "test:container": "docker compose up -d --build && EK_CONTAINER_BASE=${EK_CONTAINER_BASE:-http://127.0.0.1:8082} playwright test tests/container-csp.spec.js",
     "lesson:publish": "node scripts/publish-lesson.mjs",
     "provenance:stamp": "node scripts/stamp-agent-provenance.mjs",
-    "review:submit": "node scripts/submit-pinned-review.mjs"
+    "review:submit": "node scripts/submit-pinned-review.mjs",
+    "terminology:build": "node scripts/build-terminology-ledger.mjs",
+    "terminology:validate": "node scripts/validate-terminology-ledger.mjs"
   },
   "devDependencies": {
     "@playwright/test": "1.61.1",

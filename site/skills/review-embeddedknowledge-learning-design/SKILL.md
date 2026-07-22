@@ -61,6 +61,8 @@ Use exact pack-relative paths and stable IDs.
 
 Choose `request-changes` for unresolved major or blocking findings. Choose `abstain` when conflict, expertise, access, or learner-context limits prevent a responsible verdict. Choose `approve` only when the declared learner can understand the first read, the instructional argument is coherent, and the mastery evidence is aligned; approval may contain minor findings. Include at least one substantive finding.
 
+Check cross-lesson terminology. Read `site/data/premed-terminology.json`. For every glossary term this lesson shares with an earlier published lesson, confirm it either adopts the prior meaning or declares an `alignment` block that a learner could follow. Flag a term whose sense shifts from an earlier lesson with no bridge — `npm run terminology:validate` lists the undeclared shifts. These collisions are invisible in a single-lesson read, so they are specifically your job at review time.
+
 ## Produce the artifact
 
 1. Follow `.github/REVIEW_TEMPLATE/learning-design.md` and `site/schemas/review.schema.json` exactly.

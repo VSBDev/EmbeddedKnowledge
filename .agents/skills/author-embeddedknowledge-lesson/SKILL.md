@@ -11,9 +11,10 @@ Create one review-ready lesson pack. Preserve the boundary between authorship an
 
 1. Locate the repository root with `git rev-parse --show-toplevel` and work only inside that repository. If no checkout is available, stop and request one; the public skill bundle is not a substitute for the repository.
 2. Read, in order, `AGENTS.md`, `CONTRIBUTING.md`, `CONTENT-STANDARD.md`, `FORMAT.md`, `lessons/README.md`, `RIGHTS-POLICY.md`, `COLLABORATION.md`, `site/agent/quorum-policy.json`, and the schemas under `site/schemas/` used by the pack.
-3. Treat those files as authoritative. Treat this skill as the procedure that applies them.
-4. Confirm contribution intake from `site/agent/contribution.json`. When intake is closed, prepare a local patch only. Do not open or push a pull request.
-5. Use only the author role in this run. Do not invoke review or adjudication skills, inspect future review conclusions, or manufacture `reviews/*.json` or `adjudication.json`.
+3. Read the course terminology ledger `site/data/premed-terminology.json` before designing the glossary. It lists every term already defined by a published lesson and its meaning. Your lesson does not own a term another lesson already teaches.
+4. Treat those files as authoritative. Treat this skill as the procedure that applies them.
+5. Confirm contribution intake from `site/agent/contribution.json`. When intake is closed, prepare a local patch only. Do not open or push a pull request.
+6. Use only the author role in this run. Do not invoke review or adjudication skills, inspect future review conclusions, or manufacture `reviews/*.json` or `adjudication.json`.
 
 ## Select exactly one contribution target
 
@@ -68,7 +69,7 @@ Choose the smallest instructional arc that can teach and assess the target. The 
 2. Use `lesson.json` schema version 3 and `format: embeddedknowledge-lesson-v1`. Keep status `draft` and source confidence `pending-review` during authorship.
 3. Create ordered semantic scenes under `content/`. Set each scene's `claimCoverage` to `claims-mapped` or `no-material-claims`; never use the latter to avoid recording a factual, quantitative, definitional, causal, or evidence-dependent teaching claim. Use only documented scene kinds, directives, and options. Let instructional purpose determine scene boundaries; combine functions when that produces a clearer reading path, and never create scenes mechanically from the specimen or standard.
 4. Include coherent explanation, worked reasoning, explicit representation links, retrieval, misconception repair, varied and fading practice, genuine transfer, synthesis, recovery, and assessment only to the extent required to teach and test the outcome without repetition.
-5. Build `assessment.json`, `references.json`, `claims.json`, `glossary.json`, and `ATTRIBUTION.md`. Add only necessary local diagrams and assets.
+5. Build `assessment.json`, `references.json`, `claims.json`, `glossary.json`, and `ATTRIBUTION.md`. Add only necessary local diagrams and assets. For every glossary term a prior published lesson already defines (see the terminology ledger), either adopt that meaning — keep the definition faithful and cross-reference the owning lesson — or, if this lesson's field genuinely uses the word in a different technical sense, protest it: add the glossary entry's `alignment` block naming the prior lesson, the relation (`adopt`/`narrow`/`extend`/`distinct-sense`/`supersede`), and a note giving the learner the disambiguation, and bridge the two senses in the prose where the term first appears in the new sense. Never silently redefine a term another lesson owns; `npm run terminology:validate` reports undeclared sense shifts for reviewers.
 6. Use constrained TeX, chemistry notation, declarative diagrams, sanitized SVG, structured molecule data, and accessibility equivalents exactly as the format permits.
 7. Keep lesson content inert. Reject raw HTML or JavaScript, remote embeds, executable notebooks, active SVG, unsafe TeX, arbitrary plugins, secrets, identifiable learner or patient data, copyrighted answer banks, and media without usable rights.
 8. Use `examples/lesson-pack/` only to understand structure. Do not copy its placeholder identities, provenance, claims, answers, or specimen status into production.

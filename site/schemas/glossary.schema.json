@@ -4,23 +4,106 @@
   "title": "EmbeddedKnowledge lesson glossary v1",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schemaVersion", "format", "lessonId", "lessonVersion", "terms"],
+  "required": [
+    "schemaVersion",
+    "format",
+    "lessonId",
+    "lessonVersion",
+    "terms"
+  ],
   "properties": {
-    "schemaVersion": { "const": 1 },
-    "format": { "const": "embeddedknowledge-glossary-v1" },
-    "lessonId": { "type": "string", "pattern": "^PREM-[A-Z]{3}-[0-9]{3}$" },
-    "lessonVersion": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "schemaVersion": {
+      "const": 1
+    },
+    "format": {
+      "const": "embeddedknowledge-glossary-v1"
+    },
+    "lessonId": {
+      "type": "string",
+      "pattern": "^PREM-[A-Z]{3}-[0-9]{3}$"
+    },
+    "lessonVersion": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
     "terms": {
       "type": "array",
       "items": {
-        "type": "object", "additionalProperties": false,
-        "required": ["id", "term", "definition", "aliases", "sceneIds"],
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "term",
+          "definition",
+          "aliases",
+          "sceneIds"
+        ],
         "properties": {
-          "id": { "type": "string", "pattern": "^term-[a-z0-9-]+$" },
-          "term": { "type": "string", "minLength": 1, "maxLength": 160 },
-          "definition": { "type": "string", "minLength": 5, "maxLength": 1000 },
-          "aliases": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 1, "maxLength": 160 } },
-          "sceneIds": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "pattern": "^scene-[a-z0-9-]+$" } }
+          "id": {
+            "type": "string",
+            "pattern": "^term-[a-z0-9-]+$"
+          },
+          "term": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 160
+          },
+          "definition": {
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 1000
+          },
+          "aliases": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 160
+            }
+          },
+          "sceneIds": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^scene-[a-z0-9-]+$"
+            }
+          },
+          "alignment": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "Declares this term's relation to an earlier published lesson that already defines it. Required when a prior lesson defines the same term with a materially different sense (the terminology ledger's 'adopt or protest' contract). Omit only when this lesson introduces the term or adopts the prior definition verbatim in meaning.",
+            "required": [
+              "priorLesson",
+              "relation",
+              "note"
+            ],
+            "properties": {
+              "priorLesson": {
+                "type": "string",
+                "pattern": "^PREM-[A-Z]{3}-[0-9]{3}$",
+                "description": "The earlier lesson whose definition this one relates to."
+              },
+              "relation": {
+                "enum": [
+                  "adopt",
+                  "narrow",
+                  "extend",
+                  "distinct-sense",
+                  "supersede"
+                ],
+                "description": "adopt: same meaning, kept for continuity. narrow/extend: a scoped refinement of the same concept. distinct-sense: a genuinely different technical sense of the same word in this lesson's domain (must be bridged in prose). supersede: replaces the earlier meaning course-wide."
+              },
+              "note": {
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 600,
+                "description": "Why this lesson relates to the prior definition as declared; the disambiguation a learner needs. Reviewers adjudicate this."
+              }
+            }
+          }
         }
       }
     }
