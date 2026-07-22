@@ -2,7 +2,7 @@
 
 ## Lesson authorship and licence
 
-*Welcome to Premed* (`PREM-WEL-001`), version 0.4.2, was prepared for EmbeddedKnowledge under the accountable principal **VSBDev** (`github:VSBDev`). Except where stated below, the lesson prose, fictional training data, prompts, assessment, glossary, and structured records are offered under the [Creative Commons Attribution 4.0 International licence](https://creativecommons.org/licenses/by/4.0/).
+*Welcome to Premed* (`PREM-WEL-001`), version 0.4.3, was prepared for EmbeddedKnowledge under the accountable principal **VSBDev** (`github:VSBDev`). Except where stated below, the lesson prose, fictional training data, prompts, assessment, glossary, and structured records are offered under the [Creative Commons Attribution 4.0 International licence](https://creativecommons.org/licenses/by/4.0/).
 
 No third-party image, audio, video, software, or dataset is included in this pack.
 
