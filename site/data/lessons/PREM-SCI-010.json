@@ -3,9 +3,9 @@
   "format": "embeddedknowledge-lesson-v1",
   "artifactType": "production-lesson",
   "id": "PREM-SCI-010",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "title": "Using scientific models without outrunning their limits",
-  "status": "published",
+  "status": "draft",
   "riskTier": "standard",
   "estimatedMinutes": 150,
   "outcomes": [
@@ -56,7 +56,7 @@
       "estimatedMinutes": 32,
       "required": true,
       "claimCoverage": "claims-mapped",
-      "contentHtml": "<h1>Four questions before trusting a model</h1>\n<p>A model becomes usable when you can finish this sentence:</p>\n<blockquote>\n<p>If this representation fits this system under these conditions, then it supports this output for this purpose—with these limits.</p>\n</blockquote>\n<p>That sentence has four parts. Ask them in order before you let a calculation, diagram, physical replica, or simulation carry an argument.</p>\n<aside class=\"ek-block ek-definition ek-block--definition\" data-directive=\"definition\">\n    <div class=\"ek-block-label directive-label\">Definition</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> definition-scientific-model</span><span><b>label</b> Scientific model</span></div>\n    <div class=\"ek-block-content\"><p>A scientific model is a selective representation of a system or process. It preserves relationships needed for a stated question and omits details that are not represented. A physical replica, a conceptual diagram, a mathematical equation, and a computer simulation can all serve as models, but none is the system itself.</p>\n</div>\n  </aside>\n<h2>1. What is the purpose and output?</h2>\n<p>Name the question before naming the model. “Model the gas” is too vague. “Estimate the equilibrium pressure of this gas sample” identifies an output and lets you judge whether the model contains the needed relationships.</p>\n<p>The <strong>output</strong> is the result you want: perhaps a prediction, estimate, explanation, or classification. A model adequate for one output may omit features needed for another. The ideal-gas equation can estimate a macroscopic pressure without tracing the path of every molecule.</p>\n<h2>2. What goes in, and what has been assumed?</h2>\n<p>List each input, parameter, starting or boundary condition, and omitted process.</p>\n<ul>\n<li>An <strong>input</strong> is supplied for a particular use or run.</li>\n<li>A <strong>variable</strong> can take different values among states, places, or times.</li>\n<li>A <strong>parameter</strong> is held fixed during one run but can change between runs or model instances.</li>\n<li>An <strong>assumption</strong> treats a relationship or omission as acceptable for the purpose—for example, that a chamber is well mixed or that an interaction is negligible.</li>\n</ul>\n<p>These roles must be declared rather than guessed. A measured rate may be an input in one model, a fitted parameter in another, and an output in a third.</p>\n<p><strong>Calibration</strong>, in the sense used here, adjusts or estimates parameter values within defensible ranges so outputs fit relevant observations according to stated criteria. A good fit can improve a model&#39;s use; it cannot by itself show that every assumption or proposed mechanism is correct.</p>\n<h2>3. At what scale and in what domain?</h2>\n<p><strong>Scale</strong> asks how large, how long, and at what level the model represents the system: seconds or years, a cell or an organ, a small chamber or a landscape, one population or another.</p>\n<p>The <strong>model domain</strong> is the set of purposes, conditions, scales, and contexts for which the use has a defensible basis. A fitted relation used inside its tested range is interpolation. Carrying it beyond the supported range or context is extrapolation. Extrapolation is not automatically forbidden, but it adds an assumption that the relationship continues. That assumption needs new evidence.</p>\n<p>A change of instrument, environment, population, or physical scale can move the case outside the domain even when every input name stays the same.</p>\n<h2>4. What evidence would reveal failure?</h2>\n<p>Plan a stress test before accepting the output.</p>\n<ul>\n<li>Compare a prediction with observations that were not used merely to set the parameters.</li>\n<li>Try a boundary case where an assumption should stop holding.</li>\n<li>Change plausible inputs or assumptions and inspect the output.</li>\n<li>Ask whether another model or parameter set could produce the same observed result.</li>\n</ul>\n<p>A <strong>sensitivity analysis</strong> changes inputs or assumptions and measures the effect on output. Changing one factor while holding the rest fixed is a useful local check, but it can miss interactions and behavior far from the chosen baseline.</p>\n<p>Uncertainty and variability also need different questions. <strong>Uncertainty</strong> concerns what is not known about the inputs, parameters, structure, or application. More information or a better model may reduce some of it. <strong>Variability</strong> describes differences or fluctuations in the represented system; more observations may characterize that variability without making it disappear. The boundary depends on the model: a finer model may explain a pattern that a coarser model treated as unexplained variation.</p>\n<h2>The complete route</h2>\n<figure class=\"ek-block ek-diagram\" data-directive=\"diagram\" data-diagram-source=\"diagrams/model-use-cycle.diagram.json\">\n    <div class=\"ek-block-label directive-label\">Diagram</div>\n    <div class=\"ek-diagram-visual\" role=\"img\" aria-label=\"A model-use flow checks purpose, structure, scale and domain before prediction, then uses evidence to interpret, restrict, revise, or replace the model.\"><span class=\"ek-diagram-node ek-diagram-node--rounded-box\">Define the question and output</span><span class=\"ek-diagram-arrow\" aria-hidden=\"true\">→</span><span class=\"ek-diagram-node ek-diagram-node--box\">Record inputs, parameters, assumptions, and omissions</span><span class=\"ek-diagram-arrow\" aria-hidden=\"true\">→</span><span class=\"ek-diagram-node ek-diagram-node--box\">Check scale and defensible conditions</span><span class=\"ek-diagram-arrow\" aria-hidden=\"true\">→</span><span class=\"ek-diagram-node ek-diagram-node--rounded-box\">Predict, explain, or estimate</span><span class=\"ek-diagram-arrow\" aria-hidden=\"true\">→</span><span class=\"ek-diagram-node ek-diagram-node--box\">Compare evidence, boundaries, sensitivity, and alternatives</span><span class=\"ek-diagram-arrow\" aria-hidden=\"true\">→</span><span class=\"ek-diagram-node ek-diagram-node--diamond\">Adequate for this purpose?</span><span class=\"ek-diagram-arrow\" aria-hidden=\"true\">→</span><span class=\"ek-diagram-node ek-diagram-node--pill\">Interpret within the stated domain</span><span class=\"ek-diagram-arrow\" aria-hidden=\"true\">→</span><span class=\"ek-diagram-node ek-diagram-node--pill\">Restrict, recalibrate, revise, or replace</span></div>\n    <figcaption>A model-use flow checks purpose, structure, scale and domain before prediction, then uses evidence to interpret, restrict, revise, or replace the model.</figcaption>\n    <details class=\"ek-long-description\"><summary>Read the diagram as text</summary><p>First define the question and desired output. Next record inputs, parameters, assumptions, and omissions. Then check spatial, temporal, and organizational scale and the defensible conditions. Use the model only after those checks. Stress-test its result with observations, boundary cases, input changes, and competing explanations. If it is adequate for the stated purpose, interpret only within that domain. If it is not adequate or remains uncertain, restrict the claim, recalibrate parameters, revise the structure, or replace the model, and repeat the audit.</p><ul><li><strong>Define the question and output</strong> → <strong>Record inputs, parameters, assumptions, and omissions</strong>: purpose sets needed detail</li><li><strong>Record inputs, parameters, assumptions, and omissions</strong> → <strong>Check scale and defensible conditions</strong>: assumptions constrain use</li><li><strong>Check scale and defensible conditions</strong> → <strong>Predict, explain, or estimate</strong>: conditions fit</li><li><strong>Predict, explain, or estimate</strong> → <strong>Compare evidence, boundaries, sensitivity, and alternatives</strong>: output needs a check</li><li><strong>Compare evidence, boundaries, sensitivity, and alternatives</strong> → <strong>Adequate for this purpose?</strong>: weigh the evidence</li><li><strong>Adequate for this purpose?</strong> → <strong>Interpret within the stated domain</strong>: yes</li><li><strong>Adequate for this purpose?</strong> → <strong>Restrict, recalibrate, revise, or replace</strong>: no or uncertain</li><li><strong>Restrict, recalibrate, revise, or replace</strong> → <strong>Record inputs, parameters, assumptions, and omissions</strong>: repeat the audit</li></ul></details>\n  </figure>\n<table>\n<thead>\n<tr>\n<th>Audit question</th>\n<th>Record in words</th>\n<th>What the record prevents</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>Purpose and output</td>\n<td>the exact question and result needed</td>\n<td>solving a different problem precisely</td>\n</tr>\n<tr>\n<td>Structure and assumptions</td>\n<td>inputs, parameters, conditions, omissions</td>\n<td>hiding decisive idealizations</td>\n</tr>\n<tr>\n<td>Scale and domain</td>\n<td>size, duration, context, supported range</td>\n<td>silent extrapolation</td>\n</tr>\n<tr>\n<td>Failure evidence</td>\n<td>comparison, boundary, sensitivity, alternative</td>\n<td>treating one successful fit as proof</td>\n</tr>\n</tbody></table>\n<p>The diagram shows sequence and revision. The table exposes what each step contributes. Neither replaces the scientific judgment needed to decide how much error is acceptable for a particular use.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-model-purpose, claim-model-components, claim-model-domain-scale, claim-sensitivity-analysis, claim-model-uncertainty, claim-bounded-evidence</span><span><b>sources</b> source-epa-model-guidance</span></div>\n    <div class=\"ek-block-content\"><p>The EPA guidance supports the model, parameter, calibration, application-domain, uncertainty, variability, sensitivity, and corroboration distinctions used here. The four-question organization, flow diagram, table, examples, and wording are original course material.</p>\n</div>\n  </aside>\n"
+      "contentHtml": "<h1>Four questions before trusting a model</h1>\n<p>A model becomes usable when you can finish this sentence:</p>\n<blockquote>\n<p>If this representation fits this system under these conditions, then it supports this output for this purpose—with these limits.</p>\n</blockquote>\n<p>That sentence has four parts. Ask them in order before you let a calculation, diagram, physical replica, or simulation carry an argument.</p>\n<aside class=\"ek-block ek-definition ek-block--definition\" data-directive=\"definition\">\n    <div class=\"ek-block-label directive-label\">Definition</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> definition-scientific-model</span><span><b>label</b> Scientific model</span></div>\n    <div class=\"ek-block-content\"><p>A scientific model is a selective representation of a system or process. It preserves relationships needed for a stated question and omits details that are not represented. A physical replica, a conceptual diagram, a mathematical equation, and a computer simulation can all serve as models, but none is the system itself.</p>\n</div>\n  </aside>\n<h2>1. What is the purpose and output?</h2>\n<p>Name the question before naming the model. “Model the gas” is too vague. “Estimate the equilibrium pressure of this gas sample” identifies an output and lets you judge whether the model contains the needed relationships.</p>\n<p>The <strong>output</strong> is the result you want: perhaps a prediction, estimate, explanation, or classification. A model adequate for one output may omit features needed for another. The ideal-gas equation can estimate a macroscopic pressure without tracing the path of every molecule.</p>\n<h2>2. What goes in, and what has been assumed?</h2>\n<p>List each input, parameter, starting or boundary condition, and omitted process.</p>\n<ul>\n<li>An <strong>input</strong> is supplied for a particular use or run.</li>\n<li>A <strong>variable</strong> can take different values among states, places, or times.</li>\n<li>A <strong>parameter</strong> is held fixed during one run but can change between runs or model instances.</li>\n<li>An <strong>assumption</strong> treats a relationship or omission as acceptable for the purpose—for example, that a chamber is well mixed or that an interaction is negligible.</li>\n</ul>\n<p>These roles must be declared rather than guessed. A measured rate may be an input in one model, a fitted parameter in another, and an output in a third.</p>\n<p><strong>Calibration</strong>, in the sense used here, adjusts or estimates parameter values within defensible ranges so outputs fit relevant observations according to stated criteria. This is model fitting, not the instrument calibration of <a href=\"https://embeddedknowledge.io/premed/lessons/read/?lesson=PREM-SCI-006\" rel=\"noreferrer noopener\">Measurement, reliability, and validity (PREM-SCI-006)</a>, which relates a device&#39;s readings to measurement standards; both aim to make outputs trustworthy, but one tunes a model and the other a measuring instrument. A good fit can improve a model&#39;s use; it cannot by itself show that every assumption or proposed mechanism is correct.</p>\n<h2>3. At what scale and in what domain?</h2>\n<p><strong>Scale</strong> asks how large, how long, and at what level the model represents the system: seconds or years, a cell or an organ, a small chamber or a landscape, one population or another.</p>\n<p>The <strong>model domain</strong> is the set of purposes, conditions, scales, and contexts for which the use has a defensible basis. A fitted relation used inside its tested range is interpolation. Carrying it beyond the supported range or context is extrapolation. Extrapolation is not automatically forbidden, but it adds an assumption that the relationship continues. That assumption needs new evidence.</p>\n<p>A change of instrument, environment, population, or physical scale can move the case outside the domain even when every input name stays the same.</p>\n<h2>4. What evidence would reveal failure?</h2>\n<p>Plan a stress test before accepting the output.</p>\n<ul>\n<li>Compare a prediction with observations that were not used merely to set the parameters.</li>\n<li>Try a boundary case where an assumption should stop holding.</li>\n<li>Change plausible inputs or assumptions and inspect the output.</li>\n<li>Ask whether another model or parameter set could produce the same observed result.</li>\n</ul>\n<p>A <strong>sensitivity analysis</strong> changes inputs or assumptions and measures the effect on output. Changing one factor while holding the rest fixed is a useful local check, but it can miss interactions and behavior far from the chosen baseline.</p>\n<p>Uncertainty and variability also need different questions. <strong>Uncertainty</strong> concerns what is not known about the inputs, parameters, structure, or application. More information or a better model may reduce some of it. <strong>Variability</strong> describes differences or fluctuations in the represented system; more observations may characterize that variability without making it disappear. The boundary depends on the model: a finer model may explain a pattern that a coarser model treated as unexplained variation.</p>\n<h2>The complete route</h2>\n<figure class=\"ek-block ek-diagram\" data-directive=\"diagram\" data-diagram-source=\"diagrams/model-use-cycle.diagram.json\">\n    <div class=\"ek-block-label directive-label\">Diagram</div>\n    <div class=\"ek-diagram-visual\" role=\"img\" aria-label=\"A model-use flow checks purpose, structure, scale and domain before prediction, then uses evidence to interpret, restrict, revise, or replace the model.\"><span class=\"ek-diagram-node ek-diagram-node--rounded-box\">Define the question and output</span><span class=\"ek-diagram-arrow\" aria-hidden=\"true\">→</span><span class=\"ek-diagram-node ek-diagram-node--box\">Record inputs, parameters, assumptions, and omissions</span><span class=\"ek-diagram-arrow\" aria-hidden=\"true\">→</span><span class=\"ek-diagram-node ek-diagram-node--box\">Check scale and defensible conditions</span><span class=\"ek-diagram-arrow\" aria-hidden=\"true\">→</span><span class=\"ek-diagram-node ek-diagram-node--rounded-box\">Predict, explain, or estimate</span><span class=\"ek-diagram-arrow\" aria-hidden=\"true\">→</span><span class=\"ek-diagram-node ek-diagram-node--box\">Compare evidence, boundaries, sensitivity, and alternatives</span><span class=\"ek-diagram-arrow\" aria-hidden=\"true\">→</span><span class=\"ek-diagram-node ek-diagram-node--diamond\">Adequate for this purpose?</span><span class=\"ek-diagram-arrow\" aria-hidden=\"true\">→</span><span class=\"ek-diagram-node ek-diagram-node--pill\">Interpret within the stated domain</span><span class=\"ek-diagram-arrow\" aria-hidden=\"true\">→</span><span class=\"ek-diagram-node ek-diagram-node--pill\">Restrict, recalibrate, revise, or replace</span></div>\n    <figcaption>A model-use flow checks purpose, structure, scale and domain before prediction, then uses evidence to interpret, restrict, revise, or replace the model.</figcaption>\n    <details class=\"ek-long-description\"><summary>Read the diagram as text</summary><p>First define the question and desired output. Next record inputs, parameters, assumptions, and omissions. Then check spatial, temporal, and organizational scale and the defensible conditions. Use the model only after those checks. Stress-test its result with observations, boundary cases, input changes, and competing explanations. If it is adequate for the stated purpose, interpret only within that domain. If it is not adequate or remains uncertain, restrict the claim, recalibrate parameters, revise the structure, or replace the model, and repeat the audit.</p><ul><li><strong>Define the question and output</strong> → <strong>Record inputs, parameters, assumptions, and omissions</strong>: purpose sets needed detail</li><li><strong>Record inputs, parameters, assumptions, and omissions</strong> → <strong>Check scale and defensible conditions</strong>: assumptions constrain use</li><li><strong>Check scale and defensible conditions</strong> → <strong>Predict, explain, or estimate</strong>: conditions fit</li><li><strong>Predict, explain, or estimate</strong> → <strong>Compare evidence, boundaries, sensitivity, and alternatives</strong>: output needs a check</li><li><strong>Compare evidence, boundaries, sensitivity, and alternatives</strong> → <strong>Adequate for this purpose?</strong>: weigh the evidence</li><li><strong>Adequate for this purpose?</strong> → <strong>Interpret within the stated domain</strong>: yes</li><li><strong>Adequate for this purpose?</strong> → <strong>Restrict, recalibrate, revise, or replace</strong>: no or uncertain</li><li><strong>Restrict, recalibrate, revise, or replace</strong> → <strong>Record inputs, parameters, assumptions, and omissions</strong>: repeat the audit</li></ul></details>\n  </figure>\n<table>\n<thead>\n<tr>\n<th>Audit question</th>\n<th>Record in words</th>\n<th>What the record prevents</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>Purpose and output</td>\n<td>the exact question and result needed</td>\n<td>solving a different problem precisely</td>\n</tr>\n<tr>\n<td>Structure and assumptions</td>\n<td>inputs, parameters, conditions, omissions</td>\n<td>hiding decisive idealizations</td>\n</tr>\n<tr>\n<td>Scale and domain</td>\n<td>size, duration, context, supported range</td>\n<td>silent extrapolation</td>\n</tr>\n<tr>\n<td>Failure evidence</td>\n<td>comparison, boundary, sensitivity, alternative</td>\n<td>treating one successful fit as proof</td>\n</tr>\n</tbody></table>\n<p>The diagram shows sequence and revision. The table exposes what each step contributes. Neither replaces the scientific judgment needed to decide how much error is acceptable for a particular use.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-model-purpose, claim-model-components, claim-model-domain-scale, claim-sensitivity-analysis, claim-model-uncertainty, claim-bounded-evidence</span><span><b>sources</b> source-epa-model-guidance</span></div>\n    <div class=\"ek-block-content\"><p>The EPA guidance supports the model, parameter, calibration, application-domain, uncertainty, variability, sensitivity, and corroboration distinctions used here. The four-question organization, flow diagram, table, examples, and wording are original course material.</p>\n</div>\n  </aside>\n"
     },
     {
       "id": "scene-worked-pressure",
@@ -234,7 +234,7 @@
     }
   ],
   "license": "CC-BY-4.0",
-  "sourceConfidence": "medium-high",
+  "sourceConfidence": "pending-review",
   "aiAssistance": {
     "used": true,
     "disclosure": "VSBDev (github:VSBDev) is accountable. Blind science authorship comprised ten isolated Claude CLI runs whose accepted dossier reported claude-fable-5 in modelUsage; each run is a separate actor above and received science-only context, not this repository, Premed, the graph outcome, or the packaging prompt. Material editorial and pedagogical packaging used Codex by OpenAI, model gpt-5.6-sol, version Codex CLI 0.144.6, run 914048de-b3fb-41bd-85e2-26d71839e6d0. Prompt digests cover the discloseable task payloads identified in ATTRIBUTION.md and exclude hidden provider and system instructions."
@@ -243,7 +243,7 @@
     "schemaVersion": 1,
     "format": "embeddedknowledge-assessment-v1",
     "lessonId": "PREM-SCI-010",
-    "lessonVersion": "0.1.0",
+    "lessonVersion": "0.1.1",
     "assessmentId": "assessment-scientific-models-limits",
     "title": "Scientific model use and limits mastery check",
     "purpose": "mastery-gate",
@@ -511,7 +511,7 @@
     "schemaVersion": 2,
     "format": "embeddedknowledge-references-v2",
     "lessonId": "PREM-SCI-010",
-    "lessonVersion": "0.1.0",
+    "lessonVersion": "0.1.1",
     "sources": [
       {
         "id": "source-epa-model-guidance",
@@ -606,7 +606,7 @@
     "schemaVersion": 1,
     "format": "embeddedknowledge-claims-v1",
     "lessonId": "PREM-SCI-010",
-    "lessonVersion": "0.1.0",
+    "lessonVersion": "0.1.1",
     "claims": [
       {
         "id": "claim-model-purpose",
@@ -623,7 +623,7 @@
         "scope": "Physical, conceptual, mathematical, statistical, and computational scientific models used for a stated question or decision.",
         "uncertainty": "The amount and kind of simplification that is useful depend on the model's purpose; there is no single ideal level of detail.",
         "risk": "routine",
-        "reviewStatus": "reviewed"
+        "reviewStatus": "pending-review"
       },
       {
         "id": "claim-model-components",
@@ -640,7 +640,7 @@
         "scope": "The modeling vocabulary and run-to-run distinction used in this introductory lesson.",
         "uncertainty": "Different disciplines use input, variable, state variable, constant, and parameter with somewhat different conventions; the role in the stated model must be declared.",
         "risk": "routine",
-        "reviewStatus": "reviewed"
+        "reviewStatus": "pending-review"
       },
       {
         "id": "claim-model-domain-scale",
@@ -661,7 +661,7 @@
         "scope": "Purpose-bound scientific model application, including transfer across physical size, duration, environment, population, or measurement regime.",
         "uncertainty": "The boundary is often gradual and purpose-dependent rather than a sharp universal cutoff; acceptable performance depends on the needed decision accuracy.",
         "risk": "routine",
-        "reviewStatus": "reviewed"
+        "reviewStatus": "pending-review"
       },
       {
         "id": "claim-sensitivity-analysis",
@@ -680,7 +680,7 @@
         "scope": "Introductory local sensitivity checks and their stated limitation; not a complete treatment of global or variance-based methods.",
         "uncertainty": "A small local response does not guarantee small response elsewhere in a nonlinear model or when several inputs vary together.",
         "risk": "routine",
-        "reviewStatus": "reviewed"
+        "reviewStatus": "pending-review"
       },
       {
         "id": "claim-model-uncertainty",
@@ -696,7 +696,7 @@
         "scope": "The introductory distinction between lack of knowledge and variability, as used to interpret model limits.",
         "uncertainty": "The distinction depends on how the system and model are defined; a refined model may explain variation that a coarser model treated as irreducible.",
         "risk": "routine",
-        "reviewStatus": "reviewed"
+        "reviewStatus": "pending-review"
       },
       {
         "id": "claim-ideal-gas-relation",
@@ -714,7 +714,7 @@
         "scope": "Macroscopic equilibrium-state calculations with compatible units and absolute temperature.",
         "uncertainty": "The equation alone does not specify an acceptable error for a particular real gas or application.",
         "risk": "routine",
-        "reviewStatus": "reviewed"
+        "reviewStatus": "pending-review"
       },
       {
         "id": "claim-ideal-gas-limits",
@@ -732,7 +732,7 @@
         "scope": "Qualitative real-gas limits used to demonstrate model-domain reasoning, not to establish gas-specific error thresholds.",
         "uncertainty": "The size and sign of deviation depend on gas identity, temperature, pressure, and the accuracy required; no universal numerical boundary is asserted.",
         "risk": "routine",
-        "reviewStatus": "reviewed"
+        "reviewStatus": "pending-review"
       },
       {
         "id": "claim-bounded-evidence",
@@ -751,7 +751,7 @@
         "scope": "Scientific model evaluation at the introductory level; agreement is treated as corroboration, not proof that a representation is uniquely true.",
         "uncertainty": "How much evidence is sufficient depends on the consequence of error, the intended use, and feasible alternatives.",
         "risk": "routine",
-        "reviewStatus": "reviewed"
+        "reviewStatus": "pending-review"
       }
     ]
   },
@@ -759,7 +759,7 @@
     "schemaVersion": 1,
     "format": "embeddedknowledge-glossary-v1",
     "lessonId": "PREM-SCI-010",
-    "lessonVersion": "0.1.0",
+    "lessonVersion": "0.1.1",
     "terms": [
       {
         "id": "term-scientific-model",
@@ -874,7 +874,12 @@
         "sceneIds": [
           "scene-model-audit",
           "scene-stress-and-repair"
-        ]
+        ],
+        "alignment": {
+          "priorLesson": "PREM-SCI-006",
+          "relation": "distinct-sense",
+          "note": "Lesson 6 defines calibration as a metrology operation relating an instrument's indications to measurement standards. Here it is model fitting: adjusting parameters so model output matches observations. Different objects (an instrument vs a model), same aim of making outputs trustworthy."
+        }
       },
       {
         "id": "term-sensitivity-analysis",
@@ -888,7 +893,12 @@
           "scene-worked-pressure",
           "scene-stress-and-repair",
           "scene-transfer-chamber"
-        ]
+        ],
+        "alignment": {
+          "priorLesson": "PREM-SCI-009",
+          "relation": "narrow",
+          "note": "Applies Lesson 9's idea to models specifically: there, varying analytic assumptions to test a conclusion's robustness; here, varying a model's inputs, parameters, or structure to see how its output responds. Same robustness logic, applied to a model."
+        }
       },
       {
         "id": "term-extrapolation",
