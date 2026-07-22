@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-SCI-008-ACADEMIC-490EE4FC",
+  "lessonId": "PREM-SCI-008",
+  "lessonVersion": "0.1.1",
+  "candidateCommit": "e270afdba6c4aa1a21172886c8f810b96a338fda",
+  "role": "academic",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — academic reviewer",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-SCI-008-490EE4FC-1118-4B09-9CA3-4A2D708FF549",
+      "instructionsDigest": "sha256:d4130f0e98e68d19c6a793251c1c4bb3bb06d626a77e3fd1fc2099bd6cb90bae"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Founding-stage operational conflict: github:VSBDev is both the accountable lesson principal and the accountable operator for this academic review. The supplied scope also required reading every file in the pack, including two earlier review artifacts against a different candidate commit. This run used a distinct run ID and independently checked the current candidate's content, calculations, evidence mappings, and answer logic."
+  },
+  "evidenceChecked": [
+    "candidate commit e270afdba6c4aa1a21172886c8f810b96a338fda existence, checked-out identity, complete lesson-pack tree, and absence of post-freeze pack differences",
+    "lesson.json#PREM-SCI-008 identity, version 0.1.1, outcomes, prerequisites, objectives, scope, ordered scenes, authorship, and pending-review state",
+    "content/01-find-the-missing-path.md#scene-find-path including the seedling opening, bias/random-error distinction, prerequisite diagnostic, recovery route, observer mechanism, and source note",
+    "content/02-follow-the-evidence-pipeline.md#scene-evidence-pipeline including selection, information, observer, attrition, survivorship, selective-reporting, publication, direction, and funnel-asymmetry boundaries",
+    "content/03-audit-the-seedling-study.md#scene-seedling-audit including target estimand, assignment and transportability boundary, survivor conditioning, observer uncertainty, reporting distinction, and stage-matched checks",
+    "content/03-audit-the-seedling-study.md#survival-and-the-denominator independently recalculated as 72/90 = 80%, 49/70 = 70%, survivor-only difference = 10 percentage points, 72/100 = 72%, 49/100 = 49%, and planned difference = 23 percentage points",
+    "content/04-practise-the-discriminations.md#scene-practice including the pipeline retrieval task, machine-survival direction, equal-loss comparison, six mixed mechanisms, and feedback",
+    "content/05-repair-and-transfer.md#scene-repair-transfer including the fixed-caliper error, classifier example, acoustic-classifier transfer, denominator comparability, selective-reporting/publication distinction, and recovery case",
+    "content/06-demonstrate-mastery.md#scene-mastery including routing threshold, remediation, synthesis, delayed retrieval, boundaries, and source note",
+    "assessment.json#item-map-six-biases, item-interpret-equal-attrition, item-distinguish-reporting-publication, and item-transfer-acoustic-archive with all response specifications, keys, reasoning, common errors, point totals, and rubric criteria",
+    "claims.json#claim-bias-versus-random-error, claim-selection-mechanism, claim-information-misclassification, claim-observer-mechanism, claim-attrition-mechanism, claim-survivorship-filter, claim-publication-versus-reporting, and claim-funnel-limits",
+    "all six scene-level source notes traced through claims.json to the corresponding records in references.json",
+    "references.json#all nine source records, locators, scope, uncertainty, bibliographic identity, and agent-access declarations",
+    "official PubMed records for PMID 32133725, PMID 27217764, PMID 37708480, PMID 35231925, PMID 16627519, PMID 11451790, and PMID 15681569, plus the published misclassification-paper correction at PMID 36205044",
+    "glossary.json#all 16 term records, including selection-bias and target-population alignment blocks",
+    "diagrams/evidence-pipeline.diagram.json#diagram-evidence-pipeline nodes, directed edges, labels, and agreement with the prose sequence",
+    "ATTRIBUTION.md#lesson identity, original synthesis, source use, third-party assets, source-access attestation, and governance-state statements",
+    "reviews/REV-PREM-SCI-008-ACADEMIC-34BE2923.json and reviews/REV-PREM-SCI-008-LEARNING-9233B8A3-F728-450C-A503-E58B751C6363.json, read only because the supplied scope required every pack file and not treated as evidence that the current candidate is correct"
+  ],
+  "findings": [
+    {
+      "severity": "minor",
+      "target": "content/05-repair-and-transfer.md#misconception-large-sample-cures-bias",
+      "finding": "The correction correctly states that increasing sample size does not remove the caliper's fixed 2 mm bias, but the opening question asks which laboratory's realized mean is closer to \"the true mean\" solely because of sample size without defining the target. Relative to each laboratory's own specimens, both measured means are exactly 2 mm above their corresponding true sample means. Relative to a source-population mean, a larger random sample reduces variance and expected mean-squared error even though the 2 mm bias remains, while the realized closer mean cannot be identified without the observations. The current wording therefore has no unique literal answer.",
+      "resolution": "Specify the target explicitly and separate bias from precision. For example, ask which laboratory has the smaller systematic offset—the answer is neither—then state that the larger sample can reduce sampling variance but cannot eliminate the shared 2 mm offset."
+    },
+    {
+      "severity": "minor",
+      "target": "content/01-find-the-missing-path.md#check-the-two-tools-this-lesson-assumes",
+      "finding": "The diagnostic feedback teaches two material prerequisite distinctions: random sampling versus random assignment, and repeatability versus measurement validity. Neither distinction has a claim mapped to scene-find-path: claim-selection-mechanism is not mapped there, and the ledger contains no measurement-validity or reliability claim. The same-scene source note therefore does not provide a complete claim-to-source path for these learner-facing methodological statements.",
+      "resolution": "Add appropriately scoped claims and supporting sources for these prerequisite distinctions, map them to scene-find-path, and include them in its source note; alternatively, make the prerequisite lesson references explicit and provide the required same-scene evidence mapping."
+    },
+    {
+      "severity": "minor",
+      "target": "references.json#source-misclassification-direction",
+      "finding": "The cited article has a published correction, DOI 10.1093/aje/kwac129, changing its multilevel-exposure example from high-to-low to high-to-none misclassification and correcting the associated table heading and footnote. The lesson's higher-level conclusion—that nondifferential misclassification does not universally bias toward the null—remains correct, but the source record does not disclose the erratum despite relying on the paper's exception cases.",
+      "resolution": "Record the published correction in the source version or locator, or add a linked correction record, so future reviewers verify the corrected example."
+    },
+    {
+      "severity": "note",
+      "target": "content/03-audit-the-seedling-study.md#survival-and-the-denominator",
+      "finding": "The worked calculation is correct and preserves the estimand boundary. The survivors-only comparison is 80% versus 70%, a 10-percentage-point difference, while the planned alive-and-healthy comparison among all assigned seedlings is 72% versus 49%, a 23-percentage-point difference. The scene also correctly leaves the unmasked-assessment component's direction unresolved.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#item-transfer-acoustic-archive",
+      "finding": "The keyed transfer audit is academically sound: it identifies availability selection from unreadable cards, observer or information bias from suggestion-visible annotation, incomparable denominators from classifier-specific timeout exclusion, and within-study selective reporting from presenting four favorable site results. It correctly withholds a publication-bias conclusion without evidence about visibility across whole studies and does not assign unsupported directions to the missing-card or masked-label corrections.",
+      "resolution": "No change required."
+    }
+  ],
+  "limitations": [
+    "The supplied scope prohibited reading site/, so this run could not directly inspect review.schema.json, the authoritative quorum policy, the atomic graph record for topic-scientific-inquiry-bias, or the course terminology ledger. The requested artifact shape was checked against the repository's academic review template instead.",
+    "The supplied scope required reading the two earlier review artifacts contained in the pack, so this run could not preserve the academic skill's usual blind-to-prior-review boundary. Their candidate commit differs from the commit reviewed here, and all current-candidate calculations and conclusions were checked independently.",
+    "Direct PMC article pages returned an automated-access challenge in this environment. Official PubMed records and abstracts were independently checked for the central claims, and the published misclassification erratum was directly recoverable, but every cited full-text locator could not be re-read line by line.",
+    "The reviewer is an AI scientific-methods reviewer rather than a credentialed human epidemiologist or biostatistician; approval is limited to the declared introductory mechanism-detection scope.",
+    "This run did not perform learning-design, accessibility-and-rights, adjudication, GitHub-submission, quorum, or merge-readiness review."
+  ],
+  "signedAt": "2026-07-22T11:37:19Z"
+}
