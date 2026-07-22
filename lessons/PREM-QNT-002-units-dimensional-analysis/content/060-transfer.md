@@ -28,8 +28,8 @@ A rough check gives $(2\text{ GB/min})(150\text{ min})\approx300\text{ GB}$, clo
 If you multiplied $1.8$ by $2.5$ and stopped, your result retained `GB·h/min`; the unit showed that a conversion was still missing.
 
 :::{source-note}
-:claims: claim-conversion-preserves-quantity, claim-quantity-equations-independent
-:sources: source-nist-si-chapter7
+:claims: claim-conversion-preserves-quantity, claim-quantity-equations-independent, claim-dimensional-consistency-limit
+:sources: source-nist-si-chapter7, source-jcgm-vim3
 
-The transfer problem is an original fictional application of unit-independent quantity relations and unit-dependent numerical values.
+The transfer problem is an original fictional application of unit-independent quantity relations, unit-dependent numerical values, and the boundary that consistency does not verify a measurement.
 :::

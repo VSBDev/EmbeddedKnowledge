@@ -32,11 +32,11 @@ A proposed model is $x=at$, where $x$ is distance, $a$ has unit `m/s²`, and $t$
 - Mixed units remain: the chain is incomplete.
 - Correct unit but implausible scale: inspect prefixes and denominators.
 - Squared or cubed unit remains partly uncancelled: apply the factor to the full power.
-- Dimensions agree but context still seems wrong: remember that the audit is necessary, not sufficient.
+- Dimensional consistency holds but context still seems wrong: remember that the audit is necessary, not sufficient.
 
 :::{source-note}
-:claims: claim-conversion-preserves-quantity, claim-quantity-equations-independent, claim-powered-units
-:sources: source-nist-si-chapter7
+:claims: claim-conversion-preserves-quantity, claim-quantity-equations-independent, claim-powered-units, claim-quantity-dimension, claim-dimensional-consistency-limit
+:sources: source-nist-si-chapter7, source-jcgm-vim3
 
-The practice uses the documented quantity/unit framework. All prompts, values, feedback, and recovery routes are original.
+The practice uses the documented quantity/unit framework and JCGM's dimension and quantity-kind distinctions. All prompts, values, feedback, and recovery routes are original.
 :::

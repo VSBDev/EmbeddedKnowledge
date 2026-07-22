@@ -41,11 +41,11 @@ Units are conventional labels; dimensions describe broad quantity types such as 
 
 An equation can be numerically evaluated yet still be structurally impossible. You may add $3\text{ m}+2\text{ m}$, but $3\text{ m}+2\text{ s}$ has no single resulting dimension. Likewise, distance $d=vt$ passes because $([L][T]^{-1})([T])=[L]$.
 
-Dimensional agreement is necessary, not sufficient: the wrong equation can still have the right dimensions. It is an audit, not proof.
+Dimensional consistency is necessary, not sufficient: the wrong equation can still have the right dimensions. A dimension omits numerical factors, and different kinds of quantity can share a dimension. The test can reject a mismatch; it cannot choose a coefficient, sign, or physical model.
 
 :::{source-note}
-:claims: claim-quantity-value-unit, claim-conversion-preserves-quantity, claim-quantity-equations-independent, claim-unit-writing
-:sources: source-nist-si-chapter7
+:claims: claim-quantity-value-unit, claim-conversion-preserves-quantity, claim-quantity-equations-independent, claim-unit-writing, claim-quantity-dimension, claim-dimensional-consistency-limit
+:sources: source-nist-si-chapter7, source-jcgm-vim3
 
-NIST documents number-times-unit quantity values, unit-independent quantity equations, and clear unit-symbol writing. The factor-chain derivations, dimension labels, and examples are original synthesis.
+NIST supports number-times-unit quantity values, unit-independent quantity equations, clear unit-symbol writing, and SI dimension notation. JCGM defines quantity dimension and explains why a dimensional match does not identify a unique quantity kind or model. The factor-chain derivations and examples are original synthesis.
 :::

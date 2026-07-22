@@ -19,8 +19,15 @@
       "id":"item-rate-conversion","type":"numeric","sceneId":"scene-synthesis","objectiveIds":["objective-build-chain"],"outcomeIds":["topic-quantitative-foundations-units-dimensional"],
       "prompt":"Convert 180 m/min to m/s. Enter the numerical value in m/s.","points":3,
       "responseSpec":{"mode":"number","units":"m/s","tolerance":0},
-      "answer":{"correct":3,"summary":"180 m/min = 3 m/s.","reasoning":"Multiply by 1 min/60 s. Minutes cancel and 180/60 = 3.","acceptableResponses":["3 m/s"],"commonErrors":["Multiplying by 60 because the denominator unit was not tracked","Reporting 10800 m/s"]},
+      "answer":{"correct":3,"summary":"180 m/min = 3 m/s.","reasoning":"Multiply by 1 min/60 s. Minutes cancel and 180/60 = 3.","acceptableResponses":["3"],"commonErrors":["Multiplying by 60 because the denominator unit was not tracked","Reporting 10800 m/s"]},
       "rubricId":"rubric-rate-conversion","safetyCritical":false
+    },
+    {
+      "id":"item-read-quantity","type":"single-choice","sceneId":"scene-synthesis","objectiveIds":["objective-read-quantity"],"outcomeIds":["topic-quantitative-foundations-units-dimensional"],
+      "prompt":"A fictional sample has mass q = 2.5 kg, and a speed is reported in m/s. Which statement correctly identifies these representations?","points":3,
+      "responseSpec":{"mode":"single-choice","options":[{"id":"option-read-a","text":"q (the mass) is the quantity, 2.5 is its numerical value in kilograms, kg is the unit, and m/s means metres divided by seconds."},{"id":"option-read-b","text":"2.5 is the quantity, q is the unit, and m/s means metres multiplied by seconds."},{"id":"option-read-c","text":"kg is the quantity, 2.5 is the unit, and m/s is a single unit symbol with no algebraic structure."},{"id":"option-read-d","text":"q and 2.5 are both units, while kg and m/s are numerical values."}]},
+      "answer":{"correct":"option-read-a","summary":"A quantity is represented by a numerical value and a unit; the slash in m/s denotes division.","reasoning":"Here q names the mass quantity, 2.5 is the number attached to the chosen unit kg, and m/s is a compound unit formed as metres divided by seconds.","acceptableResponses":[],"commonErrors":["Calling the numerical value the quantity","Swapping the roles of quantity and unit","Reading a quotient unit as a product"]},
+      "rubricId":"rubric-read-quantity","safetyCritical":false
     },
     {
       "id":"item-square-conversion","type":"short-answer","sceneId":"scene-synthesis","objectiveIds":["objective-scale-powers"],"outcomeIds":["topic-quantitative-foundations-units-dimensional"],
@@ -37,7 +44,7 @@
       "rubricId":"rubric-dimension-equation","safetyCritical":false
     },
     {
-      "id":"item-explain-limits","type":"short-answer","sceneId":"scene-synthesis","objectiveIds":["objective-read-quantity","objective-audit-dimensions"],"outcomeIds":["topic-quantitative-foundations-units-dimensional"],
+      "id":"item-explain-limits","type":"short-answer","sceneId":"scene-synthesis","objectiveIds":["objective-audit-dimensions"],"outcomeIds":["topic-quantitative-foundations-units-dimensional"],
       "prompt":"Explain why a dimensionally consistent equation can still be wrong. Give one concrete mathematical example.","points":4,
       "responseSpec":{"mode":"text","maxLength":1200},
       "answer":{"correct":"Dimensions test structural compatibility, not numerical constants, signs, assumptions, or the chosen model. For example, d = vt and d = 10vt both have dimension L, but the second is not generally the distance traveled at constant speed v for time t.","summary":"Dimensional consistency is necessary but not sufficient.","reasoning":"Many distinct expressions share the same dimension. The audit can rule out mismatches but cannot select a unique physical relation.","acceptableResponses":["Any valid example of two dimensionally matched equations where at least one has an incorrect constant, sign, or model"],"commonErrors":["Claiming dimensions prove an equation","Giving an example whose two sides have different dimensions"]},
@@ -54,9 +61,10 @@
   "rubrics": [
     {"id":"rubric-orient-factor","title":"Factor orientation","criteria":[{"id":"criterion-orient","description":"Selects the equality ratio that cancels the starting unit and leaves the target unit.","maxPoints":2}]},
     {"id":"rubric-rate-conversion","title":"Rate conversion","criteria":[{"id":"criterion-rate-factor","description":"Uses the reciprocal time factor with correct cancellation.","maxPoints":2},{"id":"criterion-rate-value","description":"Reports 3 m/s.","maxPoints":1}]},
+    {"id":"rubric-read-quantity","title":"Quantity representation","criteria":[{"id":"criterion-read-quantity","description":"Correctly distinguishes the quantity, numerical value, and unit and interprets m/s as a quotient.","maxPoints":3}]},
     {"id":"rubric-square-conversion","title":"Powered-unit conversion","criteria":[{"id":"criterion-square-factor","description":"Squares or repeats the full linear conversion factor.","maxPoints":2},{"id":"criterion-square-result","description":"Cancels both metre factors and obtains 4500 cm².","maxPoints":2}]},
     {"id":"rubric-dimension-equation","title":"Dimensional compatibility","criteria":[{"id":"criterion-dimension","description":"Combines the declared dimensions to identify mv² and preserves the audit's limits.","maxPoints":3}]},
-    {"id":"rubric-explain-limits","title":"Limits of dimensional analysis","criteria":[{"id":"criterion-limit","description":"States that agreement is necessary but not sufficient.","maxPoints":2},{"id":"criterion-limit-example","description":"Provides a dimensionally valid example that differs by a wrong constant, sign, or model.","maxPoints":2}]},
+    {"id":"rubric-explain-limits","title":"Limits of dimensional analysis","criteria":[{"id":"criterion-limit","description":"States that dimensional consistency is necessary but not sufficient.","maxPoints":2},{"id":"criterion-limit-example","description":"Provides a dimensionally valid example that differs by a wrong constant, sign, or model.","maxPoints":2}]},
     {"id":"rubric-transfer-production","title":"Independent unit audit","criteria":[{"id":"criterion-transfer-model","description":"Uses area equals area-rate times time.","maxPoints":1},{"id":"criterion-transfer-chain","description":"Builds an oriented continuous chain with complete cancellation.","maxPoints":2},{"id":"criterion-transfer-power","description":"Squares the metre-to-centimetre factor.","maxPoints":2},{"id":"criterion-transfer-result","description":"Reports 18000 cm².","maxPoints":1},{"id":"criterion-transfer-check","description":"Uses 0.75 min or 1.8 m² as an independent magnitude check.","maxPoints":1}]}
   ]
 }

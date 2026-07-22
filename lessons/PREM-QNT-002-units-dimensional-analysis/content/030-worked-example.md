@@ -38,8 +38,8 @@ Why must hours appear in the numerator of the second time factor, $1\text{ h}/36
 Because the original hour is in the denominator of `km/h`. One hour above and one hour below cancel, leaving seconds below.
 
 :::{source-note}
-:claims: claim-conversion-preserves-quantity, claim-quantity-equations-independent
-:sources: source-nist-si-chapter7
+:claims: claim-conversion-preserves-quantity, claim-quantity-equations-independent, claim-quantity-dimension, claim-dimensional-consistency-limit
+:sources: source-nist-si-chapter7, source-jcgm-vim3
 
-The example applies NIST's distinction between quantities and their unit-dependent numerical values. Its model, values, scaffold, and checks are original.
+NIST supports the quantity relation and unit conversion; JCGM supports the dimension check and its limit. The model, values, scaffold, and checks are original.
 :::
