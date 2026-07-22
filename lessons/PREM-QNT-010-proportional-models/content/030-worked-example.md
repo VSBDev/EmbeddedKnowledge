@@ -1,6 +1,6 @@
 # Recover a power law from a table
 
-A fictional calibration exercise gives exact positive coordinates $(1,5)$, $(2,20)$, and $(4,80)$. Test a power model $y=kx^p$.
+A fictional dataset gives exact positive coordinates $(1,5)$, $(2,20)$, and $(4,80)$. Test a power model $y=kx^p$.
 
 :::{worked-example}
 :id: worked-example-power-table

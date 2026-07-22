@@ -1,5 +1,7 @@
 # Identify a model by what stays invariant
 
+In this lesson a *model* means one of the fitted quantitative relationships below — a narrow, quantitative case of the scientific models from the science block, judged by fit and residuals rather than by mechanism.
+
 Three related families can be written as power laws.
 
 | Family | Equation | Exact invariant | If $x$ is multiplied by $c$ |
