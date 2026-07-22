@@ -9,7 +9,7 @@ The first three labels mainly describe **where the evidence is observed**. “In
 | Evidence line | Question it can help answer | Main contribution | Boundary to inspect |
 | --- | --- | --- | --- |
 | Molecular | Do specified molecules interact or change in the proposed sequence? | Tests a link in a mechanism; assays may measure binding, structure, reaction, or molecular change. | An isolated molecule or cell system may omit metabolism, feedback, tissue context, dose, or time needed in an organism. |
-| Organismal | Does the proposed process accompany or alter a phenotype in an intact organism? | Shows the mechanism operating amid interacting organs, behaviour, development, and environment. | Species, strain, life stage, exposure route, dose, and laboratory conditions may not represent the target population. |
+| Organismal | Does the proposed process accompany or alter a phenotype in an intact organism? | Tests a phenotype in its intact biological context and, when paired with an assigned change, can support a bounded effect at that scale. | Species, strain, life stage, exposure route, dose, and laboratory conditions may not represent the target population. |
 | Population | Does exposure or variation track the outcome across people or other organisms, places, or times? | Tests reach, heterogeneity, frequency, and association in the target setting. | Confounding, selection, measurement error, reverse timing, and population structure can distort an observational pattern. |
 | Intervention | Does an assigned change produce a different outcome under the studied conditions? | A well-executed randomized comparison can support a bounded causal effect of the assigned intervention. | Concealment, blinding, adherence, attrition, outcome measurement, off-target effects, and limited settings can weaken interpretation or generalization. |
 
@@ -20,7 +20,7 @@ None of these lines automatically answers, “What is the complete mechanism in 
 :longdesc: A bounded causal question branches to molecular, organismal, population, and intervention evidence. All four feed an audit of reliability, relevance, expected bias, and shared dependence. The audit feeds a comparison of agreement and conflict, which then feeds a calibrated claim containing strength, scope, uncertainty, and a next discriminating test. No evidence line is placed above another.
 :::
 
-The diagram's job is to show sequence without turning the evidence lines into a ladder. In text: begin with one question; examine each line; audit quality, fit, bias, and dependence; compare agreement and disagreement; then write the claim. The table carries the same relationships for a nonvisual or print route.
+The diagram's job is to show sequence without turning the evidence lines into a ladder. You can follow the same sequence without the picture: begin with one question; examine each line; audit quality, fit, bias, and dependence; compare agreement and disagreement; then write the claim.
 
 ## Weigh before you integrate
 

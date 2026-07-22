@@ -19,7 +19,7 @@ Answer before reading the routing feedback.
 1. A survey finds that plants carrying Tide-1 variant A are more likely to survive in salty estuaries. Name one reason the association might not be causal.
 2. A cell model omits the plant's roots, vascular system, and soil microbes. What must an investigator say before using that model to explain survival of a whole plant?
 
-If you answered that another variable could influence both variant frequency and survival, you activated the correlation–causation prerequisite. If you answered that the model's assumptions, scale, and missing processes limit the inference, you activated the models-and-limits prerequisite. Your wording need not match exactly.
+If you answered that another variable could influence both variant frequency and survival, you used the association–causation distinction needed here. If you answered that the model's assumptions, scale, and missing processes limit the inference, you used the model-limits reasoning needed here. Your wording need not match exactly.
 
 ## Recovery route
 
