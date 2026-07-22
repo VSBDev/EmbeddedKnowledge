@@ -1,6 +1,6 @@
 # EmbeddedKnowledge
 
-EmbeddedKnowledge opens university-grade knowledge without pretending to confer a degree, admission status, clinical competence, or professional authorization. **Premed** is the first implemented course. **Psychiatry: Mind, Brain, Person, Society** is the second book and is currently a research-candidate syllabus awaiting expert review, graph design, and production instrumentation.
+EmbeddedKnowledge opens university-grade knowledge without pretending to confer a degree, admission status, clinical competence, or professional authorization. **Premed** is the first implemented course. **Psychiatry: Mind, Brain, Person, Society** is the second book, with a graph-backed academic curriculum and an open contribution route that remains explicitly separate from clinical training.
 
 Canonical domain: **<https://embeddedknowledge.io/>** — live, served by GitHub Pages over HTTPS, with `www` redirecting to the apex. The published artifacts are served with their real content types, so `llms.txt` arrives as `text/plain` and the graph, manifest, and schemas as `application/json` rather than as HTML. A local deployment remains available for development.
 
@@ -34,13 +34,13 @@ The graph's 1,551-hour total counts every optional branch. It is an inventory, n
 
 The curriculum's completeness is not the lesson corpus's completeness. The public site reads current contributed, in-review, published, and covered-outcome values from the generated production ledger rather than freezing a percentage in prose.
 
-## Psychiatry research candidate
+## Psychiatry academic curriculum
 
 - [Complete candidate syllabus](course/PSYCHIATRY-SYLLABUS.md) — a 1,440-hour common academic curriculum, one 120–240-hour area of depth, 26 modules, 22 graduate capabilities, and a separate supervised-practice crosswalk.
 - [Primary-source and rights catalog](research/PSYCHIATRY-SOURCE-CATALOG.md) — current U.S. and international specialist-training frameworks, residency-program examples, WHO/WPA rights and lived-experience sources, reusable/public-domain material, and item-level licensing cautions.
 - [Public Psychiatry overview](site/psychiatry/index.html) and [searchable syllabus](site/psychiatry/syllabus/index.html) — generated from the canonical Markdown alongside the Premed syllabus.
 
-The Psychiatry book is deliberately **not** represented as residency training. Its hours cover academic study and simulation only; they exclude patient care, clinical service, on-call work, and workplace supervision. Its knowledge graph, assessment bank, clinical-host standard, and production lesson intake remain unopened until separate expert-reviewed contributions establish them.
+The Psychiatry book is deliberately **not** represented as residency training. Its hours cover academic study and simulation only; they exclude patient care, clinical service, on-call work, and workplace supervision. Its public graph maps 4 stages, 26 modules, and 154 atomic outcomes. Focused lesson intake uses the same evidence, rights, provenance, review, and adjudication contract as Premed; the assessment bank, area-of-depth graph, and clinical-host standard remain future reviewed contributions.
 
 ## Agent-first contribution interface
 
@@ -69,11 +69,11 @@ The specimen under `examples/lesson-pack/` demonstrates the format but is not a 
 
 ## Rebuild and validate the graph
 
-Edit `scripts/build-premed-graph.mjs`, not the generated JSON, then run:
+Edit the matching graph builder under `scripts/`, not generated JSON, then run:
 
 ```bash
-node scripts/build-premed-graph.mjs
-node scripts/validate-premed-graph.mjs
+npm run graph:build
+npm run graph:validate
 ```
 
 The validator checks IDs, endpoints, tags, prerequisite declarations, workload totals, and prerequisite acyclicity.
@@ -136,7 +136,7 @@ authorization.
 
 ## Project status
 
-Premed lesson contributions are **open through focused pull requests**. Psychiatry lesson intake is closed while its graph and production contract are still unbuilt. The repository, protocol,
+Premed and Psychiatry lesson contributions are **open through focused pull requests**. Psychiatry remains an academic and simulation curriculum, not a clinical credential. The repository, protocol,
 schemas, lesson format, reference lessons, and one-pass review/finalization gate are public.
 The reviewed lesson corpus is live and grows only through validated, reviewed, adjudicated,
 merged contributions. Branch protection is active on `main`; see

@@ -53,7 +53,7 @@
   function resolveArtifactUrl() {
     if (isSpecimen) return new URL("data/lessons/specimen.json", siteRoot);
     const lessonId = new URL(location.href).searchParams.get("lesson") || "";
-    if (!/^PREM-[A-Z]{3}-[0-9]{3}$/.test(lessonId)) {
+    if (!/^(?:PREM|PSY)-[A-Z]{3}-[0-9]{3}$/.test(lessonId)) {
       throw new Error("Choose a valid production lesson from the lesson commons.");
     }
     return new URL(`data/lessons/${lessonId}.json`, siteRoot);
@@ -343,6 +343,7 @@
   }
 
   function publicationView(candidate) {
+    const collection = candidate.id?.startsWith("PSY-") ? "Psychiatry" : "Premed";
     const views = {
       draft: {
         code: "DRAFT",
@@ -351,7 +352,7 @@
         course: "Current draft candidate",
         detail: "Not published · review has not concluded",
         access: "Not published — draft candidate",
-        description: "Read a draft EmbeddedKnowledge Premed lesson candidate with its review state in guided, continuous, or print form."
+        description: `Read a draft EmbeddedKnowledge ${collection} lesson candidate with its review state in guided, continuous, or print form.`
       },
       "in-review": {
         code: "REVIEW",
@@ -360,7 +361,7 @@
         course: "Current candidate in review",
         detail: "Not published · independent review underway",
         access: "Not published — in review",
-        description: "Read an EmbeddedKnowledge Premed lesson candidate currently under review in guided, continuous, or print form."
+        description: `Read an EmbeddedKnowledge ${collection} lesson candidate currently under review in guided, continuous, or print form.`
       },
       adjudicated: {
         code: "ADJUDICATED",
@@ -369,16 +370,16 @@
         course: "Current adjudicated candidate",
         detail: "Not published · awaiting publication",
         access: "Not published — adjudicated candidate",
-        description: "Read an adjudicated EmbeddedKnowledge Premed lesson candidate that is not yet published."
+        description: `Read an adjudicated EmbeddedKnowledge ${collection} lesson candidate that is not yet published.`
       },
       published: {
         code: "OPEN",
-        label: "OPEN PREMED LESSON",
+        label: `OPEN ${collection.toUpperCase()} LESSON`,
         short: "Open lesson",
         course: "Current published lesson",
         detail: "Versioned published artifact",
         access: "Published open",
-        description: "Read a published EmbeddedKnowledge Premed lesson in guided, continuous, or print form."
+        description: `Read a published EmbeddedKnowledge ${collection} lesson in guided, continuous, or print form.`
       }
     };
     return views[candidate.status] || views.draft;
@@ -1259,7 +1260,8 @@
     .then((loaded) => {
       artifact = loaded;
       scenes = artifact.scenes;
-      const titleState = isSpecimen ? "Lesson specimen" : (artifact.status === "published" ? "Premed lesson" : `${artifact.status} lesson candidate`);
+      const collection = artifact.id?.startsWith("PSY-") ? "Psychiatry" : "Premed";
+      const titleState = isSpecimen ? "Lesson specimen" : (artifact.status === "published" ? `${collection} lesson` : `${artifact.status} lesson candidate`);
       document.title = `${artifact.title} — ${titleState} · EmbeddedKnowledge`;
       renderPublicationState();
       document.querySelector("[data-reader-duration]").textContent = `${artifact.estimatedMinutes} min`;
