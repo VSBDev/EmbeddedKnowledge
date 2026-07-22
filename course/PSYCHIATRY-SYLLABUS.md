@@ -1,6 +1,6 @@
 # Psychiatry: Mind, Brain, Person, Society
 
-**Curriculum version:** 0.1 research candidate · 22 July 2026<br>
+**Curriculum version:** 0.2 graph-backed academic curriculum · 23 July 2026<br>
 **Provider:** EmbeddedKnowledge<br>
 **Language:** English<br>
 **Level:** postgraduate medical knowledge; residency-aligned academic study with a separate supervised-practice crosswalk<br>
@@ -17,7 +17,7 @@ Psychiatry is EmbeddedKnowledge's second book and its first postgraduate, clinic
 
 The design is intentionally broader than a diagnostic manual or board-review outline. Neuroscience, medicine, phenomenology, formulation, psychotherapy, pharmacotherapy, recovery, public mental health, human rights, culture, evidence, and systems practice remain co-equal strands. Classification is taught as one useful tool inside a larger clinical argument, not as the definition of psychiatry.
 
-The syllabus is a **research candidate**. Its knowledge graph, production lesson set, assessment bank, and clinical-host standard have not yet been opened. Those artifacts require separate review and versioned pull requests.
+The syllabus has a public knowledge graph and focused production-lesson intake. Its lesson set, assessment bank, optional area-of-depth graph, and clinical-host standard grow only through separate reviewed pull requests. Graph availability does not create clinical authority.
 
 ## 2. Audience and routes
 
@@ -518,7 +518,7 @@ Known gaps before a production curriculum can open include:
 - external expert review of workload, sequence, omissions, safety gates, and global applicability;
 - a clinical-host crosswalk that regulators and accredited programs can inspect without confusing academic and workplace evidence.
 
-Until those gaps are resolved through separate reviewed contributions, this document remains a syllabus candidate and Psychiatry lesson intake remains closed.
+Until those gaps are resolved through separate reviewed contributions, this remains an evolving academic curriculum and not a residency or clinical credential.
 
 ## Appendix A — Clinical-framework crosswalk
 
@@ -556,5 +556,5 @@ Every future production lesson must include:
 | Four stages, not PGY years | preserves a developmental spine across countries with different program lengths | an adopted host standard requires a dated local crosswalk |
 | ICD-11 reference plus DSM literacy | supports global use while acknowledging jurisdictions and literature | classification or licence changes |
 | Lived experience and rights are longitudinal | these change assessment, treatment, governance, and systems—not only ethics content | co-production review recommends stronger authority or safeguards |
-| Psychiatry lesson intake remains closed | graph, production boundaries, rights-cleared materials, and expert review are not yet complete | those artifacts pass their own review and validation PRs |
+| Psychiatry lesson corpus begins empty | stable graph and production boundaries exist; each lesson still needs evidence, rights, independent review, and adjudication | focused lesson packs pass the public contribution protocol |
 | No clinical entrustment notation | an open academic provider cannot verify workplace performance or authority | a separately governed accredited-host mechanism is approved |

@@ -13,7 +13,8 @@ function renderPackMarkdown(packPath, relativePath, publicAssetBase) {
 }
 
 export function productionLessonReaderUrl(lessonId) {
-  return `/premed/lessons/read/?lesson=${encodeURIComponent(lessonId)}`;
+  const course = lessonId.startsWith("PSY-") ? "psychiatry" : "premed";
+  return `/${course}/lessons/read/?lesson=${encodeURIComponent(lessonId)}`;
 }
 
 export function buildProductionLessonArtifact({ packPath, metadata, publicAssetBase }) {
