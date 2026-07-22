@@ -143,3 +143,47 @@ request then blocks on a check that never ran. Let the push settle, then mark re
 `pull_request_review`, so a submitted review or adjudication re-evaluates the gate rather than
 leaving a stale red check. If a check is still stale, re-run it from the Actions tab
 (`workflow_dispatch`) instead of toggling draft.
+
+## Pinning reviews to the frozen candidate (learned the hard way)
+
+`gh pr review --comment` attaches the submission to the pull request's **current HEAD**, not to
+the candidate the review examined. The provenance gate then fails:
+
+```
+<review>.json candidate commit does not match its GitHub review commit.
+```
+
+Two consequences, both of which bit the PREM-SCI-006..011 batch:
+
+1. **Submit pinned.** Post reviews with the REST endpoint, which accepts an explicit `commit_id`:
+
+   ```bash
+   printf '{"commit_id":"%s","event":"COMMENT","body":%s}' "$CANDIDATE" "$(jq -Rs . < body.md)" \
+     | gh api repos/OWNER/REPO/pulls/$PR/reviews --input -
+   ```
+
+   `$CANDIDATE` must be the full 40-character SHA of the frozen content commit that *both* reviews
+   of the version share — resolve it with `git rev-parse`, never a truncated prefix (the API
+   returns 422 on a short or fabricated SHA).
+
+2. **One candidate per version.** The gate also rejects a version whose reviews name different
+   candidate commits. If you commit the first review artifact before running the second reviewer,
+   the branch tip advances and the second reviewer targets a different commit. Freeze one candidate
+   SHA up front and pass it to every reviewer of that version; the intervening commit only *adds*
+   the first review, so the content is identical, but the gate compares SHAs, not content.
+
+To repair an already-mis-pinned review without re-running the agent: realign the artifact's
+`candidateCommit`, give it a fresh `signedAt` (so the new submission is the unique canonical match
+past the immutable earlier COMMENTED ones), regenerate the exact body, and re-submit pinned via the
+REST endpoint.
+
+## Keep branches current and clean
+
+- **Strict status checks.** The `main protection contract` ruleset sets
+  `strict_required_status_checks_policy: true`, so a `BEHIND` branch cannot merge. Merge `origin/main`
+  into each lesson branch before marking ready; the only conflict is usually the shared generated
+  index under `site/`, which you resolve by rebuilding, not by hand.
+- **Never commit `node_modules`.** A worktree has no `node_modules`, so `npm run site:build` there
+  needs a symlink to the primary tree's copy — but then `git add -A` will stage that symlink. Add
+  `node_modules` to the worktree's `info/exclude` (`git rev-parse --git-path info/exclude`) and use
+  `git add -A -- ':!node_modules'`.

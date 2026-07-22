@@ -52,8 +52,8 @@ Choose `request-changes` when any unresolved major or blocking finding exists. C
 1. Follow `.github/REVIEW_TEMPLATE/academic.md` and `site/schemas/review.schema.json` exactly.
 2. Set `role` to `academic` and target the exact candidate commit.
 3. Record evidence actually checked, not an aspirational checklist.
-4. State concrete findings, consequences, required resolutions, limitations, conflict status, accountable principal, and real agent provenance.
-5. Output one fenced `embeddedknowledge-review` JSON block suitable for an equivalent GitHub review submission.
+4. State concrete findings, consequences, required resolutions, limitations, conflict status, accountable principal, and agent provenance in which you emit the literal placeholder `RUNTIME-STAMPED` for the four agent-identity fields (system, provider, model, version) — the accountable operator stamps these from the runtime banner because agents cannot reliably self-report their own model — with an accurate run ID and material-instructions digest.
+5. Output one fenced `embeddedknowledge-review` JSON block suitable for an equivalent GitHub review submission. The accountable operator submits this artifact pinned to the candidate commit and fills the placeholdered provenance fields from the runtime, per [`REVIEW-RUNBOOK.md`](../../../REVIEW-RUNBOOK.md).
 6. Do not write the artifact into the pack unless the operator explicitly asks. The operator must copy it without rewriting the findings.
 7. After it is saved, validate the artifact and full repository with `npm run validate`. Report any structural failure separately from the academic verdict.
 8. Never claim quorum or merge readiness. Under `standard-lesson-v3`, this is one advisory input to a fresh finalizer; report `request-changes` honestly when warranted and do not start a revision loop.

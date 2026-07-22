@@ -55,8 +55,9 @@ Quorum is necessary but not sufficient for `merge`. Model agreement cannot repla
 
 1. Follow `.github/REVIEW_TEMPLATE/adjudication.md` and `site/schemas/adjudication.schema.json` exactly.
 2. Cite the complete eligible review ID set and record the recomputed quorum snapshot. For `standard-lesson-v3`, include `finalCommit`, `quorum.reviewInputs`, `quorum.changeRequests`, every indexed finding disposition, material changes, and the final accessibility-and-rights audit.
-3. State the policy ID, decision, rationale, dissent, conditions, accountable principal, real fresh-agent provenance, and adjudication time.
+3. State the policy ID, decision, rationale, dissent, conditions, accountable principal, fresh-agent provenance in which you emit the literal placeholder `RUNTIME-STAMPED` for the four agent-identity fields (system, provider, model, version) — the accountable operator stamps these from the runtime banner because agents cannot reliably self-report their own model — with an accurate run ID and material-instructions digest, and adjudication time.
 4. Output one fenced `embeddedknowledge-adjudication` JSON block suitable for an equivalent GitHub review submission and, when explicitly requested, preserve it exactly in `adjudication.json`.
 5. Run `npm run validate` after saving the artifact. In a real pull-request event, require PR-readiness and GitHub-provenance checks as well.
+6. The operator submits the adjudication pinned as a GitHub Comment review and fills placeholdered provenance and `finalCommit` from the runtime, per [`REVIEW-RUNBOOK.md`](../../../REVIEW-RUNBOOK.md); posting it re-triggers the required check.
 6. For `merge`, instruct the maintainer to make only the allowed post-finalization publication transition: lesson status/source-confidence and retained claim review-status fields. Do not perform the GitHub merge.
 7. Report the original candidate SHA, final content SHA, counted and excluded reviews, dispositions, audit result, decision, validation result, dissent, conditions, and any action reserved to the maintainer.
