@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-SCI-011-ACADEMIC-16508765-4931-4A05-AD87-CE2383D0B410",
+  "lessonId": "PREM-SCI-011",
+  "lessonVersion": "0.1.1",
+  "candidateCommit": "a34e73a7f6719d80c2988ebe5bf38aac6ae4adcc",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — academic reviewer",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-SCI-011-16508765-4931-4A05-AD87-CE2383D0B410",
+      "instructionsDigest": "sha256:1f7fc68e0a13fb55340b97fd8889ea919f67997b28a41347b8d80e08a31f46a5"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Operational conflict: github:VSBDev is the accountable principal for the authoring and packaging work and also operates this role-isolated academic review run. The run has a unique ID, but it is not independent human peer review."
+  },
+  "evidenceChecked": [
+    "lesson.json: identity, version 0.1.1, risk tier, outcome and prerequisite mappings, objectives, ordered scene declarations, duration, authorship, licence, and AI-assistance disclosure at candidate a34e73a7f6719d80c2988ebe5bf38aac6ae4adcc",
+    "content/010-orientation.md through content/070-synthesis.md: every learner-visible scientific claim, evidence-category boundary, fictional evidence bundle, worked inference, conflict diagnosis, source note, and calibrated conclusion",
+    "assessment.json#items and assessment.json#rubrics: all eight Form A and Form B prompts, options, keyed answers, reasoning, acceptable responses, common errors, objective mappings, outcome mappings, and scoring criteria",
+    "claims.json#claims: all seven claim statements, scene mappings, source mappings, support classifications, confidence, scope, uncertainty, risk, and review state",
+    "references.json#sources: all four bibliographic, locator, use, rights-basis, and agent-access records",
+    "references.json#source-efsa-weight-evidence: current Wiley-hosted guidance sections on assembling, weighing, reliability, relevance, consistency, integration, and uncertainty",
+    "references.json#source-lawlor-triangulation: current Oxford Academic article sections defining triangulation, same-question requirements, unrelated key biases, timing, expected bias direction, and shared-dataset limitations",
+    "references.json#source-fda-ich-e9: official FDA PDF sections 2.3.1-2.3.2 and 5.2-5.3 on blinding, randomization, protocol deviations, analysis sets, withdrawals, and missing outcomes",
+    "references.json#source-iarc-preamble: official IARC PDF sections on separate evidence streams, study quality, experimental-system limitations, integration, pivotal evidence, scope, and transparent rationale",
+    "glossary.json#terms: all fourteen definitions, aliases, scene mappings, and the declared distinct-sense alignment for reliability",
+    "diagrams/evidence-integration.diagram.json: every node, edge, label, direction, alternative text, and long description against the concept-scene table and prose",
+    "ATTRIBUTION.md: accountable principal, agent provenance, fictional-material declaration, scientific corrections, source-use boundary, and absence of third-party assets",
+    "reviews/REV-PREM-SCI-011-ACADEMIC-A035908B.json and reviews/REV-PREM-SCI-011-LEARNING-DESIGN-1D41A812-A9CE-42F0-99ED-F8CDF041C846.json: complete existing pack files targeting the earlier 0.1.0 candidate, read because the material instructions required every file in the pack",
+    "content/030-worked-example.md#Step-1 through #Independent-checks: independently recomputed line-specific and pooled survival percentages, observed-outcome inhibitor comparison, extreme missing-outcome bounds, and the assumption-dependent pooled risk-difference interval",
+    "FORMAT.md, lessons/README.md, REVIEWING.md, CONTENT-STANDARD.md, RIGHTS-POLICY.md, and .github/REVIEW_TEMPLATE/academic.md: applicable academic, evidence, assessment, source, and artifact requirements"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "assessment.json#item-b-evidence-contribution",
+      "finding": "The prompt reports a controlled whole-organism study of insects 'with reduced Wing-4 expression' but never states that investigators deliberately assigned or induced the reduction. The keyed option nevertheless asserts that Wing-4 contributes causally to recovery, and the answer reasoning introduces a 'controlled reduction' that is absent from the learner-visible evidence. A controlled or matched comparison of naturally differing expression groups can remain confounded, so the causal answer is not entailed by the prompt. The alternative saying organismal evidence can support only an uncontrolled association is also categorically false, leaving no fully defensible option. This assessment therefore rewards an unsupported correlation-to-causation step on the prerequisite distinction the lesson is meant to preserve.",
+      "resolution": "Either state explicitly that investigators deliberately produced or assigned a target-specific Wing-4 reduction in otherwise comparable insects, with the relevant allocation and control conditions, or revise the keyed conclusion and reasoning to a bounded association. Ensure at least one option correctly distinguishes organismal scale from intervention design without inferring an undisclosed manipulation."
+    },
+    {
+      "severity": "minor",
+      "target": "content/020-concept.md#Four-contributions-four-boundaries",
+      "finding": "The organismal row says its main contribution is to show 'the mechanism operating' amid the intact organism. Organismal evidence can show or test a phenotype in intact biological context, but it does not by itself establish that the proposed mechanism produced that phenotype. This overstatement conflicts with the same scene's later, correct warning that an intervention may identify an effect without identifying the molecular path.",
+      "resolution": "Revise the organismal contribution to say that it tests whether the proposed factor or process accompanies or alters a phenotype in an intact organism. Reserve claims that a mechanism is operating for evidence that establishes the relevant mechanistic bridge."
+    },
+    {
+      "severity": "note",
+      "target": "content/030-worked-example.md#Independent-checks",
+      "finding": "The revised quantitative reasoning is internally correct. The edit-line values are 48% and 50%, pooled edited survival is 49% versus 82% for controls, and the pooled difference is -33 percentage points. The observed inhibitor comparison is approximately 52.1% versus 74.2%, or -22.1 percentage points. Assigning all missing outcomes adversarially bounds the inhibitor-minus-vehicle difference between -18 and -25 percentage points, and the explicitly assumption-dependent independent-binomial interval for the pooled edit comparison is approximately -45.3 to -20.7 percentage points.",
+      "resolution": null
+    }
+  ],
+  "limitations": [
+    "The material instructions prohibited reading site/, so the graph node, prerequisite nodes, public terminology ledger, quorum-policy JSON, and review schema could not be inspected directly. Outcome existence, prerequisite validity, and cross-lesson terminology continuity therefore remain unverified in this run; the artifact follows the supplied academic template and repository examples.",
+    "The material instructions required reading every file in the pack, including two existing reviews of the earlier 0.1.0 candidate. Exposure to those conclusions limits procedural independence, although the present calculations, source checks, and findings were evaluated against the 0.1.1 candidate.",
+    "The PMC article pages presented an automated-access challenge. The EFSA and Lawlor materials were checked through their current publisher pages instead; the FDA and IARC PDFs were opened directly. No human-only source was processed.",
+    "All biological cases and data are explicitly fictional. This review can verify internal scientific reasoning, calculations, assessment logic, and source-bounded principles, but cannot establish empirical reproducibility, assay validity, intervention specificity, or external validity beyond the supplied summaries."
+  ],
+  "signedAt": "2026-07-22T10:19:11Z"
+}
