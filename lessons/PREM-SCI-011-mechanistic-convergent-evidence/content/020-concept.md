@@ -26,7 +26,7 @@ The diagram's job is to show sequence without turning the evidence lines into a 
 
 For every line, ask three questions.
 
-1. **Reliability:** If the study claims to have measured or changed something, how credible is that information? Inspect design, measurement, bias control, missing data, and reporting.
+1. **Reliability:** If the study claims to have measured or changed something, how credible is that information? Inspect design, measurement, bias control, missing data, and reporting. This is *reliability* in the broad evidence-appraisal sense — the credibility of a whole line of evidence — not the narrower measurement sense from [Measurement, reliability, and validity (PREM-SCI-006)](https://embeddedknowledge.io/premed/lessons/read/?lesson=PREM-SCI-006), where reliability meant a measurement's consistency across repeated readings. A perfectly repeatable measurement, reliable in that Lesson 6 sense, can still sit inside a line of evidence you judge not credible here.
 2. **Relevance:** If the result is reliable, how directly does it answer this question? Match the exposure, outcome, system, population, timing, and dose.
 3. **Consistency:** Does the result fit the other relevant results? Agreement helps only after checking whether the studies address the same question and whether a shared flaw could produce the same answer.
 
