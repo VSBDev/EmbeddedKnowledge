@@ -165,6 +165,11 @@ test("agent discovery endpoints are public, typed, and internally consistent", a
     "agent/quorum-policy.json",
     "data/premed-lessons.json",
     "data/premed-open-prs.json",
+    "data/psychiatry-graph.json",
+    "data/psychiatry-lessons.json",
+    "data/psychiatry-open-prs.json",
+    "data/psychiatry-progress.json",
+    "data/psychiatry-terminology.json",
     "schemas/lesson.schema.json",
     "schemas/review.schema.json",
     "schemas/adjudication.schema.json",
@@ -1093,6 +1098,38 @@ test("the psychiatry syllabus renders, searches, and preserves the clinical boun
   expect(errors).toEqual([]);
 });
 
+test("the psychiatry graph exposes the proposed stable outcome map", async ({ page }) => {
+  const errors = collectRuntimeErrors(page);
+  await page.goto(route("psychiatry/graph/"), { waitUntil: "networkidle" });
+
+  await expect(page.locator(".graph-node")).toHaveCount(184);
+  await expect(page.locator(".graph-link")).toHaveCount(385);
+  await expect(page.locator("[data-graph-status]")).toContainText("184 of 184 nodes");
+  await page.locator("[data-graph-search]").fill("field and boundaries");
+  const firstOutcome = page.locator(".directory-item", { hasText: "Psychiatry's field and boundaries" }).first();
+  await expect(firstOutcome).toBeVisible();
+  await firstOutcome.click();
+  await expect(page.locator("[data-inspector-code]")).toHaveText("PSY-101.01");
+  await expect(page.locator("[data-inspector-summary]")).toContainText("clinical authority");
+
+  const graph = await getJson(page.request, "data/psychiatry-graph.json");
+  expect(graph.metrics).toMatchObject({ domains: 4, modules: 26, topics: 154, links: 385, estimatedHours: 1440 });
+  expect(errors).toEqual([]);
+});
+
+test("the psychiatry lesson commons keeps an empty outcome distinct from a lesson", async ({ page }) => {
+  const errors = collectRuntimeErrors(page);
+  await page.goto(route("psychiatry/lessons/?outcome=topic-psy-101-field-and-boundaries"), { waitUntil: "networkidle" });
+
+  await expect(page.locator("[data-outcome-location]")).toContainText("PSY-101.01");
+  await expect(page.locator("[data-lesson-detail]")).toContainText("This lesson has not been written yet");
+  await expect(page.locator("[data-lesson-detail]")).toContainText("topic-psy-101-field-and-boundaries");
+  await expect(page.locator("[data-corpus-summary]")).toContainText("0 published");
+  const contributeHref = await page.locator(".lesson-contribute-link").getAttribute("href");
+  expect(new URL(contributeHref).searchParams.get("outcome")).toBe("topic-psy-101-field-and-boundaries");
+  expect(errors).toEqual([]);
+});
+
 test("the graph page renders every node and relationship", async ({ page }) => {
   const errors = collectRuntimeErrors(page);
   await page.goto(route("premed/graph/"), { waitUntil: "networkidle" });
@@ -1129,7 +1166,7 @@ test("the graph page renders every node and relationship", async ({ page }) => {
 test("mobile navigation and all routes avoid horizontal page overflow", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
 
-  for (const path of ["", "premed/", "premed/syllabus/", "premed/graph/", "premed/lessons/", "premed/lessons/read/?lesson=PREM-LPP-001", "premed/lessons/specimen/", "psychiatry/", "psychiatry/syllabus/", "contribute/", "contribute/format/"]) {
+  for (const path of ["", "premed/", "premed/syllabus/", "premed/graph/", "premed/lessons/", "premed/lessons/read/?lesson=PREM-LPP-001", "premed/lessons/specimen/", "psychiatry/", "psychiatry/syllabus/", "psychiatry/graph/", "psychiatry/lessons/", "contribute/", "contribute/format/"]) {
     await page.goto(route(path), { waitUntil: "networkidle" });
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
     expect(overflow, `${path || "root"} should not overflow`).toBeLessThanOrEqual(1);

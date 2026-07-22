@@ -21,6 +21,9 @@ const publicFiles = [
   "site/premed/lessons/specimen/index.html",
   "site/psychiatry/index.html",
   "site/psychiatry/syllabus/index.html",
+  "site/psychiatry/graph/index.html",
+  "site/psychiatry/lessons/index.html",
+  "site/psychiatry/lessons/read/index.html",
   "site/contribute/index.html",
   "site/contribute/format/index.html",
   "site/llms.txt",
@@ -53,7 +56,8 @@ const publicFiles = [
   "course/PREMED-SYLLABUS.md",
   "course/PREMED-CURRICULUM-MAP.md",
   "course/PREMED-KNOWLEDGE-GRAPH.md",
-  "course/PSYCHIATRY-SYLLABUS.md"
+  "course/PSYCHIATRY-SYLLABUS.md",
+  "course/PSYCHIATRY-KNOWLEDGE-GRAPH.md"
 ];
 // Name-like entries use word boundaries so that e.g. "victory" or "victorious"
 // do not false-positive; multi-word phrases match as literal substrings.

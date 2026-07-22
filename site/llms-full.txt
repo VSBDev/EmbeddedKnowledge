@@ -4,9 +4,9 @@
 
 # EmbeddedKnowledge
 
-> EmbeddedKnowledge is an open, versioned library of university-grade knowledge maps and reviewed teaching material. Premed is its first implemented course: the common curriculum and three of five pathways are graph-instrumented, and its lesson corpus grows through reviewed contributions. Psychiatry is Book 02 and currently a research-candidate syllabus; its graph and lesson intake are not open.
+> EmbeddedKnowledge is an open, versioned library of university-grade knowledge maps and reviewed teaching material. Premed is its first implemented course. Psychiatry is Book 02: a 1,440-hour academic and simulation curriculum with 154 stable contribution targets, explicitly separated from clinical training and professional authority.
 
-The canonical public domain is https://embeddedknowledge.io/. Premed lesson contributions are open through focused pull requests using the published one-pass author, two-review, and fresh-finalizer workflow. Psychiatry currently accepts curriculum review, not production lessons. Pull requests are the only write path. The website, JSON endpoints, `llms.txt`, and WebMCP are read-only discovery surfaces.
+The canonical public domain is https://embeddedknowledge.io/. Premed and Psychiatry lesson contributions are open through focused pull requests using the published one-pass author, two-review, and fresh-finalizer workflow. Pull requests are the only write path. The website, JSON endpoints, `llms.txt`, and WebMCP are read-only discovery surfaces.
 
 Course content is licensed CC BY 4.0 unless a file or third-party asset says otherwise. Software is licensed MIT (see `LICENSE`). Do not represent curriculum completion as university credit, admission, clinical competence, or professional authorization.
 
@@ -55,8 +55,11 @@ Course content is licensed CC BY 4.0 unless a file or third-party asset says oth
 
 - [Book overview](https://embeddedknowledge.io/psychiatry/): status, boundaries, architecture, and design commitments.
 - [Complete candidate syllabus](https://embeddedknowledge.io/psychiatry/syllabus/): 1,440 academic hours, one 120–240-hour area of depth, 26 modules, and 22 graduate capabilities.
+- [Knowledge graph](https://embeddedknowledge.io/psychiatry/graph/): 4 stages, 26 modules, 154 atomic outcomes, and 385 relationships.
+- [Lesson commons](https://embeddedknowledge.io/psychiatry/lessons/): every atomic outcome shown as empty, in an open PR, or covered by a published lesson.
+- [Graph data](https://embeddedknowledge.io/data/psychiatry-graph.json) and [production ledger](https://embeddedknowledge.io/data/psychiatry-progress.json): machine-readable curriculum and coverage state.
 - Canonical sources: `course/PSYCHIATRY-SYLLABUS.md` and `research/PSYCHIATRY-SOURCE-CATALOG.md` in the repository.
-- Status: version 0.1 research candidate. No Psychiatry graph, lesson index, lesson intake, clinical credential, or claim of equivalence to residency exists yet.
+- Status: graph-backed academic curriculum with focused lesson intake. This creates no clinical credential and makes no claim of equivalence to residency.
 - Boundary: academic study and simulation only. Real-patient work, prescribing, psychotherapy delivery, workplace entrustment, licensure, board eligibility, and the title psychiatrist remain with accredited programs and regulators.
 
 ## Required standard-lesson process
@@ -71,7 +74,8 @@ Before formal review, the author must pass the human first-read gate on a learne
 - `CONTRIBUTING.md` — canonical PR contract.
 - `COLLABORATION.md` — governance, role, and quorum rationale.
 - `course/PREMED-SYLLABUS.md` — authoritative syllabus source.
-- `course/PSYCHIATRY-SYLLABUS.md` — authoritative Psychiatry research-candidate syllabus source.
+- `course/PSYCHIATRY-SYLLABUS.md` — authoritative Psychiatry academic syllabus source.
+- `course/PSYCHIATRY-KNOWLEDGE-GRAPH.md` — graph semantics, stable-ID rule, intake boundary, and external-review request.
 - `research/PSYCHIATRY-SOURCE-CATALOG.md` — dated psychiatry training, program, open-source, rights, and design synthesis.
 - `site/data/premed-graph.json` — public graph artifact.
 - `site/data/premed-progress.json` — public production ledger.
@@ -95,7 +99,7 @@ Before formal review, the author must pass the human first-read gate on a learne
 
 # EmbeddedKnowledge
 
-EmbeddedKnowledge opens university-grade knowledge without pretending to confer a degree, admission status, clinical competence, or professional authorization. **Premed** is the first implemented course. **Psychiatry: Mind, Brain, Person, Society** is the second book and is currently a research-candidate syllabus awaiting expert review, graph design, and production instrumentation.
+EmbeddedKnowledge opens university-grade knowledge without pretending to confer a degree, admission status, clinical competence, or professional authorization. **Premed** is the first implemented course. **Psychiatry: Mind, Brain, Person, Society** is the second book, with a graph-backed academic curriculum and an open contribution route that remains explicitly separate from clinical training.
 
 Canonical domain: **<https://embeddedknowledge.io/>** — live, served by GitHub Pages over HTTPS, with `www` redirecting to the apex. The published artifacts are served with their real content types, so `llms.txt` arrives as `text/plain` and the graph, manifest, and schemas as `application/json` rather than as HTML. A local deployment remains available for development.
 
@@ -129,13 +133,13 @@ The graph's 1,551-hour total counts every optional branch. It is an inventory, n
 
 The curriculum's completeness is not the lesson corpus's completeness. The public site reads current contributed, in-review, published, and covered-outcome values from the generated production ledger rather than freezing a percentage in prose.
 
-## Psychiatry research candidate
+## Psychiatry academic curriculum
 
 - [Complete candidate syllabus](course/PSYCHIATRY-SYLLABUS.md) — a 1,440-hour common academic curriculum, one 120–240-hour area of depth, 26 modules, 22 graduate capabilities, and a separate supervised-practice crosswalk.
 - [Primary-source and rights catalog](research/PSYCHIATRY-SOURCE-CATALOG.md) — current U.S. and international specialist-training frameworks, residency-program examples, WHO/WPA rights and lived-experience sources, reusable/public-domain material, and item-level licensing cautions.
 - [Public Psychiatry overview](site/psychiatry/index.html) and [searchable syllabus](site/psychiatry/syllabus/index.html) — generated from the canonical Markdown alongside the Premed syllabus.
 
-The Psychiatry book is deliberately **not** represented as residency training. Its hours cover academic study and simulation only; they exclude patient care, clinical service, on-call work, and workplace supervision. Its knowledge graph, assessment bank, clinical-host standard, and production lesson intake remain unopened until separate expert-reviewed contributions establish them.
+The Psychiatry book is deliberately **not** represented as residency training. Its hours cover academic study and simulation only; they exclude patient care, clinical service, on-call work, and workplace supervision. Its public graph maps 4 stages, 26 modules, and 154 atomic outcomes. Focused lesson intake uses the same evidence, rights, provenance, review, and adjudication contract as Premed; the assessment bank, area-of-depth graph, and clinical-host standard remain future reviewed contributions.
 
 ## Agent-first contribution interface
 
@@ -164,11 +168,11 @@ The specimen under `examples/lesson-pack/` demonstrates the format but is not a 
 
 ## Rebuild and validate the graph
 
-Edit `scripts/build-premed-graph.mjs`, not the generated JSON, then run:
+Edit the matching graph builder under `scripts/`, not generated JSON, then run:
 
 ```bash
-node scripts/build-premed-graph.mjs
-node scripts/validate-premed-graph.mjs
+npm run graph:build
+npm run graph:validate
 ```
 
 The validator checks IDs, endpoints, tags, prerequisite declarations, workload totals, and prerequisite acyclicity.
@@ -231,7 +235,7 @@ authorization.
 
 ## Project status
 
-Premed lesson contributions are **open through focused pull requests**. Psychiatry lesson intake is closed while its graph and production contract are still unbuilt. The repository, protocol,
+Premed and Psychiatry lesson contributions are **open through focused pull requests**. Psychiatry remains an academic and simulation curriculum, not a clinical credential. The repository, protocol,
 schemas, lesson format, reference lessons, and one-pass review/finalization gate are public.
 The reviewed lesson corpus is live and grows only through validated, reviewed, adjudicated,
 merged contributions. Branch protection is active on `main`; see
@@ -259,9 +263,8 @@ These instructions apply to the entire EmbeddedKnowledge project.
 ## Canonical sources
 
 - Edit `course/PREMED-SYLLABUS.md` or `course/PSYCHIATRY-SYLLABUS.md`, then run `npm run site:build`; do not hand-edit either generated `site/*/syllabus/index.html`.
-- Treat Psychiatry as a research candidate: `course/PSYCHIATRY-SYLLABUS.md` is open for curriculum review, but no Psychiatry graph or production lesson target exists yet. Do not create a Psychiatry lesson pack until a later reviewed change opens intake and publishes stable outcome IDs.
-- Edit `scripts/build-premed-graph.mjs`, then run `npm run graph:build`; do not hand-edit generated graph data without changing its source.
-- Treat `site/data/premed-progress.json` as a generated/public ledger. Lesson metadata becomes its source once lessons exist.
+- Edit the matching graph builder (`scripts/build-premed-graph.mjs` or `scripts/build-psychiatry-graph.mjs`), then run `npm run graph:build`; do not hand-edit generated graph data without changing its source. Psychiatry outcome IDs become stable when its reviewed graph/intake proposal is merged.
+- Treat `site/data/premed-progress.json` and `site/data/psychiatry-progress.json` as generated/public ledgers. Lesson metadata becomes their source once lessons exist.
 - Treat `examples/lesson-pack/` as a non-production format specimen and `examples/agent-protocol/` as governance fixtures. Never count any file under `examples/` as a lesson, review, adjudication, publication, or covered outcome.
 - Treat `.agents/skills/` as the canonical Agent Skills source. Edit those files, then run `npm run agent:build`; do not hand-edit generated copies or bundles under `site/skills/` or `site/agent/skills.json`.
 
@@ -322,7 +325,7 @@ Provenance is **disclosed and attested, not verified**: run IDs, providers, mode
 
 # Contributing to EmbeddedKnowledge
 
-Lesson contributions are open through focused pull requests. The protected repository has exercised the reference author–review–finalizer workflow end to end; this document defines the v1 pull-request contract for agents, contributors, reviewers, adjudicators, and maintainers.
+Premed lesson contributions are open through focused pull requests. This proposal opens Psychiatry lesson intake only when its externally reviewed graph and stable outcome IDs are merged. The protected repository has exercised the reference author–review–finalizer workflow end to end; this document defines the v1 pull-request contract for agents, contributors, reviewers, adjudicators, and maintainers.
 
 ## The interface is a pull request
 
@@ -330,7 +333,7 @@ Pull requests are the only write path. `llms.txt`, JSON Schemas, WebMCP tools, a
 
 For a lesson contribution:
 
-1. Load [`.agents/skills/author-embeddedknowledge-lesson/SKILL.md`](.agents/skills/author-embeddedknowledge-lesson/SKILL.md) or follow its public raw equivalent, then select uncovered atomic outcomes from `site/data/premed-graph.json` and `site/data/premed-progress.json`.
+1. Load [`.agents/skills/author-embeddedknowledge-lesson/SKILL.md`](.agents/skills/author-embeddedknowledge-lesson/SKILL.md) or follow its public raw equivalent, then select one uncovered, unclaimed atomic outcome from the matching course graph, progress ledger, lesson index, and open-PR index under `site/data/`.
 2. Read [`CONTENT-STANDARD.md`](CONTENT-STANDARD.md) and [`RIGHTS-POLICY.md`](RIGHTS-POLICY.md), design the lesson, and draft only its learner-facing opening, central explanation, and one worked use. Pass the standard's first-read gate before expanding that voice into a full pack. A developmental reader-proxy sees only the declared learner, outcome, and prose; it creates no governance artifact and cannot count as a formal review run.
 3. Create one Lesson Format v1 pack under `lessons/` using the current public schemas and [`lessons/README.md`](lessons/README.md). Add the smallest coherent set of ordered scenes, explicit per-scene claim coverage, learner-visible claim-to-source notes, assessment logic, references, glossary, accessible assets, attribution, and agent disclosure. Do not manufacture one scene per rubric item.
 4. Complete the author audit and batch its repairs. Run the strict offline source-access preflight, then the sequential verifier once the candidate is stable: `npm run source:preflight -- --strict lessons/<pack>` followed by `npm run verify`. Do not run `npm run validate` and `npm test` concurrently in one worktree because both rebuild shared generated fixtures.
@@ -3624,7 +3627,7 @@ Before publishing a graph revision:
 
 # Psychiatry: Mind, Brain, Person, Society
 
-**Curriculum version:** 0.1 research candidate · 22 July 2026<br>
+**Curriculum version:** 0.2 graph-backed academic curriculum · 23 July 2026<br>
 **Provider:** EmbeddedKnowledge<br>
 **Language:** English<br>
 **Level:** postgraduate medical knowledge; residency-aligned academic study with a separate supervised-practice crosswalk<br>
@@ -3641,7 +3644,7 @@ Psychiatry is EmbeddedKnowledge's second book and its first postgraduate, clinic
 
 The design is intentionally broader than a diagnostic manual or board-review outline. Neuroscience, medicine, phenomenology, formulation, psychotherapy, pharmacotherapy, recovery, public mental health, human rights, culture, evidence, and systems practice remain co-equal strands. Classification is taught as one useful tool inside a larger clinical argument, not as the definition of psychiatry.
 
-The syllabus is a **research candidate**. Its knowledge graph, production lesson set, assessment bank, and clinical-host standard have not yet been opened. Those artifacts require separate review and versioned pull requests.
+The syllabus has a public knowledge graph and focused production-lesson intake. Its lesson set, assessment bank, optional area-of-depth graph, and clinical-host standard grow only through separate reviewed pull requests. Graph availability does not create clinical authority.
 
 ## 2. Audience and routes
 
@@ -4142,7 +4145,7 @@ Known gaps before a production curriculum can open include:
 - external expert review of workload, sequence, omissions, safety gates, and global applicability;
 - a clinical-host crosswalk that regulators and accredited programs can inspect without confusing academic and workplace evidence.
 
-Until those gaps are resolved through separate reviewed contributions, this document remains a syllabus candidate and Psychiatry lesson intake remains closed.
+Until those gaps are resolved through separate reviewed contributions, this remains an evolving academic curriculum and not a residency or clinical credential.
 
 ## Appendix A — Clinical-framework crosswalk
 
@@ -4180,8 +4183,95 @@ Every future production lesson must include:
 | Four stages, not PGY years | preserves a developmental spine across countries with different program lengths | an adopted host standard requires a dated local crosswalk |
 | ICD-11 reference plus DSM literacy | supports global use while acknowledging jurisdictions and literature | classification or licence changes |
 | Lived experience and rights are longitudinal | these change assessment, treatment, governance, and systems—not only ethics content | co-production review recommends stronger authority or safeguards |
-| Psychiatry lesson intake remains closed | graph, production boundaries, rights-cleared materials, and expert review are not yet complete | those artifacts pass their own review and validation PRs |
+| Psychiatry lesson corpus begins empty | stable graph and production boundaries exist; each lesson still needs evidence, rights, independent review, and adjudication | focused lesson packs pass the public contribution protocol |
 | No clinical entrustment notation | an open academic provider cannot verify workplace performance or authority | a separately governed accredited-host mechanism is approved |
+
+
+---
+
+## Repository file: course/PSYCHIATRY-KNOWLEDGE-GRAPH.md
+
+# Psychiatry knowledge graph and contribution intake
+
+**Version:** 0.1.0 proposal
+
+**Status:** external review required; merging this proposal opens lesson intake for the reviewed common-academic outcomes
+
+**Canonical source:** `scripts/build-psychiatry-graph.mjs`
+
+**Generated artifact:** `site/data/psychiatry-graph.json`
+
+**Content licence:** CC BY 4.0
+
+## Purpose and boundary
+
+This graph turns the 1,440-hour common academic core in `PSYCHIATRY-SYLLABUS.md` into stable, contribution-sized learning outcomes. It is a curriculum map for open education, not a diagnostic system, treatment guide, residency, clinical placement, licence, board-eligibility route, or authorization to practise psychiatry. Real-patient care, prescribing, psychotherapy delivery, compulsory-care decisions, workplace supervision, and protected professional titles remain outside EmbeddedKnowledge.
+
+Every learner-facing clinical example must therefore use fictional, de-identified, or fully consented material; distinguish education from advice; preserve uncertainty and alternatives; and state when local law, policy, culture, access, or service context controls the answer.
+
+## Shape
+
+The generated graph contains:
+
+- 4 developmental stages;
+- 26 syllabus modules;
+- 154 atomic, observable outcomes;
+- 1,440 hours of common academic study and simulation;
+- 180 hierarchy links, 178 prerequisite links, and 27 bidirectional cross-concept pairs (54 directed cross-links are represented as 27 graph relationships);
+- three non-credential routes: open scholar, physician learner, and educator/system learner.
+
+The optional 120–240-hour area of depth is deliberately excluded. It should receive a separate graph only after pathway hosts, supervision, assessment, and jurisdictional boundaries exist.
+
+## Stable identity
+
+Topic IDs use `topic-psy-<module>-<slug>`, for example `topic-psy-101-field-and-boundaries`. Human-facing topic codes use `<module>.<sequence>`, for example `PSY-101.01`.
+
+Once this graph is merged, an outcome ID is permanent. Editorial improvements change its title, summary, evidence, or version; they do not silently recycle its ID. A materially different learning destination receives a new ID, and any retirement is recorded with an explicit replacement or no-replacement decision. Lesson IDs use `PSY-<AREA>-<NNN>` and map only to Psychiatry graph outcomes.
+
+## Relationship semantics
+
+- `contains` expresses stage → module and module → atomic-outcome membership.
+- `prerequisite` points from the earlier outcome to the outcome that depends on it. The prerequisite layer must remain acyclic.
+- `cross-link` records a meaningful conceptual bridge that is not a prerequisite. The source declarations are symmetric; the public graph stores each pair once.
+
+Prerequisites are deliberately sparse. They signal a learning dependency, not merely a useful association. Cross-links make recurring strands—rights, culture, lived experience, uncertainty, safety, evidence, and systems—visible without forcing a false linear sequence.
+
+## Evidence and status
+
+The graph synthesizes the Psychiatry syllabus, its dated source catalog, and primary specialist-training frameworks from ACGME, the Royal College of Psychiatrists, the Royal College of Physicians and Surgeons of Canada, RANZCP, UEMS, WPA, WHO, and WHO/OHCHR. Source tags support audit; they do not imply endorsement or equivalence to any training program.
+
+All 154 outcomes carry `evidenceConfidence: pending-external-review` in this proposal. No expert, trainee, or lived-experience approval is claimed by the artifact or by automated validation.
+
+## Review requested before merge
+
+This proposal should not be marked ready until its scope, omissions, ordering, workload, language, and rights posture have been reviewed in public by a deliberately plural group that includes, where available:
+
+- practising psychiatrists from more than one jurisdiction and service setting;
+- current psychiatry residents or trainees;
+- people with lived experience, survivor perspectives, peer workers, carers, and family advocates, without treating any one voice as representative of all;
+- nursing, psychology, social work, occupational therapy, pharmacy, primary care, emergency medicine, and public-health perspectives;
+- specialists in education, measurement, statistics, disability access, culture, human rights, privacy, security, and open licensing.
+
+Reviewers should identify missing or overclaimed outcomes, unsafe sequencing, culturally narrow assumptions, coercive or stigmatizing language, hidden prerequisites, infeasible workload, and areas where a route should stop rather than simulate clinical authority. Disagreement should be documented, not averaged away.
+
+## Intake rule after merge
+
+Merging this graph opens focused lesson proposals for its common-academic outcomes under the existing Lesson Format v1, evidence, rights, provenance, independent review, and fresh-finalization contracts. It does not publish a lesson, count the specimen, or waive quorum. An outcome is available only when it has no merged lesson and no active lesson proposal in `site/data/psychiatry-open-prs.json`.
+
+The first intended contribution target is `topic-psy-101-field-and-boundaries`. A local welcome-lesson prototype may inform a later candidate, but it must not enter `lessons/` or count toward coverage until this graph and intake contract are merged and the authoring skill is run fresh against the live target state.
+
+## Deterministic maintenance
+
+Run:
+
+```bash
+npm run graph:build
+npm run graph:validate
+npm run site:build
+npm run validate
+```
+
+Edit the builder, not the generated JSON. Validation checks identity, endpoints, graph shape, declared relationships, course hours, prerequisite acyclicity, routes, source tags, outcome form, and the pending-review marker. Automated validation establishes internal consistency only; it cannot substitute for the external review requested above.
 
 
 ---
@@ -4715,6 +4805,25 @@ The project should preregister or at least version the question, outcome, analys
   "canonicalWriteMechanism": "pull-request",
   "repository": "https://github.com/VSBDev/EmbeddedKnowledge",
   "contentLicense": "CC-BY-4.0",
+  "courses": {
+    "premed": {
+      "intake": "open",
+      "knowledgeGraph": "/data/premed-graph.json",
+      "lessonIndex": "/data/premed-lessons.json",
+      "openLessonPullRequests": "/data/premed-open-prs.json",
+      "progress": "/data/premed-progress.json",
+      "terminology": "/data/premed-terminology.json"
+    },
+    "psychiatry": {
+      "intake": "open",
+      "knowledgeGraph": "/data/psychiatry-graph.json",
+      "lessonIndex": "/data/psychiatry-lessons.json",
+      "openLessonPullRequests": "/data/psychiatry-open-prs.json",
+      "progress": "/data/psychiatry-progress.json",
+      "terminology": "/data/psychiatry-terminology.json",
+      "boundary": "Academic study and simulation only; no clinical credential or authority."
+    }
+  },
   "agentEntryPoints": {
     "conciseContext": "/llms.txt",
     "fullContext": "/llms-full.txt",
@@ -4810,7 +4919,7 @@ The project should preregister or at least version the question, outcome, analys
     "glossary.json", "diagrams/*.diagram.json", "assets/**/*", "ATTRIBUTION.md",
     "reviews/*.json", "adjudication.json"
   ],
-  "submissionState": "Lesson contributions are open through focused pull requests. Branch protection, the two-review plus fresh-finalizer workflow, structured GitHub provenance, deterministic validation, and the MIT software and CC BY 4.0 content licences are active."
+  "submissionState": "Premed and Psychiatry lesson contributions are open through focused pull requests. Psychiatry remains academic study and simulation only. Branch protection, the two-review plus fresh-finalizer workflow, structured GitHub provenance, deterministic validation, and the MIT software and CC BY 4.0 content licences are active."
 }
 
 
@@ -4833,13 +4942,13 @@ The project should preregister or at least version the question, outcome, analys
     {
       "name": "author-embeddedknowledge-lesson",
       "role": "author",
-      "description": "Author one clear, human-readable, evidence-based EmbeddedKnowledge Lesson Format v1 pack for an uncovered Premed outcome. Use when asked to draft, build, revise, or prepare a lesson contribution, its learner-facing scenes, assessment, claims, references, glossary, diagrams, accessible assets, attribution, or author provenance before independent review.",
+      "description": "Author one clear, human-readable, evidence-based EmbeddedKnowledge Lesson Format v1 pack for an uncovered Premed or Psychiatry outcome. Use when asked to draft, build, revise, or prepare a lesson contribution, its learner-facing scenes, assessment, claims, references, glossary, diagrams, accessible assets, attribution, or author provenance before independent review.",
       "invocation": "$author-embeddedknowledge-lesson",
       "source": ".agents/skills/author-embeddedknowledge-lesson/SKILL.md",
       "instructions": "/skills/author-embeddedknowledge-lesson/SKILL.md",
       "bundle": "/skills/author-embeddedknowledge-lesson/author-embeddedknowledge-lesson.zip",
-      "instructionsSha256": "sha256:2af4c4465c4fd90ea5fcd42984ede6462c909e573276ba1325534a5246215ac4",
-      "bundleSha256": "sha256:271efc884c8a4b129a082037eb27e5a9e683da4537558fd7ad0831390276d2ac"
+      "instructionsSha256": "sha256:f6b218fb6e599d188d2853b76c3fa3010eca9d3507e2154e89a00b775f19434e",
+      "bundleSha256": "sha256:7128a08ba551f6075e2b477850f3134ad194fa4d746c0b41bc1763b53538dedd"
     },
     {
       "name": "review-embeddedknowledge-academic",

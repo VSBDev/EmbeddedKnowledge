@@ -29,6 +29,23 @@ test("lesson pull requests allow only their deterministic generated site outputs
   }), []);
 });
 
+test("Psychiatry lesson pull requests use only Psychiatry aggregate outputs", () => {
+  const psychiatryId = "PSY-FLD-001";
+  for (const file of [
+    "site/data/psychiatry-lessons.json",
+    "site/data/psychiatry-progress.json",
+    "site/data/psychiatry-terminology.json",
+    `site/data/lessons/${psychiatryId}.json`,
+    `site/assets/lessons/${psychiatryId}/assets/model.svg`
+  ]) assert.equal(isAllowedLessonGeneratedFile(file, [psychiatryId]), true, file);
+
+  for (const file of [
+    "site/data/premed-lessons.json",
+    "site/data/premed-progress.json",
+    "site/data/premed-terminology.json"
+  ]) assert.equal(isAllowedLessonGeneratedFile(file, [psychiatryId]), false, file);
+});
+
 test("a revised pack may remove generated files belonging to its prior valid lesson ID", () => {
   assert.deepEqual(lessonPrOutsideFiles({
     changedFiles: [
