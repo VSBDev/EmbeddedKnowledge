@@ -3,9 +3,9 @@
   "format": "embeddedknowledge-lesson-v1",
   "artifactType": "production-lesson",
   "id": "PREM-SCI-007",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "title": "From correlation to a causal claim",
-  "status": "published",
+  "status": "draft",
   "riskTier": "standard",
   "estimatedMinutes": 180,
   "outcomes": [
@@ -76,7 +76,7 @@
       "estimatedMinutes": 35,
       "required": true,
       "claimCoverage": "claims-mapped",
-      "contentHtml": "<h1>Do not adjust by reflex</h1>\n<p>Before looking back, reconstruct the core model on paper or in plain text.</p>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-reconstruct-causal-judgment</span></div>\n    <div class=\"ek-block-content\"><ol>\n<li>Complete the sentence: an association asks whether two variables vary together, whereas a causal contrast asks ______.</li>\n<li>Draw the three arrow shapes for a confounder, mediator, and collider.</li>\n<li>Explain why random assignment makes groups comparable in expectation but not necessarily identical in one realized experiment.</li>\n</ol>\n<p>Pause and commit to an answer before reading the feedback.</p>\n</div>\n  </aside>\n<p>A causal contrast asks how the outcome would differ under specified alternatives. The three shapes are <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>X</mi><mo stretchy=\"false\">←</mo><mi>C</mi><mo stretchy=\"false\">→</mo><mi>Y</mi></mrow><annotation encoding=\"application/x-tex\">X \\leftarrow C \\rightarrow Y</annotation></semantics></math></span> for a confounder, <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>X</mi><mo stretchy=\"false\">→</mo><mi>M</mi><mo stretchy=\"false\">→</mo><mi>Y</mi></mrow><annotation encoding=\"application/x-tex\">X \\rightarrow M \\rightarrow Y</annotation></semantics></math></span> for a mediator, and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>X</mi><mo stretchy=\"false\">→</mo><mi>S</mi><mo stretchy=\"false\">←</mo><mi>Y</mi></mrow><annotation encoding=\"application/x-tex\">X \\rightarrow S \\leftarrow Y</annotation></semantics></math></span> for a collider or selection variable. Random assignment breaks systematic links between assignment and pre-assignment causes over repeated randomizations, but chance can leave a particular pair of groups imbalanced.</p>\n<p>If the contrast was missing from your answer, return to “Three targets of inference.” If the arrowheads were reversed, say each map aloud as a sentence about what causes what. If “identical” appeared in your randomization answer, replace it with “comparable in expectation” and name one possible chance imbalance.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-inference-targets, claim-causal-contrast, claim-third-variable-roles, claim-randomization-scope</span><span><b>sources</b> source-causal-diagrams, source-natural-experiments, source-randomized-trials, source-mechanistic-evidence</span></div>\n    <div class=\"ek-block-content\"><p>The sources support the reconstructed distinctions, the three causal positions, and the difference between balance in expectation and exact balance in one assigned sample.</p>\n</div>\n  </aside>\n<h2>Repair the tempting rule</h2>\n<aside class=\"ek-block ek-misconception ek-block--misconception\" data-directive=\"misconception\">\n    <div class=\"ek-block-label directive-label\">Misconception</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> misconception-adjust-everything</span><span><b>label</b> If a third variable is related to exposure and outcome, always adjust for it</span></div>\n    <div class=\"ek-block-content\"><p><strong>Commit first.</strong> A dataset contains exposure <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>X</mi><annotation encoding=\"application/x-tex\">X</annotation></semantics></math></span>, outcome <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>Y</mi><annotation encoding=\"application/x-tex\">Y</annotation></semantics></math></span>, and a third variable <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>Z</mi><annotation encoding=\"application/x-tex\">Z</annotation></semantics></math></span> associated with both. Should the analysis always adjust for <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>Z</mi><annotation encoding=\"application/x-tex\">Z</annotation></semantics></math></span>?</p>\n<p><strong>Why “yes” fails.</strong> Association with both variables does not reveal <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>Z</mi><annotation encoding=\"application/x-tex\">Z</annotation></semantics></math></span>&#39;s causal job. If <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>Z</mi><annotation encoding=\"application/x-tex\">Z</annotation></semantics></math></span> is a pre-exposure common cause, adjustment may help block a confounding path. If <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>Z</mi><annotation encoding=\"application/x-tex\">Z</annotation></semantics></math></span> carries part of the effect, adjustment removes part of the total-effect route. If <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>Z</mi><annotation encoding=\"application/x-tex\">Z</annotation></semantics></math></span> is a common effect, adjustment or selection on it may open a noncausal path.</p>\n<p><strong>Better model.</strong> Put the question first, establish time order, draw the assumed arrows, and adjust only for a set of variables that blocks the relevant noncausal paths without blocking the effect of interest or opening a collider path. Even a sensible adjustment set cannot remove bias from common causes that were not measured well enough.</p>\n<p><strong>Recheck.</strong> In the randomized app study, retrieval sessions occur after assigned access and before the exam. If the target is the total effect of the offer, should retrieval sessions be treated as a routine confounder? Explain your arrow map.</p>\n</div>\n  </aside>\n<p>Retrieval sessions are a proposed mediator, not a pre-offer common cause. Routine adjustment would change the question away from the total effect of the offer. A formal direct-effect or mediation question is possible, but it needs a separately specified target and additional assumptions.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-third-variable-roles</span><span><b>sources</b> source-causal-diagrams</span></div>\n    <div class=\"ek-block-content\"><p>The causal-diagram source supports choosing adjustment from the assumed causal structure and target effect, including the risks of controlling for mediators or colliders and of leaving common-cause paths open.</p>\n</div>\n  </aside>\n<h2>Fade the support</h2>\n<p>Each case below is fictional and exists only to test the causal structure.</p>\n<h3>Completion problem: label the arrows</h3>\n<p>Across a workshop network, airborne dust <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>C</mi><annotation encoding=\"application/x-tex\">C</annotation></semantics></math></span> influences whether technicians turn on a filter <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>X</mi><annotation encoding=\"application/x-tex\">X</annotation></semantics></math></span> and also raises a particle-count measurement <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>Y</mi><annotation encoding=\"application/x-tex\">Y</annotation></semantics></math></span>. Complete the map and conclusion:</p>\n<blockquote>\n<p><span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>X</mi><annotation encoding=\"application/x-tex\">X</annotation></semantics></math></span> ______ <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>C</mi><annotation encoding=\"application/x-tex\">C</annotation></semantics></math></span> ______ <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>Y</mi><annotation encoding=\"application/x-tex\">Y</annotation></semantics></math></span>. Therefore <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>C</mi><annotation encoding=\"application/x-tex\">C</annotation></semantics></math></span> is a ______, and the crude filter–particle association is ______ by default.</p>\n</blockquote>\n<p><strong>Feedback.</strong> The map is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>X</mi><mo stretchy=\"false\">←</mo><mi>C</mi><mo stretchy=\"false\">→</mo><mi>Y</mi></mrow><annotation encoding=\"application/x-tex\">X \\leftarrow C \\rightarrow Y</annotation></semantics></math></span>. Dust is a confounder, so the crude filter–particle comparison does not isolate a causal effect by default. If you drew <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>X</mi><mo stretchy=\"false\">→</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">X \\rightarrow C</annotation></semantics></math></span>, check the timing: the background dust level affected the decision to use the filter.</p>\n<h3>Supported problem: separate a mechanism from a total effect</h3>\n<p>Researchers randomly assign a brief light pulse <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>X</mi><annotation encoding=\"application/x-tex\">X</annotation></semantics></math></span> to cell cultures. The pulse changes a transcription factor <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>M</mi><annotation encoding=\"application/x-tex\">M</annotation></semantics></math></span>; the factor then changes reporter fluorescence <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>Y</mi><annotation encoding=\"application/x-tex\">Y</annotation></semantics></math></span>. They have experimental evidence for the first link and a separate perturbation study for the second.</p>\n<ol>\n<li>Draw the proposed mechanism.</li>\n<li>What does the combined evidence support?</li>\n<li>What would remain unjustified if the work used one cell line under one laboratory condition?</li>\n</ol>\n<p><strong>Feedback.</strong> The proposed chain is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>X</mi><mo stretchy=\"false\">→</mo><mi>M</mi><mo stretchy=\"false\">→</mo><mi>Y</mi></mrow><annotation encoding=\"application/x-tex\">X \\rightarrow M \\rightarrow Y</annotation></semantics></math></span>. The two perturbations support a mechanism in which the transcription factor carries a causal link under the tested conditions. The evidence does not by itself justify the same pathway, effect size, or outcome in other cell types, organisms, doses, or environments. If your conclusion jumped directly to patients or populations, shrink it to the experimental system.</p>\n<h3>Independent problem: spot selection on a common effect</h3>\n<p>Machine age <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>X</mi><annotation encoding=\"application/x-tex\">X</annotation></semantics></math></span> and an operator&#39;s maintenance skill <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>Y</mi><annotation encoding=\"application/x-tex\">Y</annotation></semantics></math></span> both affect whether a machine enters a repair registry <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>S</mi><annotation encoding=\"application/x-tex\">S</annotation></semantics></math></span>. An analyst studies only registered machines and finds that older machines tend to have more skilled operators.</p>\n<p>Write a two-sentence audit: name <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>S</mi><annotation encoding=\"application/x-tex\">S</annotation></semantics></math></span>&#39;s role, then explain why the selected-sample association need not exist in all machines.</p>\n<p><strong>Feedback.</strong> The registry is a collider on <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>X</mi><mo stretchy=\"false\">→</mo><mi>S</mi><mo stretchy=\"false\">←</mo><mi>Y</mi></mrow><annotation encoding=\"application/x-tex\">X \\rightarrow S \\leftarrow Y</annotation></semantics></math></span>. Restricting analysis to <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>S</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">S=1</annotation></semantics></math></span> can induce an association between machine age and operator skill because either cause can help a machine enter the registry. If you called the registry a confounder, ask whether it precedes and causes both <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>X</mi><annotation encoding=\"application/x-tex\">X</annotation></semantics></math></span> and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>Y</mi><annotation encoding=\"application/x-tex\">Y</annotation></semantics></math></span>; it does not.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-inference-targets, claim-third-variable-roles, claim-mechanism-evidence</span><span><b>sources</b> source-causal-diagrams, source-mechanistic-evidence</span></div>\n    <div class=\"ek-block-content\"><p>The sources support distinguishing an observed association from a causal chain, treating perturbation evidence as local to its tested system, and recognizing selection on a common effect as a route to noncausal association.</p>\n</div>\n  </aside>\n<h2>Two probes for rival explanations</h2>\n<p>A <strong>negative control</strong> deliberately substitutes an exposure or outcome that should not have the tested causal relation but should share important bias-producing conditions. If the supposedly impossible association appears, residual confounding, selection, or measurement error may still be present. A clean negative control does not prove that every bias is absent; the control works only if its own assumptions are credible.</p>\n<p><strong>Triangulation</strong> compares evidence from approaches chosen because their important potential biases differ and are expected to be largely unrelated. Convergence can strengthen confidence when the same wrong answer is unlikely to arise from those different biases. Repeating several statistical methods on the same confounded dataset is not automatically triangulation, and convergence is not proof.</p>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-negative-control-triangulation</span></div>\n    <div class=\"ek-block-content\"><p>An observational app analysis and its negative-control outcome both show similar associations with app use. What should happen to confidence in a causal app effect, and why? Then name one genuinely different approach that could contribute to triangulation.</p>\n</div>\n  </aside>\n<p>Confidence should decrease because the negative-control association suggests a shared noncausal process. A randomized offer study, a defensible external allocation rule, or a mechanism experiment could add a different route of evidence, provided its main bias sources are not the same as the cohort&#39;s. The appropriate next step is to diagnose the shared bias, not to average the two associations.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-negative-controls, claim-triangulation</span><span><b>sources</b> source-negative-controls, source-triangulation</span></div>\n    <div class=\"ek-block-content\"><p>The sources support using negative controls as bias detectors under stated assumptions and using triangulation only when the contributing approaches have meaningfully different key sources of potential bias.</p>\n</div>\n  </aside>\n"
+      "contentHtml": "<h1>Do not adjust by reflex</h1>\n<p>Before looking back, reconstruct the core model on paper or in plain text.</p>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-reconstruct-causal-judgment</span></div>\n    <div class=\"ek-block-content\"><ol>\n<li>Complete the sentence: an association asks whether two variables vary together, whereas a causal contrast asks ______.</li>\n<li>Draw the three arrow shapes for a confounder, mediator, and collider.</li>\n<li>Explain why random assignment makes groups comparable in expectation but not necessarily identical in one realized experiment.</li>\n</ol>\n<p>Pause and commit to an answer before reading the feedback.</p>\n</div>\n  </aside>\n<p>A causal contrast asks how the outcome would differ under specified alternatives. The three shapes are <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>X</mi><mo stretchy=\"false\">←</mo><mi>C</mi><mo stretchy=\"false\">→</mo><mi>Y</mi></mrow><annotation encoding=\"application/x-tex\">X \\leftarrow C \\rightarrow Y</annotation></semantics></math></span> for a confounder, <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>X</mi><mo stretchy=\"false\">→</mo><mi>M</mi><mo stretchy=\"false\">→</mo><mi>Y</mi></mrow><annotation encoding=\"application/x-tex\">X \\rightarrow M \\rightarrow Y</annotation></semantics></math></span> for a mediator, and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>X</mi><mo stretchy=\"false\">→</mo><mi>S</mi><mo stretchy=\"false\">←</mo><mi>Y</mi></mrow><annotation encoding=\"application/x-tex\">X \\rightarrow S \\leftarrow Y</annotation></semantics></math></span> for a collider or selection variable. Random assignment breaks systematic links between assignment and pre-assignment causes over repeated randomizations, but chance can leave a particular pair of groups imbalanced.</p>\n<p>If the contrast was missing from your answer, return to “Three targets of inference.” If the arrowheads were reversed, say each map aloud as a sentence about what causes what. If “identical” appeared in your randomization answer, replace it with “comparable in expectation” and name one possible chance imbalance.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-inference-targets, claim-causal-contrast, claim-third-variable-roles, claim-randomization-scope</span><span><b>sources</b> source-causal-diagrams, source-natural-experiments, source-randomized-trials, source-mechanistic-evidence</span></div>\n    <div class=\"ek-block-content\"><p>The sources support the reconstructed distinctions, the three causal positions, and the difference between balance in expectation and exact balance in one assigned sample.</p>\n</div>\n  </aside>\n<h2>Repair the tempting rule</h2>\n<aside class=\"ek-block ek-misconception ek-block--misconception\" data-directive=\"misconception\">\n    <div class=\"ek-block-label directive-label\">Misconception</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> misconception-adjust-everything</span><span><b>label</b> If a third variable is related to exposure and outcome, always adjust for it</span></div>\n    <div class=\"ek-block-content\"><p><strong>Commit first.</strong> A dataset contains exposure <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>X</mi><annotation encoding=\"application/x-tex\">X</annotation></semantics></math></span>, outcome <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>Y</mi><annotation encoding=\"application/x-tex\">Y</annotation></semantics></math></span>, and a third variable <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>Z</mi><annotation encoding=\"application/x-tex\">Z</annotation></semantics></math></span> associated with both. Should the analysis always adjust for <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>Z</mi><annotation encoding=\"application/x-tex\">Z</annotation></semantics></math></span>?</p>\n<p><strong>Why “yes” fails.</strong> Association with both variables does not reveal <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>Z</mi><annotation encoding=\"application/x-tex\">Z</annotation></semantics></math></span>&#39;s causal job. If <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>Z</mi><annotation encoding=\"application/x-tex\">Z</annotation></semantics></math></span> is a pre-exposure common cause, adjustment may help block a confounding path. If <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>Z</mi><annotation encoding=\"application/x-tex\">Z</annotation></semantics></math></span> carries part of the effect, adjustment removes part of the total-effect route. If <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>Z</mi><annotation encoding=\"application/x-tex\">Z</annotation></semantics></math></span> is a common effect, adjustment or selection on it may open a noncausal path.</p>\n<p><strong>Better model.</strong> Put the question first, establish time order, draw the assumed arrows, and adjust only for a set of variables that blocks the relevant noncausal paths without blocking the effect of interest or opening a collider path. Even a sensible adjustment set cannot remove bias from common causes that were not measured well enough.</p>\n<p><strong>Recheck.</strong> In the randomized app study, retrieval sessions occur after assigned access and before the exam. If the target is the total effect of the offer, should retrieval sessions be treated as a routine confounder? Explain your arrow map.</p>\n</div>\n  </aside>\n<p>Retrieval sessions are a proposed mediator, not a pre-offer common cause. Routine adjustment would change the question away from the total effect of the offer. A formal direct-effect or mediation question is possible, but it needs a separately specified target and additional assumptions.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-third-variable-roles</span><span><b>sources</b> source-causal-diagrams</span></div>\n    <div class=\"ek-block-content\"><p>The causal-diagram source supports choosing adjustment from the assumed causal structure and target effect, including the risks of controlling for mediators or colliders and of leaving common-cause paths open.</p>\n</div>\n  </aside>\n<h2>Fade the support</h2>\n<p>Each case below is fictional and exists only to test the causal structure.</p>\n<h3>Completion problem: label the arrows</h3>\n<p>Across a workshop network, airborne dust <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>C</mi><annotation encoding=\"application/x-tex\">C</annotation></semantics></math></span> influences whether technicians turn on a filter <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>X</mi><annotation encoding=\"application/x-tex\">X</annotation></semantics></math></span> and also raises a particle-count measurement <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>Y</mi><annotation encoding=\"application/x-tex\">Y</annotation></semantics></math></span>. Complete the map and conclusion:</p>\n<blockquote>\n<p><span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>X</mi><annotation encoding=\"application/x-tex\">X</annotation></semantics></math></span> ______ <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>C</mi><annotation encoding=\"application/x-tex\">C</annotation></semantics></math></span> ______ <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>Y</mi><annotation encoding=\"application/x-tex\">Y</annotation></semantics></math></span>. Therefore <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>C</mi><annotation encoding=\"application/x-tex\">C</annotation></semantics></math></span> is a ______, and the crude filter–particle association is ______ by default.</p>\n</blockquote>\n<p><strong>Feedback.</strong> The map is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>X</mi><mo stretchy=\"false\">←</mo><mi>C</mi><mo stretchy=\"false\">→</mo><mi>Y</mi></mrow><annotation encoding=\"application/x-tex\">X \\leftarrow C \\rightarrow Y</annotation></semantics></math></span>. Dust is a confounder, so the crude filter–particle comparison does not isolate a causal effect by default. If you drew <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>X</mi><mo stretchy=\"false\">→</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">X \\rightarrow C</annotation></semantics></math></span>, check the timing: the background dust level affected the decision to use the filter.</p>\n<h3>Supported problem: separate a mechanism from a total effect</h3>\n<p>Researchers randomly assign a brief light pulse <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>X</mi><annotation encoding=\"application/x-tex\">X</annotation></semantics></math></span> to cell cultures. The pulse changes a transcription factor <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>M</mi><annotation encoding=\"application/x-tex\">M</annotation></semantics></math></span>; the factor then changes reporter fluorescence <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>Y</mi><annotation encoding=\"application/x-tex\">Y</annotation></semantics></math></span>. They have experimental evidence for the first link and a separate perturbation study for the second.</p>\n<ol>\n<li>Draw the proposed mechanism.</li>\n<li>What does the combined evidence support?</li>\n<li>What would remain unjustified if the work used one cell line under one laboratory condition?</li>\n</ol>\n<p><strong>Feedback.</strong> The proposed chain is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>X</mi><mo stretchy=\"false\">→</mo><mi>M</mi><mo stretchy=\"false\">→</mo><mi>Y</mi></mrow><annotation encoding=\"application/x-tex\">X \\rightarrow M \\rightarrow Y</annotation></semantics></math></span>. The two perturbations support a mechanism in which the transcription factor carries a causal link under the tested conditions. The evidence does not by itself justify the same pathway, effect size, or outcome in other cell types, organisms, doses, or environments. If your conclusion jumped directly to patients or populations, shrink it to the experimental system.</p>\n<h3>Independent problem: spot selection on a common effect</h3>\n<p>Machine age <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>X</mi><annotation encoding=\"application/x-tex\">X</annotation></semantics></math></span> and an operator&#39;s maintenance skill <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>Y</mi><annotation encoding=\"application/x-tex\">Y</annotation></semantics></math></span> both affect whether a machine enters a repair registry <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>S</mi><annotation encoding=\"application/x-tex\">S</annotation></semantics></math></span>. An analyst studies only registered machines and finds that older machines tend to have more skilled operators.</p>\n<p>Write a two-sentence audit: name <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>S</mi><annotation encoding=\"application/x-tex\">S</annotation></semantics></math></span>&#39;s role, then explain why the selected-sample association need not exist in all machines.</p>\n<p><strong>Feedback.</strong> The registry is a collider on <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>X</mi><mo stretchy=\"false\">→</mo><mi>S</mi><mo stretchy=\"false\">←</mo><mi>Y</mi></mrow><annotation encoding=\"application/x-tex\">X \\rightarrow S \\leftarrow Y</annotation></semantics></math></span>. Restricting analysis to <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>S</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">S=1</annotation></semantics></math></span> can induce an association between machine age and operator skill because either cause can help a machine enter the registry. If you called the registry a confounder, ask whether it precedes and causes both <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>X</mi><annotation encoding=\"application/x-tex\">X</annotation></semantics></math></span> and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>Y</mi><annotation encoding=\"application/x-tex\">Y</annotation></semantics></math></span>; it does not.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-inference-targets, claim-third-variable-roles, claim-mechanism-evidence</span><span><b>sources</b> source-causal-diagrams, source-mechanistic-evidence</span></div>\n    <div class=\"ek-block-content\"><p>The sources support distinguishing an observed association from a causal chain, treating perturbation evidence as local to its tested system, and recognizing selection on a common effect as a route to noncausal association.</p>\n</div>\n  </aside>\n<h2>Two probes for rival explanations</h2>\n<p>A <strong>negative control</strong> deliberately substitutes an exposure or outcome that should not have the tested causal relation but should share important bias-producing conditions. This is a <em>negative control</em> in the causal-inference sense — a chosen comparison exposure or outcome — which differs from the laboratory negative control of <a href=\"https://embeddedknowledge.io/premed/lessons/read/?lesson=PREM-SCI-003\" rel=\"noreferrer noopener\">Variables and controls (PREM-SCI-003)</a>, a physical baseline condition expected to show no response. Both share the logic that an effect where none should appear signals a problem, but one is a chosen exposure and the other a bench condition. If the supposedly impossible association appears, residual confounding, selection, or measurement error may still be present. A clean negative control does not prove that every bias is absent; the control works only if its own assumptions are credible.</p>\n<p><strong>Triangulation</strong> compares evidence from approaches chosen because their important potential biases differ and are expected to be largely unrelated. Convergence can strengthen confidence when the same wrong answer is unlikely to arise from those different biases. Repeating several statistical methods on the same confounded dataset is not automatically triangulation, and convergence is not proof.</p>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-negative-control-triangulation</span></div>\n    <div class=\"ek-block-content\"><p>An observational app analysis and its negative-control outcome both show similar associations with app use. What should happen to confidence in a causal app effect, and why? Then name one genuinely different approach that could contribute to triangulation.</p>\n</div>\n  </aside>\n<p>Confidence should decrease because the negative-control association suggests a shared noncausal process. A randomized offer study, a defensible external allocation rule, or a mechanism experiment could add a different route of evidence, provided its main bias sources are not the same as the cohort&#39;s. The appropriate next step is to diagnose the shared bias, not to average the two associations.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-negative-controls, claim-triangulation</span><span><b>sources</b> source-negative-controls, source-triangulation</span></div>\n    <div class=\"ek-block-content\"><p>The sources support using negative controls as bias detectors under stated assumptions and using triangulation only when the contributing approaches have meaningfully different key sources of potential bias.</p>\n</div>\n  </aside>\n"
     },
     {
       "id": "scene-transfer-judgment",
@@ -270,7 +270,7 @@
     }
   ],
   "license": "CC-BY-4.0",
-  "sourceConfidence": "medium-high",
+  "sourceConfidence": "pending-review",
   "aiAssistance": {
     "used": true,
     "disclosure": "VSBDev (github:VSBDev) is accountable. The scientific baseline came from 13 isolated blind Claude CLI sessions whose machine-readable modelUsage included claude-fable-5 and also listed claude-haiku-4-5-20251001; Opus-routed outputs were excluded. Those sessions received only their science prompts and did not see this repository, Premed, the outcome ID, or the packaging request. Separate actor records preserve every accepted session and prompt digest. Codex by OpenAI, model gpt-5.6-sol, Codex CLI 0.144.6, run 1c340f61-8e78-4c1f-98a1-a6c424db92fc, provided material source verification plus editorial and pedagogical packaging, not blind science authorship. Its discloseable prompt digest is sha256:3ba75d15bc057164820d75ce1755421cb557a3206bcb14e400a0a7aaf50820d2; it excludes hidden provider and system instructions. Full scope and provenance appear in ATTRIBUTION.md."
@@ -279,7 +279,7 @@
     "schemaVersion": 1,
     "format": "embeddedknowledge-assessment-v1",
     "lessonId": "PREM-SCI-007",
-    "lessonVersion": "0.1.0",
+    "lessonVersion": "0.1.1",
     "assessmentId": "assessment-causal-claim-judgment",
     "title": "Association, mechanism, and causal-attribution mastery check",
     "purpose": "mastery-gate",
@@ -618,7 +618,7 @@
     "schemaVersion": 2,
     "format": "embeddedknowledge-references-v2",
     "lessonId": "PREM-SCI-007",
-    "lessonVersion": "0.1.0",
+    "lessonVersion": "0.1.1",
     "sources": [
       {
         "id": "source-causal-diagrams",
@@ -812,7 +812,7 @@
     "schemaVersion": 1,
     "format": "embeddedknowledge-claims-v1",
     "lessonId": "PREM-SCI-007",
-    "lessonVersion": "0.1.0",
+    "lessonVersion": "0.1.1",
     "claims": [
       {
         "id": "claim-inference-targets",
@@ -834,7 +834,7 @@
         "scope": "Introductory distinction among descriptive association, evidence about a causal process, and a causal effect contrast.",
         "uncertainty": "Philosophical and disciplinary accounts of mechanism and causation vary; the lesson uses a practical design-judgment distinction rather than claiming one universal theory of causation.",
         "risk": "routine",
-        "reviewStatus": "reviewed"
+        "reviewStatus": "pending-review"
       },
       {
         "id": "claim-causal-contrast",
@@ -856,7 +856,7 @@
         "scope": "Specified average contrasts in experimental and observational causal inference at an introductory level.",
         "uncertainty": "The lesson does not teach formal identification, estimation, positivity, consistency, interference, or sensitivity-analysis mathematics.",
         "risk": "routine",
-        "reviewStatus": "reviewed"
+        "reviewStatus": "pending-review"
       },
       {
         "id": "claim-third-variable-roles",
@@ -876,7 +876,7 @@
         "scope": "Simple acyclic fork, chain, and collider structures used to reason about total-effect questions.",
         "uncertainty": "Real causal systems may include feedback, time-varying confounding, measurement error, and effect modification that these three-node maps do not represent.",
         "risk": "routine",
-        "reviewStatus": "reviewed"
+        "reviewStatus": "pending-review"
       },
       {
         "id": "claim-randomization-scope",
@@ -898,7 +898,7 @@
         "scope": "Randomized comparisons and intention-to-treat effects of assignment in a defined study population.",
         "uncertainty": "Specific estimands, nonadherence, missing outcomes, treatment spillover, chance imbalance, and precision require design-specific analysis beyond this lesson.",
         "risk": "routine",
-        "reviewStatus": "reviewed"
+        "reviewStatus": "pending-review"
       },
       {
         "id": "claim-mechanism-evidence",
@@ -918,7 +918,7 @@
         "scope": "Evidence about a causal process and its use alongside direct outcome comparisons.",
         "uncertainty": "Mechanism terminology and the evidential weight assigned to mechanistic versus difference-making evidence vary across disciplines and causal questions.",
         "risk": "routine",
-        "reviewStatus": "reviewed"
+        "reviewStatus": "pending-review"
       },
       {
         "id": "claim-natural-experiments",
@@ -935,7 +935,7 @@
         "scope": "External rules, events, policies, or allocation processes used as natural-experiment opportunities.",
         "uncertainty": "Definitions range from broad externally caused exposure changes to narrower as-if-random allocation; the lesson requires the assignment process to be defended before causal language is used.",
         "risk": "routine",
-        "reviewStatus": "reviewed"
+        "reviewStatus": "pending-review"
       },
       {
         "id": "claim-negative-controls",
@@ -953,7 +953,7 @@
         "scope": "Negative-control logic as a diagnostic probe in observational or experimental research.",
         "uncertainty": "A control is informative only when its no-effect and shared-bias assumptions are scientifically credible for the question.",
         "risk": "routine",
-        "reviewStatus": "reviewed"
+        "reviewStatus": "pending-review"
       },
       {
         "id": "claim-triangulation",
@@ -971,7 +971,7 @@
         "scope": "Qualitative integration of different research approaches for one causal question.",
         "uncertainty": "Bias sources may be shared or mischaracterized, and contributing studies may estimate different populations, timings, exposures, or outcomes.",
         "risk": "routine",
-        "reviewStatus": "reviewed"
+        "reviewStatus": "pending-review"
       }
     ]
   },
@@ -979,7 +979,7 @@
     "schemaVersion": 1,
     "format": "embeddedknowledge-glossary-v1",
     "lessonId": "PREM-SCI-007",
-    "lessonVersion": "0.1.0",
+    "lessonVersion": "0.1.1",
     "terms": [
       {
         "id": "term-association",
@@ -1013,7 +1013,12 @@
           "scene-repair-practise",
           "scene-transfer-judgment",
           "scene-mastery-spacing"
-        ]
+        ],
+        "alignment": {
+          "priorLesson": "PREM-SCI-004",
+          "relation": "adopt",
+          "note": "Adopts Lesson 4's meaning: the condition whose relationship with an outcome is under study."
+        }
       },
       {
         "id": "term-outcome",
@@ -1029,7 +1034,12 @@
           "scene-repair-practise",
           "scene-transfer-judgment",
           "scene-mastery-spacing"
-        ]
+        ],
+        "alignment": {
+          "priorLesson": "PREM-SCI-004",
+          "relation": "adopt",
+          "note": "Adopts Lesson 4's meaning: the response a study records and compares across conditions."
+        }
       },
       {
         "id": "term-mechanistic-evidence",
@@ -1123,7 +1133,12 @@
           "scene-repair-practise",
           "scene-transfer-judgment",
           "scene-mastery-spacing"
-        ]
+        ],
+        "alignment": {
+          "priorLesson": "PREM-SCI-003",
+          "relation": "extend",
+          "note": "Extends Lesson 3's design-linked rival factor into the causal-graph account: a pre-exposure common cause opening a noncausal path. The reagent-lot examples of Lesson 3 remain valid instances of this fuller definition."
+        }
       },
       {
         "id": "term-residual-confounding",
@@ -1163,7 +1178,12 @@
           "scene-repair-practise",
           "scene-transfer-judgment",
           "scene-mastery-spacing"
-        ]
+        ],
+        "alignment": {
+          "priorLesson": "PREM-SCI-003",
+          "relation": "narrow",
+          "note": "Same concept as Lesson 3 (an intermediate factor carrying part of the effect), restated on the exposure-to-outcome causal route used in this lesson."
+        }
       },
       {
         "id": "term-collider",
@@ -1209,7 +1229,12 @@
           "scene-audit-app-study",
           "scene-repair-practise",
           "scene-mastery-spacing"
-        ]
+        ],
+        "alignment": {
+          "priorLesson": "PREM-SCI-004",
+          "relation": "adopt",
+          "note": "Adopts Lesson 4's meaning: allocation by a chance process with known probabilities that makes groups comparable in expectation."
+        }
       },
       {
         "id": "term-balance-in-expectation",
@@ -1250,7 +1275,12 @@
           "scene-read-the-claim",
           "scene-transfer-judgment",
           "scene-mastery-spacing"
-        ]
+        ],
+        "alignment": {
+          "priorLesson": "PREM-SCI-004",
+          "relation": "adopt",
+          "note": "Adopts Lesson 4's meaning: exposure variation created by an external process rather than by the researcher."
+        }
       },
       {
         "id": "term-negative-control",
@@ -1264,7 +1294,12 @@
           "scene-repair-practise",
           "scene-transfer-judgment",
           "scene-mastery-spacing"
-        ]
+        ],
+        "alignment": {
+          "priorLesson": "PREM-SCI-003",
+          "relation": "distinct-sense",
+          "note": "Lesson 3 defines a negative control as a physical baseline condition in an experiment, expected to show no response. Here it is a causal-inference probe: a chosen exposure or outcome that should lack the tested relation but share the biases. Same logic (an effect here means something is off), different object."
+        }
       },
       {
         "id": "term-triangulation",
