@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-SCI-010-LD-E8B9155B",
+  "lessonId": "PREM-SCI-010",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "bd75204d63a87c704bd59bae0329c53d2db94590",
+  "role": "learning-design",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.5",
+      "runId": "agy-learning-design-PREM-SCI-010-E8B9155B-53EB-40B2-89D2-030D241FE3A6",
+      "instructionsDigest": "sha256:5b20d080d1e8250265799c7ff9d9cfd76f0d4f6fc4bddddfac3104be693aed10"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "github:VSBDev operated the authoring, packaging, and academic-review agents. This is a fresh role-isolated learning-design review run."
+  },
+  "evidenceChecked": [
+    "lessons/PREM-SCI-010-scientific-models-limits/lesson.json",
+    "lessons/PREM-SCI-010-scientific-models-limits/content/01-precise-answer-wrong-tool.md",
+    "lessons/PREM-SCI-010-scientific-models-limits/content/02-four-question-model-audit.md",
+    "lessons/PREM-SCI-010-scientific-models-limits/content/03-worked-pressure-prediction.md",
+    "lessons/PREM-SCI-010-scientific-models-limits/content/04-stress-test-and-repair.md",
+    "lessons/PREM-SCI-010-scientific-models-limits/content/05-transfer-to-new-chamber.md",
+    "lessons/PREM-SCI-010-scientific-models-limits/content/06-mastery-and-retrieval.md",
+    "lessons/PREM-SCI-010-scientific-models-limits/assessment.json",
+    "lessons/PREM-SCI-010-scientific-models-limits/claims.json",
+    "lessons/PREM-SCI-010-scientific-models-limits/glossary.json",
+    "lessons/PREM-SCI-010-scientific-models-limits/references.json",
+    "lessons/PREM-SCI-010-scientific-models-limits/ATTRIBUTION.md",
+    "lessons/PREM-SCI-010-scientific-models-limits/diagrams/model-use-cycle.diagram.json",
+    "lessons/PREM-SCI-010-scientific-models-limits/reviews/REV-PREM-SCI-010-ACADEMIC-E9A5B001.json"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "lessons/PREM-SCI-010-scientific-models-limits/content/05-transfer-to-new-chamber.md#feedback-for-a-defensible-transfer",
+      "finding": "The lesson treats the unweighted arithmetic mean of three point-sensor readings (14, 10, and 6) as corroborating a chamber-average prediction. Without a specified spatial representation, volume-weighting, or equal-volume zone geometry, this arithmetic mean is not mathematically representative of the chamber-volume average. This creates a misleading learning experience where point average is conflated with volume average, undermining the core concepts of spatial scale and domain checked in the transfer scene.",
+      "resolution": "Modify the scene explanation and feedback to explicitly identify the representativeness assumption (e.g. that the point sensor positions represent equal-volume zones) or state volume weights. Update the text to distinguish a point-sensor average from a true volume-average."
+    },
+    {
+      "severity": "major",
+      "target": "lessons/PREM-SCI-010-scientific-models-limits/assessment.json#item-transfer-mixing-model",
+      "finding": "The assessment answer key and rubric for the transfer item ('item-transfer-mixing-model') repeat the flawed spatial average inference, awarding points for claiming that the point-sensor mean of 17, 12, and 7 corroborates the predicted average marker level of 12. This assesses a mathematically invalid assumption as correct, violating constructive alignment.",
+      "resolution": "Revise the assessment item prompt, correct response, rubric, and common errors to require representativeness checking and to reject unweighted points-averaging as proof of volume-average corroboration without explicit assumptions."
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-SCI-010-scientific-models-limits/content/01-precise-answer-wrong-tool.md#check-hypothesis-prediction",
+      "finding": "The prerequisite diagnostic check is constructively aligned to 'topic-scientific-inquiry-hypotheses-predictions'. The recovery route in the 'recovery-hypothesis-prediction' callout provides sound pedagogical remediation by helping the learner structure a prediction with fixed conditions.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-SCI-010-scientific-models-limits/content/03-worked-pressure-prediction.md#worked-example-pressure-audit",
+      "finding": "The worked example 'worked-example-pressure-audit' contains all nine instructional components required by standard-lesson-v3 worked examples, including the plans, checks, and a self-explanation prompt targeting the model selection decision.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-SCI-010-scientific-models-limits/content/04-stress-test-and-repair.md#misconception-fit-means-true",
+      "finding": "The misconception block 'misconception-fit-means-true' correctly implements the Content Standard's repair sequence: eliciting a commitment, outlining the incorrect shortcut, explaining the failure, offering a repair, and checking in a new case.",
+      "resolution": null
+    }
+  ],
+  "limitations": [
+    "No empirical testing of cognitive load or student comprehension rates was performed with real premedical learners.",
+    "Accessibility compliance (screen reader flow, navigation, color independence) was verified conceptually from the source markup rather than tested on live target devices.",
+    "Scholarly consensus and scientific correctness were evaluated only against the three declared sources, as this review is strictly bounded to learning design."
+  ],
+  "signedAt": "2026-07-21T23:04:56Z"
+}
