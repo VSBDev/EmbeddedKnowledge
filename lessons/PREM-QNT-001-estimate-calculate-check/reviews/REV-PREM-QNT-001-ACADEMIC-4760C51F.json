@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-QNT-001-ACADEMIC-4760C51F",
+  "lessonId": "PREM-QNT-001",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "8ba0c807f9be8007de7073aab459f1b2537f4cc3",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable academic reviewer",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-QNT-001-4760C51F-506A-4FD6-889E-596BC6EFE189",
+      "instructionsDigest": "sha256:abfcc1ec69ee89da8fe0f83ba9a0bbace991a1107a870f559a6cffc7be655dc5"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#objectives-and-scenes",
+    "content/010-orientation.md#Before-you-trust-the-display",
+    "content/020-concept.md#Separate-the-digits-from-the-scale",
+    "content/030-worked-example.md#worked-example-counter-rate",
+    "content/040-misconception.md#misconception-decimal-direction",
+    "content/050-practice.md#Fade-the-scaffold",
+    "content/060-transfer.md#Choose-the-arithmetic-before-using-it",
+    "content/070-synthesis.md#The-loop",
+    "assessment.json#items-and-rubrics",
+    "claims.json#claims",
+    "references.json#source-nist-sp811",
+    "references.json#source-nist-everyday-estimation",
+    "glossary.json#terms",
+    "ATTRIBUTION.md#Original-synthesis-and-source-use",
+    "course/PREMED-SYLLABUS.md#QRS-101",
+    "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors#B.2",
+    "https://www.nist.gov/pml/owm/metric-si/everyday-estimation"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "claims.json#claim-normalized-notation",
+      "finding": "The claim is marked as direct support for the general signed definition of normalized scientific notation, using 1 <= |a| < 10 for every nonzero real value. Independent inspection of NIST SP 811 Appendix B.2 found a narrower statement: its positive conversion factors are written with coefficients at least 1 and less than 10, followed by E notation. It does not directly establish the claim's extension to negative coefficients or its general nonzero-real scope. Because this evidence mapping anchors the lesson's central definition across six scenes, the direct-support designation materially overstates the cited source.",
+      "resolution": "Add an authoritative source that explicitly supports the general signed definition, or narrow and split the claim so NIST supports only its documented positive-factor and E-notation scope while the signed extension receives an accurate source and support classification."
+    },
+    {
+      "severity": "major",
+      "target": "lesson.json#objective-estimate-scale",
+      "finding": "This objective promises that learners will make a defensible sign prediction, and the lesson's definition permits negative coefficients, but every worked, practice, transfer, and assessment calculation uses positive operands and positive results. A learner can therefore pass the mastery gate without demonstrating sign reasoning, so the assessment does not establish the full declared objective.",
+      "resolution": "Teach sign selection with at least one negative-coefficient case and assess it in a mastery item that requires a sign prediction or challenge; alternatively, narrow the objective and corresponding synthesis language to positive quantities if that narrower scope remains faithful to the graph outcome."
+    },
+    {
+      "severity": "minor",
+      "target": "content/070-synthesis.md#The-loop",
+      "finding": "The instruction beginning 'For any arithmetic result across powers of ten' ends with 'normalize last,' but exact addition or subtraction can produce zero, for which the lesson itself defines no normalized scientific-notation exponent. The zero boundary appears only in claims metadata and is not learner-visible.",
+      "resolution": "State that an exact zero result is written as zero and is not normalized as a unique coefficient-times-power-of-ten expression; consider adding an exact-cancellation example."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#item-transfer-batches",
+      "finding": "Independent recomputation confirms that 2.4 × 10^10 divided by 8.0 × 10^3 is 3.0 × 10^6, subtraction of 5.0 × 10^5 gives 2.5 × 10^6, and both the stated bound and inverse-addition check are valid.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "claims.json#claim-estimation-reasonableness",
+      "finding": "The cited NIST Everyday Estimation page explicitly supports magnitude, ordering, sensemaking, and checking for reasonableness. The lesson appropriately limits this use by stating that estimation cannot prove an exact result correct.",
+      "resolution": "No change required."
+    }
+  ],
+  "limitations": [
+    "The review covered introductory real-number arithmetic, every file in the frozen lesson pack, the syllabus QRS-101 scope, and both cited public NIST sources; it did not evaluate learner-performance data or any calculator implementation.",
+    "Per the assigned scope, site/** was not read, so the atomic graph record, cross-lesson terminology ledger, quorum-policy file, and review schema were not independently inspected. This unreachable cross-course evidence was recorded as a limitation and did not prevent an academic verdict.",
+    "The read-only environment and assigned exclusions prevented repository-wide validation; arithmetic was instead recomputed independently and the candidate pack was confirmed unchanged from the exact candidate commit.",
+    "No other lesson pack, authoring conversation, other review conclusion, or adjudication draft was read.",
+    "The accountable principal is also the candidate's authoring principal under the project's disclosed founding-stage arrangement; this academic review used the separately identified role-isolated run."
+  ],
+  "signedAt": "2026-07-22T19:36:33Z"
+}
