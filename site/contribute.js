@@ -10,6 +10,8 @@
   const copyButton = document.querySelector("[data-copy-agent-prompt]");
   const copyStatus = document.querySelector("[data-copy-agent-status]");
   const requestedOutcomeId = new URL(location.href).searchParams.get("outcome");
+  const courseId = requestedOutcomeId?.startsWith("topic-psy-") ? "psychiatry" : "premed";
+  const courseTitle = courseId === "psychiatry" ? "Psychiatry" : "Premed";
   let lessonIndex = null;
   let openPrIndex = null;
 
@@ -42,8 +44,8 @@
     const llmsUrl = new URL("llms.txt", siteRoot).href;
     const authorSkillUrl = new URL("skills/author-embeddedknowledge-lesson/SKILL.md", siteRoot).href;
     const contentStandardUrl = new URL("content-standard.txt", siteRoot).href;
-    const lessonIndexUrl = new URL("data/premed-lessons.json", siteRoot).href;
-    const openPrsUrl = new URL("data/premed-open-prs.json", siteRoot).href;
+    const lessonIndexUrl = new URL(`data/${courseId}-lessons.json`, siteRoot).href;
+    const openPrsUrl = new URL(`data/${courseId}-open-prs.json`, siteRoot).href;
     const requested = lessonIndex?.outcomes?.find((outcome) => outcome.id === requestedOutcomeId);
     const selection = requested
       ? `\n\nWork on this requested outcome if it is still available:\n- ID: ${requested.id}\n- Code: ${requested.code}\n- Title: ${requested.title}\n- Outcome: ${requested.outcome}`
@@ -53,7 +55,7 @@
 
 First, read ${llmsUrl}, then load and follow ${authorSkillUrl} as the authoring procedure. Read ${contentStandardUrl} completely as the teaching-quality contract, then follow the skill's links to the contribution manifest, Lesson Format v1, schemas, and quorum policy.
 
-Inspect ${lessonIndexUrl} and ${openPrsUrl}. There are currently ${available.length} available contribution targets. Select exactly one Premed outcome that has no merged lesson and is not claimed by an active proposal.${selection}
+Inspect ${lessonIndexUrl} and ${openPrsUrl}. There are currently ${available.length} available contribution targets. Select exactly one ${courseTitle} outcome that has no merged lesson and is not claimed by an active proposal.${selection}
 
 Then build and validate one focused lesson pack according to the repository instructions. Preserve evidence, accessibility, licensing, and agent provenance. Do not merge, invent reviews, reuse run identities, or count the specimen as production content. A standard lesson receives one academic and one learning-design review of the original candidate, then one fresh finalizer writes and adjudicates the final version without a review loop. Open a focused draft pull request and leave it in draft until finalization and adjudication are complete.`;
   }
@@ -96,11 +98,11 @@ Then build and validate one focused lesson pack according to the repository inst
   copyButton?.addEventListener("click", copyPrompt);
 
   Promise.all([
-    fetch(freshJsonUrl("data/premed-lessons.json"), { cache: "no-store" }).then((response) => {
+    fetch(freshJsonUrl(`data/${courseId}-lessons.json`), { cache: "no-store" }).then((response) => {
       if (!response.ok) throw new Error(`Lesson index returned ${response.status}`);
       return response.json();
     }),
-    fetch(freshJsonUrl("data/premed-open-prs.json"), { cache: "no-store" }).then((response) => {
+    fetch(freshJsonUrl(`data/${courseId}-open-prs.json`), { cache: "no-store" }).then((response) => {
       if (!response.ok) throw new Error(`Open PR index returned ${response.status}`);
       return response.json();
     })
@@ -114,8 +116,8 @@ Then build and validate one focused lesson pack according to the repository inst
     promptField.value = promptField.value
       .replace("{{LLMS_URL}}", llmsUrl)
       .replace("{{AUTHOR_SKILL_URL}}", authorSkillUrl)
-      .replace("{{LESSON_INDEX_URL}}", new URL("data/premed-lessons.json", siteRoot).href)
-      .replace("{{OPEN_PRS_URL}}", new URL("data/premed-open-prs.json", siteRoot).href)
+      .replace("{{LESSON_INDEX_URL}}", new URL(`data/${courseId}-lessons.json`, siteRoot).href)
+      .replace("{{OPEN_PRS_URL}}", new URL(`data/${courseId}-open-prs.json`, siteRoot).href)
       .replace("{{AVAILABLE_COUNT}}", "the currently reported number of");
     copyStatus.textContent = "Live opportunity counts are unavailable; the agent can resolve them from llms.txt.";
   });

@@ -1,6 +1,6 @@
 # Contributing to EmbeddedKnowledge
 
-Lesson contributions are open through focused pull requests. The protected repository has exercised the reference author–review–finalizer workflow end to end; this document defines the v1 pull-request contract for agents, contributors, reviewers, adjudicators, and maintainers.
+Premed lesson contributions are open through focused pull requests. This proposal opens Psychiatry lesson intake only when its externally reviewed graph and stable outcome IDs are merged. The protected repository has exercised the reference author–review–finalizer workflow end to end; this document defines the v1 pull-request contract for agents, contributors, reviewers, adjudicators, and maintainers.
 
 ## The interface is a pull request
 
@@ -8,7 +8,7 @@ Pull requests are the only write path. `llms.txt`, JSON Schemas, WebMCP tools, a
 
 For a lesson contribution:
 
-1. Load [`.agents/skills/author-embeddedknowledge-lesson/SKILL.md`](.agents/skills/author-embeddedknowledge-lesson/SKILL.md) or follow its public raw equivalent, then select uncovered atomic outcomes from `site/data/premed-graph.json` and `site/data/premed-progress.json`.
+1. Load [`.agents/skills/author-embeddedknowledge-lesson/SKILL.md`](.agents/skills/author-embeddedknowledge-lesson/SKILL.md) or follow its public raw equivalent, then select one uncovered, unclaimed atomic outcome from the matching course graph, progress ledger, lesson index, and open-PR index under `site/data/`.
 2. Read [`CONTENT-STANDARD.md`](CONTENT-STANDARD.md) and [`RIGHTS-POLICY.md`](RIGHTS-POLICY.md), design the lesson, and draft only its learner-facing opening, central explanation, and one worked use. Pass the standard's first-read gate before expanding that voice into a full pack. A developmental reader-proxy sees only the declared learner, outcome, and prose; it creates no governance artifact and cannot count as a formal review run.
 3. Create one Lesson Format v1 pack under `lessons/` using the current public schemas and [`lessons/README.md`](lessons/README.md). Add the smallest coherent set of ordered scenes, explicit per-scene claim coverage, learner-visible claim-to-source notes, assessment logic, references, glossary, accessible assets, attribution, and agent disclosure. Do not manufacture one scene per rubric item.
 4. Complete the author audit and batch its repairs. Run the strict offline source-access preflight, then the sequential verifier once the candidate is stable: `npm run source:preflight -- --strict lessons/<pack>` followed by `npm run verify`. Do not run `npm run validate` and `npm test` concurrently in one worktree because both rebuild shared generated fixtures.

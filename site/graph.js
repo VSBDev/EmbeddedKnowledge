@@ -59,11 +59,13 @@
   function calculatePositions() {
     const output = new Map();
     const domains = graph.nodes.filter((node) => node.kind === "domain").sort((a, b) => a.order - b.order);
-    const columnX = [170, 485, 800, 1115, 1430];
+    const columnX = domains.length <= 5
+      ? Array.from({ length: domains.length }, (_, index) => 170 + (domains.length === 1 ? 0 : index * (1260 / (domains.length - 1))))
+      : [170, 485, 800, 1115, 1430];
     const rowY = [270, 810];
 
     domains.forEach((domain, domainIndex) => {
-      const center = { x: columnX[domainIndex % 5], y: rowY[Math.floor(domainIndex / 5)] };
+      const center = { x: columnX[domainIndex % 5], y: domains.length <= 5 ? 540 : rowY[Math.floor(domainIndex / 5)] };
       output.set(domain.id, center);
       const modules = moduleNodes(domain.id);
 
@@ -437,7 +439,8 @@
 
   async function initialize() {
     try {
-      const response = await fetch("../../data/premed-graph.json");
+      const graphSource = document.body.dataset.graphSource || "../../data/premed-graph.json";
+      const response = await fetch(graphSource);
       if (!response.ok) throw new Error(`Graph request failed (${response.status})`);
       graph = await response.json();
       nodesById = new Map(graph.nodes.map((node) => [node.id, node]));

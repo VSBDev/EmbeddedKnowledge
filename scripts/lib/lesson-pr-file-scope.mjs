@@ -1,10 +1,16 @@
-const lessonIdPattern = /^PREM-[A-Z]{3}-[0-9]{3}$/;
+const lessonIdPattern = /^(?:PREM|PSY)-[A-Z]{3}-[0-9]{3}$/;
 
-const sharedGeneratedFiles = new Set([
-  "site/data/premed-lessons.json",
-  "site/data/premed-progress.json",
-  // Whole-course aggregate regenerated whenever any lesson's glossary changes, like the two above.
-  "site/data/premed-terminology.json"
+const sharedGeneratedFilesByPrefix = new Map([
+  ["PREM-", new Set([
+    "site/data/premed-lessons.json",
+    "site/data/premed-progress.json",
+    "site/data/premed-terminology.json"
+  ])],
+  ["PSY-", new Set([
+    "site/data/psychiatry-lessons.json",
+    "site/data/psychiatry-progress.json",
+    "site/data/psychiatry-terminology.json"
+  ])]
 ]);
 
 function validLessonIds(lessonIds) {
@@ -12,9 +18,9 @@ function validLessonIds(lessonIds) {
 }
 
 export function isAllowedLessonGeneratedFile(file, lessonIds) {
-  if (sharedGeneratedFiles.has(file)) return true;
-
   for (const lessonId of validLessonIds(lessonIds)) {
+    const courseFiles = [...sharedGeneratedFilesByPrefix.entries()].find(([prefix]) => lessonId.startsWith(prefix))?.[1];
+    if (courseFiles?.has(file)) return true;
     if (file === `site/data/lessons/${lessonId}.json`) return true;
     if (file.startsWith(`site/assets/lessons/${lessonId}/`)) return true;
   }

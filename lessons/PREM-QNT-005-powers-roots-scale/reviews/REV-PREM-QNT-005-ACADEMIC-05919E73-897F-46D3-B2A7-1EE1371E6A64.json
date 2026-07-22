@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-QNT-005-ACADEMIC-05919E73-897F-46D3-B2A7-1EE1371E6A64",
+  "lessonId": "PREM-QNT-005",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "e8fb70141fac734f5c684f6560ab7c4376dee0bc",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable operator, academic review",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-QNT-005-05919E73-897F-46D3-B2A7-1EE1371E6A64",
+      "instructionsDigest": "sha256:ac590a9a25e8b41d462cb38e25be81b15cc7384e5e987e383664927ee673c2fb"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#objectives-outcomes-prerequisites-scenes",
+    "content/010-orientation.md#tripling-a-length-does-not-triple-an-area",
+    "content/020-concept.md#definition-rational-exponent",
+    "content/030-worked-example.md#worked-example-square-array",
+    "content/040-misconception.md#misconception-root-square",
+    "content/050-practice.md#combine-powers-through-solve-and-restrict",
+    "content/060-transfer.md#audit-cubic-scaling",
+    "content/070-synthesis.md#reconstruct-the-scale-map",
+    "assessment.json#item-exponent-laws-through-item-transfer-cubic",
+    "claims.json#claim-power-notation-claim-exponent-laws-claim-magnitude-check",
+    "references.json#source-nist-sp811-notation",
+    "references.json#source-nist-estimation",
+    "glossary.json#terms",
+    "ATTRIBUTION.md#originality-evidence-and-rights",
+    "course/PREMED-SYLLABUS.md#QRS-101-QRS-102"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "content/020-concept.md#definition-rational-exponent",
+      "finding": "The real rational-exponent definition does not require m/n to be in lowest terms or otherwise choose a canonical representation, so equal rational exponents can receive inconsistent domains for negative bases: (-8)^(1/3) is permitted, while the equal exponent 2/6 is rejected by the stated even-denominator rule. The mapped claim also says the power rules extend to rational exponents, but the scene gives no conditions preventing failures such as ((-1)^2)^(1/2) = 1 while (-1)^(2·1/2) = -1. This is a material boundary error in objectives objective-use-exponent-laws and objective-interpret-roots.",
+      "resolution": "Define m/n with n > 0 in lowest terms, state the real domain for positive and negative bases, and state exactly which exponent laws remain valid under which domain conditions; a safe elementary route is to restrict unrestricted rational-exponent law manipulations to positive bases and separately teach odd-denominator negative-base cases. Align glossary.json#term-rational-exponent and claims.json#claim-exponent-laws with the corrected boundary."
+    },
+    {
+      "severity": "major",
+      "target": "claims.json#claim-exponent-laws",
+      "finding": "The claim covering product, quotient, power, zero, negative, and rational exponent laws cites only NIST SP 811 Appendix B.2. Direct inspection of that locator found E notation and powers-of-ten conversion notation, not exponent laws, roots, rational exponents, or their real-domain restrictions. The source notes describe the laws as original inference, but the pack does not supply a source or a complete derivation establishing the claim's full rational-domain scope. This leaves a central teaching claim unsupported.",
+      "resolution": "Add an authoritative mathematics source with an exact locator that supports the stated laws and domain restrictions, then include that source in every affected scene source note; alternatively narrow the claim to what is fully derived in the lesson and add a complete derivation for each retained extension."
+    },
+    {
+      "severity": "major",
+      "target": "content/010-orientation.md#source-note",
+      "finding": "The opening teaches that square area scales as the square of side length and applies (12^2)/(4^2) = (12/4)^2, but its source note names only the power-of-ten-notation and magnitude claims. Neither named claim covers the geometric scaling relation or the exponent quotient step, and claim-exponent-laws is not mapped to scene-orientation. This is an omitted same-scene claim mapping for the lesson's anchor calculation.",
+      "resolution": "Map the exact mathematical claim used by the opening to scene-orientation and expose it in this source note with a supporting source. If claim-exponent-laws is used, first correct its scope and evidence as required above."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#item-exponent-laws-through-item-transfer-cubic",
+      "finding": "Independent recomputation confirmed the answer keys and rubric quantities: x^5/y^3; 81^(3/4) = 27; {-5, 7}; sqrt(x^2) = |x|; sqrt(4.9 × 10^11) = 7 × 10^5; and 2.4^3 = 13.824 with cube-root factor 2. The worked square-array and cubic-transfer calculations also recompute correctly.",
+      "resolution": "No change required to these numerical answers or rubrics; retain them while correcting the rational-domain teaching and evidence map."
+    }
+  ],
+  "limitations": [
+    "Per the supplied scope, site/ was not inspected. The exact graph-node wording and the course terminology ledger were therefore not independently checked; outcome fit was assessed from lesson.json and the broad QRS-101/QRS-102 syllabus scope.",
+    "Repository validators were not run because the task prohibited inspection of scripts/ and site/ and required a read-only review. Structural conformance was checked against the supplied academic review template.",
+    "The two declared NIST pages were reachable and their cited academic scope was inspected. This academic review did not perform the finalizer's separate accessibility-and-rights audit."
+  ],
+  "signedAt": "2026-07-22T22:26:02Z"
+}
