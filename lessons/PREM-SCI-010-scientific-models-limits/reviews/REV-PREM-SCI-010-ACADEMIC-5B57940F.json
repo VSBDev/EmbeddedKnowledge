@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-SCI-010-ACADEMIC-5B57940F",
+  "lessonId": "PREM-SCI-010",
+  "lessonVersion": "0.1.1",
+  "candidateCommit": "80040b8cec9e4a13c464c4ac332a5c112c778934",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — academic review operator",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-SCI-010-5B57940F-78B0-4CEF-838B-6436FD5E11C3",
+      "instructionsDigest": "sha256:3f49b9d4ffd4f78b8135fafc5af71890e3063b3ffc30821f814302fe5c30c30c"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "github:VSBDev is the lesson's accountable principal and also operates this fresh, role-isolated academic-review run. The candidate pack also contains prior academic and learning-design review records, which the user explicitly required this reviewer to read as part of the complete pack."
+  },
+  "evidenceChecked": [
+    "candidate commit 80040b8cec9e4a13c464c4ac332a5c112c778934: commit existence, complete lesson-pack tree, and absence of working-tree pack drift",
+    "lesson.json#PREM-SCI-010 identity, version, risk tier, declared outcome and prerequisite, objectives, scene order, authorship, files, and source-confidence state",
+    "content/01-precise-answer-wrong-tool.md#equation-ideal-gas-orientation, #check-hypothesis-prediction, recovery route, accessibility statement, and source note",
+    "content/02-four-question-model-audit.md#definition-scientific-model, model-role definitions, calibration distinction, domain and scale, sensitivity and uncertainty, diagram, audit table, and source note",
+    "content/03-worked-pressure-prediction.md#worked-example-pressure-audit, #check-temperature-sensitivity, and source note",
+    "content/04-stress-test-and-repair.md#check-ideal-gas-domain, #misconception-fit-means-true, feeder-count case, sensor-calibration case, independent audit, and source note",
+    "content/05-transfer-to-new-chamber.md#check-transfer-chamber, #feedback-for-a-defensible-transfer, equivalent nonvisual route, and source note",
+    "content/06-mastery-and-retrieval.md#mastery-rule, remediation, delayed retrieval, final synthesis, and source note",
+    "claims.json#claim-model-purpose through #claim-bounded-evidence: statements, scene mappings, source mappings, scope, uncertainty, confidence, and review state",
+    "all six scene source-note directives: each named claim and supporting-source union traced through claims.json to references.json",
+    "references.json#source-epa-model-guidance: directly checked the model, constant, parameter, calibration, application-domain, corroboration, uncertainty, variability, and sensitivity definitions and the cited evaluation guidance",
+    "references.json#source-nasa-equation-state: directly checked PV=nRT, the universal-constant status of R, absolute-temperature requirement, variable meanings, and applicability boundary",
+    "references.json#source-nasa-real-gas-limits: directly checked chapter 1 equations 1-1 through 1-4 and the qualitative low-pressure/high-temperature real-gas boundary",
+    "assessment.json#item-fit-and-mechanism, #item-feeder-domain-failure, #item-pressure-sensitivity, and #item-transfer-mixing-model, including every answer, common-error route, and rubric",
+    "independent recalculation: worked-example pressures 99.10288000, 101.12538776, and 100.76568000 kPa; assessment pressures 99.76800000, 105.01894737, and 95.01714286 kPa",
+    "independent recalculation: competing-model result 9.2 at x=4; feeder results 72, -40, 48, and -12; both chamber-size changes are factors of 100",
+    "glossary.json#term-scientific-model through #term-variability, including the pack-local calibration and sensitivity-analysis alignment declarations",
+    "diagrams/model-use-cycle.diagram.json#diagram-model-use-cycle: every node, edge, decision branch, label, alt string, and long description",
+    "ATTRIBUTION.md#lesson-identity-and-accountability through #assets-and-modifications",
+    "reviews/REV-PREM-SCI-010-ACADEMIC-E9A5B001.json and reviews/REV-PREM-SCI-010-LD-E8B9155B.json: read for mandated pack completeness, not treated as evidence for this verdict"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "content/03-worked-pressure-prediction.md#worked-example-pressure-audit, table row \"parameter for this run\"",
+      "finding": "The worked audit classifies the universal gas constant R as a model parameter. That conflicts with both the lesson's own definition and its declared authorities: the EPA guidance distinguishes a physical constant, which remains fixed, from a parameter that can be changed between runs for sensitivity analysis or calibration, while the NASA source explicitly identifies R in PV=nRT as the universal constant. R may have a different numerical representation when units change, but that does not make it a fitted or run-varying model parameter. Because identifying parameters is a stated objective and this is the central complete audit, the table teaches an academically incorrect classification.",
+      "resolution": "Relabel R as the universal physical constant expressed in units compatible with L, kPa, mol, and K. State explicitly that this particular ideal-gas prediction adjusts no model parameter, or identify a genuine parameter only under a clearly declared model formulation that remains consistent with the lesson's parameter definition. Preserve a separate example of an adjustable or fitted parameter for the parameter-audit objective."
+    },
+    {
+      "severity": "note",
+      "target": "content/03-worked-pressure-prediction.md#worked-example-pressure-audit; assessment.json#item-pressure-sensitivity; content/04-stress-test-and-repair.md#misconception-fit-means-true",
+      "finding": "The ideal-gas algebra, unit cancellations, proportional checks, volume and temperature sensitivity values, assessment endpoints, polynomial comparison, feeder-count calculations, and chamber scale factors independently recalculate correctly. The answer keys also preserve the distinction between obtaining a numerical output and establishing model adequacy.",
+      "resolution": "No change required for the calculations or keyed numerical conclusions."
+    },
+    {
+      "severity": "note",
+      "target": "claims.json#claim-model-purpose through #claim-bounded-evidence; references.json#source-epa-model-guidance, #source-nasa-equation-state, and #source-nasa-real-gas-limits",
+      "finding": "Direct source checks support the bounded scientific-model definition, purpose and application-domain framing, calibration and corroboration distinctions, local one-at-a-time sensitivity limitation, uncertainty-versus-variability qualification, ideal-gas relation, and qualitative real-gas limits. Every mapped material claim is exposed through the relevant scene's source note with the complete declared supporting-source set.",
+      "resolution": "No change required apart from correcting the universal-constant versus model-parameter classification identified above."
+    }
+  ],
+  "limitations": [
+    "This reviewer is a generalist academic-review model, not a credentialed thermodynamics, statistics, or environmental-model-validation specialist; the judgment is bounded to the declared introductory outcome, the complete frozen pack, the three declared sources, and independent calculations.",
+    "The user-imposed scope excluded site/, scripts/, workflows, and every other lesson pack. Consequently, the graph outcome and prerequisite, cross-lesson terminology ledger, public review schema, quorum-policy file, repository validation, and prior-lesson glossary meanings could not be independently checked. Pack-local alignment declarations were inspected, and the required artifact shape was followed from the academic review template and existing pack records.",
+    "The user required every file in the candidate pack to be read, including its prior academic and learning-design reviews. This review therefore was not blind to those conclusions, although the verdict and findings were derived independently from the current candidate, calculations, and declared sources.",
+    "The chamber, sensor, feeder, and gas records are fictional; no underlying empirical dataset or chamber geometry exists for external replication. The revised lesson correctly treats the unweighted sensor mean as a sampled-location mean rather than evidence of a chamber-volume average.",
+    "No source was marked human-only. No authoring conversation, external science dossier, adjudication draft, real-learner result, or clinical evidence was inspected."
+  ],
+  "signedAt": "2026-07-22T12:01:28Z"
+}
