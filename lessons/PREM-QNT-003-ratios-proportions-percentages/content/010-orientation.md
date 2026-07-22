@@ -12,17 +12,29 @@ This lesson uses a reference-first method: label the compared quantities, name w
 
 ## Starting check
 
+:::{check}
+:id: check-starting-reference-skills
+
+Answer all three questions before reading the feedback below.
+
 1. Does the ratio `3 red : 5 blue` mean the same as `5 red : 3 blue`?
 2. In “18 is 30% of what number?”, which value represents 100%?
 3. Can a quantity increase by more than 100%?
+:::
+
+**Starting-check feedback**
+
+1. No. Ratio order preserves the labels: `3 red : 5 blue` compares red with blue, while `5 red : 3 blue` reverses that comparison.
+2. The unknown whole represents 100%. Writing $18=0.30W$ makes the reference visible and gives $W=60$.
+3. Yes. A rise from a positive starting value of 20 to 50 is an increase of 30, and $30/20=150\%$.
 
 If fractions are uncertain, read $a/b$ aloud as “a for every b” and attach the labels. If decimal arithmetic is the barrier, use exact fractions until the final conversion.
 
 :::{source-note}
-:claims: claim-ratio-quotient, claim-fraction-dimensionless
-:sources: source-nist-si-chapter8
+:claims: claim-ratio-quotient, claim-percentage-part-whole, claim-percent-change-reference, claim-percentage-point-difference
+:sources: source-nist-si-chapter8, source-openstax-prealgebra-ch6, source-moj-percentage-comparisons
 
-NIST defines several fractions and ratios as quotients and quantities of dimension one. The archive and comparison are original.
+NIST and OpenStax support the quotient, ratio, and per-hundred relationships; the Ministry of Justice report supplies an explicit published comparison of percentage points with relative percent change. The archive example and wording are original.
 :::
 
 ## Accessibility and alternatives

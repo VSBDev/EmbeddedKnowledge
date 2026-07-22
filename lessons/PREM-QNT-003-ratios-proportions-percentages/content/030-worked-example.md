@@ -22,13 +22,13 @@ A fictional imaging queue processes 42 frames in 6 minutes at a constant rate. H
 :id: check-proportional-assumption
 
 If the first five minutes include a fixed startup delay, would direct proportionality necessarily remain appropriate? Explain.
+
+**Feedback after an attempt:** No. A fixed offset can break the “same multiplier” structure. Proportionality is a model to justify, not a default triggered by two numbers.
 :::
 
-No. A fixed offset can break the “same multiplier” structure. Proportionality is a model to justify, not a default triggered by two numbers.
-
 :::{source-note}
-:claims: claim-ratio-quotient
-:sources: source-nist-si-chapter8
+:claims: claim-ratio-quotient, claim-proportion-equation
+:sources: source-nist-si-chapter8, source-openstax-prealgebra-ch6
 
-The worked example is original and applies quotient reasoning without claiming the fictional rate is empirical.
+The sources support ordered quotient and equivalent-ratio reasoning. The worked example is original and does not claim the fictional rate is empirical.
 :::

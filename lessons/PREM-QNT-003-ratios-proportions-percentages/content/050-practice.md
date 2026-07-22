@@ -1,42 +1,49 @@
 # Find the reference before calculating
 
-For each task, write **labels → reference → equation → check**.
+For each task, write **labels → reference → equation → check**. Complete all four attempts before continuing to the feedback section.
 
-## 1. Equivalent ratio
+:::{check}
+:id: check-practice-equivalent-ratio
 
-Complete $8:12=x:30$.
+**1. Equivalent ratio:** Complete $8:12=x:30$ and verify the result by simplifying both ratios.
+:::
 
-**Feedback:** $12\to30$ multiplies by 2.5, so $x=20$. Both ratios simplify to $2:3$.
+:::{check}
+:id: check-practice-find-part
 
-## 2. Find a part
+**2. Find a part:** What is 18% of 250? Use the part-whole range as a plausibility check.
+:::
 
-What is 18% of 250?
+:::{check}
+:id: check-practice-find-whole
 
-**Feedback:** $0.18(250)=45$. The result is below the whole because the percentage is below 100%.
+**3. Find the whole:** Thirty-six objects are 24% of a collection. Find the collection size and reverse the calculation.
+:::
 
-## 3. Find the whole
+:::{check}
+:id: check-practice-percent-decrease
 
-Thirty-six objects are 24% of a collection. Find the collection size.
+**4. Percent decrease:** A fictional count falls from 80 to 62. Find the percentage decrease and name its denominator.
+:::
 
-**Feedback:** $36=0.24W$, so $W=150$. Reverse: $0.24(150)=36$.
+## Feedback after all four attempts
 
-## 4. Percent decrease
-
-A fictional count falls from 80 to 62. Find the percentage decrease.
-
-**Feedback:** The decrease is 18, referenced to 80: $18/80=0.225=22.5\%$. Dividing by 62 would use the new value and answer a different question.
+1. $12\to30$ multiplies by 2.5, so $x=20$. Both $8:12$ and $20:30$ simplify to $2:3$.
+2. $0.18(250)=45$. The result is below the whole because the percentage is below 100% and the part is constrained to lie within the whole.
+3. $36=0.24W$, so $W=150$. Reverse: $0.24(150)=36$.
+4. The decrease is 18, referenced to the positive starting value 80: $18/80=0.225=22.5\%$. Dividing by 62 would use the new value and answer a different question.
 
 ## Recovery route
 
 - Ratio reversed: restore verbal labels before numbers.
 - Proportion gives an implausible direction: identify the multiplier on both quantities.
 - Part exceeds whole when percentage is below 100%: inspect multiplication versus division.
-- Percent-change denominator uncertain: write “change relative to starting value.”
+- Percent-change denominator uncertain: write “change relative to the positive starting value.”
 - Percentage points confused with percent: compute both and label them.
 
 :::{source-note}
-:claims: claim-ratio-quotient, claim-fraction-dimensionless
-:sources: source-nist-si-chapter8
+:claims: claim-ratio-quotient, claim-proportion-equation, claim-percentage-part-whole, claim-percent-change-reference, claim-percentage-point-difference
+:sources: source-nist-si-chapter8, source-openstax-prealgebra-ch6, source-moj-percentage-comparisons
 
-All practice items, answers, and remediation are original applications of quotient relations.
+The sources support the quotient, proportion, per-hundred, starting-reference, and point-versus-relative-change relationships. All practice items, feedback, and remediation are original.
 :::

@@ -23,8 +23,8 @@ A reverse check confirms it: $40\%\times1.25=50\%$.
 The reference-first question is: “Ten is what fraction of the starting forty?” If no starting value is named, “percent change” is incomplete.
 
 :::{source-note}
-:claims: claim-fraction-dimensionless
-:sources: source-nist-si-chapter8
+:claims: claim-percent-change-reference, claim-percentage-point-difference
+:sources: source-openstax-prealgebra-ch6, source-moj-percentage-comparisons
 
-The distinction follows from which dimension-one quotient is formed. The example and repair are original.
+OpenStax supports change relative to the original amount, and the Ministry of Justice report explicitly distinguishes a percentage-point difference from relative percentage change. The example and repair are original.
 :::
