@@ -10,13 +10,13 @@
 
 ## Material agent assistance
 
-OpenAI Codex authored, researched, edited, and packaged this lesson in one author-role run.
+OpenAI Codex authored, researched, edited, and packaged the original candidate in one author-role run. The structured review artifacts and `adjudication.json` disclose the separate review and fresh-finalizer runs used after that candidate was frozen.
 
 | System | Provider | Model | Version | Run ID | Material-instructions digest |
 | --- | --- | --- | --- | --- | --- |
 | Codex desktop | OpenAI | `gpt-5.6-sol` | Codex desktop runtime 2026-07-22 | `79e994f1-a0b4-4527-9f26-10b3a70baa2c` | `sha256:bec5ae1936216e3a115b2d0f60c558e7f939a9639f92d1d5517f108644038b62` |
 
-The digest identifies `/tmp/codex-packager-prompt-03-05.md`; hidden provider or system instructions are not claimed. No other model authored or reviewed the lesson.
+The digest identifies `/tmp/codex-packager-prompt-03-05.md`; hidden provider or system instructions are not claimed. Post-candidate agent provenance is recorded in the governance artifacts rather than relabelled as author provenance.
 
 ## Originality, evidence, and rights
 

@@ -8,6 +8,10 @@ One design increases $r$ by a factor of 1.5. Determine the capacity factor. Then
 
 For the first change,
 
+$$1^3<1.5^3<2^3,$$
+
+so the capacity factor must lie between 1 and 8 before exact calculation. Then
+
 $$\frac{C_2}{C_1}=\left(\frac{r_2}{r_1}\right)^3=1.5^3=3.375.$$
 
 Capacity increases by a factor of 3.375, not 1.5.
@@ -22,5 +26,5 @@ Check: $1.260^3\approx2.00$. The positive root is selected because the scale fac
 :claims: claim-exponent-laws, claim-magnitude-check
 :sources: source-nist-sp811-notation, source-nist-estimation
 
-The scaling law is supplied as a fictional task assumption. All derivations and checks are original.
+NIST supports the notation and magnitude-checking role, not the exponent laws. The scaling law is supplied as a fictional task assumption, and all derivations and checks apply the lesson's original derivations.
 :::

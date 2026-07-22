@@ -19,10 +19,10 @@ The report confused linear scaling with quadratic scaling. This lesson asks four
 If exponent laws feel memorized but fragile, expand one small integer case into repeated factors before using the symbolic rule.
 
 :::{source-note}
-:claims: claim-power-notation, claim-magnitude-check
+:claims: claim-power-notation, claim-exponent-laws, claim-magnitude-check
 :sources: source-nist-sp811-notation, source-nist-estimation
 
-NIST documents power-of-ten notation and the use of magnitude estimates for reasonableness. The detector and scaling diagnosis are original.
+NIST documents power-of-ten notation and the use of magnitude estimates for reasonableness. The square-scaling calculation follows from the exponent rules derived in the next scene; the detector and diagnosis are original.
 :::
 
 ## Accessibility and alternatives
