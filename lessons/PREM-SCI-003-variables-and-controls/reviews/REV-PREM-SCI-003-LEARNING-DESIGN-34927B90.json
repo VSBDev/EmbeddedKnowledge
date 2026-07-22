@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-SCI-003-LEARNING-DESIGN-34927B90",
+  "lessonId": "PREM-SCI-003",
+  "lessonVersion": "0.1.1",
+  "candidateCommit": "068f88b1e9081d01477e6f0fbfc5d94b96b351bc",
+  "role": "learning-design",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev (learning-design reviewer)",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.5",
+      "runId": "agy-learning-design-PREM-SCI-003-34927B90-7202-4CBA-8013-121712922809",
+      "instructionsDigest": "sha256:a30ea6fa65908aba637d000d46f69f2b6c5aedff7c752246677a4dfdbb045a02"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Founding-stage isolation check: the accountable principal VSBDev operates the authoring, review, and finalization agents, so principal-level independence is absent. Agent-level role isolation was strictly maintained: no authoring history, other review output, or adjudication draft was read, and no other EmbeddedKnowledge role script was run during this review execution."
+  },
+  "evidenceChecked": [
+    "lessons/PREM-SCI-003-variables-and-controls/lesson.json",
+    "lessons/PREM-SCI-003-variables-and-controls/claims.json",
+    "lessons/PREM-SCI-003-variables-and-controls/references.json",
+    "lessons/PREM-SCI-003-variables-and-controls/glossary.json",
+    "lessons/PREM-SCI-003-variables-and-controls/ATTRIBUTION.md",
+    "lessons/PREM-SCI-003-variables-and-controls/content/01-zero-two-meanings.md",
+    "lessons/PREM-SCI-003-variables-and-controls/content/02-worked-run.md",
+    "lessons/PREM-SCI-003-variables-and-controls/content/03-practise-repair.md",
+    "lessons/PREM-SCI-003-variables-and-controls/content/04-transfer-synthesis.md",
+    "lessons/PREM-SCI-003-variables-and-controls/assessment.json",
+    "lessons/PREM-SCI-003-variables-and-controls/reviews/REV-PREM-SCI-003-LEARNING-DESIGN-95454686.json",
+    "lessons/PREM-SCI-003-variables-and-controls/reviews/REV-PREM-SCI-003-ACADEMIC-9B497D8D.json",
+    "CONTENT-STANDARD.md"
+  ],
+  "findings": [
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-SCI-003-variables-and-controls/ATTRIBUTION.md#L6",
+      "finding": "The lesson version string in the document header is declared as '0.1.0', while lesson.json and all other metadata files in the lesson pack declare the candidate version as '0.1.1'. This mismatch should be resolved to prevent version inconsistency.",
+      "resolution": "Update line 6 of ATTRIBUTION.md from '0.1.0' to '0.1.1' to align it with lesson.json."
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-SCI-003-variables-and-controls/assessment.json#item-transfer-acoustics-audit",
+      "finding": "The four-point transfer item has been successfully replaced with a novel acoustics comparison (sound-dampening panels and microphone models as confounders). This ensures that the item is a valid test of transfer rather than a simple transcription of the nitrate sensor case from scene 4.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-SCI-003-variables-and-controls/content/03-practise-repair.md#check-independent-six-role-audit",
+      "finding": "Case C in independent practice now provides two distinct, concrete scenarios (package seals and motion detection) alongside a comprehensive self-check checklist, allowing the learner to carry out independent role maps and evaluate their results effectively.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-SCI-003-variables-and-controls/assessment.json#items",
+      "finding": "All assessment items have been converted from single-choice or option-based selection into open-response text fields. This aligns perfectly with the multi-criterion analytic rubrics, allowing separate scoring and diagnostic feedback for each role.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-SCI-003-variables-and-controls/content/01-zero-two-meanings.md#check-prerequisite-chain",
+      "finding": "The prerequisite check is formatted with a clear retrieval prompt and links to prior lessons (PREM-SCI-001 and PREM-SCI-002), providing a robust activation of the observation-hypothesis-prediction chain before starting new concepts.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-SCI-003-variables-and-controls/content/02-worked-run.md#check-compact-audit",
+      "finding": "Prompt structures have been updated to use the '{check}' format instead of adjacent text, preventing premature answer reveal in continuous reading mode and reinforcing retrieval practice.",
+      "resolution": null
+    }
+  ],
+  "limitations": [
+    "Expert-simulation review: This review represents a single-pass advisory input by a simulated learning-design expert under standard-lesson-v3 guidelines. No real learner testing was conducted.",
+    "Conflict of interest: The same GitHub principal (VSBDev) is responsible for the authoring and review run operators. Agent-level isolation was maintained, but principal-level independence is absent.",
+    "Scope restriction: The review is strictly bounded to learning-design metrics (e.g., clarity, coherence, practice, alignment, and transfer). Scientific accuracy, rights audits, and final typesetting checks are excluded.",
+    "Technical verification limits: No rendered build environment, screen reader, or keyboard navigation pathways were evaluated physically; findings are based solely on the static Markdown and JSON source files."
+  ],
+  "signedAt": "2026-07-22T07:12:00Z"
+}
