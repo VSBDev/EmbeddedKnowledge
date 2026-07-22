@@ -2,12 +2,14 @@
 
 This final case uses a fictional archive. No frogs were observed and no recordings were collected for this lesson.
 
-An audio team reports fewer detected frog calls in colder night-time intervals than in warmer intervals. Each audio file also contains an automatically inserted calibration tone that should be detectable when the recorder operates normally.
+An audio team reports fewer detected frog calls in colder night-time intervals than in warmer intervals. Immediately before and after each interval, a local reference speaker plays a calibration tone into the recorder's microphone. The tone and any calls therefore pass through the same microphone-to-file acquisition path.
+
+For this simplified comparison, a cold-related failure means attenuation of that whole path, so it would weaken or remove the calibration tone as well as frog calls. Selective call-detection errors and failures affecting only some frequencies are outside the two hypotheses below.
 
 Two hypotheses are proposed:
 
-- **Hypothesis 1:** the apparent pattern reflects calling activity that differs with temperature, while the recorder operates normally.
-- **Hypothesis 2:** calling activity does not differ systematically with temperature; cold-related recorder failure produced the apparent pattern.
+- **Hypothesis 1:** the apparent pattern reflects calling activity that differs with temperature, while the microphone-to-file path operates normally.
+- **Hypothesis 2:** calling activity does not differ systematically with temperature; cold attenuates the whole microphone-to-file path, producing the apparent pattern.
 
 The archive has already been collected, but its detailed call and calibration records are hidden from you. Before imagining that the archive is opened, complete this table:
 
@@ -20,12 +22,12 @@ One defensible completion is:
 
 | Hypothesis | Expected call record | Expected calibration-tone record | A result that counts against it |
 | --- | --- | --- | --- |
-| Calling differs with temperature | Fewer calls in colder intervals | Calibration tones remain detectable across colder and warmer intervals | The call difference appears only where calibration tones are missing or weak |
-| Recorder failure explains the pattern | Fewer recorded calls when the recorder fails | Calibration tones are missing or weak in the same intervals, whether or not temperature alone separates them | Calibration tones remain detectable while the call pattern still follows temperature |
+| Calling differs with temperature | Fewer calls in colder intervals | Calibration tones remain similarly detectable across colder and warmer intervals | With intact tones, call detections do not differ systematically between colder and warmer intervals |
+| Whole-path attenuation explains the pattern | Fewer recorded calls in colder intervals | Calibration tones are weaker or missing in those same colder intervals | Calibration tones remain similarly detectable while the call pattern still follows temperature |
 
 The calibration record is useful because the hypotheses make different commitments about it. If both hypotheses predicted only “fewer calls on cold nights,” the call count alone would not discriminate.
 
-Now suppose the fictional archive shows intact calibration tones in every interval and still shows fewer calls in colder intervals. That result counts against Hypothesis 2 as written and is consistent with Hypothesis 1. It does not prove that temperature caused the pattern. Other features may track temperature, and a later study would need suitable variables, controls, and measurements to support a stronger conclusion.
+Now suppose the fictional archive shows similarly detectable calibration tones in every interval and still shows fewer calls in colder intervals. Because Hypothesis 2 specifically predicts attenuation of the shared acquisition path, that result counts against Hypothesis 2 as written and is consistent with Hypothesis 1. It does not prove that temperature caused the pattern. Other features may track temperature, and a selective detection problem outside these two hypotheses could leave the tone intact. A later study would need suitable variables, controls, and measurements to support a stronger conclusion.
 
 ## Synthesize the reasoning
 
