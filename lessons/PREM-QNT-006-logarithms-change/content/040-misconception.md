@@ -1,5 +1,11 @@
 # Logs split products, not sums
 
+:::{check}
+:id: check-predict-log-sum
+
+Before calculating, decide whether $\log(10+90)$ should equal $\log10+\log90$. Commit to yes or no and name the exponent law you think applies.
+:::
+
 :::{misconception}
 :id: misconception-log-sum
 
@@ -11,6 +17,14 @@ The law works for products because $b^u b^v=b^{u+v}$. Addition inside a logarith
 :::
 
 Domain checking also comes first. An algebraic transformation that asks for $\ln(-3)$ has left the real-logarithm domain even if later calculator steps produce an error code rather than an explanation.
+
+:::{check}
+:id: check-repair-log-sum
+
+Recheck the rule on a new case: for base 10, does $\log(2+8)$ equal $\log2+\log8$?
+
+**Feedback after attempting:** No. The left side is $\log10=1$, while the right side is $\log(2\times8)=\log16$. Addition inside a logarithm must be evaluated as a sum; only multiplication permits the product law.
+:::
 
 :::{source-note}
 :claims: claim-log-inverse, claim-log-laws

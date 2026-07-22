@@ -1,28 +1,45 @@
 # Move between exponent and logarithm
 
+Complete all four prompts before moving to the feedback.
+
 ## 1. Translate
 
-Rewrite $5^{-2}=1/25$ with a logarithm.
+:::{check}
+:id: check-practice-translate
 
-**Feedback:** $\log_5(1/25)=-2$.
+Rewrite $5^{-2}=1/25$ with a logarithm.
+:::
 
 ## 2. Expand validly
 
-Expand $\ln(3x^2/y)$ for $x\ne0$ and $y>0$.
+:::{check}
+:id: check-practice-expand
 
-**Feedback:** $\ln3+2\ln|x|-\ln y$. The absolute value keeps the squared factor compatible with the real logarithm when $x<0$.
+Expand $\ln(3x^2/y)$ for $x\ne0$ and $y>0$.
+:::
 
 ## 3. Solve
 
-Solve $4^t=70$.
+:::{check}
+:id: check-practice-solve
 
-**Feedback:** $t=\ln70/\ln4\approx3.065$. Check that $4^3=64$ places the answer just above 3.
+Solve $4^t=70$.
+:::
 
 ## 4. Read a decay factor
 
-In $Q=Q_0(0.82)^t$, state the percentage change per interval.
+:::{check}
+:id: check-practice-decay
 
-**Feedback:** The factor 0.82 retains 82%, so the quantity decreases by 18% per interval.
+In $Q=Q_0(0.82)^t$, state the percentage change per interval.
+:::
+
+## Feedback after a complete attempt
+
+1. **Translate:** $\log_5(1/25)=-2$ because 5 raised to $-2$ is $1/25$.
+2. **Expand validly:** $\ln3+2\ln|x|-\ln y$. The absolute value keeps the squared factor compatible with the real logarithm when $x<0$.
+3. **Solve:** $t=\ln70/\ln4\approx3.065$. The check $4^3=64$ places the answer just above 3.
+4. **Read a decay factor:** The factor 0.82 retains 82%, so the quantity decreases by 18% per interval.
 
 ## Recovery route
 
@@ -33,7 +50,7 @@ In $Q=Q_0(0.82)^t$, state the percentage change per interval.
 - Decimal answer seems opaque: bracket it between nearby integer powers and substitute back.
 
 :::{source-note}
-:claims: claim-log-inverse, claim-log-laws, claim-log-ratio
+:claims: claim-log-inverse, claim-log-laws, claim-log-ratio, claim-exponential-parameterizations
 :sources: source-nist-dlmf-log, source-nist-si-log
 
 All practice, feedback, and recovery guidance are original.

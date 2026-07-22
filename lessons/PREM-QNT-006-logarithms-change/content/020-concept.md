@@ -41,8 +41,8 @@ A discrete model $Q(t)=Q_0a^t$ has growth when $a>1$ and decay when the factor $
 Logarithms require a positive dimensionless argument. In applied equations, form a ratio such as $Q/Q_0$ before taking a log.
 
 :::{source-note}
-:claims: claim-log-inverse, claim-log-laws, claim-log-ratio
+:claims: claim-log-inverse, claim-log-laws, claim-log-ratio, claim-exponential-parameterizations
 :sources: source-nist-dlmf-log, source-nist-si-log
 
-NIST DLMF supplies authoritative logarithm definitions; NIST SI guidance uses logarithms of like-quantity ratios. The elementary derivations and discrete/continuous comparison are original.
+NIST DLMF supplies authoritative exponential and logarithm relations; NIST SI guidance uses logarithms of like-quantity ratios. The elementary derivations and discrete/continuous comparison are original.
 :::

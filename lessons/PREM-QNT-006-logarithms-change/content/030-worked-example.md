@@ -28,12 +28,12 @@ $$t=\frac{\ln3.125}{\ln1.18}\approx6.88.$$
 :id: check-log-solution
 
 Why must the ratio $1000/320$ be formed before taking a logarithm?
+
+**Feedback after attempting:** It isolates the dimensionless growth factor and keeps the logarithm's argument positive and comparable to $1.18^t$.
 :::
 
-It isolates the dimensionless growth factor and keeps the logarithm's argument positive and comparable to $1.18^t$.
-
 :::{source-note}
-:claims: claim-log-inverse, claim-log-laws, claim-log-ratio
+:claims: claim-log-inverse, claim-log-laws, claim-log-ratio, claim-exponential-parameterizations
 :sources: source-nist-dlmf-log, source-nist-si-log
 
 The counter, numbers, derivation, and interpretation are original applications of the sourced logarithm framework.

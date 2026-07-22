@@ -10,14 +10,26 @@ This lesson uses logarithms to recover unknown exponents, then checks the answer
 
 ## Starting check
 
-- Rewrite $3^4=81$ as a logarithmic statement.
-- Can a real logarithm have argument zero?
-- Does $\log(4+6)$ equal $\log4+\log6$?
+:::{check}
+:id: check-starting-prerequisites
+
+Answer before reading the feedback.
+
+1. Rewrite $3^4=81$ as a logarithmic statement.
+2. Can a real logarithm have argument zero?
+3. Does $\log(4+6)$ equal $\log4+\log6$?
+
+**Feedback after attempting:**
+
+1. $\log_3 81=4$ because the logarithm names the exponent on 3.
+2. No. For a valid real base, every real power is positive, so a real logarithm requires a positive argument.
+3. No. Logarithms split products, not sums: $\log(4+6)=\log10$, whereas $\log4+\log6=\log24$.
+:::
 
 If powers are uncertain, return briefly to exponent laws and write a small table of $2^t$ before continuing.
 
 :::{source-note}
-:claims: claim-log-inverse, claim-log-ratio
+:claims: claim-log-inverse, claim-log-ratio, claim-exponential-parameterizations
 :sources: source-nist-dlmf-log, source-nist-si-log
 
 NIST sources document logarithm functions and logarithms of dimensionless ratios. The archive, threshold, and teaching sequence are original.

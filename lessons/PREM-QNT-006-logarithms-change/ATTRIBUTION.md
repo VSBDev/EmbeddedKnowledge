@@ -16,7 +16,7 @@ OpenAI Codex authored, researched, edited, and packaged this lesson in one autho
 | --- | --- | --- | --- | --- | --- |
 | Codex desktop | OpenAI | `gpt-5.6-sol` | Codex desktop runtime 2026-07-22 | `f281b55d-4732-4b46-85a7-42152b2026fd` | `sha256:57d15a3a8196a0be7c8d6e40e81b2fe2d09046f67bc43fd0c5410934f73cf8f2` |
 
-The digest identifies `/tmp/codex-packager-prompt-03-06.md`; unavailable hidden instructions are excluded. No other model authored or reviewed this lesson.
+The digest identifies `/tmp/codex-packager-prompt-03-06.md`; unavailable hidden instructions are excluded. Review and finalization provenance is recorded separately in the pack's review artifacts and `adjudication.json`.
 
 ## Originality, evidence, and rights
 
