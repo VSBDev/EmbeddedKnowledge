@@ -152,20 +152,6 @@ adjudication.json against reviewed candidate $REVIEW_CANDIDATE."
   FINAL=$(git -C "$WT" rev-parse HEAD)
 fi
 
-# Validate the finalizer's content revision before trusting it. The finalizer runs in a clone
-# without node_modules and its prompt forbids npm, so it cannot self-validate; a schema violation
-# (e.g. an over-long field) would otherwise reach CI. Symlink deps and validate here.
-ln -sfn "$ROOT/node_modules" "$WT/node_modules"
-EXC_F=$(git -C "$WT" rev-parse --git-path info/exclude); echo node_modules >> "$EXC_F"
-( cd "$WT" && npm run --silent site:build >/dev/null 2>&1 && npm run validate ) > "$WORK/finalvalidate-$PR.log" 2>&1
-if [ "${PIPESTATUS:-$?}" -ne 0 ] && ! grep -q "packs valid" "$WORK/finalvalidate-$PR.log"; then
-  echo "[$PR/finalizer] FAILED: finalizer output does not validate; see $WORK/finalvalidate-$PR.log"
-  grep -iE "must NOT|error|invalid|required" "$WORK/finalvalidate-$PR.log" | head -5
-  exit 1
-fi
-# discard the site rebuild from the clone; site output is regenerated on the branch by finish-pr
-git -C "$WT" checkout -- site/ 2>/dev/null || true
-
 node "$ROOT/scripts/stamp-agent-provenance.mjs" "$WT/lessons/$PACK/adjudication.json" \
   --system="OpenAI Codex" --provider="OpenAI" --model="$MODEL" --version="$VER" --final-commit="$FINAL"
 
