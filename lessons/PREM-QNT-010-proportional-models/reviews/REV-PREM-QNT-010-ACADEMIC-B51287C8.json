@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-QNT-010-ACADEMIC-B51287C8",
+  "lessonId": "PREM-QNT-010",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "8937fc68ead59668e6795efb56311f66a367895c",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable operator, academic review role",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-QNT-010-B51287C8-4927-4D5D-8736-57F3408EBDFD",
+      "instructionsDigest": "sha256:e7e3e6b7825de72cbcf5a19e3b7128a2ce60b4a6cf83a4c1061b75cb78bf8747"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#outcomes",
+    "lesson.json#objectives",
+    "lesson.json#scenes",
+    "content/010-orientation.md#starting-check",
+    "content/020-concept.md#parameters-and-units",
+    "content/020-concept.md#log-log-linearization",
+    "content/020-concept.md#checking-a-candidate",
+    "content/030-worked-example.md#worked-example-power-table",
+    "content/040-misconception.md#misconception-smooth-means-direct",
+    "content/050-practice.md#practice-items-1-through-4",
+    "content/060-transfer.md#feedback-after-a-complete-attempt",
+    "content/070-synthesis.md#retrieval",
+    "assessment.json#item-identify-direct",
+    "assessment.json#item-inverse-predict",
+    "assessment.json#item-power-factor",
+    "assessment.json#item-recover-power",
+    "assessment.json#item-log-log",
+    "assessment.json#item-transfer-inverse",
+    "claims.json#claim-power-law-scaling",
+    "claims.json#claim-invariants",
+    "claims.json#claim-log-linearization",
+    "claims.json#claim-model-checking",
+    "references.json#source-nist-dlmf-powers",
+    "references.json#source-nist-scatterplot",
+    "references.json#source-nist-transformations",
+    "glossary.json#terms",
+    "ATTRIBUTION.md#originality-evidence-and-rights"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "lesson.json#objective-parameterize-model",
+      "finding": "The objective promises recovery of the exponent and proportionality constant from exact or approximate data, but the lesson teaches only the two-point exact-data formula. Its approximate datasets supply the candidate exponent and constant in advance, and no assessment asks the learner to estimate an exponent from noisy observations. Applying the exact two-point formula independently to noisy point pairs can produce unstable, mutually inconsistent estimates, so the promised approximate-data performance is neither defined nor assessed.",
+      "resolution": "Either narrow the objective to exact data and evaluation of supplied approximate-data candidates, or teach a defined approximate-data fitting procedure, including its fitting criterion, error-scale assumptions, residual checks, and domain limits, then add aligned practice and assessment requiring recovery of the exponent and constant from approximate data."
+    },
+    {
+      "severity": "major",
+      "target": "claims.json#claim-model-checking",
+      "finding": "The claim includes attention to the observed domain, and the lesson repeatedly teaches interpolation-versus-extrapolation cautions. Direct inspection of source-nist-scatterplot and source-nist-transformations confirmed support for inspecting relationship structure, transformations, changing variation, residual assumptions, and the distinction between association and causation, but neither cited locator supports the observed-domain or extrapolation claim. The evidence trace is also incomplete because content/010-orientation.md states the residual-and-domain audit and content/030-worked-example.md applies residual and interpolation judgments, while claim-model-checking omits both scene IDs and their source notes omit the supporting model-checking sources. This leaves a central, assessment-rewarded model boundary only partially sourced and mapped.",
+      "resolution": "Add an authoritative source with an exact locator supporting interpolation, extrapolation, and observed-domain limits, or narrow the claim and assessed cautions to what the existing sources support. Map the retained model-checking claim to scene-orientation and scene-worked-example and update both same-scene source notes with every supporting source."
+    },
+    {
+      "severity": "major",
+      "target": "content/020-concept.md#parameters-and-units",
+      "finding": "The statement that k has response units divided by input units raised to p is central to objective-parameterize-model and is explicitly scored by item-recover-power, but no claim in claims.json covers dimensional interpretation of k. The cited DLMF power/logarithm reference does not address physical dimensions or unit dependence. The lesson therefore assesses a material quantitative/model-boundary claim that is absent from the claim ledger and unsupported by the registered evidence.",
+      "resolution": "Add a scene-mapped claim for the dimensions and unit dependence of k, support it with an appropriate authoritative dimensional-analysis source and exact locator, and expose that mapping in the relevant source notes. State that the numerical value and units of k depend on the chosen units for x and y."
+    },
+    {
+      "severity": "minor",
+      "target": "content/020-concept.md#parameters-and-units",
+      "finding": "The displayed two-point formula for p says only that the points are positive. It is undefined when x2 equals x1 because log(x2/x1) is then zero; repeated-input observations also cannot identify p through that ratio.",
+      "resolution": "State explicitly that the two exact points must have distinct positive input values, so x2/x1 is positive and not equal to 1, and that the logarithm base must be valid and used consistently."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#items",
+      "finding": "Independent recomputation confirmed the exact-data answer logic: the direct and inverse invariants, p = -2 scale-factor result, p = 2 and k = 4.5 recovery, base-10 log result p = 0.5 with k approximately 15.85, inverse-model products and residuals, and all worked/practice/transfer fitted values and residuals are numerically correct under the declared conventions.",
+      "resolution": "No change required to these numerical results or answer keys."
+    }
+  ],
+  "limitations": [
+    "The authorized scope excluded site/, scripts/, workflows, and other lesson packs. Consequently, the graph outcome definition, prerequisite graph relationships, cross-course terminology ledger, quorum policy, and review JSON Schema were not independently inspected; identity, route relevance, terminology continuity, and automated structural validity remain unverified here.",
+    "Repository validation was not run because it would require the excluded scripts and site resources; no academic conclusion in this review relies on validator success.",
+    "The review directly checked all three registered NIST sources and found no human-only source. It did not perform empirical learner testing or formal statistical simulation; judgments about approximate-data fitting follow standard introductory mathematical and statistical model-identification principles."
+  ],
+  "signedAt": "2026-07-23T00:45:23Z"
+}
