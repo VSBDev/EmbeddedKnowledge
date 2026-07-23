@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-QNT-006-LEARNING-DESIGN-CE1E67B3",
+  "lessonId": "PREM-QNT-006",
+  "lessonVersion": "0.2.0",
+  "candidateCommit": "fb4333b311795e149147960ee0d1214cf1d8b37b",
+  "role": "learning-design",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev (learning-design reviewer)",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.5",
+      "runId": "agy-learning-design-PREM-QNT-006-CE1E67B3-5CC0-45CF-BB01-F4AD2F26325C",
+      "instructionsDigest": "sha256:e2b9edb9022a850344030b5cf61f57487928690c955ce5e9b2c67e97955bdca6"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Founding-stage isolation check: the accountable principal VSBDev operates the authoring, review, and finalization agents, so principal-level independence is absent. Agent-level role isolation was strictly maintained: no authoring history, other review output, or adjudication draft was read, and no other EmbeddedKnowledge role script was run during this review execution."
+  },
+  "evidenceChecked": [
+    "lessons/PREM-QNT-006-logarithms-change/lesson.json",
+    "lessons/PREM-QNT-006-logarithms-change/claims.json",
+    "lessons/PREM-QNT-006-logarithms-change/references.json",
+    "lessons/PREM-QNT-006-logarithms-change/glossary.json",
+    "lessons/PREM-QNT-006-logarithms-change/ATTRIBUTION.md",
+    "lessons/PREM-QNT-006-logarithms-change/content/010-orientation.md",
+    "lessons/PREM-QNT-006-logarithms-change/content/020-concept.md",
+    "lessons/PREM-QNT-006-logarithms-change/content/030-worked-example.md",
+    "lessons/PREM-QNT-006-logarithms-change/content/040-misconception.md",
+    "lessons/PREM-QNT-006-logarithms-change/content/050-practice.md",
+    "lessons/PREM-QNT-006-logarithms-change/content/060-transfer.md",
+    "lessons/PREM-QNT-006-logarithms-change/content/070-synthesis.md",
+    "lessons/PREM-QNT-006-logarithms-change/assessment.json",
+    "CONTENT-STANDARD.md"
+  ],
+  "findings": [
+    {
+      "severity": "note",
+      "target": "lessons/PREM-QNT-006-logarithms-change/content/020-concept.md#L41-L42",
+      "finding": "The explicit clarification that the growth/decay models are illustrative teaching interpretations, rather than clinical claims or empirical statements about specific organisms, drugs, or patients, aligns perfectly with Section 10 (Epistemic and Scholarly integrity) of the Content Standard.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-QNT-006-logarithms-change/content/040-misconception.md#L5-L29",
+      "finding": "The misconception repair sequence is complete and highly effective: it elicits a prediction/commitment (check-predict-log-sum), states the incorrect model and counterexample, explains the underlying exponent law rationale, and rechecks the learner on a new case (check-repair-log-sum) with detailed feedback.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-QNT-006-logarithms-change/content/050-practice.md#L44-L50",
+      "finding": "The non-punitive recovery route is clearly structured and mapped to potential error classes (e.g., domain violations, wrong signs, opaque decimals), providing actionable guidance for remediation as required by Section 6 (Practice progression) of the Content Standard.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-QNT-006-logarithms-change/content/060-transfer.md#L3-L9",
+      "finding": "Exposing the transfer task inside check-transfer-half-life while deferring the worked feedback to the following synthesis scene (content/070-synthesis.md) successfully avoids the risk of direct answer exposure during independent retrieval.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-QNT-006-logarithms-change/assessment.json#item-solve-exponential",
+      "finding": "The acceptableResponses array for item-solve-exponential correctly contains only the literal response string '4.865', avoiding descriptive grading prose and ensuring compatibility with automated grading parsing.",
+      "resolution": null
+    }
+  ],
+  "limitations": [
+    "Expert-simulation review: This review represents a single-pass advisory input by a simulated learning-design expert under standard-lesson-v3 guidelines. No real learner testing was conducted.",
+    "Conflict of interest: The same GitHub principal (VSBDev) is responsible for the authoring and review run operators. Agent-level isolation was maintained, but principal-level independence is absent.",
+    "Scope restriction: The reviewer was prohibited from reading site/ or other lesson packs, preventing manual inspection of premed-terminology.json or cross-lesson terminology shifts. Validation relies on the automated terminology:validate execution.",
+    "Technical verification limits: No rendered build environment, screen reader, or keyboard navigation pathways were evaluated physically; findings are based solely on the static Markdown and JSON source files."
+  ],
+  "signedAt": "2026-07-23T10:52:50Z"
+}

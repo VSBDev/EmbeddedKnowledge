@@ -1,6 +1,6 @@
 # Move between exponent and logarithm
 
-Complete all four prompts before moving to the feedback.
+This illustrative biomedical-modeling worksheet moves from pure log notation to a derived laboratory index, a cell-culture threshold, and a concentration-decay factor. Complete all four prompts before moving to the feedback.
 
 ## 1. Translate
 
@@ -15,7 +15,7 @@ Rewrite $5^{-2}=1/25$ with a logarithm.
 :::{check}
 :id: check-practice-expand
 
-Expand $\ln(3x^2/y)$ for $x\ne0$ and $y>0$.
+In an illustrative derived laboratory index, expand $\ln(3x^2/y)$ for $x\ne0$ and $y>0$.
 :::
 
 ## 3. Solve
@@ -23,7 +23,7 @@ Expand $\ln(3x^2/y)$ for $x\ne0$ and $y>0$.
 :::{check}
 :id: check-practice-solve
 
-Solve $4^t=70$.
+An illustrative cell-culture signal reaches its threshold when $4^t=70$. Solve for the exponent.
 :::
 
 ## 4. Read a decay factor
@@ -31,7 +31,7 @@ Solve $4^t=70$.
 :::{check}
 :id: check-practice-decay
 
-In $Q=Q_0(0.82)^t$, state the percentage change per interval.
+In an illustrative drug-concentration model $Q=Q_0(0.82)^t$, state the percentage change per interval.
 :::
 
 ## Feedback after a complete attempt
@@ -53,5 +53,5 @@ In $Q=Q_0(0.82)^t$, state the percentage change per interval.
 :claims: claim-log-inverse, claim-log-laws, claim-log-ratio, claim-exponential-parameterizations
 :sources: source-nist-dlmf-log, source-nist-si-log
 
-All practice, feedback, and recovery guidance are original.
+All practice, feedback, recovery guidance, and biomedical teaching scenarios are original and illustrative.
 :::

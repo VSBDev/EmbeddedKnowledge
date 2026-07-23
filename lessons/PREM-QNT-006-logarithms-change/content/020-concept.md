@@ -36,7 +36,9 @@ $$\log_bx=\frac{\ln x}{\ln b}.$$
 
 ## Exponential change
 
-A discrete model $Q(t)=Q_0a^t$ has growth when $a>1$ and decay when the factor $a$ lies strictly between zero and one. A continuous form $Q(t)=Q_0e^{kt}$ has growth for $k>0$ and decay for $k<0$. They are equivalent when $a=e^k$ for the same time unit.
+For a positive modeled quantity with $Q_0>0$, a discrete model $Q(t)=Q_0a^t$ has growth when $a>1$ and decay when the factor $a$ lies strictly between zero and one. A continuous form $Q(t)=Q_0e^{kt}$ has growth for $k>0$ and decay for $k<0$. They are equivalent when $a=e^k$ for the same time unit.
+
+To picture the symbols in an illustrative biomedical setting, the modeled quantity can represent a cell-population signal that rises by a fixed factor or a plasma-concentration signal that falls by a fixed factor. These are teaching interpretations of the equations, not claims that a particular culture, drug, or patient follows an exact exponential model.
 
 Logarithms require a positive dimensionless argument. In applied equations, form a ratio such as $Q/Q_0$ before taking a log.
 
