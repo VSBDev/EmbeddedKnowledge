@@ -1,30 +1,26 @@
-# Audit an angled span
+# Audit a rotated panel
 
-A fictional straight span has length 20 units and makes a $35^\circ$ angle above the positive horizontal direction. Determine its horizontal and vertical extents, then reconstruct the length and angle from those extents.
+A fictional rigid rectangular panel is 12 units long and 5 units wide. Its 12-unit edge is tilted $30^\circ$ above the positive horizontal direction, and its perpendicular 5-unit edge points toward the upper left. The panel rests with its lowest corner at height zero. Decide whether its highest corner fits below an opening 10 units high. Then predict the height and area factors for a similar panel with every length multiplied by 0.8.
 
 ## Feedback after a complete attempt
 
-The horizontal extent is adjacent to the angle:
+This is not one right-triangle component. Both perpendicular edges contribute to the height. The 12-unit edge contributes
 
-$$x=20\cos35^\circ\approx16.38.$$
+$$12\sin30^\circ=6,$$
 
-The vertical extent is opposite:
+and the 5-unit edge is at $120^\circ$, so its upward contribution is
 
-$$y=20\sin35^\circ\approx11.47.$$
+$$5\sin120^\circ=5\cos30^\circ\approx4.33.$$
 
-Reconstruct length:
+The total height is about $10.33$ units, so the panel exceeds the opening by about $0.33$ unit. A coordinate check for the long edge gives horizontal and vertical components $(12\cos30^\circ,12\sin30^\circ)\approx(10.39,6)$, whose squared lengths sum to $12^2$.
 
-$$\sqrt{x^2+y^2}\approx20.$$
+Scaling every length by 0.8 makes the height factor 0.8, so the new height is about $8.26$ units. Area has two length dimensions, so its factor is $0.8^2=0.64$; the original area is 60 square units and the scaled area is 38.4 square units. The angle is $30^\circ=\pi/6$ radians, and $\arctan(6/10.39)$ reconstructs the first-quadrant direction as about $30^\circ$.
 
-Reconstruct direction:
-
-$$\arctan(y/x)\approx35^\circ.$$
-
-Both extents are positive and smaller than the length, as a first-quadrant acute span requires. The context is fictional and the calculation is not engineering certification.
+The context is fictional and the calculation is not engineering certification.
 
 :::{source-note}
-:claims: claim-trig-functions, claim-angle-conversion, claim-unit-circle, claim-inverse-trig
-:sources: source-nist-dlmf-trig, source-nist-si-angle
+:claims: claim-geometric-scaling, claim-right-triangle-geometry, claim-right-triangle-ratios, claim-angle-conversion, claim-inverse-trig
+:sources: source-nasa-geometry-trig, source-nist-dlmf-trig, source-nist-si-angle
 
-The span, numbers, reconstruction, and boundary statement are original.
+The rotated panel, numbers, clearance decision, reconstruction, and boundary statement are original.
 :::

@@ -12,12 +12,13 @@
 - How do degrees convert to radians?
 - What are cosine and sine on the unit circle?
 - How does `arcsin` differ from reciprocal sine?
+- If $x<0$ and $y>0$, why is a raw value of $\arctan(y/x)$ not yet the standard-position direction?
 
 Complete `assessment.json`. If side choice fails, return to labeled ratios. If angle mode fails, redo the beacon conversion. If a visual sketch feels essential, replace it with coordinates, named sides, and perpendicular relationships before retrying.
 
 :::{source-note}
-:claims: claim-trig-functions, claim-angle-conversion, claim-unit-circle, claim-inverse-trig
-:sources: source-nist-dlmf-trig, source-nist-si-angle
+:claims: claim-geometric-scaling, claim-right-triangle-geometry, claim-right-triangle-ratios, claim-angle-conversion, claim-unit-circle, claim-inverse-trig, claim-quadrant-direction
+:sources: source-nasa-geometry-trig, source-nist-dlmf-trig, source-nist-si-angle
 
-The synthesis uses sourced trigonometric and angle-unit relations through an original geometric-audit method.
+The synthesis uses sourced geometric, trigonometric, scaling, and angle-unit relations through an original audit method.
 :::

@@ -1,22 +1,44 @@
 # Inverse sine is not reciprocal sine
 
+## Commit first
+
+Without calculating, decide whether $\sin^{-1}(0.5)$ should return an angle or a ratio. Write your prediction before continuing.
+
 :::{misconception}
 :id: misconception-inverse-reciprocal
 
-The notation $\sin^{-1}(x)$ often means the inverse function $\arcsin(x)$: it returns an angle whose sine is $x$. It does not mean $1/\sin(x)$, which is the reciprocal function cosecant.
+### Tempting shortcut
 
-For example,
+“The exponent $-1$ always means reciprocal, so $\sin^{-1}(x)=1/\sin(x)$.”
+
+### Why the shortcut fails
+
+The two operations have different input and output types. The inverse function $\arcsin(x)$ takes a ratio and returns a principal angle. The reciprocal $1/\sin(x)$ takes an angle and returns a ratio.
+
+With a ratio input of $0.5$,
 
 $$\arcsin(0.5)=30^\circ=\pi/6,$$
 
-whereas $1/\sin(0.5)$ treats 0.5 as an angle input and is a different calculation.
+whereas using an angle input of $0.5$ radians gives
+
+$$\frac{1}{\sin(0.5\ \mathrm{rad})}\approx2.0858.$$
+
+The unequal outputs—and their different units—disprove the shortcut.
+
+### Repair
+
+Read $\sin^{-1}(x)$ as $\arcsin(x)$ when the task asks for an angle. Write $1/\sin(x)$ or $\csc(x)$ when the task asks for a reciprocal. Then label the angle unit and use the stated domain or quadrant to interpret the principal result.
 :::
 
-Write `arcsin`, `arccos`, or `arctan` when ambiguity matters. Then label the returned angle unit and use geometric context to select or reject a quadrant.
+## Recheck
+
+A calculator shows $\cos^{-1}(0.25)$. Is it finding a reciprocal or an angle, and what input would the reciprocal require?
+
+**Check after committing:** It is finding the principal angle whose cosine is $0.25$. The reciprocal calculation would require an angle input and would be written $1/\cos(\theta)$ or $\sec(\theta)$.
 
 :::{source-note}
-:claims: claim-trig-functions, claim-inverse-trig
+:claims: claim-inverse-trig
 :sources: source-nist-dlmf-trig
 
-The distinction and numerical counterexample are original teaching expression based on standard function and inverse-function notation.
+NIST supports inverse-trigonometric definitions and principal values. The repair sequence and numerical contrast are original teaching expression.
 :::

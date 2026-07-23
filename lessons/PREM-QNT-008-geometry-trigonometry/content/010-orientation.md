@@ -6,7 +6,7 @@ The components are perpendicular, so they form the legs of a right triangle. The
 
 $$d=\sqrt{12^2+5^2}=\sqrt{169}=13,$$
 
-not $12+5$. The hypotenuse must be longer than either leg but shorter than their sum; 13 passes both bounds.
+not $12+5$. The hypotenuse must be longer than either leg, and recomputing $13^2=12^2+5^2$ independently checks the result.
 
 This lesson uses a four-part geometric audit: label the quantities and angle units, choose a relation that matches the shape, solve, then check lengths, signs, scale, and units.
 
@@ -19,10 +19,10 @@ This lesson uses a four-part geometric audit: label the quantities and angle uni
 If the spatial description is difficult, list the points and perpendicular relationships in text before writing an equation.
 
 :::{source-note}
-:claims: claim-trig-functions, claim-angle-conversion
-:sources: source-nist-dlmf-trig, source-nist-si-angle
+:claims: claim-right-triangle-geometry, claim-angle-conversion
+:sources: source-nasa-geometry-trig, source-nist-si-angle
 
-NIST records define trigonometric functions and the degree-radian conversion. The locator and Pythagorean audit are original.
+NASA supports the right-triangle relation and NIST supports the degree-radian conversion. The locator and audit are original.
 :::
 
 ## Accessibility and alternatives

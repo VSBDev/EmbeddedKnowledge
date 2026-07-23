@@ -19,7 +19,7 @@ so $\theta=\arctan(4/3)\approx53.13^\circ\approx0.9273\text{ rad}$.
 
 **4. Check ratios.** $\cos\theta=9/15=0.6$ and $\sin\theta=12/15=0.8$; $0.6^2+0.8^2=1$.
 
-**5. Check bounds and quadrant.** The distance lies between 12 and 21; both coordinates are positive, so the acute first-quadrant angle is consistent.
+**5. Check bounds and quadrant.** The distance 15 exceeds both component lengths, and $15^2=9^2+12^2$; both coordinates are positive, so the acute first-quadrant angle is consistent.
 :::
 
 :::{check}
@@ -30,9 +30,17 @@ If a calculator returns approximately 0.9273, why is reporting $0.9273^\circ$ wr
 
 The value is in radians. It must be labeled as radians or converted to about $53.13^\circ$.
 
-:::{source-note}
-:claims: claim-trig-functions, claim-angle-conversion, claim-unit-circle
-:sources: source-nist-dlmf-trig, source-nist-si-angle
+:::{check}
+:id: check-model-choice
 
-The beacon, values, solution, and checks are original applications of the sourced relations.
+Why was tangent the direct ratio for the direction, and how do the coordinate signs constrain the answer?
+:::
+
+The two known legs are opposite and adjacent to the requested angle, so tangent uses them without first finding the hypotenuse. Both coordinates are positive, so the standard-position direction must be in quadrant I.
+
+:::{source-note}
+:claims: claim-right-triangle-geometry, claim-right-triangle-ratios, claim-angle-conversion, claim-unit-circle
+:sources: source-nasa-geometry-trig, source-nist-si-angle
+
+The beacon, values, solution, and checks are original applications of the sourced geometric and angle-unit relations.
 :::
