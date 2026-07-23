@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-QNT-002-LEARNING-DESIGN-50A1D9B4",
+  "lessonId": "PREM-QNT-002",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "4a2d2f874f9ae9cfbc81f97728fdef257f1b007e",
+  "role": "learning-design",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev (learning-design reviewer)",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.5",
+      "runId": "agy-learning-design-PREM-QNT-002-50A1D9B4-9ED7-44CD-81DE-B0F6A59222CD",
+      "instructionsDigest": "sha256:e80b4dd4e3c596e3f6f049c2000ae803a17ff3f3f5e054c95fabe92b17270cc4"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Founding-stage isolation check: the accountable principal VSBDev operates the authoring, review, and finalization agents, so principal-level independence is absent. Agent-level role isolation was strictly maintained: no authoring history, other review output, or adjudication draft was read, and no other EmbeddedKnowledge role script was run during this review execution."
+  },
+  "evidenceChecked": [
+    "lessons/PREM-QNT-002-units-dimensional-analysis/lesson.json",
+    "lessons/PREM-QNT-002-units-dimensional-analysis/claims.json",
+    "lessons/PREM-QNT-002-units-dimensional-analysis/references.json",
+    "lessons/PREM-QNT-002-units-dimensional-analysis/glossary.json",
+    "lessons/PREM-QNT-002-units-dimensional-analysis/ATTRIBUTION.md",
+    "lessons/PREM-QNT-002-units-dimensional-analysis/content/010-orientation.md",
+    "lessons/PREM-QNT-002-units-dimensional-analysis/content/020-concept.md",
+    "lessons/PREM-QNT-002-units-dimensional-analysis/content/030-worked-example.md",
+    "lessons/PREM-QNT-002-units-dimensional-analysis/content/040-misconception.md",
+    "lessons/PREM-QNT-002-units-dimensional-analysis/content/050-practice.md",
+    "lessons/PREM-QNT-002-units-dimensional-analysis/content/060-transfer.md",
+    "lessons/PREM-QNT-002-units-dimensional-analysis/content/070-synthesis.md",
+    "lessons/PREM-QNT-002-units-dimensional-analysis/assessment.json",
+    "CONTENT-STANDARD.md"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-002-units-dimensional-analysis/assessment.json#item-rate-conversion",
+      "finding": "The assessment item `item-rate-conversion` is defined with type `numeric` and `responseSpec` mode `number`. However, the `acceptableResponses` array is configured with the string `\"3 m/s\"` instead of a numeric value like `3`. This causes a grading conflict, as numeric input fields restrict entry to numbers, rendering the acceptable response string impossible for students to enter and causing automatic grading to fail.",
+      "resolution": "Update the `acceptableResponses` field in `item-rate-conversion` to `[3]` or `[\"3\"]` to align with the expected numeric input."
+    },
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-002-units-dimensional-analysis/assessment.json#item-explain-limits",
+      "finding": "Objective `objective-read-quantity` ('Distinguish a physical quantity from its numerical value and unit, and interpret compound units as algebraic products or quotients') is mapped to `item-explain-limits` in the assessment JSON. However, `item-explain-limits` solely evaluates the limits of dimensional consistency (objective `objective-audit-dimensions`). There is no assessment item in `assessment.json` that actually evaluates whether a learner can distinguish a quantity from its numerical value/unit or algebraically interpret compound units.",
+      "resolution": "Map `objective-read-quantity` to a separate assessment item that specifically prompts the student to distinguish between a physical quantity, its unit, and its numerical value, or to interpret compound units."
+    },
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-002-units-dimensional-analysis/content/010-orientation.md#L22",
+      "finding": "The 'Starting check' in `content/010-orientation.md` (lines 22-30) is written as a plain markdown section and bulleted list rather than using the formal `:::{check}` directive. Furthermore, it completely lacks answers, explanations, or interactive feedback for the three diagnostic questions. This prevents learners from checking their own answers to verify if they possess the starting skills.",
+      "resolution": "Wrap the 'Starting check' prompt in a `:::{check}` directive and provide clear feedback or explanations for the three starting questions immediately below the block."
+    },
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-002-units-dimensional-analysis/lesson.json#prerequisites",
+      "finding": "The lesson lists `topic-quantitative-foundations-arithmetic-estimation` as its prerequisite in `lesson.json`. However, the diagnostic 'Starting check' in `content/010-orientation.md` does not test this prerequisite. Instead, it tests the lesson's target skills (multiplying units, adding mismatched units, and converting squared units). The lesson thus fails to verify that the learner has mastered the actual prerequisite topic.",
+      "resolution": "Add diagnostic questions to the 'Starting check' that explicitly test the prerequisite arithmetic and estimation skills (from the prerequisite lesson) before commencing target content."
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-QNT-002-units-dimensional-analysis/content/020-concept.md#L43",
+      "finding": "The glossary defines `dimensional consistency` (ID `term-dimensional-consistency`), but the concept scene (`020-concept.md`) refers to it as 'dimensional agreement' (line 44) and 'structural test' (line 38). Consistent terminology is crucial for novice learners to connect the text to their vocabulary references.",
+      "resolution": "Update the concept scene prose to use the term 'dimensional consistency' rather than 'dimensional agreement'."
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-QNT-002-units-dimensional-analysis/content/040-misconception.md",
+      "finding": "The misconception scene (`040-misconception.md`) provides an excellent, clear visualization of why squaring a conversion factor is necessary for squared units, using a concrete 100-by-100 grid analogy that is easy for a novice to grasp.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-QNT-002-units-dimensional-analysis/assessment.json#item-transfer-production",
+      "finding": "The seven-point transfer item `item-transfer-production` is extremely well-designed. It requires the learner to integrate multiple skills (area rate calculation, time unit conversion, and squared-unit conversion) and has a detailed, multi-criterion scoring rubric that awards points for each distinct cognitive step.",
+      "resolution": null
+    }
+  ],
+  "limitations": [
+    "Expert-simulation review: This review represents a single-pass advisory input by a simulated learning-design expert under standard-lesson-v3 guidelines. No real learner testing was conducted.",
+    "Conflict of interest: The same GitHub principal (VSBDev) is responsible for the authoring and review run operators. Agent-level isolation was maintained, but principal-level independence is absent.",
+    "Scope restriction: The review is strictly bounded to learning-design metrics (e.g., clarity, coherence, practice, alignment, and transfer). Scientific accuracy, rights audits, and final typesetting checks are excluded.",
+    "Technical verification limits: No rendered build environment, screen reader, or keyboard navigation pathways were evaluated physically; findings are based solely on the static Markdown and JSON source files."
+  ],
+  "signedAt": "2026-07-22T21:04:06Z"
+}

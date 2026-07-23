@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-QNT-003-LEARNING-DESIGN-9D4EBB80",
+  "lessonId": "PREM-QNT-003",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "be535bc03f5b5777d9f6b890643a1deaa91cf755",
+  "role": "learning-design",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev (learning-design reviewer)",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.5",
+      "runId": "agy-learning-design-PREM-QNT-003-9D4EBB80-E2AA-4EBE-ADAB-62C41061320C",
+      "instructionsDigest": "sha256:cdd7accfb820cbf04e58f21f5a882336b9766fa51984369c002e70ada02c28c0"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Founding-stage isolation check: the accountable principal VSBDev operates the authoring, review, and finalization agents, so principal-level independence is absent. Agent-level role isolation was strictly maintained: no authoring history, other review output, or adjudication draft was read, and no other EmbeddedKnowledge role script was run during this review execution."
+  },
+  "evidenceChecked": [
+    "lessons/PREM-QNT-003-ratios-proportions-percentages/lesson.json",
+    "lessons/PREM-QNT-003-ratios-proportions-percentages/claims.json",
+    "lessons/PREM-QNT-003-ratios-proportions-percentages/references.json",
+    "lessons/PREM-QNT-003-ratios-proportions-percentages/glossary.json",
+    "lessons/PREM-QNT-003-ratios-proportions-percentages/ATTRIBUTION.md",
+    "lessons/PREM-QNT-003-ratios-proportions-percentages/content/010-orientation.md",
+    "lessons/PREM-QNT-003-ratios-proportions-percentages/content/020-concept.md",
+    "lessons/PREM-QNT-003-ratios-proportions-percentages/content/030-worked-example.md",
+    "lessons/PREM-QNT-003-ratios-proportions-percentages/content/040-misconception.md",
+    "lessons/PREM-QNT-003-ratios-proportions-percentages/content/050-practice.md",
+    "lessons/PREM-QNT-003-ratios-proportions-percentages/content/060-transfer.md",
+    "lessons/PREM-QNT-003-ratios-proportions-percentages/content/070-synthesis.md",
+    "lessons/PREM-QNT-003-ratios-proportions-percentages/assessment.json",
+    "CONTENT-STANDARD.md",
+    "RIGHTS-POLICY.md"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-003-ratios-proportions-percentages/content/010-orientation.md#L13-L17",
+      "finding": "The 'Starting check' diagnostic questions (lines 13-17) are written as a plain markdown list instead of utilizing the formal ':::{check}' container directive. More importantly, the scene fails to provide any answers, explanations, or diagnostic feedback for these questions. This prevents learners from verifying whether they possess the starting prerequisite skills or need to follow a recovery route.",
+      "resolution": "Wrap the starting check questions in a ':::{check}' block and supply concrete answers and explanations directly below the block to enable learner self-assessment."
+    },
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-003-ratios-proportions-percentages/content/050-practice.md#L5-L28",
+      "finding": "The practice questions in 'content/050-practice.md' are immediately followed by their solutions in plain text (labeled '**Feedback:**'). Exposing the feedback answers directly under the prompts removes the retrieval requirement and prevents active generation, causing a high risk of false fluency as learners see the answer before attempting to calculate.",
+      "resolution": "Restructure the practice questions to use ':::{check}' containers or another presentation format that separates the prompts from the feedback, ensuring the learner must attempt retrieval before the answers are revealed."
+    },
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-003-ratios-proportions-percentages/content/060-transfer.md#L12-L24",
+      "finding": "The complex multi-step transfer task in 'content/060-transfer.md' is followed immediately by the detailed step-by-step solution under the '## Feedback after a complete attempt' header as plain visible text. Exposing the answers directly below the prompt defeats the purpose of an independent transfer performance where learners are expected to apply the model to a new context without guidance.",
+      "resolution": "Separate the transfer task prompt from the feedback by using a progressive disclosure check container or routing, ensuring the learner attempts the transfer task before the solution is displayed."
+    },
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-003-ratios-proportions-percentages/assessment.json#items",
+      "finding": "Objective 'objective-percent-change' requires the learner to 'Distinguish percent change from percentage-point difference and challenge results with bounds or reverse calculations.' While the assessment evaluates the distinction and reverse calculations, there is no item or prompt in 'assessment.json' that evaluates whether the learner can 'challenge results with bounds' in any context.",
+      "resolution": "Add an assessment item in 'assessment.json' that specifically evaluates the learner's ability to identify and calculate boundary limits (bounds) or challenge results based on boundary assumptions."
+    },
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-003-ratios-proportions-percentages/assessment.json#item-find-whole",
+      "finding": "The 'acceptableResponses' field for 'item-find-whole' contains a meta-level description of what the response should contain ('150 with an equivalent equation and reverse check') rather than actual alternative student inputs. This is also true for 'item-points-versus-percent' ('15 points; 30 percent decrease with the old 50 percent named') and 'item-transfer-groups' ('Equivalent exact fractions or sensibly rounded percentages with all comparison labels'). Literal matching against these description strings will cause automated grading to fail.",
+      "resolution": "Remove the descriptive criteria from the 'acceptableResponses' arrays and move them to the rubrics or descriptions, populating 'acceptableResponses' only with actual string variants of the correct answer (or leave empty if evaluated solely by rubric)."
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-QNT-003-ratios-proportions-percentages/content/030-worked-example.md#L21-L28",
+      "finding": "The answer to the retrieval check 'check-proportional-assumption' is written as plain markdown text directly below the container block (lines 27-28). This exposes the explanation immediately to the learner's view, defeating the purpose of the retrieval prompt.",
+      "resolution": "Move the check answer inside the ':::{check}' container using a syntax or format that enables progressive disclosure or hide the explanation from direct view."
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-QNT-003-ratios-proportions-percentages/assessment.json#item-proportion",
+      "finding": "Objective 'objective-solve-proportion' requires the learner to 'Solve proportional relationships by identifying a constant multiplier and verify the solution by substitution.' However, 'item-proportion' is a simple numeric question that only prompts to solve the equation and accepts the number 35. It does not assess the verification step (substitution) required by the objective.",
+      "resolution": "Convert 'item-proportion' into a short-answer item that prompts the student to show the substitution check, or add a rubric criterion that explicitly scores the verification step."
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-QNT-003-ratios-proportions-percentages/lesson.json",
+      "finding": "The candidate commit matches the expected target. The overall lesson structure, scene order, objectives, and file mappings are correctly declared in the lesson metadata.",
+      "resolution": null
+    }
+  ],
+  "limitations": [
+    "Expert-simulation review: This review represents a single-pass advisory input by a simulated learning-design expert under standard-lesson-v3 guidelines. No real learner testing was conducted.",
+    "Conflict of interest: The same GitHub principal (VSBDev) is responsible for the authoring and review run operators. Agent-level isolation was maintained, but principal-level independence is absent.",
+    "Scope restriction: The review is strictly bounded to learning-design metrics (e.g., clarity, coherence, practice, alignment, and transfer). Scientific accuracy, rights audits, and final typesetting checks are excluded.",
+    "Technical verification limits: No rendered build environment, screen reader, or keyboard navigation pathways were evaluated physically; findings are based solely on the static Markdown and JSON source files."
+  ],
+  "signedAt": "2026-07-22T21:49:50Z"
+}

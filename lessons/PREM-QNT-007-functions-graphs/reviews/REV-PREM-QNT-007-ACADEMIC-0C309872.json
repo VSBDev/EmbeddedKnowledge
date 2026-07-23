@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-QNT-007-ACADEMIC-0C309872",
+  "lessonId": "PREM-QNT-007",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "6a6ce2dc1fc88c58b36b789d3c433c633ac867c0",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable operator, academic reviewer",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-QNT-007-0C309872-BFB6-4DFF-B6B3-DC9EC4092A2D",
+      "instructionsDigest": "sha256:044ded493df0cb45a4710250a0d0e690aa47488925205e7d143d99b0edcca5f8"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#outcomes",
+    "lesson.json#objectives",
+    "lesson.json#scenes",
+    "content/010-orientation.md#The endpoint is not the change",
+    "content/020-concept.md#A graph is a set of input-output claims",
+    "content/030-worked-example.md#Transform a parent rule and verify key points",
+    "content/040-misconception.md#Inside changes run opposite to the sign",
+    "content/050-practice.md#Move among rule, table, and graph language",
+    "content/060-transfer.md#Audit a transformed square-root rule",
+    "content/070-synthesis.md#Rebuild the graph audit",
+    "assessment.json#items",
+    "assessment.json#rubrics",
+    "claims.json#claims",
+    "references.json#source-nist-dlmf-functions",
+    "references.json#source-nist-si-axis",
+    "glossary.json#terms",
+    "ATTRIBUTION.md#Originality, evidence, and rights",
+    "https://dlmf.nist.gov/1.4",
+    "https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-7-rules-and-style-conventions-expressing-values",
+    "https://www.nist.gov/copyrights-disclaimers"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "claims.json#claims",
+      "finding": "The central definition and repeated use of average rate of change are not represented by any claim. The formula and its interpretation appear in scenes orientation, concept, worked-example, practice, transfer, and synthesis, but the three declared claims cover only function notation/composition, axis labeling, and transformation inference. Consequently, the same-scene source notes do not expose evidence for a material quantitative claim that is also a declared objective and assessed mastery requirement.",
+      "resolution": "Add a stable claim for the definition, conditions, units, and interpretation of average rate of change; attach an authoritative source with an exact supporting locator; map the claim to every scene that teaches or reapplies it; and update each affected source note with the complete claim and source IDs."
+    },
+    {
+      "severity": "major",
+      "target": "references.json#source-nist-dlmf-functions",
+      "finding": "The recorded locator does not match the cited source. DLMF section 1.4 is a calculus-of-one-variable reference organized around monotonicity, continuity, derivatives, integrals, maxima, and related topics; direct inspection found no definition of a function, domain treatment, composite-function definition, or graph-transformation rules matching the locator. It therefore does not substantiate claim-function-notation or the premises used for claim-transform-inference, despite those claims supporting nearly every scene.",
+      "resolution": "Replace or supplement this record with authoritative sources that explicitly support the introductory function/domain/composition definitions and algebraic graph transformations. Give exact section locators, then update claims.json and all affected source notes so each source is attached only to claims it actually supports."
+    },
+    {
+      "severity": "major",
+      "target": "assessment.json#items",
+      "finding": "The mastery gate does not fully test its declared objectives. objective-interpret-function promises determination of range, but no range task is mapped to that objective; item-transfer-quadratic asks for a range but is mapped to other objectives. objective-read-graph promises interpretation of intervals and axis scales, yet no mapped item presents a non-unit, offset, or otherwise consequential axis scale, and no item requires an interval interpretation. A learner can therefore pass without demonstrating all performances asserted by the objective mappings.",
+      "resolution": "Add or remap assessment evidence so range is explicitly mapped to objective-interpret-function, and add tasks that require interpreting interval behavior and a consequential labeled axis scale. Keep the answer logic and rubrics sensitive to scale and interval errors."
+    },
+    {
+      "severity": "minor",
+      "target": "content/020-concept.md#Transformations",
+      "finding": "The statement that f(x-h)+k shifts right by h and up by k omits sign conditions. As written for unrestricted h and k, it is false when either parameter is negative; negative h produces a left shift and negative k produces a downward shift.",
+      "resolution": "State the rule conditionally, for example right by h when h is positive and left by |h| when h is negative, with the analogous qualification for k."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#item-transfer-quadratic",
+      "finding": "Independent recalculation confirms the keyed transformations, maximum (-2,8), range p(x) ≤ 8, intercepts x = -6 and x = 2, average rate -1 from -2 to 0, and the proposed verification table. The other numerical and algebraic answer keys were also recalculated without finding a mathematical error.",
+      "resolution": "No change required to these calculations or keyed results."
+    }
+  ],
+  "limitations": [
+    "The requested scope prohibited access to site/, so the graph-node definition, cross-lesson terminology ledger, quorum policy, and review schema were not independently inspected. Outcome scope was judged from lesson.json and the complete candidate pack.",
+    "No repository validation command was run because it would execute prohibited scripts and site paths, and this read-only review did not save an artifact. Structural validation is not evidence for this verdict.",
+    "Both declared sources were directly accessible and neither was marked human-only. The NIST SI Guide section 7.1 supported claim-axis-quantity; the cited DLMF section did not support its recorded locator.",
+    "No conflict of interest was identified. The review competence applied here is introductory real-variable functions, graph interpretation, rates of change, and algebraic transformations."
+  ],
+  "signedAt": "2026-07-22T23:35:15Z"
+}

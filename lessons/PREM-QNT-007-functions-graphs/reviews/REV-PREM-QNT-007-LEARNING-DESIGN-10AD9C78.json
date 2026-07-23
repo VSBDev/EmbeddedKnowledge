@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-QNT-007-LEARNING-DESIGN-10AD9C78",
+  "lessonId": "PREM-QNT-007",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "6a6ce2dc1fc88c58b36b789d3c433c633ac867c0",
+  "role": "learning-design",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev (learning-design reviewer)",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.5",
+      "runId": "agy-learning-design-PREM-QNT-007-10AD9C78-00F2-46E8-A739-281A0988EEF0",
+      "instructionsDigest": "sha256:b31f020bd9960d95dc75c36c1745bbe99d95a9cbb05eb65520eb68f8aca70bc1"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Founding-stage isolation check: the accountable principal VSBDev operates the authoring, review, and finalization agents, so principal-level independence is absent. Agent-level role isolation was strictly maintained: no authoring history, other review output, or adjudication draft was read, and no other EmbeddedKnowledge role script was run during this review execution."
+  },
+  "evidenceChecked": [
+    "lessons/PREM-QNT-007-functions-graphs/lesson.json",
+    "lessons/PREM-QNT-007-functions-graphs/claims.json",
+    "lessons/PREM-QNT-007-functions-graphs/references.json",
+    "lessons/PREM-QNT-007-functions-graphs/glossary.json",
+    "lessons/PREM-QNT-007-functions-graphs/ATTRIBUTION.md",
+    "lessons/PREM-QNT-007-functions-graphs/content/010-orientation.md",
+    "lessons/PREM-QNT-007-functions-graphs/content/020-concept.md",
+    "lessons/PREM-QNT-007-functions-graphs/content/030-worked-example.md",
+    "lessons/PREM-QNT-007-functions-graphs/content/040-misconception.md",
+    "lessons/PREM-QNT-007-functions-graphs/content/050-practice.md",
+    "lessons/PREM-QNT-007-functions-graphs/content/060-transfer.md",
+    "lessons/PREM-QNT-007-functions-graphs/content/070-synthesis.md",
+    "lessons/PREM-QNT-007-functions-graphs/assessment.json",
+    "CONTENT-STANDARD.md",
+    "RIGHTS-POLICY.md"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-007-functions-graphs/content/010-orientation.md#L16-L22",
+      "finding": "The 'Starting check' diagnostic questions (lines 16-22) are formatted as a plain markdown list instead of utilizing the formal ':::{check}' container directive. Additionally, the scene fails to provide any answers, explanations, or diagnostic feedback for these three questions. This prevents learners from verifying if they possess the starting prerequisite skills or need to follow a recovery route.",
+      "resolution": "Wrap the starting check questions in a ':::{check}' block and supply concrete answers and explanations directly below the block to enable learner self-assessment."
+    },
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-007-functions-graphs/content/010-orientation.md#L20",
+      "finding": "The diagnostic question 'Does f(x-4) move the graph of f(x) left or right?' tests function transformations, which is the core target skill of this lesson itself (under objective-transform-function), not a prerequisite skill (listed as algebra/equations). Testing a target skill as a prerequisite is mismatched and can cause early confusion for a novice learner before instruction has occurred, and the lesson lacks a recovery path or answer for this question.",
+      "resolution": "Replace this question in the 'Starting check' with questions that strictly test prerequisite algebra and equations knowledge (e.g., solving linear equations or basic function evaluation), or relocate it to a post-explanation check scene."
+    },
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-007-functions-graphs/content/040-misconception.md#L3-L11",
+      "finding": "The misconception repair sequence in 'content/040-misconception.md' is incomplete. While it states the incorrect model and explains why a horizontal shift behaves opposite to the sign, it fails to elicit a prediction/commitment from the learner, and it fails to recheck the learner on a new case within the scene, violating the repair sequence required by the content standard.",
+      "resolution": "Restructure the scene to include an initial prediction prompt and add a recheck question at the end to verify that the learner has successfully repaired the misconception."
+    },
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-007-functions-graphs/content/050-practice.md#L5-L26",
+      "finding": "The practice questions in 'content/050-practice.md' are immediately followed by their feedback solutions in plain text (labeled '**Feedback:**'). Exposing the answers directly under the prompts removes the retrieval requirement and prevents active generation, causing a high risk of false fluency as learners see the answer before attempting to calculate.",
+      "resolution": "Restructure the practice questions to use ':::{check}' containers or another presentation format that separates the prompts from the feedback, ensuring the learner must attempt retrieval before the answers are revealed."
+    },
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-007-functions-graphs/content/060-transfer.md#L9-L20",
+      "finding": "The transfer task in 'content/060-transfer.md' is immediately followed by its detailed solution under the '## Feedback after a complete attempt' header as plain visible text. Exposing the answer directly below the prompt defeats the purpose of an independent transfer performance where learners are expected to apply the model to a new context without guidance.",
+      "resolution": "Separate the transfer task prompt from the feedback by using a progressive disclosure check container or routing, ensuring the learner attempts the transfer task before the solution is displayed."
+    },
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-007-functions-graphs/content/070-synthesis.md#L9-L15",
+      "finding": "The retrieval questions under the '## Retrieval' header (lines 9-15) are presented without any answers or feedback. This violates the content standard requirement to provide the correct answer and reasoning after a retrieval attempt, meaning the learner cannot verify their mental model.",
+      "resolution": "Add a feedback section or wrap the retrieval questions in a container that provides the correct answers and explanatory reasoning."
+    },
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-007-functions-graphs/assessment.json#item-average-rate",
+      "finding": "The 'acceptableResponses' array for 'item-average-rate' contains the descriptive grading text '-3 with a correct interval interpretation and units' instead of actual alternative student input strings. Automated parsing and grading will attempt an exact match against this descriptive string and fail.",
+      "resolution": "Remove the descriptive criteria from the 'acceptableResponses' array and move it to the rubrics or descriptions, populating 'acceptableResponses' only with actual string variants of the correct answer (or leave empty if evaluated solely by rubric)."
+    },
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-007-functions-graphs/assessment.json#item-transfer-quadratic",
+      "finding": "The 'acceptableResponses' array for 'item-transfer-quadratic' contains the descriptive grading text 'Any correct three-row table containing enough points to verify the maximum and intercepts' instead of actual alternative student input strings. Automated parsing and grading will attempt an exact match against this descriptive string and fail.",
+      "resolution": "Remove the descriptive criteria from the 'acceptableResponses' array and move it to the rubrics or descriptions, populating 'acceptableResponses' only with actual string variants of the correct answer."
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-QNT-007-functions-graphs/content/030-worked-example.md#L38",
+      "finding": "The answer to the retrieval check 'check-key-input' is written as plain markdown text directly below the container block (line 38). This exposes the explanation immediately to the learner's view, defeating the purpose of the retrieval prompt.",
+      "resolution": "Move the check answer inside the ':::{check}' container using a syntax or format that enables progressive disclosure or hide the explanation from direct view."
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-QNT-007-functions-graphs/content/060-transfer.md#L7",
+      "finding": "The transfer task requires calculating the average rate of change from x = 2 to x = 10, but the function h(x) does not define any units for inputs or outputs, unlike other sections and objectives (such as objective-rate-change and items in assessment.json) that emphasize rate calculations with units. This minor alignment gap makes the application of units in the transfer task ambiguous.",
+      "resolution": "Define fictional units for the calibration curve function (e.g., input x in centimeters and output h(x) in volts) to support complete average rate of change calculations with appropriate output-per-input units."
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-QNT-007-functions-graphs/lesson.json",
+      "finding": "The candidate commit matches the expected target. The overall lesson structure, scene order, objectives, and file mappings are correctly declared in the lesson metadata, and the transfer task using a square root function successfully implements outcome-first alignment by varying parent functions from the worked quadratic example.",
+      "resolution": null
+    }
+  ],
+  "limitations": [
+    "Expert-simulation review: This review represents a single-pass advisory input by a simulated learning-design expert under standard-lesson-v3 guidelines. No real learner testing was conducted.",
+    "Conflict of interest: The same GitHub principal (VSBDev) is responsible for the authoring and review run operators. Agent-level isolation was maintained, but principal-level independence is absent.",
+    "Scope restriction: The review is strictly bounded to learning-design metrics (e.g., clarity, coherence, practice, alignment, and transfer). Scientific accuracy, rights audits, and final typesetting checks are excluded.",
+    "Technical verification limits: No rendered build environment, screen reader, or keyboard navigation pathways were evaluated physically; findings are based solely on the static Markdown and JSON source files.",
+    "Cross-lesson terminology validation limit: Direct manual validation of shared glossary terms against site/data/premed-terminology.json was out of scope due to the run's strict restriction against reading files outside the target lesson pack (with the exception of CONTENT-STANDARD.md and RIGHTS-POLICY.md). However, programmatic verification via the validation scripts confirmed that the glossary and terminology alignments are structurally valid."
+  ],
+  "signedAt": "2026-07-22T23:38:00Z"
+}

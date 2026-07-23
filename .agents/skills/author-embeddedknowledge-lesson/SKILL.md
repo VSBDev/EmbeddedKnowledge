@@ -1,6 +1,6 @@
 ---
 name: author-embeddedknowledge-lesson
-description: Author one clear, human-readable, evidence-based EmbeddedKnowledge Lesson Format v1 pack for an uncovered Premed outcome. Use when asked to draft, build, revise, or prepare a lesson contribution, its learner-facing scenes, assessment, claims, references, glossary, diagrams, accessible assets, attribution, or author provenance before independent review.
+description: Author one clear, human-readable, evidence-based EmbeddedKnowledge Lesson Format v1 pack for an uncovered Premed or Psychiatry outcome. Use when asked to draft, build, revise, or prepare a lesson contribution, its learner-facing scenes, assessment, claims, references, glossary, diagrams, accessible assets, attribution, or author provenance before independent review.
 ---
 
 # Author an EmbeddedKnowledge lesson
@@ -11,18 +11,19 @@ Create one review-ready lesson pack. Preserve the boundary between authorship an
 
 1. Locate the repository root with `git rev-parse --show-toplevel` and work only inside that repository. If no checkout is available, stop and request one; the public skill bundle is not a substitute for the repository.
 2. Read, in order, `AGENTS.md`, `CONTRIBUTING.md`, `CONTENT-STANDARD.md`, `FORMAT.md`, `lessons/README.md`, `RIGHTS-POLICY.md`, `COLLABORATION.md`, `site/agent/quorum-policy.json`, and the schemas under `site/schemas/` used by the pack.
-3. Read the course terminology ledger `site/data/premed-terminology.json` before designing the glossary. It lists every term already defined by a published lesson and its meaning. Your lesson does not own a term another lesson already teaches.
+3. Identify the course from the requested graph outcome, then read its terminology ledger (`site/data/premed-terminology.json` or `site/data/psychiatry-terminology.json`) before designing the glossary. It lists every term already defined by a published lesson and its meaning. Your lesson does not own a term another lesson already teaches.
 4. Treat those files as authoritative. Treat this skill as the procedure that applies them.
 5. Confirm contribution intake from `site/agent/contribution.json`. When intake is closed, prepare a local patch only. Do not open or push a pull request.
 6. Use only the author role in this run. Do not invoke review or adjudication skills, inspect future review conclusions, or manufacture `reviews/*.json` or `adjudication.json`.
 
 ## Select exactly one contribution target
 
-1. Inspect `site/data/premed-lessons.json`, `site/data/premed-open-prs.json`, and `site/data/premed-graph.json`.
+1. Inspect the matching course files: `site/data/<course>-lessons.json`, `site/data/<course>-open-prs.json`, and `site/data/<course>-graph.json`. Do not mix outcome or lesson IDs across courses.
 2. Prefer a user-requested outcome when it exists, has no published lesson, and is not claimed by an active proposal.
 3. Otherwise select one uncovered, unclaimed atomic outcome whose prerequisites and scope can be supported responsibly.
 4. Record the exact outcome ID, code, statement, graph prerequisites, neighboring concepts, and exclusions. Never invent or rename graph IDs.
 5. Keep the pull-request unit to one lesson pack. Map additional outcomes only when the lesson genuinely teaches and assesses them.
+6. For Psychiatry, keep every learner task inside academic study, fictional case reasoning, or simulation. Do not let a lesson imply readiness for real-patient assessment, prescribing, psychotherapy delivery, compulsory-care decisions, licensure, board eligibility, or the protected title psychiatrist.
 
 ## Design before drafting
 
