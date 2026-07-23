@@ -1,31 +1,31 @@
-# Audit a near-square scaling model
+# Combine scaling rules in microscope calibration
 
-A fictional process returns approximate observations:
+An idealized microscope calibration treats the field of view as a square. At magnification $M=40$, its side length is $w=0.60$ mm. The supplied calibration says that multiplying $M$ by a factor $c$ divides $w$ by the same factor.
 
-| Input $x$ | Observed $y$ | $y/x^2$ |
-| ---: | ---: | ---: |
-| 1 | 6.1 | 6.100 |
-| 2 | 24.2 | 6.050 |
-| 4 | 95.5 | 5.969 |
-| 8 | 386.0 | 6.031 |
+Without converting the prompt into a data table:
 
-Assess the candidate model $\widehat y=6x^2$ and predict at $x=6$.
+1. Identify, write, and parameterize the model for $w$ as a function of $M$.
+2. Combine that model with $A=w^2$ to identify the power exponent relating square field area $A$ to magnification.
+3. Predict the side length and area at $M=60$.
+4. State which supplied assumptions must remain true for the calculation to apply.
 
 ## Feedback after a complete attempt
 
-The near-constant $y/x^2$ values support a square-law candidate with $p=2$ and $k\approx6$. Model predictions for the observed inputs are 6, 24, 96, and 384. Residuals $y-\widehat y$ are 0.1, 0.2, -0.5, and 2.0.
+The inverse invariant is $Mw=40(0.60)=24$, so
 
-At $x=6$,
+$$w=\frac{24}{M}.$$
 
-$$\widehat y=6(6^2)=216.$$
+Because $A=w^2$,
 
-This is interpolation because 6 lies between observed inputs 4 and 8. The largest absolute residual occurs at $x=8$, but residual size should also be judged against response scale and measurement context. The model is an economical summary, not proof of a mechanism.
+$$A=\left(\frac{24}{M}\right)^2=576M^{-2}.$$
 
-All values are fictional, and the calculation is not forecasting or engineering advice.
+The combined exponent is $p=-2$: multiplying magnification by a factor multiplies area by the reciprocal square of that factor. At $M=60$, $w=24/60=0.40$ mm and $A=(0.40)^2=0.16$ square millimetres ($0.16$ mm$^2$).
+
+This result depends on both supplied assumptions: inverse calibration for side length and an unchanged square field geometry. The calculation says nothing about unmodeled instrument behavior or a specimen. The setting and values are fictional training material, not laboratory or clinical guidance.
 
 :::{source-note}
-:claims: claim-power-law-scaling, claim-invariants, claim-log-linearization, claim-model-checking
+:claims: claim-power-law-scaling, claim-invariants, claim-model-checking
 :sources: source-nist-dlmf-powers, source-nist-scatterplot, source-nist-transformations
 
-The dataset, candidate, residual audit, prediction, and boundary statement are original.
+The calibration premise, composed model, prediction, and boundary statement are original.
 :::

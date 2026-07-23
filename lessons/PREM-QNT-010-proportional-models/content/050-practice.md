@@ -1,5 +1,7 @@
 # Test invariants before fitting
 
+For each prompt, cover or skip past its feedback and commit to an answer first. Then compare your method, not only your final number.
+
 ## 1. Direct model
 
 An exact model gives $y=18$ when $x=6$ and is directly proportional. Find $k$ and predict $y$ at $x=10$.
@@ -22,7 +24,7 @@ If $y=kx^{3/2}$, by what factor does $y$ change when $x$ is multiplied by 4?
 
 Base-10 log coordinates include $(0,1)$ and $(2,4)$. Find the power exponent.
 
-**Feedback:** $p=(4-1)/(2-0)=1.5$. The intercept is 1, so $k=10$ in the declared units.
+**Feedback:** $p=(4-1)/(2-0)=1.5$. The intercept is 1, so $k=10$.
 
 ## Recovery route
 
@@ -30,7 +32,7 @@ Base-10 log coordinates include $(0,1)$ and $(2,4)$. Find the power exponent.
 - Constant changes across rows: distinguish exact data from rounded or noisy observations and inspect residuals.
 - Exponent sign wrong: ask whether response rises or falls as positive input grows.
 - Log-log intercept misread: convert $\log k$ back to $k$ using the same base.
-- Prediction seems precise but lies outside the data range: label it extrapolation and state the assumption.
+- Residuals show a pattern: reconsider the candidate family or its assumptions before retrying.
 
 :::{source-note}
 :claims: claim-power-law-scaling, claim-invariants, claim-log-linearization, claim-model-checking

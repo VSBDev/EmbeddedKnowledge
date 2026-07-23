@@ -3,12 +3,18 @@
 :::{misconception}
 :id: misconception-smooth-means-direct
 
-A response that changes smoothly with an input is not necessarily directly proportional. Direct proportionality specifically requires $y=kx$, so $y/x$ must be constant and the model gives zero response at zero input.
+Before reading further, commit to an answer: the coordinates $(2,8)$, $(4,4)$, and $(8,2)$ form a smooth, predictable decrease. Does that make the relationship directly proportional? Which calculation will decide?
 
-For coordinates $(2,8)$, $(4,4)$, and $(8,2)$, the response decreases smoothly. The ratios are 4, 1, and 0.25, but every product is 16. These coordinates support $y=16/x$, not a direct model.
+A tempting shortcut is “smooth and predictable means directly proportional.” Test that shortcut rather than accepting it. The ratios $y/x$ are 4, 1, and 0.25, so the direct invariant fails. Every product $xy$ is 16, so the inverse invariant succeeds.
+
+The repair is specific: direct proportionality requires $y/x$ to remain constant, whereas inverse proportionality requires $xy$ to remain constant. These coordinates support $y=16/x$, not a direct model.
 :::
 
-For approximate observations, compare candidate invariants and residuals rather than demanding exact equality. A convincing fit still does not prove causation, erase measurement uncertainty, or authorize extrapolation outside the observed range.
+For approximate observations, compare candidate invariants and residuals rather than demanding exact equality. A convincing fit still does not prove causation or erase measurement uncertainty.
+
+**Recheck before reading the feedback:** For $(3,18)$, $(6,9)$, and $(9,6)$, is the relationship direct or inverse? Calculate the deciding invariant.
+
+**Recheck feedback:** The ratios are 6, 1.5, and $2/3$, while every product is 54. The relationship is inverse: $y=54/x$.
 
 :::{source-note}
 :claims: claim-power-law-scaling, claim-invariants, claim-model-checking

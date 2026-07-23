@@ -1,6 +1,6 @@
 # Identify a model by what stays invariant
 
-In this lesson a *model* means one of the fitted quantitative relationships below — a narrow, quantitative case of the scientific models from the science block, judged by fit and residuals rather than by mechanism.
+In this lesson a *model* means one of the fitted quantitative relationships below: an economical description judged by fit and residuals, not a claim about mechanism.
 
 Three related families can be written as power laws.
 
@@ -12,17 +12,15 @@ Three related families can be written as power laws.
 
 Direct and inverse models are the cases $p=1$ and $p=-1$. A power with $p=0$ is constant with respect to $x$, not directly proportional.
 
-## Parameters and units
+## Parameters from exact points
 
-For two exact positive points on a power law,
+For two exact points with positive responses and distinct positive inputs $x_1\ne x_2$, use the same valid logarithm base throughout:
 
 $$\frac{y_2}{y_1}=\left(\frac{x_2}{x_1}\right)^p,$$
 
 so
 
 $$p=\frac{\log(y_2/y_1)}{\log(x_2/x_1)},\qquad k=\frac{y_1}{x_1^p}.$$
-
-The units of $k$ are response units divided by input units raised to $p$. A numerical value for $k$ is incomplete without the variable definitions and units.
 
 ## Log-log linearization
 
@@ -34,7 +32,7 @@ Thus coordinates $(\log x,\log y)$ follow a line with slope $p$ and intercept $\
 
 ## Checking a candidate
 
-A scatterplot can expose relationship structure, but shape alone does not establish a law. Calculate fitted values $\widehat y$ and residuals $e=y-\widehat y$; look for systematic sign patterns, changing spread, or influential points. Prefer predictions inside the observed domain. Extrapolation assumes the same relationship continues beyond evidence.
+A scatterplot can expose relationship structure, but shape alone does not establish a law. Calculate fitted values $\widehat y$ and residuals $e=y-\widehat y$; look for systematic sign patterns, changing spread, or influential points. Interpret the candidate within its declared assumptions; a close fit alone does not establish causation.
 
 :::{source-note}
 :claims: claim-power-law-scaling, claim-invariants, claim-log-linearization, claim-model-checking

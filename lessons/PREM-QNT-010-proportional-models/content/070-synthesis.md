@@ -1,10 +1,10 @@
 # Rebuild the proportional-model audit
 
-1. Define variables, units, domain, and whether observations are exact or approximate.
+1. Define variables, assumptions, and whether observations are exact or approximate.
 2. Identify candidates using $y/x$, $xy$, $y/x^p$, or scale-factor behavior.
-3. Parameterize $k$ and $p$; state the units of $k$.
+3. Parameterize $k$ and $p$ from exact data, or evaluate supplied parameters against approximate observations.
 4. Predict, then compare fitted values and residuals with observations.
-5. Check log-log behavior only for positive values and label interpolation versus extrapolation.
+5. Check log-log behavior only for positive values and interpret a close fit within the declared assumptions.
 
 ## Retrieval
 
