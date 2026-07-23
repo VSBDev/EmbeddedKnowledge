@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-QNT-009-ACADEMIC-10A6C8DA-0047-4A8F-9DAD-54FFC8311DD3",
+  "lessonId": "PREM-QNT-009",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "f6c936f1401be42cad2eea2d347e5a1354550cc9",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable operator and academic reviewer",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-QNT-009-10A6C8DA-0047-4A8F-9DAD-54FFC8311DD3",
+      "instructionsDigest": "sha256:0b12fdcf9995ee726d550c04b014b5452724b66e551eacb798dfb3e9f1b21c08"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#id,version,outcomes,prerequisites,objectives,scenes",
+    "content/010-orientation.md#direction-survives-the-arithmetic",
+    "content/020-concept.md#represent-vectors-with-signed-components",
+    "content/030-worked-example.md#worked-example-directed-span",
+    "content/040-misconception.md#misconception-add-magnitudes",
+    "content/050-practice.md#choose-signs-before-calculating",
+    "content/060-transfer.md#audit-a-two-vector-route",
+    "content/070-synthesis.md#rebuild-the-vector-audit",
+    "assessment.json#item-vector-arithmetic",
+    "assessment.json#item-magnitude-unit",
+    "assessment.json#item-resolve-angle",
+    "assessment.json#item-dot-angle",
+    "assessment.json#item-projection",
+    "assessment.json#item-transfer-resultant",
+    "assessment.json#rubrics",
+    "claims.json#claim-vector-components",
+    "claims.json#claim-vector-norm",
+    "claims.json#claim-dot-product",
+    "claims.json#claim-direction-components",
+    "references.json#source-nist-dlmf-vectors, checked against [NIST DLMF §1.6](https://dlmf.nist.gov/1.6)",
+    "glossary.json#terms",
+    "ATTRIBUTION.md#originality-evidence-and-rights"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "assessment.json#item-magnitude-unit",
+      "finding": "The chosen vector (-2,3,6) has component sum -2+3+6=7, exactly equal to its Euclidean norm 7. Consequently, the listed common error of using the unsquared component sum produces the accepted magnitude, the accepted normalization divisor, the accepted unit vector, and a successful magnitude-one check. Because rubric-magnitude-unit scores the resulting value, unit vector, and check without requiring the sum-of-squares method, a learner can receive full credit while using the false rule the item is meant to diagnose.",
+      "resolution": "Use components whose ordinary signed sum differs from their Euclidean norm and recompute the answer, rubric, and common-error record, or explicitly require and score a valid sum-of-squares norm calculation so the false shortcut cannot satisfy the item."
+    },
+    {
+      "severity": "major",
+      "target": "content/020-concept.md#opening-definitions; glossary.json#term-scalar; glossary.json#term-vector",
+      "finding": "The central scalar-vector distinction is not mathematically defensible as written. Defining a scalar as having or being represented by magnitude alone conflicts with term-magnitude's explicitly nonnegative meaning and with this lesson's own signed scalar projections; scalars can be negative. Defining every vector as having both magnitude and direction also excludes the zero vector, even though the lesson correctly identifies the zero vector as a vector with no unique direction. These definitions directly support objective-represent-vectors, so the boundary error affects the mapped outcome rather than optional wording.",
+      "resolution": "Define a scalar as a single numerical quantity, possibly signed, that has no vector direction, and define vectors through their vector-space/component behavior while stating that only nonzero Euclidean vectors determine a unique direction. Make the concept prose and glossary definitions mutually consistent."
+    },
+    {
+      "severity": "major",
+      "target": "claims.json#claims",
+      "finding": "The claim ledger omits material statements that learners are expected to use: the distance-versus-displacement distinction in content/010-orientation.md, the scalar-versus-vector distinction in content/020-concept.md, and the triangle inequality and its equality condition in content/040-misconception.md, content/060-transfer.md, content/070-synthesis.md, and assessment.json#item-transfer-resultant. The sole cited locator, NIST DLMF §1.6.1–1.6.8, covers vector components, dot product, norm, angle, and unit vectors but does not support the physics-specific distance/displacement distinction or the triangle-inequality material. Existing source notes name other claims instead, leaving central definitions and an assessed audit rule without an exact same-scene evidence trail.",
+      "resolution": "Add narrowly stated claims and authoritative references with exact locators for the omitted definitions and triangle inequality, map them to every scene where they are taught or applied, and update the corresponding source notes. Ensure the triangle-bound claim is also traceable from item-transfer-resultant."
+    },
+    {
+      "severity": "minor",
+      "target": "content/040-misconception.md#misconception-add-magnitudes",
+      "finding": "The statement that equality in the triangle inequality requires the vectors to point in the same direction omits the zero-vector cases. If either vector is zero, equality holds although the zero vector has no direction. For two nonzero Euclidean vectors, the precise equality condition is that one is a nonnegative scalar multiple of the other.",
+      "resolution": "Qualify the same-direction statement as applying to two nonzero vectors and state or acknowledge the zero-vector boundary case."
+    },
+    {
+      "severity": "minor",
+      "target": "claims.json#claim-dot-product.sceneIds; claims.json#claim-direction-components.sceneIds",
+      "finding": "The scene mappings overstate where claims occur. claim-dot-product maps scene-worked-example and scene-transfer even though neither scene uses a dot product or projection. claim-direction-components maps scene-misconception and scene-practice even though those scenes do not teach or apply direction-angle resolution. Their source notes repeat the same unrelated IDs, making the ledger appear complete while pointing to content that is absent.",
+      "resolution": "Remove the unrelated scene IDs and source-note claim IDs, or add substantive learner-visible use of those claims in the named scenes. Keep claim mappings limited to places where the material statement is actually taught, repeated, or applied."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#item-transfer-resultant",
+      "finding": "Independent recomputation confirms the numerical key: A=(-7.5,12.990381...), R=(-2.5,8.990381...), magnitude 9.331503..., direction 105.539918 degrees, and horizontal scalar projection -2.5. The other worked, practice, transfer, and assessment arithmetic was also recomputed and agrees with the stated rounded answers.",
+      "resolution": "No numerical correction is required."
+    }
+  ],
+  "limitations": [
+    "Per the supplied review scope, site/data/premed-terminology.json and the graph-node record were not read, so cross-lesson terminology continuity and graph identity could not be independently checked.",
+    "The NIST DLMF source was reachable and its relevant section headings and locators were inspected, but the review interface did not expose its displayed formula glyphs as text; all lesson calculations and mathematical relations were therefore also checked independently.",
+    "No other lesson pack, authoring conversation, review conclusion, or adjudication draft was consulted."
+  ],
+  "signedAt": "2026-07-23T00:27:37Z"
+}

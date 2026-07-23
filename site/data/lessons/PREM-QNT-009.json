@@ -1,0 +1,734 @@
+{
+  "schemaVersion": 3,
+  "format": "embeddedknowledge-lesson-v1",
+  "artifactType": "production-lesson",
+  "id": "PREM-QNT-009",
+  "version": "0.1.0",
+  "title": "Resolve, combine, reconstruct: vectors and components",
+  "status": "published",
+  "riskTier": "standard",
+  "estimatedMinutes": 90,
+  "outcomes": [
+    "topic-quantitative-foundations-vectors"
+  ],
+  "prerequisites": [
+    "topic-quantitative-foundations-geometry-trigonometry"
+  ],
+  "objectives": [
+    {
+      "id": "objective-represent-vectors",
+      "statement": "Distinguish scalars from vectors and represent two- and three-dimensional vectors using signed components, coordinates, and unit-vector notation.",
+      "outcomeIds": [
+        "topic-quantitative-foundations-vectors"
+      ]
+    },
+    {
+      "id": "objective-vector-arithmetic",
+      "statement": "Add, subtract, and scale vectors componentwise and interpret the resulting direction in a stated coordinate convention.",
+      "outcomeIds": [
+        "topic-quantitative-foundations-vectors"
+      ]
+    },
+    {
+      "id": "objective-resolve-reconstruct",
+      "statement": "Resolve magnitude-and-direction descriptions into components and reconstruct magnitude and direction with quadrant-aware checks.",
+      "outcomeIds": [
+        "topic-quantitative-foundations-vectors"
+      ]
+    },
+    {
+      "id": "objective-dot-product",
+      "statement": "Use unit vectors and the dot product to test alignment, recover an angle, and calculate a scalar projection.",
+      "outcomeIds": [
+        "topic-quantitative-foundations-vectors"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene-orientation",
+      "title": "Direction survives the arithmetic",
+      "kind": "orientation",
+      "source": "content/010-orientation.md",
+      "estimatedMinutes": 10,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Direction survives the arithmetic</h1>\n<p>A fictional route moves 8 units east and then 6 units north. One report calls the net change 14 units because <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>8</mn><mo>+</mo><mn>6</mn><mo>=</mo><mn>14</mn></mrow><annotation encoding=\"application/x-tex\">8+6=14</annotation></semantics></math></span>.</p>\n<p>The two legs total 14 units, but the vector from start to finish is not found by adding their lengths. With east as positive horizontal and north as positive vertical, its components are <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>8,6</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(8,6)</annotation></semantics></math></span> and its magnitude is</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><msqrt><mrow><msup><mn>8</mn><mn>2</mn></msup><mo>+</mo><msup><mn>6</mn><mn>2</mn></msup></mrow></msqrt><mo>=</mo><mn>10</mn><mtext> units</mtext><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">\\sqrt{8^2+6^2}=10\\text{ units}.</annotation></semantics></math></div>\n<p>Its direction is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>atan2</mi><mo>⁡</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>6,8</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>≈</mo><msup><mn>36.87</mn><mo>∘</mo></msup></mrow><annotation encoding=\"application/x-tex\">\\operatorname{atan2}(6,8)\\approx36.87^\\circ</annotation></semantics></math></span> north of east. The direction did not disappear when the two legs were combined.</p>\n<p>This lesson uses a four-part vector audit: <strong>resolve</strong> every vector into signed components, <strong>combine</strong> matching components, <strong>reconstruct</strong> magnitude and direction, then <strong>check</strong> signs, units, and bounds.</p>\n<h2>Starting check</h2>\n<ul>\n<li>Is temperature alone a scalar or a vector?</li>\n<li>What sign should a westward horizontal component have if east is positive?</li>\n<li>Can two nonzero vectors add to the zero vector?</li>\n</ul>\n<p>If a spatial description is difficult, replace it with an axis convention and a component table before calculating.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-scalar-vector, claim-vector-components, claim-vector-norm, claim-direction-components</span><span><b>sources</b> source-nist-dlmf-vectors</span></div>\n    <div class=\"ek-block-content\"><p>NIST DLMF records the scalar/vector, component, norm, and angle relations used here. The route and audit are original.</p>\n</div>\n  </aside>\n<h2>Accessibility and alternatives</h2>\n<p>Every essential vector is given through words, signed component pairs, coordinates, and equations. No task requires seeing an arrow, estimating direction visually, using color, or dragging an object.</p>\n"
+    },
+    {
+      "id": "scene-concept",
+      "title": "Represent vectors with signed components",
+      "kind": "concept",
+      "source": "content/020-concept.md",
+      "estimatedMinutes": 20,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Represent vectors with signed components</h1>\n<p>In this lesson, a <strong>scalar</strong> is one real numerical value. It may be positive, zero, or negative and has no vector direction. A <strong>vector</strong> is a mathematical object that can be added to another vector and multiplied by scalars; once Cartesian axes are declared, a vector <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>𝐯</mi><annotation encoding=\"application/x-tex\">\\mathbf v</annotation></semantics></math></span> can be written as</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mi>𝐯</mi><mo>=</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><msub><mi>v</mi><mi>x</mi></msub><mo separator=\"true\">,</mo><msub><mi>v</mi><mi>y</mi></msub><mo separator=\"true\">,</mo><msub><mi>v</mi><mi>z</mi></msub><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>=</mo><msub><mi>v</mi><mi>x</mi></msub><mi>𝐢</mi><mo>+</mo><msub><mi>v</mi><mi>y</mi></msub><mi>𝐣</mi><mo>+</mo><msub><mi>v</mi><mi>z</mi></msub><mi>𝐤</mi><mo separator=\"true\">,</mo></mrow><annotation encoding=\"application/x-tex\">\\mathbf v=(v_x,v_y,v_z)=v_x\\mathbf i+v_y\\mathbf j+v_z\\mathbf k,</annotation></semantics></math></div>\n<p>where <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>𝐢</mi><mo separator=\"true\">,</mo><mi>𝐣</mi><mo separator=\"true\">,</mo><mi>𝐤</mi></mrow><annotation encoding=\"application/x-tex\">\\mathbf i,\\mathbf j,\\mathbf k</annotation></semantics></math></span> are unit vectors along the positive axes. Components are signed: a negative <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msub><mi>v</mi><mi>x</mi></msub><annotation encoding=\"application/x-tex\">v_x</annotation></semantics></math></span> points opposite the positive horizontal direction. Every Euclidean vector has a nonnegative magnitude, but only a nonzero vector determines a unique direction.</p>\n<h2>Arithmetic and magnitude</h2>\n<p>For <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>𝐮</mi><mo>=</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><msub><mi>u</mi><mi>x</mi></msub><mo separator=\"true\">,</mo><msub><mi>u</mi><mi>y</mi></msub><mo separator=\"true\">,</mo><msub><mi>u</mi><mi>z</mi></msub><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\mathbf u=(u_x,u_y,u_z)</annotation></semantics></math></span> and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>𝐯</mi><mo>=</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><msub><mi>v</mi><mi>x</mi></msub><mo separator=\"true\">,</mo><msub><mi>v</mi><mi>y</mi></msub><mo separator=\"true\">,</mo><msub><mi>v</mi><mi>z</mi></msub><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\mathbf v=(v_x,v_y,v_z)</annotation></semantics></math></span>,</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mi>𝐮</mi><mo lspace=\"0.2222em\" rspace=\"0.2222em\">±</mo><mi>𝐯</mi><mo>=</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><msub><mi>u</mi><mi>x</mi></msub><mo lspace=\"0.2222em\" rspace=\"0.2222em\">±</mo><msub><mi>v</mi><mi>x</mi></msub><mo separator=\"true\">,</mo><msub><mi>u</mi><mi>y</mi></msub><mo lspace=\"0.2222em\" rspace=\"0.2222em\">±</mo><msub><mi>v</mi><mi>y</mi></msub><mo separator=\"true\">,</mo><msub><mi>u</mi><mi>z</mi></msub><mo lspace=\"0.2222em\" rspace=\"0.2222em\">±</mo><msub><mi>v</mi><mi>z</mi></msub><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo separator=\"true\">,</mo></mrow><annotation encoding=\"application/x-tex\">\\mathbf u\\mathbin{\\pm}\\mathbf v=(u_x\\mathbin{\\pm}v_x,u_y\\mathbin{\\pm}v_y,u_z\\mathbin{\\pm}v_z),</annotation></semantics></math></div>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mi>c</mi><mi>𝐯</mi><mo>=</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mi>c</mi><msub><mi>v</mi><mi>x</mi></msub><mo separator=\"true\">,</mo><mi>c</mi><msub><mi>v</mi><mi>y</mi></msub><mo separator=\"true\">,</mo><mi>c</mi><msub><mi>v</mi><mi>z</mi></msub><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo separator=\"true\">,</mo><mspace width=\"2em\"></mspace><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">‖</mo><mi>𝐯</mi><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">‖</mo></mrow><mo>=</mo><msqrt><mrow><msubsup><mi>v</mi><mi>x</mi><mn class=\"tml-sml-pad\">2</mn></msubsup><mo>+</mo><msubsup><mi>v</mi><mi>y</mi><mn class=\"tml-sml-pad\">2</mn></msubsup><mo>+</mo><msubsup><mi>v</mi><mi>z</mi><mn class=\"tml-sml-pad\">2</mn></msubsup></mrow></msqrt><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">c\\mathbf v=(cv_x,cv_y,cv_z),\\qquad\n\\lVert\\mathbf v\\rVert=\\sqrt{v_x^2+v_y^2+v_z^2}.</annotation></semantics></math></div>\n<p>The two-dimensional forms use the same rules with the <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>z</mi><annotation encoding=\"application/x-tex\">z</annotation></semantics></math></span> components omitted.</p>\n<p>For nonzero <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>𝐯</mi><annotation encoding=\"application/x-tex\">\\mathbf v</annotation></semantics></math></span>, its direction unit vector is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mover><mi>𝐯</mi><mo stretchy=\"true\" style=\"math-depth:0;\">^</mo></mover><mo>=</mo><mi>𝐯</mi><mi>/</mi><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">‖</mo><mi>𝐯</mi><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">‖</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\widehat{\\mathbf v}=\\mathbf v/\\lVert\\mathbf v\\rVert</annotation></semantics></math></span>. The zero vector has magnitude zero but no unique direction, so it cannot be normalized.</p>\n<h2>Resolve and reconstruct</h2>\n<p>Declare that <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>θ</mi><annotation encoding=\"application/x-tex\">\\theta</annotation></semantics></math></span> is measured counterclockwise from the positive horizontal axis. A vector with magnitude <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>r</mi><annotation encoding=\"application/x-tex\">r</annotation></semantics></math></span> then has</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><msub><mi>v</mi><mi>x</mi></msub><mo>=</mo><mi>r</mi><mrow><mspace width=\"0.1667em\"></mspace><mi>cos</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mi>θ</mi><mo separator=\"true\">,</mo><mspace width=\"2em\"></mspace><msub><mi>v</mi><mi>y</mi></msub><mo>=</mo><mi>r</mi><mrow><mspace width=\"0.1667em\"></mspace><mi>sin</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mi>θ</mi><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">v_x=r\\cos\\theta,\\qquad v_y=r\\sin\\theta.</annotation></semantics></math></div>\n<p>Reconstruct with <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>r</mi><mo>=</mo><msqrt><mrow><msubsup><mi>v</mi><mi>x</mi><mn class=\"tml-sml-pad\">2</mn></msubsup><mo>+</mo><msubsup><mi>v</mi><mi>y</mi><mn class=\"tml-sml-pad\">2</mn></msubsup></mrow></msqrt></mrow><annotation encoding=\"application/x-tex\">r=\\sqrt{v_x^2+v_y^2}</annotation></semantics></math></span> and a quadrant-aware two-argument inverse tangent, <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>θ</mi><mo>=</mo><mi>atan2</mi><mo>⁡</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><msub><mi>v</mi><mi>y</mi></msub><mo separator=\"true\">,</mo><msub><mi>v</mi><mi>x</mi></msub><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\theta=\\operatorname{atan2}(v_y,v_x)</annotation></semantics></math></span>. The vertical component is the first argument and the horizontal component is the second, so both signs are available for choosing the quadrant. For directions reported from <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mn>0</mn><mo form=\"prefix\" stretchy=\"false\">∘</mo></msup><annotation encoding=\"application/x-tex\">0^\\circ</annotation></semantics></math></span> through <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mn>360</mn><mo>∘</mo></msup><annotation encoding=\"application/x-tex\">360^\\circ</annotation></semantics></math></span>, start with the principal value of <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mrow><mi>arctan</mi><mo>⁡</mo></mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><msub><mi>v</mi><mi>y</mi></msub><mi>/</mi><msub><mi>v</mi><mi>x</mi></msub><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\arctan(v_y/v_x)</annotation></semantics></math></span>: add <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mn>180</mn><mo>∘</mo></msup><annotation encoding=\"application/x-tex\">180^\\circ</annotation></semantics></math></span> when <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>v</mi><mi>x</mi></msub><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">v_x&lt;0</annotation></semantics></math></span>, and add <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mn>360</mn><mo>∘</mo></msup><annotation encoding=\"application/x-tex\">360^\\circ</annotation></semantics></math></span> when <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>v</mi><mi>x</mi></msub><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">v_x&gt;0</annotation></semantics></math></span> but the principal value is negative. If <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>v</mi><mi>x</mi></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">v_x=0</annotation></semantics></math></span>, the direction is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mn>90</mn><mo>∘</mo></msup><annotation encoding=\"application/x-tex\">90^\\circ</annotation></semantics></math></span> for <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>v</mi><mi>y</mi></msub><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">v_y&gt;0</annotation></semantics></math></span> or <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mn>270</mn><mo>∘</mo></msup><annotation encoding=\"application/x-tex\">270^\\circ</annotation></semantics></math></span> for <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>v</mi><mi>y</mi></msub><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">v_y&lt;0</annotation></semantics></math></span>. The zero vector has no direction. The two-argument function performs these quadrant choices directly.</p>\n<h2>Dot product</h2>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mi>𝐮</mi><mrow><mspace width=\"0.2222em\"></mspace><mo form=\"prefix\" stretchy=\"false\" lspace=\"0em\" rspace=\"0em\" style=\"font-weight:bold;\">⋅</mo><mspace width=\"0.2222em\"></mspace></mrow><mi>𝐯</mi><mo>=</mo><msub><mi>u</mi><mi>x</mi></msub><msub><mi>v</mi><mi>x</mi></msub><mo>+</mo><msub><mi>u</mi><mi>y</mi></msub><msub><mi>v</mi><mi>y</mi></msub><mo>+</mo><msub><mi>u</mi><mi>z</mi></msub><msub><mi>v</mi><mi>z</mi></msub><mo>=</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">‖</mo><mi>𝐮</mi><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">‖</mo></mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">‖</mo><mi>𝐯</mi><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">‖</mo></mrow><mrow><mi>cos</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mi>ϕ</mi><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">\\mathbf u\\mathbin{\\boldsymbol\\cdot}\\mathbf v=u_xv_x+u_yv_y+u_zv_z\n=\\lVert\\mathbf u\\rVert\\lVert\\mathbf v\\rVert\\cos\\phi.</annotation></semantics></math></div>\n<p>In two dimensions, omit the <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>z</mi><annotation encoding=\"application/x-tex\">z</annotation></semantics></math></span> term.</p>\n<p>The sign describes alignment: positive for an acute included angle, zero for perpendicular nonzero vectors, and negative for an obtuse angle. If <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mover><mi>𝐝</mi><mo stretchy=\"true\" style=\"math-depth:0;\">^</mo></mover><annotation encoding=\"application/x-tex\">\\widehat{\\mathbf d}</annotation></semantics></math></span> is a unit direction, <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>𝐯</mi><mrow><mspace width=\"0.2222em\"></mspace><mo form=\"prefix\" stretchy=\"false\" lspace=\"0em\" rspace=\"0em\" style=\"font-weight:bold;\">⋅</mo><mspace width=\"0.2222em\"></mspace></mrow><mover><mi>𝐝</mi><mo stretchy=\"true\" style=\"math-depth:0;\">^</mo></mover></mrow><annotation encoding=\"application/x-tex\">\\mathbf v\\mathbin{\\boldsymbol\\cdot}\\widehat{\\mathbf d}</annotation></semantics></math></span> is the signed scalar projection of <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>𝐯</mi><annotation encoding=\"application/x-tex\">\\mathbf v</annotation></semantics></math></span> along it.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-scalar-vector, claim-vector-components, claim-vector-norm, claim-dot-product, claim-direction-components</span><span><b>sources</b> source-nist-dlmf-vectors</span></div>\n    <div class=\"ek-block-content\"><p>NIST DLMF supports the scalar/vector boundary and the component, unit-vector, scalar-product, norm, and angle relations used here. The resolve-combine-reconstruct-check organization is original synthesis.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-worked-example",
+      "title": "Resolve and reconstruct a directed span",
+      "kind": "worked-example",
+      "source": "content/030-worked-example.md",
+      "estimatedMinutes": 15,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Resolve and reconstruct a directed span</h1>\n<p>A fictional directed span has magnitude 20 units at <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mn>140</mn><mo>∘</mo></msup><annotation encoding=\"application/x-tex\">140^\\circ</annotation></semantics></math></span>, measured counterclockwise from the positive horizontal axis. Resolve it, normalize it, and reconstruct its magnitude and direction.</p>\n<aside class=\"ek-block ek-worked-example ek-block--worked-example\" data-directive=\"worked-example\">\n    <div class=\"ek-block-label directive-label\">Worked Example</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> worked-example-directed-span</span></div>\n    <div class=\"ek-block-content\"><p><strong>1. Predict signs.</strong> An angle of <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mn>140</mn><mo>∘</mo></msup><annotation encoding=\"application/x-tex\">140^\\circ</annotation></semantics></math></span> is in quadrant II, so the horizontal component must be negative and the vertical component positive.</p>\n<p><strong>2. Resolve.</strong></p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><msub><mi>v</mi><mi>x</mi></msub><mo>=</mo><mn>20</mn><mrow><mspace width=\"0.1667em\"></mspace><mi>cos</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><msup><mn>140</mn><mo>∘</mo></msup><mo>≈</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>15.321</mn><mo separator=\"true\">,</mo></mrow><annotation encoding=\"application/x-tex\">v_x=20\\cos140^\\circ\\approx-15.321,</annotation></semantics></math></div>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><msub><mi>v</mi><mi>y</mi></msub><mo>=</mo><mn>20</mn><mrow><mspace width=\"0.1667em\"></mspace><mi>sin</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><msup><mn>140</mn><mo>∘</mo></msup><mo>≈</mo><mn>12.856.</mn></mrow><annotation encoding=\"application/x-tex\">v_y=20\\sin140^\\circ\\approx12.856.</annotation></semantics></math></div>\n<p>Thus <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>𝐯</mi><mo>≈</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>15.321,12.856</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\mathbf v\\approx(-15.321,12.856)</annotation></semantics></math></span> units.</p>\n<p><strong>3. Normalize.</strong> Divide by magnitude 20:</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mover><mi>𝐯</mi><mo stretchy=\"true\" style=\"math-depth:0;\">^</mo></mover><mo>≈</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>0.7660,0.6428</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">\\widehat{\\mathbf v}\\approx(-0.7660,0.6428).</annotation></semantics></math></div>\n<p><strong>4. Reconstruct magnitude.</strong></p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><msqrt><mrow><msup><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>15.321</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mn>2</mn></msup><mo>+</mo><msup><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>12.856</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mn>2</mn></msup></mrow></msqrt><mo>≈</mo><mn>20.</mn></mrow><annotation encoding=\"application/x-tex\">\\sqrt{(-15.321)^2+(12.856)^2}\\approx20.</annotation></semantics></math></div>\n<p><strong>5. Reconstruct direction.</strong></p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mi>atan2</mi><mo>⁡</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>12.856</mn><mo separator=\"true\">,</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>15.321</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>≈</mo><msup><mn>140</mn><mo>∘</mo></msup><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">\\operatorname{atan2}(12.856,-15.321)\\approx140^\\circ.</annotation></semantics></math></div>\n<p><strong>6. Check.</strong> The unit-vector components have squared sum about 1; the signs match quadrant II; neither component magnitude exceeds the vector magnitude.</p>\n</div>\n  </aside>\n<h2>Use a dot product and a scalar projection</h2>\n<p>Let <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>𝐩</mi><mo>=</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>2,3</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\mathbf p=(2,3)</annotation></semantics></math></span> and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>𝐪</mi><mo>=</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>1,4</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\mathbf q=(-1,4)</annotation></semantics></math></span>. Their dot product is</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mi>𝐩</mi><mrow><mspace width=\"0.2222em\"></mspace><mo form=\"prefix\" stretchy=\"false\" lspace=\"0em\" rspace=\"0em\" style=\"font-weight:bold;\">⋅</mo><mspace width=\"0.2222em\"></mspace></mrow><mi>𝐪</mi><mo>=</mo><mn>2</mn><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>1</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>+</mo><mn>3</mn><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>4</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>=</mo><mn>10.</mn></mrow><annotation encoding=\"application/x-tex\">\\mathbf p\\mathbin{\\boldsymbol\\cdot}\\mathbf q=2(-1)+3(4)=10.</annotation></semantics></math></div>\n<p>Because the result is positive, the included angle is acute. More precisely,</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mrow><mi>cos</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mi>ϕ</mi><mo>=</mo><mfrac><mn>10</mn><mrow><msqrt><mn>13</mn></msqrt><msqrt><mn>17</mn></msqrt></mrow></mfrac><mo separator=\"true\">,</mo><mspace width=\"2em\"></mspace><mi>ϕ</mi><mo>≈</mo><msup><mn>47.7</mn><mo>∘</mo></msup><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">\\cos\\phi=\\frac{10}{\\sqrt{13}\\sqrt{17}},\\qquad \\phi\\approx47.7^\\circ.</annotation></semantics></math></div>\n<p>For the unit direction <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mover><mi>𝐝</mi><mo stretchy=\"true\" style=\"math-depth:0;\">^</mo></mover><mo>=</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>3</mn><mi>/</mi><mn>5,4</mn><mi>/</mi><mn>5</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\widehat{\\mathbf d}=(3/5,4/5)</annotation></semantics></math></span>, first check that <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>3</mn><mi>/</mi><mn>5</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mn>2</mn></msup><mo>+</mo><msup><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>4</mn><mi>/</mi><mn>5</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mn>2</mn></msup><mo>=</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">(3/5)^2+(4/5)^2=1</annotation></semantics></math></span>. The signed scalar projection of <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>𝐩</mi><annotation encoding=\"application/x-tex\">\\mathbf p</annotation></semantics></math></span> along that direction is</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mi>𝐩</mi><mrow><mspace width=\"0.2222em\"></mspace><mo form=\"prefix\" stretchy=\"false\" lspace=\"0em\" rspace=\"0em\" style=\"font-weight:bold;\">⋅</mo><mspace width=\"0.2222em\"></mspace></mrow><mover><mi>𝐝</mi><mo stretchy=\"true\" style=\"math-depth:0;\">^</mo></mover><mo>=</mo><mfrac><mn>6</mn><mn>5</mn></mfrac><mo>+</mo><mfrac><mn>12</mn><mn>5</mn></mfrac><mo>=</mo><mfrac><mn>18</mn><mn>5</mn></mfrac><mo>=</mo><mn>3.6.</mn></mrow><annotation encoding=\"application/x-tex\">\\mathbf p\\mathbin{\\boldsymbol\\cdot}\\widehat{\\mathbf d}=\\frac{6}{5}+\\frac{12}{5}=\\frac{18}{5}=3.6.</annotation></semantics></math></div>\n<p>The positive sign means that <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>𝐩</mi><annotation encoding=\"application/x-tex\">\\mathbf p</annotation></semantics></math></span> has a component along <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mover><mi>𝐝</mi><mo stretchy=\"true\" style=\"math-depth:0;\">^</mo></mover><annotation encoding=\"application/x-tex\">\\widehat{\\mathbf d}</annotation></semantics></math></span> rather than opposite it.</p>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-quadrant-aware-direction</span></div>\n    <div class=\"ek-block-content\"><p>Why is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mrow><mi>arctan</mi><mo>⁡</mo></mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>12.856</mn><mi>/</mi><mo>−</mo><mn>15.321</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>≈</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><msup><mn>40</mn><mo>∘</mo></msup></mrow><annotation encoding=\"application/x-tex\">\\arctan(12.856/-15.321)\\approx-40^\\circ</annotation></semantics></math></span> not the final direction here?</p>\n</div>\n  </aside>\n<p>The ratio alone cannot distinguish quadrant II from quadrant IV. Because the horizontal component is negative, add <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mn>180</mn><mo>∘</mo></msup><annotation encoding=\"application/x-tex\">180^\\circ</annotation></semantics></math></span> to the principal value: <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo form=\"prefix\" stretchy=\"false\">−</mo><msup><mn>40</mn><mo>∘</mo></msup><mo>+</mo><msup><mn>180</mn><mo>∘</mo></msup><mo>=</mo><msup><mn>140</mn><mo>∘</mo></msup></mrow><annotation encoding=\"application/x-tex\">-40^\\circ+180^\\circ=140^\\circ</annotation></semantics></math></span>.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-vector-components, claim-vector-norm, claim-dot-product, claim-direction-components</span><span><b>sources</b> source-nist-dlmf-vectors</span></div>\n    <div class=\"ek-block-content\"><p>The directed span, values, solution, and checks are original applications of the sourced relations.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-misconception",
+      "title": "Add components, not magnitudes",
+      "kind": "misconception",
+      "source": "content/040-misconception.md",
+      "estimatedMinutes": 10,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Add components, not magnitudes</h1>\n<aside class=\"ek-block ek-misconception ek-block--misconception\" data-directive=\"misconception\">\n    <div class=\"ek-block-label directive-label\">Misconception</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> misconception-add-magnitudes</span></div>\n    <div class=\"ek-block-content\"><p><strong>1. Predict.</strong> Two moves are <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>𝐮</mi><mo>=</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>3,0</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\mathbf u=(3,0)</annotation></semantics></math></span> and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>𝐯</mi><mo>=</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>0,4</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\mathbf v=(0,4)</annotation></semantics></math></span>. Before continuing, commit to a prediction: is the magnitude of <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>𝐮</mi><mo>+</mo><mi>𝐯</mi></mrow><annotation encoding=\"application/x-tex\">\\mathbf u+\\mathbf v</annotation></semantics></math></span> equal to <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn><mo>+</mo><mn>4</mn><mo>=</mo><mn>7</mn></mrow><annotation encoding=\"application/x-tex\">3+4=7</annotation></semantics></math></span>?</p>\n<p><strong>2. Name the tempting model.</strong> The incorrect shortcut is “add the magnitudes to get the magnitude of the sum.” It ignores the directions encoded by the components.</p>\n<p><strong>3. Test it.</strong> Component addition gives <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>𝐮</mi><mo>+</mo><mi>𝐯</mi><mo>=</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>3,4</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\mathbf u+\\mathbf v=(3,4)</annotation></semantics></math></span>, whose magnitude is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msqrt><mrow><msup><mn>3</mn><mn>2</mn></msup><mo>+</mo><msup><mn>4</mn><mn>2</mn></msup></mrow></msqrt><mo>=</mo><mn>5</mn></mrow><annotation encoding=\"application/x-tex\">\\sqrt{3^2+4^2}=5</annotation></semantics></math></span>, not 7. An even sharper counterexample uses <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>𝐮</mi><mo>=</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>3,0</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\mathbf u=(3,0)</annotation></semantics></math></span> and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>𝐯</mi><mo>=</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>3,0</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\mathbf v=(-3,0)</annotation></semantics></math></span>: both magnitudes are 3, but</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mi>𝐮</mi><mo>+</mo><mi>𝐯</mi><mo>=</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>0,0</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo separator=\"true\">,</mo><mspace width=\"2em\"></mspace><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">‖</mo><mi>𝐮</mi><mo>+</mo><mi>𝐯</mi><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">‖</mo></mrow><mo>=</mo><mn>0.</mn></mrow><annotation encoding=\"application/x-tex\">\\mathbf u+\\mathbf v=(0,0),\\qquad\\lVert\\mathbf u+\\mathbf v\\rVert=0.</annotation></semantics></math></div>\n<p><strong>4. Explain the failure.</strong> A magnitude is nonnegative, so it discards the signs that distinguish reinforcement, partial cancellation, and complete cancellation.</p>\n<p><strong>5. Repair the model.</strong> Resolve first, add corresponding signed components, and only then reconstruct the magnitude. The triangle inequality</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">‖</mo><mi>𝐮</mi><mo>+</mo><mi>𝐯</mi><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">‖</mo></mrow><mo>≤</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">‖</mo><mi>𝐮</mi><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">‖</mo></mrow><mo>+</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">‖</mo><mi>𝐯</mi><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">‖</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\lVert\\mathbf u+\\mathbf v\\rVert\\leq\\lVert\\mathbf u\\rVert+\\lVert\\mathbf v\\rVert</annotation></semantics></math></div>\n<p>is a check, not a universal equality. For two nonzero Euclidean vectors, equality holds exactly when one is a positive scalar multiple of the other, so they point in the same direction. Equality also holds if either vector is zero, even though the zero vector has no direction.</p>\n<p><strong>6. Recheck.</strong> For <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>𝐚</mi><mo>=</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>2,0</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\mathbf a=(2,0)</annotation></semantics></math></span> and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>𝐛</mi><mo>=</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>0,2</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\mathbf b=(0,2)</annotation></semantics></math></span>, decide whether the resultant magnitude is 4 before reading the feedback.</p>\n<p><strong>Feedback:</strong> <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>𝐚</mi><mo>+</mo><mi>𝐛</mi><mo>=</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>2,2</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\mathbf a+\\mathbf b=(2,2)</annotation></semantics></math></span> and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">‖</mo><mi>𝐚</mi><mo>+</mo><mi>𝐛</mi><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">‖</mo></mrow><mo>=</mo><mn>2</mn><msqrt><mn>2</mn></msqrt></mrow><annotation encoding=\"application/x-tex\">\\lVert\\mathbf a+\\mathbf b\\rVert=2\\sqrt{2}</annotation></semantics></math></span>, so the sum-of-magnitudes shortcut fails again.</p>\n</div>\n  </aside>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-vector-components, claim-vector-norm, claim-triangle-inequality</span><span><b>sources</b> source-nist-dlmf-vectors</span></div>\n    <div class=\"ek-block-content\"><p>The prediction sequence, counterexamples, and repair are original teaching expression based on standard component arithmetic, norms, and the triangle inequality.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-practice",
+      "title": "Choose signs before calculating",
+      "kind": "practice",
+      "source": "content/050-practice.md",
+      "estimatedMinutes": 15,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Choose signs before calculating</h1>\n<p>Pause at each prompt and write or say an answer before continuing to its feedback. In print, cover the feedback if useful; with a screen reader, stop after the prompt and resume only after committing to an answer.</p>\n<h2>1. Add and scale</h2>\n<p>Let <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>𝐚</mi><mo>=</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>2</mn><mo separator=\"true\">,</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>5</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\mathbf a=(2,-5)</annotation></semantics></math></span> and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>𝐛</mi><mo>=</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>7,3</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\mathbf b=(-7,3)</annotation></semantics></math></span>. Find <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mi>𝐚</mi><mo>+</mo><mi>𝐛</mi></mrow><annotation encoding=\"application/x-tex\">2\\mathbf a+\\mathbf b</annotation></semantics></math></span>.</p>\n<p><strong>Feedback:</strong> <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mi>𝐚</mi><mo>+</mo><mi>𝐛</mi><mo>=</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>4</mn><mo separator=\"true\">,</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>10</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>+</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>7,3</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>=</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>3</mn><mo separator=\"true\">,</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>7</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">2\\mathbf a+\\mathbf b=(4,-10)+(-7,3)=(-3,-7)</annotation></semantics></math></span>.</p>\n<h2>2. Normalize</h2>\n<p>Find a unit vector in the direction of <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>6,8</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(6,8)</annotation></semantics></math></span>.</p>\n<p><strong>Feedback:</strong> The magnitude is 10, so the unit vector is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>0.6,0.8</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(0.6,0.8)</annotation></semantics></math></span>. Its magnitude is 1.</p>\n<h2>3. Test perpendicularity</h2>\n<p>Are <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>3,4</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(3,4)</annotation></semantics></math></span> and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>4,3</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(-4,3)</annotation></semantics></math></span> perpendicular?</p>\n<p><strong>Feedback:</strong> Their dot product is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>4</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>+</mo><mn>4</mn><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>3</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">3(-4)+4(3)=0</annotation></semantics></math></span>. Because both are nonzero, they are perpendicular.</p>\n<h2>4. Project onto a direction</h2>\n<p>Let <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>𝐯</mi><mo>=</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>6,2</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\mathbf v=(6,2)</annotation></semantics></math></span> and let <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mover><mi>𝐝</mi><mo stretchy=\"true\" style=\"math-depth:0;\">^</mo></mover><mo>=</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>3</mn><mi>/</mi><mn>5,4</mn><mi>/</mi><mn>5</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\widehat{\\mathbf d}=(3/5,4/5)</annotation></semantics></math></span>. Find the signed scalar projection of <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>𝐯</mi><annotation encoding=\"application/x-tex\">\\mathbf v</annotation></semantics></math></span> along <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mover><mi>𝐝</mi><mo stretchy=\"true\" style=\"math-depth:0;\">^</mo></mover><annotation encoding=\"application/x-tex\">\\widehat{\\mathbf d}</annotation></semantics></math></span>.</p>\n<p><strong>Feedback:</strong> <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>𝐯</mi><mrow><mspace width=\"0.2222em\"></mspace><mo form=\"prefix\" stretchy=\"false\" lspace=\"0em\" rspace=\"0em\" style=\"font-weight:bold;\">⋅</mo><mspace width=\"0.2222em\"></mspace></mrow><mover><mi>𝐝</mi><mo stretchy=\"true\" style=\"math-depth:0;\">^</mo></mover><mo>=</mo><mn>18</mn><mi>/</mi><mn>5</mn><mo>+</mo><mn>8</mn><mi>/</mi><mn>5</mn><mo>=</mo><mn>26</mn><mi>/</mi><mn>5</mn><mo>=</mo><mn>5.2</mn></mrow><annotation encoding=\"application/x-tex\">\\mathbf v\\mathbin{\\boldsymbol\\cdot}\\widehat{\\mathbf d}=18/5+8/5=26/5=5.2</annotation></semantics></math></span> units. Check first that <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mover><mi>𝐝</mi><mo stretchy=\"true\" style=\"math-depth:0;\">^</mo></mover><annotation encoding=\"application/x-tex\">\\widehat{\\mathbf d}</annotation></semantics></math></span> has magnitude 1.</p>\n<h2>Recovery route</h2>\n<ul>\n<li>Wrong resultant: align vectors by axis and add matching signed components.</li>\n<li>Wrong quadrant: predict component signs before using trigonometry.</li>\n<li>Unit vector does not have magnitude 1: divide every component by the original magnitude.</li>\n<li>Dot product returned a vector: multiply corresponding components and add to obtain one scalar.</li>\n<li>Angle formula fails: check for a zero vector before dividing by magnitudes.</li>\n</ul>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-vector-components, claim-vector-norm, claim-dot-product</span><span><b>sources</b> source-nist-dlmf-vectors</span></div>\n    <div class=\"ek-block-content\"><p>All practice, feedback, and recovery guidance are original.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-transfer",
+      "title": "Audit a changed angle convention",
+      "kind": "transfer",
+      "source": "content/060-transfer.md",
+      "estimatedMinutes": 10,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Audit a changed angle convention</h1>\n<p>A fictional imaging-stage calibration records vector <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>𝐚</mi><annotation encoding=\"application/x-tex\">\\mathbf a</annotation></semantics></math></span> as 12 units at <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mn>30</mn><mo>∘</mo></msup><annotation encoding=\"application/x-tex\">30^\\circ</annotation></semantics></math></span> clockwise from the positive vertical axis. Its component system uses positive horizontal to the right and positive vertical upward. A draft calculation treated the angle as if it were measured counterclockwise from the positive horizontal axis. After <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>𝐚</mi><annotation encoding=\"application/x-tex\">\\mathbf a</annotation></semantics></math></span>, the stage applies <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>𝐛</mi><mo>=</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>4,7</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\mathbf b=(-4,7)</annotation></semantics></math></span> units. Audit the convention error, then find the correct resultant vector, magnitude, and standard direction measured counterclockwise from positive horizontal.</p>\n<h2>Feedback after a complete attempt</h2>\n<p>Changing the reference axis changes which trigonometric function gives each component. Here,</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mi>𝐚</mi><mo>=</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>12</mn><mrow><mspace width=\"0.1667em\"></mspace><mi>sin</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><msup><mn>30</mn><mo>∘</mo></msup><mo separator=\"true\">,</mo><mn>12</mn><mrow><mspace width=\"0.1667em\"></mspace><mi>cos</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><msup><mn>30</mn><mo>∘</mo></msup><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>≈</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>6,10.392</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">\\mathbf a=(12\\sin30^\\circ,12\\cos30^\\circ)\\approx(6,10.392).</annotation></semantics></math></div>\n<p>The draft pair <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>10.392,6</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(10.392,6)</annotation></semantics></math></span> has the expected positive signs, so a sign check alone would not expose the swapped angle convention.</p>\n<p>Combine componentwise:</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mi>𝐫</mi><mo>=</mo><mi>𝐚</mi><mo>+</mo><mi>𝐛</mi><mo>≈</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>2,17.392</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">\\mathbf r=\\mathbf a+\\mathbf b\\approx(2,17.392).</annotation></semantics></math></div>\n<p>Reconstruct:</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">‖</mo><mi>𝐫</mi><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">‖</mo></mrow><mo>≈</mo><msqrt><mrow><msup><mn>2</mn><mn>2</mn></msup><mo>+</mo><msup><mn>17.392</mn><mn>2</mn></msup></mrow></msqrt><mo>≈</mo><mn>17.507</mn><mtext> units</mtext><mo separator=\"true\">,</mo></mrow><annotation encoding=\"application/x-tex\">\\lVert\\mathbf r\\rVert\\approx\\sqrt{2^2+17.392^2}\\approx17.507\\text{ units},</annotation></semantics></math></div>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mi>θ</mi><mo>=</mo><mi>atan2</mi><mo>⁡</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>17.392,2</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>≈</mo><msup><mn>83.44</mn><mo>∘</mo></msup><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">\\theta=\\operatorname{atan2}(17.392,2)\\approx83.44^\\circ.</annotation></semantics></math></div>\n<p>Both resultant components are positive, so quadrant I is consistent. The magnitude is below <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>12</mn><mo>+</mo><msqrt><mn>65</mn></msqrt><mo>≈</mo><mn>20.06</mn></mrow><annotation encoding=\"application/x-tex\">12+\\sqrt{65}\\approx20.06</annotation></semantics></math></span>, satisfying the triangle bound. Units remain units, not square units. The transferable rule is to project onto the declared axes rather than attach cosine permanently to the horizontal component.</p>\n<p>The calibration setting is fictional and is not equipment guidance.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-vector-components, claim-vector-norm, claim-direction-components, claim-triangle-inequality</span><span><b>sources</b> source-nist-dlmf-vectors</span></div>\n    <div class=\"ek-block-content\"><p>The calibration setting, convention error, numbers, reconstruction, and boundary statement are original.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-synthesis",
+      "title": "Rebuild the vector audit",
+      "kind": "synthesis",
+      "source": "content/070-synthesis.md",
+      "estimatedMinutes": 10,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Rebuild the vector audit</h1>\n<ol>\n<li>Declare axes, positive directions, angle reference, and units.</li>\n<li>Resolve every vector into signed components.</li>\n<li>Combine corresponding components; do not add magnitudes unless direction justifies it.</li>\n<li>Reconstruct magnitude with the Euclidean norm and direction with a quadrant-aware inverse tangent.</li>\n<li>Check signs, units, normalization, triangle bounds, and dot-product meaning.</li>\n</ol>\n<h2>Retrieval</h2>\n<ul>\n<li>How does a scalar differ from a vector?</li>\n<li>Why is the zero vector impossible to normalize?</li>\n<li>What does the sign of a dot product reveal?</li>\n<li>Why can one-argument arctangent give the wrong direction?</li>\n</ul>\n<p>Complete <code>assessment.json</code>. If component signs fail, return to the axis convention. If magnitude fails, redo component arithmetic before taking the norm. If a sketch feels essential, replace it with a component table and named positive directions before retrying.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-scalar-vector, claim-vector-components, claim-vector-norm, claim-dot-product, claim-direction-components, claim-triangle-inequality</span><span><b>sources</b> source-nist-dlmf-vectors</span></div>\n    <div class=\"ek-block-content\"><p>The synthesis applies sourced vector relations through an original resolve-combine-reconstruct-check method.</p>\n</div>\n  </aside>\n"
+    }
+  ],
+  "authors": [
+    {
+      "principalId": "github:VSBDev",
+      "displayName": "VSBDev — accountable author with Codex assistance",
+      "agent": {
+        "system": "Codex desktop",
+        "provider": "OpenAI",
+        "model": "gpt-5.6-sol",
+        "version": "Codex desktop runtime 2026-07-22",
+        "runId": "b5cd8128-08e9-4703-b010-6a2c9517860b",
+        "instructionsDigest": "sha256:22631682e0debb33cf35140988223bd466e2a26bcb4cea4c18031a9ec8691b64"
+      }
+    }
+  ],
+  "license": "CC-BY-4.0",
+  "sourceConfidence": "medium-high",
+  "aiAssistance": {
+    "used": true,
+    "disclosure": "VSBDev (github:VSBDev) is accountable. OpenAI Codex, model gpt-5.6-sol, authored, researched, edited, and packaged this lesson in run b5cd8128-08e9-4703-b010-6a2c9517860b. The digest covers discloseable material task instructions, not hidden system or provider instructions."
+  },
+  "assessment": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-assessment-v1",
+    "lessonId": "PREM-QNT-009",
+    "lessonVersion": "0.1.0",
+    "assessmentId": "assessment-vector-audit",
+    "title": "Vectors and components mastery gate",
+    "purpose": "mastery-gate",
+    "attemptPolicy": {
+      "retakeable": true,
+      "timeLimitMinutes": null,
+      "feedback": "after-attempt"
+    },
+    "items": [
+      {
+        "id": "item-vector-arithmetic",
+        "type": "short-answer",
+        "sceneId": "scene-synthesis",
+        "objectiveIds": [
+          "objective-represent-vectors",
+          "objective-vector-arithmetic"
+        ],
+        "outcomeIds": [
+          "topic-quantitative-foundations-vectors"
+        ],
+        "prompt": "Given u = (4,-2,5) and v = (-1,6,3), calculate 2u - v and state what each entry represents.",
+        "points": 4,
+        "responseSpec": {
+          "mode": "text",
+          "maxLength": 900
+        },
+        "answer": {
+          "correct": "2u - v = (8,-4,10) - (-1,6,3) = (9,-10,7). Each entry is the signed component along the corresponding declared coordinate axis.",
+          "summary": "(9,-10,7), with entries interpreted as signed axis components.",
+          "reasoning": "Vector scaling and subtraction are performed component by component.",
+          "acceptableResponses": [],
+          "commonErrors": [
+            "Subtracting u from v",
+            "Ignoring the negative first component of v",
+            "Treating entries as three magnitudes"
+          ]
+        },
+        "rubricId": "rubric-vector-arithmetic",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-magnitude-unit",
+        "type": "short-answer",
+        "sceneId": "scene-synthesis",
+        "objectiveIds": [
+          "objective-represent-vectors",
+          "objective-resolve-reconstruct"
+        ],
+        "outcomeIds": [
+          "topic-quantitative-foundations-vectors"
+        ],
+        "prompt": "For w = (-2,3,6), show a sum-of-squares norm calculation, find its magnitude and a unit vector in its direction, and include a normalization check.",
+        "points": 5,
+        "responseSpec": {
+          "mode": "text",
+          "maxLength": 1100
+        },
+        "answer": {
+          "correct": "The magnitude is sqrt(4+9+36) = 7. A unit vector is (-2/7,3/7,6/7). Its squared component sum is (4+9+36)/49 = 1.",
+          "summary": "Magnitude 7; unit vector (-2/7,3/7,6/7).",
+          "reasoning": "The Euclidean norm is the square root of the squared-component sum; division by that norm produces magnitude one.",
+          "acceptableResponses": [],
+          "commonErrors": [
+            "Using the coincidentally equal signed component sum -2+3+6=7 without a sum-of-squares norm calculation",
+            "Dividing by 49",
+            "Dropping the negative sign"
+          ]
+        },
+        "rubricId": "rubric-magnitude-unit",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-resolve-angle",
+        "type": "short-answer",
+        "sceneId": "scene-synthesis",
+        "objectiveIds": [
+          "objective-resolve-reconstruct"
+        ],
+        "outcomeIds": [
+          "topic-quantitative-foundations-vectors"
+        ],
+        "prompt": "A vector has magnitude 10 at 210 degrees counterclockwise from the positive horizontal axis. Resolve it into components and verify the quadrant and reconstructed magnitude.",
+        "points": 5,
+        "responseSpec": {
+          "mode": "text",
+          "maxLength": 1300
+        },
+        "answer": {
+          "correct": "Components are (10cos210°,10sin210°) = (-5sqrt(3),-5), approximately (-8.660,-5). Both signs are negative, matching quadrant III. The reconstructed magnitude is sqrt(75+25) = 10.",
+          "summary": "(-5sqrt(3),-5), with magnitude 10 in quadrant III.",
+          "reasoning": "Cosine and sine give horizontal and vertical components under the stated convention.",
+          "acceptableResponses": [
+            "Decimal components within 0.01 with both checks"
+          ],
+          "commonErrors": [
+            "Using a 30-degree first-quadrant sign pattern",
+            "Swapping components",
+            "Reporting the angle in the wrong quadrant"
+          ]
+        },
+        "rubricId": "rubric-resolve-angle",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-dot-angle",
+        "type": "short-answer",
+        "sceneId": "scene-synthesis",
+        "objectiveIds": [
+          "objective-dot-product"
+        ],
+        "outcomeIds": [
+          "topic-quantitative-foundations-vectors"
+        ],
+        "prompt": "For a = (1,2) and b = (2,-1), calculate the dot product and interpret the included angle.",
+        "points": 4,
+        "responseSpec": {
+          "mode": "text",
+          "maxLength": 800
+        },
+        "answer": {
+          "correct": "a dot b = 1(2)+2(-1)=0. Both vectors are nonzero, so their included angle is 90 degrees and they are perpendicular.",
+          "summary": "Dot product 0; the vectors are perpendicular.",
+          "reasoning": "For nonzero Euclidean vectors, a zero dot product makes cosine of the included angle zero.",
+          "acceptableResponses": [],
+          "commonErrors": [
+            "Returning a component pair",
+            "Calling zero evidence of parallel vectors",
+            "Failing to note that both vectors are nonzero"
+          ]
+        },
+        "rubricId": "rubric-dot-angle",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-projection",
+        "type": "short-answer",
+        "sceneId": "scene-synthesis",
+        "objectiveIds": [
+          "objective-dot-product"
+        ],
+        "outcomeIds": [
+          "topic-quantitative-foundations-vectors"
+        ],
+        "prompt": "Let v = (4,-1) and unit direction d-hat = (3/5,4/5). Find the signed scalar projection of v along d-hat and interpret its sign.",
+        "points": 4,
+        "responseSpec": {
+          "mode": "text",
+          "maxLength": 900
+        },
+        "answer": {
+          "correct": "v dot d-hat = 12/5 - 4/5 = 8/5 = 1.6. The positive sign means v has a component in the d-hat direction rather than opposite it.",
+          "summary": "Scalar projection 1.6, positive alignment.",
+          "reasoning": "Dotting with a unit direction returns signed length along that direction.",
+          "acceptableResponses": [],
+          "commonErrors": [
+            "Returning the vector (12/5,-4/5)",
+            "Dividing by the unit vector again",
+            "Ignoring the sign interpretation"
+          ]
+        },
+        "rubricId": "rubric-projection",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-transfer-resultant",
+        "type": "open-response",
+        "sceneId": "scene-synthesis",
+        "objectiveIds": [
+          "objective-represent-vectors",
+          "objective-vector-arithmetic",
+          "objective-resolve-reconstruct",
+          "objective-dot-product"
+        ],
+        "outcomeIds": [
+          "topic-quantitative-foundations-vectors"
+        ],
+        "prompt": "A fictional microscope-stage log uses x positive right and y positive up. Move A is 15 units at 120 degrees clockwise from positive vertical; move B = (5,-4). A draft analysis treated A's angle as 120 degrees counterclockwise from positive horizontal. Correct that convention error, calculate R = A+B, find R's magnitude and standard direction counterclockwise from positive horizontal, and find its scalar projection along positive horizontal. Audit signs, units, and the triangle bound.",
+        "points": 10,
+        "responseSpec": {
+          "mode": "text",
+          "maxLength": 3400
+        },
+        "answer": {
+          "correct": "Because the angle is measured clockwise from positive vertical, A = (15sin120°,15cos120°) = (15sqrt(3)/2,-7.5), approximately (12.990,-7.5). R is approximately (17.990,-11.5). Its magnitude is approximately 21.352 units and atan2(-11.5,17.990) gives -32.59 degrees, equivalent to 327.41 degrees counterclockwise from positive horizontal. Projection along positive horizontal unit vector (1,0) is approximately 17.990 units. R is in quadrant IV, component and angle signs agree, units remain linear, and 21.352 is below 15 + sqrt(41), approximately 21.403, satisfying the triangle bound.",
+          "summary": "R approximately (17.990,-11.5), magnitude 21.352, direction 327.41 degrees, horizontal projection 17.990.",
+          "reasoning": "Translate the clockwise-from-positive-vertical convention into x = r sin(theta) and y = r cos(theta), add corresponding signed components, reconstruct with norm and atan2, and dot with (1,0).",
+          "acceptableResponses": [
+            "Numerical values within rounding tolerance of 0.05 with the corrected angle convention, all requested interpretations, and checks"
+          ],
+          "commonErrors": [
+            "Adding magnitudes",
+            "Using horizontal-axis cosine/sine ordering for A",
+            "Rejecting the equivalent negative atan2 angle instead of converting it to the requested 0-to-360-degree convention",
+            "Giving square units for magnitude"
+          ]
+        },
+        "rubricId": "rubric-transfer-resultant",
+        "safetyCritical": false
+      }
+    ],
+    "rubrics": [
+      {
+        "id": "rubric-vector-arithmetic",
+        "title": "Component representation and arithmetic",
+        "criteria": [
+          {
+            "id": "criterion-arithmetic-result",
+            "description": "Calculates the correct three signed components.",
+            "maxPoints": 3
+          },
+          {
+            "id": "criterion-arithmetic-meaning",
+            "description": "Interprets entries as components along declared axes.",
+            "maxPoints": 1
+          }
+        ]
+      },
+      {
+        "id": "rubric-magnitude-unit",
+        "title": "Magnitude and normalization",
+        "criteria": [
+          {
+            "id": "criterion-magnitude-value",
+            "description": "Shows a valid sum-of-squares norm calculation and obtains magnitude 7.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-unit-vector",
+            "description": "Obtains the correctly signed unit vector.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-unit-check",
+            "description": "Verifies magnitude one.",
+            "maxPoints": 1
+          }
+        ]
+      },
+      {
+        "id": "rubric-resolve-angle",
+        "title": "Resolve and reconstruct",
+        "criteria": [
+          {
+            "id": "criterion-resolve-components",
+            "description": "Obtains both exact or accurate components.",
+            "maxPoints": 3
+          },
+          {
+            "id": "criterion-resolve-signs",
+            "description": "Checks quadrant III signs.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-resolve-magnitude",
+            "description": "Reconstructs magnitude 10.",
+            "maxPoints": 1
+          }
+        ]
+      },
+      {
+        "id": "rubric-dot-angle",
+        "title": "Dot product and angle",
+        "criteria": [
+          {
+            "id": "criterion-dot-value",
+            "description": "Calculates dot product zero.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-dot-interpret",
+            "description": "Interprets perpendicularity for nonzero vectors.",
+            "maxPoints": 2
+          }
+        ]
+      },
+      {
+        "id": "rubric-projection",
+        "title": "Scalar projection",
+        "criteria": [
+          {
+            "id": "criterion-projection-value",
+            "description": "Calculates 8/5 or 1.6.",
+            "maxPoints": 3
+          },
+          {
+            "id": "criterion-projection-sign",
+            "description": "Interprets positive alignment.",
+            "maxPoints": 1
+          }
+        ]
+      },
+      {
+        "id": "rubric-transfer-resultant",
+        "title": "Independent vector audit",
+        "criteria": [
+          {
+            "id": "criterion-transfer-resolve",
+            "description": "Translates the clockwise-from-positive-vertical convention and resolves A with correct signs.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-transfer-resultant",
+            "description": "Calculates the resultant components.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-transfer-reconstruct",
+            "description": "Obtains magnitude and quadrant-aware direction.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-transfer-project",
+            "description": "Calculates and interprets horizontal projection.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-transfer-audit",
+            "description": "Checks signs, units, and triangle bound.",
+            "maxPoints": 2
+          }
+        ]
+      }
+    ]
+  },
+  "references": {
+    "schemaVersion": 2,
+    "format": "embeddedknowledge-references-v2",
+    "lessonId": "PREM-QNT-009",
+    "lessonVersion": "0.1.0",
+    "sources": [
+      {
+        "id": "source-nist-dlmf-vectors",
+        "type": "reference-work",
+        "title": "NIST Digital Library of Mathematical Functions, Chapter 1, §§1.2(v) and 1.6(i)",
+        "creators": [
+          "National Institute of Standards and Technology"
+        ],
+        "publisher": "National Institute of Standards and Technology",
+        "issued": "2010",
+        "url": "https://dlmf.nist.gov/1",
+        "accessed": "2026-07-23",
+        "version": "DLMF web edition accessed 2026-07-23",
+        "locator": "§1.2(v), especially equations 1.2.38–1.2.52: vectors, scalar products, Euclidean norm, normalization, Cauchy–Schwarz equality, and triangle inequality; §1.6(i), especially equations 1.6.1–1.6.6: three-dimensional components, unit vectors, dot product, norm, and angle",
+        "license": "NIST public technical reference under NIST Copyrights & Disclaimers; third-party contributions and cited works excluded",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Only standard vector definitions, relations, and inequalities are used. All explanations, contexts, examples, values, checks, and assessments are original."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://www.nist.gov/copyrights-disclaimers",
+          "checked": "2026-07-22",
+          "notes": "NIST rights and public robots routes were checked before DLMF access; no source-specific agent restriction, login, paywall, or access-control barrier was found."
+        }
+      }
+    ]
+  },
+  "claims": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-claims-v1",
+    "lessonId": "PREM-QNT-009",
+    "lessonVersion": "0.1.0",
+    "claims": [
+      {
+        "id": "claim-scalar-vector",
+        "statement": "Within this lesson's real Cartesian setting, a scalar is one real numerical value, whereas a vector is represented by an ordered component tuple and follows vector addition and scalar multiplication; the zero vector is valid but has no unique direction.",
+        "sceneIds": [
+          "scene-orientation",
+          "scene-concept",
+          "scene-synthesis"
+        ],
+        "sourceIds": [
+          "source-nist-dlmf-vectors"
+        ],
+        "support": "synthesis",
+        "confidence": "high",
+        "scope": "Real scalars and two- or three-dimensional Euclidean vectors in a declared Cartesian basis.",
+        "uncertainty": "More abstract vector spaces need not carry a Euclidean magnitude or geometric direction.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      },
+      {
+        "id": "claim-vector-components",
+        "statement": "A vector can be expressed as a linear combination of coordinate unit vectors, and vector addition and scalar multiplication operate on the corresponding components.",
+        "sceneIds": [
+          "scene-orientation",
+          "scene-concept",
+          "scene-worked-example",
+          "scene-misconception",
+          "scene-practice",
+          "scene-transfer",
+          "scene-synthesis"
+        ],
+        "sourceIds": [
+          "source-nist-dlmf-vectors"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Two- and three-dimensional Euclidean vectors in a declared orthonormal coordinate system.",
+        "uncertainty": "A component's sign and physical meaning depend on the chosen axes and orientation convention.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      },
+      {
+        "id": "claim-vector-norm",
+        "statement": "In an orthonormal Cartesian basis, a vector's magnitude is the square root of the sum of its squared components, and a nonzero vector divided by its magnitude is a unit vector.",
+        "sceneIds": [
+          "scene-orientation",
+          "scene-concept",
+          "scene-worked-example",
+          "scene-misconception",
+          "scene-practice",
+          "scene-transfer",
+          "scene-synthesis"
+        ],
+        "sourceIds": [
+          "source-nist-dlmf-vectors"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Euclidean norm and unit vectors in the lesson's Cartesian examples.",
+        "uncertainty": "Other mathematical spaces can use different norms; the zero vector has no normalized direction.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      },
+      {
+        "id": "claim-triangle-inequality",
+        "statement": "For Euclidean vectors, the magnitude of a sum is at most the sum of the magnitudes; for two nonzero vectors equality occurs exactly when one is a positive scalar multiple of the other, and equality also holds if either vector is zero.",
+        "sceneIds": [
+          "scene-misconception",
+          "scene-transfer",
+          "scene-synthesis"
+        ],
+        "sourceIds": [
+          "source-nist-dlmf-vectors"
+        ],
+        "support": "inference",
+        "confidence": "high",
+        "scope": "The Euclidean norm used throughout this lesson.",
+        "uncertainty": "The equality condition is stated for two vectors over the real numbers.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      },
+      {
+        "id": "claim-dot-product",
+        "statement": "The dot product equals the product of vector magnitudes times the cosine of their included angle and can be used to test perpendicularity or calculate a scalar projection onto a unit direction.",
+        "sceneIds": [
+          "scene-concept",
+          "scene-worked-example",
+          "scene-practice",
+          "scene-synthesis"
+        ],
+        "sourceIds": [
+          "source-nist-dlmf-vectors"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Real Euclidean vectors and included angles from zero through pi radians.",
+        "uncertainty": "A zero vector has no direction, so an angle formula that divides by its magnitude is undefined.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      },
+      {
+        "id": "claim-direction-components",
+        "statement": "For a two-dimensional vector whose direction angle is measured counterclockwise from the positive horizontal axis, its components are magnitude times cosine and sine of that angle; quadrant-aware inverse tangent reconstructs the direction.",
+        "sceneIds": [
+          "scene-orientation",
+          "scene-concept",
+          "scene-worked-example",
+          "scene-transfer",
+          "scene-synthesis"
+        ],
+        "sourceIds": [
+          "source-nist-dlmf-vectors"
+        ],
+        "support": "inference",
+        "confidence": "high",
+        "scope": "The lesson's explicitly stated two-dimensional coordinate convention.",
+        "uncertainty": "Fields using bearings or different reference axes require a different component convention; a one-argument arctangent alone loses quadrant information.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      }
+    ]
+  },
+  "glossary": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-glossary-v1",
+    "lessonId": "PREM-QNT-009",
+    "lessonVersion": "0.1.0",
+    "terms": [
+      {
+        "id": "term-scalar",
+        "term": "scalar",
+        "definition": "In this lesson, one real numerical value, which may be positive, zero, or negative and has no vector direction.",
+        "aliases": [],
+        "sceneIds": [
+          "scene-orientation",
+          "scene-concept",
+          "scene-synthesis"
+        ]
+      },
+      {
+        "id": "term-vector",
+        "term": "vector",
+        "definition": "A mathematical object that supports vector addition and multiplication by scalars and can be represented by signed components in a chosen basis; only a nonzero Euclidean vector has a unique direction.",
+        "aliases": [],
+        "sceneIds": [
+          "scene-orientation",
+          "scene-concept",
+          "scene-worked-example",
+          "scene-synthesis"
+        ]
+      },
+      {
+        "id": "term-component",
+        "term": "component",
+        "definition": "A signed scalar coefficient describing how much of a vector lies along one chosen coordinate direction.",
+        "aliases": [],
+        "sceneIds": [
+          "scene-orientation",
+          "scene-concept",
+          "scene-worked-example",
+          "scene-misconception",
+          "scene-practice",
+          "scene-transfer"
+        ]
+      },
+      {
+        "id": "term-magnitude",
+        "term": "magnitude",
+        "definition": "The nonnegative length or Euclidean norm of a vector.",
+        "aliases": [
+          "norm"
+        ],
+        "sceneIds": [
+          "scene-orientation",
+          "scene-concept",
+          "scene-worked-example",
+          "scene-practice",
+          "scene-transfer",
+          "scene-synthesis"
+        ]
+      },
+      {
+        "id": "term-unit-vector",
+        "term": "unit vector",
+        "definition": "A vector of magnitude one used to specify a direction or basis axis.",
+        "aliases": [],
+        "sceneIds": [
+          "scene-concept",
+          "scene-worked-example",
+          "scene-practice",
+          "scene-synthesis"
+        ]
+      },
+      {
+        "id": "term-dot-product",
+        "term": "dot product",
+        "definition": "A scalar formed by multiplying corresponding components and adding; it measures directional alignment.",
+        "aliases": [
+          "scalar product"
+        ],
+        "sceneIds": [
+          "scene-concept",
+          "scene-worked-example",
+          "scene-practice",
+          "scene-synthesis"
+        ]
+      },
+      {
+        "id": "term-scalar-projection",
+        "term": "scalar projection",
+        "definition": "The signed length of one vector along a unit direction, calculated with a dot product.",
+        "aliases": [
+          "component along a direction"
+        ],
+        "sceneIds": [
+          "scene-concept",
+          "scene-worked-example",
+          "scene-practice",
+          "scene-synthesis"
+        ]
+      }
+    ]
+  },
+  "attributionHtml": "<h1>Attribution</h1>\n<h2>Lesson identity and licence</h2>\n<ul>\n<li>Lesson: <strong>PREM-QNT-009 — Resolve, combine, reconstruct: vectors and components</strong></li>\n<li>Outcome: <strong>PREM-03.09</strong> (<code>topic-quantitative-foundations-vectors</code>)</li>\n<li>Principal: <strong>VSBDev</strong> (<code>github:VSBDev</code>)</li>\n<li>Licence: <strong>Creative Commons Attribution 4.0 International (CC BY 4.0)</strong></li>\n<li>State: <strong>draft</strong>, source confidence <strong>pending-review</strong></li>\n</ul>\n<h2>Material agent assistance</h2>\n<p>OpenAI Codex authored, researched, edited, and packaged the original candidate in one author-role run.</p>\n<table>\n<thead>\n<tr>\n<th>System</th>\n<th>Provider</th>\n<th>Model</th>\n<th>Version</th>\n<th>Run ID</th>\n<th>Material-instructions digest</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>Codex desktop</td>\n<td>OpenAI</td>\n<td><code>gpt-5.6-sol</code></td>\n<td>Codex desktop runtime 2026-07-22</td>\n<td><code>b5cd8128-08e9-4703-b010-6a2c9517860b</code></td>\n<td><code>sha256:22631682e0debb33cf35140988223bd466e2a26bcb4cea4c18031a9ec8691b64</code></td>\n</tr>\n</tbody></table>\n<p>The digest identifies <code>/tmp/codex-packager-prompt-03-09.md</code>; unavailable hidden instructions are excluded. Reviewer provenance is recorded in <code>reviews/</code>, and the material post-review finalizer revision and provenance are recorded in <code>adjudication.json</code>.</p>\n<h2>Originality, evidence, and rights</h2>\n<p>The vector-audit structure, route opening, directed-span and dot-product examples, component/magnitude misconception repair, angle-convention transfer, all values, feedback, recovery, and assessments are original. Every applied setting is fictional. The NIST source provides standard vector definitions, relations, and norm inequalities only. No source expression, diagram, table, or example is copied or adapted.</p>\n<p>NIST rights and public robots routes were checked before access on 2026-07-22. No agent restriction, login, paywall, or access-control barrier was found. No third-party assets, datasets, personal data, or patient material are included.</p>\n<p>This mathematical lesson provides no clinical, navigation, or engineering advice and makes no claim of review, approval, publication, measured effectiveness, credit, or competence.</p>\n"
+}
