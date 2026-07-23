@@ -41,7 +41,7 @@ If the material connects with a difficult personal experience, pause or leave wi
 Later lessons will ask you to retrieve this map while distinguishing description from inference, comparing explanatory models, examining history and power, and evaluating classification and recovery. The six lenses will become more precise. The boundary stays: academic and simulated mastery can support future supervised development, but this book does not confer clinical authority.
 
 :::{source-note}
-:claims: claim-integrated-field-model, claim-lenses-are-question-generators, claim-authority-requires-governed-practice
+:claims: claim-integrated-field-model, claim-lenses-are-question-generators, claim-psychiatry-medical-specialty, claim-authority-requires-governed-practice
 :sources: source-psychiatry-syllabus, source-wpa-training, source-abpn-certification
 
 The synthesis restates the course's integrated field model and boundary. WPA and ABPN sources demonstrate that professional formation involves supervised and jurisdiction-specific arrangements beyond reading or simulation. Nothing in this lesson certifies clinical competence or effectiveness for learners.

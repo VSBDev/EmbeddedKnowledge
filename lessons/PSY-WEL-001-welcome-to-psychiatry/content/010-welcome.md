@@ -6,7 +6,7 @@ Which explanation belongs to psychiatry?
 
 Potentially all of them—but not as interchangeable answers, and not all with equal weight. Psychiatry becomes more accurate when it asks what each level can explain, what evidence would support it, and what it leaves open. This field is medical, but its subject cannot be reduced to an organ, a symptom list, or a conversation. Contemporary training frameworks also reach into public mental health, culture, research, systems, and the knowledge of people who use services.
 
-That breadth is what makes psychiatry demanding and worth studying. You will move between mind and brain, individual lives and relationships, culture and institutions. Your job is not to make every story agree. Your job is to ask sharper questions, recognize what each answer can and cannot establish, and keep your account open to correction.
+That breadth is what makes psychiatry demanding and worth studying. You will move between mind and brain, individual lives and relationships, culture and institutions. In the title, “society” names the broad social terrain that the relationship, culture, and system lenses separate into more precise questions. Your job is not to make every story agree. Your job is to ask sharper questions, recognize what each answer can and cannot establish, and keep your account open to correction.
 
 ## What you will be able to do
 
@@ -37,7 +37,7 @@ This course supports academic explanation, evidence appraisal, fictional-case re
 :::
 
 :::{source-note}
-:claims: claim-integrated-field-model, claim-training-breadth, claim-authority-requires-governed-practice
+:claims: claim-integrated-field-model, claim-training-breadth, claim-psychiatry-medical-specialty, claim-authority-requires-governed-practice
 :sources: source-psychiatry-syllabus, source-wpa-training, source-abpn-certification
 
 The course syllabus supplies the six-part academic map and its explicit boundary. The WPA position statement supports the breadth of contemporary psychiatric training, while the ABPN page provides one current national example of psychiatry as a medical specialty with a separate certification route. These sources do not imply that one jurisdiction's route applies everywhere.

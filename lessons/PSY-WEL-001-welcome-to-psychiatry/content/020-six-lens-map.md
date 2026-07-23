@@ -24,7 +24,7 @@ This course makes a further distinction:
 - **Academic learning** builds knowledge and reasoning through sources, fictional cases, analyses, and simulations.
 - **Clinical authority** concerns accountable actions with real people, such as assessment and treatment, within supervised and jurisdiction-specific professional arrangements.
 
-Training and authorization differ by country and regulator. The six-lens map can travel across settings; a certification rule from one setting cannot.
+Training arrangements vary across countries; the ABPN route is only one United States certification and licensure example. The six-lens map can travel across settings; a certification rule from one setting cannot.
 
 :::{check}
 :id: check-lens-versus-cause
