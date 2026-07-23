@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-QNT-010-2A7B7B86-21CD-434E-9B1E-74D3E5F30D8A",
+  "lessonId": "PREM-QNT-010",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "8937fc68ead59668e6795efb56311f66a367895c",
+  "role": "learning-design",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.5",
+      "runId": "agy-learning-design-PREM-QNT-010-2A7B7B86-21CD-434E-9B1E-74D3E5F30D8A",
+      "instructionsDigest": "sha256:53171535a5baa4f1806923049d56ae2f8c4deb11a625b7fe4564f6ab379e5ff7"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lessons/PREM-QNT-010-proportional-models/lesson.json",
+    "lessons/PREM-QNT-010-proportional-models/claims.json",
+    "lessons/PREM-QNT-010-proportional-models/glossary.json",
+    "lessons/PREM-QNT-010-proportional-models/references.json",
+    "lessons/PREM-QNT-010-proportional-models/ATTRIBUTION.md",
+    "lessons/PREM-QNT-010-proportional-models/content/010-orientation.md",
+    "lessons/PREM-QNT-010-proportional-models/content/020-concept.md",
+    "lessons/PREM-QNT-010-proportional-models/content/030-worked-example.md",
+    "lessons/PREM-QNT-010-proportional-models/content/040-misconception.md",
+    "lessons/PREM-QNT-010-proportional-models/content/050-practice.md",
+    "lessons/PREM-QNT-010-proportional-models/content/060-transfer.md",
+    "lessons/PREM-QNT-010-proportional-models/content/070-synthesis.md",
+    "lessons/PREM-QNT-010-proportional-models/assessment.json"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-010-proportional-models/content/010-orientation.md",
+      "finding": "The lesson is presented entirely as abstract mathematics using generic inputs, outputs, coordinates, and 'fictional processes' with no physical, biological, chemical, or clinical application. This is a pre-medical curriculum, and the lack of concrete grounding violates the first-read gate of CONTENT-STANDARD.md §4, which requires opening with a concrete phenomenon that the learner can picture, and interpreting expressions physically or biologically. The learner is given no sense of why these models matter or how they apply.",
+      "resolution": "Frame the lesson around real physiological, physical, or pharmacological systems. For instance, use the Beer-Lambert law (absorbance vs. concentration) for direct proportion, Boyle's law (lung pressure vs. volume during respiration) for inverse proportion, and Poiseuille's law (blood flow resistance vs. vessel radius) or Kleiber's law (metabolic rate vs. body mass) for power-law scaling. Update all text, tables, and questions to utilize these concrete contexts and use actual units (like mL/min, mmHg, micromolar, cm, etc.) instead of generic 'input units' and 'response units'."
+    },
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-010-proportional-models/content/040-misconception.md",
+      "finding": "The misconception scene ('misconception-smooth-means-direct') is structured as a static, expository text block that merely defines the misconception and provides a numerical counterexample. It fails to follow the required repair sequence structure of CONTENT-STANDARD.md §7, as it does not elicit a prediction or commitment from the learner, compare alternative models, or include a recheck question at the end.",
+      "resolution": "Redesign the misconception scene into an interactive repair sequence: (1) Prompt the learner to make an initial prediction (e.g., asking if a smooth, predictable decreasing curve or table of coordinates represents direct proportionality because it is predictable); (2) Acknowledge and state the incorrect shortcut neutrally; (3) Present a counterexample demonstrating why it fails (showing the ratio y/x changes but the product xy remains constant, indicating an inverse relationship); (4) Deliver the correct repair (resolving the shortcut and reconstructing the target model); and (5) End with a discriminating recheck question for the learner to apply the repair."
+    },
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-010-proportional-models/content/060-transfer.md",
+      "finding": "The transfer scene and task exhibit low cognitive transfer, violating CONTENT-STANDARD.md §8. The task asks the learner to fit and predict a square law (y-hat = 6x^2) on a table of approximate coordinates, which is structurally identical to the worked example where they fit y = 5x^2 on a table of exact coordinates. Changing only the numbers (and adding minor noise) constitutes near practice rather than genuine transfer to a novel context.",
+      "resolution": "Redesign the transfer task to require selecting and adapting a proportional model in a genuinely novel, non-tabular context. For example, present a scenario involving Poiseuille's law where a clinician needs to determine how a 10% reduction in vessel radius (e.g., due to vasoconstriction or plaque) affects blood flow resistance, requiring them to translate a verbal description of fourth-power scaling into a model, evaluate its scaling factor, and discuss the biological boundaries (like turbulent flow or vessel collapse) where the model breaks down."
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-QNT-010-proportional-models/content/020-concept.md",
+      "finding": "The opening paragraph of the concept scene refers to 'the science block' and 'scientific models from the science block'. This exposes internal curriculum organization and syllabus administration language to the learner, violating CONTENT-STANDARD.md §4, which mandates keeping internal project structure and validator vocabulary out of learner-visible prose.",
+      "resolution": "Revise the sentence to remove references to the 'science block' (e.g., 'In this lesson, a *model* means a fitted quantitative relationship—a narrow, mathematical case of the scientific models introduced in Scientific models and their limits (PREM-SCI-010), judged by fit and residuals rather than by mechanism.')."
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-QNT-010-proportional-models/content/050-practice.md",
+      "finding": "In the practice scene, the prompts are immediately followed by bolded feedback sections without any separation or visual/navigational cue. In static reading, digital, or print formats, this exposes the solution to the learner before they have had a chance to retrieve or generate a response, undermining the active retrieval benefits of practice.",
+      "resolution": "Add an orientation instruction at the beginning of the practice scene prompting the learner to cover the feedback and commit to an answer first, or format the feedback using folding disclosures (like HTML <details>) if supported by the platform."
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-QNT-010-proportional-models/lesson.json",
+      "finding": "The lesson lists a total estimated duration of 240 minutes (4 hours) in lesson.json. Given the extremely brief text length in all scenes and the simple math involved, this estimate is highly inflated and could distort curriculum scheduling.",
+      "resolution": "Reduce the total estimated duration in lesson.json and the individual scenes to a more realistic value (e.g., 60 to 90 minutes total)."
+    }
+  ],
+  "limitations": [
+    "Review is limited to static analysis of the Markdown files and schema compliance; no real-user behavioral data or interactive software rendering outcomes were available.",
+    "Academic accuracy and clinical boundaries are assumed to be validated by the respective quorum roles."
+  ],
+  "signedAt": "2026-07-23T00:52:00.000Z"
+}
