@@ -136,33 +136,33 @@ The graph's 46 modules give the interface enough resolution to show meaningful d
 | `PREM-02` | Scientific Inquiry | `QRS-100` |
 | `PREM-03` | Quantitative Foundations | `QRS-100` |
 | `PREM-04` | Statistics & Data | `QRS-100` |
-| `PREM-05` | Calculus Extension | `PW-QNT` |
-| `PREM-06` | Cell Biology | `BIO-110`, `BIO-120` |
-| `PREM-07` | Molecular Genetics | `BIO-130`, `BIO-140`, `BCH-240` |
-| `PREM-08` | Evolution | `BIO-150`, `PW-BIO` |
-| `PREM-09` | Ecology & Plant Biology | `PW-BIO` |
-| `PREM-10` | Biomolecules | `BIO-110`, `BCH-210`, `BCH-220` |
-| `PREM-11` | Enzymes | `BIO-120`, `BCH-210` |
-| `PREM-12` | Metabolism & Bioenergetics | `BIO-120`, `BCH-230`, `BCH-240` |
-| `PREM-13` | Atomic Structure & Periodicity | `CHE-110` |
-| `PREM-14` | Bonding & Molecular Structure | `CHE-120` |
-| `PREM-15` | Stoichiometry & Reactions | `CHE-120` |
-| `PREM-16` | States, Gases & Solutions | `CHE-130` |
-| `PREM-17` | Thermodynamics, Kinetics & Equilibrium | `CHE-130`, `CHE-140` |
-| `PREM-18` | Acids, Bases & Buffers | `CHE-140` |
-| `PREM-19` | Redox & Electrochemistry | `CHE-140` |
-| `PREM-20` | Organic Foundations | `ORG-210` |
-| `PREM-21` | Organic Reactivity | `ORG-220` |
-| `PREM-22` | Carbonyls & Biological Organic Chemistry | `ORG-220`, `BCH-220` |
-| `PREM-23` | Separation & Structure Analysis | `ORG-230` |
-| `PREM-24` | Laboratory Practice | `QRS-100`, `INT-300` |
-| `PREM-25` | Mechanics | `PHY-110` |
-| `PREM-26` | Fluids | `PHY-120` |
-| `PREM-27` | Thermal Physics & Gases | `PHY-150` |
-| `PREM-28` | Electricity & Magnetism | `PHY-140` |
-| `PREM-29` | Waves & Sound | `PHY-130` |
-| `PREM-30` | Optics | `PHY-130` |
-| `PREM-31` | Atomic & Nuclear Physics | `PHY-150` |
+| `PREM-05` | Cell Biology | `BIO-110`, `BIO-120` |
+| `PREM-06` | Molecular Genetics | `BIO-130`, `BIO-140`, `BCH-240` |
+| `PREM-07` | Evolution | `BIO-150`, `PW-BIO` |
+| `PREM-08` | Ecology & Plant Biology | `PW-BIO` |
+| `PREM-09` | Biomolecules | `BIO-110`, `BCH-210`, `BCH-220` |
+| `PREM-10` | Enzymes | `BIO-120`, `BCH-210` |
+| `PREM-11` | Metabolism & Bioenergetics | `BIO-120`, `BCH-230`, `BCH-240` |
+| `PREM-12` | Atomic Structure & Periodicity | `CHE-110` |
+| `PREM-13` | Bonding & Molecular Structure | `CHE-120` |
+| `PREM-14` | Stoichiometry & Reactions | `CHE-120` |
+| `PREM-15` | States, Gases & Solutions | `CHE-130` |
+| `PREM-16` | Thermodynamics, Kinetics & Equilibrium | `CHE-130`, `CHE-140` |
+| `PREM-17` | Acids, Bases & Buffers | `CHE-140` |
+| `PREM-18` | Redox & Electrochemistry | `CHE-140` |
+| `PREM-19` | Organic Foundations | `ORG-210` |
+| `PREM-20` | Organic Reactivity | `ORG-220` |
+| `PREM-21` | Carbonyls & Biological Organic Chemistry | `ORG-220`, `BCH-220` |
+| `PREM-22` | Separation & Structure Analysis | `ORG-230` |
+| `PREM-23` | Laboratory Practice | `QRS-100`, `INT-300` |
+| `PREM-24` | Mechanics | `PHY-110` |
+| `PREM-25` | Fluids | `PHY-120` |
+| `PREM-26` | Thermal Physics & Gases | `PHY-150` |
+| `PREM-27` | Electricity & Magnetism | `PHY-140` |
+| `PREM-28` | Waves & Sound | `PHY-130` |
+| `PREM-29` | Optics | `PHY-130` |
+| `PREM-30` | Atomic & Nuclear Physics | `PHY-150` |
+| `PREM-31` | Calculus Extension | `PW-QNT` |
 | `PREM-32` | Anatomy, Homeostasis & Tissues | `MED-310` |
 | `PREM-33` | Nervous System | `MED-310` |
 | `PREM-34` | Endocrine System | `MED-310`, `MED-320` |
@@ -197,7 +197,7 @@ There is exactly one rule for deciding which topics a route contains:
 
 Two corollaries follow, and both are load-bearing:
 
-1. **`sourceTags` never determine route membership.** They record which evidence families justify a topic's placement. A topic can carry `AAMC-MCAT` because the MCAT outline covers that material while its `pathway` array omits `us-mcat` because it already arrives through `portable-core` — 101 of the 388 topics are in exactly that position, including all of `PREM-13` Atomic Structure & Periodicity. Filtering on source tags instead of the rule above would hide general chemistry from an MCAT learner. Conversely, the ten `PREM-03` Quantitative Foundations topics sit in `us-mcat` under the `AAMC-MATH` source rather than `AAMC-MCAT`; a missing `AAMC-MCAT` tag is not an exclusion. One topic — `topic-organic-reactivity-multistep-synthesis` — inherits its module's `AAMC-MCAT` tag but is deliberately excluded from `us-mcat`, because extended synthesis is outside the MCAT; the rule above resolves this correctly and source tags must not override it.
+1. **`sourceTags` never determine route membership.** They record which evidence families justify a topic's placement. A topic can carry `AAMC-MCAT` because the MCAT outline covers that material while its `pathway` array omits `us-mcat` because it already arrives through `portable-core` — 101 of the 388 topics are in exactly that position, including all of `PREM-12` Atomic Structure & Periodicity. Filtering on source tags instead of the rule above would hide general chemistry from an MCAT learner. Conversely, the ten `PREM-03` Quantitative Foundations topics sit in `us-mcat` under the `AAMC-MATH` source rather than `AAMC-MCAT`; a missing `AAMC-MCAT` tag is not an exclusion. One topic — `topic-organic-reactivity-multistep-synthesis` — inherits its module's `AAMC-MCAT` tag but is deliberately excluded from `us-mcat`, because extended synthesis is outside the MCAT; the rule above resolves this correctly and source tags must not override it.
 2. The builder publishes the rule and its results so no consumer has to re-derive them: `schema.routeResolutionRule`, `pathways[].includesPortableCore`, and `metrics.routeTopicCounts` (with `tagged`, `effective`, and `estimatedHours` per route).
 
 ### 5.2 Route table
@@ -219,7 +219,7 @@ Two corollaries follow, and both are load-bearing:
 Important adjudicated boundaries are represented directly:
 
 - MCAT-aligned evolution is present, but ecology, ecosystems, plant biology, and photosynthesis are **not** tagged as MCAT content.
-- Photosynthesis is the **only** topic of `PREM-09` Ecology & Plant Biology carrying `spain-bach-pau` and the `RD243` source, because [RD 243/2022](https://www.boe.es/buscar/act.php?id=BOE-A-2022-5521) specifies autotrophic anabolism while Spain's six second-year Biology blocks contain no ecology block and no broad plant unit (see `research/ADJUDICATION-2026-07-19.md` section 1.8). The module's other six topics carry only `broad-biology` and `uk-direct-entry` with `AQA-BIO`/`AP-BIO` evidence.
+- Photosynthesis is the **only** topic of `PREM-08` Ecology & Plant Biology carrying `spain-bach-pau` and the `RD243` source, because [RD 243/2022](https://www.boe.es/buscar/act.php?id=BOE-A-2022-5521) specifies autotrophic anabolism while Spain's six second-year Biology blocks contain no ecology block and no broad plant unit (see `research/ADJUDICATION-2026-07-19.md` section 1.8). The module's other six topics carry only `broad-biology` and `uk-direct-entry` with `AQA-BIO`/`AP-BIO` evidence.
 - Human physiology is a medicine-facing bridge and MCAT-aligned survey, not mislabeled as universal upper-level physiology or a universal entrant prerequisite.
 - MCAT metabolism includes glycolysis, gluconeogenesis, pentose phosphate, the citric acid cycle, fatty-acid oxidation, ketone bodies, and oxidative phosphorylation. Nitrogen-disposal principles appear as biochemistry, but the graph does not claim the urea cycle is an explicit MCAT leaf topic.
 - Statistics and experimental reasoning are core. Calculus is a separate optional path and is explicitly excluded from the MCAT mathematical floor.

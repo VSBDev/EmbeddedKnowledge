@@ -82,7 +82,6 @@ const moduleRows = [
   ["scientific-inquiry", "learning-practice", "Scientific Inquiry", "Questions, hypotheses, causal inference, uncertainty, and reproducibility.", "portable-core", ["portable-core", "us-mcat"], ["AAMC-MCAT", "AP-BIO", "AQA-BIO"]],
   ["quantitative-foundations", "quantitative", "Quantitative Foundations", "Units, algebra, functions, estimation, and mathematical models.", "portable-core", ["portable-core", "us-mcat"], ["AAMC-MATH", "QAA-MED"]],
   ["statistics-data", "quantitative", "Statistics & Data", "Describe variation, quantify uncertainty, test hypotheses, and interpret evidence.", "portable-core", ["portable-core", "us-mcat"], ["AAMC-MCAT", "QAA-MED", "AP-BIO"]],
-  ["calculus-extension", "quantitative", "Calculus Extension", "Rates, accumulation, and simple differential models for optional pathways.", "pathway", ["advanced-quantitative", "continental-science"], ["ADJUDICATION"]],
   ["cell-biology", "biology", "Cell Biology", "Cell structure, membranes, transport, signaling, and division.", "portable-core", ["portable-core", "us-mcat"], ["AAMC-MCAT", "RD243", "AQA-BIO", "AP-BIO"]],
   ["molecular-genetics", "biology", "Molecular Genetics", "DNA information flow, inheritance, variation, and biotechnology.", "portable-core", ["portable-core", "us-mcat", "spain-bach-pau"], ["AAMC-MCAT", "RD243", "AP-BIO"]],
   ["evolution", "biology", "Evolution", "Population change, selection, speciation, and phylogenetic reasoning.", "medicine-bridge", ["us-mcat", "broad-biology"], ["AAMC-MCAT", "AQA-BIO", "AP-BIO"]],
@@ -112,6 +111,7 @@ const moduleRows = [
   ["waves-sound", "physics", "Waves & Sound", "Oscillation, wave behavior, acoustics, and hearing.", "portable-core", ["portable-core", "medicine-bridge"], ["AAMC-MCAT", "QAA-MED"]],
   ["optics", "physics", "Optics", "Geometric and wave optics with vision applications.", "portable-core", ["portable-core", "medicine-bridge"], ["AAMC-MCAT", "QAA-MED", "FR-PC"]],
   ["atomic-nuclear-physics", "physics", "Atomic & Nuclear Physics", "Photons, electronic transitions, radioactivity, and medical applications.", "medicine-bridge", ["us-mcat", "uk-direct-entry", "continental-science"], ["AAMC-MCAT", "QAA-MED", "FR-PC"]],
+  ["calculus-extension", "quantitative", "Calculus Extension", "Rates, accumulation, and simple differential models for optional pathways.", "pathway", ["advanced-quantitative", "continental-science"], ["ADJUDICATION"]],
   ["homeostasis", "human-systems", "Anatomy, Homeostasis & Tissues", "Structural organization, tissue types, feedback, and internal balance.", "medicine-bridge", ["medicine-bridge", "us-mcat", "access-foundation"], ["AAMC-MCAT", "QAA-MED"]],
   ["nervous-system", "human-systems", "Nervous System", "Electrical signaling, neural organization, sensation, and motor control.", "medicine-bridge", ["medicine-bridge", "us-mcat"], ["AAMC-MCAT"]],
   ["endocrine-system", "human-systems", "Endocrine System", "Hormonal signaling, axes, feedback, and metabolic coordination.", "medicine-bridge", ["medicine-bridge", "us-mcat"], ["AAMC-MCAT"]],
@@ -248,13 +248,6 @@ add("statistics-data", [
   ["association-risk", "Association, risk, and diagnostic measures", "Interpret correlation, relative risk, odds ratio, sensitivity, specificity, and predictive values.", 4, [R("statistics-data", "probability"), R("scientific-inquiry", "correlation-causation")]],
   ["regression", "Regression and model fit", "Interpret slope, residuals, uncertainty, and overfitting in simple linear models.", 3.5, [R("statistics-data", "graphs-tables"), R("statistics-data", "center-spread")]],
   ["statistical-practical-significance", "Statistical versus practical significance", "Judge a reported difference using magnitude, uncertainty, bias, and real-world relevance.", 3, [R("statistics-data", "confidence-intervals"), R("statistics-data", "hypothesis-tests")]]
-]);
-
-add("calculus-extension", [
-  ["limits-rate", "Limits and instantaneous rate", "Connect average change to instantaneous rate conceptually and graphically.", 3, [R("quantitative-foundations", "functions-graphs")]],
-  ["derivatives", "Derivatives and optimization", "Differentiate elementary functions and use derivatives for rates and extrema.", 5, [R("calculus-extension", "limits-rate")]],
-  ["integrals", "Integrals and accumulation", "Interpret definite integrals as accumulated change and area, and evaluate simple cases.", 5, [R("calculus-extension", "derivatives")]],
-  ["differential-models", "Simple differential models", "Interpret exponential growth, decay, and first-order rate equations as differential models.", 4, [R("calculus-extension", "derivatives"), R("quantitative-foundations", "logarithms")]]
 ]);
 
 add("cell-biology", [
@@ -549,6 +542,13 @@ add("atomic-nuclear-physics", [
   ["nuclear-energy", "Binding energy, fission, and fusion", "Relate mass defect and binding energy to nuclear stability and energy release.", 3, [R("atomic-nuclear-physics", "radioactive-decay")]],
   ["ionizing-radiation", "Ionizing radiation and matter", "Compare penetration, ionization, attenuation, dose concepts, and stochastic versus tissue effects.", 4, [R("atomic-nuclear-physics", "radioactive-decay"), R("waves-sound", "electromagnetic-spectrum")]],
   ["medical-imaging-radiation", "Radiation imaging and therapy", "Explain the physical basis and trade-offs of radiography, CT, nuclear imaging, and radiotherapy at survey depth.", 4, [R("atomic-nuclear-physics", "ionizing-radiation")]]
+]);
+
+add("calculus-extension", [
+  ["limits-rate", "Limits and instantaneous rate", "Connect average change to instantaneous rate conceptually and graphically.", 3, [R("quantitative-foundations", "functions-graphs")]],
+  ["derivatives", "Derivatives and optimization", "Differentiate elementary functions and use derivatives for rates and extrema.", 5, [R("calculus-extension", "limits-rate")]],
+  ["integrals", "Integrals and accumulation", "Interpret definite integrals as accumulated change and area, and evaluate simple cases.", 5, [R("calculus-extension", "derivatives")]],
+  ["differential-models", "Simple differential models", "Interpret exponential growth, decay, and first-order rate equations as differential models.", 4, [R("calculus-extension", "derivatives"), R("quantitative-foundations", "logarithms")]]
 ]);
 
 add("homeostasis", [
