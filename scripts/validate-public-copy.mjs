@@ -19,6 +19,11 @@ const publicFiles = [
   "site/premed/lessons/index.html",
   "site/premed/lessons/read/index.html",
   "site/premed/lessons/specimen/index.html",
+  "site/psychiatry/index.html",
+  "site/psychiatry/syllabus/index.html",
+  "site/psychiatry/graph/index.html",
+  "site/psychiatry/lessons/index.html",
+  "site/psychiatry/lessons/read/index.html",
   "site/contribute/index.html",
   "site/contribute/format/index.html",
   "site/llms.txt",
@@ -46,10 +51,13 @@ const publicFiles = [
   "research/DIARY.md",
   "research/PORTABLE-RESEARCH-PROMPT.md",
   "research/SOURCE-CATALOG.md",
+  "research/PSYCHIATRY-SOURCE-CATALOG.md",
   "research/CONTENT-AUTHORING-EVIDENCE-2026-07-19.md",
   "course/PREMED-SYLLABUS.md",
   "course/PREMED-CURRICULUM-MAP.md",
-  "course/PREMED-KNOWLEDGE-GRAPH.md"
+  "course/PREMED-KNOWLEDGE-GRAPH.md",
+  "course/PSYCHIATRY-SYLLABUS.md",
+  "course/PSYCHIATRY-KNOWLEDGE-GRAPH.md"
 ];
 // Name-like entries use word boundaries so that e.g. "victory" or "victorious"
 // do not false-positive; multi-word phrases match as literal substrings.

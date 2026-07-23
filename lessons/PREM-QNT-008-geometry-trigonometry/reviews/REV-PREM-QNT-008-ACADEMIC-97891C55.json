@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-QNT-008-ACADEMIC-97891C55",
+  "lessonId": "PREM-QNT-008",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "f12f9071264c0f1196a70c3abf649dbd943883d1",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable academic reviewer",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-QNT-008-97891C55-F689-4364-8ABA-2C949622A1A1",
+      "instructionsDigest": "sha256:7c70543e00aa9c0671f9b10aeb277345e386688764488595af94dc302289b239"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#objectives",
+    "lesson.json#scenes",
+    "content/010-orientation.md#perpendicular-lengths-do-not-simply-add",
+    "content/020-concept.md#connect-shape-scale-and-angle",
+    "content/030-worked-example.md#worked-example-beacon",
+    "content/040-misconception.md#misconception-inverse-reciprocal",
+    "content/050-practice.md#choose-the-relation-from-the-labels",
+    "content/060-transfer.md#audit-an-angled-span",
+    "content/070-synthesis.md#rebuild-the-geometric-audit",
+    "assessment.json#items",
+    "assessment.json#rubrics",
+    "claims.json#claim-trig-functions",
+    "claims.json#claim-angle-conversion",
+    "claims.json#claim-unit-circle",
+    "claims.json#claim-inverse-trig",
+    "references.json#source-nist-dlmf-trig",
+    "references.json#source-nist-si-angle",
+    "glossary.json#terms",
+    "ATTRIBUTION.md#originality-evidence-and-rights",
+    "https://dlmf.nist.gov/4.14",
+    "https://dlmf.nist.gov/4.23#ii",
+    "https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-5-units-outside-si#table-6",
+    "Independent recomputation of every numerical worked example, practice answer, assessment key, scale factor, angle conversion, trigonometric value, and rounding result"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "claims.json#claim-trig-functions",
+      "finding": "The claim ledger does not represent several central rules on which the objectives, scenes, and assessment depend: uniform linear scaling to area and volume factors k² and k³, the Pythagorean relation, hypotenuse and triangle bounds, and the right-triangle opposite/adjacent/hypotenuse interpretations of sine and cosine. claim-trig-functions states only that the functions are related and that tangent equals sine divided by cosine, yet it is used as the apparent evidence bridge for these broader rules and is even mapped to scene-orientation, where trigonometric functions are not taught. Calling the Pythagorean and scaling material original does not supply academic support for the underlying quantitative claims.",
+      "resolution": "Add separately scoped claims and authoritative references for geometric scaling, the Pythagorean relation and bounds, and right-triangle trigonometric ratios. Correct every claim sceneId and update the source notes in content/010-orientation.md, content/020-concept.md, content/030-worked-example.md, content/050-practice.md, content/060-transfer.md, and content/070-synthesis.md so each material rule used in that scene is explicitly mapped to all supporting sources."
+    },
+    {
+      "severity": "major",
+      "target": "references.json#source-nist-dlmf-trig",
+      "finding": "The cited locator, DLMF §4.14, covers trigonometric-function definitions and periodicity but not inverse-trigonometric principal values. NIST places inverse-trigonometric definitions and principal values in DLMF §4.23, including §4.23(ii). Consequently this source record does not support claim-inverse-trig or the principal-angle teaching in the misconception, practice, transfer, and synthesis scenes. Its stated locator also does not directly establish the lesson's right-triangle or unit-circle geometric interpretations.",
+      "resolution": "Add and verify an exact DLMF §4.23 reference for inverse functions and principal values, then map claim-inverse-trig and its scene source notes to it. Add an authoritative geometry/trigonometry source whose locator directly supports the right-triangle and unit-circle interpretations, or narrow the affected claims to what the existing §4.14 locator actually supports."
+    },
+    {
+      "severity": "major",
+      "target": "lesson.json#objective-inverse-trig",
+      "finding": "The objective promises recovery of principal angles and interpretation within a stated quadrant or domain, but every inverse-angle calculation and assessment application is confined to an acute right triangle or a first-quadrant vector. The lesson states that context must identify the intended quadrant without teaching or assessing how a principal result is converted to another valid quadrant, how equal ratios can describe different directions, or why arctan(y/x) fails as a general direction rule when x is negative or zero. item-angle-convert identifies a quadrant but does not exercise inverse trigonometry, while item-inverse-angle and item-transfer-panel remain acute first-quadrant cases.",
+      "resolution": "Either narrow objective-inverse-trig and claim-inverse-trig to acute right-triangle recovery, or teach principal ranges and a reliable quadrant/domain interpretation procedure, including a non-first-quadrant or boundary case, and assess that performance. Also map claim-inverse-trig to content/020-concept.md#recovering-an-angle, where the principal-angle claim is currently taught but omitted from that scene's claim and source-note mappings."
+    },
+    {
+      "severity": "minor",
+      "target": "assessment.json#item-inverse-angle.answer.acceptableResponses",
+      "finding": "arctan(15/8) is approximately 61.927513°, which rounds to 61.93° to two decimal places. Accepting 61.92° rewards truncation despite the prompt explicitly requesting a value to two decimals.",
+      "resolution": "Remove 61.92° from the acceptable responses, or revise the prompt and scoring rule to state a numerical tolerance that intentionally permits truncation."
+    },
+    {
+      "severity": "minor",
+      "target": "content/040-misconception.md#misconception-inverse-reciprocal",
+      "finding": "The counterexample 1/sin(0.5) leaves the angle unit unstated even though the lesson repeatedly emphasizes that trigonometric results depend on degree-versus-radian mode. Its numerical meaning therefore changes with calculator mode, weakening an otherwise correct inverse-versus-reciprocal distinction.",
+      "resolution": "Specify that 0.5 is an angle in radians or degrees and label the unit consistently; optionally provide the resulting reciprocal value to make the contrast independently checkable."
+    }
+  ],
+  "limitations": [
+    "The accountable operator is also the candidate's disclosed author under the project's permitted founding-stage arrangement. This was a distinct role-isolated run and did not inspect an authoring conversation, another review, or an adjudication draft.",
+    "The review scope expressly prohibited reading site/, so the graph node, cross-lesson terminology ledger, quorum-policy file, and review schema were not opened. Outcome-ID existence and terminology continuity therefore remain unverified; the role-specific academic review template was followed.",
+    "The DLMF web text exposed section scope, defined-function labels, and principal-value headings, but its equation payloads were not rendered fully by the available text extractor. The mismatch between cited §4.14 and inverse-function §4.23 was still directly verifiable.",
+    "The candidate commit existed, was the checked-out HEAD, contained the stated pack, and had no detected pack changes relative to the frozen commit."
+  ],
+  "signedAt": "2026-07-22T23:53:50Z"
+}

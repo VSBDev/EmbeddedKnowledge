@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-QNT-009-DE20CDF0-4774-494B-8887-A07FB6518B1C",
+  "lessonId": "PREM-QNT-009",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "f6c936f1401be42cad2eea2d347e5a1354550cc9",
+  "role": "learning-design",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.5",
+      "runId": "agy-learning-design-PREM-QNT-009-DE20CDF0-4774-494B-8887-A07FB6518B1C",
+      "instructionsDigest": "sha256:5e5cfdb095dc356b3d9d9482cabd3b604737e3acb8e81eaf2e9cb57da983c675"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lessons/PREM-QNT-009-vectors-components/lesson.json",
+    "lessons/PREM-QNT-009-vectors-components/claims.json",
+    "lessons/PREM-QNT-009-vectors-components/glossary.json",
+    "lessons/PREM-QNT-009-vectors-components/references.json",
+    "lessons/PREM-QNT-009-vectors-components/ATTRIBUTION.md",
+    "lessons/PREM-QNT-009-vectors-components/content/010-orientation.md",
+    "lessons/PREM-QNT-009-vectors-components/content/020-concept.md",
+    "lessons/PREM-QNT-009-vectors-components/content/030-worked-example.md",
+    "lessons/PREM-QNT-009-vectors-components/content/040-misconception.md",
+    "lessons/PREM-QNT-009-vectors-components/content/050-practice.md",
+    "lessons/PREM-QNT-009-vectors-components/content/060-transfer.md",
+    "lessons/PREM-QNT-009-vectors-components/content/070-synthesis.md",
+    "lessons/PREM-QNT-009-vectors-components/assessment.json"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-009-vectors-components/content/040-misconception.md",
+      "finding": "The misconception scene does not follow the required repair sequence structure of CONTENT-STANDARD.md §7. It contains only static expository text defining the sum-of-magnitudes shortcut with a basic numerical counterexample. It fails to elicit a prediction or commitment from the learner, lacks structured segments comparing the models, and does not recheck the learner on a new case within the sequence.",
+      "resolution": "Rewrite the misconception block to use the standard six-step repair sequence: prompt the learner to make an initial prediction or commitment (e.g., asking if a route of 3 units east and 4 units north has a net displacement of 7 units), state the incorrect model neutrally, show why it fails with a counterexample, provide the correct repair (resolving first, then reconstructing), and end with a recheck question (e.g., a discriminating case with opposite-direction vectors)."
+    },
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-009-vectors-components/content/020-concept.md",
+      "finding": "While introducing 3D vector representations at the beginning, the concept scene defines operations (addition, scaling, magnitude, unit normalization, and dot product) strictly for 2D vectors. This breaks constructive alignment with the objective to represent and manipulate 3D vectors (objective-represent-vectors), and leaves a severe explanation gap for assessment items 'item-vector-arithmetic' (requiring subtraction of 3D vectors) and 'item-magnitude-unit' (requiring magnitude and unit vector for 3D vector w = (-2,3,6)).",
+      "resolution": "Generalize the concept scene definitions for vector operations (addition, scalar multiplication, magnitude, unit normalization, and dot product) to include their 3D forms, showing how each operation extends to three-dimensional components."
+    },
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-009-vectors-components/content/030-worked-example.md",
+      "finding": "The worked example scene only shows resolving and reconstructing a 2D directed span. It contains no worked example demonstrating dot products or scalar projections, despite these operations being a primary lesson objective (objective-dot-product), practiced in 050-practice.md, and assessed in assessment.json (item-dot-angle and item-projection). This breaks constructive alignment and scaffolding for the learner.",
+      "resolution": "Add a worked example walk-through in 030-worked-example.md that demonstrates calculating the dot product between two vectors, interpreting their alignment/angle, and calculating a signed scalar projection onto a unit direction."
+    },
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-009-vectors-components/content/060-transfer.md",
+      "finding": "The transfer scene and the corresponding assessment item (item-transfer-resultant) exhibit low cognitive transfer. Both require resolving a 2D vector/hypotenuse of a given length and angle into horizontal and vertical components, and combining it with another vector to find the resultant vector, its magnitude, and its direction. This is near practice (a multi-step routine) rather than a genuine transfer task to a novel context as required by CONTENT-STANDARD.md §8.",
+      "resolution": "Redesign the transfer scene and the assessment item to apply the vector audit in a genuinely novel, bounded context, such as calculating the net tension in a two-cable suspension system or determining the relative path of a vessel subject to cross-current drift."
+    },
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-009-vectors-components/content/020-concept.md",
+      "finding": "The lesson introduces the 'atan2(y, x)' function to reconstruct direction without defining its parameter ordering (specifically that the vertical component is the first argument and the horizontal is the second) or explaining the mathematical logic of the quadrant correction. The check in 030-worked-example.md notes that a one-argument arctangent returns the wrong quadrant here (-40 degrees instead of 140 degrees) but does not explain how to compute the correction (180 degrees adjustment when the horizontal component is negative), leaving an explanation gap.",
+      "resolution": "Explicitly define the parameter ordering of 'atan2(v_y, v_x)' in the concept scene, and explain how the quadrant correction relates to standard arctangent (e.g., adding 180 degrees when v_x < 0)."
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-QNT-009-vectors-components/content/050-practice.md",
+      "finding": "In the practice scene, the prompts are immediately followed by the feedback lines. In a static reading or print format, this exposes the solution to the learner before they have had a chance to retrieve or generate a response, undermining the retrieval practice benefit.",
+      "resolution": "Add an orientation instruction at the beginning of the practice scene prompting the learner to cover the feedback and commit to an answer first."
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-QNT-009-vectors-components/lesson.json",
+      "finding": "The lesson lists a total estimated duration of 240 minutes (4 hours) across its scenes. Given the concise length of the scenes and the routine nature of the practice and worked examples, this is excessively high for a single basic vector components lesson and may distort curriculum scheduling.",
+      "resolution": "Adjust the estimated minutes in lesson.json to a more realistic value (e.g., 60 to 90 minutes total) and update the scene-level estimates accordingly."
+    }
+  ],
+  "limitations": [
+    "Review is limited to static analysis of the Markdown files and schema compliance; no real-user behavioral data or interactive software rendering outcomes were available.",
+    "Academic accuracy and clinical boundaries are assumed to be validated by the respective quorum roles."
+  ],
+  "signedAt": "2026-07-23T00:31:00.000Z"
+}

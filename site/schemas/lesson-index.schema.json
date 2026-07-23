@@ -1,14 +1,14 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://embeddedknowledge.io/schemas/lesson-index.schema.json",
-  "title": "EmbeddedKnowledge Premed lesson production index",
+  "title": "EmbeddedKnowledge course lesson production index",
   "type": "object",
   "additionalProperties": false,
   "required": ["schemaVersion", "generatedAt", "course", "repository", "stateDefinitions", "summary", "domains", "outcomes", "lessons"],
   "properties": {
     "schemaVersion": { "const": 1 },
     "generatedAt": { "type": "string", "minLength": 10 },
-    "course": { "const": "premed" },
+    "course": { "enum": ["premed", "psychiatry"] },
     "repository": { "type": "string", "format": "uri" },
     "stateDefinitions": {
       "type": "object", "additionalProperties": false,
@@ -53,8 +53,8 @@
           "estimatedHours": { "type": "number", "minimum": 0 },
           "prerequisites": { "type": "array", "uniqueItems": true, "items": { "type": "string", "pattern": "^topic-" } },
           "crossLinks": { "type": "array", "uniqueItems": true, "items": { "type": "string" } },
-          "lessonIds": { "type": "array", "uniqueItems": true, "items": { "type": "string", "pattern": "^PREM-" } },
-          "publishedLessonIds": { "type": "array", "uniqueItems": true, "items": { "type": "string", "pattern": "^PREM-" } }
+          "lessonIds": { "type": "array", "uniqueItems": true, "items": { "type": "string", "pattern": "^(?:PREM|PSY)-" } },
+          "publishedLessonIds": { "type": "array", "uniqueItems": true, "items": { "type": "string", "pattern": "^(?:PREM|PSY)-" } }
         }
       }
     },
@@ -64,7 +64,7 @@
         "type": "object", "additionalProperties": false,
         "required": ["id", "version", "title", "status", "riskTier", "estimatedMinutes", "outcomeIds", "prerequisiteIds", "license", "sourceConfidence", "dataUrl", "readerUrl"],
         "properties": {
-          "id": { "type": "string", "pattern": "^PREM-" },
+          "id": { "type": "string", "pattern": "^(?:PREM|PSY)-" },
           "version": { "type": "string" },
           "title": { "type": "string" },
           "status": { "enum": ["draft", "in-review", "adjudicated", "published"] },
@@ -74,8 +74,8 @@
           "prerequisiteIds": { "type": "array", "uniqueItems": true, "items": { "type": "string", "pattern": "^topic-" } },
           "license": { "const": "CC-BY-4.0" },
           "sourceConfidence": { "type": "string" },
-          "dataUrl": { "type": "string", "pattern": "^/data/lessons/PREM-[A-Z]{3}-[0-9]{3}\\.json$" },
-          "readerUrl": { "type": "string", "pattern": "^/premed/lessons/read/\\?lesson=PREM-[A-Z]{3}-[0-9]{3}$" }
+          "dataUrl": { "type": "string", "pattern": "^/data/lessons/(?:PREM|PSY)-[A-Z]{3}-[0-9]{3}\\.json$" },
+          "readerUrl": { "type": "string", "pattern": "^/(?:premed|psychiatry)/lessons/read/\\?lesson=(?:PREM|PSY)-[A-Z]{3}-[0-9]{3}$" }
         }
       }
     }
