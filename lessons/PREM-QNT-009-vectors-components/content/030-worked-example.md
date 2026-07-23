@@ -30,13 +30,29 @@ $$\operatorname{atan2}(12.856,-15.321)\approx140^\circ.$$
 **6. Check.** The unit-vector components have squared sum about 1; the signs match quadrant II; neither component magnitude exceeds the vector magnitude.
 :::
 
+## Use a dot product and a scalar projection
+
+Let $\mathbf p=(2,3)$ and $\mathbf q=(-1,4)$. Their dot product is
+
+$$\mathbf p\mathbin{\boldsymbol\cdot}\mathbf q=2(-1)+3(4)=10.$$
+
+Because the result is positive, the included angle is acute. More precisely,
+
+$$\cos\phi=\frac{10}{\sqrt{13}\sqrt{17}},\qquad \phi\approx47.7^\circ.$$
+
+For the unit direction $\widehat{\mathbf d}=(3/5,4/5)$, first check that $(3/5)^2+(4/5)^2=1$. The signed scalar projection of $\mathbf p$ along that direction is
+
+$$\mathbf p\mathbin{\boldsymbol\cdot}\widehat{\mathbf d}=\frac{6}{5}+\frac{12}{5}=\frac{18}{5}=3.6.$$
+
+The positive sign means that $\mathbf p$ has a component along $\widehat{\mathbf d}$ rather than opposite it.
+
 :::{check}
 :id: check-quadrant-aware-direction
 
 Why is $\arctan(12.856/-15.321)\approx-40^\circ$ not the final direction here?
 :::
 
-The ratio alone cannot distinguish quadrant II from quadrant IV. The component signs and stated convention require $140^\circ$.
+The ratio alone cannot distinguish quadrant II from quadrant IV. Because the horizontal component is negative, add $180^\circ$ to the principal value: $-40^\circ+180^\circ=140^\circ$.
 
 :::{source-note}
 :claims: claim-vector-components, claim-vector-norm, claim-dot-product, claim-direction-components

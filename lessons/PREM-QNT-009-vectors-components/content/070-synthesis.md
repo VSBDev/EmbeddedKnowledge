@@ -16,7 +16,7 @@
 Complete `assessment.json`. If component signs fail, return to the axis convention. If magnitude fails, redo component arithmetic before taking the norm. If a sketch feels essential, replace it with a component table and named positive directions before retrying.
 
 :::{source-note}
-:claims: claim-vector-components, claim-vector-norm, claim-dot-product, claim-direction-components
+:claims: claim-scalar-vector, claim-vector-components, claim-vector-norm, claim-dot-product, claim-direction-components, claim-triangle-inequality
 :sources: source-nist-dlmf-vectors
 
 The synthesis applies sourced vector relations through an original resolve-combine-reconstruct-check method.

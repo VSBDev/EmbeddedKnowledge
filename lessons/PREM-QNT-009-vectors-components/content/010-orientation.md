@@ -1,8 +1,8 @@
 # Direction survives the arithmetic
 
-A fictional route moves 8 units east and then 6 units north. One report calls its displacement 14 units because $8+6=14$.
+A fictional route moves 8 units east and then 6 units north. One report calls the net change 14 units because $8+6=14$.
 
-Distance traveled is 14 units, but displacement is a vector from start to finish. With east as positive horizontal and north as positive vertical, its components are $(8,6)$ and its magnitude is
+The two legs total 14 units, but the vector from start to finish is not found by adding their lengths. With east as positive horizontal and north as positive vertical, its components are $(8,6)$ and its magnitude is
 
 $$\sqrt{8^2+6^2}=10\text{ units}.$$
 
@@ -19,10 +19,10 @@ This lesson uses a four-part vector audit: **resolve** every vector into signed 
 If a spatial description is difficult, replace it with an axis convention and a component table before calculating.
 
 :::{source-note}
-:claims: claim-vector-components, claim-vector-norm, claim-direction-components
+:claims: claim-scalar-vector, claim-vector-components, claim-vector-norm, claim-direction-components
 :sources: source-nist-dlmf-vectors
 
-NIST DLMF records standard vector component, norm, and angle relations. The route and audit are original.
+NIST DLMF records the scalar/vector, component, norm, and angle relations used here. The route and audit are original.
 :::
 
 ## Accessibility and alternatives

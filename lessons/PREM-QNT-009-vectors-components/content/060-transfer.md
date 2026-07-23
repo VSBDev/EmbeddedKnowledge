@@ -1,30 +1,32 @@
-# Audit a two-vector route
+# Audit a changed angle convention
 
-A fictional route consists of vector $\mathbf a$ with magnitude 12 units at $30^\circ$ counterclockwise from positive horizontal, followed by $\mathbf b=(-4,7)$ units. Find the resultant vector, magnitude, and direction.
+A fictional imaging-stage calibration records vector $\mathbf a$ as 12 units at $30^\circ$ clockwise from the positive vertical axis. Its component system uses positive horizontal to the right and positive vertical upward. A draft calculation treated the angle as if it were measured counterclockwise from the positive horizontal axis. After $\mathbf a$, the stage applies $\mathbf b=(-4,7)$ units. Audit the convention error, then find the correct resultant vector, magnitude, and standard direction measured counterclockwise from positive horizontal.
 
 ## Feedback after a complete attempt
 
-Resolve the first vector:
+Changing the reference axis changes which trigonometric function gives each component. Here,
 
-$$\mathbf a=(12\cos30^\circ,12\sin30^\circ)\approx(10.392,6).$$
+$$\mathbf a=(12\sin30^\circ,12\cos30^\circ)\approx(6,10.392).$$
+
+The draft pair $(10.392,6)$ has the expected positive signs, so a sign check alone would not expose the swapped angle convention.
 
 Combine componentwise:
 
-$$\mathbf r=\mathbf a+\mathbf b\approx(6.392,13).$$
+$$\mathbf r=\mathbf a+\mathbf b\approx(2,17.392).$$
 
 Reconstruct:
 
-$$\lVert\mathbf r\rVert\approx\sqrt{6.392^2+13^2}\approx14.487\text{ units},$$
+$$\lVert\mathbf r\rVert\approx\sqrt{2^2+17.392^2}\approx17.507\text{ units},$$
 
-$$\theta=\operatorname{atan2}(13,6.392)\approx63.82^\circ.$$
+$$\theta=\operatorname{atan2}(17.392,2)\approx83.44^\circ.$$
 
-Both resultant components are positive, so quadrant I is consistent. The magnitude is below $12+\sqrt{65}\approx20.06$, satisfying the triangle bound. Units remain units, not square units.
+Both resultant components are positive, so quadrant I is consistent. The magnitude is below $12+\sqrt{65}\approx20.06$, satisfying the triangle bound. Units remain units, not square units. The transferable rule is to project onto the declared axes rather than attach cosine permanently to the horizontal component.
 
-The route is fictional and is not navigation guidance.
+The calibration setting is fictional and is not equipment guidance.
 
 :::{source-note}
-:claims: claim-vector-components, claim-vector-norm, claim-dot-product, claim-direction-components
+:claims: claim-vector-components, claim-vector-norm, claim-direction-components, claim-triangle-inequality
 :sources: source-nist-dlmf-vectors
 
-The route, numbers, reconstruction, and boundary statement are original.
+The calibration setting, convention error, numbers, reconstruction, and boundary statement are original.
 :::

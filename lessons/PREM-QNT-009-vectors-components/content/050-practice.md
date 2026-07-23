@@ -1,5 +1,7 @@
 # Choose signs before calculating
 
+Pause at each prompt and write or say an answer before continuing to its feedback. In print, cover the feedback if useful; with a screen reader, stop after the prompt and resume only after committing to an answer.
+
 ## 1. Add and scale
 
 Let $\mathbf a=(2,-5)$ and $\mathbf b=(-7,3)$. Find $2\mathbf a+\mathbf b$.
@@ -33,7 +35,7 @@ Let $\mathbf v=(6,2)$ and let $\widehat{\mathbf d}=(3/5,4/5)$. Find the signed s
 - Angle formula fails: check for a zero vector before dividing by magnitudes.
 
 :::{source-note}
-:claims: claim-vector-components, claim-vector-norm, claim-dot-product, claim-direction-components
+:claims: claim-vector-components, claim-vector-norm, claim-dot-product
 :sources: source-nist-dlmf-vectors
 
 All practice, feedback, and recovery guidance are original.
