@@ -1,8 +1,8 @@
 # EmbeddedKnowledge
 
-> EmbeddedKnowledge is an open, versioned library of university-grade knowledge maps and reviewed teaching material. Premed is its first course. The common curriculum and three of five pathways (US/MCAT, biology-depth, quantitative-depth) are graph-instrumented; the UK and Spain pathways are documented in the syllabus but not yet instrumented, so they cannot currently satisfy completion or receive lesson contributions. The open lesson corpus is live and grows through reviewed contributions.
+> EmbeddedKnowledge is an open, versioned library of university-grade knowledge maps and reviewed teaching material. Premed is its first implemented course. Psychiatry is Book 02: a 1,440-hour academic and simulation curriculum with 154 stable contribution targets, explicitly separated from clinical training and professional authority.
 
-The canonical public domain is https://embeddedknowledge.io/. Lesson contributions are open through focused pull requests using the published one-pass author, two-review, and fresh-finalizer workflow. Pull requests are the only write path. The website, JSON endpoints, `llms.txt`, and WebMCP are read-only discovery surfaces.
+The canonical public domain is https://embeddedknowledge.io/. Premed and Psychiatry lesson contributions are open through focused pull requests using the published one-pass author, two-review, and fresh-finalizer workflow. Pull requests are the only write path. The website, JSON endpoints, `llms.txt`, and WebMCP are read-only discovery surfaces.
 
 Course content is licensed CC BY 4.0 unless a file or third-party asset says otherwise. Software is licensed MIT (see `LICENSE`). Do not represent curriculum completion as university credit, admission, clinical competence, or professional authorization.
 
@@ -47,6 +47,17 @@ Course content is licensed CC BY 4.0 unless a file or third-party asset says oth
 - [Graph data](https://embeddedknowledge.io/data/premed-graph.json): 10 domains, 46 modules, 388 atomic outcomes, and 1,058 relationships.
 - [Production ledger](https://embeddedknowledge.io/data/premed-progress.json): contributed, in-review, published-open, and covered-outcome totals.
 
+## Psychiatry
+
+- [Book overview](https://embeddedknowledge.io/psychiatry/): status, boundaries, architecture, and design commitments.
+- [Complete candidate syllabus](https://embeddedknowledge.io/psychiatry/syllabus/): 1,440 academic hours, one 120–240-hour area of depth, 26 modules, and 22 graduate capabilities.
+- [Knowledge graph](https://embeddedknowledge.io/psychiatry/graph/): 4 stages, 26 modules, 154 atomic outcomes, and 385 relationships.
+- [Lesson commons](https://embeddedknowledge.io/psychiatry/lessons/): every atomic outcome shown as empty, in an open PR, or covered by a published lesson.
+- [Graph data](https://embeddedknowledge.io/data/psychiatry-graph.json) and [production ledger](https://embeddedknowledge.io/data/psychiatry-progress.json): machine-readable curriculum and coverage state.
+- Canonical sources: `course/PSYCHIATRY-SYLLABUS.md` and `research/PSYCHIATRY-SOURCE-CATALOG.md` in the repository.
+- Status: graph-backed academic curriculum with focused lesson intake. This creates no clinical credential and makes no claim of equivalence to residency.
+- Boundary: academic study and simulation only. Real-patient work, prescribing, psychotherapy delivery, workplace entrustment, licensure, board eligibility, and the title psychiatrist remain with accredited programs and regulators.
+
 ## Required standard-lesson process
 
 A standard lesson uses a founding-stage 2 + 1 one-pass process: one academic and one learning-design review from two isolated runs across two providers inspect the same original candidate, then a third fresh finalizer disposes every finding, writes the final version once, audits accessibility and rights, and adjudicates the final commit. Both `approve` and `request-changes` are usable review inputs; neither starts a new cohort. One disclosed maintainer may operate all agents. Provenance is disclosed and attested by the accountable operator, not cryptographically verified.
@@ -59,6 +70,9 @@ Before formal review, the author must pass the human first-read gate on a learne
 - `CONTRIBUTING.md` — canonical PR contract.
 - `COLLABORATION.md` — governance, role, and quorum rationale.
 - `course/PREMED-SYLLABUS.md` — authoritative syllabus source.
+- `course/PSYCHIATRY-SYLLABUS.md` — authoritative Psychiatry academic syllabus source.
+- `course/PSYCHIATRY-KNOWLEDGE-GRAPH.md` — graph semantics, stable-ID rule, intake boundary, and external-review request.
+- `research/PSYCHIATRY-SOURCE-CATALOG.md` — dated psychiatry training, program, open-source, rights, and design synthesis.
 - `site/data/premed-graph.json` — public graph artifact.
 - `site/data/premed-progress.json` — public production ledger.
 - `lessons/README.md` — canonical Lesson Format v1 authoring and rendering contract.

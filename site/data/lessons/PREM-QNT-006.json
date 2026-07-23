@@ -1,0 +1,750 @@
+{
+  "schemaVersion": 3,
+  "format": "embeddedknowledge-lesson-v1",
+  "artifactType": "production-lesson",
+  "id": "PREM-QNT-006",
+  "version": "0.1.0",
+  "title": "Ask what exponent: logarithms and exponential change",
+  "status": "published",
+  "riskTier": "standard",
+  "estimatedMinutes": 240,
+  "outcomes": [
+    "topic-quantitative-foundations-logarithms"
+  ],
+  "prerequisites": [
+    "topic-quantitative-foundations-exponents-roots"
+  ],
+  "objectives": [
+    {
+      "id": "objective-translate-log",
+      "statement": "Translate between logarithmic and exponential statements while enforcing positive-argument and valid-base constraints.",
+      "outcomeIds": [
+        "topic-quantitative-foundations-logarithms"
+      ]
+    },
+    {
+      "id": "objective-use-log-laws",
+      "statement": "Use product, quotient, and power laws to transform logarithmic expressions without inventing a false sum rule.",
+      "outcomeIds": [
+        "topic-quantitative-foundations-logarithms"
+      ]
+    },
+    {
+      "id": "objective-solve-exponential",
+      "statement": "Solve elementary exponential equations with logarithms and verify solutions in the original equation.",
+      "outcomeIds": [
+        "topic-quantitative-foundations-logarithms"
+      ]
+    },
+    {
+      "id": "objective-interpret-change",
+      "statement": "Interpret exponential decay parameters by calculating threshold times and half-lives from discrete or continuous models.",
+      "outcomeIds": [
+        "topic-quantitative-foundations-logarithms"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene-orientation",
+      "title": "The unknown is in the exponent",
+      "kind": "orientation",
+      "source": "content/010-orientation.md",
+      "estimatedMinutes": 25,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>The unknown is in the exponent</h1>\n<p>A fictional archive begins with 250 indexed objects and doubles after each completed cycle. When will it first exceed 10,000 objects?</p>\n<p>The model is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>N</mi><mo>=</mo><mn>250</mn><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><msup><mn>2</mn><mi>t</mi></msup><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">N=250(2^t)</annotation></semantics></math></span>. Dividing by 250 gives <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>2</mn><mi>t</mi></msup><mo>=</mo><mn>40</mn></mrow><annotation encoding=\"application/x-tex\">2^t=40</annotation></semantics></math></span>. The question is no longer ordinary multiplication: <strong>what exponent on 2 produces 40?</strong></p>\n<p>That exponent is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><msub><mi>log</mi><mn>2</mn></msub><mo>⁡</mo><mspace width=\"0.1667em\"></mspace><mn>40</mn><mo>≈</mo><mn>5.32</mn></mrow><annotation encoding=\"application/x-tex\">t=\\log_2 40\\approx5.32</annotation></semantics></math></span>. If only completed cycles count, the first exceeding cycle is 6 because <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>250</mn><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><msup><mn>2</mn><mn>5</mn></msup><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>=</mo><mn>8000</mn></mrow><annotation encoding=\"application/x-tex\">250(2^5)=8000</annotation></semantics></math></span> and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>250</mn><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><msup><mn>2</mn><mn>6</mn></msup><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>=</mo><mn>16000</mn></mrow><annotation encoding=\"application/x-tex\">250(2^6)=16000</annotation></semantics></math></span>.</p>\n<p>This lesson uses logarithms to recover unknown exponents, then checks the answer in the original change model.</p>\n<h2>Starting check</h2>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-starting-prerequisites</span></div>\n    <div class=\"ek-block-content\"><p>Answer before reading the feedback.</p>\n<ol>\n<li>Rewrite <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>3</mn><mn>4</mn></msup><mo>=</mo><mn>81</mn></mrow><annotation encoding=\"application/x-tex\">3^4=81</annotation></semantics></math></span> as a logarithmic statement.</li>\n<li>Can a real logarithm have argument zero?</li>\n<li>Does <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mrow><mi>log</mi><mo>⁡</mo></mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>4</mn><mo>+</mo><mn>6</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\log(4+6)</annotation></semantics></math></span> equal <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mrow><mi>log</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mn>4</mn><mo>+</mo><mrow><mi>log</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mn>6</mn></mrow><annotation encoding=\"application/x-tex\">\\log4+\\log6</annotation></semantics></math></span>?</li>\n</ol>\n<p><strong>Feedback after attempting:</strong></p>\n<ol>\n<li><span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>log</mi><mn>3</mn></msub><mo>⁡</mo><mspace width=\"0.1667em\"></mspace><mn>81</mn><mo>=</mo><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">\\log_3 81=4</annotation></semantics></math></span> because the logarithm names the exponent on 3.</li>\n<li>No. For a valid real base, every real power is positive, so a real logarithm requires a positive argument.</li>\n<li>No. Logarithms split products, not sums: <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mrow><mi>log</mi><mo>⁡</mo></mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>4</mn><mo>+</mo><mn>6</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>=</mo><mrow><mi>log</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mn>10</mn></mrow><annotation encoding=\"application/x-tex\">\\log(4+6)=\\log10</annotation></semantics></math></span>, whereas <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mrow><mi>log</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mn>4</mn><mo>+</mo><mrow><mi>log</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mn>6</mn><mo>=</mo><mrow><mi>log</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mn>24</mn></mrow><annotation encoding=\"application/x-tex\">\\log4+\\log6=\\log24</annotation></semantics></math></span>.</li>\n</ol>\n</div>\n  </aside>\n<p>If powers are uncertain, return briefly to exponent laws and write a small table of <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mn>2</mn><mi>t</mi></msup><annotation encoding=\"application/x-tex\">2^t</annotation></semantics></math></span> before continuing.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-log-inverse, claim-log-ratio, claim-exponential-parameterizations</span><span><b>sources</b> source-nist-dlmf-log, source-nist-si-log</span></div>\n    <div class=\"ek-block-content\"><p>NIST sources document logarithm functions and logarithms of dimensionless ratios. The archive, threshold, and teaching sequence are original.</p>\n</div>\n  </aside>\n<h2>Accessibility and alternatives</h2>\n<p>All symbolic relationships are restated in words. No task depends on a plotted curve, color, timing, or calculator layout. Read <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>log</mi><mi>b</mi></msub><mo>⁡</mo><mspace width=\"0.1667em\"></mspace><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\log_b x</annotation></semantics></math></span> aloud as “log base b of x.”</p>\n"
+    },
+    {
+      "id": "scene-concept",
+      "title": "A logarithm names an exponent",
+      "kind": "concept",
+      "source": "content/020-concept.md",
+      "estimatedMinutes": 45,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>A logarithm names an exponent</h1>\n<p>For <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>b</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">b&gt;0</annotation></semantics></math></span>, <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>b</mi><mo>≠</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">b\\ne1</annotation></semantics></math></span>, and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">x&gt;0</annotation></semantics></math></span>,</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><msub><mi>log</mi><mi>b</mi></msub><mo>⁡</mo><mspace width=\"0.1667em\"></mspace><mi>x</mi><mo>=</mo><mi>y</mi><mspace width=\"1em\"></mspace><mtext>if and only if</mtext><mspace width=\"1em\"></mspace><msup><mi>b</mi><mi>y</mi></msup><mo>=</mo><mi>x</mi><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">\\log_b x=y\\quad\\text{if and only if}\\quad b^y=x.</annotation></semantics></math></div>\n<p>The base restrictions make the exponential function one-to-one over the reals; the positive argument restriction reflects that <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mi>b</mi><mi>y</mi></msup><annotation encoding=\"application/x-tex\">b^y</annotation></semantics></math></span> is positive.</p>\n<aside class=\"ek-block ek-definition ek-block--definition\" data-directive=\"definition\">\n    <div class=\"ek-block-label directive-label\">Definition</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> definition-common-natural-log</span></div>\n    <div class=\"ek-block-content\"><p><span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mrow><mi>log</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\log x</annotation></semantics></math></span> commonly denotes base 10 in this lesson, while <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mrow><mi>ln</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">\\ln x</annotation></semantics></math></span> denotes base <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>e</mi><annotation encoding=\"application/x-tex\">e</annotation></semantics></math></span>. Both answer an exponent question; the chosen base sets the exponential scale.</p>\n</div>\n  </aside>\n<p>Examples: <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>log</mi><mn>10</mn></msub><mo>⁡</mo><mspace width=\"0.1667em\"></mspace><mn>1000</mn><mo>=</mo><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">\\log_{10}1000=3</annotation></semantics></math></span>, <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>log</mi><mn>2</mn></msub><mo>⁡</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>1</mn><mi>/</mi><mn>8</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>=</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">\\log_2(1/8)=-3</annotation></semantics></math></span>, and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mrow><mi>ln</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><msup><mi>e</mi><mn class=\"tml-sml-pad\">4</mn></msup><mo>=</mo><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">\\ln e^4=4</annotation></semantics></math></span>.</p>\n<h2>Laws from exponent structure</h2>\n<p>For positive <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>M</mi><mo separator=\"true\">,</mo><mi>N</mi></mrow><annotation encoding=\"application/x-tex\">M,N</annotation></semantics></math></span>,</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><msub><mi>log</mi><mi>b</mi></msub><mo>⁡</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mi>M</mi><mi>N</mi><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>=</mo><msub><mi>log</mi><mi>b</mi></msub><mo>⁡</mo><mspace width=\"0.1667em\"></mspace><mi>M</mi><mo>+</mo><msub><mi>log</mi><mi>b</mi></msub><mo>⁡</mo><mspace width=\"0.1667em\"></mspace><mi>N</mi><mo separator=\"true\">,</mo></mrow><annotation encoding=\"application/x-tex\">\\log_b(MN)=\\log_bM+\\log_bN,</annotation></semantics></math></div>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><msub><mi>log</mi><mi>b</mi></msub><mo>⁡</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mi>M</mi><mi>/</mi><mi>N</mi><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>=</mo><msub><mi>log</mi><mi>b</mi></msub><mo>⁡</mo><mspace width=\"0.1667em\"></mspace><mi>M</mi><mo>−</mo><msub><mi>log</mi><mi>b</mi></msub><mo>⁡</mo><mspace width=\"0.1667em\"></mspace><mi>N</mi><mo separator=\"true\">,</mo></mrow><annotation encoding=\"application/x-tex\">\\log_b(M/N)=\\log_bM-\\log_bN,</annotation></semantics></math></div>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><msub><mi>log</mi><mi>b</mi></msub><mo>⁡</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><msup><mi>M</mi><mi class=\"tml-med-pad\">p</mi></msup><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>=</mo><mi>p</mi><mspace width=\"0.1667em\"></mspace><msub><mi>log</mi><mi>b</mi></msub><mo>⁡</mo><mspace width=\"0.1667em\"></mspace><mi>M</mi><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">\\log_b(M^p)=p\\log_bM.</annotation></semantics></math></div>\n<p>These are exponent laws in inverse form. Change of base follows by solving <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>b</mi><mi>y</mi></msup><mo>=</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">b^y=x</annotation></semantics></math></span> with natural logs:</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><msub><mi>log</mi><mi>b</mi></msub><mo>⁡</mo><mspace width=\"0.1667em\"></mspace><mi>x</mi><mo>=</mo><mfrac><mrow><mrow><mi>ln</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mi>x</mi></mrow><mrow><mrow><mi>ln</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mi>b</mi></mrow></mfrac><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">\\log_bx=\\frac{\\ln x}{\\ln b}.</annotation></semantics></math></div>\n<h2>Exponential change</h2>\n<p>A discrete model <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>Q</mi><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mi>t</mi><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>=</mo><msub><mi>Q</mi><mn>0</mn></msub><msup><mi>a</mi><mi>t</mi></msup></mrow><annotation encoding=\"application/x-tex\">Q(t)=Q_0a^t</annotation></semantics></math></span> has growth when <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi><mo>&gt;</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">a&gt;1</annotation></semantics></math></span> and decay when the factor <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>a</mi><annotation encoding=\"application/x-tex\">a</annotation></semantics></math></span> lies strictly between zero and one. A continuous form <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>Q</mi><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mi>t</mi><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>=</mo><msub><mi>Q</mi><mn>0</mn></msub><msup><mi>e</mi><mrow class=\"tml-sml-pad\"><mi>k</mi><mi>t</mi></mrow></msup></mrow><annotation encoding=\"application/x-tex\">Q(t)=Q_0e^{kt}</annotation></semantics></math></span> has growth for <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>k</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">k&gt;0</annotation></semantics></math></span> and decay for <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>k</mi><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">k&lt;0</annotation></semantics></math></span>. They are equivalent when <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi><mo>=</mo><msup><mi>e</mi><mi class=\"tml-sml-pad\">k</mi></msup></mrow><annotation encoding=\"application/x-tex\">a=e^k</annotation></semantics></math></span> for the same time unit.</p>\n<p>Logarithms require a positive dimensionless argument. In applied equations, form a ratio such as <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>Q</mi><mi>/</mi><msub><mi>Q</mi><mn>0</mn></msub></mrow><annotation encoding=\"application/x-tex\">Q/Q_0</annotation></semantics></math></span> before taking a log.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-log-inverse, claim-log-laws, claim-log-ratio, claim-exponential-parameterizations</span><span><b>sources</b> source-nist-dlmf-log, source-nist-si-log</span></div>\n    <div class=\"ek-block-content\"><p>NIST DLMF supplies authoritative exponential and logarithm relations; NIST SI guidance uses logarithms of like-quantity ratios. The elementary derivations and discrete/continuous comparison are original.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-worked-example",
+      "title": "Solve a threshold time and check it",
+      "kind": "worked-example",
+      "source": "content/030-worked-example.md",
+      "estimatedMinutes": 40,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Solve a threshold time and check it</h1>\n<p>A fictional counter follows <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>N</mi><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mi>t</mi><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>=</mo><mn>320</mn><msup><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>1.18</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mi>t</mi></msup></mrow><annotation encoding=\"application/x-tex\">N(t)=320(1.18)^t</annotation></semantics></math></span>. Find when it reaches 1000 under the model.</p>\n<aside class=\"ek-block ek-worked-example ek-block--worked-example\" data-directive=\"worked-example\">\n    <div class=\"ek-block-label directive-label\">Worked Example</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> worked-example-threshold</span></div>\n    <div class=\"ek-block-content\"><p><strong>1. Isolate the exponential factor.</strong></p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mfrac><mn>1000</mn><mn>320</mn></mfrac><mo>=</mo><msup><mn>1.18</mn><mi>t</mi></msup><mo separator=\"true\">,</mo></mrow><annotation encoding=\"application/x-tex\">\\frac{1000}{320}=1.18^t,</annotation></semantics></math></div>\n<p>so <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3.125</mn><mo>=</mo><msup><mn>1.18</mn><mi>t</mi></msup></mrow><annotation encoding=\"application/x-tex\">3.125=1.18^t</annotation></semantics></math></span>.</p>\n<p><strong>2. Estimate.</strong> Since <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>1.18</mn><mn>5</mn></msup><mo>≈</mo><mn>2.29</mn></mrow><annotation encoding=\"application/x-tex\">1.18^5\\approx2.29</annotation></semantics></math></span> and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>1.18</mn><mn>10</mn></msup><mo>≈</mo><mn>5.23</mn></mrow><annotation encoding=\"application/x-tex\">1.18^{10}\\approx5.23</annotation></semantics></math></span>, the time lies between 5 and 10 intervals.</p>\n<p><strong>3. Take logs of both positive sides.</strong></p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mrow><mi>ln</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mn>3.125</mn><mo>=</mo><mi>t</mi><mrow><mspace width=\"0.1667em\"></mspace><mi>ln</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mn>1.18</mn><mo separator=\"true\">,</mo></mrow><annotation encoding=\"application/x-tex\">\\ln3.125=t\\ln1.18,</annotation></semantics></math></div>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mi>t</mi><mo>=</mo><mfrac><mrow><mrow><mi>ln</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mn>3.125</mn></mrow><mrow><mrow><mi>ln</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mn>1.18</mn></mrow></mfrac><mo>≈</mo><mn>6.88.</mn></mrow><annotation encoding=\"application/x-tex\">t=\\frac{\\ln3.125}{\\ln1.18}\\approx6.88.</annotation></semantics></math></div>\n<p><strong>4. Check.</strong> <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>320</mn><msup><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>1.18</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mn>6.88</mn></msup><mo>≈</mo><mn>1000</mn></mrow><annotation encoding=\"application/x-tex\">320(1.18)^{6.88}\\approx1000</annotation></semantics></math></span>; the result lies inside the estimated interval.</p>\n<p><strong>5. Interpret.</strong> The continuous-time threshold under this fictional model is about 6.88 intervals. If observations occur only after completed intervals, compare interval 6 and 7 rather than rounding without context.</p>\n</div>\n  </aside>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-log-solution</span></div>\n    <div class=\"ek-block-content\"><p>Why must the ratio <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1000</mn><mi>/</mi><mn>320</mn></mrow><annotation encoding=\"application/x-tex\">1000/320</annotation></semantics></math></span> be formed before taking a logarithm?</p>\n<p><strong>Feedback after attempting:</strong> It isolates the dimensionless growth factor and keeps the logarithm&#39;s argument positive and comparable to <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mn>1.18</mn><mi>t</mi></msup><annotation encoding=\"application/x-tex\">1.18^t</annotation></semantics></math></span>.</p>\n</div>\n  </aside>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-log-inverse, claim-log-laws, claim-log-ratio, claim-exponential-parameterizations</span><span><b>sources</b> source-nist-dlmf-log, source-nist-si-log</span></div>\n    <div class=\"ek-block-content\"><p>The counter, numbers, derivation, and interpretation are original applications of the sourced logarithm framework.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-misconception",
+      "title": "Logs split products, not sums",
+      "kind": "misconception",
+      "source": "content/040-misconception.md",
+      "estimatedMinutes": 30,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Logs split products, not sums</h1>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-predict-log-sum</span></div>\n    <div class=\"ek-block-content\"><p>Before calculating, decide whether <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mrow><mi>log</mi><mo>⁡</mo></mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>10</mn><mo>+</mo><mn>90</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\log(10+90)</annotation></semantics></math></span> should equal <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mrow><mi>log</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mn>10</mn><mo>+</mo><mrow><mi>log</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mn>90</mn></mrow><annotation encoding=\"application/x-tex\">\\log10+\\log90</annotation></semantics></math></span>. Commit to yes or no and name the exponent law you think applies.</p>\n</div>\n  </aside>\n<aside class=\"ek-block ek-misconception ek-block--misconception\" data-directive=\"misconception\">\n    <div class=\"ek-block-label directive-label\">Misconception</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> misconception-log-sum</span></div>\n    <div class=\"ek-block-content\"><p>The valid product law does <strong>not</strong> imply <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mrow><mi>log</mi><mo>⁡</mo></mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mi>M</mi><mo>+</mo><mi>N</mi><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>=</mo><mrow><mi>log</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mi>M</mi><mo>+</mo><mrow><mi>log</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mi>N</mi></mrow><annotation encoding=\"application/x-tex\">\\log(M+N)=\\log M+\\log N</annotation></semantics></math></span>.</p>\n<p>For base 10, <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mrow><mi>log</mi><mo>⁡</mo></mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>10</mn><mo>+</mo><mn>90</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>=</mo><mrow><mi>log</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mn>100</mn><mo>=</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">\\log(10+90)=\\log100=2</annotation></semantics></math></span>, while <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mrow><mi>log</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mn>10</mn><mo>+</mo><mrow><mi>log</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mn>90</mn><mo>=</mo><mn>1</mn><mo>+</mo><mrow><mi>log</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mn>90</mn><mo>≈</mo><mn>2.95</mn></mrow><annotation encoding=\"application/x-tex\">\\log10+\\log90=1+\\log90\\approx2.95</annotation></semantics></math></span>.</p>\n<p>The law works for products because <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>b</mi><mi>u</mi></msup><msup><mi>b</mi><mi>v</mi></msup><mo>=</mo><msup><mi>b</mi><mrow><mi>u</mi><mo>+</mo><mi>v</mi></mrow></msup></mrow><annotation encoding=\"application/x-tex\">b^u b^v=b^{u+v}</annotation></semantics></math></span>. Addition inside a logarithm has no corresponding exponent law.</p>\n</div>\n  </aside>\n<p>Domain checking also comes first. An algebraic transformation that asks for <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mrow><mi>ln</mi><mo>⁡</mo></mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>3</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\ln(-3)</annotation></semantics></math></span> has left the real-logarithm domain even if later calculator steps produce an error code rather than an explanation.</p>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-repair-log-sum</span></div>\n    <div class=\"ek-block-content\"><p>Recheck the rule on a new case: for base 10, does <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mrow><mi>log</mi><mo>⁡</mo></mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>2</mn><mo>+</mo><mn>8</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\log(2+8)</annotation></semantics></math></span> equal <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mrow><mi>log</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mn>2</mn><mo>+</mo><mrow><mi>log</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mn>8</mn></mrow><annotation encoding=\"application/x-tex\">\\log2+\\log8</annotation></semantics></math></span>?</p>\n<p><strong>Feedback after attempting:</strong> No. The left side is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mrow><mi>log</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mn>10</mn><mo>=</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">\\log10=1</annotation></semantics></math></span>, while the right side is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mrow><mi>log</mi><mo>⁡</mo></mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>2</mn><mo>×</mo><mn>8</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>=</mo><mrow><mi>log</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mn>16</mn></mrow><annotation encoding=\"application/x-tex\">\\log(2\\times8)=\\log16</annotation></semantics></math></span>. Addition inside a logarithm must be evaluated as a sum; only multiplication permits the product law.</p>\n</div>\n  </aside>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-log-inverse, claim-log-laws</span><span><b>sources</b> source-nist-dlmf-log</span></div>\n    <div class=\"ek-block-content\"><p>The counterexample and misconception repair are original mathematical synthesis from the logarithm definition.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-practice",
+      "title": "Move between exponent and logarithm",
+      "kind": "practice",
+      "source": "content/050-practice.md",
+      "estimatedMinutes": 40,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Move between exponent and logarithm</h1>\n<p>Complete all four prompts before moving to the feedback.</p>\n<h2>1. Translate</h2>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-practice-translate</span></div>\n    <div class=\"ek-block-content\"><p>Rewrite <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>5</mn><mrow><mo form=\"prefix\" stretchy=\"false\" lspace=\"0em\" rspace=\"0em\">−</mo><mn>2</mn></mrow></msup><mo>=</mo><mn>1</mn><mi>/</mi><mn>25</mn></mrow><annotation encoding=\"application/x-tex\">5^{-2}=1/25</annotation></semantics></math></span> with a logarithm.</p>\n</div>\n  </aside>\n<h2>2. Expand validly</h2>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-practice-expand</span></div>\n    <div class=\"ek-block-content\"><p>Expand <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mrow><mi>ln</mi><mo>⁡</mo></mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>3</mn><msup><mi>x</mi><mn class=\"tml-sml-pad\">2</mn></msup><mi>/</mi><mi>y</mi><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\ln(3x^2/y)</annotation></semantics></math></span> for <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>≠</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">x\\ne0</annotation></semantics></math></span> and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">y&gt;0</annotation></semantics></math></span>.</p>\n</div>\n  </aside>\n<h2>3. Solve</h2>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-practice-solve</span></div>\n    <div class=\"ek-block-content\"><p>Solve <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>4</mn><mi>t</mi></msup><mo>=</mo><mn>70</mn></mrow><annotation encoding=\"application/x-tex\">4^t=70</annotation></semantics></math></span>.</p>\n</div>\n  </aside>\n<h2>4. Read a decay factor</h2>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-practice-decay</span></div>\n    <div class=\"ek-block-content\"><p>In <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>Q</mi><mo>=</mo><msub><mi>Q</mi><mn>0</mn></msub><msup><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>0.82</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mi>t</mi></msup></mrow><annotation encoding=\"application/x-tex\">Q=Q_0(0.82)^t</annotation></semantics></math></span>, state the percentage change per interval.</p>\n</div>\n  </aside>\n<h2>Feedback after a complete attempt</h2>\n<ol>\n<li><strong>Translate:</strong> <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>log</mi><mn>5</mn></msub><mo>⁡</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>1</mn><mi>/</mi><mn>25</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>=</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">\\log_5(1/25)=-2</annotation></semantics></math></span> because 5 raised to <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">-2</annotation></semantics></math></span> is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn><mi>/</mi><mn>25</mn></mrow><annotation encoding=\"application/x-tex\">1/25</annotation></semantics></math></span>.</li>\n<li><strong>Expand validly:</strong> <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mrow><mi>ln</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mn>3</mn><mo>+</mo><mn>2</mn><mrow><mspace width=\"0.1667em\"></mspace><mi>ln</mi><mo>⁡</mo></mrow><mi>|</mi><mi>x</mi><mi>|</mi><mo>−</mo><mrow><mi>ln</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mi>y</mi></mrow><annotation encoding=\"application/x-tex\">\\ln3+2\\ln|x|-\\ln y</annotation></semantics></math></span>. The absolute value keeps the squared factor compatible with the real logarithm when <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">x&lt;0</annotation></semantics></math></span>.</li>\n<li><strong>Solve:</strong> <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>t</mi><mo>=</mo><mrow><mi>ln</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mn>70</mn><mi>/</mi><mrow><mspace width=\"0.1667em\"></mspace><mi>ln</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mn>4</mn><mo>≈</mo><mn>3.065</mn></mrow><annotation encoding=\"application/x-tex\">t=\\ln70/\\ln4\\approx3.065</annotation></semantics></math></span>. The check <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>4</mn><mn>3</mn></msup><mo>=</mo><mn>64</mn></mrow><annotation encoding=\"application/x-tex\">4^3=64</annotation></semantics></math></span> places the answer just above 3.</li>\n<li><strong>Read a decay factor:</strong> The factor 0.82 retains 82%, so the quantity decreases by 18% per interval.</li>\n</ol>\n<h2>Recovery route</h2>\n<ul>\n<li>Logarithmic and exponential forms do not match: identify base, exponent, and result in that order.</li>\n<li>A log law is applied to a sum: recombine or evaluate the sum before logging.</li>\n<li>Negative or zero argument: inspect the real domain before calculating.</li>\n<li>Time has the wrong sign: check whether the factor represents growth or decay.</li>\n<li>Decimal answer seems opaque: bracket it between nearby integer powers and substitute back.</li>\n</ul>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-log-inverse, claim-log-laws, claim-log-ratio, claim-exponential-parameterizations</span><span><b>sources</b> source-nist-dlmf-log, source-nist-si-log</span></div>\n    <div class=\"ek-block-content\"><p>All practice, feedback, and recovery guidance are original.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-transfer",
+      "title": "Recover a half-life from two observations",
+      "kind": "transfer",
+      "source": "content/060-transfer.md",
+      "estimatedMinutes": 35,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Recover a half-life from two observations</h1>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-transfer-half-life</span></div>\n    <div class=\"ek-block-content\"><p>A fictional signal follows <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mi>t</mi><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>=</mo><msub><mi>A</mi><mn>0</mn></msub><msup><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>1</mn><mi>/</mi><mn>2</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mrow><mi>t</mi><mi>/</mi><mi>h</mi></mrow></msup></mrow><annotation encoding=\"application/x-tex\">A(t)=A_0(1/2)^{t/h}</annotation></semantics></math></span>, where <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>h</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">h&gt;0</annotation></semantics></math></span> is its half-life. After 14 hours, the ratio <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mi>/</mi><msub><mi>A</mi><mn>0</mn></msub></mrow><annotation encoding=\"application/x-tex\">A/A_0</annotation></semantics></math></span> is 0.20. Estimate <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>h</mi><annotation encoding=\"application/x-tex\">h</annotation></semantics></math></span>.</p>\n<p>Show the positive ratio, logarithmic step, sign check, and reverse substitution before continuing.</p>\n</div>\n  </aside>\n<p>Record a complete attempt before opening the next scene, which begins with worked feedback. The task estimates a parameter inside the stated fictional model; it does not establish that any measured system follows exact exponential decay.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-log-inverse, claim-log-laws, claim-log-ratio, claim-exponential-parameterizations, claim-half-life-relation</span><span><b>sources</b> source-nist-dlmf-log, source-nist-si-log</span></div>\n    <div class=\"ek-block-content\"><p>The signal model, values, solution, and boundary statement are original.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-synthesis",
+      "title": "Rebuild the inverse-change method",
+      "kind": "synthesis",
+      "source": "content/070-synthesis.md",
+      "estimatedMinutes": 25,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Rebuild the inverse-change method</h1>\n<h2>Transfer feedback</h2>\n<p>Compare this reasoning with your completed transfer attempt:</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mn>0.20</mn><mo>=</mo><msup><mn>2</mn><mrow><mo form=\"prefix\" stretchy=\"false\" lspace=\"0em\" rspace=\"0em\">−</mo><mn>14</mn><mi>/</mi><mi>h</mi></mrow></msup><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">0.20=2^{-14/h}.</annotation></semantics></math></div>\n<p>Taking logs of the positive dimensionless ratio gives</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mrow><mi>ln</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mn>0.20</mn><mo>=</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><mfrac><mn>14</mn><mi>h</mi></mfrac><mrow><mi>ln</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mn>2</mn><mo separator=\"true\">,</mo></mrow><annotation encoding=\"application/x-tex\">\\ln0.20=-\\frac{14}{h}\\ln2,</annotation></semantics></math></div>\n<p>so</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mi>h</mi><mo>=</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><mfrac><mrow><mn>14</mn><mrow><mspace width=\"0.1667em\"></mspace><mi>ln</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mn>2</mn></mrow><mrow><mrow><mi>ln</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mn>0.20</mn></mrow></mfrac><mo>≈</mo><mn>6.03</mn><mtext> h</mtext><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">h=-\\frac{14\\ln2}{\\ln0.20}\\approx6.03\\text{ h}.</annotation></semantics></math></div>\n<p>The sign is sensible: both <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mrow><mi>ln</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mn>0.20</mn></mrow><annotation encoding=\"application/x-tex\">\\ln0.20</annotation></semantics></math></span> and the exponent are negative, while <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>h</mi><annotation encoding=\"application/x-tex\">h</annotation></semantics></math></span> is positive. A reverse check gives <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>1</mn><mi>/</mi><mn>2</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mrow><mn>14</mn><mi>/</mi><mn>6.03</mn></mrow></msup><mo>≈</mo><mn>0.20</mn></mrow><annotation encoding=\"application/x-tex\">(1/2)^{14/6.03}\\approx0.20</annotation></semantics></math></span>.</p>\n<h2>Method</h2>\n<ol>\n<li>State the exponential model and time unit.</li>\n<li>Isolate a positive dimensionless ratio.</li>\n<li>Translate “unknown exponent” into a logarithm.</li>\n<li>Apply log laws only to products, quotients, and powers.</li>\n<li>Solve, bracket the scale, and substitute into the original model.</li>\n</ol>\n<h2>Retrieval</h2>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-synthesis-retrieval</span></div>\n    <div class=\"ek-block-content\"><p>Answer before reading the feedback.</p>\n<ol>\n<li>What does <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>log</mi><mi>b</mi></msub><mo>⁡</mo><mspace width=\"0.1667em\"></mspace><mi>x</mi><mo>=</mo><mi>y</mi></mrow><annotation encoding=\"application/x-tex\">\\log_bx=y</annotation></semantics></math></span> say exponentially?</li>\n<li>Why must a real logarithm&#39;s argument be positive?</li>\n<li>Which exponent law produces the logarithm product law?</li>\n<li>How are a discrete factor <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>a</mi><annotation encoding=\"application/x-tex\">a</annotation></semantics></math></span> and continuous rate <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>k</mi><annotation encoding=\"application/x-tex\">k</annotation></semantics></math></span> related?</li>\n</ol>\n<p><strong>Feedback after attempting:</strong></p>\n<ol>\n<li>It says <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>b</mi><mi>y</mi></msup><mo>=</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">b^y=x</annotation></semantics></math></span>: the logarithm is the exponent on the base.</li>\n<li>For a valid positive base, <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mi>b</mi><mi>y</mi></msup><annotation encoding=\"application/x-tex\">b^y</annotation></semantics></math></span> is positive for every real <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>y</mi><annotation encoding=\"application/x-tex\">y</annotation></semantics></math></span>, so no real exponent produces a zero or negative argument.</li>\n<li>The law <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>b</mi><mi>u</mi></msup><msup><mi>b</mi><mi>v</mi></msup><mo>=</mo><msup><mi>b</mi><mrow><mi>u</mi><mo>+</mo><mi>v</mi></mrow></msup></mrow><annotation encoding=\"application/x-tex\">b^u b^v=b^{u+v}</annotation></semantics></math></span> becomes <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>log</mi><mi>b</mi></msub><mo>⁡</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mi>M</mi><mi>N</mi><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>=</mo><msub><mi>log</mi><mi>b</mi></msub><mo>⁡</mo><mspace width=\"0.1667em\"></mspace><mi>M</mi><mo>+</mo><msub><mi>log</mi><mi>b</mi></msub><mo>⁡</mo><mspace width=\"0.1667em\"></mspace><mi>N</mi></mrow><annotation encoding=\"application/x-tex\">\\log_b(MN)=\\log_bM+\\log_bN</annotation></semantics></math></span> when <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>M</mi><annotation encoding=\"application/x-tex\">M</annotation></semantics></math></span> and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>N</mi><annotation encoding=\"application/x-tex\">N</annotation></semantics></math></span> are positive.</li>\n<li>For the same time unit, <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi><mo>=</mo><msup><mi>e</mi><mi class=\"tml-sml-pad\">k</mi></msup></mrow><annotation encoding=\"application/x-tex\">a=e^k</annotation></semantics></math></span> and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>k</mi><mo>=</mo><mrow><mi>ln</mi><mo>⁡</mo><mspace width=\"0.1667em\"></mspace></mrow><mi>a</mi></mrow><annotation encoding=\"application/x-tex\">k=\\ln a</annotation></semantics></math></span>.</li>\n</ol>\n</div>\n  </aside>\n<p>Complete <code>assessment.json</code>. If translation fails, return to the definition. If algebra works but the domain fails, revisit the misconception. If a time is uninterpreted, redo the threshold example and distinguish continuous time from completed intervals.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-log-inverse, claim-log-laws, claim-log-ratio, claim-exponential-parameterizations, claim-half-life-relation</span><span><b>sources</b> source-nist-dlmf-log, source-nist-si-log</span></div>\n    <div class=\"ek-block-content\"><p>The synthesis uses authoritative logarithm definitions and dimensionless-ratio guidance through an original inverse-change procedure.</p>\n</div>\n  </aside>\n"
+    }
+  ],
+  "authors": [
+    {
+      "principalId": "github:VSBDev",
+      "displayName": "VSBDev — accountable author with Codex assistance",
+      "agent": {
+        "system": "Codex desktop",
+        "provider": "OpenAI",
+        "model": "gpt-5.6-sol",
+        "version": "Codex desktop runtime 2026-07-22",
+        "runId": "f281b55d-4732-4b46-85a7-42152b2026fd",
+        "instructionsDigest": "sha256:57d15a3a8196a0be7c8d6e40e81b2fe2d09046f67bc43fd0c5410934f73cf8f2"
+      }
+    }
+  ],
+  "license": "CC-BY-4.0",
+  "sourceConfidence": "medium-high",
+  "aiAssistance": {
+    "used": true,
+    "disclosure": "VSBDev (github:VSBDev) is accountable. OpenAI Codex, model gpt-5.6-sol, authored, researched, edited, and packaged this lesson in run f281b55d-4732-4b46-85a7-42152b2026fd. The digest covers discloseable material task instructions, not hidden system or provider instructions."
+  },
+  "assessment": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-assessment-v1",
+    "lessonId": "PREM-QNT-006",
+    "lessonVersion": "0.1.0",
+    "assessmentId": "assessment-logarithms-change",
+    "title": "Logarithms and exponential change mastery gate",
+    "purpose": "mastery-gate",
+    "attemptPolicy": {
+      "retakeable": true,
+      "timeLimitMinutes": null,
+      "feedback": "after-attempt"
+    },
+    "items": [
+      {
+        "id": "item-log-translation",
+        "type": "single-choice",
+        "sceneId": "scene-synthesis",
+        "objectiveIds": [
+          "objective-translate-log"
+        ],
+        "outcomeIds": [
+          "topic-quantitative-foundations-logarithms"
+        ],
+        "prompt": "Which statement is equivalent to log base 3 of (1/27) = -3?",
+        "points": 2,
+        "responseSpec": {
+          "mode": "single-choice",
+          "options": [
+            {
+              "id": "option-translate-a",
+              "text": "3⁻³ = 1/27"
+            },
+            {
+              "id": "option-translate-b",
+              "text": "(-3)³ = 1/27"
+            },
+            {
+              "id": "option-translate-c",
+              "text": "27⁻³ = 3"
+            },
+            {
+              "id": "option-translate-d",
+              "text": "3^(1/27) = -3"
+            }
+          ]
+        },
+        "answer": {
+          "correct": "option-translate-a",
+          "summary": "The base raised to the logarithm value equals the argument.",
+          "reasoning": "The inverse definition gives 3 to the power -3 equals 1/27.",
+          "acceptableResponses": [],
+          "commonErrors": [
+            "Using the logarithm value as the base",
+            "Swapping base and argument"
+          ]
+        },
+        "rubricId": "rubric-log-translation",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-log-laws",
+        "type": "short-answer",
+        "sceneId": "scene-synthesis",
+        "objectiveIds": [
+          "objective-use-log-laws"
+        ],
+        "outcomeIds": [
+          "topic-quantitative-foundations-logarithms"
+        ],
+        "prompt": "Expand ln(5x³/y²) for x > 0 and y > 0.",
+        "points": 4,
+        "responseSpec": {
+          "mode": "text",
+          "maxLength": 800
+        },
+        "answer": {
+          "correct": "ln 5 + 3 ln x - 2 ln y",
+          "summary": "Use product, quotient, and power laws.",
+          "reasoning": "The product becomes a sum, the quotient a difference, and exponents become coefficients.",
+          "acceptableResponses": [],
+          "commonErrors": [
+            "Splitting a sum that is not present",
+            "Dropping exponent coefficients",
+            "Adding the denominator term"
+          ]
+        },
+        "rubricId": "rubric-log-laws",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-solve-exponential",
+        "type": "short-answer",
+        "sceneId": "scene-synthesis",
+        "objectiveIds": [
+          "objective-solve-exponential"
+        ],
+        "outcomeIds": [
+          "topic-quantitative-foundations-logarithms"
+        ],
+        "prompt": "Solve 3e^(0.4t) = 21. Give t to three decimal places and check by substitution.",
+        "points": 5,
+        "responseSpec": {
+          "mode": "text",
+          "maxLength": 1200
+        },
+        "answer": {
+          "correct": "e^(0.4t) = 7, so 0.4t = ln 7 and t = ln 7/0.4 ≈ 4.865. Substitution gives 3e^(0.4×4.865) ≈ 21.",
+          "summary": "t ≈ 4.865.",
+          "reasoning": "The exponential factor is isolated before applying the natural logarithm to both positive sides.",
+          "acceptableResponses": [
+            "4.865"
+          ],
+          "commonErrors": [
+            "Taking ln before dividing by 3 and then splitting a sum",
+            "Multiplying by 0.4 instead of dividing"
+          ]
+        },
+        "rubricId": "rubric-solve-exponential",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-domain",
+        "type": "single-choice",
+        "sceneId": "scene-synthesis",
+        "objectiveIds": [
+          "objective-translate-log",
+          "objective-use-log-laws"
+        ],
+        "outcomeIds": [
+          "topic-quantitative-foundations-logarithms"
+        ],
+        "prompt": "Over the reals, what is the domain of f(x) = ln(x - 4)?",
+        "points": 3,
+        "responseSpec": {
+          "mode": "single-choice",
+          "options": [
+            {
+              "id": "option-domain-a",
+              "text": "x ≥ 4"
+            },
+            {
+              "id": "option-domain-b",
+              "text": "x > 4"
+            },
+            {
+              "id": "option-domain-c",
+              "text": "x ≠ 4"
+            },
+            {
+              "id": "option-domain-d",
+              "text": "All real x"
+            }
+          ]
+        },
+        "answer": {
+          "correct": "option-domain-b",
+          "summary": "The logarithm argument must be strictly positive.",
+          "reasoning": "x - 4 > 0 implies x > 4; zero is not an allowed real logarithm argument.",
+          "acceptableResponses": [],
+          "commonErrors": [
+            "Allowing argument zero",
+            "Excluding only the single zero point while allowing negative arguments"
+          ]
+        },
+        "rubricId": "rubric-domain",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-half-life",
+        "type": "short-answer",
+        "sceneId": "scene-synthesis",
+        "objectiveIds": [
+          "objective-interpret-change"
+        ],
+        "outcomeIds": [
+          "topic-quantitative-foundations-logarithms"
+        ],
+        "prompt": "A fictional exponential signal is 12.5% of its initial value after 18 hours. Under an exact half-life model, find the half-life and explain without decimal logarithms if possible.",
+        "points": 5,
+        "responseSpec": {
+          "mode": "text",
+          "maxLength": 1200
+        },
+        "answer": {
+          "correct": "12.5% = 0.125 = 1/8 = (1/2)³, so 18 hours contains three half-lives and h = 18/3 = 6 hours.",
+          "summary": "The half-life is 6 hours.",
+          "reasoning": "Recognizing the exact power of one half makes the unknown exponent visible without approximation.",
+          "acceptableResponses": [],
+          "commonErrors": [
+            "Treating a 12.5% remaining fraction as a 12.5% decrease",
+            "Dividing 18 by 8"
+          ]
+        },
+        "rubricId": "rubric-half-life",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-transfer-decay",
+        "type": "open-response",
+        "sceneId": "scene-synthesis",
+        "objectiveIds": [
+          "objective-translate-log",
+          "objective-solve-exponential",
+          "objective-interpret-change"
+        ],
+        "outcomeIds": [
+          "topic-quantitative-foundations-logarithms"
+        ],
+        "prompt": "A fictional process follows P(t) = 450e^(-0.12t), with t in hours. Find when P reaches 90, determine the model's half-life, state the domain conditions used in taking logarithms, and verify both results numerically.",
+        "points": 8,
+        "responseSpec": {
+          "mode": "text",
+          "maxLength": 2800
+        },
+        "answer": {
+          "correct": "For P = 90, the positive dimensionless ratio is 90/450 = 0.2. Thus e^(-0.12t) = 0.2 and t = -ln(0.2)/0.12 ≈ 13.412 h. For half-life, e^(-0.12h) = 0.5, so h = -ln(0.5)/0.12 = ln 2/0.12 ≈ 5.776 h. Checks: 450e^(-0.12×13.412) ≈ 90 and e^(-0.12×5.776) ≈ 0.5. Both log arguments are positive ratios.",
+          "summary": "Threshold time ≈ 13.412 h; half-life ≈ 5.776 h.",
+          "reasoning": "Each target is divided by the positive initial value, then the natural logarithm inverts the exponential after its positive dimensionless ratio is isolated.",
+          "acceptableResponses": [],
+          "commonErrors": [
+            "Using a positive exponent despite decay",
+            "Taking ln of dimensional P without forming a ratio",
+            "Confusing the time to 20% with the half-life"
+          ]
+        },
+        "rubricId": "rubric-transfer-decay",
+        "safetyCritical": false
+      }
+    ],
+    "rubrics": [
+      {
+        "id": "rubric-log-translation",
+        "title": "Inverse translation",
+        "criteria": [
+          {
+            "id": "criterion-translate",
+            "description": "Maps base, exponent, and argument correctly.",
+            "maxPoints": 2
+          }
+        ]
+      },
+      {
+        "id": "rubric-log-laws",
+        "title": "Logarithm laws",
+        "criteria": [
+          {
+            "id": "criterion-expand",
+            "description": "Uses product, quotient, and power laws to obtain the complete expansion.",
+            "maxPoints": 4
+          }
+        ]
+      },
+      {
+        "id": "rubric-solve-exponential",
+        "title": "Exponential equation",
+        "criteria": [
+          {
+            "id": "criterion-isolate-log",
+            "description": "Isolates the exponential and applies ln correctly.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-solve-time",
+            "description": "Obtains t ≈ 4.865.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-check-time",
+            "description": "Substitutes into the original equation.",
+            "maxPoints": 1
+          }
+        ]
+      },
+      {
+        "id": "rubric-domain",
+        "title": "Real logarithm domain",
+        "criteria": [
+          {
+            "id": "criterion-domain",
+            "description": "Requires x - 4 > 0 and selects x > 4.",
+            "maxPoints": 3
+          }
+        ]
+      },
+      {
+        "id": "rubric-half-life",
+        "title": "Exact half-life reasoning",
+        "criteria": [
+          {
+            "id": "criterion-half-power",
+            "description": "Recognizes 0.125 as three factors of one half.",
+            "maxPoints": 3
+          },
+          {
+            "id": "criterion-half-time",
+            "description": "Obtains and labels 6 hours.",
+            "maxPoints": 2
+          }
+        ]
+      },
+      {
+        "id": "rubric-transfer-decay",
+        "title": "Exponential decay transfer",
+        "criteria": [
+          {
+            "id": "criterion-transfer-ratios",
+            "description": "Forms positive dimensionless ratios for both targets.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-transfer-threshold",
+            "description": "Obtains about 13.412 hours.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-transfer-half",
+            "description": "Obtains about 5.776 hours.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-transfer-checks",
+            "description": "Verifies both results and states positivity/domain conditions.",
+            "maxPoints": 2
+          }
+        ]
+      }
+    ]
+  },
+  "references": {
+    "schemaVersion": 2,
+    "format": "embeddedknowledge-references-v2",
+    "lessonId": "PREM-QNT-006",
+    "lessonVersion": "0.1.0",
+    "sources": [
+      {
+        "id": "source-nist-dlmf-log",
+        "type": "reference-work",
+        "title": "NIST Digital Library of Mathematical Functions, Chapter 4: Elementary Functions",
+        "creators": [
+          "National Institute of Standards and Technology"
+        ],
+        "publisher": "National Institute of Standards and Technology",
+        "issued": "2010",
+        "url": "https://dlmf.nist.gov/4",
+        "accessed": "2026-07-22",
+        "version": "DLMF web edition accessed 2026-07-22",
+        "locator": "§4.2(i)-(ii), exponential/logarithm definitions, inverse relations, and general powers; §4.8(i), logarithm product and quotient identities",
+        "license": "NIST public technical reference under NIST Copyrights & Disclaimers; third-party contributions and cited works excluded",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Only mathematical definitions and relations are used as facts. All explanations, examples, models, and assessments are original."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://www.nist.gov/copyrights-disclaimers",
+          "checked": "2026-07-22",
+          "notes": "NIST rights and public robots routes were checked before DLMF access. No source-specific agent restriction, login, paywall, or access-control barrier was found."
+        }
+      },
+      {
+        "id": "source-nist-si-log",
+        "type": "official-standard",
+        "title": "NIST Guide to the SI, Chapter 8: Comments on Some Quantities and Their Units",
+        "creators": [
+          "National Institute of Standards and Technology"
+        ],
+        "publisher": "National Institute of Standards and Technology",
+        "issued": "2016-01-28",
+        "url": "https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-8",
+        "accessed": "2026-07-22",
+        "version": "NIST Special Publication 811 web presentation",
+        "locator": "Section 8.7 on logarithmic quantities and logarithms of like-quantity ratios",
+        "license": "NIST Technical Series/public information under NIST Copyrights & Disclaimers and technical-series licensing statements, subject to attribution and third-party exceptions",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "The lesson uses the factual requirement that logarithmic arguments be ratios of like quantities; no source prose, examples, or tables are reused."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://www.nist.gov/copyrights-disclaimers",
+          "checked": "2026-07-22",
+          "notes": "NIST rights, technical-series licensing, and robots routes were checked before public-page access; no agent restriction or access barrier was found."
+        }
+      }
+    ]
+  },
+  "claims": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-claims-v1",
+    "lessonId": "PREM-QNT-006",
+    "lessonVersion": "0.1.0",
+    "claims": [
+      {
+        "id": "claim-log-inverse",
+        "statement": "For a positive base other than one, the real logarithm is the inverse of exponentiation on positive arguments: log base b of x equals y exactly when b to the y equals x.",
+        "sceneIds": [
+          "scene-orientation",
+          "scene-concept",
+          "scene-worked-example",
+          "scene-misconception",
+          "scene-practice",
+          "scene-transfer",
+          "scene-synthesis"
+        ],
+        "sourceIds": [
+          "source-nist-dlmf-log"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Single-valued real logarithms with b > 0, b ≠ 1, and x > 0.",
+        "uncertainty": "Complex logarithms and branch choices are outside scope.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      },
+      {
+        "id": "claim-log-laws",
+        "statement": "The logarithm product, quotient, and power laws follow from the corresponding exponent laws when every logarithm argument lies in the real positive domain.",
+        "sceneIds": [
+          "scene-concept",
+          "scene-worked-example",
+          "scene-misconception",
+          "scene-practice",
+          "scene-transfer",
+          "scene-synthesis"
+        ],
+        "sourceIds": [
+          "source-nist-dlmf-log"
+        ],
+        "support": "inference",
+        "confidence": "high",
+        "scope": "Real logarithms of positive products, quotients, and powers used in this lesson.",
+        "uncertainty": "There is no analogous general rule that splits a logarithm across addition.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      },
+      {
+        "id": "claim-log-ratio",
+        "statement": "In quantitative applications, a logarithm is taken of a dimensionless number such as a ratio of like quantities rather than a bare dimensional quantity.",
+        "sceneIds": [
+          "scene-orientation",
+          "scene-concept",
+          "scene-worked-example",
+          "scene-practice",
+          "scene-transfer",
+          "scene-synthesis"
+        ],
+        "sourceIds": [
+          "source-nist-si-log"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "The growth, decay, and threshold ratios constructed in the lesson.",
+        "uncertainty": "Named logarithmic units and discipline-specific reference levels are outside scope.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      },
+      {
+        "id": "claim-exponential-parameterizations",
+        "statement": "For a positive initial value and a fixed time unit, an exponential model with per-unit factor a grows when a > 1 and decays when 0 < a < 1; the equivalent continuous-rate form uses k = ln a, or a = e^k.",
+        "sceneIds": [
+          "scene-orientation",
+          "scene-concept",
+          "scene-worked-example",
+          "scene-practice",
+          "scene-transfer",
+          "scene-synthesis"
+        ],
+        "sourceIds": [
+          "source-nist-dlmf-log"
+        ],
+        "support": "inference",
+        "confidence": "high",
+        "scope": "Positive real exponential models Q(t) = Q0 a^t and Q(t) = Q0 e^(kt) using the same time unit.",
+        "uncertainty": "Whether an empirical process actually follows an exact exponential model must be established separately.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      },
+      {
+        "id": "claim-half-life-relation",
+        "statement": "In an exact exponential decay model A(t) = A0(1/2)^(t/h), h > 0 is the time for A/A0 to reach one half; in the equivalent form A(t) = A0 e^(kt) with k < 0, h = -ln 2/k.",
+        "sceneIds": [
+          "scene-transfer",
+          "scene-synthesis"
+        ],
+        "sourceIds": [
+          "source-nist-dlmf-log"
+        ],
+        "support": "inference",
+        "confidence": "high",
+        "scope": "Exact positive exponential decay models with a fixed time unit.",
+        "uncertainty": "A fitted half-life has model and measurement uncertainty not represented by the fictional exact-model tasks in this lesson.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      }
+    ]
+  },
+  "glossary": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-glossary-v1",
+    "lessonId": "PREM-QNT-006",
+    "lessonVersion": "0.1.0",
+    "terms": [
+      {
+        "id": "term-logarithm",
+        "term": "logarithm",
+        "definition": "The exponent to which a valid base must be raised to produce a positive argument.",
+        "aliases": [
+          "log"
+        ],
+        "sceneIds": [
+          "scene-orientation",
+          "scene-concept",
+          "scene-worked-example",
+          "scene-misconception",
+          "scene-practice",
+          "scene-transfer",
+          "scene-synthesis"
+        ]
+      },
+      {
+        "id": "term-natural-logarithm",
+        "term": "natural logarithm",
+        "definition": "The logarithm with base e, written ln.",
+        "aliases": [
+          "ln"
+        ],
+        "sceneIds": [
+          "scene-concept",
+          "scene-worked-example",
+          "scene-practice",
+          "scene-transfer"
+        ]
+      },
+      {
+        "id": "term-common-logarithm",
+        "term": "common logarithm",
+        "definition": "The base-10 logarithm, written log in this lesson when the base is otherwise clear.",
+        "aliases": [
+          "base-10 logarithm"
+        ],
+        "sceneIds": [
+          "scene-concept",
+          "scene-misconception"
+        ]
+      },
+      {
+        "id": "term-growth-factor",
+        "term": "growth factor",
+        "definition": "A per-interval multiplier greater than one in a discrete exponential model.",
+        "aliases": [
+          "multiplicative growth factor"
+        ],
+        "sceneIds": [
+          "scene-orientation",
+          "scene-concept",
+          "scene-worked-example",
+          "scene-practice",
+          "scene-synthesis"
+        ]
+      },
+      {
+        "id": "term-decay-factor",
+        "term": "decay factor",
+        "definition": "A positive per-interval multiplier below one in a discrete exponential model.",
+        "aliases": [
+          "retention factor"
+        ],
+        "sceneIds": [
+          "scene-concept",
+          "scene-practice",
+          "scene-transfer"
+        ]
+      },
+      {
+        "id": "term-half-life",
+        "term": "half-life",
+        "definition": "The positive time required by an exponential decay model for a quantity to become one half of its reference value.",
+        "aliases": [
+          "halving time"
+        ],
+        "sceneIds": [
+          "scene-transfer",
+          "scene-synthesis"
+        ]
+      },
+      {
+        "id": "term-dimensionless-ratio",
+        "term": "dimensionless ratio",
+        "definition": "A quotient of compatible like quantities whose units cancel, leaving a pure number suitable as a logarithm argument.",
+        "aliases": [
+          "quantity ratio"
+        ],
+        "sceneIds": [
+          "scene-concept",
+          "scene-worked-example",
+          "scene-transfer",
+          "scene-synthesis"
+        ]
+      }
+    ]
+  },
+  "attributionHtml": "<h1>Attribution</h1>\n<h2>Lesson identity and licence</h2>\n<ul>\n<li>Lesson: <strong>PREM-QNT-006 — Ask what exponent: logarithms and exponential change</strong></li>\n<li>Outcome: <strong>PREM-03.06</strong> (<code>topic-quantitative-foundations-logarithms</code>)</li>\n<li>Principal: <strong>VSBDev</strong> (<code>github:VSBDev</code>)</li>\n<li>Licence: <strong>Creative Commons Attribution 4.0 International (CC BY 4.0)</strong></li>\n<li>State: <strong>draft</strong>, source confidence <strong>pending-review</strong></li>\n</ul>\n<h2>Material agent assistance</h2>\n<p>OpenAI Codex authored, researched, edited, and packaged this lesson in one author-role run.</p>\n<table>\n<thead>\n<tr>\n<th>System</th>\n<th>Provider</th>\n<th>Model</th>\n<th>Version</th>\n<th>Run ID</th>\n<th>Material-instructions digest</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>Codex desktop</td>\n<td>OpenAI</td>\n<td><code>gpt-5.6-sol</code></td>\n<td>Codex desktop runtime 2026-07-22</td>\n<td><code>f281b55d-4732-4b46-85a7-42152b2026fd</code></td>\n<td><code>sha256:57d15a3a8196a0be7c8d6e40e81b2fe2d09046f67bc43fd0c5410934f73cf8f2</code></td>\n</tr>\n</tbody></table>\n<p>The digest identifies <code>/tmp/codex-packager-prompt-03-06.md</code>; unavailable hidden instructions are excluded. Review and finalization provenance is recorded separately in the pack&#39;s review artifacts and <code>adjudication.json</code>.</p>\n<h2>Originality, evidence, and rights</h2>\n<p>The “ask what exponent” sequence, archive threshold, counter example, false-sum repair, signal half-life transfer, all values, feedback, recovery, and assessments are original. Every applied setting is fictional. NIST DLMF and SI guidance provide only factual definitions and dimensionless-ratio conventions. No source expression, example, figure, or table is copied or adapted.</p>\n<p>NIST rights and public robots routes were checked before access on 2026-07-22. No agent restriction, login, paywall, or access-control barrier was found. No third-party assets, datasets, personal data, or patient material are included.</p>\n<p>This mathematical lesson provides no clinical advice and makes no claim of review, approval, publication, measured effectiveness, credit, or competence.</p>\n"
+}

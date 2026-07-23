@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-QNT-006-ACADEMIC-639B4A32",
+  "lessonId": "PREM-QNT-006",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "ab0366d656b8704293766530422e3c173c31488e",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable academic reviewer",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-QNT-006-639B4A32-AB0D-4BE0-9FBD-CC74B36E26D3",
+      "instructionsDigest": "sha256:706759efceeb00dac68defe89219a35af40f46c9a718dcda7ca2bafffc6f9870"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#PREM-QNT-006",
+    "content/010-orientation.md#the-unknown-is-in-the-exponent",
+    "content/020-concept.md#a-logarithm-names-an-exponent",
+    "content/030-worked-example.md#worked-example-threshold",
+    "content/040-misconception.md#misconception-log-sum",
+    "content/050-practice.md#move-between-exponent-and-logarithm",
+    "content/060-transfer.md#recover-a-half-life-from-two-observations",
+    "content/070-synthesis.md#rebuild-the-inverse-change-method",
+    "assessment.json#assessment-logarithms-change—all-items-and-rubrics",
+    "claims.json#claim-log-inverse",
+    "claims.json#claim-log-laws",
+    "claims.json#claim-log-ratio",
+    "references.json#source-nist-dlmf-log",
+    "references.json#source-nist-si-log",
+    "glossary.json#all-terms",
+    "ATTRIBUTION.md#full-file",
+    "course/PREMED-SYLLABUS.md#QRS-102",
+    "[NIST DLMF §4.2](https://dlmf.nist.gov/4.2)",
+    "[NIST DLMF §4.8](https://dlmf.nist.gov/4.8)",
+    "[NIST Guide to the SI §8.7](https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-8)"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "claims.json#claim-log-laws",
+      "finding": "This central claim maps only to source-nist-dlmf-log, whose title, URL, and locator identify DLMF §4.2 and specifically §4.2(i). That locator does not supply the product, quotient, and power identities asserted and assessed by the lesson. General-base formulas occur in [DLMF §4.2(ii)](https://dlmf.nist.gov/4.2), while the product and quotient identities occur in [DLMF §4.8(i)](https://dlmf.nist.gov/4.8). The exact claim-to-locator evidence chain is therefore incomplete even though the elementary real-positive identities themselves are correct.",
+      "resolution": "Map claim-log-laws to an authoritative record with exact locators for the real-positive product, quotient, and power laws, or revise source-nist-dlmf-log so its title, URL, and locator accurately cover the supporting DLMF sections and equations."
+    },
+    {
+      "severity": "major",
+      "target": "content/020-concept.md#exponential-change",
+      "finding": "The growth and decay conditions for Q(t)=Q0a^t and Q(t)=Q0e^(kt), together with the equivalence a=e^k, are material quantitative claims central to objective-interpret-change. None of the three records in claims.json states or supports these relationships. The same omission affects the half-life model used in content/060-transfer.md and defined at glossary.json#term-half-life. The source notes name only logarithm inversion, logarithm laws, and dimensionless ratios, leaving the exponential-change model untraced.",
+      "resolution": "Add precisely scoped claim records and authoritative support for the discrete-factor, continuous-rate, and half-life relationships, then map them through the source notes in every scene where those relationships are taught or applied."
+    },
+    {
+      "severity": "major",
+      "target": "lesson.json#objective-interpret-change",
+      "finding": "The objective promises interpretation of growth factors, decay factors, doubling times, half-lives, and the distinction between discrete and continuous parameterizations. Its mapped mastery items, assessment.json#item-half-life and assessment.json#item-transfer-decay, assess only half-life and continuous exponential decay. They do not assess doubling time, growth-factor interpretation, or the discrete-versus-continuous parameterization distinction, so the mastery gate cannot establish the full declared objective.",
+      "resolution": "Either narrow objective-interpret-change to the performance actually assessed or add correctly keyed item and rubric evidence for the omitted growth-factor, doubling-time, and parameterization components."
+    },
+    {
+      "severity": "minor",
+      "target": "assessment.json#item-solve-exponential.answer.acceptableResponses",
+      "finding": "The exact result is ln(7)/0.4 = 4.8647753726..., which rounds to 4.865 at the requested three decimal places. The acceptable-response entry also accepts 4.864, contradicting both the prompt's precision instruction and rubric-solve-exponential, which specifies approximately 4.865.",
+      "resolution": "Accept 4.865 for standard three-decimal rounding, or state an explicit numerical tolerance and align the prompt, acceptable responses, and rubric."
+    },
+    {
+      "severity": "note",
+      "target": "content/030-worked-example.md#worked-example-threshold",
+      "finding": "Independent recalculation gives ln(3.125)/ln(1.18) = 6.8841987059..., and substitution returns 1000 within numerical precision. The stated bracket between five and ten intervals and the distinction between continuous threshold time and completed intervals are correct.",
+      "resolution": "No change required."
+    }
+  ],
+  "limitations": [
+    "The assigned scope prohibited reading site/, so the graph-node record and cross-lesson terminology ledger were not inspected. Outcome fit was instead checked against lesson.json and QRS-102 in course/PREMED-SYLLABUS.md; cross-lesson terminology collisions remain unverified.",
+    "The cited public NIST pages were reachable and independently checked; no human-only or otherwise inaccessible source prevented a verdict.",
+    "Repository/schema validation was not run because this was a read-only academic review and the assigned scope excluded scripts/ and site/. This verdict makes no structural-validation claim."
+  ],
+  "signedAt": "2026-07-22T23:20:47Z"
+}
