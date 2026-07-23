@@ -1,5 +1,7 @@
 # Logs split products, not sums
 
+Suppose an illustrative biomedical monitor combines two positive signal contributions before applying a base-10 logarithm. The contributions are 10 and 90 in the same arbitrary units; the monitor story supplies context, but the mathematical question is still whether a logarithm can split their sum.
+
 :::{check}
 :id: check-predict-log-sum
 
@@ -21,7 +23,7 @@ Domain checking also comes first. An algebraic transformation that asks for $\ln
 :::{check}
 :id: check-repair-log-sum
 
-Recheck the rule on a new case: for base 10, does $\log(2+8)$ equal $\log2+\log8$?
+Recheck the rule with two new illustrative signal contributions: for base 10, does $\log(2+8)$ equal $\log2+\log8$?
 
 **Feedback after attempting:** No. The left side is $\log10=1$, while the right side is $\log(2\times8)=\log16$. Addition inside a logarithm must be evaluated as a sum; only multiplication permits the product law.
 :::
@@ -30,5 +32,5 @@ Recheck the rule on a new case: for base 10, does $\log(2+8)$ equal $\log2+\log8
 :claims: claim-log-inverse, claim-log-laws
 :sources: source-nist-dlmf-log
 
-The counterexample and misconception repair are original mathematical synthesis from the logarithm definition.
+The biomedical-monitor framing is illustrative. The counterexample and misconception repair are original mathematical synthesis from the logarithm definition.
 :::

@@ -2,7 +2,7 @@
 
 ## Transfer feedback
 
-Compare this reasoning with your completed transfer attempt:
+Compare this reasoning with your completed attempt for the illustrative plasma-concentration model:
 
 $$0.20=2^{-14/h}.$$
 
@@ -15,6 +15,8 @@ so
 $$h=-\frac{14\ln2}{\ln0.20}\approx6.03\text{ h}.$$
 
 The sign is sensible: both $\ln0.20$ and the exponent are negative, while $h$ is positive. A reverse check gives $(1/2)^{14/6.03}\approx0.20$.
+
+In a later illustrative problem, a pH-style acidity scale or a decibel-style sound-level scale may be defined with a common logarithm. Use the exact scale definition supplied by that problem, form the positive ratio it requires, and ask what power of the logarithm's base the scale value represents. This bridge names contexts for the same mathematical method; it does not supply a clinical pH or hearing rule.
 
 ## Method
 
@@ -50,5 +52,5 @@ Complete `assessment.json`. If translation fails, return to the definition. If a
 :claims: claim-log-inverse, claim-log-laws, claim-log-ratio, claim-exponential-parameterizations, claim-half-life-relation
 :sources: source-nist-dlmf-log, source-nist-si-log
 
-The synthesis uses authoritative logarithm definitions and dimensionless-ratio guidance through an original inverse-change procedure.
+The synthesis uses authoritative logarithm definitions and dimensionless-ratio guidance through an original inverse-change procedure. The plasma-concentration, pH-style, and decibel-style contexts are illustrative teaching bridges rather than claims about a drug, patient, or clinical threshold.
 :::

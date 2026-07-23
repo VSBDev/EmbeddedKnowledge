@@ -1,6 +1,6 @@
 # The unknown is in the exponent
 
-A fictional archive begins with 250 indexed objects and doubles after each completed cycle. When will it first exceed 10,000 objects?
+In an illustrative bacterial-culture model, a culture begins with 250 cells and doubles after each modeled division cycle. When will it first exceed 10,000 cells?
 
 The model is $N=250(2^t)$. Dividing by 250 gives $2^t=40$. The question is no longer ordinary multiplication: **what exponent on 2 produces 40?**
 
@@ -32,7 +32,7 @@ If powers are uncertain, return briefly to exponent laws and write a small table
 :claims: claim-log-inverse, claim-log-ratio, claim-exponential-parameterizations
 :sources: source-nist-dlmf-log, source-nist-si-log
 
-NIST sources document logarithm functions and logarithms of dimensionless ratios. The archive, threshold, and teaching sequence are original.
+NIST sources document logarithm functions and logarithms of dimensionless ratios. The bacterial-culture model is an illustrative teaching scenario, not a claim about a specific organism or laboratory culture; the threshold and teaching sequence are original.
 :::
 
 ## Accessibility and alternatives
