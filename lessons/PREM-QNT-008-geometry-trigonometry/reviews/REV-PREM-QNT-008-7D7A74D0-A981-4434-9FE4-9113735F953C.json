@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-QNT-008-7D7A74D0-A981-4434-9FE4-9113735F953C",
+  "lessonId": "PREM-QNT-008",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "f12f9071264c0f1196a70c3abf649dbd943883d1",
+  "role": "learning-design",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.5",
+      "runId": "agy-learning-design-PREM-QNT-008-7D7A74D0-A981-4434-9FE4-9113735F953C",
+      "instructionsDigest": "sha256:4879743c609e72d5f37ad95d0c1fa0e425a31e571e8a01f18064ebb01ebedac7"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lessons/PREM-QNT-008-geometry-trigonometry/lesson.json",
+    "lessons/PREM-QNT-008-geometry-trigonometry/content/010-orientation.md",
+    "lessons/PREM-QNT-008-geometry-trigonometry/content/020-concept.md",
+    "lessons/PREM-QNT-008-geometry-trigonometry/content/030-worked-example.md",
+    "lessons/PREM-QNT-008-geometry-trigonometry/content/040-misconception.md",
+    "lessons/PREM-QNT-008-geometry-trigonometry/content/050-practice.md",
+    "lessons/PREM-QNT-008-geometry-trigonometry/content/060-transfer.md",
+    "lessons/PREM-QNT-008-geometry-trigonometry/content/070-synthesis.md",
+    "lessons/PREM-QNT-008-geometry-trigonometry/assessment.json",
+    "lessons/PREM-QNT-008-geometry-trigonometry/glossary.json",
+    "lessons/PREM-QNT-008-geometry-trigonometry/claims.json",
+    "lessons/PREM-QNT-008-geometry-trigonometry/references.json",
+    "lessons/PREM-QNT-008-geometry-trigonometry/ATTRIBUTION.md"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-008-geometry-trigonometry/content/040-misconception.md",
+      "finding": "The misconception scene does not follow the required repair sequence structure of CONTENT-STANDARD.md §7. It contains only static expository text defining the inverse vs reciprocal confusion. It fails to elicit a prediction or commitment from the learner, lacks the specific 'Tempting shortcut', 'Why the shortcut fails', and 'Repair' headers, and does not recheck the learner on a new case within the sequence.",
+      "resolution": "Rewrite the misconception block to use the standard six-step repair sequence: prompt the learner to commit first, present the tempting shortcut ('sin^-1(x) always equals 1/sin(x)'), explain why it fails using a numerical counterexample, provide the correct repair, and end with a recheck question."
+    },
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-008-geometry-trigonometry/content/060-transfer.md",
+      "finding": "The transfer scene and the corresponding assessment item (item-transfer-panel) exhibit low cognitive transfer. Both require resolving a 2D vector/hypotenuse of given length and angle into horizontal and vertical legs, which is a minor variation of the worked example and practice questions. This is near practice rather than a genuine transfer task to a novel but bounded context as required by CONTENT-STANDARD.md §8.",
+      "resolution": "Redesign the transfer scene and assessment item to use a genuinely novel context that requires selecting or adapting the geometric model, such as calculating the clearance of an angled ramp or solving a light refraction path at an interface."
+    },
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-008-geometry-trigonometry/content/020-concept.md",
+      "finding": "The concept scene asserts that area scales by k^2 and volume scales by k^3 when linear dimensions scale by k, but fails to explain why. However, scene-synthesis asks the learner to retrieve this explanation ('Why does area scale with the square of a linear factor?'), and the assessment tests it in item-volume-scale. This breaks constructive alignment.",
+      "resolution": "Add a brief explanation in the concept scene showing why area scales with the square and volume with the cube of the scale factor (e.g., area is a product of two linear dimensions, and volume is a product of three independent linear dimensions)."
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-QNT-008-geometry-trigonometry/content/030-worked-example.md",
+      "finding": "The check-angle-mode question in the worked example asks about calculator angle units (radians vs degrees), which is a formatting issue. It does not prompt the learner to self-explain the core structural decisions that determine the solution, such as why tangent is selected over sine/cosine to find the direction or how the quadrant signs determine the angle.",
+      "resolution": "Add a self-explanation prompt asking the learner to explain why tangent was chosen to find the direction and how the positive signs of the coordinates determine that the angle lies in the first quadrant."
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-QNT-008-geometry-trigonometry/content/050-practice.md",
+      "finding": "The practice questions list the prompt followed immediately by the feedback line. On a static read, this exposes the answer before the learner has a chance to generate a response. There is no instruction prompting the learner to 'commit first' or hide/cover the feedback.",
+      "resolution": "Add a brief orientation sentence at the beginning of the practice scene instructing the learner to cover the feedback and commit to an answer first, and prefix the feedback with a note prompting retrieval."
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-QNT-008-geometry-trigonometry/content/020-concept.md",
+      "finding": "The connection between the unit circle coordinates and the identity sin^2θ + cos^2θ = 1 is highly compressed, stating only that it comes 'from the circle equation'. This may be an explanation gap for a novice.",
+      "resolution": "Explicitly state the unit circle equation (x^2 + y^2 = 1) and show that substituting x = cosθ and y = sinθ yields the identity."
+    }
+  ],
+  "limitations": [
+    "Review is limited to static analysis of the Markdown files and schema compliance; no real-user behavioral data or interactive software rendering outcomes were available.",
+    "Academic accuracy and clinical boundaries are assumed to be validated by the respective quorum roles."
+  ],
+  "signedAt": "2026-07-22T23:56:44.246Z"
+}
