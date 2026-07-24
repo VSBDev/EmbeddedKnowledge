@@ -49,3 +49,5 @@ No third-party image, diagram, audio, video, dataset, question bank, patient mat
 The lesson teaches arithmetic and plausibility checking. It does not provide clinical advice, measurement-validity judgments, formal uncertainty analysis, or credential claims. No personal or patient data are used, and no physical experiment is requested.
 
 This authoring run creates no review or adjudication artifact and makes no claim of approval, publication, merge readiness, learner effectiveness, university credit, or clinical competence. Formal review must inspect a later frozen candidate under the repository's role-isolated process.
+
+Clinical-framing revision: VSBDev (`github:VSBDev`) added the original illustrative bedside dosing case with system, provider, model, and version `RUNTIME-STAMPED` in isolated run `codex-reauthor-PREM-QNT-001-B228D6C7-CE13-47DB-8BB1-6175794B4369`; task digest `sha256:a101979a1a3b8dba843af3fd7a46e43c8f181614019bcc7ee19a04dc58647f97`; no new factual medical claim, source, asset, or dataset was introduced.
