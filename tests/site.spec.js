@@ -1142,6 +1142,10 @@ test("the psychiatry lesson commons keeps an empty outcome distinct from a lesso
     !(outcome.publishedLessonIds || []).length && !claimed.has(outcome.id)
   ));
   expect(emptyOutcome, "the psychiatry contribution-path test requires at least one empty outcome").toBeTruthy();
+  // A derived value that arrived empty would make every assertion below vacuously true, because
+  // toContainText("") matches anything. Pin the shape before trusting it.
+  expect(emptyOutcome.code).toMatch(/^PSY-\d{3}\.\d{2}$/);
+  expect(emptyOutcome.id).toMatch(/^topic-psy-/);
   const publishedOutcomes = lessonIndex.outcomes.filter((outcome) => (outcome.publishedLessonIds || []).length).length;
 
   const errors = collectRuntimeErrors(page);
@@ -1150,9 +1154,10 @@ test("the psychiatry lesson commons keeps an empty outcome distinct from a lesso
   await expect(page.locator("[data-outcome-location]")).toContainText(emptyOutcome.code);
   await expect(page.locator("[data-lesson-detail]")).toContainText("This lesson has not been written yet");
   await expect(page.locator("[data-lesson-detail]")).toContainText(emptyOutcome.id);
-  await expect(page.locator("[data-corpus-summary]")).toContainText(`${publishedOutcomes} published`);
+  // Anchored: a bare "1 published" would also match "11 published" once the corpus grows.
+  await expect(page.locator("[data-corpus-summary]")).toContainText(new RegExp(`\\b${publishedOutcomes} published\\b`));
   const contributeHref = await page.locator(".lesson-contribute-link").getAttribute("href");
-  expect(new URL(contributeHref).searchParams.get("outcome")).toBe(emptyOutcome.id);
+  expect(new URL(contributeHref, page.url()).searchParams.get("outcome")).toBe(emptyOutcome.id);
   expect(errors).toEqual([]);
 });
 
@@ -1161,9 +1166,15 @@ test("a published psychiatry outcome opens the reviewed lesson through its produ
   // route: deep-linking a covered outcome redirects to the lesson instead of inviting contribution.
   // Skips until the psychiatry corpus has its first published lesson.
   const lessonIndex = await getJson(page.request, "data/psychiatry-lessons.json");
-  const publishedOutcome = lessonIndex.outcomes.find((outcome) => (outcome.publishedLessonIds || []).length);
-  test.skip(!publishedOutcome, "no psychiatry outcome carries a published lesson yet");
-  const lessonId = publishedOutcome.publishedLessonIds[0];
+  // Decide the skip from the published lessons themselves, then REQUIRE the outcome mapping. Were
+  // the skip keyed on the mapping, a generator that stopped populating publishedLessonIds would
+  // make this test skip forever and keep CI green over the exact defect it exists to catch.
+  const publishedLesson = (lessonIndex.lessons || []).find((lesson) => lesson.status === "published");
+  test.skip(!publishedLesson, "no psychiatry lesson is published yet");
+  const lessonId = publishedLesson.id;
+  expect(lessonId).toMatch(/^PSY-[A-Z]{3}-\d{3}$/);
+  const publishedOutcome = lessonIndex.outcomes.find((outcome) => (outcome.publishedLessonIds || []).includes(lessonId));
+  expect(publishedOutcome, `no psychiatry outcome maps to published lesson ${lessonId}`).toBeTruthy();
 
   const errors = collectRuntimeErrors(page);
   await page.goto(route(`psychiatry/lessons/?outcome=${publishedOutcome.id}`), { waitUntil: "networkidle" });
