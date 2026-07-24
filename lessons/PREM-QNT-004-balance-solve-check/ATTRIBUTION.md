@@ -22,6 +22,8 @@ The digest identifies `/tmp/codex-packager-prompt-03-04.md`; it excludes unavail
 
 The preserve-and-check structure, sampler opening, counter equation, misconception repair, process transfer, all values, explanations, feedback, recovery routes, and assessments are original. All applied settings are fictional. NIST Chapter 7 supplies only factual authority for the distinction between quantity equations and unit-dependent numerical-value equations. No NIST expression, example, table, or image is copied or adapted.
 
-The cited NIST page and NIST copyrights/disclaimers page were rechecked on 2026-07-23. No agent restriction, login, paywall, or access-control barrier was found. No third-party assets, datasets, personal data, or patient material are included.
+The cited NIST page and NIST copyrights/disclaimers page were rechecked on 2026-07-25. No agent restriction, login, paywall, or access-control barrier was found. No third-party assets, datasets, personal data, or patient material are included.
 
 This mathematical lesson offers no clinical advice and makes no claim of review, approval, publication, measured effectiveness, credit, or competence.
+
+Clinical-framing revision 0.2.0: author-role run `codex-reauthor-PREM-QNT-004-C03023C2-005D-4571-AAEA-9912EF2C0A77` added the invented infusion-time wrap-up and refreshed lesson metadata; digest `sha256:7ca6640312790f3a33e33b6fe660af7ec21312a57b0a457c34ac76ea1205ba08` covers the discloseable revision prompt, and the case is a teaching example rather than a real infusion order.
