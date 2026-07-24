@@ -42,7 +42,7 @@
   let indexCollapsed = false;
   let marginCollapsed = false;
   let focusMode = false;
-  let viewMode = "guided";
+  let viewMode = "reading";
   let indexFocusFrame = 0;
   const manualCriterionState = new Map();
   const manualProgressNodes = new Set();
@@ -1092,7 +1092,17 @@
       : 0;
     syncFrameVisibility({ scroll: false });
     updateControls();
-    stage.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+    // Guided shows one frame at a time, so landing on the requested frame is enough. Continuous
+    // view lays every frame out in one flow, where scrolling the stage to the top would drop an
+    // incoming `#scene/frame` link at the scene opening instead of the frame it names.
+    const requestedFrameElement = Number.isInteger(requestedFrame) && requestedFrame >= 0
+      ? currentFrames[activeFrameIndex]
+      : null;
+    if (viewMode === "reading" && requestedFrameElement) {
+      requestedFrameElement.scrollIntoView({ block: "start", behavior: reduceMotion ? "auto" : "smooth" });
+    } else {
+      stage.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+    }
     if (options.updateUrl) history.pushState({ sceneId: scene.id, frameId: currentFrames[activeFrameIndex]?.dataset.frameId }, "", frameHash(scene));
     if (options.focus) sceneContainer.focus({ preventScroll: true });
     if (options.announce) announcer.textContent = `Scene ${index + 1} of ${scenes.length}: ${scene.title}. ${currentFrames.length} guided frames.`;
@@ -1243,7 +1253,10 @@
   setIndexCollapsed(indexCollapsed, { persist: false });
   setMarginCollapsed(marginCollapsed, { persist: false });
   applyTheme(readPreference("theme") || (systemDark.matches ? "dark" : "light"), { persist: false });
-  applyViewMode(readPreference("view") || "guided", { persist: false });
+  // Continuous reading is the default view: it is the one that behaves correctly at every viewport
+  // size, and on a phone a guided frame taller than the stage used to leave its tail unreachable.
+  // A reader who has chosen guided keeps it, because the stored preference still wins.
+  applyViewMode(readPreference("view") || "reading", { persist: false });
 
   Promise.resolve()
     .then(resolveArtifactUrl)

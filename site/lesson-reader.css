@@ -1620,7 +1620,16 @@ body.reader-dark {
   .reader-dark .reader-page { box-shadow: 5px 6px 0 rgba(0,0,0,.38); }
   .reader-guided-mode .reader-stage { overflow: auto; }
   .reader-guided-mode .reader-page { height: auto; min-height: 100%; max-height: none; }
-  .reader-guided-mode .reader-frame { min-height: 100%; height: auto; }
+  /* The frame grows to its content here, so it has nothing of its own left to scroll. It must also
+     stop being a scroll container: a container with no scrollable overflow still swallows the
+     wheel or touch, and `overscroll-behavior: contain` then refuses to pass it to .reader-stage,
+     which is what actually scrolls at this width. That left a tall frame's tail unreachable. */
+  .reader-guided-mode .reader-frame {
+    min-height: 100%;
+    height: auto;
+    overflow: visible;
+    overscroll-behavior: auto;
+  }
 }
 
 @media (max-width: 560px) {
