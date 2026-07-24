@@ -34,4 +34,11 @@ Stop at that reasoning comparison. This scene does not choose variables, control
 
 The next lesson, **Variables and controls**, turns the prediction's terms into independent, dependent, and controlled variables.
 
-This scene is illustrative and cites no source because it makes no factual medical claim.
+This scene is illustrative and makes no factual medical claim about diabetes.
+
+:::{source-note}
+:claims: claim-role-distinctions, claim-conditional-prediction, claim-discriminating-comparison, claim-evidence-boundary
+:sources: source-usgs-rigor, source-epa-causal-assessment
+
+The sources support the question–hypothesis–prediction distinction, deriving observable expectations under stated conditions, comparing competing hypotheses where their predictions differ, and stopping short of causal proof. The diabetes case and all proposed relationships are original fictional teaching material, not medical evidence or advice.
+:::

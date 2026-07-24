@@ -27,6 +27,8 @@ Both hypotheses refer to freshly cut Granny Smith slices, the two stated coating
 | A: a lemon-specific dissolved substance slows browning | Lemon-coated slices take longer than water-coated slices to reach level 3 |
 | B: changing between these coatings does not change browning time | Lemon-coated and water-coated slices reach level 3 at about the same time |
 
+For this introductory fictional comparison, treat the supplied group medians as exact underlying patterns rather than estimates from samples; “about the same time” means equal group medians.
+
 The time difference is a **discriminating prediction** because the two hypotheses expect different results. Merely predicting “the slices will brown” would not separate them.
 
 **5. Compare with the supplied fictional result.**
@@ -40,6 +42,8 @@ That direction agrees with A's prediction and conflicts with B's equal-time pred
 The result does not prove that a particular lemon substance caused the difference. Other explanations may make the same prediction, and the result's strength depends on how samples, measurements, and conditions were handled. The careful conclusion is:
 
 > Under the stated fictional conditions, the result is consistent with Hypothesis A and counts against Hypothesis B as written. It does not by itself establish the mechanism or eliminate untested explanations.
+
+**Self-explanation:** Why would a prediction of equal group medians under both hypotheses fail to discriminate between them? Write the reason before continuing.
 :::
 
 Notice the decisions that make the comparison useful:
