@@ -31,3 +31,5 @@ Before substantive access on 2026-07-20, the accountable author checked the publ
 ## Modifications
 
 This `0.1.1` finalization preserves the reviewed study-design model and makes one bounded revision after academic and learning-design advisory reviews of candidate `98d9269eebf04c20e0efe08e4fa91b422316ac85`: it frames the cumulative inquiry chain as a course navigation aid rather than a universal scientific sequence, completes the cross-sectional claim mapping in the worked example, gives the practice table a timing-neutral header, and restores candidate-stage claim review statuses pending the maintainer's publication transition. The final decision and complete finding dispositions are recorded separately in `adjudication.json`.
+
+Clinical-framing revision: author run `codex-reauthor-PREM-SCI-004-AA7486F6-ABFD-42C9-ADEB-D59B2936FE12` added the illustrative dinner-timing and next-morning fasting-glucose design case as a final scene; it makes no medical efficacy claim and adds no source or third-party material.
