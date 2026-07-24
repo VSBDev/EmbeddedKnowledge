@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-QNT-007-ACADEMIC-020C22A1",
+  "lessonId": "PREM-QNT-007",
+  "lessonVersion": "0.2.0",
+  "candidateCommit": "5d660726ef7158f571c934fa5e6138195bf4f3d3",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable operator, academic review",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-QNT-007-020C22A1-A525-435F-88E5-E4D566FB6548",
+      "instructionsDigest": "sha256:ebca188f2d009b7755d38d471b649ad22cfdbd09429c9acb9db5e85ddedbeae5"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#id,version,outcomes,prerequisites,objectives,scenes",
+    "content/010-orientation.md#the-endpoint-is-not-the-change",
+    "content/020-concept.md#a-graph-is-a-set-of-input-output-claims",
+    "content/030-worked-example.md#transform-a-parent-rule-and-verify-key-points",
+    "content/040-misconception.md#inside-changes-run-opposite-to-the-sign",
+    "content/050-practice.md#move-among-rule-table-and-graph-language",
+    "content/060-transfer.md#audit-a-transformed-square-root-rule",
+    "content/070-synthesis.md#rebuild-the-graph-audit",
+    "content/080-clinical-wrap-up.md#clinical-wrap-up-read-a-drugs-concentration-time-curve",
+    "assessment.json#items[item-function-value,item-composition-domain,item-average-rate,item-transform-description,item-table-interpretation,item-transfer-quadratic]",
+    "assessment.json#rubrics",
+    "claims.json#claims[claim-function-notation,claim-axis-quantity,claim-transform-inference,claim-average-rate]",
+    "references.json#sources[source-common-core-functions,source-nist-si-axis]",
+    "glossary.json#terms",
+    "ATTRIBUTION.md#originality-evidence-and-rights",
+    "course/PREMED-SYLLABUS.md#QRS-103",
+    "https://corestandards.org/wp-content/uploads/2023/09/ADA-Compliant-Math-Standards.pdf#HSF-IF.A.1-2,HSF-IF.B.4-6,HSF-BF.A.1c,HSF-BF.B.3",
+    "https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-7-rules-and-style-conventions-expressing-values#section-7.1",
+    "https://vegabiotec.com/img/PCD-Product-List.pdf#page-2-Velunor-5-and-Velunor-10"
+  ],
+  "findings": [
+    {
+      "severity": "blocking",
+      "target": "content/080-clinical-wrap-up.md#the-invented-drug-velunor",
+      "finding": "The assertion that Velunor is invented is false. Vega Group's manufacturer catalogue lists Velunor 5 and Velunor 10 as brand names for flunarizine tablets. Attaching an arbitrary concentration-time curve and single-dose narrative to that real medicine name risks teaching fabricated pharmacokinetic information about an identifiable product.",
+      "resolution": "Replace Velunor throughout the scene and attribution with a clearly generic placeholder such as Drug X, or another name checked not to identify a real medicine. Do not associate the fabricated curve or numerical values with an existing medicine brand."
+    },
+    {
+      "severity": "major",
+      "target": "lesson.json#scenes[id=scene-clinical-wrap-up].claimCoverage",
+      "finding": "The clinical wrap-up is declared no-material-claims even though it teaches and applies intercept, maximum, increasing/decreasing interval, axis-unit, and average-rate claims, then introduces the pharmacokinetic label elimination phase. The scene has no source note and is omitted from all claim scene mappings, so the new version's central clinical application has no valid claim-to-evidence trail.",
+      "resolution": "Change the scene to claims-mapped, map every reused mathematical claim to scene-clinical-wrap-up, and add a same-scene source note containing all supporting sources. Add and verify a separate clinical claim and authoritative source for any retained pharmacokinetic interpretation, or remove the clinical interpretation."
+    },
+    {
+      "severity": "major",
+      "target": "content/080-clinical-wrap-up.md#feedback-after-a-complete-attempt",
+      "finding": "A negative average rate establishes that the endpoint concentration is lower than the starting concentration over the specified interval; it does not by itself identify a biological elimination phase. The curve description supplies no absorption, distribution, compartment, dosing-route, or terminal-phase model that would justify that mechanistic label.",
+      "resolution": "Replace the sentence with the bounded mathematical interpretation that concentration decreased by an average of 1.25 mg/L per hour from 2 to 6 hours, or introduce a properly sourced and explicitly limited pharmacokinetic model that warrants the phase designation."
+    },
+    {
+      "severity": "major",
+      "target": "assessment.json#items[id=item-table-interpretation]",
+      "finding": "The prompt specifies four plotted points but does not say they are connected by line segments or that the represented function is monotone between them. The answer nevertheless awards credit for claiming decrease throughout [2,4] and [4,6]. Discrete point values establish only that the later sampled values are lower; they cannot determine behavior at unsampled inputs.",
+      "resolution": "State explicitly that consecutive points are joined by straight segments, provide an equivalent monotonic curve description, or ask which adjacent sampled pairs show a decrease instead of asking for continuous decreasing intervals."
+    },
+    {
+      "severity": "minor",
+      "target": "claims.json#claims[*].reviewStatus",
+      "finding": "All four claims are marked reviewed in the fresh 0.2.0 candidate even though the prior-version reviews were removed and the candidate commit states that fresh quorum follows. This overstates the exact-candidate academic review state.",
+      "resolution": "Set the candidate claims to pending-review and allow the finalizer to promote only retained claims after disposing the reviews and adjudicating version 0.2.0."
+    },
+    {
+      "severity": "note",
+      "target": "content/030-worked-example.md#worked-example-quadratic-transform",
+      "finding": "Independent recalculation confirms the transformation sequence, minimum, value table, and average rate for g(t)=2(t-3)^2+5.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#items[id=item-transfer-quadratic]",
+      "finding": "Independent recalculation confirms the stated transformations, maximum, range, intercepts, average rate, and verification table for p(x)=-0.5(x+2)^2+8.",
+      "resolution": "No change required."
+    }
+  ],
+  "limitations": [
+    "The review scope prohibited reading site/, so the exact atomic graph record and cross-lesson terminology ledger could not be inspected. The topic-level QRS-103 syllabus entry was checked, but it is not a substitute for the atomic graph artifact.",
+    "The public review schema, quorum JSON, and repository validators were not read or executed because the assigned scope explicitly prohibited site/ and scripts/. The artifact follows the supplied academic-review template.",
+    "The manufacturer catalogue establishes a current brand-name collision for Velunor but does not establish product registration or availability in every jurisdiction.",
+    "This review assessed the clinical additions for evident academic model-boundary and medication-confusion risks; it is not a complete pharmacokinetic, regulatory, or treatment review."
+  ],
+  "signedAt": "2026-07-24T20:29:59Z"
+}
