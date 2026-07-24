@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-QNT-005-ACADEMIC-6CDCE67E-D5E4-4A2B-A095-8619B935EE70",
+  "lessonId": "PREM-QNT-005",
+  "lessonVersion": "0.2.0",
+  "candidateCommit": "e3df3a4e2856377a10ba7b910fbc472a330a7426",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable academic reviewer",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-QNT-005-6CDCE67E-D5E4-4A2B-A095-8619B935EE70",
+      "instructionsDigest": "sha256:dc1e135ffd961929f425a4633de137b2f45c4847043f079de44e8460573290f6"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#id/version/outcomes/prerequisites/objectives/scenes",
+    "content/010-orientation.md#scene-orientation — square-scaling calculation, diagnostic questions, and source note",
+    "content/020-concept.md#scene-concept — integer and rational exponent laws, domain restrictions, negative-base counterexample, and magnitude model",
+    "content/030-worked-example.md#worked-example-square-array — model, principal-root calculation, scale estimate, and verification",
+    "content/040-misconception.md#misconception-root-square — principal-root sign distinction and candidate verification",
+    "content/050-practice.md#scene-practice — all five calculations, feedback, and recovery statements",
+    "content/060-transfer.md#scene-transfer — cubic scale factors, cube-root inversion, approximation, and reverse check",
+    "content/070-synthesis.md#scene-synthesis — scale-map procedure and retrieval prompts",
+    "content/080-clinical-wrap-up.md#scene-clinical-wrap-up — serial-dilution exponent arithmetic, squared-signal inversion, units, and boundary statement",
+    "assessment.json#item-exponent-laws — independently simplified to x^5/y^3 for nonzero x and y",
+    "assessment.json#item-rational-power — independently evaluated as 27",
+    "assessment.json#item-solve-square — independently solved and verified as x = -5 or 7",
+    "assessment.json#item-root-domain — independently verified sqrt(x^2) = |x| for real x",
+    "assessment.json#item-magnitude-root — independently evaluated as 7 × 10^5 with the stated magnitude bound",
+    "assessment.json#item-transfer-inverse-square — independently calculated as 25/144 ≈ 0.173611 and inverse factor 3",
+    "assessment.json#rubrics — point totals and criteria checked against each answer key",
+    "claims.json#claim-power-notation",
+    "claims.json#claim-exponent-laws",
+    "claims.json#claim-magnitude-check",
+    "references.json#source-nist-sp811-notation — direct check of NIST Appendix B.2 at https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors",
+    "references.json#source-nist-estimation — direct check of the magnitude, ordering, sensemaking, and reasonableness discussion at https://www.nist.gov/pml/owm/metric-si/everyday-estimation",
+    "glossary.json#term-base/term-rational-exponent/term-principal-root/term-order-of-magnitude/term-scale-factor/term-domain",
+    "ATTRIBUTION.md#originality-evidence-and-rights"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "lesson.json#scenes/scene-clinical-wrap-up",
+      "finding": "The required clinical wrap-up is declared no-material-claims, but content/080-clinical-wrap-up.md teaches material quantitative and definitional content: five 1:10 dilution factors combine to 10^-5, powers multiply and add under the stated operations, the invented concentration becomes 3 × 10^3 CFU/mL, and a principal root inverts the stipulated squared-signal model. The scene has no source note and is omitted from every claim's sceneIds, so its evidence state is false and the learner-visible claims cannot be traced through claims.json and references.json.",
+      "resolution": "Change scene-clinical-wrap-up to claims-mapped; map every applicable power-notation, exponent-law, and magnitude claim to that scene; add a learner-visible source note listing the complete supporting sources; and either support any intended microbiology-domain assertion separately or make explicit that all domain details are stipulated solely as fictional mathematical inputs."
+    },
+    {
+      "severity": "major",
+      "target": "claims.json#claim-exponent-laws",
+      "finding": "The lesson's central exponent-law claim names source-nist-sp811-notation as its only source, but direct inspection shows that Appendix B.2 explains E notation and powers-of-ten conversion-factor notation, not the product, quotient, power, rational-exponent, principal-root, or negative-base domain laws. The lesson's own source notes acknowledge that NIST is not the source of those laws. The internal derivations are mathematically sound within the stated positive-base scope, but they do not make the claims-to-reference relationship accurate.",
+      "resolution": "Add an authoritative mathematical source with an exact locator supporting the exponent laws and stated real-domain boundaries, include it in claim-exponent-laws.sourceIds, and list it in every scene source note that names claim-exponent-laws. Retain the NIST source only for the notation it actually supports."
+    },
+    {
+      "severity": "minor",
+      "target": "content/030-worked-example.md#worked-example-square-array",
+      "finding": "The model says s is a count of cells along a side but declares only s ≥ 0. Counts require a nonnegative-integer domain. The computed result 2500 is an integer, so the answer remains correct, but the stated contextual domain is broader than the model permits.",
+      "resolution": "Declare s as a nonnegative integer, or explicitly state that the real-valued equation is solved first and the result is then checked for nonnegative integrality."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#item-transfer-inverse-square",
+      "finding": "The inverse-square transfer key is quantitatively correct: 1/(2.4)^2 = 25/144 ≈ 0.173611, the strict bound is 1/9 < 25/144 < 1/4, and the positive-domain inverse factor for a one-ninth score is 3.",
+      "resolution": "No change required."
+    }
+  ],
+  "limitations": [
+    "Per the assigned review scope, graph records and the cross-lesson terminology registry under site/ were not inspected; prerequisite/outcome graph validity and glossary collisions with earlier lessons remain unverified.",
+    "The academic check covered elementary real-number algebra, arithmetic, evidence alignment, and the internal consistency of the fictional dilution example; it did not verify microbiology laboratory protocols or clinical practice.",
+    "Both cited NIST pages were reachable and checked directly. No inaccessible cited evidence prevented a verdict."
+  ],
+  "signedAt": "2026-07-24T22:40:15Z"
+}
