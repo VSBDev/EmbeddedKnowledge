@@ -18,6 +18,8 @@ OpenAI Codex authored, researched, edited, and packaged the frozen candidate in 
 
 The digest identifies `/tmp/codex-packager-prompt-03-08.md`; unavailable hidden instructions are excluded. The two isolated review runs are disclosed in `reviews/`, and the fresh post-review finalizer is disclosed in `adjudication.json`; those runs are not additional authors.
 
+- Clinical-framing revision instruction (run `codex-reauthor-PREM-QNT-008-B1C7C4C7-0615-4F61-91AC-98A9303D1738`): add one final illustrative clinical-imaging wrap-up applying only volume scaling, the Pythagorean relation, a right-triangle ratio, inverse trigonometry, and degree-to-radian conversion; preserve existing lesson content and answers.
+
 ## Originality, evidence, and rights
 
 The geometric-audit structure, locator opening, beacon example, inverse/reciprocal repair, rotated-panel transfer, all coordinates, values, feedback, recovery, and assessments are original. Every applied setting is fictional. NIST and NASA sources provide only standard mathematical facts and relations. No source expression, diagram, table, or example is copied or adapted.
