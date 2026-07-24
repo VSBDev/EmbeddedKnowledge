@@ -29,3 +29,5 @@ The reference-first structure, archive opening, queue example, pass-fraction mis
 The displayed licences, terms routes, and public access conditions for NIST, OpenStax, and GOV.UK were checked before access on 2026-07-22. No source-specific agent prohibition, login, paywall, or access-control barrier was found. No third-party assets, datasets, personal data, or patient material are included.
 
 This mathematical lesson provides no clinical advice and makes no claim of review, approval, publication, measured effectiveness, credit, or competence.
+
+Clinical-framing revision: VSBDev (`github:VSBDev`) added an original illustrative stock-solution dose wrap-up applying the existing ordered-ratio, constant-multiplier proportion, substitution-check, named-denominator percentage, and percent-change distinctions, with system, provider, model, and version `RUNTIME-STAMPED` in isolated run `codex-reauthor-PREM-QNT-003-D3C463A0-A7AB-43A4-A131-CE9057B60CA2`; task digest `sha256:8c5842b98ce7a5bad3f8fa803fe45caf25c83678e8b9a804c89c9b4bbbc7c431`; no real patient, real drug, new factual medical claim, external source, third-party asset, or dataset was introduced.
