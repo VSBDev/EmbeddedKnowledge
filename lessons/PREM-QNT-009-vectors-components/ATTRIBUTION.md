@@ -25,3 +25,5 @@ The vector-audit structure, route opening, directed-span and dot-product example
 NIST rights and public robots routes were checked before access on 2026-07-22. No agent restriction, login, paywall, or access-control barrier was found. No third-party assets, datasets, personal data, or patient material are included.
 
 This mathematical lesson provides no clinical, navigation, or engineering advice and makes no claim of review, approval, publication, measured effectiveness, credit, or competence.
+
+Clinical-framing revision: VSBDev (`github:VSBDev`) added the original illustrative joint-force teaching case with system, provider, model, and version `RUNTIME-STAMPED` in isolated run `codex-reauthor-PREM-QNT-009-67A076F5-DCC0-4BCA-9BBD-AACC02BDC1D2`; task digest `sha256:6618e63d647670a101bfd8d87dab37f5a619a11be2a83293b8b955bedf0e1113`; no real patient data, new factual medical claim, external source, or third-party asset was introduced.
