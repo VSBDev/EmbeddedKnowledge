@@ -1,6 +1,6 @@
 # Identify a model by what stays invariant
 
-In this lesson a *model* means one of the fitted quantitative relationships below: an economical description judged by fit and residuals, not a claim about mechanism.
+In this lesson a *model* means one of the fitted quantitative relationships below: an economical description judged by fit and residuals, not a claim about mechanism. To distinguish the families, assume the proportionality constant $k$ is nonzero; the exact-point calculations below use positive responses.
 
 Three related families can be written as power laws.
 
@@ -10,7 +10,7 @@ Three related families can be written as power laws.
 | Inverse | $y=k/x$ | $xy=k$ | $y$ is divided by $c$ |
 | Power | $y=kx^p$ | $y/x^p=k$ | $y$ is multiplied by $c^p$ |
 
-Direct and inverse models are the cases $p=1$ and $p=-1$. A power with $p=0$ is constant with respect to $x$, not directly proportional.
+Direct and inverse models are the cases $p=1$ and $p=-1$. With nonzero $k$, a power with $p=0$ is constant with respect to $x$, not directly proportional. An all-zero response is a degenerate case: it can satisfy several family equations at once, so invariant checks cannot classify it uniquely.
 
 ## Parameters from exact points
 

@@ -16,7 +16,7 @@ OpenAI Codex originally authored, researched, edited, and packaged this lesson i
 | --- | --- | --- | --- | --- | --- |
 | Codex desktop | OpenAI | `gpt-5.6-sol` | Codex desktop runtime 2026-07-22 | `77688564-3387-4f64-ab15-6466cbc54176` | `sha256:bc8b581f3ca1686c6adaba4bcc9c67f115658a410a92e88c5ee45bdcdfc33150` |
 
-Clinical-framing revision: `RUNTIME-STAMPED` system/provider/model/version, run `codex-reauthor-PREM-QNT-010-5BEFF12E-FEF8-4024-9C41-E0B7C77634A7`, digest `sha256:b35fc7caf1452d9381beb7dcb72f56e4cacc3581e26ee650ca2da60af8e5fe64`; added an author-invented fictional allometric clearance-and-dose teaching case.
+Clinical-framing revision: `RUNTIME-STAMPED` system/provider/model/version, run `codex-reauthor-PREM-QNT-010-5BEFF12E-FEF8-4024-9C41-E0B7C77634A7`, digest `sha256:b35fc7caf1452d9381beb7dcb72f56e4cacc3581e26ee650ca2da60af8e5fe64`; added an author-invented fictional allometric clearance teaching case.
 
 The digest identifies `/tmp/codex-packager-prompt-03-10.md`; unavailable hidden instructions are excluded. Review and finalization provenance is recorded in the pack's governance artifacts.
 
