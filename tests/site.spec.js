@@ -906,6 +906,10 @@ test("every guided specimen frame fits a 1280 by 720 viewport without internal s
   await page.setViewportSize({ width: 1280, height: 720 });
   const errors = collectRuntimeErrors(page);
   await page.goto(route("premed/lessons/specimen/"), { waitUntil: "networkidle" });
+  // Without this the audit runs in continuous view, where ArrowRight moves between scenes and
+  // `.reader-frame.is-active` keeps resolving to each scene's first frame: the count still climbs
+  // while no guided frame is measured.
+  await enterGuidedView(page);
   const sceneLinks = page.locator("[data-scene-index]");
   const sceneCount = await sceneLinks.count();
   const overflowing = [];
@@ -1208,50 +1212,69 @@ test("a published psychiatry outcome opens the reviewed lesson through its produ
   expect(errors).toEqual([]);
 });
 
-test("a phone opens the reader in continuous view and can still reach a tall guided frame", async ({ page }) => {
-  const lessonIndex = await getJson(page.request, "data/premed-lessons.json");
-  const publishedLesson = lessonIndex.lessons.find((lesson) => lesson.status === "published");
-  expect(publishedLesson, "the reader scrolling test requires a published lesson").toBeTruthy();
+test("a phone opens the reader in continuous view and a real gesture reaches the end of a tall guided frame", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  // Deterministically tall content, so the frame is guaranteed to outgrow the stage on a phone
+  // rather than depending on whichever lesson happens to be published.
+  const specimen = await getJson(page.request, "data/lessons/specimen.json");
+  const markers = Array.from({ length: 60 }, (_, index) => `Reach paragraph ${String(index + 1).padStart(2, "0")}`);
+  specimen.scenes[0].contentHtml = [
+    `<h1>${specimen.scenes[0].title}</h1>`,
+    "<h2>Reaching the end of a tall frame</h2>",
+    `<div>${markers.map((marker) => `<p>${marker}. This block makes the guided frame taller than a phone stage.</p>`).join("")}</div>`
+  ].join("");
+  await page.route("**/data/lessons/specimen.json*", (route) => route.fulfill({ contentType: "application/json", body: JSON.stringify(specimen) }));
 
   const errors = collectRuntimeErrors(page);
-  await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto(route(`premed/lessons/read/?lesson=${publishedLesson.id}`), { waitUntil: "networkidle" });
+  await page.goto(route("premed/lessons/specimen/"), { waitUntil: "networkidle" });
 
   // Continuous reading is the default for a reader who has expressed no preference.
   await expect(page.locator("[data-reader-app]")).toHaveClass(/reader-reading-mode/);
 
   // Guided remains available, and on a narrow screen its frame grows past the stage. The frame must
   // not stay a scroll container once it has nothing of its own to scroll: a dead scroll container
-  // swallows the gesture and its `overscroll-behavior: contain` refuses to pass it to the stage,
+  // swallows the gesture, and its `overscroll-behavior: contain` refuses to hand it to the stage,
   // which is what strands the bottom of a tall scene out of reach.
-  await page.locator("[data-view-toggle]").click();
-  await expect(page.locator("[data-reader-app]")).toHaveClass(/reader-guided-mode/);
+  await enterGuidedView(page);
+  // Guided splits a scene into screen-sized frames, so the opening frame is the title. Advance to
+  // the frame holding the indivisible block.
+  await page.keyboard.press("ArrowRight");
+  await expect(page.locator(".reader-frame.is-active")).toContainText("Reach paragraph 01");
 
-  const scrolling = await page.evaluate(async () => {
+  const before = await page.evaluate(() => {
     const stage = document.querySelector(".reader-stage");
     const frame = document.querySelector(".reader-frame.is-active");
-    const frameStyle = getComputedStyle(frame);
-    const overflowing = frame.getBoundingClientRect().height > stage.clientHeight;
-    stage.style.scrollBehavior = "auto";
-    stage.scrollTop = 0;
-    stage.scrollTop = stage.scrollHeight;
-    const reached = stage.scrollTop;
-    stage.scrollTop = 0;
-    stage.style.scrollBehavior = "";
     return {
-      overflowing,
+      frameOverflowsStage: frame.getBoundingClientRect().height > stage.clientHeight + 2,
       frameIsDeadScrollContainer:
-        frameStyle.overflowY !== "visible" && frame.scrollHeight <= frame.clientHeight + 2,
-      stageReach: reached,
-      stageNeeds: stage.scrollHeight - stage.clientHeight
+        getComputedStyle(frame).overflowY !== "visible" && frame.scrollHeight <= frame.clientHeight + 2,
+      stageNeeds: stage.scrollHeight - stage.clientHeight,
+      stageScrollTop: stage.scrollTop
     };
   });
+  expect(before.frameOverflowsStage, "the injected content must outgrow the phone stage").toBe(true);
+  expect(before.stageNeeds).toBeGreaterThan(0);
+  expect(before.frameIsDeadScrollContainer).toBe(false);
+  expect(before.stageScrollTop).toBe(0);
 
-  expect(scrolling.frameIsDeadScrollContainer).toBe(false);
-  if (scrolling.overflowing) {
-    expect(scrolling.stageNeeds).toBeGreaterThan(0);
-    expect(scrolling.stageReach).toBeGreaterThan(0);
-  }
+  // A trusted wheel over the frame, which is what the reader actually failed to honour.
+  await page.mouse.move(195, 500);
+  await page.mouse.wheel(0, 600);
+  await expect
+    .poll(async () => page.evaluate(() => Math.round(document.querySelector(".reader-stage").scrollTop)))
+    .toBeGreaterThan(0);
+
+  const lastMarkerVisible = await page.evaluate(() => {
+    const stage = document.querySelector(".reader-stage");
+    const paragraphs = [...document.querySelectorAll(".reader-frame.is-active p")];
+    const last = paragraphs.at(-1);
+    stage.style.scrollBehavior = "auto";
+    stage.scrollTop = stage.scrollHeight;
+    const reached = last.getBoundingClientRect().bottom <= stage.getBoundingClientRect().bottom + 1;
+    stage.style.scrollBehavior = "";
+    return reached;
+  });
+  expect(lastMarkerVisible, "the bottom of the frame must be reachable").toBe(true);
   expect(errors).toEqual([]);
 });
 

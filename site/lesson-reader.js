@@ -1092,7 +1092,17 @@
       : 0;
     syncFrameVisibility({ scroll: false });
     updateControls();
-    stage.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+    // Guided shows one frame at a time, so landing on the requested frame is enough. Continuous
+    // view lays every frame out in one flow, where scrolling the stage to the top would drop an
+    // incoming `#scene/frame` link at the scene opening instead of the frame it names.
+    const requestedFrameElement = Number.isInteger(requestedFrame) && requestedFrame >= 0
+      ? currentFrames[activeFrameIndex]
+      : null;
+    if (viewMode === "reading" && requestedFrameElement) {
+      requestedFrameElement.scrollIntoView({ block: "start", behavior: reduceMotion ? "auto" : "smooth" });
+    } else {
+      stage.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+    }
     if (options.updateUrl) history.pushState({ sceneId: scene.id, frameId: currentFrames[activeFrameIndex]?.dataset.frameId }, "", frameHash(scene));
     if (options.focus) sceneContainer.focus({ preventScroll: true });
     if (options.announce) announcer.textContent = `Scene ${index + 1} of ${scenes.length}: ${scene.title}. ${currentFrames.length} guided frames.`;
