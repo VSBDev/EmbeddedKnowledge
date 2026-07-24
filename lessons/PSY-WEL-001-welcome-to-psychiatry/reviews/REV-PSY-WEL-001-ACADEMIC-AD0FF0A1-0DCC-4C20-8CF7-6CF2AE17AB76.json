@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PSY-WEL-001-ACADEMIC-AD0FF0A1-0DCC-4C20-8CF7-6CF2AE17AB76",
+  "lessonId": "PSY-WEL-001",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "78307ffcd3207ff1d9312821ac57bea8293e7050",
+  "role": "academic",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev (academic reviewer)",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PSY-WEL-001-AD0FF0A1-0DCC-4C20-8CF7-6CF2AE17AB76",
+      "instructionsDigest": "sha256:d698861d6e67dfe6adf979520a255bd685beccb14fdfed446dccef0461f6c65b"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#identity-outcomes-objectives-scenes-and-boundaries",
+    "content/010-welcome.md#A-field-larger-than-one-explanation",
+    "content/020-six-lens-map.md#Six-lenses-six-kinds-of-question",
+    "content/030-boundary-worked.md#Worked-use-knowledge-is-not-authority",
+    "content/040-practice.md#Repair-shortcuts-and-practise-the-map",
+    "content/050-transfer.md#Transfer-the-map-to-a-policy-question",
+    "content/060-synthesis.md#Reconstruct-the-field-and-your-boundary",
+    "assessment.json#all-items-answer-logic-and-rubric-point-totals",
+    "claims.json#all-claims-scene-mappings-source-mappings-scope-and-uncertainty",
+    "references.json#all-source-records-and-locators",
+    "glossary.json#all-terms-definitions-and-scene-links",
+    "ATTRIBUTION.md#authorship-source-reuse-and-candidate-status",
+    "references.json#source-psychiatry-syllabus — exact commit 951fdc24c7aa209b217da4004f3e91ebd54862ec, sections 1–7, 9–16 and PSY-101 scope",
+    "references.json#source-wpa-training — independently checked against the [WPA position statement](https://www.wpanet.org/wp-content/uploads/2025/09/3.GA23.10.3-High-Quality-Psych-Training-Position-Statement-7.2.-14.6-1.pdf), especially pages 1–4 and recommendations 8–19",
+    "references.json#source-abpn-certification — independently checked against the [ABPN psychiatry certification page](https://www.abpn.com/become-certified/taking-a-specialty-exam/psychiatry/), especially the specialty overview, training requirements, and active-license requirement"
+  ],
+  "findings": [
+    {
+      "severity": "minor",
+      "target": "claims.json#claim-psychiatry-medical-specialty",
+      "finding": "The academically supported statement that psychiatry is a medical field also appears in content/010-welcome.md ('This field is medical') and content/060-synthesis.md (the requested answer must include 'the field's medical identity'), but this claim maps only to scene-six-lens-map and is absent from those two scenes' source-note claim lists. The central statement is accurate and the ABPN source is already listed in both notes, but its per-scene evidence trail is incomplete.",
+      "resolution": "Add scene-welcome and scene-synthesis to this claim's sceneIds and add claim-psychiatry-medical-specialty to both source notes, or remove the material statement from the unmapped scenes."
+    },
+    {
+      "severity": "minor",
+      "target": "claims.json#claim-routes-vary-by-jurisdiction",
+      "finding": "The WPA source directly supports international variation in training level, duration, quality, supervision, cultural context, and local regulation, while ABPN documents one United States certification and licensure route. Those two records do not by themselves demonstrate the claim's broader cross-jurisdiction assertion about variation in certification and legal authorization.",
+      "resolution": "Narrow the claim to the dimensions directly established by WPA and the bounded United States example, or add authoritative evidence from another jurisdiction with exact locators for certification and legal-authorization variation."
+    },
+    {
+      "severity": "note",
+      "target": "claims.json#claim-training-breadth",
+      "finding": "The WPA document verifies the stated inclusion of cultural context, public mental health, research, service systems, lived-experience participation, and supervised development in postgraduate psychiatry training. The claim correctly identifies the document as a professional position statement and preserves its unusual 2017 last-review and 2023 approval dates.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#item-transfer-policy-map",
+      "finding": "The answer logic correctly distinguishes an observed association from a causal policy conclusion, requires evidence capable of revising the conclusion, preserves affected students' perspectives and possible harms, and prevents policy analysis from becoming an individual clinical judgment. The rubric's four criteria total the declared eight points and align with the three lesson objectives.",
+      "resolution": "No change required."
+    }
+  ],
+  "limitations": [
+    "The explicit review scope prohibited reading site/, so the public review schema, quorum-policy file, generated graph node, and cross-lesson terminology ledger were not independently inspected. Exact graph-node identity, terminology continuity, and machine validation therefore remain unverified in this run.",
+    "The ABPN academic source page was reachable and checked, but its separate terms-of-use endpoint returned an internal error when reopened. This academic review does not re-adjudicate the recorded agent-access or rights determination.",
+    "No jurisdiction-by-jurisdiction legal survey was conducted; conclusions about authorization are limited to the cited WPA statement, the United States ABPN example, and the lesson's explicitly bounded curricular claim.",
+    "The reviewer is an AI academic generalist and not a licensed psychiatrist. The same accountable founding-stage principal operated the disclosed authoring and review runs, but the runs are distinct and no additional financial, institutional, or subject-matter conflict was identified."
+  ],
+  "signedAt": "2026-07-23T10:33:51Z"
+}
