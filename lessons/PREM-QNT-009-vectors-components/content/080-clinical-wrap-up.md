@@ -1,8 +1,8 @@
 # Resolve the force on a joint
 
-Vector components let you track the direction of an illustrative load on the musculoskeletal system.
+Vector components let you track the direction of an illustrative force in a fictional joint-coordinate model.
 
-In this teaching case, two invented tendon/muscle forces pull on a bone at a joint. Take positive horizontal to the right and positive vertical upward, and measure every angle counterclockwise from the positive horizontal axis.
+In this teaching case, two invented forces act at a point representing a joint. This coordinate exercise does not define a bone free body, contact plane, or compression/tension sign convention, so it does not interpret the components as compression, tension, or shear. Take positive horizontal to the right and positive vertical upward, measure every angle counterclockwise from the positive horizontal axis, and measure force in newtons (N).
 
 :::{check}
 :id: check-clinical-joint-force
@@ -10,7 +10,7 @@ In this teaching case, two invented tendon/muscle forces pull on a bone at a joi
 1. Force $\mathbf A$ has magnitude $60$ N at $30^\circ$. Force $\mathbf B$ has magnitude $40$ N at $120^\circ$. Predict each component's sign, then resolve both forces into signed components.
 2. Add the forces componentwise to obtain $\mathbf R=\mathbf A+\mathbf B$. Reconstruct its magnitude and use the component signs to choose a quadrant-aware direction.
 3. Use $\mathbf A\mathbin{\boldsymbol\cdot}\mathbf B$ to test alignment. Check the result against the angle between the forces.
-4. Take the bone's long axis as the unit vector $\widehat{\mathbf u}=(0,1)$. Find the scalar projection of $\mathbf R$ along this axis. In this simplified model, call that value the compression component and the perpendicular value the shear component; check both against $\lVert\mathbf R\rVert$.
+4. Take the fictional segment axis as the unit vector $\widehat{\mathbf u}=(0,1)$. Find the signed axial scalar projection of $\mathbf R$ along this axis and the magnitude of the perpendicular component; check both against $\lVert\mathbf R\rVert$.
 :::
 ## Feedback after a complete attempt
 
@@ -38,8 +38,8 @@ $$\mathbf A\mathbin{\boldsymbol\cdot}\mathbf B=51.96(-20)+30(34.64)\approx0.$$
 
 The pulls are perpendicular, consistent with $\lVert\mathbf A\rVert\lVert\mathbf B\rVert\cos(120^\circ-30^\circ)=60(40)\cos90^\circ=0$.
 
-Along the bone axis, $\mathbf R\mathbin{\boldsymbol\cdot}\widehat{\mathbf u}\approx64.64$ N, while the perpendicular shear component is approximately $31.96$ N. The check closes:
+Along the fictional segment axis, $\mathbf R\mathbin{\boldsymbol\cdot}\widehat{\mathbf u}\approx64.64$ N, so the signed axial component points in the positive axis direction. The perpendicular component is $\mathbf R-(64.64)\widehat{\mathbf u}\approx(31.96,0)$ N and has magnitude $31.96$ N. These are coordinate components, not claims about compression or shear. The check closes:
 
 $$\lVert\mathbf R\rVert^2\approx64.64^2+31.96^2.$$
 
-*Teaching example — illustrative numbers, not medical advice.*
+*Fictional coordinate exercise with invented values — not a biomechanical model or medical advice.*
