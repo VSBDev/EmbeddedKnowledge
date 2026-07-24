@@ -34,3 +34,5 @@ Before substantive access on 2026-07-22, NIST's Copyrights & Disclaimers page, t
 ## Boundaries
 
 This lesson teaches mathematical unit reasoning. It does not provide clinical advice, dosing guidance, experimental procedure, measurement-validity judgments, or formal uncertainty analysis. This authoring run creates no review or adjudication artifact and makes no claim of approval, publication, merge readiness, learner effectiveness, university credit, or clinical competence.
+
+Clinical-framing revision: VSBDev (`github:VSBDev`) added an original illustrative infusion-rate wrap-up applying the existing unit-factor chain and dimension-and-magnitude audit, with system, provider, model, and version `RUNTIME-STAMPED` in isolated run `codex-reauthor-PREM-QNT-002-A7513734-A5CE-445B-8F6B-ADB2084C13C5`; task digest `sha256:5d3420134df88a6b0f724ff71d110feaa19a1764e9cce93ee66b7881321465f3`; no real patient, real drug, new factual medical claim, external source, third-party asset, or dataset was introduced.
