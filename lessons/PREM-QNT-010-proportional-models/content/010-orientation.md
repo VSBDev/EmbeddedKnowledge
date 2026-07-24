@@ -31,4 +31,4 @@ NIST sources support the power relations and residual-based model checking used.
 
 ## Accessibility and alternatives
 
-Every essential pattern is represented by equations, coordinates, tables, and verbal scale-factor descriptions. No task requires judging curve shape visually, distinguishing colors, or interacting with a graph.
+Choose the representation that works for you: equations, coordinate tables, and written scale-factor descriptions carry the same relationships. If a plotted curve is not useful, calculate from the listed coordinates; no answer depends on colour or visual shape.

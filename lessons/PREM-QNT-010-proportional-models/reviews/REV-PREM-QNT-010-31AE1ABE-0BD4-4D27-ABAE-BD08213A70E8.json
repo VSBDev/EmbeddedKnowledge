@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-QNT-010-31AE1ABE-0BD4-4D27-ABAE-BD08213A70E8",
+  "lessonId": "PREM-QNT-010",
+  "lessonVersion": "0.2.0",
+  "candidateCommit": "9e68aafa7af3fff6c939b46d948fad4b4381f2de",
+  "role": "learning-design",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.6",
+      "runId": "agy-learning-design-PREM-QNT-010-31AE1ABE-0BD4-4D27-ABAE-BD08213A70E8",
+      "instructionsDigest": "sha256:030808d4e245555a5f50118e1306f31b6eb9be6d538f67edda79b3e7945a44d3"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lessons/PREM-QNT-010-proportional-models/lesson.json",
+    "lessons/PREM-QNT-010-proportional-models/claims.json",
+    "lessons/PREM-QNT-010-proportional-models/glossary.json",
+    "lessons/PREM-QNT-010-proportional-models/references.json",
+    "lessons/PREM-QNT-010-proportional-models/ATTRIBUTION.md",
+    "lessons/PREM-QNT-010-proportional-models/content/010-orientation.md",
+    "lessons/PREM-QNT-010-proportional-models/content/020-concept.md",
+    "lessons/PREM-QNT-010-proportional-models/content/030-worked-example.md",
+    "lessons/PREM-QNT-010-proportional-models/content/040-misconception.md",
+    "lessons/PREM-QNT-010-proportional-models/content/050-practice.md",
+    "lessons/PREM-QNT-010-proportional-models/content/060-transfer.md",
+    "lessons/PREM-QNT-010-proportional-models/content/070-synthesis.md",
+    "lessons/PREM-QNT-010-proportional-models/content/080-clinical-wrap-up.md",
+    "lessons/PREM-QNT-010-proportional-models/assessment.json"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-010-proportional-models/content/030-worked-example.md",
+      "finding": "The worked example 'worked-example-power-table' fails to meet several key criteria in CONTENT-STANDARD.md section 5.1. It does not present an explicit plan (Req 4), does not separate or state givens/constraints/unknowns (Req 2), does not include units, signs, assumptions, or boundary conditions (Req 6), does not interpret the result in an original physical context (Req 8), and lacks a self-explanation prompt targeting the key decision determining the solution (Req 9).",
+      "resolution": "Restructure 'worked-example-power-table' to include: (1) a clear planning stage, (2) explicit categorization of givens/constraints/unknowns, (3) units and physical context for the data, (4) interpretation of predictions within that context, and (5) a final self-explanation prompt for the learner."
+    },
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-010-proportional-models/content/050-practice.md",
+      "finding": "The practice prompts in 'content/050-practice.md' display their feedback and answers immediately inline beneath the questions. In fact, the text explicitly asks the learner to 'cover or skip past its feedback'. In a continuous reading interface, this exposure allows learners to bypass active retrieval. This violates CONTENT-STANDARD.md section 6, which requires putting the prompt before the answer/explanation and ensuring active generation rather than passive reveal.",
+      "resolution": "Modify the layout or delivery format of practice items so that feedback is hidden or separated from the initial prompts, eliminating the reliance on learners manually covering answers."
+    },
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-010-proportional-models/content/060-transfer.md",
+      "finding": "Both the transfer scene in 'content/060-transfer.md' and the clinical wrap-up scene in 'content/080-clinical-wrap-up.md' present detailed feedback ('## Feedback after a complete attempt') inline in the same document. This allows learners to scroll down and view the answers without attempting active recall or independent work, undermining the cognitive effort required for transfer.",
+      "resolution": "Separate the feedback sections from the main prompts, or wrap them in interactive collapse/disclosure components that require learner action to reveal, enforcing a retrieval step."
+    },
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-010-proportional-models/lesson.json",
+      "finding": "The scene 'scene-clinical-wrap-up' is mapped with 'claimCoverage': 'no-material-claims'. However, this is a substantive transfer scene containing mathematical models, invariants, calculations, and log-linearization. CONTENT-STANDARD.md section 4.3 states that a scene can only be declared as containing no material claims when it is limited to routing, instructions, reflection, or another non-evidentiary action. Transfer is an evidentiary action, and the mathematical claims within it are material.",
+      "resolution": "Change 'claimCoverage' for 'scene-clinical-wrap-up' in 'lesson.json' to 'claims-mapped' and map the relevant power-law scaling, invariant, and linearization claims."
+    },
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-010-proportional-models/content/080-clinical-wrap-up.md",
+      "finding": "The wrap-up task in 'content/080-clinical-wrap-up.md' is a near-practice task disguised as transfer. It asks the learner to perform the exact same mathematical steps (recover constant, verify invariants, predict scaling, log-linearize) as previous scenes, changing only numbers and labels (from x/y to M/CL). CONTENT-STANDARD.md section 8 requires a transfer task to force selection, adaptation, or coordination in a novel context, and explicitly states that changing names/numbers is near practice.",
+      "resolution": "Redesign the transfer task in 'content/080-clinical-wrap-up.md' to require the learner to adapt the proportional model to a genuinely different task (e.g., comparing competing allometric models, or coordinating scaling with a second clinical parameter) rather than just running the standard four-step procedure with new variables."
+    },
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-010-proportional-models/content/080-clinical-wrap-up.md",
+      "finding": "The prompt in check-clinical-allometric-scaling asks the learner to 'identify the log-log slope and intercept, including the required sign condition.' However, the feedback section below fails to address, explain, or state this 'required sign condition'. This makes the feedback incomplete and fails to resolve the prompt's cognitive requirements.",
+      "resolution": "Update the feedback section in 'content/080-clinical-wrap-up.md' to explicitly define and justify the sign condition mentioned in the prompt, or remove the sign condition requirement from the prompt if it is not core to the objective."
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-QNT-010-proportional-models/content/010-orientation.md",
+      "finding": "The section '## Accessibility and alternatives' contains developer-facing meta-commentary (e.g., 'Every essential pattern is represented by... No task requires judging curve shape...'). This violates CONTENT-STANDARD.md section 4, which forbids leaking review rubric, metadata, or project contract language into learner-visible prose.",
+      "resolution": "Remove the 'Accessibility and alternatives' section from the learner-facing markdown, or rephrase it to focus on helpful navigation/reading instructions for users of assistive technology without using developer-facing audit terminology."
+    }
+  ],
+  "limitations": [
+    "Review conducted solely via file inspection of the checked-out candidate commit 9e68aafa7af3fff6c939b46d948fad4b4381f2de.",
+    "Did not test with live student cohorts or collect empirical learning data.",
+    "Excluded validation of rendering tools, site styling, and deployment scripts outside the lesson pack."
+  ],
+  "signedAt": "2026-07-24T21:20:41Z"
+}
