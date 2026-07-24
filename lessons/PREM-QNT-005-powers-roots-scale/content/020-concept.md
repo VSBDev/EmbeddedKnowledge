@@ -32,7 +32,7 @@ If $x\approx10^k$, then $x^p\approx10^{kp}$. A square doubles the base-10 expone
 
 :::{source-note}
 :claims: claim-power-notation, claim-exponent-laws, claim-magnitude-check
-:sources: source-nist-sp811-notation, source-nist-estimation
+:sources: source-nist-sp811-notation, source-nist-dlmf-powers, source-nist-estimation
 
-NIST supports the power-of-ten representation and magnitude-checking role. It is not the source for the exponent laws; those laws and their stated domain boundaries are derived above from repeated multiplication, reciprocals, and unique positive roots.
+NIST supports the power-of-ten representation and magnitude-checking role. The NIST Digital Library of Mathematical Functions supplies the broader definitions, principal-value boundary, and power identities; this lesson specializes them to real numbers and derives the retained rules above from repeated multiplication, reciprocals, and unique positive roots.
 :::

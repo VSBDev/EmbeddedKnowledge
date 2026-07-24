@@ -5,7 +5,7 @@ A fictional square array contains $N=6.25\times10^6$ cells arranged with the sam
 :::{worked-example}
 :id: worked-example-square-array
 
-**1. Model.** $N=s^2$ with domain $s\ge0$ because $s$ is a count along a side.
+**1. Model.** $N=s^2$ with $s\in\{0,1,2,\ldots\}$ because $s$ is a count along a side. Solve first over the nonnegative reals, then check that the result is an integer.
 
 **2. Estimate scale.** Since $10^6<N<10^8$, its principal square root lies between $10^3$ and $10^4$: a few thousand.
 
@@ -30,7 +30,7 @@ Squaring a million-scale number produces a trillion-scale result, far above $6.2
 
 :::{source-note}
 :claims: claim-power-notation, claim-exponent-laws, claim-magnitude-check
-:sources: source-nist-sp811-notation, source-nist-estimation
+:sources: source-nist-sp811-notation, source-nist-dlmf-powers, source-nist-estimation
 
-NIST supports the notation and magnitude-checking role, not the exponent laws. The array, derivation, and domain check are original applications of the rules derived in the concept scene.
+NIST supports the notation and magnitude-checking role. The NIST Digital Library of Mathematical Functions supports the power and principal-value identities. The array, derivation, and count-domain check are original applications of the rules derived in the concept scene.
 :::

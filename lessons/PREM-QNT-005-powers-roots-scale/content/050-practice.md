@@ -40,7 +40,7 @@ Without calculating first, place $\sqrt{3.6\times10^9}$ between two consecutive 
 
 :::{source-note}
 :claims: claim-power-notation, claim-exponent-laws, claim-magnitude-check
-:sources: source-nist-sp811-notation, source-nist-estimation
+:sources: source-nist-sp811-notation, source-nist-dlmf-powers, source-nist-estimation
 
-NIST supports the notation and magnitude-checking role, not the exponent laws. All practice and recovery content applies the original derivations in this lesson.
+NIST supports the notation and magnitude-checking role, while the NIST Digital Library of Mathematical Functions supports the power definitions and identities. All practice and recovery content applies the original derivations in this lesson.
 :::
