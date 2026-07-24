@@ -17,3 +17,5 @@ No third-party assets or datasets are included.
 ## Agent disclosure
 
 VSBDev (`github:VSBDev`) is the accountable principal. Material authoring assistance used Codex by OpenAI, model GPT-5, in isolated run `/root/prem_02_01_author` on 2026-07-20. The recorded SHA-256 digest covers the exact discloseable UTF-8 task payload supplied by the root agent, including its terminal newline; it does not cover hidden provider or system instructions.
+
+Clinical-framing revision: VSBDev (`github:VSBDev`) added the original illustrative bedside teaching case with system, provider, model, and version `RUNTIME-STAMPED` in isolated run `codex-reauthor-PREM-SCI-001-C2A736FA-8986-4758-B5FB-57FE85859C6F`; task digest `sha256:216c9171cfa4a5e4a8aea9f4e09424c39f6d52bc7f8af88efb8987a5240fa461`; no new factual medical claim, source, asset, or dataset was introduced.
