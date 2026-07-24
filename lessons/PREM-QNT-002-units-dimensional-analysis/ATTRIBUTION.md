@@ -12,14 +12,15 @@ VSBDev is accountable for the mathematical, editorial, pedagogical, accessibilit
 
 ## Material agent assistance
 
-OpenAI Codex authored, researched, edited, and packaged the original candidate in one author-role run. A fresh finalizer then made the single post-review content revision and adjudicated it.
+OpenAI Codex authored, researched, edited, and packaged the original lesson in one author-role run. An earlier finalizer made the single post-review revision to version 0.1.0. A clinical-framing reauthor created this version 0.2.0 candidate, and the current fresh finalizer made its single post-review revision and adjudicated it.
 
 | System | Provider | Model | Version | Run ID | Material-instructions digest |
 | --- | --- | --- | --- | --- | --- |
 | Codex desktop | OpenAI | `gpt-5.6-sol` | Codex desktop runtime 2026-07-22 | `b4bb0e4f-673a-4fbe-aac8-c9c4c5f2a3af` | `sha256:a53d4007d45a4089bf854d4986317ddaeea8e240a886a6427d461e9e1ee8c884` |
 | RUNTIME-STAMPED | RUNTIME-STAMPED | `RUNTIME-STAMPED` | RUNTIME-STAMPED | `codex-finalizer-PREM-QNT-002-44E34BC9-F87C-456F-8C09-5BD8CE3C69B0` | `sha256:911a160facc0c400f6f04e046070a91a82f8a14a67cf638086f08793fcece47e` |
+| RUNTIME-STAMPED | RUNTIME-STAMPED | `RUNTIME-STAMPED` | RUNTIME-STAMPED | `codex-finalizer-PREM-QNT-002-989D73CF-A7E3-4F83-9D1F-2297DE3FDFD3` | `sha256:df6b9535a66022b4a8df5562010a0627d43d70ec16eca5367936d9d3dfe86582` |
 
-Each digest identifies the discloseable material task instructions for its run; neither claims to cover hidden provider, system, runtime, or tool instructions that cannot be exported. The operator will replace the finalizer's runtime-stamped identity fields from the runtime banner. The two advisory review runs remain disclosed in their unchanged artifacts under `reviews/`.
+Each digest identifies the discloseable material task instructions for its run; none claims to cover hidden provider, system, runtime, or tool instructions that cannot be exported. The operator will replace the current finalizer's runtime-stamped identity fields from the runtime banner. The two advisory review runs remain disclosed in their unchanged artifacts under `reviews/`.
 
 ## Original synthesis and source use
 
@@ -29,7 +30,7 @@ The NIST Chapter 7 record is used only as factual authority for the distinction 
 
 ## Rights and access
 
-Before substantive access on 2026-07-22, NIST's Copyrights & Disclaimers page, technical-series licensing statement, and public robots route were checked. The finalizer checked the public JCGM/BIPM publication and definitions pages plus BIPM's terms. No source-specific agent prohibition, login, paywall, or access-control barrier was found. Both sources are used for facts only. No third-party asset, dataset, question bank, patient material, or media is included.
+Before substantive access on 2026-07-22, NIST's Copyrights & Disclaimers page, technical-series licensing statement, and public robots route were checked. The version 0.1.0 finalizer checked the public JCGM/BIPM publication and definitions pages plus BIPM's terms. No source-specific agent prohibition, login, paywall, or access-control barrier was found. Both sources are used for facts only. No third-party asset, dataset, question bank, patient material, or media is included.
 
 ## Boundaries
 
