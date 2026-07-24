@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-QNT-010-ACADEMIC-D2F6037C-0CC1-4F77-9C29-5EC6842ADDAE",
+  "lessonId": "PREM-QNT-010",
+  "lessonVersion": "0.2.0",
+  "candidateCommit": "9e68aafa7af3fff6c939b46d948fad4b4381f2de",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable operator, academic reviewer",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-QNT-010-D2F6037C-0CC1-4F77-9C29-5EC6842ADDAE",
+      "instructionsDigest": "sha256:ce61894531feb10dcc3519085a0fd1ad71ad7e165d6093b6ebc398842fa3dda8"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#identity-outcomes-prerequisites-objectives-scenes-and-sourceConfidence",
+    "content/010-orientation.md#Predictable-change-is-not-always-direct-proportion",
+    "content/020-concept.md#Identify-a-model-by-what-stays-invariant",
+    "content/030-worked-example.md#Recover-a-power-law-from-a-table",
+    "content/040-misconception.md#A-smooth-pattern-does-not-select-the-model",
+    "content/050-practice.md#Test-invariants-before-fitting",
+    "content/060-transfer.md#Combine-scaling-rules-in-microscope-calibration",
+    "content/070-synthesis.md#Rebuild-the-proportional-model-audit",
+    "content/080-clinical-wrap-up.md#Scale-a-dose-by-body-mass",
+    "assessment.json#items-and-rubrics",
+    "claims.json#claim-power-law-scaling",
+    "claims.json#claim-invariants",
+    "claims.json#claim-log-linearization",
+    "claims.json#claim-model-checking",
+    "references.json#source-nist-dlmf-powers",
+    "references.json#source-nist-scatterplot",
+    "references.json#source-nist-transformations",
+    "glossary.json#terms",
+    "ATTRIBUTION.md#Originality-evidence-and-rights",
+    "course/PREMED-SYLLABUS.md#QRS-102-and-QRS-103",
+    "https://dlmf.nist.gov/4.2#logarithms-and-powers",
+    "https://itl.nist.gov/div898/handbook/eda/section3/eda33q.htm#relationships-variation-and-causality",
+    "https://www.itl.nist.gov/div898/handbook/pmd/section6/pmd624.htm#transformations-residuals-and-model-assumptions",
+    "https://www.ncbi.nlm.nih.gov/books/NBK545280/#Clinical-Significance",
+    "Independent recalculation of every scene example and every assessment answer key"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "lesson.json#scenes[scene-clinical-wrap-up].claimCoverage",
+      "finding": "The clinical wrap-up is declared no-material-claims, but it teaches and applies power-law invariance, parameter recovery, scaling, prediction, and log-linearization. It has no source note, and scene-clinical-wrap-up is absent from the applicable claims.json sceneIds. Repetition and application of these mathematical claims remain material, especially in a health-adjacent context, so the current declaration creates a substantive evidence-traceability gap.",
+      "resolution": "Change this scene to claims-mapped, add scene-clinical-wrap-up to every applicable claim's sceneIds, and add a same-scene source note listing all supporting sources. If the dose inference is retained, represent it as a separate health-sensitive claim with appropriate evidence, scope, uncertainty, and risk."
+    },
+    {
+      "severity": "major",
+      "target": "content/080-clinical-wrap-up.md#Feedback-after-a-complete-attempt",
+      "finding": "The supplied model establishes only fictional clearance scaling, yet the feedback concludes that a dose scaled by the same rule therefore would scale nonlinearly with mass. Clearance alone does not determine an unspecified dose. A maintenance dose rate can scale with clearance only under additional conditions such as a fixed target steady-state concentration and bioavailability, whereas loading-dose reasoning depends principally on volume of distribution. The word therefore and the title Scale a dose by body mass reward an overgeneralized pharmacokinetic shortcut that the mathematical premise does not establish; the fictional-case and medical-advice disclaimers do not repair that model boundary.",
+      "resolution": "Either remove the dose framing and keep the task strictly about fictional clearance, or explicitly define a fictional maintenance-dose-rate equation and state the fixed target concentration, bioavailability, dosing interval or continuous-rate convention, linear-pharmacokinetic assumptions, and exclusions. Support that inference with an authoritative clinical-pharmacology source, map it as a health-sensitive claim, and retain a clear non-clinical boundary. Do not refer generically to dose."
+    },
+    {
+      "severity": "minor",
+      "target": "claims.json#claims[*].reviewStatus",
+      "finding": "All four claims are marked reviewed in the frozen draft even though lesson.json still reports pending-review and this artifact is an independent candidate review. The metadata therefore asserts an academic review state that the candidate itself does not establish.",
+      "resolution": "Set each candidate claim to pending-review. Promote only retained claims through the permitted post-adjudication publication transition."
+    },
+    {
+      "severity": "minor",
+      "target": "content/020-concept.md#Identify-a-model-by-what-stays-invariant",
+      "finding": "The statement that p = 0 is not directly proportional is unqualified, while the lesson's definitions do not exclude k = 0. In the degenerate zero model, y = 0 satisfies y = kx, y = k/x on x not equal to zero, and y = kx^p for every admissible p, so invariant tests do not uniquely identify a family. The later positive-response calculations avoid the case, but the general family statement and objectives do not declare that boundary.",
+      "resolution": "Restrict the family-identification discussion to nonzero k or positive responses, qualify the p = 0 statement as applying when k is nonzero, and state that all-zero observations are a degenerate case that invariant checks cannot uniquely classify."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#items",
+      "finding": "Independent recalculation confirmed the six answer keys and rubrics: direct k = 7; inverse k = 60 and prediction 6; p = -2; recovered p = 2 and k = 4.5; log-log p = 0.5 and k = 10^1.2 approximately 15.85; and the inverse-audit products, fitted values, residuals, prediction 5, and slope -1. Scene calculations were also correct, including the worked-example log coordinates, microscope result 0.16 mm^2, and fictional clearance values 28 L/h and 94.5 L/h.",
+      "resolution": "No numerical answer-key change is required."
+    }
+  ],
+  "limitations": [
+    "The explicit review scope prohibited site/, so the cross-course terminology ledger, exact graph-node JSON, quorum-policy JSON, and review schema were unreachable. Route-level alignment was checked against course/PREMED-SYLLABUS.md QRS-102 and QRS-103 and the supplied academic-review template.",
+    "No repository validator or script was run because the scope prohibited scripts and required a no-edit review. This verdict therefore does not attest structural or full-repository validation.",
+    "This run performed only the academic role. It did not adjudicate accessibility, licensing, governance quorum, or merge readiness.",
+    "The pack provides no clinical-pharmacology reference for its dose inference; an NIH/NCBI pharmacokinetic reference was independently checked to determine the missing distinction between loading dose and maintenance dose rate."
+  ],
+  "signedAt": "2026-07-24T21:18:07Z"
+}
