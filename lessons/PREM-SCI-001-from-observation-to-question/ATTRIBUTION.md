@@ -2,9 +2,9 @@
 
 ## Lesson content
 
-**From an observation to a testable question**, version 0.1.0, is original course content contributed by VSBDev with disclosed Codex assistance. It is licensed under [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0).
+**From an observation to a testable question**, version 0.2.0, is original course content contributed by VSBDev with disclosed Codex assistance. It is licensed under [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0).
 
-Suggested attribution: “From an observation to a testable question” by VSBDev for EmbeddedKnowledge, version 0.1.0, CC BY 4.0.
+Suggested attribution: “From an observation to a testable question” by VSBDev for EmbeddedKnowledge, version 0.2.0, CC BY 4.0.
 
 ## Sources and reuse
 

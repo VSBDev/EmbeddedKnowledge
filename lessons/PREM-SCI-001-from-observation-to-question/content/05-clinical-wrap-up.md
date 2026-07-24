@@ -20,10 +20,18 @@ The question names the cases covered by the teaching record, the dinner-time com
 
 ## 3. Evaluate testability without designing the study
 
-- **Measurable variables:** recorded dinner time and recorded next-morning fasting glucose. “Later,” “earlier,” and “next morning” would need explicit recording rules.
-- **Feasible comparison:** the question identifies two cases that could be compared—mornings after later dinners and mornings after earlier dinners.
+- **Case or contrast:** mornings after later dinners and mornings after earlier dinners among the adults in the teaching example.
+- **Observable record:** recorded next-morning fasting glucose. “Later,” “earlier,” and “next morning” would need explicit recording rules.
+- **Boundary:** the question is limited to the adults and next-morning records described in this teaching example.
 - **Open outcome:** the records could show higher values, lower values, or no clear difference. More than one answer is possible.
 
 Stop here. The lesson has produced an empirically answerable question, not a study plan or a clinical conclusion.
 
 Later lessons turn this question into hypotheses, a design, and endpoints.
+
+:::{source-note}
+:claims: claim-observation-explanation, claim-empirical-question, claim-bounded-question, claim-description-not-causation
+:sources: source-nrc-framework
+
+The source supports separating observations from explanations, asking empirically answerable questions that identify records and boundaries, and avoiding causal conclusions from an observed pattern alone. This clinical teaching case and its wording are original.
+:::

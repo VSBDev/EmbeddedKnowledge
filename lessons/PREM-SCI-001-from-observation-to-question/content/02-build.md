@@ -21,20 +21,20 @@ The four parts are a drafting aid, not a magic sentence pattern. Some fields com
 
 **Choose the contrast.** Compare slices coated with lemon juice with slices coated with water. Naming both sides is clearer than saying “with lemon” and leaving the alternative unstated.
 
-**Choose the record.** Record the number of minutes each slice takes to reach level 3 on a supplied browning card that runs from 0 to 5. This turns “looks bad” into something people can record in the same form. Whether that card is a *good* measure is a later measurement question; here it makes the proposed record visible.
+**Choose the record.** Record each slice's browning level after 60 minutes on a supplied card that runs from 0 to 5. This turns “looks bad” into something people can record in the same form. Whether that card is a *good* measure is a later measurement question; here it makes the proposed record visible.
 
 **Set the boundary.** Limit the question to freshly cut Granny Smith apple slices kept between 22 and 24 degrees Celsius during the first 60 minutes. This does not guarantee a fair study. It tells us what the question is and is not about.
 
-**Write the question.** *For freshly cut Granny Smith apple slices kept at 22–24 °C, what is the difference in time to reach browning level 3 between lemon-juice-coated and water-coated slices during the first 60 minutes?*
+**Write the question.** *For freshly cut Granny Smith apple slices kept at 22–24 °C, how do browning levels recorded after 60 minutes compare between lemon-juice-coated and water-coated slices?*
 
-**Check it.** We could record a longer time, the same time, a shorter time, or no slice reaching level 3. Each result would tell us something. The wording does not force the answer to favor lemon.
+**Check it.** We could record a higher level for the water-coated slices, the same level for both groups, or a higher level for the lemon-coated slices. Each result would tell us something. The wording does not force the answer to favor lemon.
 
 **Interpret the limit.** Answering this question would describe the comparison under these conditions. It would not, by itself, explain the chemistry, prove that the same result holds for every apple, or show that browned food is unsafe.
 
 **Self-explanation.** Before reading on, name the one change that most improved the original question and explain why.
 :::
 
-A strong answer may choose the record: “going bad” became minutes to a stated browning level, so an observation can answer the question. Choosing the contrast and boundary also matters. If you only changed the grammar, try again and name how the possible evidence became clearer.
+A strong answer may choose the record: “going bad” became a browning level recorded at a stated time, so an observation can answer the question. Choosing the contrast and boundary also matters. If you only changed the grammar, try again and name how the possible evidence became clearer.
 
 ## Empirical questions and falsifiable claims
 
