@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-QNT-007-LEARNING-DESIGN-0AC17D99",
+  "lessonId": "PREM-QNT-007",
+  "lessonVersion": "0.2.0",
+  "candidateCommit": "5d660726ef7158f571c934fa5e6138195bf4f3d3",
+  "role": "learning-design",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev (learning-design reviewer)",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.6",
+      "runId": "agy-learning-design-PREM-QNT-007-0AC17D99-FEF1-4253-8172-3D83856CCC51",
+      "instructionsDigest": "sha256:6c8270cd0ae3537fa99f675da1ab6b8f2e91326fb77d06352a244ca1aa4a7bd9"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Founding-stage isolation check: the accountable principal VSBDev operates the authoring, review, and finalization agents, so principal-level independence is absent. Agent-level role isolation was strictly maintained: no authoring history, other review output, or adjudication draft was read, and no other EmbeddedKnowledge role script was run during this review execution."
+  },
+  "evidenceChecked": [
+    "lessons/PREM-QNT-007-functions-graphs/lesson.json",
+    "lessons/PREM-QNT-007-functions-graphs/claims.json",
+    "lessons/PREM-QNT-007-functions-graphs/references.json",
+    "lessons/PREM-QNT-007-functions-graphs/glossary.json",
+    "lessons/PREM-QNT-007-functions-graphs/ATTRIBUTION.md",
+    "lessons/PREM-QNT-007-functions-graphs/content/010-orientation.md",
+    "lessons/PREM-QNT-007-functions-graphs/content/020-concept.md",
+    "lessons/PREM-QNT-007-functions-graphs/content/030-worked-example.md",
+    "lessons/PREM-QNT-007-functions-graphs/content/040-misconception.md",
+    "lessons/PREM-QNT-007-functions-graphs/content/050-practice.md",
+    "lessons/PREM-QNT-007-functions-graphs/content/060-transfer.md",
+    "lessons/PREM-QNT-007-functions-graphs/content/070-synthesis.md",
+    "lessons/PREM-QNT-007-functions-graphs/content/080-clinical-wrap-up.md",
+    "lessons/PREM-QNT-007-functions-graphs/assessment.json",
+    "CONTENT-STANDARD.md",
+    "RIGHTS-POLICY.md"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-007-functions-graphs/lesson.json#scene-clinical-wrap-up",
+      "finding": "The clinical wrap-up scene (scene-clinical-wrap-up) is declared in lesson.json with \"claimCoverage\": \"no-material-claims\" and lacks a source-note block in content/080-clinical-wrap-up.md. However, it is an active transfer learning scene where students calculate average rates of change, locate intercepts, identify intervals of increase/decrease, and evaluate functions. These tasks directly apply the lesson's target claims (claim-function-notation, claim-axis-quantity, claim-average-rate), which violates Section 4.3 of the Content Standard (repetition in transfer does not make a sourced teaching claim cease to be material, and a scene can be declared as containing no material claims only when limited to routing, instructions, reflection, or other non-evidentiary actions).",
+      "resolution": "Change the \"claimCoverage\" for scene-clinical-wrap-up to \"claims-mapped\" in lesson.json, map the scene in claims.json, and add a matching \":::{source-note}\" block in content/080-clinical-wrap-up.md."
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-QNT-007-functions-graphs/content/010-orientation.md#L16-L28",
+      "finding": "Prerequisite diagnostic and recovery: The starting check has been successfully reformatted to use the \":::{check}\" container directive, and feedback/remediation notes are provided. The diagnostic questions now correctly test prerequisite algebra skills (solving basic linear equations) rather than pre-emptively testing the lesson's target function transformation skills.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-QNT-007-functions-graphs/content/040-misconception.md#L3-L28",
+      "finding": "Misconception repair sequence: The repair sequence for the horizontal shift misconception has been successfully restructured to meet all requirements of Section 7 of the Content Standard. It elicits a prediction (check-shift-prediction), states the incorrect model, provides a logical counter-explanation, offers the correct model, and rechecks the learner with a new case (check-shift-repair) and detailed feedback.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-QNT-007-functions-graphs/content/050-practice.md#L5-L44",
+      "finding": "Practice retrieval checks: The practice questions have been corrected to wrap prompts in \":::{check}\" containers. This prevents answers and feedback from being immediately visible to the reader in plain text, ensuring a genuine retrieval attempt is required and avoiding the risk of false fluency.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-QNT-007-functions-graphs/content/060-transfer.md#L3-L24",
+      "finding": "Transfer task alignment: The transfer task has been updated to explicitly define the input and output units (distance in centimeters, signal in volts), resolving the minor alignment gap from version 0.1.0 and ensuring that the final average rate of change calculation can be interpreted correctly with appropriate units.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-QNT-007-functions-graphs/assessment.json#item-average-rate",
+      "finding": "Assessment grading compatibility: The \"acceptableResponses\" arrays for item-average-rate and item-transfer-quadratic have been cleared of descriptive criteria text, ensuring that automated grading workflows will not experience parsing failures due to checking exact string matches against rubrics.",
+      "resolution": null
+    }
+  ],
+  "limitations": [
+    "Expert-simulation review: This review represents a single-pass advisory input by a simulated learning-design expert under standard-lesson-v3 guidelines. No real learner testing was conducted.",
+    "Conflict of interest: The same GitHub principal (VSBDev) is responsible for the authoring and review run operators. Agent-level isolation was maintained, but principal-level independence is absent.",
+    "Scope restriction: The reviewer was prohibited from reading site/ or other lesson packs, preventing manual inspection of premed-terminology.json or cross-lesson terminology shifts. Validation relies on the automated terminology:validate execution.",
+    "Technical verification limits: No rendered build environment, screen reader, or keyboard navigation pathways were evaluated physically; findings are based solely on the static Markdown and JSON source files."
+  ],
+  "signedAt": "2026-07-24T20:32:30Z"
+}

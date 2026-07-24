@@ -25,3 +25,5 @@ The graph-audit structure, process table, quadratic example, shift misconception
 The cited standards and NIST access and terms routes were checked before use on 2026-07-23 and 2026-07-22, respectively. No source-specific agent restriction, login, paywall, or access-control barrier was found. No third-party assets, datasets, personal data, or patient material are included.
 
 This mathematical lesson provides no clinical advice and makes no claim of review, approval, publication, measured effectiveness, credit, or competence.
+
+Clinical-framing revision: VSBDev (`github:VSBDev`) added the original described plasma concentration–time curve and fictional bedside teaching case using the generic placeholder Drug X, with system, provider, model, and version `RUNTIME-STAMPED` in isolated run `codex-reauthor-PREM-QNT-007-9E1CC2CE-EFE2-40B6-99FB-23053CBD3BB9`; task digest `sha256:5fc488cf4f83e4d417daa8c1da30d77773a247938568cf05291dbfd522b4b82f`; no real patient data, new factual medical claim, external source, or third-party asset was introduced.
