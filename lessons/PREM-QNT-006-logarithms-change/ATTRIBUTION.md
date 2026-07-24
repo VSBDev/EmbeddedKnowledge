@@ -7,20 +7,21 @@
 - Principal: **VSBDev** (`github:VSBDev`)
 - Licence: **Creative Commons Attribution 4.0 International (CC BY 4.0)**
 - State: **draft**, source confidence **pending-review**
+- Revision **0.2.0**: abstract scenarios were reframed as explicitly illustrative biomedical teaching examples; the mathematics and source set are unchanged.
 
 ## Material agent assistance
 
-OpenAI Codex authored, researched, edited, and packaged this lesson in one author-role run.
+A runtime-stamped agent revised the lesson's biomedical framing in one author-role run.
 
 | System | Provider | Model | Version | Run ID | Material-instructions digest |
 | --- | --- | --- | --- | --- | --- |
-| Codex desktop | OpenAI | `gpt-5.6-sol` | Codex desktop runtime 2026-07-22 | `f281b55d-4732-4b46-85a7-42152b2026fd` | `sha256:57d15a3a8196a0be7c8d6e40e81b2fe2d09046f67bc43fd0c5410934f73cf8f2` |
+| RUNTIME-STAMPED | RUNTIME-STAMPED | `RUNTIME-STAMPED` | RUNTIME-STAMPED | `22db6445-4c10-4f21-a5e1-050b2d29f834` | `sha256:d58236979c113612727f6a88792c252239261fe4c579e16623f67df76a0e64a6` |
 
-The digest identifies `/tmp/codex-packager-prompt-03-06.md`; unavailable hidden instructions are excluded. Review and finalization provenance is recorded separately in the pack's review artifacts and `adjudication.json`.
+The digest covers the discloseable material instructions for the 0.2.0 biomedical-framing revision; unavailable hidden instructions are excluded. Review and finalization provenance is recorded separately in the pack's review artifacts and `adjudication.json`.
 
 ## Originality, evidence, and rights
 
-The “ask what exponent” sequence, archive threshold, counter example, false-sum repair, signal half-life transfer, all values, feedback, recovery, and assessments are original. Every applied setting is fictional. NIST DLMF and SI guidance provide only factual definitions and dimensionless-ratio conventions. No source expression, example, figure, or table is copied or adapted.
+The “ask what exponent” sequence, bacterial-culture threshold, cell-signal example, biomedical-monitor false-sum repair, plasma-concentration transfer, radiotracer assessment, all values, feedback, recovery, and assessments are original. Every biomedical setting is explicitly illustrative. NIST DLMF and SI guidance provide only factual definitions and dimensionless-ratio conventions. No source expression, example, figure, or table is copied or adapted.
 
 NIST rights and public robots routes were checked before access on 2026-07-22. No agent restriction, login, paywall, or access-control barrier was found. No third-party assets, datasets, personal data, or patient material are included.
 

@@ -1,6 +1,6 @@
 # Solve a threshold time and check it
 
-A fictional counter follows $N(t)=320(1.18)^t$. Find when it reaches 1000 under the model.
+An illustrative cell-culture signal follows $N(t)=320(1.18)^t$. Find when it reaches 1000 under the model. The values are invented for this teaching example and do not describe a specific culture.
 
 :::{worked-example}
 :id: worked-example-threshold
@@ -36,5 +36,5 @@ Why must the ratio $1000/320$ be formed before taking a logarithm?
 :claims: claim-log-inverse, claim-log-laws, claim-log-ratio, claim-exponential-parameterizations
 :sources: source-nist-dlmf-log, source-nist-si-log
 
-The counter, numbers, derivation, and interpretation are original applications of the sourced logarithm framework.
+The illustrative cell-culture signal, numbers, derivation, and interpretation are original applications of the sourced logarithm framework.
 :::
