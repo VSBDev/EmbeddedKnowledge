@@ -2,9 +2,9 @@
 
 ## Lesson content
 
-**Hypotheses, predictions, and discriminating comparisons**, version 0.1.1, is original course content contributed by VSBDev with disclosed Codex assistance. It is licensed under [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0).
+**Hypotheses, predictions, and discriminating comparisons**, version 0.2.0, is original course content contributed by VSBDev with disclosed Codex assistance. It is licensed under [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0).
 
-Suggested attribution: “Hypotheses, predictions, and discriminating comparisons” by VSBDev for EmbeddedKnowledge, version 0.1.1, CC BY 4.0.
+Suggested attribution: “Hypotheses, predictions, and discriminating comparisons” by VSBDev for EmbeddedKnowledge, version 0.2.0, CC BY 4.0.
 
 ## Sources and reuse
 
@@ -19,3 +19,5 @@ No third-party assets or datasets are included.
 ## Agent disclosure
 
 VSBDev (`github:VSBDev`) is the accountable principal. Material authoring assistance used Codex by OpenAI, model GPT-5, version `Codex agent runtime 2026-07-20`, in isolated run `a1fab976-9564-4c22-882e-ef9ded502531` on 2026-07-20. The recorded SHA-256 digest is `sha256:a6085cd4cd1f4e412d2128d52fa454fad2834692479187b6ec31ec47e29d6e03`; it covers the exact discloseable UTF-8 task payload supplied by the root agent, including its terminal newline, and excludes hidden provider and system instructions.
+
+Clinical-framing revision: VSBDev (`github:VSBDev`) added an original illustrative diabetes-case wrap-up applying the question–hypothesis–prediction chain and a discriminating comparison, with system, provider, model, and version `RUNTIME-STAMPED` in isolated run `codex-reauthor-PREM-SCI-002-FCC31B0E-279D-4091-B152-9F186E276B92`; task digest `sha256:8d1dae46fb319927129bfb37ac2cdd5a2be031e498b9d9ba9440460a704c305a`; no real patient data, new factual medical claim, external source, third-party asset, or dataset was introduced.

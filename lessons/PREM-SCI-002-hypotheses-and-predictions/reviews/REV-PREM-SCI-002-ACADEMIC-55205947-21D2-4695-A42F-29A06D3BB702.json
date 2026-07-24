@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-SCI-002-ACADEMIC-55205947-21D2-4695-A42F-29A06D3BB702",
+  "lessonId": "PREM-SCI-002",
+  "lessonVersion": "0.2.0",
+  "candidateCommit": "0befc8a448596559073a5502a123930f5eaceb42",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable operator, academic reviewer",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-SCI-002-55205947-21D2-4695-A42F-29A06D3BB702",
+      "instructionsDigest": "sha256:0643871606c0de7291c1826727cde26d75f8887d80f2c8928f7cf012921b5eb2"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#id,version,outcomes,prerequisites,objectives,scenes",
+    "content/01-explain-and-expect.md#question-hypothesis-prediction-chain",
+    "content/02-worked-comparison.md#worked-example-apple-comparison",
+    "content/03-practise-and-repair.md#mystery-box-greenhouse-cup-and-misconception-exercises",
+    "content/04-transfer.md#frog-audio-archive-and-mastery-check",
+    "content/05-clinical-wrap-up.md#diabetes-teaching-example",
+    "assessment.json#item-distinguish-roles,item-derive-prediction,item-discriminate-archive",
+    "assessment.json#rubric-distinguish-roles,rubric-derive-prediction,rubric-discriminate-archive",
+    "claims.json#claim-role-distinctions,claim-conditional-prediction,claim-discriminating-comparison,claim-before-inspection,claim-evidence-boundary",
+    "references.json#source-usgs-rigor,source-epa-causal-assessment",
+    "glossary.json#term-empirical-question,term-hypothesis,term-prediction,term-condition,term-competing-hypotheses,term-discriminating-prediction",
+    "ATTRIBUTION.md#lesson-content,sources-and-reuse,agent-disclosure",
+    "https://pubs.usgs.gov/publication/70196876#abstract",
+    "https://www.epa.gov/caddis/about-causal-assessment#comparison-of-candidate-causes",
+    "https://www.epa.gov/caddis/about-causal-assessment#predictive-performance"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "assessment.json#item-distinguish-roles",
+      "finding": "Statement 2, “lowering battery voltage lowers this lamp's measured light output,” already states an observable directional expectation and contains no explanatory mechanism. Under the lesson's own definition permitting a hypothesis to be a proposed relationship, it can be treated as a generalized hypothesis, but it is also scientifically defensible to call it a prediction. The answer reasoning then incorrectly says statement 2 proposes “why” and tells learners to distinguish the last two statements by measurement versus mechanism even though both name measured light output and neither supplies a mechanism. The item therefore does not uniquely assess the declared distinction and can penalize a defensible classification.",
+      "resolution": "Replace statement 2 with an actual explanatory hypothesis from which statement 3 follows, or explicitly teach and assess a general-proposition-versus-case-specific-prediction distinction. Revise the answer reasoning and rubric so they use a distinction present in the statements and do not describe a measured relationship as a mechanism."
+    },
+    {
+      "severity": "major",
+      "target": "lesson.json#scenes[scene-clinical-wrap-up].claimCoverage",
+      "finding": "The scene is declared “no-material-claims,” but content/05-clinical-wrap-up.md teaches and applies the material methodological claims that a question asks about a relationship, a hypothesis proposes a relationship, a prediction states an expected record under conditions, competing hypotheses can make different predictions, and a matching record does not establish a clinical conclusion. The closing assertion that no source is needed because the scene makes no factual medical claim overlooks these non-medical scientific-method claims. This is a false no-material-claims declaration and a same-scene evidence gap.",
+      "resolution": "Set the scene to “claims-mapped,” add the applicable existing claim IDs to this scene in claims.json, and add a learner-visible source note in content/05-clinical-wrap-up.md listing every source supporting those claims. Retain the separate statement that the fictional case makes no factual claim about diabetes."
+    },
+    {
+      "severity": "minor",
+      "target": "content/02-worked-comparison.md#worked-example-apple-comparison-step-5",
+      "finding": "The example treats medians of 41 and 23 minutes as supporting Hypothesis A over a no-change hypothesis, and equal medians as counting against A, without defining “about the same,” giving sample size or variability, or explicitly idealizing the medians as error-free population summaries. A no-effect process can produce unequal sample medians, and an effect process can produce equal sample medians. The later caveat about samples and measurements limits certainty but does not state the assumption required for the preceding directional inference.",
+      "resolution": "Explicitly declare that this introductory fictional comparison treats the supplied summaries as exact underlying patterns, or provide enough replication, uncertainty information, and a prespecified comparison rule to justify the evidential direction. Define what “about the same” means within the example."
+    }
+  ],
+  "limitations": [
+    "The review was limited to the frozen lesson pack and the project documents permitted by the task. The user expressly prohibited inspection of site/ files, so the graph-node wording, course terminology ledger, quorum policy, and review schema were not independently checked.",
+    "The USGS publication URL returned HTTP 403 to direct fetching. Its official search-indexed USGS metadata and abstract were inspected, but material beyond that abstract was not relied upon.",
+    "No empirical dataset accompanies the fictional numerical examples, so their statistical conclusions were evaluated from the assumptions and inference language stated in the lesson rather than by reanalysis.",
+    "No repository validation command was run because doing so would execute or inspect scripts and site materials outside the authorized review scope."
+  ],
+  "signedAt": "2026-07-24T22:58:03Z"
+}
