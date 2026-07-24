@@ -24,11 +24,12 @@ Two Claude CLI attempts were made before the user clarified that Codex should au
 
 ## Post-review finalization assistance
 
-A fresh adjudication-role agent made the single bounded post-review content revision, completed the accessibility-and-rights audit, and produced `adjudication.json`. The operator stamps the runtime identity fields in that artifact; the stable provenance supplied to this run is:
+An earlier adjudication-role run is retained as historical provenance. The current exact-candidate finalizer made the bounded revision for candidate `8a45d4e9cc0be06bf94744f55de24910f48bde90`, completed the accessibility-and-rights audit, and produced `adjudication.json`. Only the current run counts as this candidate's finalizer. The operator stamps the runtime identity fields in the adjudication artifact; the stable provenance supplied to these runs is:
 
 | Accountable principal | Run ID | Material-instructions digest |
 | --- | --- | --- |
 | `github:VSBDev` | `codex-finalizer-PREM-QNT-001-A8714132-EFBF-48BD-9EDE-4782691BE64F` | `sha256:093df57d62560a801713d009ff9b8042dd2b8ee7d19954aafed5954b482a92a3` |
+| `github:VSBDev` | `codex-finalizer-PREM-QNT-001-88777FAE-4E6E-444D-AD69-9649FB9706FB` | `sha256:04e2f4132f300b154769454a1a7f543423425348beddae9c1cc8b6a1bad264d8` |
 
 ## Original synthesis and source use
 
@@ -50,4 +51,4 @@ The lesson teaches arithmetic and plausibility checking. It does not provide cli
 
 This authoring run creates no review or adjudication artifact and makes no claim of approval, publication, merge readiness, learner effectiveness, university credit, or clinical competence. Formal review must inspect a later frozen candidate under the repository's role-isolated process.
 
-Clinical-framing revision: VSBDev (`github:VSBDev`) added the original illustrative bedside dosing case with system, provider, model, and version `RUNTIME-STAMPED` in isolated run `codex-reauthor-PREM-QNT-001-B228D6C7-CE13-47DB-8BB1-6175794B4369`; task digest `sha256:a101979a1a3b8dba843af3fd7a46e43c8f181614019bcc7ee19a04dc58647f97`; no new factual medical claim, source, asset, or dataset was introduced.
+Unit-labelled wrap-up provenance: VSBDev (`github:VSBDev`) added the original illustrative bedside version with system, provider, model, and version `RUNTIME-STAMPED` in isolated run `codex-reauthor-PREM-QNT-001-B228D6C7-CE13-47DB-8BB1-6175794B4369`; task digest `sha256:a101979a1a3b8dba843af3fd7a46e43c8f181614019bcc7ee19a04dc58647f97`. The exact-candidate finalizer removed the real-practice recommendation and retained only an invented dimensional-arithmetic exercise; no factual medical claim, source, asset, or dataset was added.

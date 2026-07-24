@@ -1,4 +1,4 @@
-# Fade the scaffold
+# Build independence
 
 Attempt each prompt before reading its feedback. Keep three headings on your page: **estimate**, **calculate**, **challenge**.
 

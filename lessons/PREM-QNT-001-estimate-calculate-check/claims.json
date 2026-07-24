@@ -13,7 +13,8 @@
         "scene-misconception",
         "scene-practice",
         "scene-transfer",
-        "scene-synthesis"
+        "scene-synthesis",
+        "scene-clinical-wrap-up"
       ],
       "sourceIds": [
         "source-nist-sp811"
@@ -23,11 +24,11 @@
       "scope": "Conventional base-10 scientific notation for nonzero real numerical values at college-introductory level.",
       "uncertainty": "NIST SP 811 Appendix B.2 directly documents positive conversion factors with coefficients from 1 up to but not including 10 and E notation. Extending that convention to a signed coefficient is an explicit elementary algebraic inference, not a direct statement from NIST. Zero is written as zero rather than assigned a unique normalized exponent; software-specific display syntax can vary.",
       "risk": "routine",
-      "reviewStatus": "reviewed"
+      "reviewStatus": "pending-review"
     },
     {
       "id": "claim-power-ten-arithmetic",
-      "statement": "Multiplying powers of ten adds integer exponents, dividing them subtracts exponents, and addition or subtraction of scientific-notation terms requires a common power of ten before coefficients are combined.",
+      "statement": "Under the standard definitions of integer powers and ordinary real-number arithmetic, multiplying powers of ten adds exponents, dividing nonzero powers subtracts exponents, and addition or subtraction requires a common power of ten before coefficients are combined.",
       "sceneIds": [
         "scene-orientation",
         "scene-concept",
@@ -35,7 +36,8 @@
         "scene-misconception",
         "scene-practice",
         "scene-transfer",
-        "scene-synthesis"
+        "scene-synthesis",
+        "scene-clinical-wrap-up"
       ],
       "sourceIds": [
         "source-nist-sp811"
@@ -43,9 +45,9 @@
       "support": "inference",
       "confidence": "high",
       "scope": "Exact arithmetic of real numbers expressed through integer powers of ten, with nonzero divisors.",
-      "uncertainty": "The arithmetic is exact; displayed decimal values may be rounded in applied contexts, which this lesson deliberately excludes.",
+      "uncertainty": "NIST SP 811 supports the notation but does not state these algebraic rules. The lesson derives them from repeated factors, reciprocal powers, cancellation, and the distributive law. The arithmetic is exact in the stated scope; applied values may be rounded, which this lesson excludes.",
       "risk": "routine",
-      "reviewStatus": "reviewed"
+      "reviewStatus": "pending-review"
     },
     {
       "id": "claim-estimation-reasonableness",
@@ -56,7 +58,8 @@
         "scene-worked-example",
         "scene-practice",
         "scene-transfer",
-        "scene-synthesis"
+        "scene-synthesis",
+        "scene-clinical-wrap-up"
       ],
       "sourceIds": [
         "source-nist-everyday-estimation"
@@ -66,16 +69,17 @@
       "scope": "Routine STEM arithmetic where a rough magnitude or comparison is meaningful before or after exact calculation.",
       "uncertainty": "A plausible estimate cannot prove that an exact result is correct, and estimation tolerances depend on the decision context.",
       "risk": "routine",
-      "reviewStatus": "reviewed"
+      "reviewStatus": "pending-review"
     },
     {
       "id": "claim-independent-challenge",
-      "statement": "Bounds and inverse operations can challenge an arithmetic result by checking consequences that must hold if the operation and scale were handled consistently.",
+      "statement": "For exact arithmetic, bounds can test a result's scale, and a proposed quotient $q=x/y$ with $y\\neq0$ must satisfy the inverse relation $qy=x$; failures of these necessary conditions expose an inconsistent result.",
       "sceneIds": [
         "scene-worked-example",
         "scene-practice",
         "scene-transfer",
-        "scene-synthesis"
+        "scene-synthesis",
+        "scene-clinical-wrap-up"
       ],
       "sourceIds": [
         "source-nist-everyday-estimation",
@@ -84,9 +88,9 @@
       "support": "inference",
       "confidence": "high",
       "scope": "The exact arithmetic examples and nonzero inverse operations used in this lesson.",
-      "uncertainty": "A check can share assumptions or errors with the original calculation; passing one check does not establish measurement validity or factual truth.",
+      "uncertainty": "NIST's estimation page supports reasonableness checking, and SP 811 supports the notation; neither source directly states the inverse relation. The lesson derives $qy=x$ from the definition of a quotient. A check can share assumptions or errors with the original calculation, and passing one does not establish measurement validity or factual truth.",
       "risk": "routine",
-      "reviewStatus": "reviewed"
+      "reviewStatus": "pending-review"
     }
   ]
 }
