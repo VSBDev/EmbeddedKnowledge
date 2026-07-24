@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-QNT-002-LEARNING-DESIGN-1DE9AAA7",
+  "lessonId": "PREM-QNT-002",
+  "lessonVersion": "0.2.0",
+  "candidateCommit": "8bf24cac4d213a3b2590b0ba7ba918b31b22596b",
+  "role": "learning-design",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev (learning-design reviewer)",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.6",
+      "runId": "agy-learning-design-PREM-QNT-002-1DE9AAA7-A789-4410-AD92-61A7216EF54C",
+      "instructionsDigest": "sha256:7e6e419dec0fbc61fb21fe01f01e254608f2c0be3b3ad586fce8e93c0e4b29e4"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Founding-stage isolation check: the accountable principal VSBDev operates the authoring, review, and finalization agents, so principal-level independence is absent. Agent-level role isolation was strictly maintained: no authoring history, other review output, or adjudication draft was read, and no other EmbeddedKnowledge role script was run during this review execution."
+  },
+  "evidenceChecked": [
+    "lessons/PREM-QNT-002-units-dimensional-analysis/lesson.json",
+    "lessons/PREM-QNT-002-units-dimensional-analysis/claims.json",
+    "lessons/PREM-QNT-002-units-dimensional-analysis/references.json",
+    "lessons/PREM-QNT-002-units-dimensional-analysis/glossary.json",
+    "lessons/PREM-QNT-002-units-dimensional-analysis/ATTRIBUTION.md",
+    "lessons/PREM-QNT-002-units-dimensional-analysis/content/010-orientation.md",
+    "lessons/PREM-QNT-002-units-dimensional-analysis/content/020-concept.md",
+    "lessons/PREM-QNT-002-units-dimensional-analysis/content/030-worked-example.md",
+    "lessons/PREM-QNT-002-units-dimensional-analysis/content/040-misconception.md",
+    "lessons/PREM-QNT-002-units-dimensional-analysis/content/050-practice.md",
+    "lessons/PREM-QNT-002-units-dimensional-analysis/content/060-transfer.md",
+    "lessons/PREM-QNT-002-units-dimensional-analysis/content/070-synthesis.md",
+    "lessons/PREM-QNT-002-units-dimensional-analysis/content/080-clinical-wrap-up.md",
+    "lessons/PREM-QNT-002-units-dimensional-analysis/assessment.json",
+    "CONTENT-STANDARD.md"
+  ],
+  "findings": [
+    {
+      "severity": "note",
+      "target": "lessons/PREM-QNT-002-units-dimensional-analysis/content/010-orientation.md#L3",
+      "finding": "First-read check: The orientation scene opener introduces a clear, concrete fictional pump scenario that exposes a common arithmetic error ('dashboard reports 720 L' instead of the correct converted amount '12 L') before presenting any formal rules or definitions. A learner at the declared level can easily grasp what they are studying, why it matters, and the value of unit audits, successfully passing the Content Standard first-read gate.",
+      "resolution": null
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-QNT-002-units-dimensional-analysis/content/080-clinical-wrap-up.md#L13",
+      "finding": "The ordered rate in the clinical wrap-up scene is introduced in the bulleted list using negative exponent notation ('0.05 mg·kg^-1·min^-1'). While this notation is common in scientific contexts, the concept scene and other parts of this introductory lesson exclusively use fraction/slash notation (such as 'km/h', 'L/min', 'GB/min') for compound units. While negative exponent notation was introduced in Scene 2 for dimensions ('[L][T]^-1'), it has not been introduced for units, which could cause brief cognitive friction for a novice learner.",
+      "resolution": "Change the notation in the bullet point to slash notation, or add the parenthesized slash equivalent '0.05 mg/(kg·min)' to bridge the two representations."
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-QNT-002-units-dimensional-analysis/glossary.json",
+      "finding": "The new worked-example scene `scene-clinical-wrap-up` employs core metrological concepts taught in the lesson (such as quantity, conversion factors, and dimensions), but its scene ID is not listed in the `sceneIds` array for any of these terms in `glossary.json` (specifically `term-quantity`, `term-conversion-factor`, and `term-dimension`).",
+      "resolution": "Add `scene-clinical-wrap-up` to the `sceneIds` list for these terms in `glossary.json` to ensure the metadata ledger is structurally complete."
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-QNT-002-units-dimensional-analysis/content/080-clinical-wrap-up.md",
+      "finding": "The clinical wrap-up worked example (Scene 8) successfully applies the lesson's core dimensional-analysis rules to an infusion pump calculation. It explicitly outlines the continuous factor chain, highlights cancellation in plain text, shows how a dimension check rejects an inverted concentration factor, and provides a clear magnitude check, while maintaining the educational/clinical boundary.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-QNT-002-units-dimensional-analysis/assessment.json",
+      "finding": "Mastery-gate verification: All findings from the previous version's review have been successfully resolved. The numeric grading mismatch in `item-rate-conversion` has been corrected to use the numeric value/string `3`, the starting skills diagnostic has been properly wrapped in a `:::{check}` container with its corresponding answers, and `objective-read-quantity` is now cleanly mapped to a newly created assessment item (`item-read-quantity`) that directly evaluates the distinguishing of quantities, values, and units.",
+      "resolution": null
+    }
+  ],
+  "limitations": [
+    "Expert-simulation review: This review represents a single-pass advisory input by a simulated learning-design expert under standard-lesson-v3 guidelines. No real learner testing was conducted.",
+    "Conflict of interest: The same GitHub principal (VSBDev) is responsible for the authoring and review run operators. Agent-level isolation was maintained, but principal-level independence is absent.",
+    "Scope restriction: The review is strictly bounded to learning-design metrics (e.g., clarity, coherence, practice, alignment, and transfer). Scientific accuracy, rights audits, and final typesetting checks are excluded.",
+    "Technical verification limits: No rendered build environment, screen reader, or keyboard navigation pathways were evaluated physically; findings are based solely on the static Markdown and JSON source files."
+  ],
+  "signedAt": "2026-07-24T21:59:30Z"
+}

@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-QNT-002-ACADEMIC-3F0B915A-42D6-44DE-A39D-5C9CF8EA4E42",
+  "lessonId": "PREM-QNT-002",
+  "lessonVersion": "0.2.0",
+  "candidateCommit": "8bf24cac4d213a3b2590b0ba7ba918b31b22596b",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable operator, academic review",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-QNT-002-3F0B915A-42D6-44DE-A39D-5C9CF8EA4E42",
+      "instructionsDigest": "sha256:afafa194c467f5f692dbffd71ef44376d4b325bc7c6bb628327f991101c71c0c"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#identity-version-outcomes-prerequisites-objectives-and-scenes",
+    "content/010-orientation.md#all-content-and-calculations",
+    "content/020-concept.md#all-content-and-calculations",
+    "content/030-worked-example.md#worked-example-cart",
+    "content/040-misconception.md#misconception-powered-unit",
+    "content/050-practice.md#all-practice-items-and-feedback",
+    "content/060-transfer.md#transport-factor-chain-and-log-audit",
+    "content/070-synthesis.md#retrieval-and-method-boundaries",
+    "content/080-clinical-wrap-up.md#all-content-and-calculations",
+    "assessment.json#all-items-answer-keys-common-errors-and-rubrics",
+    "claims.json#all-claims",
+    "references.json#source-nist-si-chapter7",
+    "references.json#source-jcgm-vim3",
+    "glossary.json#all-terms",
+    "ATTRIBUTION.md#complete-attribution-and-boundaries",
+    "[NIST Guide to the SI, Chapter 7](https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-7-rules-and-style-conventions-expressing-values)#sections-7.1-7.2-7.11-and-7.14",
+    "[JCGM 200:2012 VIM](https://www.bipm.org/documents/20126/41373499/JCGM_200_2012.pdf/f0e1ad45-d337-bbeb-53a6-15fe649d0ff1)#entries-1.2-1.7-1.21-1.22-and-1.24"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "content/080-clinical-wrap-up.md#build-the-continuous-chain",
+      "finding": "The scene calls both 60 min = 1 hr and 5 mg = 1 mL equalities that provide factors leaving the represented quantity unchanged. The time relation is a unit conversion between quantities of the same kind, but the concentration relation connects different quantity kinds and its reciprocal has dimension volume per mass; it is not a conversion factor equal to the dimensionless number one under the lesson's own definition. This conflation makes the central quantity-calculus explanation false precisely where the lesson transfers it to a new setting.",
+      "resolution": "Distinguish the unit conversion from the fictional concentration relation. Describe 1 mL/5 mg as the reciprocal of the stipulated concentration that relates drug mass to solution volume under the stated model, not as a ratio of equal quantities or a factor equal to one."
+    },
+    {
+      "severity": "major",
+      "target": "content/080-clinical-wrap-up.md#audit-before-trusting-the-display",
+      "finding": "The statement that obtaining the target unit means no factor is missing or inverted overstates what a dimensional audit establishes. Correct surviving dimensions cannot detect an omitted or inverted dimensionless factor, an incorrect numerical value attached to a dimensionally valid factor, or a wrong model with the same dimensions. This contradicts the lesson's central necessary-but-not-sufficient boundary and can reward false confidence in an applied calculation.",
+      "resolution": "State only that the surviving target unit rules out the displayed dimension-changing omissions or inversions. Explicitly preserve the boundary that dimensional agreement cannot establish completeness, numerical correctness, or model validity."
+    },
+    {
+      "severity": "major",
+      "target": "lesson.json#scenes[scene-clinical-wrap-up].claimCoverage",
+      "finding": "The clinical wrap-up is declared no-material-claims even though it teaches material claims about quantity-preserving factors and the diagnostic power of dimensional consistency, and it adds the unsupported generalization that conversion rather than arithmetic is where risk resides. The scene consequently has no learner-visible source note or claim mapping for claims central to its explanation.",
+      "resolution": "Declare the scene claims-mapped, add a source note mapping every retained material claim through claims.json and references.json, and either remove the broad risk generalization or support and narrowly qualify it with appropriate authoritative evidence."
+    }
+  ],
+  "limitations": [
+    "Cross-lesson terminology alignment and graph outcome or prerequisite mapping were not independently checked because the assigned scope prohibited reading site data and other lesson packs. This did not prevent a responsible verdict on the candidate's quantitative claims, calculations, evidence mappings, and assessment keys.",
+    "The candidate supplies no authoritative medication-safety evidence for the clinical opening's broad risk generalization; that absence is recorded as an evidence gap rather than inferred away."
+  ],
+  "signedAt": "2026-07-24T21:56:12Z"
+}
