@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "format": "embeddedknowledge-assessment-v1",
   "lessonId": "PREM-SCI-008",
-  "lessonVersion": "0.1.1",
+  "lessonVersion": "0.2.0",
   "assessmentId": "assessment-bias-threats-validity",
   "title": "Bias-pathway mastery check",
   "purpose": "mastery-gate",
@@ -23,7 +23,7 @@
       "outcomeIds": [
         "topic-scientific-inquiry-bias"
       ],
-      "prompt": "Choose the only complete bias map. A: cases come from a regional registry, but controls come only from a fitness club whose membership is related to exposure. B: a sensor reads 2 °C too low only in the high-humidity comparison chamber. C: an unmasked scorer calls borderline treated images positive more often. D: low early responders become missing after enrollment and completers alone are analyzed. E: completed null studies in a registry are less likely to have accessible reports. F: a durability analysis includes only device models still sold.",
+      "prompt": "Choose the only complete bias map. A: cases come from a regional registry, but controls come only from a fitness club whose membership is related to exposure. B: a sensor reads 2 \u00b0C too low only in the high-humidity comparison chamber. C: an unmasked scorer calls borderline treated images positive more often. D: low early responders become missing after enrollment and completers alone are analyzed. E: completed null studies in a registry are less likely to have accessible reports. F: a durability analysis includes only device models still sold.",
       "stimulus": null,
       "points": 6,
       "responseSpec": {
@@ -216,40 +216,104 @@
       "id": "rubric-map-six-biases",
       "title": "Six-bias mechanism map",
       "criteria": [
-        { "id": "criterion-map-selection", "description": "Award 1 point only when the fitness-club control-entry mechanism is classified as selection bias.", "maxPoints": 1 },
-        { "id": "criterion-map-information", "description": "Award 1 point only when the condition-specific sensor error is classified as information bias.", "maxPoints": 1 },
-        { "id": "criterion-map-observer", "description": "Award 1 point only when the unmasked subjective scoring mechanism is classified as observer bias.", "maxPoints": 1 },
-        { "id": "criterion-map-attrition", "description": "Award 1 point only when outcome-linked post-entry loss is classified as attrition bias.", "maxPoints": 1 },
-        { "id": "criterion-map-publication", "description": "Award 1 point only when result-dependent whole-study accessibility is classified as publication bias.", "maxPoints": 1 },
-        { "id": "criterion-map-survivorship", "description": "Award 1 point only when current-only device sampling is classified as survivorship bias.", "maxPoints": 1 }
+        {
+          "id": "criterion-map-selection",
+          "description": "Award 1 point only when the fitness-club control-entry mechanism is classified as selection bias.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-map-information",
+          "description": "Award 1 point only when the condition-specific sensor error is classified as information bias.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-map-observer",
+          "description": "Award 1 point only when the unmasked subjective scoring mechanism is classified as observer bias.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-map-attrition",
+          "description": "Award 1 point only when outcome-linked post-entry loss is classified as attrition bias.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-map-publication",
+          "description": "Award 1 point only when result-dependent whole-study accessibility is classified as publication bias.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-map-survivorship",
+          "description": "Award 1 point only when current-only device sampling is classified as survivorship bias.",
+          "maxPoints": 1
+        }
       ]
     },
     {
       "id": "rubric-interpret-equal-attrition",
       "title": "Attrition mechanism interpretation",
       "criteria": [
-        { "id": "criterion-attrition-mechanism", "description": "Award 1 point for identifying Group B and linking missingness to low earlier response rather than to the equal percentage.", "maxPoints": 1 },
-        { "id": "criterion-attrition-check", "description": "Award 1 point for a record comparison or sensitivity analysis that directly tests outcome-related missingness.", "maxPoints": 1 }
+        {
+          "id": "criterion-attrition-mechanism",
+          "description": "Award 1 point for identifying Group B and linking missingness to low earlier response rather than to the equal percentage.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-attrition-check",
+          "description": "Award 1 point for a record comparison or sensitivity analysis that directly tests outcome-related missingness.",
+          "maxPoints": 1
+        }
       ]
     },
     {
       "id": "rubric-distinguish-reporting-publication",
       "title": "Reporting and publication distinction",
       "criteria": [
-        { "id": "criterion-reporting-within-study", "description": "Award 1 point for recognizing the omitted prespecified outcome as within-study selective reporting evidence.", "maxPoints": 1 },
-        { "id": "criterion-publication-whole-study", "description": "Award 1 point for recognizing the completed study without an accessible report as publication-bias evidence.", "maxPoints": 1 },
-        { "id": "criterion-reporting-matched-checks", "description": "Award 1 point for selecting the distinct protocol-to-report and completed-study search checks without treating funnel asymmetry as proof.", "maxPoints": 1 }
+        {
+          "id": "criterion-reporting-within-study",
+          "description": "Award 1 point for recognizing the omitted prespecified outcome as within-study selective reporting evidence.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-publication-whole-study",
+          "description": "Award 1 point for recognizing the completed study without an accessible report as publication-bias evidence.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-reporting-matched-checks",
+          "description": "Award 1 point for selecting the distinct protocol-to-report and completed-study search checks without treating funnel asymmetry as proof.",
+          "maxPoints": 1
+        }
       ]
     },
     {
       "id": "rubric-transfer-acoustic-archive",
       "title": "Acoustic evidence-path transfer",
       "criteria": [
-        { "id": "criterion-transfer-target", "description": "Award 1 point for stating a like-for-like target across all prespecified recordings and all 12 sites.", "maxPoints": 1 },
-        { "id": "criterion-transfer-survival", "description": "Award 1 point for the card-readability survivorship or selection mechanism and a matching capture or failure record.", "maxPoints": 1 },
-        { "id": "criterion-transfer-observer", "description": "Award 1 point for the suggestion-visible observer or information mechanism and independent masked relabeling.", "maxPoints": 1 },
-        { "id": "criterion-transfer-denominator", "description": "Award 1 point for identifying the unequal-timeout denominator and proposing restoration or sensitivity analysis.", "maxPoints": 1 },
-        { "id": "criterion-transfer-reporting", "description": "Award 1 point for distinguishing four-of-twelve selective reporting from unestablished whole-study publication bias while calibrating unknown direction.", "maxPoints": 1 }
+        {
+          "id": "criterion-transfer-target",
+          "description": "Award 1 point for stating a like-for-like target across all prespecified recordings and all 12 sites.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-transfer-survival",
+          "description": "Award 1 point for the card-readability survivorship or selection mechanism and a matching capture or failure record.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-transfer-observer",
+          "description": "Award 1 point for the suggestion-visible observer or information mechanism and independent masked relabeling.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-transfer-denominator",
+          "description": "Award 1 point for identifying the unequal-timeout denominator and proposing restoration or sensitivity analysis.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-transfer-reporting",
+          "description": "Award 1 point for distinguishing four-of-twelve selective reporting from unestablished whole-study publication bias while calibrating unknown direction.",
+          "maxPoints": 1
+        }
       ]
     }
   ]

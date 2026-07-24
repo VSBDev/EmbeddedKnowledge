@@ -6,6 +6,7 @@
 - Version and state: **0.1.1 / draft / pending-review**
 - Accountable principal: **VSBDev** (`github:VSBDev`), confirmed as the active GitHub identity through `gh api user` on 2026-07-21
 - Course-content licence: **Creative Commons Attribution 4.0 International (CC BY 4.0)**
+- Clinical-framing revision: on 2026-07-25, run `codex-reauthor-PREM-SCI-008-59A47627-37F3-4C5E-86A4-4E6B43CA0856` added the illustrative dinner-timing clinical wrap-up scene as a teaching example, not medical advice, with no new source or asserted medical claim.
 
 VSBDev is accountable for the scientific, editorial, pedagogical, rights, and provenance record in this contribution. Agent provenance is disclosed and attested; it is not represented as independently verified identity or authorship proof.
 

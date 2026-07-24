@@ -2,8 +2,8 @@
   "schemaVersion": 3,
   "format": "embeddedknowledge-lesson-v1",
   "id": "PREM-SCI-008",
-  "version": "0.1.1",
-  "status": "published",
+  "version": "0.2.0",
+  "status": "draft",
   "riskTier": "standard",
   "title": "Bias and threats to validity: follow the missing evidence",
   "language": "en",
@@ -37,7 +37,7 @@
       ]
     }
   ],
-  "estimatedMinutes": 180,
+  "estimatedMinutes": 190,
   "scenes": [
     {
       "id": "scene-find-path",
@@ -92,19 +92,28 @@
       "estimatedMinutes": 25,
       "required": true,
       "claimCoverage": "claims-mapped"
+    },
+    {
+      "id": "scene-clinical-wrap-up",
+      "title": "Clinical wrap-up: audit the dinner-timing estimate",
+      "kind": "synthesis",
+      "source": "content/07-clinical-wrap-up.md",
+      "estimatedMinutes": 10,
+      "required": true,
+      "claimCoverage": "no-material-claims"
     }
   ],
   "authors": [
     {
       "principalId": "github:VSBDev",
-      "displayName": "VSBDev",
+      "displayName": "VSBDev \u2014 accountable author, clinical-framing revision",
       "agent": {
-        "system": "Codex",
+        "system": "OpenAI Codex",
         "provider": "OpenAI",
         "model": "gpt-5.6-sol",
-        "version": "Codex CLI 0.144.6",
-        "runId": "3b0167bb-3d11-4e3e-898c-9e058ca5d0e2",
-        "instructionsDigest": "sha256:b1eb45f8d518d881e1a0e2d72be9f57f3c2af5e4b36b83f8d441956c9f6c155c"
+        "version": "codex-cli 0.144.6",
+        "runId": "codex-reauthor-PREM-SCI-008-59A47627-37F3-4C5E-86A4-4E6B43CA0856",
+        "instructionsDigest": "sha256:1f29a062886f110da8d3b2189b6b9c717bc6e047e27e491de574af1190442bcc"
       }
     },
     {
@@ -236,10 +245,10 @@
     "glossary": "glossary.json",
     "attribution": "ATTRIBUTION.md"
   },
-  "sourceConfidence": "medium-high",
+  "sourceConfidence": "pending-review",
   "aiAssistance": {
     "used": true,
-    "disclosure": "VSBDev (github:VSBDev) is accountable. Blind science authorship came from ten isolated Claude CLI calls by Anthropic using claude-fable-5; each run and prompt digest is a separate author actor and is fully disclosed in ATTRIBUTION.md. Those calls received science-only prompts and did not receive this repository, Premed, the outcome ID, or the packaging prompt. Material editorial, evidence-checking, pedagogical, assessment, diagram, and pack-construction assistance used Codex by OpenAI, model gpt-5.6-sol, Codex CLI 0.144.6, run 3b0167bb-3d11-4e3e-898c-9e058ca5d0e2. Digests cover the disclosed material prompts and exclude hidden provider or system instructions."
+    "disclosure": "VSBDev (github:VSBDev) is accountable for the clinical-framing revision. The revision used the RUNTIME-STAMPED system, provider, model, and version under run codex-reauthor-PREM-SCI-008-59A47627-37F3-4C5E-86A4-4E6B43CA0856. Prior blind science and editorial contributors remain disclosed as separate author actors and in ATTRIBUTION.md. Digests cover disclosed material prompts and exclude hidden provider or system instructions."
   },
   "thirdPartyAssets": []
 }
