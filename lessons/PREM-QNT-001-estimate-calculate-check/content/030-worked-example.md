@@ -40,7 +40,7 @@ $$
 =7.84\times10^6.
 $$
 
-That recovers the original count. The result also lies near the prior estimate $2\times10^9$.
+That recovers the original count. Algebraically, if $q=x/y$ with $y\neq0$, then multiplying both sides by $y$ gives $qy=x$; this is why the inverse check must recover the dividend. The result also lies near the prior estimate $2\times10^9$.
 
 **6. Interpret.** Under the fictional aggregation described, the rate is $1.96\times10^9$ events per second. The calculation does not establish measurement accuracy, uncertainty, or instrument validity; those require other evidence.
 :::
@@ -59,6 +59,5 @@ The comparison with the independent estimate is the strongest choice here. Retyp
 :claims: claim-normalized-notation, claim-power-ten-arithmetic, claim-estimation-reasonableness, claim-independent-challenge
 :sources: source-nist-sp811, source-nist-everyday-estimation
 
-NIST supports the notation convention and the use of estimation for reasonableness. The estimate–calculate–challenge procedure, fictional context, arithmetic, and inverse check are original synthesis from those mathematical relations.
+NIST supports the notation convention and the use of estimation for reasonableness. It does not state the inverse-operation rule. That rule is derived above from $q=x/y$, while the estimate–calculate–challenge procedure, fictional context, and arithmetic are original.
 :::
-

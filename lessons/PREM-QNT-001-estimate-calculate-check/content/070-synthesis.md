@@ -23,7 +23,7 @@ Without looking back, answer:
 3. How can you determine the sign of the exponent in $0.00063$ without memorizing a decimal-motion slogan?
 4. Name one check that does not simply repeat the exact calculation.
 
-Then attempt the mastery items in `assessment.json`. Mastery requires correct calculation **and** a defensible scale prediction or challenge. If you miss a notation item, return to “Separate the digits from the scale.” If you miss an operation item, return to “Fade the scaffold.” If the arithmetic is right but the justification is missing, redo the transfer task with all three headings visible.
+Then attempt the mastery items in `assessment.json`. Mastery requires correct calculation **and** a defensible scale prediction or challenge. If you miss a notation item, return to “Separate the digits from the scale.” If you miss an operation item, return to “Build independence.” If the arithmetic is right but the justification is missing, redo the transfer task with all three headings visible.
 
 ## Recovery route
 

@@ -53,6 +53,8 @@ $$
 10^m \times 10^n = 10^{m+n}, \qquad \frac{10^m}{10^n}=10^{m-n}.
 $$
 
+These laws can be checked from the definition of an integer power. For nonnegative exponents, multiplying joins the repeated factors of 10, so the factor counts add. A negative exponent means the reciprocal, $10^{-k}=1/10^k$, so cancellation gives the same identities when a denominator is nonzero.
+
 So scientific-notation multiplication separates into two jobs:
 
 $$
@@ -82,16 +84,16 @@ Addition and subtraction require a shared power of ten. You may add coefficients
 $$
 4.0\times10^6+3.0\times10^4
 =4.0\times10^6+0.030\times10^6
-=4.030\times10^6.
+=4.03\times10^6.
 $$
 
-Adding 4 and 3 first would treat millions and ten-thousands as though they were equal-sized pieces. Matching exponents prevents that category error.
+The distributive law explains the shared-scale step. After rewriting both terms with a common power $10^k$, the sum has the form $a\times10^k+b\times10^k=(a+b)\times10^k$. Adding 4 and 3 first would treat millions and ten-thousands as though they were equal-sized pieces. Matching exponents prevents that category error.
 
 :::{source-note}
 :claims: claim-power-ten-arithmetic
 :sources: source-nist-sp811
 
-The exponent operations here follow directly from integer exponent laws and the normalized notation documented by NIST. The derivations and numerical examples are original to this lesson.
+NIST SP 811 documents the coefficient-and-exponent notation, not the arithmetic laws. The multiplication, division, and common-factor rules above are derived in the lesson from the definitions of integer powers and reciprocals and from the distributive law. The derivations and numerical examples are original.
 :::
 
 ## Order of magnitude as a prediction

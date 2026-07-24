@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-QNT-001-ACADEMIC-96DEE156",
+  "lessonId": "PREM-QNT-001",
+  "lessonVersion": "0.2.0",
+  "candidateCommit": "8a45d4e9cc0be06bf94744f55de24910f48bde90",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable operator, academic reviewer",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-QNT-001-96DEE156-1E06-49EE-8F3E-527EE53CA7EE",
+      "instructionsDigest": "sha256:a8aeb2213fc6e2d101a051a6bb1dd5d197f236e34dbd7ae19fb1a63bdbf359a7"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#objectives-and-scenes",
+    "content/010-orientation.md#before-you-trust-the-display",
+    "content/020-concept.md#separate-the-digits-from-the-scale",
+    "content/030-worked-example.md#worked-example-counter-rate",
+    "content/040-misconception.md#misconception-decimal-direction",
+    "content/050-practice.md#fade-the-scaffold",
+    "content/060-transfer.md#choose-the-arithmetic-before-using-it",
+    "content/070-synthesis.md#rebuild-the-reliability-loop",
+    "content/080-clinical-wrap-up.md#work-the-estimate-calculate-challenge-loop",
+    "assessment.json#items",
+    "assessment.json#rubrics",
+    "claims.json#claims",
+    "references.json#source-nist-sp811",
+    "references.json#source-nist-everyday-estimation",
+    "glossary.json#terms",
+    "ATTRIBUTION.md#source-access-and-rights-attestation",
+    "course/PREMED-SYLLABUS.md#QRS-101",
+    "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors#B.2",
+    "https://www.nist.gov/pml/owm/metric-si/everyday-estimation#opening-section"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "lesson.json#scenes[scene-clinical-wrap-up].claimCoverage",
+      "finding": "The clinical wrap-up is declared no-material-claims, but content/080-clinical-wrap-up.md teaches normalized notation, order-of-magnitude estimation, multiplication of mass by a per-mass dose factor, inverse-operation checking, and a clinically framed recommendation to challenge a dose-device display. These remain material quantitative and health-context statements even when the numbers are fictional or the mathematics repeats earlier scenes. The scene has no source note, and every applicable claim in claims.json omits scene-clinical-wrap-up, leaving the clinical-facing instruction outside the evidence trace.",
+      "resolution": "Set the scene to claims-mapped, add scene-clinical-wrap-up to every applicable mathematical claim, and add a same-scene source note listing all supporting sources. Either rewrite the clinical opening so it is solely an invented dimensional-arithmetic context with no recommendation about real clinical practice, or add a separately supported and appropriately scoped health-sensitive claim for the device-checking statement."
+    },
+    {
+      "severity": "major",
+      "target": "references.json#source-nist-sp811",
+      "finding": "Direct inspection of the cited Appendix B.2 locator confirms the coefficient range and meaning of E notation, but it does not establish the integer-exponent multiplication and division laws, the common-exponent requirement for addition and subtraction, or inverse-operation checking. The Everyday Estimation page supports magnitude, sensemaking, and reasonableness checking but not those algebraic rules. Nevertheless, claim-power-ten-arithmetic and claim-independent-challenge rely on these records for central content assessed throughout the lesson.",
+      "resolution": "Add an authoritative, agent-accessible mathematics source with exact locators supporting scientific-notation arithmetic, integer-exponent laws, and inverse-operation checking, then update the affected claim and same-scene source mappings. Alternatively, narrow the claims to what the current sources establish and provide a self-contained derivation linked to an appropriate supporting reference."
+    },
+    {
+      "severity": "minor",
+      "target": "assessment.json#item-add-shared-scale.answer.reasoning",
+      "finding": "The statement that a positive addend about one hundred times smaller cannot move a sum to a different order of magnitude is false as a general rule: a larger term sufficiently close to the next power-of-ten boundary can cross it after such an addition. The conclusion is correct for 6.2 × 10^5 + 4.0 × 10^3, but the supplied reasoning rewards an overgeneralized shortcut.",
+      "resolution": "Make the plausibility argument specific and bounded: 6.24 × 10^5 is below 10^6, so this particular addition remains on the 10^5 scale. Avoid claiming that the size ratio alone always prevents an order-of-magnitude change."
+    },
+    {
+      "severity": "major",
+      "target": "claims.json#claim-normalized-notation.reviewStatus",
+      "finding": "All four claims are marked reviewed even though this exact pack is a draft with pending-review source confidence, contains no review artifacts, and ATTRIBUTION.md records that the clinical-framing revision followed prior finalization. The newly added clinical scene is also absent from every claim mapping. Consequently, the inherited reviewed values cannot represent academic review of the exact candidate and overstate the candidate's evidence state.",
+      "resolution": "Reset every claim in this candidate to pending-review. The fresh finalizer may promote only retained claims after disposing the exact-candidate academic and learning-design findings."
+    }
+  ],
+  "limitations": [
+    "Per the assigned scope, files under site/ were not inspected. The atomic graph artifact, cross-lesson terminology ledger, quorum JSON, and direct local review-schema execution were therefore unavailable; the mapped outcome was checked only against lesson metadata and the QRS-101 syllabus scope.",
+    "The dosing scenario is explicitly fictional and names no drug, route, indication, patient condition, or real regimen. This review therefore evaluates its arithmetic, evidence mapping, and clinical-risk framing, not the suitability of any real dose.",
+    "Both declared NIST sources were publicly accessible and directly inspected. No inaccessible or human-only source prevented an academic verdict."
+  ],
+  "signedAt": "2026-07-24T21:37:12Z"
+}
