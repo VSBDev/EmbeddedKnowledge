@@ -1,45 +1,50 @@
-# Size a lesion and aim a needle
+# Scale a box and recover a direction
 
-Geometry and trigonometry can connect an illustrative scan image to a size estimate and a procedure-planning angle.
+This cumulative exercise uses a fictional coordinate workspace. It represents no patient, scan, lesion, device, or real procedure.
 
 :::{check}
 :id: check-clinical-wrap-up
 
-**Teaching example.** A fictional patient's scan uses author-invented numbers.
+**Part A — Scale a box.** A rectangular box measures 10 units by 8 units by 5 units. Calculate its volume. A similar box has every linear dimension multiplied by 1.2. Find its volume scale factor and scaled volume.
 
-**Part A — Estimate volume and scaled volume.** Model a lesion as a sphere of radius $r=5$ mm. Calculate its volume using $V=\tfrac{4}{3}\pi r^3$. A fictional follow-up scan shows every linear dimension larger by a factor of $1.2$. Find the volume scale factor and the follow-up volume.
-
-**Part B — Recover a path and angle.** On an illustrative axial image, the target center lies $40$ mm deep, opposite the skin-surface angle, and $30$ mm lateral, adjacent to that angle, from the entry point. Calculate the straight-line needle path. Form a right-triangle trigonometric ratio, use inverse trigonometry to recover the insertion angle, and report it in both degrees and radians. State a bound check for the triangle.
+**Part B — Recover a direction.** A marker lies 24 units left and 7 units above the origin. Calculate its straight-line distance from the origin and its counterclockwise standard-position direction. Report the direction in degrees and radians. Explain how the coordinate signs change the interpretation of a one-argument arctangent result, and state a bound check for the triangle.
 :::
 
 ## Feedback after a complete attempt
 
 For Part A,
 
-$$V=\frac{4}{3}\pi(5)^3=\frac{500}{3}\pi\approx523.6\ \text{mm}^3.$$
+$$V=(10)(8)(5)=400\ \text{cubic units}.$$
 
-Because volume carries three length dimensions, the follow-up volume factor is
+The linear scale factor is 1.2. Because volume carries three length dimensions, the volume factor is
 
 $$1.2^3=1.728.$$
 
-The illustrative follow-up volume is therefore
+The scaled volume is therefore
 
-$$523.6(1.728)\approx904.8\ \text{mm}^3.$$
+$$400(1.728)=691.2\ \text{cubic units}.$$
 
 For Part B, the Pythagorean relation gives
 
-$$d=\sqrt{30^2+40^2}=\sqrt{2500}=50\ \text{mm}.$$
+$$d=\sqrt{(-24)^2+7^2}=\sqrt{625}=25\ \text{units}.$$
 
-Relative to the skin-surface angle, the opposite leg is $40$ mm and the adjacent leg is $30$ mm, so
+The acute reference angle uses the vertical-to-horizontal component ratio:
 
-$$\tan\theta=\frac{40}{30},\qquad \theta=\arctan\left(\frac{40}{30}\right)\approx53.13^\circ.$$
+$$\tan\alpha=\frac{7}{24},\qquad \alpha=\arctan\left(\frac{7}{24}\right)\approx16.26^\circ.$$
 
-Convert that angle to radians:
+The horizontal coordinate is negative and the vertical coordinate is positive, so the marker is in quadrant II. Its standard-position direction is
 
-$$53.13^\circ\left(\frac{\pi\ \text{rad}}{180^\circ}\right)\approx0.927\ \text{rad}.$$
+$$\theta=180^\circ-\alpha\approx163.74^\circ.$$
 
-Both legs are positive, so the angle is acute in quadrant I. The bound check passes because $50$ mm exceeds each leg and $50^2=30^2+40^2$.
+The raw one-argument value $\arctan(7/(-24))\approx-16.26^\circ$ is a principal value, not the quadrant-II standard direction. Converting the interpreted direction gives
 
-All patient, scan, lesion, and path values are fictional and author-invented. This calculation is not procedural guidance or engineering certification.
+$$163.74^\circ\left(\frac{\pi\ \text{rad}}{180^\circ}\right)\approx2.8578\ \text{rad}.$$
 
-*Teaching example — illustrative numbers, not medical advice.*
+The straight-line distance is the hypotenuse. The bound check passes because 25 units exceeds each component magnitude and $25^2=24^2+7^2$.
+
+:::{source-note}
+:claims: claim-geometric-scaling, claim-right-triangle-geometry, claim-right-triangle-ratios, claim-angle-conversion, claim-inverse-trig, claim-quadrant-direction
+:sources: source-nasa-geometry-trig, source-nist-dlmf-trig, source-nist-si-angle
+
+NASA supports geometric scaling, the Pythagorean relation, right-triangle ratios, and coordinate conversion; NIST supports principal inverse-trigonometric values and degree-radian conversion. The box, marker, values, questions, and solution are original.
+:::
