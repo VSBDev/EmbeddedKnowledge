@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-QNT-008-F360C5B4-C6CC-4975-AE77-72FAC688DF06",
+  "lessonId": "PREM-QNT-008",
+  "lessonVersion": "0.2.0",
+  "candidateCommit": "650d696b837c1322ba6691f7dfd771f16902465a",
+  "role": "learning-design",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.6",
+      "runId": "agy-learning-design-PREM-QNT-008-F360C5B4-C6CC-4975-AE77-72FAC688DF06",
+      "instructionsDigest": "sha256:ee1eadc5d7137b740b4ab825d3f23a7035e4f5934136d217bbbec235162c02e1"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lessons/PREM-QNT-008-geometry-trigonometry/lesson.json",
+    "lessons/PREM-QNT-008-geometry-trigonometry/content/010-orientation.md",
+    "lessons/PREM-QNT-008-geometry-trigonometry/content/020-concept.md",
+    "lessons/PREM-QNT-008-geometry-trigonometry/content/030-worked-example.md",
+    "lessons/PREM-QNT-008-geometry-trigonometry/content/040-misconception.md",
+    "lessons/PREM-QNT-008-geometry-trigonometry/content/050-practice.md",
+    "lessons/PREM-QNT-008-geometry-trigonometry/content/060-transfer.md",
+    "lessons/PREM-QNT-008-geometry-trigonometry/content/070-synthesis.md",
+    "lessons/PREM-QNT-008-geometry-trigonometry/content/080-clinical-wrap-up.md",
+    "lessons/PREM-QNT-008-geometry-trigonometry/assessment.json",
+    "lessons/PREM-QNT-008-geometry-trigonometry/glossary.json",
+    "lessons/PREM-QNT-008-geometry-trigonometry/claims.json",
+    "lessons/PREM-QNT-008-geometry-trigonometry/references.json",
+    "lessons/PREM-QNT-008-geometry-trigonometry/ATTRIBUTION.md"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-008-geometry-trigonometry/lesson.json",
+      "finding": "The newly added scene 'scene-clinical-wrap-up' is placed at the end of the 'scenes' list, after the synthesis scene 'scene-synthesis'. This violates the standard instructional arc sequence in CONTENT-STANDARD.md §3, where the synthesis scene (stage 9) must be the final scene that reconnects the outcome to the graph and instructs the learner to complete the assessment. By placing a substantive transfer scene after the synthesis scene, the logical culmination of the lesson is broken, leaving the learner with additional work after being told to complete the assessment gate in '070-synthesis.md'.",
+      "resolution": "Move the 'scene-clinical-wrap-up' scene before the 'scene-synthesis' scene in the 'scenes' array of 'lesson.json', or merge it into the existing transfer scene, and ensure that 'scene-synthesis' remains the final instructional and routing scene in the lesson."
+    },
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-008-geometry-trigonometry/lesson.json",
+      "finding": "In 'lesson.json', the scene 'scene-clinical-wrap-up' is declared with 'claimCoverage': 'no-material-claims'. However, the scene's content ('080-clinical-wrap-up.md') contains concrete mathematical instructions and calculations that apply and rely on the lesson's core outcomes, such as sphere volume calculation, volume scaling, right-triangle geometry, and inverse trigonometric functions. This violates CONTENT-STANDARD.md §10, which prohibits declaring 'no-material-claims' on scenes containing teaching or application of evidence-dependent or mathematical relations.",
+      "resolution": "Update the scene metadata in 'lesson.json' to declare 'claimCoverage': 'claims-mapped', map all relevant claims in 'claims.json' to 'scene-clinical-wrap-up', and add a source-note block to '080-clinical-wrap-up.md' linking the mathematical operations to their respective standard sources."
+    },
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-008-geometry-trigonometry/content/080-clinical-wrap-up.md",
+      "finding": "The clinical wrap-up scene introduces a new geometric formula—the volume of a sphere V = 4/3*pi*r^3—in Part A, and expects the learner to calculate the volume and apply scaling. However, the lesson's conceptual explanation in '020-concept.md' only teaches and models scaling on rectangles and rectangular solids. Introducing a new, unexplained formula and geometry type at the transfer stage violates CONTENT-STANDARD.md §2 and §5, which require that the lesson does not assess or demand performance on conventions or operations that it did not teach or specify as a prerequisite.",
+      "resolution": "Either teach the sphere volume formula and its geometric scaling properties in the main concept and practice scenes, or change the clinical wrap-up task to use shapes and formulas already taught (e.g., rectangular lesions or simplified linear/area dimensions)."
+    },
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-008-geometry-trigonometry/content/080-clinical-wrap-up.md",
+      "finding": "Part B of the clinical wrap-up scene is labeled as kind 'transfer', but it represents a simple right-triangle path and angle recovery using legs of 30 and 40 (ratio 4/3) and angle 53.13 degrees. This is mathematically identical to the worked example in '030-worked-example.md' (which uses legs of 9 and 12, ratio 4/3, and angle 53.13 degrees) with a clinical story overlay. This violates CONTENT-STANDARD.md §8 and §14, which state that changing only numbers or names is near practice rather than a genuine transfer task, and prohibit using decorative detail to manufacture interest.",
+      "resolution": "Remove the redundant needle path calculation, or replace Part B with a genuine transfer task that requires the learner to adapt the geometric model in a novel way that goes beyond the worked example (e.g., combining multiple angles, handling quadrant-specific reflections, or accounting for variable entry boundaries)."
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-QNT-008-geometry-trigonometry/content/080-clinical-wrap-up.md",
+      "finding": "The prompt for Part B in the clinical wrap-up spoon-feeds the trigonometric relationship by explicitly telling the learner which side is opposite and adjacent relative to the insertion angle: 'opposite the skin-surface angle, and 30 mm lateral, adjacent to that angle'. This violates CONTENT-STANDARD.md §4 and §13, as it uses rubric language exposed as teaching and removes the cognitive work of mapping the physical description to the right-triangle model.",
+      "resolution": "Rewrite the prompt to describe the physical dimensions naturally (e.g., 'the target center lies 40 mm below the entry point and 30 mm lateral to it') without explicitly labeling the sides as 'opposite' or 'adjacent' to the angle."
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-QNT-008-geometry-trigonometry/content/080-clinical-wrap-up.md",
+      "finding": "The feedback section in '080-clinical-wrap-up.md' rounds the angle in radians to three decimal places (0.927 rad) in line 39. This is inconsistent with the worked example in '030-worked-example.md' (line 18) and the assessment item in 'assessment.json' (line 171), which both use four decimal places (0.9273 rad) for the same angular value, creating potential formatting and calculation confusion for learners.",
+      "resolution": "Update the radian value in the feedback of '080-clinical-wrap-up.md' to 0.9273 rad to maintain consistency in rounding precision across all scenes."
+    }
+  ],
+  "limitations": [
+    "Review is limited to static analysis of the Markdown files and schema compliance; no real-user behavioral data or interactive software rendering outcomes were available.",
+    "Academic accuracy and clinical boundaries are assumed to be validated by the respective quorum roles."
+  ],
+  "signedAt": "2026-07-24T20:46:00.000Z"
+}
