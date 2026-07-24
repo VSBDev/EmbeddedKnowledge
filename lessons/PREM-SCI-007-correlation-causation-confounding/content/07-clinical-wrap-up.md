@@ -27,10 +27,17 @@ The labels follow from the arrows. The dataset does not draw the arrows for you.
 
 If the question asks for the total effect of changing habitual dinner timing from earlier to later, adjust for defensible pre-dinner common causes such as $A$ and $T$. Do not adjust for carbohydrate load when it is the mediator on the route of interest, and do not condition on the collider $S$.
 
-With only the raw correlation, the strongest warranted claim remains the association. If an adjusted contrast remained positive, a bounded causal attribution would require the identifying assumptions that the arrow directions are correct, the confounders are measured and controlled adequately, no important common cause remains unmeasured, reverse causation does not explain the contrast, and the analysis does not condition on the mediator or collider. Under those assumptions, the illustrative conclusion could be:
+With only the raw correlation, the strongest warranted claim remains the association. If an adjusted contrast remained positive, treat it as an uncertain estimate rather than proof of an increase. A bounded causal attribution would require the identifying assumptions that the arrow directions are correct, the confounders are measured and controlled adequately, no important common cause remains unmeasured, reverse causation does not explain the contrast, and the analysis does not condition on the mediator or collider. It would also require “earlier” and “later” dinner timing to describe a sufficiently well-defined, feasible change and require comparable adults to be represented across the relevant dinner-time levels.
 
-> In this invented comparison, changing habitual dinner timing from earlier to later would increase next-morning fasting glucose for the adults represented under the studied conditions.
+> In this invented comparison, the positive adjusted contrast would estimate the effect of changing habitual dinner timing from earlier to later for the represented adults under the studied conditions only if the stated identifying assumptions hold. Without an interval or equivalent precision information, the magnitude and even the direction of the underlying effect remain uncertain.
 
 That statement does not establish the proposed carbohydrate mechanism, and its scope stops at the represented adults and conditions.
+
+:::{source-note}
+:claims: claim-inference-targets, claim-causal-contrast, claim-third-variable-roles, claim-mechanism-evidence
+:sources: source-causal-diagrams, source-natural-experiments, source-mechanistic-evidence
+
+The cited sources support distinguishing association, mechanism evidence, and bounded causal attribution; using causal position to reason about confounders, mediators, and colliders; and requiring explicit assumptions before interpreting an observational contrast causally. They do not support a real effect of dinner timing on glucose; every medical detail and arrow in this case is invented for reasoning practice.
+:::
 
 The next lesson, **Bias and threats to validity**, treats bias as a separate family from confounding and examines other ways this comparison could mislead.

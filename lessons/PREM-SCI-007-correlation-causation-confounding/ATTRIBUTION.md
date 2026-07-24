@@ -3,7 +3,7 @@
 ## Lesson identity and accountability
 
 - Lesson: **PREM-SCI-007 — From correlation to a causal claim**
-- Version and state: **0.1.1 / draft / pending review**
+- Version and state: **0.2.0 / draft / pending review**
 - Accountable principal: **VSBDev** (`github:VSBDev`), verified through the authenticated GitHub CLI session on 21 July 2026
 - Course-content license: **Creative Commons Attribution 4.0 International (CC BY 4.0)**
 
@@ -13,7 +13,7 @@ VSBDev is accountable for accepting the scientific baseline, verifying sources, 
 
 The accepted science dossier contained thirteen fragments produced in thirteen isolated Claude CLI calls. Each call received only the science prompt reproduced in that dossier. The dossier states that no call received this repository, Premed, the graph outcome, or the editorial-packaging request. Each accepted call's machine-readable `modelUsage` contained `claude-fable-5` and also reported `claude-haiku-4-5-20251001`; all Opus-routed outputs were excluded before the dossier was supplied to this run. The Claude CLI version was not included in the dossier and is therefore recorded as not supplied rather than guessed.
 
-The lesson manifest preserves each accepted run as a separate actor entry within the schema instead of combining thirteen runs into a false single agent identity.
+The provenance record below preserves each accepted run separately instead of combining thirteen runs into a false single agent identity.
 
 | Fragment | Claude session / run ID | Exact science-prompt SHA-256 |
 |---:|---|---|
@@ -60,6 +60,6 @@ No third-party image, diagram, audio, video, software, or dataset is included. T
 
 ## Candidate boundary
 
-The first review cohort targeted the version 0.1.0 candidate at commit `6b66a745dd99bb85ffa05cabf0252302626cc694`. The eligible review cohort for this finalization targeted the version 0.1.1 original candidate at commit `3a8c07f73918268817d0f49393ad0c4b15c9b013`; the older 0.1.0 review artifacts retained in the pack do not count toward the 0.1.1 gate. The version 0.1.1 candidate and this final revision preserve draft status and `pending-review` claim states. Review and finalization records do not themselves claim publication, course coverage, learner effectiveness, clinical sufficiency, academic credit, or admission eligibility.
+The eligible academic and learning-design review inputs for this finalization targeted the version 0.2.0 original candidate at commit `394b402e4005e3e4f336ac6e19c0145f0731eacb`. This final revision preserves draft status and `pending-review` source confidence and resets every claim to `pending-review`; promotion of retained claim states is reserved to the permitted post-adjudication publication transition. Review and finalization records do not themselves claim publication, course coverage, learner effectiveness, clinical sufficiency, academic credit, or admission eligibility.
 
 Clinical-framing revision: VSBDev (`github:VSBDev`) added an original illustrative late-dinner and next-morning fasting-glucose wrap-up applying inference classification, causal arrow maps, adjustment choice, and bounded causal attribution, with system, provider, model, and version `RUNTIME-STAMPED` in isolated run `codex-reauthor-PREM-SCI-007-880D55BE-4F97-4E65-9BE4-1C2AFE6A8927`; task digest `sha256:3c039b344de6498a3d0b30c2c9edf50266c3418b9ebfddf09059e905bb450faa`; the case is a teaching example, not medical advice, and introduces no factual medical claim, external source, third-party asset, or dataset.
