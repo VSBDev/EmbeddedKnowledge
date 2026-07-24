@@ -32,6 +32,7 @@ Before substantive source access on 2026-07-20 and 2026-07-21, the accountable r
 - Version: `Codex agent runtime 2026-07-20`
 - Author run ID: `5619914e-ad81-4db9-8e6e-928a2f71146c`
 - Material-instructions digest: `sha256:8dec3af49e5263519344b46ec6b8542adb07e143432dbde96f13403875253357`
+- Clinical-framing revision: VSBDev, the accountable author, used a runtime-stamped agent (`RUNTIME-STAMPED` for system, provider, model, and version) in run `codex-reauthor-PREM-SCI-003-C7CCE2C7-ECAA-4262-A194-51D314CAFB44` with material-instructions digest `sha256:8e9d702ad1efa029e21d71f0044b81ceeeebd4ace812df7835f97f10f7bdd09b` to add the illustrative dinner-timing and next-morning fasting-glucose role audit; the case makes no factual medical claim and is not medical advice.
 
 The bounded one-pass final lesson revision, final accessibility-and-rights audit, and adjudication used a runtime-stamped agent in fresh run `codex-finalizer-PREM-SCI-003-5CF92166-30E6-4EE3-A0CC-6FAABFFA3A5B`. Its system, provider, model, and version are recorded as the operator-stamped literal `RUNTIME-STAMPED` in `adjudication.json`. Its material-instructions digest is `sha256:201d7302cbf65ad5030c77170804fbf21f11ae281df3d5560381704f002eabc9`.
 
