@@ -25,3 +25,5 @@ The scale-map structure, detector opening, square-array example, sign misconcept
 NIST rights, technical-series licensing, and public robots routes were checked before access on 2026-07-22. No agent restriction, login, paywall, or access-control barrier was found. No third-party assets, datasets, personal data, or patient material are included.
 
 This mathematical lesson provides no clinical advice and makes no claim of review, approval, publication, measured effectiveness, credit, or competence.
+
+Clinical-framing revision: VSBDev (`github:VSBDev`) added an original illustrative microbiology serial-dilution and squared-signal wrap-up applying the existing exponent laws, principal-root inversion over $c>0$, and order-of-magnitude check, with system, provider, model, and version `RUNTIME-STAMPED` in isolated run `codex-reauthor-PREM-QNT-005-BA4C0686-BB38-4CD6-A9ED-BA4AAE3FBFDF`; task digest `sha256:52d72460aeba619d8b76c9db651da359d3f619e1a061112d7ff3069afb151e6b`; no real organism, real titre, patient data, new factual medical claim, external source, third-party asset, or dataset was introduced.

@@ -3,11 +3,11 @@
   "format": "embeddedknowledge-lesson-v1",
   "artifactType": "production-lesson",
   "id": "PREM-QNT-005",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "title": "Powers change scale; roots recover it",
-  "status": "published",
+  "status": "draft",
   "riskTier": "standard",
-  "estimatedMinutes": 180,
+  "estimatedMinutes": 186,
   "outcomes": [
     "topic-quantitative-foundations-exponents-roots"
   ],
@@ -114,33 +114,43 @@
       "required": true,
       "claimCoverage": "claims-mapped",
       "contentHtml": "<h1>Reconstruct the scale map</h1>\n<ol>\n<li>Identify the full base and grouping.</li>\n<li>Choose the exponent law and state nonzero or real-root restrictions.</li>\n<li>Predict how the operation changes order of magnitude.</li>\n<li>Use a root to invert a power only within the declared domain.</li>\n<li>Substitute candidates and interpret signs.</li>\n</ol>\n<h2>Retrieval</h2>\n<ul>\n<li>Why do exponents add for a product with the same base?</li>\n<li>What does a negative exponent mean?</li>\n<li>Why is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msqrt><msup><mi>x</mi><mn class=\"tml-sml-pad\">2</mn></msup></msqrt><mo>=</mo><mi>|</mi><mi>x</mi><mi>|</mi></mrow><annotation encoding=\"application/x-tex\">\\sqrt{x^2}=|x|</annotation></semantics></math></span>?</li>\n<li>If a quantity near <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mn>10</mn><mn>12</mn></msup><annotation encoding=\"application/x-tex\">10^{12}</annotation></semantics></math></span> is cube-rooted, what scale should result?</li>\n</ul>\n<p>Complete <code>assessment.json</code>. If laws are mixed, return to the repeated-factor explanations. If signs fail, revisit the misconception scene. If an exact answer lacks a scale check, redo cubic transfer with the exponent prediction written first.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-power-notation, claim-exponent-laws, claim-magnitude-check</span><span><b>sources</b> source-nist-sp811-notation, source-nist-estimation</span></div>\n    <div class=\"ek-block-content\"><p>The synthesis combines conventional power notation and magnitude checking through an original scale-map procedure.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-clinical-wrap-up",
+      "title": "Clinical wrap-up: track the orders of magnitude in a serial dilution",
+      "kind": "worked-example",
+      "source": "content/080-clinical-wrap-up.md",
+      "estimatedMinutes": 6,
+      "required": true,
+      "claimCoverage": "no-material-claims",
+      "contentHtml": "<h1>Clinical wrap-up: track the orders of magnitude in a serial dilution</h1>\n<p><strong>Teaching example—not medical advice.</strong> The scenario, assay model, and numbers are invented for powers, roots, and scale practice and must not guide care.</p>\n<p>In this invented microbiology-bench scenario, a specimen starts at <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn><mo>×</mo><msup><mn>10</mn><mn>8</mn></msup><mtext> CFU/mL</mtext></mrow><annotation encoding=\"application/x-tex\">3\\times10^8\\text{ CFU/mL}</annotation></semantics></math></span> and is diluted <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn><mrow style=\"margin-left:-0.1667em;\"></mrow><mo lspace=\"0.2222em\" rspace=\"0.2222em\">:</mo><mrow style=\"margin-left:-0.1667em;\"></mrow><mn>10</mn></mrow><annotation encoding=\"application/x-tex\">1\\!:\\!10</annotation></semantics></math></span> five times before plating. A power-of-ten error would make the reported concentration wrong by orders of magnitude.</p>\n<h2>Predict first, then apply exponent laws</h2>\n<p>Each tenfold step lowers the power-of-ten scale by one, so predict a drop of exactly five orders of magnitude: from a <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mn>10</mn><mn>8</mn></msup><annotation encoding=\"application/x-tex\">10^8</annotation></semantics></math></span> scale to a <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mn>10</mn><mn>3</mn></msup><annotation encoding=\"application/x-tex\">10^3</annotation></semantics></math></span> scale.</p>\n<p>Five tenfold dilution factors combine as</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><msup><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><msup><mn>10</mn><mrow><mo form=\"prefix\" stretchy=\"false\" lspace=\"0em\" rspace=\"0em\">−</mo><mn>1</mn></mrow></msup><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mn>5</mn></msup><mo>=</mo><msup><mn>10</mn><mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>1</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>5</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow></msup><mo>=</mo><msup><mn>10</mn><mrow><mo form=\"prefix\" stretchy=\"false\" lspace=\"0em\" rspace=\"0em\">−</mo><mn>5</mn></mrow></msup><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">(10^{-1})^5=10^{(-1)(5)}=10^{-5}.</annotation></semantics></math></div>\n<p>This is the power-of-a-power rule, <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><msup><mi>a</mi><mi>m</mi></msup><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mi>n</mi></msup><mo>=</mo><msup><mi>a</mi><mrow><mi>m</mi><mi>n</mi></mrow></msup></mrow><annotation encoding=\"application/x-tex\">(a^m)^n=a^{mn}</annotation></semantics></math></span>.</p>\n<p>Apply that multiplier to the invented starting concentration:</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mn>3</mn><mo>×</mo><msup><mn>10</mn><mn>8</mn></msup><mtext> CFU/mL</mtext><mo>×</mo><msup><mn>10</mn><mrow><mo form=\"prefix\" stretchy=\"false\" lspace=\"0em\" rspace=\"0em\">−</mo><mn>5</mn></mrow></msup><mo>=</mo><mn>3</mn><mo>×</mo><msup><mn>10</mn><mrow><mn>8</mn><mo>+</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>5</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow></msup><mtext> CFU/mL</mtext><mo>=</mo><mn>3</mn><mo>×</mo><msup><mn>10</mn><mn>3</mn></msup><mtext> CFU/mL</mtext><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">3\\times10^8\\text{ CFU/mL}\\times10^{-5}\n=3\\times10^{8+(-5)}\\text{ CFU/mL}\n=3\\times10^3\\text{ CFU/mL}.</annotation></semantics></math></div>\n<p>This is the product-of-powers rule, <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>a</mi><mi>m</mi></msup><msup><mi>a</mi><mi>n</mi></msup><mo>=</mo><msup><mi>a</mi><mrow><mi>m</mi><mo>+</mo><mi>n</mi></mrow></msup></mrow><annotation encoding=\"application/x-tex\">a^ma^n=a^{m+n}</annotation></semantics></math></span>. The coefficient remains 3 while the exponent changes from 8 to 3.</p>\n<h2>Use a principal root to invert a power</h2>\n<p>Suppose an invented assay uses <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>S</mi><mo>=</mo><mi>k</mi><msup><mi>c</mi><mn class=\"tml-sml-pad\">2</mn></msup></mrow><annotation encoding=\"application/x-tex\">S=kc^2</annotation></semantics></math></span>, with fixed <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>k</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">k&gt;0</annotation></semantics></math></span> and declared domain <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>c</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">c&gt;0</annotation></semantics></math></span>. Solving the power equation gives <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>c</mi><mo>=</mo><msqrt><mrow><mi>S</mi><mi>/</mi><mi>k</mi></mrow></msqrt></mrow><annotation encoding=\"application/x-tex\">c=\\sqrt{S/k}</annotation></semantics></math></span>; the principal positive root is the value retained by that domain.</p>\n<p>A stipulated <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mn>100</mn><annotation encoding=\"application/x-tex\">100</annotation></semantics></math></span>-fold drop in <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>S</mi><annotation encoding=\"application/x-tex\">S</annotation></semantics></math></span> therefore needs a concentration drop factor of <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msqrt><mn>100</mn></msqrt><mo>=</mo><msup><mn>100</mn><mrow><mn>1</mn><mi>/</mi><mn>2</mn></mrow></msup><mo>=</mo><mn>10</mn></mrow><annotation encoding=\"application/x-tex\">\\sqrt{100}=100^{1/2}=10</annotation></semantics></math></span>, or one order of magnitude. The root recovers the scale that squaring changed.</p>\n<h2>Challenge the exact result against the prediction</h2>\n<p>The exact reduction factor is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>3</mn><mo>×</mo><msup><mn>10</mn><mn>8</mn></msup><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mi>/</mi><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>3</mn><mo>×</mo><msup><mn>10</mn><mn>3</mn></msup><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>=</mo><msup><mn>10</mn><mn>5</mn></msup></mrow><annotation encoding=\"application/x-tex\">(3\\times10^8)/(3\\times10^3)=10^5</annotation></semantics></math></span>. The exact result confirms the predicted five-order drop.</p>\n<p>The exponent bookkeeping is internally consistent for these invented figures; it is not a real measurement of any organism.</p>\n"
     }
   ],
   "authors": [
     {
       "principalId": "github:VSBDev",
-      "displayName": "VSBDev — accountable author with Codex assistance",
+      "displayName": "VSBDev — accountable author, clinical-framing revision",
       "agent": {
-        "system": "Codex desktop",
+        "system": "OpenAI Codex",
         "provider": "OpenAI",
         "model": "gpt-5.6-sol",
-        "version": "Codex desktop runtime 2026-07-22",
-        "runId": "79e994f1-a0b4-4527-9f26-10b3a70baa2c",
-        "instructionsDigest": "sha256:bec5ae1936216e3a115b2d0f60c558e7f939a9639f92d1d5517f108644038b62"
+        "version": "codex-cli 0.144.6",
+        "runId": "codex-reauthor-PREM-QNT-005-BA4C0686-BB38-4CD6-A9ED-BA4AAE3FBFDF",
+        "instructionsDigest": "sha256:52d72460aeba619d8b76c9db651da359d3f619e1a061112d7ff3069afb151e6b"
       }
     }
   ],
   "license": "CC-BY-4.0",
-  "sourceConfidence": "medium-high",
+  "sourceConfidence": "pending-review",
   "aiAssistance": {
     "used": true,
-    "disclosure": "VSBDev (github:VSBDev) is accountable. OpenAI Codex, model gpt-5.6-sol, authored, researched, edited, and packaged this lesson in run 79e994f1-a0b4-4527-9f26-10b3a70baa2c. The digest covers discloseable material task instructions, not hidden system or provider instructions."
+    "disclosure": "VSBDev (github:VSBDev) is accountable for this clinical-framing revision. Material authoring assistance used system RUNTIME-STAMPED, provider RUNTIME-STAMPED, model RUNTIME-STAMPED, version RUNTIME-STAMPED, in isolated run codex-reauthor-PREM-QNT-005-BA4C0686-BB38-4CD6-A9ED-BA4AAE3FBFDF. The instructions digest covers the exact discloseable UTF-8 lesson-revision task payload supplied by the user, including its terminal newline; it excludes hidden provider and system instructions."
   },
   "assessment": {
     "schemaVersion": 1,
     "format": "embeddedknowledge-assessment-v1",
     "lessonId": "PREM-QNT-005",
-    "lessonVersion": "0.1.0",
+    "lessonVersion": "0.2.0",
     "assessmentId": "assessment-powers-roots-scale",
     "title": "Exponents, roots, and magnitude mastery gate",
     "purpose": "mastery-gate",
@@ -460,7 +470,7 @@
     "schemaVersion": 2,
     "format": "embeddedknowledge-references-v2",
     "lessonId": "PREM-QNT-005",
-    "lessonVersion": "0.1.0",
+    "lessonVersion": "0.2.0",
     "sources": [
       {
         "id": "source-nist-sp811-notation",
@@ -527,7 +537,7 @@
     "schemaVersion": 1,
     "format": "embeddedknowledge-claims-v1",
     "lessonId": "PREM-QNT-005",
-    "lessonVersion": "0.1.0",
+    "lessonVersion": "0.2.0",
     "claims": [
       {
         "id": "claim-power-notation",
@@ -598,7 +608,7 @@
     "schemaVersion": 1,
     "format": "embeddedknowledge-glossary-v1",
     "lessonId": "PREM-QNT-005",
-    "lessonVersion": "0.1.0",
+    "lessonVersion": "0.2.0",
     "terms": [
       {
         "id": "term-base",
@@ -688,5 +698,5 @@
       }
     ]
   },
-  "attributionHtml": "<h1>Attribution</h1>\n<h2>Lesson identity and licence</h2>\n<ul>\n<li>Lesson: <strong>PREM-QNT-005 — Powers change scale; roots recover it</strong></li>\n<li>Outcome: <strong>PREM-03.05</strong> (<code>topic-quantitative-foundations-exponents-roots</code>)</li>\n<li>Principal: <strong>VSBDev</strong> (<code>github:VSBDev</code>)</li>\n<li>Licence: <strong>Creative Commons Attribution 4.0 International (CC BY 4.0)</strong></li>\n<li>State: <strong>draft</strong>, source confidence <strong>pending-review</strong></li>\n</ul>\n<h2>Material agent assistance</h2>\n<p>OpenAI Codex authored, researched, edited, and packaged the original candidate in one author-role run. The structured review artifacts and <code>adjudication.json</code> disclose the separate review and fresh-finalizer runs used after that candidate was frozen.</p>\n<table>\n<thead>\n<tr>\n<th>System</th>\n<th>Provider</th>\n<th>Model</th>\n<th>Version</th>\n<th>Run ID</th>\n<th>Material-instructions digest</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>Codex desktop</td>\n<td>OpenAI</td>\n<td><code>gpt-5.6-sol</code></td>\n<td>Codex desktop runtime 2026-07-22</td>\n<td><code>79e994f1-a0b4-4527-9f26-10b3a70baa2c</code></td>\n<td><code>sha256:bec5ae1936216e3a115b2d0f60c558e7f939a9639f92d1d5517f108644038b62</code></td>\n</tr>\n</tbody></table>\n<p>The digest identifies <code>/tmp/codex-packager-prompt-03-05.md</code>; hidden provider or system instructions are not claimed. Post-candidate agent provenance is recorded in the governance artifacts rather than relabelled as author provenance.</p>\n<h2>Originality, evidence, and rights</h2>\n<p>The scale-map structure, detector opening, square-array example, sign misconception, cubic transfer, all values, feedback, recovery routes, and assessments are original. All settings are fictional. NIST sources are used only for facts about power-of-ten notation and estimation&#39;s role in magnitude/reasonableness checks. No source expression, example, table, or image is copied or adapted.</p>\n<p>NIST rights, technical-series licensing, and public robots routes were checked before access on 2026-07-22. No agent restriction, login, paywall, or access-control barrier was found. No third-party assets, datasets, personal data, or patient material are included.</p>\n<p>This mathematical lesson provides no clinical advice and makes no claim of review, approval, publication, measured effectiveness, credit, or competence.</p>\n"
+  "attributionHtml": "<h1>Attribution</h1>\n<h2>Lesson identity and licence</h2>\n<ul>\n<li>Lesson: <strong>PREM-QNT-005 — Powers change scale; roots recover it</strong></li>\n<li>Outcome: <strong>PREM-03.05</strong> (<code>topic-quantitative-foundations-exponents-roots</code>)</li>\n<li>Principal: <strong>VSBDev</strong> (<code>github:VSBDev</code>)</li>\n<li>Licence: <strong>Creative Commons Attribution 4.0 International (CC BY 4.0)</strong></li>\n<li>State: <strong>draft</strong>, source confidence <strong>pending-review</strong></li>\n</ul>\n<h2>Material agent assistance</h2>\n<p>OpenAI Codex authored, researched, edited, and packaged the original candidate in one author-role run. The structured review artifacts and <code>adjudication.json</code> disclose the separate review and fresh-finalizer runs used after that candidate was frozen.</p>\n<table>\n<thead>\n<tr>\n<th>System</th>\n<th>Provider</th>\n<th>Model</th>\n<th>Version</th>\n<th>Run ID</th>\n<th>Material-instructions digest</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>Codex desktop</td>\n<td>OpenAI</td>\n<td><code>gpt-5.6-sol</code></td>\n<td>Codex desktop runtime 2026-07-22</td>\n<td><code>79e994f1-a0b4-4527-9f26-10b3a70baa2c</code></td>\n<td><code>sha256:bec5ae1936216e3a115b2d0f60c558e7f939a9639f92d1d5517f108644038b62</code></td>\n</tr>\n</tbody></table>\n<p>The digest identifies <code>/tmp/codex-packager-prompt-03-05.md</code>; hidden provider or system instructions are not claimed. Post-candidate agent provenance is recorded in the governance artifacts rather than relabelled as author provenance.</p>\n<h2>Originality, evidence, and rights</h2>\n<p>The scale-map structure, detector opening, square-array example, sign misconception, cubic transfer, all values, feedback, recovery routes, and assessments are original. All settings are fictional. NIST sources are used only for facts about power-of-ten notation and estimation&#39;s role in magnitude/reasonableness checks. No source expression, example, table, or image is copied or adapted.</p>\n<p>NIST rights, technical-series licensing, and public robots routes were checked before access on 2026-07-22. No agent restriction, login, paywall, or access-control barrier was found. No third-party assets, datasets, personal data, or patient material are included.</p>\n<p>This mathematical lesson provides no clinical advice and makes no claim of review, approval, publication, measured effectiveness, credit, or competence.</p>\n<p>Clinical-framing revision: VSBDev (<code>github:VSBDev</code>) added an original illustrative microbiology serial-dilution and squared-signal wrap-up applying the existing exponent laws, principal-root inversion over <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>c</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">c&gt;0</annotation></semantics></math></span>, and order-of-magnitude check, with system, provider, model, and version <code>RUNTIME-STAMPED</code> in isolated run <code>codex-reauthor-PREM-QNT-005-BA4C0686-BB38-4CD6-A9ED-BA4AAE3FBFDF</code>; task digest <code>sha256:52d72460aeba619d8b76c9db651da359d3f619e1a061112d7ff3069afb151e6b</code>; no real organism, real titre, patient data, new factual medical claim, external source, third-party asset, or dataset was introduced.</p>\n"
 }
