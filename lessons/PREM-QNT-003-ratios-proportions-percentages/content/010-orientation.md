@@ -32,9 +32,9 @@ If fractions are uncertain, read $a/b$ aloud as “a for every b” and attach t
 
 :::{source-note}
 :claims: claim-ratio-quotient, claim-percentage-part-whole, claim-percent-change-reference, claim-percentage-point-difference
-:sources: source-nist-si-chapter8, source-openstax-prealgebra-ch6, source-moj-percentage-comparisons
+:sources: source-nist-si-chapter8, source-moj-percentage-comparisons
 
-NIST and OpenStax support the quotient, ratio, and per-hundred relationships; the Ministry of Justice report supplies an explicit published comparison of percentage points with relative percent change. The archive example and wording are original.
+NIST supports the quotient, ratio, and per-hundred relationships; the Ministry of Justice report supplies an explicit published comparison of percentage points with relative percent change. The archive example and wording are original.
 :::
 
 ## Accessibility and alternatives

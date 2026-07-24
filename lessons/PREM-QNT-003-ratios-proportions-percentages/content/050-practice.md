@@ -43,7 +43,7 @@ For each task, write **labels → reference → equation → check**. Complete a
 
 :::{source-note}
 :claims: claim-ratio-quotient, claim-proportion-equation, claim-percentage-part-whole, claim-percent-change-reference, claim-percentage-point-difference
-:sources: source-nist-si-chapter8, source-openstax-prealgebra-ch6, source-moj-percentage-comparisons
+:sources: source-nist-si-chapter8, source-moj-percentage-comparisons
 
 The sources support the quotient, proportion, per-hundred, starting-reference, and point-versus-relative-change relationships. All practice items, feedback, and remediation are original.
 :::

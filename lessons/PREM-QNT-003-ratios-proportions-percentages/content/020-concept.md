@@ -46,7 +46,7 @@ For these cases, report an absolute difference or use a domain-specific comparis
 
 :::{source-note}
 :claims: claim-ratio-quotient, claim-proportion-equation, claim-percentage-part-whole, claim-percent-change-reference, claim-relative-change-domain
-:sources: source-nist-si-chapter8, source-openstax-prealgebra-ch6, source-nist-metrics-measures, source-moj-percentage-comparisons
+:sources: source-nist-si-chapter8, source-nist-metrics-measures, source-moj-percentage-comparisons
 
-NIST and OpenStax support the quotient, proportion, and per-hundred relationships. OpenStax and the Ministry of Justice report support use of the starting reference. NIST's measurement-scale discussion supports the meaningful-zero boundary. The organization and examples are original.
+NIST supports quotient-defined ratios and per-hundred relationships; writing equal ratios as an equation and checking equality by substitution are direct algebraic consequences. The Ministry of Justice report supports use of the starting reference, and NIST's measurement-scale discussion supports the meaningful-zero boundary. The organization and examples are original.
 :::

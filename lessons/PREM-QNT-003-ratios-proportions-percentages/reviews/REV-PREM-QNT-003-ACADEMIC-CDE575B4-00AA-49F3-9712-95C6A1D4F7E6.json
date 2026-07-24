@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-QNT-003-ACADEMIC-CDE575B4-00AA-49F3-9712-95C6A1D4F7E6",
+  "lessonId": "PREM-QNT-003",
+  "lessonVersion": "0.2.0",
+  "candidateCommit": "0960721b9cd477e18e3af18dbdb05d16ee299a48",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable operator and academic reviewer",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-QNT-003-CDE575B4-00AA-49F3-9712-95C6A1D4F7E6",
+      "instructionsDigest": "sha256:a0cad2d9257feb491de2450b3bf73b1f3811ee5dbe4951d6a8eb9067a2d8921e"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#identity-version-outcomes-prerequisites-objectives-scenes",
+    "content/010-orientation.md#scene-orientation",
+    "content/020-concept.md#scene-concept",
+    "content/030-worked-example.md#scene-worked-example",
+    "content/040-misconception.md#scene-misconception",
+    "content/050-practice.md#scene-practice",
+    "content/060-transfer.md#scene-transfer",
+    "content/070-synthesis.md#scene-synthesis",
+    "content/080-clinical-wrap-up.md#scene-clinical-wrap-up",
+    "assessment.json#items",
+    "assessment.json#rubrics",
+    "claims.json#claims",
+    "references.json#sources",
+    "glossary.json#terms",
+    "ATTRIBUTION.md#all-sections",
+    "references.json#source-nist-si-chapter8 — live NIST sections 8.4 and 8.6 checked",
+    "references.json#source-nist-metrics-measures — live Measurement Scales section checked",
+    "references.json#source-moj-percentage-comparisons — linked TSP prison-misconduct report page 6 note 2 checked",
+    "references.json#source-openstax-prealgebra-ch6 — live source opened only until its current agent-use restriction was identified",
+    "assessment.json#item-ratio-order,item-proportion,item-find-whole,item-percent-change,item-points-versus-percent,item-percent-change-boundary,item-transfer-groups — calculations and answer keys independently recomputed"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "lesson.json#scenes[id=scene-clinical-wrap-up].claimCoverage",
+      "finding": "The manifest declares scene-clinical-wrap-up to have no material claims, but content/080-clinical-wrap-up.md teaches and applies ordered concentration ratios, proportional scaling, dimensional substitution, part-whole percentage, percent change, and the percentage-point distinction. It also contains multiple quantitative conclusions. The scene has no source note, no claim maps to it, and the relevant glossary entries omit it, so this material teaching content escapes the candidate's evidence chain.",
+      "resolution": "Either remove the material teaching content and leave a genuinely non-evidentiary routing scene, or set the scene to claims-mapped, add scene-clinical-wrap-up to every applicable claim and glossary entry, and add a same-scene source note listing every supporting source."
+    },
+    {
+      "severity": "major",
+      "target": "references.json#sources[id=source-openstax-prealgebra-ch6].agentAccess",
+      "finding": "The record says checked-no-agent-restriction-found, but the current cited OpenStax page explicitly says the book may not be used in training or otherwise ingested into large-language-model or generative-AI offerings without permission. That conflicts with the recorded access state. This source is the sole declared support for claim-proportion-equation and claim-percentage-part-whole, so those central claims lack an independently usable source under the academic-review procedure.",
+      "resolution": "Replace OpenStax with an authoritative source whose current terms permit the planned agent access, or classify it as human-only and add the required documented human verification or permission while ensuring each central claim retains complete eligible support."
+    },
+    {
+      "severity": "minor",
+      "target": "claims.json#claims[id=claim-proportion-equation].reviewStatus",
+      "finding": "Every claim is already marked reviewed even though lesson.json identifies this exact candidate as draft with pending-review source confidence and ATTRIBUTION.md records a later clinical-framing revision. Because material candidate changes stale earlier reviews, these values overstate the academic status of version 0.2.0.",
+      "resolution": "Return all current-candidate claims to pending-review until the fresh finalizer disposes the reviews and records the permitted post-adjudication status transition."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#items[id=item-transfer-groups]",
+      "finding": "Independent recomputation confirms the transfer answer: 24:56 simplifies to 3:7, the tagged shares are 30% and 41.666...%, the increase is 11.666... percentage points, and the relative increase is 38.888...%. The other assessment answer keys and the lesson's worked calculations also recompute correctly within their stated assumptions.",
+      "resolution": "No change required to the arithmetic or answer key."
+    }
+  ],
+  "limitations": [
+    "The instructed scope excluded site/, so the current graph-node definitions and cross-lesson terminology ledger were not independently inspected; outcome and prerequisite mappings were confirmed only for internal consistency with the candidate pack and the available syllabus wording.",
+    "The current OpenStax page displayed an explicit large-language-model or generative-AI ingestion restriction. No further substantive use was made after discovering it, and its support cannot be treated as independently verified by this run.",
+    "This review assesses the clinical wrap-up's quantitative reasoning and boundary language, not real medication preparation or pharmacy practice; the scene contains invented values and no real drug or patient data."
+  ],
+  "signedAt": "2026-07-24T22:13:31Z"
+}

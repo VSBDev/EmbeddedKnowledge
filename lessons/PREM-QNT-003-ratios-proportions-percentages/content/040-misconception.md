@@ -24,7 +24,7 @@ The reference-first question is: â€œTen is what fraction of the starting forty?â
 
 :::{source-note}
 :claims: claim-percent-change-reference, claim-percentage-point-difference
-:sources: source-openstax-prealgebra-ch6, source-moj-percentage-comparisons
+:sources: source-moj-percentage-comparisons
 
-OpenStax supports change relative to the original amount, and the Ministry of Justice report explicitly distinguishes a percentage-point difference from relative percentage change. The example and repair are original.
+The Ministry of Justice report supports change relative to the original amount and explicitly distinguishes a percentage-point difference from relative percentage change. The example and repair are original.
 :::
