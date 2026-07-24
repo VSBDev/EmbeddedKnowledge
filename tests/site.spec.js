@@ -1130,15 +1130,49 @@ test("the psychiatry graph exposes the proposed stable outcome map", async ({ pa
 });
 
 test("the psychiatry lesson commons keeps an empty outcome distinct from a lesson", async ({ page }) => {
-  const errors = collectRuntimeErrors(page);
-  await page.goto(route("psychiatry/lessons/?outcome=topic-psy-101-field-and-boundaries"), { waitUntil: "networkidle" });
+  // Derive the empty outcome and the published count instead of naming them. This test used to
+  // hard-code PSY-101.01, which stopped being empty the moment the first psychiatry lesson was
+  // published; deriving them keeps it honest as the corpus grows.
+  const [lessonIndex, openPullRequests] = await Promise.all([
+    getJson(page.request, "data/psychiatry-lessons.json"),
+    getJson(page.request, "data/psychiatry-open-prs.json")
+  ]);
+  const claimed = proposalOutcomeIds(openPullRequests);
+  const emptyOutcome = lessonIndex.outcomes.find((outcome) => (
+    !(outcome.publishedLessonIds || []).length && !claimed.has(outcome.id)
+  ));
+  expect(emptyOutcome, "the psychiatry contribution-path test requires at least one empty outcome").toBeTruthy();
+  const publishedOutcomes = lessonIndex.outcomes.filter((outcome) => (outcome.publishedLessonIds || []).length).length;
 
-  await expect(page.locator("[data-outcome-location]")).toContainText("PSY-101.01");
+  const errors = collectRuntimeErrors(page);
+  await page.goto(route(`psychiatry/lessons/?outcome=${emptyOutcome.id}`), { waitUntil: "networkidle" });
+
+  await expect(page.locator("[data-outcome-location]")).toContainText(emptyOutcome.code);
   await expect(page.locator("[data-lesson-detail]")).toContainText("This lesson has not been written yet");
-  await expect(page.locator("[data-lesson-detail]")).toContainText("topic-psy-101-field-and-boundaries");
-  await expect(page.locator("[data-corpus-summary]")).toContainText("0 published");
+  await expect(page.locator("[data-lesson-detail]")).toContainText(emptyOutcome.id);
+  await expect(page.locator("[data-corpus-summary]")).toContainText(`${publishedOutcomes} published`);
   const contributeHref = await page.locator(".lesson-contribute-link").getAttribute("href");
-  expect(new URL(contributeHref).searchParams.get("outcome")).toBe("topic-psy-101-field-and-boundaries");
+  expect(new URL(contributeHref).searchParams.get("outcome")).toBe(emptyOutcome.id);
+  expect(errors).toEqual([]);
+});
+
+test("a published psychiatry outcome opens the reviewed lesson through its production route", async ({ page }) => {
+  // The counterpart to the empty-outcome case, and the first coverage of the psychiatry reader
+  // route: deep-linking a covered outcome redirects to the lesson instead of inviting contribution.
+  // Skips until the psychiatry corpus has its first published lesson.
+  const lessonIndex = await getJson(page.request, "data/psychiatry-lessons.json");
+  const publishedOutcome = lessonIndex.outcomes.find((outcome) => (outcome.publishedLessonIds || []).length);
+  test.skip(!publishedOutcome, "no psychiatry outcome carries a published lesson yet");
+  const lessonId = publishedOutcome.publishedLessonIds[0];
+
+  const errors = collectRuntimeErrors(page);
+  await page.goto(route(`psychiatry/lessons/?outcome=${publishedOutcome.id}`), { waitUntil: "networkidle" });
+
+  await expect(page).toHaveURL(new RegExp(`/psychiatry/lessons/read/\\?lesson=${lessonId}$`));
+  await expect(page.locator("[data-artifact-id]")).toHaveText(lessonId);
+  await expect(page.locator("[data-publication-access]")).toHaveText("Published open");
+  await expect(page.locator("[data-artifact-status]")).toContainText("published");
+  await expect(page.locator("[data-lesson-detail]")).toHaveCount(0);
   expect(errors).toEqual([]);
 });
 
