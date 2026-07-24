@@ -24,7 +24,7 @@ Check: $1.260^3\approx2.00$. The positive root is selected because the scale fac
 
 :::{source-note}
 :claims: claim-exponent-laws, claim-magnitude-check
-:sources: source-nist-sp811-notation, source-nist-estimation
+:sources: source-nist-dlmf-powers, source-nist-estimation
 
-NIST supports the notation and magnitude-checking role, not the exponent laws. The scaling law is supplied as a fictional task assumption, and all derivations and checks apply the lesson's original derivations.
+The NIST Digital Library of Mathematical Functions supports the power definitions and identities, and NIST supports the magnitude-checking role. The scaling law is supplied as a fictional task assumption, and all derivations and checks apply the lesson's original derivations.
 :::

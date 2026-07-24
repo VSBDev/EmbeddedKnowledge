@@ -20,9 +20,9 @@ If exponent laws feel memorized but fragile, expand one small integer case into 
 
 :::{source-note}
 :claims: claim-power-notation, claim-exponent-laws, claim-magnitude-check
-:sources: source-nist-sp811-notation, source-nist-estimation
+:sources: source-nist-sp811-notation, source-nist-dlmf-powers, source-nist-estimation
 
-NIST documents power-of-ten notation and the use of magnitude estimates for reasonableness. The square-scaling calculation follows from the exponent rules derived in the next scene; the detector and diagnosis are original.
+NIST documents power-of-ten notation and the use of magnitude estimates for reasonableness. The NIST Digital Library of Mathematical Functions supplies the power definitions and identities specialized to the real-number domains used here. The square-scaling calculation follows from the exponent rules derived in the next scene; the detector and diagnosis are original.
 :::
 
 ## Accessibility and alternatives
