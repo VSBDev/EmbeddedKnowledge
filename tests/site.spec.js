@@ -29,6 +29,21 @@ function collectRuntimeErrors(page) {
   return errors;
 }
 
+// Continuous reading is the reader's default view, so a test that exercises guided frames has to
+// ask for them rather than assume them.
+async function enterGuidedView(page) {
+  const app = page.locator("[data-reader-app]");
+  const className = (await app.getAttribute("class")) || "";
+  if (!className.includes("reader-guided-mode")) {
+    const toggle = page.locator("[data-view-toggle]");
+    await toggle.click();
+    // The reader deliberately ignores navigation keys while a control holds focus, so leaving focus
+    // on the toggle would silently swallow every keypress the caller makes next.
+    await toggle.evaluate((element) => element.blur());
+  }
+  await expect(app).toHaveClass(/reader-guided-mode/);
+}
+
 async function advanceUntilVisible(page, selector, maximumFrames = 20) {
   const target = page.locator("[data-scene-container]").locator(selector);
   for (let index = 0; index < maximumFrames; index += 1) {
@@ -453,7 +468,10 @@ test("the generated lesson specimen behaves as a no-body-scroll interactive book
   await expect(page.locator(".reader-specimen-banner")).toContainText("NON-PRODUCTION");
   await expect(page.locator(".reader-margin")).toContainText("Does not count");
   await expect(page.locator(".reader-scene-header h1")).toHaveText("One reaction, two models");
-  await expect(page.locator("[data-reader-app]")).toHaveClass(/reader-guided-mode/);
+  // The reader opens in continuous reading; the guided book below is one toggle away.
+  await expect(page.locator("[data-reader-app]")).toHaveClass(/reader-reading-mode/);
+  await expect(page.locator("[data-view-label]")).toHaveText("Reading");
+  await enterGuidedView(page);
   await expect(page.locator("[data-view-label]")).toHaveText("Guided");
 
   const viewportLayout = await page.evaluate(() => ({
@@ -621,6 +639,7 @@ test("a published lesson opens through its production route with keyboard and co
   await expect(page.locator("[data-publication-access]")).toHaveText("Published open");
   await expect(page.locator("[data-scene-location]")).not.toHaveText("Artifact unavailable");
 
+  await enterGuidedView(page);
   await expect(page.locator(".reader-scene-header h1")).toHaveText(productionArtifact.scenes[0].title);
   await page.keyboard.press("End");
   await expect(page.locator(".reader-scene-header h1")).toHaveText(productionArtifact.scenes.at(-1).title);
@@ -805,6 +824,7 @@ test("a draft pending-review artifact is never represented as published or open"
 test("guided frames keep dense prose screen-sized while reading mode restores continuous flow", async ({ page }) => {
   const errors = collectRuntimeErrors(page);
   await page.goto(route("premed/lessons/specimen/"), { waitUntil: "networkidle" });
+  await enterGuidedView(page);
   await page.locator(".reader-scene-link", { hasText: "Deep reading: choosing the useful model" }).click();
 
   await expect(page.locator(".reader-frame")).toHaveCount(14);
@@ -846,6 +866,7 @@ test("an overflowing guided frame is a labelled keyboard scroll region without r
   await page.route("**/data/lessons/specimen.json*", (route) => route.fulfill({ contentType: "application/json", body: JSON.stringify(specimen) }));
   const errors = collectRuntimeErrors(page);
   await page.goto(route("premed/lessons/specimen/"), { waitUntil: "networkidle" });
+  await enterGuidedView(page);
   await page.keyboard.press("ArrowRight");
 
   const scrollRegion = page.locator('[data-frame-id="frame-overflowing-guided-content"]');
@@ -1184,6 +1205,53 @@ test("a published psychiatry outcome opens the reviewed lesson through its produ
   await expect(page.locator("[data-publication-access]")).toHaveText("Published open");
   await expect(page.locator("[data-artifact-status]")).toContainText("published");
   await expect(page.locator("[data-lesson-detail]")).toHaveCount(0);
+  expect(errors).toEqual([]);
+});
+
+test("a phone opens the reader in continuous view and can still reach a tall guided frame", async ({ page }) => {
+  const lessonIndex = await getJson(page.request, "data/premed-lessons.json");
+  const publishedLesson = lessonIndex.lessons.find((lesson) => lesson.status === "published");
+  expect(publishedLesson, "the reader scrolling test requires a published lesson").toBeTruthy();
+
+  const errors = collectRuntimeErrors(page);
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(route(`premed/lessons/read/?lesson=${publishedLesson.id}`), { waitUntil: "networkidle" });
+
+  // Continuous reading is the default for a reader who has expressed no preference.
+  await expect(page.locator("[data-reader-app]")).toHaveClass(/reader-reading-mode/);
+
+  // Guided remains available, and on a narrow screen its frame grows past the stage. The frame must
+  // not stay a scroll container once it has nothing of its own to scroll: a dead scroll container
+  // swallows the gesture and its `overscroll-behavior: contain` refuses to pass it to the stage,
+  // which is what strands the bottom of a tall scene out of reach.
+  await page.locator("[data-view-toggle]").click();
+  await expect(page.locator("[data-reader-app]")).toHaveClass(/reader-guided-mode/);
+
+  const scrolling = await page.evaluate(async () => {
+    const stage = document.querySelector(".reader-stage");
+    const frame = document.querySelector(".reader-frame.is-active");
+    const frameStyle = getComputedStyle(frame);
+    const overflowing = frame.getBoundingClientRect().height > stage.clientHeight;
+    stage.style.scrollBehavior = "auto";
+    stage.scrollTop = 0;
+    stage.scrollTop = stage.scrollHeight;
+    const reached = stage.scrollTop;
+    stage.scrollTop = 0;
+    stage.style.scrollBehavior = "";
+    return {
+      overflowing,
+      frameIsDeadScrollContainer:
+        frameStyle.overflowY !== "visible" && frame.scrollHeight <= frame.clientHeight + 2,
+      stageReach: reached,
+      stageNeeds: stage.scrollHeight - stage.clientHeight
+    };
+  });
+
+  expect(scrolling.frameIsDeadScrollContainer).toBe(false);
+  if (scrolling.overflowing) {
+    expect(scrolling.stageNeeds).toBeGreaterThan(0);
+    expect(scrolling.stageReach).toBeGreaterThan(0);
+  }
   expect(errors).toEqual([]);
 });
 
