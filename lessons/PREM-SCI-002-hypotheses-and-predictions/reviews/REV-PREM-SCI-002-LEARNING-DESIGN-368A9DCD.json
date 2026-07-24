@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-SCI-002-LEARNING-DESIGN-368A9DCD",
+  "lessonId": "PREM-SCI-002",
+  "lessonVersion": "0.2.0",
+  "candidateCommit": "0befc8a448596559073a5502a123930f5eaceb42",
+  "role": "learning-design",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev (learning-design reviewer)",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.6",
+      "runId": "agy-learning-design-PREM-SCI-002-368A9DCD-7C88-4B68-A93E-07C44845D653",
+      "instructionsDigest": "sha256:5d1778c6c3b6edd65e937af25e1bc9f26b04b97c6359d3838bf49906ffc50b65"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Founding-stage isolation check: the accountable principal VSBDev operates the authoring, review, and finalization agents, so principal-level independence is absent. Agent-level role isolation was strictly maintained: no authoring history, other review output, or adjudication draft was read, and no other EmbeddedKnowledge role script was run during this review execution."
+  },
+  "evidenceChecked": [
+    "lessons/PREM-SCI-002-hypotheses-and-predictions/lesson.json",
+    "lessons/PREM-SCI-002-hypotheses-and-predictions/claims.json",
+    "lessons/PREM-SCI-002-hypotheses-and-predictions/references.json",
+    "lessons/PREM-SCI-002-hypotheses-and-predictions/glossary.json",
+    "lessons/PREM-SCI-002-hypotheses-and-predictions/ATTRIBUTION.md",
+    "lessons/PREM-SCI-002-hypotheses-and-predictions/content/01-explain-and-expect.md",
+    "lessons/PREM-SCI-002-hypotheses-and-predictions/content/02-worked-comparison.md",
+    "lessons/PREM-SCI-002-hypotheses-and-predictions/content/03-practise-and-repair.md",
+    "lessons/PREM-SCI-002-hypotheses-and-predictions/content/04-transfer.md",
+    "lessons/PREM-SCI-002-hypotheses-and-predictions/content/05-clinical-wrap-up.md",
+    "lessons/PREM-SCI-002-hypotheses-and-predictions/assessment.json",
+    "CONTENT-STANDARD.md",
+    "RIGHTS-POLICY.md"
+  ],
+  "findings": [
+    {
+      "severity": "note",
+      "target": "lessons/PREM-SCI-002-hypotheses-and-predictions/content/01-explain-and-expect.md#L3-L12",
+      "finding": "First-read gate: The concept opener immediately introduces a concrete, observable phenomenon (apple slices browning under specific conditions) and asks the learner to distinguish what they want to know from what they expect to see. This invites direct interest and sets up the central reasoning chain before introducing any abstract definitions or exclusions, successfully meeting the Content Standard opener requirements.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-SCI-002-hypotheses-and-predictions/content/03-practise-and-repair.md#L2-L84",
+      "finding": "Instructional scaffolding and practice progression: The practice scene is highly structured, offering a scaffolded journey that moves from retrieval prompts and completion tasks (the magnetic mystery token) to supported choices (the greenhouse alarm threshold tables), independent problem formulation (the covered cup demonstration), and finally a misconception repair checking the 'matching prediction equals truth' fallacy. This sequence helps prevent cognitive overload and builds durable schema.",
+      "resolution": null
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-SCI-002-hypotheses-and-predictions/glossary.json",
+      "finding": "Glossary metadata omission: The newly added clinical synthesis wrap-up scene, `scene-clinical-wrap-up`, correctly uses the core vocabulary terms 'hypothesis', 'prediction', and 'condition', but its scene ID is not listed in the `sceneIds` list for these terms in `glossary.json` (specifically `term-hypothesis`, `term-prediction`, and `term-condition`).",
+      "resolution": "Add 'scene-clinical-wrap-up' to the `sceneIds` array for `term-hypothesis`, `term-prediction`, and `term-condition` in `glossary.json` to complete the metadata alignment."
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-SCI-002-hypotheses-and-predictions/glossary.json#L23",
+      "finding": "Undeclared terminology shift: The definition of the term 'hypothesis' in this lesson ('A proposed explanation or relationship from which observable expectations can be derived') has been slightly reworded from the definition established in the preceding lesson PREM-SCI-001 ('A proposed explanation or relationship that leads to expectations evidence can test; developed in the next lesson') without declaring an `alignment` block. This creates a shift that is reported as an undeclared redefinition by the terminology validation tools.",
+      "resolution": "Add an `alignment` block to `term-hypothesis` in `glossary.json` referencing `PREM-SCI-001` with relation `adopt` or `extend` and a short rationale, or revert the definition wording to exactly match the established definition in PREM-SCI-001."
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-SCI-002-hypotheses-and-predictions/content/02-worked-comparison.md#L5-L43",
+      "finding": "Missing self-explanation prompt in worked example: The worked example scene `scene-worked-comparison` models all procedural steps (tasks, plans, execution, conditions, and cautious interpretation) but lacks an explicit self-explanation prompt within the block asking the learner to explain the core decision that determines the solution (e.g., why deriving a prediction that makes the competing explanations disagree is necessary to make the comparison discriminating), as required under Section 5.1, Criterion 9 of the Content Standard.",
+      "resolution": "Append a self-explanation prompt at the end of the worked example block in `content/02-worked-comparison.md` (e.g., asking the learner to write why predicting identical outcomes under competing hypotheses would fail to discriminate between them)."
+    }
+  ],
+  "limitations": [
+    "Expert-simulation review: This review represents a single-pass advisory input by a simulated learning-design expert under standard-lesson-v3 guidelines. No real learner testing was conducted.",
+    "Conflict of interest: The same GitHub principal (VSBDev) is responsible for the authoring and review run operators. Agent-level isolation was maintained, but principal-level independence is absent.",
+    "Scope restriction: The review is strictly bounded to learning-design metrics (e.g., clarity, coherence, practice, alignment, and transfer). Scientific accuracy, rights audits, and final typesetting checks are excluded.",
+    "Technical verification limits: No rendered build environment, screen reader, or keyboard navigation pathways were evaluated physically; findings are based solely on the static Markdown and JSON source files."
+  ],
+  "signedAt": "2026-07-24T23:01:05Z"
+}
