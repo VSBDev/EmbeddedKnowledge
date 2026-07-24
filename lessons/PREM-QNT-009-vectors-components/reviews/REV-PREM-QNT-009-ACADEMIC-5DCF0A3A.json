@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-QNT-009-ACADEMIC-5DCF0A3A",
+  "lessonId": "PREM-QNT-009",
+  "lessonVersion": "0.2.0",
+  "candidateCommit": "ecef30b0584f5968b06bb7d5990fc379f2dbf77a",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable academic reviewer",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-QNT-009-5DCF0A3A-3BB5-4000-9F2C-060B1E7C14B6",
+      "instructionsDigest": "sha256:baadc8bffe65b742c5f87b0cec9e34bbdc0259914f5721b8eea94a83cb0ca326"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#identity-objectives-outcomes-prerequisites-and-scenes",
+    "claims.json#claim-scalar-vector",
+    "claims.json#claim-vector-components",
+    "claims.json#claim-vector-norm",
+    "claims.json#claim-triangle-inequality",
+    "claims.json#claim-dot-product",
+    "claims.json#claim-direction-components",
+    "references.json#source-nist-dlmf-vectors",
+    "https://dlmf.nist.gov/1.2#v",
+    "https://dlmf.nist.gov/1.6#i",
+    "glossary.json#terms",
+    "ATTRIBUTION.md#originality-evidence-and-rights",
+    "content/010-orientation.md#direction-survives-the-arithmetic",
+    "content/020-concept.md#represent-vectors-with-signed-components",
+    "content/030-worked-example.md#worked-example-directed-span",
+    "content/040-misconception.md#misconception-add-magnitudes",
+    "content/050-practice.md#choose-signs-before-calculating",
+    "content/060-transfer.md#audit-a-changed-angle-convention",
+    "content/070-synthesis.md#rebuild-the-vector-audit",
+    "content/080-clinical-wrap-up.md#check-clinical-joint-force",
+    "assessment.json#items-and-rubrics"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "content/080-clinical-wrap-up.md#check-clinical-joint-force",
+      "finding": "The arithmetic is correct, but the scene labels the positive axial projection as a compression component and the perpendicular value as a shear component without defining a bone-segment free body, section or contact plane, outward axial direction, or compression/tension sign convention. A positive projection onto (0,1) establishes only a signed axial force component; it does not intrinsically establish compression. Likewise, the perpendicular component becomes a shear load only relative to a specified mechanical model. This is a misleading biomechanics boundary, and the scene is simultaneously declared no-material-claims in lesson.json even though the cited NIST source supports vector algebra rather than the clinical-mechanical interpretation.",
+      "resolution": "Either describe the results only as signed axial and perpendicular components in an explicitly fictional coordinate model, without identifying them as compression and shear, or define the free body, relevant plane, force-direction and sign assumptions that justify those terms. If the biomechanics interpretation remains, change the scene from no-material-claims to claims-mapped and add a same-scene source note, claim record, and suitable authoritative reference."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#item-transfer-resultant",
+      "finding": "Independent recalculation confirms A = (12.9904,-7.5), R = (17.9904,-11.5), magnitude 21.3519, atan2 direction -32.588 degrees or 327.412 degrees, horizontal scalar projection 17.9904, and triangle bound 21.4031. The answer key correctly handles the clockwise-from-positive-vertical convention, quadrant, units, and bound.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "content/030-worked-example.md#worked-example-directed-span",
+      "finding": "Independent recalculation confirms the resolved components (-15.3209,12.8558), normalized components (-0.7660,0.6428), reconstructed magnitude 20, direction 140 degrees, dot product 10, included angle approximately 47.726 degrees, and scalar projection 3.6. The stated quadrant and zero-vector boundaries are academically correct.",
+      "resolution": "No change required."
+    }
+  ],
+  "limitations": [
+    "The operator-scoped review prohibited inspection of site files and other lesson packs, so the cross-lesson terminology registry, graph node, review schema, quorum policy, and repository-wide validation were not checked. This limits terminology-collision and structural conclusions but does not prevent an academic verdict on the frozen pack.",
+    "The reviewer has general mathematical and physical-science competence but does not claim specialist clinical-biomechanics credentials. No biomechanics source was present in references.json; that inaccessible supporting evidence is itself material to the major finding.",
+    "All thirteen files in the frozen lesson pack were read from candidate commit ecef30b0584f5968b06bb7d5990fc379f2dbf77a, and no scoped working-tree differences from that commit were detected."
+  ],
+  "signedAt": "2026-07-24T21:01:12Z"
+}
