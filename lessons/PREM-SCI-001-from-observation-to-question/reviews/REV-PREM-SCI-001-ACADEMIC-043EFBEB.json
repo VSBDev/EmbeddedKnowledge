@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-SCI-001-ACADEMIC-043EFBEB",
+  "lessonId": "PREM-SCI-001",
+  "lessonVersion": "0.2.0",
+  "candidateCommit": "e6b109713ddaf7fd36d9e19a9d3709e61ae88bd5",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable operator, academic reviewer",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-SCI-001-043EFBEB-878A-4C8B-8F97-007B503B067C",
+      "instructionsDigest": "sha256:ec0e31e003ec68f9255193620e6fab5a32d2a7d6f8c8ca2f434bfc9afcd4fe23"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#objectives",
+    "lesson.json#scenes",
+    "content/01-notice.md#notice-before-you-explain",
+    "content/02-build.md#worked-example-apple-question",
+    "content/02-build.md#empirical-questions-and-falsifiable-claims",
+    "content/03-practise.md#check-retrieve-builder",
+    "content/03-practise.md#misconception-cause-makes-testable",
+    "content/03-practise.md#independent-practice",
+    "content/04-transfer.md#carry-the-skill-into-a-new-setting",
+    "content/04-transfer.md#mastery-check",
+    "content/05-clinical-wrap-up.md#1-keep-the-observation-separate-from-the-explanation",
+    "content/05-clinical-wrap-up.md#2-construct-one-bounded-testable-question",
+    "content/05-clinical-wrap-up.md#3-evaluate-testability-without-designing-the-study",
+    "assessment.json#item-observation-or-explanation",
+    "assessment.json#item-construct-question",
+    "assessment.json#item-evaluate-transfer-question",
+    "assessment.json#rubric-observation-or-explanation",
+    "assessment.json#rubric-construct-question",
+    "assessment.json#rubric-evaluate-transfer-question",
+    "claims.json#claim-observation-explanation",
+    "claims.json#claim-empirical-question",
+    "claims.json#claim-bounded-question",
+    "claims.json#claim-question-claim-boundary",
+    "claims.json#claim-description-not-causation",
+    "claims.json#claim-multiple-scientific-methods",
+    "references.json#source-nrc-framework",
+    "glossary.json#term-observation",
+    "glossary.json#term-inference",
+    "glossary.json#term-empirical",
+    "glossary.json#term-testable-question",
+    "glossary.json#term-boundary",
+    "glossary.json#term-hypothesis",
+    "ATTRIBUTION.md#sources-and-reuse",
+    "course/PREMED-SYLLABUS.md#QRS-100",
+    "source-nrc-framework public Chapter 3, pp. 43–61, https://www.nationalacademies.org/read/13165/chapter/7"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "content/05-clinical-wrap-up.md#1-keep-the-observation-separate-from-the-explanation",
+      "finding": "The clinical wrap-up teaches material propositions already represented by claim-observation-explanation, claim-empirical-question, claim-bounded-question, and claim-description-not-causation: it distinguishes a record from a causal explanation, identifies measurable variables and a feasible comparison, and states that an open empirical question permits several possible results. However, lesson.json declares scene-clinical-wrap-up as no-material-claims, claims.json maps none of those claims to the scene, and the scene has no learner-visible source note. This is a false no-material-claims declaration and leaves the complete clinical synthesis without the evidence trace required for its academic teaching claims.",
+      "resolution": "Change lesson.json#scene-clinical-wrap-up to claims-mapped, add scene-clinical-wrap-up to every applicable claim in claims.json, and add a same-scene source note in content/05-clinical-wrap-up.md listing those claims and source-nrc-framework. If any clinical proposition beyond the existing claims is intended, add a separately scoped claim and an appropriate supporting source."
+    },
+    {
+      "severity": "minor",
+      "target": "content/02-build.md#worked-example-apple-question",
+      "finding": "The central worked question asks for a difference in time to reach browning level 3 within 60 minutes, while its check treats no slice reaching level 3 as a possible result. For a slice that does not reach the threshold, the event time is not observed within the window, so an ordinary difference in times cannot be calculated without defining a censored result. The proposed record is therefore incomplete for one of the outcomes the example explicitly permits.",
+      "resolution": "Define the record as time to level 3 or not reached by 60 minutes and phrase the question to accommodate that categorical/censored outcome, or replace it with a record observable for every slice, such as browning level at 60 minutes."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#items",
+      "finding": "The three answer keys and rubrics correctly assess the declared academic performances: separating a measured record from a mechanism, constructing a neutral bounded empirical question, and repairing loaded causal or undefined wording. The item points sum to the stated ten-point mastery total, and the acceptable responses do not require a scientifically false causal shortcut.",
+      "resolution": "No change required."
+    }
+  ],
+  "limitations": [
+    "The exact generated atomic graph-node wording and course terminology-collision ledger were not checked because site/ was expressly excluded from this run; broad route alignment was checked against course/PREMED-SYLLABUS.md#QRS-100.",
+    "Repository and schema validation were not run because scripts/ and site/ were expressly excluded; this verdict addresses academic accuracy, evidence, scope, and assessment logic rather than structural validation.",
+    "This run did not perform accessibility-and-rights review or adjudication. The sole declared academic source was independently checked through its permitted public online chapter, and no human-only source was encountered."
+  ],
+  "signedAt": "2026-07-24T18:57:32Z"
+}
