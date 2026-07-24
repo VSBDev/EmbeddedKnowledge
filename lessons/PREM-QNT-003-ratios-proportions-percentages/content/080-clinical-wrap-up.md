@@ -37,3 +37,18 @@ Change the reference and the percentage changes. With **syringe capacity** as th
 If the invented protocol trims the dose from $10\text{ mg}$ to $8\text{ mg}$, the starting dose is the denominator: $\dfrac{10-8}{10}\times100\%=20\%$ decrease. It is not a 2 percent change, and it is not 2 percentage points; percentage points compare two percentages.
 
 The arithmetic is correct for these invented figures only. It is not a real prescription.
+
+:::{check}
+:id: check-clinical-reference-choice
+
+Before reading the feedback, explain why the same illustrative dose is 20% of the vial content but 4% of the syringe capacity.
+
+**Feedback after an attempt:** The numerator describes the same dose in each comparison, but the denominator that represents 100% changes. Vial content and syringe capacity answer different part-whole questions, so their percentages need not match.
+:::
+
+:::{source-note}
+:claims: claim-ratio-quotient, claim-proportion-equation, claim-percentage-part-whole, claim-percent-change-reference, claim-percentage-point-difference
+:sources: source-nist-si-chapter8, source-moj-percentage-comparisons
+
+NIST supports the ordered quotient and per-hundred relationships; the equal-ratio equation and substitution check are direct algebraic consequences. The Ministry of Justice report supports the starting-reference and percentage-point distinctions. The scenario, values, and clinical boundary wording are original.
+:::

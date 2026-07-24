@@ -18,15 +18,19 @@ OpenAI Codex authored, researched, edited, and packaged this lesson in one autho
 
 The digest identifies `/tmp/codex-packager-prompt-03-03.md`; it excludes unavailable hidden instructions. The two isolated advisory reviews are disclosed in `reviews/`.
 
-## Post-review finalization
+## Prior-version and current finalization
 
-A fresh finalizer made the single post-review content revision, completed the accessibility-and-rights audit, and wrote `adjudication.json` in run `codex-finalizer-PREM-QNT-003-D0E024C6-297A-4960-91F3-100AD958FA6A`. Its material-instructions digest is `sha256:3c91af3a17d0ad76c37bebf1717cdfcea9dd4d9b2c30989d2adcc15d732ed193`. The adjudication intentionally leaves the four runtime identity fields as `RUNTIME-STAMPED` for the accountable operator to replace from the runtime banner.
+Version 0.1.0 was finalized in run `codex-finalizer-PREM-QNT-003-D0E024C6-297A-4960-91F3-100AD958FA6A` with material-instructions digest `sha256:3c91af3a17d0ad76c37bebf1717cdfcea9dd4d9b2c30989d2adcc15d732ed193`. Its adjudication was cleared when the clinical-framing revision created candidate version 0.2.0, so it does not count toward this version's review gate.
+
+For version 0.2.0, a fresh finalizer made the single post-review content revision, completed the accessibility-and-rights audit, and wrote `adjudication.json` in run `codex-finalizer-PREM-QNT-003-1BF2B579-1995-4B20-AB55-3CE798195EC2`. Its material-instructions digest is `sha256:5040d4e2b06dd95d17e462e21e375892222330c7c02b0aa649cf745163f60cd7`. The adjudication intentionally leaves the four runtime identity fields as `RUNTIME-STAMPED` for the accountable operator to replace from the runtime banner.
 
 ## Originality, sources, and rights
 
-The reference-first structure, archive opening, queue example, pass-fraction misconception, bead transfer, all values, explanations, feedback, recovery routes, and assessment content are original. All settings are fictional. NIST Chapter 8 supports quotient relations; the first-edition OpenStax *Prealgebra* supports proportions, per-hundred percentages, and change from an original amount; NIST's measurement-scale page supports the meaningful-zero boundary; and the UK Ministry of Justice report supplies a published percentage-point versus relative-change distinction. These sources are used only for facts. No source wording, table, image, data, example, or sequence is copied or adapted.
+The reference-first structure, archive opening, queue example, pass-fraction misconception, bead transfer, all values, explanations, feedback, recovery routes, and assessment content are original. All settings are fictional. NIST Chapter 8 supports quotient and per-hundred relations; equal-ratio equations and substitution checks are direct algebraic consequences; NIST's measurement-scale page supports the meaningful-zero boundary; and the UK Ministry of Justice report supplies the starting-reference and percentage-point versus relative-change distinctions. These sources are used only for facts. No source wording, table, image, data, example, or sequence is copied or adapted.
 
-The displayed licences, terms routes, and public access conditions for NIST, OpenStax, and GOV.UK were checked before access on 2026-07-22. No source-specific agent prohibition, login, paywall, or access-control barrier was found. No third-party assets, datasets, personal data, or patient material are included.
+The original 0.2.0 candidate cited OpenStax, but academic review found a current restriction on agent ingestion. Finalization therefore removed OpenStax from the source registry and every retained claim and source note. No quotation, adaptation, media, dataset, or source-specific example from OpenStax is retained.
+
+The displayed licences, terms routes, and public access conditions for the retained NIST and GOV.UK sources were checked before access on 2026-07-22. No source-specific agent prohibition, login, paywall, or access-control barrier was found for those retained sources. No third-party assets, datasets, personal data, or patient material are included.
 
 This mathematical lesson provides no clinical advice and makes no claim of review, approval, publication, measured effectiveness, credit, or competence.
 

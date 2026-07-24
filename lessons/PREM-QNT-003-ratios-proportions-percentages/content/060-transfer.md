@@ -30,7 +30,7 @@ Check: a 38.89% increase applied to 30% gives about 41.67%. If you kept 60 as th
 
 :::{source-note}
 :claims: claim-ratio-quotient, claim-percentage-part-whole, claim-percent-change-reference, claim-percentage-point-difference
-:sources: source-nist-si-chapter8, source-openstax-prealgebra-ch6, source-moj-percentage-comparisons
+:sources: source-nist-si-chapter8, source-moj-percentage-comparisons
 
 The sources support the ratio, part-whole, and two change comparisons. The bead record, numbers, solution, and checks are fictional original material.
 :::

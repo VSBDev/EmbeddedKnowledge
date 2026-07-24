@@ -25,7 +25,7 @@ Then complete `assessment.json`. If ratio order fails, return to “Keep the rat
 
 :::{source-note}
 :claims: claim-ratio-quotient, claim-proportion-equation, claim-percentage-part-whole, claim-percent-change-reference, claim-percentage-point-difference, claim-relative-change-domain
-:sources: source-nist-si-chapter8, source-openstax-prealgebra-ch6, source-nist-metrics-measures, source-moj-percentage-comparisons
+:sources: source-nist-si-chapter8, source-nist-metrics-measures, source-moj-percentage-comparisons
 
 The sources support the quotient, proportion, percentage, point-versus-relative-change, change-reference, and measurement-scale boundaries summarized here. The reference-first procedure and retrieval wording are original and make no claim of measured effectiveness.
 :::

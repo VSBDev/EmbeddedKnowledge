@@ -28,7 +28,7 @@ If the first five minutes include a fixed startup delay, would direct proportion
 
 :::{source-note}
 :claims: claim-ratio-quotient, claim-proportion-equation
-:sources: source-nist-si-chapter8, source-openstax-prealgebra-ch6
+:sources: source-nist-si-chapter8
 
-The sources support ordered quotient and equivalent-ratio reasoning. The worked example is original and does not claim the fictional rate is empirical.
+NIST supports quotient-defined ratios; the equivalent-ratio equation and substitution check are direct algebraic consequences. The worked example is original and does not claim the fictional rate is empirical.
 :::
