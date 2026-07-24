@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "adjudicationId": "ADJ-PREM-QNT-005-FINAL-35059007-B3D0-4D77-8501-10E53D7F0DB7",
+  "lessonId": "PREM-QNT-005",
+  "lessonVersion": "0.2.0",
+  "candidateCommit": "e3df3a4e2856377a10ba7b910fbc472a330a7426",
+  "finalCommit": "0b7d6f31741c852979fe0f8418a556b62ee877b0",
+  "riskTier": "standard",
+  "policyId": "standard-lesson-v3",
+  "reviewIds": [
+    "REV-PREM-QNT-005-ACADEMIC-6CDCE67E-D5E4-4A2B-A095-8619B935EE70",
+    "REV-PREM-QNT-005-LEARNING-DESIGN-65B6B60B"
+  ],
+  "quorum": {
+    "satisfied": true,
+    "approvals": 0,
+    "reviewInputs": 2,
+    "changeRequests": 2,
+    "roleCounts": {
+      "academic": 1,
+      "learningDesign": 1,
+      "accessibilityRights": 0
+    },
+    "distinctPrincipals": 1,
+    "distinctAgentRuns": 2,
+    "distinctAgentModelFamilies": 2
+  },
+  "decision": "merge",
+  "finalization": {
+    "materialChanges": [
+      "Changed the clinical wrap-up to claims-mapped, mapped all three applicable claims to it, added its complete learner-visible source note, linked its glossary terms, and made every microbiology detail an explicit fictional mathematical input.",
+      "Added one NIST Digital Library of Mathematical Functions reference for power definitions, identities, and principal-value boundaries; replaced the unsupported exponent-law claim link to the notation-only NIST source and updated every affected scene source note.",
+      "Added a clinical self-explanation check with feedback that distinguishes multiplying repeated reduction factors from adding them.",
+      "Restricted the square-array side count to nonnegative integers while retaining a solve-then-check route over the nonnegative reals."
+    ],
+    "reviewDispositions": [
+      {
+        "reviewId": "REV-PREM-QNT-005-ACADEMIC-6CDCE67E-D5E4-4A2B-A095-8619B935EE70",
+        "findingIndex": 0,
+        "action": "incorporated",
+        "rationale": "The clinical wrap-up is now claims-mapped; claim-power-notation, claim-exponent-laws, and claim-magnitude-check all include scene-clinical-wrap-up; the scene exposes their complete source set; and its domain labels, model, and numbers are explicitly stipulated fictional inputs rather than microbiology assertions."
+      },
+      {
+        "reviewId": "REV-PREM-QNT-005-ACADEMIC-6CDCE67E-D5E4-4A2B-A095-8619B935EE70",
+        "findingIndex": 1,
+        "action": "incorporated",
+        "rationale": "A versioned NIST DLMF reference with exact sections and equation locators now supports the broader power definitions, identities, and principal-value boundary. claim-exponent-laws cites that source as synthesis, the notation-only NIST source no longer supports that claim, and every scene naming the claim lists the DLMF source."
+      },
+      {
+        "reviewId": "REV-PREM-QNT-005-ACADEMIC-6CDCE67E-D5E4-4A2B-A095-8619B935EE70",
+        "findingIndex": 2,
+        "action": "incorporated",
+        "rationale": "The worked model now declares the side count as a nonnegative integer and explicitly solves over the nonnegative reals before checking integrality."
+      },
+      {
+        "reviewId": "REV-PREM-QNT-005-ACADEMIC-6CDCE67E-D5E4-4A2B-A095-8619B935EE70",
+        "findingIndex": 3,
+        "action": "no-change-required",
+        "rationale": "The inverse-square answer remains correct on independent recomputation: 1/(2.4)^2 = 25/144, it lies strictly between 1/9 and 1/4, and the positive inverse factor for one-ninth is 3."
+      },
+      {
+        "reviewId": "REV-PREM-QNT-005-LEARNING-DESIGN-65B6B60B",
+        "findingIndex": 0,
+        "action": "incorporated",
+        "rationale": "The clinical worked example now ends with a check that asks learners to explain the controlling exponent operation before feedback distinguishes multiplication of five tenfold factors from addition."
+      },
+      {
+        "reviewId": "REV-PREM-QNT-005-LEARNING-DESIGN-65B6B60B",
+        "findingIndex": 1,
+        "action": "incorporated",
+        "rationale": "lesson.json now declares scene-clinical-wrap-up claims-mapped, and all three applicable claim records include that scene."
+      },
+      {
+        "reviewId": "REV-PREM-QNT-005-LEARNING-DESIGN-65B6B60B",
+        "findingIndex": 2,
+        "action": "incorporated",
+        "rationale": "The clinical scene now contains a learner-visible source note naming all three mapped claims and their complete supporting set: the NIST notation, DLMF powers, and estimation records."
+      },
+      {
+        "reviewId": "REV-PREM-QNT-005-LEARNING-DESIGN-65B6B60B",
+        "findingIndex": 3,
+        "action": "no-change-required",
+        "rationale": "The frozen candidate identity, version 0.2.0, scene order, objectives, and file mappings were confirmed; the revised pack preserves identity, version, order, objectives, and status."
+      }
+    ],
+    "accessibilityRightsAudit": {
+      "satisfied": true,
+      "evidenceChecked": [
+        "All eight scenes retain one level-one heading, logical source order, text-first explanations, and constrained Markdown directives; the revised pack contains no raw HTML, entities, Markdown images, remote embeds, executable content, or unsafe path references.",
+        "Every mathematical operation needed for the outcome appears as TeX plus nearby prose, reasoning, feedback, or interpretation; no distinction depends on superscript size, color, position, sound, motion, hover, dragging, or timing.",
+        "The added clinical check is a text response with its prompt before canonical feedback, so keyboard, nonvisual, reflow, print, and non-timed routes preserve the learning operation.",
+        "The assessment remains retakeable and untimed, uses text, numeric, or single-choice responses without pointer-only interaction, and every acceptableResponses entry is a JSON string.",
+        "All claims-mapped scenes expose every mapped claim and its complete supporting source set in same-scene source notes; all three references have allowed types, exact dates, HTTPS routes, use records, rights bases, rights evidence, and dated non-human-only agent-access records.",
+        "The added DLMF record is used only for factual support under an original-expression basis; its restrictive reproduction notice is recorded, no source expression or structure was copied, and no bulk copying was performed.",
+        "The lesson grant and attribution identify CC BY 4.0 original content, accountable authorship, material agent assistance, source use, and fictional settings. lesson.json declares no third-party assets, and the pack contains no dataset, image, audio, video, personal data, patient material, or real clinical measurement.",
+        "The clinical boundary states that every domain label, number, and model is fictional mathematical input, provides no care instruction, and makes no microbiology or clinical-practice assertion.",
+        "The finalizer run ID was absent from the candidate, author provenance, and both review artifacts before this adjudication; the two review artifacts remain byte-unchanged in the working tree."
+      ],
+      "limitations": [
+        "The operator prohibited reads under site/ and prohibited npm, so the public adjudication/review schemas, graph and terminology ledgers, quorum-policy file, strict source preflight, and repository validator were not executed or independently inspected in this run; pack-local JSON, relationship, field, and arithmetic checks passed.",
+        "No rendered browser, screen reader, keyboard-only interface, 200% zoom/reflow, reduced-motion mode, print output, or planned non-web export was physically tested; the audit is of canonical static Markdown and JSON.",
+        "No real learner testing or microbiology protocol review was performed. The lesson avoids relying on either by limiting the clinical wrap-up to explicitly fictional arithmetic inputs.",
+        "Source-access and rights records are dated observations, not legal assurances. Agent providers, models, GitHub transports, and run isolation are disclosed and attested by the accountable operator rather than independently verified."
+      ]
+    }
+  },
+  "rationale": "The original candidate was inspected at e3df3a4e2856377a10ba7b910fbc472a330a7426, and its teaching files matched the frozen blobs before revision. The two eligible advisory inputs comprise the required academic and learning-design roles across two declared runs and providers; both requested changes, so approvals are zero and change requests are two. Every indexed finding is disposed above. The final revision corrects the false clinical evidence state, replaces an unsupported claim-to-source link with exact NIST DLMF support plus an internal real-domain derivation, repairs the count domain, and adds the missing self-explanation check without changing lesson identity, version, status, or unrelated teaching. Pack-local parsing, claim/source completeness, field limits, answer types, raw-Markdown safety, and all reviewed arithmetic passed, and the final accessibility-and-rights audit found no unresolved content, access, rights, privacy, or security blocker. Merge is therefore warranted subject to the explicit operator-only commit stamping, official validation, and GitHub-equivalence conditions below. The reviews do not approve the final edits, principal-level independence is absent, and provenance diversity remains attested rather than verified.",
+  "dissent": [
+    "Both eligible reviewers returned request-changes; their six change findings were incorporated, but neither reviewer inspected or approved the finalizer's resulting edit.",
+    "The learning-design reviewer declared that github:VSBDev was also the candidate author, so principal-level independence is absent even though the founding-stage policy permits one accountable principal with isolated runs.",
+    "No real learner, assistive-technology user, microbiology specialist, or independent rights counsel evaluated the final pack."
+  ],
+  "conditions": [
+    "The operator must commit this finalized lesson content together with both cited review artifacts, replace PENDING-FINAL-COMMIT with that exact 40-character commit SHA, and make no teaching-content change after the recorded final commit.",
+    "Before merge, the operator must run the required strict source preflight and repository/schema validation and confirm that both supplied COMMENTED GitHub review submissions remain equivalent and non-dismissed; any failure requires a revise decision rather than silent waiver.",
+    "Only the maintainer may perform the later publication transition for lesson status, source confidence, and retained claim review-status fields."
+  ],
+  "adjudicator": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable fresh finalizer and adjudicator",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-finalizer-PREM-QNT-005-35059007-B3D0-4D77-8501-10E53D7F0DB7",
+      "instructionsDigest": "sha256:27a2e97edec013e2d2dd7f9a48aee9324abf359522b9decfe6bb8619d459ef65"
+    }
+  },
+  "adjudicatedAt": "2026-07-24T22:48:07Z"
+}
