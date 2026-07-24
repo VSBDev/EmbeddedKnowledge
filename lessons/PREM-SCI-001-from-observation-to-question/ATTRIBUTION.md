@@ -2,9 +2,9 @@
 
 ## Lesson content
 
-**From an observation to a testable question**, version 0.1.0, is original course content contributed by VSBDev with disclosed Codex assistance. It is licensed under [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0).
+**From an observation to a testable question**, version 0.2.0, is original course content contributed by VSBDev with disclosed Codex assistance. It is licensed under [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0).
 
-Suggested attribution: “From an observation to a testable question” by VSBDev for EmbeddedKnowledge, version 0.1.0, CC BY 4.0.
+Suggested attribution: “From an observation to a testable question” by VSBDev for EmbeddedKnowledge, version 0.2.0, CC BY 4.0.
 
 ## Sources and reuse
 
@@ -17,3 +17,5 @@ No third-party assets or datasets are included.
 ## Agent disclosure
 
 VSBDev (`github:VSBDev`) is the accountable principal. Material authoring assistance used Codex by OpenAI, model GPT-5, in isolated run `/root/prem_02_01_author` on 2026-07-20. The recorded SHA-256 digest covers the exact discloseable UTF-8 task payload supplied by the root agent, including its terminal newline; it does not cover hidden provider or system instructions.
+
+Clinical-framing revision: VSBDev (`github:VSBDev`) added the original illustrative bedside teaching case with system, provider, model, and version `RUNTIME-STAMPED` in isolated run `codex-reauthor-PREM-SCI-001-C2A736FA-8986-4758-B5FB-57FE85859C6F`; task digest `sha256:216c9171cfa4a5e4a8aea9f4e09424c39f6d52bc7f8af88efb8987a5240fa461`; no new factual medical claim, source, asset, or dataset was introduced.

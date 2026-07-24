@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-SCI-001-LEARNING-DESIGN-9A767962",
+  "lessonId": "PREM-SCI-001",
+  "lessonVersion": "0.2.0",
+  "candidateCommit": "e6b109713ddaf7fd36d9e19a9d3709e61ae88bd5",
+  "role": "learning-design",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.6",
+      "runId": "agy-learning-design-PREM-SCI-001-9A767962-62EA-4BEE-BA94-2FB37F5B4361",
+      "instructionsDigest": "sha256:7c8492a84279db13bc3e09d22c36bf7c2434202b119bf4ecbe6b870238cf26bd"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lessons/PREM-SCI-001-from-observation-to-question/lesson.json",
+    "lessons/PREM-SCI-001-from-observation-to-question/content/01-notice.md",
+    "lessons/PREM-SCI-001-from-observation-to-question/content/02-build.md",
+    "lessons/PREM-SCI-001-from-observation-to-question/content/03-practise.md",
+    "lessons/PREM-SCI-001-from-observation-to-question/content/04-transfer.md",
+    "lessons/PREM-SCI-001-from-observation-to-question/content/05-clinical-wrap-up.md",
+    "lessons/PREM-SCI-001-from-observation-to-question/assessment.json",
+    "lessons/PREM-SCI-001-from-observation-to-question/claims.json",
+    "lessons/PREM-SCI-001-from-observation-to-question/glossary.json",
+    "lessons/PREM-SCI-001-from-observation-to-question/references.json",
+    "lessons/PREM-SCI-001-from-observation-to-question/ATTRIBUTION.md",
+    "CONTENT-STANDARD.md",
+    "RIGHTS-POLICY.md"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "lesson.json#scene-clinical-wrap-up",
+      "finding": "In lesson.json, the new scene 'scene-clinical-wrap-up' is declared with 'claimCoverage': 'no-material-claims'. However, the scene's content in content/05-clinical-wrap-up.md actively teaches and applies core material claims of the lesson, including the observation/explanation distinction, constructing a bounded question, and non-causal interpretation. CONTENT-STANDARD.md section 4.3 explicitly states that repetition in synthesis or transfer does not make a sourced teaching claim cease to be material, and that 'no-material-claims' is reserved only for scenes limited to routing, instructions, reflection, or other non-evidentiary actions. Declaring this synthesis scene as containing no material claims violates this standard.",
+      "resolution": "Change the 'claimCoverage' field for 'scene-clinical-wrap-up' in lesson.json to 'claims-mapped'. Then, update the 'sceneIds' lists in claims.json for the applicable claims (claim-observation-explanation, claim-empirical-question, claim-bounded-question, and claim-description-not-causation) to include 'scene-clinical-wrap-up'."
+    },
+    {
+      "severity": "major",
+      "target": "content/05-clinical-wrap-up.md#section-3",
+      "finding": "Under the section '3. Evaluate testability without designing the study' in content/05-clinical-wrap-up.md, the text introduces new terms 'Measurable variables' and 'Feasible comparison' rather than using the established four-part question builder terms ('case or contrast', 'observable record', 'boundary', 'open outcome') taught in 02-build.md and practiced throughout the lesson. Furthermore, 01-notice.md explicitly states that 'variables' are deferred to later lessons. This terminology drift violates the coherence standard in CONTENT-STANDARD.md section 4.1, which mandates keeping the same name for the same entity and avoiding synonyms for stylistic variety when terminology carries identity.",
+      "resolution": "Revise Section 3 of content/05-clinical-wrap-up.md to map the evaluation directly to the four parts of the question builder (contrast, observable record, boundaries, open outcome) instead of introducing 'Measurable variables' and 'Feasible comparison' at this stage."
+    },
+    {
+      "severity": "minor",
+      "target": "glossary.json",
+      "finding": "The new scene 'scene-clinical-wrap-up' uses the glossary terms 'observation', 'testable question' (as 'testable question' and 'empirical question'), and 'boundary' (as 'next-morning boundary'). However, in glossary.json, these entries (term-observation, term-testable-question, term-boundary) do not include 'scene-clinical-wrap-up' in their 'sceneIds' lists. This results in incomplete glossary-to-scene navigation mapping for the updated lesson.",
+      "resolution": "Add 'scene-clinical-wrap-up' to the 'sceneIds' arrays for term-observation, term-testable-question, and term-boundary in glossary.json."
+    },
+    {
+      "severity": "minor",
+      "target": "ATTRIBUTION.md",
+      "finding": "In ATTRIBUTION.md at lines 5 and 7, the text references 'version 0.1.0' for the lesson (e.g., 'From an observation to a testable question, version 0.1.0, is original course content...'). However, this commit updates the lesson version to 0.2.0 in lesson.json and all other metadata files. This creates an internal version inconsistency in the attribution documentation.",
+      "resolution": "Update the lesson version references in the main body of ATTRIBUTION.md from 0.1.0 to 0.2.0."
+    }
+  ],
+  "limitations": [
+    "Checked only K-12 NRC Framework references as provided; did not perform a broad literature review of clinical pedagogy.",
+    "First-read flow simulated from an agent perspective; real student comprehension testing is outside the scope of this review."
+  ],
+  "signedAt": "2026-07-24T19:00:22Z"
+}
