@@ -16,7 +16,7 @@ This distinction separates an operation from a solution set. Always substitute c
 
 :::{source-note}
 :claims: claim-exponent-laws
-:sources: source-nist-sp811-notation
+:sources: source-nist-dlmf-powers
 
-The sign-boundary explanation is original mathematical synthesis built on conventional exponent notation.
+The NIST Digital Library of Mathematical Functions supports the principal-value boundary for powers and roots. The sign-boundary explanation and examples are original mathematical synthesis specialized to real numbers.
 :::

@@ -20,8 +20,10 @@ The digest identifies `/tmp/codex-packager-prompt-03-05.md`; hidden provider or 
 
 ## Originality, evidence, and rights
 
-The scale-map structure, detector opening, square-array example, sign misconception, cubic transfer, all values, feedback, recovery routes, and assessments are original. All settings are fictional. NIST sources are used only for facts about power-of-ten notation and estimation's role in magnitude/reasonableness checks. No source expression, example, table, or image is copied or adapted.
+The scale-map structure, detector opening, square-array example, sign misconception, cubic transfer, clinical wrap-up, all values, feedback, recovery routes, and assessments are original. All settings are fictional. NIST sources are used only for facts about power-of-ten notation, estimation's role in magnitude/reasonableness checks, and the definitions, identities, and principal-value boundaries for powers. No source expression, example, table, or image is copied or adapted.
 
-NIST rights, technical-series licensing, and public robots routes were checked before access on 2026-07-22. No agent restriction, login, paywall, or access-control barrier was found. No third-party assets, datasets, personal data, or patient material are included.
+NIST rights, DLMF notices, technical-series licensing, and public access routes were checked before substantive use on the dates recorded in `references.json`. No agent restriction, login, paywall, or access-control barrier was found, and no bulk copying was performed. No third-party assets, datasets, personal data, or patient material are included.
 
 This mathematical lesson provides no clinical advice and makes no claim of review, approval, publication, measured effectiveness, credit, or competence.
+
+Clinical-framing revision: VSBDev (`github:VSBDev`) added an original illustrative microbiology serial-dilution and squared-signal wrap-up applying the existing exponent laws, principal-root inversion over $c>0$, and order-of-magnitude check, with system, provider, model, and version `RUNTIME-STAMPED` in isolated run `codex-reauthor-PREM-QNT-005-BA4C0686-BB38-4CD6-A9ED-BA4AAE3FBFDF`; task digest `sha256:52d72460aeba619d8b76c9db651da359d3f619e1a061112d7ff3069afb151e6b`; no real organism, real titre, patient data, new factual medical claim, external source, third-party asset, or dataset was introduced.

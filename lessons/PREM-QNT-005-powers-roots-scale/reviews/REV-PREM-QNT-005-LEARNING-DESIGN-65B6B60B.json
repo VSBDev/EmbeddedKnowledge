@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-QNT-005-LEARNING-DESIGN-65B6B60B",
+  "lessonId": "PREM-QNT-005",
+  "lessonVersion": "0.2.0",
+  "candidateCommit": "e3df3a4e2856377a10ba7b910fbc472a330a7426",
+  "role": "learning-design",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev (learning-design reviewer)",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.6",
+      "runId": "agy-learning-design-PREM-QNT-005-65B6B60B-5575-482E-ACCE-3C286CDCE145",
+      "instructionsDigest": "sha256:02d6fc380b5b527a8b9e814f8f9b2e4a0dd6a388d665d59533898a65038957ce"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "The accountable principal github:VSBDev is the author of this candidate commit, so principal-level independence is absent. However, agent-level role isolation has been maintained: this agent did not consult any other role reviews or adjudication drafts in the current run."
+  },
+  "evidenceChecked": [
+    "lessons/PREM-QNT-005-powers-roots-scale/lesson.json",
+    "lessons/PREM-QNT-005-powers-roots-scale/claims.json",
+    "lessons/PREM-QNT-005-powers-roots-scale/references.json",
+    "lessons/PREM-QNT-005-powers-roots-scale/glossary.json",
+    "lessons/PREM-QNT-005-powers-roots-scale/ATTRIBUTION.md",
+    "lessons/PREM-QNT-005-powers-roots-scale/content/010-orientation.md",
+    "lessons/PREM-QNT-005-powers-roots-scale/content/020-concept.md",
+    "lessons/PREM-QNT-005-powers-roots-scale/content/030-worked-example.md",
+    "lessons/PREM-QNT-005-powers-roots-scale/content/040-misconception.md",
+    "lessons/PREM-QNT-005-powers-roots-scale/content/050-practice.md",
+    "lessons/PREM-QNT-005-powers-roots-scale/content/060-transfer.md",
+    "lessons/PREM-QNT-005-powers-roots-scale/content/070-synthesis.md",
+    "lessons/PREM-QNT-005-powers-roots-scale/content/080-clinical-wrap-up.md",
+    "lessons/PREM-QNT-005-powers-roots-scale/assessment.json",
+    "CONTENT-STANDARD.md"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-005-powers-roots-scale/content/080-clinical-wrap-up.md#L1-L40",
+      "finding": "The scene 'scene-clinical-wrap-up' is designated as a 'worked-example' scene in 'lesson.json', but its source file 'content/080-clinical-wrap-up.md' contains no interactive check block (':::{check}') or self-explanation prompt. Section 5.1 of CONTENT-STANDARD.md requires worked examples to include a self-explanation prompt about the decision that most strongly determines the solution, prompting the learner to active retrieval or reflection before proceeding.",
+      "resolution": "Wrap a diagnostic question at the end of the scene in a ':::{check}' block (e.g., asking the learner to explain why squaring a concentration drop factor of 10 results in a 100-fold signal drop, or why a tenfold dilution repeated five times reduces concentration by exactly 5 orders of magnitude) and supply corresponding feedback inside the check block."
+    },
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-005-powers-roots-scale/lesson.json#L112-L120",
+      "finding": "In 'lesson.json', the scene 'scene-clinical-wrap-up' is declared with 'claimCoverage': 'no-material-claims'. However, the scene's source file ('content/080-clinical-wrap-up.md') explicitly applies and teaches the quantitative claims of exponent laws (power-of-a-power rule and product-of-powers rule), principal roots, and order-of-magnitude checks in a clinical context. Under Section 12.3 of CONTENT-STANDARD.md, a scene can only be declared as containing no material claims if it is limited to routing, instructions, reflection, or another non-evidentiary learning action.",
+      "resolution": "Change the 'claimCoverage' field of 'scene-clinical-wrap-up' in 'lesson.json' to 'claims-mapped' and map it to the respective claim IDs in 'claims.json' (adding the scene ID to the 'sceneIds' lists for 'claim-power-notation', 'claim-exponent-laws', and 'claim-magnitude-check')."
+    },
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-005-powers-roots-scale/content/080-clinical-wrap-up.md#L40",
+      "finding": "The clinical wrap-up scene applies several quantitative claims (such as exponent laws, power notation, and magnitude checks) but lacks a ':::{source-note}' block mapping these applications to their verified sources. According to Section 12.3 of CONTENT-STANDARD.md, teaching statements must be treated as material claims, mapped to structured sources, and exposed in the scene where the learner applies the claim.",
+      "resolution": "Add a ':::{source-note}' block at the end of 'content/080-clinical-wrap-up.md' mapping the clinical wrap-up calculations to the respective claims and sources (e.g. 'claim-power-notation', 'claim-exponent-laws', and 'claim-magnitude-check', citing 'source-nist-sp811-notation' and 'source-nist-estimation')."
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-QNT-005-powers-roots-scale/lesson.json",
+      "finding": "The candidate commit matches the expected target. The overall lesson structure, scene order, objectives, and file mappings are correctly declared in the lesson metadata, and the version is correctly aligned as '0.2.0'.",
+      "resolution": null
+    }
+  ],
+  "limitations": [
+    "Expert-simulation review: This review represents a single-pass advisory input by a simulated learning-design expert under standard-lesson-v3 guidelines. No real learner testing was conducted.",
+    "Conflict of interest: The same GitHub principal (VSBDev) is responsible for the authoring and review run operators. Agent-level isolation was maintained, but principal-level independence is absent.",
+    "Scope restriction: The review is strictly bounded to learning-design metrics (e.g., clarity, coherence, practice, alignment, and transfer). Scientific accuracy, rights audits, and final typesetting checks are excluded.",
+    "Technical verification limits: No rendered build environment, screen reader, or keyboard navigation pathways were evaluated physically; findings are based solely on the static Markdown and JSON source files.",
+    "Cross-lesson terminology validation limits: Due to strict scope restrictions prohibiting reads under site/ and scripts/, site/data/premed-terminology.json could not be inspected and npm validation scripts could not be executed."
+  ],
+  "signedAt": "2026-07-24T22:42:36Z"
+}

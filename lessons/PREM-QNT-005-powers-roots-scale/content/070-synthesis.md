@@ -17,7 +17,7 @@ Complete `assessment.json`. If laws are mixed, return to the repeated-factor exp
 
 :::{source-note}
 :claims: claim-power-notation, claim-exponent-laws, claim-magnitude-check
-:sources: source-nist-sp811-notation, source-nist-estimation
+:sources: source-nist-sp811-notation, source-nist-dlmf-powers, source-nist-estimation
 
-The synthesis combines conventional power notation and magnitude checking through an original scale-map procedure.
+The NIST sources support power-of-ten notation, the power definitions and identities, and magnitude checking. The synthesis combines them through an original scale-map procedure.
 :::
