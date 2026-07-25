@@ -1,0 +1,1025 @@
+{
+  "schemaVersion": 3,
+  "format": "embeddedknowledge-lesson-v1",
+  "artifactType": "production-lesson",
+  "id": "PREM-STA-002",
+  "version": "0.1.0",
+  "title": "Look before you summarise: tables and graphical displays",
+  "status": "draft",
+  "riskTier": "standard",
+  "estimatedMinutes": 180,
+  "outcomes": [
+    "topic-statistics-data-graphs-tables"
+  ],
+  "prerequisites": [
+    "topic-statistics-data-data-types",
+    "topic-quantitative-foundations-functions-graphs"
+  ],
+  "objectives": [
+    {
+      "id": "objective-select-a-display",
+      "statement": "Select a display for a stated question by naming how many variables it involves, what kind each variable is, and whether the reader needs exact values or a pattern, and justify the choice against at least one rejected alternative.",
+      "outcomeIds": [
+        "topic-statistics-data-graphs-tables"
+      ]
+    },
+    {
+      "id": "objective-read-a-distribution",
+      "statement": "Read a histogram of one quantitative variable to report the number of modes, the location of the centre, the spread, the direction of any lean, and any candidate outliers, and state which of those features a single summary value does not carry.",
+      "outcomeIds": [
+        "topic-statistics-data-graphs-tables"
+      ]
+    },
+    {
+      "id": "objective-read-an-association",
+      "statement": "Read a scatter plot of two quantitative measurements to describe the direction, form, and strength of the pattern and to identify unusual points, and state what the plot leaves undetermined.",
+      "outcomeIds": [
+        "topic-statistics-data-graphs-tables"
+      ]
+    },
+    {
+      "id": "objective-audit-axes-and-bins",
+      "statement": "Diagnose how a truncated numerical axis or a chosen bin width has changed the impression a chart gives, quantify the distortion where the values are available, and state the repair.",
+      "outcomeIds": [
+        "topic-statistics-data-graphs-tables"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene-sixty-rows",
+      "title": "Sixty rows, and nothing summarised yet",
+      "kind": "orientation",
+      "source": "content/010-sixty-rows.md",
+      "estimatedMinutes": 14,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Sixty rows, and nothing summarised yet</h1>\n<p>The dinner-timing study spent eleven lessons being designed. Now the file exists: sixty rows, one per adult with type 2 diabetes, and columns that were argued over long before anyone collected a number. Hours between dinner and sleep. Next-morning fasting glucose in mg/dL. Sex. An adherence rating from 1 to 4. How many nights each person actually recorded.</p>\n<p>A spreadsheet will average any column in two seconds. Fasting glucose averages 142 mg/dL.</p>\n<p>That number is correct and it settles almost nothing. It is equally consistent with sixty people clustered tightly around 142, with thirty people near 110 and thirty near 174, and with fifty-nine people near 138 plus one person at 380. Those are three different clinics with three different problems, and 142 describes all of them.</p>\n<p>So the first job with a new dataset is not to summarise it. It is to look at it in a way that would show you if something surprising were there.</p>\n<h2>What you will be able to do</h2>\n<p>By the end of this lesson you will be able to pick a display that matches the kind of variable and the question being asked; read a histogram for shape, centre, spread, outliers, and separate groups; read a scatter for the direction and strength of a relationship between two measurements; decide when a table serves a reader better than any picture; and name what a truncated axis or a badly chosen bin width has done to a chart someone else drew.</p>\n<h2>Bring forward two things you already have</h2>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-prerequisite-columns</span></div>\n    <div class=\"ek-block-content\"><p>Take three of the study&#39;s columns: fasting glucose in mg/dL, sex recorded as female or male, and adherence rated 1 to 4.</p>\n<p>For each one, say whether the values are categories or quantities, and whether the gaps between neighbouring values mean anything. Then say which of the three you could sensibly take an average of.</p>\n<p>Separately, from your work on graphs: what do the two axes of a plot have to tell you before you can read a single point off it?</p>\n</div>\n  </aside>\n<p>Fasting glucose is a quantity measured on a scale where the distance from 130 to 140 means the same as the distance from 150 to 160, so an average makes sense. Sex as recorded here is a category with no order, so an average is meaningless; counts are what you can report. Adherence is ordered but the step from 1 to 2 is not guaranteed to match the step from 3 to 4, which is why averaging it is a judgment call rather than an automatic move. An axis has to state what is being measured, in what unit, and where its scale starts and stops. That last part carries more weight in this lesson than you might expect.</p>\n<aside class=\"ek-block ek-callout ek-block--recovery\" data-directive=\"callout\">\n    <div class=\"ek-block-label directive-label\">Callout</div>\n    \n    <div class=\"ek-block-content\"><h2>Recovery route</h2>\n<p>If the category-versus-quantity split felt shaky, return to the preceding lesson on variables and data types and come back when you can label a column without hesitating. If it was the axes, <a href=\"https://embeddedknowledge.io/premed/lessons/read/?lesson=PREM-QNT-007\" rel=\"noreferrer noopener\">Read the rule, audit the graph</a> covers what an axis has to declare. You do not need a score from either lesson to continue here.</p>\n</div>\n  </aside>\n<h2>What this lesson does not do</h2>\n<p>You will not calculate a mean, a standard deviation, a correlation coefficient, or a p-value. Those arrive in the lessons that follow, and they arrive in better shape if you have already seen the data. You will also not decide whether later dinners cause higher glucose. A picture of two measurements moving together is evidence about a pattern and says nothing on its own about what produced it.</p>\n<p><strong>Teaching example, not medical advice.</strong> The sixty-person cohort in this lesson is invented for teaching. Its values were constructed to be internally consistent across this block of lessons. Nothing here reports a finding about real patients or supports any change to anyone&#39;s care.</p>\n<h2>Accessibility and alternatives</h2>\n<p>A lesson about pictures has to work for a reader who is not using them. Every chart here carries a written description and the numbers behind it as a table, and each one opens under &quot;Read the chart as text&quot;. Those numbers are the same numbers the picture was drawn from, so nothing that matters appears only in the drawing.</p>\n<p>Where a chart makes a teaching point, the surrounding prose states the point in words and gives the counts it rests on. No question in this lesson asks you to judge a colour, hover over a point, drag anything, or estimate a length by eye when the exact value is available. Reading the data table instead of the chart is a complete route through the lesson. The frequency tables also answer a reader who cannot resolve small differences between bars: where the picture is ambiguous, the table decides.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-histogram-shows-distribution-features, claim-chart-choice-follows-question</span><span><b>sources</b> source-nist-histogram, source-af-charts</span></div>\n    <div class=\"ek-block-content\"><p>These sources support the claim that a display of a distribution reports features a single summary value does not, and that the choice of display follows from the kind of relationship being shown. The cohort, its columns, and its values are original teaching material.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-display-follows-variable",
+      "title": "The display follows the variable and the question",
+      "kind": "concept",
+      "source": "content/020-display-follows-the-variable.md",
+      "estimatedMinutes": 28,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>The display follows the variable and the question</h1>\n<p>Two things decide what to draw, and neither of them is taste. The first is what kind of thing sits in the column. The second is what you are trying to find out.</p>\n<p>Ask a clinic how many of its patients are on each of four insulin regimens, and the answer is a set of counts across unordered categories. A picture of counts is a bar chart: one bar per regimen, its height the number of patients. Ask instead how a single measured quantity is spread across a group, and counts across categories will not do, because the quantity has no categories until you make some. That is the job a histogram does.</p>\n<h2>Six situations and the display each one wants</h2>\n<table>\n<thead>\n<tr>\n<th>What you have</th>\n<th>What you want to know</th>\n<th>Display</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>One categorical column</td>\n<td>How many fall in each category</td>\n<td>Counts in a table, or a bar chart</td>\n</tr>\n<tr>\n<td>One quantitative column</td>\n<td>Where the values sit and how they are spread</td>\n<td>Histogram</td>\n</tr>\n<tr>\n<td>One quantitative column, several groups</td>\n<td>How the groups compare across their whole spread</td>\n<td>One histogram per group, or box plots side by side</td>\n</tr>\n<tr>\n<td>Two quantitative columns</td>\n<td>Whether they move together</td>\n<td>Scatter plot</td>\n</tr>\n<tr>\n<td>One quantitative column measured repeatedly over time</td>\n<td>How it changed</td>\n<td>Line chart</td>\n</tr>\n<tr>\n<td>Any of the above, when the reader needs the figures</td>\n<td>The exact values</td>\n<td>Table</td>\n</tr>\n</tbody></table>\n<p>Published guidance from the UK Government Analysis Function builds the same mapping from the other direction: it lists the statistical relationship first, then names the chart. Magnitude and ranking get bars, time series get lines, correlation gets a scatter, spatial patterns get maps. The guidance is blunt about the last row of the table above: a well structured table can do work no chart can, and it recommends one when readers will compare exact values, read summary figures, or handle quantities of very different sizes. Charts earn their place when the point is a pattern, a trend, or a relationship.</p>\n<p>That last distinction is worth holding onto. A table answers <em>what is the value</em>. A chart answers <em>what is the shape</em>. Most poor displays are a chart being asked a table&#39;s question, or the reverse.</p>\n<h2>Distribution, and the display built for it</h2>\n<aside class=\"ek-block ek-definition ek-block--definition\" data-directive=\"definition\">\n    <div class=\"ek-block-label directive-label\">Definition</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> term-distribution</span></div>\n    <div class=\"ek-block-content\"><p>The <strong>distribution</strong> of a variable is the complete account of which values it takes across a set of observations and how often each value, or each interval of values, occurs.</p>\n</div>\n  </aside>\n<p>Sixty glucose readings have a distribution. It is not a single number and no single number can carry it. To see it, split the measured range into intervals of equal width, count how many readings fall in each, and draw one bar per interval with its height equal to that count. Those intervals are <strong>bins</strong>, the counts are <strong>frequencies</strong>, and the picture is a <strong>histogram</strong>.</p>\n<figure class=\"ek-block ek-chart\" data-directive=\"chart\" data-chart-source=\"charts/fasting-glucose-histogram.chart.json\">\n    <div class=\"ek-block-label directive-label\">Chart</div>\n    <p class=\"ek-chart-title\">Fasting glucose in the illustrative 60-person cohort, bins 10 mg/dL wide</p>\n    <svg viewBox=\"0 0 720 380\" class=\"ek-chart-svg\" role=\"img\" aria-label=\"Histogram of 60 fasting glucose values, one hump peaking between 135 and 145 mg/dL with a longer tail to the right.\" xmlns=\"http://www.w3.org/2000/svg\"><title>Histogram of 60 fasting glucose values, one hump peaking between 135 and 145 mg/dL with a longer tail to the right.</title><line x1=\"394.04\" y1=\"28\" x2=\"394.04\" y2=\"324\" class=\"ek-chart-marker\"/><text x=\"394.04\" y=\"20\" class=\"ek-chart-markerlabel\" text-anchor=\"middle\">Mean 142 mg/dL</text><rect x=\"64\" y=\"304.27\" width=\"69.22\" height=\"19.73\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"134.22\" y=\"264.8\" width=\"69.22\" height=\"59.2\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"204.44\" y=\"205.6\" width=\"69.22\" height=\"118.4\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"274.67\" y=\"106.93\" width=\"69.22\" height=\"217.07\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"344.89\" y=\"67.47\" width=\"69.22\" height=\"256.53\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"415.11\" y=\"87.2\" width=\"69.22\" height=\"236.8\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"485.33\" y=\"166.13\" width=\"69.22\" height=\"157.87\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"555.56\" y=\"245.07\" width=\"69.22\" height=\"78.93\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"625.78\" y=\"284.53\" width=\"69.22\" height=\"39.47\" class=\"ek-chart-bar ek-chart-series--0\"/><line x1=\"64\" y1=\"28\" x2=\"64\" y2=\"324\" class=\"ek-chart-axis\"/>\n    <line x1=\"64\" y1=\"324\" x2=\"696\" y2=\"324\" class=\"ek-chart-axis\"/>\n    <line x1=\"64\" y1=\"324\" x2=\"64\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"64\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">95</text><line x1=\"134.22\" y1=\"324\" x2=\"134.22\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"134.22\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">105</text><line x1=\"204.44\" y1=\"324\" x2=\"204.44\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"204.44\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">115</text><line x1=\"274.67\" y1=\"324\" x2=\"274.67\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"274.67\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">125</text><line x1=\"344.89\" y1=\"324\" x2=\"344.89\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"344.89\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">135</text><line x1=\"415.11\" y1=\"324\" x2=\"415.11\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"415.11\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">145</text><line x1=\"485.33\" y1=\"324\" x2=\"485.33\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"485.33\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">155</text><line x1=\"555.56\" y1=\"324\" x2=\"555.56\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"555.56\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">165</text><line x1=\"625.78\" y1=\"324\" x2=\"625.78\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"625.78\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">175</text><line x1=\"696\" y1=\"324\" x2=\"696\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"696\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">185</text><line x1=\"59\" y1=\"324\" x2=\"64\" y2=\"324\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"328\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">0</text><line x1=\"59\" y1=\"264.8\" x2=\"64\" y2=\"264.8\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"268.8\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">3</text><line x1=\"59\" y1=\"205.6\" x2=\"64\" y2=\"205.6\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"209.6\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">6</text><line x1=\"59\" y1=\"146.4\" x2=\"64\" y2=\"146.4\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"150.4\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">9</text><line x1=\"59\" y1=\"87.2\" x2=\"64\" y2=\"87.2\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"91.2\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">12</text><line x1=\"59\" y1=\"28\" x2=\"64\" y2=\"28\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"32\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">15</text>\n    <text x=\"380\" y=\"368\" class=\"ek-chart-axislabel\" text-anchor=\"middle\">Fasting glucose (mg/dL)</text>\n    <text x=\"16\" y=\"176\" class=\"ek-chart-axislabel\" text-anchor=\"middle\" transform=\"rotate(-90 16 176)\">Number of people</text></svg>\n    \n    <figcaption>Histogram of 60 fasting glucose values, one hump peaking between 135 and 145 mg/dL with a longer tail to the right.</figcaption>\n    <details class=\"ek-long-description\"><summary>Read the chart as text</summary><p>Sixty fasting glucose values are grouped into nine bins 10 mg/dL wide, running from 95 to 185 mg/dL. Counts rise from 1 person in the 95 to 105 bin to 13 people in the 135 to 145 bin, then fall to 2 people in the 175 to 185 bin. The bins are 1, 3, 6, 11, 13, 12, 8, 4 and 2 people. The cohort has one hump rather than two, so a single centre describes it sensibly. The left side falls away faster than the right, so the tail reaching towards 185 mg/dL is longer than the tail reaching towards 95 mg/dL. The mean of 142 mg/dL, marked by a vertical line, sits just right of the tallest bin. Six people sit at or above 165 mg/dL and one sits below 105 mg/dL; both groups are invisible in the mean.</p><table class=\"ek-chart-table\"><caption>Chart data</caption><thead><tr><th scope=\"col\">Series</th><th scope=\"col\">Value</th></tr></thead><tbody><tr><td>People in each 10 mg/dL bin</td><td>95 to 105: 1</td></tr><tr><td>People in each 10 mg/dL bin</td><td>105 to 115: 3</td></tr><tr><td>People in each 10 mg/dL bin</td><td>115 to 125: 6</td></tr><tr><td>People in each 10 mg/dL bin</td><td>125 to 135: 11</td></tr><tr><td>People in each 10 mg/dL bin</td><td>135 to 145: 13</td></tr><tr><td>People in each 10 mg/dL bin</td><td>145 to 155: 12</td></tr><tr><td>People in each 10 mg/dL bin</td><td>155 to 165: 8</td></tr><tr><td>People in each 10 mg/dL bin</td><td>165 to 175: 4</td></tr><tr><td>People in each 10 mg/dL bin</td><td>175 to 185: 2</td></tr><tr><td>Marker</td><td>Fasting glucose 142: Mean 142 mg/dL</td></tr></tbody></table></details>\n  </figure>\n<p>The NIST/SEMATECH engineering statistics handbook lists what this picture reports about a univariate dataset: where the data sit, how spread out they are, whether they are symmetric or skewed, whether outliers are present, and whether there is more than one mode. Five things. The average reports one of them, and only approximately.</p>\n<p>Bar heights can also be given as fractions of the total instead of counts. Divide each bin&#39;s frequency by 60 and the heights become <strong>proportions</strong> that sum to 1. Thirteen people fall in the 135 to 145 bin, so that bin holds 13/60 of the cohort, or 0.217, or 21.7%.</p>\n<aside class=\"ek-block ek-callout ek-block--note\" data-directive=\"callout\">\n    <div class=\"ek-block-label directive-label\">Callout</div>\n    \n    <div class=\"ek-block-content\"><p>An earlier lesson on ratios used <em>proportion</em> for a different job: the statement that two ratios are equal, as in a/b = c/d, which you solve for an unknown. Both senses are standard and the surrounding words tell you which is meant. In this block, a proportion is a part divided by its whole, so it always lands between 0 and 1. When you meet the word in a proportional-reasoning problem, it is the equation. When you meet it beside a count, it is the share.</p>\n</div>\n  </aside>\n<h2>The other three, quickly</h2>\n<p>A <strong>bar chart</strong> puts a category on one axis and a count or a measured amount on the other, one bar per category. Bars are separated by gaps because the categories are separate things; a histogram&#39;s bars touch because its bins are adjacent slices of one continuous scale. That visual difference is not decoration. It tells the reader which kind of variable they are looking at.</p>\n<p>A <strong>line chart</strong> joins points measured in sequence, usually over time. The line asserts that the space between two points is a path the quantity travelled, so a line chart is wrong for categories: there is no journey between &quot;female&quot; and &quot;male&quot;.</p>\n<p>A <strong>scatter plot</strong> puts one quantitative variable on each axis and marks one point per observation. It is the display for the question that runs through this whole study, and it gets a scene of its own.</p>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-match-display</span></div>\n    <div class=\"ek-block-content\"><p>The study has these five columns. For each, name the display you would draw first and say what question it would answer.</p>\n<ol>\n<li>Nights recorded per person, a whole number from 5 to 14.</li>\n<li>Sex, recorded as female or male.</li>\n<li>Fasting glucose, in mg/dL.</li>\n<li>Adherence rating, 1 to 4.</li>\n<li>Hours between dinner and sleep, together with fasting glucose.</li>\n</ol>\n<p>One of these five has a defensible answer either way. Say which, and why.</p>\n</div>\n  </aside>\n<p>Nights recorded is a count with a small range, so a bar chart of how many people recorded 5 nights, 6 nights, and so on shows the whole picture; a histogram would work too and would be the better choice if the range were wide. Sex takes a table of two counts or a bar chart. Fasting glucose takes a histogram. Adherence is the ambiguous one: it is ordered, which invites a histogram, but it has only four values with unequal steps between them, so a bar chart of the four counts is more honest. Hours and glucose together take a scatter.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-chart-choice-follows-question, claim-table-for-exact-values, claim-histogram-shows-distribution-features, claim-relative-frequency-proportion</span><span><b>sources</b> source-af-charts, source-af-tables, source-nist-histogram</span></div>\n    <div class=\"ek-block-content\"><p>These sources support the mapping from statistical relationship to display type, the conditions under which a table serves a reader better than a chart, the features a histogram reports about a univariate dataset, and the normalisation that turns bin counts into proportions of the total. The cohort&#39;s columns and values are original teaching material.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-read-the-histogram",
+      "title": "Reading the histogram that 142 was standing in front of",
+      "kind": "worked-example",
+      "source": "content/030-read-the-histogram.md",
+      "estimatedMinutes": 26,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Reading the histogram that 142 was standing in front of</h1>\n<p>Scroll back to the histogram in the previous scene if you need it. This scene works through it the way you would work through a chest film: in a fixed order, so that you notice the thing you were not looking for.</p>\n<aside class=\"ek-block ek-worked-example ek-block--worked-example\" data-directive=\"worked-example\">\n    <div class=\"ek-block-label directive-label\">Worked Example</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> worked-example-read-the-glucose-histogram</span></div>\n    <div class=\"ek-block-content\"><p><strong>The task.</strong> Sixty fasting glucose values, binned in 10 mg/dL intervals from 95 to 185. Say what this cohort looks like, and say what the average of 142 mg/dL left out.</p>\n<p><strong>Step 0. Check what the picture is made of.</strong> Before reading any shape, read the construction. The horizontal axis is fasting glucose in mg/dL, running 95 to 185. The vertical axis is a count of people, starting at zero. The bins are 10 mg/dL wide and there are nine of them. A reading that lands exactly on a boundary goes into the upper bin, so the single value of 125 mg/dL is counted in the 125 to 135 bar. That rule has to be stated somewhere, because a reader who assumes the opposite convention will get a different table from the same data.</p>\n<p><strong>Step 1. How many humps?</strong> One. The counts climb from the left, peak at the 135 to 145 bin, and fall away to the right. A single hump means the group behaves like one population on this measurement, so a single centre is a sensible thing to quote. Had there been two humps, the whole idea of a typical value would be in trouble, which is the case worked below.</p>\n<p><strong>Step 2. Where is the middle?</strong> The tallest bar sits at 135 to 145, and the mean of 142 mg/dL falls inside it, near its right edge. Agreement between the peak and the average is worth noting rather than assuming; when they disagree, the disagreement is the finding.</p>\n<p><strong>Step 3. How wide is it?</strong> The lowest occupied bin is 95 to 105 and the highest is 175 to 185, so the values span roughly 80 mg/dL. Note what the picture will not give you: the actual lowest and highest readings are somewhere inside those end bins, and a histogram never says where. Three fifths of the cohort, 36 people, sit between 125 and 155. The bulk is packed into a 30 mg/dL window, and the other 24 people are spread across the 60 mg/dL on either side of it. A group can be tight in the middle and still reach a long way out.</p>\n<p><strong>Step 4. Is it lopsided?</strong> Yes, mildly. Walking left from the peak, counts drop 13, 11, 6, 3, 1. Walking right, they drop 13, 12, 8, 4, 2. The right side takes longer to reach zero, so the tail stretches further towards high glucose than towards low. Whether that lean belongs to this measurement or to these particular sixty people is not something one histogram can settle. The next lesson gives the lean a name and a number.</p>\n<p><strong>Step 5. Is anybody far out on their own?</strong> Nobody is separated by a visible gap. The two people in the 175 to 185 bin are the highest, and four more sit in the bin directly below them, so the top thins out rather than detaching. At the other end, one person occupies the lowest bin alone with only three people above them. That single low reading is the closest thing here to an outlier, and it earns a look at the record rather than a rule.</p>\n<p><strong>The answer.</strong> One hump, centred near 142 mg/dL, most people between 125 and 155, a longer reach towards high values than low, and one low reading worth checking. The average of 142 carried the second of those five findings and nothing else.</p>\n</div>\n  </aside>\n<h2>The same reading as a frequency table</h2>\n<p>A <strong>frequency table</strong> lists each bin beside its count. The picture makes the shape obvious and the exact figures approximate; the table does the reverse.</p>\n<table>\n<thead>\n<tr>\n<th>Glucose bin (mg/dL)</th>\n<th>People</th>\n<th>Share of cohort</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>95 to 105</td>\n<td>1</td>\n<td>0.017</td>\n</tr>\n<tr>\n<td>105 to 115</td>\n<td>3</td>\n<td>0.050</td>\n</tr>\n<tr>\n<td>115 to 125</td>\n<td>6</td>\n<td>0.100</td>\n</tr>\n<tr>\n<td>125 to 135</td>\n<td>11</td>\n<td>0.183</td>\n</tr>\n<tr>\n<td>135 to 145</td>\n<td>13</td>\n<td>0.217</td>\n</tr>\n<tr>\n<td>145 to 155</td>\n<td>12</td>\n<td>0.200</td>\n</tr>\n<tr>\n<td>155 to 165</td>\n<td>8</td>\n<td>0.133</td>\n</tr>\n<tr>\n<td>165 to 175</td>\n<td>4</td>\n<td>0.067</td>\n</tr>\n<tr>\n<td>175 to 185</td>\n<td>2</td>\n<td>0.033</td>\n</tr>\n<tr>\n<td>All</td>\n<td>60</td>\n<td>1.000</td>\n</tr>\n</tbody></table>\n<p>The third column is each count divided by 60, the part-to-whole proportion introduced in the previous scene. It answers a question the count column does not: 21.7% of this cohort sits in the busiest bin, so even the most crowded 10 mg/dL slice holds about a fifth of the group. &quot;A cohort with fasting glucose around 142&quot; invites a mental picture of sixty people bunched near 142. Four fifths of them are somewhere else.</p>\n<h2>When one number describes nobody</h2>\n<p>Now the case that makes the point sharply. Below is a different sixty-person set, constructed for this lesson. Its mean is also exactly 142 mg/dL.</p>\n<figure class=\"ek-block ek-chart\" data-directive=\"chart\" data-chart-source=\"charts/bimodal-counter-case.chart.json\">\n    <div class=\"ek-block-label directive-label\">Chart</div>\n    <p class=\"ek-chart-title\">A constructed cohort with the same mean of 142 mg/dL and two humps</p>\n    <svg viewBox=\"0 0 720 380\" class=\"ek-chart-svg\" role=\"img\" aria-label=\"Histogram of a constructed 60-person cohort with two separate humps and a near-empty gap at the mean of 142 mg/dL.\" xmlns=\"http://www.w3.org/2000/svg\"><title>Histogram of a constructed 60-person cohort with two separate humps and a near-empty gap at the mean of 142 mg/dL.</title><line x1=\"394.04\" y1=\"28\" x2=\"394.04\" y2=\"324\" class=\"ek-chart-marker\"/><text x=\"394.04\" y=\"20\" class=\"ek-chart-markerlabel\" text-anchor=\"middle\">Mean 142 mg/dL</text><rect x=\"64\" y=\"284.53\" width=\"69.22\" height=\"39.47\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"134.22\" y=\"166.13\" width=\"69.22\" height=\"157.87\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"204.44\" y=\"87.2\" width=\"69.22\" height=\"236.8\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"274.67\" y=\"205.6\" width=\"69.22\" height=\"118.4\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"344.89\" y=\"284.53\" width=\"69.22\" height=\"39.47\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"415.11\" y=\"245.07\" width=\"69.22\" height=\"78.93\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"485.33\" y=\"87.2\" width=\"69.22\" height=\"236.8\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"555.56\" y=\"126.67\" width=\"69.22\" height=\"197.33\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"625.78\" y=\"245.07\" width=\"69.22\" height=\"78.93\" class=\"ek-chart-bar ek-chart-series--0\"/><line x1=\"64\" y1=\"28\" x2=\"64\" y2=\"324\" class=\"ek-chart-axis\"/>\n    <line x1=\"64\" y1=\"324\" x2=\"696\" y2=\"324\" class=\"ek-chart-axis\"/>\n    <line x1=\"64\" y1=\"324\" x2=\"64\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"64\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">95</text><line x1=\"134.22\" y1=\"324\" x2=\"134.22\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"134.22\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">105</text><line x1=\"204.44\" y1=\"324\" x2=\"204.44\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"204.44\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">115</text><line x1=\"274.67\" y1=\"324\" x2=\"274.67\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"274.67\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">125</text><line x1=\"344.89\" y1=\"324\" x2=\"344.89\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"344.89\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">135</text><line x1=\"415.11\" y1=\"324\" x2=\"415.11\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"415.11\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">145</text><line x1=\"485.33\" y1=\"324\" x2=\"485.33\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"485.33\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">155</text><line x1=\"555.56\" y1=\"324\" x2=\"555.56\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"555.56\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">165</text><line x1=\"625.78\" y1=\"324\" x2=\"625.78\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"625.78\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">175</text><line x1=\"696\" y1=\"324\" x2=\"696\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"696\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">185</text><line x1=\"59\" y1=\"324\" x2=\"64\" y2=\"324\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"328\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">0</text><line x1=\"59\" y1=\"264.8\" x2=\"64\" y2=\"264.8\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"268.8\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">3</text><line x1=\"59\" y1=\"205.6\" x2=\"64\" y2=\"205.6\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"209.6\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">6</text><line x1=\"59\" y1=\"146.4\" x2=\"64\" y2=\"146.4\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"150.4\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">9</text><line x1=\"59\" y1=\"87.2\" x2=\"64\" y2=\"87.2\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"91.2\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">12</text><line x1=\"59\" y1=\"28\" x2=\"64\" y2=\"28\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"32\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">15</text>\n    <text x=\"380\" y=\"368\" class=\"ek-chart-axislabel\" text-anchor=\"middle\">Fasting glucose (mg/dL)</text>\n    <text x=\"16\" y=\"176\" class=\"ek-chart-axislabel\" text-anchor=\"middle\" transform=\"rotate(-90 16 176)\">Number of people</text></svg>\n    \n    <figcaption>Histogram of a constructed 60-person cohort with two separate humps and a near-empty gap at the mean of 142 mg/dL.</figcaption>\n    <details class=\"ek-long-description\"><summary>Read the chart as text</summary><p>This is not the study cohort. It is a constructed set of 60 values with exactly the same mean, 142 mg/dL, arranged in the same nine bins 10 mg/dL wide. Reading from the left, the counts are 2 people from 95 to 105 mg/dL, 8 from 105 to 115, 12 from 115 to 125, 6 from 125 to 135, 2 from 135 to 145, 4 from 145 to 155, 12 from 155 to 165, 10 from 165 to 175, and 4 from 175 to 185. There are two humps, one near 120 mg/dL and one near 160, with a near-empty gap between them. The mean of 142 mg/dL, marked by a vertical line, falls inside that gap: only 2 of the 60 people sit in the bin containing it. The mean is arithmetically correct and describes almost nobody in the group.</p><table class=\"ek-chart-table\"><caption>Chart data</caption><thead><tr><th scope=\"col\">Series</th><th scope=\"col\">Value</th></tr></thead><tbody><tr><td>People in each 10 mg/dL bin</td><td>95 to 105: 2</td></tr><tr><td>People in each 10 mg/dL bin</td><td>105 to 115: 8</td></tr><tr><td>People in each 10 mg/dL bin</td><td>115 to 125: 12</td></tr><tr><td>People in each 10 mg/dL bin</td><td>125 to 135: 6</td></tr><tr><td>People in each 10 mg/dL bin</td><td>135 to 145: 2</td></tr><tr><td>People in each 10 mg/dL bin</td><td>145 to 155: 4</td></tr><tr><td>People in each 10 mg/dL bin</td><td>155 to 165: 12</td></tr><tr><td>People in each 10 mg/dL bin</td><td>165 to 175: 10</td></tr><tr><td>People in each 10 mg/dL bin</td><td>175 to 185: 4</td></tr><tr><td>Marker</td><td>Fasting glucose 142: Mean 142 mg/dL</td></tr></tbody></table></details>\n  </figure>\n<p>Two humps, one near 120 and one near 160, and a hollow between them. The mean falls in the hollow. Two people out of sixty sit in the bin containing the group&#39;s own average, and the arithmetic is faultless.</p>\n<p>A researcher who reported only &quot;mean fasting glucose 142 mg/dL&quot; would describe these two cohorts identically, and the second one is telling you something the first is not: there are probably two kinds of person in that room. Finding out what separates them is the next question. The histogram is what makes the question askable, and it is why looking precedes summarising.</p>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-what-the-mean-missed</span></div>\n    <div class=\"ek-block-content\"><p>Without scrolling up: of the five things a histogram reports about a single quantitative column, which one does an average also report, and which four does it not?</p>\n<p>Then answer this. If a colleague tells you the mean is 142 mg/dL and the values run from 100 to 181, how much of the shape do you now know?</p>\n</div>\n  </aside>\n<p>The average reports roughly where the values sit. It reports nothing about how spread out they are, whether the distribution leans one way, whether outliers are present, or whether there is more than one mode. Adding the minimum and maximum fixes only the second of those, and does it crudely: both cohorts on this page have a mean of 142 and a similar range, and they look nothing alike.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-histogram-shows-distribution-features, claim-relative-frequency-proportion, claim-histogram-bins-govern-detail</span><span><b>sources</b> source-nist-histogram</span></div>\n    <div class=\"ek-block-content\"><p>This source supports the list of distribution features a histogram reports, the normalisation of bin counts into proportions of the total, and the construction of a histogram from bins of a width the analyst chooses. Both cohorts, their values, and the binning convention used here are original teaching material.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-two-measurements",
+      "title": "Two measurements from the same person, one plot",
+      "kind": "investigation",
+      "source": "content/040-two-measurements-one-plot.md",
+      "estimatedMinutes": 24,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Two measurements from the same person, one plot</h1>\n<p>A histogram takes one column at a time. The <strong>scatter plot</strong> takes two. The study&#39;s actual question needs two: for each person, when they ate and what their glucose did overnight. Put one measurement on each axis, mark a point where that person&#39;s two values meet, and the sixty rows become sixty dots.</p>\n<figure class=\"ek-block ek-chart\" data-directive=\"chart\" data-chart-source=\"charts/dinner-gap-glucose-scatter.chart.json\">\n    <div class=\"ek-block-label directive-label\">Chart</div>\n    <p class=\"ek-chart-title\">Dinner-to-sleep interval and next-morning fasting glucose, 60 people</p>\n    <svg viewBox=\"0 0 720 380\" class=\"ek-chart-svg\" role=\"img\" aria-label=\"Scatter of 60 people: fasting glucose against the hours between dinner and sleep, with a gentle downward tilt from left to right.\" xmlns=\"http://www.w3.org/2000/svg\"><title>Scatter of 60 people: fasting glucose against the hours between dinner and sleep, with a gentle downward tilt from left to right.</title><circle cx=\"136.23\" cy=\"176\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"145.26\" cy=\"107.92\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"154.29\" cy=\"199.68\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"154.29\" cy=\"90.16\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"163.31\" cy=\"66.48\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"172.34\" cy=\"226.32\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"181.37\" cy=\"164.16\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"181.37\" cy=\"84.24\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"190.4\" cy=\"110.88\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"199.43\" cy=\"134.56\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"208.46\" cy=\"143.44\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"208.46\" cy=\"54.64\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"217.49\" cy=\"294.4\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"226.51\" cy=\"134.56\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"235.54\" cy=\"164.16\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"235.54\" cy=\"196.72\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"244.57\" cy=\"134.56\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"253.6\" cy=\"128.64\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"262.63\" cy=\"152.32\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"262.63\" cy=\"125.68\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"271.66\" cy=\"146.4\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"280.69\" cy=\"214.48\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"289.71\" cy=\"161.2\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"289.71\" cy=\"113.84\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"298.74\" cy=\"184.88\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"307.77\" cy=\"190.8\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"316.8\" cy=\"252.96\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"316.8\" cy=\"235.2\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"325.83\" cy=\"161.2\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"334.86\" cy=\"152.32\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"352.91\" cy=\"211.52\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"361.94\" cy=\"116.8\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"370.97\" cy=\"196.72\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"380\" cy=\"173.04\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"398.06\" cy=\"167.12\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"407.09\" cy=\"178.96\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"416.11\" cy=\"176\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"425.14\" cy=\"99.04\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"434.17\" cy=\"226.32\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"443.2\" cy=\"181.92\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"452.23\" cy=\"78.32\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"470.29\" cy=\"199.68\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"479.31\" cy=\"261.84\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"488.34\" cy=\"187.84\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"497.37\" cy=\"229.28\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"506.4\" cy=\"196.72\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"515.43\" cy=\"199.68\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"524.46\" cy=\"110.88\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"533.49\" cy=\"208.56\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"551.54\" cy=\"164.16\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"560.57\" cy=\"149.36\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"569.6\" cy=\"187.84\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"578.63\" cy=\"270.72\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"587.66\" cy=\"250\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"596.69\" cy=\"155.28\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"605.71\" cy=\"247.04\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"623.77\" cy=\"217.44\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"632.8\" cy=\"134.56\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"641.83\" cy=\"220.4\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><circle cx=\"650.86\" cy=\"104.96\" r=\"4\" class=\"ek-chart-point ek-chart-series--0\"/><line x1=\"64\" y1=\"28\" x2=\"64\" y2=\"324\" class=\"ek-chart-axis\"/>\n    <line x1=\"64\" y1=\"324\" x2=\"696\" y2=\"324\" class=\"ek-chart-axis\"/>\n    <line x1=\"64\" y1=\"324\" x2=\"64\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"64\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">0</text><line x1=\"154.29\" y1=\"324\" x2=\"154.29\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"154.29\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">1</text><line x1=\"244.57\" y1=\"324\" x2=\"244.57\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"244.57\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">2</text><line x1=\"334.86\" y1=\"324\" x2=\"334.86\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"334.86\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">3</text><line x1=\"425.14\" y1=\"324\" x2=\"425.14\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"425.14\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">4</text><line x1=\"515.43\" y1=\"324\" x2=\"515.43\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"515.43\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">5</text><line x1=\"605.71\" y1=\"324\" x2=\"605.71\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"605.71\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">6</text><line x1=\"696\" y1=\"324\" x2=\"696\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"696\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">7</text><line x1=\"59\" y1=\"324\" x2=\"64\" y2=\"324\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"328\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">90</text><line x1=\"59\" y1=\"264.8\" x2=\"64\" y2=\"264.8\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"268.8\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">110</text><line x1=\"59\" y1=\"205.6\" x2=\"64\" y2=\"205.6\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"209.6\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">130</text><line x1=\"59\" y1=\"146.4\" x2=\"64\" y2=\"146.4\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"150.4\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">150</text><line x1=\"59\" y1=\"87.2\" x2=\"64\" y2=\"87.2\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"91.2\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">170</text><line x1=\"59\" y1=\"28\" x2=\"64\" y2=\"28\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"32\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">190</text>\n    <text x=\"380\" y=\"368\" class=\"ek-chart-axislabel\" text-anchor=\"middle\">Hours between dinner and sleep (hours)</text>\n    <text x=\"16\" y=\"176\" class=\"ek-chart-axislabel\" text-anchor=\"middle\" transform=\"rotate(-90 16 176)\">Fasting glucose (mg/dL)</text></svg>\n    \n    <figcaption>Scatter of 60 people: fasting glucose against the hours between dinner and sleep, with a gentle downward tilt from left to right.</figcaption>\n    <details class=\"ek-long-description\"><summary>Read the chart as text</summary><p>Each of the 60 dots is one person. The horizontal position is the interval between that person&#39;s dinner and going to sleep, from 0.8 to 6.5 hours; the vertical position is the next-morning fasting glucose, from 100 to 181 mg/dL. The cloud is wide at every interval, so the interval does not determine anybody&#39;s glucose. Across the cloud, the dots drift downwards from left to right: shorter intervals, meaning later dinners, sit a little higher. The 30 people with an interval of three hours or less average 146.5 mg/dL and the 30 with an interval of more than three hours average 137.5 mg/dL, a difference of 9.0 mg/dL. Several people with the shortest intervals have lower glucose than several people with the longest, which is why the tilt is described as mild rather than clear. The 60 vertical positions are the same 60 values shown in the histogram earlier in this lesson.</p><table class=\"ek-chart-table\"><caption>Chart data</caption><thead><tr><th scope=\"col\">Series</th><th scope=\"col\">Value</th></tr></thead><tbody><tr><td>One dot per person</td><td>Hours between dinner and sleep 0.8, Fasting glucose 140</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 0.9, Fasting glucose 163</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 1, Fasting glucose 132</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 1, Fasting glucose 169</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 1.1, Fasting glucose 177</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 1.2, Fasting glucose 123</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 1.3, Fasting glucose 144</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 1.3, Fasting glucose 171</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 1.4, Fasting glucose 162</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 1.5, Fasting glucose 154</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 1.6, Fasting glucose 151</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 1.6, Fasting glucose 181</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 1.7, Fasting glucose 100</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 1.8, Fasting glucose 154</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 1.9, Fasting glucose 144</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 1.9, Fasting glucose 133</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 2, Fasting glucose 154</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 2.1, Fasting glucose 156</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 2.2, Fasting glucose 148</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 2.2, Fasting glucose 157</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 2.3, Fasting glucose 150</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 2.4, Fasting glucose 127</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 2.5, Fasting glucose 145</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 2.5, Fasting glucose 161</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 2.6, Fasting glucose 137</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 2.7, Fasting glucose 135</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 2.8, Fasting glucose 114</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 2.8, Fasting glucose 120</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 2.9, Fasting glucose 145</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 3, Fasting glucose 148</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 3.2, Fasting glucose 128</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 3.3, Fasting glucose 160</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 3.4, Fasting glucose 133</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 3.5, Fasting glucose 141</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 3.7, Fasting glucose 143</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 3.8, Fasting glucose 139</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 3.9, Fasting glucose 140</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 4, Fasting glucose 166</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 4.1, Fasting glucose 123</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 4.2, Fasting glucose 138</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 4.3, Fasting glucose 173</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 4.5, Fasting glucose 132</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 4.6, Fasting glucose 111</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 4.7, Fasting glucose 136</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 4.8, Fasting glucose 122</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 4.9, Fasting glucose 133</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 5, Fasting glucose 132</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 5.1, Fasting glucose 162</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 5.2, Fasting glucose 129</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 5.4, Fasting glucose 144</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 5.5, Fasting glucose 149</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 5.6, Fasting glucose 136</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 5.7, Fasting glucose 108</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 5.8, Fasting glucose 115</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 5.9, Fasting glucose 147</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 6, Fasting glucose 116</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 6.2, Fasting glucose 126</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 6.3, Fasting glucose 154</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 6.4, Fasting glucose 125</td></tr><tr><td>One dot per person</td><td>Hours between dinner and sleep 6.5, Fasting glucose 164</td></tr></tbody></table></details>\n  </figure>\n<p>Read the axes before the cloud. Horizontal is the interval between dinner and sleep, in hours. <strong>A later dinner leaves a shorter interval, so later dinners sit towards the left.</strong> Vertical is next-morning fasting glucose in mg/dL. Every dot is one person contributing both of their numbers at once, which is why a scatter needs the two measurements to be paired: shuffle one column and the plot becomes noise.</p>\n<h2>The four questions a scatter answers</h2>\n<aside class=\"ek-block ek-investigation ek-block--investigation\" data-directive=\"investigation\">\n    <div class=\"ek-block-label directive-label\">Investigation</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> investigation-read-the-scatter</span></div>\n    <div class=\"ek-block-content\"><p><strong>Question.</strong> Do the interval and the glucose reading move together across these sixty people?</p>\n<p><strong>Data.</strong> Sixty paired values. The interval runs from 0.8 to 6.5 hours; glucose runs from 100 to 181 mg/dL. Both were recorded per person under the protocol fixed in the design lessons. No new measurement was taken for this scene.</p>\n<p><strong>1. Is there a relationship at all?</strong> Yes, a weak one. Follow the cloud from left to right and its centre drifts downwards. Shorter intervals, meaning later dinners, sit with somewhat higher glucose.</p>\n<p><strong>2. What form does it take?</strong> Nothing bends. The drift is roughly steady across the whole range, so a straight line is the sensible first description. Nothing here argues for a curve.</p>\n<p><strong>3. How strong is it?</strong> Weak enough that you should say so out loud. Between 1.5 and 2.5 hours the plot holds one person at 181 mg/dL and another at 100. Between 6 and 6.5 hours it holds one at 164 and one at 116. The vertical spread at any given interval is far larger than the drift across the whole horizontal range. Knowing when someone ate tells you very little about that individual&#39;s next reading.</p>\n<p><strong>4. Is anyone an outlier?</strong> One person at an interval of 1.7 hours has a glucose of 100 mg/dL, the lowest reading in the cohort, sitting well below everyone else at that end. This is the same low value flagged in the histogram, now with a second coordinate attached. A scatter can expose a point that neither column would call unusual on its own.</p>\n<p><strong>Conclusion.</strong> A mild downward drift, a wide cloud, and one point worth checking. That is the whole of what this plot supports.</p>\n</div>\n  </aside>\n<h2>The same finding, counted</h2>\n<p>Split the cohort at three hours and count. Thirty people left three hours or less between dinner and sleep; thirty left more.</p>\n<table>\n<thead>\n<tr>\n<th>Group</th>\n<th>People</th>\n<th>Mean fasting glucose (mg/dL)</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>Later dinner, 3 hours or less before sleep</td>\n<td>30</td>\n<td>146.5</td>\n</tr>\n<tr>\n<td>Earlier dinner, more than 3 hours before sleep</td>\n<td>30</td>\n<td>137.5</td>\n</tr>\n<tr>\n<td>Difference, later minus earlier</td>\n<td></td>\n<td>9.0</td>\n</tr>\n</tbody></table>\n<p>Nine milligrams per decilitre. That figure is the one this block keeps returning to, and it is the same fact the cloud is showing: the left half of the plot sits a little higher than the right half. A scatter and a two-row table can describe one relationship, and here they do.</p>\n<p>Notice that the drift and the difference carry opposite arithmetic signs while saying the same thing. Glucose goes <strong>down</strong> as the interval gets longer, and <strong>up</strong> as dinner gets later, because a longer interval and a later dinner are opposite ends of one measurement. The sign of a relationship depends on which direction you chose to measure your variable, so a reported sign means nothing until you know what the axis counts.</p>\n<h2>What the plot cannot do</h2>\n<aside class=\"ek-block ek-callout ek-block--boundary\" data-directive=\"callout\">\n    <div class=\"ek-block-label directive-label\">Callout</div>\n    \n    <div class=\"ek-block-content\"><p>A scatter shows <strong>association</strong>: a pattern in which the values of two variables differ together in the data you have. That is the sense established in <a href=\"https://embeddedknowledge.io/premed/lessons/read/?lesson=PREM-SCI-007\" rel=\"noreferrer noopener\">From correlation to a causal claim</a>, and this lesson adopts it unchanged. The pattern alone does not say why it occurs.</p>\n<p>People who eat late may differ from people who eat early in ways nobody plotted: shift work, sleep length, what they ate as well as when, medication timing. The plot is silent about all of it. Deciding what a dinner-timing association means about causes is the work of that earlier lesson, and quantifying the change per hour is the work of the regression lesson later in this block. This scene stops at description.</p>\n</div>\n  </aside>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-scatter-or-not</span></div>\n    <div class=\"ek-block-content\"><p>Three proposed plots from the same study. For each, say whether a scatter is the right display, and if not, what is.</p>\n<ol>\n<li>Adherence rating, 1 to 4, against fasting glucose.</li>\n<li>Nights recorded against fasting glucose.</li>\n<li>Fasting glucose on the horizontal axis and the dinner interval on the vertical.</li>\n</ol>\n</div>\n  </aside>\n<p>Adherence is ordered but has only four levels, so a scatter would draw four vertical stacks of dots and waste the horizontal axis; one histogram or box plot of glucose per adherence level compares the groups better. Nights recorded is a genuine count with a range of 5 to 14, so a scatter works, though many dots will overlap on the same whole number and you should say how you handled that. The third is a scatter with the axes swapped, which is allowed and changes nothing about the association; convention puts the variable you think of as the input on the horizontal axis, and this study thinks of dinner timing that way.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-scatter-two-variables</span><span><b>sources</b> source-nist-scatter</span></div>\n    <div class=\"ek-block-content\"><p>This source supports the questions a scatter plot is used to answer about two quantitative variables, including whether they are related, whether the relationship is linear, whether the spread of one changes across the other, and whether outliers are present. The sixty paired values and the group comparison are original teaching material.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-two-pictures",
+      "title": "One dataset, two pictures, opposite verdicts",
+      "kind": "misconception",
+      "source": "content/050-two-pictures-one-dataset.md",
+      "estimatedMinutes": 24,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>One dataset, two pictures, opposite verdicts</h1>\n<p>Both charts in this scene are drawn from the same two numbers: 137.5 mg/dL for the earlier-dinner group and 146.5 for the later. Nothing was added, removed, rounded, or reweighted between them. Before you scroll, commit to an answer.</p>\n<aside class=\"ek-block ek-misconception ek-block--misconception\" data-directive=\"misconception\">\n    <div class=\"ek-block-label directive-label\">Misconception</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> misconception-the-chart-shows-the-effect</span></div>\n    <div class=\"ek-block-content\"><p><strong>The wrong model.</strong> A chart is a window onto the data. If the difference looks large in the chart, the difference is large; if it looks small, it is small. When two charts of the same data disagree, one of them must have got the numbers wrong.</p>\n<p><strong>Predict first.</strong> You are about to see two bar charts of these two group means. One will make the difference look decisive, the other will make it look negligible. Write down which one you expect to be the honest chart, and what you expect the difference between the honest and dishonest versions to be: a different number, a different scale, or a different set of people.</p>\n<p><strong>The evidence.</strong> Both charts carry the same two values, and the same difference of 9.0 mg/dL. Neither misreports a number. The only thing that changes is where the vertical axis starts.</p>\n<p><strong>Why the model fails.</strong> A bar encodes a quantity as a length. A reader compares two bars by comparing their lengths, which means the encoding only works if length stays proportional to the quantity. Cut the axis at 135 and the bars no longer show the means; they show what is left of the means after 135 is subtracted. Those remainders, 2.5 and 11.5, stand in a ratio of about 4.6 to 1, while the quantities they represent stand in a ratio of 1.065 to 1. The picture is now a true picture of the wrong quantity.</p>\n<p><strong>The repair.</strong> A chart is a claim about magnitude, and the axis is part of the claim, in exactly the way that a unit is part of a measurement. Read the axis before you read the bars. If a bar chart&#39;s numerical axis does not start at zero, no comparison of bar lengths on it can be trusted, and you have to go back to the numbers.</p>\n<p><strong>Test the repair.</strong> Suppose the two group means had been 137.5 and 146.5 as here, but the axis started at 100 instead of 135. What ratio would the bars then show, and would the chart mislead more or less than the one cut at 135?</p>\n</div>\n  </aside>\n<h2>The evidence, in order</h2>\n<p>Here is the version that would win an argument at a meeting.</p>\n<figure class=\"ek-block ek-chart\" data-directive=\"chart\" data-chart-source=\"charts/group-means-cut-axis.chart.json\">\n    <div class=\"ek-block-label directive-label\">Chart</div>\n    <p class=\"ek-chart-title\">Mean fasting glucose by dinner group, vertical axis starting at 135 mg/dL</p>\n    <svg viewBox=\"0 0 720 380\" class=\"ek-chart-svg\" role=\"img\" aria-label=\"Two bars for mean fasting glucose, 137.5 and 146.5 mg/dL, on an axis starting at 135, so the later-dinner bar looks about four times as tall.\" xmlns=\"http://www.w3.org/2000/svg\"><title>Two bars for mean fasting glucose, 137.5 and 146.5 mg/dL, on an axis starting at 135, so the later-dinner bar looks about four times as tall.</title><rect x=\"127.2\" y=\"267.08\" width=\"189.6\" height=\"56.92\" class=\"ek-chart-bar ek-chart-series--0\"/><text x=\"222\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">Earlier dinner (30 people)</text><rect x=\"443.2\" y=\"62.15\" width=\"189.6\" height=\"261.85\" class=\"ek-chart-bar ek-chart-series--0\"/><text x=\"538\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">Later dinner (30 people)</text><line x1=\"64\" y1=\"28\" x2=\"64\" y2=\"324\" class=\"ek-chart-axis\"/>\n    <line x1=\"64\" y1=\"324\" x2=\"696\" y2=\"324\" class=\"ek-chart-axis\"/>\n    <line x1=\"64\" y1=\"324\" x2=\"64\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"64\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\"></text><line x1=\"59\" y1=\"324\" x2=\"64\" y2=\"324\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"328\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">135</text><line x1=\"59\" y1=\"255.69\" x2=\"64\" y2=\"255.69\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"259.69\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">138</text><line x1=\"59\" y1=\"187.38\" x2=\"64\" y2=\"187.38\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"191.38\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">141</text><line x1=\"59\" y1=\"119.08\" x2=\"64\" y2=\"119.08\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"123.08\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">144</text><line x1=\"59\" y1=\"50.77\" x2=\"64\" y2=\"50.77\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"54.77\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">147</text>\n    <text x=\"380\" y=\"368\" class=\"ek-chart-axislabel\" text-anchor=\"middle\">Dinner group</text>\n    <text x=\"16\" y=\"176\" class=\"ek-chart-axislabel\" text-anchor=\"middle\" transform=\"rotate(-90 16 176)\">Mean fasting glucose (mg/dL)</text></svg>\n    \n    <figcaption>Two bars for mean fasting glucose, 137.5 and 146.5 mg/dL, on an axis starting at 135, so the later-dinner bar looks about four times as tall.</figcaption>\n    <details class=\"ek-long-description\"><summary>Read the chart as text</summary><p>Two bars show the mean next-morning fasting glucose of the two dinner groups: 137.5 mg/dL for the 30 people who ate earlier and 146.5 mg/dL for the 30 who ate later, a difference of 9.0 mg/dL. The vertical axis starts at 135 mg/dL rather than at zero, so each bar shows only the part of the mean above 135. The drawn heights are therefore 2.5 and 11.5 units, and the later-dinner bar looks roughly four and a half times the earlier-dinner bar. The underlying means differ by about 6.5 percent. The bar heights on this chart do not stand in the same ratio as the quantities they represent.</p><table class=\"ek-chart-table\"><caption>Chart data</caption><thead><tr><th scope=\"col\">Series</th><th scope=\"col\">Value</th></tr></thead><tbody><tr><td>Mean fasting glucose</td><td>Earlier dinner (30 people): 137.5</td></tr><tr><td>Mean fasting glucose</td><td>Later dinner (30 people): 146.5</td></tr></tbody></table></details>\n  </figure>\n<p>And here is the same difference with the axis starting where a bar chart&#39;s axis has to start.</p>\n<figure class=\"ek-block ek-chart\" data-directive=\"chart\" data-chart-source=\"charts/group-means-zero-axis.chart.json\">\n    <div class=\"ek-block-label directive-label\">Chart</div>\n    <p class=\"ek-chart-title\">The same two means, vertical axis starting at zero</p>\n    <svg viewBox=\"0 0 720 380\" class=\"ek-chart-svg\" role=\"img\" aria-label=\"The same two bars, 137.5 and 146.5 mg/dL, on an axis starting at zero, where the two heights look nearly the same.\" xmlns=\"http://www.w3.org/2000/svg\"><title>The same two bars, 137.5 and 146.5 mg/dL, on an axis starting at zero, where the two heights look nearly the same.</title><rect x=\"127.2\" y=\"69.63\" width=\"189.6\" height=\"254.38\" class=\"ek-chart-bar ek-chart-series--0\"/><text x=\"222\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">Earlier dinner (30 people)</text><rect x=\"443.2\" y=\"52.97\" width=\"189.6\" height=\"271.03\" class=\"ek-chart-bar ek-chart-series--0\"/><text x=\"538\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">Later dinner (30 people)</text><line x1=\"64\" y1=\"28\" x2=\"64\" y2=\"324\" class=\"ek-chart-axis\"/>\n    <line x1=\"64\" y1=\"324\" x2=\"696\" y2=\"324\" class=\"ek-chart-axis\"/>\n    <line x1=\"64\" y1=\"324\" x2=\"64\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"64\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\"></text><line x1=\"59\" y1=\"324\" x2=\"64\" y2=\"324\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"328\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">0</text><line x1=\"59\" y1=\"250\" x2=\"64\" y2=\"250\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"254\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">40</text><line x1=\"59\" y1=\"176\" x2=\"64\" y2=\"176\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"180\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">80</text><line x1=\"59\" y1=\"102\" x2=\"64\" y2=\"102\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"106\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">120</text><line x1=\"59\" y1=\"28\" x2=\"64\" y2=\"28\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"32\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">160</text>\n    <text x=\"380\" y=\"368\" class=\"ek-chart-axislabel\" text-anchor=\"middle\">Dinner group</text>\n    <text x=\"16\" y=\"176\" class=\"ek-chart-axislabel\" text-anchor=\"middle\" transform=\"rotate(-90 16 176)\">Mean fasting glucose (mg/dL)</text></svg>\n    \n    <figcaption>The same two bars, 137.5 and 146.5 mg/dL, on an axis starting at zero, where the two heights look nearly the same.</figcaption>\n    <details class=\"ek-long-description\"><summary>Read the chart as text</summary><p>The bars carry the same two numbers as the previous chart: 137.5 mg/dL for the earlier-dinner group and 146.5 mg/dL for the later-dinner group, a difference of 9.0 mg/dL. Here the vertical axis starts at zero, so each bar&#39;s height is proportional to the mean it represents. The later bar is about 6.5 percent taller than the earlier one, which is close to the edge of what an eye reliably picks out. Neither chart is wrong about the numbers; the two pictures disagree about how large 9.0 mg/dL looks, and the axis choice is what changed.</p><table class=\"ek-chart-table\"><caption>Chart data</caption><thead><tr><th scope=\"col\">Series</th><th scope=\"col\">Value</th></tr></thead><tbody><tr><td>Mean fasting glucose</td><td>Earlier dinner (30 people): 137.5</td></tr><tr><td>Mean fasting glucose</td><td>Later dinner (30 people): 146.5</td></tr></tbody></table></details>\n  </figure>\n<p>The UK Government Analysis Function guidance names this directly: readers perceive bars as proportional to each other, so breaking the numerical axis distorts those relative proportions, and the practice is advised against. Where a difference genuinely is too small to see on a zero-based bar chart, the guidance suggests changing the display rather than the axis, to a dot plot for instance, so the small difference can be shown without pretending to be a large one.</p>\n<p>Answer to the repair test: with the axis at 100, the drawn lengths would be 37.5 and 46.5, a ratio of about 1.24 to 1. Still wrong, still exaggerated, and less wrong than 4.6 to 1. A <strong>truncated axis</strong> is a dial rather than a switch, and the further up it is turned the more the picture departs from the quantities it claims to show.</p>\n<h2>The same trap on a different lever</h2>\n<p>Axis start is the famous one. Bin width does the same job quietly. Here are the sixty glucose readings again, unchanged, in bins three times as wide.</p>\n<figure class=\"ek-block ek-chart\" data-directive=\"chart\" data-chart-source=\"charts/fasting-glucose-wide-bins.chart.json\">\n    <div class=\"ek-block-label directive-label\">Chart</div>\n    <p class=\"ek-chart-title\">The same 60 fasting glucose values, bins 30 mg/dL wide</p>\n    <svg viewBox=\"0 0 720 380\" class=\"ek-chart-svg\" role=\"img\" aria-label=\"Histogram of the same 60 fasting glucose values in only three wide bins, showing one tall middle bar and two short ones.\" xmlns=\"http://www.w3.org/2000/svg\"><title>Histogram of the same 60 fasting glucose values in only three wide bins, showing one tall middle bar and two short ones.</title><line x1=\"394.04\" y1=\"28\" x2=\"394.04\" y2=\"324\" class=\"ek-chart-marker\"/><text x=\"394.04\" y=\"20\" class=\"ek-chart-markerlabel\" text-anchor=\"middle\">Mean 142 mg/dL</text><rect x=\"64\" y=\"250\" width=\"209.67\" height=\"74\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"274.67\" y=\"57.6\" width=\"209.67\" height=\"266.4\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"485.33\" y=\"220.4\" width=\"209.67\" height=\"103.6\" class=\"ek-chart-bar ek-chart-series--0\"/><line x1=\"64\" y1=\"28\" x2=\"64\" y2=\"324\" class=\"ek-chart-axis\"/>\n    <line x1=\"64\" y1=\"324\" x2=\"696\" y2=\"324\" class=\"ek-chart-axis\"/>\n    <line x1=\"64\" y1=\"324\" x2=\"64\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"64\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">95</text><line x1=\"274.67\" y1=\"324\" x2=\"274.67\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"274.67\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">125</text><line x1=\"485.33\" y1=\"324\" x2=\"485.33\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"485.33\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">155</text><line x1=\"696\" y1=\"324\" x2=\"696\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"696\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">185</text><line x1=\"59\" y1=\"324\" x2=\"64\" y2=\"324\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"328\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">0</text><line x1=\"59\" y1=\"250\" x2=\"64\" y2=\"250\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"254\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">10</text><line x1=\"59\" y1=\"176\" x2=\"64\" y2=\"176\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"180\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">20</text><line x1=\"59\" y1=\"102\" x2=\"64\" y2=\"102\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"106\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">30</text><line x1=\"59\" y1=\"28\" x2=\"64\" y2=\"28\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"32\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">40</text>\n    <text x=\"380\" y=\"368\" class=\"ek-chart-axislabel\" text-anchor=\"middle\">Fasting glucose (mg/dL)</text>\n    <text x=\"16\" y=\"176\" class=\"ek-chart-axislabel\" text-anchor=\"middle\" transform=\"rotate(-90 16 176)\">Number of people</text></svg>\n    \n    <figcaption>Histogram of the same 60 fasting glucose values in only three wide bins, showing one tall middle bar and two short ones.</figcaption>\n    <details class=\"ek-long-description\"><summary>Read the chart as text</summary><p>The same sixty values from the previous histogram are grouped into three bins 30 mg/dL wide: 10 people from 95 to 125 mg/dL, 36 people from 125 to 155, and 14 people from 155 to 185. Nothing about the data changed; only the bin width did. At this width the picture reports that most people sit in the middle, and it can no longer show where the peak falls inside that middle bin, how quickly the counts drop on either side, or that the right tail is longer than the left. The mean of 142 mg/dL is marked, and at this width it looks like the centre of a featureless block.</p><table class=\"ek-chart-table\"><caption>Chart data</caption><thead><tr><th scope=\"col\">Series</th><th scope=\"col\">Value</th></tr></thead><tbody><tr><td>People in each 30 mg/dL bin</td><td>95 to 125: 10</td></tr><tr><td>People in each 30 mg/dL bin</td><td>125 to 155: 36</td></tr><tr><td>People in each 30 mg/dL bin</td><td>155 to 185: 14</td></tr><tr><td>Marker</td><td>Fasting glucose 142: Mean 142 mg/dL</td></tr></tbody></table></details>\n  </figure>\n<p>One tall bar and two short ones. Every feature the earlier histogram reported has gone: no peak position inside the middle, no sense of how fast the counts fall away, no visible difference between the two tails. A reader shown only this picture would say the cohort is bunched in the middle and leave.</p>\n<p>The opposite setting fails in the opposite direction. Sixty values in bins 2 mg/dL wide would give forty-five mostly empty bars with a scatter of ones and twos, and the eye would read the accidental gaps as structure that is not there. Bin width is a choice made by whoever drew the chart, and it decides which features of the distribution the picture is capable of showing. A histogram with no stated bin width is an unfinished chart.</p>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-audit-a-chart</span></div>\n    <div class=\"ek-block-content\"><p>A colleague sends you a bar chart from a clinic audit. Two bars, &quot;before&quot; and &quot;after&quot; a new appointment reminder system, showing the percentage of patients who attended. The &quot;after&quot; bar is roughly three times the height of the &quot;before&quot; bar. The vertical axis is labelled only with the top value, 90%.</p>\n<p>List the questions you would ask before repeating this result to anyone.</p>\n</div>\n  </aside>\n<p>Where does the axis start, since only its top is labelled and a three-to-one height ratio next to a 90% ceiling is hard to reach honestly. What are the two actual percentages. How many patients are in each bar, since a percentage over 40 people and a percentage over 4000 are different evidence. Over what period was each measured, and did anything else change at the same time. If the answers turn out to be 78% and 84% on an axis starting at 76, the chart has done to those numbers exactly what the first chart in this scene did to 137.5 and 146.5.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-truncated-bar-axis-distorts, claim-histogram-bins-govern-detail</span><span><b>sources</b> source-af-charts, source-nist-histogram</span></div>\n    <div class=\"ek-block-content\"><p>These sources support the finding that readers judge bars as proportional to one another so that breaking the numerical axis distorts those proportions, and that a histogram is built from bins whose width is chosen by the analyst. The two group means, the sixty readings, and the clinic-audit example are original teaching material.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-choose-and-critique",
+      "title": "Choose it, draw it, break it",
+      "kind": "practice",
+      "source": "content/060-choose-and-critique.md",
+      "estimatedMinutes": 26,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Choose it, draw it, break it</h1>\n<p>Three tasks. The first walks you through the decision, the second gives you the data and lets you make the decision, the third hands you a finished chart and asks what is wrong with it. Work each one before reading on.</p>\n<h2>One: with the decision broken down</h2>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> practice-guided-display-choice</span></div>\n    <div class=\"ek-block-content\"><p>A diabetes service wants to know how long its patients wait between referral and first appointment. It has 240 waits, in days, ranging from 4 to 96.</p>\n<p>Answer in order:</p>\n<ol>\n<li>How many columns does the question involve, and what kind is each?</li>\n<li>Is the question about exact values or about shape?</li>\n<li>Which display follows, and what two decisions do you have to make before drawing it?</li>\n</ol>\n</div>\n  </aside>\n<p>One column, a quantity measured in days. The question is about shape: the service wants to know how the waits are distributed, not what patient 137 waited. So a histogram, and the two decisions are the bin width and where the vertical axis starts. Bins of 10 days give around ten bars across a range of 92 days, which is a reasonable place to begin; the count axis starts at zero because bar length has to stay proportional to the count. If the service also needs to state how many patients waited more than six weeks, add a frequency table, because that is a question about an exact value and a bar chart answers it only approximately.</p>\n<h2>Two: with the data and no scaffolding</h2>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> practice-independent-display-choice</span></div>\n    <div class=\"ek-block-content\"><p>The same service records, for each of six clinic sites, the number of patients seen last month and the median wait in days.</p>\n<table>\n<thead>\n<tr>\n<th>Site</th>\n<th>Patients seen</th>\n<th>Median wait (days)</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>Northgate</td>\n<td>210</td>\n<td>22</td>\n</tr>\n<tr>\n<td>Riverside</td>\n<td>96</td>\n<td>41</td>\n</tr>\n<tr>\n<td>Eastfield</td>\n<td>178</td>\n<td>26</td>\n</tr>\n<tr>\n<td>Hillcrest</td>\n<td>44</td>\n<td>63</td>\n</tr>\n<tr>\n<td>Templeton</td>\n<td>133</td>\n<td>30</td>\n</tr>\n<tr>\n<td>Weir Park</td>\n<td>61</td>\n<td>48</td>\n</tr>\n</tbody></table>\n<p>Two questions are on the table. Which site has the longest waits, and does a busier site tend to have shorter waits? Say what you would draw for each, and name every axis decision you would make.</p>\n</div>\n  </aside>\n<p>The first question ranks one quantity across six named categories, so a bar chart with one bar per site, sites on one axis and median wait on the other, ordered longest to shortest rather than alphabetically. The wait axis starts at zero. Six values is also small enough that the table above already answers the question, and saying so is a legitimate answer.</p>\n<p>The second question pairs two quantities measured on the same six units, so a scatter with patients seen on the horizontal axis and median wait on the vertical. Neither axis needs to start at zero, because a scatter encodes position and not length; state the ranges you used. Then say the honest thing about six points: the fall in median wait as patient numbers rise is visible here, and six sites cannot establish it. That is a hypothesis to check with more sites, not a finding.</p>\n<h2>Three: with a chart that is already wrong</h2>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> practice-critique-a-chart</span></div>\n    <div class=\"ek-block-content\"><p>A poster reports the dinner-timing study like this.</p>\n<blockquote>\n<p>A line chart. The horizontal axis is labelled &quot;Group&quot; with two positions, &quot;Early&quot; and &quot;Late&quot;. The vertical axis is labelled &quot;Glucose&quot; with no unit, running from 136 to 148. Two points, joined by a rising line. Caption: &quot;Fasting glucose rises with later dinners.&quot;</p>\n</blockquote>\n<p>Name every problem you can find, and say what you would draw instead.</p>\n</div>\n  </aside>\n<p>Six problems, and the first one is structural. A line asserts that the space between its endpoints is a path something travelled, so joining two categories with a line invents a continuum between &quot;early&quot; and &quot;late&quot; that the display does not contain. The vertical axis carries no unit, so a reader cannot tell whether the gap is 9 mg/dL or 9 mmol/L, and those two are not interchangeable. The axis starts at 136, which inflates the visible gap for the reason worked in the previous scene. Two plotted points hide sixty people and the entire spread of the cohort, including the overlap between the groups. The caption says &quot;rises&quot;, a word about change over time, when nothing was measured twice. And nothing on the poster states how many people are in each group.</p>\n<p>What to draw instead: two histograms of glucose, one per group, on a shared horizontal scale, so a reader can see both centres and the overlap at once. Add a table with the two group sizes and the two means beneath it, for the reader who wants the figures.</p>\n<h2>Where this is going</h2>\n<p>The assessment for this lesson asks you to do these three things once more without the worked answers underneath: choose a display for a stated question, read a distribution off a histogram, and say what a chart&#39;s axis has done to a difference. If the third task was the one that felt shakiest, reread the misconception scene before attempting it, since that is the judgment this lesson most wants you to leave with.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-chart-choice-follows-question, claim-table-for-exact-values, claim-truncated-bar-axis-distorts</span><span><b>sources</b> source-af-charts, source-af-tables</span></div>\n    <div class=\"ek-block-content\"><p>These sources support matching the display to the relationship being shown, the conditions under which a table serves a reader better than a chart, and the effect of breaking a bar chart&#39;s numerical axis. The waiting-time service, its six sites, and the poster are original teaching material.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-one-persons-record",
+      "title": "Transfer: ninety mornings belonging to one person",
+      "kind": "transfer",
+      "source": "content/070-one-persons-record.md",
+      "estimatedMinutes": 20,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Transfer: ninety mornings belonging to one person</h1>\n<p>Everything so far has compared people. Now the unit changes. A clinician opens one patient&#39;s logbook before a routine appointment: ninety consecutive morning fasting readings from a single person, in date order.</p>\n<p>The columns look familiar and the structure is different. Sixty people measured once gave a distribution across individuals. One person measured ninety times gives a sequence, and a sequence carries something the earlier data never had: order.</p>\n<h2>Two questions, two displays</h2>\n<p><strong>Is this person&#39;s control changing?</strong> That question is about order, so it wants a line chart: date along the horizontal axis, fasting glucose on the vertical, points joined in the sequence they were recorded. The line is legitimate here in a way it was not on the poster in the previous scene, because consecutive mornings really are consecutive, and the space between two points is time that actually passed.</p>\n<p><strong>How much do this person&#39;s mornings differ from each other?</strong> That question is about spread, so it wants a histogram of the same ninety values. Choose a bin width, count, draw.</p>\n<p>Now the transfer step. Those two displays are built from identical numbers, and each one destroys what the other preserves.</p>\n<p>A histogram of ninety readings answers &quot;how often was this person above 150?&quot; and cannot answer &quot;were the high readings all in March?&quot; Sorting the values into bins throws the dates away. Two patients could hand you records with the same histogram down to the last bar: one drifting steadily upward all quarter, the other stable with a bad fortnight after a chest infection. The histogram cannot separate them. The line chart can, instantly, and in exchange it makes the overall spread much harder to judge.</p>\n<p>So the answer to &quot;which display&quot; is a question back: <em>which of these two things am I willing to lose?</em> Both, usually. The two charts belong side by side, and the practical reason clinicians look at both is that they are asking both questions in the same five minutes.</p>\n<h2>The axis question, transferred</h2>\n<p>A bar chart&#39;s numerical axis must start at zero because a bar states a magnitude by its length. A line chart does not: it states a value by position, and the guidance treats breaking the vertical axis on a line chart as acceptable where it is needed. For ninety glucose readings sitting between 110 and 190 mg/dL, forcing the axis down to zero would compress the entire record into the top fifth of the plot and hide precisely the movement the clinician came to see.</p>\n<p>That is not an exception to the earlier rule. It is the rule stated properly: the axis has to be honest about the encoding the chart is using. Length-based encodings need a zero. Position-based encodings need a stated range, clearly labelled, so a reader knows how much of the scale they are looking at.</p>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-transfer-record-review</span></div>\n    <div class=\"ek-block-content\"><p>The same patient&#39;s record, three further questions. For each one, name the display and say what that display will cost you.</p>\n<ol>\n<li>Does this person&#39;s fasting glucose depend on how much they slept the night before, which they also logged?</li>\n<li>How many of the ninety mornings were at or above 180 mg/dL?</li>\n<li>Did the readings recorded on weekend mornings differ from weekdays?</li>\n</ol>\n</div>\n  </aside>\n<p>Sleep and glucose are two quantities measured on the same ninety mornings, so a scatter, one point per morning. It costs you the dates: a scatter of the pairs cannot show that both variables drifted together over the quarter rather than tracking each other day by day. The second question wants an exact count, so a frequency table, or simply the number. Any chart would cost precision here for no gain. The third splits ninety readings into two groups by a category, so two histograms on a shared scale, or two box plots side by side; that costs the order again, and it also costs you the raw counts unless you print the two group sizes, which you should, because sixty-four weekdays against twenty-six weekend mornings is a comparison of unequal footing.</p>\n<aside class=\"ek-block ek-callout ek-block--boundary\" data-directive=\"callout\">\n    <div class=\"ek-block-label directive-label\">Callout</div>\n    \n    <div class=\"ek-block-content\"><p><strong>Teaching example, not medical advice.</strong> This logbook is invented to make a display choice concrete. Nothing in this scene describes how any real record should be interpreted, and no reading of any chart here is a clinical judgment.</p>\n</div>\n  </aside>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-chart-choice-follows-question, claim-truncated-bar-axis-distorts</span><span><b>sources</b> source-af-charts</span></div>\n    <div class=\"ek-block-content\"><p>This source supports the mapping from the relationship being shown to the display type, including line charts for a time series, and the distinct treatment of the numerical axis in bar charts and line charts. The patient, the logbook, and the ninety readings are original teaching material.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-clinic-morning",
+      "title": "Clinical wrap-up: the question a mean of 142 cannot answer",
+      "kind": "synthesis",
+      "source": "content/080-clinical-wrap-up.md",
+      "estimatedMinutes": 18,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Clinical wrap-up: the question a mean of 142 cannot answer</h1>\n<p><strong>Teaching example, not medical advice.</strong> The clinic, the meeting, and all sixty readings below are invented for teaching. Nothing here is a finding about real patients, and nothing here should inform anyone&#39;s care. Reference values are quoted only so the display choices have something real to be measured against.</p>\n<p>A diabetes service reviews the dinner-timing study at its Monday meeting. The summary slide says: <em>60 adults with type 2 diabetes, mean fasting glucose 142 mg/dL.</em> A registrar asks the question the slide was not built to answer.</p>\n<blockquote>\n<p>How many of those sixty people are where we would want them, and how many are a long way from it?</p>\n</blockquote>\n<p>Three of this lesson&#39;s tools answer that, in order.</p>\n<h2>First, the cut-points the question needs</h2>\n<p>The clinical reference values do not come from the data; they come from outside it. The US National Institute of Diabetes and Digestive and Kidney Diseases gives fasting plasma glucose of 99 mg/dL or below as normal, 100 to 125 mg/dL as prediabetes, and 126 mg/dL or above as diabetes, with a doctor usually running a second test before confirming a diagnosis. Fasting means nothing to eat or drink beforehand except sips of water.</p>\n<p>Those thresholds are what makes the registrar&#39;s question answerable, and they are also what makes the display choice easy. The question asks <em>how many</em>, in bands with defined edges. That is a table&#39;s question.</p>\n<h2>Second, the frequency table</h2>\n<table>\n<thead>\n<tr>\n<th>Fasting glucose (mg/dL)</th>\n<th>People</th>\n<th>Share of cohort</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>100 to 125</td>\n<td>11</td>\n<td>0.183</td>\n</tr>\n<tr>\n<td>126 to 139</td>\n<td>16</td>\n<td>0.267</td>\n</tr>\n<tr>\n<td>140 to 159</td>\n<td>21</td>\n<td>0.350</td>\n</tr>\n<tr>\n<td>160 to 179</td>\n<td>11</td>\n<td>0.183</td>\n</tr>\n<tr>\n<td>180 or above</td>\n<td>1</td>\n<td>0.017</td>\n</tr>\n<tr>\n<td>All</td>\n<td>60</td>\n<td>1.000</td>\n</tr>\n</tbody></table>\n<p>Forty-nine of the sixty sat at or above 126 mg/dL on the morning they were measured; eleven sat below it. Nobody in this cohort was at or below 99.</p>\n<p>The mean of 142 mg/dL is nowhere in that table and could not have produced any row of it. The registrar&#39;s question was never a question about the centre.</p>\n<h2>Third, the picture, for what the table does not show</h2>\n<p>Scroll back to the histogram in the second scene, or read its data table. Two features stand out that the banded table above smooths over.</p>\n<p>One person sat alone in the lowest bin, 95 to 105 mg/dL, with only three people in the bin above them. In the second scene that reading was the closest thing to an outlier; in a clinic it is a specific person, and the first move is the same as it was there. A value that far from its neighbours is a question about the record before it is a question about the patient. Was the reading taken fasting? Is the meter the one the record says it is? Did the value get transcribed correctly? Whatever the answer, the mean absorbed that person completely and the histogram did not.</p>\n<p>At the other end, six people sat at or above 165 mg/dL, with the highest at 181. They are the right-hand tail worked through earlier, and a service looking at its own list would want their names.</p>\n<p>Neither feature is visible in &quot;mean 142 mg/dL&quot;. Both were visible in a picture that took one command to draw.</p>\n<h2>What the service should not draw</h2>\n<p>The meeting also wants the dinner-timing comparison: 137.5 mg/dL in the earlier group against 146.5 in the later, a difference of 9.0. Somebody will offer to put that on a slide as two bars.</p>\n<p>If those bars sit on an axis starting at 135, the slide will show one bar four and a half times the other and a room full of clinicians will remember a large effect. On a zero-based axis the same two bars differ by about six and a half percent, which is what 9.0 mg/dL out of roughly 140 actually is. Same numbers, and the meeting leaves with a different impression depending on which slide it saw.</p>\n<p>Whether 9.0 mg/dL should change anything for a patient is a clinical judgment, and this block returns to it in its final lesson with the whole analysis behind it. What this lesson establishes is narrower and comes first: nobody in that room can weigh a difference they have been shown at the wrong size.</p>\n<h2>Where the block goes next</h2>\n<p>You now have the data in view. The next lesson puts numbers on what you have been describing in words: a single value for the centre, a single value for the spread, and a name for the lean you found in the right tail. Those summaries are safe to use precisely because you have already looked.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-fpg-thresholds, claim-table-for-exact-values, claim-histogram-shows-distribution-features, claim-truncated-bar-axis-distorts</span><span><b>sources</b> source-niddk-diabetes-tests, source-af-tables, source-af-charts, source-nist-histogram</span></div>\n    <div class=\"ek-block-content\"><p>These sources support the fasting plasma glucose reference values and confirmation practice quoted above, the conditions under which a table serves a reader better than a chart, the distribution features a histogram reports that a summary value does not, and the distortion produced by breaking a bar chart&#39;s numerical axis. The clinic, the meeting, the sixty readings, and the banded counts are original teaching material and are not observations of real patients.</p>\n</div>\n  </aside>\n"
+    }
+  ],
+  "authors": [
+    {
+      "principalId": "github:VSBDev",
+      "displayName": "VSBDev — accountable author",
+      "agent": {
+        "system": "RUNTIME-STAMPED",
+        "provider": "RUNTIME-STAMPED",
+        "model": "RUNTIME-STAMPED",
+        "version": "RUNTIME-STAMPED",
+        "runId": "author-PREM-STA-002-AA0725D5-9A91-44BC-83AC-5AC3E2687598",
+        "instructionsDigest": "sha256:61e55ba9891cf86298e8812a8adabfef691d9b66800f9601596e901ebb7c41cb"
+      }
+    }
+  ],
+  "license": "CC-BY-4.0",
+  "sourceConfidence": "pending-review",
+  "aiAssistance": {
+    "used": true,
+    "disclosure": "VSBDev (github:VSBDev) is the accountable principal for this authoring run. Material authoring assistance used system RUNTIME-STAMPED, provider RUNTIME-STAMPED, model RUNTIME-STAMPED, version RUNTIME-STAMPED, in isolated run author-PREM-STA-002-AA0725D5-9A91-44BC-83AC-5AC3E2687598. The instructions digest covers the recorded discloseable UTF-8 authoring-task payload for this run, including its terminal newline; it excludes hidden provider and system instructions that cannot be exported."
+  },
+  "assessment": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-assessment-v1",
+    "lessonId": "PREM-STA-002",
+    "lessonVersion": "0.1.0",
+    "assessmentId": "assessment-tables-and-graphical-displays",
+    "title": "Choose a display, read a distribution, audit a chart",
+    "purpose": "mixed",
+    "attemptPolicy": {
+      "retakeable": true,
+      "timeLimitMinutes": null,
+      "feedback": "after-attempt"
+    },
+    "items": [
+      {
+        "id": "item-choose-display-for-waits",
+        "type": "single-choice",
+        "sceneId": "scene-choose-and-critique",
+        "objectiveIds": [
+          "objective-select-a-display"
+        ],
+        "outcomeIds": [
+          "topic-statistics-data-graphs-tables"
+        ],
+        "prompt": "A renal service has recorded, for each of 300 patients, the number of days between referral and first appointment. The service wants to know whether most patients are seen quickly with a few long waits, or whether the waits are spread evenly across the whole range. Which display answers that question first?",
+        "stimulus": null,
+        "points": 4,
+        "responseSpec": {
+          "mode": "single-choice",
+          "options": [
+            {
+              "id": "option-histogram-of-waits",
+              "text": "A histogram of the 300 waits, with a stated bin width."
+            },
+            {
+              "id": "option-bar-of-mean-wait",
+              "text": "A bar chart showing the mean wait."
+            },
+            {
+              "id": "option-line-of-waits",
+              "text": "A line chart with the 300 patients along the horizontal axis in record order."
+            },
+            {
+              "id": "option-scatter-of-waits",
+              "text": "A scatter plot of patient number against wait."
+            }
+          ]
+        },
+        "answer": {
+          "correct": "option-histogram-of-waits",
+          "summary": "A histogram of the 300 waits.",
+          "reasoning": "The question involves one quantitative column and asks about shape rather than about any individual value, which is exactly what a histogram of a single quantitative variable displays. A bar chart of the mean collapses 300 numbers to one and cannot distinguish a long right tail from an even spread. A line chart asserts a sequence between neighbouring patients that does not exist, since record order is not a quantity anything travelled through. A scatter of patient number against wait plots a meaningless horizontal variable and answers no stated question.",
+          "acceptableResponses": [
+            "A histogram of the 300 waits.",
+            "Histogram, with the bin width stated."
+          ],
+          "commonErrors": [
+            "Choosing the bar chart of the mean because the word 'most' sounds like an average question, when it is a question about where the bulk of the distribution sits.",
+            "Choosing the line chart because the data arrive in a list, mistaking record order for a time axis."
+          ]
+        },
+        "rubricId": "rubric-display-choice",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-table-or-chart",
+        "type": "single-choice",
+        "sceneId": "scene-display-follows-variable",
+        "objectiveIds": [
+          "objective-select-a-display"
+        ],
+        "outcomeIds": [
+          "topic-statistics-data-graphs-tables"
+        ],
+        "prompt": "A hospital report must state how many patients were seen at each of five clinic sites last month, so that site managers can check the figure for their own site against their local records. Which presentation best serves that purpose, and why?",
+        "stimulus": null,
+        "points": 4,
+        "responseSpec": {
+          "mode": "single-choice",
+          "options": [
+            {
+              "id": "option-table-of-five-counts",
+              "text": "A table of the five counts, because each manager needs to read one exact number."
+            },
+            {
+              "id": "option-bar-of-five-counts",
+              "text": "A bar chart of the five counts, because a chart is always clearer than a table."
+            },
+            {
+              "id": "option-pie-of-five-counts",
+              "text": "A pie chart of the five counts, because the sites together make a whole."
+            },
+            {
+              "id": "option-histogram-of-five-counts",
+              "text": "A histogram of the five counts, because counts are quantities."
+            }
+          ]
+        },
+        "answer": {
+          "correct": "option-table-of-five-counts",
+          "summary": "The table, because the reader needs an exact value rather than a pattern.",
+          "reasoning": "Guidance on choosing between a table and a chart turns on what the reader will do with the display. A manager checking one site's figure against local records needs the exact number, which a table gives and a bar length gives only to the nearest gridline. A bar chart would suit the different question of which site is busiest. A pie chart answers a part-to-whole question nobody asked here. A histogram is the wrong display type entirely: the five sites are categories, and a histogram bins a continuous range.",
+          "acceptableResponses": [
+            "A table, because the reader needs to read exact values.",
+            "Table of the five counts; the task is value lookup rather than pattern reading."
+          ],
+          "commonErrors": [
+            "Assuming a chart is always the more professional choice, when the reader's task is to look up a number.",
+            "Confusing a bar chart of categories with a histogram of a binned quantity."
+          ]
+        },
+        "rubricId": "rubric-display-choice",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-what-a-mean-omits",
+        "type": "multiple-choice",
+        "sceneId": "scene-read-the-histogram",
+        "objectiveIds": [
+          "objective-read-a-distribution"
+        ],
+        "outcomeIds": [
+          "topic-statistics-data-graphs-tables"
+        ],
+        "prompt": "A histogram of one quantitative column reports several features of a distribution. Select every feature below that the histogram reports and a mean alone does not.",
+        "stimulus": null,
+        "points": 6,
+        "responseSpec": {
+          "mode": "multiple-choice",
+          "maxSelections": 4,
+          "options": [
+            {
+              "id": "option-feature-spread",
+              "text": "How spread out the values are."
+            },
+            {
+              "id": "option-feature-modes",
+              "text": "Whether there is more than one mode."
+            },
+            {
+              "id": "option-feature-outliers",
+              "text": "Whether any observation stands apart from the rest."
+            },
+            {
+              "id": "option-feature-location",
+              "text": "Roughly where the values sit."
+            },
+            {
+              "id": "option-feature-exact-maximum",
+              "text": "The exact value of the largest observation."
+            }
+          ]
+        },
+        "answer": {
+          "correct": [
+            "option-feature-spread",
+            "option-feature-modes",
+            "option-feature-outliers"
+          ],
+          "summary": "Spread, number of modes, and the presence of an observation standing apart.",
+          "reasoning": "A histogram displays location, spread, skewness, the presence of outliers, and the presence of multiple modes. A mean carries location and nothing else, so spread, modes, and outliers are the features it omits. Location is reported by both, so it does not belong in the selection. The exact largest value is reported by neither: a histogram places the maximum somewhere inside its highest occupied bin without saying where, which is one reason a frequency table or the raw values are still needed.",
+          "acceptableResponses": [
+            "Spread, multiple modes, and outliers."
+          ],
+          "commonErrors": [
+            "Including location, which a mean does report.",
+            "Including the exact maximum, forgetting that a histogram gives only the bin an extreme value falls in."
+          ]
+        },
+        "rubricId": "rubric-distribution-reading",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-count-below-125",
+        "type": "numeric",
+        "sceneId": "scene-read-the-histogram",
+        "objectiveIds": [
+          "objective-read-a-distribution"
+        ],
+        "outcomeIds": [
+          "topic-statistics-data-graphs-tables"
+        ],
+        "prompt": "Use the frequency table of the sixty-person cohort. The bins are 10 mg/dL wide from 95 to 185 and hold 1, 3, 6, 11, 13, 12, 8, 4 and 2 people in order. How many people had a fasting glucose below 125 mg/dL?",
+        "stimulus": "Bins and counts, in order from the lowest: 95 to 105 holds 1; 105 to 115 holds 3; 115 to 125 holds 6; 125 to 135 holds 11; 135 to 145 holds 13; 145 to 155 holds 12; 155 to 165 holds 8; 165 to 175 holds 4; 175 to 185 holds 2. A value falling exactly on a boundary is counted in the upper bin.",
+        "points": 3,
+        "responseSpec": {
+          "mode": "number",
+          "units": "people",
+          "tolerance": 0
+        },
+        "answer": {
+          "correct": 10,
+          "summary": "10 people.",
+          "reasoning": "Add the three bins that lie entirely below 125 mg/dL: 1 plus 3 plus 6 gives 10. The boundary convention matters here. A reading of exactly 125 is counted in the 125 to 135 bin, so it is not below 125 and is not included. Ten of sixty is a proportion of 0.167.",
+          "acceptableResponses": [
+            "10",
+            "10 people, which is 1 + 3 + 6."
+          ],
+          "commonErrors": [
+            "Answering 21 by including the 125 to 135 bin, which straddles the cut-point rather than sitting below it.",
+            "Answering with a proportion such as 0.167 when the question asks for a count."
+          ]
+        },
+        "rubricId": "rubric-distribution-reading",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-describe-the-scatter",
+        "type": "data-interpretation",
+        "sceneId": "scene-two-measurements",
+        "objectiveIds": [
+          "objective-read-an-association"
+        ],
+        "outcomeIds": [
+          "topic-statistics-data-graphs-tables"
+        ],
+        "prompt": "Describe what this scatter plot supports, in four parts: direction, form, strength, and unusual points. Then state one thing a reader might conclude from it that the plot does not support.",
+        "stimulus": "A scatter of 60 people. Horizontal axis: hours between dinner and sleep, from 0.8 to 6.5. Vertical axis: next-morning fasting glucose in mg/dL, from 100 to 181. The cloud drifts downwards from left to right. Between 1.5 and 2.5 hours it holds one person at 181 mg/dL and another at 100. Between 6 and 6.5 hours it holds one at 164 and one at 116. The 30 people at three hours or less average 146.5 mg/dL; the 30 above three hours average 137.5.",
+        "points": 8,
+        "responseSpec": {
+          "mode": "text",
+          "maxLength": 1600
+        },
+        "answer": {
+          "correct": "Direction: glucose falls as the dinner-to-sleep interval lengthens, so shorter intervals, meaning later dinners, sit with higher readings. Form: roughly straight, with nothing bending across the range. Strength: weak, because the vertical spread at any given interval is much larger than the drift across the whole horizontal range; individual readings at short and long intervals overlap heavily. Unusual points: the person at about 1.7 hours with a glucose of 100 mg/dL sits well below everyone else at that end of the plot. Not supported: that eating later causes higher fasting glucose, or that any individual's reading can be predicted from when they ate.",
+          "summary": "A weak, roughly straight downward drift with one low point standing apart, and no causal conclusion.",
+          "reasoning": "A scatter plot is read for whether two variables are related, whether the relationship is straight or curved, whether the spread of one changes across the other, and whether outliers are present. Here the group means differ by 9.0 mg/dL across a 60-person cohort whose individual values span 81 mg/dL, so the pattern is real in the data and small next to the person-to-person variation. Naming the strength honestly is the part most often skipped. The plot describes a pattern and identifies nothing about its cause, so any causal reading, and any prediction for an individual, goes beyond it.",
+          "acceptableResponses": [
+            "Downward, linear, weak, one low outlier near 1.7 hours; the plot does not establish that late dinners cause higher glucose.",
+            "Negative direction with respect to the interval (equivalently, higher glucose with later dinners), straight form, weak strength given the overlap, one point at 100 mg/dL standing apart; causation is not supported."
+          ],
+          "commonErrors": [
+            "Reporting the direction without noticing that the sign depends on measuring the interval rather than the lateness of dinner, and so contradicting the 9.0 mg/dL group difference while describing the same data.",
+            "Calling the relationship strong because the group means differ, when the individual clouds overlap almost completely.",
+            "Writing a causal conclusion, which the display cannot support."
+          ]
+        },
+        "rubricId": "rubric-association-reading",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-drawn-bar-ratio",
+        "type": "numeric",
+        "sceneId": "scene-two-pictures",
+        "objectiveIds": [
+          "objective-audit-axes-and-bins"
+        ],
+        "outcomeIds": [
+          "topic-statistics-data-graphs-tables"
+        ],
+        "prompt": "Two group means, 137.5 and 146.5 mg/dL, are drawn as bars on a vertical axis that starts at 130 mg/dL instead of zero. What is the ratio of the taller drawn bar's length to the shorter one's? Give your answer to two decimal places.",
+        "stimulus": null,
+        "points": 4,
+        "responseSpec": {
+          "mode": "number",
+          "units": "ratio of drawn lengths",
+          "tolerance": 0.05
+        },
+        "answer": {
+          "correct": 2.2,
+          "summary": "2.20 to 1.",
+          "reasoning": "A bar on a truncated axis shows only the part of its quantity above the axis start. Subtract 130 from each mean: 146.5 becomes 16.5 and 137.5 becomes 7.5. Dividing gives 16.5 divided by 7.5, which is 2.20. The quantities themselves stand in a ratio of 146.5 to 137.5, or 1.07 to 1, so the picture exaggerates the comparison roughly twofold. Cutting the axis higher, at 135, would push the drawn ratio to 4.6 to 1.",
+          "acceptableResponses": [
+            "2.2",
+            "2.20",
+            "16.5 / 7.5 = 2.2"
+          ],
+          "commonErrors": [
+            "Answering 1.07 by dividing the means themselves, which is the true ratio rather than the drawn one.",
+            "Answering 9 by giving the difference instead of a ratio."
+          ]
+        },
+        "rubricId": "rubric-chart-audit",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-audit-the-clinic-slide",
+        "type": "open-response",
+        "sceneId": "scene-clinic-morning",
+        "objectiveIds": [
+          "objective-audit-axes-and-bins",
+          "objective-select-a-display"
+        ],
+        "outcomeIds": [
+          "topic-statistics-data-graphs-tables"
+        ],
+        "prompt": "Audit this slide. Name every problem you can identify, say what each one does to a reader's impression, and describe the display or displays you would put in its place. Then state one question about the sixty patients that none of your proposed displays can answer.",
+        "stimulus": "A slide from a diabetes service meeting. Title: 'Later dinners raise morning glucose.' Two bars labelled 'Early' and 'Late'. Vertical axis labelled 'Glucose', starting at 135 and ending at 148, no unit given. The 'Late' bar is more than four times the height of the 'Early' bar. No per-group sizes are shown; a footnote reads 'n = 60'.",
+        "points": 10,
+        "responseSpec": {
+          "mode": "text",
+          "maxLength": 3000
+        },
+        "answer": {
+          "correct": "The axis starts at 135, so the drawn bars show what is left of each mean above 135 and their ratio of about 4.6 to 1 exaggerates a true ratio of about 1.07 to 1; a reader remembers a large effect. The axis carries no unit, so 9.0 in mg/dL cannot be distinguished from 9.0 in another unit. Two bars replace sixty people and hide the spread and the near-complete overlap of the two groups. The footnote gives the total but not the two group sizes, so a reader cannot tell whether the comparison is 30 against 30. The title asserts a causal claim, 'raise', that a comparison of two group means from this design does not establish, and 'raise' also implies a change over time when nothing was measured twice. Replacement: two histograms of fasting glucose, one per group, on a shared horizontal scale, so the centres and the overlap are both visible, with a small table beneath giving the two group sizes and the two means; a scatter of the dinner-to-sleep interval against glucose is a reasonable alternative that keeps the interval as a quantity. Not answerable by any of these: whether dinner timing caused the difference, or whether any individual patient's glucose would change if they ate earlier.",
+          "summary": "Truncated axis, missing unit, two bars hiding sixty people, missing group sizes, and a causal title; replace with per-group histograms on a shared scale plus a small table.",
+          "reasoning": "This item combines the two judgments the lesson most wants retained. The axis audit is arithmetic: subtract the axis start from each mean and compare the remainders with the means themselves. The display choice follows the question, which here is a comparison of two whole distributions rather than of two summary numbers, so the display has to show the distributions. A strong answer also separates what the display cannot do from what it does badly. Missing group sizes and a missing unit are defects of the slide; the absence of a causal answer is a limit of the data, and no chart repairs it.",
+          "acceptableResponses": [
+            "Any answer naming the truncated axis and quantifying its effect, the missing unit, the loss of spread and overlap behind two bars, the missing group sizes, and the causal wording of the title, then proposing per-group histograms on a shared scale or a scatter, with a table of the exact figures, and identifying causation or individual prediction as beyond any display."
+          ],
+          "commonErrors": [
+            "Naming the truncated axis without saying what it does to the comparison, which leaves the diagnosis unquantified.",
+            "Proposing a zero-based bar chart of the same two means, which fixes the axis but keeps two numbers standing in for sixty people.",
+            "Treating the causal title as a charting error, when it is a claim the design does not support and no display can rescue."
+          ]
+        },
+        "rubricId": "rubric-chart-audit",
+        "safetyCritical": false
+      }
+    ],
+    "rubrics": [
+      {
+        "id": "rubric-display-choice",
+        "title": "Selecting a display for a stated question",
+        "criteria": [
+          {
+            "id": "criterion-identifies-variables",
+            "description": "Names how many variables the question involves and what kind each is.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-value-or-pattern",
+            "description": "States whether the reader needs an exact value or a pattern, and chooses the display that serves it.",
+            "maxPoints": 3
+          },
+          {
+            "id": "criterion-rejects-alternative",
+            "description": "Gives a reason a plausible alternative display would answer a different question or mislead.",
+            "maxPoints": 3
+          }
+        ]
+      },
+      {
+        "id": "rubric-distribution-reading",
+        "title": "Reading a distribution from a histogram or frequency table",
+        "criteria": [
+          {
+            "id": "criterion-reads-shape",
+            "description": "Reports modes, centre, spread, and lean from the display rather than from a summary value.",
+            "maxPoints": 4
+          },
+          {
+            "id": "criterion-reads-counts",
+            "description": "Extracts counts or proportions correctly, respecting the stated bin boundary convention.",
+            "maxPoints": 3
+          },
+          {
+            "id": "criterion-states-limits",
+            "description": "States what the binned display cannot report, such as exact extreme values.",
+            "maxPoints": 2
+          }
+        ]
+      },
+      {
+        "id": "rubric-association-reading",
+        "title": "Reading an association from a scatter plot",
+        "criteria": [
+          {
+            "id": "criterion-direction-and-form",
+            "description": "Describes the direction and form of the pattern and ties the direction to how the horizontal variable was measured.",
+            "maxPoints": 3
+          },
+          {
+            "id": "criterion-strength-honestly",
+            "description": "Judges strength against the vertical spread at a given horizontal value rather than from the group means alone.",
+            "maxPoints": 3
+          },
+          {
+            "id": "criterion-unusual-and-limits",
+            "description": "Identifies unusual points and states that the display does not establish a cause or predict an individual.",
+            "maxPoints": 3
+          }
+        ]
+      },
+      {
+        "id": "rubric-chart-audit",
+        "title": "Auditing a chart someone else drew",
+        "criteria": [
+          {
+            "id": "criterion-finds-the-distortion",
+            "description": "Identifies the axis truncation, bin-width choice, or other encoding decision that changed the impression.",
+            "maxPoints": 3
+          },
+          {
+            "id": "criterion-quantifies-the-distortion",
+            "description": "Quantifies the distortion where the values allow it, comparing drawn lengths with the underlying quantities.",
+            "maxPoints": 3
+          },
+          {
+            "id": "criterion-proposes-repair",
+            "description": "Proposes a display that answers the question honestly and names what still cannot be answered.",
+            "maxPoints": 4
+          }
+        ]
+      }
+    ]
+  },
+  "references": {
+    "schemaVersion": 2,
+    "format": "embeddedknowledge-references-v2",
+    "lessonId": "PREM-STA-002",
+    "lessonVersion": "0.1.0",
+    "sources": [
+      {
+        "id": "source-nist-histogram",
+        "type": "reference-work",
+        "title": "NIST/SEMATECH e-Handbook of Statistical Methods, section 1.3.3.14: Histogram",
+        "creators": [
+          "National Institute of Standards and Technology",
+          "SEMATECH"
+        ],
+        "publisher": "National Institute of Standards and Technology, U.S. Department of Commerce",
+        "issued": null,
+        "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/histogra.htm",
+        "accessed": "2026-07-25",
+        "version": "NIST/SEMATECH e-Handbook of Statistical Methods, online edition retrieved 2026-07-25; no publication or revision date is stated on the page",
+        "locator": "Section 1.3.3.14, Histogram: purpose, definition, and questions the histogram answers",
+        "license": "US Government work; NIST states that information on its sites is public information and may be distributed or copied, with credit requested",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only for the facts that a histogram summarises the distribution of a univariate dataset and displays location, spread, skewness, outliers, and multiple modes; that it is built by splitting the range into equal-sized bins that the user may define arbitrarily or by rule; and that dividing bin counts by the number of observations gives bar heights that are the proportion of the data in each class. All wording, the cohort, the binning convention, and every example in this lesson are original. NIST copyright guidance at https://www.nist.gov/oism/copyrights states that NIST information is public information that may be distributed or copied and requests appropriate credit."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://www.nist.gov/oism/copyrights",
+          "checked": "2026-07-25",
+          "notes": "Retrieved https://www.nist.gov/robots.txt on 2026-07-25; it disallows administrative and search paths only and places no restriction on /div898/. No terms-of-use clause prohibiting automated retrieval was found. The page was read directly rather than through a search summary."
+        }
+      },
+      {
+        "id": "source-nist-scatter",
+        "type": "reference-work",
+        "title": "NIST/SEMATECH e-Handbook of Statistical Methods, section 1.3.3.26: Scatter Plot",
+        "creators": [
+          "National Institute of Standards and Technology",
+          "SEMATECH"
+        ],
+        "publisher": "National Institute of Standards and Technology, U.S. Department of Commerce",
+        "issued": null,
+        "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/scatterp.htm",
+        "accessed": "2026-07-25",
+        "version": "NIST/SEMATECH e-Handbook of Statistical Methods, online edition retrieved 2026-07-25; no publication or revision date is stated on the page",
+        "locator": "Section 1.3.3.26, Scatter Plot: purpose and the questions the scatter plot answers",
+        "license": "US Government work; NIST states that information on its sites is public information and may be distributed or copied, with credit requested",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only for the facts that a scatter plot checks for a relationship between two variables and is used to ask whether they are related, whether any relationship is linear or non-linear, whether the variation in one changes across values of the other, and whether outliers are present. The sixty paired values, the reading procedure, and the wording in this lesson are original. NIST copyright guidance at https://www.nist.gov/oism/copyrights states that NIST information is public information that may be distributed or copied and requests appropriate credit."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://www.nist.gov/oism/copyrights",
+          "checked": "2026-07-25",
+          "notes": "Retrieved https://www.nist.gov/robots.txt on 2026-07-25; it disallows administrative and search paths only and places no restriction on /div898/. No terms-of-use clause prohibiting automated retrieval was found. The page was read directly rather than through a search summary."
+        }
+      },
+      {
+        "id": "source-af-charts",
+        "type": "guideline",
+        "title": "Data visualisation: charts",
+        "creators": [
+          "Government Analysis Function"
+        ],
+        "publisher": "Government Analysis Function, UK Government",
+        "issued": null,
+        "url": "https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-charts/",
+        "accessed": "2026-07-25",
+        "version": "Policy store guidance, online version retrieved 2026-07-25; no publication or revision date is stated on the page",
+        "locator": "Sections on choosing a chart type, bar charts and the numerical axis, and line charts",
+        "license": "Open Government Licence v3.0",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only for the facts that published guidance matches a display type to the statistical relationship being shown (bars for magnitude and ranking, lines for time series, scatterplots for correlation, maps for spatial patterns), that readers perceive bars as proportional to one another so breaking the numerical axis of a bar chart distorts those relative proportions and is advised against with an alternative display suggested instead, and that breaking the vertical axis of a line chart is treated as acceptable where needed. No wording, table, figure, or example from the guidance is reproduced; the teaching examples and all prose are original. The site's terms of use at https://analysisfunction.civilservice.gov.uk/terms-of-use/ place most content under the Open Government Licence v3.0 and separately withhold permission to reuse the site's images, so no image from the source is used or adapted."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://analysisfunction.civilservice.gov.uk/terms-of-use/",
+          "checked": "2026-07-25",
+          "notes": "Retrieved https://analysisfunction.civilservice.gov.uk/robots.txt on 2026-07-25; it disallows only /wp-admin/ and places no restriction on the policy store. The terms of use prohibit attempts at unauthorised access but do not restrict ordinary automated retrieval of published pages. The page was read directly."
+        }
+      },
+      {
+        "id": "source-af-tables",
+        "type": "guideline",
+        "title": "Data visualisation: tables",
+        "creators": [
+          "Government Analysis Function"
+        ],
+        "publisher": "Government Analysis Function, UK Government",
+        "issued": null,
+        "url": "https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-tables/",
+        "accessed": "2026-07-25",
+        "version": "Policy store guidance, online version retrieved 2026-07-25; no publication or revision date is stated on the page",
+        "locator": "Section on when a demonstration table is useful",
+        "license": "Open Government Licence v3.0",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only for the facts that a table is recommended when readers need to compare values, read summary figures such as averages or totals, or handle quantities of very different sizes in one display, while charts are recommended for showing patterns, trends, and relationships. No wording, table layout, or example from the guidance is reproduced; the clinic and waiting-time tables in this lesson are original. Content is published under the Open Government Licence v3.0 per https://analysisfunction.civilservice.gov.uk/terms-of-use/."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://analysisfunction.civilservice.gov.uk/terms-of-use/",
+          "checked": "2026-07-25",
+          "notes": "Retrieved https://analysisfunction.civilservice.gov.uk/robots.txt on 2026-07-25; it disallows only /wp-admin/ and places no restriction on the policy store. The page was read directly."
+        }
+      },
+      {
+        "id": "source-niddk-diabetes-tests",
+        "type": "guideline",
+        "title": "Diabetes Tests & Diagnosis",
+        "creators": [
+          "National Institute of Diabetes and Digestive and Kidney Diseases"
+        ],
+        "publisher": "National Institutes of Health, U.S. Department of Health and Human Services",
+        "issued": "2022-07",
+        "url": "https://www.niddk.nih.gov/health-information/diabetes/overview/tests-diagnosis",
+        "accessed": "2026-07-25",
+        "version": "Online version retrieved 2026-07-25; the page states Last Reviewed July 2022",
+        "locator": "Fasting plasma glucose test and the table of diagnostic results for normal, prediabetes, and diabetes",
+        "license": "US Government work; NIDDK content is published as a public service of the National Institutes of Health",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only for the reference values it states for the fasting plasma glucose test, namely 99 mg/dL or below as normal, 100 to 125 mg/dL as prediabetes and 126 mg/dL or above as diabetes, for the statement that a doctor will usually use a second test to confirm a diabetes diagnosis, and for the definition of fasting as nothing to eat or drink except sips of water. The cohort, the banded counts, and all wording in this lesson are original, and the lesson makes no diagnostic or treatment recommendation."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://www.niddk.nih.gov/robots.txt",
+          "checked": "2026-07-25",
+          "notes": "Retrieved https://www.niddk.nih.gov/robots.txt on 2026-07-25; it allows general crawling with a 10-second crawl delay and disallows only /system and /_internal. The page was read directly rather than through a search summary."
+        }
+      }
+    ]
+  },
+  "claims": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-claims-v1",
+    "lessonId": "PREM-STA-002",
+    "lessonVersion": "0.1.0",
+    "claims": [
+      {
+        "id": "claim-histogram-shows-distribution-features",
+        "statement": "A histogram summarises the distribution of a single quantitative variable and displays the location of the data, their spread, their skewness, the presence of outliers, and the presence of more than one mode; a single summary value such as a mean reports only the location.",
+        "sceneIds": [
+          "scene-sixty-rows",
+          "scene-display-follows-variable",
+          "scene-read-the-histogram",
+          "scene-clinic-morning"
+        ],
+        "sourceIds": [
+          "source-nist-histogram"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Univariate quantitative data displayed as counts in equal-width bins. The list of features is the source's; the observation that a mean carries only the first of them follows from what a mean is and is demonstrated in the lesson on two constructed cohorts with the same mean.",
+        "uncertainty": "Whether any particular histogram in fact reveals a given feature depends on the sample size and the bin width chosen, which the lesson treats separately.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-histogram-bins-govern-detail",
+        "statement": "A histogram is constructed by splitting the range of the data into equal-sized bins whose boundaries the analyst either sets arbitrarily or derives from a systematic rule, so the chosen bin width determines which features of the distribution the resulting picture is able to show.",
+        "sceneIds": [
+          "scene-read-the-histogram",
+          "scene-two-pictures"
+        ],
+        "sourceIds": [
+          "source-nist-histogram"
+        ],
+        "support": "inference",
+        "confidence": "medium-high",
+        "scope": "Equal-width binning of a single quantitative variable. The source states the construction and the discretion the analyst holds over class definition, and separately lists the features a histogram can display.",
+        "uncertainty": "The source does not itself state the consequence that width limits which features appear. The lesson draws that consequence and demonstrates it by redrawing one dataset of sixty values at two bin widths; it does not recommend any particular rule for choosing a width.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-relative-frequency-proportion",
+        "statement": "Dividing each histogram bin count by the total number of observations gives bar heights that represent the proportion of the data falling in each class, and those proportions sum to one.",
+        "sceneIds": [
+          "scene-display-follows-variable",
+          "scene-read-the-histogram"
+        ],
+        "sourceIds": [
+          "source-nist-histogram"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "The first of the two normalisations the source describes, in which counts are divided by the number of observations. The lesson does not use the density normalisation in which the area under the histogram is one.",
+        "uncertainty": null,
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-scatter-two-variables",
+        "statement": "A scatter plot of two quantitative variables is used to check for a relationship between them, and answers whether the two are related, whether any relationship is linear or non-linear, whether the variation in one changes across values of the other, and whether outliers are present.",
+        "sceneIds": [
+          "scene-two-measurements"
+        ],
+        "sourceIds": [
+          "source-nist-scatter"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Paired measurements of two quantitative variables recorded on the same units of observation. The source frames these as the questions the display answers, not as conclusions the display establishes.",
+        "uncertainty": "A scatter plot describes a pattern in the observed data and does not identify its cause; the lesson keeps causal interpretation out of scope and points to the prior correlation and confounding lesson.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-chart-choice-follows-question",
+        "statement": "Published UK government analysis guidance selects a display from the statistical relationship being shown, recommending bar charts for magnitude and ranking, line charts for time series, scatterplots for correlation, and maps for spatial patterns.",
+        "sceneIds": [
+          "scene-sixty-rows",
+          "scene-display-follows-variable",
+          "scene-choose-and-critique",
+          "scene-one-persons-record"
+        ],
+        "sourceIds": [
+          "source-af-charts"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Guidance for UK government statistical publications. The mapping is presented there as recommended practice for communicating with a general readership, and the source states that the right chart depends on the values and the story being told.",
+        "uncertainty": "This is professional guidance rather than an empirical finding, and other reputable style guides differ on details such as when a pie chart is acceptable.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-table-for-exact-values",
+        "statement": "The same guidance recommends a table when readers need to compare values, read summary figures such as averages or totals, or handle quantities of very different sizes in one display, and recommends a chart when the purpose is to show patterns, trends, or relationships.",
+        "sceneIds": [
+          "scene-display-follows-variable",
+          "scene-choose-and-critique",
+          "scene-clinic-morning"
+        ],
+        "sourceIds": [
+          "source-af-tables",
+          "source-af-charts"
+        ],
+        "support": "synthesis",
+        "confidence": "high",
+        "scope": "Guidance for UK government statistical publications, drawn from its tables page and its charts page together.",
+        "uncertainty": "The boundary between the two cases is a matter of editorial judgment; the guidance offers conditions rather than a decision rule.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-truncated-bar-axis-distorts",
+        "statement": "Because readers perceive bars as proportional to one another, breaking the numerical axis of a bar chart distorts those relative proportions, and UK government analysis guidance advises against it, suggesting a different display such as a dot plot where a zero-based axis would obscure the message; the same guidance treats breaking the vertical axis of a line chart as acceptable where it is needed.",
+        "sceneIds": [
+          "scene-two-pictures",
+          "scene-choose-and-critique",
+          "scene-one-persons-record",
+          "scene-clinic-morning"
+        ],
+        "sourceIds": [
+          "source-af-charts"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Bar charts and line charts intended for a general readership. The difference in treatment follows the encoding each display uses: bar length against line position.",
+        "uncertainty": "The guidance itself records that the practice is contested in the wider data-visualisation literature. The lesson's arithmetic showing that a 135 mg/dL axis cut turns a ratio of 1.065 into a drawn ratio of about 4.6 is computed from the lesson's own values.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-fpg-thresholds",
+        "statement": "The US National Institute of Diabetes and Digestive and Kidney Diseases states that a fasting plasma glucose result of 99 mg/dL or below is normal, 100 to 125 mg/dL indicates prediabetes, and 126 mg/dL or above indicates diabetes, that a doctor will usually use a second test to confirm a diabetes diagnosis, and that fasting means having nothing to eat or drink except sips of water.",
+        "sceneIds": [
+          "scene-clinic-morning"
+        ],
+        "sourceIds": [
+          "source-niddk-diabetes-tests"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Reference values for the fasting plasma glucose test as published for a general US audience at the access date. Quoted in this lesson only to give the display choices in the clinical wrap-up a real set of cut-points to count against.",
+        "uncertainty": "Thresholds and their qualifications are set by clinical bodies, can be revised, and differ in presentation between countries and guidelines. The lesson makes no diagnostic, monitoring, or treatment recommendation and its cohort is invented.",
+        "risk": "health-sensitive",
+        "reviewStatus": "pending-review"
+      }
+    ]
+  },
+  "glossary": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-glossary-v1",
+    "lessonId": "PREM-STA-002",
+    "lessonVersion": "0.1.0",
+    "terms": [
+      {
+        "id": "term-distribution",
+        "term": "distribution",
+        "definition": "The complete account of which values a variable takes across a set of observations and how often each value, or each interval of values, occurs.",
+        "aliases": [
+          "distribution of a variable"
+        ],
+        "sceneIds": [
+          "scene-display-follows-variable",
+          "scene-read-the-histogram",
+          "scene-clinic-morning"
+        ]
+      },
+      {
+        "id": "term-histogram",
+        "term": "histogram",
+        "definition": "A display of the distribution of one quantitative variable, built by dividing its range into adjacent equal-width intervals and drawing a bar over each interval whose height is the number of observations falling in it. Its bars touch because the intervals are adjacent slices of one continuous scale.",
+        "aliases": [],
+        "sceneIds": [
+          "scene-display-follows-variable",
+          "scene-read-the-histogram",
+          "scene-two-pictures",
+          "scene-one-persons-record"
+        ]
+      },
+      {
+        "id": "term-bin",
+        "term": "bin",
+        "definition": "One of the equal-width intervals a histogram divides a quantitative range into. Bin width is chosen by whoever draws the chart and determines how much of the distribution's shape the picture can show.",
+        "aliases": [
+          "class",
+          "class interval"
+        ],
+        "sceneIds": [
+          "scene-display-follows-variable",
+          "scene-read-the-histogram",
+          "scene-two-pictures"
+        ]
+      },
+      {
+        "id": "term-frequency",
+        "term": "frequency",
+        "definition": "The number of observations falling in a given category or bin.",
+        "aliases": [
+          "count"
+        ],
+        "sceneIds": [
+          "scene-display-follows-variable",
+          "scene-read-the-histogram"
+        ]
+      },
+      {
+        "id": "term-frequency-table",
+        "term": "frequency table",
+        "definition": "A table listing each category or bin beside the number of observations in it, and often beside that count as a proportion of the total. It reports exact values that a chart of the same data can only be read to the nearest gridline.",
+        "aliases": [
+          "table of counts"
+        ],
+        "sceneIds": [
+          "scene-read-the-histogram",
+          "scene-choose-and-critique",
+          "scene-clinic-morning"
+        ]
+      },
+      {
+        "id": "term-proportion",
+        "term": "proportion",
+        "definition": "A part divided by the whole it belongs to, so a value between 0 and 1. Thirteen of sixty people gives a proportion of 0.217, which the same fact reported as a percentage calls 21.7%.",
+        "aliases": [
+          "relative frequency",
+          "share"
+        ],
+        "sceneIds": [
+          "scene-display-follows-variable",
+          "scene-read-the-histogram"
+        ],
+        "alignment": {
+          "priorLesson": "PREM-QNT-003",
+          "relation": "distinct-sense",
+          "note": "PREM-QNT-003 defines a proportion as an equation asserting that two ratios are equal, such as a/b = c/d, which a learner solves for an unknown. This block uses the statistical sense: a part-to-whole fraction between 0 and 1 attached to a count. Both senses are standard and neither replaces the other; the surrounding context decides which is meant, and the concept scene bridges them where the word first appears here."
+        }
+      },
+      {
+        "id": "term-bar-chart",
+        "term": "bar chart",
+        "definition": "A display with one bar per category, the bar's length encoding a count or measured amount. Because a reader compares bars by comparing lengths, its numerical axis has to start at zero; gaps between the bars mark the categories as separate things.",
+        "aliases": [
+          "bar graph"
+        ],
+        "sceneIds": [
+          "scene-display-follows-variable",
+          "scene-two-pictures",
+          "scene-choose-and-critique"
+        ]
+      },
+      {
+        "id": "term-line-chart",
+        "term": "line chart",
+        "definition": "A display that joins points measured in sequence, usually over time, so that the space between two points stands for the interval the quantity travelled through. It encodes a value by position rather than by length, so its vertical axis may be restricted to a stated range.",
+        "aliases": [
+          "line graph",
+          "time series chart"
+        ],
+        "sceneIds": [
+          "scene-display-follows-variable",
+          "scene-one-persons-record"
+        ]
+      },
+      {
+        "id": "term-scatter-plot",
+        "term": "scatter plot",
+        "definition": "A display with one quantitative variable on each axis and one point per observation, used to ask whether the two measurements are related, whether any relationship is straight or curved, whether the spread of one changes across the other, and whether any point is unusual.",
+        "aliases": [
+          "scatter",
+          "scattergram"
+        ],
+        "sceneIds": [
+          "scene-display-follows-variable",
+          "scene-two-measurements",
+          "scene-one-persons-record"
+        ]
+      },
+      {
+        "id": "term-outlier",
+        "term": "outlier",
+        "definition": "An observation lying far enough from the rest of the data to stand apart from them in a display. A histogram or scatter plot can flag one; whether it reflects the measurement, the record, or the person is a separate question the display cannot answer.",
+        "aliases": [],
+        "sceneIds": [
+          "scene-read-the-histogram",
+          "scene-two-measurements",
+          "scene-clinic-morning"
+        ]
+      },
+      {
+        "id": "term-truncated-axis",
+        "term": "truncated axis",
+        "definition": "A numerical axis that begins somewhere other than zero, so that a bar shows only the part of its quantity above the starting value. On a bar chart this breaks the proportionality a reader relies on; on a display that encodes value by position, such as a line chart or scatter plot, a restricted range is defensible if it is clearly stated.",
+        "aliases": [
+          "broken axis",
+          "cut axis"
+        ],
+        "sceneIds": [
+          "scene-two-pictures",
+          "scene-choose-and-critique",
+          "scene-one-persons-record",
+          "scene-clinic-morning"
+        ]
+      },
+      {
+        "id": "term-association",
+        "term": "association",
+        "definition": "A pattern in which measured values or categories of two variables differ together in a sampled dataset; the pattern alone does not specify why it occurs.",
+        "aliases": [
+          "statistical association"
+        ],
+        "sceneIds": [
+          "scene-two-measurements"
+        ],
+        "alignment": {
+          "priorLesson": "PREM-SCI-007",
+          "relation": "adopt",
+          "note": "PREM-SCI-007 owns this term and this lesson keeps its meaning unchanged. The only thing added here is the display that makes an association visible for two quantitative variables. Causal interpretation of an association remains the earlier lesson's territory, and the scatter scene points the learner back to it."
+        }
+      }
+    ]
+  },
+  "attributionHtml": "<h1>Attribution</h1>\n<h2>Lesson identity and licence</h2>\n<ul>\n<li>Lesson: <strong>PREM-STA-002 — Look before you summarise: tables and graphical displays</strong></li>\n<li>Graph outcome: <code>topic-statistics-data-graphs-tables</code> (PREM-04.02, &quot;Tables and graphical displays&quot;)</li>\n<li>Accountable principal: <strong>VSBDev</strong> (<code>github:VSBDev</code>)</li>\n<li>Course-content licence: <strong>Creative Commons Attribution 4.0 International (CC BY 4.0)</strong></li>\n<li>Author-stage state: <strong>draft</strong>, source confidence <strong>pending-review</strong></li>\n</ul>\n<p>VSBDev is accountable for the scientific, editorial, pedagogical, accessibility, rights, and provenance record in this pack. The local authenticated GitHub identity check <code>gh api user --jq .login</code> returned <code>VSBDev</code> on 2026-07-25.</p>\n<h2>Agent provenance</h2>\n<p>Material authoring assistance was used for this pack. The agent system, provider, model, and version are recorded in <code>lesson.json</code> as the literal placeholder <code>RUNTIME-STAMPED</code>; the operator stamps the real values with <code>npm run provenance:stamp</code> before the candidate is frozen. The authoring run is <code>author-PREM-STA-002-AA0725D5-9A91-44BC-83AC-5AC3E2687598</code>.</p>\n<p>The instructions digest is <code>sha256:61e55ba9891cf86298e8812a8adabfef691d9b66800f9601596e901ebb7c41cb</code>. It covers the recorded discloseable UTF-8 authoring-task payload for this run, including its terminal newline. That payload is the operator&#39;s authoring instruction as transcribed for the record; it is not a verbatim export of every layer of instruction the run received, and the digest explicitly does <strong>not</strong> cover hidden provider, system, harness, or tool instructions that cannot be exported.</p>\n<p>Only the author role was used. No review, adjudication, or governance artifact was produced, inspected, or anticipated in this run.</p>\n<h2>Sources and how they were used</h2>\n<p>Every source in <code>references.json</code> was retrieved and read directly at the URL recorded there on 2026-07-25. No claim rests on a search-result snippet, a generated summary, or a source the run could not open. Agent-access terms were checked before substantive access and are recorded per source, with the checked route&#39;s terms URL.</p>\n<table>\n<thead>\n<tr>\n<th>Source</th>\n<th>Used for</th>\n<th>Basis</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>NIST/SEMATECH e-Handbook of Statistical Methods, 1.3.3.14 Histogram</td>\n<td>What a histogram summarises and displays; construction from equal-sized bins the analyst defines; normalisation of counts into proportions of the total</td>\n<td>Facts only, original expression</td>\n</tr>\n<tr>\n<td>NIST/SEMATECH e-Handbook of Statistical Methods, 1.3.3.26 Scatter Plot</td>\n<td>The questions a scatter plot is used to answer about two variables</td>\n<td>Facts only, original expression</td>\n</tr>\n<tr>\n<td>Government Analysis Function, Data visualisation: charts</td>\n<td>Matching a display type to the statistical relationship shown; the effect of breaking a bar chart&#39;s numerical axis and the advice against it; the different treatment of a line chart&#39;s vertical axis</td>\n<td>Facts only, original expression</td>\n</tr>\n<tr>\n<td>Government Analysis Function, Data visualisation: tables</td>\n<td>The conditions under which a table serves a reader better than a chart</td>\n<td>Facts only, original expression</td>\n</tr>\n<tr>\n<td>NIDDK, Diabetes Tests &amp; Diagnosis</td>\n<td>Fasting plasma glucose reference values, the use of a second test to confirm a diagnosis, and the definition of fasting</td>\n<td>Facts only, original expression</td>\n</tr>\n</tbody></table>\n<p>No source&#39;s wording, structure, table, figure, example, question, or dataset is reproduced or adapted. The Government Analysis Function terms of use place most of its content under the Open Government Licence v3.0 while separately withholding permission to reuse the site&#39;s images; no image from that source is used, redrawn, or adapted here.</p>\n<h2>Original material in this pack</h2>\n<p>Everything below was created for this lesson and is covered by the pack&#39;s CC BY 4.0 licence:</p>\n<ul>\n<li>the sixty-person illustrative cohort, its sixty fasting glucose values, its sixty dinner-to-sleep intervals, and every count, proportion, and group mean derived from them;</li>\n<li>the constructed two-humped counter-case cohort in <code>charts/bimodal-counter-case.chart.json</code>;</li>\n<li>all six chart sources under <code>charts/</code>, their alt text, and their long descriptions;</li>\n<li>the frequency tables, the six-site waiting-time table, the conference poster, the clinic-audit bar chart, the ninety-morning logbook, and the Monday-meeting slide;</li>\n<li>all scene prose, worked reasoning, checks, assessment items, answer logic, and rubrics.</li>\n</ul>\n<p>The cohort&#39;s headline figures are fixed by the Statistics and Data block brief so that the twelve lessons in the block describe one consistent study: sixty adults, mean fasting glucose 142 mg/dL, standard deviation 18 mg/dL, and a later-minus-earlier difference of 9.0 mg/dL. The sixty individual values in this pack were constructed to reproduce those figures exactly, and the histogram and the scatter plot are built from the same sixty values so the two displays cannot disagree.</p>\n<h2>Boundaries</h2>\n<p>The cohort, the clinic, the meeting, the logbook, and every case in this pack are invented for teaching. Nothing in the pack reports an observation about real patients, and nothing in it recommends or supports a diagnostic, monitoring, or treatment decision. Clinical reference values appear only so that the lesson&#39;s display choices have real cut-points to count against, and they are attributed to the source that publishes them. The lesson carries the <em>teaching example, not medical advice</em> boundary in its orientation, transfer, and clinical wrap-up scenes.</p>\n<h2>Third-party assets</h2>\n<p>None. <code>thirdPartyAssets</code> in <code>lesson.json</code> is empty. Every chart in this pack is declarative JSON authored here and rendered from that JSON at build time; no external image, font, script, plotting library, dataset, or remote resource is referenced.</p>\n"
+}
