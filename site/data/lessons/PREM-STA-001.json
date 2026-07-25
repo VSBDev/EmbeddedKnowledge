@@ -1,0 +1,892 @@
+{
+  "schemaVersion": 3,
+  "format": "embeddedknowledge-lesson-v1",
+  "artifactType": "production-lesson",
+  "id": "PREM-STA-001",
+  "version": "0.1.0",
+  "title": "Variables and data types: what kind of thing is each column?",
+  "status": "published",
+  "riskTier": "standard",
+  "estimatedMinutes": 88,
+  "outcomes": [
+    "topic-statistics-data-data-types"
+  ],
+  "prerequisites": [],
+  "objectives": [
+    {
+      "id": "objective-classify-columns",
+      "statement": "Classify each recorded column of a supplied study file as nominal, ordinal, discrete quantitative, or continuous quantitative, and justify the classification from how the values were produced rather than from how they are stored.",
+      "outcomeIds": [
+        "topic-statistics-data-data-types"
+      ]
+    },
+    {
+      "id": "objective-match-summary-to-level",
+      "statement": "Select the summaries and displays a column's level of measurement supports, and explain why an unsupported summary reports the coding scheme rather than the people measured.",
+      "outcomeIds": [
+        "topic-statistics-data-data-types"
+      ]
+    },
+    {
+      "id": "objective-read-paired-independent",
+      "statement": "Decide from a study description whether two sets of values are paired or independent, and state what that structure settles about the comparison that follows.",
+      "outcomeIds": [
+        "topic-statistics-data-data-types"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene-column-kinds",
+      "title": "Two averages, one of them meaningless",
+      "kind": "concept",
+      "source": "content/01-column-kinds.md",
+      "estimatedMinutes": 13,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Two averages, one of them meaningless</h1>\n<p>The dinner-timing study is finished. Sixty adults with type 2 diabetes kept a two-week record of when they ate their evening meal, when they went to bed, and what their meter read the next morning before breakfast. The file that comes back has six columns and sixty rows.</p>\n<p>A colleague opens it, highlights every column that holds digits, and asks the spreadsheet for an average. Two of the answers are:</p>\n<blockquote>\n<p>mean sex = 1.4</p>\n<p>mean adherence = 2.7</p>\n</blockquote>\n<p>Everyone spots the first one. Sex was typed as 1 for female and 2 for male, so an average of 1.4 says only that the study enrolled more women than men, and it says that badly. The second answer raises no alarm at all. It carries a decimal point, it sits inside the range the protocol allows, and it would reach a slide with nobody asking a question.</p>\n<p>Both numbers came out of the same operation on the same kind of storage. Deciding whether the second one is any better than the first is what this lesson is for.</p>\n<h2>What the study actually recorded</h2>\n<p>Here is the file, described one column at a time.</p>\n<table>\n<thead>\n<tr>\n<th>Column</th>\n<th>One example value</th>\n<th>What the value is doing</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>Participant</td>\n<td><code>P07</code></td>\n<td>naming a person so their rows can be found again</td>\n</tr>\n<tr>\n<td>Sex</td>\n<td><code>1</code> (female) or <code>2</code> (male)</td>\n<td>naming which of two groups the person is in</td>\n</tr>\n<tr>\n<td>Dinner time</td>\n<td><code>2.6</code></td>\n<td>how many hours before sleep the evening meal ended</td>\n</tr>\n<tr>\n<td>Fasting glucose</td>\n<td><code>132</code></td>\n<td>the next-morning meter reading in mg/dL</td>\n</tr>\n<tr>\n<td>Adherence</td>\n<td><code>3</code></td>\n<td>the protocol&#39;s 1-to-4 rating of how closely the person followed the schedule, where 1 is <em>rarely</em>, 2 is <em>sometimes</em>, 3 is <em>usually</em>, and 4 is <em>always</em></td>\n</tr>\n<tr>\n<td>Nights recorded</td>\n<td><code>9</code></td>\n<td>how many nights of usable data that person contributed</td>\n</tr>\n</tbody></table>\n<p>Five of those six columns hold digits. Only three of them hold numbers in the sense that lets you add, subtract, or average.</p>\n<h2>Retrieve what you already call a variable</h2>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-prior-variable-sense</span></div>\n    <div class=\"ek-block-content\"><p><a href=\"https://embeddedknowledge.io/premed/lessons/read/?lesson=PREM-SCI-003\" rel=\"noreferrer noopener\">Variables and controls (PREM-SCI-003)</a> sorted the parts of a designed comparison into three roles: the independent variable, which is the factor deliberately set differently; the dependent variable, which is the response recorded; and the controlled variables, which are the conditions held alike.</p>\n<p>This dinner-timing study did not assign when people ate; it observed what they did. From memory, decide which column is the observed exposure or predictor and which is the response or outcome. Then answer a harder question: does that sorting tell you whether it is legitimate to average either one?</p>\n</div>\n  </aside>\n<p>Dinner time is the observed exposure or predictor, and fasting glucose is the response or outcome. Calling dinner time an independent variable would imply that the researchers deliberately set it, which they did not. Sex and adherence are recorded characteristics that may help describe or interpret the rows, but neither becomes a manipulated variable merely by appearing in the file. What these roles do not settle is the second question. A role tells you what job a column does in the study&#39;s reasoning. It says nothing about what arithmetic the column&#39;s values will tolerate.</p>\n<p>That second property has its own name. The <strong>level of measurement</strong> of a column is what its values can support, and it is fixed by how the values were produced, not by how they are stored.</p>\n<h2>Four kinds of column</h2>\n<p>Sort every column into one of two families first.</p>\n<p>A <strong>categorical</strong> column puts each row into a group. The value is a label. Categorical columns divide again by whether the groups have an order:</p>\n<ul>\n<li><strong>Nominal</strong> groups have no inherent order. Sex, blood group, admitting ward, and the participant identifier are all nominal. You can rearrange the list of groups in any order you like and lose nothing.</li>\n<li><strong>Ordinal</strong> groups rank. Adherence runs from <em>rarely</em> up to <em>always</em>; triage levels run from most urgent to least; a tumour stage runs from I to IV. Rearranging the list destroys real information, because the order was part of what was recorded.</li>\n</ul>\n<p>A <strong>quantitative</strong> column holds a number on a measurement scale, so the gap between two values is itself a quantity. Quantitative columns divide by which values can occur:</p>\n<ul>\n<li><strong>Discrete</strong> columns admit only separated values, most often whole counts. Nights recorded is discrete: a person contributed 9 nights or 10 nights and nothing in between.</li>\n<li><strong>Continuous</strong> columns admit any value inside a range, and the only limit is how finely the instrument reports. Dinner time and fasting glucose are continuous. Between 2.6 hours and 2.7 hours there is a real 2.63, whether or not anyone wrote it down.</li>\n</ul>\n<aside class=\"ek-block ek-definition ek-block--definition\" data-directive=\"definition\">\n    <div class=\"ek-block-label directive-label\">Definition</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> definition-column-families</span><span><b>label</b> The four kinds in one line each</span></div>\n    <div class=\"ek-block-content\"><ul>\n<li><strong>Nominal:</strong> labelled groups, no order. Example: sex.</li>\n<li><strong>Ordinal:</strong> ranked groups, order but no known spacing. Example: the 1-to-4 adherence rating.</li>\n<li><strong>Discrete quantitative:</strong> counted amounts, separated values, known spacing. Example: nights recorded.</li>\n<li><strong>Continuous quantitative:</strong> measured amounts, any value in a range, known spacing. Example: fasting glucose in mg/dL.</li>\n</ul>\n</div>\n  </aside>\n<h2>The test is not &quot;does it look like a number&quot;</h2>\n<p>Four of the six columns store digits, and the digits mean four different things.</p>\n<p>Ask what happens when someone changes the code. Recoding sex as 0 and 1 rather than 1 and 2 changes nothing about any patient, and it changes the average. Recoding adherence as 1, 2, 3, 10 leaves every person ranked exactly where they were, and it also changes the average. Recoding nights as anything other than the actual count is not recoding at all; it is an error, because 9 means nine nights and the gap from 9 to 10 is one night no matter who reads the file.</p>\n<p>That is the working test. For each column, ask: <strong>is the distance between two values a fixed, knowable amount?</strong> When the answer is yes, arithmetic on those values reports something about the patients. When the answer is no, arithmetic reports something about whoever chose the codes.</p>\n<p>Sex fails the test outright, because its values were never ordered. Adherence fails it in a quieter way, which is why the 2.7 survived. The next scene works out what each level does permit.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-variable-type-taxonomy</span><span><b>sources</b> source-ali-bhaskar</span></div>\n    <div class=\"ek-block-content\"><p>A methods review written for clinical researchers supports the split between qualitative and quantitative variables, the discrete and continuous division, and the ordered scales of measurement from nominal upward. Names differ between fields: what this lesson calls categorical is often called qualitative, and what it calls quantitative is often called numerical. Expect to meet both. The dinner-timing file and the recoding test are this lesson&#39;s own inventions.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-what-the-level-permits",
+      "title": "What each level lets you say",
+      "kind": "concept",
+      "source": "content/02-what-the-level-permits.md",
+      "estimatedMinutes": 13,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>What each level lets you say</h1>\n<p>Think of the four levels as a ladder. Each rung keeps everything the rungs below it allow and adds one new operation. Climbing tells you what you may write in a results table; refusing to climb further than the data allow is most of the skill.</p>\n<h2>Rung one: labelled groups</h2>\n<p>With nominal values you can do exactly one thing: count how many rows fall in each group.</p>\n<p>Of the sixty participants, 36 are women and 24 are men. From those counts you can report a <strong>proportion</strong>, the part divided by the whole: 36 out of 60 is 0.6, or 60 per cent.</p>\n<p>You have met that word before, carrying a related but different meaning. <a href=\"https://embeddedknowledge.io/premed/lessons/read/?lesson=PREM-QNT-003\" rel=\"noreferrer noopener\">Ratios, proportions, and percentages (PREM-QNT-003)</a> used <em>proportion</em> for a statement that two ratios are equal, as in the equation <code>4/10 = 6/15</code>. From this block onward the word carries a second technical sense: one number between 0 and 1 giving a part&#39;s share of its whole. Both senses are built from division, and the statistical one always divides a part by the total it belongs to. When a page in this block says <em>proportion</em> without qualification, that share is what it means.</p>\n<p>You can also report which group is largest, the <strong>mode</strong>. What you cannot do is average the group labels, because there is no order for an average to sit in the middle of.</p>\n<h2>Rung two: ranked groups</h2>\n<p>Ordinal values add order, so they add every summary that depends on putting values in a line.</p>\n<p>You can now name the <strong>median</strong>, the middle value once the rows are sorted. You can report the number and share of participants in each rating. You can name the quartiles, the values a quarter and three quarters of the way along that sorted line. You can also report a cumulative share, such as the proportion rated <em>usually</em> or better, which is often the single most useful line in an adherence table.</p>\n<p>What order does not supply is spacing. The adherence rating tells you that <em>usually</em> outranks <em>sometimes</em> and that <em>always</em> outranks <em>usually</em>. Nothing in the rating establishes that the first of those steps is the same size as the second. A mean needs the steps to be the same size, so a mean is still out of reach.</p>\n<h2>Rung three: measured differences</h2>\n<p>Once the distance between two values is a fixed and knowable quantity, subtraction starts to mean something, and the <strong>mean</strong> becomes interpretable. So does the <strong>standard deviation</strong>, which is a single number saying how far the values typically sit from that mean. Both are built by subtracting, so both need the subtraction to mean something. The third lesson of this block builds them properly; here they are simply the operations that this rung unlocks.</p>\n<p><a href=\"https://embeddedknowledge.io/premed/lessons/read/?lesson=PREM-QNT-003\" rel=\"noreferrer noopener\">Ratios, proportions, and percentages (PREM-QNT-003)</a> already named this rung an <strong>interval scale</strong>: differences are meaningful while the zero point is a convention someone chose. Temperature in degrees Celsius is the standard case. The 4-degree gap from 18 to 22 equals the 4-degree gap from 32 to 36, so a mean temperature is a real summary. Yet 0 °C is the freezing point of water rather than an absence of temperature, so 36 °C is not &quot;twice as hot&quot; as 18 °C.</p>\n<h2>Rung four: a real zero</h2>\n<p>A <strong>ratio scale</strong> adds a zero that means none of the quantity, which is what makes division between two values interpretable. The same earlier lesson defined it that way and this block keeps that definition.</p>\n<p>All three quantitative columns in the dinner-timing file sit here. Fasting glucose of 0 mg/dL would mean no glucose in the sample; nights recorded of 0 would mean no usable nights; dinner time of 0 hours before sleep would mean the meal ended as the person fell asleep. Because the zeros are real, a sentence like &quot;she recorded twice as many nights as he did&quot; is arithmetically defined.</p>\n<p>Arithmetic being defined is a separate question from the sentence being clinically useful. A fasting glucose of 260 mg/dL is twice 130 mg/dL as a number. Whether that patient is twice as unwell is a clinical judgement the arithmetic cannot make. The block returns to that gap in its final lesson.</p>\n<h2>The permission table</h2>\n<table>\n<thead>\n<tr>\n<th>Level</th>\n<th align=\"center\">Count and proportion</th>\n<th align=\"center\">Mode</th>\n<th align=\"center\">Median and quartiles</th>\n<th align=\"center\">Mean and standard deviation</th>\n<th align=\"center\">Ratios between values</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>Nominal</td>\n<td align=\"center\">yes</td>\n<td align=\"center\">yes</td>\n<td align=\"center\">no</td>\n<td align=\"center\">no</td>\n<td align=\"center\">no</td>\n</tr>\n<tr>\n<td>Ordinal</td>\n<td align=\"center\">yes</td>\n<td align=\"center\">yes</td>\n<td align=\"center\">yes</td>\n<td align=\"center\">no</td>\n<td align=\"center\">no</td>\n</tr>\n<tr>\n<td>Interval</td>\n<td align=\"center\">yes</td>\n<td align=\"center\">yes</td>\n<td align=\"center\">yes</td>\n<td align=\"center\">yes</td>\n<td align=\"center\">no</td>\n</tr>\n<tr>\n<td>Ratio</td>\n<td align=\"center\">yes</td>\n<td align=\"center\">yes</td>\n<td align=\"center\">yes</td>\n<td align=\"center\">yes</td>\n<td align=\"center\">yes</td>\n</tr>\n</tbody></table>\n<p>Read the table downward and each row inherits everything above it. Read it across and every <em>no</em> marks an operation whose answer would be a fact about the coding scheme rather than about the sixty people.</p>\n<h2>The same rule chooses the picture</h2>\n<p>Displays follow the level for the same reason summaries do.</p>\n<p>A categorical column is shown as a bar for each group, with a gap between the bars, because there is nothing between <em>female</em> and <em>male</em> for a bar to occupy. For a nominal column you may sort those bars however you like, tallest first if that helps. For an ordinal column the bars must stay in rating order, since the order is data.</p>\n<p>A continuous column is shown as a histogram, where the horizontal axis is a measured scale and neighbouring bins are genuinely adjacent stretches of that scale. Putting the sex codes 1 and 2 on a histogram axis invents a scale that was never measured, and the picture then implies a midpoint at 1.5 that no participant can occupy.</p>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-permission-reasoning</span></div>\n    <div class=\"ek-block-content\"><p>Answer both before reading on.</p>\n<ol>\n<li>The study team wants one number describing adherence across the sixty participants. Name a summary the rating supports and say why the mean is not on that list.</li>\n<li>Nights recorded runs from 5 to 14 and only ever takes whole values. Which rung does it sit on, and how do you know?</li>\n</ol>\n</div>\n  </aside>\n<h3>Feedback after your attempt</h3>\n<p>For adherence, the median rating and the share of participants at each rating are both supported, and the share rated <em>usually</em> or better is often the most readable single figure. The mean is excluded because averaging requires equal steps between ratings and the rating scale never established them.</p>\n<p>Nights recorded sits on the ratio rung. The step from 9 nights to 10 is one night, the same size as the step from 13 to 14, so differences are fixed; and zero nights means no nights, so the zero is real. Being restricted to whole numbers makes it discrete, which is a statement about which values can occur rather than about which arithmetic is allowed.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-variable-type-taxonomy, claim-level-constrains-summary</span><span><b>sources</b> source-ali-bhaskar, source-mishra-descriptive, source-sullivan-artino</span></div>\n    <div class=\"ek-block-content\"><p>Three methods papers from clinical research and medical education support the four measurement scales, the use of frequency summaries for categorical data against central-tendency and dispersion summaries for quantitative data, and the point that a mean requires measurable distances while ordered categories do not supply them. Read the permission table for what is interpretable rather than for what is best: a mean can be available and still describe a lopsided column poorly, which the third lesson of this block takes up. The ladder, the table, and the display rules are this lesson&#39;s own arrangement.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-worked-audit",
+      "title": "Audit the file column by column",
+      "kind": "worked-example",
+      "source": "content/03-worked-audit.md",
+      "estimatedMinutes": 15,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Audit the file column by column</h1>\n<p>The study file holds one row per participant. Each row was built from that person&#39;s own nights, and the last column says how many nights went into it. Every value in it was invented for this lesson.</p>\n<table>\n<thead>\n<tr>\n<th>Participant</th>\n<th align=\"center\">Sex</th>\n<th align=\"right\">Dinner time (h before sleep)</th>\n<th align=\"right\">Fasting glucose (mg/dL)</th>\n<th align=\"center\">Adherence</th>\n<th align=\"right\">Nights recorded</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>P07</td>\n<td align=\"center\">1</td>\n<td align=\"right\">2.6</td>\n<td align=\"right\">132</td>\n<td align=\"center\">3</td>\n<td align=\"right\">9</td>\n</tr>\n<tr>\n<td>P12</td>\n<td align=\"center\">2</td>\n<td align=\"right\">4.1</td>\n<td align=\"right\">118</td>\n<td align=\"center\">4</td>\n<td align=\"right\">11</td>\n</tr>\n<tr>\n<td>P23</td>\n<td align=\"center\">1</td>\n<td align=\"right\">1.4</td>\n<td align=\"right\">141</td>\n<td align=\"center\">2</td>\n<td align=\"right\">14</td>\n</tr>\n<tr>\n<td>P31</td>\n<td align=\"center\">1</td>\n<td align=\"right\">3.3</td>\n<td align=\"right\">126</td>\n<td align=\"center\">4</td>\n<td align=\"right\">12</td>\n</tr>\n<tr>\n<td>P44</td>\n<td align=\"center\">2</td>\n<td align=\"right\">0.9</td>\n<td align=\"right\">155</td>\n<td align=\"center\">1</td>\n<td align=\"right\">7</td>\n</tr>\n<tr>\n<td>P58</td>\n<td align=\"center\">1</td>\n<td align=\"right\">2.2</td>\n<td align=\"right\">129</td>\n<td align=\"center\">3</td>\n<td align=\"right\">10</td>\n</tr>\n</tbody></table>\n<p>Those are six of the sixty rows, shown so the audit has something concrete to work on.</p>\n<aside class=\"ek-block ek-worked-example ek-block--worked-example\" data-directive=\"worked-example\">\n    <div class=\"ek-block-label directive-label\">Worked Example</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> worked-example-column-audit</span><span><b>label</b> From six columns to the lines a results table can carry</span></div>\n    <div class=\"ek-block-content\"><p><strong>1. State the task.</strong></p>\n<p>For every column, decide its level of measurement, then write the one line of a results table that the column can honestly support.</p>\n<p><strong>2. Represent the givens.</strong></p>\n<p>The protocol says how each value was produced. Sex was entered from the registration form as 1 or 2. Dinner time was worked out by subtracting the recorded end of the evening meal from the recorded time of falling asleep. Fasting glucose came from the participant&#39;s own meter before breakfast. Adherence was rated by the study nurse on the protocol&#39;s four-point scale. Nights recorded was counted.</p>\n<p>The unknowns are not numerical. Each answer is a decision about what a column is.</p>\n<p><strong>3. Choose a plan.</strong></p>\n<p>Put five questions to every column, in this order:</p>\n<ol>\n<li>Is the value a label for a group, or an amount?</li>\n<li>If it is a label, do the groups rank?</li>\n<li>If it is an amount, can any value inside a range occur, or only separated ones?</li>\n<li>Is the gap between two values a fixed, knowable quantity?</li>\n<li>Does zero mean none of the thing?</li>\n</ol>\n<p>Question 4 decides whether a mean is available. Question 5 decides whether a ratio is.</p>\n<p><strong>4. Execute the audit.</strong></p>\n<table>\n<thead>\n<tr>\n<th>Column</th>\n<th>Label or amount?</th>\n<th>Ranked?</th>\n<th>Gap fixed?</th>\n<th>Zero real?</th>\n<th>Level</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>Participant</td>\n<td>label</td>\n<td>no</td>\n<td>not applicable</td>\n<td>not applicable</td>\n<td>nominal</td>\n</tr>\n<tr>\n<td>Sex</td>\n<td>label</td>\n<td>no</td>\n<td>not applicable</td>\n<td>not applicable</td>\n<td>nominal</td>\n</tr>\n<tr>\n<td>Dinner time</td>\n<td>amount, any value in range</td>\n<td>ordered</td>\n<td>yes, one hour is one hour</td>\n<td>yes, meal ends at sleep onset</td>\n<td>continuous, ratio</td>\n</tr>\n<tr>\n<td>Fasting glucose</td>\n<td>amount, any value in range</td>\n<td>ordered</td>\n<td>yes, one mg/dL is one mg/dL</td>\n<td>yes, no glucose present</td>\n<td>continuous, ratio</td>\n</tr>\n<tr>\n<td>Adherence</td>\n<td>label</td>\n<td>yes</td>\n<td>no</td>\n<td>no</td>\n<td>ordinal</td>\n</tr>\n<tr>\n<td>Nights recorded</td>\n<td>amount, whole values only</td>\n<td>ordered</td>\n<td>yes, one night is one night</td>\n<td>yes, no usable nights</td>\n<td>discrete, ratio</td>\n</tr>\n</tbody></table>\n<p>Adherence is the only row where questions 1 and 2 both matter. Its values rank, which is why it outranks sex; its steps have no established size, which is why it stops short of dinner time.</p>\n<p><strong>5. Check each decision by recoding.</strong></p>\n<p>Rewrite each column in a different but equally faithful code and see which summaries move.</p>\n<ul>\n<li>Sex written as F and M rather than 1 and 2: counts and proportions are unchanged, and no mean exists in either version.</li>\n<li>Adherence written as 10, 20, 30, 40 rather than 1, 2, 3, 4: every participant keeps the same rank, the median rating is the same rating, and the mean changes. A summary that moves when nothing about the participants moves is reporting the code.</li>\n<li>Fasting glucose written in mmol/L rather than mg/dL: the mean converts by the same rule that converts a single reading, and the ranking of participants is untouched. That stability is what a genuine measurement scale buys you.</li>\n</ul>\n<p><strong>6. Write the results lines.</strong></p>\n<ul>\n<li>Sex: 36 women and 24 men, a proportion of 0.6 women.</li>\n<li>Adherence: report the count in each of the four ratings, plus the median rating and the share rated <em>usually</em> or better.</li>\n<li>Dinner time: mean and standard deviation, in hours before sleep.</li>\n<li>Fasting glucose: mean and standard deviation, in mg/dL.</li>\n<li>Nights recorded: mean and range, in nights.</li>\n<li>Participant: no summary. The column exists to link rows, not to be described.</li>\n</ul>\n<p><strong>7. Explain the decisive decision.</strong></p>\n<p>Adherence and nights recorded both hold small whole numbers between 1 and 14. One gets a mean and the other does not.</p>\n<p>Before reading on, say why in one sentence.</p>\n<p>The reason is question 4 and nothing else. Nine nights and ten nights differ by one night, an amount anyone can state. A rating of 3 and a rating of 4 differ by whatever the gap between <em>usually</em> and <em>always</em> happens to be, and the protocol never measured it. Storage type, digit count, and range are all irrelevant to this decision.</p>\n</div>\n  </aside>\n<h2>How the rows relate to each other</h2>\n<p>Levels of measurement describe columns. One more property describes rows, and the file will not tell you unless you ask how it was collected.</p>\n<p>Two sets of values are <strong>paired</strong> when each value in one set belongs with a particular value in the other, usually because both came from the same person. They are <strong>independent</strong> when the two sets come from separate people with no such matching.</p>\n<p>Both structures live inside this one study.</p>\n<ul>\n<li>Take each participant&#39;s glucose after their latest dinner and their glucose after their earliest dinner. Every value in the first set has a partner in the second: the same person. That is paired.</li>\n<li>Take the fasting glucose of the 36 women and of the 24 men. Nobody appears twice, and no woman&#39;s row is matched with any particular man&#39;s row. That is independent.</li>\n</ul>\n<p>The difference is not cosmetic. A paired comparison preserves which measurements belong together and can work on each person&#39;s own change. This often reduces variation from stable person-specific baselines, but subtraction guarantees cancellation only for a stable additive component. It does not remove time-varying differences, measurement error, interactions, or carryover. In this observational study, pairing also does not prove that dinner timing caused a glucose change. An independent comparison carries between-person variation into the result and has to account for it.</p>\n<p>Which structure you have is settled by how the study collected its data, and no later analysis can change it. This block&#39;s tests and intervals will use that fact; today the job is to read the structure off the study description.</p>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-structure-read</span></div>\n    <div class=\"ek-block-content\"><p>The team also has each participant&#39;s fasting glucose from a clinic visit six months before the study began.</p>\n<p>Comparing those earlier readings with the study readings: paired or independent? Name the feature of the data collection that decides it.</p>\n</div>\n  </aside>\n<h3>Feedback after your attempt</h3>\n<p>Paired. Each earlier reading and each study reading come from the same named participant, so the two sets match up person by person. The deciding feature is the shared identity of the source, not the fact that both sets are glucose readings in the same units.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-variable-type-taxonomy, claim-level-constrains-summary, claim-paired-versus-independent</span><span><b>sources</b> source-ali-bhaskar, source-mishra-descriptive, source-sullivan-artino</span></div>\n    <div class=\"ek-block-content\"><p>The six rows, the protocol details, and the five audit questions were written for this lesson. What the methods sources supply is the underlying material: the variable families, the summaries each measurement level sustains, and the distinction between measurements taken on the same subjects and measurements from two separate samples. Paired and independent are the two simplest structures and not the only ones. Real files also hold measurements repeated at many time points and patients grouped within clinics or families, and those need methods well beyond this lesson.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-mean-of-a-code",
+      "title": "The average that moves when nothing moves",
+      "kind": "misconception",
+      "source": "content/04-mean-of-a-code.md",
+      "estimatedMinutes": 12,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>The average that moves when nothing moves</h1>\n<p>Back to the 2.7.</p>\n<p>The full adherence column, across all sixty participants, looks like this:</p>\n<table>\n<thead>\n<tr>\n<th align=\"center\">Rating</th>\n<th>Meaning</th>\n<th align=\"right\">Participants</th>\n</tr>\n</thead>\n<tbody><tr>\n<td align=\"center\">1</td>\n<td>rarely</td>\n<td align=\"right\">10</td>\n</tr>\n<tr>\n<td align=\"center\">2</td>\n<td>sometimes</td>\n<td align=\"right\">13</td>\n</tr>\n<tr>\n<td align=\"center\">3</td>\n<td>usually</td>\n<td align=\"right\">22</td>\n</tr>\n<tr>\n<td align=\"center\">4</td>\n<td>always</td>\n<td align=\"right\">15</td>\n</tr>\n</tbody></table>\n<p>Add the ratings and divide by sixty and you get 2.7 exactly. Two people on the team disagree about whether that number should appear in the write-up. One says it should, because the ratings are ordered and 1 to 4 is a perfectly good numeric range. The other says it should not, and cannot immediately say why.</p>\n<aside class=\"ek-block ek-misconception ek-block--misconception\" data-directive=\"misconception\">\n    <div class=\"ek-block-label directive-label\">Misconception</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> misconception-mean-of-an-ordinal-code</span></div>\n    <div class=\"ek-block-content\"><p><strong>Commit first.</strong> Decide now whether 2.7 belongs in the results, and write your reason in one sentence before continuing.</p>\n<p><strong>The model being tested.</strong> If the values are numbers and the numbers are in a sensible order, the mean summarises them. Sex fails that test because its codes have no order. Adherence passes it, so the mean is available.</p>\n<p><strong>What the model cannot explain.</strong> Keep the same sixty people and the same four rungs, and rewrite only the numerals printed on the rungs. Every participant stays in exactly the rating the nurse gave them.</p>\n<table>\n<thead>\n<tr>\n<th>Numerals used for the four ratings</th>\n<th align=\"right\">Resulting mean</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>1, 2, 3, 4</td>\n<td align=\"right\">2.7</td>\n</tr>\n<tr>\n<td>1, 2, 3, 3.2</td>\n<td align=\"right\">2.5</td>\n</tr>\n<tr>\n<td>1, 2, 3, 10</td>\n<td align=\"right\">4.2</td>\n</tr>\n</tbody></table>\n<p>Nobody moved. Nobody was re-rated. The ranking of the four ratings is identical in all three rows. The mean travels from 2.5 to 4.2 anyway, so the mean is answering a question about the printing rather than about adherence.</p>\n<p>Run the same test on the median. Sort all sixty values and the thirtieth and thirty-first both fall in <em>usually</em>, in every one of the three codings, because sorting only ever used the order. Run it on the share rated <em>usually</em> or better: 37 of 60, or about 62 per cent, in all three. Those summaries survive because they use only what the rating actually recorded.</p>\n<p><strong>A more adequate model.</strong> A mean is a balance point along a scale, so computing one commits you to a claim about distance: that the step from <em>rarely</em> to <em>sometimes</em> is the same size as the step from <em>usually</em> to <em>always</em>. The four-point rating never established that. It established an order and stopped. What a mean needs, ordinal values do not supply.</p>\n<p><strong>The two models on the same case.</strong> Here are both write-ups of the identical column.</p>\n<blockquote>\n<p>Mean adherence was 2.7.</p>\n</blockquote>\n<blockquote>\n<p>The median rating was <em>usually</em>. Thirty-seven of sixty participants, about 62 per cent, were rated <em>usually</em> or better, and ten were rated <em>rarely</em>.</p>\n</blockquote>\n<p>The second version is longer, and it tells the team something the first hides completely: ten people barely followed the schedule. If those ten are removed or handled separately, every later result changes. In 2.7 they are invisible.</p>\n<p><strong>Recheck on two new cases.</strong> One of these repeats the error and one does not.</p>\n<ol>\n<li>The same file reports a mean of 10.4 nights recorded per participant.</li>\n<li>A cancer registry reports a mean stage of 2.3, from stages I to IV coded 1 to 4.</li>\n</ol>\n<p>Decide both before reading the next paragraph.</p>\n<p>The first is sound. Ten nights and eleven nights differ by one night, the same amount everywhere on the scale, so the balance point is a real quantity and 10.4 nights is a statement about the participants. The second repeats the adherence error exactly. Stages I to IV rank, and the gap between stage I and stage II is not the same clinical distance as the gap between stage III and stage IV. The numerals 1 to 4 are a filing convenience.</p>\n<p>Some fields sum several ordered items into one total and then treat the total as a measured scale. That step is an assumption someone has to defend for the particular instrument. It is a decision about the analysis rather than a property the individual ratings establish on their own.</p>\n</div>\n  </aside>\n<h2>Why this one is worth guarding against</h2>\n<p>The sex code is a harmless mistake because it announces itself. Nobody reads &quot;mean sex = 1.4&quot; and nods.</p>\n<p>An ordinal code produces a number that looks exactly like a measurement. It has a plausible range, it moves in the direction you would expect when adherence improves, and it can be tracked across clinics and quarters. Nothing about its appearance flags the problem. The only way to catch it is at the point where the column is classified, which is before any analysis begins.</p>\n<p>That is why this lesson sits first in the block. Every summary, interval, and test that follows inherits the classification made here.</p>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-code-invariance</span></div>\n    <div class=\"ek-block-content\"><p>A hospital rates patient-reported nausea as none, mild, moderate, or severe, stored as 0 to 3. Two wards report their quarterly figures.</p>\n<ul>\n<li>Ward A reports a mean nausea score of 1.2.</li>\n<li>Ward B reports that 68 per cent of patients recorded none or mild, and that the median was mild.</li>\n</ul>\n<p>Which report survives a change in the storage codes, and what would you have to know about the rating before Ward A&#39;s figure could be defended?</p>\n</div>\n  </aside>\n<h3>Feedback after your attempt</h3>\n<p>Ward B&#39;s report survives. Percentages in named categories and a median category depend only on which rung each patient was placed on, so recoding none, mild, moderate, and severe as 1 to 4, or as 0, 1, 2, 5, leaves both figures untouched.</p>\n<p>Ward A&#39;s mean would need evidence that the steps between the four descriptions are equal in whatever nausea is being measured. That evidence would have to come from work on the rating instrument itself, not from the fact that someone stored the answers as 0 to 3.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-variable-type-taxonomy, claim-level-constrains-summary, claim-ordinal-codes-lack-spacing</span><span><b>sources</b> source-ali-bhaskar, source-mishra-descriptive, source-sullivan-artino</span></div>\n    <div class=\"ek-block-content\"><p>A medical-education methods paper supports the point that ordered response categories can be ranked while the distance between them is not measurable, and that a median and category frequencies suit such data while means and standard deviations belong to scales with measurable differences. Two clinical-research methods papers support the variable families and the summaries each sustains. Published practice is not uniform on the last paragraph above: some fields do analyse a summed set of ordered items as a measured scale, and whether that holds up depends on evidence about the particular instrument rather than on a general rule. The adherence counts, the recodings, and the ward figures are invented.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-practice-fading",
+      "title": "Practice on a file you have not seen",
+      "kind": "practice",
+      "source": "content/05-practice-fading.md",
+      "estimatedMinutes": 13,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Practice on a file you have not seen</h1>\n<p>A heart-failure clinic keeps a register. Both the clinic and its columns were invented for this practice.</p>\n<table>\n<thead>\n<tr>\n<th>Column</th>\n<th>Example value</th>\n<th>How it was produced</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>Blood group</td>\n<td><code>O</code></td>\n<td>copied from the laboratory record, one of A, B, AB, O</td>\n</tr>\n<tr>\n<td>NYHA class</td>\n<td><code>II</code></td>\n<td>the clinician&#39;s placement of the patient in one of four functional classes, I to IV</td>\n</tr>\n<tr>\n<td>Serum sodium</td>\n<td><code>137</code></td>\n<td>laboratory result in mmol/L</td>\n</tr>\n<tr>\n<td>Admissions last year</td>\n<td><code>2</code></td>\n<td>counted from the hospital record</td>\n</tr>\n<tr>\n<td>Referral to first review</td>\n<td><code>11</code></td>\n<td>days from referral letter to the first clinic appointment, recorded to the nearest day</td>\n</tr>\n</tbody></table>\n<h2>First pass, with the questions supplied</h2>\n<p>Use the five audit questions from the worked example: label or amount, ranked, any value in a range, gap fixed, zero real.</p>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-register-classification</span></div>\n    <div class=\"ek-block-content\"><p>Fill this in before opening the feedback.</p>\n<table>\n<thead>\n<tr>\n<th>Column</th>\n<th>Categorical or quantitative</th>\n<th>Level</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>Blood group</td>\n<td>___</td>\n<td>___</td>\n</tr>\n<tr>\n<td>NYHA class</td>\n<td>___</td>\n<td>___</td>\n</tr>\n<tr>\n<td>Serum sodium</td>\n<td>___</td>\n<td>___</td>\n</tr>\n<tr>\n<td>Admissions last year</td>\n<td>___</td>\n<td>___</td>\n</tr>\n<tr>\n<td>Referral to first review</td>\n<td>___</td>\n<td>___</td>\n</tr>\n</tbody></table>\n</div>\n  </aside>\n<h3>Feedback after your attempt</h3>\n<p>Blood group is categorical and nominal: four named groups with no ranking. Reordering them changes nothing.</p>\n<p>NYHA class is categorical and ordinal. Class III is worse than class II, so the order carries information, and nothing in the four descriptions fixes the size of the steps between them.</p>\n<p>Serum sodium is quantitative and continuous, on a ratio scale. One mmol/L is one mmol/L anywhere on the scale, and zero would mean none present.</p>\n<p>Admissions last year is quantitative and discrete, on a ratio scale. Only whole admissions can occur, the gap between 2 and 3 is one admission, and zero admissions is a real value that many patients have.</p>\n<p>Referral to first review is the interesting one. Waiting is a continuous quantity; the register rounds it to whole days. Rounding a continuous measurement does not turn it into a count, and this column is normally treated as continuous. If you called it discrete because the stored values are whole numbers, reread the recoding test: the question is what the underlying quantity does, not what the storage looks like.</p>\n<h2>Second pass, with less support</h2>\n<p>Now write the results line each column can carry. State the summary and the units where units apply.</p>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-register-summaries</span></div>\n    <div class=\"ek-block-content\"><ol>\n<li>NYHA class.</li>\n<li>Serum sodium.</li>\n<li>Blood group.</li>\n</ol>\n<p>For NYHA class, add one sentence explaining to a colleague why you are refusing to give them a mean.</p>\n</div>\n  </aside>\n<h3>Feedback after your attempt</h3>\n<p>NYHA class: the number and share of patients in each of classes I to IV, plus the median class. The refusal sentence needs the distance argument, in some form of: the classes rank patients without measuring how far apart they are, so an average of the numerals I to IV would change if the clinic renumbered them and would tell you about the numbering.</p>\n<p>Serum sodium: mean and standard deviation in mmol/L. A median and range are also defensible and become the better choice if the values are strongly lopsided, which the next lessons in this block take up.</p>\n<p>Blood group: the count and proportion in each of A, B, AB, O, and the most common group. No mean, no median, no ordering of the four.</p>\n<p>If you gave a mean for NYHA class, go back to the recoding table in the previous scene and run it on classes I to IV yourself before continuing. If you gave counts for serum sodium, you have not lost anything, though you have thrown away the measurement scale that the laboratory took the trouble to produce.</p>\n<h2>Third pass, unsupported</h2>\n<p>Structure, not columns, this time. For each description, decide whether the two sets of values are paired or independent, and name the feature of the collection that decides it.</p>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-paired-independent-practice</span></div>\n    <div class=\"ek-block-content\"><ol>\n<li>Serum sodium is recorded for forty patients on admission and again for the same forty on discharge.</li>\n<li>Serum sodium is recorded once for forty patients taking drug A and once for forty different patients taking drug B.</li>\n<li>The same blood sample from each of forty patients is measured once by laboratory method A and once by laboratory method B.</li>\n</ol>\n</div>\n  </aside>\n<h3>Self-check after your attempt</h3>\n<ol>\n<li>Paired. Each admission value has a partner: the discharge value from the same patient.</li>\n<li>Independent. Nobody appears in both sets and no value in one set is tied to a particular value in the other.</li>\n<li>Paired. Each result from method A has one partner: the method B result from the same patient&#39;s sample. The two values are paired by their shared source even though the methods differ.</li>\n</ol>\n<p>If you answered 3 as independent, the repair is to ask whether the file could be written with one row per patient&#39;s sample. When one row naturally holds both method results, the values are paired.</p>\n<h2>Where to go next</h2>\n<ul>\n<li>Every column classified correctly, both summaries right, all three structures right: continue.</li>\n<li>One or two column errors: rerun the five audit questions on the columns you missed and say the answer aloud before checking.</li>\n<li>A mean offered for an ordinal column: this is the error the whole lesson guards against. Return to the recoding table, apply it to your own answer, and only then continue.</li>\n<li>Paired and independent reversed: write each description as a table and count how many rows it needs. Paired data fits one row per pair; independent data does not.</li>\n</ul>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-variable-type-taxonomy, claim-level-constrains-summary, claim-paired-versus-independent</span><span><b>sources</b> source-ali-bhaskar, source-mishra-descriptive, source-sullivan-artino</span></div>\n    <div class=\"ek-block-content\"><p>The register and every value in it were written for this practice. The methods sources support the categorical and quantitative families, the nominal to ratio scales, the summaries each scale sustains, and the difference between measurements repeated on the same subjects and measurements from two separate samples. Note where they stop: some columns sit genuinely on a boundary, as the referral-waiting column does, and settling those takes an argument about how the value was produced and what the analysis will ask of it.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-transfer-triage",
+      "title": "Transfer: a quality report that needs rewriting",
+      "kind": "transfer",
+      "source": "content/06-transfer-triage.md",
+      "estimatedMinutes": 12,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Transfer: a quality report that needs rewriting</h1>\n<p>An emergency department&#39;s quality-improvement group has drafted a slide. The department and its figures were invented for this exercise.</p>\n<p>Their file holds four columns for every attendance in a quarter.</p>\n<table>\n<thead>\n<tr>\n<th>Column</th>\n<th>What it holds</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>Triage level</td>\n<td>1 to 5, assigned at the door, where <strong>1 is the most urgent</strong> and 5 the least</td>\n</tr>\n<tr>\n<td>Pain score</td>\n<td>0 to 10, the patient&#39;s own answer to a standard numeric rating question</td>\n</tr>\n<tr>\n<td>Door to clinician</td>\n<td>minutes from arrival to first clinician contact</td>\n</tr>\n<tr>\n<td>Disposition</td>\n<td>admitted, discharged, or transferred</td>\n</tr>\n</tbody></table>\n<p>The draft slide makes two moves. First it reports that &quot;average triage level improved from 3.1 last quarter to 2.8 this quarter.&quot; Second it asks for a single <strong>acuity index</strong> for each patient, to be built by averaging that patient&#39;s triage level and pain score.</p>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-triage-transfer</span></div>\n    <div class=\"ek-block-content\"><p>Work all four before reading the response.</p>\n<ol>\n<li>Classify each of the four columns.</li>\n<li>Say whether the sentence about 3.1 and 2.8 is interpretable, and give every reason it is not, if it is not.</li>\n<li>Say whether the acuity index can be built as described.</li>\n<li>Write two or three lines the group could put on the slide instead, using only what these columns support.</li>\n</ol>\n</div>\n  </aside>\n<h2>Compare your answer</h2>\n<p><strong>1. The columns.</strong> Triage level is categorical and ordinal: five ranked urgency bands with no measured spacing between them. Disposition is categorical and nominal: three named outcomes with no order. Door to clinician is quantitative and continuous on a ratio scale, since a minute is a minute and zero minutes would mean immediate contact. Pain score is the awkward one and is treated below.</p>\n<p><strong>2. The sentence has two separate problems.</strong> The first is the one this lesson has been drilling: triage level is a rank, so an average of the numerals 1 to 5 moves whenever someone renumbers the bands, and 3.1 and 2.8 are statements about the numbering scheme.</p>\n<p>The second problem is new. Suppose for a moment that the mean were legitimate. On this scale, lower means more urgent, so a fall from 3.1 to 2.8 describes a sicker set of arrivals. Triage level records who walked through the door. It is not a measure of anything the department did, so no movement in it can be an improvement or a decline in the service. A number can be arithmetically defensible and still answer a different question from the one on the slide.</p>\n<p><strong>3. The acuity index cannot be built that way.</strong> Averaging triage level with pain score adds a rank code to a rating and divides by two, which requires that one triage band and one point of pain be the same size of thing. Nothing has established the size of a triage band, nothing has established the size of a pain point, and no work has been done to put the two on a common scale. The two scales also run in opposite directions. A very sick patient scores low on triage and high on pain, so averaging the two would pull the index down and up at the same time and hide exactly the patients it was meant to find.</p>\n<p>Pain score itself deserves a sentence. Zero to ten from a patient is a set of ordered answers, and the numerals do not establish that the step from 2 to 3 is the same amount of pain as the step from 8 to 9. Many services treat these scores as measurements and report means. That is a working convention which someone should be able to defend for the particular instrument. Treating it as ordinal, with a median and a distribution, always remains available and never requires the extra assumption.</p>\n<p><strong>4. A defensible slide.</strong> Report the count and share of attendances in each triage band, this quarter beside last quarter, so a change in the case mix is visible band by band. Report the median door-to-clinician time within each triage band, in minutes, because that is a measured quantity and it is the part the department controls. Report the share admitted, discharged, and transferred. Between them, those three lines say more than the two averages did and none of them depends on the numbering.</p>\n<h2>What this lesson set up</h2>\n<p>The route through the file was short: name what each column is, then let that decide what may be computed and drawn.</p>\n<p><a href=\"https://embeddedknowledge.io/premed/lessons/read/?lesson=PREM-SCI-006\" rel=\"noreferrer noopener\">Measurement, reliability, and validity (PREM-SCI-006)</a> asked whether a recorded value deserves to stand for the thing you meant to capture. This lesson asks the next question about the same value: given how it was produced, what arithmetic will it hold still under. A column can be reliable, valid, and still not add up.</p>\n<p>Everything after this inherits the answer. Tables and displays choose a shape from the column&#39;s type; centre and spread only exist for the columns that permit them; and the intervals, tests, and models later in the block all run on quantitative columns whose distances are real. Getting a column wrong here is not caught downstream, because every downstream step will run happily on the wrong classification and return a number.</p>\n<h2>Mastery check</h2>\n<p>The assessment holds four untimed, retakeable items worth twelve points. Attempt each before opening its reasoning. Mastery means all twelve: three for classifying supplied columns with justifications, three for matching summaries to levels and refusing an unsupported one, two for reading paired or independent structure, and four for an integrated audit of a clinical file you have not seen. Missing a criterion routes you to a different context rather than to the same case again.</p>\n<h2>Accessibility and alternatives</h2>\n<p>Every task can be answered in prose, in bullets, or in a table, whichever suits you. You may type, dictate, or use assistive technology, and no upload, image, chart, or spreadsheet software is required. All tables are read in normal reading order and every relationship they carry is also stated in nearby prose. Nothing in the lesson depends on colour, position on a page, dragging, sound, motion, or speed. No task asks for your own health information, medication, or test results, and no clinical contact or laboratory access is needed.</p>\n<h2>Recovery route</h2>\n<p>If the word <em>variable</em> still means only the roles from an experiment, return to <a href=\"https://embeddedknowledge.io/premed/lessons/read/?lesson=PREM-SCI-003\" rel=\"noreferrer noopener\">Variables and controls (PREM-SCI-003)</a> and then reread the first scene here, where a column&#39;s role and a column&#39;s level are separated.</p>\n<p>If nominal and ordinal blur, ask whether shuffling the list of groups would destroy anything. Shuffling blood groups loses nothing; shuffling NYHA classes loses the ranking.</p>\n<p>If discrete and continuous blur, ask what lies between two neighbouring values. Nothing lies between 9 nights and 10 nights. Something always lies between 130 mg/dL and 131 mg/dL.</p>\n<p>If ordinal and discrete blur, which is the hardest pair, use only question 4: is the gap between two neighbouring values a fixed amount you could state. One night is a fixed amount. One triage band is not.</p>\n<p>If a mean keeps appearing where it should not, run the recoding test in writing every time before reporting one. When the summary changes and no participant has changed, the summary is not about the participants.</p>\n<p>If the interval scale and ratio scale distinction is unclear, return to <a href=\"https://embeddedknowledge.io/premed/lessons/read/?lesson=PREM-QNT-003\" rel=\"noreferrer noopener\">Ratios, proportions, and percentages (PREM-QNT-003)</a>, which sets out both scales and shows why an arbitrary zero blocks a ratio. If you are still stuck after that, ask your course text or instructor rather than pressing on, since the rest of this block builds on this distinction.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-level-constrains-summary, claim-ordinal-codes-lack-spacing</span><span><b>sources</b> source-ali-bhaskar, source-mishra-descriptive, source-sullivan-artino</span></div>\n    <div class=\"ek-block-content\"><p>The department, its quarterly figures, and the acuity-index proposal were written for this exercise. The methods sources support the summaries each measurement level sustains and the point that ordered response categories carry rank without a measurable distance, so an average of their codes assumes a spacing the scale has not supplied. What they do not settle is whether any particular pain-rating instrument has been shown to behave as a measured scale. That is evidence about the instrument, services answer it differently, and this lesson takes no position on it.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-clinical-wrap-up",
+      "title": "Clinical wrap-up: should the glucose column become a yes or a no?",
+      "kind": "transfer",
+      "source": "content/07-clinical-wrap-up.md",
+      "estimatedMinutes": 10,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Clinical wrap-up: should the glucose column become a yes or a no?</h1>\n<aside class=\"ek-block ek-callout ek-block--boundary\" data-directive=\"callout\">\n    <div class=\"ek-block-label directive-label\">Callout</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> callout-teaching-boundary</span></div>\n    <div class=\"ek-block-content\"><p>Teaching example, not medical advice. The dinner-timing study, its sixty participants, and every value shown are invented for reasoning practice. Nothing here describes a real patient or tells anyone how to interpret their own glucose readings, and no part of this lesson is a basis for changing anyone&#39;s care.</p>\n</div>\n  </aside>\n<p>The Scientific Inquiry block ended with a designed study and a question: in adults with type 2 diabetes, is a later dinner associated with a higher next-morning fasting glucose? The data have now arrived. Before anyone analyses them, the team makes a proposal that sounds sensible and would quietly decide the answer.</p>\n<h2>The proposal</h2>\n<p>The clinic&#39;s record system prefers flags to numbers. Rather than carry the meter reading, it would store one field per participant: whether that morning&#39;s fasting reading reached 126 mg/dL.</p>\n<p>For this invented exercise, 126 mg/dL is an explicitly chosen teaching cut point. It has no diagnostic or treatment meaning here. The readings came from participants&#39; own meters, not from a qualifying laboratory diagnostic test, and the flag must not be used to classify any person&#39;s health.</p>\n<p>The question for this lesson is narrower than whether the flag is good clinical practice. It is whether the study can still answer its own question after the swap.</p>\n<h2>Work it with the lesson&#39;s own tools</h2>\n<p><strong>Name both versions.</strong> The meter reading is a quantitative, continuous column on a ratio scale: one mg/dL is one mg/dL, and zero would mean no glucose in the sample. The flag is a categorical column with two groups. The nominal and ordinal distinction stops mattering once there are only two groups, because every summary an order would unlock, such as a median, is already given by the two counts.</p>\n<p><strong>Say what each supports.</strong> The reading supports a mean and a standard deviation in mg/dL, and it supports the question the study actually asked, which is how the reading changes per hour of dinner delay. The flag supports a count and a proportion, and it supports comparing that proportion between earlier and later dinners. Both are honest summaries. They answer different questions.</p>\n<p><strong>Find what the swap costs.</strong> Take the six rows from the worked audit and apply the cut point.</p>\n<table>\n<thead>\n<tr>\n<th>Participant</th>\n<th align=\"right\">Reading (mg/dL)</th>\n<th>Flag at 126</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>P07</td>\n<td align=\"right\">132</td>\n<td>at or above</td>\n</tr>\n<tr>\n<td>P12</td>\n<td align=\"right\">118</td>\n<td>below</td>\n</tr>\n<tr>\n<td>P23</td>\n<td align=\"right\">141</td>\n<td>at or above</td>\n</tr>\n<tr>\n<td>P31</td>\n<td align=\"right\">126</td>\n<td>at or above</td>\n</tr>\n<tr>\n<td>P44</td>\n<td align=\"right\">155</td>\n<td>at or above</td>\n</tr>\n<tr>\n<td>P58</td>\n<td align=\"right\">129</td>\n<td>at or above</td>\n</tr>\n</tbody></table>\n<p>P31 at 126 and P44 at 155 are now the same value, 29 mg/dL apart. P12 at 118 and P31 at 126 are now different values, 8 mg/dL apart. Distance on the measured scale has been replaced by which side of one line a person landed on, so a shift of a few mg/dL in everybody can move the mean while leaving the proportion untouched, or can move the proportion sharply if many participants sit near 126. The final lesson of this block asks whether a difference of 4 mg/dL should change anything for a patient. The flag cannot see a 4 mg/dL difference at all unless it happens to cross the line.</p>\n<p><strong>Notice what the pairing costs too.</strong> The strongest form of this study compares each participant&#39;s own later-dinner mornings with their own earlier-dinner mornings, which is a paired structure. On the measured scale, every participant contributes a change in mg/dL. On the flag, anyone who stays on the same side of 126 in both conditions contributes nothing, whether their reading moved by 1 mg/dL or by 25.</p>\n<p><strong>Check the three-band version.</strong> The record system could instead store three ordered bands, below 100, 100 to 125, and 126 and above, and number them 1, 2, and 3. That column is ordinal, and the temptation returns in its usual disguise: a mean band of 2.4 would be a fact about the numbering, since nothing establishes that the step from the first band to the second is the same size as the step from the second to the third. The band widths are not even equal in mg/dL, and the top band has no upper limit.</p>\n<h2>The decision, and when the flag wins</h2>\n<p>Record the measurement. Derive the category whenever a question needs it. A category can always be made from a number, and a number can never be recovered from a category, so the choice is not symmetric and it is made once, at collection.</p>\n<p>The flag is the right column when the flag is the question. A service asking how many readings met a predeclared monitoring cut point wants a count and a proportion, and a mean in mg/dL would not answer it. What the team must avoid is storing only the flag and later asking a question that needs the number.</p>\n<p>So the answer to the proposal is a qualified no. The study can survive it, in the sense that a proportion comparison remains possible. The question it was designed to ask, about how the morning reading moves with dinner timing, cannot be asked of a column that has thrown the movement away.</p>\n<p>The next outcome in this block, tables and graphical displays, takes these same columns and asks what the data look like before any summary at all.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-variable-type-taxonomy, claim-level-constrains-summary, claim-ordinal-codes-lack-spacing</span><span><b>sources</b> source-ali-bhaskar, source-mishra-descriptive, source-sullivan-artino</span></div>\n    <div class=\"ek-block-content\"><p>Three methods sources support the variable families, the summaries each level sustains, and the point that ordered bands carry rank without a measurable distance. Everything about the study itself, including the six readings, the 126 mg/dL teaching cut point, and the record-system proposal, is invented. The cut point carries no clinical interpretation in this lesson.</p>\n</div>\n  </aside>\n"
+    }
+  ],
+  "authors": [
+    {
+      "principalId": "github:VSBDev",
+      "displayName": "VSBDev — accountable author",
+      "agent": {
+        "system": "RUNTIME-STAMPED",
+        "provider": "RUNTIME-STAMPED",
+        "model": "RUNTIME-STAMPED",
+        "version": "RUNTIME-STAMPED",
+        "runId": "author-PREM-STA-001-A16D33E3-9D82-49C4-A5AF-6F2ABCFE5665",
+        "instructionsDigest": "sha256:a56b0a56109a75f3ccf8a786f738c2320ae6352c4557e4a12c04bce857302edd"
+      }
+    }
+  ],
+  "license": "CC-BY-4.0",
+  "sourceConfidence": "medium-high",
+  "aiAssistance": {
+    "used": true,
+    "disclosure": "VSBDev (github:VSBDev) is accountable for this authoring candidate. Material agent assistance ran under run ID author-PREM-STA-001-A16D33E3-9D82-49C4-A5AF-6F2ABCFE5665 on 2026-07-25; the agent system, provider, model, and version are recorded as the operator-stamped literal RUNTIME-STAMPED and are stamped by the operator before review. The instruction digest covers the exact disclosed UTF-8 material task payload, including its final newline, and excludes hidden provider and system instructions that cannot be exported."
+  },
+  "assessment": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-assessment-v1",
+    "lessonId": "PREM-STA-001",
+    "lessonVersion": "0.1.0",
+    "assessmentId": "assessment-variables-and-data-types",
+    "title": "Variables and data types mastery check",
+    "purpose": "mastery-gate",
+    "attemptPolicy": {
+      "retakeable": true,
+      "timeLimitMinutes": null,
+      "feedback": "after-attempt"
+    },
+    "items": [
+      {
+        "id": "item-classify-supplied-columns",
+        "type": "open-response",
+        "sceneId": "scene-transfer-triage",
+        "objectiveIds": [
+          "objective-classify-columns"
+        ],
+        "outcomeIds": [
+          "topic-statistics-data-data-types"
+        ],
+        "prompt": "An invented renal clinic file holds these columns. Dialysis modality is recorded as haemodialysis, peritoneal dialysis, or transplant. Symptom burden is a clinician's placement of the patient in one of five bands from none to severe, stored as 1 to 5. Serum creatinine is a laboratory result in micromoles per litre. Missed sessions is the number of scheduled dialysis sessions the patient did not attend in the past three months. For each of the four columns, state whether it is categorical or quantitative, give its level of measurement, and justify the level by saying what the values do rather than how they are stored.",
+        "stimulus": null,
+        "points": 3,
+        "responseSpec": {
+          "mode": "text",
+          "units": null,
+          "tolerance": null,
+          "maxSelections": null,
+          "maxLength": 1600
+        },
+        "answer": {
+          "correct": "Dialysis modality is categorical and nominal: three named treatments with no ranking, so the list can be reordered without loss. Symptom burden is categorical and ordinal: the five bands rank from none to severe, and nothing establishes that the step from band 1 to band 2 is the same size as the step from band 4 to band 5. Serum creatinine is quantitative and continuous on a ratio scale: any value in a range can occur, one micromole per litre is one micromole per litre anywhere on the scale, and zero would mean none present. Missed sessions is quantitative and discrete on a ratio scale: only whole sessions can occur, the gap between 2 and 3 is one session, and zero missed sessions is a real value.",
+          "summary": "One nominal column, one ordinal column, one continuous ratio column, and one discrete ratio column.",
+          "reasoning": "Award one point for the two categorical columns, correctly split into nominal and ordinal with the ordering argument given. Award one point for serum creatinine as continuous with a fixed unit gap and a real zero. Award one point for missed sessions as discrete with a fixed unit gap and a real zero, provided the justification is that only whole sessions can occur rather than that the values happen to look like whole numbers. A response that classifies symptom burden by its 1-to-5 storage rather than by its unmeasured band spacing does not earn the first point. On a retry, classify a different invented file: transplant waiting-list status as active, suspended, or removed; frailty rated in four ordered grades; systolic blood pressure in mmHg; and clinic appointments attended in a year.",
+          "acceptableResponses": [
+            "Any response that assigns the four levels correctly and justifies each from how the values behave, including the ordering argument for the symptom bands and the fixed-gap argument for the two quantitative columns."
+          ],
+          "commonErrors": [
+            "Calling symptom burden quantitative because it is stored as 1 to 5",
+            "Calling missed sessions ordinal because it holds small whole numbers",
+            "Calling serum creatinine discrete because the laboratory reports it rounded",
+            "Giving a level without saying what the values do to earn it"
+          ]
+        },
+        "rubricId": "rubric-classify-supplied-columns",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-match-summary-and-refuse",
+        "type": "open-response",
+        "sceneId": "scene-transfer-triage",
+        "objectiveIds": [
+          "objective-match-summary-to-level"
+        ],
+        "outcomeIds": [
+          "topic-statistics-data-data-types"
+        ],
+        "prompt": "Using the same invented renal clinic file, write the one results line each of these three columns can carry, with units where units apply: dialysis modality, symptom burden, serum creatinine. Then a colleague asks for the mean symptom burden across the clinic. Write the refusal you would send, including the test that shows why that mean would not describe the patients.",
+        "stimulus": null,
+        "points": 3,
+        "responseSpec": {
+          "mode": "text",
+          "units": null,
+          "tolerance": null,
+          "maxSelections": null,
+          "maxLength": 1600
+        },
+        "answer": {
+          "correct": "Dialysis modality: the count and proportion of patients on each of the three modalities, plus the most common modality. Symptom burden: the count and share in each of the five bands, plus the median band, and optionally the share in the top two bands. Serum creatinine: mean and standard deviation in micromoles per litre, or a median and range if the values are strongly lopsided. The refusal: the five bands rank patients without measuring the distance between them, so renumbering the bands as 1, 2, 3, 4, 10 would leave every patient in exactly the band the clinician chose while changing the mean. A summary that moves when no patient has moved is describing the numbering rather than the clinic.",
+          "summary": "Counts and proportions for the modality, order-based summaries for the bands, a mean and standard deviation for the laboratory value, and a refusal built on the recoding test.",
+          "reasoning": "Award one point for the modality line, which must use counts or proportions and must not use an average. Award one point for the symptom-burden line, which must be order-based and must include the median band or the band frequencies. Award one point for the serum-creatinine line together with a refusal that contains the recoding argument, meaning that changing the numerals while keeping every patient's band changes the mean. A refusal that says only that the data are ordinal does not earn the third point, because it names the category without showing the consequence. On a retry, do the same for a stroke unit file: ward of admission, a five-level disability grade, and time from onset to imaging in minutes.",
+          "acceptableResponses": [
+            "Any response giving counts or proportions for the nominal column, a median or band frequencies for the ordinal column, a mean with standard deviation or a defended median with range for the continuous column, and a refusal that turns on the unestablished spacing between bands."
+          ],
+          "commonErrors": [
+            "Offering a mean band number alongside the median as a second opinion",
+            "Reporting a median modality for the three named treatments",
+            "Refusing the mean by asserting that ordinal data are never averaged, with no argument",
+            "Omitting the units on the laboratory line"
+          ]
+        },
+        "rubricId": "rubric-match-summary-and-refuse",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-read-paired-structure",
+        "type": "single-choice",
+        "sceneId": "scene-practice-fading",
+        "objectiveIds": [
+          "objective-read-paired-independent"
+        ],
+        "outcomeIds": [
+          "topic-statistics-data-data-types"
+        ],
+        "prompt": "In an invented study, serum creatinine is measured in each of 50 patients immediately before dialysis begins and again after four weeks. Which description of the two sets of measurements is correct, and why?",
+        "stimulus": null,
+        "points": 2,
+        "responseSpec": {
+          "mode": "single-choice",
+          "units": null,
+          "tolerance": null,
+          "maxSelections": null,
+          "options": [
+            {
+              "id": "option-independent-different-times",
+              "text": "Independent, because the measurements were taken at two different times."
+            },
+            {
+              "id": "option-paired-by-identity",
+              "text": "Paired, because each patient's first value belongs with that same patient's later value, so the file could be written with one row per patient."
+            },
+            {
+              "id": "option-independent-separate-columns",
+              "text": "Independent, because the two measurement sets would be stored in separate columns."
+            },
+            {
+              "id": "option-paired-same-quantity",
+              "text": "Paired, because both sets record the same quantity in the same units."
+            }
+          ],
+          "maxLength": null
+        },
+        "answer": {
+          "correct": "option-paired-by-identity",
+          "summary": "The repeated measurements are paired because each patient's first value has that same patient's later value as its partner.",
+          "reasoning": "Pairing is a property of how the study collected its values. Here each before-dialysis result is tied to one later result by the patient's identity, so the file can be written with one row per patient and a within-patient change can be calculated. Different times and separate columns do not break that correspondence. The remaining paired option gives a reason that would make almost any two datasets paired, since sharing a quantity and a unit creates no link between particular values. If you chose an independent option, redraw the data as a table and ask whether one row naturally holds both values from the same case. On a retry, decide the structure for a study that measures blood pressure in 40 patients before and after a medication change, and for one that measures it once in 40 patients on drug A and once in 40 other patients on drug B.",
+          "acceptableResponses": [],
+          "commonErrors": [
+            "Treating measurements taken at different times as automatically independent",
+            "Treating separate storage columns as separate groups",
+            "Calling any two sets of the same quantity paired"
+          ]
+        },
+        "rubricId": "rubric-read-paired-structure",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-integrated-audit-transfer",
+        "type": "open-response",
+        "sceneId": "scene-clinical-wrap-up",
+        "objectiveIds": [
+          "objective-classify-columns",
+          "objective-match-summary-to-level",
+          "objective-read-paired-independent"
+        ],
+        "outcomeIds": [
+          "topic-statistics-data-data-types"
+        ],
+        "prompt": "An invented asthma clinic proposes an audit. Its file holds, for each of 80 children: inhaler device type, recorded as one of four named devices; a four-level asthma control category from well controlled to very poorly controlled; peak expiratory flow in litres per minute at the start of the year and again at the end; and the number of rescue inhaler prescriptions issued during the year. The team drafts three sentences for its report. First, mean control category was 2.4. Second, mean peak flow rose by 14 litres per minute over the year. Third, the four device types had a median of device 2. Classify all four columns, judge each of the three sentences, name the structure of the two peak-flow measurements and what that structure permits, and rewrite the report using only what the columns support. No real clinic, child, or device is described, and this is not clinical guidance.",
+        "stimulus": null,
+        "points": 4,
+        "responseSpec": {
+          "mode": "text",
+          "units": null,
+          "tolerance": null,
+          "maxSelections": null,
+          "maxLength": 2400
+        },
+        "answer": {
+          "correct": "Device type is categorical and nominal. Control category is categorical and ordinal. Peak expiratory flow is quantitative and continuous on a ratio scale. Rescue prescriptions is quantitative and discrete on a ratio scale. Sentence one repeats the ordinal-code error: the four control levels rank without a measured spacing, so 2.4 would change if the levels were renumbered while every child stayed in the same level. Sentence two is sound: litres per minute is a measured scale with a fixed unit gap and a real zero, so a mean and a mean change are interpretable. Sentence three is wrong for the opposite reason: device type has no order, so no middle value exists and a median cannot be formed; report counts and proportions and the most common device instead. The two peak-flow measurements are paired, because each start-of-year value belongs with the end-of-year value from the same child, so the audit can work with each child's own change. A defensible report gives the count and proportion of children using each device, the count and share in each control level with the median level, the mean paired change in peak flow with its units, and the mean or median number of rescue prescriptions.",
+          "summary": "Two categorical columns and two quantitative ones, one legitimate sentence out of three, and a paired peak-flow structure that supports a within-child change.",
+          "reasoning": "Award one point for all four classifications correct. Award one point for rejecting the mean control category with the recoding argument. Award one point for accepting the peak-flow mean and rejecting the median device with the reason that a median needs an order that nominal groups do not have. Award one point for naming the peak-flow pairing and saying that it permits a within-child change, together with a rewritten report that uses only supported summaries. All four are required for full marks. A response that rejects all three sentences has not discriminated and does not earn the second and third points. On a retry, audit an invented epilepsy clinic file: antiseizure medication as one of five named drugs, a three-level seizure-frequency band, serum drug concentration measured before and after a dose change, and emergency attendances in a year.",
+          "acceptableResponses": [
+            "Any response that classifies the four columns correctly, keeps the peak-flow sentence while rejecting the other two for the right and different reasons, identifies the paired structure and its use, and rewrites the report with supported summaries only."
+          ],
+          "commonErrors": [
+            "Rejecting all three sentences without separating the ordinal-code error from the missing-order error",
+            "Calling the two peak-flow columns independent because they are two separate columns",
+            "Offering a mean device number in place of the rejected median",
+            "Reporting the peak-flow change without units",
+            "Treating rescue prescriptions as ordinal because the counts are small"
+          ]
+        },
+        "rubricId": "rubric-integrated-audit-transfer",
+        "safetyCritical": false
+      }
+    ],
+    "rubrics": [
+      {
+        "id": "rubric-classify-supplied-columns",
+        "title": "Classifying columns of a supplied clinical file",
+        "criteria": [
+          {
+            "id": "criterion-categorical-split",
+            "description": "Award 1 point only when dialysis modality is nominal and symptom burden is ordinal, each justified by whether the groups rank and whether the step between them is established.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-continuous-column",
+            "description": "Award 1 point only when serum creatinine is continuous on a ratio scale, justified by a fixed unit gap and a zero meaning none present.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-discrete-column",
+            "description": "Award 1 point only when missed sessions is discrete on a ratio scale, justified by the fact that only whole sessions can occur rather than by the appearance of the stored values.",
+            "maxPoints": 1
+          }
+        ]
+      },
+      {
+        "id": "rubric-match-summary-and-refuse",
+        "title": "Matching summaries to levels and defending a refusal",
+        "criteria": [
+          {
+            "id": "criterion-nominal-summary",
+            "description": "Award 1 point only when the modality line uses counts or proportions, or the most common group, and offers no average.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-ordinal-summary",
+            "description": "Award 1 point only when the symptom-burden line is order-based, giving the median band or the frequency in each band.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-refusal-argument",
+            "description": "Award 1 point only when the serum-creatinine line carries a mean and standard deviation with units, or a defended median and range, and the refusal shows that recoding the bands changes the mean while every patient stays in the same band.",
+            "maxPoints": 1
+          }
+        ]
+      },
+      {
+        "id": "rubric-read-paired-structure",
+        "title": "Reading paired and independent structure",
+        "criteria": [
+          {
+            "id": "criterion-paired-selection",
+            "description": "Award 1 point only when the repeated-measurement paired option is selected.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-paired-reason",
+            "description": "Award 1 point only when the reason given is the one-to-one correspondence created by the design, rather than the number of people measured or the shared quantity and units.",
+            "maxPoints": 1
+          }
+        ]
+      },
+      {
+        "id": "rubric-integrated-audit-transfer",
+        "title": "Integrated audit of an unfamiliar clinical file",
+        "criteria": [
+          {
+            "id": "criterion-transfer-classification",
+            "description": "Award 1 point only when all four columns are classified correctly as nominal, ordinal, continuous ratio, and discrete ratio.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-transfer-ordinal-refusal",
+            "description": "Award 1 point only when the mean control category is rejected using the recoding argument rather than by naming the data type alone.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-transfer-discrimination",
+            "description": "Award 1 point only when the peak-flow mean is accepted and the median device is rejected because nominal groups supply no order for a middle value to sit in.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-transfer-structure-and-rewrite",
+            "description": "Award 1 point only when the two peak-flow measurements are identified as paired, the within-child change is named as what that permits, and the rewritten report uses only supported summaries with units.",
+            "maxPoints": 1
+          }
+        ]
+      }
+    ]
+  },
+  "references": {
+    "schemaVersion": 2,
+    "format": "embeddedknowledge-references-v2",
+    "lessonId": "PREM-STA-001",
+    "lessonVersion": "0.1.0",
+    "sources": [
+      {
+        "id": "source-ali-bhaskar",
+        "type": "review",
+        "title": "Basic statistical tools in research and data analysis",
+        "creators": [
+          "Zulfiqar Ali",
+          "S Bala Bhaskar"
+        ],
+        "publisher": "Indian Journal of Anaesthesia",
+        "issued": "2016",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5037948/",
+        "accessed": "2026-07-25",
+        "version": "Volume 60, issue 9, pages 662-669; DOI 10.4103/0019-5049.190623",
+        "locator": "Section 'Variables' for quantitative discrete and continuous data, qualitative data, and the nominal, ordinal, interval, and ratio scales; section 'Student's t-test' for the distinction between two independent samples and two dependent samples measured on the same subjects.",
+        "license": "CC BY-NC-SA 3.0; facts-only use, with no source expression reused",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only to verify facts about the categorical and quantitative variable families, the discrete and continuous division, the four measurement scales, and the paired versus independent sample distinction. No wording, table, figure, example, or dataset from the source was copied or adapted; the dinner-timing file, the audit questions, and every example are independently created."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://pmc.ncbi.nlm.nih.gov/robots.txt",
+          "checked": "2026-07-25",
+          "notes": "The PMC robots route was checked before substantive access on 2026-07-25. It carries a single 'User-agent: *' block that explicitly allows /articles/ with a one-second crawl delay, and it names no AI or LLM crawler restriction. The article was read over the public web without login, paywall, or access-control bypass. Source copyright was treated separately; lesson use is facts-only original expression."
+        }
+      },
+      {
+        "id": "source-sullivan-artino",
+        "type": "review",
+        "title": "Analyzing and Interpreting Data From Likert-Type Scales",
+        "creators": [
+          "Gail M. Sullivan",
+          "Anthony R. Artino Jr"
+        ],
+        "publisher": "Journal of Graduate Medical Education",
+        "issued": "2013-12",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3886444/",
+        "accessed": "2026-07-25",
+        "version": "Volume 5, issue 4, pages 541-542; DOI 10.4300/JGME-5-4-18",
+        "locator": "Statements that responses on an ordinal scale can be ranked while the distance between responses is not measurable; that the differences between adjacent frequency responses are not necessarily equal; that the median suits ordered-category data alongside response frequencies; and that means and standard deviations belong to interval data where the difference between responses can be calculated.",
+        "license": "Open access under the journal's Creative Commons terms; facts-only use, with no source expression reused",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only to verify facts about the ordinal status of ranked response categories, the absence of established equal spacing between adjacent categories, and which descriptive summaries suit ordered-category data as against interval data. No wording, table, figure, example, or item from the source was copied or adapted."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://pmc.ncbi.nlm.nih.gov/robots.txt",
+          "checked": "2026-07-25",
+          "notes": "The PMC robots route was checked before substantive access on 2026-07-25 and explicitly allows /articles/ for all user agents with no AI or LLM crawler restriction. The article was read over the public web without login, paywall, or access-control bypass."
+        }
+      },
+      {
+        "id": "source-mishra-descriptive",
+        "type": "review",
+        "title": "Descriptive Statistics and Normality Tests for Statistical Data",
+        "creators": [
+          "Prabhaker Mishra",
+          "Chandra M Pandey",
+          "Uttam Singh",
+          "Anshul Gupta",
+          "Chinmoy Sahu",
+          "Amit Keshri"
+        ],
+        "publisher": "Annals of Cardiac Anaesthesia",
+        "issued": "2019",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6350423/",
+        "accessed": "2026-07-25",
+        "version": "Volume 22, issue 1, pages 67-72; DOI 10.4103/aca.ACA_157_18",
+        "locator": "Statement that a measure of frequency is usually used for categorical data while measures of central tendency and dispersion are used for quantitative data, and the listing of frequency, percentage, mean, median, mode, variance, standard deviation, quartiles, interquartile range, and range as descriptive summaries.",
+        "license": "CC BY-NC-SA 4.0; facts-only use, with no source expression reused",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only to verify facts about which families of descriptive summary apply to categorical as against quantitative data. No wording, table, figure, example, or dataset from the source was copied or adapted."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://pmc.ncbi.nlm.nih.gov/robots.txt",
+          "checked": "2026-07-25",
+          "notes": "The PMC robots route was checked before substantive access on 2026-07-25 and explicitly allows /articles/ for all user agents with no AI or LLM crawler restriction. The article was read over the public web without login, paywall, or access-control bypass."
+        }
+      }
+    ]
+  },
+  "claims": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-claims-v1",
+    "lessonId": "PREM-STA-001",
+    "lessonVersion": "0.1.0",
+    "claims": [
+      {
+        "id": "claim-variable-type-taxonomy",
+        "statement": "A recorded variable is categorical when its values place each case in a group and quantitative when its values are amounts on a measurement scale; categorical values are nominal when the groups carry no inherent order and ordinal when the groups are ranked; quantitative values are discrete when only separated values such as whole counts can occur and continuous when any value within a range can occur.",
+        "sceneIds": [
+          "scene-column-kinds",
+          "scene-what-the-level-permits",
+          "scene-worked-audit",
+          "scene-mean-of-a-code",
+          "scene-practice-fading",
+          "scene-clinical-wrap-up"
+        ],
+        "sourceIds": [
+          "source-ali-bhaskar"
+        ],
+        "support": "synthesis",
+        "confidence": "high",
+        "scope": "College-intro classification of columns in a supplied study file, including the nominal, ordinal, interval, and ratio measurement scales. Choice of analysis method, distributional assumptions, and multivariable modelling are excluded.",
+        "uncertainty": "Names vary by field: categorical is also called qualitative, and quantitative is also called numerical. Some columns are genuinely borderline, such as a continuous quantity recorded only to the nearest whole unit or a many-category ordered score, and their classification depends on how the value was produced and on what the analysis will do with it.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      },
+      {
+        "id": "claim-level-constrains-summary",
+        "statement": "The measurement level of a column constrains which summaries are interpretable: unordered categories support counts, proportions, and the most frequent category; ranked categories additionally support order-based summaries such as the median and the frequency in each category; and scales on which the distance between two values is a fixed measurable quantity additionally support the arithmetic mean and the standard deviation.",
+        "sceneIds": [
+          "scene-what-the-level-permits",
+          "scene-worked-audit",
+          "scene-mean-of-a-code",
+          "scene-practice-fading",
+          "scene-transfer-triage",
+          "scene-clinical-wrap-up"
+        ],
+        "sourceIds": [
+          "source-ali-bhaskar",
+          "source-mishra-descriptive",
+          "source-sullivan-artino"
+        ],
+        "support": "synthesis",
+        "confidence": "high",
+        "scope": "Introductory choice of descriptive summary and display for a single column of a supplied dataset.",
+        "uncertainty": "The constraint states which summaries are interpretable, not which is best. A mean is available for a measured column and can still be a poor description of a strongly lopsided one, and practice varies over whether composite ordered scores may be summarised by a mean.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      },
+      {
+        "id": "claim-ordinal-codes-lack-spacing",
+        "statement": "Numbers assigned to ranked response categories record rank alone, and the distance between adjacent categories is not measurable from that numbering, so an arithmetic mean of the codes presumes a spacing the response scale has not established and changes when the codes are changed while every case keeps its rank.",
+        "sceneIds": [
+          "scene-mean-of-a-code",
+          "scene-transfer-triage",
+          "scene-clinical-wrap-up"
+        ],
+        "sourceIds": [
+          "source-sullivan-artino"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Single ordered rating items and ordered clinical bands, such as a four-point adherence rating, a triage level, a tumour stage, or a banded laboratory result.",
+        "uncertainty": "Analytic practice is not uniform. Some fields sum several ordered items into one score and then analyse the total as a measured scale, which is an assumption about the instrument that has to be argued for the particular case rather than a property the individual ratings supply.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      },
+      {
+        "id": "claim-paired-versus-independent",
+        "statement": "Whether two sets of values are paired or independent is settled by how they were collected: paired values are matched one to one because repeated measurements came from the same case or sample, while independent values come from separate cases with no such correspondence, and the two structures call for different comparison procedures.",
+        "sceneIds": [
+          "scene-worked-audit",
+          "scene-practice-fading"
+        ],
+        "sourceIds": [
+          "source-ali-bhaskar"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Reading the pairing structure off a study description at college-intro level, before any comparison procedure is selected.",
+        "uncertainty": "Real datasets carry more structures than these two, including repeated measurements at many time points and clustering within families, wards, or clinics; those need methods beyond the paired and independent pair described here.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      }
+    ]
+  },
+  "glossary": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-glossary-v1",
+    "lessonId": "PREM-STA-001",
+    "lessonVersion": "0.1.0",
+    "terms": [
+      {
+        "id": "term-variable",
+        "term": "variable",
+        "definition": "A recorded characteristic that can take different values across the cases in a dataset, held as one column of the file.",
+        "aliases": [
+          "column",
+          "field"
+        ],
+        "sceneIds": [
+          "scene-column-kinds",
+          "scene-what-the-level-permits",
+          "scene-worked-audit",
+          "scene-mean-of-a-code",
+          "scene-practice-fading",
+          "scene-transfer-triage",
+          "scene-clinical-wrap-up"
+        ],
+        "alignment": {
+          "priorLesson": "PREM-SCI-003",
+          "relation": "extend",
+          "note": "PREM-SCI-003 defines a variable by the job it does in one comparison: the factor set differently, the response recorded, or a condition held alike. This lesson keeps that meaning and widens the frame to any recorded characteristic that differs across cases, whatever role it plays in an argument. A column's role and a column's level of measurement are separate properties, and the first scene names that separation for the learner."
+        }
+      },
+      {
+        "id": "term-level-of-measurement",
+        "term": "level of measurement",
+        "definition": "The property of a column that decides which arithmetic its values will support, fixed by how the values were produced rather than by how they are stored. The four levels used here are nominal, ordinal, interval, and ratio.",
+        "aliases": [
+          "measurement scale",
+          "scale of measurement",
+          "measurement level"
+        ],
+        "sceneIds": [
+          "scene-column-kinds",
+          "scene-what-the-level-permits",
+          "scene-worked-audit",
+          "scene-practice-fading",
+          "scene-transfer-triage",
+          "scene-clinical-wrap-up"
+        ]
+      },
+      {
+        "id": "term-categorical-variable",
+        "term": "categorical variable",
+        "definition": "A variable whose values place each case into a named group, such as blood group or disposition. Its values are labels, whether they are stored as words or as numbers.",
+        "aliases": [
+          "qualitative variable",
+          "categorical column",
+          "categorical"
+        ],
+        "sceneIds": [
+          "scene-column-kinds",
+          "scene-what-the-level-permits",
+          "scene-practice-fading",
+          "scene-transfer-triage",
+          "scene-clinical-wrap-up"
+        ]
+      },
+      {
+        "id": "term-nominal-variable",
+        "term": "nominal variable",
+        "definition": "A categorical variable whose groups carry no inherent order, so the list of groups can be rearranged without losing information. Sex, blood group, and admitting ward are examples.",
+        "aliases": [
+          "nominal scale",
+          "unordered categorical variable",
+          "nominal"
+        ],
+        "sceneIds": [
+          "scene-column-kinds",
+          "scene-what-the-level-permits",
+          "scene-worked-audit",
+          "scene-practice-fading",
+          "scene-transfer-triage",
+          "scene-clinical-wrap-up"
+        ]
+      },
+      {
+        "id": "term-ordinal-variable",
+        "term": "ordinal variable",
+        "definition": "A categorical variable whose groups are ranked, so the order is part of what was recorded, while the size of the step between adjacent groups is not established. A four-point adherence rating, a triage level, and a tumour stage are examples.",
+        "aliases": [
+          "ordinal scale",
+          "ordered categorical variable",
+          "ordinal"
+        ],
+        "sceneIds": [
+          "scene-column-kinds",
+          "scene-what-the-level-permits",
+          "scene-worked-audit",
+          "scene-mean-of-a-code",
+          "scene-practice-fading",
+          "scene-transfer-triage",
+          "scene-clinical-wrap-up"
+        ]
+      },
+      {
+        "id": "term-quantitative-variable",
+        "term": "quantitative variable",
+        "definition": "A variable whose values are amounts on a measurement scale, so the difference between two values is itself a quantity that can be stated.",
+        "aliases": [
+          "numerical variable",
+          "quantitative column",
+          "quantitative"
+        ],
+        "sceneIds": [
+          "scene-column-kinds",
+          "scene-what-the-level-permits",
+          "scene-practice-fading",
+          "scene-transfer-triage",
+          "scene-clinical-wrap-up"
+        ]
+      },
+      {
+        "id": "term-discrete-variable",
+        "term": "discrete variable",
+        "definition": "A quantitative variable that admits only separated values, most often whole counts, so nothing lies between two neighbouring values. Nights recorded and admissions in the past year are examples.",
+        "aliases": [
+          "discrete data",
+          "count variable",
+          "discrete"
+        ],
+        "sceneIds": [
+          "scene-column-kinds",
+          "scene-what-the-level-permits",
+          "scene-worked-audit",
+          "scene-practice-fading",
+          "scene-transfer-triage"
+        ]
+      },
+      {
+        "id": "term-continuous-variable",
+        "term": "continuous variable",
+        "definition": "A quantitative variable that admits any value inside a range, so how finely it is reported depends on the instrument rather than on the quantity. Fasting glucose in mg/dL and hours before sleep are examples; rounding such a value to whole units does not make it discrete.",
+        "aliases": [
+          "continuous data",
+          "continuous"
+        ],
+        "sceneIds": [
+          "scene-column-kinds",
+          "scene-what-the-level-permits",
+          "scene-worked-audit",
+          "scene-practice-fading",
+          "scene-transfer-triage",
+          "scene-clinical-wrap-up"
+        ]
+      },
+      {
+        "id": "term-interval-scale",
+        "term": "interval scale",
+        "definition": "A numerical scale on which differences between values are meaningful while the zero point is a convention, so ratios of the displayed values depend on the chosen origin. Temperature in degrees Celsius is the standard case.",
+        "aliases": [
+          "interval level"
+        ],
+        "sceneIds": [
+          "scene-what-the-level-permits",
+          "scene-transfer-triage"
+        ],
+        "alignment": {
+          "priorLesson": "PREM-QNT-003",
+          "relation": "adopt",
+          "note": "Adopts the meaning PREM-QNT-003 already gives the term: differences are meaningful, the zero point is arbitrary, and ratios of displayed values therefore depend on the origin. This lesson adds only the consequence for summaries, that an interval scale supports a mean and a standard deviation while it does not support a ratio between two values."
+        }
+      },
+      {
+        "id": "term-ratio-scale",
+        "term": "ratio scale",
+        "definition": "A numerical scale with a meaningful zero standing for none of the quantity, so a ratio between two values has a stable interpretation. Fasting glucose in mg/dL, hours before sleep, and a count of nights all sit here.",
+        "aliases": [
+          "ratio level"
+        ],
+        "sceneIds": [
+          "scene-what-the-level-permits",
+          "scene-worked-audit",
+          "scene-practice-fading",
+          "scene-transfer-triage",
+          "scene-clinical-wrap-up"
+        ],
+        "alignment": {
+          "priorLesson": "PREM-QNT-003",
+          "relation": "adopt",
+          "note": "Adopts the meaning PREM-QNT-003 already gives the term: a numerical scale whose zero is meaningful, so ratios of values can be interpreted. This lesson adds only that a ratio being arithmetically defined is a separate question from the ratio being clinically informative."
+        }
+      },
+      {
+        "id": "term-proportion",
+        "term": "proportion",
+        "definition": "In this block, a part divided by the whole it belongs to, giving one number between 0 and 1 that reports a group's share. Thirty-six women among sixty participants is a proportion of 0.6, or 60 per cent.",
+        "aliases": [
+          "share",
+          "relative frequency"
+        ],
+        "sceneIds": [
+          "scene-what-the-level-permits",
+          "scene-worked-audit",
+          "scene-mean-of-a-code",
+          "scene-practice-fading",
+          "scene-transfer-triage",
+          "scene-clinical-wrap-up"
+        ],
+        "alignment": {
+          "priorLesson": "PREM-QNT-003",
+          "relation": "distinct-sense",
+          "note": "PREM-QNT-003 uses proportion for an equation stating that two ratios are equal, as in a/b = c/d. Statistics uses the same word for a single part-to-whole fraction between 0 and 1. Both come from division, and the statistical sense always divides a part by the total it belongs to. The second scene names the collision where the word first appears in its new sense."
+        }
+      },
+      {
+        "id": "term-coded-value",
+        "term": "coded value",
+        "definition": "A number stored in place of a category label, such as 1 for female and 2 for male, or 1 to 4 for a four-point rating. The numeral is a filing convenience and carries only whatever the original categories carried.",
+        "aliases": [
+          "numeric code",
+          "category code",
+          "code"
+        ],
+        "sceneIds": [
+          "scene-column-kinds",
+          "scene-worked-audit",
+          "scene-mean-of-a-code",
+          "scene-transfer-triage",
+          "scene-clinical-wrap-up"
+        ]
+      },
+      {
+        "id": "term-mean",
+        "term": "mean",
+        "definition": "The arithmetic mean: the sum of the values divided by how many there are. Computing it uses the distances between values, so it reports something about the cases only when those distances are fixed and knowable.",
+        "aliases": [
+          "arithmetic mean",
+          "average"
+        ],
+        "sceneIds": [
+          "scene-column-kinds",
+          "scene-what-the-level-permits",
+          "scene-worked-audit",
+          "scene-mean-of-a-code",
+          "scene-practice-fading",
+          "scene-transfer-triage",
+          "scene-clinical-wrap-up"
+        ]
+      },
+      {
+        "id": "term-median",
+        "term": "median",
+        "definition": "The middle position once values are placed in order. With an even number of ordinal categories, the two middle observations define a middle pair or interval unless they fall in the same category; averaging their numerical codes would assume spacing the categories do not establish. For measured amounts, the usual numerical median is the average of the two middle values when there is an even number.",
+        "aliases": [],
+        "sceneIds": [
+          "scene-what-the-level-permits",
+          "scene-worked-audit",
+          "scene-mean-of-a-code",
+          "scene-practice-fading",
+          "scene-transfer-triage",
+          "scene-clinical-wrap-up"
+        ]
+      },
+      {
+        "id": "term-mode",
+        "term": "mode",
+        "definition": "The value or category that occurs most often in a set of recorded values. It needs no order and no scale, so it is available at every level of measurement.",
+        "aliases": [
+          "most frequent category",
+          "most common"
+        ],
+        "sceneIds": [
+          "scene-what-the-level-permits",
+          "scene-practice-fading"
+        ]
+      },
+      {
+        "id": "term-paired-data",
+        "term": "paired data",
+        "definition": "Two sets of values matched one to one because repeated measurements came from the same case or sample, so the file could be written with one row per pair.",
+        "aliases": [
+          "paired observations",
+          "dependent samples",
+          "paired"
+        ],
+        "sceneIds": [
+          "scene-worked-audit",
+          "scene-practice-fading",
+          "scene-clinical-wrap-up"
+        ]
+      },
+      {
+        "id": "term-independent-groups",
+        "term": "independent groups",
+        "definition": "Two sets of values from separate cases, with no case appearing in both and no value in one set tied to a particular value in the other.",
+        "aliases": [
+          "independent samples",
+          "unpaired groups",
+          "independent"
+        ],
+        "sceneIds": [
+          "scene-worked-audit",
+          "scene-practice-fading"
+        ]
+      }
+    ]
+  },
+  "attributionHtml": "<h1>Attribution and provenance</h1>\n<h2>Lesson identity</h2>\n<ul>\n<li>Lesson: <strong>PREM-STA-001 — Variables and data types: what kind of thing is each column?</strong></li>\n<li>Version: <code>0.1.0</code></li>\n<li>Outcome: <code>topic-statistics-data-data-types</code> / PREM-04.01</li>\n<li>Accountable principal: VSBDev (<code>github:VSBDev</code>)</li>\n<li>Course-content licence: <a href=\"https://creativecommons.org/licenses/by/4.0/\" rel=\"noreferrer noopener\">Creative Commons Attribution 4.0 International</a></li>\n</ul>\n<h2>Original contribution</h2>\n<p>The lesson prose, the invented dinner-timing file and its values, the heart-failure register, the emergency-department quality report, the renal and asthma audit cases, all tables, prompts, feedback, assessment items, rubrics, and glossary definitions were created for EmbeddedKnowledge and are contributed under CC BY 4.0 by the accountable principal. No third-party visual, media, dataset, quotation, or adapted expression is included, and the pack carries no assets.</p>\n<p>The published learner-facing packs for PREM-SCI-003, PREM-SCI-006, and PREM-QNT-003 were consulted for terminology continuity and for the cross-references this lesson makes to them. No review or adjudication artifact from any prior lesson was consulted, and no prior lesson prose, example, assessment item, or structured artifact was copied into this pack.</p>\n<h2>Terminology continuity</h2>\n<p>The course terminology ledger was read before the glossary was designed. Four entries relate to terms a prior published lesson already owns, and each declares an <code>alignment</code> block in <code>glossary.json</code>:</p>\n<ul>\n<li><strong>variable</strong> — <code>extend</code> from PREM-SCI-003. That lesson defines a variable by its role in a comparison; this one widens the frame to any recorded characteristic that differs across the cases in a file. The first scene separates a column&#39;s role from its level of measurement so the learner sees both senses at once.</li>\n<li><strong>interval scale</strong> — <code>adopt</code> from PREM-QNT-003, unchanged in meaning.</li>\n<li><strong>ratio scale</strong> — <code>adopt</code> from PREM-QNT-003, unchanged in meaning.</li>\n<li><strong>proportion</strong> — <code>distinct-sense</code> from PREM-QNT-003. That lesson uses the word for an equation stating that two ratios are equal; this block uses it for a part-to-whole fraction between 0 and 1. The second scene names the collision in prose where the statistical sense first appears.</li>\n</ul>\n<h2>Source use and rights</h2>\n<p>Three sources support the factual claims. All were used for facts only, followed by independent instructional structure and original expression. Complete locators, use records, rights evidence, and dated agent-access checks appear in <code>references.json</code>.</p>\n<ul>\n<li>Ali and Bhaskar, <em>Basic statistical tools in research and data analysis</em>: the categorical and quantitative variable families, the discrete and continuous division, the nominal to ratio measurement scales, and the distinction between two independent samples and two dependent samples measured on the same subjects.</li>\n<li>Sullivan and Artino, <em>Analyzing and Interpreting Data From Likert-Type Scales</em>: ordered response categories can be ranked while the distance between them is not measurable, so a median and category frequencies suit them while means and standard deviations belong to scales with measurable differences.</li>\n<li>Mishra and colleagues, <em>Descriptive Statistics and Normality Tests for Statistical Data</em>: frequency summaries for categorical data as against central-tendency and dispersion summaries for quantitative data.\nBefore substantive source access on 2026-07-25, the accountable run checked the PMC robots route, which carries a single <code>User-agent: *</code> block explicitly allowing <code>/articles/</code> and names no AI or LLM crawler restriction. No login, paywall, or access control was bypassed.</li>\n</ul>\n<p>An OpenStax route was considered and excluded before substantive access. Its robots file carries a rule directed at an AI crawler covering the book content that would have been read, so the route was treated as restricted; no OpenStax material was opened or used, and it is not a lesson source.</p>\n<h2>Agent assistance disclosure</h2>\n<ul>\n<li>System: <code>RUNTIME-STAMPED</code></li>\n<li>Provider: <code>RUNTIME-STAMPED</code></li>\n<li>Model: <code>RUNTIME-STAMPED</code></li>\n<li>Version: <code>RUNTIME-STAMPED</code></li>\n<li>Author run ID: <code>author-PREM-STA-001-A16D33E3-9D82-49C4-A5AF-6F2ABCFE5665</code></li>\n<li>Material-instructions digest: <code>sha256:a56b0a56109a75f3ccf8a786f738c2320ae6352c4557e4a12c04bce857302edd</code></li>\n</ul>\n<p>VSBDev, the accountable principal, is verified as <code>github:VSBDev</code>. The system, provider, model, and version fields carry the operator-stamped literal <code>RUNTIME-STAMPED</code> and are stamped by the operator before review. The digest covers the exact UTF-8 material task payload supplied to this authoring run, including its final newline. It excludes hidden provider and system instructions that cannot be exported. VSBDev remains accountable for the contribution and attests the disclosed provenance.</p>\n<h2>Assets, boundaries, and exceptions</h2>\n<p>No third-party assets are present and the pack contains no images, diagrams, or datasets. Every learner task has a text-first path; the tables are original semantic text rather than reused figures or extracted data.</p>\n<p>Every case in the lesson is invented for teaching. The dinner-timing study, the sixty participants, the heart-failure register, the emergency department, and the renal, asthma, and epilepsy audit files describe no real person, clinic, or service. The clinical wrap-up carries an explicit teaching-example boundary, states that the invented 126 mg/dL cut point has no diagnostic or treatment meaning, and states that the lesson is not medical advice. There are no licence exceptions to the CC BY 4.0 contribution grant.</p>\n"
+}
