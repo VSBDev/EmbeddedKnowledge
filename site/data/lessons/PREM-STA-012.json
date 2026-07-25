@@ -1,0 +1,1089 @@
+{
+  "schemaVersion": 3,
+  "format": "embeddedknowledge-lesson-v1",
+  "artifactType": "production-lesson",
+  "id": "PREM-STA-012",
+  "version": "0.1.0",
+  "title": "Does a 9 mg/dL difference matter to a patient?",
+  "status": "draft",
+  "riskTier": "standard",
+  "estimatedMinutes": 192,
+  "outcomes": [
+    "topic-statistics-data-statistical-practical-significance"
+  ],
+  "prerequisites": [
+    "topic-statistics-data-confidence-intervals",
+    "topic-statistics-data-hypothesis-tests"
+  ],
+  "objectives": [
+    {
+      "id": "objective-separate-senses",
+      "statement": "State what the phrase statistically significant claims about a result and what it leaves untouched, and repair a sentence that has slid from that technical sense into the everyday sense of the word.",
+      "outcomeIds": [
+        "topic-statistics-data-statistical-practical-significance"
+      ]
+    },
+    {
+      "id": "objective-size-decides-significance",
+      "statement": "Show that whether a difference reaches statistical significance depends on the size of the study as well as the size of the difference, so that a difference of no consequence can clear the conventional cut-off while a large difference misses it.",
+      "outcomeIds": [
+        "topic-statistics-data-statistical-practical-significance"
+      ]
+    },
+    {
+      "id": "objective-define-mcid",
+      "statement": "Define a minimal clinically important difference, describe the anchor-based and distribution-based routes to estimating one, and explain why such a threshold cannot be obtained from the study's own data.",
+      "outcomeIds": [
+        "topic-statistics-data-statistical-practical-significance"
+      ]
+    },
+    {
+      "id": "objective-read-against-threshold",
+      "statement": "Place an effect estimate and its confidence interval against a stated importance threshold, classify the result into one of four positions, and state in the decision's own units what each position supports.",
+      "outcomeIds": [
+        "topic-statistics-data-statistical-practical-significance"
+      ]
+    },
+    {
+      "id": "objective-judge-a-reported-difference",
+      "statement": "Judge a reported difference on magnitude, uncertainty, bias and real-world relevance together, and say plainly what the study does and does not license for the decision in front of you.",
+      "outcomeIds": [
+        "topic-statistics-data-statistical-practical-significance"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene-two-readings",
+      "title": "Two people read one sentence",
+      "kind": "orientation",
+      "source": "content/01-two-people-read-one-sentence.md",
+      "estimatedMinutes": 14,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Two people read one sentence</h1>\n<p>Here is the result line from the dinner-timing study, written the way a journal would print it.</p>\n<blockquote>\n<p>Fasting glucose was 9.0 mg/dL higher after a late dinner than after an early one (95% CI 0.9 to 17.1; <em>p</em> = 0.029).</p>\n</blockquote>\n<p>Two people read it on the same morning.</p>\n<p>The trial statistician reads it and stops. Every question she was asked has an answer now. The estimate is 9.0. The data are compatible with true differences from 0.9 to 17.1. A test of zero returns 0.029, which clears the level the protocol fixed before recruitment. Her work is finished and it is correct.</p>\n<p>The diabetes consultant reads the same line and has not started. He wants to know whether he should say anything different to the person coming into clinic at ten past nine. For that he needs to know whether 9 mg/dL is a lot of glucose or a little. And nothing in that sentence tells him.</p>\n<p>That gap is what this lesson is about. It is the last lesson in the block, and it exists because the arithmetic runs out before the decision does.</p>\n<h2>The number, in units a person might feel</h2>\n<p>Nine milligrams per decilitre is about 0.5 mmol/L, the unit used in most of the world outside the United States. Across the whole cohort the mean fasting glucose was 142 mg/dL, about 7.9 mmol/L.</p>\n<p>So the study is proposing that moving dinner later shifts a person from roughly 137 to roughly 146 on a morning meter reading. Whether that shift is worth a conversation in clinic is a question about diabetes, about what patients are already being asked to do, and about what else that conversation would displace. It is not a question about <em>p</em>.</p>\n<p><strong>Teaching example, not medical advice.</strong> The cohort, the study, the clinic, and every threshold discussed in this lesson are invented for teaching. Nothing here reports a finding about real patients or supports any change to anyone&#39;s care. Two things in this lesson are real and are attributed where they appear: a professional association&#39;s published principles on <em>p</em>-values, and the diagnostic glucose ranges published by a national health institute.</p>\n<h2>Three things you should already be able to say</h2>\n<p>Answer these before going on. Each takes one sentence.</p>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-prerequisites</span></div>\n    <div class=\"ek-block-content\"><ol>\n<li>The interval runs from 0.9 to 17.1. What does that range describe?</li>\n<li><em>p</em> = 0.029 is a probability. A probability of what?</li>\n<li>The interval excludes zero and the <em>p</em>-value is below 0.05. Are those two separate pieces of evidence?</li>\n</ol>\n<p>Answers. (1) The values of the true difference that these data are compatible with, at the 95% level. It describes a range of possible true differences, and it attaches no probability to any of them. (2) The probability, computed while assuming the true difference is zero and the rest of the model holds, of getting a difference at least 9.0 mg/dL away from zero in either direction. (3) No. They are one result written twice, built from the same 9.0 and the same standard error of 4.13.</p>\n</div>\n  </aside>\n<h2>Recovery route</h2>\n<p>If question 1 felt uncertain, go back to <strong>PREM-STA-007</strong> and re-read how the interval was built from 9.0 and 4.13. This lesson does arithmetic on that interval in almost every scene, so a shaky grip there will cost you later.</p>\n<p>If question 2 or 3 felt uncertain, go back to <strong>PREM-STA-008</strong>, particularly the scene on where the 0.05 line sits. That lesson introduced the phrase <em>statistically significant</em> and marked the collision this lesson takes apart. Rereading it will cost you fifteen minutes and save you the central confusion.</p>\n<p>If all three came easily, carry on. Nothing below assumes more than those three answers.</p>\n<h2>What this lesson does</h2>\n<p>By the end you will be able to do four things.</p>\n<p>State what the phrase <em>statistically significant</em> claims and what it leaves untouched, and rewrite a sentence that has slid from the technical sense into the everyday one. Show why a study&#39;s size decides whether a difference clears the conventional bar, so that a difference of no consequence can clear it and a large one can miss it. Say what a minimal clinically important difference is, who fixes it, and why it can never be read off the study&#39;s own data. And take an estimate with its interval, lay it against a stated threshold, and say which of four verdicts the study supports.</p>\n<h2>What this lesson will not do</h2>\n<p>It will not tell you whether 9 mg/dL of fasting glucose matters.</p>\n<p>That is not evasion. No published number settles it, and inventing one here and dressing it up as settled would teach the exact habit this lesson is trying to break. Whether a difference is worth acting on is fixed by clinicians, patients, and the people who have to live with the consequences, working on the specific outcome, the specific population, and the specific alternatives on the table. What this lesson can give you is the reasoning those people use, and the discipline to notice when a number has been smuggled in without one.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-significance-not-importance</span><span><b>sources</b> source-asa-p-value-statement</span></div>\n    <div class=\"ek-block-content\"><p>The association&#39;s published principles support the position that a <em>p</em>-value, or statistical significance, reports nothing about the size of an effect or the importance of a result. That is the gap the consultant runs into above. The cohort, the two readers, and the clinic appointment are invented for this lesson.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-one-word-two-jobs",
+      "title": "One word doing two jobs",
+      "kind": "concept",
+      "source": "content/02-one-word-doing-two-jobs.md",
+      "estimatedMinutes": 34,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>One word doing two jobs</h1>\n<p>Ask someone outside a statistics class what a significant difference is and you will get an answer about size. A significant pay rise is a large one. A significant delay is one you notice. In ordinary English the word means <em>big enough to matter</em>, and that meaning is old, stable, and useful.</p>\n<p>Statistics borrowed the word in the early twentieth century for a completely different job, and the two meanings have been colliding ever since.</p>\n<h2>What the technical phrase actually claims</h2>\n<aside class=\"ek-block ek-definition ek-block--definition\" data-directive=\"definition\">\n    <div class=\"ek-block-label directive-label\">Definition</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> definition-statistical-significance</span></div>\n    <div class=\"ek-block-content\"><p>A result is <strong>statistically significant</strong> at a stated level when the <em>p</em>-value computed from the data falls at or below a cut-off chosen in advance.</p>\n<p>The <em>p</em>-value measures how compatible the data are with one specified statistical model, the one containing the null value together with every other assumption the calculation needs. A small value says the data sit awkwardly with that whole model.</p>\n<p>The label therefore reports one thing: where a number computed from the data landed relative to a line drawn beforehand.</p>\n</div>\n  </aside>\n<p>Read that definition again and notice everything it has no room for. It says nothing about how big the difference is. It says nothing about whether the difference would change a decision. It says nothing about who would benefit or by how much. Those quantities never enter the calculation, so no arrangement of the output can return them.</p>\n<p>The association of professional statisticians that publishes principles on this puts the point directly: a <em>p</em>-value, or statistical significance, does not measure the size of an effect or the importance of a result.</p>\n<h2>Why the shared spelling does damage</h2>\n<p>The everyday sense carries importance and nothing else. The technical sense carries a threshold comparison and nothing else. When a paper reports &quot;a statistically significant improvement&quot; and a reader&#39;s ear supplies the everyday meaning, the reader has acquired a belief about magnitude that the study never offered.</p>\n<p>This block has a rule about that, and it has been in force since lesson 01. The word <em>significant</em> appears here only in its technical sense, always with <em>statistically</em> attached. When the everyday job needs doing, plain words do it: large, small, worth acting on, too small to notice.</p>\n<p>The second question deserves a name of its own, so that it can be asked out loud instead of arriving smuggled inside the first one.</p>\n<aside class=\"ek-block ek-definition ek-block--definition\" data-directive=\"definition\">\n    <div class=\"ek-block-label directive-label\">Definition</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> definition-practical-significance</span></div>\n    <div class=\"ek-block-content\"><p>An effect has <strong>practical significance</strong> when it is large enough to change a decision that someone is actually facing.</p>\n<p>Deciding that takes three things the statistical machinery cannot supply: the effect estimate in the units of the decision, a threshold saying how much would be enough, and a judgement about the cost of acting. Only the first comes out of the analysis.</p>\n<p>Practical significance is sometimes called clinical significance or clinical importance when the decision is a clinical one. All three names point at the same question, and none of them is settled by a <em>p</em>-value.</p>\n</div>\n  </aside>\n<p>The two kinds of significance can occur in any combination. A result can have both, either one alone, or neither, and the rest of this scene shows how easily the two come apart.</p>\n<h2>The size of the study is the lever</h2>\n<p>The clearest way to see that the two senses are unrelated is to move one while holding the other still. Take the dinner-timing comparison and change only the number of people in it.</p>\n<p>Three versions, all with the same within-group spread of 16 mg/dL.</p>\n<table>\n<thead>\n<tr>\n<th>Version</th>\n<th>Per group</th>\n<th>Difference</th>\n<th>Standard error</th>\n<th><em>p</em></th>\n<th>95% interval</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>Half-size pilot</td>\n<td>15</td>\n<td>9.0 mg/dL</td>\n<td>5.84</td>\n<td>0.12</td>\n<td>−2.5 to 20.5</td>\n</tr>\n<tr>\n<td>The study you have</td>\n<td>30</td>\n<td>9.0 mg/dL</td>\n<td>4.13</td>\n<td>0.029</td>\n<td>0.9 to 17.1</td>\n</tr>\n<tr>\n<td>Large replication</td>\n<td>600</td>\n<td>2.0 mg/dL</td>\n<td>0.92</td>\n<td>0.030</td>\n<td>0.2 to 3.8</td>\n</tr>\n</tbody></table>\n<p>Read the first two rows together. The difference is identical at 9.0 mg/dL. Doubling the group size shrinks the standard error from 5.84 to 4.13, and the <em>p</em>-value falls from 0.12 to 0.029. The pilot and the full study disagree about statistical significance while agreeing exactly about the size of the effect they found.</p>\n<p>Now read the last two rows together. The large replication found a difference of 2.0 mg/dL, less than a quarter of 9.0, and it produced a <em>p</em>-value of 0.030, which sits within a thousandth of the full study&#39;s 0.029. A difference four and a half times smaller cleared the same bar, because 1200 people were measured instead of 60.</p>\n<p>Here is that replication drawn out.</p>\n<figure class=\"ek-block ek-chart\" data-directive=\"chart\" data-chart-source=\"charts/larger-study-smaller-difference.chart.json\">\n    <div class=\"ek-block-label directive-label\">Chart</div>\n    <p class=\"ek-chart-title\">A 1200-person study of a 2.0 mg/dL difference, against the same threshold</p>\n    <svg viewBox=\"0 0 720 380\" class=\"ek-chart-svg\" role=\"img\" aria-label=\"Narrow bell curve centred on 2.0 mg/dL with the band from 0.2 to 3.8 shaded; the line at 0 sits just outside the band and the line at 5 sits well to the right of it.\" xmlns=\"http://www.w3.org/2000/svg\"><title>Narrow bell curve centred on 2.0 mg/dL with the band from 0.2 to 3.8 shaded; the line at 0 sits just outside the band and the line at 5 sits well to the right of it.</title><path d=\"M 218.49 324 L 222 279.92 L 225.95 274.58 L 229.9 268.8 L 233.85 262.56 L 237.8 255.88 L 241.75 248.76 L 245.7 241.2 L 249.65 233.22 L 253.6 224.84 L 257.55 216.1 L 261.5 207.02 L 265.45 197.65 L 269.4 188.04 L 273.35 178.24 L 277.3 168.32 L 281.25 158.35 L 285.2 148.39 L 289.15 138.54 L 293.1 128.85 L 297.05 119.43 L 301 110.36 L 304.95 101.72 L 308.9 93.58 L 312.85 86.05 L 316.8 79.18 L 320.75 73.05 L 324.7 67.73 L 328.65 63.28 L 332.6 59.73 L 336.55 57.14 L 340.5 55.53 L 344.45 54.92 L 348.4 55.31 L 352.35 56.7 L 356.3 59.07 L 360.25 62.41 L 364.2 66.67 L 368.15 71.8 L 372.1 77.75 L 376.05 84.46 L 380 91.85 L 383.95 99.86 L 387.9 108.4 L 391.85 117.39 L 395.8 126.74 L 399.75 136.37 L 403.7 146.19 L 407.65 156.13 L 411.6 166.11 L 415.55 176.05 L 419.5 185.87 L 423.45 195.53 L 427.4 204.96 L 431.35 214.11 L 435.3 222.93 L 439.25 231.39 L 443.2 239.46 L 447.15 247.12 L 451.1 254.34 L 455.05 261.12 L 459 267.45 L 462.95 273.33 L 466.9 278.77 L 470.85 283.78 L 471.29 324 Z\" class=\"ek-chart-shade ek-chart-shade--0\"/><line x1=\"204.44\" y1=\"28\" x2=\"204.44\" y2=\"324\" class=\"ek-chart-marker\"/><text x=\"204.44\" y=\"20\" class=\"ek-chart-markerlabel\" text-anchor=\"middle\">0, no difference</text><line x1=\"555.56\" y1=\"28\" x2=\"555.56\" y2=\"324\" class=\"ek-chart-marker\"/><text x=\"555.56\" y=\"20\" class=\"ek-chart-markerlabel\" text-anchor=\"middle\">5, candidate importance threshold (illustrative)</text><path d=\"M 64 323.98 L 67.95 323.97 L 71.9 323.96 L 75.85 323.95 L 79.8 323.94 L 83.75 323.92 L 87.7 323.9 L 91.65 323.88 L 95.6 323.84 L 99.55 323.8 L 103.5 323.75 L 107.45 323.69 L 111.4 323.61 L 115.35 323.51 L 119.3 323.39 L 123.25 323.25 L 127.2 323.08 L 131.15 322.87 L 135.1 322.62 L 139.05 322.32 L 143 321.96 L 146.95 321.54 L 150.9 321.03 L 154.85 320.44 L 158.8 319.75 L 162.75 318.94 L 166.7 318 L 170.65 316.91 L 174.6 315.66 L 178.55 314.22 L 182.5 312.57 L 186.45 310.7 L 190.4 308.58 L 194.35 306.18 L 198.3 303.49 L 202.25 300.48 L 206.2 297.14 L 210.15 293.42 L 214.1 289.33 L 218.05 284.84 L 222 279.92 L 225.95 274.58 L 229.9 268.8 L 233.85 262.56 L 237.8 255.88 L 241.75 248.76 L 245.7 241.2 L 249.65 233.22 L 253.6 224.84 L 257.55 216.1 L 261.5 207.02 L 265.45 197.65 L 269.4 188.04 L 273.35 178.24 L 277.3 168.32 L 281.25 158.35 L 285.2 148.39 L 289.15 138.54 L 293.1 128.85 L 297.05 119.43 L 301 110.36 L 304.95 101.72 L 308.9 93.58 L 312.85 86.05 L 316.8 79.18 L 320.75 73.05 L 324.7 67.73 L 328.65 63.28 L 332.6 59.73 L 336.55 57.14 L 340.5 55.53 L 344.45 54.92 L 348.4 55.31 L 352.35 56.7 L 356.3 59.07 L 360.25 62.41 L 364.2 66.67 L 368.15 71.8 L 372.1 77.75 L 376.05 84.46 L 380 91.85 L 383.95 99.86 L 387.9 108.4 L 391.85 117.39 L 395.8 126.74 L 399.75 136.37 L 403.7 146.19 L 407.65 156.13 L 411.6 166.11 L 415.55 176.05 L 419.5 185.87 L 423.45 195.53 L 427.4 204.96 L 431.35 214.11 L 435.3 222.93 L 439.25 231.39 L 443.2 239.46 L 447.15 247.12 L 451.1 254.34 L 455.05 261.12 L 459 267.45 L 462.95 273.33 L 466.9 278.77 L 470.85 283.78 L 474.8 288.37 L 478.75 292.55 L 482.7 296.34 L 486.65 299.77 L 490.6 302.85 L 494.55 305.61 L 498.5 308.07 L 502.45 310.25 L 506.4 312.18 L 510.35 313.87 L 514.3 315.36 L 518.25 316.65 L 522.2 317.77 L 526.15 318.75 L 530.1 319.58 L 534.05 320.3 L 538 320.91 L 541.95 321.43 L 545.9 321.87 L 549.85 322.24 L 553.8 322.56 L 557.75 322.82 L 561.7 323.04 L 565.65 323.22 L 569.6 323.36 L 573.55 323.49 L 577.5 323.59 L 581.45 323.67 L 585.4 323.74 L 589.35 323.79 L 593.3 323.83 L 597.25 323.87 L 601.2 323.9 L 605.15 323.92 L 609.1 323.94 L 613.05 323.95 L 617 323.96 L 620.95 323.97 L 624.9 323.98 L 628.85 323.98 L 632.8 323.99 L 636.75 323.99 L 640.7 323.99 L 644.65 323.99 L 648.6 324 L 652.55 324 L 656.5 324 L 660.45 324 L 664.4 324 L 668.35 324 L 672.3 324 L 676.25 324 L 680.2 324 L 684.15 324 L 688.1 324 L 692.05 324 L 696 324\" class=\"ek-chart-line ek-chart-series--0\" fill=\"none\"/><line x1=\"64\" y1=\"28\" x2=\"64\" y2=\"324\" class=\"ek-chart-axis\"/>\n    <line x1=\"64\" y1=\"324\" x2=\"696\" y2=\"324\" class=\"ek-chart-axis\"/>\n    <line x1=\"134.22\" y1=\"324\" x2=\"134.22\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"134.22\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">-1</text><line x1=\"204.44\" y1=\"324\" x2=\"204.44\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"204.44\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">0</text><line x1=\"274.67\" y1=\"324\" x2=\"274.67\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"274.67\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">1</text><line x1=\"344.89\" y1=\"324\" x2=\"344.89\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"344.89\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">2</text><line x1=\"415.11\" y1=\"324\" x2=\"415.11\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"415.11\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">3</text><line x1=\"485.33\" y1=\"324\" x2=\"485.33\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"485.33\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">4</text><line x1=\"555.56\" y1=\"324\" x2=\"555.56\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"555.56\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">5</text><line x1=\"625.78\" y1=\"324\" x2=\"625.78\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"625.78\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">6</text><line x1=\"59\" y1=\"324\" x2=\"64\" y2=\"324\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"328\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">0</text><line x1=\"59\" y1=\"250\" x2=\"64\" y2=\"250\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"254\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">0.12</text><line x1=\"59\" y1=\"176\" x2=\"64\" y2=\"176\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"180\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">0.24</text><line x1=\"59\" y1=\"102\" x2=\"64\" y2=\"102\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"106\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">0.36</text><line x1=\"59\" y1=\"28\" x2=\"64\" y2=\"28\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"32\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">0.48</text>\n    <text x=\"380\" y=\"368\" class=\"ek-chart-axislabel\" text-anchor=\"middle\">Difference in mean fasting glucose, late dinner group minus early dinner group (mg/dL)</text>\n    <text x=\"16\" y=\"176\" class=\"ek-chart-axislabel\" text-anchor=\"middle\" transform=\"rotate(-90 16 176)\">Relative frequency of a repeat estimate</text></svg>\n    \n    <figcaption>Narrow bell curve centred on 2.0 mg/dL with the band from 0.2 to 3.8 shaded; the line at 0 sits just outside the band and the line at 5 sits well to the right of it.</figcaption>\n    <details class=\"ek-long-description\"><summary>Read the chart as text</summary><p>This curve describes an invented replication of the dinner-timing comparison with 600 people in each group instead of 30. The within-group spread is unchanged at 16 mg/dL, so the standard error falls to 0.92 mg/dL and the curve is much narrower than the 60-person one. It is centred on an observed difference of 2.0 mg/dL. The shaded band runs from 0.2 to 3.8 mg/dL, is 3.6 mg/dL wide, and is the 95% confidence interval. Two vertical lines are marked. The line at 0 mg/dL sits outside the shaded band, so this study reaches statistical significance at the conventional level; its two-sided p-value is 0.030. The line at 5 mg/dL is the same candidate importance threshold used elsewhere in this lesson, chosen for illustration and not taken from any published source. The whole shaded band lies to the left of it, ending 1.2 mg/dL short. Compare this chart with the one for the 60-person study. This study has the smaller difference and the smaller p-value, and it is the one that settles its own question: every value it is compatible with falls below the threshold. Size of study, size of difference, and importance of difference are three separate things, and this chart separates them.</p><table class=\"ek-chart-table\"><caption>Chart data</caption><thead><tr><th scope=\"col\">Series</th><th scope=\"col\">Value</th></tr></thead><tbody><tr><td>Where a repeat of the 1200-person study would land</td><td>mean 2, standard deviation 0.92</td></tr><tr><td>Shaded region</td><td>0.2 to 3.8: 95% confidence interval, 0.2 to 3.8 mg/dL</td></tr><tr><td>Marker</td><td>Difference in mean fasting glucose, late dinner group minus early dinner group 0: 0, no difference</td></tr><tr><td>Marker</td><td>Difference in mean fasting glucose, late dinner group minus early dinner group 5: 5, candidate importance threshold (illustrative)</td></tr></tbody></table></details>\n  </figure>\n<p>The shaded band excludes zero, so the result is statistically significant at the conventional level. The band is also entirely below 5 mg/dL, and 3.8 mg/dL is the largest difference the data are compatible with. Both statements are true of the same study at the same time.</p>\n<p>Push the arithmetic further and the point becomes hard to escape. With this spread, a difference of 1.0 mg/dL would clear the 0.05 line in a trial of about 1970 people per group, and a difference of 0.5 mg/dL would do it with about 7870 per group. Those are large trials and they get run. Statistical significance is reachable for almost any non-zero difference if you recruit enough people.</p>\n<p>The same lever runs the other way. Methodologists cataloguing the standard misreadings put both halves plainly: when a study is large, very minor effects can produce statistically significant tests, and when a study is small, even large effects can be drowned in noise and fail to be detected.</p>\n<aside class=\"ek-block ek-misconception ek-block--misconception\" data-directive=\"misconception\">\n    <div class=\"ek-block-label directive-label\">Misconception</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> misconception-smaller-p-bigger-effect</span></div>\n    <div class=\"ek-block-content\"><p><strong>The belief.</strong> A smaller <em>p</em>-value means a larger effect, so a result at <em>p</em> = 0.001 has found something bigger than one at <em>p</em> = 0.04.</p>\n<p><strong>Why it fails.</strong> The test statistic is the difference divided by its standard error. Two quantities go in and one comes out, and the output cannot be taken apart again. A tiny difference measured very precisely and a large difference measured roughly can return the same number.</p>\n<p><strong>The discriminating case.</strong> Compare the half-size pilot with the large replication in the table above. The pilot found 9.0 mg/dL at <em>p</em> = 0.12; the replication found 2.0 mg/dL at <em>p</em> = 0.030. The study with the smaller <em>p</em>-value found an effect four and a half times smaller. If <em>p</em> tracked magnitude, that pair could not exist.</p>\n<p><strong>The test.</strong> Whenever you find yourself ranking two findings by their <em>p</em>-values, write the two effect sizes and the two standard errors on the same page. If the ranking survives, it was the effect sizes doing the work.</p>\n</div>\n  </aside>\n<h2>Where this leaves the consultant</h2>\n<p>Everything in this scene is negative work. It clears away a reading of the result line that would have answered the consultant&#39;s question falsely.</p>\n<p>What it has not done is answer his question. He still needs to know whether 9 mg/dL is a lot of glucose. The next scene is about where a number like that comes from.</p>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-two-senses</span></div>\n    <div class=\"ek-block-content\"><p>A colleague says: &quot;The replication is the stronger finding. It got <em>p</em> = 0.030 with a much tighter interval, so the effect is better established and therefore more clinically relevant.&quot;</p>\n<p>Two of those three clauses are fine. One is doing something the data cannot support. Which, and why?</p>\n<p>Answer. The tight interval is real: 0.2 to 3.8 is a precise result and the replication has pinned its effect down well. &quot;Better established&quot; is defensible in the sense that the study has narrowed the range of compatible values. The last clause fails. The replication established that the difference is somewhere between 0.2 and 3.8 mg/dL, which is a statement that the effect is <em>small</em>. Precision and importance move independently, and here the precise study is the one that ruled the larger effects out.</p>\n</div>\n  </aside>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-significance-is-model-compatibility, claim-significance-not-importance, claim-size-decides-significance</span><span><b>sources</b> source-asa-p-value-statement, source-p-value-misinterpretations</span></div>\n    <div class=\"ek-block-content\"><p>The association&#39;s principles support two of the statements above: that a <em>p</em>-value indicates how incompatible data are with a specified statistical model, and that neither a <em>p</em>-value nor statistical significance measures the size of an effect or the importance of a result. The methodological guide supports both halves of the sample-size point, that minor effects reach statistical significance in large studies and that large effects can miss it in small ones. The three versions of the study, their arithmetic, and the 4000-per-group figure are this lesson&#39;s own computations on invented data.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-choose-the-number",
+      "title": "Somebody has to choose the number",
+      "kind": "concept",
+      "source": "content/03-somebody-has-to-choose-the-number.md",
+      "estimatedMinutes": 26,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Somebody has to choose the number</h1>\n<p>The consultant&#39;s question was whether 9 mg/dL is a lot. Questions of that shape only have answers once something else is fixed: a lot <em>compared with what</em>.</p>\n<p>Zero is one comparison, and the study has already made it. The interval runs from 0.9 to 17.1 and clears zero, so the data support a difference in the stated direction. That settles whether there is something there. It leaves untouched whether the something is worth anything.</p>\n<p>The comparison the consultant needs is a second number on the same axis: the smallest difference that would change what he does. Clinical research has a name for that number and a small literature about how to obtain one.</p>\n<h2>The minimal clinically important difference</h2>\n<aside class=\"ek-block ek-definition ek-block--definition\" data-directive=\"definition\">\n    <div class=\"ek-block-label directive-label\">Definition</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> definition-mcid</span></div>\n    <div class=\"ek-block-content\"><p>The <strong>minimal clinically important difference</strong> is the smallest change in an outcome measure that patients perceive as beneficial. It is often written MCID, and the terms <em>minimal important difference</em> and <em>minimum clinically important difference</em> are used for the same idea.</p>\n<p>The concept was introduced in the late 1980s by Jaeschke, Singer and Guyatt, who framed it as the smallest difference in score in the domain of interest that patients perceive as beneficial.</p>\n<p>It is a property of the outcome, the population, and the people judging. It is not a property of any particular study&#39;s data.</p>\n</div>\n  </aside>\n<p>Two features of that definition deserve attention before anything is done with it.</p>\n<p>The first is the word <em>patients</em>. The reference point is what the people with the condition notice and value. A change a laboratory can measure reliably and a change a person can feel are different quantities, and the MCID is anchored to the second one.</p>\n<p>The second is that the definition contains no arithmetic. Nothing about a sample size, a standard error, or a <em>p</em>-value appears in it. That absence is the whole reason the number has to come from outside the analysis.</p>\n<h2>How a threshold is actually obtained</h2>\n<p>Researchers who set out to estimate an MCID use two broad families of method.</p>\n<p><strong>Anchor-based methods</strong> compare change on the outcome measure with an external standard, an anchor, which is usually something the patient reports and considers meaningful. Ask people whether they feel a little better, about the same, or a little worse, then read off how much the measured score moved in the group who said &quot;a little better&quot;. The anchor supplies the judgement about what counts as beneficial, and the measurement supplies the scale.</p>\n<p><strong>Distribution-based methods</strong> work from the statistical characteristics of the scores in a sample, using quantities like the standard deviation of change or the measurement error of the instrument.</p>\n<p>The second family looks, at first glance, like a way of getting the threshold from the data after all. It is worth being precise about what it delivers. A distribution-based figure answers a question about detectability: how large a change has to be before it stands clear of measurement noise. That is a useful question and a different one from whether a change matters to the person who has it. Reviews of the field treat distribution-based figures as supporting evidence, most useful when an anchor-based estimate is unavailable or needs a sanity check.</p>\n<p>There is no gold-standard method. Different approaches on the same instrument give different numbers, and reviewers of this literature say so plainly.</p>\n<h2>The threshold moves with the situation</h2>\n<p>MCID values are described in the literature as dynamic and context-specific. The same outcome measure applied to different study populations can yield different thresholds. A value estimated for improvement need not match the value for deterioration on the same scale. Age, baseline severity, and what a person&#39;s daily life demands all bear on how much change registers as worthwhile.</p>\n<p>This has a consequence people find uncomfortable. A threshold is a local instrument. Lifting one from a paper about a different population and applying it to yours is a move that needs an argument, and the argument is clinical.</p>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-where-thresholds-come-from</span></div>\n    <div class=\"ek-block-content\"><p>Which of these could, in principle, produce a defensible importance threshold for a fasting glucose outcome, and which could not?</p>\n<ol>\n<li>Asking a panel of people living with type 2 diabetes how much of a morning reading change would make a dietary restriction worth keeping up.</li>\n<li>Taking the standard deviation of fasting glucose in the study cohort and using half of it.</li>\n<li>Choosing the smallest difference the study happened to have the power to detect.</li>\n<li>Adopting the value a guideline committee published for the same outcome in the same population, with its reasoning attached.</li>\n</ol>\n<p>Answers. (1) Yes, and this is an anchor-based approach in its simplest form: the judgement comes from the people who bear the outcome. (2) Partly. This is a distribution-based figure and it tells you about detectability against variation, so it is supporting evidence and does not on its own establish that patients notice or value the change. (3) No. This reverses the logic entirely and lets the sample size decide what matters, which is the failure the whole lesson is about. (4) Yes, provided the population and outcome genuinely match and the reasoning travels with the number, because a threshold without its justification cannot be checked.</p>\n</div>\n  </aside>\n<h2>What this lesson will not hand you</h2>\n<p>There is no MCID for fasting plasma glucose quoted in this lesson, and that omission is deliberate.</p>\n<p>Fasting glucose is a laboratory measurement used to classify and monitor. It is a stand-in for the outcomes people actually care about, which arrive years later as eye, kidney, nerve and vascular disease. An MCID is anchored to what patients perceive, and a person does not perceive a fasting glucose value at all. They perceive the meter reading and what they have been told it means.</p>\n<p>That does not make the question unanswerable. It makes the answer the property of a clinical team working on a specific decision, weighing what the change is likely to be worth against what achieving it would cost the person in effort, diet, sleep and attention. Later scenes in this lesson use 5 mg/dL as a worked-through candidate. That figure is an illustration chosen so the arithmetic has something to bite on, and it carries no authority whatever.</p>\n<p>Say the number out loud, say where it came from, and let a reader disagree with it. A threshold stated openly can be argued with. A threshold left implicit governs the conclusion anyway.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-mcid-definition, claim-mcid-methods, claim-mcid-context-specific, claim-statistical-significance-not-clinical-relevance</span><span><b>sources</b> source-mcid-neurology-review, source-mcid-methodology-review</span></div>\n    <div class=\"ek-block-content\"><p>Both reviews support the definition of the minimal clinically important difference as the smallest change patients perceive as beneficial, its introduction by Jaeschke and colleagues in the late 1980s, and the division of estimation methods into anchor-based and distribution-based families with no gold standard between them. The neurology review supports the statement that MCID values are dynamic and context-specific and that the same measure can yield different thresholds in different populations, and both reviews support the point that a statistically significant change need not be one a patient perceives. The dinner-timing study, the consultant, the four options in the check, and the 5 mg/dL candidate are invented for teaching.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-where-the-interval-sits",
+      "title": "Where the interval sits when a line is drawn",
+      "kind": "worked-example",
+      "source": "content/04-where-the-interval-sits.md",
+      "estimatedMinutes": 32,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Where the interval sits when a line is drawn</h1>\n<p>Everything so far has been preparation for one move, and the move is simple enough to describe in a sentence. Put the threshold on the same axis as the estimate and its interval, then look at where the interval sits relative to the line.</p>\n<p>That is the whole technique. What makes it worth a scene is that it has four outcomes, and three of them are routinely reported as though they were the fourth.</p>\n<h2>The dinner-timing result, with a line drawn on it</h2>\n<p>Take 5 mg/dL as the candidate threshold. It was chosen in the previous scene as an illustration and it carries no authority; treat it as the number a particular clinical team happened to settle on after arguing about it.</p>\n<figure class=\"ek-block ek-chart\" data-directive=\"chart\" data-chart-source=\"charts/estimate-against-threshold.chart.json\">\n    <div class=\"ek-block-label directive-label\">Chart</div>\n    <p class=\"ek-chart-title\">The dinner-timing estimate and its interval, with a candidate importance threshold marked</p>\n    <svg viewBox=\"0 0 720 380\" class=\"ek-chart-svg\" role=\"img\" aria-label=\"Bell curve centred on 9.0 mg/dL with the band from 0.9 to 17.1 shaded; a line at 0 falls outside the band and a line at 5 falls inside it.\" xmlns=\"http://www.w3.org/2000/svg\"><title>Bell curve centred on 9.0 mg/dL with the band from 0.9 to 17.1 shaded; a line at 0 falls outside the band and a line at 5 falls inside it.</title><path d=\"M 209.36 324 L 210.15 283.97 L 214.1 280.31 L 218.05 276.41 L 222 272.26 L 225.95 267.88 L 229.9 263.24 L 233.85 258.36 L 237.8 253.23 L 241.75 247.86 L 245.7 242.25 L 249.65 236.4 L 253.6 230.33 L 257.55 224.05 L 261.5 217.56 L 265.45 210.89 L 269.4 204.05 L 273.35 197.05 L 277.3 189.93 L 281.25 182.69 L 285.2 175.37 L 289.15 168 L 293.1 160.59 L 297.05 153.19 L 301 145.81 L 304.95 138.51 L 308.9 131.3 L 312.85 124.22 L 316.8 117.31 L 320.75 110.6 L 324.7 104.12 L 328.65 97.92 L 332.6 92.02 L 336.55 86.46 L 340.5 81.26 L 344.45 76.46 L 348.4 72.08 L 352.35 68.16 L 356.3 64.71 L 360.25 61.75 L 364.2 59.31 L 368.15 57.39 L 372.1 56.02 L 376.05 55.19 L 380 54.91 L 383.95 55.19 L 387.9 56.02 L 391.85 57.39 L 395.8 59.31 L 399.75 61.75 L 403.7 64.71 L 407.65 68.16 L 411.6 72.08 L 415.55 76.46 L 419.5 81.26 L 423.45 86.46 L 427.4 92.02 L 431.35 97.92 L 435.3 104.12 L 439.25 110.6 L 443.2 117.31 L 447.15 124.22 L 451.1 131.3 L 455.05 138.51 L 459 145.81 L 462.95 153.19 L 466.9 160.59 L 470.85 168 L 474.8 175.37 L 478.75 182.69 L 482.7 189.93 L 486.65 197.05 L 490.6 204.05 L 494.55 210.89 L 498.5 217.56 L 502.45 224.05 L 506.4 230.33 L 510.35 236.4 L 514.3 242.25 L 518.25 247.86 L 522.2 253.23 L 526.15 258.36 L 530.1 263.24 L 534.05 267.88 L 538 272.26 L 541.95 276.41 L 545.9 280.31 L 549.85 283.97 L 550.64 324 Z\" class=\"ek-chart-shade ek-chart-shade--0\"/><line x1=\"190.4\" y1=\"28\" x2=\"190.4\" y2=\"324\" class=\"ek-chart-marker\"/><text x=\"190.4\" y=\"20\" class=\"ek-chart-markerlabel\" text-anchor=\"middle\">0, no difference</text><line x1=\"295.73\" y1=\"28\" x2=\"295.73\" y2=\"324\" class=\"ek-chart-marker\"/><text x=\"295.73\" y=\"20\" class=\"ek-chart-markerlabel\" text-anchor=\"middle\">5, candidate importance threshold (illustrative)</text><line x1=\"380\" y1=\"28\" x2=\"380\" y2=\"324\" class=\"ek-chart-marker\"/><text x=\"380\" y=\"20\" class=\"ek-chart-markerlabel\" text-anchor=\"middle\">9.0, observed difference</text><path d=\"M 64 323.63 L 67.95 323.57 L 71.9 323.49 L 75.85 323.4 L 79.8 323.3 L 83.75 323.18 L 87.7 323.05 L 91.65 322.89 L 95.6 322.71 L 99.55 322.51 L 103.5 322.27 L 107.45 322.01 L 111.4 321.71 L 115.35 321.37 L 119.3 320.98 L 123.25 320.54 L 127.2 320.05 L 131.15 319.5 L 135.1 318.88 L 139.05 318.19 L 143 317.41 L 146.95 316.55 L 150.9 315.6 L 154.85 314.54 L 158.8 313.37 L 162.75 312.09 L 166.7 310.67 L 170.65 309.12 L 174.6 307.42 L 178.55 305.56 L 182.5 303.54 L 186.45 301.34 L 190.4 298.96 L 194.35 296.38 L 198.3 293.6 L 202.25 290.61 L 206.2 287.41 L 210.15 283.97 L 214.1 280.31 L 218.05 276.41 L 222 272.26 L 225.95 267.88 L 229.9 263.24 L 233.85 258.36 L 237.8 253.23 L 241.75 247.86 L 245.7 242.25 L 249.65 236.4 L 253.6 230.33 L 257.55 224.05 L 261.5 217.56 L 265.45 210.89 L 269.4 204.05 L 273.35 197.05 L 277.3 189.93 L 281.25 182.69 L 285.2 175.37 L 289.15 168 L 293.1 160.59 L 297.05 153.19 L 301 145.81 L 304.95 138.51 L 308.9 131.3 L 312.85 124.22 L 316.8 117.31 L 320.75 110.6 L 324.7 104.12 L 328.65 97.92 L 332.6 92.02 L 336.55 86.46 L 340.5 81.26 L 344.45 76.46 L 348.4 72.08 L 352.35 68.16 L 356.3 64.71 L 360.25 61.75 L 364.2 59.31 L 368.15 57.39 L 372.1 56.02 L 376.05 55.19 L 380 54.91 L 383.95 55.19 L 387.9 56.02 L 391.85 57.39 L 395.8 59.31 L 399.75 61.75 L 403.7 64.71 L 407.65 68.16 L 411.6 72.08 L 415.55 76.46 L 419.5 81.26 L 423.45 86.46 L 427.4 92.02 L 431.35 97.92 L 435.3 104.12 L 439.25 110.6 L 443.2 117.31 L 447.15 124.22 L 451.1 131.3 L 455.05 138.51 L 459 145.81 L 462.95 153.19 L 466.9 160.59 L 470.85 168 L 474.8 175.37 L 478.75 182.69 L 482.7 189.93 L 486.65 197.05 L 490.6 204.05 L 494.55 210.89 L 498.5 217.56 L 502.45 224.05 L 506.4 230.33 L 510.35 236.4 L 514.3 242.25 L 518.25 247.86 L 522.2 253.23 L 526.15 258.36 L 530.1 263.24 L 534.05 267.88 L 538 272.26 L 541.95 276.41 L 545.9 280.31 L 549.85 283.97 L 553.8 287.41 L 557.75 290.61 L 561.7 293.6 L 565.65 296.38 L 569.6 298.96 L 573.55 301.34 L 577.5 303.54 L 581.45 305.56 L 585.4 307.42 L 589.35 309.12 L 593.3 310.67 L 597.25 312.09 L 601.2 313.37 L 605.15 314.54 L 609.1 315.6 L 613.05 316.55 L 617 317.41 L 620.95 318.19 L 624.9 318.88 L 628.85 319.5 L 632.8 320.05 L 636.75 320.54 L 640.7 320.98 L 644.65 321.37 L 648.6 321.71 L 652.55 322.01 L 656.5 322.27 L 660.45 322.51 L 664.4 322.71 L 668.35 322.89 L 672.3 323.05 L 676.25 323.18 L 680.2 323.3 L 684.15 323.4 L 688.1 323.49 L 692.05 323.57 L 696 323.63\" class=\"ek-chart-line ek-chart-series--0\" fill=\"none\"/><line x1=\"64\" y1=\"28\" x2=\"64\" y2=\"324\" class=\"ek-chart-axis\"/>\n    <line x1=\"64\" y1=\"324\" x2=\"696\" y2=\"324\" class=\"ek-chart-axis\"/>\n    <line x1=\"85.07\" y1=\"324\" x2=\"85.07\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"85.07\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">-5</text><line x1=\"190.4\" y1=\"324\" x2=\"190.4\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"190.4\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">0</text><line x1=\"295.73\" y1=\"324\" x2=\"295.73\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"295.73\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">5</text><line x1=\"401.07\" y1=\"324\" x2=\"401.07\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"401.07\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">10</text><line x1=\"506.4\" y1=\"324\" x2=\"506.4\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"506.4\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">15</text><line x1=\"611.73\" y1=\"324\" x2=\"611.73\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"611.73\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">20</text><line x1=\"59\" y1=\"324\" x2=\"64\" y2=\"324\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"328\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">0</text><line x1=\"59\" y1=\"250\" x2=\"64\" y2=\"250\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"254\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">0.03</text><line x1=\"59\" y1=\"176\" x2=\"64\" y2=\"176\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"180\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">0.05</text><line x1=\"59\" y1=\"102\" x2=\"64\" y2=\"102\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"106\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">0.08</text><line x1=\"59\" y1=\"28\" x2=\"64\" y2=\"28\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"32\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">0.11</text>\n    <text x=\"380\" y=\"368\" class=\"ek-chart-axislabel\" text-anchor=\"middle\">Difference in mean fasting glucose, late dinner group minus early dinner group (mg/dL)</text>\n    <text x=\"16\" y=\"176\" class=\"ek-chart-axislabel\" text-anchor=\"middle\" transform=\"rotate(-90 16 176)\">Relative frequency of a repeat estimate</text></svg>\n    \n    <figcaption>Bell curve centred on 9.0 mg/dL with the band from 0.9 to 17.1 shaded; a line at 0 falls outside the band and a line at 5 falls inside it.</figcaption>\n    <details class=\"ek-long-description\"><summary>Read the chart as text</summary><p>The curve is centred on the observed difference of 9.0 mg/dL and has a standard deviation of 4.13 mg/dL, the standard error of that difference. The shaded band runs from 0.9 to 17.1 mg/dL, is 16.2 mg/dL wide, and is the 95% confidence interval. Three vertical lines are marked. The line at 0 mg/dL is the value meaning no difference between the groups; it sits outside the shaded band, which is the same fact as the p-value of 0.029 falling below 0.05. The line at 9.0 mg/dL is the observed difference and the centre of the curve. The line at 5 mg/dL is a candidate importance threshold, a value a clinical team would have to choose; 5 mg/dL is used here only as an illustration and is not a published minimal important difference for fasting glucose. Read the two marked lines against the band and notice that they behave differently. The band clears 0 completely, so the study supports a difference in the stated direction. The band contains 5, running 4.1 mg/dL below it and 12.1 mg/dL above it, so the study is compatible with an effect smaller than the threshold and compatible with an effect three times the threshold. Clearing zero and clearing an importance threshold are separate questions, and this study answers only the first.</p><table class=\"ek-chart-table\"><caption>Chart data</caption><thead><tr><th scope=\"col\">Series</th><th scope=\"col\">Value</th></tr></thead><tbody><tr><td>Where a repeat of the 60-person study would land</td><td>mean 9, standard deviation 4.13</td></tr><tr><td>Shaded region</td><td>0.9 to 17.1: 95% confidence interval, 0.9 to 17.1 mg/dL</td></tr><tr><td>Marker</td><td>Difference in mean fasting glucose, late dinner group minus early dinner group 0: 0, no difference</td></tr><tr><td>Marker</td><td>Difference in mean fasting glucose, late dinner group minus early dinner group 5: 5, candidate importance threshold (illustrative)</td></tr><tr><td>Marker</td><td>Difference in mean fasting glucose, late dinner group minus early dinner group 9: 9.0, observed difference</td></tr></tbody></table></details>\n  </figure>\n<p>Two marked lines, two different answers.</p>\n<p>The line at 0 sits outside the shaded band. The interval clears it by 0.9 mg/dL at the near end. This is the same fact as <em>p</em> = 0.029 falling below 0.05, written in the other notation, and it means the data support a difference in the stated direction.</p>\n<p>The line at 5 sits inside the shaded band. The interval reaches 4.1 mg/dL below it and 12.1 mg/dL above it. So the data are compatible with an effect smaller than the team&#39;s threshold, and also compatible with an effect more than three times that threshold. On the question the team actually asked, the study has returned nothing.</p>\n<p>That combination is the ordinary state of affairs, and it has an ugly property: the paper can honestly report a statistically significant finding while the clinical question stays exactly where it was.</p>\n<h2>Four positions</h2>\n<p>Write T for the threshold and 0 for no difference. Any interval falls into one of four arrangements.</p>\n<table>\n<thead>\n<tr>\n<th>Position</th>\n<th>Where the interval sits</th>\n<th>What the study supports</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>A</td>\n<td>Entirely above T</td>\n<td>An effect at least as large as the threshold. The decision is answered in favour</td>\n</tr>\n<tr>\n<td>B</td>\n<td>Excludes 0, entirely below T</td>\n<td>A real effect, and one demonstrably too small to matter. Answered against</td>\n</tr>\n<tr>\n<td>C</td>\n<td>Contains T</td>\n<td>Inconclusive for the decision, whatever the <em>p</em>-value says</td>\n</tr>\n<tr>\n<td>D</td>\n<td>Contains 0 and extends beyond T</td>\n<td>Uninformative. Compatible with nothing happening and with a great deal happening</td>\n</tr>\n</tbody></table>\n<p>Four studies from this lesson, one for each position.</p>\n<table>\n<thead>\n<tr>\n<th>Study</th>\n<th>Per group</th>\n<th>Difference</th>\n<th>95% interval</th>\n<th><em>p</em></th>\n<th>Position</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>Evening-meal programme</td>\n<td>60</td>\n<td>12.0</td>\n<td>6.3 to 17.7</td>\n<td>&lt; 0.001</td>\n<td>A</td>\n</tr>\n<tr>\n<td>Large replication</td>\n<td>600</td>\n<td>2.0</td>\n<td>0.2 to 3.8</td>\n<td>0.030</td>\n<td>B</td>\n</tr>\n<tr>\n<td>Dinner-timing study</td>\n<td>30</td>\n<td>9.0</td>\n<td>0.9 to 17.1</td>\n<td>0.029</td>\n<td>C</td>\n</tr>\n<tr>\n<td>Half-size pilot</td>\n<td>15</td>\n<td>9.0</td>\n<td>−2.5 to 20.5</td>\n<td>0.12</td>\n<td>D</td>\n</tr>\n</tbody></table>\n<p>Three of those four clear the conventional bar. The three that clear it land in three different positions and support three different decisions. Sorting results by statistical significance would have put A, B and C in one pile, which is precisely the sorting that loses the information the clinic needs.</p>\n<p>Notice B and D in particular. The replication is statistically significant and settles that the effect is small. The pilot is not statistically significant and settles nothing at all, since its interval covers a reduction of 2.5 and a rise of 20.5. Calling B the positive study and D the negative one describes the <em>p</em>-values accurately and the evidence backwards.</p>\n<h2>Working one through</h2>\n<aside class=\"ek-block ek-worked-example ek-block--worked-example\" data-directive=\"worked-example\">\n    <div class=\"ek-block-label directive-label\">Worked Example</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> worked-example-threshold-reading</span></div>\n    <div class=\"ek-block-content\"><p>A service reads the dinner-timing paper with a threshold of 5 mg/dL already agreed. Four steps.</p>\n<p><strong>Step 1. Recover the estimate and the interval, in the units of the decision.</strong> Difference 9.0 mg/dL, interval 0.9 to 17.1 mg/dL, width 16.2 mg/dL. All three are in mg/dL, and so is the threshold, so no conversion is needed. If the threshold had been expressed as 0.3 mmol/L, everything would have to move onto one scale first, and 5 mg/dL is about 0.28 mmol/L.</p>\n<p><strong>Step 2. Place 0.</strong> The interval excludes it. The direction is supported.</p>\n<p><strong>Step 3. Place T.</strong> 5 falls between 0.9 and 17.1, so the interval contains it. Position C.</p>\n<p><strong>Step 4. State the verdict in words the service can act on.</strong> The data support the claim that later dinners are associated with higher fasting glucose. They do not establish whether the association is large enough to be worth acting on, because they are compatible with 0.9 mg/dL, which nobody would act on, and with 17.1 mg/dL, which would probably change the conversation. The study answers a question about direction and leaves the question about magnitude open.</p>\n<p>The fourth step is the one that gets skipped. Steps 2 and 3 are geometry; step 4 is where the reader has to say out loud what has and has not been shown.</p>\n</div>\n  </aside>\n<aside class=\"ek-block ek-misconception ek-block--misconception\" data-directive=\"misconception\">\n    <div class=\"ek-block-label directive-label\">Misconception</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> misconception-borrowed-threshold</span></div>\n    <div class=\"ek-block-content\"><p><strong>The belief.</strong> There is already a real number for glucose, so use that one. Diabetes is diagnosed at a fasting plasma glucose of 126 mg/dL, so 126 is the threshold that matters.</p>\n<p><strong>Why it fails.</strong> Those published figures are a classification scheme. The national institute that publishes them gives 99 mg/dL or below as normal, 100 to 125 mg/dL as prediabetes, and 126 mg/dL or above as diabetes, with a second test usually used to confirm a diagnosis. Each of those is a value a person&#39;s glucose sits <em>at</em>. An MCID is a distance a person&#39;s glucose <em>moves</em>. The two quantities have the same unit and answer different questions, in the way that a temperature of 38 degrees and a rise of 38 degrees do.</p>\n<p><strong>The discriminating case.</strong> A person at 121 mg/dL and a person at 88 mg/dL both gain 9 mg/dL. The first arrives at 130 and crosses into the diabetes band; the second arrives at 97 and stays inside the normal range. The same movement has different consequences at different starting points, which is exactly what a diagnostic cut-point cannot encode and one of the reasons MCID values vary with baseline severity.</p>\n<p><strong>The test.</strong> Ask whether the number you have reached for describes a level or a change. If it describes a level, it is answering a question about classification, and the threshold you need is still missing.</p>\n</div>\n  </aside>\n<h2>Accessibility and alternatives</h2>\n<p>Both charts in this lesson are read entirely from their numbers, and every quantity that appears in either picture also appears in the tables and prose around it. The renderer publishes the underlying values as a data table beside each chart, so nothing in this scene depends on seeing a curve.</p>\n<p>If the plots are unavailable, the technique reduces to three comparisons you can carry out on a written interval: is the lower limit above T, is the upper limit below T, and does the interval contain 0. Those three answers select one of the four positions in the table above without reference to any picture. Colour carries no information in either chart, and the shaded band is stated as a pair of numbers wherever it is mentioned.</p>\n<p>The arithmetic in this lesson needs nothing beyond addition, subtraction and comparison of decimals. No part of any task requires you to supply your own health information, a glucose reading, or any personal measurement.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-report-estimates-and-intervals, claim-size-decides-significance, claim-fpg-diagnostic-ranges</span><span><b>sources</b> source-p-value-misinterpretations, source-niddk-diabetes-tests</span></div>\n    <div class=\"ek-block-content\"><p>The methodological guide supports the position that interpreting a test demands looking at the effect estimate and the confidence limits together, and not only at which side of 0.05 a <em>p</em>-value fell, and it supports the sample-size point behind the contrast between the replication and the pilot. The national institute&#39;s patient information supports the fasting plasma glucose ranges quoted in the misconception and the practice of confirming a diagnosis with a second test. The four studies, the 5 mg/dL threshold, the service and its decision are invented for teaching.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-practice",
+      "title": "Practice: three passes at the same skill",
+      "kind": "practice",
+      "source": "content/05-practice-three-passes.md",
+      "estimatedMinutes": 28,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Practice: three passes at the same skill</h1>\n<p>Work each task before reading its answer. The support falls away as you go. The first gives you every number you need, the second withholds one on purpose, and the third asks you to run the reasoning forwards from a decision instead of backwards from a result.</p>\n<p><strong>Teaching example, not medical advice.</strong> Every study, service, clinic and threshold below is invented for teaching.</p>\n<h2>Task one: classify and state</h2>\n<p>A hospital diabetes service has agreed in advance that it will change its dietary advice only for an effect of at least 5 mg/dL on fasting glucose. Three papers land on the same desk.</p>\n<table>\n<thead>\n<tr>\n<th>Paper</th>\n<th>Difference</th>\n<th>95% interval</th>\n<th><em>p</em></th>\n</tr>\n</thead>\n<tbody><tr>\n<td>P</td>\n<td>6.8 mg/dL</td>\n<td>5.4 to 8.2</td>\n<td>&lt; 0.001</td>\n</tr>\n<tr>\n<td>Q</td>\n<td>14.0 mg/dL</td>\n<td>−1.0 to 29.0</td>\n<td>0.067</td>\n</tr>\n<tr>\n<td>R</td>\n<td>3.1 mg/dL</td>\n<td>1.9 to 4.3</td>\n<td>&lt; 0.001</td>\n</tr>\n</tbody></table>\n<p>For each paper, say which of the four positions it occupies and write one sentence the service could put in its minutes.</p>\n<hr>\n<p><strong>Paper P is position A.</strong> The whole interval sits above 5, with the lower limit at 5.4. Minute: the data support an effect of at least the size the service agreed to act on, somewhere between 5.4 and 8.2 mg/dL.</p>\n<p><strong>Paper Q is position D.</strong> The interval contains 0 and runs well past 5 at the far end. Minute: this study distinguishes nothing, since it is compatible with a small effect in the opposite direction and with an effect nearly six times the agreed threshold. The estimate of 14.0 is the value most compatible with the data and the study cannot support acting on it.</p>\n<p><strong>Paper R is position B.</strong> The interval excludes 0 and its upper limit of 4.3 falls below 5. Minute: the effect is real and the study has shown it is smaller than the threshold the service set. This is the most decisive of the three, and it decides against changing the advice.</p>\n<p>Notice the ranking by <em>p</em>-value would put P and R together at the top and Q at the bottom. The ranking by usefulness to the service puts R first, P second, and Q nowhere.</p>\n<h2>Task two: work out what is missing</h2>\n<p>A press release states:</p>\n<blockquote>\n<p>A large trial has shown a statistically significant reduction in fasting glucose with the new evening-meal programme (<em>p</em> = 0.004, n = 2400).</p>\n</blockquote>\n<p>Write down what you can conclude, what you cannot, and the single most useful thing to ask for.</p>\n<hr>\n<p>What you can conclude is thin. The data sit awkwardly with a true difference of zero, under the trial&#39;s model. That is very nearly everything the sentence supports.</p>\n<p>What you cannot conclude is most of what a reader would take from it. You have no effect size, so &quot;reduction&quot; is a direction with no magnitude attached. With 1200 people in each group a difference of about 1.3 mg/dL would already clear the 0.05 line, so <em>p</em> = 0.004 is compatible with a difference far too small to matter and with a large one. The word <em>large</em> in the first clause describes the trial, and a reader&#39;s eye moves it onto the effect.</p>\n<p>The single most useful thing to ask for is the effect estimate with its confidence interval, in mg/dL. One line of that kind settles the position question immediately, and no <em>p</em>-value ever will. The methodological literature makes the same request in general form: read the size of the estimate and the confidence limits, and treat which side of 0.05 the <em>p</em>-value fell on as the least informative part of the report.</p>\n<h2>Task three: run it forwards</h2>\n<p>The service is now designing its own trial. It has agreed on the 5 mg/dL threshold and it wants a trial that can actually return a verdict. Suppose the true difference really is 9.0 mg/dL, and the within-group spread is 16 mg/dL as before.</p>\n<ol>\n<li>How large must each group be for the interval to exclude 5 at its lower end?</li>\n<li>What happens to that plan if the true difference is 3.0 mg/dL instead?</li>\n</ol>\n<hr>\n<p><strong>Part 1.</strong> The lower limit is the estimate minus 1.96 standard errors, and it clears 5 when 1.96 × SE is less than 9.0 − 5.0 = 4.0 mg/dL. So the standard error must fall below 4.0 / 1.96 = 2.04 mg/dL. The standard error of a difference between two groups of <em>n</em> is 16 × √(2/<em>n</em>), and setting that below 2.04 gives <em>n</em> ≥ 123 per group.</p>\n<p>Check it. At 123 per group the standard error is 2.04, the margin is 1.96 × 2.04 = 4.00, and the interval runs from 5.00 to 13.00 mg/dL. Position A, by the smallest margin the arithmetic allows. The service would sensibly recruit somewhat more than 123 to leave itself room.</p>\n<p>Compare that with the 30 per group it has. Four times the people is what it takes to move from a study that cannot answer its own question to one that can.</p>\n<p><strong>Part 2.</strong> Nothing works. If the true difference is 3.0 mg/dL, it sits below the threshold, so no sample size will ever put the whole interval above 5. A very large trial would put the whole interval <em>below</em> 5, which is position B and a perfectly good answer: the service would learn that the effect is real and too small to act on. What no trial can deliver is position A for an effect that is genuinely smaller than the threshold.</p>\n<p>That is the honest relationship between design and importance. Sample size buys precision. Precision lets you find out which side of the line the effect falls. It cannot move the effect across the line.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-report-estimates-and-intervals, claim-size-decides-significance</span><span><b>sources</b> source-p-value-misinterpretations</span></div>\n    <div class=\"ek-block-content\"><p>The methodological guide supports the recommendation in task two, that interpretation demands the size of the effect estimate and the confidence limits and not merely which side of the conventional cut-off a <em>p</em>-value fell on, and it supports the point behind the 1.3 mg/dL figure, that minor effects reach statistical significance when a study is large. The three papers, the press release, the service and every number in the tasks are invented for teaching, and the sample-size arithmetic is this lesson&#39;s own.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-transfer",
+      "title": "Transfer: a different kind of number",
+      "kind": "transfer",
+      "source": "content/06-transfer-a-different-kind-of-number.md",
+      "estimatedMinutes": 24,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Transfer: a different kind of number</h1>\n<p>Everything so far has been a difference between two averages, measured in mg/dL. The reasoning does not depend on that. Take a decision where the outcome is a count of people and the units change completely.</p>\n<p><strong>Teaching example, not medical advice.</strong> The trial, the commissioning group and the threshold below are invented for teaching.</p>\n<h2>The problem</h2>\n<p>The same diabetes service runs annual retinal screening. Attendance is poor, and a large invented trial has tested an automated text-message reminder against the usual letter. Five thousand people were assigned to each arm, and the outcome is the share of people who attended within the year.</p>\n<p>Here <em>share</em> means a part-to-whole fraction, the number who attended out of the number invited. That is the statistical sense of the word proportion, and it is a different object from the equation between two ratios that the arithmetic lessons called a proportion.</p>\n<table>\n<thead>\n<tr>\n<th>Arm</th>\n<th>Attended</th>\n<th>Share attending</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>Usual letter</td>\n<td>2000 of 5000</td>\n<td>40.0%</td>\n</tr>\n<tr>\n<td>Text reminder</td>\n<td>2100 of 5000</td>\n<td>42.0%</td>\n</tr>\n</tbody></table>\n<p>The trial reports: attendance rose from 40.0% to 42.0%, a relative increase of 5%, <em>p</em> = 0.042.</p>\n<p>The commissioning group has already stated the condition under which it will fund the rollout. Reminders cost money and staff attention, and it has judged that anything below a 5 percentage point gain would not justify diverting either from other screening work. That is its threshold, arrived at by weighing cost against benefit, and it sits on the absolute scale.</p>\n<h2>Reading it</h2>\n<p>Two numbers in the report look similar and behave completely differently.</p>\n<p>The <strong>relative increase</strong> is 42.0 divided by 40.0, which is 1.05, a rise of 5%. The <strong>absolute difference</strong> is 42.0 minus 40.0, which is 2.0 percentage points. Both describe the same trial correctly. The commissioning group&#39;s threshold is 5 percentage points, so only the second number can be compared with it.</p>\n<p>That coincidence, a 5% relative rise against a 5 percentage point threshold, is the trap set deliberately. A reader skimming for the number 5 will find one and match it to the other, and the two quantities are not on the same scale at all.</p>\n<p>Now do the four steps.</p>\n<p><strong>Step 1. Get the estimate and interval onto the decision&#39;s scale.</strong> The absolute difference is 2.0 percentage points. Its standard error is 0.98 percentage points, and the 95% interval runs from 0.1 to 3.9 percentage points.</p>\n<p><strong>Step 2. Place the no-difference value.</strong> Zero sits outside the interval, just, by 0.1 of a point. That matches the reported <em>p</em> = 0.042.</p>\n<p><strong>Step 3. Place the threshold.</strong> Five percentage points sits above the interval&#39;s upper limit of 3.9. The whole interval falls below the threshold.</p>\n<p><strong>Step 4. Say what the trial supports.</strong> Position B. The reminder does raise attendance and the trial has shown that the increase is smaller than the commissioning group&#39;s threshold. Every value compatible with these data falls short of 5 points. The correct decision on the stated criterion is to decline the rollout, and the trial has genuinely settled it.</p>\n<p>This is the useful case that a threshold-free reading destroys. Reported as &quot;a statistically significant 5% improvement in screening attendance&quot;, the same trial reads as a success.</p>\n<h2>What travelled and what did not</h2>\n<p>The procedure travelled unchanged. Put the estimate and its interval on the scale the decision uses, mark zero, mark the threshold, read off the position.</p>\n<p>The threshold itself did not travel at all. Five percentage points of screening attendance and 5 mg/dL of fasting glucose share a numeral and nothing else. They were set by different people weighing different things: one by a commissioning group balancing cost against screening yield, the other by a clinical team thinking about what a patient would have to change to gain it. Thresholds are local to the outcome, the population and the decision, and the literature on minimal important differences says the same thing about its own estimates.</p>\n<p>One further translation is worth having. Two percentage points means about 50 people invited for every one extra person screened, because 1 divided by 0.02 is 50. Whether one extra retinal screen per 50 reminders is worth the programme&#39;s cost is, again, a question for the people holding the budget and the clinical responsibility. The arithmetic hands them a clean number and stops.</p>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-transfer-scales</span></div>\n    <div class=\"ek-block-content\"><p>A second version of the same trial, run in 1000 people per arm, reports attendance of 46.0% against 40.0%: an absolute difference of 6.0 percentage points, 95% interval 1.7 to 10.3, <em>p</em> = 0.007.</p>\n<p>Against the same 5 percentage point threshold, which position is this, and how does the decision differ from the first trial&#39;s?</p>\n<p>Answer. Position C. The interval contains 5, running from 1.7 at one end to 10.3 at the other, so the data are compatible with a gain well below the threshold and with one twice the threshold. The first trial, with its smaller effect and its larger <em>p</em>-value, answered the commissioning group&#39;s question. This one, with the larger effect and the smaller <em>p</em>-value, does not. The decision differs because a study that settles a question is worth more than a study that produces an impressive-looking result, and <em>p</em> = 0.007 against <em>p</em> = 0.042 tells you nothing about which is which.</p>\n</div>\n  </aside>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-size-decides-significance, claim-report-estimates-and-intervals, claim-mcid-context-specific</span><span><b>sources</b> source-p-value-misinterpretations, source-mcid-neurology-review</span></div>\n    <div class=\"ek-block-content\"><p>The methodological guide supports the recommendation to read the effect estimate together with its confidence limits, and the point that a large trial reaches statistical significance on a small effect, which is what the first trial above does. The neurology review supports the statement that importance thresholds are context-specific and take different values in different populations and settings. The trial, its arms, the commissioning group and both thresholds are invented for teaching, and the risk-difference arithmetic is this lesson&#39;s own.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-mastery-check",
+      "title": "Show that the two senses stay apart",
+      "kind": "assessment",
+      "source": "content/07-mastery-check.md",
+      "estimatedMinutes": 18,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Show that the two senses stay apart</h1>\n<p>The mastery check runs on two studies you have not met, so nothing can be answered from memory of the dinner-timing numbers. Six items, retakeable, feedback after the attempt. A calculator is enough.</p>\n<p>Both studies are invented for teaching. Neither describes a real trial, clinic or patient, and neither supports any claim about bedtime routines or walking programmes.</p>\n<p>A diabetes service has agreed, before reading either paper, that it will change its advice only for an effect on fasting glucose of at least <strong>5 mg/dL</strong>. The service wrote down how it reached that figure and attached the reasoning to its minutes.</p>\n<table>\n<thead>\n<tr>\n<th>Study</th>\n<th align=\"right\">Per group</th>\n<th align=\"right\">Difference in mean fasting glucose</th>\n<th align=\"right\">Standard error</th>\n<th align=\"right\">Two-sided <em>p</em></th>\n<th align=\"right\">95% interval</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>S: structured bedtime routine</td>\n<td align=\"right\">400</td>\n<td align=\"right\">4.5 mg/dL lower</td>\n<td align=\"right\">1.13 mg/dL</td>\n<td align=\"right\">&lt; 0.001</td>\n<td align=\"right\">2.3 to 6.7 mg/dL</td>\n</tr>\n<tr>\n<td>T: community walking programme</td>\n<td align=\"right\">2500</td>\n<td align=\"right\">1.8 mg/dL lower</td>\n<td align=\"right\">0.45 mg/dL</td>\n<td align=\"right\">&lt; 0.001</td>\n<td align=\"right\">0.9 to 2.7 mg/dL</td>\n</tr>\n</tbody></table>\n<p>The two <em>p</em>-values are equal to the precision printed. Both round to 0.00007.</p>\n<p>The six items ask you to:</p>\n<ol>\n<li>compute the lower limit of study S&#39;s interval from its difference and standard error;</li>\n<li>classify study S against the service&#39;s threshold and say what it supports;</li>\n<li>say what the two equal <em>p</em>-values do and do not let you conclude about the two programmes;</li>\n<li>repair a sentence that has slid from the technical sense of the word into the everyday one;</li>\n<li>identify which of four ways of obtaining the 5 mg/dL threshold is defensible;</li>\n<li>decide what a measurement problem in study T does to the threshold comparison.</li>\n</ol>\n<p>Every item is scored on the reasoning as much as the arithmetic. A correct position with the wrong justification earns nothing, and the rubrics say so.</p>\n<h2>Recovering from a miss</h2>\n<p>Each item&#39;s feedback names the idea behind the right answer and points at the scene that teaches it.</p>\n<p>A miss on item 1 or 2 sends you to the four positions in scene 4, and specifically to the worked example that runs the four steps in order. A miss on item 3 sends you to the three-row table in scene 2, where the same <em>p</em>-value appears beside two very different effects. A miss on item 4 sends you to the definition at the top of scene 2. A miss on item 5 sends you to the anchor-based and distribution-based methods in scene 3. A miss on item 6 sends you to the closing scene, where a biased estimate is laid against a threshold and the comparison falls apart.</p>\n<p>Retake as often as you like. Nothing is timed.</p>\n<h2>Holding on to this</h2>\n<p>The two senses of the word drift back together with time, and they drift in a predictable way: the definition survives and the reflex does not, so a year from now you will still be able to define statistical significance correctly and will still feel a small lift when a paper reports one. Three returns will hold the separation in place.</p>\n<ul>\n<li><strong>Within two days.</strong> Take the dinner-timing line, 9.0 mg/dL with an interval of 0.9 to 17.1, and write the one-sentence verdict for a threshold of 3 mg/dL and again for a threshold of 20 mg/dL. The data never change. Watch the verdict move.</li>\n<li><strong>Within two weeks.</strong> Find any paper reporting a statistically significant clinical result. Write down the effect estimate, the interval, and the threshold the authors used. If there is no threshold in the paper, write down that fact, because its absence is the finding.</li>\n<li><strong>When you next read a press release.</strong> Check whether the number quoted is a level or a change, and whether it is absolute or relative. Those two questions catch most of what goes wrong before any statistics are involved.</li>\n</ul>\n<p>Lesson 01 of this block asked what kind of thing each column in the dataset was. Twelve lessons later the answer to the question that started it all turns out to depend on a number that is in no column at all.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-significance-not-importance, claim-size-decides-significance, claim-mcid-definition, claim-mcid-methods, claim-report-estimates-and-intervals, claim-threshold-not-sole-basis</span><span><b>sources</b> source-asa-p-value-statement, source-p-value-misinterpretations, source-mcid-neurology-review, source-mcid-methodology-review</span></div>\n    <div class=\"ek-block-content\"><p>The association&#39;s principles support the separation assessed in items 3 and 4, that neither a <em>p</em>-value nor statistical significance reports the size or the importance of an effect, and the position assessed in item 2 that a conclusion should not rest only on a threshold being passed. The methodological guide supports the reading assessed in items 1, 2 and 3, in which the effect estimate and confidence limits carry the interpretation, and the sample-size point behind two equal <em>p</em>-values on very different effects. Both reviews of minimal important differences support item 5, on where a defensible threshold comes from and how such thresholds are estimated. Both studies, the service, and the 5 mg/dL threshold are invented for teaching.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-clinical-wrap-up",
+      "title": "Clinical wrap-up: the meeting where the block ends",
+      "kind": "synthesis",
+      "source": "content/08-clinical-wrap-up.md",
+      "estimatedMinutes": 16,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Clinical wrap-up: the meeting where the block ends</h1>\n<p><strong>Teaching example, not medical advice.</strong> The service, the meeting, the patient, the study and the 5 mg/dL threshold are invented for teaching. Nothing here reports a finding about real patients or supports any change to anyone&#39;s care. The fasting glucose diagnostic ranges quoted below are real and are attributed where they appear.</p>\n<p>Two blocks ago, in the first lesson of the science block, a clinician noticed something at a bedside. People who ate late seemed to come in with higher morning readings. That observation became a question, the question became a study, the study was designed across the ten lessons that followed, and this block has spent eleven more analysing what it produced.</p>\n<p>The service is now sitting with the result, and the meeting has one item on it.</p>\n<blockquote>\n<p>Difference 9.0 mg/dL. 95% interval 0.9 to 17.1. <em>p</em> = 0.029.</p>\n<p>Do we change what we tell people?</p>\n</blockquote>\n<p>Four things have to be said before anyone answers, and the block has taught all four.</p>\n<h2>Magnitude</h2>\n<p>The effect is 9.0 mg/dL, about 0.5 mmol/L. That is the estimate, and it is the number the whole discussion is actually about.</p>\n<p>Getting it stated first matters, because a meeting that opens with <em>p</em> = 0.029 spends the next twenty minutes on whether the finding is real and never returns to how big it is. The <em>p</em>-value has already been extracted for everything it holds: the data sit awkwardly with a true difference of zero. It contributes nothing else and it should be set down.</p>\n<h2>Uncertainty</h2>\n<p>The interval runs from 0.9 to 17.1 mg/dL and it is 16.2 mg/dL wide. Against the service&#39;s threshold of 5 mg/dL, this is position C.</p>\n<p>Someone in the room will point out that the result is statistically significant. The reply is that the threshold the result cleared is zero, and zero is not the number in the service&#39;s policy. On the number that is in the policy, the study is compatible with an effect a fifth of the threshold and with an effect three times it.</p>\n<p>So the result has statistical significance and its practical significance is undetermined. Those two verdicts sit side by side without contradiction, and a meeting that can hold both at once is a meeting that will make a defensible decision.</p>\n<p>That is worth stating in the minutes in exactly those terms, because it is a specific and useful finding. The study has established a direction and left the magnitude open, and a service that knows which of those it has is in a much better position than one that has a <em>p</em>-value and a feeling.</p>\n<h2>Bias</h2>\n<p>Everything above assumes the 9.0 is pointing at the right place. The design block spent a great deal of effort on the reasons it might not.</p>\n<p>Bias, in the sense <strong>PREM-SCI-008</strong> established, is a systematic distortion of an estimate introduced through design, conduct, measurement, analysis or reporting. It behaves differently from the uncertainty an interval describes. Width comes from how far a repeat of the study would wander; bias moves every repeat the same way. So a biased study can produce a narrow interval sitting confidently around the wrong value, and the arithmetic gives no warning at all.</p>\n<p>This particular comparison was observational. People chose their own dinner times. Whatever else differs between people who eat at seven and people who eat at ten, shift work, household composition, sleep, other eating through the day, rides along with the comparison and lands inside the 9.0.</p>\n<p>The consequence for this lesson&#39;s technique is blunt. Laying an interval against a threshold is only as good as the estimate at its centre. If the estimate is displaced by 6 mg/dL of confounding, the whole band moves with it, the position changes, and the four-step procedure returns a confident answer to the wrong question. The threshold comparison is the last step in a chain, and it inherits every weakness above it.</p>\n<h2>Real-world relevance</h2>\n<p>The last consideration is the one that unsettles people most, and it survives even if the estimate is perfect.</p>\n<p>Fasting glucose is a laboratory measurement. Nobody&#39;s life is made better or worse by a number on a meter. What the number stands in for is what happens over the following decade to eyes, kidneys, nerves and arteries, and the link between a small persistent shift in morning glucose and any of those outcomes is a separate question this study never asked.</p>\n<p>The cohort&#39;s mean fasting glucose was 142 mg/dL. The national institute that publishes diagnostic ranges gives 126 mg/dL or above as diabetes, so these are people already diagnosed and already being managed. The decision in front of the service is about management. Moving someone from 146 to 137 changes a category boundary for nobody in this cohort, and whether it changes anything they would notice is the question that no column in the dataset answers.</p>\n<h2>What the service actually does</h2>\n<p>Three decisions, and only the first is about the study.</p>\n<p><strong>The advice does not change.</strong> The study supports the direction and leaves the magnitude open against the threshold the service set. Changing advice on that evidence would mean asking several thousand people to reorganise their evenings for an effect that may be a fifth of the size the service itself judged worth the trouble.</p>\n<p><strong>The larger study gets funded, with the threshold written into the protocol.</strong> The arithmetic in scene 5 gives about 123 people per group for an interval that could clear 5 mg/dL if the effect really is 9.0. That number came out of the threshold, which means the threshold has to exist before recruitment. A trial designed without one produces a result that has to be argued about afterwards, and by then the arguing is contaminated by the answer.</p>\n<p><strong>The threshold itself goes back for review.</strong> The 5 mg/dL was reached by a small group in a room. The people it most affects were not in that room, and the literature on minimal important differences is clear that the reference point is what patients perceive and value. Asking them is a piece of work the service has not done.</p>\n<h2>The patient at ten past nine</h2>\n<p>The consultant from scene 1 still has an appointment. What he says is shorter than any of the above.</p>\n<p>He says there is some evidence that eating later is associated with slightly higher morning readings, that the study is small and cannot say how much of a difference it makes, and that if shifting dinner earlier is easy then it is a reasonable thing to try, while it is not something worth losing sleep or a family meal over. Then he moves on to the things that are established.</p>\n<p>That is what an honest reading of 9.0 mg/dL, 95% interval 0.9 to 17.1, <em>p</em> = 0.029 sounds like at a bedside. It is less than the sentence appeared to promise, and it is what the sentence actually contained.</p>\n<h2>Where the block stops</h2>\n<p>The arithmetic in these twelve lessons is finished. It has done what arithmetic can do: it has taken a bedside observation, turned it into a question, given the question a design, and given the design a number with its uncertainty attached.</p>\n<p>The last step is a judgement, and it belongs to people. Whether 9 mg/dL matters depends on what else the person is already carrying, what the change would cost them, what the alternatives are, and what they want. No test returns that. The block ends here deliberately, one step short of the answer, because the step that remains is the one that has to be taken by someone who is accountable for it.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-significance-not-importance, claim-threshold-not-sole-basis, claim-statistical-significance-not-clinical-relevance, claim-report-estimates-and-intervals, claim-fpg-diagnostic-ranges</span><span><b>sources</b> source-asa-p-value-statement, source-p-value-misinterpretations, source-mcid-neurology-review, source-mcid-methodology-review, source-niddk-diabetes-tests</span></div>\n    <div class=\"ek-block-content\"><p>The association&#39;s principles support the two positions the meeting turns on: that statistical significance reports nothing about the size or importance of an effect, and that a conclusion should not rest only on a <em>p</em>-value passing a threshold. The methodological guide supports the practice of reading the estimate and its confidence limits together as the basis for interpretation. Both reviews of minimal important differences support the point that a statistically significant change need not be one a patient perceives, and that the reference point for such a threshold is what patients value. The national institute&#39;s patient information supports the fasting plasma glucose diagnostic ranges quoted above. The service, the meeting, the consultant, the patient, the threshold and every figure in the study are invented for teaching.</p>\n</div>\n  </aside>\n"
+    }
+  ],
+  "authors": [
+    {
+      "principalId": "github:VSBDev",
+      "displayName": "VSBDev — accountable author",
+      "agent": {
+        "system": "RUNTIME-STAMPED",
+        "provider": "RUNTIME-STAMPED",
+        "model": "RUNTIME-STAMPED",
+        "version": "RUNTIME-STAMPED",
+        "runId": "claude-author-PREM-STA-012-e6be3ce3-2c6f-498f-9f4d-8b01f9c3a9db",
+        "instructionsDigest": "sha256:d150655bd6b2b08721d6a5a5da18cd0ed50f8e3344f7bce7cb1c621df06a16ea"
+      }
+    }
+  ],
+  "license": "CC-BY-4.0",
+  "sourceConfidence": "pending-review",
+  "aiAssistance": {
+    "used": true,
+    "disclosure": "VSBDev (github:VSBDev) is accountable for this lesson pack. Material authoring assistance used system RUNTIME-STAMPED, provider RUNTIME-STAMPED, model RUNTIME-STAMPED, version RUNTIME-STAMPED, in isolated run claude-author-PREM-STA-012-e6be3ce3-2c6f-498f-9f4d-8b01f9c3a9db. The instructions digest covers the exact discloseable UTF-8 lesson-authoring task payload supplied to this run, including its terminal newline; it excludes hidden provider and system instructions that cannot be exported."
+  },
+  "assessment": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-assessment-v1",
+    "lessonId": "PREM-STA-012",
+    "lessonVersion": "0.1.0",
+    "assessmentId": "assessment-statistical-practical-significance-mastery",
+    "title": "Judging a reported difference against a threshold",
+    "purpose": "mastery-gate",
+    "attemptPolicy": {
+      "retakeable": true,
+      "timeLimitMinutes": null,
+      "feedback": "after-attempt"
+    },
+    "items": [
+      {
+        "id": "item-lower-limit",
+        "type": "numeric",
+        "sceneId": "scene-mastery-check",
+        "objectiveIds": [
+          "objective-read-against-threshold"
+        ],
+        "outcomeIds": [
+          "topic-statistics-data-statistical-practical-significance"
+        ],
+        "prompt": "Compute the lower limit of study S's 95% confidence interval from its difference and standard error. Give the answer in mg/dL to one decimal place.",
+        "stimulus": "Invented study S: structured bedtime routine, 400 people per group. Mean fasting glucose 4.5 mg/dL lower in the intervention group, standard error of that difference 1.13 mg/dL. The service agreed an importance threshold of 5 mg/dL before reading the paper. Illustrative teaching example, not medical advice.",
+        "points": 2,
+        "responseSpec": {
+          "mode": "number",
+          "units": "mg/dL",
+          "tolerance": 0.05,
+          "maxSelections": null,
+          "maxLength": null
+        },
+        "answer": {
+          "correct": 2.3,
+          "summary": "The margin of error is 1.96 x 1.13 = 2.21 mg/dL, so the lower limit is 4.5 - 2.21 = 2.29, which is 2.3 mg/dL to one decimal place.",
+          "reasoning": "Award 1 point for forming the margin of error as 1.96 multiplied by the standard error, giving 2.21 mg/dL, and 1 point for subtracting it from the estimate to reach 2.3 mg/dL. A learner who returns 3.4 has subtracted one standard error instead of 1.96 of them. A learner who returns 5.6 has subtracted the estimate from the threshold, which mixes two quantities that belong on the same axis but play different roles. Check the answer by adding the same margin to get the upper limit of 6.7, then confirm the interval is symmetric about 4.5. On retry, do the same computation for study T, where 1.96 x 0.45 = 0.88 and the interval runs from 0.9 to 2.7.",
+          "acceptableResponses": [
+            "2.3",
+            "2.29",
+            "4.5 - 1.96 x 1.13"
+          ],
+          "commonErrors": [
+            "Subtracting one standard error instead of 1.96 standard errors, giving 3.4",
+            "Subtracting the estimate from the 5 mg/dL threshold",
+            "Halving the standard error before applying the multiplier"
+          ]
+        },
+        "rubricId": "rubric-lower-limit",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-classify-study-s",
+        "type": "single-choice",
+        "sceneId": "scene-mastery-check",
+        "objectiveIds": [
+          "objective-read-against-threshold",
+          "objective-judge-a-reported-difference"
+        ],
+        "outcomeIds": [
+          "topic-statistics-data-statistical-practical-significance"
+        ],
+        "prompt": "Study S reports a difference of 4.5 mg/dL with a 95% interval of 2.3 to 6.7 mg/dL. The service's threshold is 5 mg/dL. Which sentence states what the study supports?",
+        "stimulus": "Invented study S: structured bedtime routine, 400 people per group, difference 4.5 mg/dL, standard error 1.13 mg/dL, two-sided p < 0.001, 95% interval 2.3 to 6.7 mg/dL. The service agreed a 5 mg/dL importance threshold before reading the paper. Illustrative teaching example, not medical advice.",
+        "points": 3,
+        "responseSpec": {
+          "mode": "single-choice",
+          "options": [
+            {
+              "id": "option-straddles-threshold",
+              "text": "The interval excludes zero, so the direction is supported, and it contains 5, so the data are compatible with an effect below the threshold and with one above it. On the service's own question the study is inconclusive."
+            },
+            {
+              "id": "option-below-threshold-so-reject",
+              "text": "The estimate of 4.5 falls below the threshold of 5, so the study has shown the effect is too small to act on and the service should decline."
+            },
+            {
+              "id": "option-significant-so-act",
+              "text": "The result is statistically significant at p < 0.001, so the effect is well established and the service should change its advice."
+            },
+            {
+              "id": "option-no-effect",
+              "text": "Because 5 falls inside the interval, the data are compatible with the threshold value itself, which is the best single estimate of the effect and justifies acting."
+            }
+          ],
+          "units": null,
+          "tolerance": null,
+          "maxSelections": 1,
+          "maxLength": null
+        },
+        "answer": {
+          "correct": "option-straddles-threshold",
+          "summary": "Position C. The interval clears zero and contains 5, so direction is settled and magnitude against the threshold is not.",
+          "reasoning": "Award 1 point for placing zero outside the interval and reading that as support for the direction, 1 point for placing 5 inside the interval, and 1 point for concluding that the service's question is left open rather than answered either way. The second option treats the point estimate as though it were the whole result and ignores that values up to 6.7 remain compatible with the data, so the study cannot rule the effect below the threshold. The third option is the substitution this lesson exists to block: p < 0.001 reports incompatibility with zero and says nothing about whether 4.5 mg/dL is worth acting on. The fourth option inverts what an interval means, since containing a value is not evidence for that value, and the estimate most compatible with the data remains 4.5. On retry, classify study T the same way and notice that it reaches a firmer verdict with a smaller effect.",
+          "acceptableResponses": [
+            "The option stating that the interval excludes zero and contains 5, leaving the direction supported and the threshold question inconclusive."
+          ],
+          "commonErrors": [
+            "Reading the point estimate against the threshold and ignoring the interval around it",
+            "Treating a very small p-value as evidence that the effect is large enough to act on",
+            "Treating a value inside an interval as the value the data support"
+          ]
+        },
+        "rubricId": "rubric-classify-study-s",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-equal-p-values",
+        "type": "single-choice",
+        "sceneId": "scene-mastery-check",
+        "objectiveIds": [
+          "objective-size-decides-significance",
+          "objective-separate-senses"
+        ],
+        "outcomeIds": [
+          "topic-statistics-data-statistical-practical-significance"
+        ],
+        "prompt": "Studies S and T report p-values that are equal to the precision printed, both rounding to 0.00007. Which comparison between the two studies do those p-values support?",
+        "stimulus": "Invented study S: bedtime routine, 400 per group, difference 4.5 mg/dL, standard error 1.13, 95% interval 2.3 to 6.7. Invented study T: community walking programme, 2500 per group, difference 1.8 mg/dL, standard error 0.45, 95% interval 0.9 to 2.7. Service threshold 5 mg/dL. Illustrative teaching example, not medical advice.",
+        "points": 3,
+        "responseSpec": {
+          "mode": "single-choice",
+          "options": [
+            {
+              "id": "option-equal-distance-different-effects",
+              "text": "Only that each study's data sit about equally far from its own null. Study S found the larger effect at 4.5 against 1.8 mg/dL, and study T matched its p-value by measuring a smaller effect far more precisely in six times as many people."
+            },
+            {
+              "id": "option-equal-effects",
+              "text": "That the two programmes have effects of about the same size, since equal p-values indicate equal effects."
+            },
+            {
+              "id": "option-equally-worthwhile",
+              "text": "That both programmes are equally worth adopting, because both cleared the conventional threshold by the same margin."
+            },
+            {
+              "id": "option-t-better-because-larger",
+              "text": "That study T is the more trustworthy of the two, and its 2500 per group means its 1.8 mg/dL estimate is closer to the truth than study S's 4.5 mg/dL is."
+            }
+          ],
+          "units": null,
+          "tolerance": null,
+          "maxSelections": 1,
+          "maxLength": null
+        },
+        "answer": {
+          "correct": "option-equal-distance-different-effects",
+          "summary": "Equal p-values report equal distance from each study's own null, and the two effects differ by a factor of 2.5.",
+          "reasoning": "Award 1 point for comparing the effect sizes directly, 4.5 mg/dL against 1.8 mg/dL, 1 point for attributing study T's matching p-value to its standard error of 0.45 against study S's 1.13, and 1 point for refusing to read either p-value as a statement about magnitude or worth. The second option is the misreading the lesson demonstrates with its three-row table: the statistic combines the effect with its precision and cannot be taken apart again. The third option adds the everyday sense of the word on top of that error and reaches a recommendation neither study supports. The fourth option confuses precision with accuracy, since a larger study estimates its own effect more precisely and that says nothing about which programme does more. On retry, state which of the two studies answers the service's question and why the answer is negative.",
+          "acceptableResponses": [
+            "The option stating that equal p-values report equal distance from each study's own null while study S found the larger effect and study T bought its p-value with precision."
+          ],
+          "commonErrors": [
+            "Reading equal p-values as equal effect sizes",
+            "Reading a p-value as a measure of how worthwhile an intervention is",
+            "Treating the larger study's estimate as closer to the truth about a different intervention"
+          ]
+        },
+        "rubricId": "rubric-equal-p-values",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-repair-sentence",
+        "type": "short-answer",
+        "sceneId": "scene-mastery-check",
+        "objectiveIds": [
+          "objective-separate-senses"
+        ],
+        "outcomeIds": [
+          "topic-statistics-data-statistical-practical-significance"
+        ],
+        "prompt": "Rewrite this sentence so that every claim in it is one the two studies support: \"Both programmes produced highly statistically significant reductions in fasting glucose, so both are clinically worthwhile.\" Name the fault before you rewrite it.",
+        "stimulus": "Invented study S: 400 per group, 4.5 mg/dL, 95% interval 2.3 to 6.7. Invented study T: 2500 per group, 1.8 mg/dL, 95% interval 0.9 to 2.7. Service threshold 5 mg/dL, agreed in advance. Illustrative teaching example, not medical advice.",
+        "points": 4,
+        "responseSpec": {
+          "mode": "text",
+          "units": null,
+          "tolerance": null,
+          "maxSelections": null,
+          "maxLength": 900
+        },
+        "answer": {
+          "correct": "The fault is that the word significant is used technically in the first clause and in its everyday sense in the second, so the sentence appears to derive worth from a threshold comparison that carries no information about worth. A repaired version: both programmes lowered mean fasting glucose, by 4.5 mg/dL (95% interval 2.3 to 6.7) in study S and by 1.8 mg/dL (95% interval 0.9 to 2.7) in study T, and both results are statistically significant at the conventional level. Against the service's threshold of 5 mg/dL, study T shows an effect entirely below the threshold, and study S leaves the question open because its interval contains 5.",
+          "summary": "The sentence slides from the technical sense into the everyday one, and the repair separates the effect estimates from the significance label and reads each against the stated threshold.",
+          "reasoning": "Award 1 point for naming the fault as the shift between the two senses of significant, and not merely as overstatement. Award 1 point for a rewrite that reports both effect sizes with their intervals in mg/dL. Award 1 point for keeping the significance label attached to the test result and claiming nothing further from it. Award 1 point for evaluating both studies against the 5 mg/dL threshold and reaching different verdicts for the two, T below the threshold and S inconclusive. A response that only softens the language, for example by replacing worthwhile with promising, has not repaired the reasoning and earns the first point at most. A response that deletes the second clause without putting the threshold comparison in its place loses the fourth point, because the reader still cannot tell what either study means for the decision. The word highly is also doing unearned work and a strong answer will drop it, since a smaller p-value does not make a result more clinically worthwhile.",
+          "acceptableResponses": [
+            "A rewrite naming the two senses of significant as the fault, reporting 4.5 mg/dL (2.3 to 6.7) and 1.8 mg/dL (0.9 to 2.7), keeping the significance label attached to the test result, and reading both against the 5 mg/dL threshold to give T a verdict below it and S an inconclusive one.",
+            "An answer that reaches the same four elements while placing the threshold comparison first and the significance label last."
+          ],
+          "commonErrors": [
+            "Softening the wording without separating the two senses of the word",
+            "Reporting the effect sizes but omitting the intervals, so neither threshold comparison can be made",
+            "Giving both studies the same verdict against the threshold",
+            "Keeping the intensifier highly as though a smaller p-value strengthened the clinical case"
+          ]
+        },
+        "rubricId": "rubric-repair-sentence",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-threshold-source",
+        "type": "single-choice",
+        "sceneId": "scene-mastery-check",
+        "objectiveIds": [
+          "objective-define-mcid"
+        ],
+        "outcomeIds": [
+          "topic-statistics-data-statistical-practical-significance"
+        ],
+        "prompt": "The service has to justify its 5 mg/dL threshold to an audit committee. Which account of where the figure came from is defensible?",
+        "stimulus": "Invented service and threshold. Illustrative teaching example, not medical advice.",
+        "points": 3,
+        "responseSpec": {
+          "mode": "single-choice",
+          "options": [
+            {
+              "id": "option-anchored-and-justified",
+              "text": "It was set before the papers were read, from what people living with the condition said would make the dietary change worth keeping up, checked against how much change the measurement can resolve, and recorded with its reasoning so the committee can disagree with it."
+            },
+            {
+              "id": "option-from-the-data",
+              "text": "It was taken from the studies themselves: 5 mg/dL is the smallest difference the available trials were able to detect at the 0.05 level, so it is the natural threshold."
+            },
+            {
+              "id": "option-from-the-diagnostic-cutoff",
+              "text": "It was derived from the published diagnostic bands, since diabetes is diagnosed at a fasting plasma glucose of 126 mg/dL and 5 mg/dL is a round fraction of the prediabetes range."
+            },
+            {
+              "id": "option-borrowed-value",
+              "text": "It was taken from a published minimal important difference for a symptom questionnaire in a different condition, on the grounds that a validated number is better than an invented one."
+            }
+          ],
+          "units": null,
+          "tolerance": null,
+          "maxSelections": 1,
+          "maxLength": null
+        },
+        "answer": {
+          "correct": "option-anchored-and-justified",
+          "summary": "A defensible threshold is anchored in what patients value, fixed before the results are read, and recorded with its reasoning.",
+          "reasoning": "Award 1 point for choosing an account anchored in what the people with the condition perceive as worthwhile, which is what the minimal clinically important difference is defined against. Award 1 point for choosing one that fixes the figure before the results are seen, so that the threshold cannot be tuned to the answer. Award 1 point for choosing one whose reasoning is written down and open to challenge. The second option lets the sample size decide what matters, which reverses the whole logic of the lesson. The third option confuses a level with a change: the diagnostic bands say where a person's glucose sits and carry no information about how much movement is worth pursuing. The fourth option ignores that these thresholds are context-specific and take different values across populations, outcomes and instruments, so borrowing one without an argument makes it validated for somebody else's question. On retry, write the two sentences the service would put in its minutes to record the threshold and its basis.",
+          "acceptableResponses": [
+            "The option describing a threshold anchored in what patients said would make the change worthwhile, fixed in advance, sanity-checked against measurement resolution, and recorded with its reasoning."
+          ],
+          "commonErrors": [
+            "Letting the study's detectable difference define what counts as important",
+            "Treating a diagnostic cut-point for a level as a threshold for a change",
+            "Importing a published threshold from a different outcome or population without argument"
+          ]
+        },
+        "rubricId": "rubric-threshold-source",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-bias-and-threshold",
+        "type": "single-choice",
+        "sceneId": "scene-mastery-check",
+        "objectiveIds": [
+          "objective-judge-a-reported-difference"
+        ],
+        "outcomeIds": [
+          "topic-statistics-data-statistical-practical-significance"
+        ],
+        "prompt": "A reviewer discovers that in study T, glucose in the walking group was measured on participants' home meters while the comparison group was measured in the hospital laboratory, and that the home meters read on average about 4 mg/dL lower than the laboratory. What does this do to the threshold comparison?",
+        "stimulus": "Invented study T: community walking programme, 2500 per group, difference 1.8 mg/dL lower with the programme, standard error 0.45, two-sided p < 0.001, 95% interval 0.9 to 2.7 mg/dL. Service threshold 5 mg/dL. Illustrative teaching example, not medical advice.",
+        "points": 3,
+        "responseSpec": {
+          "mode": "single-choice",
+          "options": [
+            {
+              "id": "option-estimate-displaced",
+              "text": "It voids the comparison until the estimate is corrected. A systematic measurement difference moves every repeat of the study the same way, so it displaces the whole interval instead of widening it, and a shift of about 4 mg/dL is more than twice the reported effect and could reverse its direction."
+            },
+            {
+              "id": "option-interval-covers-it",
+              "text": "Little, because the 95% interval already accounts for measurement variation, and a discrepancy of 4 mg/dL falls within the range of values the study reports as compatible."
+            },
+            {
+              "id": "option-narrow-interval-protects",
+              "text": "Little, because with 2500 people per group the standard error is only 0.45 mg/dL, and an estimate that precise is not meaningfully affected by a measurement discrepancy."
+            },
+            {
+              "id": "option-still-below-threshold",
+              "text": "Nothing that changes the decision, because the verdict was that the effect falls below the 5 mg/dL threshold, and a downward measurement error would only make the true effect smaller still."
+            }
+          ],
+          "units": null,
+          "tolerance": null,
+          "maxSelections": 1,
+          "maxLength": null
+        },
+        "answer": {
+          "correct": "option-estimate-displaced",
+          "summary": "A systematic measurement difference displaces the interval bodily, and here the displacement exceeds the effect it is meant to be measuring.",
+          "reasoning": "Award 1 point for identifying the problem as a systematic distortion in the sense the design lessons established, and not as extra random variation. Award 1 point for stating that such a distortion moves the whole interval instead of widening it, so precision offers no protection. Award 1 point for comparing the size of the displacement, about 4 mg/dL, with the reported effect of 1.8 mg/dL and concluding that the direction itself is in doubt. The second and third options both treat a confidence interval as though it insured against systematic error; width describes how far repeat estimates would scatter and says nothing about whether every repeat would be wrong the same way. The fourth option gets the arithmetic backwards: the home meters read low in the group that appears better, so correcting for the discrepancy would move the estimate towards zero and past it, and the walking group could turn out to have higher true glucose. On retry, state what the service should ask for before the paper is discussed again.",
+          "acceptableResponses": [
+            "The option stating that a systematic measurement difference displaces the whole interval, that a 4 mg/dL shift exceeds the 1.8 mg/dL effect, and that the comparison is void until the estimate is corrected."
+          ],
+          "commonErrors": [
+            "Treating a confidence interval as though it accounted for systematic measurement error",
+            "Assuming a small standard error protects an estimate against bias",
+            "Getting the direction of the correction wrong and concluding the effect is merely smaller"
+          ]
+        },
+        "rubricId": "rubric-bias-and-threshold",
+        "safetyCritical": false
+      }
+    ],
+    "rubrics": [
+      {
+        "id": "rubric-lower-limit",
+        "title": "Lower limit of an interval from an estimate and its standard error",
+        "criteria": [
+          {
+            "id": "criterion-form-the-margin",
+            "description": "Award 1 point only when the margin of error is formed as 1.96 multiplied by the standard error, giving 2.21 mg/dL.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-subtract-from-estimate",
+            "description": "Award 1 point only when the margin is subtracted from the 4.5 mg/dL estimate to give 2.3 mg/dL to one decimal place.",
+            "maxPoints": 1
+          }
+        ]
+      },
+      {
+        "id": "rubric-classify-study-s",
+        "title": "Placing an interval against zero and against a threshold",
+        "criteria": [
+          {
+            "id": "criterion-place-zero",
+            "description": "Award 1 point only when zero is placed outside the interval and read as support for the direction of the effect.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-place-threshold",
+            "description": "Award 1 point only when the 5 mg/dL threshold is placed inside the interval of 2.3 to 6.7.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-state-inconclusive",
+            "description": "Award 1 point only when the verdict on the service's question is stated as inconclusive, with values on both sides of the threshold remaining compatible with the data.",
+            "maxPoints": 1
+          }
+        ]
+      },
+      {
+        "id": "rubric-equal-p-values",
+        "title": "Reading two equal p-values without importing magnitude",
+        "criteria": [
+          {
+            "id": "criterion-compare-effects-directly",
+            "description": "Award 1 point only when the two effect sizes, 4.5 mg/dL and 1.8 mg/dL, are compared directly rather than through their p-values.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-attribute-to-precision",
+            "description": "Award 1 point only when study T's matching p-value is attributed to its standard error of 0.45 against study S's 1.13, and so to its sample size.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-no-worth-claim",
+            "description": "Award 1 point only when no claim about magnitude or clinical worth is drawn from either p-value.",
+            "maxPoints": 1
+          }
+        ]
+      },
+      {
+        "id": "rubric-repair-sentence",
+        "title": "Repairing a sentence that has slid between the two senses",
+        "criteria": [
+          {
+            "id": "criterion-name-the-slide",
+            "description": "Award 1 point only when the fault is named as the shift from the technical sense of significant to the everyday sense, and not merely as overstatement.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-report-effects-with-intervals",
+            "description": "Award 1 point only when both effect estimates are reported with their confidence intervals in mg/dL.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-label-stays-with-the-test",
+            "description": "Award 1 point only when the significance label stays attached to the test result and no claim about worth is drawn from it.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-two-different-verdicts",
+            "description": "Award 1 point only when both studies are read against the 5 mg/dL threshold and given different verdicts, study T below the threshold and study S inconclusive.",
+            "maxPoints": 1
+          }
+        ]
+      },
+      {
+        "id": "rubric-threshold-source",
+        "title": "Justifying where an importance threshold came from",
+        "criteria": [
+          {
+            "id": "criterion-anchored-in-patients",
+            "description": "Award 1 point only when the chosen account anchors the threshold in what people with the condition perceive as worthwhile.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-fixed-in-advance",
+            "description": "Award 1 point only when the chosen account fixes the threshold before the results are read.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-reasoning-recorded",
+            "description": "Award 1 point only when the chosen account records the reasoning so that the figure can be challenged.",
+            "maxPoints": 1
+          }
+        ]
+      },
+      {
+        "id": "rubric-bias-and-threshold",
+        "title": "What a systematic measurement difference does to a threshold comparison",
+        "criteria": [
+          {
+            "id": "criterion-identify-systematic",
+            "description": "Award 1 point only when the problem is identified as a systematic distortion of the estimate and not as additional random variation.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-interval-moves-not-widens",
+            "description": "Award 1 point only when the distortion is described as displacing the whole interval instead of widening it, so that precision gives no protection.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-compare-shift-to-effect",
+            "description": "Award 1 point only when the 4 mg/dL displacement is compared with the 1.8 mg/dL effect and the direction of the result is put in doubt.",
+            "maxPoints": 1
+          }
+        ]
+      }
+    ]
+  },
+  "references": {
+    "schemaVersion": 2,
+    "format": "embeddedknowledge-references-v2",
+    "lessonId": "PREM-STA-012",
+    "lessonVersion": "0.1.0",
+    "sources": [
+      {
+        "id": "source-asa-p-value-statement",
+        "type": "official-standard",
+        "title": "American Statistical Association releases statement on statistical significance and P-values: provides principles to improve the conduct and interpretation of quantitative science",
+        "creators": [
+          "American Statistical Association",
+          "Ronald L. Wasserstein",
+          "Nicole A. Lazar"
+        ],
+        "publisher": "American Statistical Association",
+        "issued": "2016-03-07",
+        "url": "https://www.amstat.org/asa/files/pdfs/P-ValueStatement.pdf",
+        "accessed": "2026-07-25",
+        "version": "ASA news release of 7 March 2016 announcing the ASA Statement on Statistical Significance and P-Values and reproducing its six principles in full. Companion article DOI 10.1080/00031305.2016.1154108",
+        "locator": "Page 2, numbered principles 1 (a p-value can indicate how incompatible the data are with a specified statistical model), 3 (conclusions should not be based only on whether a p-value passes a specific threshold), and 5 (a p-value, or statistical significance, does not measure the size of an effect or the importance of a result). Page 1 carries the executive director's remark about an arbitrary threshold.",
+        "license": "Copyright American Statistical Association; the release is distributed publicly by the association with no open-content reuse licence displayed, and no reuse licence is relied on here",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only to verify that a professional statistical association has published, as formal principles, that a p-value indicates how incompatible data are with a specified statistical model, that neither a p-value nor statistical significance measures the size of an effect or the importance of a result, and that conclusions should not rest only on whether a p-value passes a threshold. No principle is quoted or reproduced. Each is restated in this lesson's own words and applied to invented teaching data, and none of the release's wording, list ordering, quotations or examples is reused."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://www.amstat.org/robots.txt",
+          "checked": "2026-07-25",
+          "notes": "Route selection was made before substantive reading. The publisher route for the companion journal article, https://www.tandfonline.com/doi/full/10.1080/00031305.2016.1154108, was excluded without being opened: that host's robots file carries an explicit record disallowing all paths to the named AI crawler GPTBot, which this project treats as a restriction on agent ingestion. The association's own distribution of the statement was used instead. https://www.amstat.org/robots.txt was requested on 2026-07-25 and returns HTTP 404, so the host publishes no robots file, declares no machine-readable crawler or text-mining directive, and exposes no terms page restricting automated reading. The three-page PDF was retrieved over plain HTTPS in a single request with no login, paywall, rate-limit breach or access-control bypass, and its text was read directly rather than through a search summary. This record covers the news release, which reproduces the six principles in full, and not the peer-reviewed article behind the excluded route."
+        }
+      },
+      {
+        "id": "source-p-value-misinterpretations",
+        "type": "review",
+        "title": "Statistical tests, P values, confidence intervals, and power: a guide to misinterpretations",
+        "creators": [
+          "Sander Greenland",
+          "Stephen J. Senn",
+          "Kenneth J. Rothman",
+          "John B. Carlin",
+          "Charles Poole",
+          "Steven N. Goodman",
+          "Douglas G. Altman"
+        ],
+        "publisher": "Springer (European Journal of Epidemiology)",
+        "issued": "2016",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4877414/",
+        "accessed": "2026-07-25",
+        "version": "European Journal of Epidemiology volume 31, pages 337-350; DOI 10.1007/s10654-016-0149-3; PMCID PMC4877414",
+        "locator": "Section 'Common misinterpretations of single P values', numbered items 7 (significance indicating a substantively important relation, refuted by noting minor effects reach significance when a study is large) and 8 (lack of significance indicating a small effect, refuted by noting large effects are drowned in noise when a study is small). Also the guidance that interpretation demands the sizes of effect estimates and confidence limits, not merely whether P falls above or below 0.05.",
+        "license": "CC BY 4.0",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only to verify two facts about the behaviour of significance tests, that a large study can return a statistically significant test on a very minor effect and a small study can fail to detect a large one, and one recommendation, that interpretation should rest on the effect estimate and its confidence limits rather than on which side of a conventional cut-off a P value fell. No wording, numbered item, table, figure, worked example or organisational scheme is reproduced, adapted or closely paraphrased. Every study, number and case in this lesson is invented and the instructional sequence is original, so the article's CC BY licence is not relied on for any reuse."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://pmc.ncbi.nlm.nih.gov/robots.txt",
+          "checked": "2026-07-25",
+          "notes": "The PMC robots file was retrieved and read before substantive access. It carries a single wildcard user-agent record that explicitly allows /articles/ ahead of its blanket disallow, names no AI crawler and imposes no text-mining restriction, and requests a one-second crawl delay. The article route used here sits under that allowed path. The generic legacy route /pmc/articles/ on the www.ncbi.nlm.nih.gov host is disallowed by that host's own robots file and was not used. One HTTPS request was made to the allowed route, with no login, paywall, rate-limit breach or access-control bypass, and the article text was read directly. The article is open access under CC BY 4.0."
+        }
+      },
+      {
+        "id": "source-mcid-neurology-review",
+        "type": "review",
+        "title": "Minimal Clinically Important Difference (MCID) in Patient-Reported Outcome Measures for Neurological Conditions: Review of Concept and Methods",
+        "creators": [
+          "Biswamohan Mishra",
+          "Pachipala Sudheer",
+          "Ayush Agarwal",
+          "M. V. Padma Srivastava",
+          "Nilima",
+          "Venugopalan Y. Vishnu"
+        ],
+        "publisher": "Wolters Kluwer (Annals of Indian Academy of Neurology)",
+        "issued": "2023",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10645230/",
+        "accessed": "2026-07-25",
+        "version": "Annals of Indian Academy of Neurology volume 26, issue 4, pages 334-343; DOI 10.4103/aian.aian_207_23; PMCID PMC10645230",
+        "locator": "Introduction, on a statistically significant change not being clinically relevant when the patient does not perceive it. Results, 'What is MCID?', for the definition as the smallest change patients perceive as beneficial and its 1989 introduction by Jaeschke and colleagues. Results, 'How to determine MCID?', for anchor-based against distribution-based methods and the absence of a gold standard. Results, 'Limitations of MCID', for values being dynamic and context-specific across populations.",
+        "license": "CC BY-NC-SA 4.0",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only to verify the definition and origin of the minimal clinically important difference, the existence and character of the two families of estimation method, the absence of a gold-standard method, and the context and population dependence of the resulting thresholds. No wording, table, figure, instrument, worked estimate or organisational scheme from the review is reproduced, adapted or closely paraphrased, and no MCID value from any instrument it discusses is carried into this lesson. Every case and number here is invented for teaching, so the displayed non-commercial and share-alike terms are not relied on for any reuse."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://pmc.ncbi.nlm.nih.gov/robots.txt",
+          "checked": "2026-07-25",
+          "notes": "The PMC robots file was retrieved and read before substantive access. Its single wildcard record explicitly allows /articles/ ahead of the blanket disallow, names no AI crawler, states no text-mining prohibition, and requests a one-second crawl delay. The article was read once over plain HTTPS at that allowed route, with no login, paywall, rate-limit breach or access-control bypass, and its text was read directly rather than through a search summary. The article is open access; its displayed licence permits non-commercial share-alike reuse, which this lesson does not exercise."
+        }
+      },
+      {
+        "id": "source-mcid-methodology-review",
+        "type": "review",
+        "title": "Beyond statistical significance: Embracing minimal clinically important difference for better patient care",
+        "creators": [
+          "Naveen Jeyaraman",
+          "Madhan Jeyaraman",
+          "Swaminathan Ramasubramanian",
+          "Sangeetha Balaji",
+          "Sathish Muthu"
+        ],
+        "publisher": "Baishideng Publishing Group (World Journal of Methodology)",
+        "issued": "2025",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11525893/",
+        "accessed": "2026-07-25",
+        "version": "World Journal of Methodology volume 15, issue 1, article 97814; DOI 10.5662/wjm.v15.i1.97814; PMCID PMC11525893",
+        "locator": "Introduction, for the contrast between statistical significance and the smallest change a patient perceives as beneficial or detrimental, including a treatment reaching significance without meaningful benefit in daily life. Section 'Understanding MCID', for the definition and its introduction in the 1980s by Jaeschke, Singer and Guyatt. Calculation-methodology section, for anchor-based against distribution-based approaches and the point that the choice can change the value obtained.",
+        "license": "CC BY-NC 4.0",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only to corroborate the definition and 1980s origin of the minimal clinically important difference, the two families of estimation method and their differing reference points, and the general point that a statistically significant treatment effect need not be one a patient experiences as beneficial. No wording, table, figure, example or organisational scheme is reproduced, adapted or closely paraphrased, and no numerical MCID value is taken from the article. All teaching material here is invented, so the displayed non-commercial terms are not relied on for any reuse."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://pmc.ncbi.nlm.nih.gov/robots.txt",
+          "checked": "2026-07-25",
+          "notes": "The PMC robots file was retrieved and read before substantive access. Its single wildcard record explicitly allows /articles/ ahead of the blanket disallow, names no AI crawler, declares no text-mining restriction, and requests a one-second crawl delay. The article was retrieved once over plain HTTPS at that allowed route, with no login, paywall, rate-limit breach or access-control bypass, and read directly. This review is used only as corroboration for points the neurology review already supports; it is a narrative review in a journal of modest standing, and no claim in this lesson rests on it alone."
+        }
+      },
+      {
+        "id": "source-niddk-diabetes-tests",
+        "type": "guideline",
+        "title": "Diabetes Tests & Diagnosis",
+        "creators": [
+          "National Institute of Diabetes and Digestive and Kidney Diseases"
+        ],
+        "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases, National Institutes of Health",
+        "issued": "2022-07",
+        "url": "https://www.niddk.nih.gov/health-information/diabetes/overview/tests-diagnosis",
+        "accessed": "2026-07-25",
+        "version": "Page content last reviewed July 2022",
+        "locator": "The fasting plasma glucose row of the diagnostic results table: 99 mg/dL or below indicates normal, 100 to 125 mg/dL indicates prediabetes, and 126 mg/dL or above indicates diabetes. The surrounding text supports the statement that a doctor usually uses a second test to confirm a diagnosis of diabetes, and the definition of fasting as having nothing to eat or drink except sips of water for at least eight hours before the test.",
+        "license": "US Government work; NIDDK content is published as a public service of the National Institutes of Health",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only to verify the three fasting plasma glucose diagnostic bands in mg/dL and the practice of confirming a diagnosis with a second test. These figures appear in this lesson to demonstrate that a diagnostic cut-point describes a level and cannot serve as an importance threshold for a change, which is a use the source does not itself make. No wording, table layout, illustration or patient-facing explanation from the page is reproduced or closely paraphrased."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://www.niddk.nih.gov/robots.txt",
+          "checked": "2026-07-25",
+          "notes": "The robots file was retrieved and read before substantive access. It carries a single wildcard user-agent record with a ten-second crawl delay, disallows only /system and /_internal, names no AI crawler and places no restriction on /health-information/, which is the path used here. No terms clause prohibiting automated retrieval of this public-service content was found. The page was requested once over plain HTTPS and its diagnostic table read directly, not through a search summary, with no login, paywall, rate-limit breach or access-control bypass."
+        }
+      }
+    ]
+  },
+  "claims": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-claims-v1",
+    "lessonId": "PREM-STA-012",
+    "lessonVersion": "0.1.0",
+    "claims": [
+      {
+        "id": "claim-significance-not-importance",
+        "statement": "A p-value, and the statistical significance derived from it, does not measure the size of an effect or the importance of a result, so the technical label carries no information about magnitude and none about whether anyone should act.",
+        "sceneIds": [
+          "scene-two-readings",
+          "scene-one-word-two-jobs",
+          "scene-mastery-check",
+          "scene-clinical-wrap-up"
+        ],
+        "sourceIds": [
+          "source-asa-p-value-statement"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "The interpretation of p-values and significance labels produced by conventional frequentist tests, as stated in a professional association's published principles. The lesson applies the point to invented two-group comparisons and does not extend it to Bayesian or decision-theoretic measures of evidence.",
+        "uncertainty": null,
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-significance-is-model-compatibility",
+        "statement": "A p-value indicates how incompatible the observed data are with one specified statistical model, the model that contains the null value together with every other assumption the calculation requires.",
+        "sceneIds": [
+          "scene-one-word-two-jobs"
+        ],
+        "sourceIds": [
+          "source-asa-p-value-statement"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "The referent of the probability behind a significance label. This lesson restates the point established in PREM-STA-008 in order to define the technical sense of the phrase, and does not develop which assumption a small value implicates.",
+        "uncertainty": "A small p-value does not identify which assumption in the model is responsible for the incompatibility. PREM-STA-008 develops that limit; this lesson states it and moves on.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-size-decides-significance",
+        "statement": "Whether a difference reaches statistical significance depends on the size of the study as well as on the size of the difference: in a large study very minor effects can produce statistically significant tests, and in a small study even large effects can be drowned in noise and fail to be detected.",
+        "sceneIds": [
+          "scene-one-word-two-jobs",
+          "scene-where-the-interval-sits",
+          "scene-practice",
+          "scene-transfer",
+          "scene-mastery-check"
+        ],
+        "sourceIds": [
+          "source-p-value-misinterpretations"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "The behaviour of conventional significance tests as sample size changes, for the two-group comparisons of means and of shares used in this lesson. The source states both halves of the point as corrections to catalogued misinterpretations.",
+        "uncertainty": "The specific sample sizes this lesson computes, including about 1970 and about 7870 per group for differences of 1.0 and 0.5 mg/dL, are its own arithmetic on an invented within-group spread of 16 mg/dL and are offered as illustration, not as sourced general results.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-report-estimates-and-intervals",
+        "statement": "Correct interpretation of a statistical test requires examining the size of the effect estimate together with its confidence limits, and treating which side of a conventional cut-off the p-value fell on as the least informative part of the report.",
+        "sceneIds": [
+          "scene-where-the-interval-sits",
+          "scene-practice",
+          "scene-transfer",
+          "scene-mastery-check",
+          "scene-clinical-wrap-up"
+        ],
+        "sourceIds": [
+          "source-p-value-misinterpretations"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Reporting and reading practice for effect estimates from conventional analyses. The lesson builds its four-position technique on top of this recommendation; the four-position scheme itself is this lesson's own instructional device, not a construct taken from the source.",
+        "uncertainty": null,
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-mcid-definition",
+        "statement": "The minimal clinically important difference is the smallest change in an outcome measure that patients perceive as beneficial, a concept introduced in the late 1980s by Jaeschke, Singer and Guyatt as the smallest difference in score in the domain of interest that patients perceive as beneficial.",
+        "sceneIds": [
+          "scene-choose-the-number",
+          "scene-mastery-check"
+        ],
+        "sourceIds": [
+          "source-mcid-neurology-review",
+          "source-mcid-methodology-review"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "The definition and attribution of the concept as reported in two independent reviews of the MCID literature. The lesson uses the concept to teach threshold reasoning and does not survey the many instrument-specific values published under this name.",
+        "uncertainty": "The reviews describe the concept as patient-referenced, which sits awkwardly with laboratory outcomes such as fasting glucose that a patient does not directly perceive. The lesson states this limitation explicitly and declines to supply an MCID for fasting glucose.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-mcid-methods",
+        "statement": "Estimates of a minimal clinically important difference are obtained by anchor-based methods, which compare change on the measure against an external standard the patient reports and considers meaningful, or by distribution-based methods, which work from the statistical characteristics of scores within a sample, and no gold-standard approach exists between them.",
+        "sceneIds": [
+          "scene-choose-the-number",
+          "scene-mastery-check"
+        ],
+        "sourceIds": [
+          "source-mcid-neurology-review",
+          "source-mcid-methodology-review"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "The two recognised families of estimation method and the absence of a single agreed standard between them, as described in reviews of the MCID literature for patient-reported outcome measures.",
+        "uncertainty": "The reviews record that the choice of method can change the value obtained, so a published threshold is partly an artefact of how it was estimated. The lesson's characterisation of distribution-based figures as answering a question about detectability is its own gloss on the described method, offered to the learner as such.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-mcid-context-specific",
+        "statement": "Minimal clinically important difference values are dynamic and context-specific: the same outcome measure applied to different study populations can yield different thresholds, and factors such as baseline severity bear on what counts as a worthwhile change.",
+        "sceneIds": [
+          "scene-choose-the-number",
+          "scene-transfer"
+        ],
+        "sourceIds": [
+          "source-mcid-neurology-review"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "The transferability of published importance thresholds between populations and settings, as reported for patient-reported outcome measures in neurological conditions and stated by the review as a general limitation of the concept.",
+        "uncertainty": "The review's evidence base is patient-reported outcome measures. The lesson extends the caution to a laboratory measure and to a service-level decision about screening attendance, and flags both as illustrative reasoning rather than sourced findings.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-statistical-significance-not-clinical-relevance",
+        "statement": "A change that reaches statistical significance need not be clinically relevant, because a treatment can produce a statistically significant effect that patients do not perceive as a meaningful benefit in their daily lives.",
+        "sceneIds": [
+          "scene-choose-the-number",
+          "scene-clinical-wrap-up"
+        ],
+        "sourceIds": [
+          "source-mcid-neurology-review",
+          "source-mcid-methodology-review"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "The relationship between a significance label and patient-perceived benefit, as stated in two reviews of the minimal clinically important difference literature. The lesson uses this to justify why a separate importance threshold is needed and makes no claim about any specific intervention.",
+        "uncertainty": null,
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-fpg-diagnostic-ranges",
+        "statement": "A national health institute publishes fasting plasma glucose diagnostic bands of 99 mg/dL or below for normal, 100 to 125 mg/dL for prediabetes, and 126 mg/dL or above for diabetes, with a second test usually used to confirm a diagnosis; these describe the level a person's glucose sits at and not the size of a change worth acting on.",
+        "sceneIds": [
+          "scene-where-the-interval-sits",
+          "scene-clinical-wrap-up"
+        ],
+        "sourceIds": [
+          "source-niddk-diabetes-tests"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "The published diagnostic bands and confirmation practice as stated on the institute's patient information page, reviewed July 2022, used in this lesson solely to show that a classification cut-point cannot serve as an importance threshold for a change. The lesson gives no diagnostic guidance and directs no testing.",
+        "uncertainty": "Diagnostic criteria are periodically revised and other bodies publish criteria that differ in detail, including in the units used outside the United States. The lesson names the publishing institute and the review date rather than presenting the bands as universal, and the teaching point does not depend on their exact values.",
+        "risk": "health-sensitive",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-threshold-not-sole-basis",
+        "statement": "Scientific conclusions and policy decisions should not be based only on whether a p-value passes a specified threshold.",
+        "sceneIds": [
+          "scene-mastery-check",
+          "scene-clinical-wrap-up"
+        ],
+        "sourceIds": [
+          "source-asa-p-value-statement"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "The published principle as it bears on a service-level decision taken from a reported result. The lesson applies it to an invented commissioning and clinical decision and does not prescribe any alternative decision rule.",
+        "uncertainty": null,
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      }
+    ]
+  },
+  "glossary": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-glossary-v1",
+    "lessonId": "PREM-STA-012",
+    "lessonVersion": "0.1.0",
+    "terms": [
+      {
+        "id": "term-statistical-significance",
+        "term": "statistical significance",
+        "definition": "The property of a test result whose p-value falls at or below a cut-off chosen in advance. The p-value measures how compatible the data are with one specified statistical model, so the label records where a number computed from the data landed relative to a line drawn beforehand. It reports nothing about how large the effect is, nothing about whether the effect would change a decision, and nothing about who would benefit.",
+        "aliases": [
+          "statistically significant",
+          "significant at the 0.05 level"
+        ],
+        "sceneIds": [
+          "scene-two-readings",
+          "scene-one-word-two-jobs",
+          "scene-choose-the-number",
+          "scene-where-the-interval-sits",
+          "scene-practice",
+          "scene-transfer",
+          "scene-mastery-check",
+          "scene-clinical-wrap-up"
+        ],
+        "alignment": {
+          "priorLesson": "PREM-STA-008",
+          "relation": "extend",
+          "note": "PREM-STA-008 introduced the label and its arithmetic. This lesson keeps that meaning exactly and extends it with the disambiguation the learner needs: in ordinary English significant means large enough to matter, and the technical phrase carries no such content. Scene 2 bridges the two senses where the everyday word first appears, and names the second question practical significance so it can be asked separately."
+        }
+      },
+      {
+        "id": "term-practical-significance",
+        "term": "practical significance",
+        "definition": "The property of an effect that is large enough to change a decision someone is actually facing. Judging it requires the effect estimate in the units of the decision, a threshold saying how much would be enough, and a view of what acting would cost. Only the first of those comes out of a statistical analysis, so this judgement is made by people and not returned by a test.",
+        "aliases": [
+          "clinical significance",
+          "clinical importance",
+          "practical importance"
+        ],
+        "sceneIds": [
+          "scene-one-word-two-jobs",
+          "scene-clinical-wrap-up"
+        ]
+      },
+      {
+        "id": "term-minimal-clinically-important-difference",
+        "term": "minimal clinically important difference",
+        "definition": "The smallest change in an outcome measure that patients perceive as beneficial. It belongs to the outcome, the population and the people judging, and it takes different values in different populations and at different baseline severities. Nothing in a study's own data determines it, and a threshold lifted from a paper about a different population needs a clinical argument before it can be reused.",
+        "aliases": [
+          "MCID",
+          "minimal important difference",
+          "minimum clinically important difference"
+        ],
+        "sceneIds": [
+          "scene-two-readings",
+          "scene-choose-the-number",
+          "scene-where-the-interval-sits",
+          "scene-transfer",
+          "scene-mastery-check",
+          "scene-clinical-wrap-up"
+        ]
+      },
+      {
+        "id": "term-importance-threshold",
+        "term": "importance threshold",
+        "definition": "The value an effect must reach before a particular group would act on it, written on the same axis and in the same units as the effect estimate. It is an input to the reading of a result, supplied by the people accountable for the decision, and it may be an estimated minimal clinically important difference or a figure a service has justified on its own grounds. Stated openly it can be argued with; left implicit it governs the conclusion anyway.",
+        "aliases": [
+          "decision threshold",
+          "threshold of importance"
+        ],
+        "sceneIds": [
+          "scene-choose-the-number",
+          "scene-where-the-interval-sits",
+          "scene-practice",
+          "scene-transfer",
+          "scene-mastery-check",
+          "scene-clinical-wrap-up"
+        ]
+      },
+      {
+        "id": "term-anchor-based-method",
+        "term": "anchor-based method",
+        "definition": "A way of estimating an importance threshold by comparing change on an outcome measure against an external standard, the anchor, which is usually something the patient reports and considers meaningful. The anchor supplies the judgement about what counts as beneficial and the measure supplies the scale.",
+        "aliases": [
+          "anchor-based approach"
+        ],
+        "sceneIds": [
+          "scene-choose-the-number",
+          "scene-mastery-check"
+        ]
+      },
+      {
+        "id": "term-distribution-based-method",
+        "term": "distribution-based method",
+        "definition": "A way of estimating an importance threshold from the statistical characteristics of scores within a sample, such as the standard deviation of change or the measurement error of the instrument. It answers a question about detectability, how large a change must be to stand clear of noise, which is related to but separate from whether a change matters to the person who has it.",
+        "aliases": [
+          "distribution-based approach"
+        ],
+        "sceneIds": [
+          "scene-choose-the-number",
+          "scene-mastery-check"
+        ]
+      },
+      {
+        "id": "term-effect-size",
+        "term": "effect size",
+        "definition": "The magnitude of an estimated effect, reported in the units of the outcome, such as 9.0 mg/dL of fasting glucose or 2.0 percentage points of screening attendance. It is the quantity a threshold comparison is made against, and it is the part of a result that a p-value cannot be decomposed back into.",
+        "aliases": [
+          "size of the effect",
+          "magnitude of the effect"
+        ],
+        "sceneIds": [
+          "scene-one-word-two-jobs",
+          "scene-practice"
+        ]
+      },
+      {
+        "id": "term-bias",
+        "term": "bias",
+        "definition": "A systematic distortion of a study estimate or conclusion introduced through design, conduct, measurement, analysis, or reporting. It moves every repeat of a study the same way, so it displaces a confidence interval bodily instead of widening it, and a threshold comparison carried out on a displaced interval returns a confident answer to the wrong question.",
+        "aliases": [
+          "systematic error"
+        ],
+        "sceneIds": [
+          "scene-mastery-check",
+          "scene-clinical-wrap-up"
+        ],
+        "alignment": {
+          "priorLesson": "PREM-SCI-008",
+          "relation": "adopt",
+          "note": "PREM-SCI-008 owns this term and its meaning is kept unchanged here, including the list of routes by which the distortion enters. This lesson adds no new sense and only draws out one consequence that matters for threshold reasoning: bias shifts an interval rather than widening it, so the arithmetic of a threshold comparison gives no warning when the estimate at its centre is displaced."
+        }
+      }
+    ]
+  },
+  "attributionHtml": "<h1>Attribution</h1>\n<h2>Lesson identity and licence</h2>\n<ul>\n<li>Lesson: <strong>PREM-STA-012 — Does a 9 mg/dL difference matter to a patient?</strong></li>\n<li>Graph outcome: <code>topic-statistics-data-statistical-practical-significance</code> (PREM-04.12, &quot;Statistical versus practical significance&quot;)</li>\n<li>Accountable principal: <strong>VSBDev</strong> (<code>github:VSBDev</code>)</li>\n<li>Course-content licence: <strong>Creative Commons Attribution 4.0 International (CC BY 4.0)</strong></li>\n<li>Author-stage state: <strong>draft</strong>, source confidence <strong>pending-review</strong></li>\n</ul>\n<p>VSBDev is accountable for the scientific, editorial, pedagogical, accessibility, rights, and provenance record in this pack. The local authenticated GitHub identity check <code>gh api user --jq .login</code> returned <code>VSBDev</code> on 2026-07-25.</p>\n<h2>Agent provenance</h2>\n<p>Material authoring assistance was used for this pack. The agent system, provider, model, and version are recorded in <code>lesson.json</code> as the literal placeholder <code>RUNTIME-STAMPED</code>; the operator stamps the real values with <code>npm run provenance:stamp</code> before the candidate is frozen. The authoring run is <code>claude-author-PREM-STA-012-e6be3ce3-2c6f-498f-9f4d-8b01f9c3a9db</code>.</p>\n<p>The instructions digest is <code>sha256:d150655bd6b2b08721d6a5a5da18cd0ed50f8e3344f7bce7cb1c621df06a16ea</code>. It covers the recorded discloseable UTF-8 authoring-task payload for this run, including its terminal newline. That payload is the operator&#39;s authoring instruction as transcribed for the record; it is not a verbatim export of every layer of instruction the run received, and the digest explicitly does <strong>not</strong> cover hidden provider, system, harness, or tool instructions that cannot be exported.</p>\n<p>Only the author role was used. No review, adjudication, or governance artifact was produced, inspected, or anticipated in this run.</p>\n<h2>Sources and how they were used</h2>\n<p>Every source in <code>references.json</code> was retrieved and read directly at the URL recorded there on 2026-07-25. No claim rests on a search-result snippet, a generated summary, or a source the run could not open. Agent-access terms were checked before substantive access and are recorded per source, together with the terms URL for the route actually used.</p>\n<table>\n<thead>\n<tr>\n<th>Source</th>\n<th>Used for</th>\n<th>Basis</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>American Statistical Association, news release on statistical significance and P-values (2016)</td>\n<td>Principle 1, that a p-value indicates how incompatible data are with a specified statistical model; principle 3, that conclusions should not rest only on a threshold being passed; principle 5, that neither a p-value nor statistical significance measures the size of an effect or the importance of a result</td>\n<td>Facts only, original expression</td>\n</tr>\n<tr>\n<td>Greenland and colleagues, &quot;Statistical tests, P values, confidence intervals, and power: a guide to misinterpretations&quot; (2016)</td>\n<td>Numbered items 7 and 8, that minor effects reach statistical significance in large studies and large effects can be missed in small ones; the guidance that interpretation requires effect estimates and confidence limits and not merely which side of 0.05 a p-value fell</td>\n<td>Facts only, original expression</td>\n</tr>\n<tr>\n<td>Mishra and colleagues, &quot;Minimal Clinically Important Difference (MCID) in Patient-Reported Outcome Measures for Neurological Conditions&quot; (2023)</td>\n<td>The definition of the MCID and its 1989 introduction by Jaeschke and colleagues; anchor-based and distribution-based estimation methods with no gold standard between them; MCID values being dynamic and context-specific and differing across study populations; a statistically significant change not necessarily being one a patient perceives</td>\n<td>Facts only, original expression</td>\n</tr>\n<tr>\n<td>Jeyaraman and colleagues, &quot;Beyond statistical significance: Embracing minimal clinically important difference for better patient care&quot; (2025)</td>\n<td>Corroboration only, for the definition and 1980s origin of the MCID, the two families of estimation method and their differing reference points, and the separation of statistical significance from patient-perceived benefit</td>\n<td>Facts only, original expression</td>\n</tr>\n<tr>\n<td>NIDDK, Diabetes Tests &amp; Diagnosis</td>\n<td>The fasting plasma glucose diagnostic bands in mg/dL and the practice of confirming a diagnosis with a second test</td>\n<td>Facts only, original expression</td>\n</tr>\n</tbody></table>\n<p>No source&#39;s wording, structure, table, figure, numbered item, example, question, or dataset is reproduced or adapted. Two sources carry Creative Commons licences that would permit broader reuse, one CC BY 4.0 and one CC BY-NC-SA 4.0, and one carries CC BY-NC 4.0; none of those grants is relied on, because every use here is of facts restated in original expression. No numerical minimal important difference value is carried into this lesson from any source.</p>\n<h3>A route excluded on agent-access grounds</h3>\n<p>The peer-reviewed companion article to the American Statistical Association statement is published at <code>https://www.tandfonline.com/doi/full/10.1080/00031305.2016.1154108</code>. That host&#39;s robots file carries an explicit record disallowing all paths to the named AI crawler GPTBot, which this project treats as a restriction on agent ingestion. The route was excluded before any substantive reading and the article was neither opened nor processed. The association&#39;s own public release, which reproduces the six principles in full, was used instead, and the reference record says so.</p>\n<p>The two open-access reviews were read at <code>pmc.ncbi.nlm.nih.gov/articles/</code>, a path the PMC robots file explicitly allows ahead of its blanket disallow. The legacy <code>/pmc/articles/</code> route on the <code>www.ncbi.nlm.nih.gov</code> host is disallowed by that host&#39;s own robots file and was not used.</p>\n<h2>Original material in this pack</h2>\n<p>Everything below was created for this lesson and is covered by the pack&#39;s CC BY 4.0 licence:</p>\n<ul>\n<li>both chart sources under <code>charts/</code>, their alt text, and their long descriptions;</li>\n<li>the four-position scheme for reading an interval against a threshold, its table, and the worked example that runs it in four steps;</li>\n<li>the three-row sample-size table, the four studies in the position table, the three papers in the practice scene, the press release, the retinal-screening reminder trial, and studies S and T in the mastery check;</li>\n<li>the invented 5 mg/dL importance threshold, the 5 percentage point commissioning threshold, the service, the meeting, the consultant, and the patient;</li>\n<li>all scene prose, worked reasoning, checks, misconceptions, assessment items, answer logic, and rubrics.</li>\n</ul>\n<p>Every number in the pack was recomputed for this lesson. The canonical figures are fixed by the Statistics and Data block brief so that the twelve lessons describe one consistent study: sixty adults with type 2 diabetes, thirty per group, within-group standard deviation 16 mg/dL, difference 9.0 mg/dL, standard error 4.13, t = 2.18 on 58 degrees of freedom, two-sided p = 0.029, and a 95% interval of 0.9 to 17.1. The derived studies in this pack were constructed against those same figures: the half-size pilot at fifteen per group returns p = 0.12, and the large replication at six hundred per group returns p = 0.030 on a difference of 2.0 mg/dL, both matching the comparison studies used in PREM-STA-008.</p>\n<h2>Boundaries</h2>\n<p>The cohort, the study, the replication, the reminder trial, the service, the commissioning group, the meeting, the consultant, the patient, and every threshold in this pack are invented for teaching. Nothing in the pack reports an observation about real patients, and nothing in it recommends or supports a diagnostic, monitoring, or treatment decision. The lesson carries the <em>teaching example, not medical advice</em> boundary in its orientation, practice, transfer, and clinical wrap-up scenes.</p>\n<p>The 5 mg/dL importance threshold used throughout is an illustration, labelled as such wherever it appears, including inside both chart long descriptions. It is not a published minimal clinically important difference and no source is cited for it. The lesson states explicitly, in its opening scene and again in the scene that introduces the concept, that it will not supply an importance threshold for fasting glucose, and it gives the reason: such a threshold is anchored to what patients perceive and value, fasting glucose is a laboratory measure a patient does not directly perceive, and the judgement belongs to a clinical team working on a specific decision.</p>\n<p>The fasting plasma glucose diagnostic bands are the one set of real clinical values in the pack. They are attributed to the institute that publishes them, dated to its July 2022 review, and used for a single purpose the source does not itself serve: to show that a cut-point describing a level cannot be borrowed as a threshold for a change. That claim is marked <code>health-sensitive</code> in <code>claims.json</code>.</p>\n<h2>Third-party assets</h2>\n<p>None. <code>thirdPartyAssets</code> in <code>lesson.json</code> is empty. Both charts in this pack are declarative JSON authored here and rendered from that JSON at build time; no external image, font, script, plotting library, dataset, or remote resource is referenced.</p>\n"
+}

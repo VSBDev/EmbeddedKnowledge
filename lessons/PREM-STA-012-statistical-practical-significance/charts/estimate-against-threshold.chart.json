@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-chart-v1",
+  "id": "chart-estimate-against-threshold",
+  "type": "normal-curve",
+  "title": "The dinner-timing estimate and its interval, with a candidate importance threshold marked",
+  "alt": "Bell curve centred on 9.0 mg/dL with the band from 0.9 to 17.1 shaded; a line at 0 falls outside the band and a line at 5 falls inside it.",
+  "longDescription": "The curve is centred on the observed difference of 9.0 mg/dL and has a standard deviation of 4.13 mg/dL, the standard error of that difference. The shaded band runs from 0.9 to 17.1 mg/dL, is 16.2 mg/dL wide, and is the 95% confidence interval. Three vertical lines are marked. The line at 0 mg/dL is the value meaning no difference between the groups; it sits outside the shaded band, which is the same fact as the p-value of 0.029 falling below 0.05. The line at 9.0 mg/dL is the observed difference and the centre of the curve. The line at 5 mg/dL is a candidate importance threshold, a value a clinical team would have to choose; 5 mg/dL is used here only as an illustration and is not a published minimal important difference for fasting glucose. Read the two marked lines against the band and notice that they behave differently. The band clears 0 completely, so the study supports a difference in the stated direction. The band contains 5, running 4.1 mg/dL below it and 12.1 mg/dL above it, so the study is compatible with an effect smaller than the threshold and compatible with an effect three times the threshold. Clearing zero and clearing an importance threshold are separate questions, and this study answers only the first.",
+  "xAxis": {
+    "label": "Difference in mean fasting glucose, late dinner group minus early dinner group",
+    "unit": "mg/dL",
+    "min": -6,
+    "max": 24,
+    "ticks": [
+      { "at": -5, "label": "-5" },
+      { "at": 0, "label": "0" },
+      { "at": 5, "label": "5" },
+      { "at": 10, "label": "10" },
+      { "at": 15, "label": "15" },
+      { "at": 20, "label": "20" }
+    ]
+  },
+  "yAxis": {
+    "label": "Relative frequency of a repeat estimate",
+    "unit": null
+  },
+  "series": [
+    {
+      "id": "series-dinner-timing-estimate",
+      "label": "Where a repeat of the 60-person study would land",
+      "mean": 9,
+      "sd": 4.13
+    }
+  ],
+  "shadedRegions": [
+    { "from": 0.9, "to": 17.1, "label": "95% confidence interval, 0.9 to 17.1 mg/dL" }
+  ],
+  "markers": [
+    { "x": 0, "label": "0, no difference" },
+    { "x": 5, "label": "5, candidate importance threshold (illustrative)" },
+    { "x": 9, "label": "9.0, observed difference" }
+  ]
+}
