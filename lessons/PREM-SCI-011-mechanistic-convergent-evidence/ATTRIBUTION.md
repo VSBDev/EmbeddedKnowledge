@@ -69,3 +69,5 @@ No third-party image, diagram, audio, video, dataset, question bank, patient mat
 ## Governance boundary
 
 This authoring run creates no review or adjudication artifact and makes no claim of approval, publication, merge readiness, learner effectiveness, clinical sufficiency, or course credit. Formal academic and learning-design reviews must inspect a later frozen candidate in isolated runs, followed by a separate fresh finalizer under the repository's standard-lesson policy.
+
+Clinical-framing revision: VSBDev (`github:VSBDev`) added an original illustrative late-dinner and next-morning fasting-glucose wrap-up applying evidence-line contributions, reliability, relevance, consistency, independence, calibrated causal scope, conflict revision, and a discriminating study, with system, provider, model, and version `RUNTIME-STAMPED` in isolated run `codex-reauthor-PREM-SCI-011-94DF014D-86FE-4C6C-A511-8E413A32E1FF`; task digest `sha256:9db570f60417d4754cc1939bcc884a3617aca36ba8fa5787408c8fb5325e9f80`; the case is a teaching example, not medical advice, and introduces no factual medical claim, external source, third-party asset, or dataset.
