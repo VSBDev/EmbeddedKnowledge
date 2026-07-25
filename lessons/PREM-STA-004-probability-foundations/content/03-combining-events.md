@@ -67,7 +67,7 @@ Rearranging the conditional definition gives the rule for "both happened".
 :::{definition}
 :id: definition-multiplication-rule
 
-For any two events,
+For any two events $A$ and $B$ with $P(B) > 0$,
 
 $$P(A \cap B) = P(B) \times P(A \mid B).$$
 
@@ -98,6 +98,8 @@ $$P(\text{both late}) = 0.500 \times 0.492 = 0.246.$$
 **The decision the routes expose.** Route two used the conditional form, and it had to. The draws are dependent: removing one late diner changes what is left in the bowl. Multiplying the plain probabilities would give $0.500 \times 0.500 = 0.250$, which is wrong, though only by 0.004 because 60 is large enough that one removal barely moves the pool.
 
 **Where the same error stops being harmless.** Ask instead for the probability that two people drawn from the 30 late diners both read below 140. The correct chain is $\frac{9}{30} \times \frac{8}{29} = 0.300 \times 0.276 = 0.083$. The independence shortcut gives $0.300 \times 0.300 = 0.090$, overstating the answer by about nine per cent. Shrink the pool further and the error grows. The rule to carry forward is that independence is a property you check, never a convenience you assume.
+
+**Explain the key decision to yourself.** Why did drawing without replacement require the conditional form of the multiplication rule instead of the plain product?
 :::
 
 :::{check}

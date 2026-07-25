@@ -33,11 +33,11 @@ $$P(\text{condition} \mid \text{positive}) = \frac{180}{670} \approx 0.269.$$
 
 Twenty-seven per cent, against the ninety per cent in the opening sentence. Notice what stayed put and what moved: both fractions have 180 on top. The first divides by the 200 people with the condition. The second divides by the 670 people with a positive result. It is the same swap of denominators that made $P(H \mid L)$ and $P(L \mid H)$ different numbers in the study table, and here it changes the answer by a factor of more than three.
 
-The complement rule finishes the picture. If 0.269 of positives have the condition, then $1 - 0.269 = 0.731$ of them do not. Roughly seven in ten people holding a positive result from this screen are in for a scare, a repeat test, and no disease.
+The complement rule finishes the picture. If 0.269 of positives have the condition, then $1 - 0.269 = 0.731$ of them do not. In this invented table, 490 of the 670 positive results are false positives. The table does not say whether anyone experiences anxiety or receives follow-up testing.
 
 ## The same test, a different room
 
-Move the identical screen down the corridor to a clinic that sees people already flagged as higher risk, where 20 in 100 have the condition. Nothing about the test changes.
+Move the screen down the corridor to a clinic that sees people already flagged as higher risk, where 20 in 100 have the condition. For this invented comparison, change only how common the condition is and hold the two conditional performance rates fixed.
 
 | | Has the condition | Does not have it | All |
 | --- | ---: | ---: | ---: |
@@ -47,7 +47,7 @@ Move the identical screen down the corridor to a clinic that sees people already
 
 $$P(\text{condition} \mid \text{positive}) = \frac{1{,}800}{2{,}200} \approx 0.818.$$
 
-The 90 per cent and the 95 per cent are untouched, because they are conditioned on the person's true state and the population mix cannot reach them. The answer to the patient's question moved from 0.269 to 0.818, because that question conditions on the test result, and how many positives are true depends on how many people had the condition to begin with.
+The 90 per cent and the 95 per cent are unchanged here because the example holds them fixed by stipulation. In real applications, rates conditioned on true state are not fixed test attributes: estimates can change with the threshold, case spectrum and subgroup composition, and reference-standard procedures, so they must fit the population and setting where they are used. Within this bounded comparison, the answer to the patient's question moved from 0.269 to 0.818 because that question conditions on the test result, and how many positives are true depends on how many people had the condition to begin with.
 
 You can get both answers straight from the definition, without a table. In the walk-in clinic,
 
@@ -64,7 +64,7 @@ and $P(\text{condition} \mid \text{positive}) = 0.018 / 0.067 \approx 0.269$. In
 
 **Why it appeals.** Both statements can be written with the same words in a different order, and English does not flag the swap. Formal logic calls it confusion of the inverse; the two conditional probabilities are treated as though they were one quantity.
 
-**What is actually true.** $P(A \mid B)$ and $P(B \mid A)$ answer different questions and are equal only by coincidence. They share a numerator, $P(A \cap B)$, and divide it by different totals. In screening, the detection rate is conditioned on the disease and describes the test; the probability that a positive result is correct is conditioned on the result, describes the patient, and shifts with how common the condition is in the group being screened. This is why the same test can be reassuring in one clinic and misleading in another.
+**What is actually true.** $P(A \mid B)$ and $P(B \mid A)$ answer different questions and are equal only by coincidence. They share a numerator, $P(A \cap B)$, and divide it by different totals. In screening, the detection rate is conditioned on the disease; the probability that a positive result is correct is conditioned on the result and shifts with how common the condition is in the group being screened. The two-clinic comparison isolates that prevalence effect by holding the conditional performance rates fixed. Real performance estimates can also vary across thresholds, populations, and reference procedures.
 
 **The repair.** Before you accept any probability attached to a test or a study, say the denominator out loud. "Out of everyone who has the condition" and "out of everyone who tested positive" are different rooms of people. If the sentence does not tell you which room, it has not told you the probability.
 
@@ -88,5 +88,5 @@ The screening tables above are the reason the second sentence is not a small sli
 :claims: claim-conditional-probability-definition, claim-conditional-asymmetry-screening, claim-p-value-conditional-direction
 :sources: source-sep-probability-interpretations, source-eom-conditional-probability, source-screening-predictive-values, source-p-value-misinterpretations
 
-The reference works support the definition of conditional probability. The screening review supports the separation of detection-rate measures, which condition on the person's true state, from predictive values, which condition on the test result and depend on how common the condition is in the tested group, and it names this reversal confusion of the inverse. The guide to misinterpretations supports the statement that a $p$ value assumes the tested hypothesis rather than giving its probability. The screen, both clinics, all counts, and the study are invented.
+The reference works support the definition of conditional probability. The screening review supports the separation of detection-rate measures, which condition on the person's true state, from predictive values, which condition on the test result and depend on how common the condition is in the tested group. It also supports the caveat that test-performance estimates are tied to threshold and applicable sample, and it names the reversal confusion of the inverse. The guide to misinterpretations supports the statement that a $p$ value assumes the tested hypothesis rather than giving its probability. The screen, both clinics, all counts, and the study are invented.
 :::

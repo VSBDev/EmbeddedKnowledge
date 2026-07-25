@@ -1,6 +1,6 @@
 # What a probability is a promise about
 
-Say the probability that a late-dinner participant's night comes in at or above 140 mg/dL is 0.70. What has been promised?
+For this teaching construction, stipulate that each independent night has a fixed 0.70 probability of coming in at or above 140 mg/dL. What has been promised?
 
 Not that seven of any ten nights will be high. The honest content of 0.70 is about the long run: as the number of recorded nights grows, under conditions that stay the same, the share of high nights settles toward 0.70 and stops wandering far from it. That reading of a probability is the one this block uses, and it is the reason the number is checkable at all. You can hold a probability up against a record and see whether the record agrees.
 
@@ -55,7 +55,7 @@ Here is one participant's invented forty-night record, generated so that every n
 
 Two readings of that line matter.
 
-The first four nights all came in low. That is not evidence the 0.70 was wrong; four independent low nights have probability $0.30^{4} = 0.0081$ at any given starting point, which is uncommon without being impossible, and across sixty participants each recording five to fourteen nights, some such run turning up somewhere is unremarkable. After ten nights the running share stands at 0.50, still nowhere near 0.70. Short records are poor witnesses. Lesson 06 turns that observation into the reason one study's result is not the last word.
+The first four nights all came in low. Under the stipulated model, four independent low nights have probability $0.30^{4} = 0.0081$ at a stated starting point: uncommon, but possible. The run does not change the next night's probability under that model, and it does not prove the stipulated model wrong. If 0.70 or the independence assumption were being estimated instead, however, the observed run would be evidence for estimation or model checking. After ten nights the running share stands at 0.50, still nowhere near 0.70. Short records can vary widely. Lesson 06 turns that observation into the reason one study's result is not the last word.
 
 The second reading is about how the line eventually behaves. This is the **law of large numbers**: as trials accumulate under stable conditions, the observed relative frequency of an event closes on its probability. The law is a statement about the long run and says nothing about the next trial.
 

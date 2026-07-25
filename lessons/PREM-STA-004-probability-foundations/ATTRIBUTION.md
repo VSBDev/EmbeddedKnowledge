@@ -79,6 +79,6 @@ Every clinical detail in this pack is invented for teaching. The cohort, the scr
 
 None. The chart under `charts/` is declarative JSON authored for this pack and is offered under CC BY 4.0. No image, audio, video, software, or dataset from any third party is included.
 
-## Candidate boundary
+## Finalization boundary
 
-This pack is a draft candidate. Every claim in `claims.json` remains `pending-review` and the lesson's `sourceConfidence` remains `pending-review`. No review record, adjudication, or publication transition is present, and none may be inferred from this file.
+This pack remains a draft. Every claim in `claims.json` remains `pending-review` and the lesson's `sourceConfidence` remains `pending-review`. The eligible advisory reviews are preserved under `reviews/`, and the fresh finalization record is preserved in `adjudication.json` with its final-commit and runtime identity values reserved for operator stamping. No publication transition has occurred, and none may be inferred from this file.
