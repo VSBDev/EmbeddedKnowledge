@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-QNT-004-LEARNING-DESIGN-C777A991",
+  "lessonId": "PREM-QNT-004",
+  "lessonVersion": "0.2.0",
+  "candidateCommit": "1193a9b04ad95b74e42ac09e5670b9c4490a117f",
+  "role": "learning-design",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev (learning-design reviewer)",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.6",
+      "runId": "agy-learning-design-PREM-QNT-004-C777A991-152B-4F19-9E14-7879C5E781BC",
+      "instructionsDigest": "sha256:4efc31abf365a51083dce90e7f8a5751c6ca2642340da2e579a5afc0fbfd8152"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "The accountable principal github:VSBDev is the author of this candidate commit, so principal-level independence is absent. However, agent-level role isolation has been maintained: this agent did not consult any other role reviews or adjudication drafts in the current run."
+  },
+  "evidenceChecked": [
+    "lessons/PREM-QNT-004-balance-solve-check/lesson.json",
+    "lessons/PREM-QNT-004-balance-solve-check/claims.json",
+    "lessons/PREM-QNT-004-balance-solve-check/references.json",
+    "lessons/PREM-QNT-004-balance-solve-check/glossary.json",
+    "lessons/PREM-QNT-004-balance-solve-check/ATTRIBUTION.md",
+    "lessons/PREM-QNT-004-balance-solve-check/content/010-orientation.md",
+    "lessons/PREM-QNT-004-balance-solve-check/content/020-concept.md",
+    "lessons/PREM-QNT-004-balance-solve-check/content/030-worked-example.md",
+    "lessons/PREM-QNT-004-balance-solve-check/content/040-misconception.md",
+    "lessons/PREM-QNT-004-balance-solve-check/content/050-practice.md",
+    "lessons/PREM-QNT-004-balance-solve-check/content/060-transfer.md",
+    "lessons/PREM-QNT-004-balance-solve-check/content/070-synthesis.md",
+    "lessons/PREM-QNT-004-balance-solve-check/content/080-clinical-wrap-up.md",
+    "lessons/PREM-QNT-004-balance-solve-check/assessment.json",
+    "CONTENT-STANDARD.md"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-004-balance-solve-check/content/080-clinical-wrap-up.md#L1-L40",
+      "finding": "The scene 'scene-clinical-wrap-up' is designated as a 'worked-example' scene in 'lesson.json', but its source file 'content/080-clinical-wrap-up.md' contains no interactive check block (':::{check}') or self-explanation prompt. Section 5.1 of CONTENT-STANDARD.md requires worked examples to include a self-explanation prompt about the decision that most strongly determines the solution, prompting the learner to active retrieval or reflection before proceeding.",
+      "resolution": "Wrap a diagnostic self-explanation prompt at the end of the scene in a ':::{check}' block (e.g., asking the learner to explain why the restriction t ≠ 0 is required when rearranging the equation for R, or how the domain constraint t ≥ 0 would catch an algebraically valid but physically impossible solution) and provide corresponding feedback."
+    },
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-004-balance-solve-check/lesson.json#L111-L119",
+      "finding": "In 'lesson.json', the scene 'scene-clinical-wrap-up' is declared with 'claimCoverage': 'no-material-claims'. However, the scene's source file ('content/080-clinical-wrap-up.md') explicitly applies and teaches the quantitative claims of unit-independent quantity equations, unit-dependent numerical equations, and algebraic rearrangements. Under Section 4.3 of CONTENT-STANDARD.md, a scene can only be declared as containing no material claims if it is limited to routing, instructions, reflection, or another non-evidentiary learning action.",
+      "resolution": "Change the 'claimCoverage' field of 'scene-clinical-wrap-up' in 'lesson.json' to 'claims-mapped' and map it to the respective claim IDs in 'claims.json' (adding the scene ID to the 'sceneIds' lists for 'claim-quantity-equation', 'claim-numerical-equation', and 'claim-unit-independent-rearrangement')."
+    },
+    {
+      "severity": "major",
+      "target": "lessons/PREM-QNT-004-balance-solve-check/content/080-clinical-wrap-up.md#L40",
+      "finding": "The clinical wrap-up scene applies several quantitative claims (such as quantity vs numerical-value equations and unit-independent algebraic rearrangement) but lacks a ':::{source-note}' block mapping these applications to their verified sources. According to Section 4.3 of CONTENT-STANDARD.md, teaching statements must be treated as material claims, mapped to structured sources, and exposed in the scene where the learner applies the claim.",
+      "resolution": "Add a ':::{source-note}' block at the end of 'content/080-clinical-wrap-up.md' mapping the clinical wrap-up calculations to the respective claims and sources (citing 'claim-quantity-equation', 'claim-numerical-equation', and 'claim-unit-independent-rearrangement', referencing 'source-nist-si-chapter7')."
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-QNT-004-balance-solve-check/lesson.json",
+      "finding": "The candidate commit matches the expected target. The overall lesson structure, scene order, objectives, and file mappings are correctly declared in the lesson metadata, and the version is correctly aligned as '0.2.0'.",
+      "resolution": null
+    }
+  ],
+  "limitations": [
+    "Expert-simulation review: This review represents a single-pass advisory input by a simulated learning-design expert under standard-lesson-v3 guidelines. No real learner testing was conducted.",
+    "Conflict of interest: The same GitHub principal (VSBDev) is responsible for the authoring and review run operators. Agent-level isolation was maintained, but principal-level independence is absent.",
+    "Scope restriction: The review is strictly bounded to learning-design metrics (e.g., clarity, coherence, practice, alignment, and transfer). Scientific accuracy, rights audits, and final typesetting checks are excluded.",
+    "Technical verification limits: No rendered build environment, screen reader, or keyboard navigation pathways were evaluated physically; findings are based solely on the static Markdown and JSON source files.",
+    "Cross-lesson terminology validation limits: Due to strict scope restrictions prohibiting reads under site/ and scripts/, site/data/premed-terminology.json could not be inspected."
+  ],
+  "signedAt": "2026-07-24T23:08:49Z"
+}
