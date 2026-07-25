@@ -15,9 +15,13 @@ on:
 
 permissions:
   contents: read
-  # The stage labeller writes one stage/tier label back onto the pull request. A pull_request run
-  # from a fork still receives a read-only token, so this widens nothing for untrusted contributors.
-  pull-requests: write
+  # The provenance checks read pull-request reviews.
+  pull-requests: read
+  # A pull request's labels are issue labels, so the stage labeller needs only issues: write. That
+  # is deliberately narrower than pull-requests: write, which would also let a workflow merge a pull
+  # request -- and this repository's ruleset requires no approving review, so merge authority would
+  # then rest on convention alone. With this scope no workflow can merge anything: the maintainer
+  # keeps the final say by permission, not by habit.
   issues: write
 
 jobs:
