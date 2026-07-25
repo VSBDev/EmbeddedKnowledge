@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PSY-INT-004-ACADEMIC-562CCEC9",
+  "lessonId": "PSY-INT-004",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "34eb2b9e21741e9c3840b9bce77d900bf7b02d70",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable academic reviewer",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PSY-INT-004-562CCEC9-362D-445C-9E8E-B875B978B8DC",
+      "instructionsDigest": "sha256:169237cfac11f34da117315176f0bf7dd4f58d6d5ed244bc5c5dccc33745ba7c"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#PSY-INT-004@0.1.0",
+    "content/01-two-notes.md#the-examination-has-a-clock-on-it",
+    "content/02-mood-and-affect.md#definition-mood-and-affect",
+    "content/03-writing-the-lines.md#worked-example-three-lines",
+    "content/04-shorthand.md#misconception-shorthand-is-decompressible",
+    "content/04-shorthand.md#the-first-note-line-by-line",
+    "content/04-shorthand.md#this-is-measurable-and-it-has-been-measured",
+    "content/05-practice.md#check-practice-supported",
+    "content/05-practice.md#check-practice-faded",
+    "content/05-practice.md#check-practice-independent",
+    "content/06-second-reader.md#check-transfer-eleven-minutes",
+    "content/06-second-reader.md#check-transfer-letter",
+    "content/07-clinical-wrap-up.md#callout-wrap-up-boundary",
+    "assessment.json#item-rewrite-as-time-bound",
+    "assessment.json#item-mood-and-affect-line",
+    "assessment.json#item-what-the-phrase-discards",
+    "assessment.json#item-integrated-rewrite",
+    "claims.json#claim-mse-describes-observation-period",
+    "claims.json#claim-mood-is-reported-affect-is-observed",
+    "claims.json#claim-affect-descriptors",
+    "claims.json#claim-affect-ratings-vary-between-clinicians",
+    "claims.json#claim-record-language-changes-later-clinicians",
+    "claims.json#claim-negative-attitude-categories-in-notes",
+    "claims.json#claim-stigmatizing-terms-prevalence-and-disparity",
+    "claims.json#claim-hypothyroid-symptom-overlap",
+    "references.json#source-statpearls-mse",
+    "references.json#source-barzilay-affect-rating",
+    "references.json#source-goddu-record-language",
+    "references.json#source-park-record-attitudes",
+    "references.json#source-himmelstein-stigmatizing-terms",
+    "references.json#source-niddk-hypothyroidism",
+    "glossary.json#terms",
+    "ATTRIBUTION.md#sources-used-for-facts-only",
+    "course/PSYCHIATRY-SYLLABUS.md#PSY-PLO-03",
+    "course/PSYCHIATRY-SYLLABUS.md#PSY-130",
+    "CONTENT-STANDARD.md#accuracy",
+    "CONTENT-STANDARD.md#epistemics",
+    "RIGHTS-POLICY.md#facts-only-original-expression",
+    "Barzilay-et-al-2019-doi:10.3389/fpsyt.2019.00288",
+    "Goddu-et-al-2018-doi:10.1007/s11606-017-4289-2",
+    "Goddu-et-al-2019-correction-doi:10.1007/s11606-018-4583-7",
+    "Park-et-al-2021-doi:10.1001/jamanetworkopen.2021.17052",
+    "Himmelstein-et-al-2022-doi:10.1001/jamanetworkopen.2021.44967",
+    "NIDDK-Hypothyroidism#symptoms"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "content/01-two-notes.md#the-examination-has-a-clock-on-it",
+      "finding": "The rule that every sentence in a mental-status examination must remain true after adding \"during those forty minutes\" is too absolute and conflicts with both the cited reference and this lesson's own mood definition. A mental-status examination is a contemporaneous assessment, but it contains directly observed behaviour alongside elicited subjective material such as mood, thought content, perceptions, and cognition. Reported material may have an explicitly stated interval extending beyond the interview. Treating the examination as only a record of events witnessed during the appointment risks misclassifying legitimate attributed reports as history and makes the clock test fail on the lesson's own mood line.",
+      "resolution": "Revise the central procedure, objective, worked example, glossary, and affected assessment logic to distinguish directly observed findings anchored to the encounter from attributed current or recent self-report with its own stated time window, and from longer-course history. Do not require every mental-status sentence literally to describe only the observed minutes."
+    },
+    {
+      "severity": "major",
+      "target": "content/02-mood-and-affect.md#definition-mood-and-affect",
+      "finding": "The statement \"Neither is evidence for the other\" is scientifically over-absolute. Mood and affect have different sources and neither should be substituted for the other, but observed affect is compared with reported mood when congruence is assessed; a discrepancy can be evidence that warrants clarification while remaining insufficient to overwrite the person's report. The cited StatPearls chapter expressly describes congruent and incongruent affect by comparing observed expression with reported mood. The current wording also contradicts the lesson's subsequent congruence instruction and is repeated in the glossary and assessment feedback.",
+      "resolution": "Replace the mutual-non-evidence rule with the defensible distinction that mood and affect must be attributed separately and neither alone determines the other. Explain that their relationship may be assessed and discrepancies explored without treating observed expression as a replacement for reported mood. Apply the correction to glossary.json and assessment.json."
+    },
+    {
+      "severity": "major",
+      "target": "content/04-shorthand.md#the-first-note-line-by-line",
+      "finding": "The lesson incorrectly teaches that \"denies\" necessarily records refusal or pushback and that \"refused\" necessarily invents conflict. In clinical English, \"denies\" conventionally marks a reported absence, and the lesson's own cited StatPearls source uses \"denies suicidal ideations\" as negation in its example documentation. \"Refused\" can likewise denote declining an offered intervention, although it may be less neutral or less informative in some contexts. The cited stigma studies support context-sensitive concern about loaded descriptors; they do not establish the categorical semantic rule taught here. In R.'s case, \"denies SI\" is wrong because R. reported passive thoughts and because the phrase discards clinically relevant detail—not because the verb inherently means refusal. This erroneous rule is propagated through practice and safety-critical assessment items.",
+      "resolution": "Retain the requirement to document the actual question, answer, time frame, plan, intent, and action where clinically relevant, but correct the linguistic rationale. Teach that \"denies\" or \"refused\" may be accurate yet overly compressed, ambiguous, or stigmatizing depending on context. Revise content/05-practice.md and the affected assessment answers, rubrics, and common-error statements accordingly."
+    },
+    {
+      "severity": "major",
+      "target": "assessment.json#item-mood-and-affect-line",
+      "finding": "The keyed answer is not uniquely defensible in calling the affect \"incongruent with the mood reported.\" The stimulus supplies a broadly positive reported mood over an unspecified interval and several rapidly changing expressions tied to different subjects. Transient weeping about work does not by itself establish that the entire observed affect is incongruent with a sustained report of feeling generally well, while laughter during a family argument raises a separate question of appropriateness to content. The item merges mood congruence, content appropriateness, range, and lability, then rewards one unqualified judgement.",
+      "resolution": "Specify the reported mood's time frame and design observations that unambiguously support the intended congruence judgement, or remove congruence from the keyed requirement and score accurate separate attribution plus a bounded description of range, intensity, reactivity, and observed events. Keep congruence with reported mood distinct from appropriateness to conversational content."
+    },
+    {
+      "severity": "major",
+      "target": "claims.json#claim-affect-descriptors",
+      "finding": "A central objective requires learners to describe affect by range, intensity, reactivity, and congruence, but the claim ledger and cited source support only part of that model. The mapped claim names range and congruence; it does not define or support reactivity, while learner prose and assessment treat reactivity and intensity as established conventional dimensions. The source note therefore does not expose support for all material definitions learners must use.",
+      "resolution": "Add an authoritative psychiatric source and mapped claim that precisely defines the affect dimensions actually taught, including reactivity and intensity and any relevant variation in terminology, or narrow the objective, prose, glossary, and assessment to the dimensions the existing evidence supports."
+    },
+    {
+      "severity": "minor",
+      "target": "references.json#source-goddu-record-language",
+      "finding": "The numerical values used by the lesson—20.3 versus 25.1 for attitudes and 4.7 versus 5.3 for pain management—are the corrected values published in the 2019 correction, DOI 10.1007/s11606-018-4583-7. The reference record cites only the 2018 article and does not identify that correction; accessible versions of the original article display the superseded values 20.6 versus 25.6 and 5.56 versus 6.22. The lesson's numbers are defensible, but their exact source is not currently traceable from the record.",
+      "resolution": "Add the correction as a source or explicitly include its DOI and corrected-value locator in the Goddu record, then map the quantitative claim to the record that actually supplies the values."
+    },
+    {
+      "severity": "minor",
+      "target": "content/04-shorthand.md#this-is-measurable-and-it-has-been-measured",
+      "finding": "The conclusion \"The habit is uncommon\" is not supported by the finding that 2.5% of notes contained at least one term from the study's restricted descriptor lists. Himmelstein and colleagues explicitly state that the limited lists likely underestimate stigmatizing language, and the lesson's own claim uncertainty acknowledges that the measure misses other phrasing. A measured term-list prevalence cannot establish the prevalence of the broader documentation habit.",
+      "resolution": "Replace the general conclusion with the bounded result: 2.5% of notes in that sample contained at least one listed descriptor. Preserve the explicit warning that this is not an estimate of all stigmatizing or judgemental documentation."
+    }
+  ],
+  "limitations": [
+    "The assigned scope expressly excluded site/, scripts/, and workflows. I therefore did not inspect review.schema.json, quorum-policy.json, the generated Psychiatry graph node, or the terminology ledger. The exact outcome and prerequisite IDs and cross-lesson terminology continuity could not be ind...",
+    "Several PMC endpoints presented an automated browser-verification page. The relevant evidence was still checked through indexed primary full text, the Frontiers article PDF, the Goddu correction record, and directly accessible StatPearls and NIDDK pages. This access limitation did not prevent a r...",
+    "No jurisdiction-specific documentation policy or specialist panel opinion was available. This review evaluates academic accuracy, source support, assessment logic, and the declared non-clinical scope; it does not establish compliance with a particular service's record standard."
+  ],
+  "signedAt": "2026-07-25T23:10:15Z"
+}
