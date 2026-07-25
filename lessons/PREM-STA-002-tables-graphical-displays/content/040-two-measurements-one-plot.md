@@ -22,7 +22,7 @@ Read the axes before the cloud. Horizontal is the interval between dinner and sl
 
 **3. How strong is it?** Weak enough that you should say so out loud. Between 1.5 and 2.5 hours the plot holds one person at 181 mg/dL and another at 100. Between 6 and 6.5 hours it holds one at 164 and one at 116. The vertical spread at any given interval is far larger than the drift across the whole horizontal range. Knowing when someone ate tells you very little about that individual's next reading.
 
-**4. Is anyone an outlier?** One person at an interval of 1.7 hours has a glucose of 100 mg/dL, the lowest reading in the cohort, sitting well below everyone else at that end. This is the same low value flagged in the histogram, now with a second coordinate attached. A scatter can expose a point that neither column would call unusual on its own.
+**4. Is anyone an outlier?** One person at an interval of 1.7 hours has a glucose of 100 mg/dL, the lowest reading in the cohort, sitting well below everyone else at that end. This is the same low value flagged in the histogram, now with a second coordinate attached. The scatter adds conditional context: it shows that an already low glucose value is also unusual among people with similarly short intervals.
 
 **Conclusion.** A mild downward drift, a wide cloud, and one point worth checking. That is the whole of what this plot supports.
 :::

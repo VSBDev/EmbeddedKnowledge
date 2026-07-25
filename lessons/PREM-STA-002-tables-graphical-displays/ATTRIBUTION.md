@@ -28,7 +28,6 @@ Every source in `references.json` was retrieved and read directly at the URL rec
 | NIST/SEMATECH e-Handbook of Statistical Methods, 1.3.3.26 Scatter Plot | The questions a scatter plot is used to answer about two variables | Facts only, original expression |
 | Government Analysis Function, Data visualisation: charts | Matching a display type to the statistical relationship shown; the effect of breaking a bar chart's numerical axis and the advice against it; the different treatment of a line chart's vertical axis | Facts only, original expression |
 | Government Analysis Function, Data visualisation: tables | The conditions under which a table serves a reader better than a chart | Facts only, original expression |
-| NIDDK, Diabetes Tests & Diagnosis | Fasting plasma glucose reference values, the use of a second test to confirm a diagnosis, and the definition of fasting | Facts only, original expression |
 
 No source's wording, structure, table, figure, example, question, or dataset is reproduced or adapted. The Government Analysis Function terms of use place most of its content under the Open Government Licence v3.0 while separately withholding permission to reuse the site's images; no image from that source is used, redrawn, or adapted here.
 
@@ -37,7 +36,7 @@ No source's wording, structure, table, figure, example, question, or dataset is 
 Everything below was created for this lesson and is covered by the pack's CC BY 4.0 licence:
 
 - the sixty-person illustrative cohort, its sixty fasting glucose values, its sixty dinner-to-sleep intervals, and every count, proportion, and group mean derived from them;
-- the constructed two-humped counter-case cohort in `charts/bimodal-counter-case.chart.json`;
+- the constructed two-humped counter-case in `charts/bimodal-counter-case.chart.json`, with every observation placed at its stated bin midpoint;
 - all six chart sources under `charts/`, their alt text, and their long descriptions;
 - the frequency tables, the six-site waiting-time table, the conference poster, the clinic-audit bar chart, the ninety-morning logbook, and the Monday-meeting slide;
 - all scene prose, worked reasoning, checks, assessment items, answer logic, and rubrics.
@@ -46,7 +45,7 @@ The cohort's headline figures are fixed by the Statistics and Data block brief s
 
 ## Boundaries
 
-The cohort, the clinic, the meeting, the logbook, and every case in this pack are invented for teaching. Nothing in the pack reports an observation about real patients, and nothing in it recommends or supports a diagnostic, monitoring, or treatment decision. Clinical reference values appear only so that the lesson's display choices have real cut-points to count against, and they are attributed to the source that publishes them. The lesson carries the *teaching example, not medical advice* boundary in its orientation, transfer, and clinical wrap-up scenes.
+The cohort, the clinic, the meeting, the logbook, and every case in this pack are invented for teaching. Nothing in the pack reports an observation about real patients, and nothing in it recommends or supports a diagnostic, monitoring, or treatment decision. The clinical wrap-up uses explicitly invented equal-width analytic bands that have no diagnostic or management meaning. The lesson carries the *teaching example, not medical advice* boundary in its orientation, transfer, and clinical wrap-up scenes.
 
 ## Third-party assets
 

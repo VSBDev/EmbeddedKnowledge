@@ -9,17 +9,19 @@ Scroll back to the histogram in the previous scene if you need it. This scene wo
 
 **Step 0. Check what the picture is made of.** Before reading any shape, read the construction. The horizontal axis is fasting glucose in mg/dL, running 95 to 185. The vertical axis is a count of people, starting at zero. The bins are 10 mg/dL wide and there are nine of them. A reading that lands exactly on a boundary goes into the upper bin, so the single value of 125 mg/dL is counted in the 125 to 135 bar. That rule has to be stated somewhere, because a reader who assumes the opposite convention will get a different table from the same data.
 
-**Step 1. How many humps?** One. The counts climb from the left, peak at the 135 to 145 bin, and fall away to the right. A single hump means the group behaves like one population on this measurement, so a single centre is a sensible thing to quote. Had there been two humps, the whole idea of a typical value would be in trouble, which is the case worked below.
+**Step 1. How many humps?** One is visible. The counts climb from the left, peak at the 135 to 145 bin, and fall away on both sides. For this displayed sample, that makes a single centre easier to interpret than it would be if several modes were visible. It does not establish that the group is one population: sampling variation and bin choice can hide or create apparent modes. Several visible humps would prompt an investigation of possible subgroups or other explanations, not prove how many kinds of person are present.
 
 **Step 2. Where is the middle?** The tallest bar sits at 135 to 145, and the mean of 142 mg/dL falls inside it, near its right edge. Agreement between the peak and the average is worth noting rather than assuming; when they disagree, the disagreement is the finding.
 
 **Step 3. How wide is it?** The lowest occupied bin is 95 to 105 and the highest is 175 to 185, so the values span roughly 80 mg/dL. Note what the picture will not give you: the actual lowest and highest readings are somewhere inside those end bins, and a histogram never says where. Three fifths of the cohort, 36 people, sit between 125 and 155. The bulk is packed into a 30 mg/dL window, and the other 24 people are spread across the 60 mg/dL on either side of it. A group can be tight in the middle and still reach a long way out.
 
-**Step 4. Is it lopsided?** Yes, mildly. Walking left from the peak, counts drop 13, 11, 6, 3, 1. Walking right, they drop 13, 12, 8, 4, 2. The right side takes longer to reach zero, so the tail stretches further towards high glucose than towards low. Whether that lean belongs to this measurement or to these particular sixty people is not something one histogram can settle. The next lesson gives the lean a name and a number.
+**Step 4. Is it lopsided?** Not clearly. Walking left from the peak, counts drop 13, 11, 6, 3, 1. Walking right, they drop 13, 12, 8, 4, 2. Those bin counts are not mirror images, but both sides occupy four bins beyond the modal bin. The raw values have the same mean and median, 142 mg/dL, and extend from 100 to 181 mg/dL. At this sample size and bin width, the defensible description is approximately symmetric, with no clear lean. A different bin width could change the visual impression, so the next lesson will put a number on shape rather than infer it from one set of bars.
 
 **Step 5. Is anybody far out on their own?** Nobody is separated by a visible gap. The two people in the 175 to 185 bin are the highest, and four more sit in the bin directly below them, so the top thins out rather than detaching. At the other end, one person occupies the lowest bin alone with only three people above them. That single low reading is the closest thing here to an outlier, and it earns a look at the record rather than a rule.
 
-**The answer.** One hump, centred near 142 mg/dL, most people between 125 and 155, a longer reach towards high values than low, and one low reading worth checking. The average of 142 carried the second of those five findings and nothing else.
+**The answer.** One visible hump, centred near 142 mg/dL, most people between 125 and 155, no clear lean at this bin width, and one low reading worth checking. The average of 142 carried the second of those five findings and nothing else.
+
+**Explain the key decision.** Why must you inspect the bin width before treating the number of visible humps or the direction of a lean as a stable feature of the data?
 :::
 
 ## The same reading as a frequency table
@@ -43,14 +45,14 @@ The third column is each count divided by 60, the part-to-whole proportion intro
 
 ## When one number describes nobody
 
-Now the case that makes the point sharply. Below is a different sixty-person set, constructed for this lesson. Its mean is also exactly 142 mg/dL.
+Now the case that makes the point sharply. Below is a different sixty-value set, constructed for this lesson by placing every observation at the midpoint of its 10 mg/dL bin. Its mean is also exactly 142 mg/dL: the weighted sum of the nine midpoints and their counts is $8{,}520$, and $8{,}520/60 = 142$.
 
 :::{chart} ../charts/bimodal-counter-case.chart.json
 :::
 
-Two humps, one near 120 and one near 160, and a hollow between them. The mean falls in the hollow. Two people out of sixty sit in the bin containing the group's own average, and the arithmetic is faultless.
+Two visible humps, one near 120 and one near 160, and a hollow between them. The mean falls in the hollow. Two values out of sixty sit in the bin containing the set's own average, and the arithmetic is faultless.
 
-A researcher who reported only "mean fasting glucose 142 mg/dL" would describe these two cohorts identically, and the second one is telling you something the first is not: there are probably two kinds of person in that room. Finding out what separates them is the next question. The histogram is what makes the question askable, and it is why looking precedes summarising.
+A researcher who reported only "mean fasting glucose 142 mg/dL" would describe these two sets identically, and the second picture raises a question the first does not: could subgroups, a data-generating process, or the chosen bins explain the two visible humps? The histogram alone cannot choose among those explanations or establish that there are two kinds of person. It makes the next investigation askable, which is why looking precedes summarising.
 
 :::{check}
 :id: check-what-the-mean-missed
