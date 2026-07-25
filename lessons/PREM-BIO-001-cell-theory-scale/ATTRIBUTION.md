@@ -3,7 +3,7 @@
 ## Lesson identity
 
 - Lesson: **PREM-BIO-001 — Five times too small to see: cell theory, scale, and emergence**
-- Version: `0.1.1`
+- Version: `0.1.2`
 - Outcome: `topic-cell-biology-cell-theory-scale` / PREM-05.01
 - Accountable principal: VSBDev (`github:VSBDev`)
 - Course-content licence: [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/)
@@ -45,7 +45,7 @@ Eighteen sources support the factual claims. Every one was used for facts only, 
 - `source-peters-hooke`, Peters: Hooke's cork observations, his comparison of cork with a mushroom rather than with plant tissue, and his separate note that cells in plants were filled with fluid. This article exists to correct the popular retelling of the episode, and it is cited here to avoid repeating the version it corrects.
 - `source-kettenmann-virchow`, Kettenmann: cell theory established in Berlin in 1838 and 1839 by Schleiden for plants and Schwann for animals, Virchow's *Cellularpathologie* of 1858, and the origin of histological diagnosis.
 - `source-mullerwille-cell-theory`, Müller-Wille: the standard three-part statement of the tenets, including that cells arise from division of pre-existing cells, and the point that the propositions were refined over decades.
-- `source-alberts-muscle-fusion`, Alberts and colleagues, *Molecular Biology of the Cell*: the boundary case that a multinucleate skeletal muscle fibre forms by fusion of pre-existing myoblasts and does not arise directly through one cell division.
+- `source-alberts-muscle-fusion`, Alberts and colleagues, *Molecular Biology of the Cell*: the boundary case that a multinucleate skeletal muscle fibre forms by fusion of pre-existing myoblasts and does not arise directly through one cell division, and the distinction between a stem cell's capacity for self-renewal and differentiation and whether that population is actively cycling or quiescent.
 - `source-alberts-extracellular-matrix`, Alberts and colleagues, *Molecular Biology of the Cell*: that animal tissues include extracellular material whose amount and organisation vary greatly between tissue types, so a joined population of one cell kind is not a general definition of tissue.
 - `source-weisberg-how-science-works`, Weisberg and Thanukos, *How Science Works*: the distinction between broad theories and potentially narrower hypotheses, the variability of those labels between fields, and the revisability of scientific knowledge.
 - `source-odenwald-epithelial-barrier`, Odenwald and Turner: continuous epithelial barrier function requiring a contiguous layer and sealed paracellular space while individual cells support transcellular transport.

@@ -8,7 +8,7 @@ Here, **tissue** means organised biological material made from one or more cell 
 
 ## What the crypt is doing while you read this
 
-At the bottom of the tube sit **stem cells**, meaning cells that keep dividing and whose daughters can either stay as stem cells or go on to become something specialised. Those daughters are pushed upward, and as they climb they change: they stop dividing and take on a job, most of them absorbing water and salt from the gut contents, some of them making mucus. Near the top they work for a few days, then die and are shed into the **lumen**, the open space inside the tube of the gut, and carried away. Signalling from the base falls off as a cell climbs, and how much of that signal a cell is still receiving is one way it registers how far from the base it has travelled. Lesson 06 takes that up properly.
+At the bottom of the tube sit **stem cells**, meaning cells with the capacity to self-renew and to produce daughters that become specialised. That definition is about capacity, not continuous activity: some stem-cell populations are quiescent until activated, whereas crypt-base stem cells actively supply this lining. Their differentiating daughters are pushed upward, and as they climb they change: they stop dividing and take on a job, most of them absorbing water and salt from the gut contents, some of them making mucus. Near the top they work for a few days, then die and are shed into the **lumen**, the open space inside the tube of the gut, and carried away. Signalling from the base falls off as a cell climbs, and how much of that signal a cell is still receiving is one way it registers how far from the base it has travelled. Lesson 06 takes that up properly.
 
 The lining, in other words, is not maintained. It is continuously rebuilt, and it never stops.
 
@@ -37,15 +37,15 @@ The word **cell** arrives already loaded. A prison cell is a room. A spreadsheet
 
 ## What this lesson has to answer
 
-Everything above was unavailable to anyone before the middle of the seventeenth century, and not for want of looking. Physicians had been opening bodies and describing what they found for two thousand years, and they described organs, membranes, vessels, and fluids. Nobody described cells, because nobody could see one.
+Everything above was unavailable to anyone before the middle of the seventeenth century, and not for want of looking. Physicians had been opening bodies and describing what they found for two thousand years, and they described organs, membranes, vessels, and fluids. Nobody described cells, because nobody could resolve them as separate units.
 
 That is a claim about a number, and the next scene asks you to work the number out.
 
 :::{source-note}
-:claims: claim-crypt-cell-count, claim-crypt-architecture, claim-epithelial-renewal, claim-cell-and-bacteria-counts, claim-individual-cell-division-boundary, claim-tissue-composition
+:claims: claim-crypt-cell-count, claim-crypt-architecture, claim-epithelial-renewal, claim-cell-and-bacteria-counts, claim-individual-cell-division-boundary, claim-tissue-composition, claim-stem-cell-capacity
 :sources: source-nguyen-colonic-crypt, source-vanderwath-crypt-model, source-sender-cell-numbers, source-hatton-cell-count, source-alberts-muscle-fusion, source-alberts-extracellular-matrix
 
 A 2025 review of colonic crypt biology supports the crypt's layout, the upward migration, the fall in signalling along the crypt axis, and the three-to-five-day renewal of the lining. A 2013 modelling study of crypt organisation supplies the cell counts for a descending-colon crypt and reports the same renewal figure for humans. A cell-biology textbook chapter supplies the boundary on the cell definition: mature skeletal muscle fibres are living cells formed by fusion of pre-existing myoblasts and do not themselves divide. The two cell-count estimates come from different teams using different methods: one gives $3\times10^{13}$ human cells and $3.8\times10^{13}$ bacteria in the colon for a 70 kg reference man, the other gives about 36 trillion cells for an adult male and about 28 trillion for an adult female. They disagree by tens of per cent and agree on the order of magnitude, which is the only part this lesson uses.
 
-A separate cell-biology textbook chapter supports the broader tissue boundary used here: animal tissues include organised cells and extracellular material, whose relative amounts and arrangements vary greatly between tissue types. The renewal sources report a population-level interval and cell-type variation; the simplified wording above therefore does not claim that every crypt cell shares one lifetime.
+A separate cell-biology textbook chapter supports the broader tissue boundary used here: animal tissues include organised cells and extracellular material, whose relative amounts and arrangements vary greatly between tissue types. The muscle chapter also supplies the general stem-cell boundary that capacity for self-renewal and differentiated progeny does not imply continuous cycling; the crypt review supplies the active crypt-base example. The renewal sources report a population-level interval and cell-type variation; the simplified wording above therefore does not claim that every crypt cell shares one lifetime.
 :::

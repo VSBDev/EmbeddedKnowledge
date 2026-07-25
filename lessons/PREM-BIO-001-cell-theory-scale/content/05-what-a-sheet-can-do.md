@@ -21,7 +21,7 @@ The operative word is **organisation**, meaning which component sits where, what
 
 **It renews while remaining continuous.** Much of the lining turns over on a three-to-five-day timescale and absorptive cells last about four to five days, while the barrier remains continuous. That is possible because the work is divided in space and in time: stem cells dividing at the base, cells changing job as they climb, mature cells working near the surface, and worn cells shed into the lumen. The interval describes coordinated population turnover, not simultaneous replacement of every crypt cell.
 
-Put those together and the opening question of this module has an answer. The lining is built from many small units instead of one large one because everything it has to do is a property of an arrangement, and an arrangement needs parts. A single continuous sheet of living material could not retire a worn section without tearing a hole in itself. A population of units retires them one at a time.
+Put those together and three tissue-level properties have an answer: continuous coverage, positional organisation, and coordinated renewal depend on how many cells are arranged across space and time. That does not make every epithelial task emergent. Transcellular transport and membrane regulation remain properties of individual cells, while the joined population coordinates replacement without synchronously removing every component.
 
 ## Do the renewal arithmetic
 
