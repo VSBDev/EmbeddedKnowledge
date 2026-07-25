@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-SCI-006-ACADEMIC-C8406A78",
+  "lessonId": "PREM-SCI-006",
+  "lessonVersion": "0.2.0",
+  "candidateCommit": "b47e716fe022788280765faaf74c2e54614fd35a",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable operator, academic reviewer",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-SCI-006-C8406A78-DCA8-4F12-B5F8-22861EE0A3C0",
+      "instructionsDigest": "sha256:696b87887b1fd8bed68d16faff510e43ec7e054e779c5f9624854b1162fee409"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#identity-version-outcomes-prerequisites-objectives-scenes-and-claimCoverage",
+    "content/010-when-numbers-agree.md#full-scene",
+    "content/020-four-question-audit.md#full-scene",
+    "content/030-worked-alertness-audit.md#full-scene",
+    "content/040-practise-and-repair.md#full-scene",
+    "content/050-transfer-to-team-coordination.md#full-scene",
+    "content/060-defend-the-judgment.md#full-scene",
+    "content/070-clinical-wrap-up.md#full-scene",
+    "assessment.json#all-items-answer-logic-rubrics-thresholds-and-retry-routes",
+    "claims.json#all-eight-claims-scene-mappings-source-mappings-scope-and-uncertainty",
+    "references.json#all-four-source-records-locators-and-agentAccess-states",
+    "glossary.json#all-nineteen-terms-definitions-and-scene-mappings",
+    "diagrams/measurement-audit.diagram.json#all-nodes-edges-alt-and-longDescription",
+    "ATTRIBUTION.md#full-attribution-and-provenance-record",
+    "course/PREMED-SYLLABUS.md#PLO-09-through-PLO-13",
+    "JCGM VIM 2.15, 2.17, 2.19-2.25, 2.39 and 2.41 via https://jcgm.bipm.org/vim/en/",
+    "NIST Technical Note 1297 sections 2, 3 and Appendix D.1 via https://www.nist.gov/pml/nist-technical-note-1297",
+    "NISTIR 7959 section 3.1 via https://nvlpubs.nist.gov/nistpubs/ir/2013/NIST.IR.7959.pdf",
+    "Standards for Educational and Psychological Testing (2014), chapter 1 validity and chapter 2 reliability/precision, via https://www.testingstandards.net/uploads/7/6/6/4/76643089/standards_2014edition.pdf",
+    "American Diabetes Association Standards of Care in Diabetes—2026, section 2 measurement variability and sample/source distinctions, via https://diabetesjournals.org/care/article/49/Supplement_1/S27/163926/2-Diagnosis-and-Classification-of-Diabetes",
+    "Independent recalculation of the worked and assessed means, ranges, offsets, and percentage offset"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "lesson.json#scene-clinical-wrap-up.claimCoverage",
+      "finding": "The manifest declares the clinical wrap-up to contain no material claims, and the scene ends by saying that it cites no source. The scene nevertheless teaches the lesson's material propositions about random and systematic error, averaging, repeatability, reproducibility, and construct-validity evidence, while also introducing glucose-measurement assertions. Repetition or application does not make those claims non-material, so the missing claim-to-scene mapping and same-scene source note leave a substantial evidence gap.",
+      "resolution": "Change this scene to claims-mapped, add it to every applicable claim sceneIds list, and add a same-scene source note that names every supporting source. Add an appropriate current authoritative claim and source for any retained glucose-specific methodological assertions, or remove those assertions and keep the example wholly within already supported measurement propositions."
+    },
+    {
+      "severity": "major",
+      "target": "content/070-clinical-wrap-up.md#name-what-stayed-the-same-and-what-changed",
+      "finding": "The proposed repeatability check holds only meter, person, procedure, and day fixed. It does not require replicate measurements on the same or similar object/measurand over a short interval with the operating and physiological conditions held stable. Glucose is time-varying and has substantial within-person and diurnal variation, so same-day reading-to-reading scatter can reflect real biological change rather than random measurement error. The earlier categorical sentence that this scatter represents a random error component is therefore not warranted. This conflicts with JCGM VIM 2.20 and teaches a false shortcut in the lesson's central error model.",
+      "resolution": "Base analytic repeatability on repeated measurements of a stable control/reference material or suitable aliquots of the same specimen over a justified short interval. If a person-based example is retained, define the measurand, sample type/source, timing, and relevant physiological conditions, and explicitly separate biological variation from measurement error. Frame cross-system reproducibility around the same or similar stable specimen/reference material with changed conditions named."
+    },
+    {
+      "severity": "major",
+      "target": "assessment.json#rubric-operational-construct/criterion-narrow-or-test",
+      "finding": "The declared objective objective-evaluate-construct-validity requires judging convergent, discriminant, content, process, population, and setting evidence. This rubric awards its validity point for either narrowing the interpretation or proposing any relevant evidence plan, and rubric-transfer-greenhouse likewise accepts one omission, one irrelevant influence, or one evidence proposal. A learner can therefore meet the 11-of-14 mastery rule without evaluating supplied evidence across the six declared categories. The answer prose lists the categories, but the scored construct does not require the objective's stated performance.",
+      "resolution": "Either narrow the objective to the evidence-selection and boundary-setting performance actually assessed, or add an assessment stimulus containing relevant and irrelevant examples of the declared evidence types and require the learner to judge their support, limits, and rival explanations. Align the rubric and mastery minima so the full retained objective must be demonstrated."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#item-scatter-shift",
+      "finding": "Independent recalculation confirms the numerical logic: the worked timer has mean 212 ms, range 2 ms, and +12 ms mean offset; practice Instruments A and B have means 50.0 and 52.0 with ranges 0.8 and 0.2; assessment Devices P and Q have means 100.0 and 105.0 with ranges 1.0 and 0.2. The keyed scatter-versus-shift conclusions and the greenhouse +8% calculation are correct within their stated fictional reference cases.",
+      "resolution": "No change required for these calculations or keyed numerical conclusions."
+    }
+  ],
+  "limitations": [
+    "The user-scoped prohibition on site/ prevented inspection of the public review schema, quorum policy, generated terminology ledger, and generated atomic graph node. The artifact follows .github/REVIEW_TEMPLATE/academic.md, and the local syllabus PLO scope was checked, but cross-lesson terminology continuity and the exact generated graph record remain unverified.",
+    "The environment was read-only and the user prohibited scripts/ and site/, so source preflight, schema validation, and full-repository validation were not run. This verdict addresses academic content and assessment logic, not structural merge readiness.",
+    "The DOI resolver routes for the VIM and NISTIR did not open directly in the web tool; the corresponding official BIPM/JCGM and NIST publications were accessible and checked instead.",
+    "The clinical example was reviewed only for measurement-science accuracy and educational boundary. No device-specific glucose protocol, specimen definition, or empirical record was supplied, so a more granular clinical-laboratory validation was not possible."
+  ],
+  "signedAt": "2026-07-25T01:13:15Z"
+}
