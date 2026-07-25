@@ -1,0 +1,213 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-claims-v1",
+  "lessonId": "PREM-STA-007",
+  "lessonVersion": "0.1.0",
+  "claims": [
+    {
+      "id": "claim-ci-definition",
+      "statement": "A confidence interval is an interval estimate for a population quantity, computed from sample data as the point estimate plus and minus a multiplier times the standard error of that estimate, and it supplies a range of values likely to contain the parameter of interest; a two-sided interval brackets the parameter from above and below, while a one-sided interval supplies a single bound.",
+      "sceneIds": [
+        "scene-estimate-with-a-range",
+        "scene-nine-milligrams",
+        "scene-reading-intervals"
+      ],
+      "sourceIds": [
+        "source-nist-confidence-limits",
+        "source-nist-what-are-ci"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "Two-sided intervals for a mean or for a difference between two means, built on a normal or t sampling distribution. The handbook states the interval-estimate framing and the estimate-plus-or-minus-multiplier-times-standard-error form; this lesson names the three parts as a recipe and applies them to its own cohort.",
+      "uncertainty": "The form assumes the sampling distribution of the estimate is approximately normal. This lesson works with means of 30 and 120 per group and does not treat small samples, strongly skewed outcomes, or intervals for proportions and ratios, where other constructions are used.",
+      "risk": "routine",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-confidence-level-long-run",
+      "statement": "A stated confidence level is a property of the procedure and not a probability attached to one computed interval: a 95% confidence interval does not mean there is a 95% probability that the interval contains the true value, and the confidence coefficient is the proportion of samples of a given size whose intervals would be expected to contain it, so that repeated sampling from the same population would produce intervals bracketing the true parameter in approximately 95% of cases.",
+      "sceneIds": [
+        "scene-estimate-with-a-range",
+        "scene-ninety-five-percent-of-what",
+        "scene-reading-intervals"
+      ],
+      "sourceIds": [
+        "source-nist-confidence-limits",
+        "source-nist-what-are-ci"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "The frequentist reading of a confidence level, which is the reading used throughout this lesson and in the clinical-trial reporting conventions it describes. Both handbook sections state it explicitly, one of them in the negative form used in the misconception scene.",
+      "uncertainty": "Other statistical frameworks produce intervals for which a probability statement about the parameter is meaningful, and they require an additional input in the form of a prior distribution. The lesson names that this alternative exists and does not teach it.",
+      "risk": "routine",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-normal-975-quantile",
+      "statement": "In the standard normal distribution the value with cumulative probability 0.975 is 1.960, the value with cumulative probability 0.950 is 1.645, and the value with cumulative probability 0.995 is 2.576, so two-sided intervals at the 95%, 90% and 99% levels use those three multipliers.",
+      "sceneIds": [
+        "scene-estimate-with-a-range",
+        "scene-nine-milligrams",
+        "scene-what-moves-the-edges",
+        "scene-a-different-trial"
+      ],
+      "sourceIds": [
+        "source-nist-normal-table"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "Tabulated quantiles of the standard normal distribution as published by NIST, read from its summary row of commonly used values and confirmed against the main table entry of 0.47500 for the area from 0 to 1.96.",
+      "uncertainty": "The values are rounded to three decimal places in the source. The step from a quantile to a two-sided interval multiplier is arithmetic and is shown in the lesson.",
+      "risk": "routine",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-t-multiplier-at-58-df",
+      "statement": "The critical value of the Student's t distribution at 58 degrees of freedom for a cumulative probability of 0.975 is 2.002, so a two-sided 95% interval built on the t distribution for a comparison of two groups of 30 uses a multiplier of about 2.00 in place of the normal curve's 1.960.",
+      "sceneIds": [
+        "scene-nine-milligrams"
+      ],
+      "sourceIds": [
+        "source-nist-t-table"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "The single tabulated value at 58 degrees of freedom. The lesson uses it only to show the size of the approximation it accepts by working with 1.96 throughout, and quantifies that approximation as about 0.2 mg/dL at each limit for this cohort.",
+      "uncertainty": "Which multiplier is exact depends on assumptions about the two groups' standard deviations that this lesson takes as given from its own constructed cohort. The lesson states that it uses 1.96 for clarity and names the situation in which the exact multiplier should be preferred.",
+      "risk": "routine",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-two-sample-pooled-interval",
+      "statement": "Comparing the means of two independent samples whose standard deviations are equivalent uses a pooled standard deviation together with the factor sqrt(1/N1 + 1/N2), with N1 + N2 - 2 degrees of freedom, and the assumption that the two standard deviations are equivalent should be tested before it is relied on.",
+      "sceneIds": [
+        "scene-nine-milligrams"
+      ],
+      "sourceIds": [
+        "source-nist-two-sample"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "Two independent groups of continuous measurements. The source presents the structure for the two-sample statistic; this lesson uses the same standard error to build an interval, which is the standard correspondence between the two.",
+      "uncertainty": "The source presents a separate form for the case where the two standard deviations are not equivalent. This lesson's cohort was constructed with a single within-group standard deviation of 16 mg/dL, so the pooled form applies to it by construction, and the lesson does not teach the test of that assumption.",
+      "risk": "routine",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-width-depends-on-n-and-sd",
+      "statement": "The width of a confidence interval narrows as the number of observations increases, through a square-root term in the standard error, and widens as the sample standard deviation increases, so reaching half the width requires about four times as many observations with everything else unchanged.",
+      "sceneIds": [
+        "scene-what-moves-the-edges",
+        "scene-service-decision"
+      ],
+      "sourceIds": [
+        "source-nist-confidence-limits"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "Intervals for a mean or for a difference between means, where the sample size enters the standard error under a square root. The source states both dependences directly; the four-times-for-half-the-width consequence is arithmetic on the same square-root term and is worked through in the lesson on its own figures.",
+      "uncertainty": "The rule assumes the population spread and the design stay the same as the sample grows. A larger study that recruits a broader population can raise the standard deviation and so recover less width than the square-root rule promises.",
+      "risk": "routine",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-width-depends-on-level",
+      "statement": "Raising the confidence level widens the interval with no change to the data, because the level enters the calculation only through the multiplier, which grows from 1.645 at 90% to 1.960 at 95% and 2.576 at 99%.",
+      "sceneIds": [
+        "scene-what-moves-the-edges"
+      ],
+      "sourceIds": [
+        "source-nist-normal-table",
+        "source-nist-confidence-limits"
+      ],
+      "support": "inference",
+      "confidence": "high",
+      "scope": "Two-sided intervals of the estimate-plus-or-minus-multiplier-times-standard-error form. The multiplier values are tabulated by the source and the interval form is stated by the handbook; the consequence that the interval widens follows from the two together and is demonstrated in the lesson on one fixed estimate and standard error.",
+      "uncertainty": "The sources state the form and the quantiles separately and do not draw this consequence in the words used here. The lesson derives it and shows the resulting intervals for one dataset.",
+      "risk": "routine",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-ich-e9-report-ci",
+      "statement": "International guidance on statistical principles for clinical trials, adopted by the US Food and Drug Administration as guidance for industry, states that estimates of treatment effects should be accompanied by confidence intervals whenever possible and that the way in which they will be calculated should be identified, and that two-sided confidence intervals are generally appropriate for estimating the possible size of the difference between two treatments.",
+      "sceneIds": [
+        "scene-one-number",
+        "scene-a-different-trial",
+        "scene-service-decision"
+      ],
+      "sourceIds": [
+        "source-ich-e9"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "Statistical principles for clinical trials supporting marketing applications in Europe, Japan and the United States. Quoted here as a reporting expectation for effect estimates, not as a rule about how any individual analysis must be carried out.",
+      "uncertainty": "The guidance dates from 1998 and has since been extended by an addendum on estimands and sensitivity analysis. The addendum changes how a treatment effect is defined and does not remove the expectation that an estimate is reported with an interval. Journal and reporting-guideline conventions outside the regulatory setting are separate documents and are not relied on here.",
+      "risk": "routine",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-ich-e9-frequentist",
+      "statement": "The same clinical-trials guidance defines frequentist methods, naming confidence intervals among them, as methods that are interpreted in terms of the frequency of certain outcomes occurring in hypothetical repeated realizations of the same experimental situation.",
+      "sceneIds": [
+        "scene-ninety-five-percent-of-what"
+      ],
+      "sourceIds": [
+        "source-ich-e9"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "The guidance glossary's definition, used in this lesson to show that the repeated-sampling reading is the one regulators write into clinical-trial practice and not a classroom nicety.",
+      "uncertainty": "The definition is a statement of how a family of methods is interpreted and not itself a mathematical result. The lesson pairs it with the handbook's plainer statement of the same reading.",
+      "risk": "routine",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-ich-e9-margins",
+      "statement": "The same guidance states that for equivalence trials two-sided confidence intervals should be used and equivalence is inferred when the entire confidence interval falls within pre-specified equivalence margins whose choice must be justified clinically, and that for safety and tolerability the use of confidence intervals is preferred to hypothesis testing because the imprecision arising from low frequencies of occurrence is then clearly demonstrated.",
+      "sceneIds": [
+        "scene-service-decision"
+      ],
+      "sourceIds": [
+        "source-ich-e9"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "Equivalence and noninferiority trials, and the reporting of safety and tolerability data. Used in this lesson to establish that reading an interval against a clinically chosen value is established regulatory practice, and that a wide interval is treated as information about imprecision.",
+      "uncertainty": "The guidance sets that rule for equivalence and noninferiority designs specifically. The lesson's more general move, of choosing a threshold that would change practice and reading the interval against it, is the lesson's own extension of the same logic to a superiority setting and is presented as a way of framing a service's question, not as a regulatory requirement.",
+      "risk": "routine",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-ich-e9-imprecision",
+      "statement": "The same clinical-trials guidance prefers reporting confidence intervals to hypothesis testing where estimates are imprecise, because the interval displays the imprecision that a test result does not.",
+      "sceneIds": [
+        "scene-what-moves-the-edges"
+      ],
+      "sourceIds": [
+        "source-ich-e9"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "Stated in the guidance for the evaluation of safety and tolerability, where low event frequencies make estimates imprecise. Used here to support the general teaching point that a wide interval is an accurate report of a study's limits.",
+      "uncertainty": "The guidance makes the recommendation in a specific reporting context. The lesson applies the reasoning to a mean difference, where the source of imprecision is sample size and biological spread instead of low event counts.",
+      "risk": "routine",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-fpg-thresholds",
+      "statement": "The US National Institute of Diabetes and Digestive and Kidney Diseases states that a fasting plasma glucose result of 99 mg/dL or below is normal, 100 to 125 mg/dL indicates prediabetes, and 126 mg/dL or above indicates diabetes, that a doctor will usually use a second test to confirm a diabetes diagnosis, and that fasting means having nothing to eat or drink except sips of water.",
+      "sceneIds": [
+        "scene-service-decision"
+      ],
+      "sourceIds": [
+        "source-niddk-diabetes-tests"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "Reference values for the fasting plasma glucose test as published for a general US audience at the access date. Quoted in this lesson only so that a confidence interval measured in mg/dL can be laid against a real clinical scale.",
+      "uncertainty": "Thresholds and their qualifications are set by clinical bodies, can be revised, and differ in presentation between countries and guidelines. The lesson makes no diagnostic, monitoring, or treatment recommendation, its cohort is invented, and the 5 mg/dL decision threshold it uses is explicitly invented for the example.",
+      "risk": "health-sensitive",
+      "reviewStatus": "pending-review"
+    }
+  ]
+}

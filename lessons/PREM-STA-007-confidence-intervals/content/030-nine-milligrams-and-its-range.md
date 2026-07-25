@@ -1,0 +1,82 @@
+# Nine milligrams per decilitre, and everything else it could have been
+
+Now the number the study was built to produce.
+
+Late group average 146.5 mg/dL. Early group average 137.5 mg/dL. The difference, late minus early, is 9.0 mg/dL. That is the point estimate, and the parameter behind it is the true difference in the population.
+
+Comparing two independent groups changes only the standard error. The published form pools the two groups' standard deviations into one value, then scales it by both group sizes at once, so with 30 people in each group and a within-group standard deviation of 16 mg/dL:
+
+:::{equation}
+:label: equation-difference-standard-error
+
+\mathrm{SE} = 16 \times \sqrt{\frac{1}{30} + \frac{1}{30}} = 16 \times 0.2582 = 4.13 \text{ mg/dL}
+:::
+
+Look at that number beside the 9.0 before going further. The estimate is a bit over two standard errors from zero. A study in which the effect is only twice its own wobble is a study whose interval is going to be wide.
+
+:::{worked-example}
+:id: worked-example-difference-interval
+
+**Build the 95% confidence interval for the difference in fasting glucose.**
+
+**Step 1. Name the estimate and its units.** The estimate is 9.0 mg/dL, the late group's average minus the early group's. Keeping the direction attached matters: reversing the subtraction would give −9.0 and an interval with both signs flipped.
+
+**Step 2. Take the standard error.** 4.13 mg/dL, from the calculation above.
+
+**Step 3. Choose the level and read the multiplier.** For 95% two-sided, the multiplier is 1.96.
+
+**Step 4. Multiply.** 1.96 × 4.13 = 8.09 mg/dL. This half-width is the **margin of error**.
+
+**Step 5. Add and subtract.**
+
+Lower limit: 9.0 − 8.09 = 0.91, which rounds to 0.9 mg/dL.
+
+Upper limit: 9.0 + 8.09 = 17.09, which rounds to 17.1 mg/dL.
+
+**The 95% confidence interval for the difference is 0.9 to 17.1 mg/dL.**
+
+**A note on rounding.** Both limits are rounded to one decimal place, and this lesson does that everywhere. Widths are always the subtraction you can do on the page: here it is 17.1 − 0.9 = 16.2. Twice the margin of error is 16.18, which rounds to the same number, but for one or two of the later intervals the two land 0.1 apart. When they do, trust the subtraction, because it is the one you can check.
+:::
+
+## Two things to read off it
+
+:::{chart} ../charts/difference-interval.chart.json
+:::
+
+The curve is the sampling distribution from the previous lesson, drawn around the estimate this study happened to get. Its spread is the standard error, and the shaded band is the middle 95% of it. Read the picture as where repeat studies would land, and not as where the true difference lives; the next scene explains why that distinction is the whole subject.
+
+**It excludes zero.** Zero here is the **no-difference value**: what the difference would be if the two groups had the same population average. It is the number a reader checks against first. Every value inside this interval is positive, which puts the whole compatible range on the side where late dinners go with higher morning glucose in this invented cohort. That direction is what the study supports.
+
+Notice how narrowly it manages it. The lower limit is 0.9 mg/dL. Push the estimate down by 1 mg/dL, or stretch the margin of error by a fifth of a standard error, and zero would be inside. This is a result that clears the bar and does not clear it by much.
+
+**It is wide.** The interval spans 16.2 mg/dL, from 0.9 to 17.1. That width is nearly twice the estimate sitting in the middle of it. The study is compatible with a true difference of about 1 mg/dL and equally compatible with one of about 17, nineteen times larger. The evidence covers both and does not choose between them. The clinical wrap-up lays those two numbers against a real diagnostic scale, and the distance between them is why that scene exists.
+
+That double reading is the whole point of the interval. Reporting only "9.0 mg/dL, and it beat zero" hides a study that could not tell a trivial effect from a large one.
+
+## One refinement, so the number is honest
+
+The 1.96 multiplier is read off a normal curve, and that curve assumes you know how much people vary. You do not. The 16 mg/dL came from the same 60 readings as the 9.0, so the study is paying for two guesses at once and the interval has to be a little wider to cover the second one.
+
+Statisticians handle this with the **t distribution**, a curve shaped like the normal one but with slightly fatter tails, so its multipliers are slightly larger. How much larger depends on how much data went into estimating the spread, a quantity counted in **degrees of freedom**. Sixty readings went in, and two group averages were computed from them before any spread could be measured, so 58 numbers were still free to vary. The published table gives 2.002 at 58 degrees of freedom.
+
+Put 2.00 where 1.96 was and the interval becomes 0.7 to 17.3 mg/dL, moving each end by about 0.2. The penalty is small here because 58 is a lot of degrees of freedom, and it shrinks towards nothing as a study grows. In a study of a dozen people it would matter.
+
+This lesson uses 1.96 throughout, which keeps the shape of the recipe visible and costs 0.2 mg/dL at each end. Reach for the t multiplier when the sample is small, or when a limit sits close to a value you care about, which is exactly the position the lower limit of 0.9 is in.
+
+:::{check}
+:id: check-reverse-the-interval
+:kind: retrieval
+
+A colleague reports the same comparison the other way round: early minus late, and the difference is −9.0 mg/dL.
+
+Write down their 95% confidence interval without recomputing anything, then say whether their result and yours disagree.
+:::
+
+Their interval is −17.1 to −0.9 mg/dL. The limits swap places and both change sign, because subtracting in the other order flips every number in the calculation. Nothing disagrees. Two people have described one comparison from opposite ends, and both intervals exclude zero on the same side of it. This is why a reported interval is unreadable until you know which group was subtracted from which.
+
+:::{source-note}
+:claims: claim-ci-definition, claim-normal-975-quantile, claim-two-sample-pooled-interval, claim-t-multiplier-at-58-df
+:sources: source-nist-confidence-limits, source-nist-what-are-ci, source-nist-normal-table, source-nist-two-sample, source-nist-t-table
+
+The NIST/SEMATECH handbook supports the interval-estimate recipe, the pooled two-sample form of the standard error with its degrees of freedom, the multipliers read from the standard normal table, and the value 2.002 read from its table of critical values of the t distribution at 58 degrees of freedom. The cohort, its group averages, and every step of the arithmetic above are original teaching material.
+:::
