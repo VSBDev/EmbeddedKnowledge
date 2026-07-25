@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "adjudicationId": "ADJ-PREM-SCI-006-D641806B",
+  "lessonId": "PREM-SCI-006",
+  "lessonVersion": "0.2.0",
+  "candidateCommit": "b47e716fe022788280765faaf74c2e54614fd35a",
+  "finalCommit": "82d27ab8bbc2000fff21150ade3013daba78ea7c",
+  "riskTier": "standard",
+  "policyId": "standard-lesson-v3",
+  "reviewIds": [
+    "REV-PREM-SCI-006-ACADEMIC-C8406A78",
+    "REV-PREM-SCI-006-LEARNING-DESIGN-21B3CB23"
+  ],
+  "quorum": {
+    "satisfied": true,
+    "approvals": 1,
+    "reviewInputs": 2,
+    "changeRequests": 1,
+    "roleCounts": {
+      "academic": 1,
+      "learningDesign": 1,
+      "accessibilityRights": 0
+    },
+    "distinctPrincipals": 1,
+    "distinctAgentRuns": 2,
+    "distinctAgentModelFamilies": 2
+  },
+  "decision": "merge",
+  "finalization": {
+    "materialChanges": [
+      "Changed the clinical synthesis to claims-mapped, linked all eight applicable claims, added the complete learner-visible source note, and replaced the person-reading repeatability shortcut with stable control/reference material or suitable same-specimen replicates under named conditions.",
+      "Narrowed the construct-validity objective to the boundary-setting and evidence-selection performance actually assessed, strengthened the greenhouse validity criterion, and made the relevant construct-validity and bounded-conclusion criteria mandatory for mastery.",
+      "Corrected the lesson version stated in ATTRIBUTION.md from 0.1.0 to 0.2.0."
+    ],
+    "reviewDispositions": [
+      {
+        "reviewId": "REV-PREM-SCI-006-ACADEMIC-C8406A78",
+        "findingIndex": 0,
+        "action": "incorporated",
+        "rationale": "The clinical wrap-up is now claims-mapped in lesson.json, all eight applicable claim records include scene-clinical-wrap-up, and the scene ends with a source note naming every mapped claim and all four supporting sources. The retained example stays within those measurement propositions and makes no empirical patient or treatment claim."
+      },
+      {
+        "reviewId": "REV-PREM-SCI-006-ACADEMIC-C8406A78",
+        "findingIndex": 1,
+        "action": "incorporated",
+        "rationale": "The final scene now bases analytic repeatability on stable control/reference material or suitable aliquots of the same specimen over a justified short interval with relevant operating conditions fixed. It states that sequential person readings can mix measurand change with measurement error and frames cross-system reproducibility around the same or similar stable material with changed conditions named."
+      },
+      {
+        "reviewId": "REV-PREM-SCI-006-ACADEMIC-C8406A78",
+        "findingIndex": 2,
+        "action": "incorporated",
+        "rationale": "The objective was narrowed from requiring judgment across six named evidence categories to the critique, boundary-setting, and evidence-selection performance present in the assessment. The greenhouse validity criterion now requires both an omitted aspect and a construct-irrelevant influence, and mastery specifically requires the construct-validity criteria plus the greenhouse bounded conclusion."
+      },
+      {
+        "reviewId": "REV-PREM-SCI-006-ACADEMIC-C8406A78",
+        "findingIndex": 3,
+        "action": "no-change-required",
+        "rationale": "The independently confirmed means, ranges, offsets, percentage offset, and keyed scatter-versus-shift interpretations were unchanged."
+      },
+      {
+        "reviewId": "REV-PREM-SCI-006-LEARNING-DESIGN-21B3CB23",
+        "findingIndex": 0,
+        "action": "incorporated",
+        "rationale": "ATTRIBUTION.md now identifies the pack as version 0.2.0, matching lesson.json and every structured lesson artifact."
+      },
+      {
+        "reviewId": "REV-PREM-SCI-006-LEARNING-DESIGN-21B3CB23",
+        "findingIndex": 1,
+        "action": "no-change-required",
+        "rationale": "The final clinical wrap-up remains an explicitly fictional, non-treatment synthesis of operational definitions, error, named repeatability/reproducibility conditions, and construct-validity boundaries. The technical corrections required by the academic review preserve those learning-design strengths."
+      },
+      {
+        "reviewId": "REV-PREM-SCI-006-LEARNING-DESIGN-21B3CB23",
+        "findingIndex": 2,
+        "action": "no-change-required",
+        "rationale": "The complete worked example, faded practice sequence, team-coordination transfer, and greenhouse transfer assessment were preserved. Only the mastery alignment for the narrowed construct-validity objective was tightened."
+      }
+    ],
+    "accessibilityRightsAudit": {
+      "satisfied": true,
+      "evidenceChecked": [
+        "Read all seven final scene files in manifest order: each has one level-one heading, semantic source order, ordinary Markdown structure, and no raw HTML, HTML entities, or Markdown images.",
+        "Checked that the local declarative concept-map JSON has concise alt text and a relationship-complete long description, while the same audit sequence is also available in ordered prose and does not depend on color or position.",
+        "Checked that the error equation is read in words and that each quantitative table is followed by a prose interpretation of the relevant means, ranges, scatter, and shift.",
+        "Checked that prompts and assessment responses have untimed, retakeable, keyboard-compatible text routes; typed, dictated, prose, heading, and table response forms are allowed, with retry and recovery guidance.",
+        "Checked that the pack contains no active media, remote embed, executable content, third-party asset, personal record, patient record, or required health data; all cases and numerical records are labelled fictional.",
+        "Checked all four source records for allowed source types, bounded bibliographic fields, ISO dates, facts-only use, concrete rights-basis evidence, and checked-no-agent-restriction-found access status; no source is marked human-only.",
+        "Checked lesson.json, ATTRIBUTION.md, the original diagram declaration, CC BY 4.0 grant, empty thirdPartyAssets list, accountable principal, and disclosed authoring-agent provenance."
+      ],
+      "limitations": [
+        "No browser renderer, screen reader, 200% zoom/reflow, print, or export adapter was exercised because the assigned scope excluded site and npm operations; this was a source-level accessibility audit.",
+        "Live source terms and source content were not re-fetched in this run; the audit used the dated same-pack access records and the academic review's evidence record.",
+        "Repository schema validation, strict source preflight, and full npm validation were not run because the operator expressly prohibited site access and npm. Only JSON parsing and scoped structural, content, reference-field, and provenance checks were run.",
+        "The pull-request COMMENTED submissions were not independently queried; review-input transport eligibility relies on the operator-supplied context and remains subject to the repository's GitHub-provenance check."
+      ]
+    }
+  },
+  "rationale": "The two counted artifacts address the exact original candidate and version, supply the required academic and learning-design roles, contain one approval and one eligible advisory request for changes, and disclose distinct agent runs and providers under one accountable principal. Their GitHub COMMENTED transport status is operator-supplied rather than independently queried here. Every indexed finding has a disposition: the three academic blockers and the attribution mismatch were incorporated, while the verified calculations and positive learning-design observations required no further change. The final source now closes the clinical claim-evidence gap, removes the false repeatability shortcut, and aligns construct-validity mastery with the narrowed objective. The source-level accessibility-and-rights audit found equivalent prose paths, non-timed and non-pointer response routes, facts-only source use, complete attribution, no third-party assets, and no privacy or active-content concern. Subject to replacement of the pending final commit, runtime stamping, and the required repository checks, no credible unresolved content, accessibility, or rights blocker remains.",
+  "dissent": [
+    "The academic reviewer requested changes while the learning-design reviewer approved the original candidate and described the clinical synthesis positively. The academic measurement-science objections controlled the technical revision; the learning-design strengths were preserved.",
+    "The learning-design review discloses that github:VSBDev operated authoring and review runs during the founding stage. The distinct-run and distinct-provider declarations are attested provenance, not independently verified human review.",
+    "Neither review supplies real learner-performance data, so the decision concerns lesson coherence and defensibility rather than demonstrated learning effectiveness."
+  ],
+  "conditions": [
+    "The operator must commit this exact final lesson revision with both frozen review artifacts and replace PENDING-FINAL-COMMIT with that real 40-character content commit without changing teaching content.",
+    "The operator must replace the four RUNTIME-STAMPED adjudicator identity fields from the runtime banner and run the required strict source preflight, schema validation, repository validation, and GitHub-provenance checks; any failure blocks merge.",
+    "Only the maintainer-reserved publication transition may follow finalization: lesson status and source confidence plus retained claim review-status fields, without another teaching-content edit."
+  ],
+  "adjudicator": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable operator, fresh finalizer and adjudicator",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-finalizer-PREM-SCI-006-D641806B-4691-4A3A-B779-6127EC23979B",
+      "instructionsDigest": "sha256:1749588529a0693cbe6f48ca8feb8bc83a40c7f089a5992cf74dbf64326d0136"
+    }
+  },
+  "adjudicatedAt": "2026-07-25T01:21:27Z"
+}
