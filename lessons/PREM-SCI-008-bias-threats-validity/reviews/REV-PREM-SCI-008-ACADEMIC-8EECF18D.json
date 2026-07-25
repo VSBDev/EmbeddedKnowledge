@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-SCI-008-ACADEMIC-8EECF18D",
+  "lessonId": "PREM-SCI-008",
+  "lessonVersion": "0.2.0",
+  "candidateCommit": "172e7667b8fb45e1f306f44ca8a856902630edbe",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable academic review operator",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-SCI-008-8EECF18D-EC93-4223-AB9C-40F85BF67F31",
+      "instructionsDigest": "sha256:6bc6fc4fc1b4ea170d8d6098bfb98c5f3f0bf51ee8d6733d961b52be7b5567ef"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#id-version-outcomes-objectives-scenes-and-provenance",
+    "content/01-find-the-missing-path.md#complete-scene",
+    "content/02-follow-the-evidence-pipeline.md#complete-scene",
+    "content/03-audit-the-seedling-study.md#complete-scene-and-denominator-recalculation",
+    "content/04-practise-the-discriminations.md#complete-scene",
+    "content/05-repair-and-transfer.md#complete-scene",
+    "content/06-demonstrate-mastery.md#complete-scene",
+    "content/07-clinical-wrap-up.md#complete-scene",
+    "assessment.json#all-items-answer-logic-and-rubrics",
+    "claims.json#all-claims-scene-mappings-scope-and-uncertainty",
+    "references.json#source-bias-taxonomy",
+    "references.json#source-information-bias",
+    "references.json#source-selection-framework",
+    "references.json#source-misclassification-direction",
+    "references.json#source-observer-systematic-review",
+    "references.json#source-attrition-reporting",
+    "references.json#source-selection-toolkit",
+    "references.json#source-publication-bias",
+    "references.json#source-outcome-reporting",
+    "glossary.json#all-terms-and-declared-alignments",
+    "diagrams/evidence-pipeline.diagram.json#nodes-edges-alt-and-longDescription",
+    "ATTRIBUTION.md#complete-file",
+    "content/03-audit-the-seedling-study.md#survival-and-the-denominator: independently confirmed 72/100 = 72%, 49/100 = 49%, and 72% - 49% = 23 percentage points",
+    "assessment.json#item-interpret-equal-attrition: checked answer and rubric against outcome-dependent missingness principles",
+    "assessment.json#item-distinguish-reporting-publication: checked answer and rubric against within-study versus whole-study evidence selection",
+    "assessment.json#item-transfer-acoustic-archive: checked target, denominator, observer, reporting, and direction logic",
+    "candidate pack matched commit 172e7667b8fb45e1f306f44ca8a856902630edbe with no pack-local working-tree differences"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "lesson.json#scene-clinical-wrap-up.claimCoverage; content/07-clinical-wrap-up.md#follow-the-estimate-through-six-gates; claims.json#claims",
+      "finding": "The clinical wrap-up is declared no-material-claims, but it teaches and applies material definitions, mechanisms, safeguards, and a directional attrition conclusion for selection, information, observer, attrition, publication, selective-reporting, and survivorship bias. No claim maps to scene-clinical-wrap-up and the scene has no source-note. This is a false evidence declaration and leaves the lesson's clinical synthesis academically untraceable.",
+      "resolution": "Set scene-clinical-wrap-up to claims-mapped, add scene-clinical-wrap-up to every applicable existing claim's sceneIds, and add a same-scene source-note naming those claims and their complete supporting source set. Add a new bounded claim only if an existing claim does not cover a material statement."
+    },
+    {
+      "severity": "major",
+      "target": "content/07-clinical-wrap-up.md#follow-the-estimate-through-six-gates-entry-selection-bias",
+      "finding": "The entry example labels volunteering and keeping a dinner log as selection bias merely because entrants may differ systematically from all eligible people. That fact alone establishes a possible transportability or target-population limitation, not distortion of the earlier-versus-later dinner comparison. Selection bias in that comparison requires a specified inclusion mechanism related to dinner-timing status and fasting glucose, or to causes of both. The current statement contradicts the lesson's earlier warning that an unrepresentative sample does not by itself establish an internally biased comparison.",
+      "resolution": "Either specify how entry or log initiation jointly depends on variables relevant to dinner-timing group and fasting glucose so that the target contrast can be distorted, or relabel the stated facts as a transportability concern and withhold the selection-bias conclusion."
+    },
+    {
+      "severity": "major",
+      "target": "assessment.json#item-map-six-biases",
+      "finding": "Case F makes survivorship bias the uniquely correct answer because the analysis includes only device models still sold, but it never states the target population or estimand. If the intended target is durability among models currently sold, current sale status defines the target rather than distorting it. The item therefore rewards a bias label from the presence of a persistence filter alone, despite the lesson's central rule that the target must be stated before deciding whether a filter creates bias.",
+      "resolution": "State that the durability target includes all models introduced, manufactured, or placed in service during a specified period, including discontinued models, or revise the answer logic to treat survivorship as conditional on that broader target. Preserve a uniquely defensible answer before using the item as a six-point mastery gate."
+    }
+  ],
+  "limitations": [
+    "The assigned scope prohibited reading site/, so the public review schema, quorum file, graph artifact, and course terminology ledger were not inspected. Cross-lesson terminology was assessed only from the pack's declared alignment blocks and the permitted syllabus context.",
+    "Direct opening of several PMC article pages encountered a browser challenge. Core claims were independently checked through accessible indexed PMC, PubMed, OUP, Wiley, and BMJ records and surfaced article text, but not every cited locator could be re-opened line by line.",
+    "This academic review did not perform learning-design, accessibility-and-rights, adjudication, renderer, or governance review."
+  ],
+  "signedAt": "2026-07-25T06:37:45Z"
+}

@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-SCI-008-LEARNING-DESIGN-6E5D6E8F",
+  "lessonId": "PREM-SCI-008",
+  "lessonVersion": "0.2.0",
+  "candidateCommit": "172e7667b8fb45e1f306f44ca8a856902630edbe",
+  "role": "learning-design",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev (learning-design reviewer)",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.7",
+      "runId": "agy-learning-design-PREM-SCI-008-6E5D6E8F-8B17-4907-B924-C82FF850DC99",
+      "instructionsDigest": "sha256:b77770f26891f0efcf99a96e06018ee11c95bcaa4b3b3b327688f2abbc858b3f"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Founding-stage isolation check: the accountable principal VSBDev operates the authoring, review, and finalization agents, so principal-level independence is absent. Agent-level role isolation was strictly maintained: no authoring history, other review output, or adjudication draft was read, and no other EmbeddedKnowledge role script was run during this review execution."
+  },
+  "evidenceChecked": [
+    "lessons/PREM-SCI-008-bias-threats-validity/lesson.json",
+    "lessons/PREM-SCI-008-bias-threats-validity/claims.json",
+    "lessons/PREM-SCI-008-bias-threats-validity/references.json",
+    "lessons/PREM-SCI-008-bias-threats-validity/glossary.json",
+    "lessons/PREM-SCI-008-bias-threats-validity/ATTRIBUTION.md",
+    "lessons/PREM-SCI-008-bias-threats-validity/diagrams/evidence-pipeline.diagram.json",
+    "lessons/PREM-SCI-008-bias-threats-validity/content/01-find-the-missing-path.md",
+    "lessons/PREM-SCI-008-bias-threats-validity/content/02-follow-the-evidence-pipeline.md",
+    "lessons/PREM-SCI-008-bias-threats-validity/content/03-audit-the-seedling-study.md",
+    "lessons/PREM-SCI-008-bias-threats-validity/content/04-practise-the-discriminations.md",
+    "lessons/PREM-SCI-008-bias-threats-validity/content/05-repair-and-transfer.md",
+    "lessons/PREM-SCI-008-bias-threats-validity/content/06-demonstrate-mastery.md",
+    "lessons/PREM-SCI-008-bias-threats-validity/content/07-clinical-wrap-up.md",
+    "lessons/PREM-SCI-008-bias-threats-validity/assessment.json",
+    "CONTENT-STANDARD.md",
+    "RIGHTS-POLICY.md"
+  ],
+  "findings": [
+    {
+      "severity": "note",
+      "target": "lessons/PREM-SCI-008-bias-threats-validity/content/01-find-the-missing-path.md#L3-L10",
+      "finding": "First-read clarity: The orientation scene establishes a strong concrete starting point using the fictional seedling seed-coating scenario. It successfully introduces the key idea of tracing the evidence path before introducing formal definitions, satisfying the Content Standard first-read gate.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-SCI-008-bias-threats-validity/content/03-audit-the-seedling-study.md#L3-L63",
+      "finding": "Worked example scaffolding: The seedling study worked example successfully models expert decisions by showing how different denominators alter the absolute difference (from 10 to 23 percentage points) and prompting the learner with self-explanation.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-SCI-008-bias-threats-validity/content/05-repair-and-transfer.md#misconception-large-sample-cures-bias",
+      "finding": "Misconception repair: The lesson includes a well-designed misconception repair block (large sample size does not cure systematic bias) that elicits a commitment, explains the failure of the shortcut using a caliper and image-classifier example, and rechecks the distinction.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-SCI-008-bias-threats-validity/content/05-repair-and-transfer.md#L15-L48",
+      "finding": "Active transfer: The acoustic bat recordings comparison scenario provides a strong transfer task in a novel context that requires the learner to identify stage-specific mechanisms, calibrate direction, and propose matched checks rather than copy a worked procedure.",
+      "resolution": null
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-SCI-008-bias-threats-validity/glossary.json",
+      "finding": "Glossary metadata omission: The newly added clinical synthesis wrap-up scene, 'scene-clinical-wrap-up' (Scene 7), uses core vocabulary terms ('selection bias', 'information bias', 'observer bias', 'attrition bias', 'publication bias', 'selective outcome reporting', and 'survivorship bias'), but this scene's ID is not listed in their 'sceneIds' lists in glossary.json.",
+      "resolution": "Add 'scene-clinical-wrap-up' to the 'sceneIds' lists of term-selection-bias, term-information-bias, term-observer-bias, term-attrition-bias, term-publication-bias, term-selective-outcome-reporting, and term-survivorship-bias in glossary.json."
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-SCI-008-bias-threats-validity/ATTRIBUTION.md#L6",
+      "finding": "Metadata version mismatch: The lesson version has been bumped to '0.2.0' in lesson.json and other metadata files, but ATTRIBUTION.md still declares the candidate state as version '0.1.1' on line 6.",
+      "resolution": "Update line 6 of ATTRIBUTION.md to refer to version '0.2.0' instead of '0.1.1'."
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-SCI-008-bias-threats-validity/glossary.json#term-masking",
+      "finding": "Undeclared terminology redefinition / alias collision: The term 'masking' has alias 'blinding', and the term 'blinding' was established in PREM-SCI-005 as the primary term with alias 'masking'. Defining 'masking' as the primary term in PREM-SCI-008 with alias 'blinding' without an 'alignment' block creates an undeclared terminology shift/collision.",
+      "resolution": "Add an 'alignment' block to 'term-masking' in glossary.json to declare its relationship with 'term-blinding' in PREM-SCI-005."
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-SCI-008-bias-threats-validity/glossary.json#term-observer-bias",
+      "finding": "Undeclared terminology alias collision: The term 'observer bias' has alias 'detection bias', which collides with the primary term 'detection bias' established in PREM-SCI-005 without declaring an 'alignment' block.",
+      "resolution": "Add an 'alignment' block to 'term-observer-bias' in glossary.json to declare its relationship with 'term-detection-bias' in PREM-SCI-005."
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-SCI-008-bias-threats-validity/glossary.json#term-transportability",
+      "finding": "Undeclared terminology alias collision: The term 'transportability' has alias 'applicability', which collides with the alias 'applicability' of 'external validity' established in PREM-SCI-005 without declaring an 'alignment' block.",
+      "resolution": "Add an 'alignment' block to 'term-transportability' in glossary.json to declare its relationship with 'term-external-validity' in PREM-SCI-005."
+    }
+  ],
+  "limitations": [
+    "Expert-simulation review: This review represents a single-pass advisory input by a simulated learning-design expert under standard-lesson-v3 guidelines. No real learner testing was conducted.",
+    "Conflict of interest: The same GitHub principal (VSBDev) is responsible for the authoring and review run operators. Agent-level isolation was maintained, but principal-level independence is absent.",
+    "Scope restriction: The review is strictly bounded to learning-design metrics (e.g., clarity, coherence, practice, alignment, and transfer). Scientific accuracy, rights audits, and final typesetting checks are excluded.",
+    "Technical verification limits: No rendered build environment, screen reader, or keyboard navigation pathways were evaluated physically; findings are based solely on the static Markdown and JSON source files."
+  ],
+  "signedAt": "2026-07-25T06:42:00Z"
+}
