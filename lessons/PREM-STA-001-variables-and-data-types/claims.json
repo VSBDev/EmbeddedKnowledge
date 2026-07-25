@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-claims-v1",
+  "lessonId": "PREM-STA-001",
+  "lessonVersion": "0.1.0",
+  "claims": [
+    {
+      "id": "claim-variable-type-taxonomy",
+      "statement": "A recorded variable is categorical when its values place each case in a group and quantitative when its values are amounts on a measurement scale; categorical values are nominal when the groups carry no inherent order and ordinal when the groups are ranked; quantitative values are discrete when only separated values such as whole counts can occur and continuous when any value within a range can occur.",
+      "sceneIds": [
+        "scene-column-kinds",
+        "scene-what-the-level-permits",
+        "scene-worked-audit",
+        "scene-mean-of-a-code",
+        "scene-practice-fading",
+        "scene-clinical-wrap-up"
+      ],
+      "sourceIds": [
+        "source-ali-bhaskar"
+      ],
+      "support": "synthesis",
+      "confidence": "high",
+      "scope": "College-intro classification of columns in a supplied study file, including the nominal, ordinal, interval, and ratio measurement scales. Choice of analysis method, distributional assumptions, and multivariable modelling are excluded.",
+      "uncertainty": "Names vary by field: categorical is also called qualitative, and quantitative is also called numerical. Some columns are genuinely borderline, such as a continuous quantity recorded only to the nearest whole unit or a many-category ordered score, and their classification depends on how the value was produced and on what the analysis will do with it.",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-level-constrains-summary",
+      "statement": "The measurement level of a column constrains which summaries are interpretable: unordered categories support counts, proportions, and the most frequent category; ranked categories additionally support order-based summaries such as the median and the frequency in each category; and scales on which the distance between two values is a fixed measurable quantity additionally support the arithmetic mean and the standard deviation.",
+      "sceneIds": [
+        "scene-what-the-level-permits",
+        "scene-worked-audit",
+        "scene-mean-of-a-code",
+        "scene-practice-fading",
+        "scene-transfer-triage",
+        "scene-clinical-wrap-up"
+      ],
+      "sourceIds": [
+        "source-ali-bhaskar",
+        "source-mishra-descriptive",
+        "source-sullivan-artino"
+      ],
+      "support": "synthesis",
+      "confidence": "high",
+      "scope": "Introductory choice of descriptive summary and display for a single column of a supplied dataset.",
+      "uncertainty": "The constraint states which summaries are interpretable, not which is best. A mean is available for a measured column and can still be a poor description of a strongly lopsided one, and practice varies over whether composite ordered scores may be summarised by a mean.",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-ordinal-codes-lack-spacing",
+      "statement": "Numbers assigned to ranked response categories record rank alone, and the distance between adjacent categories is not measurable from that numbering, so an arithmetic mean of the codes presumes a spacing the response scale has not established and changes when the codes are changed while every case keeps its rank.",
+      "sceneIds": [
+        "scene-mean-of-a-code",
+        "scene-transfer-triage",
+        "scene-clinical-wrap-up"
+      ],
+      "sourceIds": [
+        "source-sullivan-artino"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "Single ordered rating items and ordered clinical bands, such as a four-point adherence rating, a triage level, a tumour stage, or a banded laboratory result.",
+      "uncertainty": "Analytic practice is not uniform. Some fields sum several ordered items into one score and then analyse the total as a measured scale, which is an assumption about the instrument that has to be argued for the particular case rather than a property the individual ratings supply.",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-paired-versus-independent",
+      "statement": "Whether two sets of values are paired or independent is settled by how they were collected: paired values are matched one to one because repeated measurements came from the same case or sample, while independent values come from separate cases with no such correspondence, and the two structures call for different comparison procedures.",
+      "sceneIds": [
+        "scene-worked-audit",
+        "scene-practice-fading"
+      ],
+      "sourceIds": [
+        "source-ali-bhaskar"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "Reading the pairing structure off a study description at college-intro level, before any comparison procedure is selected.",
+      "uncertainty": "Real datasets carry more structures than these two, including repeated measurements at many time points and clustering within families, wards, or clinics; those need methods beyond the paired and independent pair described here.",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    }
+  ]
+}

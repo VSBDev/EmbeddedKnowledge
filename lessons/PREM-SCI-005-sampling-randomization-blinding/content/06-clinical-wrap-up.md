@@ -16,7 +16,7 @@ That is an external-validity boundary, not damage to the within-person compariso
 
 ## Allocation: let chance set the night order
 
-For each participant, a prespecified chance procedure sets whether the earlier- or later-dinner night comes first. Across the possible assignments, chance rather than participant or researcher preference determines that order, so the earlier-first and later-first sequence groups are comparable in expectation with respect to order assignment. This claim is only about how order was assigned; it does not establish the validity of the full crossover comparison.
+For each participant, a prespecified chance procedure sets whether the earlier- or later-dinner night comes first. Across the possible assignments, chance, not participant or researcher preference, determines that order, so the earlier-first and later-first sequence groups are comparable in expectation with respect to order assignment. This claim is only about how order was assigned; it does not establish the validity of the full crossover comparison.
 
 Randomization does not promise perfect matching in one small realized run. Chance imbalance can remain, so the observed schedule must not be described as balanced merely because its order was randomized.
 

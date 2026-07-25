@@ -15,13 +15,14 @@ on:
 
 permissions:
   contents: read
-  # The provenance checks read pull-request reviews.
-  pull-requests: read
-  # A pull request's labels are issue labels, so the stage labeller needs only issues: write. That
-  # is deliberately narrower than pull-requests: write, which would also let a workflow merge a pull
-  # request -- and this repository's ruleset requires no approving review, so merge authority would
-  # then rest on convention alone. With this scope no workflow can merge anything: the maintainer
-  # keeps the final say by permission, not by habit.
+  # Writing a label on a pull request needs pull-requests: write. issues: write alone returns 403,
+  # which is what the first attempt at narrowing this discovered.
+  #
+  # Merge authority is protected by contents: read above, not by withholding this scope: completing
+  # a merge writes a commit to the base branch, which contents: read forbids. No workflow here can
+  # merge, and the labeller additionally degrades to a log line rather than failing a required check
+  # if it cannot write.
+  pull-requests: write
   issues: write
 
 jobs:

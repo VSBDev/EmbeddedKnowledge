@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-STA-001-LD-4C77903A",
+  "lessonId": "PREM-STA-001",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "4f07cd0d97a2126c0070daf7ea9ba3bb7a300a53",
+  "role": "learning-design",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev (learning-design reviewer)",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.7",
+      "runId": "agy-learning-design-PREM-STA-001-4C77903A-E68A-419B-9534-3AC6F45F7881",
+      "instructionsDigest": "sha256:5ba8483605e3d84b05cad1b836cf470b9da4170445bd8d93e81b2b8798b0e84f"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Founding-stage isolation check: the accountable principal VSBDev operates the authoring, review, and finalization agents, so principal-level independence is absent. Agent-level role isolation was strictly maintained: no authoring history, other review output, or adjudication draft was read, and no other EmbeddedKnowledge role script was run during this review execution."
+  },
+  "evidenceChecked": [
+    "lessons/PREM-STA-001-variables-and-data-types/lesson.json",
+    "lessons/PREM-STA-001-variables-and-data-types/claims.json",
+    "lessons/PREM-STA-001-variables-and-data-types/references.json",
+    "lessons/PREM-STA-001-variables-and-data-types/glossary.json",
+    "lessons/PREM-STA-001-variables-and-data-types/ATTRIBUTION.md",
+    "lessons/PREM-STA-001-variables-and-data-types/content/01-column-kinds.md",
+    "lessons/PREM-STA-001-variables-and-data-types/content/02-what-the-level-permits.md",
+    "lessons/PREM-STA-001-variables-and-data-types/content/03-worked-audit.md",
+    "lessons/PREM-STA-001-variables-and-data-types/content/04-mean-of-a-code.md",
+    "lessons/PREM-STA-001-variables-and-data-types/content/05-practice-fading.md",
+    "lessons/PREM-STA-001-variables-and-data-types/content/06-transfer-triage.md",
+    "lessons/PREM-STA-001-variables-and-data-types/content/07-clinical-wrap-up.md",
+    "lessons/PREM-STA-001-variables-and-data-types/assessment.json",
+    "CONTENT-STANDARD.md",
+    "RIGHTS-POLICY.md"
+  ],
+  "findings": [
+    {
+      "severity": "note",
+      "target": "lessons/PREM-STA-001-variables-and-data-types/content/01-column-kinds.md#L3-L13",
+      "finding": "First-read clarity check: The introductory scene establishes a strong, intuitive hook by contrasting two calculated averages (sex and adherence) from the dinner-timing study. It illustrates why a calculation on stored digits can look plausible yet remain completely meaningless, providing an inviting entry point for the novice learner.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-STA-001-variables-and-data-types/content/04-mean-of-a-code.md#L16-L56",
+      "finding": "Misconception repair check: The misconception block regarding the mean of an ordinal code is structured exceptionally well. It forces a commitment, demonstrates the flaw via the recoding test, explains the underlying distance assumption that ordinal codes fail to meet, and tests the model with two discriminating cases.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-STA-001-variables-and-data-types/content/06-transfer-triage.md#L1-L41",
+      "finding": "Active transfer task: The emergency department quality-improvement report scenario serves as an excellent transfer check. It requires learners to classify four columns, evaluate three report statements, and rewrite the report using only supported summaries, preventing learners from relying on rote procedures.",
+      "resolution": null
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-STA-001-variables-and-data-types/lesson.json#L13",
+      "finding": "Missing prerequisite metadata: The lesson metadata in `lesson.json` lists no prerequisites (`\"prerequisites\": []`), yet the lesson's prose directly references and relies on prior knowledge from `PREM-SCI-003` (roles of variables) and `PREM-QNT-003` (scales and ratios). Links and recovery paths for these lessons are explicitly provided in Scene 1, Scene 2, and Scene 6. These should be declared in the lesson's prerequisites metadata array.",
+      "resolution": "Update the `\"prerequisites\"` array in `lesson.json` to include `\"PREM-SCI-003\"` and `\"PREM-QNT-003\"` to maintain proper curriculum graph linkage."
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-STA-001-variables-and-data-types/glossary.json#L246",
+      "finding": "Glossary scene mapping omission: The glossary entry for `term-median` lists its occurrence in five scenes in its `sceneIds` array, but omits Scene 7 (`scene-clinical-wrap-up`), where the term is explicitly used on line 22 of the prose.",
+      "resolution": "Add `\"scene-clinical-wrap-up\"` to the `\"sceneIds\"` array of the `term-median` entry in `glossary.json`."
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-STA-001-variables-and-data-types/glossary.json#L171",
+      "finding": "Glossary scene mapping omission: The glossary entry for `term-ratio-scale` lists its occurrence in four scenes in its `sceneIds` array, but omits Scene 3 (`scene-worked-audit`), where the term is used multiple times (as 'ratio') in the worked audit table.",
+      "resolution": "Add `\"scene-worked-audit\"` to the `\"sceneIds\"` array of the `term-ratio-scale` entry in `glossary.json`."
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-STA-001-variables-and-data-types/glossary.json#L212",
+      "finding": "Glossary scene mapping omission: The glossary entry for `term-coded-value` lists its occurrence in four scenes in its `sceneIds` array, but omits Scene 3 (`scene-worked-audit`), where its alias/short form 'code' is used on lines 59 and 60.",
+      "resolution": "Add `\"scene-worked-audit\"` to the `\"sceneIds\"` array of the `term-coded-value` entry in `glossary.json`."
+    }
+  ],
+  "limitations": [
+    "Expert-simulation review: This review represents a single-pass advisory input by a simulated learning-design expert under standard-lesson-v3 guidelines. No real learner testing was conducted.",
+    "Conflict of interest: The same GitHub principal (VSBDev) is responsible for the authoring and review run operators. Agent-level isolation was maintained, but principal-level independence is absent.",
+    "Scope restriction: The review is strictly bounded to learning-design metrics (e.g., clarity, coherence, practice, alignment, and transfer). Scientific accuracy, rights audits, and final typesetting checks are excluded.",
+    "Technical verification limits: No rendered build environment, screen reader, or keyboard navigation pathways were evaluated physically; findings are based solely on the static Markdown and JSON source files."
+  ],
+  "signedAt": "2026-07-25T09:50:44Z"
+}

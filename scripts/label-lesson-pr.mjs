@@ -55,7 +55,10 @@ const api = async (route, init = {}) => {
     }
   });
   if (!response.ok && response.status !== 404) {
-    throw new Error(`${init.method || "GET"} ${route} -> ${response.status} ${await response.text()}`);
+    // Labelling is a convenience that mirrors the artifacts; it decides nothing. A token that
+    // cannot write labels must not be able to fail a lesson's required check, so this surfaces the
+    // problem and lets the run continue.
+    throw Object.assign(new Error(`${init.method || "GET"} ${route} -> ${response.status} ${await response.text()}`), { labellingFailure: true });
   }
   return response.status === 404 ? null : response.json().catch(() => ({}));
 };
@@ -107,6 +110,7 @@ if (tier === "tier:rephrasing") {
 
 const wanted = [stage, TIERS[tier] ? tier : "tier:standard"];
 
+try {
 for (const name of wanted) {
   const [color, description] = STAGES[name] || TIERS[name];
   const existing = await api(`repos/${repo}/labels/${encodeURIComponent(name)}`);
@@ -126,3 +130,8 @@ if (missing.length) {
   await api(`repos/${repo}/issues/${pr.number}/labels`, { method: "POST", body: JSON.stringify({ labels: missing }) });
 }
 console.log(`Lesson PR #${pr.number} labelled: ${wanted.join(", ")} (${reviewCount} review artifact(s), decision ${decision || "none"}).`);
+} catch (error) {
+  console.log(`Lesson PR #${pr.number} stage is ${stage}, ${tier} (${reviewCount} review artifact(s), decision ${decision || "none"}).`);
+  console.log(`Could not write the labels: ${error.message}`);
+  console.log("Continuing: the stage label mirrors the pack's artifacts and gates nothing.");
+}
