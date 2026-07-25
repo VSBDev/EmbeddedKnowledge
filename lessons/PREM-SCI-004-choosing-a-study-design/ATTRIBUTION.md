@@ -14,7 +14,7 @@ The material-instructions digest is `sha256:3fae846760b89862f1d82ad1d78aab6006bf
 
 One-pass material finalization used **OpenAI Codex** by **OpenAI**, model **GPT-5**, version **Codex agent runtime 2026-07-20**, in fresh isolated run `83ae14a9-bdcd-4619-a755-9e83ff8a2fe4`. Its material-instructions digest is `sha256:8cefd99223994f6813e3df7df5d659bb942f459e7809b855278a02831dc153b1` under the same exact-payload boundary.
 
-Current `0.1.1` one-pass finalization is recorded in `adjudication.json` under fresh run `codex-finalizer-sci004-A7BD0CB1-D250-45EC-8BD3-788D6C950E87` with material-instructions digest `sha256:10e511061f809fbd2079d481459e2811cc9572efcc9342bfe28222fe7adb95bd`. The operator supplies its runtime-verified system, provider, model, and version in that artifact from the runtime banner.
+The earlier `0.1.1` one-pass finalization used fresh run `codex-finalizer-sci004-A7BD0CB1-D250-45EC-8BD3-788D6C950E87` with material-instructions digest `sha256:10e511061f809fbd2079d481459e2811cc9572efcc9342bfe28222fe7adb95bd`. That historical record is retained here as provenance rather than represented as the current `0.2.0` decision.
 
 ## Original synthesis and source use
 
@@ -30,6 +30,6 @@ Before substantive access on 2026-07-20, the accountable author checked the publ
 
 ## Modifications
 
-This `0.1.1` finalization preserves the reviewed study-design model and makes one bounded revision after academic and learning-design advisory reviews of candidate `98d9269eebf04c20e0efe08e4fa91b422316ac85`: it frames the cumulative inquiry chain as a course navigation aid rather than a universal scientific sequence, completes the cross-sectional claim mapping in the worked example, gives the practice table a timing-neutral header, and restores candidate-stage claim review statuses pending the maintainer's publication transition. The final decision and complete finding dispositions are recorded separately in `adjudication.json`.
+The earlier `0.1.1` finalization preserved the reviewed study-design model and made one bounded revision after academic and learning-design advisory reviews of candidate `98d9269eebf04c20e0efe08e4fa91b422316ac85`: it framed the cumulative inquiry chain as a course navigation aid rather than a universal scientific sequence, completed the cross-sectional claim mapping in the worked example, gave the practice table a timing-neutral header, and restored candidate-stage claim review statuses pending the maintainer's publication transition.
 
 Clinical-framing revision: author run `codex-reauthor-PREM-SCI-004-AA7486F6-ABFD-42C9-ADEB-D59B2936FE12` added the illustrative dinner-timing and next-morning fasting-glucose design case as a final scene; it makes no medical efficacy claim and adds no source or third-party material.
