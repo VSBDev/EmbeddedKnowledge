@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-STA-008-4ACDE012-24D6-4314-B31C-FF078E6F2E7A",
+  "lessonId": "PREM-STA-008",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "0b2fe8e2a41f1495ab2364922804edde5c5eec7a",
+  "role": "learning-design",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev (learning-design reviewer)",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.7",
+      "runId": "agy-learning-design-PREM-STA-008-4ACDE012-24D6-4314-B31C-FF078E6F2E7A",
+      "instructionsDigest": "sha256:3b678e65befe3d4da78300c365e941305113e41d4a71172d6fa5ff9a5ea0c4bf"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Founding-stage isolation check: the accountable principal VSBDev operates the authoring, review, and finalization agents, so principal-level independence is absent. Agent-level role isolation was strictly maintained: no authoring history, other review output, or adjudication draft was read, and no other EmbeddedKnowledge role script was run during this review execution."
+  },
+  "evidenceChecked": [
+    "lessons/PREM-STA-008-hypothesis-tests-p-values/lesson.json",
+    "lessons/PREM-STA-008-hypothesis-tests-p-values/claims.json",
+    "lessons/PREM-STA-008-hypothesis-tests-p-values/glossary.json",
+    "lessons/PREM-STA-008-hypothesis-tests-p-values/references.json",
+    "lessons/PREM-STA-008-hypothesis-tests-p-values/ATTRIBUTION.md",
+    "lessons/PREM-STA-008-hypothesis-tests-p-values/assessment.json",
+    "lessons/PREM-STA-008-hypothesis-tests-p-values/charts/null-distribution-of-the-difference.chart.json",
+    "lessons/PREM-STA-008-hypothesis-tests-p-values/content/01-one-number-five-readings.md",
+    "lessons/PREM-STA-008-hypothesis-tests-p-values/content/02-assuming-the-thing-you-doubt.md",
+    "lessons/PREM-STA-008-hypothesis-tests-p-values/content/03-nine-milligrams-in-standard-errors.md",
+    "lessons/PREM-STA-008-hypothesis-tests-p-values/content/04-the-nouns-that-go-wrong.md",
+    "lessons/PREM-STA-008-hypothesis-tests-p-values/content/05-the-line-and-the-word.md",
+    "lessons/PREM-STA-008-hypothesis-tests-p-values/content/06-practice-with-the-props-removed.md",
+    "lessons/PREM-STA-008-hypothesis-tests-p-values/content/07-a-result-in-different-clothes.md",
+    "lessons/PREM-STA-008-hypothesis-tests-p-values/content/08-mastery-check.md",
+    "lessons/PREM-STA-008-hypothesis-tests-p-values/content/09-clinical-wrap-up.md",
+    "CONTENT-STANDARD.md"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "lessons/PREM-STA-008-hypothesis-tests-p-values/assessment.json#item-compute-statistic",
+      "finding": "The prompt for item-compute-statistic instructs the learner to 'State the null hypothesis study A is tested against, then compute its test statistic.' The rubric also allocates a point to checking this statement (criterion-subtract-null-value). However, the responseSpec mode is set strictly to 'number'. This prevents the learner from writing or selecting a textual statement of the null hypothesis in the user interface, causing an automated grading mismatch where the first rubric point cannot be provided or validated.",
+      "resolution": "Split the item into a choice item to select or state the null hypothesis, and a numeric item to compute the test statistic, or simplify the prompt and rubric criteria to only evaluate the numeric statistic computation."
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-STA-008-hypothesis-tests-p-values/content/03-nine-milligrams-in-standard-errors.md#worked-example-difference-to-p",
+      "finding": "The self-explanation prompt in the worked example asks the learner to say aloud what each of the three numbers represents and check their nouns. While helpful for misconception repair, it does not prompt the learner to explain the decision that most strongly determines the solution, which is a requirement under CONTENT-STANDARD.md Section 5.1 (item 9).",
+      "resolution": "Refine the self-explanation prompt to ask the learner to explain a key design decision (e.g., why the tail area must be doubled for a two-sided test, or why we standardize the difference by dividing by the standard error to ensure comparability across studies)."
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-STA-008-hypothesis-tests-p-values/content/01-one-number-five-readings.md",
+      "finding": "First-read check: The lesson has an outstandingly clear and readable register. It achieves a Flesch-Kincaid grade level of 7.9 and has zero em-dashes inside the learner-visible teaching text. The tone is highly professional and clinical, avoiding artificial prose tells and filler words.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-STA-008-hypothesis-tests-p-values/content/06-practice-with-the-props-removed.md",
+      "finding": "Instructional structure: The faded practice sequence in scene 6 (from complete model to completion to supported to independent problem) and the transfer task in scene 7 (surgical-site infection rate count data instead of continuous glucose means) are exceptionally well-constructed and fully compliant with the content standard's alignment guidelines.",
+      "resolution": null
+    }
+  ],
+  "limitations": [
+    "Expert-simulation review: This review represents a single-pass advisory input by a simulated learning-design expert under standard-lesson-v3 guidelines. No real learner testing was conducted.",
+    "Conflict of interest: The same GitHub principal (VSBDev) is responsible for the authoring and review run operators. Agent-level isolation was maintained, but principal-level independence is absent.",
+    "Scope restriction: The review is strictly bounded to learning-design metrics (e.g., clarity, coherence, practice, alignment, and transfer). Scientific accuracy, rights audits, and final typesetting checks are excluded.",
+    "Technical verification limits: No rendered build environment, screen reader, or keyboard navigation pathways were evaluated physically; findings are based solely on the static source files."
+  ],
+  "signedAt": "2026-07-25T15:43:00Z"
+}

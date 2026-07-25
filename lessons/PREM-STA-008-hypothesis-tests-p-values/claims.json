@@ -1,0 +1,263 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-claims-v1",
+  "lessonId": "PREM-STA-008",
+  "lessonVersion": "0.1.0",
+  "claims": [
+    {
+      "id": "claim-misinterpretation-is-documented",
+      "statement": "Misreading of p-values is common enough in published quantitative work that a national statistical association issued a formal statement of principles on their interpretation, and methodologists have catalogued the specific misreadings as a numbered list of errors with corrections.",
+      "sceneIds": [
+        "scene-one-number-five-readings"
+      ],
+      "sourceIds": [
+        "source-asa-p-value-statement",
+        "source-p-value-misinterpretations"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "The existence and motivation of these two published responses to p-value misinterpretation in the research literature. The lesson does not claim any particular prevalence rate, nor that any named group of clinicians makes these errors at a measured frequency.",
+      "uncertainty": "Neither source measures how often the errors occur; both describe them as common enough to warrant correction. The five readings in the opening scene are invented dialogue, not survey data.",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-null-hypothesis-definition",
+      "statement": "In this framework a null hypothesis and an alternative hypothesis are two competing statements about the distribution behind the observed data; the null fixes the targeted quantity at one specified value, most often zero effect, and the alternative covers the remaining values.",
+      "sceneIds": [
+        "scene-assuming-the-thing-you-doubt",
+        "scene-practice",
+        "scene-mastery-check",
+        "scene-clinical-wrap-up"
+      ],
+      "sourceIds": [
+        "source-eom-statistical-hypotheses"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "The definitional framing of null and alternative hypotheses for a two-group comparison of means at introductory level. The lesson does not develop the measure-theoretic treatment, simple versus compound hypotheses, or optimality of tests.",
+      "uncertainty": "The convention of placing the null at zero is a convention rather than a requirement; the lesson states this and gives a non-zero null as a legitimate alternative in a retrieval item.",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-p-value-assumes-whole-model",
+      "statement": "A p-value is computed on the assumption that every assumption in the statistical model holds, including the tested hypothesis, so the resulting probability bears on the whole model rather than on the tested hypothesis alone, and a small value indicates incompatibility between the data and that specified model without identifying which assumption failed.",
+      "sceneIds": [
+        "scene-assuming-the-thing-you-doubt",
+        "scene-clinical-wrap-up"
+      ],
+      "sourceIds": [
+        "source-p-value-misinterpretations",
+        "source-asa-p-value-statement"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "The logical status of the assumptions behind any p-value from a conventional frequentist test. The lesson lists the assumptions relevant to the invented two-group comparison it uses and does not attempt a general taxonomy of model assumptions.",
+      "uncertainty": "Which assumption is responsible for a small p-value is not determinable from the p-value itself; the lesson states this limit explicitly rather than resolving it.",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-test-statistic-definition",
+      "statement": "A test statistic is a function of the observed data chosen to measure the distance between the data and what the model predicts, taking values that grow as the data depart from the hypothesis being tested.",
+      "sceneIds": [
+        "scene-nine-milligrams"
+      ],
+      "sourceIds": [
+        "source-eom-statistical-hypotheses",
+        "source-p-value-misinterpretations"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "The general role of a test statistic, applied in this lesson to the specific case of an observed difference divided by its standard error. The lesson does not derive the sampling distribution of that statistic or treat other statistic families beyond naming them.",
+      "uncertainty": null,
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-p-value-definition",
+      "statement": "A p-value is the probability, computed under the assumption that every model assumption including the tested hypothesis is correct, that the chosen test statistic would be at least as extreme as the value actually observed.",
+      "sceneIds": [
+        "scene-nine-milligrams",
+        "scene-practice",
+        "scene-different-clothes",
+        "scene-mastery-check",
+        "scene-clinical-wrap-up"
+      ],
+      "sourceIds": [
+        "source-p-value-misinterpretations"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "The definition of a p-value for a conventional frequentist test, applied here to a two-sided test of a difference between two means and, in the transfer scene, to a difference between two proportions.",
+      "uncertainty": "The two-mean examples compute tail areas and matching intervals with a declared large-sample normal approximation using an estimated standard error. The lesson states openly that a pooled t reference with 58 degrees of freedom returns about 0.033 for the dinner-timing data instead of the normal-approximation value 0.029. The two-proportion transfer names its separate Wald approximation and its sparse-count limitation.",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-two-proportion-wald-approximation",
+      "statement": "For two independent sample proportions, the unpooled Wald normal approximation estimates the standard error of their difference from the two observed proportions, uses a normal reference for the standardized difference, and can produce interval coverage below its nominal level.",
+      "sceneIds": [
+        "scene-different-clothes"
+      ],
+      "sourceIds": [
+        "source-nist-difference-proportions",
+        "source-p-value-misinterpretations"
+      ],
+      "support": "synthesis",
+      "confidence": "high",
+      "scope": "The named procedure and its limitations in the invented transfer audit. The same unpooled estimated standard error is used for the displayed z statistic and 95 per cent interval so that the example is internally consistent. This lesson does not recommend a clinical-analysis method.",
+      "uncertainty": "Only five infections occur in the new-protocol arm, so the normal approximation is fragile and its nominal 95 per cent coverage is not assured. The example teaches interpretation of a reported result; selecting a sparse-count procedure for a real audit is outside scope.",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-ci-test-correspondence",
+      "statement": "The values of an effect whose tests return p above 0.05 form the corresponding 95 per cent confidence interval, so an interval excluding a hypothesised value and a test of that value returning p below 0.05 are one result expressed in two notations and cannot disagree.",
+      "sceneIds": [
+        "scene-nine-milligrams",
+        "scene-practice",
+        "scene-mastery-check",
+        "scene-clinical-wrap-up"
+      ],
+      "sourceIds": [
+        "source-p-value-misinterpretations"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "The correspondence between an interval at a stated level and the set of hypothesised values not rejected at the matching cut-off, for the standard two-sided case used throughout this lesson.",
+      "uncertainty": "The correspondence holds when interval and test are built from the same model, estimate, standard error, and reference curve, which is the case for every worked example here. Intervals constructed by other methods need not correspond exactly to a given test.",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-p-not-hypothesis-probability",
+      "statement": "A p-value is not the probability that the tested hypothesis is true, and its complement is not the probability that an effect is real; the p-value assumes the tested hypothesis rather than assigning it a probability, so reading it as a hypothesis probability inverts the conditional.",
+      "sceneIds": [
+        "scene-nouns-that-go-wrong",
+        "scene-practice",
+        "scene-different-clothes",
+        "scene-mastery-check",
+        "scene-clinical-wrap-up"
+      ],
+      "sourceIds": [
+        "source-asa-p-value-statement",
+        "source-p-value-misinterpretations"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "The interpretation of p-values produced by conventional frequentist tests. The lesson does not develop the Bayesian machinery that would be required to obtain a probability for a hypothesis, and refers the conditional-inversion reasoning back to PREM-STA-004.",
+      "uncertainty": null,
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-p-not-chance-probability",
+      "statement": "A p-value is not the probability that the observed result was produced by chance alone, because chance acting alone is among the assumptions used to compute it, and a probability deduced from a set of assumptions cannot also be the probability that those assumptions hold.",
+      "sceneIds": [
+        "scene-nouns-that-go-wrong"
+      ],
+      "sourceIds": [
+        "source-asa-p-value-statement",
+        "source-p-value-misinterpretations"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "The interpretation of a p-value computed under a null model in which sampling variation is the only source of the observed departure.",
+      "uncertainty": null,
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-p-not-effect-size",
+      "statement": "A p-value, and the statistical significance derived from it, does not measure the size of an effect or the importance of a result, because the statistic behind it combines the size of the effect with the precision of the estimate and cannot be decomposed back into them.",
+      "sceneIds": [
+        "scene-nouns-that-go-wrong",
+        "scene-practice",
+        "scene-mastery-check",
+        "scene-clinical-wrap-up"
+      ],
+      "sourceIds": [
+        "source-asa-p-value-statement",
+        "source-p-value-misinterpretations"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "The relationship between a p-value, the effect size, and the precision of an estimate. The lesson demonstrates the point with invented paired studies and stops short of judging whether any particular effect size matters clinically, which is deferred to PREM-STA-012.",
+      "uncertainty": null,
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-nonsignificance-not-no-effect",
+      "statement": "A p-value above the conventional cut-off does not demonstrate that there is no effect, because the tested value is then only one among many values compatible with the data, and the observed estimate remains the value most compatible with them.",
+      "sceneIds": [
+        "scene-nouns-that-go-wrong",
+        "scene-practice",
+        "scene-different-clothes",
+        "scene-mastery-check"
+      ],
+      "sourceIds": [
+        "source-p-value-misinterpretations"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "The interpretation of a result falling above a chosen cut-off. The lesson establishes what such a result fails to show and refers the separate question of what a study of a given size could have detected to PREM-STA-009.",
+      "uncertainty": null,
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-threshold-is-convention",
+      "statement": "The cut-off of 0.05 is a conventional choice rather than a result of the arithmetic, and scientific or policy conclusions should not be based only on whether a p-value passes a specified threshold.",
+      "sceneIds": [
+        "scene-line-and-word"
+      ],
+      "sourceIds": [
+        "source-asa-p-value-statement",
+        "source-p-value-misinterpretations"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "The status of the 0.05 convention in reporting and decision-making. The lesson supports the point with its own arithmetic showing that the reference curve chosen moves the computed value from 0.029 to about 0.033 for identical data.",
+      "uncertainty": "The 0.029 against 0.033 comparison is this lesson's own computation on invented data and is offered as an illustration of sensitivity, not as a sourced general result about the size of such discrepancies.",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-alpha-distinct-from-p",
+      "statement": "The significance level alpha is a probability fixed in advance as part of a study's design, while the p-value is computed from the data after they arrive; the two are compared but are distinct quantities.",
+      "sceneIds": [
+        "scene-line-and-word"
+      ],
+      "sourceIds": [
+        "source-p-value-misinterpretations",
+        "source-eom-significance-level"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "The definitional separation of a pre-specified cut-off from a data-dependent p-value. The lesson deliberately stops before developing alpha as a long-run error rate, which belongs to PREM-STA-009.",
+      "uncertainty": null,
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-significance-property-of-test",
+      "statement": "Statistical significance is a dichotomous description of where a p-value fell relative to a chosen cut-off, and so is a property of the result of a statistical test rather than a property of the effect or the population being studied.",
+      "sceneIds": [
+        "scene-line-and-word",
+        "scene-different-clothes"
+      ],
+      "sourceIds": [
+        "source-p-value-misinterpretations"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "The referent of the technical phrase statistically significant. The lesson uses this to separate the technical sense from the everyday sense of the word and hands the full separation of statistical from practical importance to PREM-STA-012.",
+      "uncertainty": null,
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    }
+  ]
+}

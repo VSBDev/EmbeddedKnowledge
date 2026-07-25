@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-chart-v1",
+  "id": "chart-null-distribution-of-the-difference",
+  "type": "normal-curve",
+  "title": "What the null model predicts for the difference, and where 9.0 mg/dL falls",
+  "alt": "A bell curve centred on zero with a standard error of 4.13 mg/dL, showing the differences the null model predicts. Lines mark the centre and the observed difference at plus and minus 9.0 mg/dL. The two tails beyond 9.0 are shaded and hold 2.9 per cent of the curve between them.",
+  "longDescription": "The curve shows what the null model predicts for the difference in mean fasting glucose between the late-dinner and early-dinner groups: a bell centred on 0 mg/dL with a standard error of 4.13 mg/dL. Under that model most repeats of the study would land within a few mg/dL of zero, and differences grow rarer further out. Three reference lines are drawn. The centre line at 0 mg/dL is the difference the null model expects. The line at +9.0 mg/dL is the difference this study recorded, and the line at -9.0 is the mirror difference, equally far from the centre the other way. Both shaded tails begin at those two distances: everything at or below -9.0, and everything at or above +9.0. Each tail holds about 1.5 per cent of the curve, and together they hold 2.9 per cent, which is the two-sided p-value of 0.029. One further quantity is not drawn but matters. The points 1.96 standard errors from the centre sit at -8.09 and +8.09 mg/dL, and exactly 5 per cent of the curve lies beyond them, so those two positions are the 0.05 cut-off. The observed 9.0 lies outside them, which is why the shaded area comes in under 0.05, and the same fact seen from the other side puts the 95 per cent interval of 0.9 to 17.1 mg/dL clear of zero. The curve stands about a tenth as high at 9.0 mg/dL as it does at the centre, and that ratio is what the phrase extreme under this model is pointing at.",
+  "xAxis": {
+    "label": "Difference in mean fasting glucose, late dinner minus early dinner",
+    "unit": "mg/dL",
+    "min": -14,
+    "max": 14,
+    "ticks": [
+      { "at": -12, "label": "-12" },
+      { "at": -9, "label": "-9.0" },
+      { "at": -4.13, "label": "-4.13" },
+      { "at": 0, "label": "0" },
+      { "at": 4.13, "label": "4.13" },
+      { "at": 9, "label": "9.0" },
+      { "at": 12, "label": "12" }
+    ]
+  },
+  "yAxis": {
+    "label": "How often the null model produces each difference",
+    "unit": null,
+    "min": 0
+  },
+  "series": [
+    {
+      "id": "series-null-difference",
+      "label": "Differences predicted by the null model, centre 0 and standard error 4.13 mg/dL",
+      "mean": 0,
+      "sd": 4.13
+    }
+  ],
+  "shadedRegions": [
+    {
+      "from": "-inf",
+      "to": -9,
+      "label": "At or below -9.0 mg/dL: about 1.5 per cent of the curve"
+    },
+    {
+      "from": 9,
+      "to": "inf",
+      "label": "At or above 9.0 mg/dL: about 1.5 per cent of the curve"
+    }
+  ],
+  "markers": [
+    { "x": -9, "label": "Mirror, -9.0" },
+    { "x": 0, "label": "Null centre, 0" },
+    { "x": 9, "label": "Observed, 9.0" }
+  ]
+}
