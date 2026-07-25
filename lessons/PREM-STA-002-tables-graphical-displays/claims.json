@@ -1,0 +1,134 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-claims-v1",
+  "lessonId": "PREM-STA-002",
+  "lessonVersion": "0.1.0",
+  "claims": [
+    {
+      "id": "claim-histogram-shows-distribution-features",
+      "statement": "A histogram summarises the distribution of a single quantitative variable and displays the location of the data, their spread, their skewness, the presence of outliers, and the presence of more than one mode; a single summary value such as a mean reports only the location.",
+      "sceneIds": [
+        "scene-sixty-rows",
+        "scene-display-follows-variable",
+        "scene-read-the-histogram",
+        "scene-clinic-morning"
+      ],
+      "sourceIds": [
+        "source-nist-histogram"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "Univariate quantitative data displayed as counts in equal-width bins. The list of features is the source's; the observation that a mean carries only the first of them follows from what a mean is and is demonstrated in the lesson on two constructed cohorts with the same mean.",
+      "uncertainty": "Whether any particular histogram in fact reveals a given feature depends on the sample size and the bin width chosen, which the lesson treats separately.",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-histogram-bins-govern-detail",
+      "statement": "A histogram is constructed by splitting the range of the data into equal-sized bins whose boundaries the analyst either sets arbitrarily or derives from a systematic rule, so the chosen bin width determines which features of the distribution the resulting picture is able to show.",
+      "sceneIds": [
+        "scene-read-the-histogram",
+        "scene-two-pictures"
+      ],
+      "sourceIds": [
+        "source-nist-histogram"
+      ],
+      "support": "inference",
+      "confidence": "medium-high",
+      "scope": "Equal-width binning of a single quantitative variable. The source states the construction and the discretion the analyst holds over class definition, and separately lists the features a histogram can display.",
+      "uncertainty": "The source does not itself state the consequence that width limits which features appear. The lesson draws that consequence and demonstrates it by redrawing one dataset of sixty values at two bin widths; it does not recommend any particular rule for choosing a width.",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-relative-frequency-proportion",
+      "statement": "Dividing each histogram bin count by the total number of observations gives bar heights that represent the proportion of the data falling in each class, and those proportions sum to one.",
+      "sceneIds": [
+        "scene-display-follows-variable",
+        "scene-read-the-histogram"
+      ],
+      "sourceIds": [
+        "source-nist-histogram"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "The first of the two normalisations the source describes, in which counts are divided by the number of observations. The lesson does not use the density normalisation in which the area under the histogram is one.",
+      "uncertainty": null,
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-scatter-two-variables",
+      "statement": "A scatter plot of two quantitative variables is used to check for a relationship between them, and answers whether the two are related, whether any relationship is linear or non-linear, whether the variation in one changes across values of the other, and whether outliers are present.",
+      "sceneIds": [
+        "scene-two-measurements"
+      ],
+      "sourceIds": [
+        "source-nist-scatter"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "Paired measurements of two quantitative variables recorded on the same units of observation. The source frames these as the questions the display answers, not as conclusions the display establishes.",
+      "uncertainty": "A scatter plot describes a pattern in the observed data and does not identify its cause; the lesson keeps causal interpretation out of scope and points to the prior correlation and confounding lesson.",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-chart-choice-follows-question",
+      "statement": "Published UK government analysis guidance selects a display from the statistical relationship being shown, recommending bar charts for magnitude and ranking, line charts for time series, scatterplots for correlation, and maps for spatial patterns.",
+      "sceneIds": [
+        "scene-sixty-rows",
+        "scene-display-follows-variable",
+        "scene-choose-and-critique",
+        "scene-one-persons-record"
+      ],
+      "sourceIds": [
+        "source-af-charts"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "Guidance for UK government statistical publications. The mapping is presented there as recommended practice for communicating with a general readership, and the source states that the right chart depends on the values and the story being told.",
+      "uncertainty": "This is professional guidance rather than an empirical finding, and other reputable style guides differ on details such as when a pie chart is acceptable.",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-table-for-exact-values",
+      "statement": "The same guidance recommends a table when readers need to compare values, read summary figures such as averages or totals, or handle quantities of very different sizes in one display, and recommends a chart when the purpose is to show patterns, trends, or relationships.",
+      "sceneIds": [
+        "scene-display-follows-variable",
+        "scene-choose-and-critique",
+        "scene-clinic-morning"
+      ],
+      "sourceIds": [
+        "source-af-tables",
+        "source-af-charts"
+      ],
+      "support": "synthesis",
+      "confidence": "high",
+      "scope": "Guidance for UK government statistical publications, drawn from its tables page and its charts page together.",
+      "uncertainty": "The boundary between the two cases is a matter of editorial judgment; the guidance offers conditions rather than a decision rule.",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-truncated-bar-axis-distorts",
+      "statement": "Because readers perceive bars as proportional to one another, breaking the numerical axis of a bar chart distorts those relative proportions, and UK government analysis guidance advises against it, suggesting a different display such as a dot plot where a zero-based axis would obscure the message; the same guidance treats breaking the vertical axis of a line chart as acceptable where it is needed.",
+      "sceneIds": [
+        "scene-two-pictures",
+        "scene-choose-and-critique",
+        "scene-one-persons-record",
+        "scene-clinic-morning"
+      ],
+      "sourceIds": [
+        "source-af-charts"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "Bar charts and line charts intended for a general readership. The difference in treatment follows the encoding each display uses: bar length against line position.",
+      "uncertainty": "The guidance itself records that the practice is contested in the wider data-visualisation literature. The lesson's arithmetic showing that a 135 mg/dL axis cut turns a ratio of 1.065 into a drawn ratio of about 4.6 is computed from the lesson's own values.",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    }
+  ]
+}

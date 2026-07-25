@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-STA-002-LD-2AC34DAD",
+  "lessonId": "PREM-STA-002",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "af6cd49f54522263935fe150301dd2f93bdcba66",
+  "role": "learning-design",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev (learning-design reviewer)",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.7",
+      "runId": "agy-learning-design-PREM-STA-002-2AC34DAD-127F-4212-9AA1-994F7ECD86D3",
+      "instructionsDigest": "sha256:6b4cf809d89510cfcdf312001ef9f5d3e8fa56999e32dd49c0ba7a745ce67f11"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Founding-stage isolation check: the accountable principal VSBDev operates the authoring and review agents, so principal-level independence is absent. Agent-level role isolation was strictly maintained: no authoring history, other review output, or adjudication draft was read, and no other EmbeddedKnowledge role script was run during this review execution."
+  },
+  "evidenceChecked": [
+    "lessons/PREM-STA-002-tables-graphical-displays/lesson.json",
+    "lessons/PREM-STA-002-tables-graphical-displays/claims.json",
+    "lessons/PREM-STA-002-tables-graphical-displays/references.json",
+    "lessons/PREM-STA-002-tables-graphical-displays/glossary.json",
+    "lessons/PREM-STA-002-tables-graphical-displays/ATTRIBUTION.md",
+    "lessons/PREM-STA-002-tables-graphical-displays/assessment.json",
+    "lessons/PREM-STA-002-tables-graphical-displays/charts/bimodal-counter-case.chart.json",
+    "lessons/PREM-STA-002-tables-graphical-displays/charts/dinner-gap-glucose-scatter.chart.json",
+    "lessons/PREM-STA-002-tables-graphical-displays/charts/fasting-glucose-histogram.chart.json",
+    "lessons/PREM-STA-002-tables-graphical-displays/charts/fasting-glucose-wide-bins.chart.json",
+    "lessons/PREM-STA-002-tables-graphical-displays/charts/group-means-cut-axis.chart.json",
+    "lessons/PREM-STA-002-tables-graphical-displays/charts/group-means-zero-axis.chart.json",
+    "lessons/PREM-STA-002-tables-graphical-displays/content/010-sixty-rows.md",
+    "lessons/PREM-STA-002-tables-graphical-displays/content/020-display-follows-the-variable.md",
+    "lessons/PREM-STA-002-tables-graphical-displays/content/030-read-the-histogram.md",
+    "lessons/PREM-STA-002-tables-graphical-displays/content/040-two-measurements-one-plot.md",
+    "lessons/PREM-STA-002-tables-graphical-displays/content/050-two-pictures-one-dataset.md",
+    "lessons/PREM-STA-002-tables-graphical-displays/content/060-choose-and-critique.md",
+    "lessons/PREM-STA-002-tables-graphical-displays/content/070-one-persons-record.md",
+    "lessons/PREM-STA-002-tables-graphical-displays/content/080-clinical-wrap-up.md",
+    "CONTENT-STANDARD.md"
+  ],
+  "findings": [
+    {
+      "severity": "note",
+      "target": "lessons/PREM-STA-002-tables-graphical-displays/content/010-sixty-rows.md#L1",
+      "finding": "First-read check: The orientation scene opener introduces a clear, concrete dataset context (sixty rows from a dinner-timing study of adults with type 2 diabetes) and names its columns before introducing definitions or formal display rules. A learner at the declared level can easily grasp what they are studying, why it matters, and how the central procedure works, successfully passing the Content Standard first-read gate.",
+      "resolution": null
+    },
+    {
+      "severity": "major",
+      "target": "lessons/PREM-STA-002-tables-graphical-displays/content/030-read-the-histogram.md#L5",
+      "finding": "The worked example `worked-example-read-the-glucose-histogram` lacks the required self-explanation prompt. Section 5.1 of `CONTENT-STANDARD.md` specifies that worked examples must include a self-explanation prompt about the decision that most strongly determines the solution, which is necessary to encourage active conceptual reflection.",
+      "resolution": "Add a self-explanation prompt at the end of the worked example (e.g., asking the learner to explain why the choice of bin width or boundary convention is the most decisive factor in determining the shape and features of the resulting histogram, and why)."
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-STA-002-tables-graphical-displays/glossary.json",
+      "finding": "The practice and critique scene `scene-choose-and-critique` (Scene 6) relies on and applies multiple core charting terms defined in this lesson (specifically `histogram`, `line chart`, and `scatter plot`), but its scene ID is not listed in the `sceneIds` array for these terms in `glossary.json`.",
+      "resolution": "Add `scene-choose-and-critique` to the `sceneIds` list for `term-histogram`, `term-line-chart`, and `term-scatter-plot` in `glossary.json` to ensure metadata ledger completeness."
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-STA-002-tables-graphical-displays/glossary.json",
+      "finding": "The transfer scene `scene-one-persons-record` (Scene 7) relies on and applies several key charting concepts taught in this lesson (specifically `frequency table` and `bar chart`), but its scene ID is not listed in the `sceneIds` array for these terms in `glossary.json`.",
+      "resolution": "Add `scene-one-persons-record` to the `sceneIds` list for `term-frequency-table` and `term-bar-chart` in `glossary.json` to ensure metadata ledger completeness."
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-STA-002-tables-graphical-displays/content/050-two-pictures-one-dataset.md#L5",
+      "finding": "The misconception scene (Scene 5) beautifully contrasts the zero-based axis bar chart with a truncated axis chart using the exact same two group means, illustrating the mathematical distortion (a true ratio of 1.065 to 1 vs a drawn ratio of 4.6 to 1) and providing an active repair test that reinforces the proportionality principle of length-based encodings.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-STA-002-tables-graphical-displays/content/070-one-persons-record.md#L1",
+      "finding": "The transfer scene (Scene 7) successfully shifts the unit of observation from a 60-person cohort to a longitudinal 90-morning sequence for a single patient, forcing the learner to contrast how histograms and line charts destroy or preserve order/dates, and applying axis principles to position-based vs length-based encodings.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-STA-002-tables-graphical-displays/assessment.json#L14",
+      "finding": "Constructive alignment check: The assessment items are tightly aligned with the objectives. Items `item-choose-display-for-waits` and `item-table-or-chart` test display selection; `item-what-a-mean-omits` and `item-count-below-125` test reading a distribution; `item-describe-the-scatter` evaluates scatter plots; and `item-drawn-bar-ratio` and `item-audit-the-clinic-slide` evaluate axis distortion auditing. The numeric and open response keys are mathematically sound and pedagogical.",
+      "resolution": null
+    }
+  ],
+  "limitations": [
+    "Expert-simulation review: This review represents a single-pass advisory input by a simulated learning-design expert under standard-lesson-v3 guidelines. No real learner testing was conducted.",
+    "Conflict of interest: The same GitHub principal (VSBDev) is responsible for the authoring and review run operators. Agent-level isolation was maintained, but principal-level independence is absent.",
+    "Scope restriction: The review is strictly bounded to learning-design metrics (e.g., clarity, coherence, practice, alignment, and transfer). Scientific accuracy, rights audits, and final typesetting checks are excluded.",
+    "Technical verification limits: No rendered build environment, screen reader, or keyboard navigation pathways were evaluated physically; findings are based solely on the static Markdown and JSON source files."
+  ],
+  "signedAt": "2026-07-25T10:23:47Z"
+}
