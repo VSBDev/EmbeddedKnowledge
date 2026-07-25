@@ -1,0 +1,439 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-assessment-v1",
+  "lessonId": "PREM-STA-012",
+  "lessonVersion": "0.1.0",
+  "assessmentId": "assessment-statistical-practical-significance-mastery",
+  "title": "Judging a reported difference against a threshold",
+  "purpose": "mastery-gate",
+  "attemptPolicy": {
+    "retakeable": true,
+    "timeLimitMinutes": null,
+    "feedback": "after-attempt"
+  },
+  "items": [
+    {
+      "id": "item-lower-limit",
+      "type": "numeric",
+      "sceneId": "scene-mastery-check",
+      "objectiveIds": [
+        "objective-read-against-threshold"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-statistical-practical-significance"
+      ],
+      "prompt": "Compute the lower limit of study S's 95% confidence interval from its difference and standard error. Give the answer in mg/dL to one decimal place.",
+      "stimulus": "Invented study S: structured bedtime routine, 400 people per group. Mean fasting glucose 4.5 mg/dL lower in the intervention group, standard error of that difference 1.131 mg/dL. The service agreed an importance threshold of 5 mg/dL before reading the paper. Illustrative teaching example, not medical advice.",
+      "points": 2,
+      "responseSpec": {
+        "mode": "number",
+        "units": "mg/dL",
+        "tolerance": 0.05,
+        "maxSelections": null,
+        "maxLength": null
+      },
+      "answer": {
+        "correct": 2.3,
+        "summary": "The margin of error is 1.96 x 1.131 = 2.22 mg/dL, so the lower limit is 4.5 - 2.22 = 2.28, which is 2.3 mg/dL to one decimal place.",
+        "reasoning": "Award 1 point for forming the margin of error as 1.96 multiplied by the standard error, giving 2.22 mg/dL, and 1 point for subtracting it from the estimate to reach 2.3 mg/dL. A learner who returns 3.4 has subtracted one standard error instead of 1.96 of them. A learner who returns 5.6 has subtracted the estimate from the threshold, which mixes two quantities that belong on the same axis but play different roles. Check the answer by adding the same margin to get the upper limit of 6.7, then confirm the interval is symmetric about 4.5. On retry, do the same computation for study T, where 1.96 x 0.453 = 0.89 and the interval runs from 0.9 to 2.7.",
+        "acceptableResponses": [
+          "2.3",
+          "2.28",
+          "2.29",
+          "4.5 - 1.96 x 1.131"
+        ],
+        "commonErrors": [
+          "Subtracting one standard error instead of 1.96 standard errors, giving 3.4",
+          "Subtracting the estimate from the 5 mg/dL threshold",
+          "Halving the standard error before applying the multiplier"
+        ]
+      },
+      "rubricId": "rubric-lower-limit",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-classify-study-s",
+      "type": "single-choice",
+      "sceneId": "scene-mastery-check",
+      "objectiveIds": [
+        "objective-read-against-threshold",
+        "objective-judge-a-reported-difference"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-statistical-practical-significance"
+      ],
+      "prompt": "Study S reports a difference of 4.5 mg/dL with a 95% interval of 2.3 to 6.7 mg/dL. The service's threshold is 5 mg/dL. Which sentence states what the study supports?",
+      "stimulus": "Invented study S: structured bedtime routine, 400 people per group, difference 4.5 mg/dL, standard error 1.131 mg/dL, two-sided p < 0.001, 95% interval 2.3 to 6.7 mg/dL. The service agreed a 5 mg/dL importance threshold before reading the paper. Illustrative teaching example, not medical advice.",
+      "points": 3,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-straddles-threshold",
+            "text": "The interval excludes zero, so the direction is supported, and it contains 5, so the data are compatible with an effect below the threshold and with one above it. On the service's own question the study is inconclusive."
+          },
+          {
+            "id": "option-below-threshold-so-reject",
+            "text": "The estimate of 4.5 falls below the threshold of 5, so the study has shown the effect is too small to act on and the service should decline."
+          },
+          {
+            "id": "option-significant-so-act",
+            "text": "The result is statistically significant at p < 0.001, so the effect is well established and the service should change its advice."
+          },
+          {
+            "id": "option-no-effect",
+            "text": "Because 5 falls inside the interval, the data are compatible with the threshold value itself, which is the best single estimate of the effect and justifies acting."
+          }
+        ],
+        "units": null,
+        "tolerance": null,
+        "maxSelections": 1,
+        "maxLength": null
+      },
+      "answer": {
+        "correct": "option-straddles-threshold",
+        "summary": "Position C. Under the stated model and confidence procedure, excluding zero supports the direction, while containing 5 leaves the threshold comparison inconclusive.",
+        "reasoning": "Award 1 point for placing zero outside the interval and reading that as support for the direction, 1 point for placing 5 inside the interval, and 1 point for concluding that the service's question is left open rather than answered either way. The second option treats the point estimate as though it were the whole result and ignores that values up to 6.7 remain compatible with the data, so the study cannot rule the effect below the threshold. The third option is the substitution this lesson exists to block: p < 0.001 reports incompatibility with zero and says nothing about whether 4.5 mg/dL is worth acting on. The fourth option inverts what an interval means, since containing a value is not evidence for that value, and the estimate most compatible with the data remains 4.5. On retry, classify study T the same way and notice that it reaches a firmer verdict with a smaller effect.",
+        "acceptableResponses": [
+          "The option stating that the interval excludes zero and contains 5, leaving the direction supported and the threshold question inconclusive."
+        ],
+        "commonErrors": [
+          "Reading the point estimate against the threshold and ignoring the interval around it",
+          "Treating a very small p-value as evidence that the effect is large enough to act on",
+          "Treating a value inside an interval as the value the data support"
+        ]
+      },
+      "rubricId": "rubric-classify-study-s",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-equal-p-values",
+      "type": "single-choice",
+      "sceneId": "scene-mastery-check",
+      "objectiveIds": [
+        "objective-size-decides-significance",
+        "objective-separate-senses"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-statistical-practical-significance"
+      ],
+      "prompt": "Studies S and T report p-values that are equal to the precision printed, both rounding to 0.00007. Which comparison between the two studies do those p-values support?",
+      "stimulus": "Invented study S: bedtime routine, 400 per group, difference 4.5 mg/dL, standard error 1.131, 95% interval 2.3 to 6.7. Invented study T: community walking programme, 2500 per group, difference 1.8 mg/dL, standard error 0.453, 95% interval 0.9 to 2.7. Service threshold 5 mg/dL. Illustrative teaching example, not medical advice.",
+      "points": 3,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-equal-distance-different-effects",
+            "text": "Only that each study's data sit about equally far from its own null. Study S found the larger effect at 4.5 against 1.8 mg/dL, and study T matched its p-value by measuring a smaller effect far more precisely in six times as many people."
+          },
+          {
+            "id": "option-equal-effects",
+            "text": "That the two programmes have effects of about the same size, since equal p-values indicate equal effects."
+          },
+          {
+            "id": "option-equally-worthwhile",
+            "text": "That both programmes are equally worth adopting, because both cleared the conventional threshold by the same margin."
+          },
+          {
+            "id": "option-t-better-because-larger",
+            "text": "That study T is the more trustworthy of the two, and its 2500 per group means its 1.8 mg/dL estimate is closer to the truth than study S's 4.5 mg/dL is."
+          }
+        ],
+        "units": null,
+        "tolerance": null,
+        "maxSelections": 1,
+        "maxLength": null
+      },
+      "answer": {
+        "correct": "option-equal-distance-different-effects",
+        "summary": "Equal p-values report equal distance from each study's own null, and the two effects differ by a factor of 2.5.",
+        "reasoning": "Award 1 point for comparing the effect sizes directly, 4.5 mg/dL against 1.8 mg/dL, 1 point for attributing study T's matching p-value to its standard error of 0.453 against study S's 1.131, and 1 point for refusing to read either p-value as a statement about magnitude or worth. The second option is the misreading the lesson demonstrates with its three-row table: the statistic combines the effect with its precision and cannot be taken apart again. The third option adds the everyday sense of the word on top of that error and reaches a recommendation neither study supports. The fourth option confuses precision with accuracy, since a larger study estimates its own effect more precisely and that says nothing about which programme does more. On retry, state which of the two studies answers the service's question and why the answer is negative.",
+        "acceptableResponses": [
+          "The option stating that equal p-values report equal distance from each study's own null while study S found the larger effect and study T bought its p-value with precision."
+        ],
+        "commonErrors": [
+          "Reading equal p-values as equal effect sizes",
+          "Reading a p-value as a measure of how worthwhile an intervention is",
+          "Treating the larger study's estimate as closer to the truth about a different intervention"
+        ]
+      },
+      "rubricId": "rubric-equal-p-values",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-repair-sentence",
+      "type": "short-answer",
+      "sceneId": "scene-mastery-check",
+      "objectiveIds": [
+        "objective-separate-senses"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-statistical-practical-significance"
+      ],
+      "prompt": "Rewrite this sentence so that every claim in it is one the two studies support: \"Both programmes produced highly statistically significant reductions in fasting glucose, so both are clinically worthwhile.\" Name the fault before you rewrite it.",
+      "stimulus": "Invented study S: 400 per group, 4.5 mg/dL, 95% interval 2.3 to 6.7. Invented study T: 2500 per group, 1.8 mg/dL, 95% interval 0.9 to 2.7. Service threshold 5 mg/dL, agreed in advance. Illustrative teaching example, not medical advice.",
+      "points": 4,
+      "responseSpec": {
+        "mode": "text",
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "maxLength": 900
+      },
+      "answer": {
+        "correct": "The fault is that the word significant is used technically in the first clause and in its everyday sense in the second, so the sentence appears to derive worth from a threshold comparison that carries no information about worth. A repaired version: both programmes lowered mean fasting glucose, by 4.5 mg/dL (95% interval 2.3 to 6.7) in study S and by 1.8 mg/dL (95% interval 0.9 to 2.7) in study T, and both results are statistically significant at the conventional level. Against the service's threshold of 5 mg/dL, study T shows an effect entirely below the threshold, and study S leaves the question open because its interval contains 5.",
+        "summary": "The sentence slides from the technical sense into the everyday one, and the repair separates the effect estimates from the significance label and reads each against the stated threshold.",
+        "reasoning": "Award 1 point for naming the fault as the shift between the two senses of significant, and not merely as overstatement. Award 1 point for a rewrite that reports both effect sizes with their intervals in mg/dL. Award 1 point for keeping the significance label attached to the test result and claiming nothing further from it. Award 1 point for evaluating both studies against the 5 mg/dL threshold and reaching different verdicts for the two, T below the threshold and S inconclusive. A response that only softens the language, for example by replacing worthwhile with promising, has not repaired the reasoning and earns the first point at most. A response that deletes the second clause without putting the threshold comparison in its place loses the fourth point, because the reader still cannot tell what either study means for the decision. The word highly is also doing unearned work and a strong answer will drop it, since a smaller p-value does not make a result more clinically worthwhile.",
+        "acceptableResponses": [
+          "A rewrite naming the two senses of significant as the fault, reporting 4.5 mg/dL (2.3 to 6.7) and 1.8 mg/dL (0.9 to 2.7), keeping the significance label attached to the test result, and reading both against the 5 mg/dL threshold to give T a verdict below it and S an inconclusive one.",
+          "An answer that reaches the same four elements while placing the threshold comparison first and the significance label last."
+        ],
+        "commonErrors": [
+          "Softening the wording without separating the two senses of the word",
+          "Reporting the effect sizes but omitting the intervals, so neither threshold comparison can be made",
+          "Giving both studies the same verdict against the threshold",
+          "Keeping the intensifier highly as though a smaller p-value strengthened the clinical case"
+        ]
+      },
+      "rubricId": "rubric-repair-sentence",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-threshold-source",
+      "type": "single-choice",
+      "sceneId": "scene-mastery-check",
+      "objectiveIds": [
+        "objective-define-mcid"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-statistical-practical-significance"
+      ],
+      "prompt": "The service has to justify its 5 mg/dL threshold to an audit committee. Which account defensibly describes a service decision threshold, rather than claiming to have estimated an MCID?",
+      "stimulus": "Invented service and threshold. Illustrative teaching example, not medical advice.",
+      "points": 3,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-anchored-and-justified",
+            "text": "It was set before the papers were read, using patient preference elicitation about what would make the dietary change worth keeping up, information about measurement resolution, costs and alternatives, and a recorded argument connecting those inputs to the between-group effect. The service calls it a decision threshold, not an MCID."
+          },
+          {
+            "id": "option-from-the-data",
+            "text": "It was taken from the studies themselves: 5 mg/dL is the smallest difference the available trials were able to detect at the 0.05 level, so it is the natural threshold."
+          },
+          {
+            "id": "option-from-the-diagnostic-cutoff",
+            "text": "It was derived from the published diagnostic bands, since diabetes is diagnosed at a fasting plasma glucose of 126 mg/dL and 5 mg/dL is a round fraction of the prediabetes range."
+          },
+          {
+            "id": "option-borrowed-value",
+            "text": "It was taken from a published minimal important difference for a symptom questionnaire in a different condition, on the grounds that a validated number is better than an invented one."
+          }
+        ],
+        "units": null,
+        "tolerance": null,
+        "maxSelections": 1,
+        "maxLength": null
+      },
+      "answer": {
+        "correct": "option-anchored-and-justified",
+        "summary": "A defensible service threshold can combine patient preferences, measurement information, costs and alternatives, provided it is fixed in advance, connected explicitly to the between-group effect and not mislabelled as an MCID.",
+        "reasoning": "Award 1 point for choosing an account that uses patient preference elicitation as one input without calling that exercise an anchor-based MCID estimate. Award 1 point for choosing one that fixes the figure before the results are seen and explicitly connects the inputs to the between-group effect, so the threshold cannot be tuned to the answer or borrowed from an individual-change construct without a bridge. Award 1 point for choosing one whose reasoning is written down and open to challenge. The second option lets the sample size decide what matters, which reverses the lesson's logic. The third option confuses a level with a change: the diagnostic bands say where a person's glucose sits and carry no information about how much movement is worth pursuing. The fourth option ignores context, population, outcome and estimand. On retry, write two sentences the service would put in its minutes to record the threshold, its inputs and its status as a decision rule rather than an MCID.",
+        "acceptableResponses": [
+          "The option describing a service decision threshold informed by patient preferences, measurement resolution, costs and alternatives, fixed in advance, explicitly connected to the between-group effect, and not labelled an MCID."
+        ],
+        "commonErrors": [
+          "Letting the study's detectable difference define what counts as important",
+          "Treating a diagnostic cut-point for a level as a threshold for a change",
+          "Importing a published threshold from a different outcome, population or estimand without argument"
+        ]
+      },
+      "rubricId": "rubric-threshold-source",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-bias-and-threshold",
+      "type": "single-choice",
+      "sceneId": "scene-mastery-check",
+      "objectiveIds": [
+        "objective-judge-a-reported-difference"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-statistical-practical-significance"
+      ],
+      "prompt": "A reviewer discovers that in study T, glucose in the walking group was measured on participants' home meters while the comparison group was measured in the hospital laboratory, and that the home meters read on average about 4 mg/dL lower than the laboratory. What does this do to the threshold comparison?",
+      "stimulus": "Invented study T: community walking programme, 2500 per group, difference 1.8 mg/dL lower with the programme, standard error 0.453, two-sided p < 0.001, 95% interval 0.9 to 2.7 mg/dL. Service threshold 5 mg/dL. Illustrative teaching example, not medical advice.",
+      "points": 3,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-estimate-displaced",
+            "text": "It voids the comparison until the estimate is corrected. A systematic measurement difference can displace the estimate and the whole reported interval without widening it, and a shift of about 4 mg/dL is more than twice the reported effect and could reverse its direction."
+          },
+          {
+            "id": "option-interval-covers-it",
+            "text": "Little, because the 95% interval already accounts for measurement variation, and a discrepancy of 4 mg/dL falls within the range of values the study reports as compatible."
+          },
+          {
+            "id": "option-narrow-interval-protects",
+            "text": "Little, because with 2500 people per group the standard error is only 0.453 mg/dL, and an estimate that precise is not meaningfully affected by a measurement discrepancy."
+          },
+          {
+            "id": "option-still-below-threshold",
+            "text": "Nothing that changes the decision, because the verdict was that the effect falls below the 5 mg/dL threshold, and a downward measurement error would only make the true effect smaller still."
+          }
+        ],
+        "units": null,
+        "tolerance": null,
+        "maxSelections": 1,
+        "maxLength": null
+      },
+      "answer": {
+        "correct": "option-estimate-displaced",
+        "summary": "A systematic measurement difference can displace the estimate and interval without widening the interval, and here the possible displacement exceeds the reported effect.",
+        "reasoning": "Award 1 point for identifying the problem as a systematic distortion in the sense the design lessons established, and not as extra random variation. Award 1 point for stating that such a distortion can shift the estimate and reported interval without widening it, so precision offers no protection. Award 1 point for comparing the size of the displacement, about 4 mg/dL, with the reported effect of 1.8 mg/dL and concluding that the direction itself is in doubt. The second and third options both treat a confidence interval as though it insured against systematic error; interval width describes random uncertainty under the fitted model and need not represent systematic measurement differences. The fourth option gets the arithmetic backwards: the home meters read low in the group that appears better, so correcting for the discrepancy would move the estimate towards zero and past it, and the walking group could turn out to have higher true glucose. On retry, state what the service should ask for before the paper is discussed again.",
+        "acceptableResponses": [
+          "The option stating that a systematic measurement difference can displace the estimate and interval without widening them, that a 4 mg/dL shift exceeds the 1.8 mg/dL effect, and that the comparison is void until the estimate is corrected."
+        ],
+        "commonErrors": [
+          "Treating a confidence interval as though it accounted for systematic measurement error",
+          "Assuming a small standard error protects an estimate against bias",
+          "Getting the direction of the correction wrong and concluding the effect is merely smaller"
+        ]
+      },
+      "rubricId": "rubric-bias-and-threshold",
+      "safetyCritical": false
+    }
+  ],
+  "rubrics": [
+    {
+      "id": "rubric-lower-limit",
+      "title": "Lower limit of an interval from an estimate and its standard error",
+      "criteria": [
+        {
+          "id": "criterion-form-the-margin",
+          "description": "Award 1 point only when the margin of error is formed as 1.96 multiplied by the standard error, giving 2.22 mg/dL.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-subtract-from-estimate",
+          "description": "Award 1 point only when the margin is subtracted from the 4.5 mg/dL estimate to give 2.3 mg/dL to one decimal place.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-classify-study-s",
+      "title": "Placing an interval against zero and against a threshold",
+      "criteria": [
+        {
+          "id": "criterion-place-zero",
+          "description": "Award 1 point only when zero is placed outside the interval and read as support for the direction of the effect.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-place-threshold",
+          "description": "Award 1 point only when the 5 mg/dL threshold is placed inside the interval of 2.3 to 6.7.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-state-inconclusive",
+          "description": "Award 1 point only when the verdict on the service's question is stated as inconclusive, with values on both sides of the threshold remaining compatible with the data.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-equal-p-values",
+      "title": "Reading two equal p-values without importing magnitude",
+      "criteria": [
+        {
+          "id": "criterion-compare-effects-directly",
+          "description": "Award 1 point only when the two effect sizes, 4.5 mg/dL and 1.8 mg/dL, are compared directly rather than through their p-values.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-attribute-to-precision",
+          "description": "Award 1 point only when study T's matching p-value is attributed to its standard error of 0.453 against study S's 1.131, and so to its sample size.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-no-worth-claim",
+          "description": "Award 1 point only when no claim about magnitude or clinical worth is drawn from either p-value.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-repair-sentence",
+      "title": "Repairing a sentence that has slid between the two senses",
+      "criteria": [
+        {
+          "id": "criterion-name-the-slide",
+          "description": "Award 1 point only when the fault is named as the shift from the technical sense of significant to the everyday sense, and not merely as overstatement.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-report-effects-with-intervals",
+          "description": "Award 1 point only when both effect estimates are reported with their confidence intervals in mg/dL.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-label-stays-with-the-test",
+          "description": "Award 1 point only when the significance label stays attached to the test result and no claim about worth is drawn from it.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-two-different-verdicts",
+          "description": "Award 1 point only when both studies are read against the 5 mg/dL threshold and given different verdicts, study T below the threshold and study S inconclusive.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-threshold-source",
+      "title": "Justifying where an importance threshold came from",
+      "criteria": [
+        {
+          "id": "criterion-anchored-in-patients",
+          "description": "Award 1 point only when the chosen account uses patient preference elicitation as an input while keeping it distinct from an anchor-based MCID estimate.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-fixed-in-advance",
+          "description": "Award 1 point only when the chosen account fixes the threshold before the results are read and explicitly connects it to the between-group effect.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-reasoning-recorded",
+          "description": "Award 1 point only when the chosen account records the reasoning so that the figure can be challenged.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-bias-and-threshold",
+      "title": "What a systematic measurement difference does to a threshold comparison",
+      "criteria": [
+        {
+          "id": "criterion-identify-systematic",
+          "description": "Award 1 point only when the problem is identified as a systematic distortion of the estimate and not as additional random variation.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-interval-moves-not-widens",
+          "description": "Award 1 point only when the distortion is described as capable of displacing the estimate and interval without widening the interval, so that precision gives no protection.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-compare-shift-to-effect",
+          "description": "Award 1 point only when the 4 mg/dL displacement is compared with the 1.8 mg/dL effect and the direction of the result is put in doubt.",
+          "maxPoints": 1
+        }
+      ]
+    }
+  ]
+}

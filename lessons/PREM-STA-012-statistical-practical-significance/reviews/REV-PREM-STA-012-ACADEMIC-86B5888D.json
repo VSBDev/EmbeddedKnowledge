@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-STA-012-ACADEMIC-86B5888D",
+  "lessonId": "PREM-STA-012",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "8bedbff9df9dfd81dee1018ed58a89ead3fec492",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable operator and academic reviewer",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-STA-012-86B5888D-D997-43F8-8BAC-A745CE2A6EED",
+      "instructionsDigest": "sha256:decc1b86d79c47a43dd2ea73afe974321ec3b8f51d91f7f1ce6e3448d3ea7eba"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#objectives-and-scenes",
+    "ATTRIBUTION.md#sources-boundaries-and-original-material",
+    "assessment.json#all-items-rubrics-and-answer-logic",
+    "charts/estimate-against-threshold.chart.json#chart-estimate-against-threshold",
+    "charts/larger-study-smaller-difference.chart.json#chart-larger-study-estimate",
+    "claims.json#all-claims",
+    "references.json#all-sources",
+    "glossary.json#all-terms",
+    "content/01-two-people-read-one-sentence.md#complete-scene",
+    "content/02-one-word-doing-two-jobs.md#complete-scene",
+    "content/03-somebody-has-to-choose-the-number.md#complete-scene",
+    "content/04-where-the-interval-sits.md#complete-scene",
+    "content/05-practice-three-passes.md#complete-scene",
+    "content/06-transfer-a-different-kind-of-number.md#complete-scene",
+    "content/07-mastery-check.md#complete-scene",
+    "content/08-clinical-wrap-up.md#complete-scene",
+    "references.json#source-asa-p-value-statement — direct PDF verification of principles 1, 3, 5 and 6",
+    "references.json#source-p-value-misinterpretations — bibliographic and abstract verification through PubMed",
+    "references.json#source-mcid-neurology-review — indexed full-text verification of the definition, anchor-based and distribution-based methods, context dependence and absence of a gold standard",
+    "references.json#source-mcid-methodology-review — indexed source and publisher-PDF verification of the stated MCID scope",
+    "references.json#source-niddk-diabetes-tests — direct verification of fasting-plasma-glucose bands and confirmation guidance",
+    "content/02-one-word-doing-two-jobs.md#the-size-of-the-study-is-the-lever — independent recalculation of standard errors, normal-reference p-values and intervals",
+    "content/05-practice-three-passes.md#task-three-run-it-forwards — independent prospective-power recalculation",
+    "content/06-transfer-a-different-kind-of-number.md#reading-it — independent risk-difference, standard-error, interval and p-value recalculation",
+    "assessment.json#item-lower-limit-and-item-equal-p-values — independent recalculation of both assessment studies"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "content/05-practice-three-passes.md#task-three-run-it-forwards; content/08-clinical-wrap-up.md#what-the-service-actually-does",
+      "finding": "The prospective sample-size calculation treats the future estimate as if it were fixed at the assumed true difference. With a true difference of 9 mg/dL, within-group spread 16 mg/dL and 123 participants per group, the standard error is about 2.040 mg/dL and the expected lower 95% limit is only just above 5 mg/dL. The probability that the observed lower limit actually exceeds 5 is therefore about 50%, not a design that reliably returns position A. Under the lesson's known-spread normal approximation, approximately 252 participants per group are required for 80% probability of clearing 5 when the true effect is 9. The statement that no sample size will ever produce position A when the true effect is 3 is also categorically false for a random finite sample: sampling error can produce it, although a sound design should make that probability small rather than promise impossibility. The wrap-up repeats 123 per group as the basis for funding a larger study.",
+      "resolution": "Specify a target probability or power, derive sample size using both the confidence multiplier and the corresponding power quantile, and rewrite the 3 mg/dL case probabilistically. Update the downstream funding statement in the wrap-up to use the corrected design and state its operating probability."
+    },
+    {
+      "severity": "major",
+      "target": "charts/estimate-against-threshold.chart.json#series-dinner-timing-estimate; charts/larger-study-smaller-difference.chart.json#series-larger-study-estimate",
+      "finding": "Both normal curves are described as showing where a repeat study's estimate would land, while being centred on the observed estimate and assigned the observed standard error. A frequentist sampling distribution of repeat estimates is centred on the unknown true effect, not necessarily on the observed estimate. The shaded observed confidence interval is likewise not a band containing 95% of repeat estimates around the current estimate. The current labels and long descriptions therefore teach a classic sampling-distribution and confidence-interval misinterpretation through the lesson's central visual representation.",
+      "resolution": "Replace these curves with estimate-and-interval plots, or explicitly recast and justify them as plug-in normal likelihood or confidence-profile approximations. Do not label them as relative frequencies or locations of future repeat estimates, and distinguish the observed confidence interval from a repeat-sampling distribution."
+    },
+    {
+      "severity": "major",
+      "target": "content/04-where-the-interval-sits.md#two-questions-asked-separately; content/05-practice-three-passes.md#task-one-classify-and-state; content/06-transfer-a-different-kind-of-number.md#reading-it; content/08-clinical-wrap-up.md#uncertain...",
+      "finding": "The five-position scheme and its applications repeatedly turn exclusion of zero into claims that an effect is real, demonstrably smaller, shown, settled or established. The assessment summary similarly says direction is settled. A 95% interval excluding zero supplies model-dependent evidence and identifies which parameter values lie outside that interval; it does not establish the truth of an effect or eliminate the procedure's error rate. These stronger formulations contradict the lesson's own ASA-supported warning that a p-value alone is not a good measure of evidence and reward precisely the false-certainty shortcut the outcome is meant to repair.",
+      "resolution": "Use calibrated statements throughout: identify what the data support under the stated model and confidence procedure, and say that values at or beyond a threshold lie outside the reported interval. Remove claims that the effect is real, proved, demonstrated or settled, including from answer summaries and rubrics."
+    },
+    {
+      "severity": "major",
+      "target": "lesson.json#objective-define-mcid; content/03-somebody-has-to-choose-the-number.md#how-a-threshold-is-actually-obtained; assessment.json#item-threshold-source; glossary.json#term-minimal-clinically-important-difference-and-term-anchor-ba...",
+      "finding": "The lesson does not keep MCID estimation, patient preference elicitation and a service decision threshold academically distinct. It says an importance threshold cannot be obtained from a study's own data while correctly acknowledging that distribution-based MCID estimates use statistical characteristics within a sample. The defensible distinction is that sample data can produce a distribution-based estimate related to variation or measurement error but cannot, by themselves, establish patient-perceived importance or a cost-sensitive decision rule. The formative check then calls asking a panel what hypothetical glucose change would make a restriction worthwhile an anchor-based method. In the cited literature, an anchor-based estimate relates observed changes on the target measure to an external anchor; the proposed panel exercise is preference elicitation, not that estimation procedure. The pack also moves between an MCID for change in an outcome measure and a threshold for a between-group service decision without declaring the bridge.",
+      "resolution": "Revise the objective, definitions, check and assessment to distinguish the three constructs. Define an anchor-based MCID estimate using paired target-score change and an external anchor; describe distribution-based information as contributory but insufficient for patient importance; and label the service's 5 mg/dL value as a prospectively justified decision threshold unless a defensible MCID-to-group-effect mapping is supplied."
+    },
+    {
+      "severity": "major",
+      "target": "content/08-clinical-wrap-up.md#real-world-relevance",
+      "finding": "The scene makes unsupported quantitative inferences from a group mean, standard deviation and mean between-group difference to individual patients. A cohort mean of 142 mg/dL with spread 16 mg/dL does not by itself establish that most observations exceed 126 or that some specified number lie near that boundary without a distribution or the actual individual data. More seriously, a 9 mg/dL difference between group means does not imply that individual participants each shift by 9 mg/dL or that a few will cross a diagnostic category. Those claims require the joint distribution of baseline and follow-up values and an explicit individual-effect model.",
+      "resolution": "Remove the claims about how many participants lie above or near 126 and how many cross a category, or supply appropriate individual-level data and a stated distributional model. Explicitly distinguish a difference between group means from an individual person's change or treatment effect."
+    },
+    {
+      "severity": "major",
+      "target": "content/03-somebody-has-to-choose-the-number.md#what-this-lesson-will-not-hand-you; content/08-clinical-wrap-up.md#real-world-relevance; claims.json#claims",
+      "finding": "The scenes teach material health claims that fasting glucose is a stand-in for later eye, kidney, nerve and vascular outcomes and that the relationship between a small persistent fasting-glucose shift and those outcomes is a separate clinical question, but neither scene maps these claims to a ledger entry. The NIDDK source supports diagnostic bands and confirmation practice, not the asserted surrogate relationship or complication pathway. These are health-sensitive claims and cannot be supplied by author inference without explicit evidence, scope and uncertainty.",
+      "resolution": "Either remove these health claims or add appropriate authoritative support, claim-ledger records, health-sensitive risk classification, precise scope and uncertainty, and complete same-scene source-note mappings."
+    },
+    {
+      "severity": "note",
+      "target": "content/02-one-word-doing-two-jobs.md#the-size-of-the-study-is-the-lever; content/06-transfer-a-different-kind-of-number.md#reading-it; assessment.json#item-lower-limit-and-item-equal-p-values",
+      "finding": "Independent recalculation confirms the pilot, 60-person and 1200-person normal-reference standard errors, p-values and intervals; the retinal-screening absolute risk difference and interval; and the S and T assessment values. In particular, the S and T normal-reference p-values are approximately 0.0000693 and 0.0000708, both rounding to 0.00007 as stated.",
+      "resolution": "No change required to these recalculated values."
+    }
+  ],
+  "limitations": [
+    "The exact PMC article routes for the Greenland and both MCID reviews presented a browser challenge during this run. Bibliographic records and relevant indexed source content were checked, but every cited full-text paragraph and locator could not be reopened directly; this access limitation does n...",
+    "The scope instruction prohibited reading site/, so the course terminology ledger, graph data, quorum policy and review schema were not opened. This artifact follows .github/REVIEW_TEMPLATE/academic.md, but cross-lesson terminology and graph-node checks were not independently repeated.",
+    "No repository validator was run because this review was read-only and its scope prohibited scripts and site inspection. The verdict is an academic judgment on the frozen pack, not a claim of structural validation or quorum.",
+    "The reviewer claims no specialist clinical endocrinology authority; clinical observations were limited to identifying unsupported health inferences and failures to distinguish group-level from individual-level quantities."
+  ],
+  "signedAt": "2026-07-25T16:24:12Z"
+}

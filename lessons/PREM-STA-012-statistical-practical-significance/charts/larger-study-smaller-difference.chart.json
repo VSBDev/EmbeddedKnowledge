@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-chart-v1",
+  "id": "chart-larger-study-smaller-difference",
+  "type": "normal-curve",
+  "title": "A 1200-person study of a 2.0 mg/dL difference, against the same threshold",
+  "alt": "Narrow bell curve centred on 2.0 mg/dL with the band from 0.2 to 3.8 shaded; the line at 0 sits just outside the band and the line at 5 sits well to the right of it.",
+  "longDescription": "This curve describes an invented replication of the dinner-timing comparison with 600 people in each group instead of 30. The within-group spread is unchanged at 16 mg/dL, so the standard error falls to 0.92 mg/dL and the curve is much narrower than the 60-person one. It is centred on an observed difference of 2.0 mg/dL. The shaded band runs from 0.2 to 3.8 mg/dL, is 3.6 mg/dL wide, and is the 95% confidence interval. Two vertical lines are marked. The line at 0 mg/dL sits outside the shaded band, so this study reaches statistical significance at the conventional level; its two-sided p-value is 0.030. The line at 5 mg/dL is the same candidate importance threshold used elsewhere in this lesson, chosen for illustration and not taken from any published source. The whole shaded band lies to the left of it, ending 1.2 mg/dL short. Compare this chart with the one for the 60-person study. This study has the smaller difference and the smaller p-value, and it is the one that settles its own question: every value it is compatible with falls below the threshold. Size of study, size of difference, and importance of difference are three separate things, and this chart separates them.",
+  "xAxis": {
+    "label": "Difference in mean fasting glucose, late dinner group minus early dinner group",
+    "unit": "mg/dL",
+    "min": -2,
+    "max": 7,
+    "ticks": [
+      { "at": -1, "label": "-1" },
+      { "at": 0, "label": "0" },
+      { "at": 1, "label": "1" },
+      { "at": 2, "label": "2" },
+      { "at": 3, "label": "3" },
+      { "at": 4, "label": "4" },
+      { "at": 5, "label": "5" },
+      { "at": 6, "label": "6" }
+    ]
+  },
+  "yAxis": {
+    "label": "Relative frequency of a repeat estimate",
+    "unit": null
+  },
+  "series": [
+    {
+      "id": "series-larger-study-estimate",
+      "label": "Where a repeat of the 1200-person study would land",
+      "mean": 2,
+      "sd": 0.92
+    }
+  ],
+  "shadedRegions": [
+    { "from": 0.2, "to": 3.8, "label": "95% confidence interval, 0.2 to 3.8 mg/dL" }
+  ],
+  "markers": [
+    { "x": 0, "label": "0, no difference" },
+    { "x": 5, "label": "5, candidate importance threshold (illustrative)" }
+  ]
+}

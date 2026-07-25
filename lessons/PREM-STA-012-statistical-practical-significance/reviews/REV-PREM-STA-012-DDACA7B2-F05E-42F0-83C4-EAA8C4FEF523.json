@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-STA-012-DDACA7B2-F05E-42F0-83C4-EAA8C4FEF523",
+  "lessonId": "PREM-STA-012",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "8bedbff9df9dfd81dee1018ed58a89ead3fec492",
+  "role": "learning-design",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev (learning-design reviewer)",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.7",
+      "runId": "agy-learning-design-PREM-STA-012-DDACA7B2-F05E-42F0-83C4-EAA8C4FEF523",
+      "instructionsDigest": "sha256:543de8d387b160dc17dd33da224305ad8e82d6d58778cd3b2c95f70189bc48f5"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Founding-stage isolation check: the accountable principal VSBDev operates the authoring, review, and finalization agents, so principal-level independence is absent. Agent-level role isolation was strictly maintained: no authoring history, other review output, or adjudication draft was read, and no other EmbeddedKnowledge role script was run during this review execution."
+  },
+  "evidenceChecked": [
+    "lessons/PREM-STA-012-statistical-practical-significance/lesson.json",
+    "lessons/PREM-STA-012-statistical-practical-significance/claims.json",
+    "lessons/PREM-STA-012-statistical-practical-significance/references.json",
+    "lessons/PREM-STA-012-statistical-practical-significance/glossary.json",
+    "lessons/PREM-STA-012-statistical-practical-significance/ATTRIBUTION.md",
+    "lessons/PREM-STA-012-statistical-practical-significance/assessment.json",
+    "lessons/PREM-STA-012-statistical-practical-significance/charts/estimate-against-threshold.chart.json",
+    "lessons/PREM-STA-012-statistical-practical-significance/charts/larger-study-smaller-difference.chart.json",
+    "lessons/PREM-STA-012-statistical-practical-significance/content/01-two-people-read-one-sentence.md",
+    "lessons/PREM-STA-012-statistical-practical-significance/content/02-one-word-doing-two-jobs.md",
+    "lessons/PREM-STA-012-statistical-practical-significance/content/03-somebody-has-to-choose-the-number.md",
+    "lessons/PREM-STA-012-statistical-practical-significance/content/04-where-the-interval-sits.md",
+    "lessons/PREM-STA-012-statistical-practical-significance/content/05-practice-three-passes.md",
+    "lessons/PREM-STA-012-statistical-practical-significance/content/06-transfer-a-different-kind-of-number.md",
+    "lessons/PREM-STA-012-statistical-practical-significance/content/07-mastery-check.md",
+    "lessons/PREM-STA-012-statistical-practical-significance/content/08-clinical-wrap-up.md",
+    "CONTENT-STANDARD.md"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "lessons/PREM-STA-012-statistical-practical-significance/content/04-where-the-interval-sits.md#worked-example-threshold-reading",
+      "finding": "The worked example `worked-example-threshold-reading` fails to meet the design requirements of `CONTENT-STANDARD.md` Section 5.1. It lacks an explicit plan before execution (item 4), does not include an independent check or plausibility test for the result (item 7), and lacks a self-explanation prompt prompting learners on the core decision determining the solution (item 9).",
+      "resolution": "Revise the worked example block to include: 1) an explicit plan outlining the steps, 2) an independent check/plausibility test (e.g. verifying the confidence interval's symmetry around the point estimate), and 3) a self-explanation prompt asking the learner to explain the core decision (e.g. why statistical significance does not guarantee practical significance against a chosen threshold)."
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-STA-012-statistical-practical-significance/content/01-two-people-read-one-sentence.md",
+      "finding": "First-read clarity and register: The lesson successfully passes the first-read gate. The prose has a natural and engaging register with zero stylistic 'tells' (em-dash density, negative parallelism, filler words, or transitions). It immediately introduces a concrete clinical contrast rather than list-heavy curriculum administration, complying with `CONTENT-STANDARD.md` Section 4.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-STA-012-statistical-practical-significance/glossary.json",
+      "finding": "Terminology alignment: Terminology continuity is correctly maintained. `term-statistical-significance` correctly aligns with `PREM-STA-008` (relation: `extend`) and bridges the technical and everyday senses. `term-bias` correctly aligns with `PREM-SCI-008` (relation: `adopt`) and draws out the specific consequence that bias bodily shifts an interval without widening it, protecting terminology integrity per `CONTENT-STANDARD.md` Section 4.2.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-STA-012-statistical-practical-significance/content/06-transfer-a-different-kind-of-number.md",
+      "finding": "Practice and transfer alignment: Constructive alignment is strong across the practice and transfer tasks. The practice tasks in Scene 5 fade scaffolding effectively (calculating, critique of press release, sample size math). The transfer task in Scene 6 shifts the concept to a new context (retinal screening attendance shares/proportions) and introduces a deliberate relative vs. absolute risk difference distractor to test genuine conceptual transfer rather than simple number-swapping, complying with `CONTENT-STANDARD.md` Section 8.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-STA-012-statistical-practical-significance/content/07-mastery-check.md",
+      "finding": "Mathematical precision: The mathematical calculations for the sample size derivation (n=123 per group) in the practice scene and the intervals/p-values for Study S and Study T in the mastery check are extremely precise. Both p-values round exactly to 0.00007, demonstrating rigorous consistency.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-STA-012-statistical-practical-significance/assessment.json#item-lower-limit",
+      "finding": "The acceptableResponses list includes '2.29' and '4.5 - 1.96 x 1.131' but omits '2.28', which is the exact lower limit calculated using the rounded margin of error (2.22 mg/dL) described in the reasoning. While the 0.05 tolerance will accept 2.28 in numeric input, adding it to acceptableResponses keeps the ledger complete.",
+      "resolution": "Optionally add '2.28' to acceptableResponses."
+    }
+  ],
+  "limitations": [
+    "Expert-simulation review: This review represents a single-pass advisory input by a simulated learning-design expert under standard-lesson-v3 guidelines. No real learner testing was conducted.",
+    "Conflict of interest: The same GitHub principal (VSBDev) is responsible for the authoring and review run operators. Agent-level isolation was maintained, but principal-level independence is absent.",
+    "Scope restriction: The review is strictly bounded to learning-design metrics (e.g., clarity, coherence, practice, alignment, and transfer). Scientific accuracy, rights audits, and final typesetting checks are excluded.",
+    "Technical verification limits: No rendered build environment, screen reader, or keyboard navigation pathways were evaluated physically; findings are based solely on the static Markdown and JSON source files."
+  ],
+  "signedAt": "2026-07-25T16:29:00Z"
+}
