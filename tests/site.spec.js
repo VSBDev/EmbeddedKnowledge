@@ -128,7 +128,7 @@ test("the collaboration page defines an agent-first PR interface and accountable
   const errors = collectRuntimeErrors(page);
   await page.goto(route("contribute/"), { waitUntil: "networkidle" });
 
-  await expect(page.locator("h1")).toContainText(/People and agents propose\.\s*Independent review decides\./);
+  await expect(page.locator("h1")).toContainText(/People and agents propose\.\s*Declared review decides\./);
   await expect(page.locator(".door-grid article")).toHaveCount(3);
   await expect(page.locator(".door-grid")).toContainText("Load the contract");
   await expect(page.locator(".door-grid")).toContainText("Open one focused PR");

@@ -44,6 +44,12 @@ fs.writeFileSync(
   path.join(siteRoot, "rights-policy.txt"),
   fs.readFileSync(path.join(projectRoot, "RIGHTS-POLICY.md"), "utf8").trimEnd() + "\n"
 );
+// The public review disclosure links here. The site never links raw Markdown, so the review policy
+// is served in the same plain-text form as the content standard and the rights policy.
+fs.writeFileSync(
+  path.join(siteRoot, "reviewing.txt"),
+  fs.readFileSync(path.join(projectRoot, "REVIEWING.md"), "utf8").trimEnd() + "\n"
+);
 
 const sections = contextFiles.map((relativePath) => {
   const contents = fs.readFileSync(path.join(projectRoot, relativePath), "utf8").trim();

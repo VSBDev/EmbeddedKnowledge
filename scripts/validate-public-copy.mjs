@@ -71,6 +71,20 @@ const retiredPhrases = [
   { label: "Two doors. One review queue.", pattern: /two doors\. one review queue\./i },
   { label: "Proposed: CC BY 4.0", pattern: /proposed: cc by 4\.0/i }
 ];
+// Review-provenance overclaims. The founding-stage quorum is multi-model agent review operated by
+// one accountable maintainer, with provenance attested rather than platform-verified, so "expert"
+// and "independent" describe a gate this project has not built yet. See REVIEWING.md.
+//
+// Naming the gap must stay legal: a sentence saying a lesson still needs expert review is accurate
+// and is exactly the honesty this rule protects. Only an assertion of the capability fails.
+const gapFraming = /\b(?:still needs?|needs?|requires?|awaiting|lacks?|known gaps?|gaps?|without|not yet|would need|pending|missing|before)\b[^.;]{0,400}$/i;
+
+const overclaimedReviewPhrases = [
+  { label: "expert review", pattern: /\bexpert review\b/i },
+  { label: "independent review", pattern: /\bindependent review\b/i },
+  { label: "peer-reviewed lessons", pattern: /\bpeer[- ]reviewed lessons\b/i },
+  { label: "expert-verified", pattern: /\bexpert[- ]verified\b/i }
+];
 const retiredLifecycleClaims = [
   { label: "repository-private-empty", pattern: /repository-private-empty/i },
   { label: "public and empty repository", pattern: /public and empty|public repository (?:exists but )?is still empty/i },
@@ -87,6 +101,25 @@ for (const relativePath of publicFiles) {
   }
   for (const claim of retiredLifecycleClaims) {
     if (claim.pattern.test(contents)) errors.push(`${relativePath} contains retired lifecycle copy: ${claim.label}`);
+  }
+  if (relativePath.endsWith(".html")) {
+    for (const phrase of overclaimedReviewPhrases) {
+      for (const match of contents.matchAll(new RegExp(phrase.pattern.source, "gi"))) {
+        // An assertion ("independent review decides") overclaims; an acknowledged gap
+        // ("still needs independent review") does not.
+        const inlineWindow = contents.slice(Math.max(0, match.index - 160), match.index);
+        if (gapFraming.test(inlineWindow)) continue;
+        // A match inside a list inherits the framing of the sentence introducing that list.
+        const before = contents.slice(0, match.index);
+        const listStart = Math.max(before.lastIndexOf("<ul"), before.lastIndexOf("<ol"));
+        const listEnd = Math.max(before.lastIndexOf("</ul>"), before.lastIndexOf("</ol>"));
+        if (listStart > listEnd) {
+          const listIntro = contents.slice(Math.max(0, listStart - 400), listStart);
+          if (gapFraming.test(listIntro)) continue;
+        }
+        errors.push(`${relativePath} overclaims review provenance: ${phrase.label}. The founding-stage quorum is operator-attested multi-model review; see REVIEWING.md.`);
+      }
+    }
   }
 }
 
