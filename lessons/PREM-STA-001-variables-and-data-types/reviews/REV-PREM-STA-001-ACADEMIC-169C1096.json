@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-STA-001-ACADEMIC-169C1096",
+  "lessonId": "PREM-STA-001",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "4f07cd0d97a2126c0070daf7ea9ba3bb7a300a53",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable academic reviewer",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-STA-001-169C1096-CCDD-4D70-91C7-260DCB757666",
+      "instructionsDigest": "sha256:2472c27c4e15cb9a9d60ab89b48b48e06231cd720dbadba64659099df0ca69f6"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#identity-outcomes-objectives-and-scenes",
+    "content/01-column-kinds.md#full-scene",
+    "content/02-what-the-level-permits.md#full-scene",
+    "content/03-worked-audit.md#full-scene",
+    "content/04-mean-of-a-code.md#full-scene",
+    "content/05-practice-fading.md#full-scene",
+    "content/06-transfer-triage.md#full-scene",
+    "content/07-clinical-wrap-up.md#full-scene",
+    "assessment.json#all-items-rubrics-and-answer-logic",
+    "claims.json#all-claims",
+    "references.json#all-source-records",
+    "glossary.json#all-terms",
+    "ATTRIBUTION.md#full-record",
+    "references.json#source-ali-bhaskar",
+    "references.json#source-sullivan-artino",
+    "references.json#source-mishra-descriptive",
+    "references.json#source-statpearls-diabetes",
+    "external:NIDDK-Diabetes-and-Prediabetes-Tests#fasting-plasma-glucose-test",
+    "external:ADA-Standards-of-Care-in-Diabetes-2026#diagnosis-and-classification",
+    "candidateCommit:4f07cd0d97a2126c0070daf7ea9ba3bb7a300a53#pack-tree-and-working-tree-equivalence"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "content/07-clinical-wrap-up.md#The proposal",
+      "finding": "The scene applies the 126 mg/dL fasting-plasma-glucose diagnostic threshold to readings previously defined as coming from each participant's own meter. Current authoritative guidance distinguishes laboratory plasma testing from home-meter monitoring: NIDDK states that diagnosis requires a laboratory test and meter results are not suitable, while the ADA 2026 criteria specify plasma glucose or qualified A1C testing and ordinarily require confirmation. The invented participants also already have type 2 diabetes, so treating each monitoring result as reaching a level that diagnoses diabetes gives the derived flag clinical meaning it does not possess. The cited StatPearls threshold supports fasting plasma glucose, not this use of home-meter readings.",
+      "resolution": "Either replace the readings with appropriately collected laboratory fasting plasma glucose measurements and state the testing and confirmation boundary, or remove the diagnostic framing and present 126 mg/dL only as an explicitly chosen teaching cut point. Update the scene, claim scope, source note, references, and attribution consistently, using current authoritative diagnostic guidance."
+    },
+    {
+      "severity": "major",
+      "target": "content/01-column-kinds.md#Retrieve what you already call a variable",
+      "finding": "The lesson recalls an independent variable as a factor deliberately set differently, but then calls dinner time the independent variable in a study where participants merely recorded when they ate. Under the definition supplied to the learner, dinner timing was not manipulated; it is an observed exposure or predictor. Calling the earlier role classification a clean fit creates a direct study-design contradiction at the point where role and measurement level are being separated.",
+      "resolution": "Describe dinner time as an observed exposure or predictor and fasting glucose as the response or outcome, or revise the fictional design so dinner timing is actually assigned. Clarify separately what role sex and adherence play instead of implying that all recorded background characteristics fit the manipulated-independent-variable taxonomy."
+    },
+    {
+      "severity": "major",
+      "target": "claims.json#claim-paired-versus-independent",
+      "finding": "The claim and mastery assessment include deliberately matched cases as paired data, but the sole source record's locator documents dependent samples measured repeatedly on the same subjects and does not identify support for individually matched distinct subjects. This unsupported extension is assessed directly in assessment.json#item-read-paired-structure, so it is a central evidence gap rather than optional enrichment.",
+      "resolution": "Add an authoritative source and exact locator that explicitly covers individually matched pairs, map it to this claim and every applicable same-scene source note, and retain the distinction between individual matching and merely drawing two groups with similar characteristics."
+    },
+    {
+      "severity": "major",
+      "target": "content/03-worked-audit.md#How the rows relate to each other",
+      "finding": "The statement that everything stable about a participant, including weight, medication, and meter, cancels out of a paired difference is too strong. Subtraction cancels a stable additive person-specific component; it does not guarantee removal of every effect of a stable characteristic, interactions, measurement error, carryover, or time-varying confounding. In this observational dinner-timing example, within-person pairing also does not by itself isolate the effect of dinner timing.",
+      "resolution": "State the narrower benefit: pairing preserves the correspondence and permits analysis of within-person differences, often reducing between-person variability or controlling stable additive baselines. Explicitly say that pairing does not remove time-varying differences or establish a causal effect."
+    },
+    {
+      "severity": "minor",
+      "target": "glossary.json#term-median",
+      "finding": "The definition says that with an even number of values the median is the point midway between the two middle ones. For ordinal categories, a numerical midpoint may be undefined because category spacing is not established—the central distinction taught by the lesson. This definition therefore reintroduces arithmetic on ordinal codes while claiming that the median uses order alone.",
+      "resolution": "Distinguish the ordered middle position or median interval for ordinal categories from averaging two middle numerical measurements on a scale where that operation is meaningful. Align any related scene wording with the corrected definition."
+    },
+    {
+      "severity": "note",
+      "target": "content/04-mean-of-a-code.md#The average that moves when nothing moves",
+      "finding": "The adherence calculations were independently recomputed: the original coding gives 2.7, recoding the fourth category as 3.2 gives 2.5, and recoding it as 10 gives 4.2. The counts, 37-of-60 cumulative share, and recoding argument are arithmetically correct.",
+      "resolution": "No change required for these calculations."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#all-items-rubrics-and-answer-logic",
+      "finding": "Apart from the paired-data evidence gap identified above, the classification keys, nominal-versus-ordinal refusals, continuous-versus-discrete distinctions, point totals, and integrated audit answer logic agree internally with the lesson's declared introductory measurement model.",
+      "resolution": "Retain these correct elements while resolving the targeted findings."
+    }
+  ],
+  "limitations": [
+    "The assigned scope excluded site/, so the graph node, terminology ledger, quorum-policy source, and review schema were not independently inspected. Outcome breadth and cross-lesson terminology claims were assessed only from the candidate pack and supplied governance instructions.",
+    "Direct opening of the three PMC methods pages encountered an automated-access challenge. Search-indexed source text exposed the relevant Sullivan–Artino and Mishra passages and the relevant Ali–Bhaskar paired-sample passage, but full page-level inspection of those three articles was unavailable.",
+    "The clinical threshold was checked against current ADA 2026 and NIDDK guidance, but no endocrinology specialist consultation was performed.",
+    "The pack contains no diagrams, assets, structured molecule records, or other media requiring academic inspection."
+  ],
+  "signedAt": "2026-07-25T09:47:15Z"
+}
