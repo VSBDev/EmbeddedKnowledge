@@ -4,12 +4,12 @@
   "course": "premed",
   "purpose": "Consult before defining a glossary term. If a prior published lesson already defines it, adopt that meaning and cross-reference, or declare a glossary `alignment` block that names the prior lesson and the relation (adopt/narrow/extend/distinct-sense/supersede) with a rationale. Never silently redefine a term another lesson owns.",
   "summary": {
-    "terms": 256,
-    "multiLesson": 27,
-    "consistent": 0,
-    "divergent": 27,
+    "terms": 244,
+    "multiLesson": 26,
+    "consistent": 1,
+    "divergent": 25,
     "divergentUndeclared": 8,
-    "senseShifted": 22
+    "senseShifted": 21
   },
   "terms": [
     {
@@ -109,13 +109,12 @@
     },
     {
       "term": "association",
-      "status": "divergent",
-      "sense": "reworded",
-      "minDefinitionOverlap": 0.56,
+      "status": "consistent",
+      "sense": null,
+      "minDefinitionOverlap": null,
       "lessons": [
         "PREM-SCI-007",
-        "PREM-STA-002",
-        "PREM-STA-010"
+        "PREM-STA-002"
       ],
       "ids": [
         "term-association"
@@ -143,19 +142,6 @@
             "priorLesson": "PREM-SCI-007",
             "relation": "adopt",
             "note": "PREM-SCI-007 owns this term and this lesson keeps its meaning unchanged. The only thing added here is the display that makes an association visible for two quantitative variables. Causal interpretation of an association remains the earlier lesson's territory, and the scatter scene points the learner back to it."
-          }
-        },
-        {
-          "lessonId": "PREM-STA-010",
-          "id": "term-association",
-          "definition": "A pattern in which measured values or categories of two variables differ together in a sampled dataset; the pattern alone does not specify why it occurs. Every measure in this lesson quantifies how large such a pattern is, and none of them turns it into a cause.",
-          "aliases": [
-            "statistical association"
-          ],
-          "alignment": {
-            "priorLesson": "PREM-SCI-007",
-            "relation": "adopt",
-            "note": "Adopts the meaning established by PREM-SCI-007: a pattern in which two variables differ together in a sample, with no claim about why. This lesson adds only measurement, giving the pattern a size through the risk difference, risk ratio, and odds ratio, and repeats that the size of an association says nothing about its cause."
           }
         }
       ]
@@ -275,31 +261,6 @@
           "definition": "The quantity acted on by an exponent.",
           "aliases": [
             "power base"
-          ],
-          "alignment": null
-        }
-      ]
-    },
-    {
-      "term": "baseline risk",
-      "status": "single-lesson",
-      "sense": null,
-      "minDefinitionOverlap": null,
-      "lessons": [
-        "PREM-STA-010"
-      ],
-      "ids": [
-        "term-baseline-risk"
-      ],
-      "undeclaredRedefinitions": [],
-      "uses": [
-        {
-          "lessonId": "PREM-STA-010",
-          "id": "term-baseline-risk",
-          "definition": "The risk of the outcome in the group that did not receive the intervention, or in the comparison group of an observed contrast. It is the starting point a relative measure divides out and an absolute measure preserves, which is why the same relative change corresponds to different numbers of people at different baselines.",
-          "aliases": [
-            "control risk",
-            "comparison-group risk"
           ],
           "alignment": null
         }
@@ -3640,30 +3601,6 @@
       ]
     },
     {
-      "term": "negative predictive value",
-      "status": "single-lesson",
-      "sense": null,
-      "minDefinitionOverlap": null,
-      "lessons": [
-        "PREM-STA-010"
-      ],
-      "ids": [
-        "term-negative-predictive-value"
-      ],
-      "undeclaredRedefinitions": [],
-      "uses": [
-        {
-          "lessonId": "PREM-STA-010",
-          "id": "term-negative-predictive-value",
-          "definition": "Among people whose test was negative, the share who do not have the target condition: P(condition absent given test negative). It divides the true negatives by a group defined by the test result, and it rises as the condition becomes less common in the group tested, moving opposite to the positive predictive value.",
-          "aliases": [
-            "NPV"
-          ],
-          "alignment": null
-        }
-      ]
-    },
-    {
       "term": "nominal variable",
       "status": "single-lesson",
       "sense": null,
@@ -3684,31 +3621,6 @@
             "nominal scale",
             "unordered categorical variable",
             "nominal"
-          ],
-          "alignment": null
-        }
-      ]
-    },
-    {
-      "term": "number needed to treat",
-      "status": "single-lesson",
-      "sense": null,
-      "minDefinitionOverlap": null,
-      "lessons": [
-        "PREM-STA-010"
-      ],
-      "ids": [
-        "term-number-needed-to-treat"
-      ],
-      "undeclaredRedefinitions": [],
-      "uses": [
-        {
-          "lessonId": "PREM-STA-010",
-          "id": "term-number-needed-to-treat",
-          "definition": "The reciprocal of a beneficial absolute risk reduction for a specified outcome and comparison: the number of people who would have to receive one condition instead of the other, over a stated period, for one additional person to benefit. A non-integer patient count is conventionally rounded upward. A zero reduction has no finite number needed to treat; if the intervention increases an unwanted outcome, the corresponding reciprocal is a number needed to harm. The measure is incomplete without its time period, comparison, and baseline risk.",
-          "aliases": [
-            "NNT",
-            "number needed to harm"
           ],
           "alignment": null
         }
@@ -3811,50 +3723,6 @@
             "relation": "extend",
             "note": "Relates this observer-knowledge mechanism to PREM-SCI-005's term-detection-bias. Detection bias can include broader systematic differences in outcome assessment, so it is not treated here as an exact alias."
           }
-        }
-      ]
-    },
-    {
-      "term": "odds ratio",
-      "status": "single-lesson",
-      "sense": null,
-      "minDefinitionOverlap": null,
-      "lessons": [
-        "PREM-STA-010"
-      ],
-      "ids": [
-        "term-odds-ratio"
-      ],
-      "undeclaredRedefinitions": [],
-      "uses": [
-        {
-          "lessonId": "PREM-STA-010",
-          "id": "term-odds-ratio",
-          "definition": "The odds in one group divided by the odds in the other, equal to the cross-product of the diagonals of a two-by-two table of counts. It approximates the risk ratio when the outcome is rare and sits further from 1 than the risk ratio when the outcome is common, so it may not be read as a risk ratio without checking how often the outcome occurred.",
-          "aliases": [],
-          "alignment": null
-        }
-      ]
-    },
-    {
-      "term": "odds",
-      "status": "single-lesson",
-      "sense": null,
-      "minDefinitionOverlap": null,
-      "lessons": [
-        "PREM-STA-010"
-      ],
-      "ids": [
-        "term-odds"
-      ],
-      "undeclaredRedefinitions": [],
-      "uses": [
-        {
-          "lessonId": "PREM-STA-010",
-          "id": "term-odds",
-          "definition": "The probability that an event occurs divided by the probability that it does not, which counting people is cases per non-case. Odds and risk carry the same information and convert freely, by odds = risk / (1 - risk) and risk = odds / (1 + odds). The betting sense of the word contributes only the cases-to-non-cases form, and nothing about stakes or payouts.",
-          "aliases": [],
-          "alignment": null
         }
       ]
     },
@@ -4348,31 +4216,6 @@
       ]
     },
     {
-      "term": "positive predictive value",
-      "status": "single-lesson",
-      "sense": null,
-      "minDefinitionOverlap": null,
-      "lessons": [
-        "PREM-STA-010"
-      ],
-      "ids": [
-        "term-positive-predictive-value"
-      ],
-      "undeclaredRedefinitions": [],
-      "uses": [
-        {
-          "lessonId": "PREM-STA-010",
-          "id": "term-positive-predictive-value",
-          "definition": "Among people whose test was positive, the share who have the target condition: P(condition present given test positive). It divides the true positives by a group defined by the test result, so it describes the person holding that result, and it falls as the condition becomes less common in the group tested. Note that a positive result means the test fired, which for most tests is unwelcome news.",
-          "aliases": [
-            "PPV",
-            "post-test probability of a positive"
-          ],
-          "alignment": null
-        }
-      ]
-    },
-    {
       "term": "power law",
       "status": "single-lesson",
       "sense": null,
@@ -4447,12 +4290,11 @@
     },
     {
       "term": "prevalence",
-      "status": "divergent",
-      "sense": "shifted",
-      "minDefinitionOverlap": 0.28,
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
       "lessons": [
-        "PREM-SCI-004",
-        "PREM-STA-010"
+        "PREM-SCI-004"
       ],
       "ids": [
         "term-prevalence"
@@ -4467,19 +4309,6 @@
             "prevalence proportion"
           ],
           "alignment": null
-        },
-        {
-          "lessonId": "PREM-STA-010",
-          "id": "term-prevalence",
-          "definition": "The proportion of a defined population with a specified condition or characteristic at a stated time or over a stated period. In this lesson it is the share of a tested group whose reference standard says the target condition is present. The toy comparison changes this quantity while stipulating unchanged sensitivity and specificity so that its effect on predictive values can be isolated.",
-          "aliases": [
-            "pre-test probability"
-          ],
-          "alignment": {
-            "priorLesson": "PREM-SCI-004",
-            "relation": "adopt",
-            "note": "Adopts the definition established by PREM-SCI-004 without change: the proportion of a defined population with a specified condition at a stated time. This lesson applies that meaning to the group a test is used in, and shows that it is what separates a test's detection measures from its predictive values."
-          }
         }
       ]
     },
@@ -5119,31 +4948,6 @@
       ]
     },
     {
-      "term": "reference standard",
-      "status": "single-lesson",
-      "sense": null,
-      "minDefinitionOverlap": null,
-      "lessons": [
-        "PREM-STA-010"
-      ],
-      "ids": [
-        "term-reference-standard"
-      ],
-      "undeclaredRedefinitions": [],
-      "uses": [
-        {
-          "lessonId": "PREM-STA-010",
-          "id": "term-reference-standard",
-          "definition": "The procedure treated as giving the correct answer while a test is being judged against it. It is the best available comparison for the study at hand and not a guarantee of truth, so a test's reported figures describe its agreement with that particular standard.",
-          "aliases": [
-            "gold standard",
-            "criterion standard"
-          ],
-          "alignment": null
-        }
-      ]
-    },
-    {
       "term": "registered report",
       "status": "single-lesson",
       "sense": null,
@@ -5463,81 +5267,6 @@
           "definition": "A direction in which the proposed outcome influences the proposed exposure, so the observed association may run opposite to the initial causal story.",
           "aliases": [
             "reverse causality"
-          ],
-          "alignment": null
-        }
-      ]
-    },
-    {
-      "term": "risk difference",
-      "status": "single-lesson",
-      "sense": null,
-      "minDefinitionOverlap": null,
-      "lessons": [
-        "PREM-STA-010"
-      ],
-      "ids": [
-        "term-risk-difference"
-      ],
-      "undeclaredRedefinitions": [],
-      "uses": [
-        {
-          "lessonId": "PREM-STA-010",
-          "id": "term-risk-difference",
-          "definition": "One group's risk subtracted from the other's. It is an absolute measure: it keeps the units of the outcome, so it states how many people per hundred, or per thousand, the comparison moves. When the comparison is an intervention that lowers risk it is usually called the absolute risk reduction.",
-          "aliases": [
-            "absolute risk reduction",
-            "absolute effect"
-          ],
-          "alignment": null
-        }
-      ]
-    },
-    {
-      "term": "risk ratio",
-      "status": "single-lesson",
-      "sense": null,
-      "minDefinitionOverlap": null,
-      "lessons": [
-        "PREM-STA-010"
-      ],
-      "ids": [
-        "term-risk-ratio"
-      ],
-      "undeclaredRedefinitions": [],
-      "uses": [
-        {
-          "lessonId": "PREM-STA-010",
-          "id": "term-risk-ratio",
-          "definition": "One group's risk divided by the other's. It is a relative measure: the units cancel, so it states how many times as large one risk is and says nothing about where either started. One minus the ratio is the relative risk reduction.",
-          "aliases": [
-            "relative risk",
-            "relative effect"
-          ],
-          "alignment": null
-        }
-      ]
-    },
-    {
-      "term": "risk",
-      "status": "single-lesson",
-      "sense": null,
-      "minDefinitionOverlap": null,
-      "lessons": [
-        "PREM-STA-010"
-      ],
-      "ids": [
-        "term-risk"
-      ],
-      "undeclaredRedefinitions": [],
-      "uses": [
-        {
-          "lessonId": "PREM-STA-010",
-          "id": "term-risk",
-          "definition": "The probability that a stated outcome occurs in a stated group over a stated period, written as a share of that group. It is a conditional probability with the group named in the condition, and it carries no verdict about harm: a risk of recovery is a risk in this sense. The everyday sense of danger is a different meaning of the word.",
-          "aliases": [
-            "absolute risk",
-            "event rate"
           ],
           "alignment": null
         }
@@ -5899,31 +5628,6 @@
       ]
     },
     {
-      "term": "sensitivity",
-      "status": "single-lesson",
-      "sense": null,
-      "minDefinitionOverlap": null,
-      "lessons": [
-        "PREM-STA-010"
-      ],
-      "ids": [
-        "term-sensitivity"
-      ],
-      "undeclaredRedefinitions": [],
-      "uses": [
-        {
-          "lessonId": "PREM-STA-010",
-          "id": "term-sensitivity",
-          "definition": "Among people who have the target condition according to the reference standard, the share whose test is positive: P(test positive given condition present). It divides the true positives by a group defined by the reference standard and describes test performance in the evaluated setting, not the probability that a positive result is correct. The everyday sense of being easily affected is unrelated, and so is the sensitivity analysis of PREM-SCI-009 and PREM-SCI-010, which reruns a result under different assumptions.",
-          "aliases": [
-            "true positive rate",
-            "detection rate"
-          ],
-          "alignment": null
-        }
-      ]
-    },
-    {
       "term": "simple randomization",
       "status": "single-lesson",
       "sense": null,
@@ -6013,30 +5717,6 @@
           "definition": "All values in the declared domain that make an equation true.",
           "aliases": [
             "solutions"
-          ],
-          "alignment": null
-        }
-      ]
-    },
-    {
-      "term": "specificity",
-      "status": "single-lesson",
-      "sense": null,
-      "minDefinitionOverlap": null,
-      "lessons": [
-        "PREM-STA-010"
-      ],
-      "ids": [
-        "term-specificity"
-      ],
-      "undeclaredRedefinitions": [],
-      "uses": [
-        {
-          "lessonId": "PREM-STA-010",
-          "id": "term-specificity",
-          "definition": "Among people who do not have the target condition according to the reference standard, the share whose test is negative: P(test negative given condition absent). It divides the true negatives by a group defined by the reference standard and describes test performance in the evaluated setting. Its complement is the false-positive rate.",
-          "aliases": [
-            "true negative rate"
           ],
           "alignment": null
         }
