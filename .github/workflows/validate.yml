@@ -15,7 +15,10 @@ on:
 
 permissions:
   contents: read
-  pull-requests: read
+  # The stage labeller writes one stage/tier label back onto the pull request. A pull_request run
+  # from a fork still receives a read-only token, so this widens nothing for untrusted contributors.
+  pull-requests: write
+  issues: write
 
 jobs:
   agent-protocol:
@@ -51,6 +54,15 @@ jobs:
       - name: Verify lesson candidate or merge readiness
         if: github.event_name == 'pull_request' || github.event_name == 'pull_request_review'
         run: node scripts/validate-lesson-pr.mjs
+      - name: Prove a rephrasing-tier change is wording-only
+        if: github.event_name == 'pull_request' || github.event_name == 'pull_request_review'
+        run: node scripts/validate-rephrasing-pr.mjs
+      - name: Label the lesson pull request with its governance stage
+        if: github.event_name == 'pull_request' || github.event_name == 'pull_request_review'
+        run: node scripts/label-lesson-pr.mjs
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
       - name: Install Playwright browser
         run: npx playwright install --with-deps chromium
       - run: npm test

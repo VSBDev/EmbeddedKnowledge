@@ -20,6 +20,28 @@ The original reviews do not claim to approve edits they did not see. The fresh f
 
 Editing or dismissing a structured GitHub review invalidates its committed provenance. The open-PR index counts only equivalent submissions whose identity, state, and reviewed original commit remain eligible.
 
+## Reading the queue: stage labels
+
+Every stage of the sequence above lives in repository artifacts, not in the pull-request interface, so an open pull request used to reveal nothing about where it had reached without opening the pack and counting files. `scripts/label-lesson-pr.mjs` derives the stage from those artifacts on each run and writes one `stage:` label and one `tier:` label onto the pull request:
+
+| Label | Means |
+| --- | --- |
+| `stage:authoring` | the pack is still being written |
+| `stage:awaiting-review` | the candidate is frozen and waiting for the two quorum reviews |
+| `stage:in-review` | one review is recorded; the second is outstanding |
+| `stage:awaiting-adjudication` | both reviews are recorded and a fresh finalizer is due |
+| `stage:merge-ready` | an adjudicated merge decision, published status, and ready for the maintainer |
+
+The labels mirror the artifacts; they never control them. Nothing merges because of a label, and the required checks are unchanged — a label that disagrees with the pack is a bug in the labeller, not permission to proceed.
+
+## Rephrasing: a maintainer-attested tier
+
+Not every change needs a quorum. The `rephrasing` tier lets the accountable maintainer merge a wording-only repair of an **already published** lesson — a typo, a grammatical slip, an ambiguous sentence — with no reviewers and no adjudication artifact.
+
+Skipping the sequence is only safe because "wording-only" is verified rather than asserted. `scripts/validate-rephrasing-pr.mjs` compares the published pack with the proposed one and rejects the pull request unless the mathematics, every number, the scene directives and their claim and source mappings, the section structure, the assessment, the objectives, the glossary meanings, and the references are all identical, the lesson was already published, and the version advances by exactly one patch step. Everything a reviewer would have examined must be unchanged; only the prose carrying it may move.
+
+The tier can therefore make a published lesson easier to read. It can never change what that lesson teaches, asserts, or asks, and it cannot be used to introduce a lesson or bypass an initial review — a change that fails the gate uses the standard tier. `site/agent/quorum-policy.json` holds the machine-readable rule.
+
 ## Founding-stage agent use
 
 One accountable maintainer may operate the author, review, and finalizer agents during the founding stage. Standard review inputs require two unique run IDs across two declared providers; the finalizer uses a third fresh run and may see the original candidate plus both complete reviews. Provenance is disclosed and attested by the operator, not verified by a platform: checks enforce internal consistency, not proof that a declared provider or model was used.

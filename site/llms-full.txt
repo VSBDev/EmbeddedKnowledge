@@ -416,6 +416,14 @@ A standard lesson uses a founding-stage **2 + 1 one-pass process**: one academic
 
 One disclosed maintainer may operate these agents during the founding stage. Each artifact still identifies the accountable operator plus system, provider, model, version, run ID, and material-instructions digest. Reusing or relabelling one run never creates another vote. This provenance is disclosed and attested by that maintainer, not verified: nothing checks that a declared run really used the declared provider or model, so the requirement buys accountability on the public record rather than proof of independence.
 
+## Rephrasing an already published lesson
+
+A typo or a clumsy sentence in a live lesson should not need two reviewers and a finalizer. The `rephrasing` risk tier lets the accountable maintainer merge a wording-only repair directly.
+
+The shortcut is available only where it is provably harmless, so it is bounded by a machine gate rather than by good intentions. Set `riskTier` to `rephrasing`, bump the patch version by exactly one, change nothing but scene prose, and open the pull request. `scripts/validate-rephrasing-pr.mjs` then compares the published pack with the proposed one and requires that the mathematics, every number, the scene directives and their claim and source mappings, the section structure, the assessment, the objectives, the glossary meanings, and the references are all identical. Only the words carrying them may differ.
+
+The tier also refuses to touch anything that has not already earned its place: the lesson must already be `published`, so the content being repaired has cleared a full quorum, and the tier can never introduce a lesson or a claim. A change that cannot pass the gate is not a rephrasing — set the tier back to `standard` and collect the usual quorum. The maintainer who merges it remains accountable for the judgement that the new wording is clearer and still true.
+
 ## License
 
 Except where noted, contributed course content is accepted under the Creative Commons Attribution 4.0 International license (CC BY 4.0). Contributors affirm that they can license submitted work on those terms and that third-party materials are separately identified and compatible.
@@ -600,6 +608,28 @@ Operational guidance for executing this sequence — working CLI invocations, pr
 The original reviews do not claim to approve edits they did not see. The fresh finalizer is explicitly accountable for those edits and the final audit. If the bounded finalization cannot produce a safe, accurate, coherent, accessible, rights-compliant lesson, it records `reject` or `revise`; it does not launch a loop.
 
 Editing or dismissing a structured GitHub review invalidates its committed provenance. The open-PR index counts only equivalent submissions whose identity, state, and reviewed original commit remain eligible.
+
+## Reading the queue: stage labels
+
+Every stage of the sequence above lives in repository artifacts, not in the pull-request interface, so an open pull request used to reveal nothing about where it had reached without opening the pack and counting files. `scripts/label-lesson-pr.mjs` derives the stage from those artifacts on each run and writes one `stage:` label and one `tier:` label onto the pull request:
+
+| Label | Means |
+| --- | --- |
+| `stage:authoring` | the pack is still being written |
+| `stage:awaiting-review` | the candidate is frozen and waiting for the two quorum reviews |
+| `stage:in-review` | one review is recorded; the second is outstanding |
+| `stage:awaiting-adjudication` | both reviews are recorded and a fresh finalizer is due |
+| `stage:merge-ready` | an adjudicated merge decision, published status, and ready for the maintainer |
+
+The labels mirror the artifacts; they never control them. Nothing merges because of a label, and the required checks are unchanged — a label that disagrees with the pack is a bug in the labeller, not permission to proceed.
+
+## Rephrasing: a maintainer-attested tier
+
+Not every change needs a quorum. The `rephrasing` tier lets the accountable maintainer merge a wording-only repair of an **already published** lesson — a typo, a grammatical slip, an ambiguous sentence — with no reviewers and no adjudication artifact.
+
+Skipping the sequence is only safe because "wording-only" is verified rather than asserted. `scripts/validate-rephrasing-pr.mjs` compares the published pack with the proposed one and rejects the pull request unless the mathematics, every number, the scene directives and their claim and source mappings, the section structure, the assessment, the objectives, the glossary meanings, and the references are all identical, the lesson was already published, and the version advances by exactly one patch step. Everything a reviewer would have examined must be unchanged; only the prose carrying it may move.
+
+The tier can therefore make a published lesson easier to read. It can never change what that lesson teaches, asserts, or asks, and it cannot be used to introduce a lesson or bypass an initial review — a change that fails the gate uses the standard tier. `site/agent/quorum-policy.json` holds the machine-readable rule.
 
 ## Founding-stage agent use
 
@@ -5021,16 +5051,29 @@ The project should preregister or at least version the question, outcome, analys
     "adjudicationRunMustDifferFromAuthorAndReviewRuns": true,
     "allCountedReviewsRequireAgentProvenance": true,
     "adjudicationRequiresAgentProvenance": true,
-    "requiredDisclosure": ["system", "provider", "model", "version", "runId", "instructionsDigest"]
+    "requiredDisclosure": [
+      "system",
+      "provider",
+      "model",
+      "version",
+      "runId",
+      "instructionsDigest"
+    ]
   },
   "tiers": {
     "minor-correction": {
       "policyId": "minor-correction-v2",
       "reviewMode": "approval-quorum",
-      "eligibleReviewVerdicts": ["approve"],
+      "eligibleReviewVerdicts": [
+        "approve"
+      ],
       "minimumReviewInputs": 2,
       "minimumApprovingReviews": 2,
-      "roleMinimums": { "academic": 1, "learning-design": 0, "accessibility-rights": 1 },
+      "roleMinimums": {
+        "academic": 1,
+        "learning-design": 0,
+        "accessibility-rights": 1
+      },
       "minimumDistinctPrincipals": 1,
       "minimumDistinctAgentRuns": 2,
       "minimumDistinctAgentModelFamilies": 2,
@@ -5039,10 +5082,17 @@ The project should preregister or at least version the question, outcome, analys
     "standard": {
       "policyId": "standard-lesson-v3",
       "reviewMode": "advisory-finalization",
-      "eligibleReviewVerdicts": ["approve", "request-changes"],
+      "eligibleReviewVerdicts": [
+        "approve",
+        "request-changes"
+      ],
       "minimumReviewInputs": 2,
       "minimumApprovingReviews": 0,
-      "roleMinimums": { "academic": 1, "learning-design": 1, "accessibility-rights": 0 },
+      "roleMinimums": {
+        "academic": 1,
+        "learning-design": 1,
+        "accessibility-rights": 0
+      },
       "minimumDistinctPrincipals": 1,
       "minimumDistinctAgentRuns": 2,
       "minimumDistinctAgentModelFamilies": 2,
@@ -5055,14 +5105,50 @@ The project should preregister or at least version the question, outcome, analys
     "high-impact": {
       "policyId": "high-impact-lesson-v2",
       "reviewMode": "approval-quorum",
-      "eligibleReviewVerdicts": ["approve"],
+      "eligibleReviewVerdicts": [
+        "approve"
+      ],
       "minimumReviewInputs": 5,
       "minimumApprovingReviews": 5,
-      "roleMinimums": { "academic": 3, "learning-design": 1, "accessibility-rights": 1 },
+      "roleMinimums": {
+        "academic": 3,
+        "learning-design": 1,
+        "accessibility-rights": 1
+      },
       "minimumDistinctPrincipals": 1,
       "minimumDistinctAgentRuns": 5,
       "minimumDistinctAgentModelFamilies": 3,
       "finalAdjudicators": 1
+    },
+    "rephrasing": {
+      "policyId": "rephrasing-v1",
+      "reviewMode": "maintainer-attested",
+      "purpose": "Repair the readability of an already published lesson \u2014 typography, grammar, ambiguous phrasing \u2014 without convening the reviewer quorum, because the change cannot alter what the lesson teaches.",
+      "eligibleReviewVerdicts": [],
+      "minimumReviewInputs": 0,
+      "minimumApprovingReviews": 0,
+      "roleMinimums": {
+        "academic": 0,
+        "learning-design": 0,
+        "accessibility-rights": 0
+      },
+      "minimumDistinctPrincipals": 1,
+      "minimumDistinctAgentRuns": 0,
+      "minimumDistinctAgentModelFamilies": 0,
+      "finalAdjudicators": 1,
+      "finalCommitRequired": false,
+      "adjudicatorMayFinalizeContentOnce": false,
+      "adjudicatorAccessibilityRightsAuditRequired": false,
+      "allReviewFindingsRequireDisposition": false,
+      "machineGate": "rephrasing-gate-v1",
+      "gateEnforcedBy": "scripts/validate-rephrasing-pr.mjs",
+      "requires": [
+        "The lesson is already published, so the content being repaired has already cleared a full quorum.",
+        "The version advances by exactly one patch step.",
+        "Only scene prose changes: mathematics, every number, scene directives, claim and source mappings, section structure, assessment answers, objectives, glossary meanings, and references are identical.",
+        "The accountable maintainer merges it and is answerable for the judgement that the wording is clearer."
+      ],
+      "forbids": "Any change to teaching content, claims, evidence, assessment, structure, or status. A change that cannot pass the machine gate uses the standard tier."
     }
   },
   "legacyAdjudications": [
@@ -5072,10 +5158,16 @@ The project should preregister or at least version the question, outcome, analys
       "riskTier": "standard",
       "policyId": "standard-lesson-v2",
       "reviewMode": "approval-quorum",
-      "eligibleReviewVerdicts": ["approve"],
+      "eligibleReviewVerdicts": [
+        "approve"
+      ],
       "minimumReviewInputs": 3,
       "minimumApprovingReviews": 3,
-      "roleMinimums": { "academic": 1, "learning-design": 1, "accessibility-rights": 1 },
+      "roleMinimums": {
+        "academic": 1,
+        "learning-design": 1,
+        "accessibility-rights": 1
+      },
       "minimumDistinctPrincipals": 1,
       "minimumDistinctAgentRuns": 3,
       "minimumDistinctAgentModelFamilies": 3,
@@ -5093,7 +5185,11 @@ The project should preregister or at least version the question, outcome, analys
     "finalAdjudicationFileMustBeCommittedWithLesson": true,
     "adjudicationRunMustBeFresh": true,
     "standardLessonFinalization": "Two role-isolated reviews advise one fresh adjudicator. The adjudicator may make one final content revision, must dispose every finding, and owns the final accessibility-and-rights audit and merge decision.",
-    "postCandidateMutableFields": ["lesson.json.status", "lesson.json.sourceConfidence", "claims.json.claims[].reviewStatus"],
+    "postCandidateMutableFields": [
+      "lesson.json.status",
+      "lesson.json.sourceConfidence",
+      "claims.json.claims[].reviewStatus"
+    ],
     "staleReviewsAreDismissedAfterLessonChanges": true
   }
 }

@@ -50,6 +50,23 @@ const graph = readJson("site/data/premed-graph.json");
 const progress = readJson("site/data/premed-progress.json");
 const topicIds = new Set(graph.nodes.filter((node) => node.kind === "topic").map((node) => node.id));
 
+// The rephrasing tier convenes no reviewers, so the review-quorum invariants below do not apply to
+// it. Its safety comes from a machine gate instead, and that substitution is itself checked here:
+// a tier that skips the quorum must declare the gate that replaces it and must claim no votes.
+{
+  const rule = policy.tiers.rephrasing;
+  if (!rule) {
+    errors.push("rephrasing: the maintainer-attested tier is missing from the policy.");
+  } else {
+    if (rule.reviewMode !== "maintainer-attested") errors.push("rephrasing: reviewMode must be maintainer-attested.");
+    if (reviewInputMinimum(rule) !== 0) errors.push("rephrasing: a maintainer-attested tier must require no review inputs.");
+    if (Object.values(rule.roleMinimums || {}).some((value) => value !== 0)) errors.push("rephrasing: a maintainer-attested tier must require no review roles.");
+    if (rule.finalCommitRequired !== false) errors.push("rephrasing: a maintainer-attested tier records no finalizer commit.");
+    if (!rule.machineGate || !rule.gateEnforcedBy) errors.push("rephrasing: a tier that skips the quorum must name the machine gate that replaces it.");
+    if (rule.gateEnforcedBy && !fs.existsSync(path.join(root, rule.gateEnforcedBy))) errors.push(`rephrasing: declared gate ${rule.gateEnforcedBy} does not exist.`);
+  }
+}
+
 for (const tier of ["minor-correction", "standard", "high-impact"]) {
   const rule = policy.tiers[tier];
   const roleTotal = Object.values(rule.roleMinimums).reduce((total, value) => total + value, 0);
@@ -142,4 +159,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`Agent protocol valid: 3 schemas, ${reviews.length + 2} current-policy example artifacts, 3 quorum tiers, and ${manifest.webmcp.tools.length} read-only WebMCP tools.`);
+console.log(`Agent protocol valid: 3 schemas, ${reviews.length + 2} current-policy example artifacts, ${Object.keys(policy.tiers).length} quorum tiers, and ${manifest.webmcp.tools.length} read-only WebMCP tools.`);
