@@ -2,9 +2,11 @@ import fs from "node:fs";
 import path from "node:path";
 import { marked, Renderer } from "marked";
 import temml from "temml";
+import { renderChartHtml } from "./lib/render-chart.mjs";
 
 const allowedDirectives = new Set([
   "callout",
+  "chart",
   "check",
   "chemistry",
   "definition",
@@ -178,6 +180,13 @@ function renderDiagram(head, options, context) {
   </figure>`;
 }
 
+function renderChart(head, options, context) {
+  if (!head) throw new Error("chart directive requires a pack-local JSON source.");
+  const file = resolvePackFile(context, head);
+  const chart = JSON.parse(fs.readFileSync(file.resolved, "utf8"));
+  return renderChartHtml(chart, file.relative);
+}
+
 function renderFigure(head, options, context) {
   if (!head) throw new Error("figure directive requires a pack-local image source.");
   if (!options.alt) throw new Error(`figure ${head} requires :alt:.`);
@@ -194,6 +203,7 @@ function renderFigure(head, options, context) {
 function renderDirective(name, head, body, context) {
   if (!allowedDirectives.has(name)) throw new Error(`Unsupported lesson directive: ${name}`);
   const { options, content } = parseDirectiveBody(body);
+  if (name === "chart") return renderChart(head, options, context);
   if (name === "diagram") return renderDiagram(head, options, context);
   if (name === "figure") return renderFigure(head, options, context);
   if (name === "equation") {
