@@ -1,0 +1,1065 @@
+{
+  "schemaVersion": 3,
+  "format": "embeddedknowledge-lesson-v1",
+  "artifactType": "production-lesson",
+  "id": "PREM-STA-006",
+  "version": "0.1.0",
+  "title": "Run the study again: sampling distributions and standard error",
+  "status": "draft",
+  "riskTier": "standard",
+  "estimatedMinutes": 180,
+  "outcomes": [
+    "topic-statistics-data-sampling-standard-error"
+  ],
+  "prerequisites": [
+    "topic-statistics-data-distributions",
+    "topic-scientific-inquiry-sampling-randomization"
+  ],
+  "objectives": [
+    {
+      "id": "objective-explain-sampling-variation",
+      "statement": "Explain why a repeat of a study on a fresh sample of the same size returns a different mean, and describe the distribution the repeat means would form, naming what its centre estimates and what its spread measures.",
+      "outcomeIds": [
+        "topic-statistics-data-sampling-standard-error"
+      ]
+    },
+    {
+      "id": "objective-compute-standard-error",
+      "statement": "Calculate the standard error of a sample mean from a reported standard deviation and sample size, state its unit, and use it to give a one- and two-standard-error band around the reported mean.",
+      "outcomeIds": [
+        "topic-statistics-data-sampling-standard-error"
+      ]
+    },
+    {
+      "id": "objective-predict-effect-of-sample-size",
+      "statement": "Predict how the standard error of a mean changes when the sample size is multiplied by a stated factor, and calculate the sample size needed to reach a stated target standard error.",
+      "outcomeIds": [
+        "topic-statistics-data-sampling-standard-error"
+      ]
+    },
+    {
+      "id": "objective-distinguish-sd-from-se",
+      "statement": "Distinguish a standard deviation from a standard error by stating which quantity each describes, select the one a given sentence requires, and diagnose the effect on a reader when a report swaps them or leaves the label off.",
+      "outcomeIds": [
+        "topic-statistics-data-sampling-standard-error"
+      ]
+    },
+    {
+      "id": "objective-apply-central-limit-theorem",
+      "statement": "State what the central limit theorem licenses about the sampling distribution of a mean, and judge from a described population and sample size whether reading a normal band off that distribution is defensible.",
+      "outcomeIds": [
+        "topic-statistics-data-sampling-standard-error"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene-run-it-again",
+      "title": "Suppose the sixty names had been sixty other names",
+      "kind": "orientation",
+      "source": "content/010-run-it-again.md",
+      "estimatedMinutes": 16,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Suppose the sixty names had been sixty other names</h1>\n<p>The dinner-timing study is finished. Mean fasting glucose across the cohort: 142 mg/dL.</p>\n<p>Now imagine the clinic list had been shuffled the morning the study opened, and the sixty people who came through the door were sixty different adults with type 2 diabetes from the same list, measured the same way by the same nurse with the same meter. Nothing about the study was done worse. What number comes out?</p>\n<p>Not 142. Almost certainly not 142.</p>\n<p>Maybe 139. Maybe 145. It depends entirely on whose glucose happened to be in the file, and glucose in this population runs anywhere from about 100 to about 181 mg/dL. Pick sixty people out of that spread and you get one average; pick sixty others and you get another.</p>\n<p>That is uncomfortable, and it is also the ordinary condition of every study ever published. So the question worth asking is not whether the number would change. It is by how much. If a repeat would land between 141 and 143, then 142 is a solid figure and you can build on it. If a repeat could land anywhere between 128 and 156, then 142 is barely more than a rumour, and the confident decimal point on the slide is doing damage.</p>\n<p>This lesson gives you the number that answers that question, and it is a small piece of arithmetic: one division and one square root.</p>\n<h2>What you will be able to do</h2>\n<p>By the end you will be able to say why the mean of a fresh sample differs from the mean of this one and what makes that difference bigger or smaller; describe the distribution you would get by collecting the means of many repeats; calculate the standard error of a mean from a standard deviation and a sample size, and read a band around a reported mean from it; work out what happens to that band when the study is made four times larger, and how large a study would have to be to reach a target precision; and tell a standard deviation from a standard error in a sentence written by somebody else, which is the single most consequential thing in the lesson.</p>\n<h2>A word that means something narrower here</h2>\n<p>The quantity at the centre of this lesson is called the <strong>standard error</strong>, and the word <em>error</em> is a poor fit for what it measures. Nobody has made a mistake. The nurse did not mis-record anything, the meter was not out of calibration, the analysis has no bug in it. A repeat study returns a different mean because it contains different people, and different people have different glucose. That is all <em>error</em> means here: variation from one sample to the next, in a quantity computed correctly every time.</p>\n<p>Keep the ordinary meaning of the word available, because you will still need it for mis-transcribed values and mis-calibrated meters, which are real and which this lesson does not cover. When <em>error</em> appears from here on, it carries the narrow sense.</p>\n<h2>Bring forward three things you already have</h2>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-prerequisites-mean-sd-normal</span></div>\n    <div class=\"ek-block-content\"><p>Answer these before reading on, in a sentence each.</p>\n<ol>\n<li>The cohort has a mean fasting glucose of 142 mg/dL and a standard deviation of 18 mg/dL. In plain words, what does the 18 tell you? Which people does it describe?</li>\n<li>On a normal curve, roughly what share of the values sits within one standard deviation of the centre? Within two?</li>\n<li>The study enrolled 60 adults from a clinic list. Name one thing that decides whether a conclusion about those 60 can be carried across to adults with type 2 diabetes in general.</li>\n</ol>\n</div>\n  </aside>\n<p>The 18 mg/dL says how far a typical individual reading sits from 142. It is a fact about people: most of the cohort falls somewhere in the region of 124 to 160, and a reading of 178 is high but not remarkable. About 68% of a normal distribution lies within one standard deviation of the centre and about 95% within two, which is the rule you met alongside the normal curve. And what carries a finding beyond the study is the route by which people entered it: a sample can speak for the list it was drawn from, and the list can fall short of the population you actually care about.</p>\n<p>That third answer matters more than it looks. This lesson holds the route fixed and asks a narrower question. Given that these 60 came from the list by chance, how much does chance alone move the answer?</p>\n<aside class=\"ek-block ek-callout ek-block--recovery\" data-directive=\"callout\">\n    <div class=\"ek-block-label directive-label\">Callout</div>\n    \n    <div class=\"ek-block-content\"><h2>Recovery route</h2>\n<p>If the meaning of the 18 was the hesitant one, go back to the lesson on centre, spread, and shape and return when you can say what a standard deviation is a distance between. If the 68 and 95 figures were unfamiliar, the lesson on probability distributions introduces them with the normal curve; this lesson leans on them but does not reteach them. If the third question was the difficult one, the sampling and randomisation lesson in the scientific inquiry block covers how a sample reaches a population. Nothing here requires a score from any of the three.</p>\n</div>\n  </aside>\n<h2>What this lesson does not do</h2>\n<p>You will not calculate a confidence interval, run a test, or produce a p-value. Those are the next two lessons, and both are built directly on the quantity introduced here, which is why this one comes first. You will also not decide whether later dinners raise glucose. Everything below concerns how firmly a single number is pinned down, and says nothing about what caused it.</p>\n<p><strong>Teaching example, not medical advice.</strong> The sixty-person cohort, its mean of 142 mg/dL, and its standard deviation of 18 mg/dL are invented for teaching and kept consistent across this block of lessons. Nothing here reports a finding about real patients or supports a change to anyone&#39;s care.</p>\n<h2>Accessibility and alternatives</h2>\n<p>This lesson has two charts, and both carry a written description and the numbers they were drawn from as a table, reachable under &quot;Read the chart as text&quot;. Every quantity a chart shows also appears in the surrounding prose. The two curves share a horizontal scale on purpose, and the comparison between them is stated in words and in figures wherever it is drawn, so a reader who is not using the pictures loses nothing.</p>\n<p>The arithmetic is a division and a square root throughout. A calculator is expected and no question depends on mental arithmetic, on judging a length by eye, on colour, or on a pointer. Every practice item can be answered from the numbers given in its own text.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-sampling-distribution-of-mean</span><span><b>sources</b> source-altman-bland-se</span></div>\n    <div class=\"ek-block-content\"><p>Statisticians writing for a medical audience describe the sample mean as varying from sample to sample, and name the standard error as the measure of how much it varies. The cohort, its values, and the shuffled-list scenario are original teaching material.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-distribution-of-means",
+      "title": "A distribution made of averages",
+      "kind": "concept",
+      "source": "content/020-distribution-of-means.md",
+      "estimatedMinutes": 26,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>A distribution made of averages</h1>\n<p>Do the thought experiment properly. Draw sixty adults from the clinic list, record the mean fasting glucose, write it down, put everyone back, draw sixty more, write that mean down too. Keep going for a thousand repeats.</p>\n<p>You now hold a thousand numbers. Every one is a cohort mean, computed correctly, from a real sixty people. They are not all the same.</p>\n<p>Those thousand numbers have a shape, a centre, and a spread, exactly like any other column of numbers, and the lesson on centre and spread already taught you how to describe them. That column has a name.</p>\n<aside class=\"ek-block ek-definition ek-block--definition\" data-directive=\"definition\">\n    <div class=\"ek-block-label directive-label\">Definition</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> definition-sampling-distribution</span></div>\n    <div class=\"ek-block-content\"><p>The <strong>sampling distribution</strong> of a statistic is the distribution of the values that statistic would take across repeated samples of a fixed size drawn from the same population.</p>\n<p>The statistic here is the mean of sixty fasting glucose readings. Its sampling distribution answers: if I did this again, where would the answer land, and how often there?</p>\n</div>\n  </aside>\n<p>Two things about that distribution decide everything in this lesson.</p>\n<p><strong>Its centre sits where the population&#39;s centre sits.</strong> Some repeats overshoot, some undershoot, and there is no reason for one direction to win. Averaged over the thousand repeats, the cohort means pile up around the mean glucose of the whole population the list represents. This is why a sample mean is a usable estimate of a population mean at all.</p>\n<p><strong>Its spread is much smaller than the spread of the people.</strong> This is the part that surprises everyone the first time, so it is worth seeing before it is explained. Compare the two pictures below. They are drawn on the same horizontal axis, from 88 to 196 mg/dL, so nothing about the comparison is a trick of scaling.</p>\n<figure class=\"ek-block ek-chart\" data-directive=\"chart\" data-chart-source=\"charts/sampling-distribution-mean.chart.json\">\n    <div class=\"ek-block-label directive-label\">Chart</div>\n    <p class=\"ek-chart-title\">Where the cohort mean would land across repeats of the study, 60 people each time</p>\n    <svg viewBox=\"0 0 720 380\" class=\"ek-chart-svg\" role=\"img\" aria-label=\"A narrow bell curve centred on 142 mg/dL, almost all of it between about 135 and 149, with the band from 139.7 to 144.3 shaded.\" xmlns=\"http://www.w3.org/2000/svg\"><title>A narrow bell curve centred on 142 mg/dL, almost all of it between about 135 and 149, with the band from 139.7 to 144.3 shaded.</title><path d=\"M 366.54 324 L 368.15 140.97 L 372.1 97.83 L 376.05 67.21 L 380 56.11 L 383.95 67.21 L 387.9 97.83 L 391.85 140.97 L 393.46 324 Z\" class=\"ek-chart-shade ek-chart-shade--0\"/><line x1=\"380\" y1=\"28\" x2=\"380\" y2=\"324\" class=\"ek-chart-marker\"/><text x=\"380\" y=\"20\" class=\"ek-chart-markerlabel\" text-anchor=\"middle\">142</text><path d=\"M 64 324 L 67.95 324 L 71.9 324 L 75.85 324 L 79.8 324 L 83.75 324 L 87.7 324 L 91.65 324 L 95.6 324 L 99.55 324 L 103.5 324 L 107.45 324 L 111.4 324 L 115.35 324 L 119.3 324 L 123.25 324 L 127.2 324 L 131.15 324 L 135.1 324 L 139.05 324 L 143 324 L 146.95 324 L 150.9 324 L 154.85 324 L 158.8 324 L 162.75 324 L 166.7 324 L 170.65 324 L 174.6 324 L 178.55 324 L 182.5 324 L 186.45 324 L 190.4 324 L 194.35 324 L 198.3 324 L 202.25 324 L 206.2 324 L 210.15 324 L 214.1 324 L 218.05 324 L 222 324 L 225.95 324 L 229.9 324 L 233.85 324 L 237.8 324 L 241.75 324 L 245.7 324 L 249.65 324 L 253.6 324 L 257.55 324 L 261.5 324 L 265.45 324 L 269.4 324 L 273.35 324 L 277.3 324 L 281.25 324 L 285.2 324 L 289.15 324 L 293.1 324 L 297.05 324 L 301 324 L 304.95 324 L 308.9 324 L 312.85 324 L 316.8 323.99 L 320.75 323.98 L 324.7 323.93 L 328.65 323.79 L 332.6 323.4 L 336.55 322.4 L 340.5 320.11 L 344.45 315.31 L 348.4 306.15 L 352.35 290.33 L 356.3 265.63 L 360.25 231.01 L 364.2 187.9 L 368.15 140.97 L 372.1 97.83 L 376.05 67.21 L 380 56.11 L 383.95 67.21 L 387.9 97.83 L 391.85 140.97 L 395.8 187.9 L 399.75 231.01 L 403.7 265.63 L 407.65 290.33 L 411.6 306.15 L 415.55 315.31 L 419.5 320.11 L 423.45 322.4 L 427.4 323.4 L 431.35 323.79 L 435.3 323.93 L 439.25 323.98 L 443.2 323.99 L 447.15 324 L 451.1 324 L 455.05 324 L 459 324 L 462.95 324 L 466.9 324 L 470.85 324 L 474.8 324 L 478.75 324 L 482.7 324 L 486.65 324 L 490.6 324 L 494.55 324 L 498.5 324 L 502.45 324 L 506.4 324 L 510.35 324 L 514.3 324 L 518.25 324 L 522.2 324 L 526.15 324 L 530.1 324 L 534.05 324 L 538 324 L 541.95 324 L 545.9 324 L 549.85 324 L 553.8 324 L 557.75 324 L 561.7 324 L 565.65 324 L 569.6 324 L 573.55 324 L 577.5 324 L 581.45 324 L 585.4 324 L 589.35 324 L 593.3 324 L 597.25 324 L 601.2 324 L 605.15 324 L 609.1 324 L 613.05 324 L 617 324 L 620.95 324 L 624.9 324 L 628.85 324 L 632.8 324 L 636.75 324 L 640.7 324 L 644.65 324 L 648.6 324 L 652.55 324 L 656.5 324 L 660.45 324 L 664.4 324 L 668.35 324 L 672.3 324 L 676.25 324 L 680.2 324 L 684.15 324 L 688.1 324 L 692.05 324 L 696 324\" class=\"ek-chart-line ek-chart-series--0\" fill=\"none\"/><line x1=\"64\" y1=\"28\" x2=\"64\" y2=\"324\" class=\"ek-chart-axis\"/>\n    <line x1=\"64\" y1=\"324\" x2=\"696\" y2=\"324\" class=\"ek-chart-axis\"/>\n    <line x1=\"64\" y1=\"324\" x2=\"64\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"64\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">88</text><line x1=\"169.33\" y1=\"324\" x2=\"169.33\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"169.33\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">106</text><line x1=\"274.67\" y1=\"324\" x2=\"274.67\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"274.67\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">124</text><line x1=\"380\" y1=\"324\" x2=\"380\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"380\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">142</text><line x1=\"485.33\" y1=\"324\" x2=\"485.33\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"485.33\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">160</text><line x1=\"590.67\" y1=\"324\" x2=\"590.67\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"590.67\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">178</text><line x1=\"696\" y1=\"324\" x2=\"696\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"696\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">196</text><line x1=\"59\" y1=\"324\" x2=\"64\" y2=\"324\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"328\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">0</text>\n    <text x=\"380\" y=\"368\" class=\"ek-chart-axislabel\" text-anchor=\"middle\">Value the cohort mean takes on a repeat (mg/dL)</text>\n    <text x=\"16\" y=\"176\" class=\"ek-chart-axislabel\" text-anchor=\"middle\" transform=\"rotate(-90 16 176)\">Relative frequency across repeats</text></svg>\n    \n    <figcaption>A narrow bell curve centred on 142 mg/dL, almost all of it between about 135 and 149, with the band from 139.7 to 144.3 shaded.</figcaption>\n    <details class=\"ek-long-description\"><summary>Read the chart as text</summary><p>This curve is not a picture of patients. Each point on the horizontal axis is a value the cohort mean could take if the study were run again on 60 different adults from the same list, and the curve says how often each of those values would come up. It is centred on 142 mg/dL and its standard deviation, which is what the standard error of the mean is, is 2.32 mg/dL. The shaded band runs from 139.7 to 144.3 mg/dL, one standard error either side of 142, and holds roughly two thirds of the repeats. Almost the whole curve lies between about 135 and 149 mg/dL, three standard errors either side of centre. The horizontal axis runs from 88 to 196 mg/dL, the same range as the chart of individual values, so the two can be compared directly: this curve occupies a narrow slice of a range the individual readings fill. The vertical axis is relative frequency with no units, and it is scaled to this curve&#39;s own peak, so the comparison to make between the two charts is width and not height.</p><table class=\"ek-chart-table\"><caption>Chart data</caption><thead><tr><th scope=\"col\">Series</th><th scope=\"col\">Value</th></tr></thead><tbody><tr><td>Mean of 60 people, repeat after repeat</td><td>mean 142, standard deviation 2.32</td></tr><tr><td>Shaded region</td><td>139.7 to 144.3: One standard error either side of 142: 139.7 to 144.3 mg/dL</td></tr><tr><td>Marker</td><td>Value the cohort mean takes on a repeat 142: 142</td></tr></tbody></table></details>\n  </figure>\n<figure class=\"ek-block ek-chart\" data-directive=\"chart\" data-chart-source=\"charts/individual-values.chart.json\">\n    <div class=\"ek-block-label directive-label\">Chart</div>\n    <p class=\"ek-chart-title\">Where one person&#39;s fasting glucose lands, on the same horizontal scale</p>\n    <svg viewBox=\"0 0 720 380\" class=\"ek-chart-svg\" role=\"img\" aria-label=\"A wide bell curve centred on 142 mg/dL spreading from about 88 to 196, with the band from 124 to 160 shaded.\" xmlns=\"http://www.w3.org/2000/svg\"><title>A wide bell curve centred on 142 mg/dL spreading from about 88 to 196, with the band from 124 to 160 shaded.</title><path d=\"M 274.67 324 L 277.3 160.86 L 281.25 154.9 L 285.2 148.98 L 289.15 143.09 L 293.1 137.28 L 297.05 131.55 L 301 125.92 L 304.95 120.41 L 308.9 115.05 L 312.85 109.84 L 316.8 104.81 L 320.75 99.98 L 324.7 95.37 L 328.65 90.99 L 332.6 86.85 L 336.55 82.99 L 340.5 79.4 L 344.45 76.11 L 348.4 73.13 L 352.35 70.47 L 356.3 68.14 L 360.25 66.16 L 364.2 64.52 L 368.15 63.24 L 372.1 62.32 L 376.05 61.77 L 380 61.58 L 383.95 61.77 L 387.9 62.32 L 391.85 63.24 L 395.8 64.52 L 399.75 66.16 L 403.7 68.14 L 407.65 70.47 L 411.6 73.13 L 415.55 76.11 L 419.5 79.4 L 423.45 82.99 L 427.4 86.85 L 431.35 90.99 L 435.3 95.37 L 439.25 99.98 L 443.2 104.81 L 447.15 109.84 L 451.1 115.05 L 455.05 120.41 L 459 125.92 L 462.95 131.55 L 466.9 137.28 L 470.85 143.09 L 474.8 148.98 L 478.75 154.9 L 482.7 160.86 L 485.33 324 Z\" class=\"ek-chart-shade ek-chart-shade--0\"/><line x1=\"380\" y1=\"28\" x2=\"380\" y2=\"324\" class=\"ek-chart-marker\"/><text x=\"380\" y=\"20\" class=\"ek-chart-markerlabel\" text-anchor=\"middle\">142</text><path d=\"M 64 321.08 L 67.95 320.74 L 71.9 320.36 L 75.85 319.94 L 79.8 319.48 L 83.75 318.97 L 87.7 318.42 L 91.65 317.81 L 95.6 317.15 L 99.55 316.42 L 103.5 315.63 L 107.45 314.77 L 111.4 313.84 L 115.35 312.83 L 119.3 311.73 L 123.25 310.55 L 127.2 309.27 L 131.15 307.89 L 135.1 306.41 L 139.05 304.83 L 143 303.12 L 146.95 301.3 L 150.9 299.35 L 154.85 297.28 L 158.8 295.07 L 162.75 292.72 L 166.7 290.23 L 170.65 287.59 L 174.6 284.8 L 178.55 281.86 L 182.5 278.75 L 186.45 275.49 L 190.4 272.07 L 194.35 268.48 L 198.3 264.73 L 202.25 260.81 L 206.2 256.73 L 210.15 252.49 L 214.1 248.08 L 218.05 243.52 L 222 238.81 L 225.95 233.94 L 229.9 228.93 L 233.85 223.78 L 237.8 218.5 L 241.75 213.1 L 245.7 207.59 L 249.65 201.98 L 253.6 196.27 L 257.55 190.48 L 261.5 184.63 L 265.45 178.73 L 269.4 172.79 L 273.35 166.83 L 277.3 160.86 L 281.25 154.9 L 285.2 148.98 L 289.15 143.09 L 293.1 137.28 L 297.05 131.55 L 301 125.92 L 304.95 120.41 L 308.9 115.05 L 312.85 109.84 L 316.8 104.81 L 320.75 99.98 L 324.7 95.37 L 328.65 90.99 L 332.6 86.85 L 336.55 82.99 L 340.5 79.4 L 344.45 76.11 L 348.4 73.13 L 352.35 70.47 L 356.3 68.14 L 360.25 66.16 L 364.2 64.52 L 368.15 63.24 L 372.1 62.32 L 376.05 61.77 L 380 61.58 L 383.95 61.77 L 387.9 62.32 L 391.85 63.24 L 395.8 64.52 L 399.75 66.16 L 403.7 68.14 L 407.65 70.47 L 411.6 73.13 L 415.55 76.11 L 419.5 79.4 L 423.45 82.99 L 427.4 86.85 L 431.35 90.99 L 435.3 95.37 L 439.25 99.98 L 443.2 104.81 L 447.15 109.84 L 451.1 115.05 L 455.05 120.41 L 459 125.92 L 462.95 131.55 L 466.9 137.28 L 470.85 143.09 L 474.8 148.98 L 478.75 154.9 L 482.7 160.86 L 486.65 166.83 L 490.6 172.79 L 494.55 178.73 L 498.5 184.63 L 502.45 190.48 L 506.4 196.27 L 510.35 201.98 L 514.3 207.59 L 518.25 213.1 L 522.2 218.5 L 526.15 223.78 L 530.1 228.93 L 534.05 233.94 L 538 238.81 L 541.95 243.52 L 545.9 248.08 L 549.85 252.49 L 553.8 256.73 L 557.75 260.81 L 561.7 264.73 L 565.65 268.48 L 569.6 272.07 L 573.55 275.49 L 577.5 278.75 L 581.45 281.86 L 585.4 284.8 L 589.35 287.59 L 593.3 290.23 L 597.25 292.72 L 601.2 295.07 L 605.15 297.28 L 609.1 299.35 L 613.05 301.3 L 617 303.12 L 620.95 304.83 L 624.9 306.41 L 628.85 307.89 L 632.8 309.27 L 636.75 310.55 L 640.7 311.73 L 644.65 312.83 L 648.6 313.84 L 652.55 314.77 L 656.5 315.63 L 660.45 316.42 L 664.4 317.15 L 668.35 317.81 L 672.3 318.42 L 676.25 318.97 L 680.2 319.48 L 684.15 319.94 L 688.1 320.36 L 692.05 320.74 L 696 321.08\" class=\"ek-chart-line ek-chart-series--0\" fill=\"none\"/><line x1=\"64\" y1=\"28\" x2=\"64\" y2=\"324\" class=\"ek-chart-axis\"/>\n    <line x1=\"64\" y1=\"324\" x2=\"696\" y2=\"324\" class=\"ek-chart-axis\"/>\n    <line x1=\"64\" y1=\"324\" x2=\"64\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"64\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">88</text><line x1=\"169.33\" y1=\"324\" x2=\"169.33\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"169.33\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">106</text><line x1=\"274.67\" y1=\"324\" x2=\"274.67\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"274.67\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">124</text><line x1=\"380\" y1=\"324\" x2=\"380\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"380\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">142</text><line x1=\"485.33\" y1=\"324\" x2=\"485.33\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"485.33\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">160</text><line x1=\"590.67\" y1=\"324\" x2=\"590.67\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"590.67\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">178</text><line x1=\"696\" y1=\"324\" x2=\"696\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"696\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">196</text><line x1=\"59\" y1=\"324\" x2=\"64\" y2=\"324\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"328\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">0</text>\n    <text x=\"380\" y=\"368\" class=\"ek-chart-axislabel\" text-anchor=\"middle\">Fasting glucose of one adult (mg/dL)</text>\n    <text x=\"16\" y=\"176\" class=\"ek-chart-axislabel\" text-anchor=\"middle\" transform=\"rotate(-90 16 176)\">Relative frequency across people</text></svg>\n    \n    <figcaption>A wide bell curve centred on 142 mg/dL spreading from about 88 to 196, with the band from 124 to 160 shaded.</figcaption>\n    <details class=\"ek-long-description\"><summary>Read the chart as text</summary><p>Each point on the horizontal axis is a fasting glucose reading one adult in the cohort could have. The curve is centred on 142 mg/dL with a standard deviation of 18 mg/dL, the figure computed from the sixty readings in the lesson on centre and spread. The shaded band runs from 124 to 160 mg/dL, one standard deviation either side of 142, and holds roughly two thirds of the people. The curve still has visible height at 106 and at 178, two standard deviations out, and the cohort&#39;s real readings did run from about 100 to 181. The horizontal axis runs from 88 to 196 mg/dL, exactly the range used for the chart of repeat cohort means, and the difference between the two pictures is the whole point of this lesson: this curve fills the range, while the curve of repeat means occupies a strip about 14 mg/dL wide near the middle of it. The ratio of the two widths is 18 divided by 2.32, which is 7.75, the square root of 60. The vertical axis is relative frequency with no units, and it is scaled to this curve&#39;s own peak, so compare the two charts by width and not by height.</p><table class=\"ek-chart-table\"><caption>Chart data</caption><thead><tr><th scope=\"col\">Series</th><th scope=\"col\">Value</th></tr></thead><tbody><tr><td>One adult&#39;s fasting glucose</td><td>mean 142, standard deviation 18</td></tr><tr><td>Shaded region</td><td>124 to 160: One standard deviation either side of 142: 124 to 160 mg/dL</td></tr><tr><td>Marker</td><td>Fasting glucose of one adult 142: 142</td></tr></tbody></table></details>\n  </figure>\n<p>The second curve is the cohort as you have known it since the lesson on tables and displays: individual people, standard deviation 18 mg/dL, readings running from about 100 to 181 mg/dL. The first curve is the thousand repeat means, and it is a spike by comparison. Nearly all of it lies between 135 and 149 mg/dL. A repeat of this study landing at 128, or at 160, essentially never happens, even though individual patients sit at 128 and at 160 all the time.</p>\n<h2>Why averaging shrinks the spread</h2>\n<p>An individual reading is high because that person&#39;s glucose is high. Nothing balances it.</p>\n<p>A cohort mean is high only if the sixty people, taken together, ran high. To push the mean of sixty up to 160, chance would have to hand you an unusual run of high readings and almost no low ones. It is much easier to draw one person at 178 than to draw sixty people who average 178. Within any one draw, the high readings and the low readings sit in the same sum and partly cancel, and how much they cancel depends on how many of them there are.</p>\n<p>That is the mechanism in words. The next scene turns it into the arithmetic that says exactly how much.</p>\n<h2>The spread of the repeats has its own name</h2>\n<p>The standard deviation of the sampling distribution of the mean is called the <strong>standard error of the mean</strong>. For this study it is 2.32 mg/dL, and the shaded band on the first chart is that quantity marked once either side of 142: from 139.7 to 144.3 mg/dL.</p>\n<p>Read the band the way you would read any one-standard-deviation band on a bell curve. About two thirds of repeats of this study would return a cohort mean somewhere between 139.7 and 144.3 mg/dL. Widen it to two standard errors, 137.4 to 146.6, and you have covered about 95% of them.</p>\n<p>Hold on to the units. The standard error is 2.32 <strong>mg/dL</strong>, the same unit as the glucose readings and the same unit as the standard deviation of 18. Two quantities in mg/dL, describing two completely different things, and the whole of the fourth scene is about not confusing them.</p>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-what-varies</span></div>\n    <div class=\"ek-block-content\"><p>Before reading on, answer without scrolling back.</p>\n<ol>\n<li>The curve of repeat means is centred on 142. What does the 142 estimate?</li>\n<li>If the study had enrolled 600 people instead of 60, would the curve of repeat means be wider, narrower, or the same width? Would the curve of individual values change?</li>\n<li>A colleague says the shaded band means that two thirds of the patients in the study had a fasting glucose between 139.7 and 144.3 mg/dL. What is wrong with that?</li>\n</ol>\n</div>\n  </aside>\n<p>The 142 estimates the mean fasting glucose of the population the clinic list represents, which is a number nobody has ever measured and nobody ever will. With 600 people the curve of repeat means would be substantially narrower, because a mean of 600 is harder to push around than a mean of 60. The curve of individual values would not change at all; enrolling more people does not make patients more alike. And the colleague has read a band about repeats of the study as though it were a band about patients. Look at the second chart: the individual readings run from roughly 100 to 181, and a band from 139.7 to 144.3 would contain about six of the sixty. That mistake gets a scene to itself shortly, because it is the one that does damage in print.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-sampling-distribution-of-mean, claim-se-formula, claim-se-is-precision</span><span><b>sources</b> source-altman-bland-se</span></div>\n    <div class=\"ek-block-content\"><p>These sources support the description of the sample mean as varying from sample to sample, the naming of that variation&#39;s spread as the standard error of the estimate of the mean, and the standard error&#39;s role as a measure of how precisely the mean has been pinned down. The cohort, the thousand-repeat thought experiment, and both charts are original teaching material.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-price-of-precision",
+      "title": "The formula, and the price list hidden inside it",
+      "kind": "derivation",
+      "source": "content/030-price-of-precision.md",
+      "estimatedMinutes": 26,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>The formula, and the price list hidden inside it</h1>\n<p>Two things should decide how tightly a sample mean is pinned down, and both are already in your hands.</p>\n<p>If the people differ a lot, any sixty of them will average out differently from any other sixty, so a large standard deviation should widen the sampling distribution. If you take a lot of people, the highs and lows inside one draw have more chance to cancel, so a large sample size should narrow it. The formula says exactly that, and it says how the two trade off against each other.</p>\n<figure class=\"ek-block ek-equation\" data-directive=\"equation\"><div class=\"ek-block-label directive-label\">equation-standard-error-of-the-mean</div><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mpadded lspace=\"0\"><mi>SE</mi></mpadded><mo>=</mo><mfrac><mi>s</mi><msqrt><mrow><mi>n</mi><mspace width=\"0pt\" height=\"0.5em\"></mspace></mrow></msqrt></mfrac></mrow><annotation encoding=\"application/x-tex\">\\mathrm{SE} = \\frac{s}{\\sqrt{n}}</annotation></semantics></math><figcaption>TeX source: <code>\\mathrm{SE} = \\frac{s}{\\sqrt{n}}</code></figcaption></figure>\n<p>Read it aloud: the standard error of the mean equals the standard deviation of the data divided by the square root of the number of observations. Here <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>s</mi><annotation encoding=\"application/x-tex\">s</annotation></semantics></math></span> is the standard deviation computed from the sample, <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>n</mi><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span> is how many observations went into the mean, and the standard error comes out in whatever unit <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>s</mi><annotation encoding=\"application/x-tex\">s</annotation></semantics></math></span> was in.</p>\n<p>The square root is the interesting part, and half of this scene is about what it costs you.</p>\n<aside class=\"ek-block ek-worked-example ek-block--worked-example\" data-directive=\"worked-example\">\n    <div class=\"ek-block-label directive-label\">Worked Example</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> worked-example-cohort-standard-error</span></div>\n    <div class=\"ek-block-content\"><p><strong>The task.</strong> The dinner-timing study measured 60 adults. Fasting glucose had a mean of 142 mg/dL and a standard deviation of 18 mg/dL. How precisely has the study pinned down the mean?</p>\n<p><strong>Step 1. Decide which quantity the question asks for.</strong> The question is about the mean, so the answer is a standard error. The 18 mg/dL already in hand describes how much individual patients differ from one another. It is an input to this calculation and it is not the answer.</p>\n<p><strong>Step 2. Identify <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>s</mi><annotation encoding=\"application/x-tex\">s</annotation></semantics></math></span> and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>n</mi><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span>.</strong> Here <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>s</mi><mo>=</mo><mn>18</mn></mrow><annotation encoding=\"application/x-tex\">s = 18</annotation></semantics></math></span> mg/dL and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi><mo>=</mo><mn>60</mn></mrow><annotation encoding=\"application/x-tex\">n = 60</annotation></semantics></math></span>. A common slip is to reach for the number of groups, or the number of nights recorded per person. What belongs in <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>n</mi><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span> is the number of observations that went into the mean being reported, and sixty people each contributed one fasting glucose reading to it.</p>\n<p><strong>Step 3. Take the square root of <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>n</mi><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span>.</strong> <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msqrt><mn>60</mn></msqrt><mo>=</mo><mn>7.746</mn></mrow><annotation encoding=\"application/x-tex\">\\sqrt{60} = 7.746</annotation></semantics></math></span>.</p>\n<p><strong>Step 4. Divide.</strong> <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>18</mn><mo>÷</mo><mn>7.746</mn><mo>=</mo><mn>2.324</mn></mrow><annotation encoding=\"application/x-tex\">18 \\div 7.746 = 2.324</annotation></semantics></math></span>, so the standard error is 2.32 mg/dL.</p>\n<p><strong>Step 5. Attach the unit and say what it means.</strong> The standard error of the cohort mean is 2.32 mg/dL. Repeat the study on sixty fresh adults from the same list and the new mean would typically land within about 2.3 mg/dL of 142, and would land within about 4.6 mg/dL of it roughly 95 times in 100.</p>\n<p><strong>Step 6. Check it against something you already know.</strong> The standard error should come out smaller than the standard deviation, because dividing by <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msqrt><mrow><mi>n</mi><mspace width=\"0pt\" height=\"0.5em\"></mspace></mrow></msqrt><annotation encoding=\"application/x-tex\">\\sqrt{n}</annotation></semantics></math></span> shrinks it for any <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>n</mi><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span> above 1. It does: 2.32 against 18. It should also carry the unit mg/dL, and it does. A standard error larger than its standard deviation means the division went the wrong way up.</p>\n</div>\n  </aside>\n<p>That final ratio deserves a second look. Individual patients scatter with a standard deviation of 18 mg/dL; the study&#39;s estimate of their mean scatters with a standard error of 2.32 mg/dL. The estimate is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>18</mn><mo>÷</mo><mn>2.32</mn><mo>=</mo><mn>7.75</mn></mrow><annotation encoding=\"application/x-tex\">18 \\div 2.32 = 7.75</annotation></semantics></math></span> times more tightly pinned down than any single patient&#39;s reading, and 7.75 is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msqrt><mn>60</mn></msqrt><annotation encoding=\"application/x-tex\">\\sqrt{60}</annotation></semantics></math></span>. Averaging sixty people bought a factor of about eight, which is a genuine bargain, and it is precisely what the formula predicted.</p>\n<h2>What the square root costs</h2>\n<p>Suppose 2.32 mg/dL is not good enough. You want half of it. How many patients?</p>\n<p>Halving the standard error means dividing <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>s</mi><mi>/</mi><msqrt><mrow><mi>n</mi><mspace width=\"0pt\" height=\"0.5em\"></mspace></mrow></msqrt></mrow><annotation encoding=\"application/x-tex\">s / \\sqrt{n}</annotation></semantics></math></span> by two, and since <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>s</mi><annotation encoding=\"application/x-tex\">s</annotation></semantics></math></span> stays where it is, <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msqrt><mrow><mi>n</mi><mspace width=\"0pt\" height=\"0.5em\"></mspace></mrow></msqrt><annotation encoding=\"application/x-tex\">\\sqrt{n}</annotation></semantics></math></span> has to double. Doubling <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msqrt><mrow><mi>n</mi><mspace width=\"0pt\" height=\"0.5em\"></mspace></mrow></msqrt><annotation encoding=\"application/x-tex\">\\sqrt{n}</annotation></semantics></math></span> means multiplying <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>n</mi><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span> by four.</p>\n<p><strong>To halve the standard error, quadruple the sample.</strong> Here is the price list for this study, holding <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>s</mi><annotation encoding=\"application/x-tex\">s</annotation></semantics></math></span> at 18 mg/dL:</p>\n<table>\n<thead>\n<tr>\n<th>Patients enrolled</th>\n<th>Square root of <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>n</mi><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span></th>\n<th>Standard error (mg/dL)</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>15</td>\n<td>3.873</td>\n<td>4.65</td>\n</tr>\n<tr>\n<td>30</td>\n<td>5.477</td>\n<td>3.29</td>\n</tr>\n<tr>\n<td>60</td>\n<td>7.746</td>\n<td>2.32</td>\n</tr>\n<tr>\n<td>120</td>\n<td>10.954</td>\n<td>1.64</td>\n</tr>\n<tr>\n<td>240</td>\n<td>15.492</td>\n<td>1.16</td>\n</tr>\n<tr>\n<td>960</td>\n<td>30.984</td>\n<td>0.58</td>\n</tr>\n</tbody></table>\n<p>Read down the column. Going from 60 patients to 120 buys a drop from 2.32 to 1.64, a factor of about 1.41 and nowhere near a half. Getting the half needs 240. Halving it again needs 960. The fourth patient you recruit improves the estimate far more than the four hundredth does, and every study ever designed has had to live with that.</p>\n<p>Turn the formula round and it answers the planning question directly. Squaring both sides of <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mpadded lspace=\"0\"><mi>SE</mi></mpadded><mo>=</mo><mi>s</mi><mi>/</mi><msqrt><mrow><mi>n</mi><mspace width=\"0pt\" height=\"0.5em\"></mspace></mrow></msqrt></mrow><annotation encoding=\"application/x-tex\">\\mathrm{SE} = s / \\sqrt{n}</annotation></semantics></math></span> and rearranging gives the sample size needed for a target standard error. To reach 1.00 mg/dL with <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>s</mi><mo>=</mo><mn>18</mn></mrow><annotation encoding=\"application/x-tex\">s = 18</annotation></semantics></math></span>:</p>\n<figure class=\"ek-block ek-equation\" data-directive=\"equation\"><div class=\"ek-block-label directive-label\">equation-sample-size-from-target</div><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mi>n</mi><mo>=</mo><msup><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"true\">(</mo><mfrac><mi>s</mi><mpadded lspace=\"0\"><mi>SE</mi></mpadded></mfrac><mo fence=\"true\" form=\"postfix\" stretchy=\"true\">)</mo></mrow><mn>2</mn></msup><mo>=</mo><msup><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"true\">(</mo><mfrac><mn>18</mn><mn>1.00</mn></mfrac><mo fence=\"true\" form=\"postfix\" stretchy=\"true\">)</mo></mrow><mn>2</mn></msup><mo>=</mo><mn>324</mn></mrow><annotation encoding=\"application/x-tex\">n = \\left(\\frac{s}{\\mathrm{SE}}\\right)^{2} = \\left(\\frac{18}{1.00}\\right)^{2} = 324</annotation></semantics></math><figcaption>TeX source: <code>n = \\left(\\frac{s}{\\mathrm{SE}}\\right)^{2} = \\left(\\frac{18}{1.00}\\right)^{2} = 324</code></figcaption></figure>\n<p>Three hundred and twenty-four patients, to move from 2.32 to 1.00. Whether that is worth the money, the clinic time, and the extra years of recruitment is a question the arithmetic makes no pretence of answering. What the arithmetic does is put a number on what is being bought, so the people deciding can see the price.</p>\n<aside class=\"ek-block ek-callout ek-block--note\" data-directive=\"callout\">\n    <div class=\"ek-block-label directive-label\">Callout</div>\n    \n    <div class=\"ek-block-content\"><p>The formula assumes each observation is an independent draw. Sixty adults each contributing one reading satisfies that closely enough. Sixty readings taken from six patients on ten mornings each does not, because readings from the same person resemble one another, so the effective number of independent observations is nearer six than sixty. Dividing by <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msqrt><mn>60</mn></msqrt><annotation encoding=\"application/x-tex\">\\sqrt{60}</annotation></semantics></math></span> there would advertise a precision the data does not have. Designs that measure people repeatedly need a method built for them, which sits beyond this lesson, and the trap is worth recognising now: <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>n</mi><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span> counts independent observations, not rows in a file.</p>\n</div>\n  </aside>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-se-formula, claim-se-is-precision</span><span><b>sources</b> source-altman-bland-se</span></div>\n    <div class=\"ek-block-content\"><p>These sources support the relation between the standard error, the standard deviation, and the square root of the sample size, the statement that the standard error falls as the sample grows while the standard deviation does not tend to change, and the use of that relation when the size of a study is being planned. The worked figures, the price-list table, and the cohort are original teaching material.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-sd-is-not-se",
+      "title": "The swap that makes a study look eight times better than it is",
+      "kind": "misconception",
+      "source": "content/040-sd-is-not-se.md",
+      "estimatedMinutes": 24,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>The swap that makes a study look eight times better than it is</h1>\n<p>Here are two sentences about the same cohort. Both are true. Read them and decide, before continuing, which one you would put in a paper.</p>\n<blockquote>\n<p>Fasting glucose was 142 mg/dL (SD 18).</p>\n</blockquote>\n<blockquote>\n<p>Fasting glucose was 142 mg/dL (SE 2.32).</p>\n</blockquote>\n<aside class=\"ek-block ek-misconception ek-block--misconception\" data-directive=\"misconception\">\n    <div class=\"ek-block-label directive-label\">Misconception</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> misconception-se-as-spread-of-patients</span></div>\n    <div class=\"ek-block-content\"><p><strong>The wrong model.</strong> Both figures come out in mg/dL, both sit in brackets after the mean, and the second is smaller, so the second looks like a cleaner result. Reading the pair that way treats the standard error as a tidier version of the standard deviation, and it leads a reader to conclude that the patients in this study were clustered between roughly 139.7 and 144.3 mg/dL.</p>\n<p><strong>Predict first.</strong> Under that reading, how many of the sixty patients had a fasting glucose outside 139.7 to 144.3 mg/dL? Commit to a number before you read on.</p>\n<p><strong>The disconfirming evidence.</strong> Go back to the histogram of the sixty readings. They ran from about 100 to 181 mg/dL. Eleven people sat below 126 mg/dL, one sat at or above 180, and the tallest bin held thirteen people spread across a ten-unit width. The band 139.7 to 144.3 is 4.6 mg/dL wide and contains something like six of the sixty. Fifty-four people, nine in every ten, fall outside it.</p>\n<p>So a reader who takes &quot;142 (SE 2.32)&quot; as a statement about patients has been told that a group of adults with type 2 diabetes were all within a couple of mg/dL of each other, when they in fact spanned more than 80 mg/dL. The apparent scatter of the patients has been shrunk by a factor of <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msqrt><mn>60</mn></msqrt><mo>=</mo><mn>7.75</mn></mrow><annotation encoding=\"application/x-tex\">\\sqrt{60} = 7.75</annotation></semantics></math></span>.</p>\n<p><strong>Rebuild the model.</strong> The two numbers answer two different questions, and each is the right answer to its own.</p>\n<ul>\n<li>The <strong>standard deviation</strong>, 18 mg/dL, describes <strong>people</strong>. Ask it: how different are these patients from one another? Answer: a typical patient sits about 18 mg/dL away from 142, so roughly two thirds of them lie between 124 and 160, and roughly 95% between 106 and 178. Enrol six hundred more patients and this number stays near 18, because more patients does not make patients more alike.</li>\n<li>The <strong>standard error</strong>, 2.32 mg/dL, describes <strong>an estimate</strong>. Ask it: how firmly has this study pinned down the average? Answer: a repeat would typically land within 2.3 mg/dL of 142. Enrol six hundred more patients and this number falls, because a mean of many is harder to push around than a mean of few.</li>\n</ul>\n<p>One is a fact about the population. The other is a fact about the study. They happen to share a unit, which is why the confusion survives.</p>\n<p><strong>Test the repair.</strong> For each sentence, decide which figure belongs in it.</p>\n<ol>\n<li>&quot;We recruited a group whose glucose control varied widely; the middle two thirds fell between 124 and 160 mg/dL.&quot;</li>\n<li>&quot;Our estimate of the group&#39;s average is good to about 2 mg/dL either way.&quot;</li>\n<li>&quot;A patient in this clinic with a fasting glucose of 180 mg/dL is unusual but not extraordinary.&quot;</li>\n<li>&quot;A repeat of this audit next year would probably return an average within 5 mg/dL of this one.&quot;</li>\n</ol>\n<p>Sentences 1 and 3 are about how patients differ, so they need the standard deviation of 18. Sentences 2 and 4 are about how well a number has been measured, so they need the standard error of 2.32; sentence 4 is the two-standard-error band of 137.4 to 146.6 mg/dL stated in words. If you can sort four sentences that way, the repair has taken.</p>\n</div>\n  </aside>\n<h2>Why this survives peer review</h2>\n<p>The confusion is old and well documented in the medical literature. Papers commonly report a mean joined to a second figure by a plus-or-minus sign, as in 142±2.32 mg/dL, and the notation itself does not say which quantity the second figure is. A review of 88 articles published in 2002 found that 12 of them, 14%, never identified which measure of dispersion they were reporting. The <em>BMJ</em> and a number of other journals responded by removing plus-or-minus signs from submitted text and asking authors to write out which quantity they mean.</p>\n<p>There is a further reason the error persists, and it is not innocent. Quoting the standard error makes the numbers in a table look tighter. A group described as 142±2.32 reads as more carefully studied than the same group described as 142±18, and nothing was studied more carefully. Whenever you meet a plus-or-minus in a paper and no label, the honest response is that you cannot yet read the sentence, and finding out which quantity it is changes the meaning by a factor of <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msqrt><mrow><mi>n</mi><mspace width=\"0pt\" height=\"0.5em\"></mspace></mrow></msqrt><annotation encoding=\"application/x-tex\">\\sqrt{n}</annotation></semantics></math></span>.</p>\n<h2>The reading rule</h2>\n<p>When a number in mg/dL, or kilograms, or millilitres, sits beside a mean:</p>\n<ul>\n<li>if the sentence is about <strong>who is in the group</strong>, it wants a standard deviation;</li>\n<li>if the sentence is about <strong>how well the group&#39;s average is known</strong>, it wants a standard error;</li>\n<li>if the label is missing, work out <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msqrt><mrow><mi>n</mi><mspace width=\"0pt\" height=\"0.5em\"></mspace></mrow></msqrt><annotation encoding=\"application/x-tex\">\\sqrt{n}</annotation></semantics></math></span> from the reported sample size and see which of the two candidate values the reported figure is consistent with, then say in your write-up that you had to infer it.</li>\n</ul>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-se-is-precision, claim-se-formula, claim-2sd-covers-95, claim-plus-minus-ambiguity</span><span><b>sources</b> source-altman-bland-se</span></div>\n    <div class=\"ek-block-content\"><p>These sources support the distinction between a standard deviation as a measure of how much individuals vary and a standard error as a measure of the precision of an estimated mean, the relation between the two through the square root of the sample size, the coverage of a two-standard-deviation band, and the finding about unlabelled plus-or-minus notation together with the editorial response to it. The cohort, the four test sentences, and the reading rule are original teaching material.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-central-limit",
+      "title": "Why the repeats came out in a bell shape at all",
+      "kind": "concept",
+      "source": "content/050-central-limit.md",
+      "estimatedMinutes": 22,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Why the repeats came out in a bell shape at all</h1>\n<p>Look again at what the second scene quietly assumed.</p>\n<p>The chart of a thousand repeat cohort means was drawn as a smooth bell curve, and the shaded band was read off it using the same 68 and 95 figures you learned for the normal distribution. Both moves need a licence. Nothing so far has established that repeat means arrange themselves in a normal shape, and the cohort they came from is not normal: its histogram leans right, with a longer tail towards the high readings than towards the low ones.</p>\n<p>Skewed data going in. A symmetric bell coming out. Something has to justify that.</p>\n<h2>The result that justifies it</h2>\n<aside class=\"ek-block ek-theorem ek-block--theorem\" data-directive=\"theorem\">\n    <div class=\"ek-block-label directive-label\">Theorem</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> theorem-central-limit</span></div>\n    <div class=\"ek-block-content\"><p><strong>Central limit theorem.</strong> As the sample size <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>n</mi><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span> grows, the sampling distribution of the mean becomes approximately normal regardless of the distribution of the original variable, is centred at the population mean, and has a standard deviation approaching <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>σ</mi><mi>/</mi><msqrt><mrow><mi>n</mi><mspace width=\"0pt\" height=\"0.5em\"></mspace></mrow></msqrt></mrow><annotation encoding=\"application/x-tex\">\\sigma / \\sqrt{n}</annotation></semantics></math></span>, where <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>σ</mi><annotation encoding=\"application/x-tex\">\\sigma</annotation></semantics></math></span> is the population standard deviation.</p>\n</div>\n  </aside>\n<p>Take the three parts one at a time, because each one is doing separate work in this lesson.</p>\n<p><strong>Approximately normal regardless of the original variable.</strong> This is the striking part. The individual fasting glucose readings lean right; the repeat means do not. The shape of the population washes out of the averages as <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>n</mi><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span> grows. Work with a population that is skewed, or lumpy, or bounded at zero, and you still get a bell for the means, provided you take enough of them each time.</p>\n<p><strong>Centred at the population mean.</strong> The result you already used when you treated 142 as an estimate of something. The repeat means pile up around the population&#39;s own mean, so the sample mean is aiming at the right target.</p>\n<p><strong>Standard deviation approaching <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>σ</mi><mi>/</mi><msqrt><mrow><mi>n</mi><mspace width=\"0pt\" height=\"0.5em\"></mspace></mrow></msqrt></mrow><annotation encoding=\"application/x-tex\">\\sigma / \\sqrt{n}</annotation></semantics></math></span>.</strong> The formula from the previous scene, arriving as a consequence rather than an assertion. The theorem quotes the population standard deviation <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>σ</mi><annotation encoding=\"application/x-tex\">\\sigma</annotation></semantics></math></span>; in practice nobody has it, so the sample&#39;s own <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>s</mi><annotation encoding=\"application/x-tex\">s</annotation></semantics></math></span> stands in for it, which is exactly the substitution the previous scene made when it divided 18 by <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msqrt><mn>60</mn></msqrt><annotation encoding=\"application/x-tex\">\\sqrt{60}</annotation></semantics></math></span>.</p>\n<h2>What &quot;enough&quot; means, and where it fails</h2>\n<p>The theorem holds as <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>n</mi><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span> grows without limit. Every real study has a finite <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>n</mi><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span>, so the practical question is how large is large enough, and the answer depends on how far from normal the population is.</p>\n<p>A common working convention treats <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi><mo>=</mo><mn>30</mn></mrow><annotation encoding=\"application/x-tex\">n = 30</annotation></semantics></math></span> as sufficient for a population that is not too badly behaved, and this study&#39;s 60 sits comfortably past it. That convention is a rule of thumb and not a theorem. Two situations break it:</p>\n<ul>\n<li><strong>A strongly skewed population.</strong> Hospital length of stay is the standard example: most patients go home in a few days and a small number stay for months. Averages of small samples from a distribution like that stay noticeably lopsided, and 30 will not be enough.</li>\n<li><strong>A heavy contribution from a few extreme values.</strong> If one observation in a sample can move the mean substantially on its own, the averaging that the theorem relies on has not really happened.</li>\n</ul>\n<p>Fasting glucose in this cohort leans right without being extreme: no reading is more than about 2.2 standard deviations above the mean. At <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi><mo>=</mo><mn>60</mn></mrow><annotation encoding=\"application/x-tex\">n = 60</annotation></semantics></math></span> the approximation is a reasonable one, which is why the first chart could be drawn as a bell and read with the 68 and 95 figures.</p>\n<aside class=\"ek-block ek-callout ek-block--note\" data-directive=\"callout\">\n    <div class=\"ek-block-label directive-label\">Callout</div>\n    \n    <div class=\"ek-block-content\"><p>The theorem is about the <strong>mean</strong>, and it says nothing about the individual readings. No amount of extra recruitment makes the patients&#39; own distribution normal; the right tail on that histogram is a property of the population and it stays there. What becomes normal is the distribution of the averages. Every sentence in this lesson that mentions a bell shape is a sentence about repeats of the study.</p>\n</div>\n  </aside>\n<h2>Retrieval before the next scene</h2>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-clt-conditions</span></div>\n    <div class=\"ek-block-content\"><p>Work these out before reading the answers.</p>\n<ol>\n<li>A pharmacy records the time from prescription to dispensing for every item. Most take under 10 minutes; a handful take over 4 hours. The audit team plans to report the mean of 25 items and quote a standard error. What is the problem?</li>\n<li>The same team instead reports the mean of 400 items. Has the shape of the individual dispensing times changed?</li>\n<li>A colleague says the central limit theorem means fasting glucose is normally distributed. What has been mixed up?</li>\n</ol>\n</div>\n  </aside>\n<p>At <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi><mo>=</mo><mn>25</mn></mrow><annotation encoding=\"application/x-tex\">n = 25</annotation></semantics></math></span> from a distribution that skewed, the sampling distribution of the mean is still visibly lopsided, so the neat 68 and 95 readings do not apply and a symmetric band around the mean would misdescribe the repeats. The fix is more items, a different summary such as the median, or a method that does not lean on the approximation. At <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi><mo>=</mo><mn>400</mn></mrow><annotation encoding=\"application/x-tex\">n = 400</annotation></semantics></math></span> the mean is on much safer ground, and the individual dispensing times are exactly as skewed as they always were; nothing about the patients or the pharmacy changed, only what can safely be said about an average of many of them. And the colleague has attached the theorem to the wrong quantity. It is a statement about the distribution of sample means, and it makes no claim at all about the distribution of the measurements themselves.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-central-limit-theorem, claim-clt-skew-and-n30</span><span><b>sources</b> source-nist-normal-clt, source-kwak-kim-clt</span></div>\n    <div class=\"ek-block-content\"><p>These sources support the statement of the central limit theorem used above, including the approach to normality regardless of the original variable&#39;s distribution, the centring on the population mean, the standard deviation approaching the population standard deviation over the square root of the sample size, the finding that a skewed population does not prevent the sample means from approaching normality as the sample grows, and the conventional treatment of about 30 observations as a working threshold. The pharmacy example, the cohort, and the failure cases described here are original teaching material.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-compute-and-judge",
+      "title": "Five calculations and one judgement",
+      "kind": "practice",
+      "source": "content/060-compute-and-judge.md",
+      "estimatedMinutes": 26,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Five calculations and one judgement</h1>\n<p>The support fades as you go down. The first item hands you the route; the last hands you a paragraph and expects you to find the question inside it. Work each one before reading the discussion under it.</p>\n<h2>One: with the route supplied</h2>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> practice-guided-standard-error</span></div>\n    <div class=\"ek-block-content\"><p>A cardiology clinic measures resting heart rate in 100 adults. Mean 72 beats per minute, standard deviation 11.</p>\n<p>Follow the same six steps as the worked example. Which quantity does the question want? What are <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>s</mi><annotation encoding=\"application/x-tex\">s</annotation></semantics></math></span> and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>n</mi><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span>? What is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msqrt><mrow><mi>n</mi><mspace width=\"0pt\" height=\"0.5em\"></mspace></mrow></msqrt><annotation encoding=\"application/x-tex\">\\sqrt{n}</annotation></semantics></math></span>? Divide. Attach a unit. Check that the answer is smaller than <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>s</mi><annotation encoding=\"application/x-tex\">s</annotation></semantics></math></span>.</p>\n<p>Report the standard error of the mean, then give the band one standard error either side of 72.</p>\n</div>\n  </aside>\n<p>The question asks how well the average is known, so it wants a standard error. Here <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>s</mi><mo>=</mo><mn>11</mn></mrow><annotation encoding=\"application/x-tex\">s = 11</annotation></semantics></math></span> and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi><mo>=</mo><mn>100</mn></mrow><annotation encoding=\"application/x-tex\">n = 100</annotation></semantics></math></span>, and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msqrt><mn>100</mn></msqrt><mo>=</mo><mn>10</mn></mrow><annotation encoding=\"application/x-tex\">\\sqrt{100} = 10</annotation></semantics></math></span>, so the standard error is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>11</mn><mo>÷</mo><mn>10</mn><mo>=</mo><mn>1.1</mn></mrow><annotation encoding=\"application/x-tex\">11 \\div 10 = 1.1</annotation></semantics></math></span> beats per minute. The one-standard-error band runs from 70.9 to 73.1 beats per minute. It is smaller than 11, it carries the unit of the measurement, and it says that a repeat on 100 fresh adults would typically land within about 1 beat per minute of 72.</p>\n<h2>Two: same task, no route</h2>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> practice-independent-standard-error</span></div>\n    <div class=\"ek-block-content\"><p>A renal service measures serum creatinine in 36 patients. Mean 96 µmol/L, standard deviation 24.</p>\n<p>Give the standard error of the mean and state in one sentence what it describes.</p>\n</div>\n  </aside>\n<p><span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msqrt><mn>36</mn></msqrt><mo>=</mo><mn>6</mn></mrow><annotation encoding=\"application/x-tex\">\\sqrt{36} = 6</annotation></semantics></math></span>, so the standard error is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>24</mn><mo>÷</mo><mn>6</mn><mo>=</mo><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">24 \\div 6 = 4</annotation></semantics></math></span> µmol/L. It describes how far the service&#39;s estimate of the mean would move if the audit were repeated on 36 different patients. It says nothing about how much individual patients differ from one another, which is the job of the 24.</p>\n<h2>Three: run the formula backwards</h2>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> practice-sample-size-backwards</span></div>\n    <div class=\"ek-block-content\"><p>The renal service wants its estimate good to a standard error of 2 µmol/L, and expects the standard deviation to stay at 24.</p>\n<p>How many patients does it need? Then say in one sentence what the answer would have been for a target of 1 µmol/L.</p>\n</div>\n  </aside>\n<p>Rearranging gives <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi><mo>=</mo><msup><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mi>s</mi><mi>/</mi><mpadded lspace=\"0\"><mi>SE</mi></mpadded><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mn>2</mn></msup><mo>=</mo><msup><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>24</mn><mi>/</mi><mn>2</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mn>2</mn></msup><mo>=</mo><mn>144</mn></mrow><annotation encoding=\"application/x-tex\">n = (s / \\mathrm{SE})^{2} = (24 / 2)^{2} = 144</annotation></semantics></math></span> patients. Check it against the square-root relation: going from 4 to 2 is a halving, so the sample has to quadruple, and 36 times 4 is indeed 144. For a target of 1 µmol/L the requirement is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>24</mn><mi>/</mi><mn>1</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mn>2</mn></msup><mo>=</mo><mn>576</mn></mrow><annotation encoding=\"application/x-tex\">(24/1)^{2} = 576</annotation></semantics></math></span> patients, four times again. Each halving costs four times the sample of the one before it.</p>\n<h2>Four: two studies, one comparison</h2>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> practice-compare-two-studies</span></div>\n    <div class=\"ek-block-content\"><p>Two teams each estimate mean fasting glucose in adults with type 2 diabetes.</p>\n<table>\n<thead>\n<tr>\n<th>Team</th>\n<th>Patients</th>\n<th>Standard deviation (mg/dL)</th>\n<th>Mean reported (mg/dL)</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>A</td>\n<td>40</td>\n<td>12</td>\n<td>145</td>\n</tr>\n<tr>\n<td>B</td>\n<td>250</td>\n<td>21</td>\n<td>139</td>\n</tr>\n</tbody></table>\n<p>Which team&#39;s mean is the more precisely determined, and by how much? Give both standard errors.</p>\n</div>\n  </aside>\n<p>Team A: <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msqrt><mn>40</mn></msqrt><mo>=</mo><mn>6.325</mn></mrow><annotation encoding=\"application/x-tex\">\\sqrt{40} = 6.325</annotation></semantics></math></span>, so <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>12</mn><mo>÷</mo><mn>6.325</mn><mo>=</mo><mn>1.90</mn></mrow><annotation encoding=\"application/x-tex\">12 \\div 6.325 = 1.90</annotation></semantics></math></span> mg/dL. Team B: <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msqrt><mn>250</mn></msqrt><mo>=</mo><mn>15.811</mn></mrow><annotation encoding=\"application/x-tex\">\\sqrt{250} = 15.811</annotation></semantics></math></span>, so <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>21</mn><mo>÷</mo><mn>15.811</mn><mo>=</mo><mn>1.33</mn></mrow><annotation encoding=\"application/x-tex\">21 \\div 15.811 = 1.33</annotation></semantics></math></span> mg/dL. Team B&#39;s estimate is the tighter one, even though its patients differ from one another substantially more, because a sample more than six times larger outweighs a standard deviation not quite twice as big. The ratio of the two standard errors is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1.90</mn><mo>÷</mo><mn>1.33</mn><mo>=</mo><mn>1.43</mn></mrow><annotation encoding=\"application/x-tex\">1.90 \\div 1.33 = 1.43</annotation></semantics></math></span>.</p>\n<p>Neither standard error says anything about which team&#39;s patients were sicker. The two means, 145 and 139, are what speak to that, and the standard errors say how firmly each of those means has been pinned down.</p>\n<h2>Five: which quantity does the sentence need?</h2>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> practice-match-quantity-to-sentence</span></div>\n    <div class=\"ek-block-content\"><p>For each sentence, name the quantity it requires and give its value for the dinner-timing cohort, where the mean is 142 mg/dL, the standard deviation is 18 mg/dL, and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>n</mi><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span> is 60.</p>\n<ol>\n<li>&quot;Most patients in the study had a fasting glucose within this distance of 142.&quot;</li>\n<li>&quot;A second cohort of the same size from the same list would probably return a mean within this distance of 142.&quot;</li>\n<li>&quot;The middle 95% of patients lie within this distance of 142.&quot;</li>\n<li>&quot;Ninety-five repeats in a hundred would return a mean within this distance of 142.&quot;</li>\n</ol>\n</div>\n  </aside>\n<p>Sentence 1 needs one standard deviation: 18 mg/dL, giving 124 to 160. Sentence 2 needs one standard error: 2.32 mg/dL, giving 139.7 to 144.3. Sentence 3 needs two standard deviations: 36 mg/dL, giving 106 to 178. Sentence 4 needs two standard errors: 4.65 mg/dL, giving 137.4 to 146.6.</p>\n<p>All four bands are in mg/dL and all four describe the same cohort, which is exactly why the label on the number has to be written out.</p>\n<h2>Six: find the question</h2>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> practice-audit-the-poster</span></div>\n    <div class=\"ek-block-content\"><p>A trainee brings you this paragraph from a poster.</p>\n<blockquote>\n<p>&quot;We audited fasting glucose in 25 patients on the diabetes ward, mean 151±3.4 mg/dL. Compared with last year&#39;s ward audit of 100 patients, mean 148±1.6, control has deteriorated. Both audits used the same laboratory assay.&quot;</p>\n</blockquote>\n<p>Say what you can and cannot conclude, and name every quantity you would need before the sentence about deterioration could be assessed. This item has no single numerical answer; it asks you to notice what is absent.</p>\n</div>\n  </aside>\n<p>The two figures after the plus-or-minus are unlabelled, so until they are labelled the paragraph cannot be read at all. Test the possibility that they are standard errors: <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3.4</mn><mo>×</mo><msqrt><mn>25</mn></msqrt><mo>=</mo><mn>17.0</mn></mrow><annotation encoding=\"application/x-tex\">3.4 \\times \\sqrt{25} = 17.0</annotation></semantics></math></span> and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1.6</mn><mo>×</mo><msqrt><mn>100</mn></msqrt><mo>=</mo><mn>16.0</mn></mrow><annotation encoding=\"application/x-tex\">1.6 \\times \\sqrt{100} = 16.0</annotation></semantics></math></span>, giving standard deviations of about 17 and 16 mg/dL, plausible for fasting glucose on a diabetes ward and consistent with each other. Test the alternative that they are standard deviations: patients on a diabetes ward whose glucose readings scattered by only 3.4 mg/dL would be a remarkable and unlikely group. So the figures are almost certainly standard errors, and the trainee should confirm it before quoting them.</p>\n<p>Read that way, the estimates are 151 with a standard error of 3.4 and 148 with a standard error of 1.6. The gap of 3 mg/dL is smaller than one standard error of the less precise estimate, so a difference of that size is the kind of thing repeat audits produce with no change in ward practice whatever. Deciding whether the data supports a claim of deterioration is the job of the next two lessons; this lesson is enough to say that the poster has not shown one.</p>\n<p>Two further things are missing and neither is a statistical detail. Who was on the ward each year, since a change in case mix would move the mean without any change in care; and how the 25 and the 100 patients were chosen, since an audit of whoever happened to be admitted in one week is a different object from an audit of a full year. Both belong to the sampling questions from the scientific inquiry block, and no standard error repairs a sample that reached the wrong people.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-se-formula, claim-plus-minus-ambiguity</span><span><b>sources</b> source-altman-bland-se</span></div>\n    <div class=\"ek-block-content\"><p>These sources support the relation between the standard error, the standard deviation, and the square root of the sample size used in every calculation above, and the ambiguity of unlabelled plus-or-minus notation that the last item turns on. The clinics, the audits, the poster, and all figures in this scene are original teaching material.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-league-tables",
+      "title": "Transfer: why the smallest unit always wins, and always loses",
+      "kind": "transfer",
+      "source": "content/070-league-tables.md",
+      "estimatedMinutes": 20,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Transfer: why the smallest unit always wins, and always loses</h1>\n<p>A regional maternity network publishes a league table each year. Mean birth weight by unit, ranked.</p>\n<p>Over five years, one small unit has finished top twice, bottom twice, and mid-table once. No other unit has moved more than three places. Managers have visited, protocols have been reviewed, a consultant retired and was replaced. The table keeps swinging.</p>\n<p>Nothing in the lesson so far mentions birth weight or league tables. Everything you need is in it anyway.</p>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-transfer-league-table</span></div>\n    <div class=\"ek-block-content\"><p>Birth weight in this region has a standard deviation of about 500 g, similar across the units. The largest unit delivers 400 babies a year; the small unit delivers 40.</p>\n<ol>\n<li>Calculate the standard error of each unit&#39;s annual mean birth weight, and say what the pair of numbers predicts about the league table before any clinical explanation is considered.</li>\n<li>The network wants to keep publishing the table. Suggest two changes that would let a reader tell a real difference between units from the movement in part 1, and say what each one does.</li>\n<li>The network also publishes each unit&#39;s rate of admission to the neonatal unit, as a percentage of live births. The small unit&#39;s percentage swings even more wildly than its mean birth weight. The formula from this lesson takes a standard deviation and a sample size, and a percentage has no standard deviation of the kind you have been dividing by. Does the reasoning still apply?</li>\n</ol>\n</div>\n  </aside>\n<h2>Part 1</h2>\n<p>The large unit: <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msqrt><mn>400</mn></msqrt><mo>=</mo><mn>20</mn></mrow><annotation encoding=\"application/x-tex\">\\sqrt{400} = 20</annotation></semantics></math></span>, so its standard error is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>500</mn><mo>÷</mo><mn>20</mn><mo>=</mo><mn>25</mn></mrow><annotation encoding=\"application/x-tex\">500 \\div 20 = 25</annotation></semantics></math></span> g. The small unit: <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msqrt><mn>40</mn></msqrt><mo>=</mo><mn>6.325</mn></mrow><annotation encoding=\"application/x-tex\">\\sqrt{40} = 6.325</annotation></semantics></math></span>, so its standard error is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>500</mn><mo>÷</mo><mn>6.325</mn><mo>=</mo><mn>79</mn></mrow><annotation encoding=\"application/x-tex\">500 \\div 6.325 = 79</annotation></semantics></math></span> g.</p>\n<p>The small unit&#39;s published mean swings about three times as far, year to year, as the large unit&#39;s, on chance alone. The ratio is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>79</mn><mo>÷</mo><mn>25</mn><mo>=</mo><mn>3.16</mn></mrow><annotation encoding=\"application/x-tex\">79 \\div 25 = 3.16</annotation></semantics></math></span>, which is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msqrt><mrow><mn>400</mn><mi>/</mi><mn>40</mn></mrow></msqrt><mo>=</mo><msqrt><mn>10</mn></msqrt></mrow><annotation encoding=\"application/x-tex\">\\sqrt{400 / 40} = \\sqrt{10}</annotation></semantics></math></span>. A unit whose annual figure moves by 79 g in each direction will spend some years near the top of any ranking and some years near the bottom, without a single thing changing in the delivery suite. The large unit, moving by 25 g, stays put.</p>\n<p>So the swing that prompted the visits and the protocol reviews is what a small denominator does to any average. It is the first thing to rule out, and the league table as published gives a reader no way to rule it out.</p>\n<h2>Part 2</h2>\n<p>Publish the standard error, or a band built from it, beside every unit&#39;s mean. A reader can then see that the small unit&#39;s figure carries an uncertainty three times the large unit&#39;s, and stop reading rank order as performance. This changes nothing about the data and everything about what the table communicates.</p>\n<p>Pool several years for the small unit. Five years of 40 births gives <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi><mo>=</mo><mn>200</mn></mrow><annotation encoding=\"application/x-tex\">n = 200</annotation></semantics></math></span> and a standard error of <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>500</mn><mo>÷</mo><msqrt><mn>200</mn></msqrt><mo>=</mo><mn>35</mn></mrow><annotation encoding=\"application/x-tex\">500 \\div \\sqrt{200} = 35</annotation></semantics></math></span> g, close to the large unit&#39;s single-year figure. This buys precision with time, and it costs currency: a five-year average cannot show a change that happened last spring. That trade sits in front of anyone who has to report on a small service, and no amount of arithmetic removes it.</p>\n<p>A third answer, ranking the units at all, is worth naming as the thing to stop doing. A rank is a summary that carries no uncertainty by construction: eighth place looks equally definite whether it was won by 200 g or by 4.</p>\n<h2>Part 3</h2>\n<p>Yes, and it is the reasoning that transfers while the particular formula does not. A rate computed from one year&#39;s births is a statistic computed from a sample, so it has a sampling distribution: run the year again with the same unit, the same staff, and a different 40 babies, and the percentage comes out different. That sampling distribution has a spread, the spread is a standard error, and it shrinks as the number of births grows. Every one of those sentences is a sentence from the second scene with the word <em>mean</em> replaced.</p>\n<p>What changes is how the standard error is calculated. A percentage carries its own arithmetic for the job, and the lessons ahead supply it. The same is true of the difference between two group means, of a correlation, and of the slope of a fitted line. Each is estimated from a sample, each would come out differently on a repeat, and each therefore has a standard error that says by how much.</p>\n<p>The dinner-timing study has one waiting. Its two groups of thirty differ by 9.0 mg/dL, later minus earlier, and the standard error of that difference is 4.13 mg/dL. That is a larger number than the 2.32 attached to the cohort mean, which should make sense: a difference is built from two estimates, each carrying its own uncertainty, so the difference inherits both. The 4.13 is the number the next two lessons are built on, and you now know what kind of number it is.</p>\n<h2>Where this leaves the block</h2>\n<p>Everything from here treats an estimate as a value drawn from a distribution whose width you can calculate. The confidence interval in the next lesson is a band built from a standard error. The p-value in the lesson after it asks how far an observed difference sits from zero, measured in standard errors. Both are ways of saying out loud what this lesson established: the number you have is one draw, its precision is a quantity, and the quantity is knowable.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-se-applies-to-other-statistics, claim-se-formula</span><span><b>sources</b> source-altman-bland-se</span></div>\n    <div class=\"ek-block-content\"><p>These sources support the statement that the sampling-distribution idea applies to statistics other than a mean, including proportions, regression coefficients, and contrasts such as the difference between two means, and that each such estimate has a standard error indicating its uncertainty. They also support the relation between the standard error, the standard deviation, and the square root of the sample size used in parts 1 and 2. The maternity network, the units, the birth-weight figures, and the league table are original teaching material and describe no real service.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-clinical-wrap-up",
+      "title": "Clinical wrap-up: how many patients does the audit need?",
+      "kind": "synthesis",
+      "source": "content/080-clinical-wrap-up.md",
+      "estimatedMinutes": 20,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Clinical wrap-up: how many patients does the audit need?</h1>\n<p><strong>Teaching example, not medical advice.</strong> The service, the meeting, the audit plan, and every figure below are invented for teaching. Nothing here reports an observation about real patients or supports a diagnostic, monitoring, or treatment decision. The published reference values are quoted only so the audit has real cut-points to be measured against.</p>\n<p>A diabetes service is planning next year&#39;s work. Two proposals are on the table and both come down to the same question: how many patients?</p>\n<h2>The clinical yardstick</h2>\n<p>The service needs something to measure its precision against, and it does not come from the data. The US National Institute of Diabetes and Digestive and Kidney Diseases publishes reference values for the fasting plasma glucose test: 99 mg/dL or below is normal, 100 to 125 mg/dL indicates prediabetes, and 126 mg/dL or above indicates diabetes, with a doctor usually running a second test before confirming a diagnosis. Fasting there means nothing to eat or drink beforehand except sips of water.</p>\n<p>The prediabetes band runs from 100 to 125, so it spans 25 mg/dL. That width is the yardstick for everything below. An estimate whose uncertainty is small next to 25 mg/dL can support a statement about which band a group sits in; an estimate whose uncertainty is comparable to 25 cannot.</p>\n<h2>Proposal one: describe the clinic population</h2>\n<p>The registrar wants to report the mean fasting glucose of patients attending the clinic, so the service can see where its population sits against those bands. She proposes an audit of 60 patients, matching the dinner-timing study, and expects the same figures: a mean near 142 mg/dL and a standard deviation near 18.</p>\n<p>Work the numbers before the meeting decides.</p>\n<p>The standard error of a mean of 60 is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>18</mn><mo>÷</mo><msqrt><mn>60</mn></msqrt><mo>=</mo><mn>2.32</mn></mrow><annotation encoding=\"application/x-tex\">18 \\div \\sqrt{60} = 2.32</annotation></semantics></math></span> mg/dL. So a 60-patient audit reports its mean give or take about 2.3, and about 95 repeats in 100 would land within 4.6 mg/dL of the truth. Against a diagnostic band 25 mg/dL wide, an uncertainty of 4.6 mg/dL is comfortable. The audit can say confidently that this clinic population sits well above 126 mg/dL, deep in the range the reference values call diabetes, which is unsurprising in a clinic where everyone already has the diagnosis and is exactly the sort of statement the audit is for.</p>\n<p>Sixty patients is enough for proposal one. Recruiting three hundred would tighten the estimate to about 1.0 mg/dL and would not change a single sentence in the report.</p>\n<h2>Proposal two: detect a change after the leaflet</h2>\n<p>The consultant wants something harder. The service is issuing advice on evening meal timing and wants next year&#39;s audit to show whether the clinic&#39;s mean fasting glucose has shifted. He proposes to compare next year&#39;s mean against this year&#39;s 142, and he would treat a change of about 5 mg/dL as worth acting on.</p>\n<p>Run the same arithmetic and the answer is different.</p>\n<p>Each audit&#39;s mean carries its own uncertainty of 2.32 mg/dL. Comparing two of them puts two uncertainties in the same sentence, so the difference between two 60-patient audits swings by appreciably more than either one does. Even with no change at all in the clinic, a difference of 5 mg/dL between two years is entirely ordinary. Proposal two, at 60 patients a year, cannot distinguish a real 5 mg/dL shift from the ordinary movement of two estimates.</p>\n<p>The formula says what would fix it. To pull each audit&#39;s standard error down to 1.16 mg/dL, half of 2.32, each year needs <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>4</mn><mo>×</mo><mn>60</mn><mo>=</mo><mn>240</mn></mrow><annotation encoding=\"application/x-tex\">4 \\times 60 = 240</annotation></semantics></math></span> patients. To reach 1.00 mg/dL, each year needs <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>18</mn><mi>/</mi><mn>1.00</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mn>2</mn></msup><mo>=</mo><mn>324</mn></mrow><annotation encoding=\"application/x-tex\">(18 / 1.00)^{2} = 324</annotation></semantics></math></span>. The service delivers roughly 900 appointments a year, so 240 is demanding and reachable and 324 is close to the ceiling, and both are a different scale of work from the 60 the registrar proposed.</p>\n<p><strong>Same clinic, same measurement, same standard deviation, two sample sizes that differ by a factor of four.</strong> The question decided it. Describing where a population sits against a wide diagnostic band tolerates a loose estimate. Detecting a small change between two years does not, because the thing being detected is smaller than the uncertainty of the tools measuring it.</p>\n<h2>What the meeting should not conclude</h2>\n<p>Three boundaries, and none of them is arithmetic.</p>\n<p>A larger sample buys precision and nothing else. If next year&#39;s audit reaches a different set of patients, because a neighbouring practice closed or the clinic changed its appointment system, the two means describe two different populations and 324 patients will estimate the wrong thing very precisely. Sampling error is one problem and reaching the wrong people is another, and only the first shrinks with <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msqrt><mrow><mi>n</mi><mspace width=\"0pt\" height=\"0.5em\"></mspace></mrow></msqrt><annotation encoding=\"application/x-tex\">\\sqrt{n}</annotation></semantics></math></span>.</p>\n<p>The 18 mg/dL is a fact about the patients, so it stays at 18 whatever the audit does. Any sentence in the final report about how much individual patients vary must quote 18, and any sentence about how well the average is known must quote the standard error. A report that puts 2.32 where 18 belongs will tell its readers that the clinic&#39;s patients are all within a few mg/dL of each other, which is false and which the clinic&#39;s own staff will know is false the moment they read it.</p>\n<p>And whether a 5 mg/dL shift in a clinic mean matters to a patient is a clinical judgement, not a statistical one. This lesson can say how firmly a number has been measured. The block returns to what it is worth in its final lesson.</p>\n<h2>Where the block goes next</h2>\n<p>You now have the quantity everything else is built from. The next lesson turns a standard error into a stated range of values compatible with the data and takes some care over what such a range does and does not claim. The lesson after that asks how far an observed difference sits from zero, counted in standard errors, and what a small answer entitles anyone to say. The dinner-timing study&#39;s difference of 9.0 mg/dL and its standard error of 4.13 are waiting.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-fpg-thresholds, claim-se-formula, claim-se-is-precision, claim-central-limit-theorem</span><span><b>sources</b> source-niddk-diabetes-tests, source-altman-bland-se, source-nist-normal-clt, source-kwak-kim-clt</span></div>\n    <div class=\"ek-block-content\"><p>These sources support the fasting plasma glucose reference values and confirmation practice quoted above, the relation between the standard error, the standard deviation, and the square root of the sample size used in both proposals, the standard error&#39;s role as a measure of how precisely a mean has been estimated, and the approximate normality of a sample mean that lets a 95% figure be attached to a two-standard-error band. The service, the meeting, the two proposals, the appointment volume, and every audit figure are original teaching material and describe no real clinic.</p>\n</div>\n  </aside>\n"
+    }
+  ],
+  "authors": [
+    {
+      "principalId": "github:VSBDev",
+      "displayName": "VSBDev — accountable author",
+      "agent": {
+        "system": "RUNTIME-STAMPED",
+        "provider": "RUNTIME-STAMPED",
+        "model": "RUNTIME-STAMPED",
+        "version": "RUNTIME-STAMPED",
+        "runId": "author-PREM-STA-006-382C0370-ACA5-405B-AC6F-21FFBFDD70C1",
+        "instructionsDigest": "sha256:5a938256b353351dc84f84115e3391cd6722bb7a9dd65aa9c7d36452e2929639"
+      }
+    }
+  ],
+  "license": "CC-BY-4.0",
+  "sourceConfidence": "pending-review",
+  "aiAssistance": {
+    "used": true,
+    "disclosure": "VSBDev (github:VSBDev) is the accountable principal for this authoring run. Material authoring assistance used system RUNTIME-STAMPED, provider RUNTIME-STAMPED, model RUNTIME-STAMPED, version RUNTIME-STAMPED, in isolated run author-PREM-STA-006-382C0370-ACA5-405B-AC6F-21FFBFDD70C1. The instructions digest covers the recorded discloseable UTF-8 authoring-task payload for this run, including its terminal newline; it excludes hidden provider and system instructions that cannot be exported."
+  },
+  "assessment": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-assessment-v1",
+    "lessonId": "PREM-STA-006",
+    "lessonVersion": "0.1.0",
+    "assessmentId": "assessment-sampling-distributions-standard-error",
+    "title": "Compute a standard error, size a study, and read a reported number",
+    "purpose": "mixed",
+    "attemptPolicy": {
+      "retakeable": true,
+      "timeLimitMinutes": null,
+      "feedback": "after-attempt"
+    },
+    "items": [
+      {
+        "id": "item-why-a-repeat-differs",
+        "type": "single-choice",
+        "sceneId": "scene-distribution-of-means",
+        "objectiveIds": [
+          "objective-explain-sampling-variation"
+        ],
+        "outcomeIds": [
+          "topic-statistics-data-sampling-standard-error"
+        ],
+        "prompt": "A study of 60 adults reports a mean fasting glucose of 142 mg/dL. The same team repeats it with the same protocol, the same nurse, and the same meter on 60 different adults from the same clinic list, and gets 145 mg/dL. Which statement best explains the difference?",
+        "stimulus": null,
+        "points": 4,
+        "responseSpec": {
+          "mode": "single-choice",
+          "options": [
+            {
+              "id": "option-different-people",
+              "text": "The second sample contains different individuals, and individuals differ in fasting glucose, so the average of any 60 of them lands somewhere in a range of possible values."
+            },
+            {
+              "id": "option-measurement-drift",
+              "text": "The meter must have drifted between the two studies, because a correctly run study returns the same answer twice."
+            },
+            {
+              "id": "option-second-is-wrong",
+              "text": "One of the two means is wrong, and the larger sample would show which."
+            },
+            {
+              "id": "option-population-changed",
+              "text": "The population's mean fasting glucose changed between the two studies."
+            }
+          ]
+        },
+        "answer": {
+          "correct": "option-different-people",
+          "summary": "Different people were measured, and a mean of 60 people depends on which 60.",
+          "reasoning": "Sampling variation is the whole explanation available here, and it requires no fault anywhere. Fasting glucose in this population runs from about 100 to 181 mg/dL, so which 60 individuals happen to be drawn moves the average. A drifting meter would be measurement error, a different thing entirely, and it is not needed to explain the difference. Neither mean is wrong: both were computed correctly from the people in front of them, and both are estimates of the same unknown population mean. And the population would have to change for the fourth option to hold, which nothing in the scenario suggests and which would not be the simplest explanation even if it did.",
+          "acceptableResponses": [
+            "The two samples contain different people.",
+            "Sampling variation: a mean of 60 depends on which 60."
+          ],
+          "commonErrors": [
+            "Reaching for a measurement fault, on the assumption that a well-run study is repeatable to the decimal point.",
+            "Treating one of the two answers as the true one, when both are estimates of a quantity neither has measured."
+          ]
+        },
+        "rubricId": "rubric-sampling-variation",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-compute-se-cohort",
+        "type": "numeric",
+        "sceneId": "scene-price-of-precision",
+        "objectiveIds": [
+          "objective-compute-standard-error"
+        ],
+        "outcomeIds": [
+          "topic-statistics-data-sampling-standard-error"
+        ],
+        "prompt": "The dinner-timing study measured fasting glucose in 60 adults: mean 142 mg/dL, standard deviation 18 mg/dL. Calculate the standard error of the mean in mg/dL, to two decimal places.",
+        "stimulus": null,
+        "points": 4,
+        "responseSpec": {
+          "mode": "number",
+          "units": "mg/dL",
+          "tolerance": 0.02
+        },
+        "answer": {
+          "correct": 2.32,
+          "summary": "2.32 mg/dL.",
+          "reasoning": "The standard error of a mean is the standard deviation divided by the square root of the sample size. The square root of 60 is 7.746, and 18 divided by 7.746 is 2.324, which rounds to 2.32 mg/dL. Two checks confirm it: the answer is smaller than the standard deviation of 18, as dividing by the square root of any sample above one observation guarantees, and it carries the unit of the data.",
+          "acceptableResponses": [
+            "2.32",
+            "2.32 mg/dL",
+            "18 / sqrt(60) = 2.32"
+          ],
+          "commonErrors": [
+            "Dividing by 60 instead of by the square root of 60, giving 0.30, which understates the uncertainty by a factor of about 7.7.",
+            "Multiplying by the square root of 60 instead of dividing, giving 139.4, which is larger than the standard deviation and so fails the check.",
+            "Using 30, the size of one dinner-timing group, when the reported mean was computed from all 60 people."
+          ]
+        },
+        "rubricId": "rubric-standard-error-computation",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-one-se-band",
+        "type": "short-answer",
+        "sceneId": "scene-distribution-of-means",
+        "objectiveIds": [
+          "objective-compute-standard-error"
+        ],
+        "outcomeIds": [
+          "topic-statistics-data-sampling-standard-error"
+        ],
+        "prompt": "Using the mean of 142 mg/dL and the standard error you calculated, give the band one standard error either side of the mean, and write one sentence stating what that band describes. Be precise about who or what the band is about.",
+        "stimulus": null,
+        "points": 5,
+        "responseSpec": {
+          "mode": "text",
+          "maxLength": 500
+        },
+        "answer": {
+          "correct": "139.7 to 144.3 mg/dL. About two thirds of repeats of this study, each on 60 fresh adults from the same list, would return a cohort mean somewhere inside that band. It is a statement about where a repeat's average would land, and not a statement about where individual patients' readings sit.",
+          "summary": "139.7 to 144.3 mg/dL, describing where a repeat study's mean would land.",
+          "reasoning": "Subtract and add the standard error: 142 minus 2.32 is 139.68 and 142 plus 2.32 is 144.32, which round to 139.7 and 144.3. The band is read off the sampling distribution, so the second half of the answer has to name repeats of the study as the thing being described. Reading it as a band containing most patients would be the error the misconception scene attacks: the individual readings run from about 100 to 181 mg/dL, and only about six of the sixty fall inside 139.7 to 144.3.",
+          "acceptableResponses": [
+            "139.7 to 144.3 mg/dL; roughly two thirds of repeat studies would land in it.",
+            "139.68 to 144.32 mg/dL, describing the spread of means across repeats of the study rather than the spread of patients."
+          ],
+          "commonErrors": [
+            "Giving the arithmetic correctly and then describing the band as the range within which most patients fall.",
+            "Using the standard deviation of 18 and giving 124 to 160, which is a correct band about people and the wrong answer to this question."
+          ]
+        },
+        "rubricId": "rubric-standard-error-computation",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-quadruple-the-sample",
+        "type": "numeric",
+        "sceneId": "scene-price-of-precision",
+        "objectiveIds": [
+          "objective-predict-effect-of-sample-size"
+        ],
+        "outcomeIds": [
+          "topic-statistics-data-sampling-standard-error"
+        ],
+        "prompt": "The study is repeated with 240 adults instead of 60. The standard deviation is again 18 mg/dL. What is the standard error of the mean now, in mg/dL, to two decimal places?",
+        "stimulus": null,
+        "points": 4,
+        "responseSpec": {
+          "mode": "number",
+          "units": "mg/dL",
+          "tolerance": 0.02
+        },
+        "answer": {
+          "correct": 1.16,
+          "summary": "1.16 mg/dL, exactly half of 2.32.",
+          "reasoning": "The square root of 240 is 15.492, and 18 divided by 15.492 is 1.162, which rounds to 1.16 mg/dL. It can also be reached without a calculator: multiplying the sample by four multiplies the square root of the sample by two, so the standard error halves, and half of 2.32 is 1.16. That relation is the reason a study cannot buy precision cheaply. Quadrupling the recruitment bought one halving; the next halving would need 960 patients.",
+          "acceptableResponses": [
+            "1.16",
+            "1.16 mg/dL",
+            "Half of 2.32, so 1.16."
+          ],
+          "commonErrors": [
+            "Answering 0.58 by assuming that multiplying the sample by four divides the standard error by four.",
+            "Answering 2.32 divided by 2 without checking, which happens to be right here, and then applying the same halving to a sample multiplied by two, where it is wrong."
+          ]
+        },
+        "rubricId": "rubric-sample-size-reasoning",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-sample-size-for-target",
+        "type": "numeric",
+        "sceneId": "scene-price-of-precision",
+        "objectiveIds": [
+          "objective-predict-effect-of-sample-size"
+        ],
+        "outcomeIds": [
+          "topic-statistics-data-sampling-standard-error"
+        ],
+        "prompt": "A service wants to estimate mean fasting glucose with a standard error of 1.00 mg/dL. It expects a standard deviation of 18 mg/dL. How many patients does it need to enrol?",
+        "stimulus": null,
+        "points": 4,
+        "responseSpec": {
+          "mode": "number",
+          "units": "patients",
+          "tolerance": 1
+        },
+        "answer": {
+          "correct": 324,
+          "summary": "324 patients.",
+          "reasoning": "Rearranging the standard error formula gives the sample size as the square of the standard deviation divided by the target standard error: 18 divided by 1.00 is 18, and 18 squared is 324. Sense-check it against the price list. Going from a standard error of 2.32 to one of 1.00 is a reduction by a factor of about 2.3, so the sample should grow by roughly 2.3 squared, which is about 5.4, and 60 times 5.4 is about 324.",
+          "acceptableResponses": [
+            "324",
+            "324 patients",
+            "(18/1)^2 = 324"
+          ],
+          "commonErrors": [
+            "Answering 18 by stopping after the division and forgetting to square.",
+            "Answering 240 by assuming the target of 1.00 is the same as halving 2.32, when halving gives 1.16 and the stated target is tighter."
+          ]
+        },
+        "rubricId": "rubric-sample-size-reasoning",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-which-quantity",
+        "type": "multiple-choice",
+        "sceneId": "scene-sd-is-not-se",
+        "objectiveIds": [
+          "objective-distinguish-sd-from-se"
+        ],
+        "outcomeIds": [
+          "topic-statistics-data-sampling-standard-error"
+        ],
+        "prompt": "A report on the 60-adult cohort has a mean of 142 mg/dL, a standard deviation of 18 mg/dL, and a standard error of the mean of 2.32 mg/dL. Select every sentence below that requires the standard error rather than the standard deviation.",
+        "stimulus": null,
+        "points": 6,
+        "responseSpec": {
+          "mode": "multiple-choice",
+          "maxSelections": 5,
+          "options": [
+            {
+              "id": "option-repeat-audit-lands",
+              "text": "\"A repeat of this audit would probably return an average close to this one.\""
+            },
+            {
+              "id": "option-typical-patient-distance",
+              "text": "\"A typical patient in this clinic sits about this far from 142 mg/dL.\""
+            },
+            {
+              "id": "option-how-well-average-known",
+              "text": "\"We know the group's average to about this much either way.\""
+            },
+            {
+              "id": "option-middle-two-thirds",
+              "text": "\"The middle two thirds of our patients fall in this range.\""
+            },
+            {
+              "id": "option-larger-study-shrinks",
+              "text": "\"Enrolling four times as many patients would halve this figure.\""
+            }
+          ]
+        },
+        "answer": {
+          "correct": [
+            "option-repeat-audit-lands",
+            "option-how-well-average-known",
+            "option-larger-study-shrinks"
+          ],
+          "summary": "The sentences about a repeat, about how well the average is known, and about the effect of a larger sample.",
+          "reasoning": "The test is what the sentence is about. A repeat of the audit, and how well the average is known, are both statements about an estimate, so both need the standard error of 2.32. The sentence about a larger sample halving the figure is the decisive one: the standard error falls as the sample grows and the standard deviation does not, so only the standard error can be the subject of that sentence. The two remaining options describe how patients differ from one another, which is what the standard deviation of 18 reports, and enrolling more patients would leave both of them unchanged.",
+          "acceptableResponses": [
+            "The repeat sentence, the how-well-known sentence, and the sample-size sentence."
+          ],
+          "commonErrors": [
+            "Selecting the sentence about the middle two thirds because the phrase two thirds appeared beside a standard error earlier in the lesson; the two-thirds figure belongs to any one-standard-deviation band, and here the band is about patients.",
+            "Missing the sample-size sentence, which is the one that separates the two quantities by behaviour instead of by wording."
+          ]
+        },
+        "rubricId": "rubric-sd-se-discrimination",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-clt-when-it-holds",
+        "type": "multiple-choice",
+        "sceneId": "scene-central-limit",
+        "objectiveIds": [
+          "objective-apply-central-limit-theorem"
+        ],
+        "outcomeIds": [
+          "topic-statistics-data-sampling-standard-error"
+        ],
+        "prompt": "Select every statement that the central limit theorem supports.",
+        "stimulus": null,
+        "points": 6,
+        "responseSpec": {
+          "mode": "multiple-choice",
+          "maxSelections": 5,
+          "options": [
+            {
+              "id": "option-means-approach-normal",
+              "text": "As the sample grows, the distribution of sample means becomes approximately normal even when the population is skewed."
+            },
+            {
+              "id": "option-means-centred-on-population",
+              "text": "The distribution of sample means is centred on the population mean."
+            },
+            {
+              "id": "option-spread-of-means-shrinks",
+              "text": "The spread of the sample means approaches the population standard deviation divided by the square root of the sample size."
+            },
+            {
+              "id": "option-data-become-normal",
+              "text": "As the sample grows, the individual observations themselves become normally distributed."
+            },
+            {
+              "id": "option-n-30-always-enough",
+              "text": "A sample of 30 is always large enough for the approximation, whatever the population looks like."
+            }
+          ]
+        },
+        "answer": {
+          "correct": [
+            "option-means-approach-normal",
+            "option-means-centred-on-population",
+            "option-spread-of-means-shrinks"
+          ],
+          "summary": "The three statements about the distribution of sample means.",
+          "reasoning": "The theorem has exactly three parts and the first three options are those parts: approximate normality of the mean's sampling distribution regardless of the population's shape, centring on the population mean, and a spread approaching the population standard deviation over the square root of the sample size. The fourth option attaches the theorem to the wrong quantity. Individual observations do not change their distribution when more of them are collected; a skewed population stays skewed however large the study. The fifth states a working convention as though it were part of the theorem. A sample of about 30 is a common rule of thumb, and it fails for strongly skewed data such as hospital length of stay, where far more is needed.",
+          "acceptableResponses": [
+            "The first three statements only."
+          ],
+          "commonErrors": [
+            "Selecting the statement about individual observations, which is the most common misreading of the theorem and the one that would license calling fasting glucose normally distributed because the study was large.",
+            "Selecting the sample-of-30 statement, treating a rule of thumb as a guarantee."
+          ]
+        },
+        "rubricId": "rubric-sd-se-discrimination",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-diagnose-the-poster",
+        "type": "open-response",
+        "sceneId": "scene-clinical-wrap-up",
+        "objectiveIds": [
+          "objective-distinguish-sd-from-se",
+          "objective-compute-standard-error",
+          "objective-predict-effect-of-sample-size"
+        ],
+        "outcomeIds": [
+          "topic-statistics-data-sampling-standard-error"
+        ],
+        "prompt": "Audit this abstract. Work out which quantity the bracketed figure is, show the arithmetic that decides it, say what the authors are entitled to claim about their estimate, and state what you would ask them to do differently. Then name one thing about the study that no increase in sample size would fix.",
+        "stimulus": "Abstract extract. \"We measured fasting plasma glucose in 49 adults attending a community diabetes clinic on four consecutive Monday mornings. Mean fasting glucose was 147 mg/dL (2.6). Our estimate is precise to within a few mg/dL, and the tight spread shows that this clinic population is unusually homogeneous. We recommend the four-Monday design as an efficient way to characterise a clinic population.\"",
+        "points": 12,
+        "responseSpec": {
+          "mode": "text",
+          "maxLength": 3000
+        },
+        "answer": {
+          "correct": "The bracketed 2.6 is a standard error, and the arithmetic decides it. The square root of 49 is 7, so a standard error of 2.6 mg/dL implies a standard deviation of 2.6 times 7, which is 18.2 mg/dL, an entirely ordinary figure for fasting glucose in a diabetes clinic. If instead the 2.6 were the standard deviation, the implied standard error would be 2.6 divided by 7, or 0.37 mg/dL, and a group of adults with diabetes whose readings scattered by only 2.6 mg/dL would be extraordinary. So the second reading is the one the data supports, and the abstract should say so in words instead of leaving a bare bracket.\n\nWhat the authors may claim: their estimate of the clinic's mean is pinned down to about 2.6 mg/dL, so a repeat of the same design on 49 different attenders would typically land within about 2.6 of 147, and within about 5.2 roughly 95 times in 100. That is a reasonable precision for saying where this population sits against the reference bands.\n\nWhat they may not claim: the sentence about a homogeneous population reads a standard error as though it described patients. The implied standard deviation is about 18 mg/dL, so the middle two thirds of these patients span roughly 129 to 165 and the middle 95% roughly 111 to 183. The population is ordinary and the authors have described it as unusually uniform, which is the swap this lesson is about, and it inflates the apparent tightness by a factor of the square root of 49, which is 7.\n\nWhat to ask for: label the bracketed figure, report the standard deviation as well as the standard error since the two answer different questions, delete the homogeneity sentence, and state the sampling route.\n\nWhat no sample size would fix: four consecutive Monday mornings is a sampling route, not a sample size. If Monday clinics are booked for a particular kind of appointment, or if the people who attend early in the week differ from those who attend later, then enrolling 490 Monday attenders would estimate the Monday population very precisely and would still not describe the clinic. Sampling variation shrinks with the square root of the sample; reaching the wrong people does not shrink at all.",
+          "summary": "The 2.6 is a standard error, shown by multiplying by the square root of 49; the precision claim stands, the homogeneity claim is the standard-error-as-spread swap, and the four-Monday sampling route is not a sample-size problem.",
+          "reasoning": "This item asks for the full loop the lesson teaches: infer which quantity an unlabelled figure is by testing both readings against the square root of the sample size, then check each sentence in the abstract against the quantity it actually needs, then separate a precision problem from a sampling problem. The arithmetic is the deciding move and a strong answer shows it in both directions instead of asserting the answer. The final part is the boundary the clinical wrap-up sets: a standard error describes how much an estimate would move on a repeat of the same procedure, and it is silent about whether the procedure reaches the intended population, which is a question the scientific inquiry block already established.",
+          "acceptableResponses": [
+            "Any answer that identifies the 2.6 as a standard error using 2.6 times the square root of 49 to recover a standard deviation of about 18, accepts the precision claim, rejects the homogeneity claim as a standard-error-for-standard-deviation swap, asks for both quantities to be labelled and reported, and names the four-Monday recruitment route as a selection problem that sample size cannot repair."
+          ],
+          "commonErrors": [
+            "Asserting that 2.6 is a standard error because it looks small, without the arithmetic that shows the alternative reading is implausible.",
+            "Rejecting the whole abstract, including the precision claim, which the numbers actually support.",
+            "Naming only the labelling problem and missing the homogeneity sentence, which is where the swap does its damage.",
+            "Proposing a larger sample as the fix for the four-Monday route, which estimates a Monday population more precisely and answers the wrong question."
+          ]
+        },
+        "rubricId": "rubric-sd-se-discrimination",
+        "safetyCritical": false
+      }
+    ],
+    "rubrics": [
+      {
+        "id": "rubric-sampling-variation",
+        "title": "Explaining why a repeat returns a different result",
+        "criteria": [
+          {
+            "id": "criterion-identifies-different-individuals",
+            "description": "Attributes the difference to the sample containing different individuals, without invoking a fault in measurement or conduct.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-links-to-population-spread",
+            "description": "Connects the size of the variation to how much individuals in the population differ and to how many were sampled.",
+            "maxPoints": 2
+          }
+        ]
+      },
+      {
+        "id": "rubric-standard-error-computation",
+        "title": "Computing and reading a standard error of the mean",
+        "criteria": [
+          {
+            "id": "criterion-correct-formula",
+            "description": "Divides the standard deviation by the square root of the number of independent observations, using the right sample size.",
+            "maxPoints": 3
+          },
+          {
+            "id": "criterion-unit-and-check",
+            "description": "Reports the result in the unit of the data and checks it against the standard deviation it came from.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-states-what-it-describes",
+            "description": "States that the resulting band describes where a repeat of the study's estimate would land, and not where individual observations sit.",
+            "maxPoints": 4
+          }
+        ]
+      },
+      {
+        "id": "rubric-sample-size-reasoning",
+        "title": "Reasoning from sample size to precision and back",
+        "criteria": [
+          {
+            "id": "criterion-square-root-relation",
+            "description": "Applies the square-root relation correctly in the direction the question asks, including that quadrupling the sample halves the standard error.",
+            "maxPoints": 3
+          },
+          {
+            "id": "criterion-inverts-the-formula",
+            "description": "Rearranges the relation to find the sample size a stated target standard error requires, and squares the ratio.",
+            "maxPoints": 3
+          },
+          {
+            "id": "criterion-sense-checks-the-answer",
+            "description": "Checks the answer against a known point on the same relation instead of trusting a single calculation.",
+            "maxPoints": 2
+          }
+        ]
+      },
+      {
+        "id": "rubric-sd-se-discrimination",
+        "title": "Telling a standard deviation from a standard error in someone else's report",
+        "criteria": [
+          {
+            "id": "criterion-names-the-subject",
+            "description": "Decides which quantity a sentence needs by asking whether the sentence is about the individuals or about the estimate.",
+            "maxPoints": 3
+          },
+          {
+            "id": "criterion-uses-root-n-to-decide",
+            "description": "Uses the square root of the sample size to recover one quantity from the other and to test which reading of an unlabelled figure is plausible.",
+            "maxPoints": 4
+          },
+          {
+            "id": "criterion-quantifies-the-consequence",
+            "description": "States what a swapped or unlabelled figure does to a reader's impression, with the factor involved where the numbers allow it.",
+            "maxPoints": 3
+          },
+          {
+            "id": "criterion-separates-precision-from-selection",
+            "description": "Distinguishes a limitation that a larger sample would improve from one that it would not.",
+            "maxPoints": 2
+          }
+        ]
+      }
+    ]
+  },
+  "references": {
+    "schemaVersion": 2,
+    "format": "embeddedknowledge-references-v2",
+    "lessonId": "PREM-STA-006",
+    "lessonVersion": "0.1.0",
+    "sources": [
+      {
+        "id": "source-altman-bland-se",
+        "type": "primary-research",
+        "title": "Standard deviations and standard errors",
+        "creators": [
+          "Douglas G Altman",
+          "J Martin Bland"
+        ],
+        "publisher": "BMJ Publishing Group",
+        "issued": "2005-10-15",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1255808/",
+        "accessed": "2026-07-25",
+        "version": "BMJ 2005;331(7521):903, Statistics Notes series; full text as archived in PubMed Central, retrieved 2026-07-25. DOI 10.1136/bmj.331.7521.903, PMID 16223828, PMCID PMC1255808",
+        "locator": "Whole article: the contrast between the standard deviation as a measure of variability and the standard error as the standard deviation of the sampling distribution of the mean; the relation SE = SD divided by the square root of the sample size; the behaviour of each as the sample grows; and the closing passage on unlabelled plus-or-minus notation",
+        "license": "Copyright 2005, BMJ Publishing Group Ltd; free full text made available through PubMed Central. No open reuse licence is stated, so this pack uses the article for facts only.",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only for the facts it states: that the standard deviation measures variability among individuals while the standard error measures the uncertainty around an estimated mean; that the sample mean varies from sample to sample and that variation is described by the sampling distribution of the mean, whose standard deviation is the standard error; that SE equals SD divided by the square root of the sample size; that the standard error falls as the sample size increases while the standard deviation does not tend to change; that about 95% of individuals lie within two standard deviations of the mean for normally distributed data and that about 95% of observations of any distribution usually fall within those limits; that the sampling-distribution principle extends to proportions, regression coefficients, and contrasts such as a difference between two means; and that a review of 88 articles published in 2002 found 12 (14%) failed to identify which measure of dispersion was reported, after which the BMJ adopted a policy of removing plus-or-minus signs and asking authors to state which quantity is quoted. No sentence, table, figure, or example from the article is reproduced or adapted. The cohort, every worked figure, all four scenes that rest on these facts, and all wording in this lesson are original."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://pmc.ncbi.nlm.nih.gov/robots.txt",
+          "checked": "2026-07-25",
+          "notes": "Retrieved https://pmc.ncbi.nlm.nih.gov/robots.txt on 2026-07-25. It sets a one-second crawl delay and explicitly allows /articles/, which is the path used here, while disallowing the rest of the host. No terms-of-use clause prohibiting automated retrieval of an article page was found. The article full text was fetched and read directly at the recorded URL; no claim rests on a search snippet or a generated summary."
+        }
+      },
+      {
+        "id": "source-nist-normal-clt",
+        "type": "reference-work",
+        "title": "NIST/SEMATECH e-Handbook of Statistical Methods, section 1.3.6.6.1: Normal Distribution",
+        "creators": [
+          "National Institute of Standards and Technology",
+          "SEMATECH"
+        ],
+        "publisher": "National Institute of Standards and Technology, U.S. Department of Commerce",
+        "issued": null,
+        "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda3661.htm",
+        "accessed": "2026-07-25",
+        "version": "NIST/SEMATECH e-Handbook of Statistical Methods, online edition retrieved 2026-07-25; no publication or revision date is stated on the page",
+        "locator": "Section 1.3.6.6.1, Normal Distribution, under the heading 'Theroretical Justification - Central Limit Theorem'",
+        "license": "US Government work; NIST states that information on its sites is public information and may be distributed or copied, with credit requested",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only for the three facts the page states about the central limit theorem as the sample size becomes large: that the sampling distribution of the mean becomes approximately normal regardless of the distribution of the original variable, that it is centred at the population mean of that variable, and that its standard deviation approaches the population standard deviation divided by the square root of the sample size. No wording, table, figure, or example from the handbook is reproduced or adapted; the theorem statement in the lesson was rewritten and every illustration around it is original. NIST copyright guidance at https://www.nist.gov/oism/copyrights states that NIST information is public information that may be distributed or copied and requests appropriate credit."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://www.nist.gov/oism/copyrights",
+          "checked": "2026-07-25",
+          "notes": "Retrieved https://www.nist.gov/robots.txt on 2026-07-25; it allows general crawling and restricts only administrative and search paths, with no restriction on the handbook. A request to https://www.itl.nist.gov/robots.txt redirects to the nist.gov site, so the nist.gov file is the governing record. No terms-of-use clause prohibiting automated retrieval was found. The handbook page was fetched and read directly."
+        }
+      },
+      {
+        "id": "source-kwak-kim-clt",
+        "type": "review",
+        "title": "Central limit theorem: the cornerstone of modern statistics",
+        "creators": [
+          "Sang Gyu Kwak",
+          "Jong Hae Kim"
+        ],
+        "publisher": "Korean Society of Anesthesiologists",
+        "issued": "2017-04",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5370305/",
+        "accessed": "2026-07-25",
+        "version": "Korean Journal of Anesthesiology 2017;70(2):144-156; full text as archived in PubMed Central, retrieved 2026-07-25. DOI 10.4097/kjae.2017.70.2.144, PMID 28367284, PMCID PMC5370305",
+        "locator": "Sections on the sampling distributions of small populations and the statement of the central limit theorem, and the discussion of the sample size at which the Student's t distribution is treated as equalling the normal distribution",
+        "license": "Creative Commons Attribution Non-Commercial License (CC BY-NC 4.0), as stated on the article page",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only for the facts that a skewed population distribution does not prevent the distribution of sample means from approaching normality as the sample size increases; that the central limit theorem holds that the means of sufficiently large random samples are distributed normally with the population mean and a variance of the population variance divided by the sample size, regardless of the population distribution; that the sample means gather more closely around the population mean as the sample size grows; and that a sample size of about 30 is the conventional point at which the Student's t distribution is treated as equalling the normal distribution. No wording, table, figure, worked demonstration, or example from the article is reproduced or adapted, and the article's non-commercial licence condition is not relied on because nothing from it is reused. The pharmacy example and every other illustration in this lesson are original."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://pmc.ncbi.nlm.nih.gov/robots.txt",
+          "checked": "2026-07-25",
+          "notes": "Retrieved https://pmc.ncbi.nlm.nih.gov/robots.txt on 2026-07-25; it explicitly allows /articles/, the path used here, with a one-second crawl delay. The article full text was fetched and read directly at the recorded URL rather than through a search summary."
+        }
+      },
+      {
+        "id": "source-niddk-diabetes-tests",
+        "type": "guideline",
+        "title": "Diabetes Tests & Diagnosis",
+        "creators": [
+          "National Institute of Diabetes and Digestive and Kidney Diseases"
+        ],
+        "publisher": "National Institutes of Health, U.S. Department of Health and Human Services",
+        "issued": "2022-07",
+        "url": "https://www.niddk.nih.gov/health-information/diabetes/overview/tests-diagnosis",
+        "accessed": "2026-07-25",
+        "version": "Online version retrieved 2026-07-25; the page states Last Reviewed July 2022",
+        "locator": "Fasting plasma glucose test and the table of diagnostic results for normal, prediabetes, and diabetes",
+        "license": "US Government work; NIDDK content is published as a public service of the National Institutes of Health",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only for the reference values it states for the fasting plasma glucose test, namely 99 mg/dL or below as normal, 100 to 125 mg/dL as prediabetes and 126 mg/dL or above as diabetes, for the statement that a doctor will usually use a second test to confirm a diabetes diagnosis, and for the definition of fasting as having nothing to eat or drink except sips of water. These values appear in this lesson only to give the audit-planning case a real width to measure an estimate's precision against. The clinic, the two proposals, and all wording are original, and the lesson makes no diagnostic, monitoring, or treatment recommendation."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://www.niddk.nih.gov/robots.txt",
+          "checked": "2026-07-25",
+          "notes": "Retrieved https://www.niddk.nih.gov/robots.txt on 2026-07-25; it allows general crawling with a 10-second crawl delay and disallows only /system and /_internal. The page was fetched and read directly, and the reference values were re-verified on that date rather than carried across from another lesson."
+        }
+      }
+    ]
+  },
+  "claims": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-claims-v1",
+    "lessonId": "PREM-STA-006",
+    "lessonVersion": "0.1.0",
+    "claims": [
+      {
+        "id": "claim-sampling-distribution-of-mean",
+        "statement": "A sample mean varies from sample to sample, and the way that variation occurs is described by the sampling distribution of the mean; the standard deviation of that sampling distribution is called the standard error of the estimate of the mean.",
+        "sceneIds": [
+          "scene-run-it-again",
+          "scene-distribution-of-means"
+        ],
+        "sourceIds": [
+          "source-altman-bland-se"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "A mean estimated from a sample drawn from a population, in the setting the source addresses, which is reporting and interpreting medical research. The source presents the sampling distribution as the description of how the sample mean varies and the standard error as its spread.",
+        "uncertainty": "The source states the relationship without conditions on the population's shape; the conditions under which the sampling distribution can be treated as normal are handled separately in this lesson through the central limit theorem.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-se-formula",
+        "statement": "The standard error of a sample mean equals the standard deviation divided by the square root of the sample size, so the standard error falls as the sample size increases, while the standard deviation does not tend to change as the sample grows; this relation is what underlies a sample size calculation.",
+        "sceneIds": [
+          "scene-distribution-of-means",
+          "scene-price-of-precision",
+          "scene-sd-is-not-se",
+          "scene-compute-and-judge",
+          "scene-league-tables",
+          "scene-clinical-wrap-up"
+        ],
+        "sourceIds": [
+          "source-altman-bland-se"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "The mean of a sample of independent observations. The source states the relation in the form SE = SD divided by the square root of the sample size and names its use in planning the size of a controlled trial.",
+        "uncertainty": "The relation assumes the observations entering the mean are independent. Repeated measurements on the same people, cluster designs, and other structured samples have fewer effective independent observations than rows, so dividing by the square root of the row count would overstate the precision; the lesson flags this and does not teach the corrected methods.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-se-is-precision",
+        "statement": "The standard error of the mean is a measure of the precision of the sample mean and is the quantity quoted to indicate the uncertainty around an estimated mean, whereas the standard deviation is the quantity quoted to say how widely scattered the individual measurements are.",
+        "sceneIds": [
+          "scene-distribution-of-means",
+          "scene-price-of-precision",
+          "scene-sd-is-not-se",
+          "scene-clinical-wrap-up"
+        ],
+        "sourceIds": [
+          "source-altman-bland-se"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Reporting a mean and a measure of dispersion beside it in a research paper or an audit report. The source gives this as the rule for choosing between the two quantities.",
+        "uncertainty": "Precision here means how repeatable the estimate is under resampling. It says nothing about whether the estimate is aimed at the right population, which is a question about how the sample was reached and which no standard error addresses.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-2sd-covers-95",
+        "statement": "For data with a normal distribution about 95% of individuals have values within two standard deviations of the mean, and about 95% of observations of any distribution usually fall within those two-standard-deviation limits, though the observations outside them may all lie at one end.",
+        "sceneIds": [
+          "scene-sd-is-not-se"
+        ],
+        "sourceIds": [
+          "source-altman-bland-se"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Individual observations in a sample or population, used in this lesson only to give the standard deviation a concrete reading so it can be set beside the standard error. The normal case is exact; the source's broader statement about any distribution is offered as a usual pattern.",
+        "uncertainty": "The source qualifies the general version with 'usually' and warns that the observations outside the limits may all be at one end, which matters for the skewed cohort in this block.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-plus-minus-ambiguity",
+        "statement": "A plus-or-minus sign joining a second figure to a reported mean does not itself indicate whether that figure is a standard deviation or a standard error; a review of 88 articles published in 2002 found that 12 of them, 14%, failed to identify which measure of dispersion was reported, and the BMJ's policy is to remove plus-or-minus signs and ask authors to state clearly which quantity is quoted.",
+        "sceneIds": [
+          "scene-sd-is-not-se",
+          "scene-compute-and-judge"
+        ],
+        "sourceIds": [
+          "source-altman-bland-se"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Reporting practice in medical journals. The 88-article figure is a finding the source cites from a review of published articles from 2002; the editorial policy is the BMJ's own, described as shared by many other journals.",
+        "uncertainty": "The 14% figure describes one review of one year's articles in a particular field and is not an estimate of current practice across the literature. The lesson uses it as evidence that the ambiguity is real and common enough to have prompted editorial action, and not as a current prevalence.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-se-applies-to-other-statistics",
+        "statement": "The sampling-distribution principle applies to quantities other than a mean, including a proportion, a regression coefficient, and contrasts between two samples such as a risk ratio or a difference between two means; every such estimate carries uncertainty from sampling variation and has a standard error that indicates the degree of that uncertainty.",
+        "sceneIds": [
+          "scene-league-tables"
+        ],
+        "sourceIds": [
+          "source-altman-bland-se"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Statistics estimated from a sample. The source states the extension of the principle and the existence of a standard error for each such estimate; it does not give the formula for any of them, and this lesson does not supply one either.",
+        "uncertainty": "How a standard error is calculated differs from statistic to statistic, and some require methods this lesson does not cover. The lesson transfers the reasoning and marks the arithmetic as belonging to later lessons.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-central-limit-theorem",
+        "statement": "The central limit theorem holds that as the sample size becomes large, the sampling distribution of the mean becomes approximately normal regardless of the distribution of the original variable, is centred at the population mean of that variable, and has a standard deviation approaching the population standard deviation divided by the square root of the sample size.",
+        "sceneIds": [
+          "scene-central-limit",
+          "scene-clinical-wrap-up"
+        ],
+        "sourceIds": [
+          "source-nist-normal-clt",
+          "source-kwak-kim-clt"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "The mean of a random sample of independent observations from a population with a finite variance. Both sources state the result in these terms, one as the theoretical justification for the wide applicability of the normal distribution and the other as a review written for a clinical readership.",
+        "uncertainty": "The result is asymptotic: it describes what happens as the sample size grows, and it does not certify any particular finite sample. How large a sample must be before the approximation is usable depends on how far the population departs from normality, which the lesson treats as a judgement rather than a threshold.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-clt-skew-and-n30",
+        "statement": "A skewed population distribution does not prevent the distribution of sample means from approaching normality as the sample size increases, and the sample means gather more closely around the population mean as that size grows; a sample size of about 30 is the conventional point at which the Student's t distribution is treated as equalling the normal distribution.",
+        "sceneIds": [
+          "scene-central-limit"
+        ],
+        "sourceIds": [
+          "source-kwak-kim-clt"
+        ],
+        "support": "direct",
+        "confidence": "medium-high",
+        "scope": "Random samples drawn from a population, as demonstrated in the source through the complete set of samples from a small skewed population. The size-30 figure is reported there as an established convention in statistical practice.",
+        "uncertainty": "The figure of 30 is a working convention and not a property of the theorem. Strongly skewed or heavy-tailed populations, and samples in which one observation can move the mean substantially, need considerably more than 30 before the approximation is safe. The lesson states this limit explicitly and gives a case where the convention fails.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-fpg-thresholds",
+        "statement": "The US National Institute of Diabetes and Digestive and Kidney Diseases states that a fasting plasma glucose result of 99 mg/dL or below is normal, 100 to 125 mg/dL indicates prediabetes, and 126 mg/dL or above indicates diabetes, that a doctor will usually use a second test to confirm a diabetes diagnosis, and that fasting means having nothing to eat or drink except sips of water.",
+        "sceneIds": [
+          "scene-clinical-wrap-up"
+        ],
+        "sourceIds": [
+          "source-niddk-diabetes-tests"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Reference values for the fasting plasma glucose test as published for a general US audience at the access date. Quoted in this lesson only so that the audit-planning case has a real interval width against which to judge whether an estimate is precise enough for its purpose.",
+        "uncertainty": "Thresholds and their qualifications are set by clinical bodies, can be revised, and differ in presentation between countries and guidelines. The lesson makes no diagnostic, monitoring, or treatment recommendation and its clinic and cohort are invented.",
+        "risk": "health-sensitive",
+        "reviewStatus": "pending-review"
+      }
+    ]
+  },
+  "glossary": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-glossary-v1",
+    "lessonId": "PREM-STA-006",
+    "lessonVersion": "0.1.0",
+    "terms": [
+      {
+        "id": "term-statistic",
+        "term": "statistic",
+        "definition": "Any value computed from the observations in a sample, such as their mean, their standard deviation, or the proportion of them above a cut-point. Because the sample was one of many that could have been drawn, a statistic is a quantity that would come out differently on a repeat.",
+        "aliases": [
+          "sample statistic"
+        ],
+        "sceneIds": [
+          "scene-distribution-of-means",
+          "scene-league-tables"
+        ]
+      },
+      {
+        "id": "term-parameter",
+        "term": "parameter",
+        "definition": "A fixed numerical property of the whole population, such as its mean or its standard deviation. A parameter is one definite number that nobody has measured; a statistic computed from a sample is an estimate of it.",
+        "aliases": [
+          "population parameter"
+        ],
+        "sceneIds": [
+          "scene-distribution-of-means",
+          "scene-central-limit"
+        ],
+        "alignment": {
+          "priorLesson": "PREM-SCI-010",
+          "relation": "distinct-sense",
+          "note": "PREM-SCI-010 defines a model parameter as a model quantity held fixed during one run and free to change between runs or calibrations. That is a setting the modeller chooses. The statistical sense used here is the opposite in one respect: a population parameter is a fact about the world that is fixed whether anyone knows it or not, and the whole point of a sample is to estimate it. Both senses are standard and the surrounding context decides which is meant; this lesson always means the population quantity."
+        }
+      },
+      {
+        "id": "term-population",
+        "term": "population",
+        "definition": "The complete group a study means to describe, as opposed to the sample it actually measured. In this lesson the population has numerical properties of its own, including a mean and a standard deviation, and the sample's job is to estimate them.",
+        "aliases": [
+          "statistical population"
+        ],
+        "sceneIds": [
+          "scene-run-it-again",
+          "scene-distribution-of-means",
+          "scene-central-limit"
+        ],
+        "alignment": {
+          "priorLesson": "PREM-SCI-005",
+          "relation": "extend",
+          "note": "PREM-SCI-005 defines the target population as the whole group a study is meant to describe, as distinct from the group it enrolled, and this lesson keeps that meaning unchanged. What it adds is that the population has a mean and a standard deviation of its own, which are the quantities a sample mean and sample standard deviation estimate. The earlier lesson's point still governs everything here: a sample can at best speak for the frame it was drawn from, and no standard error repairs a frame that missed the intended population."
+        }
+      },
+      {
+        "id": "term-estimate",
+        "term": "estimate",
+        "definition": "A value computed from a sample and offered as a stand-in for an unknown population quantity. Calling a number an estimate commits you to saying how far off it might be, which is what the standard error is for.",
+        "aliases": [
+          "point estimate"
+        ],
+        "sceneIds": [
+          "scene-distribution-of-means",
+          "scene-sd-is-not-se",
+          "scene-clinical-wrap-up"
+        ]
+      },
+      {
+        "id": "term-sampling-variation",
+        "term": "sampling variation",
+        "definition": "The differences between results computed from different samples drawn the same way from the same population. It arises because each sample contains different individuals, and it is present even when every step of the study was carried out correctly.",
+        "aliases": [
+          "sampling variability",
+          "sampling error"
+        ],
+        "sceneIds": [
+          "scene-run-it-again",
+          "scene-distribution-of-means",
+          "scene-league-tables"
+        ],
+        "alignment": {
+          "priorLesson": "PREM-SCI-008",
+          "relation": "narrow",
+          "note": "PREM-SCI-008 defines random error as unpredictable variation across repetitions that contributes imprecision rather than a systematic shift, and lists sampling variation as one of its components alongside unpredictable measurement variation. This lesson uses that same idea narrowed to the sampling component only: the variation produced by drawing different individuals, with measurement held fixed. The word error in the alias sampling error carries no suggestion of a mistake, and the orientation scene says so before the term is used."
+        }
+      },
+      {
+        "id": "term-sampling-distribution",
+        "term": "sampling distribution",
+        "definition": "The distribution of the values a statistic would take across repeated samples of a fixed size drawn from the same population. For a sample mean it is centred on the population mean and is narrower than the distribution of the individual observations.",
+        "aliases": [
+          "sampling distribution of the mean"
+        ],
+        "sceneIds": [
+          "scene-distribution-of-means",
+          "scene-price-of-precision",
+          "scene-central-limit",
+          "scene-league-tables"
+        ]
+      },
+      {
+        "id": "term-standard-error",
+        "term": "standard error",
+        "definition": "The standard deviation of a statistic's sampling distribution, which is to say how much that statistic would move from one repeat of the study to the next. For a mean it equals the standard deviation of the data divided by the square root of the number of observations, and it carries the same unit as the data.",
+        "aliases": [
+          "standard error of the mean",
+          "SE",
+          "SEM"
+        ],
+        "sceneIds": [
+          "scene-run-it-again",
+          "scene-distribution-of-means",
+          "scene-price-of-precision",
+          "scene-sd-is-not-se",
+          "scene-compute-and-judge",
+          "scene-league-tables",
+          "scene-clinical-wrap-up"
+        ],
+        "alignment": {
+          "priorLesson": "PREM-SCI-006",
+          "relation": "distinct-sense",
+          "note": "PREM-SCI-006 defines measurement error as the difference between a measured value and a reference value, which is the sense in which a mis-calibrated meter produces an error. A standard error contains the same word and reports something else entirely: how far a correctly computed statistic would move if the study were repeated on different people. No measurement is wrong when a standard error is large. The orientation scene names this collision before the term is first used and keeps both senses available."
+        }
+      },
+      {
+        "id": "term-standard-deviation",
+        "term": "standard deviation",
+        "definition": "The square root of the variance, returning the spread of a set of values to the unit of the data. Read it as roughly how far a typical observation sits from the mean. In this lesson it always describes individuals, and it is the input the standard error is computed from.",
+        "aliases": [
+          "SD"
+        ],
+        "sceneIds": [
+          "scene-run-it-again",
+          "scene-price-of-precision",
+          "scene-sd-is-not-se",
+          "scene-compute-and-judge",
+          "scene-clinical-wrap-up"
+        ],
+        "alignment": {
+          "priorLesson": "PREM-STA-003",
+          "relation": "adopt",
+          "note": "PREM-STA-003 owns this term and this lesson keeps its meaning exactly. It is restated here only because the whole misconception scene turns on holding it apart from the standard error, and a learner needs both definitions in view at once to do that. Anything about how a standard deviation is computed from the data belongs to the earlier lesson."
+        }
+      },
+      {
+        "id": "term-precision",
+        "term": "precision",
+        "definition": "How closely repeated attempts at the same quantity agree with one another. Applied to an estimate, it means how little the estimate would move if the study were repeated, which is what the standard error measures. Precision says nothing about whether the estimate is aimed at the right population.",
+        "aliases": [],
+        "sceneIds": [
+          "scene-price-of-precision",
+          "scene-sd-is-not-se",
+          "scene-clinical-wrap-up"
+        ],
+        "alignment": {
+          "priorLesson": "PREM-SCI-006",
+          "relation": "extend",
+          "note": "PREM-SCI-006 defines measurement precision as how closely replicate measured values agree under specified conditions, and warns that precision describes dispersion without establishing closeness to a reference. This lesson keeps that meaning and extends what is being replicated: instead of repeating a measurement on one thing, the repeat is the whole study on a fresh sample. The earlier lesson's warning carries across intact, and the clinical wrap-up restates it as the point that a larger sample buys precision and nothing else."
+        }
+      },
+      {
+        "id": "term-central-limit-theorem",
+        "term": "central limit theorem",
+        "definition": "The result that as the sample size grows, the sampling distribution of the mean becomes approximately normal whatever the shape of the population, is centred at the population mean, and has a standard deviation approaching the population standard deviation divided by the square root of the sample size. It is a statement about averages and says nothing about the individual observations.",
+        "aliases": [
+          "CLT"
+        ],
+        "sceneIds": [
+          "scene-central-limit",
+          "scene-clinical-wrap-up"
+        ]
+      }
+    ]
+  },
+  "attributionHtml": "<h1>Attribution</h1>\n<h2>Lesson identity and licence</h2>\n<ul>\n<li>Lesson: <strong>PREM-STA-006 — Run the study again: sampling distributions and standard error</strong></li>\n<li>Graph outcome: <code>topic-statistics-data-sampling-standard-error</code> (PREM-04.06, &quot;Sampling distributions and standard error&quot;)</li>\n<li>Accountable principal: <strong>VSBDev</strong> (<code>github:VSBDev</code>)</li>\n<li>Course-content licence: <strong>Creative Commons Attribution 4.0 International (CC BY 4.0)</strong></li>\n<li>Author-stage state: <strong>draft</strong>, source confidence <strong>pending-review</strong></li>\n</ul>\n<p>VSBDev is accountable for the scientific, editorial, pedagogical, accessibility, rights, and provenance record in this pack. The local authenticated GitHub identity check <code>gh api user --jq .login</code> returned <code>VSBDev</code> on 2026-07-25.</p>\n<h2>Agent provenance</h2>\n<p>Material authoring assistance was used for this pack. The agent system, provider, model, and version are recorded in <code>lesson.json</code> as the literal placeholder <code>RUNTIME-STAMPED</code>; the operator stamps the real values with <code>npm run provenance:stamp</code> before the candidate is frozen. The authoring run is <code>author-PREM-STA-006-382C0370-ACA5-405B-AC6F-21FFBFDD70C1</code>.</p>\n<p>The instructions digest is <code>sha256:5a938256b353351dc84f84115e3391cd6722bb7a9dd65aa9c7d36452e2929639</code>. It covers the recorded discloseable UTF-8 authoring-task payload for this run, including its terminal newline. That payload is the operator&#39;s authoring instruction as transcribed for the record; it is not a verbatim export of every layer of instruction the run received, and the digest explicitly does <strong>not</strong> cover hidden provider, system, harness, or tool instructions that cannot be exported.</p>\n<p>Only the author role was used. No review, adjudication, or governance artifact was produced, inspected, or anticipated in this run.</p>\n<h2>Sources and how they were used</h2>\n<p>Every source in <code>references.json</code> was retrieved and read directly at the URL recorded there on 2026-07-25. No claim rests on a search-result snippet, a generated summary, or a source the run could not open. Agent-access terms were checked before substantive access and are recorded per source with the terms route that was checked.</p>\n<table>\n<thead>\n<tr>\n<th>Source</th>\n<th>Used for</th>\n<th>Basis</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>Altman &amp; Bland, &quot;Standard deviations and standard errors&quot;, BMJ 2005;331:903</td>\n<td>The sampling distribution of the mean; the standard error as its standard deviation; SE = SD divided by the square root of the sample size; the standard error falling with sample size while the standard deviation does not; the standard error as a measure of precision; the two-standard-deviation coverage of individuals; the extension of the principle to proportions, regression coefficients, and differences; the ambiguity of unlabelled plus-or-minus notation and the editorial response to it</td>\n<td>Facts only, original expression</td>\n</tr>\n<tr>\n<td>NIST/SEMATECH e-Handbook of Statistical Methods, 1.3.6.6.1 Normal Distribution</td>\n<td>The three-part statement of the central limit theorem: approximate normality of the mean&#39;s sampling distribution regardless of the original variable, centring on the population mean, and the standard deviation approaching the population standard deviation over the square root of the sample size</td>\n<td>Facts only, original expression</td>\n</tr>\n<tr>\n<td>Kwak &amp; Kim, &quot;Central limit theorem: the cornerstone of modern statistics&quot;, Korean J Anesthesiol 2017;70(2):144-156</td>\n<td>That a skewed population does not prevent sample means from approaching normality as the sample grows; that sample means gather more closely around the population mean as the sample grows; the conventional treatment of about 30 observations as a working threshold</td>\n<td>Facts only, original expression</td>\n</tr>\n<tr>\n<td>NIDDK, Diabetes Tests &amp; Diagnosis</td>\n<td>Fasting plasma glucose reference values, the use of a second test to confirm a diagnosis, and the definition of fasting</td>\n<td>Facts only, original expression</td>\n</tr>\n</tbody></table>\n<p>No source&#39;s wording, structure, table, figure, example, question, or dataset is reproduced or adapted. The Kwak &amp; Kim article is published under a Creative Commons Attribution Non-Commercial licence; nothing from it is reused, so that licence&#39;s conditions are not relied on and the non-commercial restriction does not attach to any part of this pack. The Altman &amp; Bland article carries no open reuse licence, and it is used for facts only.</p>\n<h3>A source that was checked and not used</h3>\n<p>OpenStax was considered for the central limit theorem. Its <code>robots.txt</code>, retrieved on 2026-07-25, carries <code>User-agent: GPTBot</code> followed by <code>Disallow: /books/</code>, an explicit restriction on automated agent retrieval of the book text. The book pages were therefore not opened and nothing from OpenStax is cited. The two sources used for the theorem place no comparable restriction on the paths they were read from.</p>\n<h2>Original material in this pack</h2>\n<p>Everything below was created for this lesson and is covered by the pack&#39;s CC BY 4.0 licence:</p>\n<ul>\n<li>both chart sources under <code>charts/</code>, their alt text, and their long descriptions, including the shared horizontal range of 88 to 196 mg/dL that lets the two curves be compared;</li>\n<li>the thousand-repeat thought experiment, the sample-size price list, and every figure in it;</li>\n<li>the cardiology, renal, pharmacy, maternity-network, and ward-poster cases, and all their numbers;</li>\n<li>the two audit proposals in the clinical wrap-up, the appointment volume, and the sample sizes computed for each;</li>\n<li>all scene prose, worked reasoning, checks, assessment items, answer logic, and rubrics.</li>\n</ul>\n<p>The cohort&#39;s headline figures are fixed by the Statistics and Data block brief so that the twelve lessons in the block describe one consistent study: sixty adults, mean fasting glucose 142 mg/dL, standard deviation 18 mg/dL, and a later-minus-earlier group difference of 9.0 mg/dL with a standard error of 4.13 mg/dL. Every derived quantity in this pack was recomputed from those figures rather than carried across from another lesson. The central results are 18 divided by the square root of 60, which is 2.324 and is reported as 2.32 mg/dL; the one-standard-error band 139.7 to 144.3 mg/dL; the two-standard-error band 137.4 to 146.6 mg/dL; the ratio of standard deviation to standard error of 7.75, which is the square root of 60; and the sample size of 324 for a target standard error of 1.00 mg/dL.</p>\n<h2>Terminology</h2>\n<p>The course terminology ledger was read before the glossary was written. Six of the eleven entries declare an <code>alignment</code> block:</p>\n<table>\n<thead>\n<tr>\n<th>Term</th>\n<th>Prior lesson</th>\n<th>Relation</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>population</td>\n<td>PREM-SCI-005 (target population)</td>\n<td>extend</td>\n</tr>\n<tr>\n<td>sampling variation</td>\n<td>PREM-SCI-008 (random error)</td>\n<td>narrow</td>\n</tr>\n<tr>\n<td>standard deviation</td>\n<td>PREM-STA-003</td>\n<td>adopt</td>\n</tr>\n<tr>\n<td>precision</td>\n<td>PREM-SCI-006 (measurement precision)</td>\n<td>extend</td>\n</tr>\n<tr>\n<td>parameter</td>\n<td>PREM-SCI-010 (model parameter)</td>\n<td>distinct-sense</td>\n</tr>\n<tr>\n<td>standard error</td>\n<td>PREM-SCI-006 (measurement error)</td>\n<td>distinct-sense</td>\n</tr>\n</tbody></table>\n<p>The block brief rules that the everyday sense of the word describing a result as noteworthy must not appear anywhere in this block, and it appears nowhere in this pack. The orientation scene names the collision on the word <em>error</em> in learner prose, before the term is first used, so that a learner does not read the lesson&#39;s central quantity as a report of a mistake.</p>\n<h2>Boundaries</h2>\n<p>The cohort, the clinic, the audits, the maternity network, the poster, and every case in this pack are invented for teaching. Nothing in the pack reports an observation about real patients, and nothing in it recommends or supports a diagnostic, monitoring, or treatment decision. Clinical reference values appear only so that the audit-planning case has a real interval width to judge an estimate&#39;s precision against, and they are attributed to the source that publishes them. The lesson carries the <em>teaching example, not medical advice</em> boundary in its orientation and clinical wrap-up scenes.</p>\n<h2>Third-party assets</h2>\n<p>None. <code>thirdPartyAssets</code> in <code>lesson.json</code> is empty. Both charts in this pack are declarative JSON authored here and rendered from that JSON at build time; no external image, font, script, plotting library, dataset, or remote resource is referenced.</p>\n"
+}

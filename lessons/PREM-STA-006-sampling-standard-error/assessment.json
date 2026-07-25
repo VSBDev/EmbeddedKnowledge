@@ -1,0 +1,443 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-assessment-v1",
+  "lessonId": "PREM-STA-006",
+  "lessonVersion": "0.1.0",
+  "assessmentId": "assessment-sampling-distributions-standard-error",
+  "title": "Compute a standard error, size a study, and read a reported number",
+  "purpose": "mixed",
+  "attemptPolicy": {
+    "retakeable": true,
+    "timeLimitMinutes": null,
+    "feedback": "after-attempt"
+  },
+  "items": [
+    {
+      "id": "item-why-a-repeat-differs",
+      "type": "single-choice",
+      "sceneId": "scene-distribution-of-means",
+      "objectiveIds": [
+        "objective-explain-sampling-variation"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-sampling-standard-error"
+      ],
+      "prompt": "A study of 60 adults reports a mean fasting glucose of 142 mg/dL. The same team repeats it with the same protocol, the same nurse, and the same meter on 60 different adults from the same clinic list, and gets 145 mg/dL. Which statement best explains the difference?",
+      "stimulus": null,
+      "points": 4,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-different-people",
+            "text": "The second sample contains different individuals, and individuals differ in fasting glucose, so the average of any 60 of them lands somewhere in a range of possible values."
+          },
+          {
+            "id": "option-measurement-drift",
+            "text": "The meter must have drifted between the two studies, because a correctly run study returns the same answer twice."
+          },
+          {
+            "id": "option-second-is-wrong",
+            "text": "One of the two means is wrong, and the larger sample would show which."
+          },
+          {
+            "id": "option-population-changed",
+            "text": "The population's mean fasting glucose changed between the two studies."
+          }
+        ]
+      },
+      "answer": {
+        "correct": "option-different-people",
+        "summary": "Different people were measured, and a mean of 60 people depends on which 60.",
+        "reasoning": "Sampling variation is the whole explanation available here, and it requires no fault anywhere. Fasting glucose in this population runs from about 100 to 181 mg/dL, so which 60 individuals happen to be drawn moves the average. A drifting meter would be measurement error, a different thing entirely, and it is not needed to explain the difference. Neither mean is wrong: both were computed correctly from the people in front of them, and both are estimates of the same unknown population mean. And the population would have to change for the fourth option to hold, which nothing in the scenario suggests and which would not be the simplest explanation even if it did.",
+        "acceptableResponses": [
+          "The two samples contain different people.",
+          "Sampling variation: a mean of 60 depends on which 60."
+        ],
+        "commonErrors": [
+          "Reaching for a measurement fault, on the assumption that a well-run study is repeatable to the decimal point.",
+          "Treating one of the two answers as the true one, when both are estimates of a quantity neither has measured."
+        ]
+      },
+      "rubricId": "rubric-sampling-variation",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-compute-se-cohort",
+      "type": "numeric",
+      "sceneId": "scene-price-of-precision",
+      "objectiveIds": [
+        "objective-compute-standard-error"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-sampling-standard-error"
+      ],
+      "prompt": "The dinner-timing study measured fasting glucose in 60 adults: mean 142 mg/dL, standard deviation 18 mg/dL. Calculate the standard error of the mean in mg/dL, to two decimal places.",
+      "stimulus": null,
+      "points": 4,
+      "responseSpec": {
+        "mode": "number",
+        "units": "mg/dL",
+        "tolerance": 0.02
+      },
+      "answer": {
+        "correct": 2.32,
+        "summary": "2.32 mg/dL.",
+        "reasoning": "The standard error of a mean is the standard deviation divided by the square root of the sample size. The square root of 60 is 7.746, and 18 divided by 7.746 is 2.324, which rounds to 2.32 mg/dL. Two checks confirm it: the answer is smaller than the standard deviation of 18, as dividing by the square root of any sample above one observation guarantees, and it carries the unit of the data.",
+        "acceptableResponses": [
+          "2.32",
+          "2.32 mg/dL",
+          "18 / sqrt(60) = 2.32"
+        ],
+        "commonErrors": [
+          "Dividing by 60 instead of by the square root of 60, giving 0.30, which understates the uncertainty by a factor of about 7.7.",
+          "Multiplying by the square root of 60 instead of dividing, giving 139.4, which is larger than the standard deviation and so fails the check.",
+          "Using 30, the size of one dinner-timing group, when the reported mean was computed from all 60 people."
+        ]
+      },
+      "rubricId": "rubric-standard-error-computation",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-one-se-band",
+      "type": "short-answer",
+      "sceneId": "scene-distribution-of-means",
+      "objectiveIds": [
+        "objective-compute-standard-error"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-sampling-standard-error"
+      ],
+      "prompt": "Using the mean of 142 mg/dL and the standard error you calculated, give the band one standard error either side of the mean, and write one sentence stating what that band describes. Be precise about who or what the band is about.",
+      "stimulus": null,
+      "points": 5,
+      "responseSpec": {
+        "mode": "text",
+        "maxLength": 500
+      },
+      "answer": {
+        "correct": "139.7 to 144.3 mg/dL. About two thirds of repeats of this study, each on 60 fresh adults from the same list, would return a cohort mean somewhere inside that band. It is a statement about where a repeat's average would land, and not a statement about where individual patients' readings sit.",
+        "summary": "139.7 to 144.3 mg/dL, describing where a repeat study's mean would land.",
+        "reasoning": "Subtract and add the standard error: 142 minus 2.32 is 139.68 and 142 plus 2.32 is 144.32, which round to 139.7 and 144.3. The band is read off the sampling distribution, so the second half of the answer has to name repeats of the study as the thing being described. Reading it as a band containing most patients would be the error the misconception scene attacks: the individual readings run from about 100 to 181 mg/dL, and only about six of the sixty fall inside 139.7 to 144.3.",
+        "acceptableResponses": [
+          "139.7 to 144.3 mg/dL; roughly two thirds of repeat studies would land in it.",
+          "139.68 to 144.32 mg/dL, describing the spread of means across repeats of the study rather than the spread of patients."
+        ],
+        "commonErrors": [
+          "Giving the arithmetic correctly and then describing the band as the range within which most patients fall.",
+          "Using the standard deviation of 18 and giving 124 to 160, which is a correct band about people and the wrong answer to this question."
+        ]
+      },
+      "rubricId": "rubric-standard-error-computation",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-quadruple-the-sample",
+      "type": "numeric",
+      "sceneId": "scene-price-of-precision",
+      "objectiveIds": [
+        "objective-predict-effect-of-sample-size"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-sampling-standard-error"
+      ],
+      "prompt": "The study is repeated with 240 adults instead of 60. The standard deviation is again 18 mg/dL. What is the standard error of the mean now, in mg/dL, to two decimal places?",
+      "stimulus": null,
+      "points": 4,
+      "responseSpec": {
+        "mode": "number",
+        "units": "mg/dL",
+        "tolerance": 0.02
+      },
+      "answer": {
+        "correct": 1.16,
+        "summary": "1.16 mg/dL, exactly half of 2.32.",
+        "reasoning": "The square root of 240 is 15.492, and 18 divided by 15.492 is 1.162, which rounds to 1.16 mg/dL. It can also be reached without a calculator: multiplying the sample by four multiplies the square root of the sample by two, so the standard error halves, and half of 2.32 is 1.16. That relation is the reason a study cannot buy precision cheaply. Quadrupling the recruitment bought one halving; the next halving would need 960 patients.",
+        "acceptableResponses": [
+          "1.16",
+          "1.16 mg/dL",
+          "Half of 2.32, so 1.16."
+        ],
+        "commonErrors": [
+          "Answering 0.58 by assuming that multiplying the sample by four divides the standard error by four.",
+          "Answering 2.32 divided by 2 without checking, which happens to be right here, and then applying the same halving to a sample multiplied by two, where it is wrong."
+        ]
+      },
+      "rubricId": "rubric-sample-size-reasoning",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-sample-size-for-target",
+      "type": "numeric",
+      "sceneId": "scene-price-of-precision",
+      "objectiveIds": [
+        "objective-predict-effect-of-sample-size"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-sampling-standard-error"
+      ],
+      "prompt": "A service wants to estimate mean fasting glucose with a standard error of 1.00 mg/dL. It expects a standard deviation of 18 mg/dL. How many patients does it need to enrol?",
+      "stimulus": null,
+      "points": 4,
+      "responseSpec": {
+        "mode": "number",
+        "units": "patients",
+        "tolerance": 1
+      },
+      "answer": {
+        "correct": 324,
+        "summary": "324 patients.",
+        "reasoning": "Rearranging the standard error formula gives the sample size as the square of the standard deviation divided by the target standard error: 18 divided by 1.00 is 18, and 18 squared is 324. Sense-check it against the price list. Going from a standard error of 2.32 to one of 1.00 is a reduction by a factor of about 2.3, so the sample should grow by roughly 2.3 squared, which is about 5.4, and 60 times 5.4 is about 324.",
+        "acceptableResponses": [
+          "324",
+          "324 patients",
+          "(18/1)^2 = 324"
+        ],
+        "commonErrors": [
+          "Answering 18 by stopping after the division and forgetting to square.",
+          "Answering 240 by assuming the target of 1.00 is the same as halving 2.32, when halving gives 1.16 and the stated target is tighter."
+        ]
+      },
+      "rubricId": "rubric-sample-size-reasoning",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-which-quantity",
+      "type": "multiple-choice",
+      "sceneId": "scene-sd-is-not-se",
+      "objectiveIds": [
+        "objective-distinguish-sd-from-se"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-sampling-standard-error"
+      ],
+      "prompt": "A report on the 60-adult cohort has a mean of 142 mg/dL, a standard deviation of 18 mg/dL, and a standard error of the mean of 2.32 mg/dL. Select every sentence below that requires the standard error rather than the standard deviation.",
+      "stimulus": null,
+      "points": 6,
+      "responseSpec": {
+        "mode": "multiple-choice",
+        "maxSelections": 5,
+        "options": [
+          {
+            "id": "option-repeat-audit-lands",
+            "text": "\"A repeat of this audit would probably return an average close to this one.\""
+          },
+          {
+            "id": "option-typical-patient-distance",
+            "text": "\"A typical patient in this clinic sits about this far from 142 mg/dL.\""
+          },
+          {
+            "id": "option-how-well-average-known",
+            "text": "\"We know the group's average to about this much either way.\""
+          },
+          {
+            "id": "option-middle-two-thirds",
+            "text": "\"The middle two thirds of our patients fall in this range.\""
+          },
+          {
+            "id": "option-larger-study-shrinks",
+            "text": "\"Enrolling four times as many patients would halve this figure.\""
+          }
+        ]
+      },
+      "answer": {
+        "correct": [
+          "option-repeat-audit-lands",
+          "option-how-well-average-known",
+          "option-larger-study-shrinks"
+        ],
+        "summary": "The sentences about a repeat, about how well the average is known, and about the effect of a larger sample.",
+        "reasoning": "The test is what the sentence is about. A repeat of the audit, and how well the average is known, are both statements about an estimate, so both need the standard error of 2.32. The sentence about a larger sample halving the figure is the decisive one: the standard error falls as the sample grows and the standard deviation does not, so only the standard error can be the subject of that sentence. The two remaining options describe how patients differ from one another, which is what the standard deviation of 18 reports, and enrolling more patients would leave both of them unchanged.",
+        "acceptableResponses": [
+          "The repeat sentence, the how-well-known sentence, and the sample-size sentence."
+        ],
+        "commonErrors": [
+          "Selecting the sentence about the middle two thirds because the phrase two thirds appeared beside a standard error earlier in the lesson; the two-thirds figure belongs to any one-standard-deviation band, and here the band is about patients.",
+          "Missing the sample-size sentence, which is the one that separates the two quantities by behaviour instead of by wording."
+        ]
+      },
+      "rubricId": "rubric-sd-se-discrimination",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-clt-when-it-holds",
+      "type": "multiple-choice",
+      "sceneId": "scene-central-limit",
+      "objectiveIds": [
+        "objective-apply-central-limit-theorem"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-sampling-standard-error"
+      ],
+      "prompt": "Select every statement that the central limit theorem supports.",
+      "stimulus": null,
+      "points": 6,
+      "responseSpec": {
+        "mode": "multiple-choice",
+        "maxSelections": 5,
+        "options": [
+          {
+            "id": "option-means-approach-normal",
+            "text": "As the sample grows, the distribution of sample means becomes approximately normal even when the population is skewed."
+          },
+          {
+            "id": "option-means-centred-on-population",
+            "text": "The distribution of sample means is centred on the population mean."
+          },
+          {
+            "id": "option-spread-of-means-shrinks",
+            "text": "The spread of the sample means approaches the population standard deviation divided by the square root of the sample size."
+          },
+          {
+            "id": "option-data-become-normal",
+            "text": "As the sample grows, the individual observations themselves become normally distributed."
+          },
+          {
+            "id": "option-n-30-always-enough",
+            "text": "A sample of 30 is always large enough for the approximation, whatever the population looks like."
+          }
+        ]
+      },
+      "answer": {
+        "correct": [
+          "option-means-approach-normal",
+          "option-means-centred-on-population",
+          "option-spread-of-means-shrinks"
+        ],
+        "summary": "The three statements about the distribution of sample means.",
+        "reasoning": "The theorem has exactly three parts and the first three options are those parts: approximate normality of the mean's sampling distribution regardless of the population's shape, centring on the population mean, and a spread approaching the population standard deviation over the square root of the sample size. The fourth option attaches the theorem to the wrong quantity. Individual observations do not change their distribution when more of them are collected; a skewed population stays skewed however large the study. The fifth states a working convention as though it were part of the theorem. A sample of about 30 is a common rule of thumb, and it fails for strongly skewed data such as hospital length of stay, where far more is needed.",
+        "acceptableResponses": [
+          "The first three statements only."
+        ],
+        "commonErrors": [
+          "Selecting the statement about individual observations, which is the most common misreading of the theorem and the one that would license calling fasting glucose normally distributed because the study was large.",
+          "Selecting the sample-of-30 statement, treating a rule of thumb as a guarantee."
+        ]
+      },
+      "rubricId": "rubric-sd-se-discrimination",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-diagnose-the-poster",
+      "type": "open-response",
+      "sceneId": "scene-clinical-wrap-up",
+      "objectiveIds": [
+        "objective-distinguish-sd-from-se",
+        "objective-compute-standard-error",
+        "objective-predict-effect-of-sample-size"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-sampling-standard-error"
+      ],
+      "prompt": "Audit this abstract. Work out which quantity the bracketed figure is, show the arithmetic that decides it, say what the authors are entitled to claim about their estimate, and state what you would ask them to do differently. Then name one thing about the study that no increase in sample size would fix.",
+      "stimulus": "Abstract extract. \"We measured fasting plasma glucose in 49 adults attending a community diabetes clinic on four consecutive Monday mornings. Mean fasting glucose was 147 mg/dL (2.6). Our estimate is precise to within a few mg/dL, and the tight spread shows that this clinic population is unusually homogeneous. We recommend the four-Monday design as an efficient way to characterise a clinic population.\"",
+      "points": 12,
+      "responseSpec": {
+        "mode": "text",
+        "maxLength": 3000
+      },
+      "answer": {
+        "correct": "The bracketed 2.6 is a standard error, and the arithmetic decides it. The square root of 49 is 7, so a standard error of 2.6 mg/dL implies a standard deviation of 2.6 times 7, which is 18.2 mg/dL, an entirely ordinary figure for fasting glucose in a diabetes clinic. If instead the 2.6 were the standard deviation, the implied standard error would be 2.6 divided by 7, or 0.37 mg/dL, and a group of adults with diabetes whose readings scattered by only 2.6 mg/dL would be extraordinary. So the second reading is the one the data supports, and the abstract should say so in words instead of leaving a bare bracket.\n\nWhat the authors may claim: their estimate of the clinic's mean is pinned down to about 2.6 mg/dL, so a repeat of the same design on 49 different attenders would typically land within about 2.6 of 147, and within about 5.2 roughly 95 times in 100. That is a reasonable precision for saying where this population sits against the reference bands.\n\nWhat they may not claim: the sentence about a homogeneous population reads a standard error as though it described patients. The implied standard deviation is about 18 mg/dL, so the middle two thirds of these patients span roughly 129 to 165 and the middle 95% roughly 111 to 183. The population is ordinary and the authors have described it as unusually uniform, which is the swap this lesson is about, and it inflates the apparent tightness by a factor of the square root of 49, which is 7.\n\nWhat to ask for: label the bracketed figure, report the standard deviation as well as the standard error since the two answer different questions, delete the homogeneity sentence, and state the sampling route.\n\nWhat no sample size would fix: four consecutive Monday mornings is a sampling route, not a sample size. If Monday clinics are booked for a particular kind of appointment, or if the people who attend early in the week differ from those who attend later, then enrolling 490 Monday attenders would estimate the Monday population very precisely and would still not describe the clinic. Sampling variation shrinks with the square root of the sample; reaching the wrong people does not shrink at all.",
+        "summary": "The 2.6 is a standard error, shown by multiplying by the square root of 49; the precision claim stands, the homogeneity claim is the standard-error-as-spread swap, and the four-Monday sampling route is not a sample-size problem.",
+        "reasoning": "This item asks for the full loop the lesson teaches: infer which quantity an unlabelled figure is by testing both readings against the square root of the sample size, then check each sentence in the abstract against the quantity it actually needs, then separate a precision problem from a sampling problem. The arithmetic is the deciding move and a strong answer shows it in both directions instead of asserting the answer. The final part is the boundary the clinical wrap-up sets: a standard error describes how much an estimate would move on a repeat of the same procedure, and it is silent about whether the procedure reaches the intended population, which is a question the scientific inquiry block already established.",
+        "acceptableResponses": [
+          "Any answer that identifies the 2.6 as a standard error using 2.6 times the square root of 49 to recover a standard deviation of about 18, accepts the precision claim, rejects the homogeneity claim as a standard-error-for-standard-deviation swap, asks for both quantities to be labelled and reported, and names the four-Monday recruitment route as a selection problem that sample size cannot repair."
+        ],
+        "commonErrors": [
+          "Asserting that 2.6 is a standard error because it looks small, without the arithmetic that shows the alternative reading is implausible.",
+          "Rejecting the whole abstract, including the precision claim, which the numbers actually support.",
+          "Naming only the labelling problem and missing the homogeneity sentence, which is where the swap does its damage.",
+          "Proposing a larger sample as the fix for the four-Monday route, which estimates a Monday population more precisely and answers the wrong question."
+        ]
+      },
+      "rubricId": "rubric-sd-se-discrimination",
+      "safetyCritical": false
+    }
+  ],
+  "rubrics": [
+    {
+      "id": "rubric-sampling-variation",
+      "title": "Explaining why a repeat returns a different result",
+      "criteria": [
+        {
+          "id": "criterion-identifies-different-individuals",
+          "description": "Attributes the difference to the sample containing different individuals, without invoking a fault in measurement or conduct.",
+          "maxPoints": 2
+        },
+        {
+          "id": "criterion-links-to-population-spread",
+          "description": "Connects the size of the variation to how much individuals in the population differ and to how many were sampled.",
+          "maxPoints": 2
+        }
+      ]
+    },
+    {
+      "id": "rubric-standard-error-computation",
+      "title": "Computing and reading a standard error of the mean",
+      "criteria": [
+        {
+          "id": "criterion-correct-formula",
+          "description": "Divides the standard deviation by the square root of the number of independent observations, using the right sample size.",
+          "maxPoints": 3
+        },
+        {
+          "id": "criterion-unit-and-check",
+          "description": "Reports the result in the unit of the data and checks it against the standard deviation it came from.",
+          "maxPoints": 2
+        },
+        {
+          "id": "criterion-states-what-it-describes",
+          "description": "States that the resulting band describes where a repeat of the study's estimate would land, and not where individual observations sit.",
+          "maxPoints": 4
+        }
+      ]
+    },
+    {
+      "id": "rubric-sample-size-reasoning",
+      "title": "Reasoning from sample size to precision and back",
+      "criteria": [
+        {
+          "id": "criterion-square-root-relation",
+          "description": "Applies the square-root relation correctly in the direction the question asks, including that quadrupling the sample halves the standard error.",
+          "maxPoints": 3
+        },
+        {
+          "id": "criterion-inverts-the-formula",
+          "description": "Rearranges the relation to find the sample size a stated target standard error requires, and squares the ratio.",
+          "maxPoints": 3
+        },
+        {
+          "id": "criterion-sense-checks-the-answer",
+          "description": "Checks the answer against a known point on the same relation instead of trusting a single calculation.",
+          "maxPoints": 2
+        }
+      ]
+    },
+    {
+      "id": "rubric-sd-se-discrimination",
+      "title": "Telling a standard deviation from a standard error in someone else's report",
+      "criteria": [
+        {
+          "id": "criterion-names-the-subject",
+          "description": "Decides which quantity a sentence needs by asking whether the sentence is about the individuals or about the estimate.",
+          "maxPoints": 3
+        },
+        {
+          "id": "criterion-uses-root-n-to-decide",
+          "description": "Uses the square root of the sample size to recover one quantity from the other and to test which reading of an unlabelled figure is plausible.",
+          "maxPoints": 4
+        },
+        {
+          "id": "criterion-quantifies-the-consequence",
+          "description": "States what a swapped or unlabelled figure does to a reader's impression, with the factor involved where the numbers allow it.",
+          "maxPoints": 3
+        },
+        {
+          "id": "criterion-separates-precision-from-selection",
+          "description": "Distinguishes a limitation that a larger sample would improve from one that it would not.",
+          "maxPoints": 2
+        }
+      ]
+    }
+  ]
+}
