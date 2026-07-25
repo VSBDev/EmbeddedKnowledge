@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-chart-v1",
+  "id": "chart-difference-interval",
+  "type": "normal-curve",
+  "title": "The 95% interval for a difference of 9.0 mg/dL, standard error 4.13",
+  "alt": "Bell curve centred on a difference of 9.0 mg/dL with the region from 0.9 to 17.1 shaded, and a marked line at 0 sitting outside the shading.",
+  "longDescription": "The curve is centred on the observed difference of 9.0 mg/dL and has a standard deviation of 4.13 mg/dL, which is the standard error of that difference. It shows how far apart repeat estimates would land if this study were run again and again on the same 30-and-30 design. The shaded band runs from 0.9 to 17.1 mg/dL and covers the middle 95% of the curve, which is the observed difference plus and minus 1.96 standard errors. That band is the 95% confidence interval, and it is 16.2 mg/dL wide. Two vertical lines are marked. One sits at 9.0 mg/dL, the observed difference and the centre of the curve. The other sits at 0 mg/dL, the value that would mean no difference between the two groups. The line at 0 is outside the shaded band, about 2.2 standard errors below the centre, but only just: the band's lower edge sits 0.9 mg/dL above it, which is about a fifth of one standard error. Read the curve as a picture of where repeat estimates would fall, not as a picture of where the true difference lies.",
+  "xAxis": {
+    "label": "Difference in fasting glucose, late group minus early group",
+    "unit": "mg/dL",
+    "min": -6,
+    "max": 24,
+    "ticks": [
+      { "at": -5, "label": "-5" },
+      { "at": 0, "label": "0" },
+      { "at": 5, "label": "5" },
+      { "at": 10, "label": "10" },
+      { "at": 15, "label": "15" },
+      { "at": 20, "label": "20" }
+    ]
+  },
+  "yAxis": {
+    "label": "Relative frequency of a repeat estimate",
+    "unit": null
+  },
+  "series": [
+    {
+      "id": "series-repeat-estimates",
+      "label": "Where a repeat of this study would land",
+      "mean": 9,
+      "sd": 4.13
+    }
+  ],
+  "shadedRegions": [
+    { "from": 0.9, "to": 17.1, "label": "95% confidence interval, 0.9 to 17.1 mg/dL" }
+  ],
+  "markers": [
+    { "x": 0, "label": "no difference" },
+    { "x": 9, "label": "observed difference, 9.0 mg/dL" }
+  ]
+}

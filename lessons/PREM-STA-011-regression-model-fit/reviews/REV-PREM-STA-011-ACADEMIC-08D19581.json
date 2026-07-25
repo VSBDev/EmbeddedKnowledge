@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-STA-011-ACADEMIC-08D19581",
+  "lessonId": "PREM-STA-011",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "eb11c75dfa89ff41929279bea9cd96de672717d4",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable academic reviewer",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-STA-011-08D19581-D110-4BBA-BE98-02ADD6E4504B",
+      "instructionsDigest": "sha256:d2d741e13f28c8e8c7db564b53bc692b28fa1a4ac4ea7f2ec9fb102a05b049f6"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#id-version-riskTier-outcomes-prerequisites-objectives-scenes",
+    "content/010-a-difference-without-a-rate.md#complete-scene",
+    "content/020-a-line-with-units.md#complete-scene",
+    "content/030-fitting-the-line.md#worked-example-fit-the-line",
+    "content/040-what-the-line-leaves-over.md#complete-scene",
+    "content/050-a-line-is-not-a-lever.md#misconception-line-is-a-lever",
+    "content/050-a-line-is-not-a-lever.md#misconception-high-r-squared",
+    "content/060-holding-a-variable-still.md#complete-scene",
+    "content/070-predict-and-refuse.md#complete-scene",
+    "content/080-clinical-wrap-up.md#complete-scene",
+    "assessment.json#all-items-and-rubrics",
+    "charts/fitted-line-dinner-glucose.chart.json#series-person-readings",
+    "charts/fitted-line-dinner-glucose.chart.json#series-least-squares-line",
+    "charts/residuals-against-interval.chart.json#series-residuals",
+    "claims.json#all-claims",
+    "references.json#all-sources",
+    "glossary.json#all-terms",
+    "ATTRIBUTION.md#complete-record",
+    "references.json#source-nist-least-squares",
+    "references.json#source-nist-model-fit",
+    "references.json#source-schober-linear-regression",
+    "references.json#source-niddk-diabetes-tests"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "assessment.json#item-clinical-transfer-judgment",
+      "finding": "The safety-critical answer and rubric require the learner to infer that a 6.7 mg/dL fitted between-person difference 'could not be picked out in one patient over a few mornings' because the cross-sectional residual standard error is 17.2 mg/dL. That inference is not supported by these data. The 17.2 mg/dL quantity describes dispersion of different people's one-time outcomes around the fitted line and mixes between-person heterogeneity, model misspecification, and measurement error; it does not estimate within-person day-to-day variation or the precision of a within-person change. The linked scene also treats the patient's single +18.0 residual as evidence that moving along the line would not remove the gap, which is a causal conclusion a residual cannot supply.",
+      "resolution": "Remove the within-person detectability conclusion from the keyed answer, reasoning, common errors, and rubric. Interpret 17.2 mg/dL only as cross-sectional individual prediction error for comparable observations. Any claim about detecting a change over repeated mornings requires repeated-measures evidence, a within-person variance estimate, and an analysis appropriate to correlated observations; keep the supported conclusion that the observational slope does not predict this patient's response to changing dinner time."
+    },
+    {
+      "severity": "major",
+      "target": "content/050-a-line-is-not-a-lever.md#misconception-line-is-a-lever",
+      "finding": "The proposed 'test' of mechanism is invalid: a real causal or mechanistic relationship can be directional and noisy, so regressing interval on glucose answers a different conditional-mean question from regressing glucose on interval. Reciprocal ordinary-least-squares slopes need not agree even when X genuinely causes Y; their product equalling r-squared is an algebraic property, not evidence against mechanism. The lesson reaches the correct non-causal conclusion for this observational fit, but supports it with a false criterion.",
+      "resolution": "Retain the reverse-fit calculation only as a demonstration that ordinary least squares is asymmetric and prediction direction must be chosen from the question. Replace the claimed causal/mechanistic test with the valid reasons this study cannot identify an effect: observational between-person comparison, uncontrolled or poorly measured confounding, lack of intervention or longitudinal contrast, and absence of an identified causal design."
+    },
+    {
+      "severity": "major",
+      "target": "content/080-clinical-wrap-up.md#A-yardstick-from-outside-the-study",
+      "finding": "The scene uses the 126 mg/dL fasting-plasma-glucose diagnostic threshold to judge whether a hypothetical 6.7 mg/dL change matters for a woman already stated to have type 2 diabetes, concluding that the change reaches no boundary on which a decision depends. The NIDDK source supports diagnostic classification and confirmatory testing; it does not establish a treatment target, monitoring goal, or minimum clinically important difference for an already diagnosed patient. Crossing or not crossing the diagnostic cut-point is therefore not a valid yardstick for clinical importance in this case. The assessment compounds this by calling the same comparison the 'strongest reading available.'",
+      "resolution": "Remove the diagnostic-cut-point comparison from this established-diabetes transfer case and from assessment.json#item-clinical-transfer-judgment. If clinical importance must be discussed, use an authoritative, current source for a management target or clinically meaningful change that applies to the specified population and measurement context, with its qualifications; otherwise state that this dataset cannot determine clinical importance."
+    },
+    {
+      "severity": "major",
+      "target": "content/070-predict-and-refuse.md#What-to-do-when-the-fit-is-weak",
+      "finding": "The claim that a weak association with a clean residual plot and an 'adequate sample' is evidence against a large effect crosses the lesson's own association-versus-causation boundary. A small observational slope can coexist with a large causal effect because of confounding, measurement error, selection, effect heterogeneity, or opposing pathways, and no confidence interval or pre-specified adequacy criterion is supplied here. A clean residual-versus-predictor plot does not repair those identification and uncertainty problems.",
+      "resolution": "Limit the statement to the observed linear association: a sufficiently precise estimate could be evidence against a large population linear slope under the fitted model and measured-variable definitions. Supply the relevant uncertainty interval and assumptions if that inference is taught, and do not describe it as evidence against a large causal effect."
+    },
+    {
+      "severity": "minor",
+      "target": "glossary.json#term-leverage",
+      "finding": "The definition says leverage arises because least squares squares residual distances. In ordinary least squares, leverage is determined by an observation's predictor values relative to the design and can be high even when its residual is small; squaring residuals explains sensitivity to large vertical errors, while influence depends on both leverage and residual size. The current wording conflates leverage, outlying response values, and influence.",
+      "resolution": "Define leverage from predictor-space extremeness or the hat matrix, distinguish it from a large residual, and explain that an observation is especially influential when high leverage is combined with a consequential residual. Align the matching statements in content/020-a-line-with-units.md and content/040-what-the-line-leaves-over.md."
+    },
+    {
+      "severity": "minor",
+      "target": "content/050-a-line-is-not-a-lever.md#A-high-r-squared-as-a-certificate",
+      "finding": "The scene says this dataset's 'straight form is right' because the residual plot is clean. Absence of visible structure supports adequacy within the observed range but does not establish that the form is true or uniquely correct; the pack's own mapped NIST source and claim uncertainty state that no single residual plot can justify a model. The categorical wording drops that boundary.",
+      "resolution": "Replace 'the straight form is right' and equivalent categorical phrasing with 'this residual plot provides no clear evidence against the straight-line form over the observed range,' retaining limitations from sample size, diagnostic power, and unexamined assumptions."
+    },
+    {
+      "severity": "minor",
+      "target": "assessment.json#item-adjusted-coefficient",
+      "finding": "The answer reasoning says attenuation from -3.4 to -0.9 additionally shows that most of the crude association 'travelled with' shift work and sleep duration. The coefficient change shows that the fitted conditional association changed after adding those covariates; assigning most of the crude association to them requires a defensible causal structure, measurement quality, positivity, and correct functional specification. The prompt does not supply those conditions.",
+      "resolution": "Key only the conditional coefficient interpretation and the limits of adjustment. Describe the attenuation as evidence that adjustment for the named covariates materially changed the estimate, not as a causal decomposition of where the crude association came from."
+    },
+    {
+      "severity": "note",
+      "target": "charts/fitted-line-dinner-glucose.chart.json#series-person-readings",
+      "finding": "Independent recalculation from all 60 plotted pairs reproduced mean interval 3.375 hours, mean glucose 142.0 mg/dL, Sxx 172.3725, Sxy -580.70, Syy 19116, slope -3.3688668 mg/dL per hour, intercept 153.3699256 mg/dL, r -0.3199037, r-squared 0.1023384, residual sum of squares 17159.6990, residual standard error 17.2005 mg/dL, and the named extreme residuals. The constructed nine-point and six-person examples and the numeric assessment answers also recalculate as stated.",
+      "resolution": "No numerical correction is required for the fitted-line, residual, reverse-fit, nine-point, six-person, or keyed arithmetic."
+    }
+  ],
+  "limitations": [
+    "Per the operator's explicit scope, this review did not inspect site/, including the terminology ledger, graph node, quorum policy, or review schema, and did not inspect scripts, workflows, or any other lesson pack. Cross-lesson terminology continuity, graph-route semantics, and automated schema/q...",
+    "Direct opening of the Schober and Vetter PubMed Central page encountered a browser challenge; its indexed full-text record was checked, while NIST least-squares/model-fit pages and the NIDDK diagnostic page were opened directly. No source was marked human-only.",
+    "The accountable GitHub principal is also the pack's accountable author; the project permits this founding-stage operator overlap when runs are isolated, but it is not independent human authorship and review.",
+    "This run performed only the academic role. Accessibility, rights adjudication, learning-design judgment, merge readiness, and quorum status are outside this verdict."
+  ],
+  "signedAt": "2026-07-25T16:02:17Z"
+}

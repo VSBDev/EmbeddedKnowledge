@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-STA-003-LD-00C627C8",
+  "lessonId": "PREM-STA-003",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "bfbc6fe2a3e402b1f7f193616620d8226f9806a4",
+  "role": "learning-design",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev (learning-design reviewer)",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.7",
+      "runId": "agy-learning-design-PREM-STA-003-00C627C8-2760-44A4-93EF-D584769BEA7C",
+      "instructionsDigest": "sha256:d44388f04ee9dbb9299b71fc45df626995ddba351286500b746e672009f7c3db"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Founding-stage isolation check: the accountable principal VSBDev operates the authoring, review, and finalization agents, so principal-level independence is absent. Agent-level role isolation was strictly maintained: no authoring history, other review output, or adjudication draft was read, and no other EmbeddedKnowledge role script was run during this review execution."
+  },
+  "evidenceChecked": [
+    "lessons/PREM-STA-003-center-spread-shape/lesson.json",
+    "lessons/PREM-STA-003-center-spread-shape/claims.json",
+    "lessons/PREM-STA-003-center-spread-shape/references.json",
+    "lessons/PREM-STA-003-center-spread-shape/glossary.json",
+    "lessons/PREM-STA-003-center-spread-shape/ATTRIBUTION.md",
+    "lessons/PREM-STA-003-center-spread-shape/assessment.json",
+    "lessons/PREM-STA-003-center-spread-shape/charts/cohort-fasting-glucose.chart.json",
+    "lessons/PREM-STA-003-center-spread-shape/charts/skewed-clinic-sample.chart.json",
+    "lessons/PREM-STA-003-center-spread-shape/content/010-orientation.md",
+    "lessons/PREM-STA-003-center-spread-shape/content/020-centre.md",
+    "lessons/PREM-STA-003-center-spread-shape/content/030-spread.md",
+    "lessons/PREM-STA-003-center-spread-shape/content/040-worked-example.md",
+    "lessons/PREM-STA-003-center-spread-shape/content/050-misconception.md",
+    "lessons/PREM-STA-003-center-spread-shape/content/060-practice.md",
+    "lessons/PREM-STA-003-center-spread-shape/content/070-transfer.md",
+    "lessons/PREM-STA-003-center-spread-shape/content/080-clinical-wrap-up.md",
+    "CONTENT-STANDARD.md"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "lessons/PREM-STA-003-center-spread-shape/content/040-worked-example.md#worked-example-standard-deviation",
+      "finding": "The worked example `worked-example-standard-deviation` is missing a self-explanation prompt about the decision that most strongly determines the solution. According to `CONTENT-STANDARD.md` Section 5.1, a worked example must include this prompt to encourage active reflection on key expert decisions.",
+      "resolution": "Add a self-explanation prompt at the end of the worked example, asking the learner to explain a key decision (e.g., why squaring the deviations is necessary to prevent them from summing to zero, or why we divide by n - 1 instead of n)."
+    },
+    {
+      "severity": "major",
+      "target": "lessons/PREM-STA-003-center-spread-shape/lesson.json#scenes",
+      "finding": "The scene `scene-clinical-wrap-up` is configured with `\"kind\": \"worked-example\"`. However, the corresponding content file `080-clinical-wrap-up.md` is a clinical synthesis and results table decision scene, not a worked example. It contains no step-by-step ordered execution, no explicit plan, no check, and no self-explanation prompt, violating the worked-example structural standard.",
+      "resolution": "Change the `\"kind\"` of `scene-clinical-wrap-up` in `lesson.json` from `\"worked-example\"` to `\"synthesis\"` to match its actual instructional role."
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-STA-003-center-spread-shape/content/010-orientation.md#L1",
+      "finding": "First-read check: The lesson opener uses a concrete statistical problem (summarizing sixty fasting glucose readings from a study) to motivate the need for centre and spread summaries. It avoids abstract jargon at the outset and introduces a real clinical context that is easy to picture. A reader at the prerequisite level can immediately tell what they are learning, why it matters, and how the central procedure works.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-STA-003-center-spread-shape/content/070-transfer.md#check-transfer-bimodal",
+      "finding": "The transfer task uses a bimodal distribution of sleep timing to challenge the learner's understanding of centre and spread summaries. It requires them to recognize why mean and median agree despite the empty gap and how standard deviation behaves across separated clusters, demonstrating excellent transfer design.",
+      "resolution": null
+    }
+  ],
+  "limitations": [
+    "Expert-simulation review: This review represents a single-pass advisory input by a simulated learning-design expert under standard-lesson-v3 guidelines. No real learner testing was conducted.",
+    "Conflict of interest: The same GitHub principal (VSBDev) is responsible for the authoring and review run operators. Agent-level isolation was maintained, but principal-level independence is absent.",
+    "Scope restriction: The review is strictly bounded to learning-design metrics (e.g., clarity, coherence, practice, alignment, and transfer). Scientific accuracy, rights audits, and final typesetting checks are excluded.",
+    "Technical verification limits: No rendered build environment, screen reader, or keyboard navigation pathways were evaluated physically; findings are based solely on the static Markdown and JSON source files."
+  ],
+  "signedAt": "2026-07-25T11:00:10Z"
+}

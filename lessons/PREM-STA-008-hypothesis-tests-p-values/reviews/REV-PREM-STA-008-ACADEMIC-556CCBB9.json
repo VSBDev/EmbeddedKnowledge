@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-STA-008-ACADEMIC-556CCBB9",
+  "lessonId": "PREM-STA-008",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "0b2fe8e2a41f1495ab2364922804edde5c5eec7a",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable operator and academic reviewer",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-STA-008-556CCBB9-54E9-4DCC-B6C1-A2171EC2945A",
+      "instructionsDigest": "sha256:05a2433e9d40c9145731685c5a5f7b20376989de4d714743d1b50cd45aa5e6f5"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#objectives",
+    "content/01-one-number-five-readings.md#check-prerequisites",
+    "content/02-assuming-the-thing-you-doubt.md#definition-statistical-model",
+    "content/03-nine-milligrams-in-standard-errors.md#worked-example-difference-to-p",
+    "content/04-the-nouns-that-go-wrong.md#misconception-inverted-p-value",
+    "content/05-the-line-and-word.md#definition-significance-level",
+    "content/06-practice-with-the-props-removed.md#problem-3-on-your-own",
+    "content/07-a-result-in-different-clothes.md#the-audit",
+    "content/08-mastery-check.md#recovering-from-a-miss",
+    "content/09-clinical-wrap-up.md#second-how-large-is-the-effect-and-how-well-pinned-down",
+    "assessment.json#item-compute-statistic",
+    "assessment.json#item-correct-reading",
+    "assessment.json#item-nonsignificant-conclusion",
+    "assessment.json#item-compare-effect-and-p",
+    "assessment.json#item-interval-and-test",
+    "charts/null-distribution-of-the-difference.chart.json#series-null-difference",
+    "claims.json#claim-p-value-definition",
+    "claims.json#claim-ci-test-correspondence",
+    "claims.json#claim-p-value-assumes-whole-model",
+    "references.json#source-asa-p-value-statement",
+    "references.json#source-p-value-misinterpretations",
+    "references.json#source-eom-statistical-hypotheses",
+    "references.json#source-eom-significance-level",
+    "glossary.json#term-p-value",
+    "glossary.json#term-significance-level",
+    "ATTRIBUTION.md#original-synthesis"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "content/03-nine-milligrams-in-standard-errors.md#worked-example-difference-to-p",
+      "finding": "The central worked procedure identifies 2.18 as a t statistic with 58 degrees of freedom and says those degrees of freedom select the reference curve, but then obtains p = 0.029 from the standard normal curve. Independent recomputation gives a two-sided normal-tail value of 0.02936 and a t(58) value of 0.03344. The later approximation disclosure is accurate, but it does not repair the worked algorithm's internal contradiction or the repeated use of t notation for normal-tail calculations.",
+      "resolution": "Use one coherent inferential procedure throughout. If the normal approximation is retained, label the statistic and p-value explicitly as normal-approximation quantities and explain why that approximation is being used with an estimated standard error. If the pooled two-sample t procedure is taught, use the t(58) tail and matching t-based interval. Propagate the selected convention through the chart, practice, mastery stimuli, glossary, claims, and attribution calculations."
+    },
+    {
+      "severity": "major",
+      "target": "content/07-a-result-in-different-clothes.md#the-audit",
+      "finding": "The transfer scene says a z curve applies because the spread follows from the rates themselves, so nothing extra is estimated. That rationale is false: both proportions and their variance are estimated from the observed counts, and the normal reference is an asymptotic approximation rather than a consequence of estimating nothing. The scene also uses an unpooled Wald standard error for both testing and interval construction without naming that method or its small-count limitations; the new-protocol arm has only five events.",
+      "resolution": "Name and justify a specific two-proportion procedure, state its assumptions and approximation limits, and recompute the test and interval consistently under that procedure. Replace the claim that nothing is estimated with an accurate explanation of why a normal approximation is used, and add a mapped claim and supporting source for this new test-family material."
+    },
+    {
+      "severity": "major",
+      "target": "assessment.json#item-compute-statistic",
+      "finding": "The item requires the learner to state the null hypothesis and awards one of two points for doing so, but responseSpec.mode is number and can collect only the statistic. A correct response of 1.80 therefore cannot supply the evidence required by the prompt, answer reasoning, or first rubric criterion.",
+      "resolution": "Use a response structure that can collect both the hypothesis statement and the numeric calculation, or remove the uncollectable hypothesis requirement and its rubric point. Keep the prompt, response specification, correct answer, acceptable responses, point total, and rubric mutually consistent."
+    },
+    {
+      "severity": "major",
+      "target": "content/09-clinical-wrap-up.md#second-how-large-is-the-effect-and-how-well-pinned-down",
+      "finding": "The scene asserts that a 17 mg/dL change would be worth building a service around, while 0.9 mg/dL would be invisible in an individual and swamped by day-to-day variation. These are health-sensitive clinical-importance and variability claims with no mapped claim or supporting reference. They also contradict the lesson's declared boundary that clinical importance is not assessed here and is deferred to PREM-STA-012.",
+      "resolution": "Remove the clinical threshold judgments and describe the interval neutrally as spanning materially different effect sizes whose clinical importance this lesson has not established. Ensure the closing recommendation does not imply that this hypothesis-testing lesson has supplied an evidence-based clinical threshold or practice decision."
+    }
+  ],
+  "limitations": [
+    "The PubMed landing page for source-p-value-misinterpretations was blocked by an interactive browser check, and the recorded NCBI BioC endpoint was rejected by the review environment as unsafe to open. That source could not be independently reopened; the limitation was recorded while a verdict was...",
+    "The explicit review scope prohibited reading site/, so the cross-lesson terminology ledger and public review-schema and quorum files were not inspected. Glossary continuity was assessed from the pack's alignment records and the permitted syllabus excerpt.",
+    "No other lesson pack or prerequisite lesson content was inspected, as required by the review scope. Cross-lesson prerequisite continuity beyond the candidate's own statements was therefore not independently verified."
+  ],
+  "signedAt": "2026-07-25T15:37:48Z"
+}

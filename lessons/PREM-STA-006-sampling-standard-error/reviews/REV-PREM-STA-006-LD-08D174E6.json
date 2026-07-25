@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-STA-006-LD-08D174E6",
+  "lessonId": "PREM-STA-006",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "c11bcf52f4d96d873af397c4646d0128aeac022a",
+  "role": "learning-design",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev (learning-design reviewer)",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.7",
+      "runId": "agy-learning-design-PREM-STA-006-08D174E6-E148-413D-84E0-A3603732BA31",
+      "instructionsDigest": "sha256:11a939b35bcda948c36a34bacf1acd19c8b805f03f807d57b0a345eff177289c"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Founding-stage isolation check: the accountable principal VSBDev operates the authoring, review, and finalization agents, so principal-level independence is absent. Agent-level role isolation was strictly maintained: no authoring history, other review output, or adjudication draft was read, and no other EmbeddedKnowledge role script was run during this review execution."
+  },
+  "evidenceChecked": [
+    "lessons/PREM-STA-006-sampling-standard-error/lesson.json",
+    "lessons/PREM-STA-006-sampling-standard-error/claims.json",
+    "lessons/PREM-STA-006-sampling-standard-error/references.json",
+    "lessons/PREM-STA-006-sampling-standard-error/glossary.json",
+    "lessons/PREM-STA-006-sampling-standard-error/ATTRIBUTION.md",
+    "lessons/PREM-STA-006-sampling-standard-error/assessment.json",
+    "lessons/PREM-STA-006-sampling-standard-error/charts/individual-values.chart.json",
+    "lessons/PREM-STA-006-sampling-standard-error/charts/sampling-distribution-mean.chart.json",
+    "lessons/PREM-STA-006-sampling-standard-error/content/010-run-it-again.md",
+    "lessons/PREM-STA-006-sampling-standard-error/content/020-distribution-of-means.md",
+    "lessons/PREM-STA-006-sampling-standard-error/content/030-price-of-precision.md",
+    "lessons/PREM-STA-006-sampling-standard-error/content/040-sd-is-not-se.md",
+    "lessons/PREM-STA-006-sampling-standard-error/content/050-central-limit.md",
+    "lessons/PREM-STA-006-sampling-standard-error/content/060-compute-and-judge.md",
+    "lessons/PREM-STA-006-sampling-standard-error/content/070-league-tables.md",
+    "lessons/PREM-STA-006-sampling-standard-error/content/080-clinical-wrap-up.md",
+    "CONTENT-STANDARD.md"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "lessons/PREM-STA-006-sampling-standard-error/content/030-price-of-precision.md#worked-example-cohort-standard-error",
+      "finding": "The worked example `worked-example-cohort-standard-error` is missing a self-explanation prompt about the decision that most strongly determines the solution. According to `CONTENT-STANDARD.md` Section 5.1, a worked example must include this prompt to encourage active reflection on key expert decisions.",
+      "resolution": "Add a self-explanation prompt at the end of the worked example, asking the learner to explain why the standard error is smaller than the standard deviation, or what decision (e.g. choice of the denominator or using independent observations) most strongly determines the final standard error."
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-STA-006-sampling-standard-error/content/040-sd-is-not-se.md#L16",
+      "finding": "The text under 'The disconfirming evidence' refers back to 'the histogram of the sixty readings' and details its shape. However, this histogram is not shown in this lesson, nor is there a hyperlink or cross-reference to the earlier lesson (such as PREM-STA-003 or PREM-STA-001) where the histogram of the dinner-timing cohort was introduced. This can cause cognitive friction for a learner trying to verify the disconfirming evidence.",
+      "resolution": "Provide a cross-reference or link to the earlier lesson where the cohort's glucose histogram was presented, or embed a small text/table representation of the histogram bins to make the disconfirming evidence self-contained."
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-STA-006-sampling-standard-error/content/010-run-it-again.md#L1",
+      "finding": "First-read check: The lesson opener uses a concrete thought experiment (shuffling the clinic list and drawing different samples of 60 patients to see how the mean fasting glucose changes) to introduce the concept of sampling variation and standard error. It avoids dry, technical definitions at the outset and gives the learner something intuitive to visualize before presenting formal terminology. The tone is highly natural, and a learner at the declared prerequisite level can easily explain what they are studying, why it matters, and how the central relation works.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-STA-006-sampling-standard-error/lesson.json#scenes",
+      "finding": "The instructional arc is highly coherent and shows excellent constructive alignment. It moves from an intuitive thought experiment (Scene 1) to the concept of sampling distributions (Scene 2), derives the mathematical relationship (Scene 3), directly addresses the critical misconception of confusing SD with SE (Scene 4), licenses the normal approximation using the Central Limit Theorem (Scene 5), provides faded practice (Scene 6), transfers the principle to birth weights in regional maternity units (Scene 7), and synthesizes everything with real-world clinical audits (Scene 8). Assessment items in `assessment.json` map 1-to-1 with the objectives.",
+      "resolution": null
+    }
+  ],
+  "limitations": [
+    "Expert-simulation review: This review represents a single-pass advisory input by a simulated learning-design expert under standard-lesson-v3 guidelines. No real learner testing was conducted.",
+    "Conflict of interest: The same GitHub principal (VSBDev) is responsible for the authoring and review run operators. Agent-level isolation was maintained, but principal-level independence is absent.",
+    "Scope restriction: The review is strictly bounded to learning-design metrics (e.g., clarity, coherence, practice, alignment, and transfer). Scientific accuracy, rights audits, and final typesetting checks are excluded.",
+    "Technical verification limits: No rendered build environment, screen reader, or keyboard navigation pathways were evaluated physically; findings are based solely on the static Markdown and JSON source files."
+  ],
+  "signedAt": "2026-07-25T10:38:22Z"
+}

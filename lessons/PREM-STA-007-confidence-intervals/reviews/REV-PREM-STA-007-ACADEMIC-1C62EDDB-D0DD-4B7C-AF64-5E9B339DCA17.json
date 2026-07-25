@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-STA-007-ACADEMIC-1C62EDDB-D0DD-4B7C-AF64-5E9B339DCA17",
+  "lessonId": "PREM-STA-007",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "d7722d436069543ff67db6cd166f02fef5864372",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable operator, academic reviewer",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-STA-007-1C62EDDB-D0DD-4B7C-AF64-5E9B339DCA17",
+      "instructionsDigest": "sha256:8dcd06fce3ee299353d8984dd3953a69cf260349c0765d196ac6c4aad1efa5a9"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#identity-outcomes-objectives-scenes-and-provenance",
+    "content/010-one-number-from-one-study.md#check-prerequisite-standard-error-and-source-note",
+    "content/020-an-estimate-with-a-range.md#definition-confidence-interval-and-equations",
+    "content/030-nine-milligrams-and-its-range.md#worked-example-difference-interval-and-check-reverse-the-interval",
+    "content/040-ninety-five-percent-of-what.md#misconception-probability-in-the-interval-and-check-diagnose-the-sentence",
+    "content/050-what-moves-the-edges.md#investigation-what-a-bigger-study-buys-and-check-predict-the-width",
+    "content/060-reading-intervals.md#task-one-task-two-and-task-three",
+    "content/070-a-different-trial.md#check-transfer-blood-pressure-and-check-transfer-sample-size",
+    "content/080-clinical-wrap-up.md#give-the-interval-a-ruler-and-what-would-settle-it",
+    "assessment.json#item-build-the-interval",
+    "assessment.json#item-what-the-level-means",
+    "assessment.json#item-name-the-fixed-quantity",
+    "assessment.json#item-width-and-sample-size",
+    "assessment.json#item-width-levers",
+    "assessment.json#item-read-three-intervals",
+    "assessment.json#item-clinical-threshold",
+    "assessment.json#rubrics",
+    "charts/difference-interval.chart.json#chart-difference-interval",
+    "charts/difference-interval-larger-study.chart.json#chart-difference-interval-larger-study",
+    "claims.json#all-claim-records",
+    "references.json#all-source-records-and-locators",
+    "glossary.json#all-term-records",
+    "ATTRIBUTION.md#sources-original-material-and-boundaries",
+    "course/PREMED-SYLLABUS.md#QRS-108",
+    "references.json#source-nist-confidence-limits — direct NIST section 1.3.5.2 checked",
+    "references.json#source-nist-what-are-ci — direct NIST section 7.1.4 checked",
+    "references.json#source-nist-normal-table — direct NIST normal table checked",
+    "references.json#source-nist-t-table — direct NIST row for 58 degrees of freedom checked",
+    "references.json#source-nist-two-sample — direct NIST pooled and Welch forms checked",
+    "references.json#source-ich-e9 — direct FDA-hosted ICH E9 sections and glossary checked",
+    "references.json#source-niddk-diabetes-tests — direct NIDDK diagnostic table checked",
+    "Independent recalculation of every displayed standard error, margin, interval, width, sample-size ratio, and assessment numeric key"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "charts/difference-interval.chart.json#series-repeat-estimates; charts/difference-interval-larger-study.chart.json#series-repeat-estimates-large; content/030-nine-milligrams-and-its-range.md#two-things-to-read-off-it",
+      "finding": "Both charts center a purported sampling distribution of repeat estimates at the observed difference of 9.0 mg/dL and identify estimate ± 1.96 standard errors as its middle 95%. A sampling distribution is centered at the fixed true parameter under an unbiased model, not generally at the current sample estimate. Consequently, a future estimate does not generally have the displayed distribution around 9.0, and this confidence interval is not a 95% prediction interval for repeat estimates. The visual therefore teaches the exact parameter-versus-estimator confusion that the next scene attempts to repair.",
+      "resolution": "Replace the curves with a representation that is mathematically valid for a confidence interval, such as an interval bar plus repeated intervals around one fixed parameter, or explicitly derive an inverted test/compatibility display without calling it the distribution of future estimates. Correct the chart labels, long descriptions, surrounding prose, and glossary.json#term-sampling-distribution together, and map the corrected material claim to a learner-visible source note."
+    },
+    {
+      "severity": "major",
+      "target": "content/020-an-estimate-with-a-range.md#equation-late-group-interval; content/030-nine-milligrams-and-its-range.md#one-refinement-so-the-number-is-honest; assessment.json#item-build-the-interval",
+      "finding": "The lesson uses a sample standard deviation estimated from the same data but labels z-based limits using 1.96 as 95% confidence intervals throughout. Under the stated normal two-sample model, the single-group interval needs t(29) = 2.045, giving about 140.5 to 152.5 mg/dL, and the two-group interval needs t(58) = 2.002, giving about 0.7 to 17.3 mg/dL. Using 1.96 gives only about 94.0% and 94.5% coverage respectively under those exact t models. The assessment then lists use of the correct t multiplier as an error even though the lesson itself says t should be used when a limit is near a value of interest. This conflicts with objective-construct-an-interval, which requires the multiplier matching the stated confidence level.",
+      "resolution": "Use the appropriate t multiplier as the primary method whenever the standard deviation is estimated, and recompute all dependent prose, charts, practice, and answer keys. If z is retained as a large-sample approximation, label it explicitly as approximate, quantify its coverage limitation before interpreting limits, and do not penalize a correctly justified t calculation."
+    },
+    {
+      "severity": "major",
+      "target": "content/020-an-estimate-with-a-range.md#definition-confidence-interval; content/040-ninety-five-percent-of-what.md#twenty-studies-one-truth; claims.json#claim-confidence-level-long-run",
+      "finding": "The learner-facing definition and repeated 'nineteen in twenty' language present nominal coverage as an unconditional track record of the arithmetic. Coverage is conditional on the sampling and analysis model: relevant observations must be independent, the target population and sampling/generalization claim must be defined, and the normal/t construction and pooled-variance assumptions must be adequate. A biased, dependent, clustered, selectively sampled, or misspecified design need not attain its nominal level. claims.json mentions approximate normality, but these material conditions are not taught beside the coverage claim.",
+      "resolution": "State the assumptions under which the constructed interval has approximately nominal coverage and apply them to the invented cohort. Qualify every factory/track-record formulation accordingly, distinguish random-error coverage from external validity and bias, and expose the corrected conditions through the same-scene claim and source mappings."
+    },
+    {
+      "severity": "major",
+      "target": "content/070-a-different-trial.md#the-trial-and-working-it",
+      "finding": "The table defines the contrast as review minus usual care but records 2.4 mmHg and 1.0 mmHg 'lower' as positive values, then calculates positive intervals. For a literal review-minus-usual contrast, lower pressure is negative: the systolic estimate is -2.4 with interval about -4.6 to -0.2, and the diastolic estimate is -1.0 with interval about -7.3 to 5.3. The current sign convention is internally contradictory in a scene intended to transfer interval construction and direction reading.",
+      "resolution": "Either change the numerical estimates and intervals to the signed review-minus-usual contrast, or relabel the estimand as usual care minus review or as a positive magnitude of reduction. Keep the chosen subtraction order explicit and consistent in the prompt, calculations, interpretation, and abstract sentence."
+    },
+    {
+      "severity": "major",
+      "target": "content/080-clinical-wrap-up.md#give-the-interval-a-ruler; claims.json#claim-fpg-thresholds",
+      "finding": "The scene uses individual diagnostic cut points for fasting plasma glucose as a ruler for a confidence interval on a population mean contrast, then says the lower effect would be too small for a clinic to notice 'in a person' and the upper effect covers two-thirds of the distance to a diabetes diagnosis. The NIDDK source supports diagnostic categories for individual test results; it does not support treating their span as a linear clinical-importance scale for a between-group mean effect. This crosses the population-to-individual boundary the lesson correctly rejects elsewhere and creates a health-sensitive interpretation unsupported by the cited source.",
+      "resolution": "Remove the diagnostic-band comparison and the person-level claims, or replace them with an explicitly justified clinical threshold for this exact population mean estimand from an appropriate source. If the cut points remain only as unit context, state that they cannot determine individual effects or the clinical importance of the group mean difference and map every resulting material inference."
+    },
+    {
+      "severity": "major",
+      "target": "content/080-clinical-wrap-up.md#what-would-settle-it; assessment.json#item-clinical-threshold",
+      "finding": "The lesson and answer key treat a future four-times-larger study as if it will retain the current estimate of 9.0 and therefore will produce the fixed interval 4.9 to 13.1 and contain the 5 or 6 mg/dL threshold. Increasing sample size can approximately halve the anticipated standard error under stated assumptions, but the future point estimate and sample spread are random, so the future interval's location is not predetermined. The assessment rewards a false sample-size-planning shortcut and rejects the uncertainty central to the outcome.",
+      "resolution": "Frame 4.9 to 13.1 only as a conditional illustration if the future estimate remains 9.0 and the variance/design assumptions hold. For planning, specify an anticipated effect and variance, solve for a target half-width or power/assurance criterion as appropriate, and require the answer to distinguish expected precision from the realized future interval. Revise the item key and rubric accordingly."
+    },
+    {
+      "severity": "major",
+      "target": "content/060-reading-intervals.md#task-two-read-three-of-them; assessment.json#item-read-three-intervals",
+      "finding": "The practice and assessment give generic signed differences in fasting glucose without specifying which group is subtracted from which or whether a positive difference is beneficial, yet their keys label positive values as benefit and negative values as harm. They also call effects 'large', 'small', or 'appreciable' without a declared clinical threshold. Zero exclusion and numerical width can be read from the intervals, but benefit, harm, and clinical magnitude cannot be inferred from the information supplied, so the scored interpretation is underdetermined.",
+      "resolution": "Define the contrast order and which direction is favorable, and supply a pre-stated threshold if clinical magnitude language is assessed. Otherwise restrict the correct conclusions to sign relative to the defined contrast, numerical width, and the range left open, without benefit/harm or importance labels."
+    },
+    {
+      "severity": "minor",
+      "target": "content/060-reading-intervals.md#task-two-read-three-of-them",
+      "finding": "The answer says trial C is 'nearly as tight' as trial A, but their displayed widths are 6.0 and 0.6 mg/dL. Trial C is ten times as wide in absolute units, so that comparison is numerically false and directly conflicts with the preceding correct identification of A as the tightest interval.",
+      "resolution": "Delete 'nearly as tight' or replace it with an accurate comparison, and keep any relative-precision comparison explicitly defined rather than implied."
+    },
+    {
+      "severity": "minor",
+      "target": "content/030-nine-milligrams-and-its-range.md#two-things-to-read-off-it",
+      "finding": "The text says increasing the 8.09 mg/dL margin of error by one fifth of a standard error would put zero inside the interval. One fifth of 4.13 is 0.826, leaving a lower limit of about 0.08 mg/dL; zero is crossed only after an increase greater than about 0.22 standard errors.",
+      "resolution": "Change the statement to 'a little more than a fifth of a standard error' or use a correctly calculated amount."
+    }
+  ],
+  "limitations": [
+    "No conflict of interest was identified. This was an academic statistical-methods review; clinical endocrinology judgements were limited to internal model boundaries and the directly checked NIDDK and FDA sources.",
+    "All files in the frozen lesson pack were read from candidate commit d7722d436069543ff67db6cd166f02fef5864372, and the working-tree pack showed no differences from that commit.",
+    "The direct NIST, FDA-hosted ICH E9, and NIDDK evidence recorded in references.json was reachable and checked. No human-only source was encountered.",
+    "Per the operator's explicit scope, site files were not read; therefore the graph-node record, course terminology ledger, quorum JSON, and review schema were not independently inspected. The outcome was checked only against lesson.json, ATTRIBUTION.md, and the QRS-108 syllabus context.",
+    "No authoring conversation, other lesson pack, other review conclusion, adjudication draft, or learner-performance evidence was consulted.",
+    "The artifact was not written into the pack and repository validation was not run because this role was expressly read-only and the scoped review output was requested directly."
+  ],
+  "signedAt": "2026-07-25T15:07:51.551Z"
+}
