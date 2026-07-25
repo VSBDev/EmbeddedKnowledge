@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-claims-v1",
+  "lessonId": "PREM-STA-010",
+  "lessonVersion": "0.1.0",
+  "claims": [
+    {
+      "id": "claim-effect-measures-from-a-table",
+      "statement": "For a yes-or-no outcome compared across two groups, the risk in a group is the probability of the outcome in that group, the odds in a group is that probability divided by its complement, and risk and odds convert by odds = risk / (1 - risk) and risk = odds / (1 + odds). The risk difference is one risk subtracted from the other and is an absolute measure; the risk ratio is one risk divided by the other and the odds ratio is one odds divided by the other, and both are relative measures. From a two-by-two table of counts the odds ratio equals the cross-product of the diagonals.",
+      "sceneIds": [
+        "scene-two-questions",
+        "scene-three-measures",
+        "scene-how-big-is-halved",
+        "scene-faded-practice",
+        "scene-carry-it-elsewhere",
+        "scene-mastery-check",
+        "scene-clinical-wrap-up"
+      ],
+      "sourceIds": [
+        "source-odds-versus-risk",
+        "source-arr-rrr-nnt"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "A single dichotomous outcome compared between two groups with complete counts, without adjustment for other variables and without interval estimation.",
+      "uncertainty": "The cited methods papers state the definitions and the risk-odds conversion; the cross-product identity for the odds ratio is the standard algebraic consequence and is derived in the lesson rather than quoted. Sampling variability in any of these estimates is outside this lesson's scope and is treated by the block's confidence-interval lesson.",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-odds-ratio-diverges-when-events-common",
+      "statement": "The odds ratio and the risk ratio differ little when the outcome is rare, conventionally under about 10 per cent, because a rare outcome barely changes the group without it; when the outcome is common the two separate, and for an outcome that is more frequent in the exposed group the odds ratio lies further from 1 than the risk ratio, so reading an odds ratio as though it were a risk ratio overstates the effect.",
+      "sceneIds": [
+        "scene-three-measures",
+        "scene-how-big-is-halved",
+        "scene-faded-practice",
+        "scene-carry-it-elsewhere",
+        "scene-mastery-check"
+      ],
+      "sourceIds": [
+        "source-odds-versus-risk"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "Comparison of the two ratio measures for a dichotomous outcome, as a guide to reporting and reading; the 10 per cent figure is a stated convention and not a threshold with a formal justification.",
+      "uncertainty": "How far the two ratios separate depends on the baseline frequency and on the direction of the effect, so the rule of thumb marks a region of agreement without defining a boundary. The lesson demonstrates the divergence on its own invented tables and does not claim a general bound.",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-report-both-absolute-and-relative",
+      "statement": "One relative reduction corresponds to very different absolute reductions depending on the baseline risk, so a relative measure reported alone leaves a reader unable to judge the size of an effect; clinicians have been reported to judge an intervention more effective when its result is presented in relative rather than absolute terms, and established reporting guidance for randomised trials recommends presenting both absolute and relative effect sizes for a binary outcome.",
+      "sceneIds": [
+        "scene-three-measures",
+        "scene-how-big-is-halved",
+        "scene-faded-practice",
+        "scene-carry-it-elsewhere",
+        "scene-clinical-wrap-up"
+      ],
+      "sourceIds": [
+        "source-arr-rrr-nnt",
+        "source-consort-effect-sizes"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "Reporting and interpretation of a dichotomous outcome in comparative clinical research, including randomised trials and observational comparisons.",
+      "uncertainty": "The statement about clinicians overestimating relative presentations is reported in the cited methods paper as an established finding rather than demonstrated there; the size of that effect is not quantified in this lesson. The reporting recommendation is guidance for trial reports and is not a statement about how any particular study should be analysed.",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-nnt-is-reciprocal-of-risk-difference",
+      "statement": "The number needed to treat is the reciprocal of a beneficial absolute risk reduction for a specified outcome and comparison, conventionally rounded upward to a whole-person count, and it states how many people would have to receive one condition instead of the other for one additional person to benefit. A zero absolute risk reduction has no finite number needed to treat; when the intervention instead increases an unwanted outcome, the corresponding reciprocal is a number needed to harm. Because these measures use cumulative risks over a follow-up period, they require a stated time horizon and comparison and move with the comparison group's underlying risk even when the relative effect is fixed.",
+      "sceneIds": [
+        "scene-how-big-is-halved",
+        "scene-faded-practice",
+        "scene-carry-it-elsewhere",
+        "scene-mastery-check",
+        "scene-clinical-wrap-up"
+      ],
+      "sourceIds": [
+        "source-arr-rrr-nnt",
+        "source-nnt-25-years",
+        "source-consort-effect-sizes"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "A dichotomous outcome counted over a fixed follow-up period in a comparison where the assignment to groups supports a causal reading, most straightforwardly a randomised trial.",
+      "uncertainty": "The cited review records that the measure is frequently computed incorrectly when follow-up times vary between participants, and that reporting it without its time period and comparison makes it uninterpretable. This lesson uses only complete fixed-period counts and does not treat censoring, varying follow-up, or interval estimation for the measure. Some methodologists prefer the terms number needed to treat for an additional beneficial or harmful outcome; this lesson uses the plain terms and states the outcome each time.",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-diagnostic-measures-are-conditionals",
+      "statement": "From a two-by-two table comparing a test against a reference standard, sensitivity is the probability that the test is positive among people who have the target condition and specificity is the probability that it is negative among people who do not, so both are conditioned on a person's true state; the positive predictive value is the probability that the condition is present among people whose test was positive and the negative predictive value is the probability that it is absent among people whose test was negative, so both are conditioned on the test result. Sensitivity and positive predictive value share the true-positive count and divide it by different totals.",
+      "sceneIds": [
+        "scene-two-questions",
+        "scene-two-by-two",
+        "scene-prevalence-moves-it",
+        "scene-faded-practice",
+        "scene-carry-it-elsewhere",
+        "scene-mastery-check",
+        "scene-clinical-wrap-up"
+      ],
+      "sourceIds": [
+        "source-screening-predictive-values"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "A binary test scored against a reference standard on a complete sample, with the reference standard treated as correct for the purpose of the comparison.",
+      "uncertainty": "The cited review records that these measures are pliable in practice: they depend on where a cut-off is placed, on how the reference standard is defined and applied, and on how the sample was assembled, so a single published pair of figures describes one study rather than a fixed property of a device. The lesson stipulates its performance figures and does not treat cut-off selection or imperfect reference standards.",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-predictive-values-depend-on-prevalence",
+      "statement": "Predictive values depend on the prevalence of the target condition in the group tested. When sensitivity and specificity are stipulated to remain unchanged so that prevalence is the only changing input, lowering prevalence produces a lower positive predictive value and a higher negative predictive value. Sensitivity and specificity are computed within condition-defined groups, but in real settings they can also change with the cut-off, reference standard, sample construction, and patient or disease spectrum. Treating a sensitivity as though it were a positive predictive value is the reasoning error known as confusion of the inverse.",
+      "sceneIds": [
+        "scene-two-by-two",
+        "scene-prevalence-moves-it",
+        "scene-faded-practice",
+        "scene-carry-it-elsewhere",
+        "scene-mastery-check",
+        "scene-clinical-wrap-up"
+      ],
+      "sourceIds": [
+        "source-screening-predictive-values"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "Interpretation of a binary test's results across populations differing in how common the target condition is.",
+      "uncertainty": "The independence of sensitivity and specificity from prevalence holds for the fixed test behaviour assumed here. The cited review records that in practice these two measures can also vary between settings, for example through spectrum effects when the cases seen in one population are more advanced than in another; the lesson stipulates fixed device behaviour so the prevalence mechanism is visible on its own.",
+      "risk": "health-sensitive",
+      "reviewStatus": "reviewed"
+    }
+  ]
+}

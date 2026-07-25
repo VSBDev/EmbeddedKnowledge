@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-chart-v1",
+  "id": "chart-skewed-clinic-sample",
+  "type": "histogram",
+  "title": "A right-skewed clinic sample, where the mean and the median part company",
+  "alt": "A right-skewed histogram of 60 fasting glucose readings piled below 150 mg/dL with a thin tail reaching 390, marking the median at 140 and the mean at 160 mg/dL.",
+  "longDescription": "Sixty fasting glucose readings from a separate illustrative clinic sample are grouped into bins 20 mg/dL wide from 90 to 390 mg/dL. Thirty-nine of the sixty readings fall below 150 mg/dL, with the two tallest bins holding 17 people each between 110 and 150. Above 190 the counts thin to three, two, one, one, one, one, one, one and one, so the right side of the picture is a long sparse tail rather than a mirror of the left. The median sits at 140 mg/dL and the mean at 160 mg/dL, a gap of 20 mg/dL opened entirely by that tail; the shaded band between the two markers shows the gap. The five-number summary is minimum 96, lower quartile 122, median 140, upper quartile 179, maximum 382 mg/dL, giving a range of 286 mg/dL and an interquartile range of 57 mg/dL. The standard deviation is about 61 mg/dL, larger than the interquartile range, which is the reverse of what a symmetric shape produces. This is an illustrative teaching data set, not a record of real patients.",
+  "xAxis": {
+    "label": "Fasting glucose",
+    "unit": "mg/dL",
+    "min": 90,
+    "max": 390,
+    "ticks": [
+      { "at": 90, "label": "90" },
+      { "at": 140, "label": "140" },
+      { "at": 190, "label": "190" },
+      { "at": 240, "label": "240" },
+      { "at": 290, "label": "290" },
+      { "at": 340, "label": "340" },
+      { "at": 390, "label": "390" }
+    ]
+  },
+  "yAxis": {
+    "label": "Number of people",
+    "unit": null,
+    "min": 0,
+    "max": 20,
+    "ticks": [
+      { "at": 0, "label": "0" },
+      { "at": 5, "label": "5" },
+      { "at": 10, "label": "10" },
+      { "at": 15, "label": "15" },
+      { "at": 20, "label": "20" }
+    ]
+  },
+  "series": [
+    {
+      "id": "series-clinic-readings",
+      "label": "Fasting glucose readings (60 adults, separate clinic sample)",
+      "bins": [
+        { "from": 90, "to": 110, "count": 5 },
+        { "from": 110, "to": 130, "count": 17 },
+        { "from": 130, "to": 150, "count": 17 },
+        { "from": 150, "to": 170, "count": 5 },
+        { "from": 170, "to": 190, "count": 4 },
+        { "from": 190, "to": 210, "count": 3 },
+        { "from": 210, "to": 230, "count": 2 },
+        { "from": 230, "to": 250, "count": 1 },
+        { "from": 250, "to": 270, "count": 1 },
+        { "from": 270, "to": 290, "count": 1 },
+        { "from": 290, "to": 310, "count": 1 },
+        { "from": 310, "to": 330, "count": 1 },
+        { "from": 330, "to": 350, "count": 1 },
+        { "from": 350, "to": 370, "count": 0 },
+        { "from": 370, "to": 390, "count": 1 }
+      ]
+    }
+  ],
+  "shadedRegions": [
+    { "from": 140, "to": 160, "label": "The 20 mg/dL the tail puts between the median and the mean" }
+  ],
+  "markers": [
+    { "x": 140, "label": "Median" },
+    { "x": 160, "label": "Mean" }
+  ]
+}

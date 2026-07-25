@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-chart-v1",
+  "id": "chart-false-positive-inflation",
+  "type": "line",
+  "title": "The chance that at least one of k independent comparisons crosses 0.05 when every one of them is a dead end",
+  "alt": "A rising curve from 0.05 at one comparison to 0.72 at twenty-five, passing 0.23 at five and 0.40 at ten and 0.64 at twenty.",
+  "longDescription": "The horizontal axis counts how many independent comparisons a study runs, from 1 to 25. The vertical axis is the probability that at least one of them crosses the 0.05 threshold when no true difference exists anywhere, which is 1 minus 0.95 raised to the power of the number of comparisons. The plotted values are: 1 comparison 0.05; 2 comparisons 0.0975; 3 comparisons 0.1426; 4 comparisons 0.1855; 5 comparisons 0.2262; 6 comparisons 0.2649; 7 comparisons 0.3017; 8 comparisons 0.3366; 9 comparisons 0.3698; 10 comparisons 0.4013; 12 comparisons 0.4596; 15 comparisons 0.5367; 20 comparisons 0.6415; 25 comparisons 0.7226. The curve rises steeply at first and then flattens, because each extra comparison adds its 0.05 to a shrinking share of outcomes in which nothing has crossed yet. The three dashed vertical lines sit at 5 comparisons, the number of outcomes the dinner-timing report examined; at 10; and at 20, the number of subgroups in the worked case. Reading across from the curve at those lines gives 0.23, 0.40 and 0.64. The horizontal axis has no unit because it is a count, and the vertical axis is a probability between 0 and 1.",
+  "xAxis": {
+    "label": "Number of independent comparisons run",
+    "unit": null,
+    "min": 0,
+    "max": 26,
+    "ticks": [
+      { "at": 0, "label": "0" },
+      { "at": 5, "label": "5" },
+      { "at": 10, "label": "10" },
+      { "at": 15, "label": "15" },
+      { "at": 20, "label": "20" },
+      { "at": 25, "label": "25" }
+    ]
+  },
+  "yAxis": {
+    "label": "Probability that at least one comparison crosses 0.05",
+    "unit": null,
+    "min": 0,
+    "max": 0.8,
+    "ticks": [
+      { "at": 0, "label": "0" },
+      { "at": 0.2, "label": "0.2" },
+      { "at": 0.4, "label": "0.4" },
+      { "at": 0.6, "label": "0.6" },
+      { "at": 0.8, "label": "0.8" }
+    ]
+  },
+  "series": [
+    {
+      "id": "series-family-wise-error-rate",
+      "label": "Probability of at least one false positive",
+      "points": [
+        { "x": 1, "y": 0.05 },
+        { "x": 2, "y": 0.0975 },
+        { "x": 3, "y": 0.1426 },
+        { "x": 4, "y": 0.1855 },
+        { "x": 5, "y": 0.2262 },
+        { "x": 6, "y": 0.2649 },
+        { "x": 7, "y": 0.3017 },
+        { "x": 8, "y": 0.3366 },
+        { "x": 9, "y": 0.3698 },
+        { "x": 10, "y": 0.4013 },
+        { "x": 12, "y": 0.4596 },
+        { "x": 15, "y": 0.5367 },
+        { "x": 20, "y": 0.6415 },
+        { "x": 25, "y": 0.7226 }
+      ]
+    }
+  ],
+  "markers": [
+    { "x": 5, "label": "5" },
+    { "x": 10, "label": "10" },
+    { "x": 20, "label": "20" }
+  ]
+}

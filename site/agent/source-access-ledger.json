@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-source-access-ledger-v1",
+  "purpose": "Consult before retrieving a source. Records what an agent found when it inspected a domain's robots file and terms, so the same check is not repeated by every author and so an exclusion one author discovered is not missed by the next. A verdict here does not replace the per-source check the rights policy requires; it tells you what was found before, and when. Re-verify anything older than the recheckAfterDays below, and append a domain the first time you check it.",
+  "recheckAfterDays": 90,
+  "domains": [
+    {
+      "domain": "openstax.org",
+      "verdict": "excluded",
+      "evidence": "robots.txt sets User-agent: GPTBot with Disallow: /books/, the path holding the book text.",
+      "checked": "2026-07-25",
+      "notes": "Do not open /books/. Four separate lesson authors reached this independently."
+    },
+    {
+      "domain": "training.cochrane.org",
+      "verdict": "excluded",
+      "evidence": "Website terms 5.2 and 5.4 prohibit text and data mining including development, training, fine-tuning or validation of AI systems, and withhold consent for such use.",
+      "checked": "2026-07-25",
+      "notes": "robots permits the chapter paths; the prohibition is in the terms, not robots. Found only by reading the terms."
+    },
+    {
+      "domain": "www.tandfonline.com",
+      "verdict": "excluded",
+      "evidence": "robots.txt disallows GPTBot.",
+      "checked": "2026-07-25",
+      "notes": "The ASA statement on p-values is reachable instead from the ASA's own release of it."
+    },
+    {
+      "domain": "www.bmj.com",
+      "verdict": "excluded",
+      "evidence": "Cloudflare challenge prevents retrieval; terms could not be established without bypassing it.",
+      "checked": "2026-07-25",
+      "notes": "Do not bypass the challenge."
+    },
+    {
+      "domain": "www.ncbi.nlm.nih.gov",
+      "verdict": "restricted",
+      "evidence": "robots.txt disallows the legacy /pmc/articles route for unnamed agents.",
+      "checked": "2026-07-25",
+      "notes": "Use pmc.ncbi.nlm.nih.gov/articles/ instead, which robots explicitly allows."
+    },
+    {
+      "domain": "pmc.ncbi.nlm.nih.gov",
+      "verdict": "allowed",
+      "evidence": "robots.txt carries Allow: /articles/.",
+      "checked": "2026-07-25",
+      "notes": "The route to use for PMC full text."
+    },
+    {
+      "domain": "pubchem.ncbi.nlm.nih.gov",
+      "verdict": "restricted",
+      "evidence": "A wildcard Disallow covers /rest/pug/.",
+      "checked": "2026-07-25",
+      "notes": "One author requested it before reading the rule to the end, discarded the value, and removed the claims depending on it."
+    },
+    {
+      "domain": "www.itl.nist.gov",
+      "verdict": "allowed",
+      "evidence": "Serves no robots file of its own; www.nist.gov/robots.txt applies and permits /div898/.",
+      "checked": "2026-07-25",
+      "notes": "The NIST/SEMATECH e-Handbook."
+    },
+    {
+      "domain": "www.niddk.nih.gov",
+      "verdict": "allowed",
+      "evidence": "robots.txt permits the health-information paths used.",
+      "checked": "2026-07-25",
+      "notes": ""
+    },
+    {
+      "domain": "plato.stanford.edu",
+      "verdict": "allowed",
+      "evidence": "robots.txt permits entry paths.",
+      "checked": "2026-07-25",
+      "notes": ""
+    },
+    {
+      "domain": "www.bipm.org",
+      "verdict": "allowed",
+      "evidence": "robots.txt permits the JCGM guidance PDFs.",
+      "checked": "2026-07-25",
+      "notes": ""
+    }
+  ]
+}

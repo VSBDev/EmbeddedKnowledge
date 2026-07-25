@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-STA-005-LD-582EF240",
+  "lessonId": "PREM-STA-005",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "21530018686f869c27ad2c651eaf4993fc7b3eb2",
+  "role": "learning-design",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev (learning-design reviewer)",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.7",
+      "runId": "agy-learning-design-PREM-STA-005-582EF240-D9F5-4629-A23B-3701EB82562B",
+      "instructionsDigest": "sha256:b5b7fb56a27364e024296b325c345f1fbea20c8a6e173d046d61b9e3f8642343"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Founding-stage isolation check: the accountable principal VSBDev operates the authoring, review, and finalization agents, so principal-level independence is absent. Agent-level role isolation was strictly maintained: no authoring history, other review output, or adjudication draft was read, and no other EmbeddedKnowledge role script was run during this review execution."
+  },
+  "evidenceChecked": [
+    "lessons/PREM-STA-005-probability-distributions/lesson.json",
+    "lessons/PREM-STA-005-probability-distributions/claims.json",
+    "lessons/PREM-STA-005-probability-distributions/references.json",
+    "lessons/PREM-STA-005-probability-distributions/glossary.json",
+    "lessons/PREM-STA-005-probability-distributions/ATTRIBUTION.md",
+    "lessons/PREM-STA-005-probability-distributions/assessment.json",
+    "lessons/PREM-STA-005-probability-distributions/charts/screening-glucose-right-skew.chart.json",
+    "lessons/PREM-STA-005-probability-distributions/charts/cohort-glucose-normal-curve.chart.json",
+    "lessons/PREM-STA-005-probability-distributions/content/01-the-curve-someone-drew.md",
+    "lessons/PREM-STA-005-probability-distributions/content/02-two-numbers-fix-the-curve.md",
+    "lessons/PREM-STA-005-probability-distributions/content/03-checking-the-model.md",
+    "lessons/PREM-STA-005-probability-distributions/content/04-a-common-ruler.md",
+    "lessons/PREM-STA-005-probability-distributions/content/05-where-the-bell-misleads.md",
+    "lessons/PREM-STA-005-probability-distributions/content/06-counting-yes-or-no.md",
+    "lessons/PREM-STA-005-probability-distributions/content/07-practice-with-the-props-removed.md",
+    "lessons/PREM-STA-005-probability-distributions/content/08-somewhere-else-entirely.md",
+    "lessons/PREM-STA-005-probability-distributions/content/09-clinical-wrap-up.md",
+    "CONTENT-STANDARD.md"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "lessons/PREM-STA-005-probability-distributions/content/03-checking-the-model.md#worked-example-check-the-normal-model",
+      "finding": "The worked example `worked-example-check-the-normal-model` is missing a self-explanation prompt about the decision that most strongly determines the solution. According to `CONTENT-STANDARD.md` Section 5.1, a worked example must include this prompt to encourage active reflection on key expert decisions.",
+      "resolution": "Add a self-explanation prompt at the end of the worked example, asking the learner to explain the key expert decision (e.g. why counting misses tail by tail is necessary for checking a normal model's fit, or how the symmetry assumption dictates the expected counts in each tail)."
+    },
+    {
+      "severity": "major",
+      "target": "lessons/PREM-STA-005-probability-distributions/content/06-counting-yes-or-no.md#worked-example-five-patients",
+      "finding": "The worked example `worked-example-five-patients` is missing a self-explanation prompt about the decision that most strongly determines the solution. According to `CONTENT-STANDARD.md` Section 5.1, a worked example must include this prompt to encourage active reflection on key expert decisions.",
+      "resolution": "Add a self-explanation prompt at the end of the worked example, asking the learner to reflect on the key choice of using independent trials of individual people instead of repeated nights, or why a discrete model's point probability can be non-zero while a continuous model's point probability is zero."
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-STA-005-probability-distributions/content/01-the-curve-someone-drew.md#scene-curve-someone-drew",
+      "finding": "First-read check: The lesson opener uses a concrete scenario (drawing a smooth bell curve over a glucose histogram at a study meeting) to introduce the decision to model data with a continuous distribution. It clearly separates the statistical, clinical, and everyday meanings of the word 'normal' right away, reducing learner confusion. The tone is engaging, concrete, and highly natural. A learner at the prerequisite level can easily explain what they are about to study and why it matters.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-STA-005-probability-distributions/content/08-somewhere-else-entirely.md#scene-transfer-length-of-stay",
+      "finding": "Transfer scene: The lesson contains an excellent transfer task in Scene 8, moving the curve-checking procedure to a completely new domain, unit, and service (hospital length of stay in days). It demonstrates how a symmetric normal curve fails to model quantities with a hard floor of 1 day and a standard deviation (5.8) almost as large as the mean (6.2), as the lower bound falls below zero, illustrating a shape failure before any data is consulted.",
+      "resolution": null
+    }
+  ],
+  "limitations": [
+    "Expert-simulation review: This review represents a single-pass advisory input by a simulated learning-design expert under standard-lesson-v3 guidelines. No real learner testing was conducted.",
+    "Conflict of interest: The same GitHub principal (VSBDev) is responsible for the authoring and review run operators. Agent-level isolation was maintained, but principal-level independence is absent.",
+    "Scope restriction: The review is strictly bounded to learning-design metrics (e.g., clarity, coherence, practice, alignment, and transfer). Scientific accuracy, rights audits, and final typesetting checks are excluded.",
+    "Technical verification limits: No rendered build environment, screen reader, or keyboard navigation pathways were evaluated physically; findings are based solely on the static Markdown and JSON source files.",
+    "Terminology check limits: Unable to verify potential terminology collisions or sense shifts with other premed lessons because the review scope prohibits reading `site/data/premed-terminology.json`, other lesson packs, or scripts."
+  ],
+  "signedAt": "2026-07-25T14:46:00Z"
+}
