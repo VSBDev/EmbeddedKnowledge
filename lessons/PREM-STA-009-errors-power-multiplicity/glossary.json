@@ -141,7 +141,7 @@
     {
       "id": "term-family-wise-error-rate",
       "term": "family-wise error rate",
-      "definition": "The probability of at least one Type I error across a whole set of tests. For k independent tests each at level alpha it equals 1 minus (1 minus alpha) raised to the power k, so five comparisons at 0.05 give 0.226 and twenty give 0.642. Correlated tests give a lower figure, which makes the independent formula a ceiling.",
+      "definition": "The probability of at least one Type I error across a whole set of tests. For k independent tests each at level alpha it equals 1 minus (1 minus alpha) raised to the power k, so five comparisons at 0.05 give 0.226. Without the joint dependence structure the exact rate cannot be inferred from k and alpha alone; the general Bonferroni upper bound is the smaller of 1 and k times alpha.",
       "aliases": [
         "FWER",
         "family-wise Type I error rate"
@@ -169,7 +169,7 @@
     {
       "id": "term-prespecified-analysis",
       "term": "prespecified analysis",
-      "definition": "A comparison named in the study protocol before the data were seen. Prespecification is what allows a stated false-alarm rate to be believed, because the comparison was not chosen by the results. A comparison selected after looking at the data has an unknown error rate, however it is later described.",
+      "definition": "A comparison named in the study protocol before the data were seen. Prespecification separates planned tests from data-selected ones and improves interpretability, but it does not remove multiplicity when several comparisons were planned; a confirmatory strategy must also allocate its error rate across the planned family.",
       "aliases": [
         "prespecified outcome",
         "primary outcome"
@@ -182,13 +182,13 @@
       "alignment": {
         "priorLesson": "PREM-SCI-009",
         "relation": "extend",
-        "note": "PREM-SCI-009 defines preregistration as a dated research plan recorded before the relevant outcomes are known, so that planned decisions can be told apart from later changes and exploration. This lesson keeps that meaning and extends what hangs on it: prespecification is what makes the significance level of a comparison a believable number, and the multiplicity arithmetic is what quantifies the damage when it is missing. The earlier lesson's distinction between planned and exploratory analysis is used here without being redefined."
+        "note": "PREM-SCI-009 defines preregistration as a dated research plan recorded before the relevant outcomes are known, so that planned decisions can be told apart from later changes and exploration. This lesson keeps that meaning and adds the multiplicity boundary: prespecification prevents data-driven selection but does not remove the need to control the family-wise error rate when several confirmatory comparisons are planned. The earlier lesson's distinction between planned and exploratory analysis is used here without being redefined."
       }
     },
     {
       "id": "term-subgroup-analysis",
       "term": "subgroup analysis",
-      "definition": "A comparison carried out within part of the study population, such as women over 60 or patients above a body mass index cut-point. Each subgroup is smaller than the whole study, so each has lower power, and examining many of them multiplies the chance that one crosses the threshold by chance alone.",
+      "definition": "A comparison carried out within part of the study population, such as women over 60 or patients above a body mass index cut-point. Subgroups are usually smaller than the whole study, and examining many raises multiplicity concerns. A claim that effects differ between subgroups requires an appropriate interaction analysis, not merely significance in one subgroup and non-significance in another.",
       "aliases": [
         "subgroup effect"
       ],

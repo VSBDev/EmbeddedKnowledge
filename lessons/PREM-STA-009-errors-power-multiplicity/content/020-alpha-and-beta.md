@@ -29,7 +29,7 @@ $$1.96 \times 4.13 = 8.09 \text{ mg/dL},$$
 
 because a two-sided test at $\alpha = 0.05$ rejects the null when the reported difference sits more than 1.96 standard errors from zero. Any reported gap beyond $+8.09$ or below $-8.09$ crosses. The study reported 9.0, which clears $+8.09$ with a little to spare, and that is the same fact as $p = 0.029$ said differently.
 
-Notice what fixing $\alpha$ has bought. Across a great many studies of populations where dinner timing truly does nothing, 5 in 100 would still report a gap past those lines. That rate holds whatever the sample size, whatever the variability, whatever the disease. It is guaranteed by construction, because the threshold was placed to guarantee it.
+Notice what fixing $\alpha$ has bought. Across a great many studies of populations where dinner timing truly does nothing, 5 in 100 would still report a gap past those lines, provided the sampling or randomisation process and test assumptions are valid and the analysis rule was fixed before the results were seen. Within those conditions, changing the sample size, variability, or disease does not change the chosen long-run rate, because the threshold was placed to control it.
 
 ## The one you inherit
 

@@ -121,7 +121,7 @@
     },
     {
       "id": "claim-multiplicity-inflates-false-positives",
-      "statement": "A Type I error is the incorrect rejection of a true null hypothesis, and the family-wise error rate is the probability of incorrectly rejecting at least one true null hypothesis across a set of tests; testing many hypotheses simultaneously at a fixed per-test significance level makes at least one incorrect rejection close to inevitable.",
+      "statement": "A Type I error is the incorrect rejection of a true null hypothesis, and the family-wise error rate is the probability of incorrectly rejecting at least one true null hypothesis across a set of tests; under independence, testing more true hypotheses at a fixed per-test significance level increases that probability according to one minus the probability that none is rejected.",
       "sceneIds": [
         "scene-two-ways-to-be-wrong",
         "scene-how-many-chances",
@@ -135,7 +135,7 @@
       "support": "direct",
       "confidence": "high",
       "scope": "A study or analysis in which more than one hypothesis test is carried out and each is judged against the same threshold. The source defines both terms and illustrates the inflation at 100 and at 10,000 simultaneous true hypotheses.",
-      "uncertainty": "The closed form 1 minus (1 minus alpha) raised to the power k, which this lesson derives from the complement rule and independence, assumes the tests are independent. Correlated outcomes inflate the family-wise rate by less than that expression gives, so the lesson presents it as a ceiling and says so where it is first used.",
+      "uncertainty": "The closed form 1 minus (1 minus alpha) raised to the power k assumes independent rejection events. Without the joint dependence structure, the exact family-wise rate cannot be inferred from k and alpha alone: strong positive dependence often lowers it relative to independence, while other dependence patterns can raise it. The general Bonferroni upper bound is min(1, k times alpha).",
       "risk": "routine",
       "reviewStatus": "pending-review"
     },
@@ -159,7 +159,7 @@
     },
     {
       "id": "claim-subgroups-are-exploratory",
-      "statement": "Subgroup analyses are prone to inflation of type I error through multiple testing, reports frequently fail to state whether a subgroup analysis was prespecified or performed post hoc, and such analyses are exploratory because their level of evidence is too weak to reach a definite answer, with replication in an independent trial the recommended route.",
+      "statement": "Subgroup analyses are prone to inflation of type I error through multiple testing; prespecification improves interpretability but does not by itself remove multiplicity, and a claim that effects differ between subgroups requires an appropriate interaction analysis rather than a contrast between within-subgroup significance results. Exploratory subgroup findings require confirmation in an independent study.",
       "sceneIds": [
         "scene-how-many-chances",
         "scene-transfer",
@@ -171,24 +171,8 @@
       "support": "direct",
       "confidence": "high",
       "scope": "Subgroup analyses within confirmatory clinical trials, as reviewed by the source across the regulatory and methodological literature.",
-      "uncertainty": "The source reviews confirmatory trials specifically; the reasoning carries to observational subgroup analyses, which face the same multiplicity and the additional problem of confounding, and this lesson does not extend the source's conclusions beyond the multiplicity point. Prespecification improves interpretability without removing multiplicity when many subgroups are named in advance.",
+      "uncertainty": "The source reviews confirmatory trials specifically; observational subgroup analyses face the same multiplicity issue plus possible confounding. The lesson applies the source only to multiplicity, the limits of prespecification, the need for interaction analysis when claiming heterogeneity, and the exploratory need for confirmation.",
       "risk": "routine",
-      "reviewStatus": "pending-review"
-    },
-    {
-      "id": "claim-fpg-thresholds",
-      "statement": "The US National Institute of Diabetes and Digestive and Kidney Diseases states that a fasting plasma glucose result of 99 mg/dL or below is normal, 100 to 125 mg/dL indicates prediabetes, and 126 mg/dL or above indicates diabetes, that a doctor will usually use a second test to confirm a diabetes diagnosis, and that fasting means having nothing to eat or drink except sips of water.",
-      "sceneIds": [
-        "scene-clinical-wrap-up"
-      ],
-      "sourceIds": [
-        "source-niddk-diabetes-tests"
-      ],
-      "support": "direct",
-      "confidence": "high",
-      "scope": "Reference values for the fasting plasma glucose test as published for a general US audience at the access date. Quoted in this lesson only so that the effect sizes in the journal-club case have a real clinical width to be judged against.",
-      "uncertainty": "Thresholds and their qualifications are set by clinical bodies, can be revised, and differ in presentation between countries and guidelines. The lesson makes no diagnostic, monitoring, or treatment recommendation, its clinic and cohort are invented, and whether any particular difference matters to a patient is left to a later lesson.",
-      "risk": "health-sensitive",
       "reviewStatus": "pending-review"
     }
   ]

@@ -203,12 +203,12 @@
         "maxLength": 1200
       },
       "answer": {
-        "correct": "The trial found no evidence of a difference and was too small to have established absence; its interval still allows a benefit of up to 3.9 days.",
-        "summary": "It has shown that its data are compatible with no difference, and also with a benefit of nearly four days.",
-        "reasoning": "The interval runs from 3.9 days shorter to 1.5 days longer, so it contains zero, which is why the test did not cross the threshold. It also contains a benefit of 2, 3, and nearly 4 days, every one of which would matter clinically. The trial has therefore not excluded a useful benefit; it has failed to distinguish one from nothing. A defensible conclusion reads along the lines of: this trial found no evidence that the new dressing shortens healing time, and its data remain compatible with a benefit of up to about four days, so a larger trial is needed. A response earns full marks when it separates absence of evidence from evidence of absence, quotes the interval as the reason, and produces a rewritten conclusion that no longer claims absence.",
+        "correct": "Healing time was estimated as 1.2 days shorter with the new dressing, with a 95% interval from 3.9 days shorter to 1.5 days longer; the test did not reject zero, and the interval does not exclude benefits as large as 3.9 days.",
+        "summary": "Report the nonzero estimate, interval, and non-rejection without turning them into a claim of no benefit.",
+        "reasoning": "The interval runs from 3.9 days shorter to 1.5 days longer, so it contains zero, which is why the stated test did not reject zero. It also contains benefits of 2, 3, and nearly 4 days, as well as a possible increase in healing time. The completed data therefore have not excluded those effect sizes. A defensible conclusion is: healing time was estimated as 1.2 days shorter with the new dressing (95% confidence interval 3.9 days shorter to 1.5 days longer), and the test did not reject zero; the interval does not exclude a benefit of nearly four days. A response earns full marks when it reports the estimate and interval, states the decision, and does not claim either absence or benefit.",
         "acceptableResponses": [
-          "Any answer stating that the trial failed to detect a difference rather than showing there is none, citing the interval's upper benefit of 3.9 days, and rewriting the conclusion accordingly.",
-          "An answer that additionally notes the small sample as the reason the interval is wide."
+          "Any answer reporting the 1.2-day shorter estimate, the interval from 3.9 days shorter to 1.5 days longer, the failure to reject zero, and that a benefit of up to 3.9 days remains compatible with the data.",
+          "An answer that states the same quantities and says the interval does not establish either no benefit or a benefit."
         ],
         "commonErrors": [
           "Agreeing with the trial's conclusion because the interval contains zero, which reads a wide interval as a null finding.",
@@ -299,7 +299,7 @@
       "outcomeIds": [
         "topic-statistics-data-errors-power"
       ],
-      "prompt": "Read the extract below. In no more than 120 words, calculate the relevant probability, name which of the two errors the reader is at risk of committing, and state what the finding is worth.",
+      "prompt": "Read the extract below. In no more than 120 words, state whether the exact family-wise error rate can be calculated from the information given, give the general Bonferroni upper bound, name the error risk if the highlighted subgroup null is true, and state what the finding is worth.",
       "stimulus": "From the discussion of a cohort study: \"Overall, evening meal timing was not associated with fasting glucose. However, among participants with a diabetes duration above ten years, later dinner was associated with a 10 mg/dL higher mean fasting glucose (p = 0.04). This subgroup should be prioritised for dietary counselling.\" The methods section records that eighteen subgroups were examined and that the analysis plan named none of them.",
       "points": 12,
       "responseSpec": {
@@ -307,16 +307,16 @@
         "maxLength": 1000
       },
       "answer": {
-        "correct": "1 minus 0.95 to the power 18 is about 0.60; the reader risks a Type I error; the finding is a hypothesis, not a result.",
-        "summary": "About a 60% chance that a wholly null study produces at least one crossing subgroup, so the finding is exploratory.",
-        "reasoning": "Eighteen independent comparisons at 0.05 give a family-wise error rate of 1 minus 0.95 raised to the power 18, which is 0.603. So even if evening meal timing does nothing in any subgroup, a study examining eighteen of them has a roughly three-in-five chance of producing at least one that crosses. Acting on this subgroup risks a Type I error: treating as real an association that is not there. Because no subgroup was named in the analysis plan, the comparison was chosen after the data were seen and its false-alarm rate is unknown. The finding is worth one thing, which is a question for a study that names this subgroup in advance. The recommendation to prioritise dietary counselling is not supported.",
+        "correct": "The exact family-wise error rate cannot be calculated without the joint dependence structure; the Bonferroni upper bound is 18 times 0.05, or 0.90. If this subgroup null is true, acting on the selected crossing risks a Type I error. The result is exploratory and needs a prespecified confirmatory strategy.",
+        "summary": "Dependence is unspecified, so there is no exact family-wise probability; 0.90 is a general upper bound, and the selected subgroup is hypothesis-generating.",
+        "reasoning": "The eighteen subgroup analyses reuse participants, and the prompt supplies no joint dependence structure. Therefore 1 minus 0.95 raised to the power 18 is not justified: it would be exact only for independent rejection events. The Bonferroni inequality gives the valid general upper bound min(1, 18 times 0.05), which is 0.90. If the highlighted subgroup null is true, acting on its selected crossing would be a Type I error. Because none of the subgroups was named in a confirmatory analysis plan, the selected p-value has no known selection-adjusted false-alarm rate. The result is worth a hypothesis for a prespecified confirmatory strategy with multiplicity control; a claim of subgroup heterogeneity would also require an appropriate interaction analysis. The counselling recommendation is unsupported.",
         "acceptableResponses": [
-          "Any answer computing 0.60 or 60%, naming the Type I error, and treating the subgroup as hypothesis-generating.",
-          "An answer that also notes that the subgroup is smaller than the whole cohort, so it has lower power as well as an inflated false-alarm rate."
+          "Any answer saying the exact rate is not calculable without dependence information, giving the Bonferroni upper bound of 0.90, identifying the conditional Type I error risk, and treating the result as hypothesis-generating.",
+          "An answer that also says 1 minus 0.95 to the power 18 would apply only under independence and that a confirmatory subgroup-difference claim needs multiplicity control and an interaction analysis."
         ],
         "commonErrors": [
-          "Computing 18 times 0.05 as 0.90, which double-counts overlapping outcomes.",
-          "Naming a Type II error, on the reasoning that the overall analysis missed something; the risk being run here is acting on a crossing that chance produced.",
+          "Reporting 1 minus 0.95 to the power 18 as exact without an independence assumption.",
+          "Naming a Type II error; if the highlighted subgroup null is true, treating its selected crossing as real is a Type I error.",
           "Accepting the finding because the p-value is below 0.05, which is exactly the reading the count of eighteen is there to prevent."
         ]
       },
@@ -395,7 +395,7 @@
       "criteria": [
         {
           "id": "criterion-quantitative-anchor",
-          "description": "Produces the relevant quantity, either the effect sizes the interval still allows or the family-wise error rate implied by the number of comparisons.",
+          "description": "Produces the relevant quantitative anchor: the effect sizes the interval still allows, or a dependence-qualified family-wise statement with the valid Bonferroni bound.",
           "maxPoints": 5
         },
         {

@@ -23,7 +23,7 @@ Two curves, the same width, sitting 9.0 mg/dL apart. The critical value at $+8.0
 :::{chart} ../charts/power-null-and-alternative.chart.json
 :::
 
-Read the picture in that order. On the curve centred on zero, the slivers past $\pm 8.09$ are $\alpha$: 0.025 in each tail, 0.05 together, exactly the promise the threshold made. On the curve centred on 9.0, the same line at $+8.09$ splits the area into the part that crosses and the part that does not. The shaded part is power. The unshaded remainder, everything to the left, is $\beta$.
+Read the picture in that order. On the curve centred on zero, the slivers past $\pm 8.09$ are $\alpha$: 0.025 in each tail, 0.05 together, under the stated model. On the curve centred on 9.0, power includes both rejection tails: the area above $+8.09$ and the tiny area below $-8.09$. The chart shades only the upper component, 0.587; the omitted lower component is about 0.00002 and does not change the rounded power. $\beta$ is the area between the two critical values under the alternative curve.
 
 ## Work out the number
 
@@ -73,6 +73,8 @@ Set that equal to 3.21 and solve for $n$:
 $$n = 2\left(\frac{16}{3.21}\right)^{2} = 2 \times 24.8 = 49.7.$$
 
 **Step 3. Round up and read it back.** Fifty per group, so **100 people in total**. Check it: with 50 per group the standard error is $16\sqrt{2/50} = 3.20$ mg/dL, the critical value moves to $1.96 \times 3.20 = 6.27$ mg/dL, and the true effect of 9.0 now sits $(9.0 - 6.27)/3.20 = 0.85$ standard errors above it, giving power 0.80.
+
+**Self-explain before moving on.** Why does reducing the target difference make the required sample size rise with the inverse square of that difference? Trace the two steps: the required standard error is proportional to the target difference, while $n$ is proportional to $1/\text{SE}^{2}$.
 
 **What the answer means.** The study ran 60 people. To have had a four-in-five chance of finding the effect it was after, it needed 100. Sixty was not a small shortfall in confidence; it was a 40% chance of learning nothing from a year of work.
 :::

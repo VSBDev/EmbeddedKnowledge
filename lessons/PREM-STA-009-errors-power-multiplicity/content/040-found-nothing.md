@@ -23,37 +23,37 @@ $$4.0 \pm 1.96 \times 5.06 = -5.9 \text{ to } 13.9 \text{ mg/dL}.$$
 
 That interval contains zero, which is why the test did not cross. It also contains 9.0, the effect the larger study reported. It contains 12. It contains a 5 mg/dL fall. Every one of those is compatible with the forty readings this team collected.
 
-Now ask what the design could have done. Its critical value sits at $1.96 \times 5.06 = 9.92$ mg/dL, so it needed to see a gap of nearly 10 mg/dL to cross at all. Against a real effect of 9.0 mg/dL its power is
+Now audit what the design was capable of before the data were collected. Its critical value sits at $1.96 \times 5.06 = 9.92$ mg/dL, so it needed to see a gap of nearly 10 mg/dL to cross at all. Against a true effect of 9.0 mg/dL its design power is
 
 $$\text{power} = 0.43.$$
 
-The effect it could detect four times in five is $2.80 \times 5.06 = 14.2$ mg/dL. So if dinner timing really does raise fasting glucose by 9 mg/dL, this study was set up to miss it more often than to find it. It then missed it, and reported the miss as an answer.
+The effect it could detect four times in five is $2.80 \times 5.06 = 14.2$ mg/dL. So if dinner timing really does raise fasting glucose by 9 mg/dL, this design would fail to reject zero more often than it would reject it. That planning audit explains why a non-rejection was foreseeable; it does not tell us which true value produced the completed data. The point estimate and interval carry that evidence.
 
-**Rebuild the model.** A test above the threshold licenses one sentence: *the data are not far enough from the null to reject it at this threshold.* That sentence is a statement about the data and the rule. Converting it into *there is no effect* needs an extra ingredient nobody supplied, which is evidence that the study would have found a real effect had one been there. Power is that ingredient, and this study did not have it.
+**Rebuild the model.** A test above the threshold licenses one decision statement: *under the stated model, the data did not reject a difference of zero at this threshold.* The completed result should then report what was observed: a 4.0 mg/dL higher mean, with a 95% interval from a 5.9 mg/dL lower mean to a 13.9 mg/dL higher mean. Converting that result into *there is no effect* requires a meaningful margin fixed in advance and an interval, or a direct equivalence test, that excludes effects beyond that margin. Design power belongs to planning and design audit; it is not a second piece of evidence about which effects fit the observed data.
 
 The rule of thumb is short. **Absence of evidence is not evidence of absence.** To claim absence you need a study with the power to have found the thing, and an interval narrow enough to exclude the sizes that would matter.
 
 **Test the repair.** Four sentences. Decide which the forty-person study supports.
 
-1. "We found no evidence that dinner timing raises fasting glucose."
+1. "The late-dinner group averaged 4.0 mg/dL higher; the 95% interval ran from 5.9 mg/dL lower to 13.9 mg/dL higher, and the test did not reject zero."
 2. "We found evidence that dinner timing does not raise fasting glucose."
 3. "Our data are compatible with anything from a 6 mg/dL fall to a 14 mg/dL rise."
 4. "This study rules out an effect as large as 9 mg/dL."
 
-Sentence 1 stands: it reports what the study did and did not see. Sentence 3 stands, and it is the honest headline, because it hands the reader the whole range the data allow. Sentence 2 fails, because it converts silence into a positive finding about the world. Sentence 4 fails outright, since 9 mg/dL sits comfortably inside the interval the study produced. If you can sort those four, the repair has taken.
+Sentences 1 and 3 stand: they report the estimate, interval, and decision without erasing the nonzero observation. Sentence 2 fails, because it converts non-rejection into a positive finding about the world. Sentence 4 fails outright, since 9 mg/dL sits comfortably inside the interval the study produced. If you can sort those four, the repair has taken.
 :::
 
 ## What a study would need before claiming absence
 
 Three things, and all three have to be present together.
 
-**Power against an effect somebody named in advance.** Not the effect the study happened to see. A number written into the protocol, chosen because an effect that size would change what clinicians do.
+**A meaningful margin named in advance.** Not a boundary invented after the result. The protocol has to say which effects would count as too large to dismiss.
 
-**A confidence interval that no longer contains it.** If the interval still holds the effect you said would matter, the study has not excluded that effect, whatever the $p$-value says.
+**A confidence interval, or direct equivalence test, that excludes effects beyond that margin.** If the interval still contains an effect outside the acceptable range, the study has not excluded it, whatever the null-test $p$-value says.
 
 **An honest account of the assumptions.** The interval and the power both rest on the standard error being right, which rests on the sample being what it claims to be. A large $p$ can also come from a measurement so noisy that nothing would ever show through it.
 
-A study that satisfies all three and reports no difference has said something substantial. It has bounded the effect. That is a genuine finding, it is publishable, and it is rare, because it usually needs several times the sample size that finding an effect would need.
+A study planned with adequate power against the prespecified margin and whose completed interval excludes effects beyond it has said something substantial: it has bounded the effect. The interval or equivalence test supplies the evidence; the power calculation shows that the design was planned to obtain evidence at that resolution.
 
 ## The same trap, wearing the other coat
 
@@ -71,7 +71,7 @@ Both mistakes have the same shape. In each case a single number is read as thoug
 4. A trial of a new drug reports no difference in mortality and enrolled 80,000 patients, with an interval running from a 0.2% fall to a 0.3% rise. Does the "absence of evidence" warning apply with the same force here?
 :::
 
-The study has shown that its data sit close enough to zero that the null survives at this threshold, and nothing more. A true effect of 25 mg/dL sits far outside its interval and fits the data poorly; 9 mg/dL and 12 mg/dL sit inside it and fit perfectly well, so neither has been excluded. The power of 0.43 matters because it says the study would have missed a real 9 mg/dL effect more often than it caught it, so its silence is what you would expect either way. And the 80,000-patient trial is the case where absence really is evidence: the interval is narrow, it excludes every effect anyone would act on, and the design had the power to have seen one. Sample size is what turns a quiet result from uninformative into informative.
+The study estimated a 4.0 mg/dL higher mean, its interval includes zero, and the null test did not reject zero. A true effect of 25 mg/dL sits far outside its interval and fits the data poorly; 9 mg/dL and 12 mg/dL sit inside it, so neither has been excluded. The power of 0.43 is a design audit: if the true effect were 9 mg/dL, this design would fail to reject zero more often than it rejected it, but that probability does not rank the values inside the completed interval. The 80,000-patient trial is different only if its narrow interval excludes effects beyond a clinically prespecified margin. In that case the interval, not the non-rejection by itself, provides evidence that effects outside that margin are incompatible with the data.
 
 :::{source-note}
 :claims: claim-large-p-does-not-show-absence, claim-beta-and-power, claim-observed-power-is-uninformative

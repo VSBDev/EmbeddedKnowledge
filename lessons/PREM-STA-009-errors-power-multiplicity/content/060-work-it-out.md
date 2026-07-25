@@ -66,7 +66,7 @@ so very nearly even odds that a report of twelve dead ends contains a crossing. 
 
 *What effect was the trial designed to detect, and was that written down before it started?* With 22 per group the standard error is 4.82 mg/dL, so a trial of 44 people can detect about 13.5 mg/dL at 80% power. If the protocol named a difference near that size as the one worth finding, the trial did what it set out to do, and its silence is about differences of that size only. If the protocol named 5 mg/dL, the trial was never able to answer its own question.
 
-Either answer leaves the abstract's conclusion unsupported as written. The correct summary of that trial is that it found no evidence of a difference, and that its data remain compatible with differences large enough to matter.
+Either answer leaves the abstract's conclusion unsupported as written. A defensible summary reports the observed difference, its confidence interval, and that the stated test did not reject zero; it then says which prespecified effect sizes the interval still includes. The completed interval supplies that evidence. The design-power calculation only audits what resolution the trial was planned to achieve.
 
 :::{callout}
 :kind: boundary

@@ -1,16 +1,10 @@
 # Clinical wrap-up: the journal club that has to decide something
 
-**Teaching example, not medical advice.** The service, the meeting, the two papers, and every figure below are invented for teaching. Nothing here reports an observation about real patients or supports a diagnostic, monitoring, or treatment decision. The published reference values are quoted only to give the effect sizes a real scale to be measured against.
+**Teaching example, not medical advice.** The service, the meeting, the two papers, and every figure below are invented for teaching. Nothing here reports an observation about real patients or supports a diagnostic, monitoring, or treatment decision.
 
 A diabetes service meets on a Thursday. Two papers on evening meal timing are on the table, and by the end of the hour the service has to say whether it will run its own study and how large it would have to be.
 
-## The scale everything is measured against
-
-Before any of the numbers mean anything, the meeting needs a yardstick, and it does not come from the statistics. The US National Institute of Diabetes and Digestive and Kidney Diseases publishes reference values for the fasting plasma glucose test: 99 mg/dL or below is normal, 100 to 125 mg/dL indicates prediabetes, and 126 mg/dL or above indicates diabetes, with a doctor usually running a second test before confirming a diagnosis. Fasting means nothing to eat or drink beforehand except sips of water.
-
-The prediabetes band is 25 mg/dL wide. Hold that width in mind. A study that can only detect differences of 14 mg/dL is working at a resolution of more than half that band, and a study that reports "no difference" while its data remain compatible with 12 mg/dL has not narrowed anything usefully.
-
-Whether a difference of 9 mg/dL should change what this service tells patients is a separate question, and it belongs to the last lesson of this block. The meeting's job today is to say what each paper has established.
+Whether a difference of 9 mg/dL should change what a service tells patients is a separate clinical question, and this lesson supplies no diagnostic category or clinical threshold as a substitute for that judgement. The meeting's statistical job today is to say what each paper estimated, what its interval excludes, and what its design was planned to detect.
 
 ## Paper one: forty patients, no difference
 
@@ -20,23 +14,23 @@ Work it with the lesson's tools, in order.
 
 **Standard error.** Twenty per group, within-group standard deviation 16 mg/dL, so $16\sqrt{2/20} = 5.06$ mg/dL.
 
-**What it could detect.** $2.80 \times 5.06 = 14.2$ mg/dL at 80% power. The trial was built to notice a difference more than half the width of the prediabetes band.
+**What it was planned to detect.** $2.80 \times 5.06 = 14.2$ mg/dL at 80% power. This is a design audit, not evidence about which true effects produced the completed data.
 
 **Power against the effect actually in question.** If the true difference is the 9.0 mg/dL the larger study reported, this trial's power is 0.43. It would miss such an effect more often than it would find it.
 
 **What its data still allow.** The 95% interval runs from $-5.9$ to $13.9$ mg/dL, which contains zero, contains 9.0, and contains 12.
 
-The registrar's proposed minute reads: *paper one shows dinner timing does not affect fasting glucose.* The corrected minute reads: *paper one found no evidence of a difference and was not large enough to have found one; its data remain compatible with a rise of up to about 14 mg/dL.* That is the sentence that keeps the question open, and the question deserves to stay open.
+The registrar's proposed minute reads: *paper one shows dinner timing does not affect fasting glucose.* The corrected minute reads: *paper one estimated a 4.0 mg/dL higher mean, with a 95% interval from 5.9 mg/dL lower to 13.9 mg/dL higher, and its null test did not reject zero.* The interval includes the 9.0 mg/dL target; the power calculation separately shows that the design was not planned to resolve that target reliably.
 
 ## Paper two: a subgroup that crossed
 
 The second paper is a larger cohort with no overall association. Its discussion highlights women over 60, where late diners ran 11 mg/dL higher, $p = 0.03$. The methods section, four pages earlier, records that twenty subgroups were examined and that none was named in the protocol.
 
-$$1 - 0.95^{20} = 0.64.$$
+If twenty tests were independent, $1 - 0.95^{20} = 0.64$. These subgroup tests overlap, so their exact family-wise rate cannot be inferred without their joint dependence structure.
 
-Roughly two chances in three that a wholly null study delivers at least one crossing subgroup, and this study delivered exactly one. The finding is what the arithmetic predicted, arrived at in the way the arithmetic predicted, and it was selected for the discussion because it crossed.
+The count still matters: the highlighted $p=0.03$ was selected from twenty attempts, so it cannot be read as the false-alarm rate of a lone prespecified comparison.
 
-The right minute is not that the finding is false. It is that the study cannot tell anyone whether it is true. A comparison chosen after the data were seen has no known false-alarm rate, so nothing about it is quantified. It becomes a hypothesis, and a hypothesis is tested by asking the question in advance somewhere else. The service already knows this instinct from the clinic: an unexpected result gets repeated before it gets acted on.
+The right minute is not that the finding is false. It is that the study cannot tell anyone whether it is true. A comparison chosen after the data were seen has no known selection-adjusted false-alarm rate. It becomes a hypothesis for a prespecified confirmatory study. If the claim is that the association differs by age or sex, that study also needs an appropriate interaction analysis rather than a contrast between one subgroup that crossed and others that did not.
 
 ## The decision: what would the service's own study need?
 
@@ -54,7 +48,7 @@ The meeting picks Option A, because 100 patients is reachable and 148 is not, an
 
 **A threshold is a promise about one comparison.** It says how often a true null will be rejected, and it says it once. Run the comparison five times, or twenty, and the promise no longer covers the report as a whole. Count the comparisons before reading any single one.
 
-**A quiet result is only as informative as the study was capable.** Before accepting that something has no effect, ask what effect the design could have detected and what its interval still allows. A small study's silence is the sound of a small study.
+**A quiet result is only as informative as the interval it produced.** Before accepting that clinically relevant effects have been excluded, ask whether the interval lies inside a meaningful margin named in advance. Use power to audit what the design was planned to resolve, not to rank the true values compatible with completed data.
 
 **Both errors have a price, and the design fixes the exchange rate.** Guard harder against a false alarm and you concede more misses, unless you buy your way out with more patients. Nothing in the arithmetic decides which error is worse in a given clinical setting, and that decision has to be made by people who know what happens next to the patient.
 
@@ -76,8 +70,8 @@ The service is offered a fourth option. A neighbouring clinic will contribute 40
 Five outcomes at equal weight take $0.05 / 5 = 0.01$ each. With 50 per group the standard error is 3.20 mg/dL, so the detectable effect becomes $3.42 \times 3.20 = 10.9$ mg/dL. The offer therefore converts a study that could detect 9.0 mg/dL into one that can only reliably detect 10.9, while adding forty patients. It buys protection against the first kind of error, which the service was not short of, by conceding ground on the second kind, which was the binding constraint all along. Declining, and offering the neighbouring clinic's outcomes a place in the exploratory section, keeps the study able to answer the question it was built for.
 
 :::{source-note}
-:claims: claim-fpg-thresholds, claim-large-p-does-not-show-absence, claim-beta-and-power, claim-sample-size-formula, claim-multiplicity-inflates-false-positives, claim-bonferroni-adjustment, claim-subgroups-are-exploratory
-:sources: source-niddk-diabetes-tests, source-greenland-misinterpretations, source-nist-statistical-tests, source-nist-sample-sizes, source-chen-multiple-comparisons, source-tanniou-subgroups
+:claims: claim-large-p-does-not-show-absence, claim-beta-and-power, claim-sample-size-formula, claim-multiplicity-inflates-false-positives, claim-bonferroni-adjustment, claim-subgroups-are-exploratory
+:sources: source-greenland-misinterpretations, source-nist-statistical-tests, source-nist-sample-sizes, source-chen-multiple-comparisons, source-tanniou-subgroups
 
-These sources support the fasting plasma glucose reference values and confirmation practice quoted above, the limits of what a result above the threshold licenses, power and its complement the Type II error rate, the sample-size relation built from the two normal quantiles with the standard deviation and the difference to be detected, the rise in the family-wise error rate with the number of comparisons and the Bonferroni adjustment that answers it, and the exploratory standing of subgroup findings together with their need for replication. The service, the meeting, the two papers, the three options, and every figure computed here are original teaching material and describe no real clinic or study.
+These sources support the limits of what a result above the threshold licenses, power and its complement the Type II error rate, the sample-size relation built from the two normal quantiles with the standard deviation and the difference to be detected, the rise in the family-wise error rate with the number of comparisons and the Bonferroni adjustment that answers it, and the multiplicity, interaction-analysis, exploratory-status, and replication boundaries for subgroup findings. The service, the meeting, the two papers, the three options, and every figure computed here are original teaching material and describe no real clinic or study.
 :::
