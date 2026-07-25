@@ -125,7 +125,10 @@ function plot(chart, b, s) {
       out += `<path d="${d}" class="ek-chart-line ${cls}" fill="none"/>`;
     }
     if (series.points?.length) {
-      if (chart.type === "scatter") {
+      // A series may override the chart type's default mark, so one plot can carry the observations
+      // as dots and a fitted line over the same axes without becoming two charts.
+      const mark = series.mark ?? (chart.type === "scatter" ? "point" : "line");
+      if (mark === "point") {
         out += series.points.map((p) => `<circle cx="${round(s.x(p.x))}" cy="${round(s.y(p.y))}" r="4" class="ek-chart-point ${cls}"/>`).join("");
       } else {
         const d = series.points.map((p, j) => `${j ? "L" : "M"} ${round(s.x(p.x))} ${round(s.y(p.y))}`).join(" ");

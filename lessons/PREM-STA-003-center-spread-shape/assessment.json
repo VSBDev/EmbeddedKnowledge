@@ -1,0 +1,427 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-assessment-v1",
+  "lessonId": "PREM-STA-003",
+  "lessonVersion": "0.1.0",
+  "assessmentId": "assessment-centre-spread-shape",
+  "title": "Centre, spread, and distribution shape mastery gate",
+  "purpose": "mastery-gate",
+  "attemptPolicy": {
+    "retakeable": true,
+    "timeLimitMinutes": null,
+    "feedback": "after-attempt"
+  },
+  "items": [
+    {
+      "id": "item-compute-standard-deviation",
+      "type": "numeric",
+      "sceneId": "scene-worked-example",
+      "objectiveIds": [
+        "objective-calculate-spread"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-center-spread"
+      ],
+      "prompt": "Five fasting glucose readings from one participant are 136, 148, 150, 152, and 164 mg/dL. Report the sample standard deviation in mg/dL, to one decimal place.",
+      "stimulus": null,
+      "points": 3,
+      "responseSpec": {
+        "mode": "number",
+        "units": "mg/dL",
+        "tolerance": 0.2
+      },
+      "answer": {
+        "correct": 10,
+        "summary": "10.0 mg/dL.",
+        "reasoning": "The five readings total 750, so the mean is 750 / 5 = 150 mg/dL. The deviations are -14, -2, 0, 2 and 14, which sum to zero as they must. Their squares are 196, 4, 0, 4 and 196, summing to 400. Dividing by n - 1 = 4 gives a variance of 100 mg squared per dL squared, and the square root of 100 is a standard deviation of 10.0 mg/dL. A quick sanity check: the deviations run from 0 to 14, so a typical distance of 10 sits sensibly among them.",
+        "acceptableResponses": [
+          "10",
+          "10.0",
+          "10.0 mg/dL",
+          "s = 10 mg/dL"
+        ],
+        "commonErrors": [
+          "Dividing the squared total by 5 instead of 4, which gives 80 and a standard deviation of 8.9",
+          "Reporting the variance of 100 instead of taking the square root",
+          "Averaging the unsquared deviations, which gives zero for every data set",
+          "Omitting the unit or attaching mg squared per dL squared to the standard deviation"
+        ]
+      },
+      "rubricId": "rubric-compute-standard-deviation",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-compute-iqr",
+      "type": "numeric",
+      "sceneId": "scene-spread",
+      "objectiveIds": [
+        "objective-calculate-spread"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-center-spread"
+      ],
+      "prompt": "A fictional laboratory reports the five-number summary of 120 fasting glucose readings as minimum 88, lower quartile 118, median 133, upper quartile 161, maximum 244 mg/dL. Report the interquartile range in mg/dL.",
+      "stimulus": null,
+      "points": 3,
+      "responseSpec": {
+        "mode": "number",
+        "units": "mg/dL",
+        "tolerance": 0
+      },
+      "answer": {
+        "correct": 43,
+        "summary": "43 mg/dL.",
+        "reasoning": "The interquartile range is the upper quartile minus the lower quartile, so 161 - 118 = 43 mg/dL. It is the width of the middle half of the readings, meaning 60 of these 120 people sit between 118 and 161 mg/dL. The range, by contrast, is 244 - 88 = 156 mg/dL, more than three times as wide, because it is fixed entirely by the single lowest and single highest readings.",
+        "acceptableResponses": [
+          "43",
+          "43 mg/dL",
+          "IQR = 43 mg/dL"
+        ],
+        "commonErrors": [
+          "Reporting 156, which is the range rather than the interquartile range",
+          "Subtracting the median from the upper quartile, giving 28",
+          "Reporting the interval 118 to 161 without subtracting"
+        ]
+      },
+      "rubricId": "rubric-compute-iqr",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-choose-summary-skewed",
+      "type": "single-choice",
+      "sceneId": "scene-misconception",
+      "objectiveIds": [
+        "objective-choose-centre"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-center-spread"
+      ],
+      "prompt": "A clinic audit of 60 adults shows a long right tail in its histogram and reports a mean fasting glucose of 160 mg/dL and a median of 140 mg/dL, with quartiles at 122 and 179 and a maximum of 382 mg/dL. Which line belongs in the audit summary?",
+      "stimulus": null,
+      "points": 2,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-skewed-mean",
+            "text": "The mean of 160 mg/dL, because it is calculated from every reading and therefore uses all the information."
+          },
+          {
+            "id": "option-skewed-median",
+            "text": "The median of 140 mg/dL with quartiles of 122 and 179, together with the visible upper tail, because the inspected long right tail has made the mean a poor description of the middle."
+          },
+          {
+            "id": "option-skewed-trimmed",
+            "text": "The mean recalculated after deleting every reading above 250 mg/dL, because those readings are outliers."
+          },
+          {
+            "id": "option-skewed-mode",
+            "text": "The mode, because it is the only centre summary the tail cannot affect."
+          }
+        ]
+      },
+      "answer": {
+        "correct": "option-skewed-median",
+        "summary": "The median with its quartiles and the inspected upper tail.",
+        "reasoning": "The histogram establishes the long right tail; the 20 mg/dL mean-median gap is consistent with it, but would not diagnose it by itself. Half the sample sits below 140, while high observations load the total and make the mean a poor description of the middle. Deleting every reading above a cut-off without investigating validity could discard accurate observations as well as errors. An exact-value sample mode may be absent or unstable at fine measurement precision, but a histogram's modal interval or a population-density mode can still reveal one or several peaks.",
+        "acceptableResponses": [],
+        "commonErrors": [
+          "Treating the mean as automatically better because it uses every value",
+          "Deleting high readings rather than reporting a resistant summary alongside the tail",
+          "Confusing an unstable exact-value sample mode with the potentially informative modal intervals or density peaks of continuous data"
+        ]
+      },
+      "rubricId": "rubric-choose-summary-skewed",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-median-only-trap",
+      "type": "single-choice",
+      "sceneId": "scene-misconception",
+      "objectiveIds": [
+        "objective-choose-centre",
+        "objective-read-shape"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-center-spread"
+      ],
+      "prompt": "That same fictional clinic runs an intervention aimed at its five highest readings. Those readings change from 280, 300, 320, 340, and 382 mg/dL to 178, 179, 180, 181, and 184 mg/dL, while nobody else changes. The mean falls from 160 to 148 mg/dL and the median stays at 140 mg/dL. What should the follow-up report give?",
+      "stimulus": null,
+      "points": 3,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-converse-median-only",
+            "text": "The median alone, because it resists extreme values and is therefore the safer summary to publish."
+          },
+          {
+            "id": "option-converse-mean-only",
+            "text": "The mean alone, because the median failed to detect the change and has been shown unreliable."
+          },
+          {
+            "id": "option-converse-both-plus-tail",
+            "text": "Both centre summaries, together with the upper quartile and the maximum, because the change happened in the tail and only summaries that respond to the tail can report it."
+          },
+          {
+            "id": "option-converse-drop-changed",
+            "text": "The mean recalculated with the five changed patients removed, so that the before and after groups are comparable."
+          }
+        ]
+      },
+      "answer": {
+        "correct": "option-converse-both-plus-tail",
+        "summary": "Both centre summaries plus the upper tail.",
+        "reasoning": "Resistance works in both directions. The median is built from the 30th and 31st readings in rank order, and those observations were untouched, so it does not move. A median-only report would state that nothing changed, which is false. The mean moves from 160 to 148 mg/dL because the total falls by exactly 720 mg/dL. Neither centre summary is wrong; each answers a different question, and this intervention targeted exactly the part of the distribution that neither centre summary describes well, which is why the upper quartile and maximum belong in the report. Removing the five changed observations would delete the only effect there was.",
+        "acceptableResponses": [],
+        "commonErrors": [
+          "Over-applying the skew repair and treating the median as always safer",
+          "Concluding from an unchanged median that the intervention did nothing",
+          "Discarding the changed observations rather than reporting the tail"
+        ]
+      },
+      "rubricId": "rubric-median-only-trap",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-diagnose-shape",
+      "type": "data-interpretation",
+      "sceneId": "scene-transfer",
+      "objectiveIds": [
+        "objective-read-shape"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-center-spread"
+      ],
+      "prompt": "An emergency department audits the time from arrival to first analgesia for 150 patients and reports: mean 52 minutes, median 34, lower quartile 21, upper quartile 61, minimum 4, maximum 388, standard deviation 58. You cannot see the data. State what shape these numbers provisionally suggest, give the two comparisons that led you there, explain why they are not conclusive, name the plot or data you would request, and name the summaries you would print while investigating.",
+      "stimulus": null,
+      "points": 5,
+      "responseSpec": {
+        "mode": "text",
+        "maxLength": 1200
+      },
+      "answer": {
+        "correct": "A long right tail is a provisional hypothesis: the mean exceeds the median by 18 minutes and the standard deviation of 58 exceeds both the interquartile range of 40 and the roughly 30-minute normal-reference value implied by that interquartile range. These summaries do not identify shape, so request a histogram or ordered raw values. Meanwhile report the median of 34 minutes with quartiles 21 to 61 and keep the maximum visible.",
+        "summary": "The summaries warn of a possible long right tail but do not diagnose it; request a histogram or ordered values, and report the median, quartiles, and tail while investigating.",
+        "reasoning": "Two warnings agree. First, the mean of 52 minutes sits 18 minutes above the median of 34. Second, the interquartile range is 61 - 21 = 40 minutes, while the standard deviation is 58 minutes; a normal reference would put the standard deviation near 40 / 1.35, about 30. The maximum of 388 makes a long upper tail plausible. None of these summaries can exclude a heavy-tailed, truncated, or mixed distribution with similar values, so a histogram, box plot with the observations, or ordered raw data is needed before concluding shape. While investigating, print the median of 34 minutes with quartiles 21 to 61, and report the maximum and a count beyond a predeclared audit threshold so the extreme waits remain visible.",
+        "acceptableResponses": [
+          "The summaries suggest right skew because the mean is 18 above the median and 58 is large relative to the IQR of 40, but that is provisional. Request a histogram or raw values; report median 34, quartiles 21 to 61, and the maximum meanwhile.",
+          "A long upper tail is plausible from the mean-median gap, the normal-reference comparison, and the maximum of 388, but summaries cannot prove shape. Inspect a plot; print the median and quartiles with the tail visible.",
+          "Possible right skew, not a diagnosis: mean minus median is 18 and 58 is well above the roughly 30 normal-reference SD for an IQR of 40. Ask for ordered data and report median 34, quartiles 21 to 61, and maximum 388."
+        ],
+        "commonErrors": [
+          "Naming right skew as certain without requesting a plot or the raw observations",
+          "Giving only one of the two comparisons",
+          "Computing the interquartile range as 61 - 34 or 34 - 21 rather than 61 - 21",
+          "Recommending the mean because it is the familiar summary",
+          "Reporting a centre summary alone and leaving the 388-minute wait invisible"
+        ]
+      },
+      "rubricId": "rubric-diagnose-shape",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-standardized-difference",
+      "type": "numeric",
+      "sceneId": "scene-clinical-wrap-up",
+      "objectiveIds": [
+        "objective-interpret-standard-deviation"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-center-spread"
+      ],
+      "prompt": "A separate fictional trial reports a mean difference of 7.2 mg/dL in fasting glucose between its two arms, with a within-arm standard deviation of 24 mg/dL. Express the difference as a multiple of the within-arm standard deviation, to two decimal places.",
+      "stimulus": null,
+      "points": 3,
+      "responseSpec": {
+        "mode": "number",
+        "units": null,
+        "tolerance": 0.01
+      },
+      "answer": {
+        "correct": 0.3,
+        "summary": "0.30 standard deviations.",
+        "reasoning": "Divide the difference by the standard deviation: 7.2 / 24 = 0.30. The mg/dL in the numerator cancels the mg/dL in the denominator, which is the whole point of the calculation and the reason it works only because the standard deviation carries the same unit as the data. The result of 0.30 says the gap between the arms is about three tenths of the distance a typical patient sits from their own arm's mean, and because it has no unit it can be set beside a standardized difference from a trial that measured something entirely different. It says nothing about whether the difference matters clinically.",
+        "acceptableResponses": [
+          "0.3",
+          "0.30",
+          "0.30 SD",
+          "0.3 standard deviations"
+        ],
+        "commonErrors": [
+          "Inverting the ratio to give 24 / 7.2 = 3.33",
+          "Attaching mg/dL to the answer when the units have cancelled",
+          "Dividing by the variance of 576 instead of the standard deviation",
+          "Reading 0.30 as a probability or as a claim about clinical importance"
+        ]
+      },
+      "rubricId": "rubric-standardized-difference",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-why-sd-not-variance",
+      "type": "short-answer",
+      "sceneId": "scene-spread",
+      "objectiveIds": [
+        "objective-interpret-standard-deviation"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-center-spread"
+      ],
+      "prompt": "The cohort's variance is 324 and its standard deviation is 18. Give the unit of each, and explain in two or three sentences why a results table prints the second and not the first.",
+      "stimulus": null,
+      "points": 3,
+      "responseSpec": {
+        "mode": "text",
+        "maxLength": 700
+      },
+      "answer": {
+        "correct": "The variance is 324 mg squared per dL squared and the standard deviation is 18 mg/dL. The table prints 18 because it shares the unit of the data and can therefore be compared directly with the mean of 142 mg/dL or a group difference of 9 mg/dL, while squared milligrams per squared decilitre answers no question a reader has.",
+        "summary": "Variance in mg squared per dL squared, standard deviation in mg/dL; only the second is comparable with the other numbers in the table.",
+        "reasoning": "Squaring the deviations was needed so that positive and negative distances would not cancel, and it left the result in squared units. Taking the square root undoes that and returns the spread to mg/dL. That matters because every other quantity in a glucose results table is in mg/dL: the mean, the group difference, the laboratory's measurement precision. A spread measure in the same unit can be set beside all of them and read as a distance; a spread measure in squared units cannot.",
+        "acceptableResponses": [
+          "Variance: mg squared per dL squared. Standard deviation: mg/dL. Only the standard deviation is in the same unit as the readings, so only it can be compared with the mean or with a difference between groups.",
+          "324 is in squared units and 18 is in mg/dL. Readers reason in mg/dL, so the square root is the number that can sit next to a mean of 142 and mean something.",
+          "The variance carries mg squared per dL squared because the deviations were squared; the standard deviation carries mg/dL because the square root undid it, and that is the unit the rest of the table uses."
+        ],
+        "commonErrors": [
+          "Giving both quantities the same unit",
+          "Saying the standard deviation is preferred because it is smaller",
+          "Explaining that the square root is taken without saying what the units do",
+          "Claiming the variance is wrong rather than that it is in an unusable unit"
+        ]
+      },
+      "rubricId": "rubric-why-sd-not-variance",
+      "safetyCritical": false
+    }
+  ],
+  "rubrics": [
+    {
+      "id": "rubric-compute-standard-deviation",
+      "title": "Standard deviation from raw values",
+      "criteria": [
+        {
+          "id": "criterion-sd-mean-and-deviations",
+          "description": "Finds the mean of 150 mg/dL and deviations that sum to zero.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-sd-divisor",
+          "description": "Divides the squared total of 400 by n - 1 = 4 to reach a variance of 100.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-sd-root-and-unit",
+          "description": "Takes the square root and reports 10.0 mg/dL with the correct unit.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-compute-iqr",
+      "title": "Interquartile range from a five-number summary",
+      "criteria": [
+        {
+          "id": "criterion-iqr-quartiles-selected",
+          "description": "Selects the upper and lower quartiles rather than the extremes or the median.",
+          "maxPoints": 2
+        },
+        {
+          "id": "criterion-iqr-value-and-unit",
+          "description": "Reports 43 mg/dL with the correct unit.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-choose-summary-skewed",
+      "title": "Choosing a centre summary under skew",
+      "criteria": [
+        {
+          "id": "criterion-skewed-choice",
+          "description": "Selects the median with its quartiles for a right-skewed distribution.",
+          "maxPoints": 2
+        }
+      ]
+    },
+    {
+      "id": "rubric-median-only-trap",
+      "title": "Recognizing what a resistant summary hides",
+      "criteria": [
+        {
+          "id": "criterion-converse-choice",
+          "description": "Selects reporting both centre summaries together with the upper tail.",
+          "maxPoints": 2
+        },
+        {
+          "id": "criterion-converse-reason",
+          "description": "Avoids the two failure routes of a median-only report and of deleting the changed observations.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-diagnose-shape",
+      "title": "Using summaries as provisional shape warnings",
+      "criteria": [
+        {
+          "id": "criterion-shape-named",
+          "description": "Names a long right tail as a provisional hypothesis rather than a conclusion.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-shape-comparison-centre",
+          "description": "Gives the mean-above-median comparison with its size of about 18 minutes.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-shape-comparison-spread",
+          "description": "Computes the interquartile range as 40 minutes and compares the standard deviation of 58 with the roughly 30-minute normal-reference value.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-shape-evidence-request",
+          "description": "States that the summaries are not conclusive and requests a histogram, suitable observation plot, or ordered raw data.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-shape-reporting-choice",
+          "description": "Recommends the median with quartiles and keeps the upper tail visible.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-standardized-difference",
+      "title": "A difference expressed in standard deviations",
+      "criteria": [
+        {
+          "id": "criterion-standardized-ratio",
+          "description": "Divides the difference by the standard deviation in the correct order to obtain 0.30.",
+          "maxPoints": 2
+        },
+        {
+          "id": "criterion-standardized-units",
+          "description": "Reports the result without a unit, recognizing that mg/dL cancels.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-why-sd-not-variance",
+      "title": "Units of variance and standard deviation",
+      "criteria": [
+        {
+          "id": "criterion-units-both",
+          "description": "Gives mg squared per dL squared for the variance and mg/dL for the standard deviation.",
+          "maxPoints": 2
+        },
+        {
+          "id": "criterion-units-reason",
+          "description": "Explains that only the standard deviation can be compared with the mean, a group difference, or a measurement precision because it shares their unit.",
+          "maxPoints": 1
+        }
+      ]
+    }
+  ]
+}
