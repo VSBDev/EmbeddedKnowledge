@@ -6,10 +6,10 @@ function readOptionalJson(filePath) {
   return fs.existsSync(filePath) ? JSON.parse(fs.readFileSync(filePath, "utf8")) : null;
 }
 
-function renderPackMarkdown(packPath, relativePath, publicAssetBase) {
+function renderPackMarkdown(packPath, relativePath, publicAssetBase, thirdPartyAssets) {
   const sourcePath = path.join(packPath, relativePath);
   if (!fs.existsSync(sourcePath)) return null;
-  return renderLessonMarkdown(fs.readFileSync(sourcePath, "utf8"), { packPath, sourcePath, publicAssetBase });
+  return renderLessonMarkdown(fs.readFileSync(sourcePath, "utf8"), { packPath, sourcePath, publicAssetBase, thirdPartyAssets });
 }
 
 export function productionLessonReaderUrl(lessonId) {
@@ -33,7 +33,7 @@ export function buildProductionLessonArtifact({ packPath, metadata, publicAssetB
     objectives: metadata.objectives,
     scenes: metadata.scenes.map((scene) => ({
       ...scene,
-      contentHtml: renderPackMarkdown(packPath, scene.source, publicAssetBase)
+      contentHtml: renderPackMarkdown(packPath, scene.source, publicAssetBase, metadata.thirdPartyAssets)
     })),
     authors: metadata.authors,
     license: metadata.license,
@@ -43,6 +43,6 @@ export function buildProductionLessonArtifact({ packPath, metadata, publicAssetB
     references: readOptionalJson(path.join(packPath, metadata.files.references)),
     claims: readOptionalJson(path.join(packPath, metadata.files.claims)),
     glossary: readOptionalJson(path.join(packPath, metadata.files.glossary)),
-    attributionHtml: renderPackMarkdown(packPath, metadata.files.attribution, publicAssetBase)
+    attributionHtml: renderPackMarkdown(packPath, metadata.files.attribution, publicAssetBase, metadata.thirdPartyAssets)
   };
 }

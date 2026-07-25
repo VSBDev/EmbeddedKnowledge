@@ -167,7 +167,7 @@ function parseDirectiveBlocks(markdown, relativePath, packName) {
   return blocks;
 }
 
-function validateMarkdown(packPath, scene, packName, featureState) {
+function validateMarkdown(packPath, scene, packName, featureState, lesson) {
   const filePath = insidePack(packPath, scene.source);
   if (!filePath || !fs.existsSync(filePath)) {
     error(packName, `scene ${scene.id} source is missing or escapes its pack: ${scene.source}.`);
@@ -228,6 +228,17 @@ function validateMarkdown(packPath, scene, packName, featureState) {
       if (block.name === "figure") {
         if (!imageExtensions.has(path.extname(referenced).toLowerCase())) error(packName, `${relative} is not an allowed static image type.`);
         if (path.extname(referenced).toLowerCase() === ".svg") validateSvg(referenced, relative, packName);
+        // An image is either this lesson's own work or someone else's, and the difference decides
+        // whether a licence and a credit are owed. Leaving it unstated is how an unlicensed figure
+        // reaches a learner, so neither answer may be implied by silence.
+        const declaredThirdParty = (lesson.thirdPartyAssets || []).some((asset) => asset.path === relative);
+        const declaredOriginal = (lesson.originalAssets || []).includes(relative);
+        if (!declaredThirdParty && !declaredOriginal) {
+          error(packName, `${relative} is shown to a learner but is declared neither in thirdPartyAssets nor in originalAssets. Record where it came from and under what licence, or declare that this lesson made it.`);
+        }
+        if (declaredThirdParty && declaredOriginal) {
+          error(packName, `${relative} is declared both as third-party and as this lesson's own work.`);
+        }
       } else if (block.name === "chart") {
         if (!relative.endsWith(".chart.json")) error(packName, `${relative} must use the .chart.json suffix.`);
         else validateChart(referenced, relative, packName);
@@ -300,7 +311,7 @@ function validateFormatPack(packName, packPath, lesson, { specimen = false } = {
   for (const problem of validateLessonRightsContract({ lesson, references, attribution })) error(packName, problem);
 
   const featureState = { directives: new Set(), calloutKinds: new Set(), sourceNotes: [], accessibility: false, recovery: false };
-  for (const scene of lesson.scenes || []) validateMarkdown(packPath, scene, packName, featureState);
+  for (const scene of lesson.scenes || []) validateMarkdown(packPath, scene, packName, featureState, lesson);
   const sceneKinds = new Set((lesson.scenes || []).map((scene) => scene.kind));
   const has = (sceneKind, directive) => sceneKinds.has(sceneKind) || featureState.directives.has(directive);
   for (const [label, present] of [

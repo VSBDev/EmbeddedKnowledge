@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-illustration-sources-v1",
+  "purpose": "Where to look for a scientific illustration, and what has to be true before one enters a lesson. This lists candidate pools and the licence rule they have to satisfy. It does not certify any individual file: licences on these sites are set per item and change, so the author verifies the specific file, records the evidence in lesson.json thirdPartyAssets, and appends what they found to site/agent/source-access-ledger.json.",
+  "acceptedLicences": {
+    "values": [
+      "CC-BY-4.0",
+      "CC0-1.0",
+      "Public-Domain",
+      "Written-Permission"
+    ],
+    "note": "Set by lesson.schema.json. Share-alike licences are absent deliberately and are not a gap to fill casually: CC BY-SA obliges an adaptation to carry the same licence, and cropping, relabelling, or recolouring a figure makes an adaptation. Most illustrations on general encyclopaedic media sites are BY-SA, so that pool is mostly unusable here. Prefer public-domain government galleries and CC BY 4.0 medical-art libraries, where the whole collection is one licence and the check is quick."
+  },
+  "candidatePools": [
+    {
+      "name": "NIH NIGMS Image and Video Gallery",
+      "url": "https://images.nigms.nih.gov/",
+      "expect": "Cell structure, organelles, microscopy, molecular machinery.",
+      "verdict": "verify-per-item",
+      "why": "A US government gallery, so many items are public domain, but it also hosts contributed images under other terms. The item page states the terms for that item."
+    },
+    {
+      "name": "NCI Visuals Online",
+      "url": "https://visualsonline.cancer.gov/",
+      "expect": "Cells, tissue, and process illustrations produced for the National Cancer Institute.",
+      "verdict": "verify-per-item",
+      "why": "Many items are US government work in the public domain; some are credited to outside illustrators with their own terms."
+    },
+    {
+      "name": "Servier Medical Art",
+      "url": "https://smart.servier.com/",
+      "expect": "A large library of medical and cell-biology drawing components.",
+      "verdict": "verify-per-item",
+      "why": "Published under a Creative Commons licence, but the version has changed over time and only CC BY 4.0 is accepted here. Confirm the version shown on the site at the time of use."
+    },
+    {
+      "name": "EMBL-EBI training materials",
+      "url": "https://www.ebi.ac.uk/training/",
+      "expect": "Molecular biology and bioinformatics figures.",
+      "verdict": "verify-per-item",
+      "why": "Training material is frequently CC BY, stated per page."
+    },
+    {
+      "name": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/",
+      "expect": "Broad coverage, variable quality.",
+      "verdict": "restricted",
+      "why": "Licences are per file and a large share are CC BY-SA, which this project does not accept. Usable only where a specific file is CC0, public domain, or CC BY 4.0, and the file page is the evidence."
+    },
+    {
+      "name": "BioRender",
+      "url": "https://www.biorender.com/",
+      "expect": "Polished figure builder.",
+      "verdict": "excluded",
+      "why": "Figures are licensed to the subscriber who makes them, under terms that do not permit redistribution under this project's content licence."
+    },
+    {
+      "name": "Textbook and publisher figures",
+      "url": "https://example.invalid/not-a-source",
+      "expect": "Do not use.",
+      "verdict": "excluded",
+      "why": "Redrawing one does not remove the original expression. The rights policy names a lightly redrawn figure as still carrying it. Build the figure from the underlying anatomy instead."
+    }
+  ],
+  "beforeUse": [
+    "Confirm the licence on the item's own page, not on the site's front page or a search result.",
+    "Record source URL, title, creator, licence, and the evidence you read in lesson.json thirdPartyAssets.",
+    "State whether you modified it, and how, in the same record. Cropping, relabelling, and recolouring are modifications.",
+    "Give the file a pack-local copy under assets/; never hotlink.",
+    "Append the domain and what you found to site/agent/source-access-ledger.json."
+  ],
+  "qualityBar": [
+    "The structure shown is correct and current, and the lesson can state what it is looking at without hedging.",
+    "Labels are legible at the size a learner reads, and in English, or absent so the lesson can caption them.",
+    "Meaning survives without colour: a reader who cannot separate red from green still gets the point.",
+    "The alt text and long description can carry the whole teaching point, because some readers will only get those.",
+    "No watermark, no house branding, no embedded citation to a third party's own figure.",
+    "It teaches the thing the scene needs, rather than being decoration that happens to be biological."
+  ]
+}

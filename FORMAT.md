@@ -171,6 +171,23 @@ Both `alt` and `longdesc` are required. The long description must preserve the r
 
 SVG is treated as untrusted input. Validation requires internal `<title>` and `<desc>` elements and rejects scripts, event handlers, stylesheets, external references, embedded HTML/media, `data:` or `javascript:` URLs, entities, and resource-loading constructs. Renderers should sanitize again at the output boundary.
 
+### Where an image comes from
+
+Every image a scene shows must be accounted for. A pack lists the files it made itself in
+`originalAssets`, and anything it did not make in `thirdPartyAssets` with its source, creator,
+licence, the rights evidence the author actually read, and whether it was modified and how. A file
+that appears in neither is rejected: an image with no stated provenance is the one way an unlicensed
+figure reaches a learner, and silence must not be a valid answer.
+
+The declared attribution is rendered beside the image. A credit that lives only in `lesson.json`
+satisfies an audit rather than the licence, and CC BY asks for credit given in a reasonable manner
+to the person who reads the work.
+
+Only `CC-BY-4.0`, `CC0-1.0`, `Public-Domain`, and `Written-Permission` are accepted. Share-alike is
+absent deliberately: it obliges an adaptation to carry the same licence, and cropping, relabelling,
+or recolouring a figure makes an adaptation. `site/agent/illustration-sources.json` lists candidate
+pools, what to check before using one, and the quality bar a scientific illustration has to clear.
+
 ### Declarative diagrams
 
 Diagram source uses [`site/schemas/diagram.schema.json`](site/schemas/diagram.schema.json). It supports bounded flow, concept-map, process, cycle, and timeline structures with labelled nodes and edges.

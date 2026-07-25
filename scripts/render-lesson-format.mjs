@@ -193,9 +193,17 @@ function renderFigure(head, options, context) {
   const file = resolvePackFile(context, head);
   const source = `${context.publicAssetBase}/${file.relative}`;
   const longDescription = options["long-description"] || options.longdesc || null;
+  // An attribution the learner never sees is not attribution. CC BY requires credit given in a
+  // reasonable manner, and a record sitting in lesson.json satisfies an auditor rather than the
+  // licence, so the declared credit is rendered beside the image it belongs to.
+  const asset = (context.thirdPartyAssets || []).find((entry) => entry.path === file.relative);
+  const credit = asset
+    ? `<p class="ek-figure-credit">${escapeHtml(asset.attribution)}${asset.source ? ` <a href="${escapeHtml(asset.source)}" rel="license noopener">source</a>` : ""}${asset.modified ? ` · adapted: ${escapeHtml(asset.modifications)}` : ""}</p>`
+    : "";
   return `<figure class="ek-block ek-figure" data-directive="figure">
     <img src="${escapeHtml(source)}" alt="${escapeHtml(options.alt)}" loading="lazy">
     ${options.caption ? `<figcaption>${escapeHtml(options.caption)}</figcaption>` : ""}
+    ${credit}
     ${longDescription ? `<details class="ek-long-description"><summary>Read the image description</summary><p>${escapeHtml(longDescription)}</p></details>` : ""}
   </figure>`;
 }

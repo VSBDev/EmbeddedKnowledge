@@ -1430,6 +1430,23 @@ Both `alt` and `longdesc` are required. The long description must preserve the r
 
 SVG is treated as untrusted input. Validation requires internal `<title>` and `<desc>` elements and rejects scripts, event handlers, stylesheets, external references, embedded HTML/media, `data:` or `javascript:` URLs, entities, and resource-loading constructs. Renderers should sanitize again at the output boundary.
 
+### Where an image comes from
+
+Every image a scene shows must be accounted for. A pack lists the files it made itself in
+`originalAssets`, and anything it did not make in `thirdPartyAssets` with its source, creator,
+licence, the rights evidence the author actually read, and whether it was modified and how. A file
+that appears in neither is rejected: an image with no stated provenance is the one way an unlicensed
+figure reaches a learner, and silence must not be a valid answer.
+
+The declared attribution is rendered beside the image. A credit that lives only in `lesson.json`
+satisfies an audit rather than the licence, and CC BY asks for credit given in a reasonable manner
+to the person who reads the work.
+
+Only `CC-BY-4.0`, `CC0-1.0`, `Public-Domain`, and `Written-Permission` are accepted. Share-alike is
+absent deliberately: it obliges an adaptation to carry the same licence, and cropping, relabelling,
+or recolouring a figure makes an adaptation. `site/agent/illustration-sources.json` lists candidate
+pools, what to check before using one, and the quality bar a scientific illustration has to clear.
+
 ### Declarative diagrams
 
 Diagram source uses [`site/schemas/diagram.schema.json`](site/schemas/diagram.schema.json). It supports bounded flow, concept-map, process, cycle, and timeline structures with labelled nodes and edges.
@@ -4993,8 +5010,8 @@ The project should preregister or at least version the question, outcome, analys
       "source": ".agents/skills/author-embeddedknowledge-lesson/SKILL.md",
       "instructions": "/skills/author-embeddedknowledge-lesson/SKILL.md",
       "bundle": "/skills/author-embeddedknowledge-lesson/author-embeddedknowledge-lesson.zip",
-      "instructionsSha256": "sha256:a42c2cde4377075598aaad00334fadd91ca0e9fea24b066dff45013d2c4546aa",
-      "bundleSha256": "sha256:b29a5bd7764fb7ae471e5b855b154d636a45981437603ffd1766226e570cbb5f"
+      "instructionsSha256": "sha256:9a3cdd1f2968da92dbb8a5bf5c867fdd6f8494c6c909c6d981d1e5ad6ee30290",
+      "bundleSha256": "sha256:3be10907c70360dcd8f7194de848acbad6bc8c46050d0a54cee390f4d77f30df"
     },
     {
       "name": "review-embeddedknowledge-academic",
