@@ -25,6 +25,7 @@ const schemas = {
   claims: readProjectJson("site/schemas/claims.schema.json"),
   glossary: readProjectJson("site/schemas/glossary.schema.json"),
   diagram: readProjectJson("site/schemas/diagram.schema.json"),
+  chart: readProjectJson("site/schemas/chart.schema.json"),
   review: readProjectJson("site/schemas/review.schema.json"),
   adjudication: readProjectJson("site/schemas/adjudication.schema.json")
 };
@@ -41,7 +42,7 @@ const errors = [];
 
 const directiveWhitelist = new Set([
   "definition", "theorem", "derivation", "worked-example", "check", "misconception",
-  "investigation", "figure", "diagram", "equation", "chemistry", "source-note", "callout"
+  "investigation", "figure", "diagram", "chart", "equation", "chemistry", "source-note", "callout"
 ]);
 const directiveOptionWhitelist = new Set(["id", "label", "kind", "alt", "longdesc", "claims", "sources"]);
 const roleWhitelist = new Set(["math", "chem"]);
