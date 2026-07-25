@@ -1,54 +1,65 @@
-# Clinical wrap-up: how many patients does the audit need?
+# Clinical wrap-up: what precision is the audit buying?
 
-**Teaching example, not medical advice.** The service, the meeting, the audit plan, and every figure below are invented for teaching. Nothing here reports an observation about real patients or supports a diagnostic, monitoring, or treatment decision. The published reference values are quoted only so the audit has real cut-points to be measured against.
+**Teaching example, not medical advice.** The service, meeting, audit plan, and every figure below are invented for teaching. Nothing here reports an observation about real patients or supports a diagnostic, monitoring, or treatment decision.
 
-A diabetes service is planning next year's work. Two proposals are on the table and both come down to the same question: how many patients?
+A diabetes service is planning next year's audit. Two proposals use the same measurement and the same planning value for the sample standard deviation, 18 mg/dL, but they estimate different quantities. Before choosing a sample size, the meeting must state which standard error it wants to control.
 
-## The clinical yardstick
+## Proposal one: estimate one population mean
 
-The service needs something to measure its precision against, and it does not come from the data. The US National Institute of Diabetes and Digestive and Kidney Diseases publishes reference values for the fasting plasma glucose test: 99 mg/dL or below is normal, 100 to 125 mg/dL indicates prediabetes, and 126 mg/dL or above indicates diabetes, with a doctor usually running a second test before confirming a diagnosis. Fasting there means nothing to eat or drink beforehand except sips of water.
+The registrar wants the estimated standard error of one annual mean to be no more than 2.00 mg/dL. This is a population-level precision target chosen for the audit; it is not an individual diagnostic threshold.
 
-The prediabetes band runs from 100 to 125, so it spans 25 mg/dL. That width is the yardstick for everything below. An estimate whose uncertainty is small next to 25 mg/dL can support a statement about which band a group sits in; an estimate whose uncertainty is comparable to 25 cannot.
+Using $s=18$ mg/dL as the planning estimate,
 
-## Proposal one: describe the clinic population
+$$
+n=\left(\frac{s}{\widehat{\mathrm{SE}}}\right)^2
+ =\left(\frac{18}{2.00}\right)^2
+ =81.
+$$
 
-The registrar wants to report the mean fasting glucose of patients attending the clinic, so the service can see where its population sits against those bands. She proposes an audit of 60 patients, matching the dinner-timing study, and expects the same figures: a mean near 142 mg/dL and a standard deviation near 18.
+An audit of 60 would have an estimated standard error of $18/\sqrt{60}=2.32$ mg/dL and would miss that stated target. An audit of 81 reaches 2.00 mg/dL exactly under the planning assumptions. The conclusion is deliberately narrow: 81 is the sample size required for the chosen precision of one mean, provided the observations are independent and the planning standard deviation is reasonable.
 
-Work the numbers before the meeting decides.
+## Proposal two: estimate a difference between two annual means
 
-The standard error of a mean of 60 is $18 \div \sqrt{60} = 2.32$ mg/dL. So a 60-patient audit reports its mean give or take about 2.3, and about 95 repeats in 100 would land within 4.6 mg/dL of the truth. Against a diagnostic band 25 mg/dL wide, an uncertainty of 4.6 mg/dL is comfortable. The audit can say confidently that this clinic population sits well above 126 mg/dL, deep in the range the reference values call diabetes, which is unsurprising in a clinic where everyone already has the diagnosis and is exactly the sort of statement the audit is for.
+The consultant wants to compare two independent annual samples and asks for the **difference** between their means to have an estimated standard error no more than 2.00 mg/dL. Each annual mean contributes uncertainty. If both years use the same sample size $n$ and the same planning standard deviation of 18 mg/dL,
 
-Sixty patients is enough for proposal one. Recruiting three hundred would tighten the estimate to about 1.0 mg/dL and would not change a single sentence in the report.
+$$
+\widehat{\mathrm{SE}}_{\mathrm{difference}}
+=\sqrt{\left(\frac{18}{\sqrt n}\right)^2+
+       \left(\frac{18}{\sqrt n}\right)^2}
+=18\sqrt{\frac{2}{n}}.
+$$
 
-## Proposal two: detect a change after the leaflet
+Setting that quantity to 2.00 mg/dL gives
 
-The consultant wants something harder. The service is issuing advice on evening meal timing and wants next year's audit to show whether the clinic's mean fasting glucose has shifted. He proposes to compare next year's mean against this year's 142, and he would treat a change of about 5 mg/dL as worth acting on.
+$$
+n=2\left(\frac{18}{2.00}\right)^2=162
+$$
 
-Run the same arithmetic and the answer is different.
+patients per year. With only 60 independent patients per year, the estimated standard error of the difference is $\sqrt{2}\times2.324=3.29$ mg/dL.
 
-Each audit's mean carries its own uncertainty of 2.32 mg/dL. Comparing two of them puts two uncertainties in the same sentence, so the difference between two 60-patient audits swings by appreciably more than either one does. Even with no change at all in the clinic, a difference of 5 mg/dL between two years is entirely ordinary. Proposal two, at 60 patients a year, cannot distinguish a real 5 mg/dL shift from the ordinary movement of two estimates.
+The factor of two between 81 and 162 is not a penalty for asking a clinical question. It appears because proposal two estimates a difference built from two independent means, while proposal one estimates one mean.
 
-The formula says what would fix it. To pull each audit's standard error down to 1.16 mg/dL, half of 2.32, each year needs $4 \times 60 = 240$ patients. To reach 1.00 mg/dL, each year needs $(18 / 1.00)^{2} = 324$. The service delivers roughly 900 appointments a year, so 240 is demanding and reachable and 324 is close to the ceiling, and both are a different scale of work from the 60 the registrar proposed.
+## What this calculation does not establish
 
-**Same clinic, same measurement, same standard deviation, two sample sizes that differ by a factor of four.** The question decided it. Describing where a population sits against a wide diagnostic band tolerates a loose estimate. Detecting a small change between two years does not, because the thing being detected is smaller than the uncertainty of the tools measuring it.
+A target standard error is a precision requirement, not a complete change-detection design. Saying that the service cares about a 5 mg/dL change does not by itself decide the sample size needed to detect it. That design would also have to specify the comparison structure, type-I error rate, target power, sidedness, variance assumptions, and whether the same patients are measured twice. A paired design would require the within-person correlation and would not use the independent-samples formula above. Attrition and unequal sample sizes would also change the calculation.
 
-## What the meeting should not conclude
+The meeting may therefore say, "162 patients per year gives the difference an estimated standard error of 2.00 mg/dL under these assumptions." It may not say, "162 is enough to detect a 5 mg/dL change," because that claim requires the missing design choices.
 
-Three boundaries, and none of them is arithmetic.
+## What a larger sample cannot repair
 
-A larger sample buys precision and nothing else. If next year's audit reaches a different set of patients, because a neighbouring practice closed or the clinic changed its appointment system, the two means describe two different populations and 324 patients will estimate the wrong thing very precisely. Sampling error is one problem and reaching the wrong people is another, and only the first shrinks with $\sqrt{n}$.
+A larger sample buys precision and nothing else. If next year's audit reaches a different set of patients because a neighbouring practice closed or the clinic changed its appointment system, the two means describe different populations. More patients can estimate the wrong target very precisely.
 
-The 18 mg/dL is a fact about the patients, so it stays at 18 whatever the audit does. Any sentence in the final report about how much individual patients vary must quote 18, and any sentence about how well the average is known must quote the standard error. A report that puts 2.32 where 18 belongs will tell its readers that the clinic's patients are all within a few mg/dL of each other, which is false and which the clinic's own staff will know is false the moment they read it.
+The 18 mg/dL used above is the observed sample standard deviation and a planning estimate of the unknown population standard deviation. It is not a measured fact about every patient in the population. Any report about the observed patients' spread should label $s=18$ as the sample standard deviation; any report about the precision of a mean should label its estimated standard error.
 
-And whether a 5 mg/dL shift in a clinic mean matters to a patient is a clinical judgement, not a statistical one. This lesson can say how firmly a number has been measured. The block returns to what it is worth in its final lesson.
+And a population mean cannot reveal how many individuals cross a diagnostic threshold. Estimating that proportion is a different task with a different standard-error formula, deferred to a later lesson.
 
 ## Where the block goes next
 
-You now have the quantity everything else is built from. The next lesson turns a standard error into a stated range of values compatible with the data and takes some care over what such a range does and does not claim. The lesson after that asks how far an observed difference sits from zero, counted in standard errors, and what a small answer entitles anyone to say. The dinner-timing study's difference of 9.0 mg/dL and its standard error of 4.13 are waiting.
+You now have the quantity everything else is built from. The next lesson turns a standard error into a stated range of values compatible with the data and takes care over what such a range does and does not claim. The lesson after that asks how far an observed difference sits from zero, counted in standard errors. Those methods add inferential rules that a precision calculation alone does not supply.
 
 :::{source-note}
-:claims: claim-fpg-thresholds, claim-se-formula, claim-se-is-precision, claim-central-limit-theorem
-:sources: source-niddk-diabetes-tests, source-altman-bland-se, source-nist-normal-clt, source-kwak-kim-clt
+:claims: claim-se-formula, claim-se-is-precision, claim-se-applies-to-other-statistics
+:sources: source-altman-bland-se
 
-These sources support the fasting plasma glucose reference values and confirmation practice quoted above, the relation between the standard error, the standard deviation, and the square root of the sample size used in both proposals, the standard error's role as a measure of how precisely a mean has been estimated, and the approximate normality of a sample mean that lets a 95% figure be attached to a two-standard-error band. The service, the meeting, the two proposals, the appointment volume, and every audit figure are original teaching material and describe no real clinic.
+This source supports the relation between standard deviation, sample size, and the standard error of a mean; the role of standard error as a measure of precision; and the extension of standard errors to contrasts such as a difference between two means. The independent-difference formula follows by adding the variances of two independent estimates. The service, targets, planning calculations, and all wording are original teaching material.
 :::

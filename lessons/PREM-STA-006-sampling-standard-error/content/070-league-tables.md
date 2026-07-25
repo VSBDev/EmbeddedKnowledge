@@ -21,7 +21,7 @@ Birth weight in this region has a standard deviation of about 500 g, similar acr
 
 The large unit: $\sqrt{400} = 20$, so its standard error is $500 \div 20 = 25$ g. The small unit: $\sqrt{40} = 6.325$, so its standard error is $500 \div 6.325 = 79$ g.
 
-The small unit's published mean swings about three times as far, year to year, as the large unit's, on chance alone. The ratio is $79 \div 25 = 3.16$, which is $\sqrt{400 / 40} = \sqrt{10}$. A unit whose annual figure moves by 79 g in each direction will spend some years near the top of any ranking and some years near the bottom, without a single thing changing in the delivery suite. The large unit, moving by 25 g, stays put.
+Each small-unit annual mean has an estimated standard deviation of 79 g around its population mean, about three times the large unit's 25 g. Comparing two independent years combines uncertainty from both: the estimated standard error of a year-to-year difference is $\sqrt{2}\times79=112$ g for the small unit and $\sqrt{2}\times25=35$ g for the large one. The ratio remains $79 \div 25 = 3.16$, which is $\sqrt{400 / 40} = \sqrt{10}$. The small unit can therefore spend some years near the top of a ranking and some near the bottom without a single thing changing in the delivery suite, while the large unit's mean is less volatile.
 
 So the swing that prompted the visits and the protocol reviews is what a small denominator does to any average. It is the first thing to rule out, and the league table as published gives a reader no way to rule it out.
 

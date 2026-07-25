@@ -15,7 +15,7 @@ Follow the same six steps as the worked example. Which quantity does the questio
 Report the standard error of the mean, then give the band one standard error either side of 72.
 :::
 
-The question asks how well the average is known, so it wants a standard error. Here $s = 11$ and $n = 100$, and $\sqrt{100} = 10$, so the standard error is $11 \div 10 = 1.1$ beats per minute. The one-standard-error band runs from 70.9 to 73.1 beats per minute. It is smaller than 11, it carries the unit of the measurement, and it says that a repeat on 100 fresh adults would typically land within about 1 beat per minute of 72.
+The question asks about the sampling spread of the average, so it wants an estimated standard error. Here $s = 11$ and $n = 100$, and $\sqrt{100} = 10$, so the estimated standard error is $11 \div 10 = 1.1$ beats per minute. The arithmetic band one estimated standard error around the observed mean runs from 70.9 to 73.1 beats per minute. It shows the precision scale around the reported estimate; it is not a 68% prediction band for a fresh independent mean around 72.
 
 ## Two: same task, no route
 
@@ -28,7 +28,7 @@ A renal service measures serum creatinine in 36 patients. Mean 96 µmol/L, stand
 Give the standard error of the mean and state in one sentence what it describes.
 :::
 
-$\sqrt{36} = 6$, so the standard error is $24 \div 6 = 4$ µmol/L. It describes how far the service's estimate of the mean would move if the audit were repeated on 36 different patients. It says nothing about how much individual patients differ from one another, which is the job of the 24.
+$\sqrt{36} = 6$, so the estimated standard error is $24 \div 6 = 4$ µmol/L. It estimates the standard deviation of sample means of 36 around the unknown population mean. It says nothing about how much individual patients differ from one another, which is the job of the sample standard deviation of 24.
 
 ## Three: run the formula backwards
 
@@ -72,14 +72,14 @@ Neither standard error says anything about which team's patients were sicker. Th
 For each sentence, name the quantity it requires and give its value for the dinner-timing cohort, where the mean is 142 mg/dL, the standard deviation is 18 mg/dL, and $n$ is 60.
 
 1. "Most patients in the study had a fasting glucose within this distance of 142."
-2. "A second cohort of the same size from the same list would probably return a mean within this distance of 142."
-3. "The middle 95% of patients lie within this distance of 142."
-4. "Ninety-five repeats in a hundred would return a mean within this distance of 142."
+2. "Sample means of 60 have this estimated standard deviation around the population mean."
+3. "If individual fasting glucose followed a normal model with standard deviation 18, about 95% of individuals would lie within this distance of the population mean."
+4. "Under an independent equal-variance normal model, about 95% of differences between two sample means of 60 would lie within this distance of zero when the population has not changed."
 :::
 
-Sentence 1 needs one standard deviation: 18 mg/dL, giving 124 to 160. Sentence 2 needs one standard error: 2.32 mg/dL, giving 139.7 to 144.3. Sentence 3 needs two standard deviations: 36 mg/dL, giving 106 to 178. Sentence 4 needs two standard errors: 4.65 mg/dL, giving 137.4 to 146.6.
+Sentence 1 needs the sample standard deviation: 18 mg/dL is the observed typical distance from the sample mean. Sentence 2 needs the estimated standard error of one mean: 2.32 mg/dL. Sentence 3 needs about two population standard deviations, estimated here as 36 mg/dL, but only under the stated hypothetical normal model; the actual skewed cohort does not inherit that 95% reading. Sentence 4 needs about two standard errors of the **difference**: $2\sqrt{2}\times2.324 = 6.57$ mg/dL.
 
-All four bands are in mg/dL and all four describe the same cohort, which is exactly why the label on the number has to be written out.
+All four distances are in mg/dL, but they attach to different distributions. That is exactly why the quantity and model must be written out.
 
 ## Six: find the question
 
@@ -94,15 +94,15 @@ A trainee brings you this paragraph from a poster.
 Say what you can and cannot conclude, and name every quantity you would need before the sentence about deterioration could be assessed. This item has no single numerical answer; it asks you to notice what is absent.
 :::
 
-The two figures after the plus-or-minus are unlabelled, so until they are labelled the paragraph cannot be read at all. Test the possibility that they are standard errors: $3.4 \times \sqrt{25} = 17.0$ and $1.6 \times \sqrt{100} = 16.0$, giving standard deviations of about 17 and 16 mg/dL, plausible for fasting glucose on a diabetes ward and consistent with each other. Test the alternative that they are standard deviations: patients on a diabetes ward whose glucose readings scattered by only 3.4 mg/dL would be a remarkable and unlikely group. So the figures are almost certainly standard errors, and the trainee should confirm it before quoting them.
+The two figures after the plus-or-minus are unlabelled, so the paragraph does not identify what they are. If they are standard errors, the implied sample standard deviations are $3.4 \times \sqrt{25} = 17.0$ and $1.6 \times \sqrt{100} = 16.0$ mg/dL. If they are sample standard deviations, the implied estimated standard errors are $3.4 \div \sqrt{25} = 0.68$ and $1.6 \div \sqrt{100} = 0.16$ mg/dL. Those conditional calculations show how different the two readings would be; they do not prove which statistic the trainee calculated. The trainee must identify the quantity and method before anyone quotes it.
 
-Read that way, the estimates are 151 with a standard error of 3.4 and 148 with a standard error of 1.6. The gap of 3 mg/dL is smaller than one standard error of the less precise estimate, so a difference of that size is the kind of thing repeat audits produce with no change in ward practice whatever. Deciding whether the data supports a claim of deterioration is the job of the next two lessons; this lesson is enough to say that the poster has not shown one.
+Conditionally, if 3.4 and 1.6 are standard errors from independent audits, the estimated standard error of their difference is $\sqrt{3.4^2+1.6^2}=3.76$ mg/dL. The observed gap of 3 mg/dL is smaller than that precision scale. This calculation still does not establish deterioration or no deterioration; a formal comparison requires methods taught later, and the unlabelled report has not supplied enough information to choose one.
 
 Two further things are missing and neither is a statistical detail. Who was on the ward each year, since a change in case mix would move the mean without any change in care; and how the 25 and the 100 patients were chosen, since an audit of whoever happened to be admitted in one week is a different object from an audit of a full year. Both belong to the sampling questions from the scientific inquiry block, and no standard error repairs a sample that reached the wrong people.
 
 :::{source-note}
-:claims: claim-se-formula, claim-plus-minus-ambiguity
+:claims: claim-se-formula, claim-se-applies-to-other-statistics, claim-2sd-covers-95, claim-plus-minus-ambiguity
 :sources: source-altman-bland-se
 
-These sources support the relation between the standard error, the standard deviation, and the square root of the sample size used in every calculation above, and the ambiguity of unlabelled plus-or-minus notation that the last item turns on. The clinics, the audits, the poster, and all figures in this scene are original teaching material.
+This source supports the relation between the standard error, the standard deviation, and the square root of the sample size; normal-model coverage; the extension of standard errors to differences between two means; and the ambiguity of unlabelled plus-or-minus notation. The independent-difference calculation follows by adding the variances of independent estimates. The clinics, audits, poster, and all figures in this scene are original teaching material.
 :::

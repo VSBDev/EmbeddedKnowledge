@@ -23,7 +23,7 @@
     },
     {
       "id": "claim-se-formula",
-      "statement": "The standard error of a sample mean equals the standard deviation divided by the square root of the sample size, so the standard error falls as the sample size increases, while the standard deviation does not tend to change as the sample grows; this relation is what underlies a sample size calculation.",
+      "statement": "For independent observations from one population with finite variance, the standard error of a sample mean is the population standard deviation divided by the square root of the sample size; when the population standard deviation is unknown, substituting the sample standard deviation gives the estimated standard error s divided by the square root of n.",
       "sceneIds": [
         "scene-distribution-of-means",
         "scene-price-of-precision",
@@ -37,8 +37,8 @@
       ],
       "support": "direct",
       "confidence": "high",
-      "scope": "The mean of a sample of independent observations. The source states the relation in the form SE = SD divided by the square root of the sample size and names its use in planning the size of a controlled trial.",
-      "uncertainty": "The relation assumes the observations entering the mean are independent. Repeated measurements on the same people, cluster designs, and other structured samples have fewer effective independent observations than rows, so dividing by the square root of the row count would overstate the precision; the lesson flags this and does not teach the corrected methods.",
+      "scope": "The mean of independent observations drawn from one population with finite variance. The source states the relation in the form SE = SD divided by the square root of the sample size and names its use in sample-size planning; the lesson makes explicit that s divided by the square root of n is a plug-in estimate when sigma is unknown.",
+      "uncertainty": "Repeated measurements, clustered samples, unequal weighting, and other structured designs require methods that account for dependence. The sample standard deviation is itself an estimate, so a calculated standard error is not the known population standard error.",
       "risk": "routine",
       "reviewStatus": "pending-review"
     },
@@ -63,17 +63,21 @@
     },
     {
       "id": "claim-2sd-covers-95",
-      "statement": "For data with a normal distribution about 95% of individuals have values within two standard deviations of the mean, and about 95% of observations of any distribution usually fall within those two-standard-deviation limits, though the observations outside them may all lie at one end.",
+      "statement": "For a normal distribution, about 68% of values lie within one standard deviation of the mean and about 95% lie within two; those percentages cannot be assigned to an observed skewed cohort without a justified normal model.",
       "sceneIds": [
-        "scene-sd-is-not-se"
+        "scene-run-it-again",
+        "scene-distribution-of-means",
+        "scene-sd-is-not-se",
+        "scene-central-limit",
+        "scene-compute-and-judge"
       ],
       "sourceIds": [
         "source-altman-bland-se"
       ],
       "support": "direct",
       "confidence": "high",
-      "scope": "Individual observations in a sample or population, used in this lesson only to give the standard deviation a concrete reading so it can be set beside the standard error. The normal case is exact; the source's broader statement about any distribution is offered as a usual pattern.",
-      "uncertainty": "The source qualifies the general version with 'usually' and warns that the observations outside the limits may all be at one end, which matters for the skewed cohort in this block.",
+      "scope": "Values in a normal distribution, including either individual observations under an individual-value model or sample means and mean differences under a justified normal sampling model.",
+      "uncertainty": "The fictional cohort is right-skewed, so the lesson uses its carried-forward empirical summary rather than asserting normal 68% or 95% coverage for those patients.",
       "risk": "routine",
       "reviewStatus": "pending-review"
     },
@@ -96,26 +100,28 @@
     },
     {
       "id": "claim-se-applies-to-other-statistics",
-      "statement": "The sampling-distribution principle applies to quantities other than a mean, including a proportion, a regression coefficient, and contrasts between two samples such as a risk ratio or a difference between two means; every such estimate carries uncertainty from sampling variation and has a standard error that indicates the degree of that uncertainty.",
+      "statement": "The sampling-distribution principle applies to quantities other than one mean, including a proportion, a regression coefficient, and contrasts between samples; for the difference of two independent mean estimates, the variance of the difference is the sum of their variances, so its standard error is the square root of the sum of their squared standard errors.",
       "sceneIds": [
-        "scene-league-tables"
+        "scene-distribution-of-means",
+        "scene-compute-and-judge",
+        "scene-league-tables",
+        "scene-clinical-wrap-up"
       ],
       "sourceIds": [
         "source-altman-bland-se"
       ],
-      "support": "direct",
+      "support": "inference",
       "confidence": "high",
-      "scope": "Statistics estimated from a sample. The source states the extension of the principle and the existence of a standard error for each such estimate; it does not give the formula for any of them, and this lesson does not supply one either.",
-      "uncertainty": "How a standard error is calculated differs from statistic to statistic, and some require methods this lesson does not cover. The lesson transfers the reasoning and marks the arithmetic as belonging to later lessons.",
+      "scope": "Statistics estimated from samples. The source directly supports the extension of standard errors to contrasts including a difference between two means. The displayed independent-difference formula is a mathematical inference from variance addition for independent estimates.",
+      "uncertainty": "The square-root-of-summed-variances formula requires independent estimates. Paired, clustered, repeated-measures, or otherwise dependent estimates require a covariance term and methods outside this lesson.",
       "risk": "routine",
       "reviewStatus": "pending-review"
     },
     {
       "id": "claim-central-limit-theorem",
-      "statement": "The central limit theorem holds that as the sample size becomes large, the sampling distribution of the mean becomes approximately normal regardless of the distribution of the original variable, is centred at the population mean of that variable, and has a standard deviation approaching the population standard deviation divided by the square root of the sample size.",
+      "statement": "For independent identically distributed observations with finite mean and variance, the sample mean has expectation equal to the population mean and variance equal to the population variance divided by n for every n, while the central limit theorem supplies the asymptotic result that the standardized sampling distribution of the mean approaches normality as n grows.",
       "sceneIds": [
-        "scene-central-limit",
-        "scene-clinical-wrap-up"
+        "scene-central-limit"
       ],
       "sourceIds": [
         "source-nist-normal-clt",
@@ -123,41 +129,26 @@
       ],
       "support": "direct",
       "confidence": "high",
-      "scope": "The mean of a random sample of independent observations from a population with a finite variance. Both sources state the result in these terms, one as the theoretical justification for the wide applicability of the normal distribution and the other as a review written for a clinical readership.",
-      "uncertainty": "The result is asymptotic: it describes what happens as the sample size grows, and it does not certify any particular finite sample. How large a sample must be before the approximation is usable depends on how far the population departs from normality, which the lesson treats as a judgement rather than a threshold.",
+      "scope": "The arithmetic mean of independent observations drawn from one population with finite mean and variance. The exact centre and variance identities are separated from the theorem's asymptotic normal-shape conclusion.",
+      "uncertainty": "The normal approximation does not certify any particular finite sample. Dependence, changing source populations, or lack of finite variance fall outside this statement, and the adequacy of a finite-sample approximation depends on the population shape and intended use.",
       "risk": "routine",
       "reviewStatus": "pending-review"
     },
     {
       "id": "claim-clt-skew-and-n30",
-      "statement": "A skewed population distribution does not prevent the distribution of sample means from approaching normality as the sample size increases, and the sample means gather more closely around the population mean as that size grows; a sample size of about 30 is the conventional point at which the Student's t distribution is treated as equalling the normal distribution.",
+      "statement": "A skewed population does not prevent sample means from approaching normality as sample size increases under the central limit theorem's conditions, but the theorem supplies no universal finite-sample threshold and one observed sample cannot establish that rare or heavy population tails are absent.",
       "sceneIds": [
         "scene-central-limit"
       ],
       "sourceIds": [
+        "source-nist-normal-clt",
         "source-kwak-kim-clt"
       ],
-      "support": "direct",
-      "confidence": "medium-high",
-      "scope": "Random samples drawn from a population, as demonstrated in the source through the complete set of samples from a small skewed population. The size-30 figure is reported there as an established convention in statistical practice.",
-      "uncertainty": "The figure of 30 is a working convention and not a property of the theorem. Strongly skewed or heavy-tailed populations, and samples in which one observation can move the mean substantially, need considerably more than 30 before the approximation is safe. The lesson states this limit explicitly and gives a case where the convention fails.",
-      "risk": "routine",
-      "reviewStatus": "pending-review"
-    },
-    {
-      "id": "claim-fpg-thresholds",
-      "statement": "The US National Institute of Diabetes and Digestive and Kidney Diseases states that a fasting plasma glucose result of 99 mg/dL or below is normal, 100 to 125 mg/dL indicates prediabetes, and 126 mg/dL or above indicates diabetes, that a doctor will usually use a second test to confirm a diabetes diagnosis, and that fasting means having nothing to eat or drink except sips of water.",
-      "sceneIds": [
-        "scene-clinical-wrap-up"
-      ],
-      "sourceIds": [
-        "source-niddk-diabetes-tests"
-      ],
-      "support": "direct",
+      "support": "synthesis",
       "confidence": "high",
-      "scope": "Reference values for the fasting plasma glucose test as published for a general US audience at the access date. Quoted in this lesson only so that the audit-planning case has a real interval width against which to judge whether an estimate is precise enough for its purpose.",
-      "uncertainty": "Thresholds and their qualifications are set by clinical bodies, can be revised, and differ in presentation between countries and guidelines. The lesson makes no diagnostic, monitoring, or treatment recommendation and its clinic and cohort are invented.",
-      "risk": "health-sensitive",
+      "scope": "Independent samples from one finite-variance population. The sources support asymptotic normality for sample means and illustrate that population shape and sample size affect the finite-sample distribution.",
+      "uncertainty": "No fixed sample size is declared sufficient. The lesson requires population knowledge, a distribution-specific calculation, or a prespecified simulation when the finite-sample shape matters.",
+      "risk": "routine",
       "reviewStatus": "pending-review"
     }
   ]

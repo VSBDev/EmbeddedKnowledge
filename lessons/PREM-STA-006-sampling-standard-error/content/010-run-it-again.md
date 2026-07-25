@@ -6,9 +6,9 @@ Now imagine the clinic list had been shuffled the morning the study opened, and 
 
 Not 142. Almost certainly not 142.
 
-Maybe 139. Maybe 145. It depends entirely on whose glucose happened to be in the file, and glucose in this population runs anywhere from about 100 to about 181 mg/dL. Pick sixty people out of that spread and you get one average; pick sixty others and you get another.
+Maybe 139. Maybe 145. It depends entirely on whose glucose happened to be in the file, and the observed cohort readings ran from about 100 to about 181 mg/dL. Pick sixty people from a population with substantial individual spread and you get one average; pick sixty others and you get another.
 
-That is uncomfortable, and it is also the ordinary condition of every study ever published. So the question worth asking is not whether the number would change. It is by how much. If a repeat would land between 141 and 143, then 142 is a solid figure and you can build on it. If a repeat could land anywhere between 128 and 156, then 142 is barely more than a rumour, and the confident decimal point on the slide is doing damage.
+That is uncomfortable, and it is also the ordinary condition of every study ever published. So the question worth asking is not whether the number would change. It is how widely means from samples of sixty scatter around the unknown mean of the population. A narrow scatter makes 142 a more precise estimate; a wide scatter makes the confident decimal point on the slide do damage.
 
 This lesson gives you the number that answers that question, and it is a small piece of arithmetic: one division and one square root.
 
@@ -35,7 +35,7 @@ Answer these before reading on, in a sentence each.
 3. The study enrolled 60 adults from a clinic list. Name one thing that decides whether a conclusion about those 60 can be carried across to adults with type 2 diabetes in general.
 :::
 
-The 18 mg/dL says how far a typical individual reading sits from 142. It is a fact about people: most of the cohort falls somewhere in the region of 124 to 160, and a reading of 178 is high but not remarkable. About 68% of a normal distribution lies within one standard deviation of the centre and about 95% within two, which is the rule you met alongside the normal curve. And what carries a finding beyond the study is the route by which people entered it: a sample can speak for the list it was drawn from, and the list can fall short of the population you actually care about.
+The 18 mg/dL describes the spread of the sixty observed readings around their sample mean of 142. It also estimates how much individual readings vary in the population, but it is not itself a measured fact about every person in that population. About 68% of a normal distribution lies within one standard deviation of the centre and about 95% within two, which is the rule you met alongside the normal curve; those percentages require a normal model and are not automatic for a skewed set of readings. And what carries a finding beyond the study is the route by which people entered it: a sample can speak for the list it was drawn from, and the list can fall short of the population you actually care about.
 
 That third answer matters more than it looks. This lesson holds the route fixed and asks a narrower question. Given that these 60 came from the list by chance, how much does chance alone move the answer?
 
@@ -55,13 +55,13 @@ You will not calculate a confidence interval, run a test, or produce a p-value. 
 
 ## Accessibility and alternatives
 
-This lesson has two charts, and both carry a written description and the numbers they were drawn from as a table, reachable under "Read the chart as text". Every quantity a chart shows also appears in the surrounding prose. The two curves share a horizontal scale on purpose, and the comparison between them is stated in words and in figures wherever it is drawn, so a reader who is not using the pictures loses nothing.
+This lesson has two model charts, and both carry a written description and the numbers that define them as a table, reachable under "Read the chart as text". Every quantity a chart shows also appears in the surrounding prose. The two curves share a horizontal scale on purpose, and the comparison between them is stated in words and in figures wherever it is drawn, so a reader who is not using the pictures loses nothing.
 
 The arithmetic is a division and a square root throughout. A calculator is expected and no question depends on mental arithmetic, on judging a length by eye, on colour, or on a pointer. Every practice item can be answered from the numbers given in its own text.
 
 :::{source-note}
-:claims: claim-sampling-distribution-of-mean
+:claims: claim-sampling-distribution-of-mean, claim-2sd-covers-95
 :sources: source-altman-bland-se
 
-Statisticians writing for a medical audience describe the sample mean as varying from sample to sample, and name the standard error as the measure of how much it varies. The cohort, its values, and the shuffled-list scenario are original teaching material.
+This source supports the description of a sample mean as varying from sample to sample, the naming of the standard error as the measure of that sampling spread, and the 68% and 95% coverage rules for a normal distribution. The cohort, its values, and the shuffled-list scenario are original teaching material.
 :::

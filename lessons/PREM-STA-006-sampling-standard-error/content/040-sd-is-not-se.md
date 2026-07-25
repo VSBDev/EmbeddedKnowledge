@@ -13,25 +13,35 @@ Here are two sentences about the same cohort. Both are true. Read them and decid
 
 **Predict first.** Under that reading, how many of the sixty patients had a fasting glucose outside 139.7 to 144.3 mg/dL? Commit to a number before you read on.
 
-**The disconfirming evidence.** Go back to the histogram of the sixty readings. They ran from about 100 to 181 mg/dL. Eleven people sat below 126 mg/dL, one sat at or above 180, and the tallest bin held thirteen people spread across a ten-unit width. The band 139.7 to 144.3 is 4.6 mg/dL wide and contains something like six of the sixty. Fifty-four people, nine in every ten, fall outside it.
+**The disconfirming evidence.** The earlier lesson on centre, spread, and shape recorded this fictional cohort summary. It is repeated here so the check does not depend on a missing histogram.
+
+| Carried-forward feature of the sixty readings | Value |
+| --- | --- |
+| Observed range | about 100 to 181 mg/dL |
+| Readings below 126 mg/dL | 11 |
+| Readings at or above 180 mg/dL | 1 |
+| Largest count in any ten-unit histogram bin | 13 |
+| Readings between 139.7 and 144.3 mg/dL | about 6 |
+
+The 139.7 to 144.3 band is only 4.6 mg/dL wide and contains about six of the sixty. About fifty-four people, nine in every ten, fall outside it.
 
 So a reader who takes "142 (SE 2.32)" as a statement about patients has been told that a group of adults with type 2 diabetes were all within a couple of mg/dL of each other, when they in fact spanned more than 80 mg/dL. The apparent scatter of the patients has been shrunk by a factor of $\sqrt{60} = 7.75$.
 
 **Rebuild the model.** The two numbers answer two different questions, and each is the right answer to its own.
 
-- The **standard deviation**, 18 mg/dL, describes **people**. Ask it: how different are these patients from one another? Answer: a typical patient sits about 18 mg/dL away from 142, so roughly two thirds of them lie between 124 and 160, and roughly 95% between 106 and 178. Enrol six hundred more patients and this number stays near 18, because more patients does not make patients more alike.
-- The **standard error**, 2.32 mg/dL, describes **an estimate**. Ask it: how firmly has this study pinned down the average? Answer: a repeat would typically land within 2.3 mg/dL of 142. Enrol six hundred more patients and this number falls, because a mean of many is harder to push around than a mean of few.
+- The **sample standard deviation**, 18 mg/dL, describes the spread of the **observed people** and estimates the population standard deviation $\sigma$. Ask it: how different were these patients from one another? Answer: their readings had a typical distance of about 18 mg/dL from their sample mean. If an individual-value distribution were normal, about 68% would lie within one standard deviation and 95% within two; this cohort was right-skewed, so its empirical counts and range must be used instead of importing those percentages. Enrolling more patients does not make patients more alike.
+- The **estimated standard error**, 2.32 mg/dL, describes **an estimate**. Ask it: how widely would sample means of 60 scatter around the unknown population mean? Answer: their estimated standard deviation is 2.32 mg/dL. Enrol more independent patients and this number falls, because a mean of many is harder to push around than a mean of few. If the question instead compares this sample mean with a fresh independent mean, the estimated standard error of their difference is $\sqrt{2} \times 2.32 = 3.29$ mg/dL.
 
-One is a fact about the population. The other is a fact about the study. They happen to share a unit, which is why the confusion survives.
+One sample statistic describes the observed people and estimates population variability. The other estimates the sampling spread of the mean. They happen to share a unit, which is why the confusion survives.
 
 **Test the repair.** For each sentence, decide which figure belongs in it.
 
-1. "We recruited a group whose glucose control varied widely; the middle two thirds fell between 124 and 160 mg/dL."
-2. "Our estimate of the group's average is good to about 2 mg/dL either way."
+1. "The observed patients' glucose values had a typical distance of about 18 mg/dL from their sample mean."
+2. "The estimated spread of sample means around the population mean is about 2 mg/dL."
 3. "A patient in this clinic with a fasting glucose of 180 mg/dL is unusual but not extraordinary."
-4. "A repeat of this audit next year would probably return an average within 5 mg/dL of this one."
+4. "To compare this mean with a fresh independent mean, combine the uncertainty from both estimates."
 
-Sentences 1 and 3 are about how patients differ, so they need the standard deviation of 18. Sentences 2 and 4 are about how well a number has been measured, so they need the standard error of 2.32; sentence 4 is the two-standard-error band of 137.4 to 146.6 mg/dL stated in words. If you can sort four sentences that way, the repair has taken.
+Sentences 1 and 3 are about how observed patients differ, so they need the sample standard deviation of 18. Sentence 2 needs the estimated standard error of the mean, 2.32. Sentence 4 also requires standard errors, but not 2.32 alone: two independent means each contribute uncertainty, giving an estimated standard error of the difference of 3.29 mg/dL when their sample sizes and variabilities match. If you can sort four sentences that way, the repair has taken.
 :::
 
 ## Why this survives peer review
@@ -46,11 +56,11 @@ When a number in mg/dL, or kilograms, or millilitres, sits beside a mean:
 
 - if the sentence is about **who is in the group**, it wants a standard deviation;
 - if the sentence is about **how well the group's average is known**, it wants a standard error;
-- if the label is missing, work out $\sqrt{n}$ from the reported sample size and see which of the two candidate values the reported figure is consistent with, then say in your write-up that you had to infer it.
+- if the label is missing, the statistic is indeterminate until the authors state what they calculated. You may use $\sqrt{n}$ to show the consequences of each possible reading, but plausibility is not proof of identity.
 
 :::{source-note}
 :claims: claim-se-is-precision, claim-se-formula, claim-2sd-covers-95, claim-plus-minus-ambiguity
 :sources: source-altman-bland-se
 
-These sources support the distinction between a standard deviation as a measure of how much individuals vary and a standard error as a measure of the precision of an estimated mean, the relation between the two through the square root of the sample size, the coverage of a two-standard-deviation band, and the finding about unlabelled plus-or-minus notation together with the editorial response to it. The cohort, the four test sentences, and the reading rule are original teaching material.
+This source supports the distinction between a sample standard deviation as a measure of observed individual variability and a standard error as a measure of the precision of an estimated mean, the relation between the two through the square root of the sample size, normal-model coverage within standard-deviation bands, and the finding that unlabelled plus-or-minus notation is ambiguous. The cohort, the table, the four test sentences, and the reading rule are original teaching material.
 :::

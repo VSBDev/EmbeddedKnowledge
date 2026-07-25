@@ -24,10 +24,9 @@ Every source in `references.json` was retrieved and read directly at the URL rec
 
 | Source | Used for | Basis |
 | --- | --- | --- |
-| Altman & Bland, "Standard deviations and standard errors", BMJ 2005;331:903 | The sampling distribution of the mean; the standard error as its standard deviation; SE = SD divided by the square root of the sample size; the standard error falling with sample size while the standard deviation does not; the standard error as a measure of precision; the two-standard-deviation coverage of individuals; the extension of the principle to proportions, regression coefficients, and differences; the ambiguity of unlabelled plus-or-minus notation and the editorial response to it | Facts only, original expression |
-| NIST/SEMATECH e-Handbook of Statistical Methods, 1.3.6.6.1 Normal Distribution | The three-part statement of the central limit theorem: approximate normality of the mean's sampling distribution regardless of the original variable, centring on the population mean, and the standard deviation approaching the population standard deviation over the square root of the sample size | Facts only, original expression |
-| Kwak & Kim, "Central limit theorem: the cornerstone of modern statistics", Korean J Anesthesiol 2017;70(2):144-156 | That a skewed population does not prevent sample means from approaching normality as the sample grows; that sample means gather more closely around the population mean as the sample grows; the conventional treatment of about 30 observations as a working threshold | Facts only, original expression |
-| NIDDK, Diabetes Tests & Diagnosis | Fasting plasma glucose reference values, the use of a second test to confirm a diagnosis, and the definition of fasting | Facts only, original expression |
+| Altman & Bland, "Standard deviations and standard errors", BMJ 2005;331:903 | The sampling distribution of the mean; the standard error as its standard deviation; the estimated SE as sample SD divided by the square root of sample size; the standard error as a measure of precision; normal-model standard-deviation coverage; the extension of the principle to proportions, regression coefficients, and differences; and the ambiguity of unlabelled plus-or-minus notation | Facts only, original expression |
+| NIST/SEMATECH e-Handbook of Statistical Methods, 1.3.6.6.1 Normal Distribution | The bounded central-limit result for independent observations from one finite-variance population: asymptotic normality of the mean's sampling distribution, centring on the population mean, and spread governed by population standard deviation over the square root of sample size | Facts only, original expression |
+| Kwak & Kim, "Central limit theorem: the cornerstone of modern statistics", Korean J Anesthesiol 2017;70(2):144-156 | That skew in the population does not prevent sample means from approaching normality under the theorem's conditions, and that population shape and sample size affect the finite-sample approximation; its size-30 discussion is not used as a general threshold | Facts only, original expression |
 
 No source's wording, structure, table, figure, example, question, or dataset is reproduced or adapted. The Kwak & Kim article is published under a Creative Commons Attribution Non-Commercial licence; nothing from it is reused, so that licence's conditions are not relied on and the non-commercial restriction does not attach to any part of this pack. The Altman & Bland article carries no open reuse licence, and it is used for facts only.
 
@@ -39,13 +38,13 @@ OpenStax was considered for the central limit theorem. Its `robots.txt`, retriev
 
 Everything below was created for this lesson and is covered by the pack's CC BY 4.0 licence:
 
-- both chart sources under `charts/`, their alt text, and their long descriptions, including the shared horizontal range of 88 to 196 mg/dL that lets the two curves be compared;
+- both hypothetical model chart sources under `charts/`, their alt text, and their long descriptions, including the shared horizontal range of 88 to 196 mg/dL that lets the two model curves be compared;
 - the thousand-repeat thought experiment, the sample-size price list, and every figure in it;
 - the cardiology, renal, pharmacy, maternity-network, and ward-poster cases, and all their numbers;
-- the two audit proposals in the clinical wrap-up, the appointment volume, and the sample sizes computed for each;
+- the two precision-target audit proposals in the clinical wrap-up and the sample sizes computed for each;
 - all scene prose, worked reasoning, checks, assessment items, answer logic, and rubrics.
 
-The cohort's headline figures are fixed by the Statistics and Data block brief so that the twelve lessons in the block describe one consistent study: sixty adults, mean fasting glucose 142 mg/dL, standard deviation 18 mg/dL, and a later-minus-earlier group difference of 9.0 mg/dL with a standard error of 4.13 mg/dL. Every derived quantity in this pack was recomputed from those figures rather than carried across from another lesson. The central results are 18 divided by the square root of 60, which is 2.324 and is reported as 2.32 mg/dL; the one-standard-error band 139.7 to 144.3 mg/dL; the two-standard-error band 137.4 to 146.6 mg/dL; the ratio of standard deviation to standard error of 7.75, which is the square root of 60; and the sample size of 324 for a target standard error of 1.00 mg/dL.
+The cohort's headline figures are fixed by the Statistics and Data block brief so that the twelve lessons in the block describe one consistent study: sixty adults, sample mean fasting glucose 142 mg/dL, sample standard deviation 18 mg/dL, and a later-minus-earlier group difference of 9.0 mg/dL with an estimated standard error of 4.13 mg/dL. Every derived quantity in this pack was recomputed from those figures rather than carried across from another lesson. Central results include the estimated standard error $18/\sqrt{60}=2.324$ mg/dL; the arithmetic band 139.7 to 144.3 mg/dL around the observed mean; the estimated standard error $\sqrt{2}\times2.324=3.29$ mg/dL for the difference between two independent equally sized means; the ratio 7.75 between the modelled individual and mean spreads; 81 patients for a target one-mean estimated standard error of 2.00 mg/dL; 162 per year for a target independent-difference estimated standard error of 2.00 mg/dL; and 324 patients for a target one-mean estimated standard error of 1.00 mg/dL.
 
 ## Terminology
 
@@ -64,7 +63,7 @@ The block brief rules that the everyday sense of the word describing a result as
 
 ## Boundaries
 
-The cohort, the clinic, the audits, the maternity network, the poster, and every case in this pack are invented for teaching. Nothing in the pack reports an observation about real patients, and nothing in it recommends or supports a diagnostic, monitoring, or treatment decision. Clinical reference values appear only so that the audit-planning case has a real interval width to judge an estimate's precision against, and they are attributed to the source that publishes them. The lesson carries the *teaching example, not medical advice* boundary in its orientation and clinical wrap-up scenes.
+The cohort, clinic, audits, maternity network, poster, and every case in this pack are invented for teaching. Nothing in the pack reports an observation about real patients, and nothing in it recommends or supports a diagnostic, monitoring, or treatment decision. The final audit case uses only author-created population-level precision targets and explicitly states that a population mean cannot classify individuals. The lesson carries the *teaching example, not medical advice* boundary in its orientation and clinical wrap-up scenes.
 
 ## Third-party assets
 
