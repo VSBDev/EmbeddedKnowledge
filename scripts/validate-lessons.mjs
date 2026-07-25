@@ -398,6 +398,18 @@ for (const entry of packDirectories) {
   }
   if (!adjudication) continue;
 
+  // A maintainer-attested tier convenes no reviewers and writes no adjudication, so a lesson
+  // repaired under it still carries the review record of the version that earned publication. That
+  // record documents the earlier version and is deliberately kept: deleting it to satisfy a
+  // wording fix would destroy the evidence that the lesson passed a real quorum. Validate it as
+  // history — schema and internal consistency already checked above — and do not judge it against
+  // a tier it was never produced under. Any review-based tier still requires artifacts that match
+  // the current version, so a genuinely stale adjudication keeps failing.
+  const currentTier = policy.tiers?.[lesson.riskTier];
+  if (currentTier?.reviewMode === "maintainer-attested" && adjudication.lessonVersion !== lesson.version) {
+    continue;
+  }
+
   const tier = resolveRule(policy, {
     lessonId: lesson.id,
     lessonVersion: lesson.version,
