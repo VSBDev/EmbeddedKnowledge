@@ -1,0 +1,268 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-assessment-v1",
+  "lessonId": "PREM-STA-001",
+  "lessonVersion": "0.1.0",
+  "assessmentId": "assessment-variables-and-data-types",
+  "title": "Variables and data types mastery check",
+  "purpose": "mastery-gate",
+  "attemptPolicy": {
+    "retakeable": true,
+    "timeLimitMinutes": null,
+    "feedback": "after-attempt"
+  },
+  "items": [
+    {
+      "id": "item-classify-supplied-columns",
+      "type": "open-response",
+      "sceneId": "scene-transfer-triage",
+      "objectiveIds": [
+        "objective-classify-columns"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-data-types"
+      ],
+      "prompt": "An invented renal clinic file holds these columns. Dialysis modality is recorded as haemodialysis, peritoneal dialysis, or transplant. Symptom burden is a clinician's placement of the patient in one of five bands from none to severe, stored as 1 to 5. Serum creatinine is a laboratory result in micromoles per litre. Missed sessions is the number of scheduled dialysis sessions the patient did not attend in the past three months. For each of the four columns, state whether it is categorical or quantitative, give its level of measurement, and justify the level by saying what the values do rather than how they are stored.",
+      "stimulus": null,
+      "points": 3,
+      "responseSpec": {
+        "mode": "text",
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "maxLength": 1600
+      },
+      "answer": {
+        "correct": "Dialysis modality is categorical and nominal: three named treatments with no ranking, so the list can be reordered without loss. Symptom burden is categorical and ordinal: the five bands rank from none to severe, and nothing establishes that the step from band 1 to band 2 is the same size as the step from band 4 to band 5. Serum creatinine is quantitative and continuous on a ratio scale: any value in a range can occur, one micromole per litre is one micromole per litre anywhere on the scale, and zero would mean none present. Missed sessions is quantitative and discrete on a ratio scale: only whole sessions can occur, the gap between 2 and 3 is one session, and zero missed sessions is a real value.",
+        "summary": "One nominal column, one ordinal column, one continuous ratio column, and one discrete ratio column.",
+        "reasoning": "Award one point for the two categorical columns, correctly split into nominal and ordinal with the ordering argument given. Award one point for serum creatinine as continuous with a fixed unit gap and a real zero. Award one point for missed sessions as discrete with a fixed unit gap and a real zero, provided the justification is that only whole sessions can occur rather than that the values happen to look like whole numbers. A response that classifies symptom burden by its 1-to-5 storage rather than by its unmeasured band spacing does not earn the first point. On a retry, classify a different invented file: transplant waiting-list status as active, suspended, or removed; frailty rated in four ordered grades; systolic blood pressure in mmHg; and clinic appointments attended in a year.",
+        "acceptableResponses": [
+          "Any response that assigns the four levels correctly and justifies each from how the values behave, including the ordering argument for the symptom bands and the fixed-gap argument for the two quantitative columns."
+        ],
+        "commonErrors": [
+          "Calling symptom burden quantitative because it is stored as 1 to 5",
+          "Calling missed sessions ordinal because it holds small whole numbers",
+          "Calling serum creatinine discrete because the laboratory reports it rounded",
+          "Giving a level without saying what the values do to earn it"
+        ]
+      },
+      "rubricId": "rubric-classify-supplied-columns",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-match-summary-and-refuse",
+      "type": "open-response",
+      "sceneId": "scene-transfer-triage",
+      "objectiveIds": [
+        "objective-match-summary-to-level"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-data-types"
+      ],
+      "prompt": "Using the same invented renal clinic file, write the one results line each of these three columns can carry, with units where units apply: dialysis modality, symptom burden, serum creatinine. Then a colleague asks for the mean symptom burden across the clinic. Write the refusal you would send, including the test that shows why that mean would not describe the patients.",
+      "stimulus": null,
+      "points": 3,
+      "responseSpec": {
+        "mode": "text",
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "maxLength": 1600
+      },
+      "answer": {
+        "correct": "Dialysis modality: the count and proportion of patients on each of the three modalities, plus the most common modality. Symptom burden: the count and share in each of the five bands, plus the median band, and optionally the share in the top two bands. Serum creatinine: mean and standard deviation in micromoles per litre, or a median and range if the values are strongly lopsided. The refusal: the five bands rank patients without measuring the distance between them, so renumbering the bands as 1, 2, 3, 4, 10 would leave every patient in exactly the band the clinician chose while changing the mean. A summary that moves when no patient has moved is describing the numbering rather than the clinic.",
+        "summary": "Counts and proportions for the modality, order-based summaries for the bands, a mean and standard deviation for the laboratory value, and a refusal built on the recoding test.",
+        "reasoning": "Award one point for the modality line, which must use counts or proportions and must not use an average. Award one point for the symptom-burden line, which must be order-based and must include the median band or the band frequencies. Award one point for the serum-creatinine line together with a refusal that contains the recoding argument, meaning that changing the numerals while keeping every patient's band changes the mean. A refusal that says only that the data are ordinal does not earn the third point, because it names the category without showing the consequence. On a retry, do the same for a stroke unit file: ward of admission, a five-level disability grade, and time from onset to imaging in minutes.",
+        "acceptableResponses": [
+          "Any response giving counts or proportions for the nominal column, a median or band frequencies for the ordinal column, a mean with standard deviation or a defended median with range for the continuous column, and a refusal that turns on the unestablished spacing between bands."
+        ],
+        "commonErrors": [
+          "Offering a mean band number alongside the median as a second opinion",
+          "Reporting a median modality for the three named treatments",
+          "Refusing the mean by asserting that ordinal data are never averaged, with no argument",
+          "Omitting the units on the laboratory line"
+        ]
+      },
+      "rubricId": "rubric-match-summary-and-refuse",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-read-paired-structure",
+      "type": "single-choice",
+      "sceneId": "scene-practice-fading",
+      "objectiveIds": [
+        "objective-read-paired-independent"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-data-types"
+      ],
+      "prompt": "In an invented study, each of 50 patients starting dialysis is matched with one person of the same age group and sex who is not on dialysis. Serum creatinine is measured once for every one of the 100 people. Which description of the two sets of measurements is correct, and why?",
+      "stimulus": null,
+      "points": 2,
+      "responseSpec": {
+        "mode": "single-choice",
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "options": [
+          {
+            "id": "option-independent-different-people",
+            "text": "Independent, because the 100 measurements come from 100 different people and nobody is measured twice."
+          },
+          {
+            "id": "option-paired-by-matching",
+            "text": "Paired, because the design ties each patient's value to one specific comparison value, so the file could be written with one row per pair."
+          },
+          {
+            "id": "option-independent-single-measurement",
+            "text": "Independent, because pairing requires two measurements taken at different times on the same person."
+          },
+          {
+            "id": "option-paired-same-quantity",
+            "text": "Paired, because both sets record the same quantity in the same units."
+          }
+        ],
+        "maxLength": null
+      },
+      "answer": {
+        "correct": "option-paired-by-matching",
+        "summary": "Deliberate matching creates the pairing, even though every measurement comes from a different body.",
+        "reasoning": "Pairing is a property of how the study collected its values, not of whether the same body was measured twice. Here the design deliberately ties each patient to one comparison person chosen to resemble them, so each patient value has one partner and the file can be written with one row per pair. The two options that answer independent both rely on counting bodies, which is the intuition this item is testing. The remaining paired option gives a reason that would make almost any two datasets paired, since sharing a quantity and a unit creates no correspondence between particular values. If you chose an independent option, redraw the data as a table and ask how many rows it needs; if one row can hold both values without an arbitrary choice, the data are paired. On a retry, decide the structure for a study that measures blood pressure in 40 patients before and after a medication change, and for one that measures it once in 40 patients on drug A and once in 40 other patients on drug B.",
+        "acceptableResponses": [],
+        "commonErrors": [
+          "Treating pairing as a synonym for repeated measurement on the same person",
+          "Counting distinct participants and concluding independence from the count alone",
+          "Calling any two sets of the same quantity paired"
+        ]
+      },
+      "rubricId": "rubric-read-paired-structure",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-integrated-audit-transfer",
+      "type": "open-response",
+      "sceneId": "scene-clinical-wrap-up",
+      "objectiveIds": [
+        "objective-classify-columns",
+        "objective-match-summary-to-level",
+        "objective-read-paired-independent"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-data-types"
+      ],
+      "prompt": "An invented asthma clinic proposes an audit. Its file holds, for each of 80 children: inhaler device type, recorded as one of four named devices; a four-level asthma control category from well controlled to very poorly controlled; peak expiratory flow in litres per minute at the start of the year and again at the end; and the number of rescue inhaler prescriptions issued during the year. The team drafts three sentences for its report. First, mean control category was 2.4. Second, mean peak flow rose by 14 litres per minute over the year. Third, the four device types had a median of device 2. Classify all four columns, judge each of the three sentences, name the structure of the two peak-flow measurements and what that structure permits, and rewrite the report using only what the columns support. No real clinic, child, or device is described, and this is not clinical guidance.",
+      "stimulus": null,
+      "points": 4,
+      "responseSpec": {
+        "mode": "text",
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "maxLength": 2400
+      },
+      "answer": {
+        "correct": "Device type is categorical and nominal. Control category is categorical and ordinal. Peak expiratory flow is quantitative and continuous on a ratio scale. Rescue prescriptions is quantitative and discrete on a ratio scale. Sentence one repeats the ordinal-code error: the four control levels rank without a measured spacing, so 2.4 would change if the levels were renumbered while every child stayed in the same level. Sentence two is sound: litres per minute is a measured scale with a fixed unit gap and a real zero, so a mean and a mean change are interpretable. Sentence three is wrong for the opposite reason: device type has no order, so no middle value exists and a median cannot be formed; report counts and proportions and the most common device instead. The two peak-flow measurements are paired, because each start-of-year value belongs with the end-of-year value from the same child, so the audit can work with each child's own change. A defensible report gives the count and proportion of children using each device, the count and share in each control level with the median level, the mean paired change in peak flow with its units, and the mean or median number of rescue prescriptions.",
+        "summary": "Two categorical columns and two quantitative ones, one legitimate sentence out of three, and a paired peak-flow structure that supports a within-child change.",
+        "reasoning": "Award one point for all four classifications correct. Award one point for rejecting the mean control category with the recoding argument. Award one point for accepting the peak-flow mean and rejecting the median device with the reason that a median needs an order that nominal groups do not have. Award one point for naming the peak-flow pairing and saying that it permits a within-child change, together with a rewritten report that uses only supported summaries. All four are required for full marks. A response that rejects all three sentences has not discriminated and does not earn the second and third points. On a retry, audit an invented epilepsy clinic file: antiseizure medication as one of five named drugs, a three-level seizure-frequency band, serum drug concentration measured before and after a dose change, and emergency attendances in a year.",
+        "acceptableResponses": [
+          "Any response that classifies the four columns correctly, keeps the peak-flow sentence while rejecting the other two for the right and different reasons, identifies the paired structure and its use, and rewrites the report with supported summaries only."
+        ],
+        "commonErrors": [
+          "Rejecting all three sentences without separating the ordinal-code error from the missing-order error",
+          "Calling the two peak-flow columns independent because they are two separate columns",
+          "Offering a mean device number in place of the rejected median",
+          "Reporting the peak-flow change without units",
+          "Treating rescue prescriptions as ordinal because the counts are small"
+        ]
+      },
+      "rubricId": "rubric-integrated-audit-transfer",
+      "safetyCritical": false
+    }
+  ],
+  "rubrics": [
+    {
+      "id": "rubric-classify-supplied-columns",
+      "title": "Classifying columns of a supplied clinical file",
+      "criteria": [
+        {
+          "id": "criterion-categorical-split",
+          "description": "Award 1 point only when dialysis modality is nominal and symptom burden is ordinal, each justified by whether the groups rank and whether the step between them is established.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-continuous-column",
+          "description": "Award 1 point only when serum creatinine is continuous on a ratio scale, justified by a fixed unit gap and a zero meaning none present.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-discrete-column",
+          "description": "Award 1 point only when missed sessions is discrete on a ratio scale, justified by the fact that only whole sessions can occur rather than by the appearance of the stored values.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-match-summary-and-refuse",
+      "title": "Matching summaries to levels and defending a refusal",
+      "criteria": [
+        {
+          "id": "criterion-nominal-summary",
+          "description": "Award 1 point only when the modality line uses counts or proportions, or the most common group, and offers no average.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-ordinal-summary",
+          "description": "Award 1 point only when the symptom-burden line is order-based, giving the median band or the frequency in each band.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-refusal-argument",
+          "description": "Award 1 point only when the serum-creatinine line carries a mean and standard deviation with units, or a defended median and range, and the refusal shows that recoding the bands changes the mean while every patient stays in the same band.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-read-paired-structure",
+      "title": "Reading paired and independent structure",
+      "criteria": [
+        {
+          "id": "criterion-paired-selection",
+          "description": "Award 1 point only when the matched-design option is selected.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-paired-reason",
+          "description": "Award 1 point only when the reason given is the one-to-one correspondence created by the design, rather than the number of people measured or the shared quantity and units.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-integrated-audit-transfer",
+      "title": "Integrated audit of an unfamiliar clinical file",
+      "criteria": [
+        {
+          "id": "criterion-transfer-classification",
+          "description": "Award 1 point only when all four columns are classified correctly as nominal, ordinal, continuous ratio, and discrete ratio.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-transfer-ordinal-refusal",
+          "description": "Award 1 point only when the mean control category is rejected using the recoding argument rather than by naming the data type alone.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-transfer-discrimination",
+          "description": "Award 1 point only when the peak-flow mean is accepted and the median device is rejected because nominal groups supply no order for a middle value to sit in.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-transfer-structure-and-rewrite",
+          "description": "Award 1 point only when the two peak-flow measurements are identified as paired, the within-child change is named as what that permits, and the rewritten report uses only supported summaries with units.",
+          "maxPoints": 1
+        }
+      ]
+    }
+  ]
+}
