@@ -192,7 +192,14 @@ if (metadata) {
   }
 }
 
-if (candidateCommit) {
+// The same reasoning as validate-lessons.mjs: under a maintainer-attested tier the pack still
+// carries the adjudication that earned publication, and that record points at the candidate commit
+// of the earlier version. Squash-merging removed that commit from main, so verifying its lineage
+// here asks history to contain something the merge strategy deliberately discarded. A wording
+// repair introduces no candidate of its own, so there is no lineage to check.
+const historicalAdjudication = rephrasingTier && adjudication && adjudication.lessonVersion !== metadata?.version;
+
+if (candidateCommit && !historicalAdjudication) {
   try {
     git("cat-file", "-e", `${candidateCommit}^{commit}`);
     git("merge-base", "--is-ancestor", candidateCommit, headSha);
