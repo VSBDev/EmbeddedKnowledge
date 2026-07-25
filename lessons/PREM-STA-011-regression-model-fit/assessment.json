@@ -1,0 +1,441 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-assessment-v1",
+  "lessonId": "PREM-STA-011",
+  "lessonVersion": "0.1.0",
+  "assessmentId": "assessment-prem-sta-011-regression-model-fit",
+  "title": "Reading, computing, and refusing a fitted line",
+  "purpose": "mixed",
+  "attemptPolicy": {
+    "retakeable": true,
+    "timeLimitMinutes": null,
+    "feedback": "after-attempt"
+  },
+  "items": [
+    {
+      "id": "item-slope-in-words",
+      "type": "single-choice",
+      "sceneId": "scene-a-line-with-units",
+      "objectiveIds": [
+        "objective-read-slope-and-intercept"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-regression"
+      ],
+      "prompt": "A study of adults with type 2 diabetes fits fasting glucose against the dinner-to-sleep interval and reports a slope of −3.37 mg/dL per hour. Which sentence states what the slope reports?",
+      "stimulus": "The horizontal axis counts hours between dinner and sleep, so a later dinner leaves a shorter interval.",
+      "points": 4,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-association-across-people",
+            "text": "Across the adults in the study, those whose interval was one hour longer averaged 3.37 mg/dL lower fasting glucose."
+          },
+          {
+            "id": "option-causal-per-person",
+            "text": "Delaying a patient's dinner by one hour lowers their fasting glucose by 3.37 mg/dL."
+          },
+          {
+            "id": "option-sign-flip",
+            "text": "Across the adults in the study, those who ate dinner one hour later averaged 3.37 mg/dL lower fasting glucose."
+          },
+          {
+            "id": "option-total-effect",
+            "text": "Fasting glucose in the study fell by 3.37 mg/dL in total over the period observed."
+          }
+        ]
+      },
+      "answer": {
+        "correct": "option-association-across-people",
+        "summary": "A longer interval goes with lower average glucose, across people.",
+        "reasoning": "The slope compares people who differ in the predictor, so it is read as a difference in averages across the observed adults, in the units of the two variables. A longer interval is the direction the axis counts upwards, and the negative sign means glucose averages lower there.",
+        "acceptableResponses": [
+          "option-association-across-people"
+        ],
+        "commonErrors": [
+          "Choosing the causal statement reads a between-person comparison as an effect of changing one person's habit. The study observed adults who already differed; it moved nobody's dinner.",
+          "Choosing the third option reverses the direction of the axis. A later dinner leaves a shorter interval, so later eating sits at the low end of the predictor, where the downward line gives higher glucose.",
+          "Choosing the last option treats the interval as time elapsed during the study. The predictor is a per-person interval, not a period of follow-up."
+        ]
+      },
+      "rubricId": "rubric-reading-a-fit",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-compute-intercept",
+      "type": "numeric",
+      "sceneId": "scene-fitting-the-line",
+      "objectiveIds": [
+        "objective-compute-and-check-the-fit"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-regression"
+      ],
+      "prompt": "In a different cohort the mean dinner-to-sleep interval is 4.0 hours, the mean fasting glucose is 138.0 mg/dL, and the least-squares slope is −2.50 mg/dL per hour. Give the intercept of the fitted line in mg/dL, to one decimal place.",
+      "points": 5,
+      "responseSpec": {
+        "mode": "number",
+        "units": "mg/dL",
+        "tolerance": 0.2
+      },
+      "answer": {
+        "correct": 148,
+        "summary": "148.0 mg/dL.",
+        "reasoning": "The least-squares line passes through the point made by the two means, so the intercept is the mean response minus the slope times the mean predictor: 138.0 − (−2.50)(4.0) = 138.0 + 10.0 = 148.0 mg/dL. Checking it, the fitted value at 4.0 hours is 148.0 − 2.50 × 4.0 = 138.0, which is the mean glucose, as it must be.",
+        "acceptableResponses": [
+          "148",
+          "148.0",
+          "148 mg/dL"
+        ],
+        "commonErrors": [
+          "Answering 128.0 subtracts 10 instead of adding it, by missing that subtracting a negative slope times a positive mean adds to the intercept.",
+          "Answering 138.0 reports the mean glucose, which is the fitted value at the mean interval and not the value at an interval of zero.",
+          "Answering 135.5 substitutes an interval of 1 hour rather than using the point of means."
+        ]
+      },
+      "rubricId": "rubric-computing-a-fit",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-residual-sign-and-size",
+      "type": "numeric",
+      "sceneId": "scene-what-the-line-leaves-over",
+      "objectiveIds": [
+        "objective-use-residuals"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-regression"
+      ],
+      "prompt": "Using this lesson's fitted line, fitted glucose = 153.4 − 3.37 × interval, a participant with an interval of 4.5 hours recorded a fasting glucose of 132 mg/dL. Give their residual in mg/dL, to one decimal place, including its sign.",
+      "points": 5,
+      "responseSpec": {
+        "mode": "number",
+        "units": "mg/dL",
+        "tolerance": 0.3
+      },
+      "answer": {
+        "correct": -6.2,
+        "summary": "−6.2 mg/dL.",
+        "reasoning": "The fitted value is 153.4 − 3.37 × 4.5 = 153.4 − 15.165 = 138.2 mg/dL. The residual is the observation minus the fitted value: 132 − 138.2 = −6.2 mg/dL. The sign is negative because this person came in below the line. At about a third of the typical miss of 17.2 mg/dL in this dataset, it is an unremarkable residual.",
+        "acceptableResponses": [
+          "-6.2",
+          "−6.2",
+          "-6.2 mg/dL"
+        ],
+        "commonErrors": [
+          "Answering +6.2 reverses the subtraction. A residual is observed minus fitted, so a person below the line always has a negative one.",
+          "Answering 138.2 reports the fitted value and stops before subtracting.",
+          "Answering −10.0 uses the cohort mean of 142 instead of the fitted value at this person's interval, which is what the residual is measured from."
+        ]
+      },
+      "rubricId": "rubric-computing-a-fit",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-residual-plot-diagnosis",
+      "type": "single-choice",
+      "sceneId": "scene-a-line-is-not-a-lever",
+      "objectiveIds": [
+        "objective-use-residuals",
+        "objective-interpret-fit-summaries"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-regression"
+      ],
+      "prompt": "A team fits a straight line to 80 paired laboratory measurements and reports r-squared = 0.88. Their residual plot is negative at both ends of the predictor's range and positive through the middle. What should they be told?",
+      "points": 6,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-refit-curved",
+            "text": "The straight line is the wrong shape for these data despite the high r-squared, and the model should be refitted with a form that can bend."
+          },
+          {
+            "id": "option-accept-high-r2",
+            "text": "An r-squared of 0.88 is high, so the model is well supported and the residual pattern can be disregarded."
+          },
+          {
+            "id": "option-drop-ends",
+            "text": "The observations at both ends of the range should be removed, since they are producing the negative residuals."
+          },
+          {
+            "id": "option-more-data",
+            "text": "The sample is too small at 80 observations, and collecting more would remove the pattern."
+          }
+        ]
+      },
+      "answer": {
+        "correct": "option-refit-curved",
+        "summary": "An arch in the residuals means the wrong shape, whatever r-squared says.",
+        "reasoning": "Residuals negative at both ends and positive in the middle are the signature of a curve with a straight line forced through it, and systematic structure of that kind indicates that the form of the function can be improved. A high coefficient of determination does not guarantee that a model fits, because it measures how much of the variation the line accounts for and not whether the shape is right. The two summaries answer different questions.",
+        "acceptableResponses": [
+          "option-refit-curved"
+        ],
+        "commonErrors": [
+          "Accepting the model on r-squared alone is the error this lesson's misconception scene exists to repair: the statistic cannot justify a model on its own.",
+          "Deleting the end observations removes the evidence of misfit while leaving the misfit in place, and discarding data because they disagree with a chosen model reverses the direction of inference.",
+          "Blaming the sample size mistakes systematic structure for noise. A pattern this orderly across 80 points is not what a small sample produces; more data would sharpen the arch."
+        ]
+      },
+      "rubricId": "rubric-judging-a-fit",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-r-squared-in-words",
+      "type": "short-answer",
+      "sceneId": "scene-what-the-line-leaves-over",
+      "objectiveIds": [
+        "objective-interpret-fit-summaries"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-regression"
+      ],
+      "prompt": "This lesson's fit has r = −0.32 and r-squared = 0.10. In two or three sentences, say what the 0.10 reports about the sixty adults, and name one conclusion it does not license.",
+      "points": 6,
+      "responseSpec": {
+        "mode": "text",
+        "maxLength": 900
+      },
+      "answer": {
+        "correct": "About 10% of the total variation in fasting glucose across the sixty adults is accounted for by the fitted line on the dinner-to-sleep interval, leaving about 90% unaccounted for. It does not license any conclusion that the fitted shape is right, that dinner timing causes the difference, or that the line is useful for predicting one person's reading.",
+        "summary": "Ten per cent of the variation accounted for; ninety per cent not; and nothing about shape, cause, or individual prediction.",
+        "reasoning": "The coefficient of determination is the regression sum of squares over the total sum of squares, read as the proportion of total variability the model accounts for. Here 1956 of 19116 gives 0.102. The complementary reading is the useful one: knowing someone's dinner interval reduces the typical miss only from 18.0 mg/dL, the standard deviation of glucose, to 17.2 mg/dL. A response earns full credit when it gives the proportion in the terms of these data and names at least one thing the value does not establish, since whether the shape is right belongs to the residual plot and whether the association is an effect belongs to study design.",
+        "acceptableResponses": [
+          "Ten per cent of the variation in fasting glucose between these adults goes with differences in the dinner-to-sleep interval, and ninety per cent does not. It does not tell us the straight line is the right shape, which the residual plot decides.",
+          "The line accounts for about a tenth of the spread in glucose across the cohort. It gives no ground for saying that eating earlier would lower any individual's reading."
+        ],
+        "commonErrors": [
+          "Reporting that 10% of people are explained by the model. The proportion applies to the variation in the response, not to a subset of the participants.",
+          "Reading a low r-squared as proof that the straight line is the wrong shape. Strength and shape are separate questions, and here the residual plot shows the shape is adequate.",
+          "Saying that dinner timing explains 10% of glucose in a causal sense. The word 'explains' is conventional and the quantity is descriptive; the fit compares people and identifies no cause."
+        ]
+      },
+      "rubricId": "rubric-judging-a-fit",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-refuse-the-extrapolation",
+      "type": "single-choice",
+      "sceneId": "scene-predict-and-refuse",
+      "objectiveIds": [
+        "objective-bound-the-prediction"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-regression"
+      ],
+      "prompt": "The sixty recorded intervals ran from 0.8 to 6.5 hours. A colleague asks the fitted line what fasting glucose to expect at an interval of 10 hours, and it returns 119.7 mg/dL. What is the correct response?",
+      "points": 5,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-outside-range",
+            "text": "Decline the figure: 10 hours lies outside the range the data cover, so the line is extending a shape that was never tested there."
+          },
+          {
+            "id": "option-arithmetic-correct",
+            "text": "Accept the figure, since the arithmetic is correct and the equation applies at every value of the predictor."
+          },
+          {
+            "id": "option-widen-interval",
+            "text": "Accept the figure but attach a wider margin of error, which is all that changes outside the observed range."
+          },
+          {
+            "id": "option-recompute-slope",
+            "text": "Decline the figure and refit the line using only the participants with the longest intervals."
+          }
+        ]
+      },
+      "answer": {
+        "correct": "option-outside-range",
+        "summary": "Ten hours is beyond the data; the line has no evidence there.",
+        "reasoning": "Interpolation asks a fitted line about a region the observations cover; extrapolation asks it about a region they do not. Linear models behave particularly badly outside their range because their outputs grow steadily more extreme as the predictor moves out, and nothing in the fitting method signals the boundary. The correct move is to state the observed range and decline.",
+        "acceptableResponses": [
+          "option-outside-range"
+        ],
+        "commonErrors": [
+          "Accepting the figure because the arithmetic completes confuses a calculation with evidence. The equation returns a number at any input, including inputs no participant came near.",
+          "Widening the margin treats the problem as imprecision. The difficulty is that the straight-line shape itself is untested past 6.5 hours, and no interval built from the fitted data repairs that.",
+          "Refitting on the longest intervals discards most of the data and still supplies no observations beyond 6.5 hours, so the extrapolation remains an extrapolation."
+        ]
+      },
+      "rubricId": "rubric-bounding-a-prediction",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-adjusted-coefficient",
+      "type": "short-answer",
+      "sceneId": "scene-holding-a-variable-still",
+      "objectiveIds": [
+        "objective-explain-adjustment"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-regression"
+      ],
+      "prompt": "A report gives an unadjusted slope for the dinner-to-sleep interval of −3.4 mg/dL per hour, and a slope of −0.9 mg/dL per hour after adjustment for shift work and sleep duration. Write the adjusted figure as a sentence a clinician would understand, then state one thing the adjustment has not achieved.",
+      "points": 6,
+      "responseSpec": {
+        "mode": "text",
+        "maxLength": 900
+      },
+      "answer": {
+        "correct": "Among people with the same shift pattern and the same sleep duration, those whose interval was one hour longer averaged 0.9 mg/dL lower fasting glucose. The adjustment has not made this an effect: it compares people who were observed, it reaches only the two variables that were recorded, and anything else that differs between late and early eaters is still inside the figure.",
+        "summary": "Same shift and same sleep duration, one hour longer, 0.9 mg/dL lower on average; still an association, still blind to unmeasured variables.",
+        "reasoning": "A coefficient in a model with several predictors is the change in the response per unit of its own predictor while the others hold their values, which is what adjustment means. Full credit requires the 'among people who match on' clause with both named variables and the correct units and sign, plus one genuine limit: the comparison remains between people rather than within a person, or it reaches only measured variables and leaves residual confounding behind, or a variable on the causal pathway would move the coefficient without improving it. The drop from −3.4 to −0.9 additionally says most of the crude association travelled with shift work and sleep duration.",
+        "acceptableResponses": [
+          "Comparing people on the same shift pattern who sleep the same amount, one extra hour between dinner and sleep goes with 0.9 mg/dL lower fasting glucose on average. It has not shown that changing a patient's dinner time would do anything.",
+          "Among adults matched on shift and sleep duration, a one-hour longer interval is associated with 0.9 mg/dL lower morning glucose. Adjustment cannot hold constant a variable nobody measured, so unmeasured differences remain."
+        ],
+        "commonErrors": [
+          "Writing that the adjusted slope shows what happens when a patient's dinner is moved, which restates the causal reading the adjustment does not supply.",
+          "Omitting the matching clause and reporting only '0.9 mg/dL per hour', which is the sentence an unadjusted slope would also produce and hides what the number now means.",
+          "Treating the fall from −3.4 to −0.9 as evidence that the analysis was wrong before. Both figures are correct descriptions of different comparisons; the second is narrower."
+        ]
+      },
+      "rubricId": "rubric-explaining-adjustment",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-clinical-transfer-judgment",
+      "type": "data-interpretation",
+      "sceneId": "scene-clinical-wrap-up",
+      "objectiveIds": [
+        "objective-bound-the-prediction",
+        "objective-interpret-fit-summaries",
+        "objective-read-slope-and-intercept"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-regression"
+      ],
+      "prompt": "Work through this case using the fitted line and the fit summaries. State the two fitted values, the patient's residual, and then in two or three sentences say what the study supports telling her and what it does not.",
+      "stimulus": "Illustrative teaching case, not medical advice. A 58-year-old woman with type 2 diabetes has a fasting glucose of 168 mg/dL. She eats at 10 pm and sleeps at 11 pm, an interval of 1.0 hour, and asks about moving dinner to 8 pm. The available study of sixty adults gives fitted glucose = 153.4 − 3.37 × interval, r = −0.32, r-squared = 0.10, a typical miss of about 17.2 mg/dL, and recorded intervals from 0.8 to 6.5 hours.",
+      "points": 10,
+      "responseSpec": {
+        "mode": "text",
+        "maxLength": 1600
+      },
+      "answer": {
+        "correct": "At 1.0 hour the line gives 150.0 mg/dL and at 3.0 hours it gives 143.3 mg/dL, a difference of 6.7 mg/dL, and both are interpolations inside the recorded range. Her residual is 168 − 150.0 = +18.0 mg/dL, so most of what sets her reading apart is something the line does not measure and moving along the line would not remove. The study supports telling her that adults who left two more hours averaged about 7 mg/dL lower in the morning; it does not support telling her that her own reading would fall by that amount, because the comparison was between different people and 6.7 mg/dL sits well inside the ordinary 17.2 mg/dL spread around the line.",
+        "summary": "150.0 and 143.3 mg/dL, a 6.7 mg/dL difference; residual +18.0 mg/dL; an average across people, not a prediction for her.",
+        "reasoning": "Both fitted values follow from substituting into the line, and both intervals lie inside 0.8 to 6.5 hours so neither is an extrapolation, though 1.0 hour sits close to the low edge of the data and is worth noting as such. The residual is the observation minus the fitted value at her own interval, and its size relative to the predicted shift is the heart of the case: a 6.7 mg/dL difference sits inside a typical miss of 17.2 mg/dL, so it could not be picked out in one patient over a few mornings. Full credit requires the arithmetic, the residual with its sign, the association-versus-effect boundary, and the comparison of the predicted shift against the residual spread. A response that adds the clinical scale, noting that she is far above the 126 mg/dL diabetes cut-point and that a 6.7 mg/dL move would leave her above it, has reached the strongest reading available.",
+        "acceptableResponses": [
+          "150.0 and 143.3 mg/dL; residual +18.0 mg/dL; the 6.7 mg/dL difference is an average across people, is small next to the 17.2 mg/dL typical miss, and says nothing about what would happen if she changed her habit.",
+          "The line predicts 150.0 now and 143.3 at a three-hour interval. She is 18.0 above the line, which the model cannot account for. Both predictions are inside the data range, but the study compared different people, so it supports a statement about averages and not a promise to her."
+        ],
+        "commonErrors": [
+          "Telling the patient her glucose would drop by about 7 mg/dL, which converts an observed association across sixty people into a prediction about one person who changes.",
+          "Computing the residual from the cohort mean of 142 instead of from her own fitted value of 150.0, which measures her against the wrong baseline.",
+          "Ignoring the residual spread and reporting the 6.7 mg/dL as though it were a detectable change, when the ordinary distance between a person and this line is more than twice that.",
+          "Extending the line past 6.5 hours to produce a more encouraging number, which is an extrapolation into a region the study never observed."
+        ]
+      },
+      "rubricId": "rubric-clinical-transfer",
+      "safetyCritical": true
+    }
+  ],
+  "rubrics": [
+    {
+      "id": "rubric-reading-a-fit",
+      "title": "Reading a fitted line in the units of the data",
+      "criteria": [
+        {
+          "id": "criterion-units-and-sign",
+          "description": "States the slope with the correct units and sign, and reads the sign against the direction the predictor was defined to count.",
+          "maxPoints": 2
+        },
+        {
+          "id": "criterion-population-statement",
+          "description": "Frames the coefficient as a comparison across the observed people instead of as a change happening to one person.",
+          "maxPoints": 2
+        }
+      ]
+    },
+    {
+      "id": "rubric-computing-a-fit",
+      "title": "Computing fitted quantities correctly",
+      "criteria": [
+        {
+          "id": "criterion-correct-arithmetic",
+          "description": "Produces the correct numerical value within the stated tolerance.",
+          "maxPoints": 3
+        },
+        {
+          "id": "criterion-sign-and-units",
+          "description": "Reports the value with its sign and the units of the response, and measures a residual from the fitted value rather than from a mean.",
+          "maxPoints": 2
+        }
+      ]
+    },
+    {
+      "id": "rubric-judging-a-fit",
+      "title": "Judging strength and shape as separate questions",
+      "criteria": [
+        {
+          "id": "criterion-proportion-read-correctly",
+          "description": "Reads the coefficient of determination as a proportion of the variation in the response, in the terms of the data at hand.",
+          "maxPoints": 3
+        },
+        {
+          "id": "criterion-shape-versus-strength",
+          "description": "Keeps the residual plot's verdict on shape distinct from the coefficient's verdict on strength, and names at least one conclusion the coefficient does not license.",
+          "maxPoints": 3
+        }
+      ]
+    },
+    {
+      "id": "rubric-bounding-a-prediction",
+      "title": "Bounding a prediction by the observed range",
+      "criteria": [
+        {
+          "id": "criterion-identify-range",
+          "description": "Identifies whether the requested predictor value falls inside or outside the range the data cover.",
+          "maxPoints": 3
+        },
+        {
+          "id": "criterion-reason-for-refusal",
+          "description": "Gives a reason drawn from the data or from the behaviour of linear fits outside their range, instead of appealing to imprecision alone.",
+          "maxPoints": 2
+        }
+      ]
+    },
+    {
+      "id": "rubric-explaining-adjustment",
+      "title": "Explaining what an adjusted coefficient says",
+      "criteria": [
+        {
+          "id": "criterion-matching-clause",
+          "description": "Writes the coefficient with an explicit clause naming the variables held constant, in the correct units and sign.",
+          "maxPoints": 3
+        },
+        {
+          "id": "criterion-limits-of-adjustment",
+          "description": "States a genuine limit: the comparison remains between people, reaches only measured variables, or can be distorted by adjusting for the wrong variable.",
+          "maxPoints": 3
+        }
+      ]
+    },
+    {
+      "id": "rubric-clinical-transfer",
+      "title": "Applying a cohort-level fit to one patient",
+      "criteria": [
+        {
+          "id": "criterion-fitted-values-and-residual",
+          "description": "Computes both fitted values and the patient's residual with the correct sign, and confirms both predictions are interpolations.",
+          "maxPoints": 4
+        },
+        {
+          "id": "criterion-shift-against-spread",
+          "description": "Compares the predicted difference against the typical distance between an individual and the line, and draws the right conclusion about detectability in one patient.",
+          "maxPoints": 3
+        },
+        {
+          "id": "criterion-boundary-held",
+          "description": "Keeps the association-versus-effect boundary explicit and offers the patient no prediction the study cannot support.",
+          "maxPoints": 3
+        }
+      ]
+    }
+  ]
+}

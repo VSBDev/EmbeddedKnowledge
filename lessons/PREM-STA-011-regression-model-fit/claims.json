@@ -1,0 +1,244 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-claims-v1",
+  "lessonId": "PREM-STA-011",
+  "lessonVersion": "0.1.0",
+  "claims": [
+    {
+      "id": "claim-regression-describes-response-by-predictors",
+      "statement": "A regression states a response variable as a mathematical function of one or more predictor variables and unknown parameters, plus a term for the part the function does not account for, so the relationship it asserts holds on average across the data and not for each individual observation.",
+      "sceneIds": [
+        "scene-a-difference-without-a-rate"
+      ],
+      "sourceIds": [
+        "source-nist-model-terminology"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "The general structure of a statistical process model, as set out for engineering and scientific modelling. It fixes what the word names; it says nothing about whether any particular fitted relationship is useful.",
+      "uncertainty": "The source records that people sometimes use the word 'model' for the functional part alone and sometimes for the function together with its assumptions about the error term. This lesson uses the narrower sense and says so.",
+      "risk": "routine",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-least-squares-criterion",
+      "statement": "Linear least squares obtains its parameter estimates by choosing the values that minimise the sum of the squared deviations between the observed responses and the values the model gives, and the two estimates for a straight line are named the intercept and the slope.",
+      "sceneIds": [
+        "scene-a-line-with-units",
+        "scene-fitting-the-line",
+        "scene-holding-a-variable-still"
+      ],
+      "sourceIds": [
+        "source-nist-least-squares",
+        "source-kim-regression-basics"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "Ordinary least squares fitted to paired quantitative data, with deviations measured in the response and not perpendicular to the line. Both sources state the criterion; the naming of intercept and slope comes from the clinical-statistics source.",
+      "uncertainty": "Squaring the deviations is a choice rather than a necessity, and it is what makes the fit sensitive to a single distant observation. Other criteria exist and are outside this lesson's scope.",
+      "risk": "routine",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-slope-is-change-per-unit",
+      "statement": "A regression coefficient is the average expected change in the response for each one-unit change in its predictor, or for a categorical predictor the expected difference against a reference category.",
+      "sceneIds": [
+        "scene-a-line-with-units",
+        "scene-predict-and-refuse",
+        "scene-clinical-wrap-up"
+      ],
+      "sourceIds": [
+        "source-schober-linear-regression"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "The interpretation of a fitted coefficient in medical research. The change described is a comparison across the observations that were fitted, in the units of the two variables as they were recorded.",
+      "uncertainty": "The word 'change' invites a causal reading the coefficient does not carry when the data are observational. The lesson separates the two readings explicitly and treats the coefficient as a statement about association across people.",
+      "risk": "routine",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-linear-in-parameters",
+      "statement": "A model counts as linear when each explanatory variable is multiplied by an unknown parameter, at most one parameter has no corresponding variable, and the resulting terms are summed, so a linear model need not be a straight line in the explanatory variables themselves.",
+      "sceneIds": [
+        "scene-a-line-with-units"
+      ],
+      "sourceIds": [
+        "source-nist-least-squares"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "The technical meaning of linearity in the least-squares literature. The lesson states the definition and fits only the simplest member of the family, a straight line in one predictor.",
+      "uncertainty": null,
+      "risk": "routine",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-slope-from-correlation",
+      "statement": "The least-squares slope of a simple linear regression equals the correlation coefficient multiplied by the standard deviation of the response and divided by the standard deviation of the predictor.",
+      "sceneIds": [
+        "scene-fitting-the-line"
+      ],
+      "sourceIds": [
+        "source-kim-regression-basics"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "Simple linear regression with one predictor. The lesson uses the identity as an independent arithmetic check on a slope obtained from the summed cross-product, and to show what the slope is composed of.",
+      "uncertainty": null,
+      "risk": "routine",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-correlation-linear-only",
+      "statement": "The Pearson correlation coefficient is the covariance standardised by both standard deviations, always lies between minus one and plus one with its sign giving the direction, and reflects only the strength of a linear relationship, so very different relationships can produce the same coefficient and a scatter plot should be inspected before the coefficient is trusted.",
+      "sceneIds": [
+        "scene-fitting-the-line",
+        "scene-what-the-line-leaves-over"
+      ],
+      "sourceIds": [
+        "source-kim-covariance-correlation"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "The Pearson coefficient for two quantitative variables. The source states its construction, range, sign, and the caution about non-linear and outlier-influenced relationships, including that a U-shaped relationship can give a coefficient near zero.",
+      "uncertainty": "The coefficient is conventionally used with jointly normally distributed data; rank-based alternatives exist for ordinal data or data with influential outliers, and the lesson does not cover them.",
+      "risk": "routine",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-residual-definition",
+      "statement": "A residual is the difference between an observed response and the value the fitted model gives at the same combination of explanatory variable values.",
+      "sceneIds": [
+        "scene-what-the-line-leaves-over"
+      ],
+      "sourceIds": [
+        "source-nist-model-fit"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "Any fitted model, expressed in the units of the response. The lesson uses the same meaning the course's proportional-models lesson gave the term, applied to a straight-line fit.",
+      "uncertainty": null,
+      "risk": "routine",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-residual-plot-structure",
+      "statement": "Graphical residual analysis is the primary means of judging whether a model fits: residuals that behave randomly suggest the model fits the data well, while systematic structure in the residuals plotted against a predictor indicates that the form of the function can be improved.",
+      "sceneIds": [
+        "scene-what-the-line-leaves-over",
+        "scene-a-line-is-not-a-lever"
+      ],
+      "sourceIds": [
+        "source-nist-model-fit",
+        "source-nist-residual-structure"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "Residuals plotted against the predictors in the model and against potential predictors. The sources present the plot as the main diagnostic while stating that no single residual plot can completely justify adopting a model.",
+      "uncertainty": "The reading of a residual plot is a judgment about pattern, and small samples make faint structure hard to distinguish from chance. The lesson names three patterns worth recognising and does not claim the list is exhaustive.",
+      "risk": "routine",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-r-squared-proportion",
+      "statement": "The coefficient of determination is the sum of squares due to the regression divided by the total sum of squares, and is read as the proportion of the total variability in the response accounted for by the fitted model.",
+      "sceneIds": [
+        "scene-what-the-line-leaves-over",
+        "scene-predict-and-refuse",
+        "scene-clinical-wrap-up"
+      ],
+      "sourceIds": [
+        "source-kim-regression-evaluation"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "A fitted regression judged against the total variation of the response about its mean. In a fit with one predictor the value also equals the square of the correlation coefficient, which the lesson demonstrates on its own data.",
+      "uncertainty": "The proportion describes the sample it was computed on. It carries no information about whether the model's shape is right, whether the predictor was well chosen, or whether the association reflects an effect.",
+      "risk": "routine",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-r-squared-not-sufficient",
+      "statement": "A high coefficient of determination does not guarantee that a model fits the data well, and the statistic cannot justify a particular model on its own.",
+      "sceneIds": [
+        "scene-a-line-is-not-a-lever"
+      ],
+      "sourceIds": [
+        "source-nist-model-fit",
+        "source-nist-residual-structure"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "Model validation in process modelling, where the source treats validation as among the most important and most overlooked steps. The lesson demonstrates the point on a constructed nine-point dataset whose fitted line reaches a coefficient of 0.90 while its residuals form an arch.",
+      "uncertainty": "The sources state the limitation without setting any threshold at which a coefficient becomes trustworthy, and no such threshold exists. Whether a given fit is adequate depends on the residual pattern and the use the model is put to.",
+      "risk": "routine",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-least-squares-outlier-sensitivity",
+      "statement": "Linear least-squares fits are highly sensitive to outliers, because one or two unusual data points can seriously distort the result, which is why validation of the fitted model is essential.",
+      "sceneIds": [
+        "scene-a-line-is-not-a-lever"
+      ],
+      "sourceIds": [
+        "source-nist-least-squares"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "Ordinary least squares. The sensitivity follows from squaring each deviation before summing, so a large miss contributes disproportionately to the quantity being minimised.",
+      "uncertainty": "How much a single point moves a fit depends on where it sits along the predictor's range as well as how far it is from the line; the lesson notes that an extreme predictor value carries more leverage and does not quantify it.",
+      "risk": "routine",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-multiple-regression-holds-constant",
+      "statement": "A regression model including several independent variables estimates the contribution of each one while holding the values of all the others constant, which is the mechanism by which such an analysis controls for confounding.",
+      "sceneIds": [
+        "scene-holding-a-variable-still"
+      ],
+      "sourceIds": [
+        "source-schober-linear-regression"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "Multivariable linear regression in medical research. Holding constant is arithmetic performed on data already collected, so it can only involve variables that were measured and recorded.",
+      "uncertainty": "Control for confounding is limited to the variables in the model and to how well they were measured; a rival factor that was omitted or measured poorly leaves distortion behind, which the course's correlation-and-causation lesson names as residual confounding. Adjusting for a variable on the causal pathway, or for a common consequence, can also move a coefficient in a misleading direction. The lesson states all three limits.",
+      "risk": "routine",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-linear-extrapolation-poor",
+      "statement": "Linear models have poor extrapolation properties, because as the explanatory variables move to extreme values the model produces increasingly extreme outputs.",
+      "sceneIds": [
+        "scene-predict-and-refuse",
+        "scene-clinical-wrap-up"
+      ],
+      "sourceIds": [
+        "source-nist-least-squares"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "Linear least-squares models used outside the range of the data that supplied their evidence. The lesson applies the general property to its own fitted line and shows the value it returns at intervals nobody in the study recorded.",
+      "uncertainty": "The source states the behaviour of the model, not a rule for how far beyond the observed range a prediction stops being defensible. That boundary is a judgment about the subject matter as much as about the arithmetic.",
+      "risk": "routine",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-fpg-thresholds",
+      "statement": "The US National Institute of Diabetes and Digestive and Kidney Diseases states that a fasting plasma glucose result of 99 mg/dL or below is normal, 100 to 125 mg/dL indicates prediabetes, and 126 mg/dL or above indicates diabetes, that a doctor will usually use a second test to confirm a diabetes diagnosis, and that fasting means having nothing to eat or drink except sips of water.",
+      "sceneIds": [
+        "scene-clinical-wrap-up"
+      ],
+      "sourceIds": [
+        "source-niddk-diabetes-tests"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "Reference values for the fasting plasma glucose test as published for a general US audience at the access date. Used in this lesson only to give the wrap-up case a real clinical scale against which the size of a fitted difference can be judged.",
+      "uncertainty": "Thresholds and their qualifications are set by clinical bodies, can be revised, and differ in presentation between countries and guidelines. The patient and the cohort are invented, and the lesson makes no diagnostic, monitoring, or treatment recommendation.",
+      "risk": "health-sensitive",
+      "reviewStatus": "pending-review"
+    }
+  ]
+}
