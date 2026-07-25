@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-BIO-001-LD-3E8A1673",
+  "lessonId": "PREM-BIO-001",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "4fe96c45396ef1935266e77f2bbdf33a89390aa5",
+  "role": "learning-design",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — learning-design reviewer",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.7",
+      "runId": "agy-learning-design-PREM-BIO-001-3E8A1673-C257-4A3D-B31F-0DDE24AEA489",
+      "instructionsDigest": "sha256:0b78a111dad69b31d26f1010d88d59bba290a0818869f7aff0cd2560c56240cc"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Founding-stage isolation check: the accountable principal VSBDev operates the authoring, review, and finalization agents, so principal-level independence is absent. Agent-level role isolation was strictly maintained: no authoring history, other review output, or adjudication draft was read, and no other EmbeddedKnowledge role script was run during this review execution."
+  },
+  "evidenceChecked": [
+    "lessons/PREM-BIO-001-cell-theory-scale/lesson.json",
+    "lessons/PREM-BIO-001-cell-theory-scale/claims.json",
+    "lessons/PREM-BIO-001-cell-theory-scale/references.json",
+    "lessons/PREM-BIO-001-cell-theory-scale/glossary.json",
+    "lessons/PREM-BIO-001-cell-theory-scale/ATTRIBUTION.md",
+    "lessons/PREM-BIO-001-cell-theory-scale/diagrams/scale-ladder.diagram.json",
+    "lessons/PREM-BIO-001-cell-theory-scale/content/01-lining-you-cannot-see.md",
+    "lessons/PREM-BIO-001-cell-theory-scale/content/02-arithmetic-of-invisibility.md",
+    "lessons/PREM-BIO-001-cell-theory-scale/content/03-cork-and-the-word.md",
+    "lessons/PREM-BIO-001-cell-theory-scale/content/04-theory-is-not-a-guess.md",
+    "lessons/PREM-BIO-001-cell-theory-scale/content/05-what-a-sheet-can-do.md",
+    "lessons/PREM-BIO-001-cell-theory-scale/content/06-practice-and-recovery.md",
+    "lessons/PREM-BIO-001-cell-theory-scale/content/07-clinical-wrap-up.md",
+    "lessons/PREM-BIO-001-cell-theory-scale/assessment.json",
+    "CONTENT-STANDARD.md",
+    "RIGHTS-POLICY.md"
+  ],
+  "findings": [
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-BIO-001-cell-theory-scale/claims.json#claim-crypt-architecture",
+      "finding": "The uncertainty field for `claim-crypt-architecture` states that the lesson 'names Wnt only in passing', but the term 'Wnt' is entirely absent from the content files. While this does not affect the correctness of the qualitative signalling explanation, the metadata claim should be aligned with the actual prose.",
+      "resolution": "Either introduce the term 'Wnt' in passing in `content/05-what-a-sheet-can-do.md` where signalling is discussed, or update the uncertainty statement in `claims.json` to reflect that the specific molecular signal is omitted entirely from the lesson."
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-BIO-001-cell-theory-scale/content/02-arithmetic-of-invisibility.md#L4-L81",
+      "finding": "The worked example in scene 2 meets all the criteria of a worked example in the Content Standard: it declares the task, presents the inputs in a clear table, explains the small-angle approximation principle, outlines a 4-step plan, includes a check using a different foveal measurement, and interprets the result in the original biological and historical context.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-BIO-001-cell-theory-scale/content/05-what-a-sheet-can-do.md#L7-L14",
+      "finding": "The definition and explanation of an 'emergent property' are exceptionally clear. The lesson defines it using a two-part test (failing to find it in one component, and watching it disappear on dissociation of the arrangement) and clarifies two common misconceptions (dressing emergence up as a mystical property, or stripping it down to mean 'many'), which provides strong cognitive support for this core concept.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-BIO-001-cell-theory-scale/assessment.json#item-integrated-protocol-review",
+      "finding": "The final open-response assessment item is a highly effective transfer task. It requires the learner to apply and coordinate all three lesson objectives to critique an unfamiliar observation protocol (evaluating false precision of a 40 µm resolution system, detecting a category error in individual-cell barrier claims, correcting the terminology on cell theory's testability, and redesigning the experiment's duration and resolution limits).",
+      "resolution": null
+    }
+  ],
+  "limitations": [
+    "Expert-simulation review: This review represents a single-pass advisory input by a simulated learning-design expert under standard-lesson-v3 guidelines. No real learner testing was conducted.",
+    "Conflict of interest: The same GitHub principal (VSBDev) is responsible for the authoring and review run operators. Agent-level isolation was maintained, but principal-level independence is absent.",
+    "Scope restriction: The review is strictly bounded to learning-design metrics (e.g., clarity, coherence, practice, alignment, and transfer). Scientific accuracy, rights audits, and final typesetting checks are excluded.",
+    "Technical verification limits: No rendered build environment, screen reader, or keyboard navigation pathways were evaluated physically; findings are based solely on the static Markdown and JSON source files."
+  ],
+  "signedAt": "2026-07-25T20:30:00Z"
+}
