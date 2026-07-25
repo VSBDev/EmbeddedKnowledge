@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-SCI-010-LEARNING-DESIGN-CE98991D",
+  "lessonId": "PREM-SCI-010",
+  "lessonVersion": "0.2.0",
+  "candidateCommit": "94278f604dbadd2d78d8142574039edd2b84c1a4",
+  "role": "learning-design",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev (learning-design reviewer)",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.7",
+      "runId": "agy-learning-design-PREM-SCI-010-CE98991D-35E0-4D68-9A85-E3253E2FE3B1",
+      "instructionsDigest": "sha256:cd0964c4a16b649f804bdf29731145283af828dfa8397a7482d328212e46f4ca"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Founding-stage isolation check: the accountable principal VSBDev operates the authoring, review, and finalization agents, so principal-level independence is absent. Agent-level role isolation was strictly maintained: no authoring history, other review output, or adjudication draft was read, and no other EmbeddedKnowledge role script was run during this review execution."
+  },
+  "evidenceChecked": [
+    "lessons/PREM-SCI-010-scientific-models-limits/lesson.json",
+    "lessons/PREM-SCI-010-scientific-models-limits/claims.json",
+    "lessons/PREM-SCI-010-scientific-models-limits/references.json",
+    "lessons/PREM-SCI-010-scientific-models-limits/glossary.json",
+    "lessons/PREM-SCI-010-scientific-models-limits/ATTRIBUTION.md",
+    "lessons/PREM-SCI-010-scientific-models-limits/diagrams/model-use-cycle.diagram.json",
+    "lessons/PREM-SCI-010-scientific-models-limits/content/01-precise-answer-wrong-tool.md",
+    "lessons/PREM-SCI-010-scientific-models-limits/content/02-four-question-model-audit.md",
+    "lessons/PREM-SCI-010-scientific-models-limits/content/03-worked-pressure-prediction.md",
+    "lessons/PREM-SCI-010-scientific-models-limits/content/04-stress-test-and-repair.md",
+    "lessons/PREM-SCI-010-scientific-models-limits/content/05-transfer-to-new-chamber.md",
+    "lessons/PREM-SCI-010-scientific-models-limits/content/06-mastery-and-retrieval.md",
+    "lessons/PREM-SCI-010-scientific-models-limits/content/07-clinical-wrap-up.md",
+    "lessons/PREM-SCI-010-scientific-models-limits/assessment.json",
+    "CONTENT-STANDARD.md"
+  ],
+  "findings": [
+    {
+      "severity": "note",
+      "target": "lessons/PREM-SCI-010-scientific-models-limits/content/01-precise-answer-wrong-tool.md#L3-L10",
+      "finding": "First-read clarity: The orientation scene establishes a strong concrete starting point using a two-vessel comparison. It successfully retrieves the prerequisite knowledge (hypothesis vs prediction distinction) through a diagnostic check and non-punitive recovery callout before introducing abstract modeling concepts.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-SCI-010-scientific-models-limits/content/03-worked-pressure-prediction.md#worked-example-pressure-audit",
+      "finding": "Worked example scaffolding: The pressure prediction worked example implements all ten steps of the template perfectly, and the self-explanation prompt forces reflection on the model selection decision.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-SCI-010-scientific-models-limits/content/04-stress-test-and-repair.md#misconception-fit-means-true",
+      "finding": "Misconception repair: The repair block for 'It fits, so the mechanism must be true' is exceptionally well designed. It forces a prediction, contrasts Model A and B, and uses a discriminating case to show how outputs can align while representing different underlying relationships.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-SCI-010-scientific-models-limits/content/05-transfer-to-new-chamber.md#check-transfer-chamber",
+      "finding": "Active generation: The chamber-transfer scene removes the mathematical formulas and requires the student to perform a qualitative audit in a new domain, promoting high cognitive engagement and conceptual transfer.",
+      "resolution": null
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-SCI-010-scientific-models-limits/glossary.json#term-scientific-model",
+      "finding": "Undeclared terminology redefinition shift: The definition of 'scientific model' ('A selective representation of a system or process...') is slightly shifted from the definition established in PREM-WEL-001's 'term-model' ('A purposeful representation of selected features...') without declaring an 'alignment' block.",
+      "resolution": "Add an 'alignment' block to 'term-scientific-model' in glossary.json pointing to PREM-WEL-001 with relation 'adopt' or 'extend' and a short note."
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-SCI-010-scientific-models-limits/glossary.json#term-model-variable",
+      "finding": "Undeclared terminology alias collision: The term 'model variable' has alias 'variable', which collides with the established definition of 'variable' in the premed terminology ledger (defined in PREM-SCI-003/glossary.json as 'A feature or quantity...') without declaring an 'alignment' block.",
+      "resolution": "Add an 'alignment' block to 'term-model-variable' referencing PREM-SCI-003 or PREM-SCI-002 to bridge the general comparison sense of variable and the model-specific variable sense."
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-SCI-010-scientific-models-limits/glossary.json#term-model-domain",
+      "finding": "Undeclared terminology alias collision: The term 'model domain' has alias 'domain', which collides with the mathematical definition of 'domain' established in PREM-QNT-007 (functions and graphs, 'The set of input or candidate values...') without declaring an 'alignment' block.",
+      "resolution": "Add an 'alignment' block to 'term-model-domain' referencing PREM-QNT-007 with relation 'distinct-sense' and a short note distinguishing function domain from model domain."
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-SCI-010-scientific-models-limits/glossary.json",
+      "finding": "Glossary metadata omission: The newly added clinical synthesis wrap-up scene, 'scene-clinical-wrap-up' (Scene 7), uses the core vocabulary terms 'scientific model', 'model input', 'model output', 'model parameter', 'model assumption', 'scale', 'model domain', 'calibration', and 'failure mode', but its scene ID is not listed in their 'sceneIds' lists in glossary.json.",
+      "resolution": "Add 'scene-clinical-wrap-up' to the 'sceneIds' lists of these nine terms in glossary.json."
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-SCI-010-scientific-models-limits/ATTRIBUTION.md#L8",
+      "finding": "Metadata version mismatch: The lesson version has been bumped to '0.2.0' in lesson.json and other metadata files, but ATTRIBUTION.md still declares the candidate state as version '0.1.1' on line 8 and '0.1.1 draft' on line 69.",
+      "resolution": "Update lines 8 and 69 of ATTRIBUTION.md to refer to version '0.2.0'."
+    }
+  ],
+  "limitations": [
+    "Expert-simulation review: This review represents a single-pass advisory input by a simulated learning-design expert under standard-lesson-v3 guidelines. No real learner testing was conducted.",
+    "Conflict of interest: The same GitHub principal (VSBDev) is responsible for the authoring and review run operators. Agent-level isolation was maintained, but principal-level independence is absent.",
+    "Scope restriction: The review is strictly bounded to learning-design metrics (e.g., clarity, coherence, practice, alignment, and transfer). Scientific accuracy, rights audits, and final typesetting checks are excluded.",
+    "Technical verification limits: No rendered build environment, screen reader, or keyboard navigation pathways were evaluated physically; findings are based solely on the static Markdown and JSON source files."
+  ],
+  "signedAt": "2026-07-25T01:05:28Z"
+}
