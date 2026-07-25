@@ -75,3 +75,21 @@ Every learner task has a text-first path. The scale-ladder diagram and the cork 
 The clinical material is illustrative. The patient having a colonoscopy in the seventh scene, the imaging system's stipulated 0.1 mm of delivered detail, the invented research team in the assessment and its 40 µm instrument, and the hand lens in the practice scene are all constructions for teaching. No source in this pack reports the resolution of any real clinical instrument, and the lesson states that plainly where the figures are used. The wrap-up carries an explicit teaching-example boundary, describes no real patient, service, device, or procedure, and contains no diagnostic criterion, threshold, test performance, or statement of what any finding would mean. Nothing in the pack is medical advice.
 
 There are no licence exceptions to the CC BY 4.0 contribution grant beyond the single third-party asset recorded above, which is itself CC BY 4.0 and therefore redistributable within this corpus.
+
+## Correction to the 0.1.0 finalization
+
+The academic review of this candidate raised, as a major finding, that
+`diagrams/scale-ladder.diagram.json` declared a largest-to-smallest ladder while placing the
+100 µm unaided-eye threshold above a crypt of 320 to 640 µm, with its own edge label stating that
+the crypt is the larger of the two. The finalization recorded that finding as `incorporated` and
+listed "Reordered the scale ladder" among its material changes.
+
+The scene prose was corrected. The diagram file was not opened, so the rendered rung order and the
+relationship list still contradicted the caption above them. The adjudication artifact is left as
+written, because it is the record of what was decided and reporting it accurately matters more than
+making it look right in hindsight.
+
+This correction applies the repair the finalization already recorded: the crypt now sits at the top
+of the ladder and each threshold sits between the two structures it separates, which is also the
+point the scene is making. No number, claim, assessment item, or teaching conclusion changes, so the
+lesson identity and its two review artifacts still describe this content.

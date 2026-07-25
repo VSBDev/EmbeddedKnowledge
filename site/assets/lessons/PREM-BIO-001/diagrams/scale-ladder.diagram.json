@@ -4,20 +4,20 @@
   "id": "diagram-scale-ladder",
   "type": "flow",
   "direction": "top-to-bottom",
-  "alt": "A ladder of five sizes running from the 0.1 mm limit of unaided vision down to the 2 nm width of the DNA double helix, with a colonic crypt, one crypt cell, and the light-microscope limit in between.",
-  "longDescription": "Five rungs, largest at the top. Rung one: the finest detail the unaided eye separates, about 0.1 mm, which is 100 micrometres. Rung two: one colonic crypt, a tube of roughly 700 cells stacked about 32 along its length, so its length is a few hundred micrometres. Rung three: one colonic epithelial cell, about 10 to 20 micrometres across. Rung four: the finest detail a conventional light microscope separates, about 0.25 micrometres, which is 250 nanometres. Rung five: the DNA double helix, about 2 nanometres across. The steps between rungs are, in order: the crypt is roughly three to six times larger than the eye's threshold, so a crypt opening is at the edge of what an unaided eye could resolve; one crypt cell is about thirty times shorter than the whole crypt; a crypt cell is about forty to eighty times wider than the light microscope's limit, so a lens shows the cell easily; and the light-microscope limit is about a hundred times wider than the DNA helix, so no light microscope shows the helix at all. A separate step runs directly from the eye's threshold to the cell and carries the lesson's central ratio: a cell is five to ten times smaller than the finest detail the unaided eye resolves, which is the gap a lens had to close before anyone could see that tissue is built from cells.",
+  "alt": "A ladder of five sizes running from a colonic crypt a few hundred micrometres long down to the 2 nm width of the DNA double helix, with the limit of unaided vision between the crypt and one crypt cell, and the light-microscope limit below the cell.",
+  "longDescription": "Five rungs, largest at the top. Rung one: one colonic crypt, a tube of roughly 700 cells stacked about 32 along its length, so its length is a few hundred micrometres. Rung two: the finest detail the unaided eye separates, about 0.1 mm, which is 100 micrometres. Rung three: one colonic epithelial cell, about 10 to 20 micrometres across. Rung four: the finest detail a conventional light microscope separates, about 0.25 micrometres, which is 250 nanometres. Rung five: the DNA double helix, about 2 nanometres across. Each threshold sits between the two structures it separates. The crypt is roughly three to six times larger than the eye's threshold, so a crypt opening is at the edge of what an unaided eye could resolve, while a cell is five to ten times smaller than that same threshold, which is the gap a lens had to close before anyone could see that tissue is built from cells. Lower down, one crypt cell is about a thirtieth of the whole crypt's length; a crypt cell is about forty to eighty times wider than the light microscope's limit, so a lens shows it easily; and the light-microscope limit is about a hundred times wider than the DNA helix, so no light microscope shows the helix at all.",
   "nodes": [
-    {
-      "id": "node-eye-limit",
-      "label": "Unaided eye: finest detail separated, about 0.1 mm (100 µm)",
-      "shape": "pill",
-      "group": "thresholds"
-    },
     {
       "id": "node-crypt",
       "label": "One colonic crypt: about 700 cells, roughly 32 stacked along its length",
       "shape": "box",
       "group": "tissue"
+    },
+    {
+      "id": "node-eye-limit",
+      "label": "Unaided eye: finest detail separated, about 0.1 mm (100 µm)",
+      "shape": "pill",
+      "group": "thresholds"
     },
     {
       "id": "node-crypt-cell",
@@ -40,18 +40,11 @@
   ],
   "edges": [
     {
-      "id": "edge-eye-to-crypt",
-      "from": "node-eye-limit",
-      "to": "node-crypt",
-      "kind": "directed",
-      "label": "crypt is 3 to 6 times larger than the threshold"
-    },
-    {
-      "id": "edge-crypt-to-cell",
+      "id": "edge-crypt-to-eye",
       "from": "node-crypt",
-      "to": "node-crypt-cell",
+      "to": "node-eye-limit",
       "kind": "directed",
-      "label": "one cell is about 1/32 of the crypt's length"
+      "label": "crypt is 3 to 6 times larger than the threshold, so an unaided eye reaches it"
     },
     {
       "id": "edge-eye-to-cell",
@@ -59,6 +52,13 @@
       "to": "node-crypt-cell",
       "kind": "directed",
       "label": "the lesson's ratio: cell is 5 to 10 times below the threshold"
+    },
+    {
+      "id": "edge-crypt-to-cell",
+      "from": "node-crypt",
+      "to": "node-crypt-cell",
+      "kind": "directed",
+      "label": "one cell is about 1/32 of the crypt's length"
     },
     {
       "id": "edge-cell-to-microscope",
