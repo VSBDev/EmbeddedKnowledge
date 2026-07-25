@@ -1,0 +1,376 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-assessment-v1",
+  "lessonId": "PREM-STA-008",
+  "lessonVersion": "0.1.0",
+  "assessmentId": "assessment-hypothesis-tests-p-values-mastery",
+  "title": "Reading a p-value without inverting it",
+  "purpose": "mastery-gate",
+  "attemptPolicy": {
+    "retakeable": true,
+    "timeLimitMinutes": null,
+    "feedback": "after-attempt"
+  },
+  "items": [
+    {
+      "id": "item-compute-statistic",
+      "type": "numeric",
+      "sceneId": "scene-mastery-check",
+      "objectiveIds": [
+        "objective-state-hypotheses",
+        "objective-compute-and-read-p"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-hypothesis-tests"
+      ],
+      "prompt": "State the null hypothesis study A is tested against, then compute its test statistic. Give the statistic to two decimal places.",
+      "stimulus": "Invented study A: pharmacist-led medication review, 100 participants. Mean fasting glucose 7.2 mg/dL lower in the review group, standard error of that difference 4.0 mg/dL, two-sided p = 0.072, 95 per cent interval -0.6 to 15.0 mg/dL. Alpha fixed at 0.05 in advance. Illustrative teaching example, not medical advice.",
+      "points": 2,
+      "responseSpec": {
+        "mode": "number",
+        "units": null,
+        "tolerance": 0.005,
+        "maxSelections": null,
+        "maxLength": null
+      },
+      "answer": {
+        "correct": 1.8,
+        "summary": "The null fixes the true difference in mean fasting glucose at 0 mg/dL, and the statistic is 1.80, from the observed difference minus that null value, divided by the standard error.",
+        "reasoning": "Award 1 point for stating a null that fixes the true difference at 0 mg/dL and using it as the value subtracted, so that the numerator is 7.2 - 0 rather than something else, and 1 point for the arithmetic 7.2 / 4.0 = 1.80. The statistic has no units; the mg/dL in the difference and the mg/dL in the standard error cancel, which is the reason the statistic can be compared across studies. A learner who returns 7.2 has not divided by the standard error. A learner who returns 0.072 has copied the p-value, which is an area and not a distance. On retry, compute the statistic for study B as well, where 0.9 / 0.30 = 3.00, and say in one sentence which study's data sits further from its own null.",
+        "acceptableResponses": [
+          "1.8",
+          "1.80",
+          "7.2/4.0"
+        ],
+        "commonErrors": [
+          "Reporting the raw difference of 7.2 without dividing by the standard error",
+          "Reporting the p-value 0.072 in place of the test statistic",
+          "Dividing the standard error by the difference, giving 0.56"
+        ]
+      },
+      "rubricId": "rubric-compute-statistic",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-correct-reading",
+      "type": "single-choice",
+      "sceneId": "scene-mastery-check",
+      "objectiveIds": [
+        "objective-state-hypotheses",
+        "objective-compute-and-read-p",
+        "objective-separate-p-from-claims"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-hypothesis-tests"
+      ],
+      "prompt": "Study A reports p = 0.072. Which sentence states correctly what that number is the probability of?",
+      "stimulus": "Invented study A: pharmacist-led medication review, 100 participants, difference 7.2 mg/dL, standard error 4.0 mg/dL, two-sided p = 0.072. Illustrative teaching example, not medical advice.",
+      "points": 3,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-data-under-null",
+            "text": "If the true difference were zero and the study's other model assumptions held, about 72 studies in 1000 like this one would produce a difference at least 7.2 mg/dL away from zero, in either direction."
+          },
+          {
+            "id": "option-null-true-probability",
+            "text": "There is a 7.2 per cent probability that pharmacist review makes no difference to fasting glucose."
+          },
+          {
+            "id": "option-chance-alone",
+            "text": "There is a 7.2 per cent probability that the observed 7.2 mg/dL difference was produced by chance alone."
+          },
+          {
+            "id": "option-effect-real-probability",
+            "text": "There is a 92.8 per cent probability that pharmacist review lowers fasting glucose."
+          }
+        ],
+        "units": null,
+        "tolerance": null,
+        "maxSelections": 1,
+        "maxLength": null
+      },
+      "answer": {
+        "correct": "option-data-under-null",
+        "summary": "Only the first option conditions on the null and attaches the probability to data.",
+        "reasoning": "Award 1 point for selecting an option that begins with a conditional on the hypothesis, 1 point for selecting one whose probability is attached to data rather than to a claim about pharmacist review, and 1 point for selecting one that counts departures in both directions, as a two-sided p requires. The second option is the inverted conditional; the p-value assumes the null instead of assigning it a probability. The fourth option is the same inversion subtracted from 1, and the arithmetic 1 - 0.072 = 0.928 is exactly the tell. The third option fails for a related reason: chance acting alone is an assumption used to compute the number, so the number cannot also report the probability of that assumption. On retry, write the correct sentence for study B's p = 0.003 and check that the noun after the phrase probability of still refers to data.",
+        "acceptableResponses": [
+          "The option stating that, under a true difference of zero and the remaining model assumptions, differences at least 7.2 mg/dL from zero in either direction arise about 72 times in 1000 such studies."
+        ],
+        "commonErrors": [
+          "Reading the p-value as the probability that the null hypothesis is true",
+          "Subtracting the p-value from 1 and reporting the result as the probability the effect is real",
+          "Reading the p-value as the probability that chance alone produced the result"
+        ]
+      },
+      "rubricId": "rubric-correct-reading",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-nonsignificant-conclusion",
+      "type": "single-choice",
+      "sceneId": "scene-mastery-check",
+      "objectiveIds": [
+        "objective-judge-with-effect-and-design"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-hypothesis-tests"
+      ],
+      "prompt": "Study A's p = 0.072 sits above the alpha of 0.05 fixed in advance. Which conclusion does the study support?",
+      "stimulus": "Invented study A: 100 participants, difference 7.2 mg/dL lower with pharmacist review, standard error 4.0 mg/dL, two-sided p = 0.072, 95 per cent interval -0.6 to 15.0 mg/dL. Illustrative teaching example, not medical advice.",
+      "points": 3,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-failed-to-distinguish",
+            "text": "The study did not distinguish a true difference of zero from the values around it. The estimate is 7.2 mg/dL and the data remain compatible with anything from a small increase to a reduction of 15 mg/dL, so the question is open rather than answered."
+          },
+          {
+            "id": "option-no-effect-shown",
+            "text": "The study showed that pharmacist review has no effect on fasting glucose, since the result did not reach statistical significance."
+          },
+          {
+            "id": "option-null-accepted",
+            "text": "The null hypothesis should be accepted as true, because 0.072 is above the 0.05 alpha set in advance."
+          },
+          {
+            "id": "option-nearly-significant",
+            "text": "The result is nearly statistically significant, so the effect can be treated as established while a confirmatory study is planned."
+          }
+        ],
+        "units": null,
+        "tolerance": null,
+        "maxSelections": 1,
+        "maxLength": null
+      },
+      "answer": {
+        "correct": "option-failed-to-distinguish",
+        "summary": "A result above the cut-off reports a failure to distinguish, and the interval shows how much room is left.",
+        "reasoning": "Award 1 point for rejecting the conclusion of no effect, 1 point for citing the interval rather than the p-value as the description of what remains possible, and 1 point for keeping the estimate of 7.2 mg/dL on the table. The second and third options treat a value above the cut-off as a demonstration of the null; the null is only one of many values compatible with this data, and the estimate most compatible with it is 7.2 mg/dL, not zero. The fourth option keeps the threshold logic while pretending to soften it, and 0.072 licenses nothing that 0.048 would license. Notice that the interval reaches -0.6 mg/dL at one end and 15.0 at the other, and no sentence that mentions only one end is honest about this study. On retry, write the same conclusion for a version of study A that enrolled 400 participants, where the standard error would be halved to 2.0.",
+        "acceptableResponses": [
+          "The option stating that the study failed to distinguish zero from nearby values, keeping the 7.2 mg/dL estimate and the full interval in view."
+        ],
+        "commonErrors": [
+          "Reading a p-value above the cut-off as a demonstration that no effect exists",
+          "Accepting the null hypothesis as true on the strength of a result above alpha",
+          "Treating a value close to the cut-off as though it had crossed it"
+        ]
+      },
+      "rubricId": "rubric-nonsignificant-conclusion",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-compare-effect-and-p",
+      "type": "single-choice",
+      "sceneId": "scene-mastery-check",
+      "objectiveIds": [
+        "objective-separate-p-from-claims",
+        "objective-judge-with-effect-and-design"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-hypothesis-tests"
+      ],
+      "prompt": "Study B reports a smaller p-value than study A. Which comparison between the two studies do their p-values support?",
+      "stimulus": "Invented study A: 100 participants, difference 7.2 mg/dL, standard error 4.0, p = 0.072, interval -0.6 to 15.0 mg/dL. Invented study B: workplace dietary programme, 2000 participants, difference 0.9 mg/dL, standard error 0.30, p = 0.003, interval 0.3 to 1.5 mg/dL. Illustrative teaching example, not medical advice.",
+      "points": 3,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-incompatibility-not-magnitude",
+            "text": "Only that study B's data sits further from its own null than study A's does. Study A found the larger effect, 7.2 mg/dL against 0.9 mg/dL, and study B's smaller p-value came from its much smaller standard error."
+          },
+          {
+            "id": "option-b-stronger-effect",
+            "text": "That study B found the stronger effect, since 0.003 is well below 0.072 and a smaller p-value indicates a larger effect."
+          },
+          {
+            "id": "option-b-more-important",
+            "text": "That study B's finding is the more clinically important of the two, because it cleared the 0.05 threshold and study A did not."
+          },
+          {
+            "id": "option-b-more-likely-true",
+            "text": "That study B's effect is about 24 times more likely to be real, since 0.072 divided by 0.003 is 24."
+          }
+        ],
+        "units": null,
+        "tolerance": null,
+        "maxSelections": 1,
+        "maxLength": null
+      },
+      "answer": {
+        "correct": "option-incompatibility-not-magnitude",
+        "summary": "The p-values compare each dataset with its own null, and study A found the effect eight times larger.",
+        "reasoning": "Award 1 point for reading the effect sizes directly, 7.2 mg/dL against 0.9 mg/dL, 1 point for attributing study B's smaller p-value to its standard error of 0.30 against study A's 4.0, and 1 point for refusing to convert either p-value into a statement about magnitude or importance. The second option is the error the lesson demonstrates with paired studies: a p-value combines effect size with precision and cannot be read back as either one. The third option imports the everyday sense of the word and a threshold argument at once; whether a 0.9 mg/dL change matters to a patient is the question PREM-STA-012 takes up. The fourth option invents a ratio with no basis, and dividing two p-values produces nothing interpretable. On retry, cover both p-values, compare the two intervals, and write down which result you would rather have.",
+        "acceptableResponses": [
+          "The option stating that the p-values compare each dataset with its own null while study A found the larger effect, study B's smaller p-value following from its smaller standard error."
+        ],
+        "commonErrors": [
+          "Ranking effect sizes by p-value",
+          "Treating a result below the threshold as the clinically more important one",
+          "Forming a ratio of two p-values and reading it as relative evidence"
+        ]
+      },
+      "rubricId": "rubric-compare-effect-and-p",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-interval-and-test",
+      "type": "single-choice",
+      "sceneId": "scene-mastery-check",
+      "objectiveIds": [
+        "objective-threshold-and-interval"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-hypothesis-tests"
+      ],
+      "prompt": "Study B reports an interval of 0.3 to 1.5 mg/dL, which excludes zero, and p = 0.003, which is below 0.05. A reviewer writes that the two results confirm each other. Which reply is correct?",
+      "stimulus": "Invented study B: 2000 participants, difference 0.9 mg/dL, standard error 0.30 mg/dL, two-sided p = 0.003, 95 per cent interval 0.3 to 1.5 mg/dL. Illustrative teaching example, not medical advice.",
+      "points": 3,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-one-result-twice",
+            "text": "They cannot confirm each other, because they are built from the same difference, the same standard error, and the same reference curve. The interval is 0.9 plus or minus 1.96 x 0.30, and it excludes zero exactly when a test of zero returns p below 0.05."
+          },
+          {
+            "id": "option-independent-checks",
+            "text": "They do confirm each other, since one is an estimate and the other is a test, and agreement between two different methods strengthens the conclusion."
+          },
+          {
+            "id": "option-interval-stronger",
+            "text": "They confirm each other, and the interval is the stronger of the two, because a 95 per cent interval has a 95 per cent probability of containing the true difference."
+          },
+          {
+            "id": "option-coincidence",
+            "text": "Their agreement is a coincidence of this dataset; with other data an interval excluding zero could easily accompany a p-value above 0.05."
+          }
+        ],
+        "units": null,
+        "tolerance": null,
+        "maxSelections": 1,
+        "maxLength": null
+      },
+      "answer": {
+        "correct": "option-one-result-twice",
+        "summary": "One result in two notations, related by construction, so neither can corroborate the other.",
+        "reasoning": "Award 1 point for identifying that both are computed from the same difference and standard error, 1 point for reproducing the interval as 0.9 plus or minus 1.96 x 0.30, which gives 0.31 to 1.49 and rounds to the reported 0.3 to 1.5, and 1 point for stating that the exclusion of zero and the p-value below 0.05 are equivalent rather than mutually supporting. The second option treats a rearrangement as a second method. The third option adds a further error on top: the stated coverage is a property of the procedure across repeated application and is not a probability attached to this one interval, as PREM-STA-007 established. The fourth option denies a relationship that holds by construction whenever the interval and the test share a model. On retry, do the same check on study A, where 1.96 x 4.0 = 7.84 exceeds the difference of 7.2, which is why its interval covers zero and its p-value sits above 0.05.",
+        "acceptableResponses": [
+          "The option stating that the interval and the p-value are one result in two notations, built from the same difference, standard error, and reference curve."
+        ],
+        "commonErrors": [
+          "Counting an interval and a test built from the same numbers as independent confirmation",
+          "Attaching the coverage percentage to one particular interval as a probability",
+          "Denying that the correspondence holds by construction"
+        ]
+      },
+      "rubricId": "rubric-interval-and-test",
+      "safetyCritical": false
+    }
+  ],
+  "rubrics": [
+    {
+      "id": "rubric-compute-statistic",
+      "title": "Test statistic from a difference and its standard error",
+      "criteria": [
+        {
+          "id": "criterion-subtract-null-value",
+          "description": "Award 1 point only when the null hypothesis is stated as a true difference of 0 mg/dL and that value is the one subtracted from the observed difference, giving a numerator of 7.2.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-divide-by-standard-error",
+          "description": "Award 1 point only when the division by the standard error is carried out correctly, giving 1.80 to two decimal places.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-correct-reading",
+      "title": "Attaching the probability to the right noun",
+      "criteria": [
+        {
+          "id": "criterion-conditional-on-null",
+          "description": "Award 1 point only when the selected reading is conditioned on the null hypothesis and the surrounding model.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-probability-of-data",
+          "description": "Award 1 point only when the probability is attached to data rather than to a claim about the intervention.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-both-directions",
+          "description": "Award 1 point only when the selected reading counts departures in both directions, as a two-sided p-value requires.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-nonsignificant-conclusion",
+      "title": "What a result above the cut-off does not establish",
+      "criteria": [
+        {
+          "id": "criterion-reject-no-effect",
+          "description": "Award 1 point only when the conclusion of no effect is rejected.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-cite-the-interval",
+          "description": "Award 1 point only when the interval, and not the p-value, is used to describe the range of values still compatible with the data.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-retain-the-estimate",
+          "description": "Award 1 point only when the 7.2 mg/dL estimate is retained as the value most compatible with the data.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-compare-effect-and-p",
+      "title": "Separating effect size from precision",
+      "criteria": [
+        {
+          "id": "criterion-read-effect-sizes",
+          "description": "Award 1 point only when the two effect sizes, 7.2 mg/dL and 0.9 mg/dL, are compared directly rather than through their p-values.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-attribute-to-standard-error",
+          "description": "Award 1 point only when the smaller p-value is attributed to the smaller standard error of 0.30 against 4.0.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-refuse-magnitude-claim",
+          "description": "Award 1 point only when no claim about magnitude or clinical importance is drawn from either p-value.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-interval-and-test",
+      "title": "One result, two notations",
+      "criteria": [
+        {
+          "id": "criterion-same-inputs",
+          "description": "Award 1 point only when the interval and the test are identified as built from the same difference, standard error, and reference curve.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-reconstruct-interval",
+          "description": "Award 1 point only when the interval is reproduced as 0.9 plus or minus 1.96 x 0.30.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-state-equivalence",
+          "description": "Award 1 point only when exclusion of zero and a p-value below 0.05 are stated as equivalent rather than as mutually confirming.",
+          "maxPoints": 1
+        }
+      ]
+    }
+  ]
+}
