@@ -16,11 +16,11 @@ So the five days are load-bearing. The question is how much one sentence of reme
 
 ## What this lesson does
 
-You will work R.'s file as a differential: a set of alternatives, each supported, weakened, or simply untested by particular items of evidence. By the end you should be able to:
+You will work R.'s file as a differential: a set of alternatives, each carrying whatever evidence points its way, whatever evidence points against it, and whatever nobody has looked for. By the end you should be able to:
 
-- rank unipolar, bipolar-spectrum, medical, neurologic, medication, substance, grief, trauma, and contextual alternatives by the evidence that bears on each, and say for every one whether it sits low because the record counters it or because nobody has looked;
-- judge a single item of past history on two separate properties, how far it would move the differential if it happened as described and how reliable the channel that delivered it is, and say what a second channel would add;
-- name the evidence, test, or period of observation that would separate two named alternatives, state which way each possible result would move them, and record what stays unavailable.
+- work the unipolar, bipolar-spectrum, medical, neurologic, medication, substance, grief, trauma, and contextual alternatives against the file, saying for each what speaks for it, what speaks against it, how much of it was asked, and what would close the remainder;
+- judge a single item of past history on two separate properties, how far it would move the differential if it happened as described and how reliable the channel that delivered it is, and say what a second channel would add and what it would still leave open;
+- name the evidence, test, or period of observation that would separate two named alternatives, state which way each possible result would move them, keep each result to the question it was sent, and record what stays unavailable.
 
 Two words first. *Depression* here always names the clinical syndrome and never the ordinary sense of feeling low. *Passive thoughts* is the term used later for what R. describes at the end of that summary: thoughts of not wanting to go on, carrying no plan, no intent, and no act.
 

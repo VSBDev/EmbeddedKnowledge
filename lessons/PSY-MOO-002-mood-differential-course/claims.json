@@ -2,13 +2,14 @@
   "schemaVersion": 1,
   "format": "embeddedknowledge-claims-v1",
   "lessonId": "PSY-MOO-002",
-  "lessonVersion": "0.1.0",
+  "lessonVersion": "0.1.1",
   "claims": [
     {
       "id": "claim-cross-sectional-underdetermines-course",
       "statement": "A depressive presentation assessed at a single point in time does not by itself separate a unipolar course from the depressed phase of a bipolar-spectrum course, because the features that distinguish them are longitudinal: past episodes of elevated or activated mood, the pattern and recurrence of previous episodes, and family history. Depressive episodes commonly precede a bipolar diagnosis by several years, and the reported interval varies widely between individuals.",
       "sceneIds": [
         "scene-two-readings",
+        "scene-rest-of-the-list",
         "scene-clinical-wrap-up"
       ],
       "sourceIds": [
@@ -69,7 +70,7 @@
       "support": "synthesis",
       "confidence": "medium-high",
       "scope": "Elicitation of past mood episodes from adults during a clinical or research interview.",
-      "uncertainty": "The direction of the bias is better established than its size, which will vary with how the question is asked, how long ago the episode was, and how severe it was. An informant is a better channel and not a certain one, since informants have their own vantage point and their own recall limits.",
+      "uncertainty": "The direction of the bias is better established than its size, which will vary with how the question is asked, how long ago the episode was, and how severe it was. Neither source establishes that an informant is a superior source in general. What an informant adds is a second and independent channel, and on the specific question of whether a past state looked like a departure from the person's usual self it supplies something the person cannot; the person remains the only source for the inner course of the period, and informants carry their own observation window, recall limits, and relationship to the person.",
       "risk": "health-sensitive",
       "reviewStatus": "pending-review"
     },
@@ -107,18 +108,54 @@
     },
     {
       "id": "claim-substance-chronology-discriminator",
-      "statement": "Whether a psychiatric presentation is independent of alcohol use or related to it is judged from chronology: features that appear only during periods of problem drinking point one way, and features that predate the drinking or persist during extended sobriety point the other. A period of two to four weeks of observed abstinence is usually advised before the picture is judged, because most symptoms and signs resolve within the first four weeks of abstinence.",
+      "statement": "Whether a psychiatric presentation is independent of alcohol use or related to it is judged from chronology: features that appear only during periods of problem drinking point one way, and features that predate the drinking or persist during extended sobriety point the other. Where a period of abstinence has occurred, the convention is to let two to four weeks of it pass before the picture is judged, because most symptoms and signs resolve within the first four weeks of abstinence. The convention describes how to read such an interval; whether abstinence can be undertaken, and by what route, is a separate clinical decision that follows an assessment of withdrawal risk.",
       "sceneIds": [
         "scene-drink-and-the-waking",
         "scene-clinical-wrap-up"
       ],
       "sourceIds": [
-        "source-shivani"
+        "source-shivani",
+        "source-stewart-swain"
       ],
       "support": "direct",
       "confidence": "medium-high",
-      "scope": "Adults with concurrent alcohol use and depressive or other psychiatric features, at the stage of deciding what the presentation is.",
-      "uncertainty": "The source is a 2002 review from one national institute and the two-to-four-week interval is a clinical convention rather than a validated threshold. The chronology argument needs dates for both the drinking pattern and the psychiatric features, and it weakens in proportion to how uncertain either date is. Sleep disturbance is a documented exception that can outlast the observation window.",
+      "scope": "Adults with concurrent alcohol use and depressive or other psychiatric features, at the stage of deciding what the presentation is, and only where a period of abstinence has already occurred or has been arranged clinically.",
+      "uncertainty": "The chronology source is a 2002 review from one national institute and the two-to-four-week interval is a clinical convention rather than a validated threshold. The chronology argument needs dates for both the drinking pattern and the psychiatric features, and it weakens in proportion to how uncertain either date is. Sleep disturbance is a documented exception that can outlast the interval. The 2002 review sets out the diagnostic use of an abstinence interval and does not address how abstinence is achieved safely, which is why the withdrawal qualification is carried on a separate source and a separate claim; nothing in this claim supports advising any individual to stop or reduce drinking.",
+      "risk": "health-sensitive",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-withdrawal-risk-precedes-abstinence",
+      "statement": "In a person who has become physically dependent on alcohol, reduction or cessation can precipitate a withdrawal syndrome whose severe forms include withdrawal seizures and delirium and are life-threatening; severe or impending severe withdrawal is a reason for hospital admission, and delirium and withdrawal seizures are absolute admission criteria. Risk is therefore assessed before any planned abstinence, from the pattern of drinking, the severity of dependence measured on a validated instrument, previous withdrawal episodes and their complications, and physical and psychiatric comorbidity; known alcohol use disorder, previous withdrawal, and heavy recent consumption mark the highest risk. Where that assessment finds risk, withdrawal is medically assisted and takes place where assessment and monitoring are available around the clock, with a lower threshold for admission in frail, cognitively impaired, multiply comorbid, poorly supported, and very young people.",
+      "sceneIds": [
+        "scene-drink-and-the-waking",
+        "scene-clinical-wrap-up"
+      ],
+      "sourceIds": [
+        "source-stewart-swain",
+        "source-steel-ats"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "Adults who drink regularly and in whom dependence is possible, at the point where a period of abstinence is being considered by a clinician. It concerns whether and how abstinence can be undertaken safely and says nothing about how withdrawal is treated once it begins, which is outside this lesson.",
+      "uncertainty": "The concise guidance is a 2012 United Kingdom acute-hospital document and the thresholds it names are national practice rather than a validated decision rule; local guidance differs on where withdrawal may be managed and on which instrument is used. The Thoracic Society statement is a research statement about severe withdrawal in inpatients, so its risk features describe hospitalised populations. What both establish, and what the lesson relies on, is that the assessment comes first; neither supports any statement about an individual's risk, and this lesson makes none.",
+      "risk": "safety-critical",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-beta-blocker-depression-effect-small-or-absent",
+      "statement": "Later evidence does not support the class-level suspicion that beta blockers cause depression. A pre-specified quality-of-life sub-study of a randomised trial in 806 adults after myocardial infarction with preserved ejection fraction, allocated to metoprolol or bisoprolol or to no beta blocker, found self-reported depressive symptoms about 0.5 points higher on a 21-point subscale in the treated group at 6 to 10 weeks and at 12 to 14 months, a difference its authors judged probably below clinical significance, with no effect on anxiety. A Swedish within-individual cohort of 1,400,766 people found hospital admission for a depressive disorder slightly less likely during beta-blocker treatment than during the same person's untreated periods, hazard ratio 0.92 with a 95% confidence interval of 0.89 to 0.96, with atenolol and metoprolol showing the same direction as the class.",
+      "sceneIds": [
+        "scene-transfer-different-file"
+      ],
+      "sourceIds": [
+        "source-leissner-reduce-ami",
+        "source-molero-betablockers"
+      ],
+      "support": "synthesis",
+      "confidence": "medium-high",
+      "scope": "Adults prescribed beta blockers, chiefly for cardiovascular indications, considered at the stage of deciding how much weight a beta blocker deserves on a differential for a depressive presentation.",
+      "uncertainty": "The two studies point in opposite directions on small magnitudes, which is the reason for stating the effect as somewhere between nothing and very small instead of as zero. The trial was open-label and measured its baseline after randomisation, both of which its authors record as limitations, and its sample was less depressed than a typical post-infarction population. The register cohort counts only depression severe enough to reach secondary care and cannot exclude time-varying confounding or measure adherence. Neither study covers every agent, and agents that were not separately reported are not covered by this claim.",
       "risk": "health-sensitive",
       "reviewStatus": "pending-review"
     },
@@ -142,7 +179,9 @@
       "id": "claim-hypothyroid-symptoms-nonspecific",
       "statement": "Fatigue, cold intolerance, constipation, lethargy, dry skin and weight gain are the usual presenting features of hypothyroidism; the symptoms overlap other conditions and are individually poor at identifying it, and the diagnosis is established by measuring thyroid-stimulating hormone and free thyroxine rather than from the symptom picture.",
       "sceneIds": [
-        "scene-rest-of-the-list"
+        "scene-weight-and-channel",
+        "scene-rest-of-the-list",
+        "scene-clinical-wrap-up"
       ],
       "sourceIds": [
         "source-zamwar"
@@ -173,7 +212,7 @@
     },
     {
       "id": "claim-medication-attribution-hard",
-      "statement": "More than a dozen classes of general medical drug, among them beta blockers, corticosteroids and isotretinoin, have been associated with depressive symptoms; an association between taking a drug and becoming depressed is not by itself a causal relation, and the arguments that carry weight are temporal ones about onset after starting or increasing the drug and resolution after reducing or stopping it.",
+      "statement": "More than a dozen classes of general medical drug, among them corticosteroids and isotretinoin, have been associated with depressive symptoms; an association between taking a drug and becoming depressed is not by itself a causal relation, and the arguments that carry weight are temporal ones about onset after starting or increasing the drug and resolution after reducing or stopping it.",
       "sceneIds": [
         "scene-rest-of-the-list",
         "scene-transfer-different-file"
@@ -184,7 +223,7 @@
       "support": "direct",
       "confidence": "medium-high",
       "scope": "Adults taking prescribed general medical drugs in whom depressive symptoms appear, considered at the stage of deciding whether the drug belongs on the differential.",
-      "uncertainty": "The source is a 2008 review, so its list of specific agents is dated and the strength of evidence differs sharply between drug classes; the association is better established for some than for others. The temporal argument is weakened whenever the dates of either the drug or the symptoms are uncertain, and this lesson makes no statement about whether any drug should be started, changed, or stopped.",
+      "uncertainty": "The source is a 2008 narrative review, so its list of specific agents is dated and the strength of evidence differs sharply between drug classes; the association is better established for some than for others. Beta blockers were dropped from this claim's examples for that reason and are carried separately on later evidence, which does not support the class-level suspicion the 2008 review records. The claim is therefore used here only for the breadth of the association and for the structure of the attribution argument, and not for the standing of any particular drug. The temporal argument is weakened whenever the dates of either the drug or the symptoms are uncertain, and this lesson makes no statement about whether any drug should be started, changed, or stopped.",
       "risk": "health-sensitive",
       "reviewStatus": "pending-review"
     },

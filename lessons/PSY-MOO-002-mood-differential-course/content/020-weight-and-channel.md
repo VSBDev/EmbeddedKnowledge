@@ -53,18 +53,21 @@ It arrives by three channels, and they are not interchangeable.
 | Collateral and records | An informant who was present, or a document written at the time | Availability, consent, and the informant's own vantage point |
 | Prospective observation | What you and the person record from today forward | It takes the time it takes |
 
-Only the third is a channel you can create, and it answers the question you set it. Write down in advance what you are watching for and what each possible outcome would mean, or three months later you will be reconstructing the period from memory and holding a second retrospective account with the weaknesses of the first.
+Only the third is a channel you can create. Writing down in advance what you are watching for, and what each possible outcome would mean, is what makes the result easy to read when it arrives and hard to reshape afterwards. An observation nobody planned still counts if it was recorded at the time; it carries the extra job of saying what was and was not being watched for. Three months of neither produces nothing, because the period then gets reconstructed from memory and you are holding a second retrospective account with the weaknesses of the first.
 
-## Four states an alternative can be in
+## Three readings, not one label
 
-When you finish ranking, every alternative on the list is in one of four states, and the four are not degrees of the same thing.
+The habit this lesson is trying to break is giving each alternative a badge. *Supported*, *countered*, *unassessed*, *needs a test*: these answer different questions, and a live alternative usually answers more than one of them at the same time. Read every alternative three times.
 
-1. **Supported.** Something in the record speaks for it.
-2. **Countered.** Something in the record speaks against it.
-3. **Unassessed.** Nothing speaks either way, because the question was not asked.
-4. **Not answerable from history.** The evidence that would settle it is a test or an observation period, and no further conversation will produce it.
+**What the record says, in both directions.** List what speaks for it and what speaks against it, as two entries. Most alternatives worth keeping carry some of each, and one verdict silently drops whichever side is smaller.
 
-An alternative sitting low because it was never asked about is a finding about the assessment and says nothing about the person. Writing "no history of trauma" when nobody asked is the commonest way a differential launders an absence into a negative. States 3 and 4 are the part of the output that generates work, because each one names a specific thing to do next.
+**How much of it was asked.** An alternative enquired into thoroughly and one never raised can leave the same short entry in the notes. Whether the question was put is a fact about the assessment, and it is the only thing that tells a later reader what the entry is worth.
+
+**What would close what is left.** Part of the remainder will yield to further conversation. Part of it will not, and needs an informant, a document written at the time, a laboratory result, or a period of observation. Saying which turns an open alternative into a task.
+
+R.'s thyroid question is the case where the three come apart. Cold intolerance, constipation and fatigue past what the sleep loss explains speak for it. About 6 kg of unintentional weight loss speaks against it. Several of the other features nobody has asked about. And the part that decides it is a blood result that no further conversation will produce. Any single label you pick for that alternative will misdescribe two of the three readings.
+
+One more thing follows from the second reading. An alternative nobody asked about does not sit low on the list; it has no position on the list at all, and putting it low is the quiet version of the error, because the next reader takes a low position as the result of a search. Writing "no history of trauma" when nobody asked is the loud version. Both convert an absence of enquiry into a negative finding, and only the second one is visible.
 
 :::{check}
 :id: check-weight-channel-split
@@ -78,11 +81,11 @@ For each of these three lines from R.'s file, say in one sentence what its weigh
 One of the three is not the same kind of thing as the other two.
 :::
 
-The third line is not an item of history. It is the record telling you which state one of your alternatives is in: not answerable from history, and cheap to answer another way. That is worth writing down in exactly those words. The first two lines are worked in the two scenes that follow.
+The third line is not an item of history at all. It is the record telling you that one of your alternatives has an outstanding part which no further conversation can close, and that the thing which would close it is cheap. Write that down in those words. The first two lines are worked in the two scenes that follow.
 
 :::{source-note}
-:claims: claim-family-history-strongest-predictor, claim-retrospective-recall-bias
-:sources: source-odonovan-alda, source-regeer
+:claims: claim-family-history-strongest-predictor, claim-retrospective-recall-bias, claim-hypothyroid-symptoms-nonspecific
+:sources: source-odonovan-alda, source-regeer, source-zamwar
 
-A review of depressive presentations that later turn out to be bipolar supports family history as the best-replicated predictor and lists the other features that travel with it. It also supports the point about recall, which the general-population reappraisal study puts numbers to in the next scene. Neither source says anything about R., about lithium in R.'s family, or about what any individual's family history means for that individual.
+A review of depressive presentations that later turn out to be bipolar supports family history as the best-replicated predictor and lists the other features that travel with it. It also supports the point about recall, which the general-population reappraisal study puts numbers to in the next scene. The thyroid illustration draws on a review of hypothyroidism for the usual presenting features, the usual direction of weight change, and the measurements the diagnosis is made on; the alternative is worked properly two scenes later. None of these sources says anything about R., about lithium in R.'s family, or about what any individual's family history or symptom set means for that individual.
 :::
