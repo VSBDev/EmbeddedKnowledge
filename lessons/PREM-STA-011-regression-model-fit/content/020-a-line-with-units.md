@@ -8,7 +8,7 @@ Distances are measured *vertically* rather than perpendicular to the line. That 
 
 Squaring is the convention. Something has to stop a miss of +20 from cancelling a miss of −20, and squaring is not the only thing that would. Adding up the plain sizes of the misses and ignoring their signs would do it too; that is a real method, called least absolute deviations, and it is used when the data contain wild values. Squaring wins here because it gives the tidy formulas of the next section, which is a better reason than it sounds: those formulas are what let you compute a fit by hand and check it.
 
-What squaring costs is even-handedness. A miss of 40 contributes sixteen times what a miss of 10 does, because 40 squared is sixteen times 10 squared. So one far-off observation can pull the line towards itself far harder than any ordinary point, an effect called **leverage** when the point also sits at an extreme of the predictor. This dataset happens not to contain such a point, which is worth knowing about a method before you meet a dataset that does.
+What squaring costs is even-handedness. A miss of 40 contributes sixteen times what a miss of 10 does, because 40 squared is sixteen times 10 squared. A large vertical miss therefore weighs heavily in the quantity being minimised. **Leverage** is a different property: it comes from sitting at an extreme of the predictor, whether or not the point has a large residual. A point is especially influential when high leverage is combined with a substantial residual, because then it has both room and weight to pull the fitted line. This dataset happens not to contain such a combination, which is worth knowing about a method before you meet a dataset that does.
 
 :::{chart} ../charts/fitted-line-dinner-glucose.chart.json
 :::
@@ -90,8 +90,8 @@ Using the fitted line above, without reading ahead:
 At 1.0 hour the line gives 150.0 mg/dL, and at 3.0 hours it gives 143.3 mg/dL. The difference is 6.7 mg/dL, and you could have read it straight off the slope, because two hours of interval is worth 2 × 3.37 mg/dL and the intercept cancels when you subtract one fitted value from the other. Any question of the form "how much does the fitted value change" is answered by the slope alone.
 
 :::{source-note}
-:claims: claim-least-squares-criterion, claim-slope-is-change-per-unit, claim-linear-in-parameters
+:claims: claim-least-squares-criterion, claim-slope-is-change-per-unit, claim-linear-in-parameters, claim-least-squares-outlier-sensitivity
 :sources: source-nist-least-squares, source-kim-regression-basics, source-schober-linear-regression
 
-Four things above rest on these sources: that least squares picks its estimates by making the summed squared deviations as small as possible, that the two fitted quantities are called the intercept and the slope, that a coefficient reads as the average change in the response per one-unit change in its predictor, and that "linear" is a statement about how the parameters enter rather than about the shape drawn. The sixty people, the equation fitted to them, and the woman in the clinic were written for this lesson.
+These sources support the least-squares criterion and its sensitivity to unusual observations, the names intercept and slope, the reading of a coefficient as the average response difference per one-unit predictor difference, and the fact that "linear" describes how parameters enter rather than the shape drawn. The distinction among a large residual, leverage from predictor-space extremeness, and influence is stated explicitly so those ideas are not conflated. The sixty people, the equation fitted to them, and the woman in the clinic were written for this lesson.
 :::

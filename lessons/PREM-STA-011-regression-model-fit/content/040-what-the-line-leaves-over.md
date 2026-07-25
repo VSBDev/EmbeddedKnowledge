@@ -40,9 +40,9 @@ Three patterns are worth recognising on sight.
 
 - **An arch or a bowl.** Residuals negative at both ends and positive in the middle, or the reverse. The true relationship bends and a straight line has been forced through it. The repair is a different functional form, not a different slope.
 - **A funnel.** Residuals tightly bunched at one end of the range and widely spread at the other. The line may sit in the right place while the spread around it changes across the range, so a single statement about typical error is wrong at both ends.
-- **One point far from the rest.** A single large residual, worst when it sits at an extreme of the predictor, where it has the leverage described earlier. Refit without that observation and see whether the slope moves; if one person's inclusion changes the answer, that fact belongs in the report.
+- **One point far from the rest.** A single large residual deserves inspection. A point at an extreme of the predictor has high leverage even if its residual is small; it becomes especially influential when that leverage is combined with a substantial residual. Refit without an influential observation as a sensitivity check and see whether the slope moves; if one person's inclusion changes the answer, that fact belongs in the report.
 
-The plot above shows none of the three. The dots sit above and below zero across the whole range from 0.8 to 6.5 hours, they do not arch, and the band does not narrow. The person at 1.7 hours with a residual of −47.6 sits clearly below the pack but is inside the range of intervals rather than out at an end, and removing them would not change the picture's shape. So the straight line is an adequate *form* for these data. It is still, as the next part of this section makes plain, a weak one.
+The plot above shows none of the three. The dots sit above and below zero across the whole range from 0.8 to 6.5 hours, they do not arch, and the band does not narrow. The person at 1.7 hours with a residual of −47.6 sits clearly below the pack but is inside the range of intervals rather than out at an end, and removing them would not change the picture's shape. This plot therefore provides no clear evidence against the straight-line form over the observed range; it does not prove that form true or uniquely correct. The observed linear relationship is still, as the next part of this section makes plain, weak.
 
 :::{callout}
 :kind: note
@@ -66,7 +66,7 @@ The **coefficient of determination**, {math}`r^2`, is that proportion: about 0.1
 
 Ninety per cent of the variation in fasting glucose across these sixty people is left unaccounted for by when they ate.
 
-There is a way to feel that number rather than accept it. Before fitting anything, your best single guess for a person's glucose is the cohort mean, 142 mg/dL, and you would typically be wrong by about 18 mg/dL, the standard deviation. After fitting the line, your best guess is whatever the line gives at that person's interval, and you are typically wrong by 17.2 mg/dL. That second figure comes straight from the 17160 above: divide it by 58, which is the sixty people less the two numbers the line itself used up, and take the square root. Knowing exactly when someone ate dinner improves your guess about their fasting glucose by less than one milligram per decilitre.
+There is a way to feel that number rather than accept it. Before fitting anything, your best single guess for one of these people's glucose is the cohort mean, 142 mg/dL, and the cross-sectional values sit about 18 mg/dL from that mean. After fitting the line, the individual observations sit about 17.2 mg/dL from their fitted values. That second figure comes straight from the 17160 above: divide it by 58, which is the sixty people less the two numbers the line itself used up, and take the square root. For a one-time observation from a comparable person, knowing the dinner interval reduces this typical prediction error by less than one milligram per decilitre.
 
 That is what {math}`r^2 = 0.10` means once it is put in the units a clinic works in. A percentage invites you to round it up in the retelling; a gain of under one milligram per decilitre does not.
 
@@ -84,8 +84,8 @@ A fifth person in the study left 3.2 hours between dinner and sleep and had a fa
 The line gives 153.4 − 3.37 × 3.2 = 142.6 mg/dL. The residual is 128 − 142.6 = −14.6 mg/dL, negative because they came in below the line. And the better response is that one residual cannot condemn a model: this person's miss is about the size of the typical miss in this dataset, which was already known to be around 17 mg/dL. A model with {math}`r^2 = 0.10` is *expected* to be wrong by that much about most people. Whether the line is broken is a question about the pattern across all sixty residuals, and that pattern is the plot above.
 
 :::{source-note}
-:claims: claim-residual-definition, claim-residual-plot-structure, claim-r-squared-proportion, claim-correlation-linear-only
-:sources: source-nist-model-fit, source-nist-residual-structure, source-kim-regression-evaluation, source-kim-covariance-correlation
+:claims: claim-residual-definition, claim-residual-plot-structure, claim-r-squared-proportion, claim-correlation-linear-only, claim-least-squares-outlier-sensitivity
+:sources: source-nist-model-fit, source-nist-residual-structure, source-kim-regression-evaluation, source-kim-covariance-correlation, source-nist-least-squares
 
 These sources support the definition of a residual as the difference between an observed response and the corresponding prediction, the use of graphical residual analysis as the primary tool for judging fit, the reading that randomly behaving residuals suggest the model fits while systematic structure in residuals plotted against a predictor indicates the form of the function can be improved, and the definition of the coefficient of determination as the proportion of the total variability accounted for by the fitted model. The residuals, the sums of squares, and the typical-error figures were computed here from the study's sixty pairs.
 :::

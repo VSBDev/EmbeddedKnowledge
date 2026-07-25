@@ -32,7 +32,6 @@ Every source in `references.json` was retrieved and read directly at the URL rec
 | Kim, *Simple linear regression 1 — basic concepts* (Restor Dent Endod 2018;43(2):e21) | The naming of intercept and slope; the least-squares criterion; the identity slope = r × SD(y) / SD(x) | Facts only, original expression |
 | Kim, *Simple linear regression 2 — evaluation of regression line* (Restor Dent Endod 2018;43(3):e34) | The coefficient of determination as the regression sum of squares over the total sum of squares, read as a proportion of total variability | Facts only, original expression |
 | Schober & Vetter, *Linear Regression in Medical Research* (Anesth Analg 2021;132(1):108–109) | A coefficient as the average change in the response per one-unit change in its predictor; a multivariable model estimating each contribution while holding the others constant, so controlling for confounding | Facts only, original expression |
-| NIDDK, *Diabetes Tests & Diagnosis* | Fasting plasma glucose reference values, the confirmatory second test, and the definition of fasting | Facts only, original expression |
 
 No source's wording, structure, table, figure, example, question, or dataset is reproduced or adapted anywhere in this pack.
 
@@ -66,7 +65,7 @@ The cohort's headline figures are fixed by the Statistics and Data block brief: 
 
 ## Boundaries
 
-The cohort, the patient, the two laboratory reports, the second cohort, and every case in this pack are invented for teaching. Nothing in the pack reports an observation about real patients, and nothing in it recommends or supports a diagnostic, monitoring, or treatment decision. Clinical reference values appear only so that the size of a fitted difference has a real scale to be judged against, and they are attributed to the body that publishes them. The lesson carries the *teaching example, not medical advice* boundary in its orientation scene and again in the clinical wrap-up.
+The cohort, the patient, the two laboratory reports, the second cohort, and every case in this pack are invented for teaching. Nothing in the pack reports an observation about real patients, and nothing in it recommends or supports a diagnostic, monitoring, or treatment decision. The lesson explicitly states that this dataset supplies no applicable management target or threshold for clinical importance. It carries the *teaching example, not medical advice* boundary in its orientation scene and again in the clinical wrap-up.
 
 ## Format change accompanying this pack
 

@@ -68,7 +68,7 @@ A published table reports, for adults with type 2 diabetes: unadjusted slope for
 3. What claim does the adjusted figure still not support?
 :::
 
-The adjusted figure says that among adults of the same age, sex, and body-mass index, those with a one-hour longer interval between dinner and sleep averaged 1.2 mg/dL lower fasting glucose. The drop from −4.0 to −1.2 says that most of the crude association was carried by differences in age, sex, and body size between the people who ate late and the people who ate early: once those are matched, most of the apparent relationship goes. And the adjusted figure still supports no claim about what would happen to a patient who changed their dinner time, because it is a comparison between people, adjusted for three variables and blind to every variable nobody wrote down.
+The adjusted figure says that among adults of the same age, sex, and body-mass index, those with a one-hour longer interval between dinner and sleep averaged 1.2 mg/dL lower fasting glucose. The change from −4.0 to −1.2 says that adding those covariates materially changed the fitted conditional association. It does not by itself assign the difference to age, sex, or body size: that stronger explanation would require a defensible causal structure, adequate measurement, comparable groups across the needed combinations, and a correctly specified model. The adjusted figure still supports no claim about what would happen to a patient who changed their dinner time, because it is a comparison between people, adjusted for three variables and blind to every variable nobody wrote down.
 
 :::{source-note}
 :claims: claim-multiple-regression-holds-constant, claim-least-squares-criterion

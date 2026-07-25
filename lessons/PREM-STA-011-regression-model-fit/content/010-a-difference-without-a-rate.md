@@ -48,7 +48,7 @@ Hold on to that 18. Later in the lesson the fitted line will be judged by how fa
 
 ## Recovery route
 
-If the first question was uncomfortable, reread the treatment of straight lines and rates of change in [Functions and graphs](https://embeddedknowledge.io/premed/lessons/read/?lesson=PREM-QNT-007), which is where {math}`y = a + bx` was built. If the third was uncomfortable, the standard deviation is handled in the earlier lesson on centre and spread. Neither is a reason to stop, both are lighter reading than this lesson, and you can come straight back.
+If the first question was uncomfortable, reread the treatment of straight lines and rates of change in [Functions and graphs](https://embeddedknowledge.io/premed/lessons/read/?lesson=PREM-QNT-007), which is where {math}`y = a + bx` was built. If the third was uncomfortable, the standard deviation is handled in the earlier lesson on [centre and spread](https://embeddedknowledge.io/premed/lessons/read/?lesson=PREM-STA-003). Neither is a reason to stop, both are lighter reading than this lesson, and you can come straight back.
 :::
 
 ## Accessibility and alternatives
