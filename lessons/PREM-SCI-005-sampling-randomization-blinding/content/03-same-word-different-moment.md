@@ -37,11 +37,11 @@ Repairability is a separate question from present validity. Team B kept transcri
 | From whom | Whoever enrols or admits participants | Participants, providers, data collectors, outcome assessors, analysts |
 | When it acts | Up to and including the moment of allocation | From the moment of allocation until the study ends |
 | What it prevents | Steering of who enters which group | Behaviour and measurement differing by known assignment |
-| Always possible? | Yes | No |
+| Arrangeable in this lesson's person-by-person setting? | Yes | No |
 
 Read down the "when it acts" row and you have the discriminating test. Everything else in the table follows from it. If you are ever unsure which one a description is talking about, ask a single question: *had the assignment already happened?* If not, it is concealment. If so, it is blinding.
 
-The last row is the one that catches people out. Concealment can always be done, so a study that failed it failed at something avoidable. Blinding sometimes genuinely cannot be done — you cannot hide from a student that they are sitting in a tutorial — so a study that could not blind participants is not automatically careless. The question to ask there is whether it blinded the parts it *could* blind, especially the people measuring the outcome.
+The last row is the one that catches people out. In the individually randomized, person-by-person setting taught here, concealment can be arranged, so a study that failed it failed at something avoidable. That "always" does not automatically carry to designs in which allocation happens before individuals are recruited. Blinding, by contrast, sometimes genuinely cannot be done even in the present setting — you cannot hide from a student that they are sitting in a tutorial — so a study that could not blind participants is not automatically careless. The question to ask there is whether it blinded the parts it *could* blind, especially the people measuring the outcome.
 
 ## What the evidence says about the size of this
 
@@ -68,7 +68,7 @@ The practical upshot is to trace mechanisms, not subtract a percentage. When a r
 
 **Why it is plausible.** Both safeguards hide the same fact from someone, both are described with the language of secrecy, and reports often mention only one of them.
 
-**What it cannot explain.** It cannot explain Team A and Team B. On this model the two teams made the same kind of mistake, so their errors should be interchangeable — yet Team A's failure could change *who was compared* and Team B's could change *what was recorded*, and fixing one would not touch the other. It also cannot explain why concealment is always achievable while blinding sometimes is not. If they were the same protection, they would fail under the same conditions.
+**What it cannot explain.** It cannot explain Team A and Team B. On this model the two teams made the same kind of mistake, so their errors should be interchangeable — yet Team A's failure could change *who was compared* and Team B's could change *what was recorded*, and fixing one would not touch the other. In the person-by-person setting of these teams, it also cannot explain why concealment can be arranged while blinding sometimes cannot. If they were the same protection, they would fail under the same conditions.
 
 **The better model.** They are two safeguards separated by a single instant: the moment of allocation. Before it, the risk is that a foreseeable assignment lets someone steer who enters which group; concealment removes the foresight. After it, the risk is that a known assignment changes behaviour or measurement; blinding removes the knowledge. A study needs both, and having one tells you nothing about the other.
 
