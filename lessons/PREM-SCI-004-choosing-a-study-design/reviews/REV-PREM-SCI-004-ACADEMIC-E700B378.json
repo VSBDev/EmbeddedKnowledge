@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-SCI-004-ACADEMIC-E700B378",
+  "lessonId": "PREM-SCI-004",
+  "lessonVersion": "0.2.0",
+  "candidateCommit": "e34e788706daa9b1ef5b7271a72b247bbf52643d",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable operator, academic reviewer",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-SCI-004-E700B378-5A2A-4DDC-A817-E3FF0707079B",
+      "instructionsDigest": "sha256:d4857c953396396293eb0822a0814fb3cc3438d3e256b6f19085d43692753913"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#PREM-SCI-004-v0.2.0",
+    "content/01-who-creates-comparison.md#first-decision-who-creates-the-exposure-difference",
+    "content/01-who-creates-comparison.md#second-decision-where-do-you-enter-the-timeline",
+    "content/02-worked-choice.md#worked-example-retrospective-cohort",
+    "content/03-practise-repair.md#misconception-retrospective-means-case-control",
+    "content/03-practise-repair.md#misconception-any-external-event-natural-experiment",
+    "content/04-transfer-synthesis.md#a-defensible-analysis",
+    "content/04-transfer-synthesis.md#mastery-check",
+    "content/05-clinical-wrap-up.md#contrast-the-candidate-designs",
+    "content/05-clinical-wrap-up.md#choose-the-best-fit-under-the-stated-constraints",
+    "content/05-clinical-wrap-up.md#calibrate-the-inference",
+    "assessment.json#item-classify-assignment-timing",
+    "assessment.json#item-distinguish-cohort-case-control",
+    "assessment.json#item-calibrate-inference",
+    "assessment.json#item-transfer-cutoff",
+    "claims.json#claim-design-assignment",
+    "claims.json#claim-cohort-direction",
+    "claims.json#claim-case-control-use",
+    "claims.json#claim-cross-sectional-use",
+    "claims.json#claim-randomized-inference",
+    "claims.json#claim-natural-assignment",
+    "claims.json#claim-causal-boundary",
+    "references.json#source-study-design-overview",
+    "references.json#source-clinical-design-essentials",
+    "references.json#source-observational-designs",
+    "references.json#source-natural-experiments",
+    "glossary.json#terms",
+    "ATTRIBUTION.md#clinical-framing-revision"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "lesson.json#scenes[scene-clinical-wrap-up].claimCoverage",
+      "finding": "The scene is declared no-material-claims, but content/05-clinical-wrap-up.md teaches material definitions and inference claims: the habitual-times comparison has cohort timing and warrants association by default; randomly ordered within-person conditions constitute a crossover experiment; participant-level self-comparison supports a stronger causal interpretation; and the result has a limited target population. It also carries forward a factual setup attributed to PREM-SCI-003. None of these claims is mapped to scene-clinical-wrap-up, and the scene has no learner-visible source note. This is an academic evidence gap under the required same-scene claim-tracing rule.",
+      "resolution": "Set scene-clinical-wrap-up to claims-mapped; map all reused cohort, assignment, and causal-boundary claims to it; add a distinct supported claim for the crossover design and its inference conditions; and add a same-scene source note listing every supporting source. Map or explicitly qualify the PREM-SCI-003 carry-forward statement as well."
+    },
+    {
+      "severity": "major",
+      "target": "content/05-clinical-wrap-up.md#choose-the-best-fit-under-the-stated-constraints",
+      "finding": "The best-fit justification treats manipulability, reversibility of dinner timing, random nightly order, and self-comparison as sufficient for choosing the crossover experiment. Reversibility of the assigned schedule does not itself establish absence of carryover in the physiological outcome, and random order alone does not resolve period, sequence, adherence, medication, or other time-varying effects. The scene also does not state that assigning meal timing to adults with type 2 diabetes must be ethically acceptable and clinically supervised. These omitted conditions make the subsequent causal-inference statement broader than the design description warrants.",
+      "resolution": "Make the crossover choice conditional on ethical and supervised assignment, stable relevant co-interventions, comparable outcome measurement, and an explicit plan for carryover and period or sequence effects, such as justified washout or appropriate design and analysis. State that failure of those conditions requires another design or a narrower inference, then map the boundary to supporting evidence."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#item-distinguish-cohort-case-control",
+      "finding": "The keyed answer correctly distinguishes a retrospective cohort assembled from a source population and earlier exposure from a case-control study selected by outcome, and correctly rejects record age as the deciding feature.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "content/04-transfer-synthesis.md#a-defensible-analysis",
+      "finding": "The cutoff example correctly treats external assignment as a natural-experiment candidate rather than automatic causal evidence, checks manipulation and competing discontinuities, limits inference to units near the cutoff, and supplies an association-only observational fallback.",
+      "resolution": "No change required."
+    }
+  ],
+  "limitations": [
+    "Direct requests for all four cited PMC articles encountered browser interstitials, and the Wiley landing page returned HTTP 403. Verification therefore used the frozen reference records and indexed article text, including the cited classification, control-selection, crossover, and natural-experiment passages; exact locator-by-locator full-text comparison was not reachable.",
+    "Per the assigned scope, site/ was not read. Graph-node existence, terminology-ledger collisions, quorum-policy details, and local validation against site/schemas/review.schema.json were therefore not independently checked.",
+    "PREM-SCI-003 was not inspected because the assigned scope prohibited reading any other lesson pack, so the clinical wrap-up's claim about that lesson remains unverified."
+  ],
+  "signedAt": "2026-07-25T01:21:40Z"
+}
