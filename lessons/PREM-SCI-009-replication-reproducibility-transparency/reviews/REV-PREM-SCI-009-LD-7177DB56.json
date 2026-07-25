@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-SCI-009-LD-7177DB56",
+  "lessonId": "PREM-SCI-009",
+  "lessonVersion": "0.2.0",
+  "candidateCommit": "b81211b42a7a9b565837bf09e61361bdc3c95fff",
+  "role": "learning-design",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.7",
+      "runId": "agy-learning-design-PREM-SCI-009-7177DB56-B3A5-4584-9809-C6DC67E1B9CF",
+      "instructionsDigest": "sha256:f895909fbf9ca13a06ef279f4214b223ebf642021fb00270feb1c3c50ee0a68d"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lessons/PREM-SCI-009-replication-reproducibility-transparency/lesson.json",
+    "lessons/PREM-SCI-009-replication-reproducibility-transparency/references.json",
+    "lessons/PREM-SCI-009-replication-reproducibility-transparency/assessment.json",
+    "lessons/PREM-SCI-009-replication-reproducibility-transparency/claims.json",
+    "lessons/PREM-SCI-009-replication-reproducibility-transparency/glossary.json",
+    "lessons/PREM-SCI-009-replication-reproducibility-transparency/ATTRIBUTION.md",
+    "lessons/PREM-SCI-009-replication-reproducibility-transparency/diagrams/four-safeguard-questions.diagram.json",
+    "lessons/PREM-SCI-009-replication-reproducibility-transparency/content/01-result-with-a-trail.md",
+    "lessons/PREM-SCI-009-replication-reproducibility-transparency/content/02-four-questions.md",
+    "lessons/PREM-SCI-009-replication-reproducibility-transparency/content/03-follow-the-seedling-claim.md",
+    "lessons/PREM-SCI-009-replication-reproducibility-transparency/content/04-shortcuts-under-stress.md",
+    "lessons/PREM-SCI-009-replication-reproducibility-transparency/content/05-transfer-and-mastery.md",
+    "lessons/PREM-SCI-009-replication-reproducibility-transparency/content/06-clinical-wrap-up.md"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "lessons/PREM-SCI-009-replication-reproducibility-transparency/content/03-follow-the-seedling-claim.md",
+      "finding": "The worked example `worked-example-seedling-trail` is missing a self-explanation prompt about the decision that most strongly determines the solution. According to `CONTENT-STANDARD.md` Section 5.1, a worked example must include this prompt to encourage active reflection on key expert decisions.",
+      "resolution": "Add a self-explanation prompt at the end of the worked example, asking the learner to explain which decision (e.g., the preregistered handling of missing heights or the replication criteria thresholds) most strongly determines the final calibrated conclusion, and why."
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-SCI-009-replication-reproducibility-transparency/content/01-result-with-a-trail.md",
+      "finding": "The retrieval check under 'Activate what you know about bias' uses standard markdown blockquotes rather than the semantic `{check}` directive. To ensure structural consistency and proper platform rendering as defined in `FORMAT.md` Section 3, it should be wrapped in a `{check}` directive.",
+      "resolution": "Wrap the prompt in a `:::{check}` block with a unique ID and `kind: retrieval` attribute (e.g., `:id: check-bias-activation` and `:kind: retrieval`), and place the explanation immediately after the block."
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-SCI-009-replication-reproducibility-transparency/content/04-shortcuts-under-stress.md",
+      "finding": "The retrieval check at the beginning of the scene ('Start without looking back...') and the 'Faded practice' section at the end of the scene are formatted as standard prose rather than utilizing the semantic `{check}` directive whitelisted in `FORMAT.md` Section 3.",
+      "resolution": "Refactor these sections to use the `:::{check}` directive with appropriate `id` and `kind` options (e.g. `kind: retrieval` or `kind: practice`), keeping the prompt inside the directive and the answer key immediately following it."
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-SCI-009-replication-reproducibility-transparency/content/06-clinical-wrap-up.md",
+      "finding": "The clinical crossover study example (dinner timing and fasting glucose) is an excellent real-world synthesis of the four safeguards, satisfying the safety-critical constraints by explicitly labeling the case as illustrative teaching material and not medical advice.",
+      "resolution": null
+    }
+  ],
+  "limitations": [
+    "No access to real learner performance data.",
+    "Verification is restricted to static content files and validation environments without platform execution runtime."
+  ],
+  "signedAt": "2026-07-25T01:21:58Z"
+}

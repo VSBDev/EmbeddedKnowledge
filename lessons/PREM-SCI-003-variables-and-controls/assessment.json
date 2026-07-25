@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "format": "embeddedknowledge-assessment-v1",
   "lessonId": "PREM-SCI-003",
-  "lessonVersion": "0.1.1",
+  "lessonVersion": "0.2.0",
   "assessmentId": "assessment-variables-controls",
   "title": "Variables and controls mastery check",
   "purpose": "mastery-gate",
@@ -123,9 +123,9 @@
       "safetyCritical": false
     },
     {
-      "id": "item-transfer-acoustics-audit",
+      "id": "item-transfer-medical-device-audit",
       "type": "open-response",
-      "sceneId": "scene-transfer-synthesis",
+      "sceneId": "scene-clinical-wrap-up",
       "objectiveIds": [
         "objective-identify-variable-roles",
         "objective-distinguish-controls-confounders",
@@ -134,7 +134,7 @@
       "outcomeIds": [
         "topic-scientific-inquiry-variables-controls"
       ],
-      "prompt": "Audit a fictional acoustics comparison not used in the lesson examples. A team compares sound-dampening panel A with panel B and records the sound level behind each panel after 30 seconds. Speaker tone, starting volume, room, speaker-to-panel distance, panel dimensions, and recording duration are held alike. The team assigns every panel A run to microphone X and every panel B run to microphone Y. A silent-input recording should remain near baseline; a supplied calibration tone should produce a reading within a known range. Identify the independent and dependent variables, two controlled variables, the confounder with its three-part justification, and the positive and negative controls. Then state what a near-zero calibration-tone reading means for an unknown near-zero sound-level reading.",
+      "prompt": "Audit a fictional medical-device bench comparison that does not use patients or guide care. A testing team compares glucose-meter test-strip design A with design B and records the displayed reading 30 seconds after applying the same synthetic test sample. Sample composition, sample volume, room temperature, meter model, and recording time are held alike. Every design A run uses meter unit X and every design B run uses meter unit Y. A blank synthetic sample should remain near baseline; a supplied check solution should produce a reading within a stated range. Identify the independent and dependent variables, two controlled variables, the confounder with its three-part justification, and the positive and negative controls. Then state what a near-zero check-solution reading means for an unknown near-zero reading.",
       "stimulus": null,
       "points": 4,
       "responseSpec": {
@@ -145,20 +145,20 @@
         "maxLength": 2000
       },
       "answer": {
-        "correct": "A complete audit identifies panel type as the independent variable and the sound level recorded after 30 seconds as the dependent variable; names any two of speaker tone, starting volume, room, speaker-to-panel distance, panel dimensions, or recording duration as controlled variables; identifies microphone identity as a confounder because microphone assignment is a separate measurement choice rather than a consequence of panel type, microphone X is fixed to panel A and microphone Y to panel B, and microphone differences could affect the recorded sound level; identifies the silent-input recording as the negative control and the calibration tone as the positive control; and explains that a near-zero positive-control result means the system has not demonstrated response capability, so an unknown near-zero reading cannot be interpreted as a very low sound level.",
-        "summary": "The six-role audit reveals the intended panel comparison, the microphone ambiguity, and the failed capability check.",
-        "reasoning": "Score one point for the correct independent/dependent pair, one for two valid controlled variables, one for microphone identity plus all three confounder checks, and one for both control labels plus the failed-positive-control interpretation. All four are required for 4/4. If you listed roles without reasons, add the verbs: set, record, hold alike, is separate from the intended pathway, travels with and can affect, should stay at baseline, and should respond. On a retry, audit two fictional water-test strips when the team assigns strip A to phone camera 1 and strip B to phone camera 2; a blank solution and a supplied known-concentration standard serve as controls. Reconstruct every role and all three confounder checks rather than copying the first answer.",
+        "correct": "A complete audit identifies test-strip design as the independent variable and the displayed reading after 30 seconds as the dependent variable; names any two of sample composition, sample volume, room temperature, meter model, or recording time as controlled variables; identifies meter-unit identity as a confounder because unit assignment is a separate measurement choice rather than a consequence of strip design, unit X is fixed to design A and unit Y to design B, and unit differences could affect the displayed reading; identifies the blank synthetic sample as the negative control and the supplied check solution as the positive control; and explains that a near-zero positive-control result means the system has not demonstrated response capability, so an unknown near-zero reading cannot be interpreted as an absence or very low level of the measured target.",
+        "summary": "The six-role audit reveals the intended strip comparison, the meter-unit ambiguity, and the failed capability check.",
+        "reasoning": "Score one point for the correct independent/dependent pair, one for two valid controlled variables, one for meter-unit identity plus all three confounder checks, and one for both control labels plus the failed-positive-control interpretation. All four are required for 4/4. If you listed roles without reasons, add the verbs: set, record, hold alike, is separate from the intended pathway, travels with and can affect, should stay at baseline, and should respond. On a retry, audit two fictional water-test strips when the team assigns strip A to phone camera 1 and strip B to phone camera 2; a blank solution and a supplied known-concentration standard serve as controls. Reconstruct every role and all three confounder checks rather than copying the first answer.",
         "acceptableResponses": [
-          "Any response that maps all six roles equivalently, states that microphone assignment is separate from the panel pathway, tracks panel type, and could affect the reading, and withholds interpretation after the positive control fails."
+          "Any response that maps all six roles equivalently, states that meter-unit assignment is separate from the strip-design pathway, tracks strip design, and could affect the reading, and withholds interpretation after the positive control fails."
         ],
         "commonErrors": [
-          "Calling microphone identity a controlled variable even though it is fixed to panel type",
-          "Reversing the silent-input and calibration-tone control roles",
-          "Concluding that the unknown has a very low sound level when the positive control is near zero",
-          "Naming the recorded sound level as the independent variable"
+          "Calling meter-unit identity a controlled variable even though it is fixed to strip design",
+          "Reversing the blank-sample and check-solution control roles",
+          "Concluding that the unknown lacks the target when the positive control is near zero",
+          "Naming the displayed reading as the independent variable"
         ]
       },
-      "rubricId": "rubric-transfer-acoustics-audit",
+      "rubricId": "rubric-transfer-medical-device-audit",
       "safetyCritical": false
     }
   ],
@@ -222,12 +222,12 @@
       ]
     },
     {
-      "id": "rubric-transfer-acoustics-audit",
-      "title": "Integrated acoustics role audit",
+      "id": "rubric-transfer-medical-device-audit",
+      "title": "Integrated medical-device bench role audit",
       "criteria": [
         {
           "id": "criterion-transfer-variables",
-          "description": "Award 1 point only when panel type is independent and the sound level after 30 seconds is dependent.",
+          "description": "Award 1 point only when test-strip design is independent and the displayed reading after 30 seconds is dependent.",
           "maxPoints": 1
         },
         {
@@ -237,12 +237,12 @@
         },
         {
           "id": "criterion-transfer-confounder",
-          "description": "Award 1 point only when microphone identity is identified and all three checks are stated: microphone assignment is separate from the panel pathway, is fixed to panel type, and could affect recorded sound level.",
+          "description": "Award 1 point only when meter-unit identity is identified and all three checks are stated: unit assignment is separate from the strip-design pathway, is fixed to strip design, and could affect the displayed reading.",
           "maxPoints": 1
         },
         {
           "id": "criterion-transfer-controls",
-          "description": "Award 1 point only when silent input is labelled negative, the calibration tone is labelled positive, and a near-zero positive control is used to withhold a very-low-level interpretation of a near-zero unknown.",
+          "description": "Award 1 point only when the blank synthetic sample is labelled negative, the supplied check solution is labelled positive, and a near-zero positive control is used to withhold an absent-or-very-low interpretation of a near-zero unknown.",
           "maxPoints": 1
         }
       ]
