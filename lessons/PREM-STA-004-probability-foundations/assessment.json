@@ -1,0 +1,349 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-assessment-v1",
+  "lessonId": "PREM-STA-004",
+  "lessonVersion": "0.1.0",
+  "assessmentId": "assessment-probability-foundations-mastery",
+  "title": "Counting, combining, and conditioning mastery check",
+  "purpose": "mastery-gate",
+  "attemptPolicy": {
+    "retakeable": true,
+    "timeLimitMinutes": null,
+    "feedback": "after-attempt"
+  },
+  "items": [
+    {
+      "id": "item-union-from-audit",
+      "type": "numeric",
+      "sceneId": "scene-mastery-and-spacing",
+      "objectiveIds": [
+        "objective-probability-from-counts",
+        "objective-combine-two-events"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-probability"
+      ],
+      "prompt": "One of the 80 audited adults is drawn at random, every adult equally likely. What is the probability that the adult either took an evening walk or had a reading of 140 mg/dL or above? Give a decimal to two places.",
+      "stimulus": "Invented clinic audit of 80 adults with type 2 diabetes. Took an evening walk: 15 read 140 mg/dL or above, 25 read below, 40 in total. Did not walk: 28 read 140 or above, 12 read below, 40 in total. Column totals: 43 read 140 or above, 37 read below, 80 adults. Illustrative teaching example, not medical advice.",
+      "points": 2,
+      "responseSpec": {
+        "mode": "number",
+        "units": null,
+        "tolerance": 0.005,
+        "maxSelections": null,
+        "maxLength": null
+      },
+      "answer": {
+        "correct": 0.85,
+        "summary": "0.85, because the 15 adults who did both must be counted once rather than twice.",
+        "reasoning": "Award 1 point for reading the three probabilities correctly from the table: P(walk) = 40/80 = 0.50, P(140 or above) = 43/80 = 0.5375, and P(both) = 15/80 = 0.1875. Award 1 point for applying the addition rule with the overlap removed: 0.50 + 0.5375 - 0.1875 = 0.85. Counting people directly confirms it: 40 walkers plus the 28 non-walkers who read 140 or above is 68 adults, and 68/80 = 0.85. An answer of 1.0375 means the overlap was left in; an answer of 0.1875 answers the wrong question, giving the probability that both hold rather than at least one. On retry, take the same table and find the probability that the adult either did not walk or read below 140.",
+        "acceptableResponses": [
+          "0.85",
+          "0.850",
+          "17/20",
+          "68/80"
+        ],
+        "commonErrors": [
+          "Adding 0.50 and 0.5375 without subtracting the overlap, giving 1.0375, a value no probability can take",
+          "Reporting the joint probability 0.1875 instead of the probability that at least one event occurs",
+          "Subtracting one of the marginal probabilities rather than the probability that both occur"
+        ]
+      },
+      "rubricId": "rubric-union-from-audit",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-invert-the-audit",
+      "type": "numeric",
+      "sceneId": "scene-mastery-and-spacing",
+      "objectiveIds": [
+        "objective-separate-the-conditionals"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-probability"
+      ],
+      "prompt": "Among the audited adults whose reading was 140 mg/dL or above, what is the probability that the adult took an evening walk? Give a decimal to three places.",
+      "stimulus": "Use the same invented audit of 80 adults. Took an evening walk: 15 read 140 mg/dL or above, 25 read below, 40 in total. Did not walk: 28 read 140 or above, 12 read below, 40 in total. Column totals: 43 read 140 or above, 37 read below, 80 adults. Illustrative teaching example, not medical advice.",
+      "points": 2,
+      "responseSpec": {
+        "mode": "number",
+        "units": null,
+        "tolerance": 0.002,
+        "maxSelections": null,
+        "maxLength": null
+      },
+      "answer": {
+        "correct": 0.349,
+        "summary": "0.349, taking the 15 shared adults over the 43 who read 140 or above rather than over the 40 who walked.",
+        "reasoning": "Award 1 point for identifying the conditioning event as the reading rather than the behaviour, so the denominator is 43 and not 40 or 80. Award 1 point for the arithmetic: 15/43 = 0.349 to three decimal places. Equivalently, P(walk given 140 or above) = P(both)/P(140 or above) = 0.1875/0.5375 = 0.349. An answer of 0.375 computed the other conditional, P(140 or above given walk) = 15/40, which answers a different question about a different group. An answer of 0.1875 gave the joint probability, which conditions on nothing. On retry, compute both conditionals from the same table and write one sentence for each naming its group first.",
+        "acceptableResponses": [
+          "0.349",
+          "15/43",
+          "0.3488"
+        ],
+        "commonErrors": [
+          "Dividing by 40 rather than 43, which computes the reverse conditional 0.375",
+          "Reporting the joint probability 0.1875, which conditions on no group at all",
+          "Dividing by 80, which returns to the unconditional probability and discards the given information"
+        ]
+      },
+      "rubricId": "rubric-invert-the-audit",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-independence-check",
+      "type": "single-choice",
+      "sceneId": "scene-mastery-and-spacing",
+      "objectiveIds": [
+        "objective-combine-two-events"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-probability"
+      ],
+      "prompt": "In the same audit, are the events \"took an evening walk\" and \"read 140 mg/dL or above\" independent, and which form of the multiplication rule reproduces the joint probability of 0.1875? Choose the only fully correct answer.",
+      "stimulus": "Use the same invented audit of 80 adults. Took an evening walk: 15 read 140 mg/dL or above, 25 read below, 40 in total. Did not walk: 28 read 140 or above, 12 read below, 40 in total. Column totals: 43 read 140 or above, 37 read below, 80 adults. Illustrative teaching example, not medical advice.",
+      "points": 3,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-dependent-conditional-form",
+            "text": "Not independent, because the plain product 0.50 times 0.5375 gives 0.26875 while the table gives 0.1875; the conditional form reproduces the table, since 0.50 times P(140 or above given walk) = 0.50 times 0.375 = 0.1875."
+          },
+          {
+            "id": "option-independent-plain-product",
+            "text": "Independent, because both groups contain exactly 40 adults; the plain product 0.50 times 0.5375 therefore gives the joint probability."
+          },
+          {
+            "id": "option-dependent-but-plain-product",
+            "text": "Not independent, because walking and glucose are related in the body; the plain product still gives the joint probability because both marginal probabilities were read from the same table."
+          },
+          {
+            "id": "option-cannot-decide",
+            "text": "Independence cannot be decided from a table of counts, because independence is a claim about causes rather than about probabilities."
+          }
+        ],
+        "units": null,
+        "tolerance": null,
+        "maxSelections": 1,
+        "maxLength": null
+      },
+      "answer": {
+        "correct": "option-dependent-conditional-form",
+        "summary": "The product test fails, so the events are dependent and only the conditional form of the multiplication rule reproduces the table.",
+        "reasoning": "Award 1 point for running the product test rather than judging by intuition, 1 point for concluding dependence from the mismatch between 0.26875 and 0.1875, and 1 point for reproducing the joint probability with the conditional form. Equal group sizes make P(walk) = 0.50 and say nothing about independence, which rules out the second option. The third option reaches the right verdict and then uses the rule that verdict forbids. The fourth confuses independence, a numerical property of a probability distribution, with a causal claim; the correlation lesson keeps those separate and so does this one. On retry, test \"did not walk\" against \"read below 140\" in the same table and state which multiplication form applies.",
+        "acceptableResponses": [
+          "The option that finds the events dependent because 0.26875 does not equal 0.1875, and reproduces 0.1875 with the conditional form of the multiplication rule."
+        ],
+        "commonErrors": [
+          "Reading equal group sizes as evidence of independence",
+          "Declaring dependence and then multiplying the plain probabilities anyway",
+          "Treating independence as a causal question that counts cannot settle"
+        ]
+      },
+      "rubricId": "rubric-independence-check",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-screening-inversion",
+      "type": "single-choice",
+      "sceneId": "scene-mastery-and-spacing",
+      "objectiveIds": [
+        "objective-separate-the-conditionals"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-probability"
+      ],
+      "prompt": "A colleague reads about an invented screening test and says: \"It detects 92 per cent of cases, so a positive result means a 92 per cent probability that the person has the condition.\" Which reply is correct?",
+      "stimulus": null,
+      "points": 3,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-different-conditionals-need-prevalence",
+            "text": "The 92 per cent is the probability of a positive result given the condition. The probability of the condition given a positive result is a different quantity, and computing it needs how common the condition is in the group screened as well as how often the test is positive in people without it."
+          },
+          {
+            "id": "option-equivalent-statements",
+            "text": "The two statements say the same thing in different words, because both describe the people who screened positive."
+          },
+          {
+            "id": "option-only-false-positive-rate",
+            "text": "The colleague is right as long as the test is positive in fewer than 8 per cent of people without the condition, since that keeps the false positives below the true positives."
+          },
+          {
+            "id": "option-positive-always-higher",
+            "text": "The probability of the condition given a positive result is always at least as high as the detection rate, because positive results are drawn from people more likely to have the condition."
+          }
+        ],
+        "units": null,
+        "tolerance": null,
+        "maxSelections": 1,
+        "maxLength": null
+      },
+      "answer": {
+        "correct": "option-different-conditionals-need-prevalence",
+        "summary": "Detection conditions on the condition; the patient's question conditions on the result, and moving between them needs how common the condition is in the group screened.",
+        "reasoning": "Award 1 point for naming what the 92 per cent conditions on, 1 point for stating that the colleague's sentence conditions on the test result instead, and 1 point for identifying how common the condition is in the screened group as the missing quantity. The second option is the inversion itself. The third option sounds quantitative but is false: with a 92 per cent detection rate, a 5 per cent positive rate among people without the condition, and 2 in 100 having the condition, 10,000 people yield 184 true positives against 490 false positives, and the probability of the condition given a positive result is 184/674, about 0.273. The fourth option asserts a direction that has no general basis; the same test can give a value far below its detection rate in a low-prevalence group and far above it in a high-prevalence one. On retry, rebuild the two clinic tables from scene 4 with a detection rate of 92 per cent and check both answers.",
+        "acceptableResponses": [
+          "The option stating that detection conditions on the condition while the colleague's claim conditions on the result, and that how common the condition is in the screened group is required to move between them."
+        ],
+        "commonErrors": [
+          "Treating the two conditional probabilities as one quantity",
+          "Believing a low false-positive rate alone makes the two figures agree",
+          "Assuming the predictive direction always favours the positive result"
+        ]
+      },
+      "rubricId": "rubric-screening-inversion",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-run-of-mornings",
+      "type": "single-choice",
+      "sceneId": "scene-mastery-and-spacing",
+      "objectiveIds": [
+        "objective-reject-short-run-correction",
+        "objective-probability-from-counts"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-probability"
+      ],
+      "prompt": "For this item, stipulate that each morning in the walking group independently has probability 0.375 of a reading at 140 mg/dL or above. Six consecutive mornings have come in below 140. What is the probability that the seventh morning reads 140 or above, and why?",
+      "stimulus": null,
+      "points": 2,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-unchanged-0375",
+            "text": "0.375. The mornings are independent by stipulation, so the run carries no information about the next morning; the law of large numbers constrains the share across a long record and a shortfall is diluted by later mornings rather than repaid."
+          },
+          {
+            "id": "option-higher-due",
+            "text": "Higher than 0.375, because the law of large numbers requires the running share to return to 0.375 and a high reading is therefore due."
+          },
+          {
+            "id": "option-lower-revised",
+            "text": "Lower than 0.375, because six low mornings are evidence that the true probability for this person is smaller than stipulated."
+          },
+          {
+            "id": "option-need-total",
+            "text": "It cannot be found without knowing how many mornings will be recorded in total, since the probability depends on the length of the record."
+          }
+        ],
+        "units": null,
+        "tolerance": null,
+        "maxSelections": 1,
+        "maxLength": null
+      },
+      "answer": {
+        "correct": "option-unchanged-0375",
+        "summary": "0.375, unchanged, because independence means earlier mornings carry no information about the next one.",
+        "reasoning": "Award 1 point for the value 0.375 and 1 point for grounding it in independence rather than in the run. The second option is the short-run compensation error: the law of large numbers is a statement about the growing share, and a fixed shortfall shrinks against a growing denominator instead of being paid back. The third option would be reasonable if the probability were being estimated from the data, but the item stipulates it, and stipulation is what independence is being applied to; note also that six low mornings under a 0.625 probability of a low reading has probability 0.625 to the sixth power, about 0.0596, which is uncommon rather than surprising. The fourth option confuses one trial's probability with the behaviour of a record. On retry, compute the probability of six consecutive low mornings in advance, then state what that number does and does not say about the seventh.",
+        "acceptableResponses": [
+          "The option giving 0.375 and justifying it by independence rather than by a correction owed to the record."
+        ],
+        "commonErrors": [
+          "Raising the probability because an outcome feels due after a run",
+          "Lowering the probability by re-estimating a probability the item stipulated",
+          "Making a single trial's probability depend on the planned length of the record"
+        ]
+      },
+      "rubricId": "rubric-run-of-mornings",
+      "safetyCritical": false
+    }
+  ],
+  "rubrics": [
+    {
+      "id": "rubric-union-from-audit",
+      "title": "Addition rule with overlap",
+      "criteria": [
+        {
+          "id": "criterion-read-three-probabilities",
+          "description": "Award 1 point only when the two marginal probabilities and the joint probability are read correctly from the table.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-remove-overlap-once",
+          "description": "Award 1 point only when the joint probability is subtracted exactly once, giving 0.85.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-invert-the-audit",
+      "title": "Conditioning on the result rather than the behaviour",
+      "criteria": [
+        {
+          "id": "criterion-identify-denominator",
+          "description": "Award 1 point only when the denominator is the 43 adults who read 140 mg/dL or above.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-conditional-value",
+          "description": "Award 1 point only when the computed value is 0.349 to three decimal places, or an equivalent exact fraction.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-independence-check",
+      "title": "Independence test and rule selection",
+      "criteria": [
+        {
+          "id": "criterion-apply-product-test",
+          "description": "Award 1 point only when independence is judged by comparing the product of the marginal probabilities against the joint probability.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-conclude-dependence",
+          "description": "Award 1 point only when the mismatch between 0.26875 and 0.1875 is used to conclude dependence.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-select-conditional-form",
+          "description": "Award 1 point only when the conditional form of the multiplication rule is selected and reproduces the joint probability.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-screening-inversion",
+      "title": "Separating a test measure from a patient measure",
+      "criteria": [
+        {
+          "id": "criterion-name-detection-condition",
+          "description": "Award 1 point only when the quoted detection figure is identified as conditioned on the person having the condition.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-name-result-condition",
+          "description": "Award 1 point only when the colleague's claim is identified as conditioned on the test result.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-name-missing-quantity",
+          "description": "Award 1 point only when how common the condition is in the screened group is named as required to move between the two.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-run-of-mornings",
+      "title": "Independence across a run",
+      "criteria": [
+        {
+          "id": "criterion-unchanged-value",
+          "description": "Award 1 point only when the answer leaves the probability at the stipulated 0.375.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-justify-by-independence",
+          "description": "Award 1 point only when the justification is independence, with the law of large numbers described as constraining the share rather than repaying a shortfall.",
+          "maxPoints": 1
+        }
+      ]
+    }
+  ]
+}
