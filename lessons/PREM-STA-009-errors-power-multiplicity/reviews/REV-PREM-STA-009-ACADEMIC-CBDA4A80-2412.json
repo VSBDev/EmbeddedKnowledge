@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-STA-009-ACADEMIC-CBDA4A80-2412",
+  "lessonId": "PREM-STA-009",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "44c7eb3a7cb8dff5c36736facf8b062fca14abe3",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable academic reviewer",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-STA-009-CBDA4A80-2412-4F95-8B8E-A9EA4E8082D0",
+      "instructionsDigest": "sha256:359a35609e1ba27e5e3994156b1ea3ab9ad938fbec66bef3bddc604b13703623"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#id-version-outcomes-prerequisites-objectives-scenes",
+    "content/010-two-ways-to-be-wrong.md#complete-scene",
+    "content/020-alpha-and-beta.md#complete-scene",
+    "content/030-power-of-this-design.md#complete-scene",
+    "content/040-found-nothing.md#complete-scene",
+    "content/050-how-many-chances.md#complete-scene",
+    "content/060-work-it-out.md#complete-scene",
+    "content/070-transfer.md#complete-scene",
+    "content/080-clinical-wrap-up.md#complete-scene",
+    "assessment.json#all-items-answer-logic-and-rubrics",
+    "claims.json#all-claims",
+    "references.json#all-sources-and-locators",
+    "glossary.json#all-terms",
+    "charts/false-positive-inflation.chart.json#complete-chart-record",
+    "charts/power-null-and-alternative.chart.json#complete-chart-record",
+    "ATTRIBUTION.md#complete-attribution-record",
+    "references.json#source-greenland-misinterpretations — official Springer full text, P-value misinterpretations 4-6 and power section",
+    "references.json#source-nist-statistical-tests — NIST section 7.1.3",
+    "references.json#source-nist-sample-sizes — NIST section 7.2.2.2",
+    "references.json#source-chen-multiple-comparisons — PMC full text, independence, dependence, FWER and Bonferroni passages",
+    "references.json#source-tanniou-subgroups — official Springer full text, subgroup multiplicity, prespecification and interaction passages",
+    "references.json#source-niddk-diabetes-tests — fasting plasma glucose definitions and thresholds",
+    "assessment.json#item-compute-power — independently recomputed as 0.8508",
+    "assessment.json#item-detectable-effect-and-sample-size — independently recomputed as 62.72, rounded to 63 per group",
+    "assessment.json#item-family-wise-rate — independently recomputed as 0.5367",
+    "ATTRIBUTION.md#central-results — independently recomputed power, interval, sample-size and independent-FWER values"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "content/050-how-many-chances.md#the-independence-assumption-stated-plainly",
+      "finding": "The lesson says correlation can only lower the family-wise error rate relative to independence and therefore makes 1-(1-alpha)^k a ceiling. That is false for unspecified dependence. Positive dependence often lowers the probability of the union, but negatively dependent rejection events can produce a family-wise rate above the independent value. The cited Chen source says the correlated case is more complex; it does not establish this ceiling. The same incorrect boundary is encoded in claims.json#claim-multiplicity-inflates-false-positives and glossary.json#term-family-wise-error-rate.",
+      "resolution": "State that 1-(1-alpha)^k is exact only under independence and that the exact family-wise rate cannot be inferred without the joint dependence structure. If positive dependence is discussed, qualify it explicitly. Use min(1,k*alpha) as the general Bonferroni upper bound and update the mapped claim, glossary definition and dependent checks."
+    },
+    {
+      "severity": "major",
+      "target": "assessment.json#item-subgroup-report",
+      "finding": "The stimulus gives eighteen subgroups from one cohort but supplies no independence assumption or joint dependence structure, while the answer requires 1-0.95^18=0.603. Overlapping subgroup analyses from shared participants are generally dependent, so that exact probability is not calculable from the information given. The item therefore rewards an unjustified calculation. The twenty-subgroup examples in content/050-how-many-chances.md and content/080-clinical-wrap-up.md make the same numerical leap without an independence qualification.",
+      "resolution": "Either make the exercise explicitly hypothetical with eighteen independent tests, preferably using outcome comparisons rather than overlapping subgroups, or remove the exact probability requirement and ask what can defensibly be concluded under unknown dependence. Revise the two twenty-subgroup examples consistently."
+    },
+    {
+      "severity": "major",
+      "target": "content/040-found-nothing.md#misconception-large-p-means-no-effect",
+      "finding": "The scene endorses the sentence 'We found no evidence that dinner timing raises fasting glucose' even though the point estimate is nonzero. Its mapped Greenland source explicitly identifies that wording as erroneous when a nonzero association was observed: a large null P value does not mean that no effect or no evidence was observed. The source also states that design power does not measure compatibility of alternatives with the observed data. Repeating 'found no evidence' in content/060-work-it-out.md, content/080-clinical-wrap-up.md and assessment.json#item-read-a-negative-trial teaches the very dichotomous shortcut the source rejects.",
+      "resolution": "Replace the endorsed conclusion with a quantitative statement of the estimate, interval and failure to reject zero under the stated model. Use confidence intervals or direct tests against a prespecified meaningful margin to discuss effects excluded by the data. Retain power as a design-planning or design-audit quantity, not as evidence supplied by the completed data, and propagate that correction to the assessment."
+    },
+    {
+      "severity": "major",
+      "target": "content/070-transfer.md#check-transfer-reasoning",
+      "finding": "The answer says the physiotherapy pilot 'produced a Type II error,' but the scenario never establishes that a true benefit exists. A failure to reject is a Type II error only when the null is actually false; an observed 1.4-day estimate does not establish that truth. The same answer calls an out-of-range value from a central 95% reference interval a Type I error, although a healthy individual may genuinely lie in a distribution's tail and no null-hypothesis test has been specified. The check therefore assesses false extensions of both error definitions.",
+      "resolution": "Either stipulate the relevant true states and formal decision rules or describe these cases explicitly as analogies. Say that the pilot risks a Type II error rather than asserting that one occurred, and do not label a healthy-tail reference-range observation a Type I error without defining a corresponding hypothesis test."
+    },
+    {
+      "severity": "major",
+      "target": "content/050-how-many-chances.md#misconception-subgroup-found-after-looking",
+      "finding": "The repair says a subgroup claim would become defensible merely because the subgroup was prespecified and that the word 'prespecified' does all the work. Prespecification does not remove multiplicity when several subgroups were named, nor does a subgroup-specific P value establish treatment-effect heterogeneity. The cited Tanniou source recommends considering multiplicity adjustment and preferring subgroup-by-treatment interaction tests; it also reports substantial overall Type I inflation even for a single prespecified subgroup examined after an overall nonsignificant trial.",
+      "resolution": "Require a subgroup to belong to a prespecified confirmatory testing strategy with its multiplicity allocation stated. When claiming that effects differ by subgroup, require an appropriate interaction analysis rather than contrasting within-subgroup significance. Make clear that prespecification improves interpretability but is not sufficient by itself."
+    },
+    {
+      "severity": "major",
+      "target": "content/080-clinical-wrap-up.md#the-scale-everything-is-measured-against",
+      "finding": "The scene uses individual diagnostic fasting-plasma-glucose categories as a clinical yardstick for between-group mean differences, then concludes that intervals allowing 12-14 mg/dL have not narrowed the effect 'usefully.' The NIDDK source supports diagnostic thresholds for an individual's test result; it does not establish that a fraction of the prediabetes category width is a clinically meaningful treatment or exposure effect on a group mean. This is a health-sensitive inference that the lesson itself says belongs to a later lesson.",
+      "resolution": "Remove the diagnostic-band comparison and the unsupported usefulness judgment, or supply a directly relevant, evidence-based minimally important between-group difference with its population and decision context. Keep diagnostic thresholds separate from interpretation of shifts in group means."
+    },
+    {
+      "severity": "minor",
+      "target": "charts/power-null-and-alternative.chart.json#shadedRegions",
+      "finding": "The chart and content/030-power-of-this-design.md describe a two-sided test but shade only the upper rejection tail and call everything left of +8.09 beta. For a two-sided test, power includes both rejection tails and beta is the area between -8.09 and +8.09 under the alternative. The omitted lower-tail probability is only about 0.00002 here, so the reported rounded power remains correct, but the representation is mathematically inaccurate.",
+      "resolution": "Shade and describe both rejection tails, or explicitly state that the opposite tail is omitted as numerically negligible in this example. Define beta as the area between the two critical values."
+    },
+    {
+      "severity": "minor",
+      "target": "content/020-alpha-and-beta.md#the-one-you-choose",
+      "finding": "The text calls the alpha rate exact and 'guaranteed' whatever the sample size, variability or disease. That guarantee holds only when the test and sampling model assumptions are satisfied and the analysis was not selected after seeing results. The mapped Greenland source stresses these conditions, but the learner-facing statement omits them.",
+      "resolution": "Qualify the long-run alpha statement with the validity of the test assumptions, sampling or randomization process, and prespecified analysis rule."
+    }
+  ],
+  "limitations": [
+    "The review was restricted by instruction to the candidate lesson pack and the academic role. Site data, graph files and the cross-lesson terminology ledger were not inspected, so outcome-node existence and terminology collisions could not be independently verified.",
+    "The direct PMC URLs for the Greenland and Tanniou articles presented browser challenges. The same full texts were checked through their official Springer publisher pages. The NIST pages, Chen article and NIDDK page were opened directly.",
+    "Calculations were independently recomputed under the lesson's stated known-standard-deviation normal approximation. No raw study data or empirical model validation was available."
+  ],
+  "signedAt": "2026-07-25T12:15:48Z"
+}

@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-chart-v1",
+  "id": "chart-cohort-glucose-normal-curve",
+  "type": "normal-curve",
+  "title": "A normal curve fitted to the illustrative cohort: mean 142 mg/dL, standard deviation 18 mg/dL",
+  "alt": "A symmetric bell-shaped curve centred on 142 mg/dL, with the band from 124 to 160 shaded and the wider band from 106 to 178 shaded more lightly.",
+  "longDescription": "The curve is the normal model chosen for the illustrative 60-person cohort. It is fixed by two numbers and no others: a mean of 142 mg/dL, which places its peak and its line of symmetry, and a standard deviation of 18 mg/dL, which sets how quickly it falls away. The inner shaded band runs from 142 minus 18 to 142 plus 18, that is 124 to 160 mg/dL, and the model places 68.27 per cent of its area there, about 41 of 60 people. The outer band runs from 142 minus 36 to 142 plus 36, that is 106 to 178 mg/dL, holding 95.45 per cent of the area, about 57 of 60 people. A third band, not drawn, would run from 88 to 196 mg/dL and hold 99.73 per cent. A vertical line marks the mean at 142 mg/dL, which for this curve is also its median and its mode. The height of the curve is a density and not a count: probability is read as area between two glucose values, so the area under any single point is zero.",
+  "xAxis": {
+    "label": "Fasting glucose",
+    "unit": "mg/dL",
+    "min": 88,
+    "max": 196,
+    "ticks": [
+      { "at": 88, "label": "88" },
+      { "at": 106, "label": "106" },
+      { "at": 124, "label": "124" },
+      { "at": 142, "label": "142" },
+      { "at": 160, "label": "160" },
+      { "at": 178, "label": "178" },
+      { "at": 196, "label": "196" }
+    ]
+  },
+  "yAxis": {
+    "label": "Probability density",
+    "unit": null
+  },
+  "series": [
+    {
+      "id": "series-cohort-normal-model",
+      "label": "Normal model for cohort fasting glucose",
+      "mean": 142,
+      "sd": 18
+    }
+  ],
+  "shadedRegions": [
+    {
+      "from": 106,
+      "to": 178,
+      "label": "Two standard deviations either side of the mean, 106 to 178 mg/dL, holding 95.45 per cent of the modelled area"
+    },
+    {
+      "from": 124,
+      "to": 160,
+      "label": "One standard deviation either side of the mean, 124 to 160 mg/dL, holding 68.27 per cent of the modelled area"
+    }
+  ],
+  "markers": [
+    { "x": 142, "label": "Mean 142 mg/dL" }
+  ]
+}

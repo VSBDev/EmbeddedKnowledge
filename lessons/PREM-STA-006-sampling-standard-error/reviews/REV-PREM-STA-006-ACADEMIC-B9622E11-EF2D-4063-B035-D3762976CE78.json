@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-STA-006-ACADEMIC-B9622E11-EF2D-4063-B035-D3762976CE78",
+  "lessonId": "PREM-STA-006",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "c11bcf52f4d96d873af397c4646d0128aeac022a",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable academic reviewer",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-STA-006-B9622E11-EF2D-4063-B035-D3762976CE78",
+      "instructionsDigest": "sha256:9df51585b89d1c8c4a9c59bcee3b743b3f3fe0c02d963b904f11e80789d6cedc"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "candidate commit c11bcf52f4d96d873af397c4646d0128aeac022a existence, pack identity, and equality with the working-tree pack",
+    "lesson.json#objectives, outcomes, prerequisites, scenes, authorship, and source-confidence",
+    "content/010-run-it-again.md#complete-scene",
+    "content/020-distribution-of-means.md#complete-scene",
+    "content/030-price-of-precision.md#complete-scene",
+    "content/040-sd-is-not-se.md#complete-scene",
+    "content/050-central-limit.md#complete-scene",
+    "content/060-compute-and-judge.md#complete-scene",
+    "content/070-league-tables.md#complete-scene",
+    "content/080-clinical-wrap-up.md#complete-scene",
+    "assessment.json#all-items-answer-logic-common-errors-and-rubrics",
+    "claims.json#all-claims-scene-mappings-scope-and-uncertainty",
+    "references.json#all-source-records-and-agent-access-status",
+    "glossary.json#all-terms-definitions-and-alignment-blocks",
+    "charts/individual-values.chart.json#complete-chart",
+    "charts/sampling-distribution-mean.chart.json#complete-chart",
+    "ATTRIBUTION.md#complete-attribution-and-source-use-record",
+    "independent recalculation of every displayed standard-error, band, ratio, sample-size, league-table, and poster example",
+    "independent calculation that two independent n=60 means have difference standard error sqrt(2) times 2.324 = 3.286 mg/dL",
+    "references.json#source-altman-bland-se — [BMJ publisher full text](https://www.bmj.com/content/331/7521/903)",
+    "references.json#source-nist-normal-clt — [NIST normal-distribution and CLT page](https://www.itl.nist.gov/div898/handbook/eda/section3/eda3661.htm)",
+    "references.json#source-kwak-kim-clt — [indexed article record and full-text extract](https://pmc.ncbi.nlm.nih.gov/articles/PMC5370305/)",
+    "references.json#source-niddk-diabetes-tests — [NIDDK Diabetes Tests and Diagnosis](https://www.niddk.nih.gov/health-information/diabetes/overview/tests-diagnosis)"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "assessment.json#item-one-se-band",
+      "finding": "The keyed interpretation incorrectly centres future repeat means on the observed sample mean of 142 mg/dL. The sampling distribution is centred on the unknown population mean, not on the realised first-sample mean. If the original and repeat studies are independent samples of 60, their mean difference has standard error sqrt(2) times 2.324 = 3.286 mg/dL; unconditionally, a repeat lies within one current-study standard error of the first mean only about 52% of the time and within two only about 84%, not about 68% and 95%. The same false repeat-around-observed interpretation recurs in scenes 020, 030, 040, 060, and 080 and in the glossary.",
+      "resolution": "Separate three quantities throughout: the theoretical sampling distribution around the population mean, the estimated standard error s/sqrt(n), and the distribution of the difference between two independent sample means. Rewrite this item and the cited scenes, charts, and glossary so 68/95 normal coverage is stated around the population mean; use sqrt(2) times SE when predicting one independent repeat from another, or explicitly introduce and justify a different conditional model."
+    },
+    {
+      "severity": "major",
+      "target": "content/050-central-limit.md#theorem-central-limit",
+      "finding": "The learner-facing theorem omits the independent-identically-distributed and finite-variance conditions that appear only in the hidden claim scope, making 'regardless of the distribution' too strong. It also folds the spread formula into the asymptotic conclusion: for independent identically distributed observations with finite variance, Var(sample mean) = sigma squared divided by n is exact for every n; approximate normality is the asymptotic part. The lesson then treats s/sqrt(n) as the population standard error rather than an estimate obtained by substituting s for unknown sigma.",
+      "resolution": "State the applicable independence, common-population, and finite-variance conditions in learner-visible prose. Distinguish the exact mean and variance identities from the CLT's asymptotic shape result, and distinguish sigma/sqrt(n) from its plug-in estimate s/sqrt(n). Propagate that distinction into claims.json#claim-central-limit-theorem, glossary.json#term-central-limit-theorem, glossary.json#term-standard-error, and assessment.json#item-clt-when-it-holds."
+    },
+    {
+      "severity": "major",
+      "target": "claims.json#claim-clt-skew-and-n30",
+      "finding": "The cited size-30 statement concerns when a Student t distribution is conventionally treated as close to a normal distribution; it does not establish that the sampling distribution of a mean from an arbitrary skewed population is adequately normal at n = 30. The scene nevertheless turns it into a CLT threshold and judges n = 60 safe partly because the observed sample contains no value beyond about 2.2 sample standard deviations. One observed sample cannot rule out a rare or heavy population tail. This undermines the objective requiring learners to judge when a normal band is defensible.",
+      "resolution": "Remove the t-distribution size convention as evidence for a general CLT threshold. Replace it with a defensible, sourced decision rule, distribution-specific calculation, or simulation whose assumptions are explicit. Revise content/050-central-limit.md and assessment.json#item-clt-when-it-holds so learners do not infer population-tail behaviour from the observed maximum or treat 30 as a general guarantee."
+    },
+    {
+      "severity": "major",
+      "target": "charts/individual-values.chart.json#chart-individual-values",
+      "finding": "This normal-curve chart presents itself as the distribution of the actual individual cohort values, while content/050-central-limit.md explicitly says the cohort histogram is right-skewed. A mean and standard deviation do not determine a normal distribution. The chart's claim that the one-standard-deviation band holds roughly two thirds of the people is therefore unsupported, and content/060-compute-and-judge.md plus assessment.json#item-which-quantity further reward unsupported 'middle two thirds' and 'middle 95%' readings for data not stated to be normal.",
+      "resolution": "Replace the normal curve with the actual fictional cohort histogram or an explicitly labelled hypothetical normal comparison. Use empirical counts or quantiles when describing the skewed cohort, and restrict 68/95 standard-deviation coverage to an explicitly justified normal model. Revise the affected practice and assessment answer logic accordingly."
+    },
+    {
+      "severity": "major",
+      "target": "assessment.json#item-diagnose-the-poster",
+      "finding": "The item says arithmetic decides that an unlabelled 2.6 must be a standard error. It does not: with only the mean, n = 49, and the bare number 2.6, that figure could be an SD, SE, confidence-limit margin, or another summary. Multiplying by sqrt(49) shows what the implied SD would be if it were an SE; judging one interpretation more plausible cannot identify what the authors actually calculated. The BMJ source explicitly treats unlabelled plus-or-minus notation as unresolved ambiguity, including the possibility of something other than SD or SE.",
+      "resolution": "Key the answer as indeterminate until the authors identify the statistic and method. Conditional calculations may show the consequences of interpreting 2.6 as an SE or SD, but must not be scored as proof of its identity. Make the same correction to content/040-sd-is-not-se.md#The-reading-rule, content/060-compute-and-judge.md#Six-find-the-question, and rubric-sd-se-discrimination."
+    },
+    {
+      "severity": "major",
+      "target": "content/080-clinical-wrap-up.md#the-clinical-yardstick",
+      "finding": "The NIDDK cut-points classify an individual fasting plasma glucose test result; they do not classify a clinic population's mean. Comparing a mean plus-or-minus its standard error with the 100–125 mg/dL individual diagnostic band and concluding that the clinic population 'sits' in the diabetes range is an ecological misinterpretation. A mean of 142 mg/dL cannot determine how many individuals cross 126 mg/dL, and the cited source does not support using the width of individual diagnostic categories as a precision requirement for a population mean.",
+      "resolution": "Remove this use of individual diagnostic thresholds, or replace the audit estimand with a clinically legitimate population-level target supported by an appropriate source. If the intended question concerns the proportion of individuals in diagnostic categories, teach or defer the corresponding proportion estimator and standard error. Update claim-fpg-thresholds, its source note, and assessment.json#item-diagnose-the-poster so they do not repeat the population-mean comparison."
+    },
+    {
+      "severity": "major",
+      "target": "content/080-clinical-wrap-up.md#proposal-two-detect-a-change-after-the-leaflet",
+      "finding": "The proposed sample sizes do not follow from the stated goal of detecting a 5 mg/dL change. Two independent annual means each with SE 2.324 have a difference SE of 3.286 mg/dL. Halving each mean's SE by enrolling 240 per year, or setting each SE to 1.00 with 324 per year, does not by itself define a change-detection design. Such a design requires at least the comparison structure, type-I error rate, target power, variance assumption, sidedness, and allowance for dependence or attrition. The lesson declares 60 inadequate and presents 240/324 as solutions without those conditions.",
+      "resolution": "Either reframe the task as achieving a prespecified standard error for the between-year difference and calculate that quantity directly, or provide a properly specified two-sample or paired power calculation with explicit assumptions. Remove the unsupported 'enough' conclusions until the design criterion is defined."
+    },
+    {
+      "severity": "major",
+      "target": "glossary.json#term-standard-deviation",
+      "finding": "The glossary says standard deviation 'always describes individuals', while the lesson defines a standard error as the standard deviation of a sampling distribution. Scenes 040 and 080 also call the observed sample SD of 18 mg/dL a fact about the population or patients. In fact, s = 18 describes the observed sample and estimates the unknown population SD sigma. This collapses the statistic/parameter distinction the lesson otherwise tries to teach.",
+      "resolution": "Define standard deviation as a spread measure applicable to any distribution, then distinguish the sample SD s from the population SD sigma and from the SD of a statistic's sampling distribution. Replace claims that 18 is a population fact with statements that it describes the observed sample and estimates population variability."
+    }
+  ],
+  "limitations": [
+    "The PMC endpoints for the Altman–Bland and Kwak–Kim articles presented an automated-access challenge in this environment. The Altman–Bland text was checked through the BMJ publisher page, and indexed Kwak–Kim text was checked; no finding depends solely on an inaccessible passage.",
+    "Per the operator's explicit scope, site/schemas/review.schema.json, site/agent/quorum-policy.json, site/data/premed-terminology.json, and site graph artifacts were not read. Schema and terminology-ledger validation were therefore not independently run; the artifact follows the supplied academic t...",
+    "The course source search did not expose the declared graph node outside the prohibited site paths, so graph-node existence and prerequisite-edge verification remain an environmental limitation. The academic verdict still follows from central statistical and assessment errors within the complete f...",
+    "No conflict of interest was identified. The review is limited to academic statistics, source scope, calculations, and the interpretation of the cited clinical thresholds; it does not provide clinical guidance."
+  ],
+  "signedAt": "2026-07-25T10:36:50Z"
+}

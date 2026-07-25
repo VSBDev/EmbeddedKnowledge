@@ -1,0 +1,179 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-claims-v1",
+  "lessonId": "PREM-STA-009",
+  "lessonVersion": "0.1.0",
+  "claims": [
+    {
+      "id": "claim-alpha-is-chosen",
+      "statement": "The significance level alpha is a cut-off fixed in advance as part of the study design and left unchanged in light of the data; it is the risk of rejecting the null hypothesis when that hypothesis is in fact true, which is the Type I error.",
+      "sceneIds": [
+        "scene-two-ways-to-be-wrong",
+        "scene-alpha-and-beta",
+        "scene-how-many-chances"
+      ],
+      "sourceIds": [
+        "source-greenland-misinterpretations",
+        "source-nist-statistical-tests"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "Conventional null-hypothesis significance testing as practised in medical and industrial research. Both sources state the cut-off's role and its status as a design decision made before the data arrive.",
+      "uncertainty": "The guarantee alpha provides holds only when the test's assumptions hold and when the analysis was not selected in light of the results it produced. Greenland and colleagues make that conditionality explicit, and the multiplicity scene of this lesson is built on the failure case.",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-beta-and-power",
+      "statement": "The power of a test against a stated alternative is the pre-study probability that the test will reject the null hypothesis when that alternative is correct; the pre-study probability of failing to reject when the alternative is correct is one minus the power, and is the Type II or beta error rate.",
+      "sceneIds": [
+        "scene-two-ways-to-be-wrong",
+        "scene-alpha-and-beta",
+        "scene-power-of-this-design",
+        "scene-found-nothing",
+        "scene-work-it-out",
+        "scene-transfer",
+        "scene-clinical-wrap-up"
+      ],
+      "sourceIds": [
+        "source-greenland-misinterpretations",
+        "source-nist-statistical-tests"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "A hypothesis test with a stated alternative, evaluated before the study runs. Greenland and colleagues give power and the beta error rate as complements; the NIST handbook names the risk of failing to reject a false null as the error of the second kind.",
+      "uncertainty": "Power is defined only against a particular alternative, so a bare power figure quoted without the effect it was computed against describes nothing. Every power figure in this lesson names its alternative.",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-what-drives-beta",
+      "statement": "The Type II error rate is not chosen by the investigator: it depends on how large the real discrepancy is, so that large discrepancies are easier to detect and lead to small errors of the second kind while small discrepancies lead to large ones, and it increases as the risk alpha is decreased.",
+      "sceneIds": [
+        "scene-alpha-and-beta",
+        "scene-power-of-this-design",
+        "scene-how-many-chances",
+        "scene-transfer"
+      ],
+      "sourceIds": [
+        "source-nist-statistical-tests"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "A test whose threshold and sample size are fixed. The source states both dependences directly: the effect of the size of the real discrepancy, and the trade against alpha.",
+      "uncertainty": "The source states the direction of each dependence without quantifying it. Every numerical power figure in this lesson was computed here from the normal approximation to the sampling distribution of a difference between two means, which is the approximation the block established earlier and which is reasonable at these sample sizes.",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-sample-size-formula",
+      "statement": "A sample size is determined by four quantities: the risk alpha of rejecting a true hypothesis, the risk beta of accepting a false null when a particular alternative is true, the standard deviation of the measurement, and the size of the difference that is meaningful to detect; for a two-sided test with the standard deviation known, the required size is the square of the sum of the normal quantiles for alpha and beta multiplied by the square of the ratio of the standard deviation to that difference.",
+      "sceneIds": [
+        "scene-power-of-this-design",
+        "scene-work-it-out",
+        "scene-clinical-wrap-up"
+      ],
+      "sourceIds": [
+        "source-nist-sample-sizes"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "Planning a study to compare a mean against a target or to compare two group means, with a standard deviation available from previous data. The source gives the relation for the known-standard-deviation case, which is the case used throughout this lesson.",
+      "uncertainty": "The formula treats the standard deviation as known. When it is estimated from a small sample the required size is somewhat larger, and the source describes an iterative correction using the t distribution that this lesson does not teach. At the sample sizes computed here the correction is small, and the lesson states that the standard deviation is an assumption supplied from outside the calculation.",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-observed-power-is-uninformative",
+      "statement": "Power calculated from the observed data is a direct transformation of the null p-value and provides no test of the alternatives, so a low power computed after a result is in adds no information beyond the p-value itself; and accepting a false null hypothesis leaves the chance of being in error at 100%, not at one minus the power.",
+      "sceneIds": [
+        "scene-power-of-this-design",
+        "scene-found-nothing"
+      ],
+      "sourceIds": [
+        "source-greenland-misinterpretations"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "Interpretation of a completed study. The source addresses both the observed-power transformation and the misreading of power as the error probability attaching to a decision already made.",
+      "uncertainty": "The point applies to power recomputed from the effect the study itself produced. A power calculation performed against an effect named independently of the data, whether before the study or afterwards, remains informative, and this lesson uses only that form.",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-large-p-does-not-show-absence",
+      "statement": "Observing a p-value above 0.05 for the null hypothesis means only that the null is one among many hypotheses compatible with the data; it does not mean that no effect was observed, and a large p-value is not evidence in favour of the test hypothesis.",
+      "sceneIds": [
+        "scene-found-nothing",
+        "scene-work-it-out",
+        "scene-transfer",
+        "scene-clinical-wrap-up"
+      ],
+      "sourceIds": [
+        "source-greenland-misinterpretations"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "Reading a reported test result in a research paper. The source states both points as numbered misinterpretations with their corrections.",
+      "uncertainty": "The source's correction is about what a p-value licenses. Whether a particular study has bounded an effect tightly enough to support a claim of no clinically relevant difference depends on its interval and its power, which this lesson computes but which no p-value supplies.",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-multiplicity-inflates-false-positives",
+      "statement": "A Type I error is the incorrect rejection of a true null hypothesis, and the family-wise error rate is the probability of incorrectly rejecting at least one true null hypothesis across a set of tests; under independence, testing more true hypotheses at a fixed per-test significance level increases that probability according to one minus the probability that none is rejected.",
+      "sceneIds": [
+        "scene-two-ways-to-be-wrong",
+        "scene-how-many-chances",
+        "scene-work-it-out",
+        "scene-transfer",
+        "scene-clinical-wrap-up"
+      ],
+      "sourceIds": [
+        "source-chen-multiple-comparisons"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "A study or analysis in which more than one hypothesis test is carried out and each is judged against the same threshold. The source defines both terms and illustrates the inflation at 100 and at 10,000 simultaneous true hypotheses.",
+      "uncertainty": "The closed form 1 minus (1 minus alpha) raised to the power k assumes independent rejection events. Without the joint dependence structure, the exact family-wise rate cannot be inferred from k and alpha alone: strong positive dependence often lowers it relative to independence, while other dependence patterns can raise it. The general Bonferroni upper bound is min(1, k times alpha).",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-bonferroni-adjustment",
+      "statement": "The Bonferroni correction controls the family-wise error rate by testing each of m hypotheses at a significance level of alpha divided by m, equivalently by multiplying each p-value by m; it is conservative, increasingly so as the number of hypotheses grows.",
+      "sceneIds": [
+        "scene-how-many-chances",
+        "scene-work-it-out",
+        "scene-clinical-wrap-up"
+      ],
+      "sourceIds": [
+        "source-chen-multiple-comparisons"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "Adjustment for a modest number of simultaneous comparisons. The source states the adjustment in both forms and records its conservativeness.",
+      "uncertainty": "Conservativeness here means the method concedes power, which is the cost this lesson computes. Other procedures control the family-wise rate with less loss, and procedures that control a different quantity are used when the number of tests is large; none of them is taught here.",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-subgroups-are-exploratory",
+      "statement": "Subgroup analyses are prone to inflation of type I error through multiple testing; prespecification improves interpretability but does not by itself remove multiplicity, and a claim that effects differ between subgroups requires an appropriate interaction analysis rather than a contrast between within-subgroup significance results. Exploratory subgroup findings require confirmation in an independent study.",
+      "sceneIds": [
+        "scene-how-many-chances",
+        "scene-transfer",
+        "scene-clinical-wrap-up"
+      ],
+      "sourceIds": [
+        "source-tanniou-subgroups"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "Subgroup analyses within confirmatory clinical trials, as reviewed by the source across the regulatory and methodological literature.",
+      "uncertainty": "The source reviews confirmatory trials specifically; observational subgroup analyses face the same multiplicity issue plus possible confounding. The lesson applies the source only to multiplicity, the limits of prespecification, the need for interaction analysis when claiming heterogeneity, and the exploratory need for confirmation.",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    }
+  ]
+}
