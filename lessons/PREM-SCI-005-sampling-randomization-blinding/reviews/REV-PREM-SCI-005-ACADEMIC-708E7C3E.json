@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-SCI-005-ACADEMIC-708E7C3E",
+  "lessonId": "PREM-SCI-005",
+  "lessonVersion": "0.2.0",
+  "candidateCommit": "d33191a7f1a26a7e85e7f595e40d00ad3c3b8386",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable operator, academic reviewer",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-SCI-005-708E7C3E-78AA-42DF-A959-9367C4D082E5",
+      "instructionsDigest": "sha256:4ed54967b14859f9fe5be6441e73908b6f66f469c7116ac4223fba0451b15136"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "The accountable operator github:VSBDev is also the lesson's accountable author/operator. This review used a distinct isolated run, but it is not review by an independent person. The conflict is disclosed under the project's founding-stage policy; the provenance is attested rather than independently verified."
+  },
+  "evidenceChecked": [
+    "candidate commit d33191a7f1a26a7e85e7f595e40d00ad3c3b8386 existence, pack identity, complete pack tree, and absence of working-tree drift",
+    "lesson.json#lesson-identity-objectives-outcomes-scenes-and-claim-coverage",
+    "content/01-two-chains.md#entire-frozen-scene",
+    "content/02-worked-audit.md#entire-frozen-scene",
+    "content/03-same-word-different-moment.md#entire-frozen-scene",
+    "content/04-practice.md#entire-frozen-scene",
+    "content/05-transfer-synthesis.md#entire-frozen-scene",
+    "content/06-clinical-wrap-up.md#entire-frozen-scene",
+    "assessment.json#all-items-answer-keys-reasoning-and-rubrics",
+    "claims.json#all-claims-scope-uncertainty-source-and-scene-mappings",
+    "references.json#all-five-source-records-locators-access-status-and-use-records",
+    "glossary.json#all-terms-definitions-aliases-and-scene-mappings",
+    "diagrams/safeguard-timeline.diagram.json#all-nodes-edges-alt-and-long-description",
+    "ATTRIBUTION.md#entire-frozen-record",
+    "references.json#source-consort-2025-elaboration — eligibility, sequence generation, allocation concealment, blinding, and reporting boundaries",
+    "references.json#source-robes-meta-epidemiology — trial and meta-analysis counts, ratios of odds ratios, credible intervals, and interpretation",
+    "references.json#source-metablind-2020 — trial and meta-analysis counts, party-specific estimates, credible intervals, and uncertainty",
+    "references.json#source-blinding-overview — concealment/blinding distinction and reported within-trial assessor estimates",
+    "references.json#source-sampling-participants — target population, sampling frame, probability and non-probability sampling, and non-response"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "content/01-two-chains.md#assignment-it-makes-groups-comparable-in-expectation",
+      "finding": "The scene says that the chance component prevents an enroller from choosing a condition for a particular participant. Random sequence generation alone does not prevent that manipulation: an enroller who knows upcoming assignments can choose which participant is paired with the next slot, exactly as the scene's later pinned-sequence example demonstrates. The statement therefore conflates the protection supplied by random sequence generation with the separate protection supplied by allocation concealment.",
+      "resolution": "State that chance-based sequence generation removes deterministic investigator choice when the sequence is generated and followed, while concealment and faithful implementation prevent an enroller from manipulating participant-to-assignment pairings. Align the claim record and all feedback using this distinction."
+    },
+    {
+      "severity": "major",
+      "target": "claims.json#claim-random-allocation-comparability",
+      "finding": "The claim defines random allocation as requiring that the next result cannot be predicted, yet it also accepts restricted procedures and the fixed-composition shuffled-deck example. In permuted blocks or a depleted fixed-composition deck, an upcoming assignment can become conditionally foreseeable from previous assignments even though the original sequence was chance-generated. This makes the lesson's criterion internally inconsistent and risks misclassifying a randomized restricted sequence as non-random, or treating predictability as sequence-generation failure rather than a concealment vulnerability.",
+      "resolution": "Separate chance-based sequence generation from operational foreseeability. Define random allocation through the prespecified chance mechanism and assignment probabilities, explain that restricted methods can create conditional predictability, and identify concealment, undisclosed or varying block sizes, and faithful implementation as the protections against exploiting it."
+    },
+    {
+      "severity": "major",
+      "target": "claims.json#claim-concealment-definition",
+      "finding": "The categorical statement that allocation concealment is achievable in any trial exceeds the individually randomized parallel-group scope of the principal source. In cluster-randomized designs where clusters are allocated before individuals are identified or recruited, individual-level allocation can already be fixed and visible; masking recruiters or enumerating participants before cluster allocation may be impossible. Because the learner-facing synthesis says the audit transfers wherever there is a comparison, the current unqualified rule teaches a false model boundary.",
+      "resolution": "Qualify the always-achievable statement to the individually randomized setting addressed by the lesson, or add the cluster-randomized boundary and distinguish concealment of cluster allocation from masking or pre-identification used to limit post-randomization recruitment bias."
+    },
+    {
+      "severity": "major",
+      "target": "lesson.json#scenes[scene-clinical-wrap-up].claimCoverage",
+      "finding": "The scene is declared no-material-claims, but content/06-clinical-wrap-up.md makes material claims about external validity, randomized crossover order, comparability in expectation, allocation concealment, participant awareness, and blinded result handling. It has no same-scene source note and none of the corresponding claims maps to this scene. The new crossover application also omits evidence and boundaries concerning period and carryover effects, so its claim that chance-set order supports the comparison cannot be audited from this pack.",
+      "resolution": "Change the scene to claims-mapped, add a same-scene source note, and map every material methodological claim through claims.json to adequate sources. Add crossover-specific support and boundaries for period and carryover effects, or narrow the scene so it does not assert unsupported crossover validity."
+    },
+    {
+      "severity": "major",
+      "target": "content/05-transfer-synthesis.md#awareness-who-knows-after-assignment-and-does-it-reach-the-outcome",
+      "finding": "The proposed repair says each essay should be marked twice under different rubrics by different graders, then claims this permits comparison with the same grader's behaviour under both rubrics. Those conditions are incompatible: within an essay, rubric is then paired with grader, while using the same grader twice would introduce memory and carryover. Merely double-marking a subset as described does not isolate rubric rules from grader effects.",
+      "resolution": "Specify a genuinely crossed and counterbalanced design in which rubric assignments are randomized within essays, graders use both rubrics across different essays, order and repeat exposure are controlled, and analysis represents both essay and grader effects. Alternatively, retain the original randomized total-package estimand and remove the claim that the suggested double-marking scheme isolates scoring-rule effects."
+    },
+    {
+      "severity": "minor",
+      "target": "content/04-practice.md#practice-1-completion",
+      "finding": "The entry answer says the all-bookings design describes 'attenders at this service,' but attendance is the post-assignment outcome and non-attenders are included study units. This incorrectly conditions the study population on the outcome and undermines the entry audit.",
+      "resolution": "Describe the population as patients or bookings with a booked appointment at that service during the three-month window; attendance is the measured outcome."
+    },
+    {
+      "severity": "minor",
+      "target": "content/02-worked-audit.md#worked-example-breathing-audit",
+      "finding": "The protocol says the assistant checks eligibility and then opens the next envelope, but the audit concludes that entry was irrevocably committed and that there was no way to steer enrolment. It does not explicitly state that informed consent and acceptance were recorded before opening, who prepared or controlled the envelopes, or whether the assistant could access the sequence. The conclusion is stronger than the reported mechanism.",
+      "resolution": "Specify that consent and enrolment details were irreversibly recorded before the envelope was opened and that the sequence and tamper-resistant envelopes were prepared and controlled independently, or classify concealment as unclear from the report."
+    },
+    {
+      "severity": "note",
+      "target": "content/03-same-word-different-moment.md#what-the-evidence-says-about-the-size-of-this",
+      "finding": "The reported ROBES and MetaBLIND study sizes, ratios of odds ratios, credible intervals, and arithmetic interpretations were consistent with the checked records. The scene correctly avoids treating these heterogeneous meta-epidemiological associations as fixed corrections for an individual trial.",
+      "resolution": "No change required for these numerical statements."
+    }
+  ],
+  "limitations": [
+    "Per the assigned scope, site/, graph data, cross-lesson terminology data, workflows, scripts, and other lesson packs were not inspected. Outcome-node validity, terminology collisions, and the inherited PREM-SCI-004 crossover premise could therefore not be independently confirmed.",
+    "Direct PMC HTML access for CONSORT 2025, ROBES, MetaBLIND, and the blinding overview encountered a browser challenge. Their important claims were checked through accessible BMJ or indexed primary-source text, while the sampling article was directly accessible in full. This access limitation did not prevent a verdict because the central change requests also follow from internal contradictions and missing evidence mappings in the frozen pack.",
+    "The review schema under site/ was not opened because the user expressly prohibited reading site/. The artifact follows the repository's academic review template and required provenance fields.",
+    "The review addresses trial methodology and assessment correctness. The named interventions and results are fictional, so no intervention-efficacy claims were available or required for verification."
+  ],
+  "signedAt": "2026-07-25T01:42:24Z"
+}
