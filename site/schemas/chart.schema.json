@@ -40,6 +40,10 @@
         "properties": {
           "id": { "type": "string", "pattern": "^series-[a-z0-9-]+$" },
           "label": { "type": "string", "minLength": 1, "maxLength": 120 },
+          "mark": {
+            "enum": ["point", "line"],
+            "description": "How this series' points are drawn, overriding the chart type's default. A scatter defaults to point and a line chart to line; setting mark lets one chart show observations as dots and a fitted line over the same axes."
+          },
           "points": {
             "type": "array",
             "items": {

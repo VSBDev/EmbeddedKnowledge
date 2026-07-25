@@ -1,0 +1,397 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-assessment-v1",
+  "lessonId": "PREM-STA-002",
+  "lessonVersion": "0.1.0",
+  "assessmentId": "assessment-tables-and-graphical-displays",
+  "title": "Choose a display, read a distribution, audit a chart",
+  "purpose": "mixed",
+  "attemptPolicy": {
+    "retakeable": true,
+    "timeLimitMinutes": null,
+    "feedback": "after-attempt"
+  },
+  "items": [
+    {
+      "id": "item-choose-display-for-waits",
+      "type": "single-choice",
+      "sceneId": "scene-choose-and-critique",
+      "objectiveIds": [
+        "objective-select-a-display"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-graphs-tables"
+      ],
+      "prompt": "A renal service has recorded, for each of 300 patients, the number of days between referral and first appointment. The service wants to know whether most patients are seen quickly with a few long waits, or whether the waits are spread evenly across the whole range. Which display answers that question first?",
+      "stimulus": null,
+      "points": 4,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-histogram-of-waits",
+            "text": "A histogram of the 300 waits, with a stated bin width."
+          },
+          {
+            "id": "option-bar-of-mean-wait",
+            "text": "A bar chart showing the mean wait."
+          },
+          {
+            "id": "option-line-of-waits",
+            "text": "A line chart with the 300 patients along the horizontal axis in record order."
+          },
+          {
+            "id": "option-scatter-of-waits",
+            "text": "A scatter plot of patient number against wait."
+          }
+        ]
+      },
+      "answer": {
+        "correct": "option-histogram-of-waits",
+        "summary": "A histogram of the 300 waits.",
+        "reasoning": "The question involves one quantitative column and asks about shape rather than about any individual value, which is exactly what a histogram of a single quantitative variable displays. A bar chart of the mean collapses 300 numbers to one and cannot distinguish a long right tail from an even spread. A line chart asserts a sequence between neighbouring patients that does not exist, since record order is not a quantity anything travelled through. A scatter of patient number against wait plots a meaningless horizontal variable and answers no stated question.",
+        "acceptableResponses": [
+          "A histogram of the 300 waits.",
+          "Histogram, with the bin width stated."
+        ],
+        "commonErrors": [
+          "Choosing the bar chart of the mean because the word 'most' sounds like an average question, when it is a question about where the bulk of the distribution sits.",
+          "Choosing the line chart because the data arrive in a list, mistaking record order for a time axis."
+        ]
+      },
+      "rubricId": "rubric-display-choice",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-table-or-chart",
+      "type": "single-choice",
+      "sceneId": "scene-display-follows-variable",
+      "objectiveIds": [
+        "objective-select-a-display"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-graphs-tables"
+      ],
+      "prompt": "A hospital report must state how many patients were seen at each of five clinic sites last month, so that site managers can check the figure for their own site against their local records. Which presentation best serves that purpose, and why?",
+      "stimulus": null,
+      "points": 4,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-table-of-five-counts",
+            "text": "A table of the five counts, because each manager needs to read one exact number."
+          },
+          {
+            "id": "option-bar-of-five-counts",
+            "text": "A bar chart of the five counts, because a chart is always clearer than a table."
+          },
+          {
+            "id": "option-pie-of-five-counts",
+            "text": "A pie chart of the five counts, because the sites together make a whole."
+          },
+          {
+            "id": "option-histogram-of-five-counts",
+            "text": "A histogram of the five counts, because counts are quantities."
+          }
+        ]
+      },
+      "answer": {
+        "correct": "option-table-of-five-counts",
+        "summary": "The table, because the reader needs an exact value rather than a pattern.",
+        "reasoning": "Guidance on choosing between a table and a chart turns on what the reader will do with the display. A manager checking one site's figure against local records needs the exact number, which a table gives and a bar length gives only to the nearest gridline. A bar chart would suit the different question of which site is busiest. A pie chart answers a part-to-whole question nobody asked here. A histogram is the wrong display type entirely: the five sites are categories, and a histogram bins a continuous range.",
+        "acceptableResponses": [
+          "A table, because the reader needs to read exact values.",
+          "Table of the five counts; the task is value lookup rather than pattern reading."
+        ],
+        "commonErrors": [
+          "Assuming a chart is always the more professional choice, when the reader's task is to look up a number.",
+          "Confusing a bar chart of categories with a histogram of a binned quantity."
+        ]
+      },
+      "rubricId": "rubric-display-choice",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-what-a-mean-omits",
+      "type": "multiple-choice",
+      "sceneId": "scene-read-the-histogram",
+      "objectiveIds": [
+        "objective-read-a-distribution"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-graphs-tables"
+      ],
+      "prompt": "A histogram of one quantitative column reports several features of a distribution. Select every feature below that the histogram reports and a mean alone does not.",
+      "stimulus": null,
+      "points": 6,
+      "responseSpec": {
+        "mode": "multiple-choice",
+        "maxSelections": 4,
+        "options": [
+          {
+            "id": "option-feature-spread",
+            "text": "How spread out the values are."
+          },
+          {
+            "id": "option-feature-modes",
+            "text": "Whether there is more than one mode."
+          },
+          {
+            "id": "option-feature-outliers",
+            "text": "Whether any observation stands apart from the rest."
+          },
+          {
+            "id": "option-feature-location",
+            "text": "Roughly where the values sit."
+          },
+          {
+            "id": "option-feature-exact-maximum",
+            "text": "The exact value of the largest observation."
+          }
+        ]
+      },
+      "answer": {
+        "correct": [
+          "option-feature-spread",
+          "option-feature-modes",
+          "option-feature-outliers"
+        ],
+        "summary": "Spread, number of modes, and the presence of an observation standing apart.",
+        "reasoning": "A histogram displays location, spread, skewness, the presence of outliers, and the presence of multiple modes. A mean carries location and nothing else, so spread, modes, and outliers are the features it omits. Location is reported by both, so it does not belong in the selection. The exact largest value is reported by neither: a histogram places the maximum somewhere inside its highest occupied bin without saying where, which is one reason a frequency table or the raw values are still needed.",
+        "acceptableResponses": [
+          "Spread, multiple modes, and outliers."
+        ],
+        "commonErrors": [
+          "Including location, which a mean does report.",
+          "Including the exact maximum, forgetting that a histogram gives only the bin an extreme value falls in."
+        ]
+      },
+      "rubricId": "rubric-distribution-reading",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-count-below-125",
+      "type": "numeric",
+      "sceneId": "scene-read-the-histogram",
+      "objectiveIds": [
+        "objective-read-a-distribution"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-graphs-tables"
+      ],
+      "prompt": "Use the frequency table of the sixty-person cohort. The bins are 10 mg/dL wide from 95 to 185 and hold 1, 3, 6, 11, 13, 12, 8, 4 and 2 people in order. How many people had a fasting glucose below 125 mg/dL?",
+      "stimulus": "Bins and counts, in order from the lowest: 95 to 105 holds 1; 105 to 115 holds 3; 115 to 125 holds 6; 125 to 135 holds 11; 135 to 145 holds 13; 145 to 155 holds 12; 155 to 165 holds 8; 165 to 175 holds 4; 175 to 185 holds 2. A value falling exactly on a boundary is counted in the upper bin.",
+      "points": 3,
+      "responseSpec": {
+        "mode": "number",
+        "units": "people",
+        "tolerance": 0
+      },
+      "answer": {
+        "correct": 10,
+        "summary": "10 people.",
+        "reasoning": "Add the three bins that lie entirely below 125 mg/dL: 1 plus 3 plus 6 gives 10. The boundary convention matters here. A reading of exactly 125 is counted in the 125 to 135 bin, so it is not below 125 and is not included. Ten of sixty is a proportion of 0.167.",
+        "acceptableResponses": [
+          "10",
+          "10 people, which is 1 + 3 + 6."
+        ],
+        "commonErrors": [
+          "Answering 21 by including the 125 to 135 bin, which straddles the cut-point rather than sitting below it.",
+          "Answering with a proportion such as 0.167 when the question asks for a count."
+        ]
+      },
+      "rubricId": "rubric-distribution-reading",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-describe-the-scatter",
+      "type": "data-interpretation",
+      "sceneId": "scene-two-measurements",
+      "objectiveIds": [
+        "objective-read-an-association"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-graphs-tables"
+      ],
+      "prompt": "Describe what this scatter plot supports, in four parts: direction, form, strength, and unusual points. Then state one thing a reader might conclude from it that the plot does not support.",
+      "stimulus": "A scatter of 60 people. Horizontal axis: hours between dinner and sleep, from 0.8 to 6.5. Vertical axis: next-morning fasting glucose in mg/dL, from 100 to 181. The cloud drifts downwards from left to right. Between 1.5 and 2.5 hours it holds one person at 181 mg/dL and another at 100. Between 6 and 6.5 hours it holds one at 164 and one at 116. The 30 people at three hours or less average 146.5 mg/dL; the 30 above three hours average 137.5.",
+      "points": 8,
+      "responseSpec": {
+        "mode": "text",
+        "maxLength": 1600
+      },
+      "answer": {
+        "correct": "Direction: glucose falls as the dinner-to-sleep interval lengthens, so shorter intervals, meaning later dinners, sit with higher readings. Form: roughly straight, with nothing bending across the range. Strength: weak, because the vertical spread at any given interval is much larger than the drift across the whole horizontal range; individual readings at short and long intervals overlap heavily. Unusual points: the person at about 1.7 hours with a glucose of 100 mg/dL sits well below everyone else at that end of the plot. Not supported: that eating later causes higher fasting glucose, or that any individual's reading can be predicted from when they ate.",
+        "summary": "A weak, roughly straight downward drift with one low point standing apart, and no causal conclusion.",
+        "reasoning": "A scatter plot is read for whether two variables are related, whether the relationship is straight or curved, whether the spread of one changes across the other, and whether outliers are present. Here the group means differ by 9.0 mg/dL across a 60-person cohort whose individual values span 81 mg/dL, so the pattern is real in the data and small next to the person-to-person variation. Naming the strength honestly is the part most often skipped. The plot describes a pattern and identifies nothing about its cause, so any causal reading, and any prediction for an individual, goes beyond it.",
+        "acceptableResponses": [
+          "Downward, linear, weak, one low outlier near 1.7 hours; the plot does not establish that late dinners cause higher glucose.",
+          "Negative direction with respect to the interval (equivalently, higher glucose with later dinners), straight form, weak strength given the overlap, one point at 100 mg/dL standing apart; causation is not supported."
+        ],
+        "commonErrors": [
+          "Reporting the direction without noticing that the sign depends on measuring the interval rather than the lateness of dinner, and so contradicting the 9.0 mg/dL group difference while describing the same data.",
+          "Calling the relationship strong because the group means differ, when the individual clouds overlap almost completely.",
+          "Writing a causal conclusion, which the display cannot support."
+        ]
+      },
+      "rubricId": "rubric-association-reading",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-drawn-bar-ratio",
+      "type": "numeric",
+      "sceneId": "scene-two-pictures",
+      "objectiveIds": [
+        "objective-audit-axes-and-bins"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-graphs-tables"
+      ],
+      "prompt": "Two group means, 137.5 and 146.5 mg/dL, are drawn as bars on a vertical axis that starts at 130 mg/dL instead of zero. What is the ratio of the taller drawn bar's length to the shorter one's? Give your answer to two decimal places.",
+      "stimulus": null,
+      "points": 4,
+      "responseSpec": {
+        "mode": "number",
+        "units": "ratio of drawn lengths",
+        "tolerance": 0.05
+      },
+      "answer": {
+        "correct": 2.2,
+        "summary": "2.20 to 1.",
+        "reasoning": "A bar on a truncated axis shows only the part of its quantity above the axis start. Subtract 130 from each mean: 146.5 becomes 16.5 and 137.5 becomes 7.5. Dividing gives 16.5 divided by 7.5, which is 2.20. The quantities themselves stand in a ratio of 146.5 to 137.5, or 1.07 to 1, so the picture exaggerates the comparison roughly twofold. Cutting the axis higher, at 135, would push the drawn ratio to 4.6 to 1.",
+        "acceptableResponses": [
+          "2.2",
+          "2.20",
+          "16.5 / 7.5 = 2.2"
+        ],
+        "commonErrors": [
+          "Answering 1.07 by dividing the means themselves, which is the true ratio rather than the drawn one.",
+          "Answering 9 by giving the difference instead of a ratio."
+        ]
+      },
+      "rubricId": "rubric-chart-audit",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-audit-the-clinic-slide",
+      "type": "open-response",
+      "sceneId": "scene-clinic-morning",
+      "objectiveIds": [
+        "objective-audit-axes-and-bins",
+        "objective-select-a-display"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-graphs-tables"
+      ],
+      "prompt": "Audit this slide. Name every problem you can identify, say what each one does to a reader's impression, and describe the display or displays you would put in its place. Then state one question about the sixty patients that none of your proposed displays can answer.",
+      "stimulus": "A slide from a diabetes service meeting. Title: 'Later dinners raise morning glucose.' Two bars labelled 'Early' and 'Late'. Vertical axis labelled 'Glucose', starting at 135 and ending at 148, no unit given. The 'Late' bar is more than four times the height of the 'Early' bar. No per-group sizes are shown; a footnote reads 'n = 60'.",
+      "points": 10,
+      "responseSpec": {
+        "mode": "text",
+        "maxLength": 3000
+      },
+      "answer": {
+        "correct": "The axis starts at 135, so the drawn bars show what is left of each mean above 135 and their ratio of about 4.6 to 1 exaggerates a true ratio of about 1.07 to 1; a reader remembers a large effect. The axis carries no unit, so 9.0 in mg/dL cannot be distinguished from 9.0 in another unit. Two bars replace sixty people and hide the spread and the near-complete overlap of the two groups. The footnote gives the total but not the two group sizes, so a reader cannot tell whether the comparison is 30 against 30. The title asserts a causal claim, 'raise', that a comparison of two group means from this design does not establish, and 'raise' also implies a change over time when nothing was measured twice. Replacement: two histograms of fasting glucose, one per group, on a shared horizontal scale, so the centres and the overlap are both visible, with a small table beneath giving the two group sizes and the two means; a scatter of the dinner-to-sleep interval against glucose is a reasonable alternative that keeps the interval as a quantity. Not answerable by any of these: whether dinner timing caused the difference, or whether any individual patient's glucose would change if they ate earlier.",
+        "summary": "Truncated axis, missing unit, two bars hiding sixty people, missing group sizes, and a causal title; replace with per-group histograms on a shared scale plus a small table.",
+        "reasoning": "This item combines the two judgments the lesson most wants retained. The axis audit is arithmetic: subtract the axis start from each mean and compare the remainders with the means themselves. The display choice follows the question, which here is a comparison of two whole distributions rather than of two summary numbers, so the display has to show the distributions. A strong answer also separates what the display cannot do from what it does badly. Missing group sizes and a missing unit are defects of the slide; the absence of a causal answer is a limit of the data, and no chart repairs it.",
+        "acceptableResponses": [
+          "Any answer naming the truncated axis and quantifying its effect, the missing unit, the loss of spread and overlap behind two bars, the missing group sizes, and the causal wording of the title, then proposing per-group histograms on a shared scale or a scatter, with a table of the exact figures, and identifying causation or individual prediction as beyond any display."
+        ],
+        "commonErrors": [
+          "Naming the truncated axis without saying what it does to the comparison, which leaves the diagnosis unquantified.",
+          "Proposing a zero-based bar chart of the same two means, which fixes the axis but keeps two numbers standing in for sixty people.",
+          "Treating the causal title as a charting error, when it is a claim the design does not support and no display can rescue."
+        ]
+      },
+      "rubricId": "rubric-chart-audit",
+      "safetyCritical": false
+    }
+  ],
+  "rubrics": [
+    {
+      "id": "rubric-display-choice",
+      "title": "Selecting a display for a stated question",
+      "criteria": [
+        {
+          "id": "criterion-identifies-variables",
+          "description": "Names how many variables the question involves and what kind each is.",
+          "maxPoints": 2
+        },
+        {
+          "id": "criterion-value-or-pattern",
+          "description": "States whether the reader needs an exact value or a pattern, and chooses the display that serves it.",
+          "maxPoints": 3
+        },
+        {
+          "id": "criterion-rejects-alternative",
+          "description": "Gives a reason a plausible alternative display would answer a different question or mislead.",
+          "maxPoints": 3
+        }
+      ]
+    },
+    {
+      "id": "rubric-distribution-reading",
+      "title": "Reading a distribution from a histogram or frequency table",
+      "criteria": [
+        {
+          "id": "criterion-reads-shape",
+          "description": "Reports modes, centre, spread, and lean from the display rather than from a summary value.",
+          "maxPoints": 4
+        },
+        {
+          "id": "criterion-reads-counts",
+          "description": "Extracts counts or proportions correctly, respecting the stated bin boundary convention.",
+          "maxPoints": 3
+        },
+        {
+          "id": "criterion-states-limits",
+          "description": "States what the binned display cannot report, such as exact extreme values.",
+          "maxPoints": 2
+        }
+      ]
+    },
+    {
+      "id": "rubric-association-reading",
+      "title": "Reading an association from a scatter plot",
+      "criteria": [
+        {
+          "id": "criterion-direction-and-form",
+          "description": "Describes the direction and form of the pattern and ties the direction to how the horizontal variable was measured.",
+          "maxPoints": 3
+        },
+        {
+          "id": "criterion-strength-honestly",
+          "description": "Judges strength against the vertical spread at a given horizontal value rather than from the group means alone.",
+          "maxPoints": 3
+        },
+        {
+          "id": "criterion-unusual-and-limits",
+          "description": "Identifies unusual points and states that the display does not establish a cause or predict an individual.",
+          "maxPoints": 3
+        }
+      ]
+    },
+    {
+      "id": "rubric-chart-audit",
+      "title": "Auditing a chart someone else drew",
+      "criteria": [
+        {
+          "id": "criterion-finds-the-distortion",
+          "description": "Identifies the axis truncation, bin-width choice, or other encoding decision that changed the impression.",
+          "maxPoints": 3
+        },
+        {
+          "id": "criterion-quantifies-the-distortion",
+          "description": "Quantifies the distortion where the values allow it, comparing drawn lengths with the underlying quantities.",
+          "maxPoints": 3
+        },
+        {
+          "id": "criterion-proposes-repair",
+          "description": "Proposes a display that answers the question honestly and names what still cannot be answered.",
+          "maxPoints": 4
+        }
+      ]
+    }
+  ]
+}

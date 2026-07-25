@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-STA-002-ACADEMIC-5A7439C3-F1DA-444D-B09B-5A8E7EA5DF78",
+  "lessonId": "PREM-STA-002",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "af6cd49f54522263935fe150301dd2f93bdcba66",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable academic reviewer",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-STA-002-5A7439C3-F1DA-444D-B09B-5A8E7EA5DF78",
+      "instructionsDigest": "sha256:85e5c3cbd5d7f9c394b883a7522e9e5152b7ea5588cecd3c0fbb69b505633de4"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#PREM-STA-002",
+    "content/010-sixty-rows.md#scene-sixty-rows",
+    "content/020-display-follows-the-variable.md#scene-display-follows-variable",
+    "content/030-read-the-histogram.md#scene-read-the-histogram",
+    "content/040-two-measurements-one-plot.md#scene-two-measurements",
+    "content/050-two-pictures-one-dataset.md#scene-two-pictures",
+    "content/060-choose-and-critique.md#scene-choose-and-critique",
+    "content/070-one-persons-record.md#scene-one-persons-record",
+    "content/080-clinical-wrap-up.md#scene-clinic-morning",
+    "assessment.json#items-and-rubrics",
+    "claims.json#claims",
+    "references.json#sources",
+    "glossary.json#terms",
+    "ATTRIBUTION.md#complete-record",
+    "charts/bimodal-counter-case.chart.json#chart-bimodal-counter-case",
+    "charts/dinner-gap-glucose-scatter.chart.json#chart-dinner-gap-glucose-scatter",
+    "charts/fasting-glucose-histogram.chart.json#chart-fasting-glucose-histogram",
+    "charts/fasting-glucose-wide-bins.chart.json#chart-fasting-glucose-wide-bins",
+    "charts/group-means-cut-axis.chart.json#chart-group-means-cut-axis",
+    "charts/group-means-zero-axis.chart.json#chart-group-means-zero-axis",
+    "references.json#source-nist-histogram opened directly at its recorded URL",
+    "references.json#source-nist-scatter opened directly at its recorded URL",
+    "references.json#source-af-charts opened directly at its recorded URL",
+    "references.json#source-af-tables opened directly at its recorded URL",
+    "references.json#source-niddk-diabetes-tests opened directly at its recorded URL",
+    "charts/dinner-gap-glucose-scatter.chart.json#independent recalculation of counts, means, sample standard deviation, correlation, bins, clinical bands, and axis-ratio examples"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "content/030-read-the-histogram.md#worked-example-read-the-glucose-histogram-step-4-is-it-lopsided",
+      "finding": "The committed data do not support the claimed mild right lean. Independent calculation from the 60 raw glucose values gives mean 142, median 142, adjusted sample skewness approximately -0.014, minimum 100, and maximum 181. The left extreme is farther from the mean than the right, and both sides occupy four bins beyond the modal bin, so the statement that the right side takes longer to reach zero is not established. This teaches incorrect tail-direction reasoning for an objective that explicitly assesses distribution shape.",
+      "resolution": "Either describe this distribution as approximately symmetric or as having no clear lean at this sample size and bin width, or revise the constructed data so a right-skewed shape is genuinely present. Align the histogram alt/long description, the wrap-up's right-tail language, and any associated feedback with the corrected interpretation."
+    },
+    {
+      "severity": "major",
+      "target": "content/030-read-the-histogram.md#worked-example-read-the-glucose-histogram-step-1-how-many-humps",
+      "finding": "The lesson states that one visible hump means the group behaves like one population and later says two humps mean there are probably two kinds of person. A histogram can suggest hypotheses about mixtures, but unimodality does not establish a homogeneous population and bimodality does not establish two latent kinds. Sampling variation and bin choice can hide or create apparent modes; the lesson's later wide-bin example demonstrates this boundary itself.",
+      "resolution": "Keep the conclusion descriptive: one mode makes a single centre more interpretable for this displayed sample, while multiple modes should prompt investigation of possible subgroups or other explanations. Explicitly state that neither population identity nor subgroup count follows from the histogram alone, and align the relevant chart descriptions."
+    },
+    {
+      "severity": "major",
+      "target": "charts/bimodal-counter-case.chart.json#series-constructed-two-humps",
+      "finding": "The central counter-case claims an exact mean of 142 mg/dL, but the artifact supplies only nine bin counts and no 60 underlying values. The bin-midpoint-weighted mean is 142, but many different raw datasets fit these counts and have different exact means. The asserted exact mean therefore cannot be independently recalculated from the candidate.",
+      "resolution": "Commit an auditable record of the 60 constructed values and derive or cross-check the bins and mean from it, or state explicitly that every observation is placed at its bin midpoint if that is the intended construction. Otherwise remove the exact-mean claim and rework the counterexample."
+    },
+    {
+      "severity": "major",
+      "target": "content/080-clinical-wrap-up.md#first-the-cut-points-the-question-needs",
+      "finding": "The cited NIDDK thresholds are diagnostic fasting-plasma-glucose cutoffs for determining whether a person has normal results, prediabetes, or diabetes. The scene applies them to adults already described as having type 2 diabetes and introduces them as answering how many patients are where clinicians would want them. Diagnostic cutoffs are not management targets, and the lesson's generic next-morning readings are not established as laboratory fasting plasma glucose tests. The disclaimer does not repair this category error.",
+      "resolution": "Use neutral, explicitly invented analytic bands, or move the diagnostic-threshold example to a fictional screening dataset with the measurement defined as fasting plasma glucose and frame the task only as counting results in diagnostic reference bands. Remove language implying these cutoffs define desirable control or treatment targets for people with established diabetes."
+    },
+    {
+      "severity": "minor",
+      "target": "content/040-two-measurements-one-plot.md#investigation-read-the-scatter-question-4",
+      "finding": "The 1.7-hour, 100 mg/dL point is correctly identified as the same low value already flagged in the histogram, but the next sentence says the scatter exposed a point that neither column would call unusual on its own. Those statements contradict each other, so this example does not demonstrate a purely bivariate outlier.",
+      "resolution": "State that the scatter adds conditional context to an already low glucose value, or replace the example with a point whose two marginal values are ordinary but whose coordinate combination is unusual."
+    },
+    {
+      "severity": "minor",
+      "target": "references.json#source-af-charts-and-source-af-tables",
+      "finding": "Both Government Analysis Function records set issued to null and say no publication date is stated, but each source page displays a publication date of 19 May 2022 in its Policy details. The recorded version metadata is therefore inaccurate.",
+      "resolution": "Set issued to 2022-05-19 for both records and revise each version statement to distinguish the displayed publication date from the 2026-07-25 retrieval date."
+    },
+    {
+      "severity": "note",
+      "target": "charts/dinner-gap-glucose-scatter.chart.json#series-person-readings",
+      "finding": "Independent recalculation confirms 60 observations, mean 142 mg/dL, sample standard deviation 18 mg/dL, groups of 30 with means 146.5 and 137.5, a later-minus-earlier difference of 9.0, histogram counts 1/3/6/11/13/12/8/4/2, clinical-band counts 11/16/21/11/1, and the stated truncated-axis ratios. These quantitative relationships are internally consistent.",
+      "resolution": "No change required for these calculations."
+    }
+  ],
+  "limitations": [
+    "The assigned scope prohibited inspection of site/, so the public review schema, quorum JSON, terminology ledger, and rendered output were not independently inspected; the artifact structure follows .github/REVIEW_TEMPLATE/academic.md.",
+    "No other lesson pack or graph implementation was inspected, so cross-lesson terminology and prerequisite continuity could not be independently verified.",
+    "The exact mean of the bimodal counter-case is unreachable from the committed evidence because only bin counts are supplied; this limitation is dispositioned as a major finding rather than used to avoid a verdict.",
+    "The review assesses the clinical framing against the lesson's cited NIDDK diagnostic source and does not extend to treatment recommendations or patient-specific medical judgment."
+  ],
+  "signedAt": "2026-07-25T10:22:46Z"
+}

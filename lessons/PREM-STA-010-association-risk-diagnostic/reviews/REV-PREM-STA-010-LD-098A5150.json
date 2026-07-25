@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-STA-010-LD-098A5150",
+  "lessonId": "PREM-STA-010",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "0246ce91e2324195a72a1c264921387010e17580",
+  "role": "learning-design",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev (learning-design reviewer)",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.7",
+      "runId": "agy-learning-design-PREM-STA-010-098A5150-465D-44FD-A9BC-20AFAD5E05F6",
+      "instructionsDigest": "sha256:bee98e35dcaef247fa339fa088fb4e16efd2a58a1ecb21afd49b79f4d945e915"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Founding-stage isolation check: the accountable principal VSBDev operates the authoring, review, and finalization agents, so principal-level independence is absent. Agent-level role isolation was strictly maintained: no authoring history, other review output, or adjudication draft was read, and no other EmbeddedKnowledge role script was run during this review execution."
+  },
+  "evidenceChecked": [
+    "lessons/PREM-STA-010-association-risk-diagnostic/lesson.json",
+    "lessons/PREM-STA-010-association-risk-diagnostic/claims.json",
+    "lessons/PREM-STA-010-association-risk-diagnostic/references.json",
+    "lessons/PREM-STA-010-association-risk-diagnostic/glossary.json",
+    "lessons/PREM-STA-010-association-risk-diagnostic/ATTRIBUTION.md",
+    "lessons/PREM-STA-010-association-risk-diagnostic/assessment.json",
+    "lessons/PREM-STA-010-association-risk-diagnostic/charts/predictive-values-by-prevalence.chart.json",
+    "lessons/PREM-STA-010-association-risk-diagnostic/content/01-two-questions.md",
+    "lessons/PREM-STA-010-association-risk-diagnostic/content/02-three-measures.md",
+    "lessons/PREM-STA-010-association-risk-diagnostic/content/03-how-big-is-halved.md",
+    "lessons/PREM-STA-010-association-risk-diagnostic/content/04-two-by-two.md",
+    "lessons/PREM-STA-010-association-risk-diagnostic/content/05-prevalence-moves-it.md",
+    "lessons/PREM-STA-010-association-risk-diagnostic/content/06-faded-practice.md",
+    "lessons/PREM-STA-010-association-risk-diagnostic/content/07-carry-it-elsewhere.md",
+    "lessons/PREM-STA-010-association-risk-diagnostic/content/08-mastery-check.md",
+    "lessons/PREM-STA-010-association-risk-diagnostic/content/09-clinical-wrap-up.md",
+    "CONTENT-STANDARD.md",
+    "RIGHTS-POLICY.md"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "lessons/PREM-STA-010-association-risk-diagnostic/content/02-three-measures.md#worked-example-cohort-measures",
+      "finding": "The worked example `worked-example-cohort-measures` is missing a self-explanation prompt, an explicit plan, and an independent check/plausibility test. According to `CONTENT-STANDARD.md` Section 5.1, every worked example must include these elements (especially a self-explanation prompt about the decision that most strongly determines the solution) to guide initial learning.",
+      "resolution": "Revise the worked example block to include an explicit plan, an independent check/plausibility test, and a self-explanation prompt (e.g. asking the learner to explain why the odds ratio diverges from the risk ratio when the outcome is common)."
+    },
+    {
+      "severity": "major",
+      "target": "lessons/PREM-STA-010-association-risk-diagnostic/content/03-how-big-is-halved.md#worked-example-trial-effect-size",
+      "finding": "The worked example `worked-example-trial-effect-size` is missing a clear Task statement, an explicit plan, an independent check/plausibility test, and a self-explanation prompt, violating the requirements set in `CONTENT-STANDARD.md` Section 5.1.",
+      "resolution": "Revise the worked example block to add a clear Task description, a step-by-step plan, an independent check, and a self-explanation prompt (e.g. asking the learner to reflect on why a relative reduction yields different NNT values at different baseline risks)."
+    },
+    {
+      "severity": "major",
+      "target": "lessons/PREM-STA-010-association-risk-diagnostic/content/04-two-by-two.md#worked-example-clinic-table",
+      "finding": "The worked example `worked-example-clinic-table` is missing a representation of the givens, constraints, and unknowns (the stipulated sensitivity, specificity, and prevalence), an explicit plan, an independent check, and a self-explanation prompt, violating `CONTENT-STANDARD.md` Section 5.1.",
+      "resolution": "Revise the worked example block to state the givens explicitly (sensitivity 90%, specificity 85%, prevalence 40%), include an explicit plan, add an independent check/plausibility test, and provide a self-explanation prompt (e.g. asking the learner to explain why PPV must divide by the test-fired group total rather than the true condition group total)."
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-STA-010-association-risk-diagnostic/content/01-two-questions.md#check-name-the-denominator",
+      "finding": "First-read check: The lesson opening successfully engages the learner with a concrete clinical dataset (the sixty-row dinner-timing study) and poses clear, motivating questions ('How big?' and 'How would a test behave?') before introducing formal terminology. The diagnostic check `check-name-the-denominator` and non-punitive recovery route are well-designed and fully aligned with `CONTENT-STANDARD.md` guidelines.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-STA-010-association-risk-diagnostic/content/06-faded-practice.md",
+      "finding": "Practice progression: Scene 6 is exceptionally well-aligned, offering a faded practice sequence that moves systematically from fully scaffolded calculations, to partly scaffolded odds ratios, to a rare outcome contrast, building a 2x2 table from scratch, and finally an unscaffolded press release critique to repair potential misconceptions.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-STA-010-association-risk-diagnostic/content/07-carry-it-elsewhere.md",
+      "finding": "Transfer task: Scene 7 provides two strong, distinct transfer tasks (a cardiology trial and a newborn metabolic screening program) that require the learner to adapt their understanding of baseline risk and prevalence in new contexts, successfully avoiding simple copy-paste tasks.",
+      "resolution": null
+    }
+  ],
+  "limitations": [
+    "Expert-simulation review: This review represents a single-pass advisory input by a simulated learning-design expert under standard-lesson-v3 guidelines. No real learner testing was conducted.",
+    "Conflict of interest: The same GitHub principal (VSBDev) is responsible for the authoring and review run operators. Agent-level isolation was maintained, but principal-level independence is absent.",
+    "Scope restriction: The review is strictly bounded to learning-design metrics (e.g., clarity, coherence, practice, alignment, and transfer). Scientific accuracy, rights audits, and final typesetting checks are excluded.",
+    "Technical verification limits: No rendered build environment, screen reader, or keyboard navigation pathways were evaluated physically; findings are based solely on the static Markdown and JSON source files."
+  ],
+  "signedAt": "2026-07-25T11:25:30Z"
+}

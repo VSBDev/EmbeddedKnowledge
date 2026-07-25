@@ -1,0 +1,155 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-claims-v1",
+  "lessonId": "PREM-STA-006",
+  "lessonVersion": "0.1.0",
+  "claims": [
+    {
+      "id": "claim-sampling-distribution-of-mean",
+      "statement": "A sample mean varies from sample to sample, and the way that variation occurs is described by the sampling distribution of the mean; the standard deviation of that sampling distribution is called the standard error of the estimate of the mean.",
+      "sceneIds": [
+        "scene-run-it-again",
+        "scene-distribution-of-means"
+      ],
+      "sourceIds": [
+        "source-altman-bland-se"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "A mean estimated from a sample drawn from a population, in the setting the source addresses, which is reporting and interpreting medical research. The source presents the sampling distribution as the description of how the sample mean varies and the standard error as its spread.",
+      "uncertainty": "The source states the relationship without conditions on the population's shape; the conditions under which the sampling distribution can be treated as normal are handled separately in this lesson through the central limit theorem.",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-se-formula",
+      "statement": "For independent observations from one population with finite variance, the standard error of a sample mean is the population standard deviation divided by the square root of the sample size; when the population standard deviation is unknown, substituting the sample standard deviation gives the estimated standard error s divided by the square root of n.",
+      "sceneIds": [
+        "scene-distribution-of-means",
+        "scene-price-of-precision",
+        "scene-sd-is-not-se",
+        "scene-compute-and-judge",
+        "scene-league-tables",
+        "scene-clinical-wrap-up"
+      ],
+      "sourceIds": [
+        "source-altman-bland-se"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "The mean of independent observations drawn from one population with finite variance. The source states the relation in the form SE = SD divided by the square root of the sample size and names its use in sample-size planning; the lesson makes explicit that s divided by the square root of n is a plug-in estimate when sigma is unknown.",
+      "uncertainty": "Repeated measurements, clustered samples, unequal weighting, and other structured designs require methods that account for dependence. The sample standard deviation is itself an estimate, so a calculated standard error is not the known population standard error.",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-se-is-precision",
+      "statement": "The standard error of the mean is a measure of the precision of the sample mean and is the quantity quoted to indicate the uncertainty around an estimated mean, whereas the standard deviation is the quantity quoted to say how widely scattered the individual measurements are.",
+      "sceneIds": [
+        "scene-distribution-of-means",
+        "scene-price-of-precision",
+        "scene-sd-is-not-se",
+        "scene-clinical-wrap-up"
+      ],
+      "sourceIds": [
+        "source-altman-bland-se"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "Reporting a mean and a measure of dispersion beside it in a research paper or an audit report. The source gives this as the rule for choosing between the two quantities.",
+      "uncertainty": "Precision here means how repeatable the estimate is under resampling. It says nothing about whether the estimate is aimed at the right population, which is a question about how the sample was reached and which no standard error addresses.",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-2sd-covers-95",
+      "statement": "For a normal distribution, about 68% of values lie within one standard deviation of the mean and about 95% lie within two; those percentages cannot be assigned to an observed skewed cohort without a justified normal model.",
+      "sceneIds": [
+        "scene-run-it-again",
+        "scene-distribution-of-means",
+        "scene-sd-is-not-se",
+        "scene-central-limit",
+        "scene-compute-and-judge"
+      ],
+      "sourceIds": [
+        "source-altman-bland-se"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "Values in a normal distribution, including either individual observations under an individual-value model or sample means and mean differences under a justified normal sampling model.",
+      "uncertainty": "The fictional cohort is right-skewed, so the lesson uses its carried-forward empirical summary rather than asserting normal 68% or 95% coverage for those patients.",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-plus-minus-ambiguity",
+      "statement": "A plus-or-minus sign joining a second figure to a reported mean does not itself indicate whether that figure is a standard deviation or a standard error; a review of 88 articles published in 2002 found that 12 of them, 14%, failed to identify which measure of dispersion was reported, and the BMJ's policy is to remove plus-or-minus signs and ask authors to state clearly which quantity is quoted.",
+      "sceneIds": [
+        "scene-sd-is-not-se",
+        "scene-compute-and-judge"
+      ],
+      "sourceIds": [
+        "source-altman-bland-se"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "Reporting practice in medical journals. The 88-article figure is a finding the source cites from a review of published articles from 2002; the editorial policy is the BMJ's own, described as shared by many other journals.",
+      "uncertainty": "The 14% figure describes one review of one year's articles in a particular field and is not an estimate of current practice across the literature. The lesson uses it as evidence that the ambiguity is real and common enough to have prompted editorial action, and not as a current prevalence.",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-se-applies-to-other-statistics",
+      "statement": "The sampling-distribution principle applies to quantities other than one mean, including a proportion, a regression coefficient, and contrasts between samples; for the difference of two independent mean estimates, the variance of the difference is the sum of their variances, so its standard error is the square root of the sum of their squared standard errors.",
+      "sceneIds": [
+        "scene-distribution-of-means",
+        "scene-compute-and-judge",
+        "scene-league-tables",
+        "scene-clinical-wrap-up"
+      ],
+      "sourceIds": [
+        "source-altman-bland-se"
+      ],
+      "support": "inference",
+      "confidence": "high",
+      "scope": "Statistics estimated from samples. The source directly supports the extension of standard errors to contrasts including a difference between two means. The displayed independent-difference formula is a mathematical inference from variance addition for independent estimates.",
+      "uncertainty": "The square-root-of-summed-variances formula requires independent estimates. Paired, clustered, repeated-measures, or otherwise dependent estimates require a covariance term and methods outside this lesson.",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-central-limit-theorem",
+      "statement": "For independent identically distributed observations with finite mean and variance, the sample mean has expectation equal to the population mean and variance equal to the population variance divided by n for every n, while the central limit theorem supplies the asymptotic result that the standardized sampling distribution of the mean approaches normality as n grows.",
+      "sceneIds": [
+        "scene-central-limit"
+      ],
+      "sourceIds": [
+        "source-nist-normal-clt",
+        "source-kwak-kim-clt"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "The arithmetic mean of independent observations drawn from one population with finite mean and variance. The exact centre and variance identities are separated from the theorem's asymptotic normal-shape conclusion.",
+      "uncertainty": "The normal approximation does not certify any particular finite sample. Dependence, changing source populations, or lack of finite variance fall outside this statement, and the adequacy of a finite-sample approximation depends on the population shape and intended use.",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-clt-skew-and-n30",
+      "statement": "A skewed population does not prevent sample means from approaching normality as sample size increases under the central limit theorem's conditions, but the theorem supplies no universal finite-sample threshold and one observed sample cannot establish that rare or heavy population tails are absent.",
+      "sceneIds": [
+        "scene-central-limit"
+      ],
+      "sourceIds": [
+        "source-nist-normal-clt",
+        "source-kwak-kim-clt"
+      ],
+      "support": "synthesis",
+      "confidence": "high",
+      "scope": "Independent samples from one finite-variance population. The sources support asymptotic normality for sample means and illustrate that population shape and sample size affect the finite-sample distribution.",
+      "uncertainty": "No fixed sample size is declared sufficient. The lesson requires population knowledge, a distribution-specific calculation, or a prespecified simulation when the finite-sample shape matters.",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    }
+  ]
+}
