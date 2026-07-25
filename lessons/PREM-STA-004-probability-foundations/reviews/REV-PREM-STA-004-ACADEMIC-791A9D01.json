@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-STA-004-ACADEMIC-791A9D01",
+  "lessonId": "PREM-STA-004",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "5fa28cc2301dfe32e8996036693db9ab2df4855b",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable academic reviewer",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-STA-004-791A9D01-1FE3-40E2-BB54-34FC6EEBD80F",
+      "instructionsDigest": "sha256:ea666ee858ff515b30cc0b9efd15d786d80b5cf3815a4a3245e8305e98f9b3b7"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#objectives, outcomes, prerequisites, scenes, identity, and provenance",
+    "content/01-sixty-rows.md through content/08-clinical-wrap-up.md, read completely from candidate commit 5fa28cc2301dfe32e8996036693db9ab2df4855b",
+    "assessment.json#all-items-and-rubrics, with every numerical answer independently recomputed",
+    "claims.json#all-claims and same-scene claim mappings",
+    "references.json#all-sources, locators, scope, uncertainty, and agentAccess records",
+    "glossary.json#all-terms",
+    "charts/running-share-of-high-nights.chart.json#all-series-and-descriptions",
+    "ATTRIBUTION.md#candidate-boundary-and-original-synthesis",
+    "course/PREMED-SYLLABUS.md#QRS-107",
+    "references.json#source-sep-probability-interpretations — directly checked against [Stanford Encyclopedia of Philosophy](https://plato.stanford.edu/entries/probability-interpret/)",
+    "references.json#source-gum-statistical-terms — directly checked against [JCGM 100:2008](https://www.bipm.org/documents/20126/2071204/JCGM_100_2008_E.pdf)",
+    "references.json#source-eom-conditional-probability, source-eom-independence, and source-eom-law-of-large-numbers — directly checked against the [Encyclopedia of Mathematics](https://encyclopediaofmath.org/wiki/Conditional_probability)",
+    "references.json#source-screening-predictive-values — directly checked against [Trevethan 2017](https://pmc.ncbi.nlm.nih.gov/articles/PMC5701930/)",
+    "references.json#source-p-value-misinterpretations — directly checked against [Greenland et al. 2016](https://pmc.ncbi.nlm.nih.gov/articles/PMC4877414/)",
+    "references.json#source-resident-probability-biases — directly checked against [Msaouel et al. 2014](https://pmc.ncbi.nlm.nih.gov/articles/PMC3955772/)"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "claims.json#claim-conditional-asymmetry-screening",
+      "finding": "The claim says predictive values depend on prevalence while detection and corresponding negative rates do not, and content/04-inverted-conditional.md states that population mix cannot affect the stipulated 90% and 95% rates because they condition on true state. The two clinic calculations are correct only because those conditional rates are explicitly held fixed. The general statement is false: sensitivity and specificity can change with case spectrum, subgroup composition, threshold, and reference-standard behavior. The cited screening review expressly warns that these measures are not fixed test attributes and must be tied to the applicable sample. The claim also contradicts its own uncertainty field, making this a material model-boundary error in health-sensitive content.",
+      "resolution": "Rewrite the claim and scene to say that, in this invented comparison, only prevalence changes while P(positive given condition) and P(negative given no condition) are held fixed by stipulation. Remove the assertion that population mix cannot affect those rates, and place the case-spectrum and applicable-population caveat beside the learner-facing statement."
+    },
+    {
+      "severity": "major",
+      "target": "content/02-long-run-and-counting.md#what-forty-nights-actually-look-like",
+      "finding": "The calculation 0.30^4 = 0.0081 is correct, but the sentence that four low nights are not evidence that 0.70 was wrong is not generally correct. If 0.70 is an unknown model parameter, such a run is evidence about that model, although not proof and although selection across many participants changes the relevant probability. What independence establishes is that earlier outcomes do not alter the next-trial probability conditional on the model; it does not establish that observed outcomes cannot inform whether the model or its assumptions are credible. assessment.json#item-run-of-mornings correctly recognizes this distinction, so the central explanation and assessment currently disagree.",
+      "resolution": "State explicitly that 0.70 is fixed by stipulation for this teaching construction. Distinguish two questions: the run does not change the next independent trial's probability under the stipulated model, but it can inform estimation or model checking when the probability and independence assumptions are not known. If the across-participant argument is retained, compute or bound the probability for the stated observation scheme rather than calling it unremarkable without qualification."
+    },
+    {
+      "severity": "minor",
+      "target": "charts/running-share-of-high-nights.chart.json#longDescription",
+      "finding": "The chart data end at night 40, but the long description states that the record has 698 high nights at night 1000. That value comes from the prose's hypothetical continuation in which every later ten-night block contains exactly seven high nights; it is not charted or observed data and is not a consequence guaranteed by the law of large numbers.",
+      "resolution": "Identify 698/1000 explicitly as a hypothetical continuation under the stated exact-block assumption, and keep it separate from the actual forty-point series."
+    },
+    {
+      "severity": "minor",
+      "target": "content/03-combining-events.md#definition-multiplication-rule",
+      "finding": "The definition states P(A intersection B) = P(B) times P(A given B) for any two events, but the ratio definition used in this lesson leaves P(A given B) undefined when P(B) = 0. The preceding conditional-probability definition has the correct positive-probability condition, while this restatement drops it.",
+      "resolution": "Add the condition P(B) > 0 to the conditional form of the multiplication rule, or state an alternative form whose conditional probability is defined under the adopted framework."
+    },
+    {
+      "severity": "minor",
+      "target": "content/04-inverted-conditional.md#one-screen-one-clinic-ten-thousand-adults",
+      "finding": "The arithmetic establishes that 490 positive results are false positives in the invented table, but it does not establish that all affected people experience a scare or receive a repeat test. Those clinical consequences are neither stipulated nor mapped to supporting evidence.",
+      "resolution": "Remove the asserted consequences, mark them explicitly as hypothetical assumptions of the invented scenario, or add an appropriately scoped claim and source."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#item-run-of-mornings",
+      "finding": "Independent recomputation confirmed all five assessment keys and their principal distractor calculations: 68/80 = 0.85, 15/43 = 0.348837, the independence comparison 0.26875 versus 0.1875, the screening example 184/674 = 0.272997, and 0.625^6 = 0.059605. This item also correctly states that re-estimating the probability from the run would be reasonable if the probability had not been stipulated.",
+      "resolution": "No change required to the assessment answer logic; preserve this stipulation-versus-estimation distinction when repairing scene 2."
+    }
+  ],
+  "limitations": [
+    "No conflict of interest was identified. This review evaluates probability, statistics, evidence interpretation, calculations, and the boundaries of the stipulated clinical and genetic examples; it does not claim specialist clinical or genetic-practice expertise.",
+    "Per the operator's scope, site/, scripts/, workflows, and other lesson packs were not read. The generated atomic graph and cross-course terminology ledger were therefore not independently inspected; the QRS-107 syllabus scope and the candidate's explicit proportion alignment were checked instead.",
+    "The PubMed display routes intermittently returned access challenges. Verification used accessible official PMC records or indexed full text, the official BIPM document, and the cited scholarly reference works. No source was marked human-only.",
+    "The candidate commit exists, contains the stated pack, and the reviewed pack has no working-tree differences from that commit."
+  ],
+  "signedAt": "2026-07-25T14:22:29Z"
+}
