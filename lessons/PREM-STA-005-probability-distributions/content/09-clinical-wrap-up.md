@@ -1,6 +1,6 @@
 # Clinical wrap-up: planning a clinic from a curve
 
-**Teaching example, not medical advice.** The service, its meeting, the sixty patients, the screening event, and every count below are invented for teaching and are internally consistent by construction. Nothing here is an observation about real patients and nothing here should inform anyone's care. Published reference values are quoted only because the reasoning needs a real threshold to work against.
+**Teaching example, not medical advice.** The service, its meeting, the cohort summaries, the screening event, and every count below are invented for teaching. The underlying sixty readings are not included in this pack, so their summaries are stipulated inputs rather than reproducible observations. Nothing here describes real patients or should inform anyone's care. Published reference values are quoted only because the reasoning needs a real threshold to work against.
 
 A diabetes service has to submit a plan for next quarter. It runs a monthly optimisation clinic for patients whose fasting glucose is at or above the diagnostic threshold, and it has to say in advance how many slots to hold. It also runs a community screening event at a local employer, and somebody has suggested using the same numbers for both. The service has this lesson's cohort in front of it: 60 adults with type 2 diabetes, mean fasting glucose 142 mg/dL, standard deviation 18 mg/dL.
 
@@ -10,17 +10,17 @@ Four questions come up, and every one of them is answered with something from th
 
 The threshold is the fasting plasma glucose value at or above which NIDDK gives a result of diabetes, 126 mg/dL, with a doctor usually using a second test to confirm.
 
-Standardise it against the cohort: (126 − 142) ÷ 18 = −0.89. Under the fitted normal model that leaves 0.81 of the distribution at or above the line, so each patient has about an 81 per cent chance of being over it on the morning they are measured. Count over sixty patients with a binomial: the expected number is 60 × 0.81 = 48.6, with a standard deviation of √(60 × 0.81 × 0.19) = 3.04 patients. Working the probability formula across the counts, 43 through 55 together hold 0.967 of the probability.
+Standardising it against the overall cohort gives (126 − 142) ÷ 18 = −0.89, and the conditional normal calculation gives 0.81 above the line. But the binomial step would require that same probability for every patient. The lesson has already stipulated different subgroup probabilities, 0.76 after an earlier dinner and 0.86 after a later one, so assigning every patient *p* = 0.81 contradicts the model's fixed-probability condition even though 0.81 is their equally weighted average.
 
-So the plan should say about 49 patients, and it should say that a quarter landing anywhere between roughly 43 and 55 is what this model expects with nothing whatever having changed. That second sentence is the one that earns its place in the paper. A service that plans for exactly 49 and then treats 44 as an improvement and 54 as a deterioration will spend the year explaining variation that the arithmetic predicted in advance.
+The service therefore cannot justify the former single-binomial forecast of 48.6 with a standard deviation of 3.04, or its interval from 43 to 55, from the information in this pack. It needs a probability estimated for the population it will schedule and evidence that the probability is common across the proposed trials, or it must model justified strata separately and combine their planned counts. One measurement per person is still needed for independence. Until those inputs exist, 49 is only a stipulated descriptive count from the constructed cohort, not a calibrated capacity forecast.
 
 ## Was last quarter's high group unusual?
 
 Six patients were at or above 165 mg/dL last quarter, and the meeting wants to know whether that is a signal.
 
-The threshold standardises to (165 − 142) ÷ 18 = +1.28, which the normal model puts about 0.10 of the distribution beyond. Sixty patients with *p* = 0.10 gives an expected count of 60 × 0.10 = 6.0, with a standard deviation of √(60 × 0.10 × 0.90) = 2.3 patients.
+The threshold standardises to (165 − 142) ÷ 18 = +1.28, which the conditional normal model puts about 0.10 of the distribution beyond. If sixty independent, exchangeable patients really shared *p* = 0.10, their count would have mean 60 × 0.10 = 6.0 and standard deviation $\sqrt{60 \times 0.10 \times 0.90} = 2.3$ patients.
 
-Observed 6, expected 6.0. The count is sitting exactly where the model puts it, and a quarter with 4 or 9 would also be unremarkable. There is nothing here to investigate, which is a genuine finding and the one clinical audit most often fails to report.
+The stipulated count is also 6, so the arithmetic is internally aligned with that conditional model. It does not establish that last quarter was ordinary, because the common-*p* premise has not been justified and the normal tail probability rests on unreproduced cohort inputs. A real audit would establish a population-matched probability and its model conditions before interpreting the count.
 
 ## Can the same model be used at the screening event?
 
@@ -30,7 +30,7 @@ The first layer is the reference distribution. The cohort's model was fitted to 
 
 The second layer is the one that survives even after refitting the parameters, and it is the point of this lesson. Fasting glucose in a general population is skewed to the right; the pooled international surveys say so and log-transformed their glucose values before fitting anything. A normal curve refitted to the screening population still has no way to lean. Applied to the constructed screening data, it expected about 23 readings below 69.4 mg/dL, under the 70 mg/dL glucose alert value the ADA and EASD statement gives for hypoglycaemia, where none were recorded; and it expected about 23 above 139.0 mg/dL where at least 48 sat at or above 140. Planning follow-up capacity on the second of those numbers would leave the event short by half.
 
-The instruction the service should take away is a sequence: refit the parameters to the population you are actually looking at, then check the shape against that population's own data, then use the model only for the region where the check passed.
+The instruction the service should take away is a sequence: refit the parameters to the population you are actually looking at, assess shape with that population's observations using an appropriate plot or calibrated procedure, and use the model only where that evidence supports it.
 
 ## And the person at 100 mg/dL?
 

@@ -141,7 +141,7 @@
       "outcomeIds": [
         "topic-statistics-data-distributions"
       ],
-      "prompt": "A colleague writes in a report: \"Patient K's fasting glucose has a z-score of +1.4, so this is a high reading.\" Two separate things are missing before that sentence can be assessed. Name both, and say why each one matters.",
+      "prompt": "A colleague writes in a report: \"Patient K's fasting glucose has a z-score of +1.4, so about 92 per cent of comparable patients have a lower reading.\" Two separate things are missing before that percentage claim can be assessed. Name both, and say why each one matters.",
       "stimulus": null,
       "points": 6,
       "responseSpec": {
@@ -150,8 +150,8 @@
       },
       "answer": {
         "correct": "The reference distribution the score was computed against, and the check that the reference distribution is the right shape before the score is turned into a probability.",
-        "summary": "The reference group is unnamed, and the shape of that group's distribution has not been established.",
-        "reasoning": "A z-score is a distance from the centre of a particular distribution, so the same reading standardises differently against a cohort of people with diagnosed type 2 diabetes, centred near 142 mg/dL, and against a general screening population centred nearer 104 mg/dL. Without the reference group named, +1.4 cannot be converted back into a glucose value or compared with anyone else's score. Separately, the phrase implies a share of people who are lower, and that conversion from a distance to a percentage is read off a normal curve. If the reference distribution is right-skewed, as fasting plasma glucose is in a general population, the distance survives and the implied percentage does not. A strong answer also notes that neither problem is fixed by more decimal places.",
+        "summary": "The reference group is unnamed, and the shape needed to convert distance into a percentile has not been established.",
+        "reasoning": "A z-score is a distance from the centre of a particular distribution, so the same reading standardises differently against a cohort of people with diagnosed type 2 diabetes, centred near 142 mg/dL, and against a general screening population centred nearer 104 mg/dL. Without the reference group named, +1.4 cannot be converted back into a glucose value or compared with anyone else's score. Separately, the stated 92 per cent is a percentile conversion read from a normal curve. If the reference distribution is right-skewed, as fasting plasma glucose is in a general population, the distance survives and the asserted percentage does not. A strong answer also notes that neither problem is fixed by more decimal places.",
         "acceptableResponses": [
           "The reference distribution is not stated, and its shape has not been checked, so the distance cannot be interpreted or converted into a probability.",
           "Which population the mean and standard deviation came from, and whether that population's distribution is actually normal."
@@ -159,7 +159,7 @@
         "commonErrors": [
           "Naming only the missing reference group and treating the conversion from z to a percentage as automatic.",
           "Answering that the units are missing, when a z-score correctly has none.",
-          "Treating +1.4 as clinically high on its own, which is a statement about position in a group rather than about the patient."
+          "Treating +1.4 as a percentile on its own, when a z-score reports distance and a percentile additionally requires a distributional shape."
         ]
       },
       "rubricId": "rubric-model-reasoning",
@@ -175,7 +175,7 @@
       "outcomeIds": [
         "topic-statistics-data-distributions"
       ],
-      "prompt": "A hospital biochemistry service fits a normal model to 500 serum triglyceride results, obtaining a mean of 1.5 mmol/L and a standard deviation of 0.9 mmol/L. It then counts how many results fall in each region and compares them with the model, giving the table in the stimulus. All the figures are constructed for this task. State whether the normal model should be retained, and give the specific evidence that decides it.",
+      "prompt": "A hospital biochemistry service fits a normal model to 500 serum triglyceride results, obtaining a mean of 1.5 mmol/L and a standard deviation of 0.9 mmol/L. It then counts how many results fall in each region and compares them with the model, giving the table in the stimulus. All the figures are constructed for this task. State what use of the normal model should be rejected or limited, give the specific evidence, and explain what further check is needed for a calibrated overall fit decision.",
       "stimulus": "Region | Results recorded | Normal model predicts\n--- | --- | ---\nBelow −0.3 mmol/L (mean − 2 sd) | 0 | about 11\n−0.3 up to 0.6 mmol/L | 9 | about 68\n0.6 up to 2.4 mmol/L (within 1 sd) | 431 | about 341\n2.4 up to 3.3 mmol/L | 39 | about 68\n3.3 mmol/L and above (mean + 2 sd) | 21 | about 11\n\nThe recorded results total 500.",
       "points": 8,
       "responseSpec": {
@@ -183,17 +183,17 @@
         "maxLength": 1600
       },
       "answer": {
-        "correct": "Reject the model. Its lower two-standard-deviation boundary is a negative concentration, its whole left tail is missing from the data, and its far right tail is about half the size of the one actually recorded.",
-        "summary": "Reject it: the model places probability below zero, loses on the left and under-counts the far right, and the aggregate inside two standard deviations conceals both.",
-        "reasoning": "Two standard deviations below the mean is 1.5 − 1.8 = −0.3 mmol/L. A concentration cannot be negative, so the model assigns probability to outcomes that cannot occur, and that settles the question before any count is consulted. The counts then say the same thing three ways. Below 0.6 mmol/L the model expects about 11 + 68 = 79 results and the service recorded 0 + 9 = 9, so nearly the whole left tail is imaginary. Inside one standard deviation it expects about 341 and the service recorded 431, so the middle is far more crowded than a symmetric curve allows. Above 3.3 mmol/L it expects about 11 and the service recorded 21, roughly double, which is a long thin tail the model cannot reach. The critical observation is what an aggregate would have done: inside two standard deviations the service recorded 0 + 9 + 431 + 39 = 479 against a prediction of about 477, near enough to wave the model through. Splitting the comparison by region is what exposes the failure. All three features point one way: the measurement is bounded below and open above, so it leans right, and no choice of mean and standard deviation lets a symmetric family reproduce a lean.",
+        "correct": "Do not use this normal model for tail probabilities. It assigns material probability to impossible negative concentrations, while the observed counts are much thinner on the left and heavier on the far right than its symmetric predictions. Use the observations in a normal probability plot or another calibrated procedure before making a binary overall fit decision.",
+        "summary": "Limit or reject its tail use: impossible negative support and large directional count discrepancies expose a poor tail representation, while a calibrated overall verdict needs the observations and a suitable fit procedure.",
+        "reasoning": "Two standard deviations below the mean is 1.5 − 1.8 = −0.3 mmol/L. A concentration cannot be negative, so at least the roughly 11 results the model predicts below −0.3 are assigned to impossible outcomes; the model also assigns additional probability between −0.3 and zero. That structural conflict is enough to reject its use for lower-tail probabilities. The regional counts add a strong directional warning. Below 0.6 mmol/L the model expects about 11 + 68 = 79 results and the service recorded 0 + 9 = 9. Inside one standard deviation it expects about 341 and records 431. Above 3.3 mmol/L it expects about 11 and records 21. The aggregate inside two standard deviations is 479 against about 477, so combining sides conceals the mismatch. These counts support investigating right skew because the observed left tail is thin and the observed far right tail is heavy; the lower bound alone would not establish skew. Band counts are not a universal calibrated pass/fail rule, so a normal probability plot or another suitable procedure using the observations is still needed for a binary overall fit judgment.",
         "acceptableResponses": [
-          "Reject it. Mean minus two standard deviations is −0.3 mmol/L, which is impossible; the predicted left tail of about 79 results is almost absent, the middle holds 431 against about 341, and the far right holds 21 against about 11. The data are right-skewed.",
-          "Do not retain the model: it predicts negative concentrations, its left tail is missing, and it under-predicts the far right tail by about a factor of two, even though the total inside two standard deviations looks correct."
+          "Do not use it for tail probabilities: it predicts impossible negative concentrations, its left tail is much thinner than predicted, and it under-predicts the far right. Use a normal probability plot or calibrated procedure for an overall fit verdict.",
+          "Limit or reject the tail model. The aggregate inside two standard deviations looks close only because opposite tail errors cancel; the directional counts warn of right skew, but band counts alone are not a calibrated fit test."
         ],
         "commonErrors": [
           "Retaining the model because the total inside two standard deviations, 479 against about 477, is close, which is exactly the cancellation the lesson warns about.",
           "Rejecting the model for the right reason but describing the shape as left-skewed by reading the direction of the long tail backwards.",
-          "Proposing to fix the problem by recomputing the mean and standard deviation, which cannot introduce a lean into a symmetric family."
+          "Treating a numerical band-count difference as a universal pass/fail cutoff instead of distinguishing the support conflict, the directional warning and the need for a calibrated fit procedure."
         ]
       },
       "rubricId": "rubric-model-reasoning",
@@ -309,17 +309,18 @@
         "maxLength": 2500
       },
       "answer": {
-        "correct": "Refit the parameters to the screening population, then check the shape against that population's own data, and use the model only in the region where the check passed.",
-        "summary": "The parameters are wrong for the new population, and the normal shape is wrong for it too; both have to be re-established before any count is planned.",
-        "reasoning": "A complete answer separates two failures. The first is the parameters: the model was fitted to people who already have a diagnosis of type 2 diabetes and is centred at 142 mg/dL, whereas a public screening draws mostly people without that diagnosis and centres far lower, so every z-score computed at the event against the old parameters would be misplaced and the threshold probability of about 0.81 would be far too high. The second failure survives refitting: fasting plasma glucose in a general population is skewed to the right, and a normal curve has no parameter that can lean, so even with a correct mean and standard deviation it will place probability below the measurement's practical floor and under-predict the high tail that the screening exists to find. The recommended sequence is to refit the parameters to the screening population, check the fit tail by tail against that population's own counts rather than in aggregate, and restrict use of the model to the region where the check passed. A strong answer also notes that the binomial count of people over a threshold is only as good as the probability fed into it, so a bad shape upstream corrupts the capacity plan downstream, and that the whole exercise is illustrative rather than a recommendation about any real service.",
+        "correct": "Refit the parameters to the screening population, assess shape with that population's observations using an appropriate fit procedure, and use a binomial count only if one threshold probability is justified for independent trials; otherwise model justified strata separately.",
+        "summary": "The old parameters and normal shape do not transfer, and the count model also needs independent trials with a common probability before capacity can be planned.",
+        "reasoning": "A complete answer separates three failures. First, the parameters were fitted to people already diagnosed with type 2 diabetes and are centred at 142 mg/dL, whereas a public screening population centres much lower, so z-scores and threshold probabilities based on the old parameters would be misplaced. Second, fasting plasma glucose in a general population is empirically right-skewed, and a normal curve has no parameter that can lean; the screening observations therefore need a normal probability plot or another suitable fit procedure rather than an aggregate band-count pass. Third, a binomial capacity count requires independent trials with the same threshold probability for every person. The cohort already contains subgroups with different stipulated probabilities, so the old common value of about 0.81 cannot simply be carried over. The service should estimate probabilities for the population it will serve, justify homogeneity or model justified strata separately, and preserve one independent trial per person. The whole exercise remains illustrative rather than a recommendation about a real service.",
         "acceptableResponses": [
-          "Refit the mean and standard deviation to the screening population, then check the shape against its own data before using the model; expect right skew, which no normal curve can represent, and plan capacity only from the region where the check held.",
-          "Two things are wrong: the parameters belong to a diagnosed cohort, and the normal shape does not fit a general population's glucose, which leans right. Refit, recheck by tail, and only then compute expected counts."
+          "Refit the screening population, assess its shape with an appropriate fit procedure, and use a binomial only if the people are independent and share one justified threshold probability; otherwise stratify.",
+          "The diagnosed-cohort parameters do not transfer, the general-population distribution leans right, and a common p cannot be assumed. Refit, check shape, then justify homogeneous independent trials or model strata separately."
         ],
         "commonErrors": [
           "Recommending only that the mean and standard deviation be recomputed, which leaves the shape failure in place.",
           "Recommending a larger screening sample, which sharpens the estimates of parameters for a model that is the wrong shape.",
-          "Judging the refitted model acceptable on the total inside two standard deviations, when the two tails can be wrong in opposite directions and cancel.",
+          "Judging the refitted model acceptable on the total inside two standard deviations, when those counts are an informal diagnostic and the two tails can be wrong in opposite directions and cancel.",
+          "Using a binomial interval without checking that the same threshold probability applies to every independent trial.",
           "Treating the illustrative capacity figures as a recommendation for a real service."
         ]
       },
@@ -366,7 +367,7 @@
       "criteria": [
         {
           "id": "criterion-evidence-named",
-          "description": "Names the specific numerical evidence that decides the judgment, including a comparison run tail by tail rather than in aggregate.",
+          "description": "Names the specific numerical evidence relevant to the judgment, compares tails separately rather than only in aggregate, and distinguishes a structural contradiction or strong warning from a calibrated pass/fail procedure.",
           "maxPoints": 4
         },
         {

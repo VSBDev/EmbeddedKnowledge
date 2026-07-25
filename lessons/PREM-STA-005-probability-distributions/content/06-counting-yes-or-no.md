@@ -27,7 +27,7 @@ The three pieces do separate jobs. The power of *p* counts the yes results, the 
 
 ## Where p comes from
 
-The cohort's normal model already answers this. The threshold is 126 mg/dL, the mean is 142 and the standard deviation is 18, so:
+For a conditional teaching calculation, the fitted normal model supplies a probability. The threshold is 126 mg/dL, the mean is 142 and the standard deviation is 18, so:
 
 :::{equation}
 :label: equation-threshold-z
@@ -35,11 +35,11 @@ The cohort's normal model already answers this. The threshold is 126 mg/dL, the 
 z = \frac{126 - 142}{18} = -0.89, \qquad P(X \ge 126) = 0.8130
 :::
 
-Round to *p* = 0.81. Two cautions before using it. This *p* was estimated from the same sixty readings the model will be tested against, so a good match is partly guaranteed and is weaker evidence than a match against an independently obtained probability. And the previous scene's warning still stands: converting a z-score into a probability is the step that requires the normal shape to hold, so *p* is only as trustworthy as the check in scene three.
+Round to *p* = 0.81. Three cautions apply before using it. This *p* was estimated from the same stipulated cohort summaries the model will be compared against, so a good match is partly guaranteed and is weaker evidence than a match against an independently obtained probability. Converting a z-score into a probability requires the normal shape to hold, which this pack has not established with reproducible observations. Finally, a binomial count requires the same *p* for every person; the dinner-time subgroups later in this scene show why that condition cannot simply be assumed for this cohort.
 
 ## Five patients first
 
-Take any five people from the cohort and treat each as an independent trial with *p* = 0.81.
+First isolate the binomial arithmetic from the cohort problem. Consider five independent, exchangeable patients in a constructed homogeneous group for which *p* = 0.81 applies to every person.
 
 :::{worked-example}
 :id: worked-example-five-patients
@@ -53,11 +53,13 @@ Take any five people from the cohort and treat each as an independent trial with
 **Two or fewer.** Add the three remaining counts instead of subtracting, so the rounding does not accumulate: 0.0450 + 0.0053 + 0.0002 = 0.0505, about 5 per cent.
 
 **Read it back.** The six possible counts have probabilities 0.0002, 0.0053, 0.0450, 0.1918, 0.4089 and 0.3487 for zero through five, and they account for every outcome there is, summing to 1 up to rounding. Notice what a discrete distribution can do that a curve cannot: "exactly four" has a real, quotable probability of 0.409. Ask a normal curve for the probability of exactly 4.0 and the answer is zero.
+
+**Self-explanation.** Why does the choice to use five independent people from one homogeneous group matter more to this model than the fact that the outcome is written as a whole-number count?
 :::
 
 ## Sixty patients
 
-Scaling to the full cohort, *n* = 60 and *p* = 0.81. Two summaries come straight from the parameters:
+As a conditional calculation, suppose sixty independent, exchangeable patients each have *p* = 0.81. Two summaries come straight from the parameters:
 
 :::{equation}
 :label: equation-binomial-mean-sd
@@ -65,15 +67,15 @@ Scaling to the full cohort, *n* = 60 and *p* = 0.81. Two summaries come straight
 \mu = np = 60 \times 0.81 = 48.6, \qquad \sigma = \sqrt{np(1-p)} = \sqrt{60 \times 0.81 \times 0.19} = \sqrt{9.234} = 3.04
 :::
 
-So the model expects about 49 of the sixty at or above 126 mg/dL, and expects the count to move by about three people between one quarter and the next for no reason beyond who happened to be measured. Working the probability formula at each count, 49 is the single most likely outcome at 0.131, and the counts from 43 to 55 together hold 0.967 of the probability.
+So the conditional model expects about 49 of the sixty at or above 126 mg/dL. The value 3.04 patients is the standard deviation of one quarter's count around 48.6, not the standard deviation of the change between two independent quarters. Under the same assumptions, the difference between two independent quarterly counts would have standard deviation $\sqrt{2} \times 3.04 = 4.30$ patients. Working the probability formula at each count, 49 is the single most likely outcome at 0.131, and the counts from 43 to 55 together hold 0.967 of the probability.
 
-The display lesson's clinical table recorded 49 of the sixty at or above 126 mg/dL. Predicted 48.6, observed 49.
+The earlier clinical table stipulates 49 of the sixty at or above 126 mg/dL. Conditional prediction 48.6, stipulated count 49.
 
 That agreement is worth exactly what the cautions above allow. It confirms that the normal model and the binomial count are arithmetically consistent with each other on this dataset, which checks the chain of reasoning and does not independently confirm either link.
 
 ## Where the conditions bend
 
-**Constant probability.** The cohort is not one group. Thirty people were recorded after an earlier dinner, averaging 137.5 mg/dL, and thirty after a later one, averaging 146.5 mg/dL, each with a standard deviation of 16. Run the threshold through both: the earlier group gives *p* = 0.76 and the later group gives *p* = 0.90. Using a single *p* of 0.81 for all sixty averages over two populations that differ, which is a simplification the model makes silently and the analyst has to declare.
+**Constant probability.** The cohort is not one group. For this constructed illustration, the thirty earlier-dinner patients are assigned a threshold probability of 0.76 and the thirty later-dinner patients a probability of 0.86. Their equally weighted average is 0.81, but averaging two different probabilities does not make the individual trials share one. A single binomial with *p* = 0.81 would silently erase the heterogeneity and violate its own fixed-probability condition.
 
 **Independence.** This is the one that breaks properly, and the study's own design shows how. Each participant recorded between 5 and 14 nights. A tempting move is to treat every night as a trial, giving several hundred trials instead of sixty and a much narrower answer. It is wrong, and the reason is the meaning of independence from the probability lesson: nights from the same person are not independent, because knowing that Tuesday was above 126 tells you a great deal about Wednesday for that individual. Counting them as separate trials manufactures precision out of repetition. The count of *people* over the threshold keeps one trial per person and stays defensible.
 
@@ -89,11 +91,11 @@ For each situation, say whether a binomial model is defensible and name the cond
 4. How many fasting glucose readings in the cohort exceed 250 mg/dL, using a probability read off the fitted normal curve.
 :::
 
-The first is defensible: sixty fixed trials, a binary outcome, one stated probability, and one reading per person. The model expects 60 × 0.10 = 6.0 people, and the display lesson counted 6 at or above 165 mg/dL. The second fails independence, since a clinic closure removes a block of people together and the outcomes are linked through a shared cause. The third fails independence too, for the reason set out above: nights are clustered within people. The fourth satisfies every binomial condition and still should not be trusted, because the probability fed into it comes from the far tail of a curve that no observation in this cohort reaches; the failure is upstream in *p* rather than in the binomial.
+The first is defensible as stated: sixty fixed trials, a binary outcome, one stated probability applying to every person, and one reading per person. The model expects 60 × 0.10 = 6.0 people, and the earlier lesson stipulated 6 at or above 165 mg/dL. The second fails independence, since a clinic closure removes a block of people together and the outcomes are linked through a shared cause. The third fails independence too, for the reason set out above: nights are clustered within people. The fourth is not defensible for two reasons. The cohort's subgroups already undermine the assumption that one common *p* applies to all sixty people, and the proposed probability comes from a far tail that no observation in the stipulated summaries reaches. Both the binomial condition and its upstream input need justification.
 
 :::{source-note}
 :claims: claim-binomial-conditions, claim-binomial-mean-sd, claim-fpg-thresholds, claim-z-score-definition
 :sources: source-nist-binomial, source-eom-binomial, source-niddk-diabetes-tests, source-nist-normal-data, source-nist-normal-distribution
 
-The first source supplies the binomial as the distribution for exactly two mutually exclusive outcomes of a trial, the probability of x successes in N trials with the probability of success on a single trial fixed for all trials, the probability formula, and the mean np and standard deviation of the square root of np(1 − p). The second supplies the requirement that the underlying trials be independent. The third supplies the fasting plasma glucose diagnostic value of 126 mg/dL or above. The fourth and fifth supply the standardising transformation used to obtain p and the standard normal distribution it maps onto. The cohort, its group means, the nights recorded, and every probability computed here are original teaching material.
+The first source supplies the binomial as the distribution for exactly two mutually exclusive outcomes of a trial, the probability of x successes in N trials with the probability of success on a single trial fixed for all trials, the probability formula, and the mean np and standard deviation of the square root of np(1 − p). The second supplies the requirement that the underlying trials be independent. The third supplies the fasting plasma glucose diagnostic value of 126 mg/dL or above. The fourth and fifth supply the standardising transformation used to obtain p and the standard normal distribution it maps onto. The cohort, its stipulated subgroup probabilities, the nights recorded, and every probability computed here are original teaching material.
 :::

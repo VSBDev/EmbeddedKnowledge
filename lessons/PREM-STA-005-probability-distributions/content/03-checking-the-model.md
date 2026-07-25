@@ -5,7 +5,9 @@ The model made three predictions in the previous scene and the data have been si
 :::{worked-example}
 :id: worked-example-check-the-normal-model
 
-**The task.** The normal model with mean 142 mg/dL and standard deviation 18 mg/dL predicts about 41, about 57 and about 60 of the sixty cohort readings inside its three bands. Count the readings that are actually there and decide whether to keep the model.
+**The task.** The normal model with mean 142 mg/dL and standard deviation 18 mg/dL predicts about 41, about 57 and about 60 of the sixty cohort readings inside its three bands. Compare those predictions with the constructed summary counts, then decide what that comparison does and does not establish.
+
+**Data boundary.** The underlying sixty readings are not included in this pack. The observed counts, median, skewness and extrema below are stipulated teaching inputs carried from the earlier block, not quantities a reader can independently recompute here. They can demonstrate the reasoning of a coarse check, but they cannot serve as reproducible evidence that this cohort passed one.
 
 **Step 0. Fix the counting rule before counting.** The bands are 124 to 160, 106 to 178, and 88 to 196 mg/dL. A reading landing exactly on a boundary is counted as inside. This matters exactly once here: one person recorded 160 mg/dL, sitting on the upper edge of the first band. State the rule in advance so the result is not a choice made after seeing which way it goes.
 
@@ -19,12 +21,14 @@ The model made three predictions in the previous scene and the data have been si
 
 **Step 5. Check the symmetry claim directly.** A normal curve is symmetric, so its mean and median coincide. The cohort's mean is 142.0 mg/dL and its median is also 142.0 mg/dL. A conventional skewness figure for the sixty readings comes to −0.01, which is as close to no lean as sixty numbers are likely to get. That is worth pausing on, because the histogram looked mildly lopsided: walking out from the tallest bar, every bin on the right held one or two more people than its mirror image on the left. What the raw values say is that the effect is too small to survive the arithmetic, and the single most extreme reading is on the low side, 42 mg/dL below the mean against 39 above. The display lesson left that question open on purpose; this is where it closes.
 
-**The verdict.** Predicted 41, 57 and 60; observed 39, 58 and 60, with the misses balanced across the two tails and no detectable lean. The normal model with these two parameters describes this cohort well enough to use, and the rest of this block will use it.
+**The provisional reading.** Predicted 41, 57 and 60; stipulated counts 39, 58 and 60, with the misses balanced across the two tails and the stipulated summaries showing little lean. Those figures show no large, obvious directional conflict with the normal model. They do not prove fit: ordinary sampling variation can move band counts by several people, the mean and standard deviation were estimated from the same sample, and the source observations are unavailable here. The rest of this lesson therefore uses the model conditionally as a teaching input. A reproducible binary fit decision would require the observations and a properly interpreted normal probability plot or another calibrated procedure.
+
+**Self-explanation.** Why is the decision to treat these counts as an informal diagnostic, rather than as a pass/fail threshold, more important than whether the first band missed its prediction by two people?
 :::
 
 ## What just happened, and what did not
 
-Notice the shape of that argument. The model was not accepted because bell curves are common or because glucose is a biological measurement. It was accepted because it made numerical predictions that were then compared against counts, and the comparison could have come out badly.
+Notice the shape of that argument. The model was not favoured because bell curves are common or because glucose is a biological measurement. It made numerical predictions that were compared against counts, and the comparison could have exposed a large or directional mismatch. In this pack it remains a provisional illustration, not a calibrated acceptance.
 
 Notice also what a run of counts cannot establish. Sixty readings put roughly one person in each two-standard-deviation tail, so any statement about how the curve behaves beyond 178 mg/dL rests on a single observation. Tails are where the data are thinnest and where the model is doing the most work unsupervised, which is exactly the wrong combination. Keep the model for the middle; distrust it at the edges until something else supports it there.
 
@@ -39,14 +43,14 @@ There is a more sensitive way to run this check than counting three bands. Plot 
 
 **Why it fails.** Single-humped and roughly symmetric is a large family of distributions, and the normal is one member of it. Distributions exist with the same hump and much heavier tails, which look nearly identical in the middle and behave very differently at the extremes, and the extremes are usually why the model was wanted. The direction of the error also runs the wrong way: the eye is drawn to the tall bars, which is where almost any curve fits, and away from the thin bars, which is where the fit is decided. Bin width makes this worse, since the display lesson showed that redrawing the same sixty values at a different bin width changes what the picture looks like without changing a single reading.
 
-**The corrective test.** Make the model state a number before you look. It predicted 40.96, 57.27 and 59.84 people, and separately 9.52 in each one-sided tail. Then count. If the counts and the predictions disagree by more than a person or two per band, or if they disagree in one direction only, the shape is wrong and the fix is a different model rather than a firmer opinion.
+**The corrective test.** Make the model state a number before you look. It predicted 40.96, 57.27 and 59.84 people, and separately 9.52 in each one-sided tail. Then count. Large, persistent directional discrepancies can reveal where the model is implausible, but differences of one, two or even several people are routine sampling variation in a sample of sixty. Band counts have no universal pass/fail cutoff, especially when the same data supplied the fitted mean and standard deviation. Use them as a coarse diagnostic, then inspect the observations with a normal probability plot or use a calibrated goodness-of-fit procedure before making a binary decision.
 :::
 
 :::{check}
 :id: check-what-a-passing-check-licenses
 :kind: retrieval
 
-The check above came out well. Say which of these the result licenses, and which it does not.
+The informal comparison above showed no large directional mismatch. Say which of these it supports, and which it does not.
 
 1. Using the model to estimate what share of this population sits between 130 and 150 mg/dL.
 2. Using the model to estimate what share sits above 250 mg/dL.
@@ -54,11 +58,11 @@ The check above came out well. Say which of these the result licenses, and which
 4. Concluding that this cohort's mean and median agree.
 :::
 
-The first is licensed: it is a question about the crowded middle, where fifty-eight of the sixty readings sit and the fit was tested. The second is not: 250 mg/dL is six standard deviations out, the cohort's highest reading is 181, and the model would return a probability supported by no observation whatsoever. The third is not: sixty people from one study support a claim about this cohort, and the population the model is meant to describe is a separate question that sampling and generalisation lessons handle. The fourth needs no model at all, since both were computed from the readings; a check confirming it is only evidence that the symmetry assumption is not obviously violated.
+The first is conditionally supported as a teaching calculation about the crowded middle, where the stipulated summaries place fifty-eight of the sixty readings; a real analysis would still inspect the observations. The second is not: 250 mg/dL is six standard deviations out, the stipulated highest reading is 181, and the model would return a probability supported by no observation whatsoever. The third is not: sixty people from one study cannot establish a general population shape, and this pack does not provide the observations needed even for a reproducible cohort-level check. The fourth needs no model at all; if the observations were available, the mean and median would be computed directly from them.
 
 :::{source-note}
 :claims: claim-empirical-rule-areas, claim-normality-is-checkable
 :sources: source-nist-normal-data, source-nist-normal-probability-plot
 
-The first source supplies the population percentages falling within one, two and three standard deviations that the predicted counts are computed from. The second supplies the normal probability plot as a graphical technique for assessing whether a data set is approximately normally distributed, and the fact that departures from its straight line indicate departures from normality. The sixty readings, every count and share reported here, and all wording are original teaching material.
+The first source supplies the population percentages falling within one, two and three standard deviations that the predicted counts are computed from. The second supplies the normal probability plot as a graphical technique for assessing whether a data set is approximately normally distributed, and the fact that departures from its straight line indicate departures from normality. The stipulated cohort summaries, every prediction computed from them, and all wording are original teaching material. The underlying sixty readings are not included in this pack.
 :::

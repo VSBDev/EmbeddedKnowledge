@@ -42,12 +42,12 @@ If a mean and a standard deviation are not yet things you can compute and interp
 
 The answer has four parts, and the fourth is the one people skip. A curve with two knobs on it; a rule of thumb for reading areas off it; a way of turning any measurement into a unit-free distance so that different quantities can be compared on one ruler; and a check, run against the data, that can come back negative.
 
-By the end you will be able to fit the normal model to this cohort, read the three standard bands off it, convert a glucose reading into a distance in standard deviations, count the readings that the model got wrong, decide from that count whether to keep the model, and use the discrete counterpart of the curve to answer the question a clinic actually asks: *of our sixty people, how many will be above the threshold, and would a count like last quarter's have surprised us?*
+By the end you will be able to fit the normal model to this cohort, read the three standard bands off it, convert a glucose reading into a distance in standard deviations, use tail-by-tail counts as a coarse warning about model fit, explain why a probability plot or calibrated procedure is needed for a binary decision, and test whether a discrete count really meets the conditions for a binomial model.
 
 :::{callout}
 :kind: boundary
 
-The cohort, its sixty readings, the screening dataset used later, and every case in this lesson are invented for teaching and are internally consistent by construction. They are a teaching example, not medical advice, and they describe no real patient. Published reference values are quoted only where the lesson needs a real threshold to reason about, and they are attributed where they appear.
+The cohort summaries, the screening dataset used later, and every case in this lesson are invented for teaching. The underlying sixty cohort readings are not included in this pack, so their reported summaries are stipulated inputs rather than independently reproducible evidence. These are teaching examples, not medical advice, and they describe no real patient. Published reference values are quoted only where the lesson needs a real threshold to reason about, and they are attributed where they appear.
 :::
 
 ## Accessibility and alternatives

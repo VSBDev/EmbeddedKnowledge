@@ -50,8 +50,10 @@ question, example or wording from any source is reproduced or closely paraphrase
 The following are constructed for this lesson and for the Statistics & Data block, and are not
 observations of any real person, service, or dataset:
 
-- the 60-person dinner-timing cohort, its fasting glucose values, and the mean of 142 mg/dL with
-  standard deviation of 18 mg/dL carried forward from earlier lessons in the block;
+- the 60-person dinner-timing cohort and its stipulated counts and summaries, including the mean of
+  142 mg/dL and standard deviation of 18 mg/dL carried forward from earlier lessons in the block;
+  the underlying 60 readings are not included in this pack, so those summaries are teaching inputs
+  rather than independently reproducible evidence;
 - the 1000-person workplace screening dataset in `charts/screening-glucose-right-skew.chart.json`,
   whose mean of 104.2 mg/dL, standard deviation of 17.4 mg/dL and median of about 101 mg/dL were
   computed here from the bin midpoints shown in the chart's own data table;

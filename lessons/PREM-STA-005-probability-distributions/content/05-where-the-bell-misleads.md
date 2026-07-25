@@ -1,12 +1,12 @@
 # The same check, run on a population that fails it
 
-The study cohort passed. Sixty adults already diagnosed with type 2 diabetes, all of them somewhere on the high side of the glucose range, produced a roughly symmetric spread that a normal curve described well.
+The stipulated study-cohort summaries showed no large directional mismatch with a normal curve, although the missing observations prevent a reproducible or calibrated fit decision in this pack.
 
 Widen the frame to everybody, and the shape changes.
 
 A large international pooling project, DETECT-2, assembled 43 surveys from 27 countries covering 135,383 participants who had undergone an oral glucose tolerance test, in order to test whether glucose distributions split cleanly into two humps at a diagnostic boundary. Their statistical methods open with a plain observation about the raw data: the distributions of both fasting plasma glucose and 2-hour plasma glucose are skewed to the right, and glucose values were log transformed before model fitting to reduce that skew. Right-skew is not an artefact of one survey. It is the ordinary shape of this measurement in a general population, and it is the first thing the analysts had to deal with.
 
-That shape has a physiological reading, offered here as an explanation and not as a finding of the surveys. Fasting glucose is regulated towards a fairly narrow band and cannot fall far without the person being unwell, so the low side is walled in. Nothing walls in the high side to the same degree, and the further right you go the more of the people you find are the ones losing glucose control. A bounded floor and an open ceiling make a lopsided distribution, and the normal family has no parameter that can express one.
+The pooled surveys support the empirical right skew and the authors' use of a log transformation. They do not establish a physiological mechanism for that shape. A lower bound and no stated upper bound also do not, by themselves, force a distribution to skew right; the shape judgment here comes from the observed distributions. Once right skew is established, the normal family has no parameter that can reproduce it.
 
 ## A screening clinic, and a model that fails in both directions
 
@@ -40,7 +40,7 @@ The upper one is the more consequential. The model puts about 23 people above 13
 
 **Why it fails.** The 68, 95 and 99.7 figures are areas under a normal curve. They travel with the curve, not with the arithmetic, and a mean and a standard deviation can be computed for any set of numbers whatever its shape. On the screening data above, the rule predicts 23 people below a value none of them reached, and predicts about half as many above the upper bound as were actually there. The arithmetic was faultless throughout; the distribution was the wrong one.
 
-**The corrective test.** Ask what the rule was derived from before applying it, and then run the count by side. Predict a number for each tail separately, count each tail separately, and treat a one-sided miss as a shape failure rather than as noise. If the two tails disagree with the model in opposite directions, the data are skewed and no adjustment of the mean or the standard deviation will repair it.
+**The corrective test.** Ask what the rule was derived from before applying it, and then run the count by side. Predict a number for each tail separately and count each tail separately. Large, persistent discrepancies in opposite directions are a warning that a symmetric model is missing skew, but ordinary sampling variation can also move counts. Use the tail counts as an informal diagnostic and confirm a binary fit judgment with the observations in a normal probability plot or another calibrated procedure. If right skew is established, no adjustment of the mean or the standard deviation can make a normal curve lean.
 :::
 
 ## Which failure you get is an empirical question

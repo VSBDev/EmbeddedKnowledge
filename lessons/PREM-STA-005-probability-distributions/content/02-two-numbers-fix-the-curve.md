@@ -30,7 +30,7 @@ Because the shape is fully determined by two numbers, the same fractions of area
 | Two standard deviations either side | mean ± 2 sd | 95.45 per cent |
 | Three standard deviations either side | mean ± 3 sd | 99.73 per cent |
 
-Rounded to the form people quote from memory, that is the **empirical rule**: about 68, 95 and 99.7 per cent. The word *empirical* is doing no work about your data here. These are exact areas of a mathematical curve, computed once and true for every normal distribution.
+Rounded to the form people quote from memory, that is the **empirical rule**: about 68, 95 and 99.7 per cent. The word *empirical* is doing no work about your data here. The displayed percentages are rounded decimal representations of areas defined by the normal cumulative distribution function, and the corresponding areas are the same for every normal distribution.
 
 Put the cohort's numbers in and the bands become glucose values:
 

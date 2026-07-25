@@ -23,7 +23,7 @@ The bands come from adding and subtracting the standard deviation: 155 − 20 = 
 :id: check-practice-partly-faded
 :kind: diagnostic
 
-Same clinic, 40 patients, mean 155 mg/dL, standard deviation 20 mg/dL, normal model assumed.
+Same clinic, 40 independent patients measured once, mean 155 mg/dL, standard deviation 20 mg/dL, normal model assumed, with the same threshold probability applying to every patient.
 
 The clinic wants to count patients at or above 175 mg/dL. Work out the probability that any one patient is over that line, then give the expected count and its standard deviation. Last quarter the count was 12. Say whether that is an ordinary result.
 :::
@@ -46,10 +46,10 @@ A third clinic has 100 patients, mean fasting glucose 132 mg/dL, standard deviat
 | 154 up to 176 | 14 |
 | 176 and above | 6 |
 
-Decide whether to keep the model, and say what the counts tell you about the shape.
+State what use of the model should be limited, say what the counts suggest about the shape, and name the stronger check needed for a binary overall fit decision.
 :::
 
-Reject it. The bands are 132 ± 22, giving 110 to 154, and 132 ± 44, giving 88 to 176. The model predicts 68.3 patients in the inner band and observes 74, which alone would be unremarkable. Splitting the misses by side is what settles it: the model predicts 15.87 patients below 110 and 15.87 above 154, and the clinic recorded 6 and 20. Two standard deviations out, the model predicts 2.3 patients in each tail and the clinic recorded 0 below 88 and 6 above 176. Every miss runs the same way. The left tail is thinner than a symmetric model needs and the right tail is fatter, which is a right-hand lean.
+Do not rely on this normal model in the tails without a stronger fit check. The bands are 132 ± 22, giving 110 to 154, and 132 ± 44, giving 88 to 176. The model predicts 68.3 patients in the inner band and observes 74, which alone is not decisive. Splitting the misses by side reveals a strong directional warning: the model predicts 15.87 patients below 110 and 15.87 above 154, while the clinic recorded 6 and 20. Two standard deviations out, the model predicts 2.3 patients in each tail and the clinic recorded 0 below 88 and 6 above 176. Every discrepancy runs the same way, with a thinner left tail and a heavier right tail than a symmetric model predicts. These coarse counts support investigating right skew, but they are not a calibrated pass/fail rule; inspect the observations with a normal probability plot or another suitable procedure before making a binary overall fit decision.
 
 Note what a careless total would have done here. Adding the inner three rows gives 94 patients inside the two-standard-deviation band against a prediction of 95.5, near enough to wave through. The aggregate agreed because the two tails were wrong in opposite directions and cancelled, which is the same trap the screening data set earlier in this lesson.
 
