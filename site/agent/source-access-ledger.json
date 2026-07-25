@@ -5,6 +5,27 @@
   "recheckAfterDays": 90,
   "domains": [
     {
+      "domain": "bioart.niaid.nih.gov",
+      "verdict": "allowed",
+      "evidence": "Terms page states the illustrations are free for any use, including educational, research, informational and commercial purposes, and directs the user to the licence on each entry for attribution requirements. No account needed. No robots.txt served.",
+      "checked": "2026-07-25",
+      "notes": "Licence is per entry; sampled entries are labelled Public Domain. Record the per-entry label every time. Suggested credit form: Illustration from NIAID NIH BioArt Source (bioart.niaid.nih.gov/bioart/###)."
+    },
+    {
+      "domain": "bioicons.com",
+      "verdict": "restricted",
+      "evidence": "Licences are stated per icon and span CC0, CC BY 3.0, CC BY 4.0, CC BY-SA, MIT and BSD.",
+      "checked": "2026-07-25",
+      "notes": "Only CC0 and CC BY 4.0 items qualify. CC BY 3.0 items are rejected as well as the share-alike ones."
+    },
+    {
+      "domain": "commons.wikimedia.org",
+      "verdict": "restricted",
+      "evidence": "/wiki/File: and /wiki/Category: are crawlable; the /w/ API path is disallowed to crawlers but is a documented programmatic interface and was used with a descriptive User-Agent for licence lookup only, with every result confirmed on the human file page.",
+      "checked": "2026-07-25",
+      "notes": "Licences are per file and most cell-biology diagrams are CC BY-SA, which this project rejects. Usable only for the CC0 and public-domain seam. Never a source for artwork whose creator has a canonical site of their own."
+    },
+    {
       "domain": "openstax.org",
       "verdict": "excluded",
       "evidence": "robots.txt sets User-agent: GPTBot with Disallow: /books/, the path holding the book text.",
@@ -12,32 +33,18 @@
       "notes": "Do not open /books/. Four separate lesson authors reached this independently."
     },
     {
-      "domain": "training.cochrane.org",
-      "verdict": "excluded",
-      "evidence": "Website terms 5.2 and 5.4 prohibit text and data mining including development, training, fine-tuning or validation of AI systems, and withhold consent for such use.",
+      "domain": "pdb101.rcsb.org",
+      "verdict": "allowed",
+      "evidence": "Molecule of the Month illustrations are offered under CC BY 4.0, with attribution to the article author and the RCSB PDB. The accompanying article text is not under that licence.",
       "checked": "2026-07-25",
-      "notes": "robots permits the chapter paths; the prohibition is in the terms, not robots. Found only by reading the terms."
+      "notes": "Molecular scale only. Take the illustration, write your own words."
     },
     {
-      "domain": "www.tandfonline.com",
-      "verdict": "excluded",
-      "evidence": "robots.txt disallows GPTBot.",
+      "domain": "plato.stanford.edu",
+      "verdict": "allowed",
+      "evidence": "robots.txt permits entry paths.",
       "checked": "2026-07-25",
-      "notes": "The ASA statement on p-values is reachable instead from the ASA's own release of it."
-    },
-    {
-      "domain": "www.bmj.com",
-      "verdict": "excluded",
-      "evidence": "Cloudflare challenge prevents retrieval; terms could not be established without bypassing it.",
-      "checked": "2026-07-25",
-      "notes": "Do not bypass the challenge."
-    },
-    {
-      "domain": "www.ncbi.nlm.nih.gov",
-      "verdict": "restricted",
-      "evidence": "robots.txt disallows the legacy /pmc/articles route for unnamed agents.",
-      "checked": "2026-07-25",
-      "notes": "Use pmc.ncbi.nlm.nih.gov/articles/ instead, which robots explicitly allows."
+      "notes": ""
     },
     {
       "domain": "pmc.ncbi.nlm.nih.gov",
@@ -54,11 +61,67 @@
       "notes": "One author requested it before reading the rule to the end, discarded the value, and removed the claims depending on it."
     },
     {
+      "domain": "reactome.org",
+      "verdict": "excluded",
+      "evidence": "robots.txt sets User-agent: ClaudeBot with Disallow: /.",
+      "checked": "2026-07-25",
+      "notes": "Not fetched, so the content licence is unverified. Access rules are checked before licence questions."
+    },
+    {
+      "domain": "smart.servier.com",
+      "verdict": "allowed",
+      "evidence": "robots.txt allows all crawlers except /*?s=, /search/ and /*filter-tag=. No AI-crawler-specific rule. Site and item pages state one uniform CC BY 4.0 licence, commercial use permitted, no account needed to download.",
+      "checked": "2026-07-25",
+      "notes": "Browse category pages, never the site search. Component library, not finished figures; vector art ships as EMF inside the per-category PowerPoint kits. Do not take Servier assets from Wikimedia Commons, where the same art is mirrored under the superseded CC BY-SA 3.0."
+    },
+    {
+      "domain": "training.cochrane.org",
+      "verdict": "excluded",
+      "evidence": "Website terms 5.2 and 5.4 prohibit text and data mining including development, training, fine-tuning or validation of AI systems, and withhold consent for such use.",
+      "checked": "2026-07-25",
+      "notes": "robots permits the chapter paths; the prohibition is in the terms, not robots. Found only by reading the terms."
+    },
+    {
+      "domain": "upload.wikimedia.org",
+      "verdict": "allowed",
+      "evidence": "Media host for Commons files. Fetched File:Buffer_titration.svg after confirming the public-domain PD-self tag on its Commons file page.",
+      "checked": "2026-07-25",
+      "notes": "Only fetch a file here after reading its licence on the corresponding commons.wikimedia.org file page."
+    },
+    {
+      "domain": "visualsonline.cancer.gov",
+      "verdict": "excluded",
+      "evidence": "Host did not resolve (DNS getaddrinfo ENOTFOUND) across repeated attempts, so neither robots.txt nor the terms page could be read.",
+      "checked": "2026-07-25",
+      "notes": "Excluded because unverified, not because terms were found wanting. Re-check before use and record the result."
+    },
+    {
+      "domain": "www.bipm.org",
+      "verdict": "allowed",
+      "evidence": "robots.txt permits the JCGM guidance PDFs.",
+      "checked": "2026-07-25",
+      "notes": ""
+    },
+    {
+      "domain": "www.bmj.com",
+      "verdict": "excluded",
+      "evidence": "Cloudflare challenge prevents retrieval; terms could not be established without bypassing it.",
+      "checked": "2026-07-25",
+      "notes": "Do not bypass the challenge."
+    },
+    {
       "domain": "www.itl.nist.gov",
       "verdict": "allowed",
       "evidence": "Serves no robots file of its own; www.nist.gov/robots.txt applies and permits /div898/.",
       "checked": "2026-07-25",
       "notes": "The NIST/SEMATECH e-Handbook."
+    },
+    {
+      "domain": "www.ncbi.nlm.nih.gov",
+      "verdict": "restricted",
+      "evidence": "robots.txt disallows the legacy /pmc/articles route for unnamed agents.",
+      "checked": "2026-07-25",
+      "notes": "Use pmc.ncbi.nlm.nih.gov/articles/ instead, which robots explicitly allows."
     },
     {
       "domain": "www.niddk.nih.gov",
@@ -68,18 +131,18 @@
       "notes": ""
     },
     {
-      "domain": "plato.stanford.edu",
-      "verdict": "allowed",
-      "evidence": "robots.txt permits entry paths.",
+      "domain": "www.nigms.nih.gov",
+      "verdict": "excluded",
+      "evidence": "The Image and Video Gallery applies one blanket licence to every item: Creative Commons Attribution Non-Commercial ShareAlike 3.0. NonCommercial and ShareAlike are both outside this project's accepted licence set.",
       "checked": "2026-07-25",
-      "notes": ""
+      "notes": "Excluded on licence, not on access. Being an NIH gallery does not make the contents public domain. images.nigms.nih.gov no longer resolves; the gallery lives under www.nigms.nih.gov/image-gallery."
     },
     {
-      "domain": "www.bipm.org",
-      "verdict": "allowed",
-      "evidence": "robots.txt permits the JCGM guidance PDFs.",
+      "domain": "www.tandfonline.com",
+      "verdict": "excluded",
+      "evidence": "robots.txt disallows GPTBot.",
       "checked": "2026-07-25",
-      "notes": ""
+      "notes": "The ASA statement on p-values is reachable instead from the ASA's own release of it."
     }
   ]
 }

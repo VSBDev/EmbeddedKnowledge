@@ -22,7 +22,11 @@ const renderSource = (relativePath) => {
   return renderLessonMarkdown(fs.readFileSync(sourcePath, "utf8"), {
     packPath,
     sourcePath,
-    publicAssetBase: "/assets/lesson-specimen"
+    publicAssetBase: "/assets/lesson-specimen",
+    // Without this the figure renderer has nothing to match a declared asset against and silently
+    // drops the credit line, which is the one part of the record the licence actually requires to
+    // reach a reader. The production builder passes it; the specimen has to as well.
+    thirdPartyAssets: metadata.thirdPartyAssets
   });
 };
 
