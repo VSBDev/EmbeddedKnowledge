@@ -21,7 +21,7 @@ A^- + H^+ \rightarrow HA
 
 The conjugate base consumes added proton to form the weak acid. This explains resistance to a sudden pH change; it does not mean pH is fixed or that buffer capacity is unlimited.
 
-## Where the resistance runs out
+## Where resistance ends
 
 :::{figure} ../assets/buffer-titration.svg
 :alt: A weak-acid titration curve flattens into a plateau centred on the pKa, then climbs steeply once the buffering region has been passed.
