@@ -8,9 +8,9 @@ This is the shape of an idea that will come up in every biology course you take,
 :id: definition-emergent-property
 :label: Emergent property
 
-A property is **emergent** when it belongs to an organisation of components and to no component on its own. Nothing beyond the components and their arrangement is added, and no new force is invoked. The test has two halves: look for the property in a single component and fail to find it, then take the arrangement apart while keeping every component intact and watch the property disappear.
+In this lesson, **emergent property** has a deliberately bounded tissue-level meaning: a property produced by the spatial or temporal organisation of interacting cells that is not a property of one isolated cell. Nothing beyond the components and their interactions is added, and no new force is invoked. For the epithelial examples here, use a two-part test: look for the stated property in one cell, then ask whether disrupting the relevant arrangement while keeping the cells intact removes it.
 
-The operative word is **organisation**, meaning which component sits where, what it is joined to, and what it is doing. A pile of the right components is not an organisation, and it will not show the property.
+The operative word is **organisation**, meaning which component sits where, what it is joined to, and what it is doing. A pile of the right components is not an organisation, and it will not show the property. This test is an operational rule for the examples in this lesson, not a universal definition for every technical use of *emergence*.
 :::
 
 ## Three things a crypt does and a cell does not
@@ -19,7 +19,7 @@ The operative word is **organisation**, meaning which component sits where, what
 
 **It tells a cell where it is.** Signalling from the crypt base falls off along the crypt axis, so how much signal a cell is receiving carries information about how far up the tube it has travelled. A cell in a dish has no position. Position is a relation to other cells, and a gradient is a property of an arranged population. Take the crypt apart into a suspension and every cell survives while the gradient does not.
 
-**It replaces itself without ever opening.** The lining renews every three to five days and the absorptive cells last about four to five, and through all of that the barrier holds. That is only possible because the work is divided in space and in time: stem cells dividing at the base, cells changing job as they climb, mature cells working near the surface, and worn cells shed into the lumen. A single cell cannot divide and absorb in the same instant, and it certainly cannot replace itself.
+**It renews while remaining continuous.** Much of the lining turns over on a three-to-five-day timescale and absorptive cells last about four to five days, while the barrier remains continuous. That is possible because the work is divided in space and in time: stem cells dividing at the base, cells changing job as they climb, mature cells working near the surface, and worn cells shed into the lumen. The interval describes coordinated population turnover, not simultaneous replacement of every crypt cell.
 
 Put those together and the opening question of this module has an answer. The lining is built from many small units instead of one large one because everything it has to do is a property of an arrangement, and an arrangement needs parts. A single continuous sheet of living material could not retire a worn section without tearing a hole in itself. A population of units retires them one at a time.
 
@@ -29,14 +29,14 @@ Put those together and the opening question of this module has an answer. The li
 :id: check-renewal-rate
 :kind: retrieval
 
-A crypt holds about 700 cells and replaces its population in about four days.
+Use a simplified steady-state model in which a crypt has about 700 cells and the rapidly renewed bulk turns over in about four days.
 
 1. How many new cells must the crypt produce per day to hold that steady state?
 2. How many per hour?
 3. What has to be true about the departures for the number of cells in the crypt to stay roughly constant?
 :::
 
-Seven hundred cells over four days is about 175 cells a day, which is roughly 7 an hour, in one crypt, continuously, for a lifetime. For the population to stay constant, cells must leave at the same average rate they are made, which is what the shedding at the surface is doing. Production and loss are matched, and the matching is itself a property of the arrangement and of no cell in it.
+Seven hundred cells over four days is about 175 cells a day, which is roughly 7 an hour. This is a simplified steady-state production estimate, not evidence that every cell in the crypt has a four-day lifetime. For the population to stay roughly constant, cells must leave at the same average rate they are made, which is what shedding at the surface contributes to. Production and loss are matched at population level, and that matching depends on the arrangement over space and time.
 
 Now check that picture against a measurement nobody took for this purpose.
 
@@ -66,8 +66,8 @@ Cell theory fixed the unit. The scale argument explained why the unit stayed hid
 Every remaining lesson in this block is an instance. Lesson 05 asks how a cell moves sodium and glucose across itself, which only matters because a sheet of such cells moves water across a tissue. Lesson 07 asks what physically joins one cell to the next, which is where the barrier stops being a metaphor. Lesson 10 asks what happens when a cell in the crypt stops obeying the arrangement.
 
 :::{source-note}
-:claims: claim-crypt-cell-count, claim-crypt-architecture, claim-epithelial-renewal, claim-crypt-migration-speed, claim-cell-size-band, claim-epithelial-barrier-routes
-:sources: source-nguyen-colonic-crypt, source-vanderwath-crypt-model, source-baker-crypt-dynamics, source-li-cell-size, source-odenwald-epithelial-barrier
+:claims: claim-crypt-cell-count, claim-crypt-architecture, claim-epithelial-renewal, claim-crypt-migration-speed, claim-cell-size-band, claim-epithelial-barrier-routes, claim-bounded-tissue-emergence
+:sources: source-nguyen-colonic-crypt, source-vanderwath-crypt-model, source-baker-crypt-dynamics, source-li-cell-size, source-odenwald-epithelial-barrier, source-dossantos-tissue-self-organization
 
-A 2025 review of colonic crypt biology supports the barrier role of the colonic cells, the mucus layer contributed by goblet cells, the fall in signalling along the crypt axis, and the three-to-five-day renewal with absorptive cells lasting four to five days. A review of the intestinal epithelial barrier supports the distinction between transcellular routes through individual cells, paracellular routes governed by junctions, and continuous barrier function requiring a contiguous cell layer. A 2013 modelling study supplies the figure of about 700 cells per crypt in the descending colon, arranged about 32 along its length. The migration speed of about 4 µm per hour comes from a 2014 study of human colonic crypts and is reported for the lower half of the crypt, which is why extending it over the whole climb is flagged as an assumption. What none of these sources supplies is the definition of an emergent property; that is a conceptual convention this lesson states explicitly so that later lessons can use it without reopening it.
+A 2025 review of colonic crypt biology supports the barrier role of the colonic cells, the mucus layer contributed by goblet cells, the fall in signalling along the crypt axis, and the three-to-five-day renewal with absorptive cells lasting four to five days. A review of the intestinal epithelial barrier supports the distinction between transcellular routes through individual cells, paracellular routes governed by junctions, and continuous barrier function requiring a contiguous cell layer. A review of tissue self-organisation supports treating spatially and temporally coordinated population behaviours, including gradients and regeneration, as emergent tissue-level properties rather than properties of an isolated cell. Together those sources ground the three epithelial examples; the two-part test remains this lesson's explicitly bounded operational rule rather than a claim about every use of *emergence*. A 2013 modelling study supplies the figure of about 700 cells per crypt in the descending colon, arranged about 32 along its length. The migration speed of about 4 µm per hour comes from a 2014 study of human colonic crypts and is reported for the lower half of the crypt, which is why extending it over the whole climb is flagged as an assumption.
 :::
