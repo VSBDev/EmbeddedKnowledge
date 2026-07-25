@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-BIO-001-ACADEMIC-F0E320F1",
+  "lessonId": "PREM-BIO-001",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "4fe96c45396ef1935266e77f2bbdf33a89390aa5",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable academic reviewer",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-BIO-001-F0E320F1-FE63-4A34-B6B6-8604913E560B",
+      "instructionsDigest": "sha256:4d3ae5b64e6c2fc6f08e962b1a50cad792cfdaac6b0889eb26c7d6432d08772a"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "The accountable reviewer principal github:VSBDev is also the candidate's accountable author principal. This is a fresh isolated academic-review run with a distinct run ID; the shared principal is disclosed and is not treated as independent third-party verification."
+  },
+  "evidenceChecked": [
+    "ATTRIBUTION.md",
+    "assessment.json#items-and-rubrics",
+    "assets/cork-bark-micrograph.jpg",
+    "claims.json#claims",
+    "content/01-lining-you-cannot-see.md",
+    "content/02-arithmetic-of-invisibility.md",
+    "content/03-cork-and-the-word.md",
+    "content/04-theory-is-not-a-guess.md",
+    "content/05-what-a-sheet-can-do.md",
+    "content/06-practice-and-recovery.md",
+    "content/07-clinical-wrap-up.md",
+    "diagrams/scale-ladder.diagram.json#diagram-scale-ladder",
+    "glossary.json#terms",
+    "lesson.json#identity-outcomes-objectives-scenes-and-provenance",
+    "references.json#sources",
+    "Ashraf et al. 2025, DOI 10.1038/s41467-025-64679-2",
+    "van der Wath et al. 2013, DOI 10.1371/journal.pone.0073204",
+    "Baker et al. 2014, DOI 10.1016/j.celrep.2014.07.019",
+    "Nguyen et al. 2025, DOI 10.3390/cells14181428",
+    "Galbraith and Galbraith 2011, DOI 10.1242/jcs.080085",
+    "Muller-Wille 2010, DOI 10.1016/j.shpsc.2010.07.008",
+    "National Academy of Sciences, Teaching About Evolution and the Nature of Science",
+    "NCBI Bookshelf, Genesis, Modulation, and Regeneration of Skeletal Muscle",
+    "Odenwald and Turner 2017, DOI 10.1038/nrgastro.2016.169",
+    "Weigert et al. 2013, Intravital microscopy: A practical guide on imaging intracellular structures in live animals"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "glossary.json#term-cell",
+      "finding": "The definition makes an individual cell's ability to give rise to more of its kind a necessary condition for being a living cell. Terminally differentiated cells such as mature cortical neurons are living cells but are postmitotic. The same definition appears in content/01-lining-you-cannot-see.md. This conflates continuity of cellular lineage with the reproductive capacity of each differentiated cell and excludes valid human cells from the lesson's foundational term.",
+      "resolution": "Revise term-cell and the matching prose in content/01 so individual reproductive capacity is not required. Distinguish the principle that cells arise through cellular lineages from whether a particular differentiated cell can divide."
+    },
+    {
+      "severity": "major",
+      "target": "content/04-theory-is-not-a-guess.md#misconception-theory-means-guess",
+      "finding": "The central account of scientific theory is a material definitional claim, but it is absent from the scene's claim and source mapping. The two mapped sources support the history and propositions of cell theory, not the assertions that a theory sits above a hypothesis, is the strongest claim a field makes, or is an account that has not failed. Those statements impose an overgeneralized promotion ladder and an absolute falsification model; the glossary and item-theory-status then require learners to reproduce them.",
+      "resolution": "Replace this with a sourced account of a theory as a broad, well-substantiated explanatory framework that remains revisable and has a stated scope. Explain that hypotheses are testable propositions that theories can generate or evaluate, not a universal lower rung that becomes a theory. Add the material claim and supporting source to the scene mapping, then update glossary.json and item-theory-status consistently."
+    },
+    {
+      "severity": "major",
+      "target": "assessment.json#item-theory-status",
+      "finding": "The keyed proposition that every cell arises from division of a pre-existing cell is an unqualified false universal in modern cell biology. A skeletal muscle fibre is a single multinucleate cell formed by fusion of myoblasts, not by one cell division. The historical source supports a traditional formulation, but the lesson presents it as a boundary-free current rule and assesses it as such.",
+      "resolution": "State the modern principle narrowly as cells arising from pre-existing cells or cellular lineages, while distinguishing common production by division from specialized formation by cell fusion. Update content/04, glossary.json#term-cell-theory, this answer key, and the relevant rubrics so a scientifically qualified answer is rewarded."
+    },
+    {
+      "severity": "major",
+      "target": "assessment.json#item-integrated-protocol-review",
+      "finding": "The answer key declares that an individual epithelial cell has no barrier property and treats any contrary answer as a category error. Continuous coverage and paracellular sealing are tissue-level properties, but intestinal permeability also includes transcellular routes through individual epithelial cells, whose membrane transport and permeability properties contribute to barrier function. The prompt does not specify which barrier predicate is being classified, so the key penalizes a correct qualified distinction.",
+      "resolution": "Specify that the target property is continuous tissue-level exclusion of luminal contents across an area. Teach and accept the distinction between that emergent property, junction-dependent paracellular permeability, and cell-autonomous transcellular permeability. Apply the same qualification to content/05 and its practice feedback."
+    },
+    {
+      "severity": "major",
+      "target": "diagrams/scale-ladder.diagram.json#diagram-scale-ladder",
+      "finding": "The diagram declares a largest-to-smallest top-to-bottom ladder but places the 100 µm eye threshold above a crypt whose estimated length is 320–640 µm. Its directed edge simultaneously says the crypt is three to six times larger while placing it below the smaller threshold. This contradicts the stated ordering in the central representation used for retrieval.",
+      "resolution": "Place the crypt above the eye threshold in the visual and long description, then order cell, microscope threshold, and DNA below it. Preserve the direct eye-to-cell comparison without using it to reverse the magnitude ordering."
+    },
+    {
+      "severity": "major",
+      "target": "content/06-practice-and-recovery.md#check-design-the-observation",
+      "finding": "The feedback concludes that engineering rather than physics is the obstacle to following one cell in a living human colon solely because the diffraction limit of an ideal conventional microscope is below 10 µm. Effective intravital resolution also depends on tissue scattering and absorption, contrast or labelling, optical access, physiological motion including peristalsis, phototoxicity, safety, and the stability of multi-day tracking. The stipulated 30 µm instrument and the cited diffraction limit do not support the real-world causal conclusion, which is repeated in the integrated assessment.",
+      "resolution": "Either keep the exercise explicitly within an idealized diffraction-only model or replace the binary physics-versus-engineering verdict with a bounded account of optical, biological, safety, and engineering constraints supported by appropriate sources. Update item-integrated-protocol-review accordingly."
+    },
+    {
+      "severity": "minor",
+      "target": "content/02-arithmetic-of-invisibility.md#step-4-check-it-by-another-route",
+      "finding": "The scene calls 94 pixels per degree the best measured foveal performance. In the cited study, approximately 94 ppd is the sample mean for high-contrast foveal achromatic stimuli, while individual results reached about 120 ppd. It is also a behavioural threshold under the study's display conditions, not a universal two-object resolution limit. The numerical conversion is correct and the cell-versus-eye conclusion remains unchanged.",
+      "resolution": "Describe 94 ppd as the study's mean foveal achromatic threshold under its stated high-contrast conditions, rather than as best possible performance, and retain the calculation as a robustness check rather than a universal eye limit."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#item-scale-computation",
+      "finding": "Independent recalculation confirms 400 mm × 2.9 × 10^-4 = 0.116 mm = 116 µm, 116/12 = 9.7, and 12/0.25 = 48. The keyed units, factors, verdicts, and tolerance are correct for the stipulated model.",
+      "resolution": "No change required."
+    }
+  ],
+  "limitations": [
+    "Direct opening of several PMC article URLs encountered a reCAPTCHA barrier. Important central sources were instead checked through publisher pages, indexed full text, or institutional repository copies, but not every listed reference was independently read end-to-end.",
+    "The explicit review scope prohibited site/ and other lesson packs. The graph-node wording, terminology ledger continuity, schema and quorum files, and the claimed alignment with PREM-SCI-010 were therefore not independently checked.",
+    "No authoring conversation, other review conclusion, or adjudication draft was accessed.",
+    "This review applies general premedical cell-biology, quantitative, and scientific-reasoning judgment; it is not a specialist histopathology or history-of-science consultation."
+  ],
+  "signedAt": "2026-07-25T20:13:39Z"
+}
