@@ -1,0 +1,1185 @@
+{
+  "schemaVersion": 3,
+  "format": "embeddedknowledge-lesson-v1",
+  "artifactType": "production-lesson",
+  "id": "PREM-STA-005",
+  "version": "0.1.0",
+  "title": "The curve you draw over the bars",
+  "status": "published",
+  "riskTier": "standard",
+  "estimatedMinutes": 214,
+  "outcomes": [
+    "topic-statistics-data-distributions"
+  ],
+  "prerequisites": [
+    "topic-statistics-data-probability",
+    "topic-statistics-data-center-spread"
+  ],
+  "objectives": [
+    {
+      "id": "objective-fit-the-normal-model",
+      "statement": "State the two parameters that fix a normal distribution, compute the one, two and three standard deviation bands for a stated mean and standard deviation, and read a probability as an area between two values rather than a height at one.",
+      "outcomeIds": [
+        "topic-statistics-data-distributions"
+      ]
+    },
+    {
+      "id": "objective-check-the-model",
+      "statement": "Convert the empirical rule into predicted counts for a stated sample, compare those predictions against observed counts tail by tail as an informal diagnostic, and explain when a normal probability plot or calibrated procedure is needed before making a binary fit decision.",
+      "outcomeIds": [
+        "topic-statistics-data-distributions"
+      ]
+    },
+    {
+      "id": "objective-standardise-a-reading",
+      "statement": "Compute a z-score for a measurement against a named reference distribution, explain why the score is unchanged by a unit conversion, and separate what a z-score reports as a distance from what only a distributional assumption can turn into a probability.",
+      "outcomeIds": [
+        "topic-statistics-data-distributions"
+      ]
+    },
+    {
+      "id": "objective-model-a-count",
+      "statement": "Select the binomial model for the number of yes-or-no results in a fixed set of trials, test its four conditions against a described study, and compute the expected count and its standard deviation.",
+      "outcomeIds": [
+        "topic-statistics-data-distributions"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene-curve-someone-drew",
+      "title": "The curve someone drew over the bars",
+      "kind": "orientation",
+      "source": "content/01-the-curve-someone-drew.md",
+      "estimatedMinutes": 18,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>The curve someone drew over the bars</h1>\n<p>Somebody at the study meeting puts the fasting glucose histogram on the screen, takes the pen, and sketches a smooth bell across the tops of the bars. Nobody objects. The sketch feels like tidying up: the bars are jagged because there are only sixty people, and the curve is what the jagged thing is <em>really</em> trying to be.</p>\n<p>That gesture is a decision, and it is the one this lesson is about. Drawing a curve over a histogram swaps a set of sixty measured numbers for a mathematical object that has never been measured. In return you get things the sixty numbers cannot give you on their own. You can ask what fraction of people would fall between any two glucose values, including values nobody in the room recorded. You can say how far out one person&#39;s reading sits without quoting a single other person&#39;s. You can say what a repeat of this study would probably look like, which is where the next lesson goes.</p>\n<p>You also inherit a way of being wrong that the histogram did not have. A histogram can be badly binned, and it still cannot claim something that did not happen. A curve can.</p>\n<h2>Three meanings of one word, before we use it</h2>\n<p>The curve has a name, and the name is a trap.</p>\n<p>In plain English, <strong>normal</strong> means usual, expected, unremarkable. In a clinic, a <strong>normal range</strong> is a band of values a laboratory reports as unremarkable for a healthy person, so a fasting glucose result gets called normal or abnormal against a printed cut-off. In statistics, the <strong>normal distribution</strong> is one specific bell-shaped mathematical curve among dozens of named ones, and it carries none of the other two meanings. A measurement can follow a normal distribution beautifully and be catastrophic for every person in the room. A measurement can be perfectly healthy in every individual and follow a distribution nothing like the normal one.</p>\n<p>This lesson uses the third meaning throughout. When it needs the clinical sense it says <em>reference range</em> or <em>diagnostic threshold</em>, and it never uses &quot;normal&quot; to mean &quot;usual&quot;. Keep the three apart in your own reading, because the sentence &quot;the glucose values were normal&quot; is ambiguous in a way that has ended arguments in the wrong place.</p>\n<p>The same warning applies to the word <em>model</em>. Earlier lessons in this course used a model as a purposeful, selective representation of a system, built to answer a question. What this lesson calls a <strong>probability model</strong> is a model in exactly that sense, narrowed to one job: representing how a single measurement is spread across its possible values. It selects, it omits, and it can be checked against the thing it represents.</p>\n<h2>What you already have</h2>\n<p>By this point in the block the study is no longer a design on paper. Sixty adults with type 2 diabetes have a fasting glucose recorded, thirty after an earlier dinner and thirty after a later one, and the dinner-to-sleep interval means that a <em>later</em> dinner is a <em>shorter</em> interval.</p>\n<p>Three earlier results carry into this lesson and are not re-derived here:</p>\n<ul>\n<li>the display lesson gave you the histogram of those sixty values, a single hump peaking in the 135 to 145 bin, an apparently heavier reach towards high glucose than towards low that it left for this lesson to settle, and one person alone in the lowest bin;</li>\n<li>the same lesson built a second, constructed cohort with two humps and an identical mean of 142 mg/dL, where the average described almost nobody;</li>\n<li>the centre-and-spread lesson turned that picture into two numbers, a mean of 142 mg/dL and a standard deviation of 18 mg/dL, and gave the shape of the tails a name and a number.</li>\n</ul>\n<p>Everything below is built from that mean and that standard deviation. If either is unfamiliar, go back before going on.</p>\n<aside class=\"ek-block ek-callout ek-block--recovery\" data-directive=\"callout\">\n    <div class=\"ek-block-label directive-label\">Callout</div>\n    \n    <div class=\"ek-block-content\"><h2>Recovery route</h2>\n<p>If a mean and a standard deviation are not yet things you can compute and interpret, return to the centre-and-spread lesson before this one; nothing here works without them. If the trouble is with reading a histogram for shape and tails, the tables and graphical displays lesson covers it. If the trouble is with probability as a long-run proportion, or with independence between events, the probability foundations lesson does that, and the binomial scene near the end of this lesson leans on it directly. No score from any of the three is needed to continue here.</p>\n</div>\n  </aside>\n<h2>The question this lesson answers</h2>\n<blockquote>\n<p>Which idealised shape describes fasting glucose, what does adopting it let you say, and how would you find out that it does not fit?</p>\n</blockquote>\n<p>The answer has four parts, and the fourth is the one people skip. A curve with two knobs on it; a rule of thumb for reading areas off it; a way of turning any measurement into a unit-free distance so that different quantities can be compared on one ruler; and a check, run against the data, that can come back negative.</p>\n<p>By the end you will be able to fit the normal model to this cohort, read the three standard bands off it, convert a glucose reading into a distance in standard deviations, use tail-by-tail counts as a coarse warning about model fit, explain why a probability plot or calibrated procedure is needed for a binary decision, and test whether a discrete count really meets the conditions for a binomial model.</p>\n<aside class=\"ek-block ek-callout ek-block--boundary\" data-directive=\"callout\">\n    <div class=\"ek-block-label directive-label\">Callout</div>\n    \n    <div class=\"ek-block-content\"><p>The cohort summaries, the screening dataset used later, and every case in this lesson are invented for teaching. The underlying sixty cohort readings are not included in this pack, so their reported summaries are stipulated inputs rather than independently reproducible evidence. These are teaching examples, not medical advice, and they describe no real patient. Published reference values are quoted only where the lesson needs a real threshold to reason about, and they are attributed where they appear.</p>\n</div>\n  </aside>\n<h2>Accessibility and alternatives</h2>\n<p>Two charts carry teaching weight here, and neither is the only route to what it shows. Each opens a written description and the numbers behind it as a table, so the curve&#39;s parameters, its shaded bands and their percentages, and every bin count in the screening histogram are readable as text. No quantity appears only in a picture.</p>\n<p>Where a chart makes an argument, the prose states the argument and gives the figures it rests on, and the tables in the later scenes repeat the counts a reader might otherwise have to estimate from a bar height. No task in this lesson asks you to judge a colour, hover, drag, or read a length by eye when the exact number is available. Working entirely from the data tables and the prose is a complete route through the lesson.</p>\n<p>Formulas appear as display mathematics with the arithmetic also written out in the surrounding sentence, so a reader whose software does not render mathematics can follow every calculation from the prose alone.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-normal-is-a-named-distribution, claim-normality-is-checkable</span><span><b>sources</b> source-nist-normal-distribution, source-nist-normal-data, source-nist-normal-probability-plot</span></div>\n    <div class=\"ek-block-content\"><p>The first source supplies the normal distribution as one named, parameterised distribution among many. The second supplies the statistical meaning of calling data &quot;normal&quot;, namely that they are drawn from a population having a normal distribution. The third supplies the fact that whether a data set is approximately normally distributed is something a technique can assess rather than something assumed. The study, the cohort, the meeting, and all wording here are original teaching material.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-two-numbers-fix-the-curve",
+      "title": "Two numbers, and the whole curve is decided",
+      "kind": "concept",
+      "source": "content/02-two-numbers-fix-the-curve.md",
+      "estimatedMinutes": 34,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Two numbers, and the whole curve is decided</h1>\n<p>Start with what a distribution model is for. A histogram answers questions about the sixty people in front of you. A <strong>probability distribution</strong> answers questions about a value drawn from the population those sixty came from, including values none of them happened to have. It is a rule that assigns a probability to every range of possible readings.</p>\n<p>For a measurement that can take any value in a range, the rule is drawn as a curve, and probability is <strong>area under the curve</strong> between two points. The height of the curve at a single point is a different quantity called <strong>probability density</strong>, and on its own it is not a probability at all. Ask for the probability that someone&#39;s fasting glucose is exactly 142.000... mg/dL and the honest answer is zero, because a single point spans no width and encloses no area. Ask for the probability that it lies between 140 and 145 and you get a number. Continuous measurements only answer questions about intervals, which is why a laboratory reports a reference <em>range</em>.</p>\n<h2>The normal distribution</h2>\n<p>The <strong>normal distribution</strong> is one specific curve of that kind: symmetric about its centre, single-humped, falling away to zero on both sides without ever quite reaching it. NIST&#39;s handbook calls it &quot;probably the most important distribution in statistics&quot;, and its usefulness is worth separating from its truth. It is important because it is mathematically tractable, because sample means tend towards it as samples grow, and because a great many measurements resemble it closely enough to be worth approximating. None of that is a promise about your data.</p>\n<p>What makes it workable is how little it needs to know. Two <strong>parameters</strong> fix the entire curve:</p>\n<ul>\n<li>a <strong>location parameter</strong>, the mean, which decides where the peak sits on the horizontal axis;</li>\n<li>a <strong>scale parameter</strong>, the standard deviation, which decides how far the curve spreads before it flattens.</li>\n</ul>\n<p>Change the mean and the identical curve slides sideways. Change the standard deviation and it stretches or narrows without moving its centre. There is no third knob. A normal curve cannot be lopsided, cannot have two humps, cannot have a floor or a ceiling, and cannot be told to stay above zero. Those are not features left out for simplicity; the family has no way to express them. Hold that thought, because it is where the model fails later.</p>\n<p>For the study cohort the two numbers are already in hand from the centre-and-spread lesson: a mean of 142 mg/dL and a standard deviation of 18 mg/dL. Adopting the normal model means declaring that fasting glucose in this population behaves like this curve, and nothing further is chosen.</p>\n<figure class=\"ek-block ek-chart\" data-directive=\"chart\" data-chart-source=\"charts/cohort-glucose-normal-curve.chart.json\">\n    <div class=\"ek-block-label directive-label\">Chart</div>\n    <p class=\"ek-chart-title\">A normal curve fitted to the illustrative cohort: mean 142 mg/dL, standard deviation 18 mg/dL</p>\n    <svg viewBox=\"0 0 720 380\" class=\"ek-chart-svg\" role=\"img\" aria-label=\"A symmetric bell-shaped curve centred on 142 mg/dL, with the band from 124 to 160 shaded and the wider band from 106 to 178 shaded more lightly.\" xmlns=\"http://www.w3.org/2000/svg\"><title>A symmetric bell-shaped curve centred on 142 mg/dL, with the band from 124 to 160 shaded and the wider band from 106 to 178 shaded more lightly.</title><path d=\"M 169.33 324 L 170.65 286.66 L 174.6 283.8 L 178.55 280.78 L 182.5 277.6 L 186.45 274.26 L 190.4 270.75 L 194.35 267.07 L 198.3 263.22 L 202.25 259.21 L 206.2 255.02 L 210.15 250.67 L 214.1 246.15 L 218.05 241.48 L 222 236.64 L 225.95 231.65 L 229.9 226.51 L 233.85 221.23 L 237.8 215.82 L 241.75 210.28 L 245.7 204.63 L 249.65 198.87 L 253.6 193.02 L 257.55 187.09 L 261.5 181.09 L 265.45 175.03 L 269.4 168.94 L 273.35 162.83 L 277.3 156.71 L 281.25 150.6 L 285.2 144.52 L 289.15 138.49 L 293.1 132.53 L 297.05 126.65 L 301 120.88 L 304.95 115.23 L 308.9 109.73 L 312.85 104.39 L 316.8 99.24 L 320.75 94.28 L 324.7 89.55 L 328.65 85.06 L 332.6 80.82 L 336.55 76.86 L 340.5 73.18 L 344.45 69.81 L 348.4 66.75 L 352.35 64.02 L 356.3 61.63 L 360.25 59.6 L 364.2 57.92 L 368.15 56.61 L 372.1 55.66 L 376.05 55.1 L 380 54.91 L 383.95 55.1 L 387.9 55.66 L 391.85 56.61 L 395.8 57.92 L 399.75 59.6 L 403.7 61.63 L 407.65 64.02 L 411.6 66.75 L 415.55 69.81 L 419.5 73.18 L 423.45 76.86 L 427.4 80.82 L 431.35 85.06 L 435.3 89.55 L 439.25 94.28 L 443.2 99.24 L 447.15 104.39 L 451.1 109.73 L 455.05 115.23 L 459 120.88 L 462.95 126.65 L 466.9 132.53 L 470.85 138.49 L 474.8 144.52 L 478.75 150.6 L 482.7 156.71 L 486.65 162.83 L 490.6 168.94 L 494.55 175.03 L 498.5 181.09 L 502.45 187.09 L 506.4 193.02 L 510.35 198.87 L 514.3 204.63 L 518.25 210.28 L 522.2 215.82 L 526.15 221.23 L 530.1 226.51 L 534.05 231.65 L 538 236.64 L 541.95 241.48 L 545.9 246.15 L 549.85 250.67 L 553.8 255.02 L 557.75 259.21 L 561.7 263.22 L 565.65 267.07 L 569.6 270.75 L 573.55 274.26 L 577.5 277.6 L 581.45 280.78 L 585.4 283.8 L 589.35 286.66 L 590.67 324 Z\" class=\"ek-chart-shade ek-chart-shade--0\"/><path d=\"M 274.67 324 L 277.3 156.71 L 281.25 150.6 L 285.2 144.52 L 289.15 138.49 L 293.1 132.53 L 297.05 126.65 L 301 120.88 L 304.95 115.23 L 308.9 109.73 L 312.85 104.39 L 316.8 99.24 L 320.75 94.28 L 324.7 89.55 L 328.65 85.06 L 332.6 80.82 L 336.55 76.86 L 340.5 73.18 L 344.45 69.81 L 348.4 66.75 L 352.35 64.02 L 356.3 61.63 L 360.25 59.6 L 364.2 57.92 L 368.15 56.61 L 372.1 55.66 L 376.05 55.1 L 380 54.91 L 383.95 55.1 L 387.9 55.66 L 391.85 56.61 L 395.8 57.92 L 399.75 59.6 L 403.7 61.63 L 407.65 64.02 L 411.6 66.75 L 415.55 69.81 L 419.5 73.18 L 423.45 76.86 L 427.4 80.82 L 431.35 85.06 L 435.3 89.55 L 439.25 94.28 L 443.2 99.24 L 447.15 104.39 L 451.1 109.73 L 455.05 115.23 L 459 120.88 L 462.95 126.65 L 466.9 132.53 L 470.85 138.49 L 474.8 144.52 L 478.75 150.6 L 482.7 156.71 L 485.33 324 Z\" class=\"ek-chart-shade ek-chart-shade--1\"/><line x1=\"380\" y1=\"28\" x2=\"380\" y2=\"324\" class=\"ek-chart-marker\"/><text x=\"380\" y=\"20\" class=\"ek-chart-markerlabel\" text-anchor=\"middle\">Mean 142 mg/dL</text><path d=\"M 64 321.01 L 67.95 320.66 L 71.9 320.27 L 75.85 319.84 L 79.8 319.36 L 83.75 318.84 L 87.7 318.28 L 91.65 317.65 L 95.6 316.97 L 99.55 316.23 L 103.5 315.42 L 107.45 314.54 L 111.4 313.58 L 115.35 312.54 L 119.3 311.42 L 123.25 310.2 L 127.2 308.89 L 131.15 307.48 L 135.1 305.97 L 139.05 304.34 L 143 302.59 L 146.95 300.72 L 150.9 298.73 L 154.85 296.6 L 158.8 294.33 L 162.75 291.92 L 166.7 289.37 L 170.65 286.66 L 174.6 283.8 L 178.55 280.78 L 182.5 277.6 L 186.45 274.26 L 190.4 270.75 L 194.35 267.07 L 198.3 263.22 L 202.25 259.21 L 206.2 255.02 L 210.15 250.67 L 214.1 246.15 L 218.05 241.48 L 222 236.64 L 225.95 231.65 L 229.9 226.51 L 233.85 221.23 L 237.8 215.82 L 241.75 210.28 L 245.7 204.63 L 249.65 198.87 L 253.6 193.02 L 257.55 187.09 L 261.5 181.09 L 265.45 175.03 L 269.4 168.94 L 273.35 162.83 L 277.3 156.71 L 281.25 150.6 L 285.2 144.52 L 289.15 138.49 L 293.1 132.53 L 297.05 126.65 L 301 120.88 L 304.95 115.23 L 308.9 109.73 L 312.85 104.39 L 316.8 99.24 L 320.75 94.28 L 324.7 89.55 L 328.65 85.06 L 332.6 80.82 L 336.55 76.86 L 340.5 73.18 L 344.45 69.81 L 348.4 66.75 L 352.35 64.02 L 356.3 61.63 L 360.25 59.6 L 364.2 57.92 L 368.15 56.61 L 372.1 55.66 L 376.05 55.1 L 380 54.91 L 383.95 55.1 L 387.9 55.66 L 391.85 56.61 L 395.8 57.92 L 399.75 59.6 L 403.7 61.63 L 407.65 64.02 L 411.6 66.75 L 415.55 69.81 L 419.5 73.18 L 423.45 76.86 L 427.4 80.82 L 431.35 85.06 L 435.3 89.55 L 439.25 94.28 L 443.2 99.24 L 447.15 104.39 L 451.1 109.73 L 455.05 115.23 L 459 120.88 L 462.95 126.65 L 466.9 132.53 L 470.85 138.49 L 474.8 144.52 L 478.75 150.6 L 482.7 156.71 L 486.65 162.83 L 490.6 168.94 L 494.55 175.03 L 498.5 181.09 L 502.45 187.09 L 506.4 193.02 L 510.35 198.87 L 514.3 204.63 L 518.25 210.28 L 522.2 215.82 L 526.15 221.23 L 530.1 226.51 L 534.05 231.65 L 538 236.64 L 541.95 241.48 L 545.9 246.15 L 549.85 250.67 L 553.8 255.02 L 557.75 259.21 L 561.7 263.22 L 565.65 267.07 L 569.6 270.75 L 573.55 274.26 L 577.5 277.6 L 581.45 280.78 L 585.4 283.8 L 589.35 286.66 L 593.3 289.37 L 597.25 291.92 L 601.2 294.33 L 605.15 296.6 L 609.1 298.73 L 613.05 300.72 L 617 302.59 L 620.95 304.34 L 624.9 305.97 L 628.85 307.48 L 632.8 308.89 L 636.75 310.2 L 640.7 311.42 L 644.65 312.54 L 648.6 313.58 L 652.55 314.54 L 656.5 315.42 L 660.45 316.23 L 664.4 316.97 L 668.35 317.65 L 672.3 318.28 L 676.25 318.84 L 680.2 319.36 L 684.15 319.84 L 688.1 320.27 L 692.05 320.66 L 696 321.01\" class=\"ek-chart-line ek-chart-series--0\" fill=\"none\"/><line x1=\"64\" y1=\"28\" x2=\"64\" y2=\"324\" class=\"ek-chart-axis\"/>\n    <line x1=\"64\" y1=\"324\" x2=\"696\" y2=\"324\" class=\"ek-chart-axis\"/>\n    <line x1=\"64\" y1=\"324\" x2=\"64\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"64\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">88</text><line x1=\"169.33\" y1=\"324\" x2=\"169.33\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"169.33\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">106</text><line x1=\"274.67\" y1=\"324\" x2=\"274.67\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"274.67\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">124</text><line x1=\"380\" y1=\"324\" x2=\"380\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"380\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">142</text><line x1=\"485.33\" y1=\"324\" x2=\"485.33\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"485.33\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">160</text><line x1=\"590.67\" y1=\"324\" x2=\"590.67\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"590.67\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">178</text><line x1=\"696\" y1=\"324\" x2=\"696\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"696\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">196</text><line x1=\"59\" y1=\"324\" x2=\"64\" y2=\"324\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"328\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">0</text><line x1=\"59\" y1=\"250\" x2=\"64\" y2=\"250\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"254\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">0.01</text><line x1=\"59\" y1=\"176\" x2=\"64\" y2=\"176\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"180\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">0.01</text><line x1=\"59\" y1=\"102\" x2=\"64\" y2=\"102\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"106\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">0.02</text><line x1=\"59\" y1=\"28\" x2=\"64\" y2=\"28\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"32\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">0.02</text>\n    <text x=\"380\" y=\"368\" class=\"ek-chart-axislabel\" text-anchor=\"middle\">Fasting glucose (mg/dL)</text>\n    <text x=\"16\" y=\"176\" class=\"ek-chart-axislabel\" text-anchor=\"middle\" transform=\"rotate(-90 16 176)\">Probability density</text></svg>\n    \n    <figcaption>A symmetric bell-shaped curve centred on 142 mg/dL, with the band from 124 to 160 shaded and the wider band from 106 to 178 shaded more lightly.</figcaption>\n    <details class=\"ek-long-description\"><summary>Read the chart as text</summary><p>The curve is the normal model chosen for the illustrative 60-person cohort. It is fixed by two numbers and no others: a mean of 142 mg/dL, which places its peak and its line of symmetry, and a standard deviation of 18 mg/dL, which sets how quickly it falls away. The inner shaded band runs from 142 minus 18 to 142 plus 18, that is 124 to 160 mg/dL, and the model places 68.27 per cent of its area there, about 41 of 60 people. The outer band runs from 142 minus 36 to 142 plus 36, that is 106 to 178 mg/dL, holding 95.45 per cent of the area, about 57 of 60 people. A third band, not drawn, would run from 88 to 196 mg/dL and hold 99.73 per cent. A vertical line marks the mean at 142 mg/dL, which for this curve is also its median and its mode. The height of the curve is a density and not a count: probability is read as area between two glucose values, so the area under any single point is zero.</p><table class=\"ek-chart-table\"><caption>Chart data</caption><thead><tr><th scope=\"col\">Series</th><th scope=\"col\">Value</th></tr></thead><tbody><tr><td>Normal model for cohort fasting glucose</td><td>mean 142, standard deviation 18</td></tr><tr><td>Shaded region</td><td>106 to 178: Two standard deviations either side of the mean, 106 to 178 mg/dL, holding 95.45 per cent of the modelled area</td></tr><tr><td>Shaded region</td><td>124 to 160: One standard deviation either side of the mean, 124 to 160 mg/dL, holding 68.27 per cent of the modelled area</td></tr><tr><td>Marker</td><td>Fasting glucose 142: Mean 142 mg/dL</td></tr></tbody></table></details>\n  </figure>\n<h2>The empirical rule</h2>\n<p>Because the shape is fully determined by two numbers, the same fractions of area fall in the same places on every normal curve ever drawn. Measured in standard deviations from the mean, the three standard bands hold:</p>\n<table>\n<thead>\n<tr>\n<th>Band</th>\n<th>Distance from the mean</th>\n<th>Share of the modelled values</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>One standard deviation either side</td>\n<td>mean ± 1 sd</td>\n<td>68.27 per cent</td>\n</tr>\n<tr>\n<td>Two standard deviations either side</td>\n<td>mean ± 2 sd</td>\n<td>95.45 per cent</td>\n</tr>\n<tr>\n<td>Three standard deviations either side</td>\n<td>mean ± 3 sd</td>\n<td>99.73 per cent</td>\n</tr>\n</tbody></table>\n<p>Rounded to the form people quote from memory, that is the <strong>empirical rule</strong>: about 68, 95 and 99.7 per cent. The word <em>empirical</em> is doing no work about your data here. The displayed percentages are rounded decimal representations of areas defined by the normal cumulative distribution function, and the corresponding areas are the same for every normal distribution.</p>\n<p>Put the cohort&#39;s numbers in and the bands become glucose values:</p>\n<figure class=\"ek-block ek-equation\" data-directive=\"equation\"><div class=\"ek-block-label directive-label\">equation-cohort-bands</div><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mtable displaystyle=\"true\" class=\"tml-jot\"><mtr><mtd class=\"tml-right\" style=\"padding-left:0em;padding-right:0em;\"><mrow><mn>142</mn><mo>−</mo><mn>18</mn></mrow></mtd><mtd class=\"tml-left\" style=\"padding-left:0em;padding-right:0em;\"><mrow><mo>=</mo><mn>124</mn><mo separator=\"true\">,</mo></mrow></mtd><mtd class=\"tml-right\" style=\"padding-left:1em;padding-right:0em;\"><mrow><mn>142</mn><mo>+</mo><mn>18</mn></mrow></mtd><mtd class=\"tml-left\" style=\"padding-left:0em;padding-right:0em;\"><mrow><mo>=</mo><mn>160</mn></mrow></mtd></mtr><mtr><mtd class=\"tml-right\" style=\"padding-left:0em;padding-right:0em;\"><mrow><mn>142</mn><mo>−</mo><mn>36</mn></mrow></mtd><mtd class=\"tml-left\" style=\"padding-left:0em;padding-right:0em;\"><mrow><mo>=</mo><mn>106</mn><mo separator=\"true\">,</mo></mrow></mtd><mtd class=\"tml-right\" style=\"padding-left:1em;padding-right:0em;\"><mrow><mn>142</mn><mo>+</mo><mn>36</mn></mrow></mtd><mtd class=\"tml-left\" style=\"padding-left:0em;padding-right:0em;\"><mrow><mo>=</mo><mn>178</mn></mrow></mtd></mtr><mtr><mtd class=\"tml-right\" style=\"padding-left:0em;padding-right:0em;\"><mrow><mn>142</mn><mo>−</mo><mn>54</mn></mrow></mtd><mtd class=\"tml-left\" style=\"padding-left:0em;padding-right:0em;\"><mrow><mo>=</mo><mn>88</mn><mo separator=\"true\">,</mo></mrow></mtd><mtd class=\"tml-right\" style=\"padding-left:1em;padding-right:0em;\"><mrow><mn>142</mn><mo>+</mo><mn>54</mn></mrow></mtd><mtd class=\"tml-left\" style=\"padding-left:0em;padding-right:0em;\"><mrow><mo>=</mo><mn>196</mn></mrow></mtd></mtr></mtable><annotation encoding=\"application/x-tex\">\\begin{aligned}\n142 - 18 &amp;= 124, &amp; 142 + 18 &amp;= 160 \\\\\n142 - 36 &amp;= 106, &amp; 142 + 36 &amp;= 178 \\\\\n142 - 54 &amp;= 88,  &amp; 142 + 54 &amp;= 196\n\\end{aligned}</annotation></semantics></math><figcaption>TeX source: <code>\\begin{aligned}\n142 - 18 &amp;= 124, &amp; 142 + 18 &amp;= 160 \\\\\n142 - 36 &amp;= 106, &amp; 142 + 36 &amp;= 178 \\\\\n142 - 54 &amp;= 88,  &amp; 142 + 54 &amp;= 196\n\\end{aligned}</code></figcaption></figure>\n<p>So the model says: about 68 per cent of this population sits between 124 and 160 mg/dL, about 95 per cent between 106 and 178, and about 99.7 per cent between 88 and 196. Multiply by the sixty people actually measured and it predicts about 41, about 57, and about 60 of them, since 0.68 × 60 = 40.8, 0.95 × 60 = 57.0 and 0.997 × 60 = 59.8.</p>\n<p>Those are predictions. Nobody has looked yet.</p>\n<h2>What the model buys, stated plainly</h2>\n<p>The histogram could not tell you what share of the cohort sat between 130 and 137 mg/dL, because that range cuts across a bin. The curve can, because it has a value everywhere. The histogram had nothing to say about a reading of 205 mg/dL, because nobody recorded one. The curve assigns it a probability. The histogram treated 100 mg/dL and 181 mg/dL as two end bars; the curve puts each at a stated distance from the centre, and the next scene shows they are not the same distance.</p>\n<p>Every one of those gains comes from the same source. The model fills in the gaps between the sixty numbers and continues past both ends of them, using a shape assumption to do it. Where the assumption holds, the filling-in is worth having. Where it does not, the model is confidently answering questions about a population that does not exist.</p>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-parameters-and-area</span></div>\n    <div class=\"ek-block-content\"><p>Answer these without scrolling up.</p>\n<ol>\n<li>A second cohort has mean fasting glucose 118 mg/dL with standard deviation 18 mg/dL, and its distribution is taken to be normal. Which two glucose values bound its central 95 per cent band?</li>\n<li>Under a normal model, what is the probability that a person&#39;s fasting glucose is exactly 142 mg/dL?</li>\n<li>A colleague says the empirical rule shows that 95 per cent of <em>any</em> dataset lies within two standard deviations of its mean. What is wrong with that sentence?</li>\n</ol>\n</div>\n  </aside>\n<p>The first answer is 118 − 36 = 82 and 118 + 36 = 154 mg/dL. Same width as the study cohort&#39;s band, because the standard deviation is the same, and shifted down by 24 because the mean is. The second is zero, since a single point encloses no area; any nonzero answer means the question should have named a range. The third is the one that matters: the 68, 95 and 99.7 figures are areas under a normal curve and belong to the model, not to data. A dataset earns those percentages only to the extent that a normal curve describes it, and whether it does is a question you have to go and settle.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-normal-two-parameters, claim-empirical-rule-areas, claim-normal-is-a-named-distribution</span><span><b>sources</b> source-nist-normal-distribution, source-nist-normal-data</span></div>\n    <div class=\"ek-block-content\"><p>The first source supplies the normal probability density, its identification of the mean as the location parameter and the standard deviation as the scale parameter, the standard normal case with mean 0 and standard deviation 1, and the description of the distribution&#39;s standing in statistics. The second supplies the percentages of the population falling between the mean and one, two and three standard deviations, and the statistical meaning of calling data normal. The cohort&#39;s mean and standard deviation, the arithmetic on them, and all wording here are original teaching material.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-checking-the-model",
+      "title": "Now go and count",
+      "kind": "worked-example",
+      "source": "content/03-checking-the-model.md",
+      "estimatedMinutes": 32,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Now go and count</h1>\n<p>The model made three predictions in the previous scene and the data have been sitting there the whole time. Checking is not an optional refinement at the end of the analysis. It is the step that decides whether anything downstream is worth reading.</p>\n<aside class=\"ek-block ek-worked-example ek-block--worked-example\" data-directive=\"worked-example\">\n    <div class=\"ek-block-label directive-label\">Worked Example</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> worked-example-check-the-normal-model</span></div>\n    <div class=\"ek-block-content\"><p><strong>The task.</strong> The normal model with mean 142 mg/dL and standard deviation 18 mg/dL predicts about 41, about 57 and about 60 of the sixty cohort readings inside its three bands. Compare those predictions with the constructed summary counts, then decide what that comparison does and does not establish.</p>\n<p><strong>Data boundary.</strong> The underlying sixty readings are not included in this pack. The observed counts, median, skewness and extrema below are stipulated teaching inputs carried from the earlier block, not quantities a reader can independently recompute here. They can demonstrate the reasoning of a coarse check, but they cannot serve as reproducible evidence that this cohort passed one.</p>\n<p><strong>Step 0. Fix the counting rule before counting.</strong> The bands are 124 to 160, 106 to 178, and 88 to 196 mg/dL. A reading landing exactly on a boundary is counted as inside. This matters exactly once here: one person recorded 160 mg/dL, sitting on the upper edge of the first band. State the rule in advance so the result is not a choice made after seeing which way it goes.</p>\n<p><strong>Step 1. The one-standard-deviation band, 124 to 160 mg/dL.</strong> Thirty-nine of the sixty readings fall in it, a share of 39 ÷ 60 = 0.650. The model predicted 0.6827, which is 40.96 people. The count is two people light.</p>\n<p><strong>Step 2. The two-standard-deviation band, 106 to 178 mg/dL.</strong> Fifty-eight readings fall in it, a share of 58 ÷ 60 = 0.967. The model predicted 0.9545, which is 57.27 people. The count is one person heavy.</p>\n<p><strong>Step 3. The three-standard-deviation band, 88 to 196 mg/dL.</strong> All sixty readings fall in it. The model predicted 59.84. The lowest reading in the cohort is 100 mg/dL and the highest is 181 mg/dL, so nothing comes close to either boundary.</p>\n<p><strong>Step 4. Split the misses by side.</strong> A model can get a total right and still be the wrong shape, so check the tails separately. Ten readings sit below 124 and eleven sit above 160; the model puts 0.1587 of its area in each of those tails, which is 9.52 people either way. One reading sits below 106 and one sits above 178, against a prediction of 1.37 in each tail. The misses are small and they are balanced.</p>\n<p><strong>Step 5. Check the symmetry claim directly.</strong> A normal curve is symmetric, so its mean and median coincide. The cohort&#39;s mean is 142.0 mg/dL and its median is also 142.0 mg/dL. A conventional skewness figure for the sixty readings comes to −0.01, which is as close to no lean as sixty numbers are likely to get. That is worth pausing on, because the histogram looked mildly lopsided: walking out from the tallest bar, every bin on the right held one or two more people than its mirror image on the left. What the raw values say is that the effect is too small to survive the arithmetic, and the single most extreme reading is on the low side, 42 mg/dL below the mean against 39 above. The display lesson left that question open on purpose; this is where it closes.</p>\n<p><strong>The provisional reading.</strong> Predicted 41, 57 and 60; stipulated counts 39, 58 and 60, with the misses balanced across the two tails and the stipulated summaries showing little lean. Those figures show no large, obvious directional conflict with the normal model. They do not prove fit: ordinary sampling variation can move band counts by several people, the mean and standard deviation were estimated from the same sample, and the source observations are unavailable here. The rest of this lesson therefore uses the model conditionally as a teaching input. A reproducible binary fit decision would require the observations and a properly interpreted normal probability plot or another calibrated procedure.</p>\n<p><strong>Self-explanation.</strong> Why is the decision to treat these counts as an informal diagnostic, rather than as a pass/fail threshold, more important than whether the first band missed its prediction by two people?</p>\n</div>\n  </aside>\n<h2>What just happened, and what did not</h2>\n<p>Notice the shape of that argument. The model was not favoured because bell curves are common or because glucose is a biological measurement. It made numerical predictions that were compared against counts, and the comparison could have exposed a large or directional mismatch. In this pack it remains a provisional illustration, not a calibrated acceptance.</p>\n<p>Notice also what a run of counts cannot establish. Sixty readings put roughly one person in each two-standard-deviation tail, so any statement about how the curve behaves beyond 178 mg/dL rests on a single observation. Tails are where the data are thinnest and where the model is doing the most work unsupervised, which is exactly the wrong combination. Keep the model for the middle; distrust it at the edges until something else supports it there.</p>\n<p>There is a more sensitive way to run this check than counting three bands. Plot the sorted readings against the values a normal distribution would have produced at the same positions. If the data are approximately normal the points fall along a straight line, and departures from that line are departures from normality: a curve at one end says the tail is too heavy or too light, an S-shape says the whole distribution is lopsided. Drawing one is a task for the software, and reading one is the same reasoning as Step 4 done at every point at once instead of at two.</p>\n<aside class=\"ek-block ek-misconception ek-block--misconception\" data-directive=\"misconception\">\n    <div class=\"ek-block-label directive-label\">Misconception</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> misconception-bell-shape-by-inspection</span></div>\n    <div class=\"ek-block-content\"><p><strong>The claim.</strong> &quot;The histogram looked like a bell, so the data are normal.&quot;</p>\n<p><strong>Why it appeals.</strong> Bell-shaped is how a normal distribution is described, and the cohort histogram does have one hump with sides that fall away. Eyeballing feels like checking.</p>\n<p><strong>Why it fails.</strong> Single-humped and roughly symmetric is a large family of distributions, and the normal is one member of it. Distributions exist with the same hump and much heavier tails, which look nearly identical in the middle and behave very differently at the extremes, and the extremes are usually why the model was wanted. The direction of the error also runs the wrong way: the eye is drawn to the tall bars, which is where almost any curve fits, and away from the thin bars, which is where the fit is decided. Bin width makes this worse, since the display lesson showed that redrawing the same sixty values at a different bin width changes what the picture looks like without changing a single reading.</p>\n<p><strong>The corrective test.</strong> Make the model state a number before you look. It predicted 40.96, 57.27 and 59.84 people, and separately 9.52 in each one-sided tail. Then count. Large, persistent directional discrepancies can reveal where the model is implausible, but differences of one, two or even several people are routine sampling variation in a sample of sixty. Band counts have no universal pass/fail cutoff, especially when the same data supplied the fitted mean and standard deviation. Use them as a coarse diagnostic, then inspect the observations with a normal probability plot or use a calibrated goodness-of-fit procedure before making a binary decision.</p>\n</div>\n  </aside>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-what-a-passing-check-licenses</span></div>\n    <div class=\"ek-block-content\"><p>The informal comparison above showed no large directional mismatch. Say which of these it supports, and which it does not.</p>\n<ol>\n<li>Using the model to estimate what share of this population sits between 130 and 150 mg/dL.</li>\n<li>Using the model to estimate what share sits above 250 mg/dL.</li>\n<li>Concluding that fasting glucose is normally distributed in adults with type 2 diabetes generally.</li>\n<li>Concluding that this cohort&#39;s mean and median agree.</li>\n</ol>\n</div>\n  </aside>\n<p>The first is conditionally supported as a teaching calculation about the crowded middle, where the stipulated summaries place fifty-eight of the sixty readings; a real analysis would still inspect the observations. The second is not: 250 mg/dL is six standard deviations out, the stipulated highest reading is 181, and the model would return a probability supported by no observation whatsoever. The third is not: sixty people from one study cannot establish a general population shape, and this pack does not provide the observations needed even for a reproducible cohort-level check. The fourth needs no model at all; if the observations were available, the mean and median would be computed directly from them.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-empirical-rule-areas, claim-normality-is-checkable</span><span><b>sources</b> source-nist-normal-data, source-nist-normal-probability-plot</span></div>\n    <div class=\"ek-block-content\"><p>The first source supplies the population percentages falling within one, two and three standard deviations that the predicted counts are computed from. The second supplies the normal probability plot as a graphical technique for assessing whether a data set is approximately normally distributed, and the fact that departures from its straight line indicate departures from normality. The stipulated cohort summaries, every prediction computed from them, and all wording are original teaching material. The underlying sixty readings are not included in this pack.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-common-ruler",
+      "title": "One ruler for measurements that share no units",
+      "kind": "concept",
+      "source": "content/04-a-common-ruler.md",
+      "estimatedMinutes": 30,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>One ruler for measurements that share no units</h1>\n<p>Two readings from the study file: 100 mg/dL and 181 mg/dL. In the histogram they were the two end bars, one person each, both obviously extreme. Which of them is further from the middle of this cohort?</p>\n<p>The instinct is 181, because 181 is the big number and the tail on that side of the picture was the fatter one. Measure it and the instinct is wrong.</p>\n<h2>Standardising</h2>\n<p>Take a reading, subtract the mean, and divide by the standard deviation. What comes back is a <strong>z-score</strong>, also called a standard score: the reading&#39;s distance from the centre expressed in standard deviations.</p>\n<figure class=\"ek-block ek-equation\" data-directive=\"equation\"><div class=\"ek-block-label directive-label\">equation-z-score</div><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mi>z</mi><mo>=</mo><mfrac><mrow><mi>x</mi><mo>−</mo><mi>μ</mi></mrow><mi>σ</mi></mfrac></mrow><annotation encoding=\"application/x-tex\">z = \\frac{x - \\mu}{\\sigma}</annotation></semantics></math><figcaption>TeX source: <code>z = \\frac{x - \\mu}{\\sigma}</code></figcaption></figure>\n<p>Run the two readings through it:</p>\n<figure class=\"ek-block ek-equation\" data-directive=\"equation\"><div class=\"ek-block-label directive-label\">equation-two-readings</div><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mtable displaystyle=\"true\" class=\"tml-jot\"><mtr><mtd class=\"tml-right\" style=\"padding-left:0em;padding-right:0em;\"><msub><mi>z</mi><mn>181</mn></msub></mtd><mtd class=\"tml-left\" style=\"padding-left:0em;padding-right:0em;\"><mrow><mo>=</mo><mfrac><mrow><mn>181</mn><mo>−</mo><mn>142</mn></mrow><mn>18</mn></mfrac><mo>=</mo><mfrac><mn>39</mn><mn>18</mn></mfrac><mo>=</mo><mo form=\"prefix\" stretchy=\"false\">+</mo><mn>2.17</mn></mrow></mtd></mtr><mtr><mtd class=\"tml-right\" style=\"padding-left:0em;padding-right:0em;\"><msub><mi>z</mi><mn>100</mn></msub></mtd><mtd class=\"tml-left\" style=\"padding-left:0em;padding-right:0em;\"><mrow><mo>=</mo><mfrac><mrow><mn>100</mn><mo>−</mo><mn>142</mn></mrow><mn>18</mn></mfrac><mo>=</mo><mfrac><mrow><mo form=\"prefix\" stretchy=\"false\" lspace=\"0em\" rspace=\"0em\">−</mo><mn>42</mn></mrow><mn>18</mn></mfrac><mo>=</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>2.33</mn></mrow></mtd></mtr></mtable><annotation encoding=\"application/x-tex\">\\begin{aligned}\nz_{181} &amp;= \\frac{181 - 142}{18} = \\frac{39}{18} = +2.17 \\\\[4pt]\nz_{100} &amp;= \\frac{100 - 142}{18} = \\frac{-42}{18} = -2.33\n\\end{aligned}</annotation></semantics></math><figcaption>TeX source: <code>\\begin{aligned}\nz_{181} &amp;= \\frac{181 - 142}{18} = \\frac{39}{18} = +2.17 \\\\[4pt]\nz_{100} &amp;= \\frac{100 - 142}{18} = \\frac{-42}{18} = -2.33\n\\end{aligned}</code></figcaption></figure>\n<p>The low reading is further out. It is 2.33 standard deviations below the cohort mean while the high reading is 2.17 above, and the display lesson noticed the same thing without a number: one person sat alone in the lowest bin with a gap above them, while the top of the range thinned out gradually. Standardising turns that visual impression into a quantity you can compare, sort, and put in a sentence.</p>\n<p>The subtraction moves the centre to zero and the division makes one unit equal one standard deviation. A measurement processed this way follows the <strong>standard normal distribution</strong>, mean 0 and standard deviation 1, whenever the original measurement was normal. The three bands from the empirical rule become the same three numbers on every measurement ever standardised: inside ±1 holds 68.27 per cent, inside ±2 holds 95.45 per cent, and inside ±3 holds 99.73 per cent, leaving 2.275 per cent in each tail beyond ±2.</p>\n<h2>The units cancel</h2>\n<p>Fasting glucose is reported in mg/dL in the United States and in mmol/L across most of the rest of the world. The two are the same measurement wearing different clothes: dividing a glucose figure in mg/dL by 18 gives mmol/L, which is why a joint ADA and EASD statement can write a threshold as &quot;3.0 mmol/l (54 mg/dl)&quot; and mean one number.</p>\n<p>Convert the whole cohort and recompute. The mean becomes 142 ÷ 18 = 7.9 mmol/L, the standard deviation becomes 18 ÷ 18 = 1.0 mmol/L, and a reading of 160 mg/dL becomes 160 ÷ 18 = 8.9 mmol/L.</p>\n<figure class=\"ek-block ek-equation\" data-directive=\"equation\"><div class=\"ek-block-label directive-label\">equation-unit-invariance</div><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><msub><mi>z</mi><mn>160</mn></msub><mo>=</mo><mfrac><mrow><mn>160</mn><mo>−</mo><mn>142</mn></mrow><mn>18</mn></mfrac><mo>=</mo><mn>1.00</mn><mspace width=\"2em\"></mspace><mtext>and</mtext><mspace width=\"2em\"></mspace><msub><mi>z</mi><mn>8.9</mn></msub><mo>=</mo><mfrac><mrow><mn>8.9</mn><mo>−</mo><mn>7.9</mn></mrow><mn>1.0</mn></mfrac><mo>=</mo><mn>1.00</mn></mrow><annotation encoding=\"application/x-tex\">z_{160} = \\frac{160 - 142}{18} = 1.00 \\qquad\\text{and}\\qquad z_{8.9} = \\frac{8.9 - 7.9}{1.0} = 1.00</annotation></semantics></math><figcaption>TeX source: <code>z_{160} = \\frac{160 - 142}{18} = 1.00 \\qquad\\text{and}\\qquad z_{8.9} = \\frac{8.9 - 7.9}{1.0} = 1.00</code></figcaption></figure>\n<p>Identical, and not by luck. Dividing every value by the same constant divides the gap from the mean and the standard deviation by that constant too, so the ratio is untouched. A z-score is a pure number with no units attached, which is what lets it serve as a common ruler for quantities that could never be compared directly. The same arithmetic incidentally converts the diabetes diagnostic threshold: 126 ÷ 18 = 7.0 mmol/L exactly.</p>\n<h2>The ruler needs a stated reference</h2>\n<p>Here is the trap, and it catches people who have the formula down cold.</p>\n<p>Person A is in the study cohort with a fasting glucose of 160 mg/dL. Against that cohort&#39;s mean of 142 and standard deviation of 18, z = +1.00.</p>\n<p>Person B is in the workplace screening you will meet in the next scene, where fasting glucose has a mean of 104.2 mg/dL and a standard deviation of 17.4 mg/dL. Person B&#39;s reading is 128 mg/dL, lower than person A&#39;s in absolute terms. Standardised against their own group:</p>\n<figure class=\"ek-block ek-equation\" data-directive=\"equation\"><div class=\"ek-block-label directive-label\">equation-person-b</div><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><msub><mi>z</mi><mi>B</mi></msub><mo>=</mo><mfrac><mrow><mn>128</mn><mo>−</mo><mn>104.2</mn></mrow><mn>17.4</mn></mfrac><mo>=</mo><mfrac><mn>23.8</mn><mn>17.4</mn></mfrac><mo>=</mo><mo form=\"prefix\" stretchy=\"false\">+</mo><mn>1.37</mn></mrow><annotation encoding=\"application/x-tex\">z_B = \\frac{128 - 104.2}{17.4} = \\frac{23.8}{17.4} = +1.37</annotation></semantics></math><figcaption>TeX source: <code>z_B = \\frac{128 - 104.2}{17.4} = \\frac{23.8}{17.4} = +1.37</code></figcaption></figure>\n<p>Person B sits further from the centre of their group than person A does from the centre of theirs, on a reading 32 mg/dL lower. Both statements are true and they are answers to different questions. &quot;How unusual is this person here?&quot; is what a z-score answers. &quot;How high is this person&#39;s glucose?&quot; is answered by 160 and 128, and no standardisation improves on that.</p>\n<p>So a z-score is meaningless until the distribution it was measured against is named. Reporting one without the reference group is like reporting a temperature without saying which scale.</p>\n<h2>What a z-score is not</h2>\n<p>A z-score is a distance. Turning it into a probability takes a second step, and that second step is where the model re-enters.</p>\n<p>Saying &quot;this reading has z = +2.17&quot; requires only a mean and a standard deviation, and holds whatever shape the data have. Saying &quot;only about 1.5 per cent of people are this high or higher&quot; requires that the distribution actually be normal, because that percentage is read off the normal curve. When the shape assumption fails, the z-score survives intact and the percentage attached to it does not. The next scene is entirely about that gap.</p>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-standardise-three</span></div>\n    <div class=\"ek-block-content\"><p>Using the cohort mean of 142 mg/dL and standard deviation of 18 mg/dL, and without a calculator where you can manage it:</p>\n<ol>\n<li>What is the z-score of the 126 mg/dL diabetes diagnostic threshold?</li>\n<li>A reading has z = −1.00. What is the reading, in mg/dL?</li>\n<li>Two people have z = +1.50, one on fasting glucose and one on a completely different measurement in a different study. What can you say about them, and what can you not?</li>\n</ol>\n</div>\n  </aside>\n<p>The threshold gives z = (126 − 142) ÷ 18 = −16 ÷ 18 = −0.89, so 126 mg/dL sits a little under nine tenths of a standard deviation below this cohort&#39;s centre. A z of −1.00 is one standard deviation below the mean, so 142 − 18 = 124 mg/dL. For the third: both sit one and a half standard deviations above the centre of their own reference distribution, and that is the entire content of the statement. You cannot say their measurements are similar, that they are comparably ill, or that the same share of people lies beyond each of them, since that last one depends on the shape of each distribution and neither has been checked here.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-z-score-definition, claim-normal-two-parameters, claim-empirical-rule-areas, claim-glucose-unit-conversion, claim-hypoglycaemia-alert-value</span><span><b>sources</b> source-nist-normal-data, source-nist-normal-distribution, source-ihsg-hypoglycaemia-reporting</span></div>\n    <div class=\"ek-block-content\"><p>The first source supplies the standardising transformation z = (x − μ)/σ and the percentages of a normal population falling within one, two and three standard deviations. The second supplies the normal distribution&#39;s location and scale parameters and the standard normal distribution as the case with mean 0 and standard deviation 1. The third is a joint position statement of the American Diabetes Association and the European Association for the Study of Diabetes, used here for its glucose alert value and for its paired reporting of thresholds in both mmol/l and mg/dl, which fixes the conversion factor of 18 used above. The cohort, the two people, every z-score computed here, and all wording are original teaching material.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-where-the-bell-misleads",
+      "title": "The same check, run on a population that fails it",
+      "kind": "misconception",
+      "source": "content/05-where-the-bell-misleads.md",
+      "estimatedMinutes": 30,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>The same check, run on a population that fails it</h1>\n<p>The stipulated study-cohort summaries showed no large directional mismatch with a normal curve, although the missing observations prevent a reproducible or calibrated fit decision in this pack.</p>\n<p>Widen the frame to everybody, and the shape changes.</p>\n<p>A large international pooling project, DETECT-2, assembled 43 surveys from 27 countries covering 135,383 participants who had undergone an oral glucose tolerance test, in order to test whether glucose distributions split cleanly into two humps at a diagnostic boundary. Their statistical methods open with a plain observation about the raw data: the distributions of both fasting plasma glucose and 2-hour plasma glucose are skewed to the right, and glucose values were log transformed before model fitting to reduce that skew. Right-skew is not an artefact of one survey. It is the ordinary shape of this measurement in a general population, and it is the first thing the analysts had to deal with.</p>\n<p>The pooled surveys support the empirical right skew and the authors&#39; use of a log transformation. They do not establish a physiological mechanism for that shape. A lower bound and no stated upper bound also do not, by themselves, force a distribution to skew right; the shape judgment here comes from the observed distributions. Once right skew is established, the normal family has no parameter that can reproduce it.</p>\n<h2>A screening clinic, and a model that fails in both directions</h2>\n<p>Below is a constructed screening dataset for this lesson: 1000 adults at a workplace health check, fasting glucose in mg/dL, built to have the right-hand lean that the pooled surveys describe. The counts are the ones in the data table beneath the chart.</p>\n<figure class=\"ek-block ek-chart\" data-directive=\"chart\" data-chart-source=\"charts/screening-glucose-right-skew.chart.json\">\n    <div class=\"ek-block-label directive-label\">Chart</div>\n    <p class=\"ek-chart-title\">A constructed screening distribution with a long right tail: 1000 adults, bins 10 mg/dL wide</p>\n    <svg viewBox=\"0 0 720 380\" class=\"ek-chart-svg\" role=\"img\" aria-label=\"Histogram of 1000 fasting glucose readings with a tall peak between 90 and 100 mg/dL and a tail that thins slowly out to 200 mg/dL.\" xmlns=\"http://www.w3.org/2000/svg\"><title>Histogram of 1000 fasting glucose readings with a tall peak between 90 and 100 mg/dL and a tail that thins slowly out to 200 mg/dL.</title><line x1=\"106.43\" y1=\"28\" x2=\"106.43\" y2=\"324\" class=\"ek-chart-marker\"/><text x=\"106.43\" y=\"20\" class=\"ek-chart-markerlabel\" text-anchor=\"middle\">Normal model, two standard deviations below the mean: 69.4 mg/dL</text><line x1=\"263.53\" y1=\"28\" x2=\"263.53\" y2=\"324\" class=\"ek-chart-marker\"/><text x=\"263.53\" y=\"20\" class=\"ek-chart-markerlabel\" text-anchor=\"middle\">Mean 104.2 mg/dL</text><line x1=\"420.63\" y1=\"28\" x2=\"420.63\" y2=\"324\" class=\"ek-chart-marker\"/><text x=\"420.63\" y=\"20\" class=\"ek-chart-markerlabel\" text-anchor=\"middle\">Normal model, two standard deviations above the mean: 139.0 mg/dL</text><rect x=\"109.14\" y=\"308.78\" width=\"44.14\" height=\"15.22\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"154.29\" y=\"212.37\" width=\"44.14\" height=\"111.63\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"199.43\" y=\"44.07\" width=\"44.14\" height=\"279.93\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"244.57\" y=\"97.35\" width=\"44.14\" height=\"226.65\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"289.71\" y=\"224.21\" width=\"44.14\" height=\"99.79\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"334.86\" y=\"277.49\" width=\"44.14\" height=\"46.51\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"380\" y=\"298.63\" width=\"44.14\" height=\"25.37\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"425.14\" y=\"307.09\" width=\"44.14\" height=\"16.91\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"470.29\" y=\"313.85\" width=\"44.14\" height=\"10.15\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"515.43\" y=\"318.08\" width=\"44.14\" height=\"5.92\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"560.57\" y=\"319.77\" width=\"44.14\" height=\"4.23\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"605.71\" y=\"322.31\" width=\"44.14\" height=\"1.69\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"650.86\" y=\"322.31\" width=\"44.14\" height=\"1.69\" class=\"ek-chart-bar ek-chart-series--0\"/><line x1=\"64\" y1=\"28\" x2=\"64\" y2=\"324\" class=\"ek-chart-axis\"/>\n    <line x1=\"64\" y1=\"324\" x2=\"696\" y2=\"324\" class=\"ek-chart-axis\"/>\n    <line x1=\"64\" y1=\"324\" x2=\"64\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"64\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">60</text><line x1=\"154.29\" y1=\"324\" x2=\"154.29\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"154.29\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">80</text><line x1=\"244.57\" y1=\"324\" x2=\"244.57\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"244.57\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">100</text><line x1=\"334.86\" y1=\"324\" x2=\"334.86\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"334.86\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">120</text><line x1=\"425.14\" y1=\"324\" x2=\"425.14\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"425.14\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">140</text><line x1=\"515.43\" y1=\"324\" x2=\"515.43\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"515.43\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">160</text><line x1=\"605.71\" y1=\"324\" x2=\"605.71\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"605.71\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">180</text><line x1=\"696\" y1=\"324\" x2=\"696\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"696\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">200</text><line x1=\"59\" y1=\"324\" x2=\"64\" y2=\"324\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"328\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">0</text><line x1=\"59\" y1=\"281.71\" x2=\"64\" y2=\"281.71\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"285.71\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">50</text><line x1=\"59\" y1=\"239.43\" x2=\"64\" y2=\"239.43\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"243.43\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">100</text><line x1=\"59\" y1=\"197.14\" x2=\"64\" y2=\"197.14\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"201.14\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">150</text><line x1=\"59\" y1=\"154.86\" x2=\"64\" y2=\"154.86\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"158.86\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">200</text><line x1=\"59\" y1=\"112.57\" x2=\"64\" y2=\"112.57\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"116.57\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">250</text><line x1=\"59\" y1=\"70.29\" x2=\"64\" y2=\"70.29\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"74.29\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">300</text><line x1=\"59\" y1=\"28\" x2=\"64\" y2=\"28\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"32\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">350</text>\n    <text x=\"380\" y=\"368\" class=\"ek-chart-axislabel\" text-anchor=\"middle\">Fasting glucose (mg/dL)</text>\n    <text x=\"16\" y=\"176\" class=\"ek-chart-axislabel\" text-anchor=\"middle\" transform=\"rotate(-90 16 176)\">Number of people</text></svg>\n    \n    <figcaption>Histogram of 1000 fasting glucose readings with a tall peak between 90 and 100 mg/dL and a tail that thins slowly out to 200 mg/dL.</figcaption>\n    <details class=\"ek-long-description\"><summary>Read the chart as text</summary><p>One thousand fasting glucose readings from a constructed workplace screening are grouped into thirteen bins 10 mg/dL wide, running from 70 to 200 mg/dL. The counts are 18, 132, 331, 268, 118, 55, 30, 20, 12, 7, 5, 2 and 2 people. The distribution has one hump, but it is lopsided: the left side falls from the 90 to 100 peak to zero within twenty units, while the right side takes more than ninety units to run out. Computed from the bin midpoints, the mean is 104.2 mg/dL and the standard deviation is 17.4 mg/dL, and the median of about 101 sits below the mean, which is the arithmetic signature of a right-hand tail. Vertical lines mark the mean at 104.2 mg/dL and the two boundaries a normal model would place two standard deviations out, at 69.4 and 139.0 mg/dL. The normal model puts about 23 of the 1000 readings below 69.4 mg/dL; no reading below 70 mg/dL was recorded. The same model puts about 23 readings above 139.0 mg/dL; at least 48 people sat at or above 140 mg/dL. The model is wrong in both directions at once, and it is wrong in the tails, which is where a screening service is looking.</p><table class=\"ek-chart-table\"><caption>Chart data</caption><thead><tr><th scope=\"col\">Series</th><th scope=\"col\">Value</th></tr></thead><tbody><tr><td>People in each 10 mg/dL bin</td><td>70 to 80: 18</td></tr><tr><td>People in each 10 mg/dL bin</td><td>80 to 90: 132</td></tr><tr><td>People in each 10 mg/dL bin</td><td>90 to 100: 331</td></tr><tr><td>People in each 10 mg/dL bin</td><td>100 to 110: 268</td></tr><tr><td>People in each 10 mg/dL bin</td><td>110 to 120: 118</td></tr><tr><td>People in each 10 mg/dL bin</td><td>120 to 130: 55</td></tr><tr><td>People in each 10 mg/dL bin</td><td>130 to 140: 30</td></tr><tr><td>People in each 10 mg/dL bin</td><td>140 to 150: 20</td></tr><tr><td>People in each 10 mg/dL bin</td><td>150 to 160: 12</td></tr><tr><td>People in each 10 mg/dL bin</td><td>160 to 170: 7</td></tr><tr><td>People in each 10 mg/dL bin</td><td>170 to 180: 5</td></tr><tr><td>People in each 10 mg/dL bin</td><td>180 to 190: 2</td></tr><tr><td>People in each 10 mg/dL bin</td><td>190 to 200: 2</td></tr><tr><td>Marker</td><td>Fasting glucose 69.4: Normal model, two standard deviations below the mean: 69.4 mg/dL</td></tr><tr><td>Marker</td><td>Fasting glucose 104.2: Mean 104.2 mg/dL</td></tr><tr><td>Marker</td><td>Fasting glucose 139: Normal model, two standard deviations above the mean: 139.0 mg/dL</td></tr></tbody></table></details>\n  </figure>\n<p>Compute the two parameters from the binned values and the normal model is fully specified: mean 104.2 mg/dL, standard deviation 17.4 mg/dL. The median is about 101, sitting below the mean, which is what a right-hand tail does to the arithmetic. Now put the model&#39;s own bands against the counts, the way the previous scene did.</p>\n<table>\n<thead>\n<tr>\n<th>Region</th>\n<th>Normal model predicts</th>\n<th>Screening actually recorded</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>Below 69.4 mg/dL (mean − 2 sd)</td>\n<td>about 23 of the 1000</td>\n<td>none; the lowest bin starts at 70</td>\n</tr>\n<tr>\n<td>Between 69.4 and 139.0 mg/dL</td>\n<td>about 955</td>\n<td>at most 952</td>\n</tr>\n<tr>\n<td>Above 139.0 mg/dL (mean + 2 sd)</td>\n<td>about 23</td>\n<td>at least 48</td>\n</tr>\n</tbody></table>\n<p>The middle row looks fine. That is the trap: a symmetric model forced onto a lopsided dataset has to find a left tail somewhere, and it pays for it out of the right. Both tails are wrong, they are wrong in opposite directions, and adding them together hides it. The check has to be run by side, or it will pass on a model that is failing at both ends.</p>\n<p>Read the two failing rows as a clinic would.</p>\n<p>The lower one predicts about two dozen readings below 69.4 mg/dL. The joint ADA and EASD position statement gives 3.9 mmol/l, which is 70 mg/dl, as a glucose alert value for hypoglycaemia in the reporting of clinical trials. So the model expects roughly 23 people in this screening to turn up at or under that alert value. None did, and the model&#39;s belief that they should came from nothing but the requirement that the curve be symmetric.</p>\n<p>The upper one is the more consequential. The model puts about 23 people above 139 mg/dL; at least 48 were at or above 140, more than double. A service using the curve to plan follow-up capacity for the raised-glucose group would provision for about half the people it would actually see. The tail is where a screening programme does its work, and the tail is exactly where the symmetric model was weakest.</p>\n<aside class=\"ek-block ek-misconception ek-block--misconception\" data-directive=\"misconception\">\n    <div class=\"ek-block-label directive-label\">Misconception</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> misconception-empirical-rule-on-any-data</span></div>\n    <div class=\"ek-block-content\"><p><strong>The claim.</strong> &quot;This dataset has a mean and a standard deviation, so about 95 per cent of it lies within two standard deviations of the mean.&quot;</p>\n<p><strong>Why it appeals.</strong> The rule is stated in terms of a mean and a standard deviation, and every dataset has both. The sentence appears to need no further permission, and on the cohort in this lesson it happens to come out right.</p>\n<p><strong>Why it fails.</strong> The 68, 95 and 99.7 figures are areas under a normal curve. They travel with the curve, not with the arithmetic, and a mean and a standard deviation can be computed for any set of numbers whatever its shape. On the screening data above, the rule predicts 23 people below a value none of them reached, and predicts about half as many above the upper bound as were actually there. The arithmetic was faultless throughout; the distribution was the wrong one.</p>\n<p><strong>The corrective test.</strong> Ask what the rule was derived from before applying it, and then run the count by side. Predict a number for each tail separately and count each tail separately. Large, persistent discrepancies in opposite directions are a warning that a symmetric model is missing skew, but ordinary sampling variation can also move counts. Use the tail counts as an informal diagnostic and confirm a binary fit judgment with the observations in a normal probability plot or another calibrated procedure. If right skew is established, no adjustment of the mean or the standard deviation can make a normal curve lean.</p>\n</div>\n  </aside>\n<h2>Which failure you get is an empirical question</h2>\n<p>The display lesson made this point once already, with a different failure. It built a two-humped cohort whose mean of 142 mg/dL fell in the hollow between the humps and described almost nobody. That was a constructed warning about what a summary can hide.</p>\n<p>The pooled surveys let you say something firmer about how glucose really behaves. DETECT-2 set out to find bimodality and reported that distributions of fasting and 2-hour plasma glucose did not, in general, produce bimodal structures useful for deriving a diabetes cut point, and that where a biologically meaningful two-hump structure did appear it seemed to be driven by participants with already-diagnosed diabetes. The two-humped picture is real enough as a possibility and it is not the usual finding; the usual finding is the right-hand lean.</p>\n<p>So the two counter-cases are not competing. Skew is what glucose ordinarily does, two humps are what a mixed population can do, and neither is visible in a mean and a standard deviation. The habit that survives both is the same one: state the shape you are assuming, then go and look.</p>\n<h2>What people do instead</h2>\n<p>This lesson does not teach the repairs, and you should know they exist so that a failed check reads as a fork in the road rather than a dead end. DETECT-2 took the first of these.</p>\n<ul>\n<li>Transform the measurement, most often by taking logarithms, and model the transformed values, which pulls in a long right tail.</li>\n<li>Choose a distribution family that permits skew instead of forcing symmetry.</li>\n<li>Abandon the curve and work directly with the observed percentiles, which assumes no shape at all and in exchange says nothing beyond the range of the data.</li>\n</ul>\n<p>Each buys something and costs something. The decision belongs to the analysis, and it can only be made after the check has been run.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-fpg-right-skewed, claim-glucose-bimodality-not-general, claim-empirical-rule-areas, claim-hypoglycaemia-alert-value</span><span><b>sources</b> source-detect2-glucose-distribution, source-nist-normal-data, source-ihsg-hypoglycaemia-reporting</span></div>\n    <div class=\"ek-block-content\"><p>The first source is the DETECT-2 pooled analysis, used for the scale of the pooling, for its statement that fasting and 2-hour plasma glucose distributions are skewed to the right, for its log transformation of glucose before model fitting, and for its finding that bimodal structures were not in general useful for deriving diabetes cut points and appeared to be driven by participants with known diabetes. The second supplies the normal population percentages the failed predictions are computed from. The third supplies the glucose alert value of 3.9 mmol/l, equal to 70 mg/dl. The 1000-person screening dataset is constructed for this lesson, is not an observation of real people, and every count and parameter reported from it was computed from the bins shown in the chart&#39;s data table.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-counting-yes-or-no",
+      "title": "When the question is a count, the curve is the wrong tool",
+      "kind": "concept",
+      "source": "content/06-counting-yes-or-no.md",
+      "estimatedMinutes": 34,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>When the question is a count, the curve is the wrong tool</h1>\n<p>A clinical director does not ask what fraction of the area under a curve lies past 126 mg/dL. She asks how many of her sixty patients were over the line this quarter, and whether next quarter&#39;s number would tell her anything.</p>\n<p>That question has changed type. A glucose reading can be any value in a range and takes a curve. A count of people over a threshold is a whole number, it cannot go below zero, it cannot exceed sixty, and there is nothing between 48 and 49. It needs a <strong>discrete distribution</strong>: one that assigns an honest probability to each individual outcome instead of to intervals. For counting yes-or-no results, that distribution is the <strong>binomial</strong>.</p>\n<h2>Four conditions, all of them checkable</h2>\n<p>The binomial describes the number of &quot;yes&quot; results in a sequence of trials when all four of these hold.</p>\n<ol>\n<li><strong>The number of trials is fixed in advance.</strong> Here it is 60, one per person in the cohort.</li>\n<li><strong>Each trial has exactly two mutually exclusive outcomes.</strong> Fasting glucose at or above 126 mg/dL, or below it. The threshold is the NIDDK diagnostic value for diabetes on a fasting plasma glucose test, and the reduction to yes-or-no is a deliberate loss: someone at 127 and someone at 210 both count once.</li>\n<li><strong>The probability of &quot;yes&quot; is the same on every trial.</strong> Call it <em>p</em>.</li>\n<li><strong>The trials are independent.</strong> One person&#39;s result changing does not change anybody else&#39;s probability.</li>\n</ol>\n<p>Conditions three and four are where real data argue back, and this scene comes back to both.</p>\n<p>Given those, the probability of exactly <em>k</em> yes results in <em>n</em> trials is:</p>\n<figure class=\"ek-block ek-equation\" data-directive=\"equation\"><div class=\"ek-block-label directive-label\">equation-binomial-pmf</div><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mi>P</mi><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mi>X</mi><mo>=</mo><mi>k</mi><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>=</mo><mrow><mo fence=\"true\">(</mo><mfrac linethickness=\"0px\"><mi>n</mi><mi>k</mi></mfrac><mo fence=\"true\">)</mo></mrow><mspace width=\"0.1667em\"></mspace><msup><mi>p</mi><mi class=\"tml-med-pad\">k</mi></msup><msup><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>1</mn><mo>−</mo><mi>p</mi><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mrow><mi>n</mi><mo>−</mo><mi>k</mi></mrow></msup></mrow><annotation encoding=\"application/x-tex\">P(X = k) = \\binom{n}{k} \\, p^{k} (1-p)^{n-k}</annotation></semantics></math><figcaption>TeX source: <code>P(X = k) = \\binom{n}{k} \\, p^{k} (1-p)^{n-k}</code></figcaption></figure>\n<p>The three pieces do separate jobs. The power of <em>p</em> counts the yes results, the power of (1 − <em>p</em>) counts the no results, and the binomial coefficient counts how many different orderings of <em>k</em> yes results among <em>n</em> people would produce the same total. The counting rules from the probability lesson are doing the last of those.</p>\n<h2>Where p comes from</h2>\n<p>For a conditional teaching calculation, the fitted normal model supplies a probability. The threshold is 126 mg/dL, the mean is 142 and the standard deviation is 18, so:</p>\n<figure class=\"ek-block ek-equation\" data-directive=\"equation\"><div class=\"ek-block-label directive-label\">equation-threshold-z</div><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mi>z</mi><mo>=</mo><mfrac><mrow><mn>126</mn><mo>−</mo><mn>142</mn></mrow><mn>18</mn></mfrac><mo>=</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>0.89</mn><mo separator=\"true\">,</mo><mspace width=\"2em\"></mspace><mi>P</mi><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mi>X</mi><mo>≥</mo><mn>126</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>=</mo><mn>0.8130</mn></mrow><annotation encoding=\"application/x-tex\">z = \\frac{126 - 142}{18} = -0.89, \\qquad P(X \\ge 126) = 0.8130</annotation></semantics></math><figcaption>TeX source: <code>z = \\frac{126 - 142}{18} = -0.89, \\qquad P(X \\ge 126) = 0.8130</code></figcaption></figure>\n<p>Round to <em>p</em> = 0.81. Three cautions apply before using it. This <em>p</em> was estimated from the same stipulated cohort summaries the model will be compared against, so a good match is partly guaranteed and is weaker evidence than a match against an independently obtained probability. Converting a z-score into a probability requires the normal shape to hold, which this pack has not established with reproducible observations. Finally, a binomial count requires the same <em>p</em> for every person; the dinner-time subgroups later in this scene show why that condition cannot simply be assumed for this cohort.</p>\n<h2>Five patients first</h2>\n<p>First isolate the binomial arithmetic from the cohort problem. Consider five independent, exchangeable patients in a constructed homogeneous group for which <em>p</em> = 0.81 applies to every person.</p>\n<aside class=\"ek-block ek-worked-example ek-block--worked-example\" data-directive=\"worked-example\">\n    <div class=\"ek-block-label directive-label\">Worked Example</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> worked-example-five-patients</span></div>\n    <div class=\"ek-block-content\"><p><strong>All five at or above 126.</strong> Every trial has to come out yes, and there is only one way for that to happen: 0.81⁵ = 0.3487. About a 35 per cent chance.</p>\n<p><strong>Exactly four of the five.</strong> One person is below the threshold and any of the five could be that person, so the coefficient is 5. That gives 5 × 0.81⁴ × 0.19 = 5 × 0.4305 × 0.19 = 0.4089. This is the single most likely outcome, at about 41 per cent.</p>\n<p><strong>Exactly three of the five.</strong> Two people below, and there are 10 ways to choose which two: 10 × 0.81³ × 0.19² = 10 × 0.5314 × 0.0361 = 0.1918, about 19 per cent.</p>\n<p><strong>Two or fewer.</strong> Add the three remaining counts instead of subtracting, so the rounding does not accumulate: 0.0450 + 0.0053 + 0.0002 = 0.0505, about 5 per cent.</p>\n<p><strong>Read it back.</strong> The six possible counts have probabilities 0.0002, 0.0053, 0.0450, 0.1918, 0.4089 and 0.3487 for zero through five, and they account for every outcome there is, summing to 1 up to rounding. Notice what a discrete distribution can do that a curve cannot: &quot;exactly four&quot; has a real, quotable probability of 0.409. Ask a normal curve for the probability of exactly 4.0 and the answer is zero.</p>\n<p><strong>Self-explanation.</strong> Why does the choice to use five independent people from one homogeneous group matter more to this model than the fact that the outcome is written as a whole-number count?</p>\n</div>\n  </aside>\n<h2>Sixty patients</h2>\n<p>As a conditional calculation, suppose sixty independent, exchangeable patients each have <em>p</em> = 0.81. Two summaries come straight from the parameters:</p>\n<figure class=\"ek-block ek-equation\" data-directive=\"equation\"><div class=\"ek-block-label directive-label\">equation-binomial-mean-sd</div><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mi>μ</mi><mo>=</mo><mi>n</mi><mi>p</mi><mo>=</mo><mn>60</mn><mo>×</mo><mn>0.81</mn><mo>=</mo><mn>48.6</mn><mo separator=\"true\">,</mo><mspace width=\"2em\"></mspace><mi>σ</mi><mo>=</mo><msqrt><mrow><mi>n</mi><mi>p</mi><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>1</mn><mo>−</mo><mi>p</mi><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow></msqrt><mo>=</mo><msqrt><mrow><mn>60</mn><mo>×</mo><mn>0.81</mn><mo>×</mo><mn>0.19</mn></mrow></msqrt><mo>=</mo><msqrt><mn>9.234</mn></msqrt><mo>=</mo><mn>3.04</mn></mrow><annotation encoding=\"application/x-tex\">\\mu = np = 60 \\times 0.81 = 48.6, \\qquad \\sigma = \\sqrt{np(1-p)} = \\sqrt{60 \\times 0.81 \\times 0.19} = \\sqrt{9.234} = 3.04</annotation></semantics></math><figcaption>TeX source: <code>\\mu = np = 60 \\times 0.81 = 48.6, \\qquad \\sigma = \\sqrt{np(1-p)} = \\sqrt{60 \\times 0.81 \\times 0.19} = \\sqrt{9.234} = 3.04</code></figcaption></figure>\n<p>So the conditional model expects about 49 of the sixty at or above 126 mg/dL. The value 3.04 patients is the standard deviation of one quarter&#39;s count around 48.6, not the standard deviation of the change between two independent quarters. Under the same assumptions, the difference between two independent quarterly counts would have standard deviation <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msqrt><mn>2</mn></msqrt><mo>×</mo><mn>3.04</mn><mo>=</mo><mn>4.30</mn></mrow><annotation encoding=\"application/x-tex\">\\sqrt{2} \\times 3.04 = 4.30</annotation></semantics></math></span> patients. Working the probability formula at each count, 49 is the single most likely outcome at 0.131, and the counts from 43 to 55 together hold 0.967 of the probability.</p>\n<p>The earlier clinical table stipulates 49 of the sixty at or above 126 mg/dL. Conditional prediction 48.6, stipulated count 49.</p>\n<p>That agreement is worth exactly what the cautions above allow. It confirms that the normal model and the binomial count are arithmetically consistent with each other on this dataset, which checks the chain of reasoning and does not independently confirm either link.</p>\n<h2>Where the conditions bend</h2>\n<p><strong>Constant probability.</strong> The cohort is not one group. For this constructed illustration, the thirty earlier-dinner patients are assigned a threshold probability of 0.76 and the thirty later-dinner patients a probability of 0.86. Their equally weighted average is 0.81, but averaging two different probabilities does not make the individual trials share one. A single binomial with <em>p</em> = 0.81 would silently erase the heterogeneity and violate its own fixed-probability condition.</p>\n<p><strong>Independence.</strong> This is the one that breaks properly, and the study&#39;s own design shows how. Each participant recorded between 5 and 14 nights. A tempting move is to treat every night as a trial, giving several hundred trials instead of sixty and a much narrower answer. It is wrong, and the reason is the meaning of independence from the probability lesson: nights from the same person are not independent, because knowing that Tuesday was above 126 tells you a great deal about Wednesday for that individual. Counting them as separate trials manufactures precision out of repetition. The count of <em>people</em> over the threshold keeps one trial per person and stays defensible.</p>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-binomial-conditions</span></div>\n    <div class=\"ek-block-content\"><p>For each situation, say whether a binomial model is defensible and name the condition at stake.</p>\n<ol>\n<li>Of 60 people in the cohort, how many are at or above 165 mg/dL, given a model probability of 0.10 for each.</li>\n<li>Of 60 people, how many will still be enrolled at 12 months, where withdrawals happen partly because a clinic closed and took its patients with it.</li>\n<li>Across the whole cohort, how many of the recorded nights showed a fasting glucose above 126 mg/dL, treating every night as a trial.</li>\n<li>How many fasting glucose readings in the cohort exceed 250 mg/dL, using a probability read off the fitted normal curve.</li>\n</ol>\n</div>\n  </aside>\n<p>The first is defensible as stated: sixty fixed trials, a binary outcome, one stated probability applying to every person, and one reading per person. The model expects 60 × 0.10 = 6.0 people, and the earlier lesson stipulated 6 at or above 165 mg/dL. The second fails independence, since a clinic closure removes a block of people together and the outcomes are linked through a shared cause. The third fails independence too, for the reason set out above: nights are clustered within people. The fourth is not defensible for two reasons. The cohort&#39;s subgroups already undermine the assumption that one common <em>p</em> applies to all sixty people, and the proposed probability comes from a far tail that no observation in the stipulated summaries reaches. Both the binomial condition and its upstream input need justification.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-binomial-conditions, claim-binomial-mean-sd, claim-fpg-thresholds, claim-z-score-definition</span><span><b>sources</b> source-nist-binomial, source-eom-binomial, source-niddk-diabetes-tests, source-nist-normal-data, source-nist-normal-distribution</span></div>\n    <div class=\"ek-block-content\"><p>The first source supplies the binomial as the distribution for exactly two mutually exclusive outcomes of a trial, the probability of x successes in N trials with the probability of success on a single trial fixed for all trials, the probability formula, and the mean np and standard deviation of the square root of np(1 − p). The second supplies the requirement that the underlying trials be independent. The third supplies the fasting plasma glucose diagnostic value of 126 mg/dL or above. The fourth and fifth supply the standardising transformation used to obtain p and the standard normal distribution it maps onto. The cohort, its stipulated subgroup probabilities, the nights recorded, and every probability computed here are original teaching material.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-practice-props-removed",
+      "title": "Practice, with the props taken away one at a time",
+      "kind": "practice",
+      "source": "content/07-practice-with-the-props-removed.md",
+      "estimatedMinutes": 14,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Practice, with the props taken away one at a time</h1>\n<p>Three tasks on three clinics that have nothing to do with the study. The first names the steps to take, the second names only the destination, and the third supplies neither. Attempt each before reading the paragraph that follows it.</p>\n<h2>First, with the steps supplied</h2>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-practice-scaffolded</span></div>\n    <div class=\"ek-block-content\"><p>A second diabetes clinic, unrelated to the study, records fasting glucose for 40 patients. The mean is 155 mg/dL and the standard deviation is 20 mg/dL. Assume for now that a normal model is appropriate.</p>\n<ol>\n<li>Write the one-standard-deviation and two-standard-deviation bands as glucose values.</li>\n<li>Standardise a reading of 195 mg/dL.</li>\n<li>Under the model, what share of patients sit above 195 mg/dL, and roughly how many of the 40 is that?</li>\n</ol>\n</div>\n  </aside>\n<p>The bands come from adding and subtracting the standard deviation: 155 − 20 = 135 and 155 + 20 = 175, then 155 − 40 = 115 and 155 + 40 = 195. Standardising 195 gives (195 − 155) ÷ 20 = 40 ÷ 20 = +2.00, so the reading sits exactly on the upper two-standard-deviation boundary. The empirical rule leaves 100 − 95.45 = 4.55 per cent outside that band, split evenly between the two tails, so 2.275 per cent sits above 195 mg/dL. Applied to 40 patients that is 40 × 0.02275 = 0.91, which rounds to about one person. A prediction of &quot;about one&quot; is a useful reminder that a clinic this size cannot check its own model in the far tail.</p>\n<h2>Second, with only the destination named</h2>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-practice-partly-faded</span></div>\n    <div class=\"ek-block-content\"><p>Same clinic, 40 independent patients measured once, mean 155 mg/dL, standard deviation 20 mg/dL, normal model assumed, with the same threshold probability applying to every patient.</p>\n<p>The clinic wants to count patients at or above 175 mg/dL. Work out the probability that any one patient is over that line, then give the expected count and its standard deviation. Last quarter the count was 12. Say whether that is an ordinary result.</p>\n</div>\n  </aside>\n<p>The threshold standardises to (175 − 155) ÷ 20 = +1.00, and the empirical rule puts (100 − 68.27) ÷ 2 = 15.87 per cent above one standard deviation, so <em>p</em> = 0.16 to two places. The count is a binomial with <em>n</em> = 40 and <em>p</em> = 0.16, giving a mean of 40 × 0.16 = 6.4 patients and a standard deviation of √(40 × 0.16 × 0.84) = √5.376 = 2.32 patients. A count of 12 sits (12 − 6.4) ÷ 2.32 = 2.4 standard deviations above what the model expects, and working the binomial formula across all counts from 12 upwards gives a probability of 0.019 for a quarter at least this high. That is uncommon enough to ask what changed, and it is not evidence on its own that anything did. The model could be wrong instead of the quarter being unusual, and 40 patients drawn from a different intake would move this count around by two or three people on their own.</p>\n<h2>Third, with nothing supplied</h2>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-practice-unfaded</span></div>\n    <div class=\"ek-block-content\"><p>A third clinic has 100 patients, mean fasting glucose 132 mg/dL, standard deviation 22 mg/dL. Its analyst fitted a normal model and recorded these counts:</p>\n<table>\n<thead>\n<tr>\n<th>Region</th>\n<th>Patients</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>Below 88</td>\n<td>0</td>\n</tr>\n<tr>\n<td>88 up to 110</td>\n<td>6</td>\n</tr>\n<tr>\n<td>110 up to 154</td>\n<td>74</td>\n</tr>\n<tr>\n<td>154 up to 176</td>\n<td>14</td>\n</tr>\n<tr>\n<td>176 and above</td>\n<td>6</td>\n</tr>\n</tbody></table>\n<p>State what use of the model should be limited, say what the counts suggest about the shape, and name the stronger check needed for a binary overall fit decision.</p>\n</div>\n  </aside>\n<p>Do not rely on this normal model in the tails without a stronger fit check. The bands are 132 ± 22, giving 110 to 154, and 132 ± 44, giving 88 to 176. The model predicts 68.3 patients in the inner band and observes 74, which alone is not decisive. Splitting the misses by side reveals a strong directional warning: the model predicts 15.87 patients below 110 and 15.87 above 154, while the clinic recorded 6 and 20. Two standard deviations out, the model predicts 2.3 patients in each tail and the clinic recorded 0 below 88 and 6 above 176. Every discrepancy runs the same way, with a thinner left tail and a heavier right tail than a symmetric model predicts. These coarse counts support investigating right skew, but they are not a calibrated pass/fail rule; inspect the observations with a normal probability plot or another suitable procedure before making a binary overall fit decision.</p>\n<p>Note what a careless total would have done here. Adding the inner three rows gives 94 patients inside the two-standard-deviation band against a prediction of 95.5, near enough to wave through. The aggregate agreed because the two tails were wrong in opposite directions and cancelled, which is the same trap the screening data set earlier in this lesson.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-empirical-rule-areas, claim-binomial-mean-sd, claim-z-score-definition, claim-normality-is-checkable</span><span><b>sources</b> source-nist-normal-data, source-nist-normal-distribution, source-nist-binomial, source-eom-binomial, source-nist-normal-probability-plot</span></div>\n    <div class=\"ek-block-content\"><p>These sources supply the population percentages within one and two standard deviations that every predicted count above is computed from, the standard normal distribution and the standardising transformation, the binomial mean np and standard deviation of the square root of np(1 − p) together with the independence of trials it assumes, and the treatment of approximate normality as something to be assessed rather than assumed. The three clinics and every figure in these tasks are constructed for this lesson and describe no real service or patient.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-transfer-length-of-stay",
+      "title": "The same method, on a measurement that is not glucose",
+      "kind": "transfer",
+      "source": "content/08-somewhere-else-entirely.md",
+      "estimatedMinutes": 10,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>The same method, on a measurement that is not glucose</h1>\n<p>A method you can only run on the dataset it was taught with is a trick. This scene moves it: different measurement, different unit, different service, and a failure that shows up before any data are consulted.</p>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-transfer-length-of-stay</span></div>\n    <div class=\"ek-block-content\"><p>An acute medical unit reports on last year&#39;s admissions. Mean length of stay 6.2 days, standard deviation 5.8 days, median 4 days, shortest possible stay 1 day. A manager preparing a capacity paper writes: &quot;Applying the standard rule, 95 per cent of stays fall within two standard deviations of the mean.&quot;</p>\n<p>Finish the manager&#39;s sentence with the actual numbers, then say what is wrong before any data are consulted, and name one thing about this measurement that made it predictable.</p>\n</div>\n  </aside>\n<p>Two standard deviations either side of 6.2 days gives 6.2 − 11.6 = −5.4 days and 6.2 + 11.6 = 17.8 days. The lower boundary is negative, but the impossible region actually begins below the stated minimum of 1 day, not below −5.4. Standardising that minimum gives <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>z</mi><mo>=</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>1</mn><mo>−</mo><mn>6.2</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mi>/</mi><mn>5.8</mn><mo>≈</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>0.897</mn></mrow><annotation encoding=\"application/x-tex\">z = (1 - 6.2) / 5.8 \\approx -0.897</annotation></semantics></math></span>. Writing <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"normal\">Φ</mi><mspace></mspace></mrow><annotation encoding=\"application/x-tex\">\\Phi</annotation></semantics></math></span> for the cumulative probability under a standard normal curve, a standard normal table or software gives <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>P</mi><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mi>X</mi><mo>&lt;</mo><mn>1</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>=</mo><mrow><mi mathvariant=\"normal\">Φ</mi><mspace></mspace></mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>0.897</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>≈</mo><mn>0.185</mn></mrow><annotation encoding=\"application/x-tex\">P(X &lt; 1) = \\Phi(-0.897) \\approx 0.185</annotation></semantics></math></span>: about 18.5 per cent of this fitted curve lies on impossible stays. The familiar 2.275 per cent is only the smaller part below −5.4 days.</p>\n<p>Two stated features diagnose different problems. The standard deviation is almost as large as the mean, so this particular symmetric curve crosses far through the floor at 1. Separately, the median of 4 days sits well below the mean of 6.2, which supports a right-tail interpretation because high stays can pull the mean above the middle observation. A lower bound and no stated upper bound do not by themselves force right skew; the mean-median relationship supplies the shape evidence here.</p>\n<h2>What travelled, and what did not</h2>\n<p>The method transferred without alteration: name the parameters, state what the model predicts, compare against something that can contradict it, and split the comparison by side. The manager&#39;s error was not arithmetic and would not have been caught by more careful arithmetic.</p>\n<p>What did not transfer is any of the glucose numbers. The mean of 142 mg/dL, the standard deviation of 18, the threshold probability of 0.81, and the empirical rule&#39;s predicted counts of 41, 57 and 60 all belong to one cohort of sixty people. Carrying a number across is the error; carrying the procedure across is the point.</p>\n<p>Two further quantities worth trying the procedure on, where the same floor-and-no-ceiling structure applies: the interval between a referral and a first appointment, and the time from admission to a first dose of an antibiotic. In each case the measurement cannot fall below zero, has no natural upper limit, and will be summarised by somebody with a mean and a standard deviation. Ask what the model puts below zero before you ask anything else.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-empirical-rule-areas, claim-normal-two-parameters, claim-normality-is-checkable</span><span><b>sources</b> source-nist-normal-data, source-nist-normal-distribution, source-nist-normal-probability-plot</span></div>\n    <div class=\"ek-block-content\"><p>The first source supplies the population percentages within one, two and three standard deviations. The second supplies the normal distribution and the standard normal case used to evaluate the probability below the actual one-day floor. The third supplies the treatment of approximate normality as something to be assessed rather than assumed. The medical unit, its figures, and the further examples are constructed for this lesson and describe no real service or patient.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-clinical-wrap-up",
+      "title": "Clinical wrap-up: planning a clinic from a curve",
+      "kind": "synthesis",
+      "source": "content/09-clinical-wrap-up.md",
+      "estimatedMinutes": 12,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Clinical wrap-up: planning a clinic from a curve</h1>\n<p><strong>Teaching example, not medical advice.</strong> The service, its meeting, the cohort summaries, the screening event, and every count below are invented for teaching. The underlying sixty readings are not included in this pack, so their summaries are stipulated inputs rather than reproducible observations. Nothing here describes real patients or should inform anyone&#39;s care. Published reference values are quoted only because the reasoning needs a real threshold to work against.</p>\n<p>A diabetes service has to submit a plan for next quarter. It runs a monthly optimisation clinic for patients whose fasting glucose is at or above the diagnostic threshold, and it has to say in advance how many slots to hold. It also runs a community screening event at a local employer, and somebody has suggested using the same numbers for both. The service has this lesson&#39;s cohort in front of it: 60 adults with type 2 diabetes, mean fasting glucose 142 mg/dL, standard deviation 18 mg/dL.</p>\n<p>Four questions come up, and every one of them is answered with something from this lesson.</p>\n<h2>How many slots?</h2>\n<p>The threshold is the fasting plasma glucose value at or above which NIDDK gives a result of diabetes, 126 mg/dL, with a doctor usually using a second test to confirm.</p>\n<p>Standardising it against the overall cohort gives (126 − 142) ÷ 18 = −0.89, and the conditional normal calculation gives 0.81 above the line. But the binomial step would require that same probability for every patient. The lesson has already stipulated different subgroup probabilities, 0.76 after an earlier dinner and 0.86 after a later one, so assigning every patient <em>p</em> = 0.81 contradicts the model&#39;s fixed-probability condition even though 0.81 is their equally weighted average.</p>\n<p>The service therefore cannot justify the former single-binomial forecast of 48.6 with a standard deviation of 3.04, or its interval from 43 to 55, from the information in this pack. It needs a probability estimated for the population it will schedule and evidence that the probability is common across the proposed trials, or it must model justified strata separately and combine their planned counts. One measurement per person is still needed for independence. Until those inputs exist, 49 is only a stipulated descriptive count from the constructed cohort, not a calibrated capacity forecast.</p>\n<h2>Was last quarter&#39;s high group unusual?</h2>\n<p>Six patients were at or above 165 mg/dL last quarter, and the meeting wants to know whether that is a signal.</p>\n<p>The threshold standardises to (165 − 142) ÷ 18 = +1.28, which the conditional normal model puts about 0.10 of the distribution beyond. If sixty independent, exchangeable patients really shared <em>p</em> = 0.10, their count would have mean 60 × 0.10 = 6.0 and standard deviation <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msqrt><mrow><mn>60</mn><mo>×</mo><mn>0.10</mn><mo>×</mo><mn>0.90</mn></mrow></msqrt><mo>=</mo><mn>2.3</mn></mrow><annotation encoding=\"application/x-tex\">\\sqrt{60 \\times 0.10 \\times 0.90} = 2.3</annotation></semantics></math></span> patients.</p>\n<p>The stipulated count is also 6, so the arithmetic is internally aligned with that conditional model. It does not establish that last quarter was ordinary, because the common-<em>p</em> premise has not been justified and the normal tail probability rests on unreproduced cohort inputs. A real audit would establish a population-matched probability and its model conditions before interpreting the count.</p>\n<h2>Can the same model be used at the screening event?</h2>\n<p>No, and the reason has two layers worth separating.</p>\n<p>The first layer is the reference distribution. The cohort&#39;s model was fitted to 60 adults who already have a diagnosis of type 2 diabetes, centred at 142 mg/dL. A workplace screening draws mostly people without that diagnosis, and the constructed screening data earlier in this lesson centred at 104.2 mg/dL. Carrying the cohort&#39;s mean and standard deviation across would misplace every z-score computed at the event, and a reading of 128 mg/dL would look reassuringly below average when it in fact sits 1.37 standard deviations above the centre of the group being screened.</p>\n<p>The second layer is the one that survives even after refitting the parameters, and it is the point of this lesson. Fasting glucose in a general population is skewed to the right; the pooled international surveys say so and log-transformed their glucose values before fitting anything. A normal curve refitted to the screening population still has no way to lean. Applied to the constructed screening data, it expected about 23 readings below 69.4 mg/dL, under the 70 mg/dL glucose alert value the ADA and EASD statement gives for hypoglycaemia, where none were recorded; and it expected about 23 above 139.0 mg/dL where at least 48 sat at or above 140. Planning follow-up capacity on the second of those numbers would leave the event short by half.</p>\n<p>The instruction the service should take away is a sequence: refit the parameters to the population you are actually looking at, assess shape with that population&#39;s observations using an appropriate plot or calibrated procedure, and use the model only where that evidence supports it.</p>\n<h2>And the person at 100 mg/dL?</h2>\n<p>One reading in the cohort is 100 mg/dL, which standardises to (100 − 142) ÷ 18 = −2.33, further from the centre than the highest reading at +2.17. The display lesson flagged that person as the closest thing this cohort has to an outlier and said the first move is to look at the record: was the sample taken fasting, is the meter the one the notes say, did the value transcribe correctly.</p>\n<p>A z-score does not change that advice; it sharpens it. The number says how far the reading is from the middle of its group, and it says nothing about why. Distance is a reason to look, and looking is at the record before it is at the patient.</p>\n<h2>What this lesson has not given the service</h2>\n<p>The plan above rests on a mean of 142 and a standard deviation of 18 treated as if they were the truth about the population. They are estimates from sixty people, and a different sixty would have produced different ones. Nothing in this lesson says by how much.</p>\n<p>That is the next question in the block, and it is the one that turns a description into an inference. The lesson after this takes the normal curve you have just fitted and applies it to a different quantity: not one patient&#39;s glucose, but the mean of a whole sample, which turns out to have a distribution of its own and a much narrower one.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-fpg-thresholds, claim-binomial-mean-sd, claim-binomial-conditions, claim-z-score-definition, claim-fpg-right-skewed, claim-hypoglycaemia-alert-value</span><span><b>sources</b> source-niddk-diabetes-tests, source-nist-binomial, source-eom-binomial, source-nist-normal-data, source-nist-normal-distribution, source-detect2-glucose-distribution, source-ihsg-hypoglycaemia-reporting</span></div>\n    <div class=\"ek-block-content\"><p>These sources supply the fasting plasma glucose diagnostic value of 126 mg/dL or above and the usual practice of confirming with a second test; the binomial&#39;s conditions, mean np and standard deviation of the square root of np(1 − p); the standardising transformation, the standard normal distribution it maps onto, and the normal population percentages behind each probability quoted; the finding that fasting plasma glucose distributions are skewed to the right and were log transformed before model fitting; and the glucose alert value of 3.9 mmol/l, equal to 70 mg/dl. The service, its meeting, the sixty patients, the screening event, and every count and plan above are original teaching material and are not observations of any real service or patient.</p>\n</div>\n  </aside>\n"
+    }
+  ],
+  "authors": [
+    {
+      "principalId": "github:VSBDev",
+      "displayName": "VSBDev — accountable author",
+      "agent": {
+        "system": "RUNTIME-STAMPED",
+        "provider": "RUNTIME-STAMPED",
+        "model": "RUNTIME-STAMPED",
+        "version": "RUNTIME-STAMPED",
+        "runId": "claude-author-PREM-STA-005-11d261ab-4095-4ef4-bab7-6cb91260a01e",
+        "instructionsDigest": "sha256:7a5c780a37957562da1763942bbaa5c98ae4ee5d15ef7e87b05a2b556d386b4b"
+      }
+    }
+  ],
+  "license": "CC-BY-4.0",
+  "sourceConfidence": "medium-high",
+  "aiAssistance": {
+    "used": true,
+    "disclosure": "VSBDev (github:VSBDev) is accountable for this lesson pack. Material authoring assistance used system RUNTIME-STAMPED, provider RUNTIME-STAMPED, model RUNTIME-STAMPED, version RUNTIME-STAMPED, in isolated run claude-author-PREM-STA-005-11d261ab-4095-4ef4-bab7-6cb91260a01e. The instructions digest covers the exact discloseable UTF-8 lesson-authoring task payload supplied to this run, including its terminal newline; it excludes hidden provider and system instructions that cannot be exported."
+  },
+  "assessment": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-assessment-v1",
+    "lessonId": "PREM-STA-005",
+    "lessonVersion": "0.1.0",
+    "assessmentId": "assessment-probability-distributions",
+    "title": "Fit a curve, check it, standardise a reading, count the yes results",
+    "purpose": "mixed",
+    "attemptPolicy": {
+      "retakeable": true,
+      "timeLimitMinutes": null,
+      "feedback": "after-attempt"
+    },
+    "items": [
+      {
+        "id": "item-band-boundaries",
+        "type": "numeric",
+        "sceneId": "scene-two-numbers-fix-the-curve",
+        "objectiveIds": [
+          "objective-fit-the-normal-model"
+        ],
+        "outcomeIds": [
+          "topic-statistics-data-distributions"
+        ],
+        "prompt": "A renal clinic records serum creatinine for its outpatients and adopts a normal model with mean 96 micromol/L and standard deviation 14 micromol/L. Give the upper boundary of the band that lies two standard deviations above the mean, in micromol/L.",
+        "stimulus": null,
+        "points": 3,
+        "responseSpec": {
+          "mode": "number",
+          "units": "micromol/L",
+          "tolerance": 0
+        },
+        "answer": {
+          "correct": 124,
+          "summary": "124 micromol/L.",
+          "reasoning": "Two standard deviations above the mean is 96 + 2 × 14 = 96 + 28 = 124 micromol/L. The corresponding lower boundary is 96 − 28 = 68, and the empirical rule places 95.45 per cent of the modelled values between them.",
+          "acceptableResponses": [
+            "124",
+            "124 micromol/L"
+          ],
+          "commonErrors": [
+            "Answering 110, which adds one standard deviation instead of two.",
+            "Answering 138, which adds three standard deviations because the 99.7 per cent figure was recalled instead of the 95 per cent one."
+          ]
+        },
+        "rubricId": "rubric-model-arithmetic",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-density-is-not-probability",
+        "type": "single-choice",
+        "sceneId": "scene-two-numbers-fix-the-curve",
+        "objectiveIds": [
+          "objective-fit-the-normal-model"
+        ],
+        "outcomeIds": [
+          "topic-statistics-data-distributions"
+        ],
+        "prompt": "Under a normal model for fasting glucose with mean 142 mg/dL and standard deviation 18 mg/dL, what is the probability that a randomly chosen person's fasting glucose is exactly 142 mg/dL?",
+        "stimulus": null,
+        "points": 3,
+        "responseSpec": {
+          "mode": "single-choice",
+          "options": [
+            {
+              "id": "option-zero",
+              "text": "Zero, because a single value spans no width and encloses no area under the curve."
+            },
+            {
+              "id": "option-highest",
+              "text": "It is the highest probability of any value, because 142 is where the curve peaks."
+            },
+            {
+              "id": "option-sixty-eight",
+              "text": "About 0.68, because 142 is the mean and the empirical rule assigns 68 per cent there."
+            },
+            {
+              "id": "option-one-sixtieth",
+              "text": "About 1 in 60, because the cohort has 60 people and one of them could be at the mean."
+            }
+          ]
+        },
+        "answer": {
+          "correct": "option-zero",
+          "summary": "Zero.",
+          "reasoning": "For a continuous distribution, probability is area under the curve between two values. A single point has no width, so it encloses no area and its probability is zero. The curve's height at 142 is a probability density, which is at its maximum there, and a density is not a probability. The 68 per cent figure applies to the whole band from 124 to 160, not to the centre point. The 1 in 60 answer confuses a question about the model with a question about the sample in hand.",
+          "acceptableResponses": [
+            "Zero.",
+            "0, because probability is area and a point has no width."
+          ],
+          "commonErrors": [
+            "Reading the peak height of the curve as the probability of the mean.",
+            "Attaching the 68 per cent band figure to the single value at its centre."
+          ]
+        },
+        "rubricId": "rubric-model-concepts",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-standardise-a-reading",
+        "type": "numeric",
+        "sceneId": "scene-common-ruler",
+        "objectiveIds": [
+          "objective-standardise-a-reading"
+        ],
+        "outcomeIds": [
+          "topic-statistics-data-distributions"
+        ],
+        "prompt": "In the study cohort fasting glucose has mean 142 mg/dL and standard deviation 18 mg/dL. Give the z-score of a reading of 169 mg/dL, to two decimal places.",
+        "stimulus": null,
+        "points": 3,
+        "responseSpec": {
+          "mode": "number",
+          "units": null,
+          "tolerance": 0.01
+        },
+        "answer": {
+          "correct": 1.5,
+          "summary": "z = +1.50.",
+          "reasoning": "Subtract the mean and divide by the standard deviation: (169 − 142) ÷ 18 = 27 ÷ 18 = 1.50. The reading sits one and a half standard deviations above the centre of this cohort. The answer carries no units, because the mg/dL in the numerator and the denominator cancel.",
+          "acceptableResponses": [
+            "1.5",
+            "1.50",
+            "+1.5"
+          ],
+          "commonErrors": [
+            "Answering 27, which is the raw distance from the mean rather than the distance in standard deviations.",
+            "Answering 9.39 by dividing the reading by the standard deviation without subtracting the mean first."
+          ]
+        },
+        "rubricId": "rubric-model-arithmetic",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-z-needs-a-reference",
+        "type": "short-answer",
+        "sceneId": "scene-common-ruler",
+        "objectiveIds": [
+          "objective-standardise-a-reading"
+        ],
+        "outcomeIds": [
+          "topic-statistics-data-distributions"
+        ],
+        "prompt": "A colleague writes in a report: \"Patient K's fasting glucose has a z-score of +1.4, so about 92 per cent of comparable patients have a lower reading.\" Two separate things are missing before that percentage claim can be assessed. Name both, and say why each one matters.",
+        "stimulus": null,
+        "points": 6,
+        "responseSpec": {
+          "mode": "text",
+          "maxLength": 1200
+        },
+        "answer": {
+          "correct": "The reference distribution the score was computed against, and the check that the reference distribution is the right shape before the score is turned into a probability.",
+          "summary": "The reference group is unnamed, and the shape needed to convert distance into a percentile has not been established.",
+          "reasoning": "A z-score is a distance from the centre of a particular distribution, so the same reading standardises differently against a cohort of people with diagnosed type 2 diabetes, centred near 142 mg/dL, and against a general screening population centred nearer 104 mg/dL. Without the reference group named, +1.4 cannot be converted back into a glucose value or compared with anyone else's score. Separately, the stated 92 per cent is a percentile conversion read from a normal curve. If the reference distribution is right-skewed, as fasting plasma glucose is in a general population, the distance survives and the asserted percentage does not. A strong answer also notes that neither problem is fixed by more decimal places.",
+          "acceptableResponses": [
+            "The reference distribution is not stated, and its shape has not been checked, so the distance cannot be interpreted or converted into a probability.",
+            "Which population the mean and standard deviation came from, and whether that population's distribution is actually normal."
+          ],
+          "commonErrors": [
+            "Naming only the missing reference group and treating the conversion from z to a percentage as automatic.",
+            "Answering that the units are missing, when a z-score correctly has none.",
+            "Treating +1.4 as a percentile on its own, when a z-score reports distance and a percentile additionally requires a distributional shape."
+          ]
+        },
+        "rubricId": "rubric-model-reasoning",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-diagnose-the-failure",
+        "type": "data-interpretation",
+        "sceneId": "scene-where-the-bell-misleads",
+        "objectiveIds": [
+          "objective-check-the-model"
+        ],
+        "outcomeIds": [
+          "topic-statistics-data-distributions"
+        ],
+        "prompt": "A hospital biochemistry service fits a normal model to 500 serum triglyceride results, obtaining a mean of 1.5 mmol/L and a standard deviation of 0.9 mmol/L. It then counts how many results fall in each region and compares them with the model, giving the table in the stimulus. All the figures are constructed for this task. State what use of the normal model should be rejected or limited, give the specific evidence, and explain what further check is needed for a calibrated overall fit decision.",
+        "stimulus": "Region | Results recorded | Normal model predicts\n--- | --- | ---\nBelow −0.3 mmol/L (mean − 2 sd) | 0 | about 11\n−0.3 up to 0.6 mmol/L | 9 | about 68\n0.6 up to 2.4 mmol/L (within 1 sd) | 431 | about 341\n2.4 up to 3.3 mmol/L | 39 | about 68\n3.3 mmol/L and above (mean + 2 sd) | 21 | about 11\n\nThe recorded results total 500.",
+        "points": 8,
+        "responseSpec": {
+          "mode": "text",
+          "maxLength": 1600
+        },
+        "answer": {
+          "correct": "Do not use this normal model for tail probabilities. It assigns material probability to impossible negative concentrations, while the observed counts are much thinner on the left and heavier on the far right than its symmetric predictions. Use the observations in a normal probability plot or another calibrated procedure before making a binary overall fit decision.",
+          "summary": "Limit or reject its tail use: impossible negative support and large directional count discrepancies expose a poor tail representation, while a calibrated overall verdict needs the observations and a suitable fit procedure.",
+          "reasoning": "Two standard deviations below the mean is 1.5 − 1.8 = −0.3 mmol/L. A concentration cannot be negative, so at least the roughly 11 results the model predicts below −0.3 are assigned to impossible outcomes; the model also assigns additional probability between −0.3 and zero. That structural conflict is enough to reject its use for lower-tail probabilities. The regional counts add a strong directional warning. Below 0.6 mmol/L the model expects about 11 + 68 = 79 results and the service recorded 0 + 9 = 9. Inside one standard deviation it expects about 341 and records 431. Above 3.3 mmol/L it expects about 11 and records 21. The aggregate inside two standard deviations is 479 against about 477, so combining sides conceals the mismatch. These counts support investigating right skew because the observed left tail is thin and the observed far right tail is heavy; the lower bound alone would not establish skew. Band counts are not a universal calibrated pass/fail rule, so a normal probability plot or another suitable procedure using the observations is still needed for a binary overall fit judgment.",
+          "acceptableResponses": [
+            "Do not use it for tail probabilities: it predicts impossible negative concentrations, its left tail is much thinner than predicted, and it under-predicts the far right. Use a normal probability plot or calibrated procedure for an overall fit verdict.",
+            "Limit or reject the tail model. The aggregate inside two standard deviations looks close only because opposite tail errors cancel; the directional counts warn of right skew, but band counts alone are not a calibrated fit test."
+          ],
+          "commonErrors": [
+            "Retaining the model because the total inside two standard deviations, 479 against about 477, is close, which is exactly the cancellation the lesson warns about.",
+            "Rejecting the model for the right reason but describing the shape as left-skewed by reading the direction of the long tail backwards.",
+            "Treating a numerical band-count difference as a universal pass/fail cutoff instead of distinguishing the support conflict, the directional warning and the need for a calibrated fit procedure."
+          ]
+        },
+        "rubricId": "rubric-model-reasoning",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-binomial-conditions",
+        "type": "multiple-choice",
+        "sceneId": "scene-counting-yes-or-no",
+        "objectiveIds": [
+          "objective-model-a-count"
+        ],
+        "outcomeIds": [
+          "topic-statistics-data-distributions"
+        ],
+        "prompt": "Select every situation in which a binomial model for the count is defensible, given one clearly defined yes-or-no outcome per trial.",
+        "stimulus": null,
+        "points": 6,
+        "responseSpec": {
+          "mode": "multiple-choice",
+          "options": [
+            {
+              "id": "option-forty-independent-patients",
+              "text": "The number of 40 unrelated outpatients, each measured once, whose fasting glucose is at or above a fixed threshold, with one stated probability applying to all of them."
+            },
+            {
+              "id": "option-repeated-nights",
+              "text": "The number of nights above a threshold across a study in which each of 60 people contributed between 5 and 14 nights, counting every night as a trial."
+            },
+            {
+              "id": "option-household-contacts",
+              "text": "The number of people in 25 households who catch a respiratory infection during one outbreak, counting each person as a trial."
+            },
+            {
+              "id": "option-coin-of-unknown-bias",
+              "text": "The number of heads in 30 tosses of one coin whose bias is unknown but fixed for all 30 tosses."
+            }
+          ],
+          "maxSelections": 4
+        },
+        "answer": {
+          "correct": [
+            "option-forty-independent-patients",
+            "option-coin-of-unknown-bias"
+          ],
+          "summary": "The 40 outpatients and the 30 coin tosses.",
+          "reasoning": "The outpatient count has a fixed number of trials, a binary outcome, one probability applying to every trial, and one measurement per person, so the trials do not share a person. The coin satisfies every condition too: the probability being unknown is not a problem, because the binomial requires only that it be the same on every trial, and an unknown p can be estimated afterwards. The repeated nights fail independence, since nights from one person are clustered and knowing one night tells you a great deal about the next for that individual; treating them as separate trials manufactures precision. The household contacts fail independence for a different reason: infection spreads within a household, so one person's outcome changes their housemates' probabilities.",
+          "acceptableResponses": [
+            "The 40 outpatients and the 30 coin tosses.",
+            "Options 1 and 4."
+          ],
+          "commonErrors": [
+            "Rejecting the coin because p is unknown, when the condition is that p is constant rather than known.",
+            "Accepting the repeated nights because the total number of trials is larger and the answer looks more precise.",
+            "Accepting the household contacts because each person plainly has two possible outcomes, which is only one of the four conditions."
+          ]
+        },
+        "rubricId": "rubric-model-concepts",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-expected-count-and-spread",
+        "type": "numeric",
+        "sceneId": "scene-counting-yes-or-no",
+        "objectiveIds": [
+          "objective-model-a-count"
+        ],
+        "outcomeIds": [
+          "topic-statistics-data-distributions"
+        ],
+        "prompt": "A clinic will measure 50 patients, and a model gives each one a probability of 0.20 of being at or above a chosen glucose threshold. Assuming the binomial conditions hold, give the standard deviation of the count of patients over the threshold, to two decimal places.",
+        "stimulus": null,
+        "points": 4,
+        "responseSpec": {
+          "mode": "number",
+          "units": "patients",
+          "tolerance": 0.01
+        },
+        "answer": {
+          "correct": 2.83,
+          "summary": "2.83 patients.",
+          "reasoning": "The standard deviation of a binomial count is the square root of np(1 − p), so √(50 × 0.20 × 0.80) = √8 = 2.83 patients. The expected count itself is np = 50 × 0.20 = 10, so a clinic planning on this model should expect about 10 patients over the threshold and should treat a result three or four either side of that as ordinary variation.",
+          "acceptableResponses": [
+            "2.83",
+            "2.83 patients",
+            "sqrt(8)"
+          ],
+          "commonErrors": [
+            "Answering 10, which is the mean np rather than the standard deviation.",
+            "Answering 8, which is the variance np(1 − p) with the square root omitted.",
+            "Answering 3.16 by taking the square root of np and forgetting the (1 − p) factor."
+          ]
+        },
+        "rubricId": "rubric-model-arithmetic",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-plan-and-caveat",
+        "type": "open-response",
+        "sceneId": "scene-clinical-wrap-up",
+        "objectiveIds": [
+          "objective-check-the-model",
+          "objective-model-a-count"
+        ],
+        "outcomeIds": [
+          "topic-statistics-data-distributions"
+        ],
+        "prompt": "A diabetes service fitted a normal model to 60 patients already under its care, mean fasting glucose 142 mg/dL and standard deviation 18 mg/dL, and used it to plan clinic capacity. It now proposes to reuse the same mean, standard deviation and threshold probability to plan a community screening event open to the general public. Write a short note to the service explaining what has to change and why, using this lesson's tools. Treat the numbers as an illustrative teaching example.",
+        "stimulus": null,
+        "points": 10,
+        "responseSpec": {
+          "mode": "text",
+          "maxLength": 2500
+        },
+        "answer": {
+          "correct": "Refit the parameters to the screening population, assess shape with that population's observations using an appropriate fit procedure, and use a binomial count only if one threshold probability is justified for independent trials; otherwise model justified strata separately.",
+          "summary": "The old parameters and normal shape do not transfer, and the count model also needs independent trials with a common probability before capacity can be planned.",
+          "reasoning": "A complete answer separates three failures. First, the parameters were fitted to people already diagnosed with type 2 diabetes and are centred at 142 mg/dL, whereas a public screening population centres much lower, so z-scores and threshold probabilities based on the old parameters would be misplaced. Second, fasting plasma glucose in a general population is empirically right-skewed, and a normal curve has no parameter that can lean; the screening observations therefore need a normal probability plot or another suitable fit procedure rather than an aggregate band-count pass. Third, a binomial capacity count requires independent trials with the same threshold probability for every person. The cohort already contains subgroups with different stipulated probabilities, so the old common value of about 0.81 cannot simply be carried over. The service should estimate probabilities for the population it will serve, justify homogeneity or model justified strata separately, and preserve one independent trial per person. The whole exercise remains illustrative rather than a recommendation about a real service.",
+          "acceptableResponses": [
+            "Refit the screening population, assess its shape with an appropriate fit procedure, and use a binomial only if the people are independent and share one justified threshold probability; otherwise stratify.",
+            "The diagnosed-cohort parameters do not transfer, the general-population distribution leans right, and a common p cannot be assumed. Refit, check shape, then justify homogeneous independent trials or model strata separately."
+          ],
+          "commonErrors": [
+            "Recommending only that the mean and standard deviation be recomputed, which leaves the shape failure in place.",
+            "Recommending a larger screening sample, which sharpens the estimates of parameters for a model that is the wrong shape.",
+            "Judging the refitted model acceptable on the total inside two standard deviations, when those counts are an informal diagnostic and the two tails can be wrong in opposite directions and cancel.",
+            "Using a binomial interval without checking that the same threshold probability applies to every independent trial.",
+            "Treating the illustrative capacity figures as a recommendation for a real service."
+          ]
+        },
+        "rubricId": "rubric-model-reasoning",
+        "safetyCritical": false
+      }
+    ],
+    "rubrics": [
+      {
+        "id": "rubric-model-arithmetic",
+        "title": "Computing with a distribution's parameters",
+        "criteria": [
+          {
+            "id": "criterion-correct-formula",
+            "description": "Selects the right expression for the quantity asked for, distinguishing a band boundary from a z-score, and a binomial mean from a binomial standard deviation.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-correct-value",
+            "description": "Produces the correct value with the stated rounding, and attaches a unit where the quantity has one or omits it where the quantity is unit-free.",
+            "maxPoints": 2
+          }
+        ]
+      },
+      {
+        "id": "rubric-model-concepts",
+        "title": "Distinguishing what a distribution model does and does not say",
+        "criteria": [
+          {
+            "id": "criterion-density-versus-probability",
+            "description": "Keeps density, area and count apart, and treats a probability for a continuous measurement as attached to a range rather than to a point.",
+            "maxPoints": 3
+          },
+          {
+            "id": "criterion-conditions-tested",
+            "description": "Tests each stated condition of a model against the situation described instead of accepting the model because one condition is met.",
+            "maxPoints": 3
+          }
+        ]
+      },
+      {
+        "id": "rubric-model-reasoning",
+        "title": "Judging whether a model may be used",
+        "criteria": [
+          {
+            "id": "criterion-evidence-named",
+            "description": "Names the specific numerical evidence relevant to the judgment, compares tails separately rather than only in aggregate, and distinguishes a structural contradiction or strong warning from a calibrated pass/fail procedure.",
+            "maxPoints": 4
+          },
+          {
+            "id": "criterion-failure-diagnosed",
+            "description": "Identifies the kind of failure correctly, distinguishing wrong parameters from a wrong distributional shape, and states which repairs would and would not address it.",
+            "maxPoints": 4
+          },
+          {
+            "id": "criterion-limits-stated",
+            "description": "States the limits of the conclusion, including the region of the distribution the evidence covers and the illustrative status of the example.",
+            "maxPoints": 2
+          }
+        ]
+      }
+    ]
+  },
+  "references": {
+    "schemaVersion": 2,
+    "format": "embeddedknowledge-references-v2",
+    "lessonId": "PREM-STA-005",
+    "lessonVersion": "0.1.0",
+    "sources": [
+      {
+        "id": "source-nist-normal-distribution",
+        "type": "reference-work",
+        "title": "NIST/SEMATECH e-Handbook of Statistical Methods, section 1.3.6.6.1: Normal Distribution",
+        "creators": [
+          "National Institute of Standards and Technology",
+          "SEMATECH"
+        ],
+        "publisher": "National Institute of Standards and Technology, U.S. Department of Commerce",
+        "issued": null,
+        "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda3661.htm",
+        "accessed": "2026-07-25",
+        "version": "NIST/SEMATECH e-Handbook of Statistical Methods, online edition retrieved 2026-07-25; no publication or revision date is stated on the page",
+        "locator": "Section 1.3.6.6.1, Normal Distribution: probability density function, location and scale parameters, standard normal case, and the Comments section",
+        "license": "US Government work; NIST states that information on its sites is public information and may be distributed or copied, with credit requested",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only for the facts that the normal distribution is one named distribution with a stated probability density function, that mu is its location parameter and sigma its scale parameter, that the standard normal distribution is the special case with mu = 0 and sigma = 1, and that the page describes the normal distribution as probably the most important distribution in statistics. The cohort, every parameter value, every band and every computation in this lesson are original. NIST copyright guidance at https://www.nist.gov/oism/copyrights states that NIST information is public information that may be distributed or copied and requests appropriate credit."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://www.nist.gov/robots.txt",
+          "checked": "2026-07-25",
+          "notes": "Checked before substantive access. https://www.itl.nist.gov/robots.txt serves no robots file of its own and returns HTTP 302 to https://www.nist.gov/itl/, so the governing record is https://www.nist.gov/robots.txt, retrieved 2026-07-25. That file disallows only platform directories, README files, administrative routes, search and user-account paths, and places no restriction on /div898/. The handbook page returned HTTP 200 and was read directly over HTTPS in a single request, not through a search summary, with no login, paywall, rate-limit breach, or access-control bypass."
+        }
+      },
+      {
+        "id": "source-nist-normal-data",
+        "type": "reference-work",
+        "title": "NIST/SEMATECH e-Handbook of Statistical Methods, section 6.5.1: What do we mean by \"Normal\" data?",
+        "creators": [
+          "National Institute of Standards and Technology",
+          "SEMATECH"
+        ],
+        "publisher": "National Institute of Standards and Technology, U.S. Department of Commerce",
+        "issued": null,
+        "url": "https://www.itl.nist.gov/div898/handbook/pmc/section5/pmc51.htm",
+        "accessed": "2026-07-25",
+        "version": "NIST/SEMATECH e-Handbook of Statistical Methods, online edition retrieved 2026-07-25; no publication or revision date is stated on the page",
+        "locator": "Section 6.5.1: the definition of \"normal\" data, the z = (x - mu)/sigma transformation, and the tabulated population percentages falling between mu plus or minus one, two and three sigma",
+        "license": "US Government work; NIST states that information on its sites is public information and may be distributed or copied, with credit requested",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only for the facts that data called normal are data drawn from a population having a normal distribution, that the standardising transformation is z = (x - mu)/sigma and lets a normal probability be evaluated independently of mu and sigma, and that 68.27 per cent, 95.45 per cent and 99.73 per cent of the population fall between mu plus or minus one, two and three sigma respectively. Every count, share and glucose value derived from those percentages in this lesson was computed here and is original. NIST copyright guidance at https://www.nist.gov/oism/copyrights states that NIST information is public information that may be distributed or copied and requests appropriate credit."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://www.nist.gov/robots.txt",
+          "checked": "2026-07-25",
+          "notes": "Checked before substantive access. https://www.itl.nist.gov/robots.txt serves no robots file of its own and returns HTTP 302 to https://www.nist.gov/itl/, so the governing record is https://www.nist.gov/robots.txt, retrieved 2026-07-25. That file disallows only platform directories, README files, administrative routes, search and user-account paths, and places no restriction on /div898/. The page was read directly over HTTPS with no login, paywall, rate-limit breach, or access-control bypass."
+        }
+      },
+      {
+        "id": "source-nist-normal-probability-plot",
+        "type": "reference-work",
+        "title": "NIST/SEMATECH e-Handbook of Statistical Methods, section 1.3.3.21: Normal Probability Plot",
+        "creators": [
+          "National Institute of Standards and Technology",
+          "SEMATECH"
+        ],
+        "publisher": "National Institute of Standards and Technology, U.S. Department of Commerce",
+        "issued": null,
+        "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/normprpl.htm",
+        "accessed": "2026-07-25",
+        "version": "NIST/SEMATECH e-Handbook of Statistical Methods, online edition retrieved 2026-07-25; no publication or revision date is stated on the page",
+        "locator": "Section 1.3.3.21, Normal Probability Plot: purpose and the interpretation of departures from the reference line",
+        "license": "US Government work; NIST states that information on its sites is public information and may be distributed or copied, with credit requested",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only for the facts that the normal probability plot is a graphical technique for assessing whether or not a data set is approximately normally distributed, and that departures from its straight reference line indicate departures from normality. The lesson's band-counting procedure, its misconception treatment, and all wording are original. NIST copyright guidance at https://www.nist.gov/oism/copyrights states that NIST information is public information that may be distributed or copied and requests appropriate credit."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://www.nist.gov/robots.txt",
+          "checked": "2026-07-25",
+          "notes": "Checked before substantive access. The governing robots record for the itl.nist.gov handbook host is https://www.nist.gov/robots.txt, retrieved 2026-07-25, which places no restriction on /div898/. The page was read directly over HTTPS with no login, paywall, rate-limit breach, or access-control bypass."
+        }
+      },
+      {
+        "id": "source-nist-binomial",
+        "type": "reference-work",
+        "title": "NIST/SEMATECH e-Handbook of Statistical Methods, section 1.3.6.6.18: Binomial Distribution",
+        "creators": [
+          "National Institute of Standards and Technology",
+          "SEMATECH"
+        ],
+        "publisher": "National Institute of Standards and Technology, U.S. Department of Commerce",
+        "issued": null,
+        "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda366i.htm",
+        "accessed": "2026-07-25",
+        "version": "NIST/SEMATECH e-Handbook of Statistical Methods, online edition retrieved 2026-07-25; no publication or revision date is stated on the page",
+        "locator": "Section 1.3.6.6.18, Binomial Distribution: definition, probability mass function, the fixed-p assumption, and the Common Statistics table giving the mean and standard deviation",
+        "license": "US Government work; NIST states that information on its sites is public information and may be distributed or copied, with credit requested",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only for the facts that the binomial distribution is used when there are exactly two mutually exclusive outcomes of a trial, that it gives the probability of observing x successes in N trials with the probability of success on a single trial denoted p, that the distribution assumes p is fixed for all trials, that the probability mass function is n-choose-x times p to the x times (1 - p) to the (n - x), and that the mean is np and the standard deviation the square root of np(1 - p). The threshold, the value of p, the five-patient and sixty-patient worked examples, and every probability computed in this lesson are original. NIST copyright guidance at https://www.nist.gov/oism/copyrights states that NIST information is public information that may be distributed or copied and requests appropriate credit."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://www.nist.gov/robots.txt",
+          "checked": "2026-07-25",
+          "notes": "Checked before substantive access. The governing robots record for the itl.nist.gov handbook host is https://www.nist.gov/robots.txt, retrieved 2026-07-25, which places no restriction on /div898/. The page was read directly over HTTPS with no login, paywall, rate-limit breach, or access-control bypass."
+        }
+      },
+      {
+        "id": "source-eom-binomial",
+        "type": "reference-work",
+        "title": "Binomial distribution",
+        "creators": [
+          "L.N. Bol'shev",
+          "Encyclopedia of Mathematics"
+        ],
+        "publisher": "European Mathematical Society and Springer, Encyclopedia of Mathematics",
+        "issued": null,
+        "url": "https://encyclopediaofmath.org/wiki/Binomial_distribution",
+        "accessed": "2026-07-25",
+        "version": "Wiki entry retrieved 2026-07-25; adapted from an original article by L.N. Bol'shev in the Encyclopedia of Mathematics, ISBN 1402006098",
+        "locator": "Opening definition: the distribution of the number of positive results in a sequence of independent trials, with the stated probability formula, expectation np and variance np(1 - p)",
+        "license": "CC BY-SA 3.0 and GNU Free Documentation License, as stated on the encyclopedia's copyrights page",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only for the fact that the binomial distribution arises from a sequence of independent random variables each taking the value 1 with probability p and 0 with probability 1 - p, so that independence of trials is a condition of the model, together with the expectation np and variance np(1 - p) that corroborate the NIST record. The lesson's four-condition checklist, its independence counter-cases, and all wording are original."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://encyclopediaofmath.org/wiki/Encyclopedia_of_Mathematics:Copyrights",
+          "checked": "2026-07-25",
+          "notes": "Checked before substantive access. A request for https://encyclopediaofmath.org/robots.txt on 2026-07-25 returned HTTP 301 to the site's main page and served no robots file, so the site publishes no path restriction. The copyrights page states CC BY-SA 3.0 and GFDL terms and carries no prohibition on machine reading. The entry was read over HTTPS in a single request with no login, paywall, rate-limit breach, or access-control bypass."
+        }
+      },
+      {
+        "id": "source-detect2-glucose-distribution",
+        "type": "primary-research",
+        "title": "Bimodal distribution of glucose is not universally useful for diagnosing diabetes",
+        "creators": [
+          "Dorte Vistisen",
+          "Stephen Colagiuri",
+          "Knut Borch-Johnsen",
+          "DETECT-2 Collaboration"
+        ],
+        "publisher": "American Diabetes Association, Diabetes Care",
+        "issued": "2009-03",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2646016/",
+        "accessed": "2026-07-25",
+        "version": "Diabetes Care 2009 Mar;32(3):397-403, doi:10.2337/dc08-0867, PMID 19074990, PMCID PMC2646016; epub 2008 Dec 15",
+        "locator": "Research Design and Methods, including the statistical methods paragraph on skewness and log transformation; Results and Conclusions of the structured abstract",
+        "license": "Copyright 2009 American Diabetes Association; the PMC record states readers may use the article under CC BY-NC-ND 3.0 for non-profit educational use with proper citation",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only for the facts that the DETECT-2 project pooled 43 studies covering 135,383 participants from 27 countries in which plasma glucose was measured during an oral glucose tolerance test; that the distributions of both fasting plasma glucose and 2-hour plasma glucose are skewed to the right; that glucose values were log transformed before model fitting to reduce that skew; that distributions of fasting and 2-hour plasma glucose did not in general produce bimodal structures useful for deriving cut points for diabetes; and that the presence of a biologically meaningful bimodal structure appeared to be driven by participants with known diabetes. No table, figure, dataset, wording or example from the article is reproduced, and the 1000-person screening dataset used in this lesson is constructed teaching material rather than any of the article's data."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://pmc.ncbi.nlm.nih.gov/robots.txt",
+          "checked": "2026-07-25",
+          "notes": "Checked before substantive access. https://www.ncbi.nlm.nih.gov/robots.txt disallows the legacy /pmc/articles route for unnamed agents, and that route was not used. The current PMC host publishes its own record at https://pmc.ncbi.nlm.nih.gov/robots.txt, retrieved 2026-07-25, which explicitly allows /articles/ for the wildcard user agent with a one-second crawl delay. The article was read once over HTTPS at that allowed route, and the citation was confirmed independently through the public NCBI E-utilities esearch and esummary endpoints. No login, paywall, rate limit, or technical control was bypassed."
+        }
+      },
+      {
+        "id": "source-niddk-diabetes-tests",
+        "type": "guideline",
+        "title": "Diabetes Tests & Diagnosis",
+        "creators": [
+          "National Institute of Diabetes and Digestive and Kidney Diseases"
+        ],
+        "publisher": "National Institutes of Health, U.S. Department of Health and Human Services",
+        "issued": "2022-07",
+        "url": "https://www.niddk.nih.gov/health-information/diabetes/overview/tests-diagnosis",
+        "accessed": "2026-07-25",
+        "version": "Online version retrieved 2026-07-25; the page states Last Reviewed July 2022",
+        "locator": "Fasting plasma glucose test, the table of diagnostic results for normal, prediabetes and diabetes, and the surrounding notes on fasting and confirmatory testing",
+        "license": "US Government work; NIDDK content is published as a public service of the National Institutes of Health",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only for the fasting plasma glucose reference values it states, namely 99 mg/dL or below as normal, 100 to 125 mg/dL as prediabetes and 126 mg/dL or above as diabetes, for the statement that a doctor will usually use a second test to confirm a diabetes diagnosis, and for the definition of fasting as nothing to eat or drink except sips of water. The cohort, the counts at the threshold, the binomial modelling built on it, and all wording are original, and this lesson makes no diagnostic or treatment recommendation."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://www.niddk.nih.gov/robots.txt",
+          "checked": "2026-07-25",
+          "notes": "Retrieved https://www.niddk.nih.gov/robots.txt on 2026-07-25 before substantive access; it permits general crawling with a ten-second crawl delay and disallows only /system and /_internal, so /health-information/ carries no restriction. The page was read directly over HTTPS rather than through a search summary, with no login, paywall, rate-limit breach, or access-control bypass."
+        }
+      },
+      {
+        "id": "source-ihsg-hypoglycaemia-reporting",
+        "type": "guideline",
+        "title": "Glucose concentrations of less than 3.0 mmol/l (54 mg/dl) should be reported in clinical trials: a joint position statement of the American Diabetes Association and the European Association for the Study of Diabetes",
+        "creators": [
+          "International Hypoglycaemia Study Group"
+        ],
+        "publisher": "Springer, Diabetologia",
+        "issued": "2017-01",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6518070/",
+        "accessed": "2026-07-25",
+        "version": "Diabetologia 2017 Jan;60(1):3-6, doi:10.1007/s00125-016-4146-6, PMID 27872948, PMCID PMC6518070; an erratum is recorded at Diabetologia 2017 Feb;60(2):377, doi:10.1007/s00125-016-4168-0",
+        "locator": "Title and body, at each point where a glucose concentration is reported in both mmol/l and mg/dl, including the glucose alert value of 3.9 mmol/l (70 mg/dl)",
+        "license": "Copyright the Author(s) 2016; distributed under the Creative Commons Attribution 4.0 International License as stated on the article",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only for the paired reporting of glucose thresholds in both units, specifically 3.0 mmol/l as 54 mg/dl and the glucose alert value of 3.9 mmol/l as 70 mg/dl. Those pairings fix the conversion factor of 18 that this lesson uses to demonstrate that a z-score is unchanged by a unit conversion, and supply the alert value the constructed screening data are compared against. The lesson makes no recommendation about hypoglycaemia management or clinical trial reporting, and all wording, examples and arithmetic are original."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://pmc.ncbi.nlm.nih.gov/robots.txt",
+          "checked": "2026-07-25",
+          "notes": "Checked before substantive access. The legacy /pmc/articles route on www.ncbi.nlm.nih.gov is disallowed for unnamed agents and was not used. https://pmc.ncbi.nlm.nih.gov/robots.txt, retrieved 2026-07-25, explicitly allows /articles/ for the wildcard user agent with a one-second crawl delay, and the article was read once over HTTPS at that route. The citation, its PMID and its erratum were confirmed independently through the public NCBI E-utilities esearch, esummary and efetch endpoints. No login, paywall, rate limit, or technical control was bypassed."
+        }
+      }
+    ]
+  },
+  "claims": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-claims-v1",
+    "lessonId": "PREM-STA-005",
+    "lessonVersion": "0.1.0",
+    "claims": [
+      {
+        "id": "claim-normal-is-a-named-distribution",
+        "statement": "The normal distribution is one specific named distribution with a stated probability density function, described in the reference literature as probably the most important distribution in statistics; calling a set of data normal is the statistical assertion that they are drawn from a population having that distribution, and carries neither the everyday meaning of usual nor the clinical meaning of within a laboratory reference range. The same reference literature justifies the distribution's standing partly by the central limit theorem, under which the sampling distribution of the mean becomes approximately normal as sample size increases regardless of the distribution of the original variable.",
+        "sceneIds": [
+          "scene-curve-someone-drew",
+          "scene-two-numbers-fix-the-curve"
+        ],
+        "sourceIds": [
+          "source-nist-normal-distribution",
+          "source-nist-normal-data"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "The statistical sense of the word. The first source states the density, the distribution's standing, and the central limit theorem justification; the second states that normal data are data drawn from a population that has a normal distribution.",
+        "uncertainty": "Neither source discusses the everyday or clinical senses of the word. The observation that the three senses collide, and the instruction to keep them apart, is this lesson's own teaching point rather than a sourced fact.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      },
+      {
+        "id": "claim-normal-two-parameters",
+        "statement": "A normal distribution is completely determined by two parameters: a location parameter equal to the mean, which places its centre, and a scale parameter equal to the standard deviation, which sets its spread; the special case with mean 0 and standard deviation 1 is the standard normal distribution.",
+        "sceneIds": [
+          "scene-two-numbers-fix-the-curve",
+          "scene-common-ruler",
+          "scene-transfer-length-of-stay"
+        ],
+        "sourceIds": [
+          "source-nist-normal-distribution"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "The normal family as parameterised in the source, where mu is identified as the location parameter and sigma as the scale parameter, and the standard normal is the case mu = 0, sigma = 1.",
+        "uncertainty": "The consequence this lesson draws, that the family therefore cannot express skew, bimodality, or a hard floor, follows from the parameterisation rather than being stated by the source.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      },
+      {
+        "id": "claim-empirical-rule-areas",
+        "statement": "For any normal distribution, the curve areas between the mean and one, two and three standard deviations on either side round to 68.27 per cent, 95.45 per cent and 99.73 per cent respectively, which is the empirical rule usually quoted as about 68, 95 and 99.7 per cent.",
+        "sceneIds": [
+          "scene-two-numbers-fix-the-curve",
+          "scene-checking-the-model",
+          "scene-common-ruler",
+          "scene-where-the-bell-misleads",
+          "scene-practice-props-removed",
+          "scene-transfer-length-of-stay"
+        ],
+        "sourceIds": [
+          "source-nist-normal-data"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Rounded decimal representations of areas defined by the normal cumulative distribution function, which are parameter-invariant across the normal family. They describe a mathematical model and are not a property that any dataset possesses automatically.",
+        "uncertainty": "The percentages apply to a dataset only to the extent that a normal distribution describes it. Predicted counts reported in this lesson multiply these rounded areas by a stated sample size; coarse observed-versus-predicted band counts are informal diagnostics, not calibrated pass/fail thresholds.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      },
+      {
+        "id": "claim-z-score-definition",
+        "statement": "Subtracting the mean from a measurement and dividing by the standard deviation, z = (x - mu)/sigma, expresses the measurement as a distance in standard deviations and lets a normal probability be evaluated without reference to the original mean, standard deviation, or units.",
+        "sceneIds": [
+          "scene-common-ruler",
+          "scene-counting-yes-or-no",
+          "scene-practice-props-removed",
+          "scene-clinical-wrap-up"
+        ],
+        "sourceIds": [
+          "source-nist-normal-data",
+          "source-nist-normal-distribution"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "The standardising transformation as stated in the first source, together with the standard normal distribution it maps onto from the second.",
+        "uncertainty": "That the transformation leaves a z-score unchanged under a unit conversion is arithmetic demonstrated in the lesson rather than a claim taken from either source. The lesson's separation of a z-score as a distance from the probability attached to it is also its own teaching point.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      },
+      {
+        "id": "claim-normality-is-checkable",
+        "statement": "Whether a data set is approximately normally distributed is something a technique can assess rather than something an analyst may assume; a normal probability plot is one such technique, and departures from its straight reference line indicate departures from normality.",
+        "sceneIds": [
+          "scene-curve-someone-drew",
+          "scene-checking-the-model",
+          "scene-practice-props-removed",
+          "scene-transfer-length-of-stay"
+        ],
+        "sourceIds": [
+          "source-nist-normal-probability-plot"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Graphical assessment of approximate normality for a univariate data set.",
+        "uncertainty": "The source describes the plot and the meaning of departures from its line. The band-counting procedure in this lesson is an original, coarse diagnostic for large directional discrepancies; because sampling variation and fitted parameters affect those counts, it does not supply a universal binary fit rule.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      },
+      {
+        "id": "claim-fpg-right-skewed",
+        "statement": "In general adult populations the distribution of fasting plasma glucose is skewed to the right, so much so that a large pooled analysis of 43 surveys covering 135,383 participants from 27 countries log transformed glucose values before fitting distributional models in order to reduce that skew.",
+        "sceneIds": [
+          "scene-where-the-bell-misleads",
+          "scene-clinical-wrap-up"
+        ],
+        "sourceIds": [
+          "source-detect2-glucose-distribution"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Fasting plasma glucose and 2-hour plasma glucose measured during an oral glucose tolerance test in the pooled DETECT-2 surveys, which span multiple continents and include both known and undiagnosed diabetes.",
+        "uncertainty": "The source states the skew and the transformation without quantifying the skew for any single population, and the degree of skew varies between populations. The illustrative 60-person cohort summaries used elsewhere show no large directional mismatch with symmetry, but the underlying readings are absent and the lesson does not treat that contrast as evidence of a physiological mechanism.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      },
+      {
+        "id": "claim-glucose-bimodality-not-general",
+        "statement": "Distributions of fasting plasma glucose and 2-hour plasma glucose did not, in general, produce bimodal structures useful for deriving diagnostic cut points for diabetes, and where a biologically meaningful bimodal structure was present it appeared to be driven by participants with already-known diabetes.",
+        "sceneIds": [
+          "scene-where-the-bell-misleads"
+        ],
+        "sourceIds": [
+          "source-detect2-glucose-distribution"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "The DETECT-2 pooled analysis, which fitted a mixture of two normal distributions to plasma glucose in each survey and estimated a candidate cut point at their intersection.",
+        "uncertainty": "The finding concerns the usefulness of bimodality for deriving diagnostic cut points across pooled international surveys. It does not establish that no population anywhere shows two humps, and this lesson uses it only to say that right skew rather than bimodality is the ordinary shape of this measurement.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      },
+      {
+        "id": "claim-binomial-conditions",
+        "statement": "The binomial distribution applies to the number of successes in a fixed number of trials when each trial has exactly two mutually exclusive outcomes, the probability of success is fixed for all trials, and the trials are independent; the probability of exactly k successes in n trials is n-choose-k multiplied by p to the power k and by (1 - p) to the power n minus k.",
+        "sceneIds": [
+          "scene-counting-yes-or-no",
+          "scene-clinical-wrap-up"
+        ],
+        "sourceIds": [
+          "source-nist-binomial",
+          "source-eom-binomial"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "The first source supplies the two mutually exclusive outcomes, the fixed number of trials, the assumption that p is fixed for all trials, and the probability formula. The second supplies the requirement that the underlying trials be independent.",
+        "uncertainty": "Whether a given study satisfies the four conditions is a judgment about that study. The lesson's counter-cases, including repeated nights within one person and a clinic closure removing patients together, are constructed illustrations of the conditions failing rather than sourced findings.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      },
+      {
+        "id": "claim-binomial-mean-sd",
+        "statement": "A binomial count over n trials with success probability p has mean np and standard deviation equal to the square root of np(1 - p).",
+        "sceneIds": [
+          "scene-counting-yes-or-no",
+          "scene-practice-props-removed",
+          "scene-clinical-wrap-up"
+        ],
+        "sourceIds": [
+          "source-nist-binomial",
+          "source-eom-binomial"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "The mean and standard deviation of the binomial distribution as tabulated by the first source, corroborated by the second, which gives the expectation np and the variance np(1 - p).",
+        "uncertainty": "The summaries hold only where the four binomial conditions hold. Every expected count and standard deviation quoted in this lesson was computed from these formulas with stated values of n and p.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      },
+      {
+        "id": "claim-fpg-thresholds",
+        "statement": "On a fasting plasma glucose test, a result of 99 mg/dL or below is reported as normal, 100 to 125 mg/dL as prediabetes and 126 mg/dL or above as diabetes; fasting means having nothing to eat or drink except sips of water, and a doctor will usually use a second test to confirm a diagnosis of diabetes.",
+        "sceneIds": [
+          "scene-counting-yes-or-no",
+          "scene-clinical-wrap-up"
+        ],
+        "sourceIds": [
+          "source-niddk-diabetes-tests"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "The fasting plasma glucose reference values published by NIDDK, quoted so that the lesson's threshold has a real basis. The lesson uses 126 mg/dL only as the cut-off in a counting model.",
+        "uncertainty": "Diagnostic practice, and the values used, can vary by guideline body and jurisdiction and can change over time; the page states a Last Reviewed date of July 2022. This lesson makes no diagnostic or treatment recommendation and every patient in it is invented.",
+        "risk": "health-sensitive",
+        "reviewStatus": "reviewed"
+      },
+      {
+        "id": "claim-hypoglycaemia-alert-value",
+        "statement": "A joint position statement of the American Diabetes Association and the European Association for the Study of Diabetes reports a glucose alert value of 3.9 mmol/l, equal to 70 mg/dl, and a clinically important concentration of less than 3.0 mmol/l, equal to 54 mg/dl.",
+        "sceneIds": [
+          "scene-common-ruler",
+          "scene-where-the-bell-misleads",
+          "scene-clinical-wrap-up"
+        ],
+        "sourceIds": [
+          "source-ihsg-hypoglycaemia-reporting"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "The statement's paired reporting of glucose concentrations in mmol/l and mg/dl, used here for the alert value itself and for the conversion factor of 18 that the paired figures imply.",
+        "uncertainty": "The statement addresses the reporting of hypoglycaemia in clinical trials, and its thresholds are quoted here only as real reference values for a teaching comparison. This lesson gives no guidance on recognising or treating hypoglycaemia, and an erratum to the statement is recorded in the source registry.",
+        "risk": "health-sensitive",
+        "reviewStatus": "reviewed"
+      },
+      {
+        "id": "claim-glucose-unit-conversion",
+        "statement": "A glucose concentration in mg/dL divided by 18 gives the same concentration in mmol/L, so the two reporting conventions describe one measurement; because the conversion multiplies every value, the mean and the standard deviation by the same constant, a z-score computed in either unit is identical.",
+        "sceneIds": [
+          "scene-common-ruler"
+        ],
+        "sourceIds": [
+          "source-ihsg-hypoglycaemia-reporting"
+        ],
+        "support": "inference",
+        "confidence": "medium-high",
+        "scope": "The conversion factor is inferred from the source's own paired reporting of the same thresholds in both units, where 3.0 mmol/l is given as 54 mg/dl and 3.9 mmol/l as 70 mg/dl.",
+        "uncertainty": "The source states paired values rather than a conversion factor, and clinical practice rounds the exact factor implied by the molar mass of glucose to 18. The invariance of the z-score under the conversion is arithmetic demonstrated in the lesson and does not rest on the source.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      }
+    ]
+  },
+  "glossary": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-glossary-v1",
+    "lessonId": "PREM-STA-005",
+    "lessonVersion": "0.1.0",
+    "terms": [
+      {
+        "id": "term-probability-distribution",
+        "term": "probability distribution",
+        "definition": "A rule assigning a probability to every range of values a measurement could take, describing the population a reading is drawn from rather than the readings in hand. For a measurement that can take any value in a range it is drawn as a curve, and probability is read as the area under that curve between two values.",
+        "aliases": [
+          "distribution model"
+        ],
+        "sceneIds": [
+          "scene-two-numbers-fix-the-curve",
+          "scene-counting-yes-or-no"
+        ],
+        "alignment": {
+          "priorLesson": "PREM-STA-002",
+          "relation": "distinct-sense",
+          "note": "PREM-STA-002 uses distribution for the observed shape of a set of measured values, read off a histogram of the data you have. A probability distribution is the idealised object standing behind those values: it covers readings nobody recorded, extends past both ends of the data, and assigns probability rather than counts. The lesson draws the second over the first and then checks whether the fit holds."
+        }
+      },
+      {
+        "id": "term-probability-model",
+        "term": "probability model",
+        "definition": "A named probability distribution adopted to represent how one measurement is spread across its possible values, together with the parameter values chosen for it. Adopting one is a decision that can be checked against data and rejected, and this lesson treats the normal curve fitted to cohort fasting glucose as exactly that.",
+        "aliases": [
+          "distributional model"
+        ],
+        "sceneIds": [
+          "scene-curve-someone-drew",
+          "scene-checking-the-model",
+          "scene-where-the-bell-misleads"
+        ],
+        "alignment": {
+          "priorLesson": "PREM-SCI-010",
+          "relation": "narrow",
+          "note": "PREM-SCI-010 defines a scientific model broadly as a selective representation of a system built to answer a stated question. This lesson narrows the word to one job: representing the spread of a single measurement across its possible values. It keeps the earlier lesson's discipline of stated assumptions, a domain of use, and tests that can fail, and it drops any claim about mechanism."
+        }
+      },
+      {
+        "id": "term-normal-distribution",
+        "term": "normal distribution",
+        "definition": "One specific continuous probability distribution: symmetric about its centre, single-humped, and fixed entirely by a mean and a standard deviation. The name collides with two other senses a reader already holds. In plain English normal means usual; in a clinic a normal result is one inside a laboratory reference range. Neither is implied here, and a measurement can follow a normal distribution while every value in it is clinically alarming.",
+        "aliases": [
+          "Gaussian distribution",
+          "normal curve"
+        ],
+        "sceneIds": [
+          "scene-curve-someone-drew",
+          "scene-two-numbers-fix-the-curve",
+          "scene-checking-the-model",
+          "scene-where-the-bell-misleads"
+        ]
+      },
+      {
+        "id": "term-distribution-parameter",
+        "term": "distribution parameter",
+        "definition": "A quantity that has to be supplied before a named distribution describes anything in particular. A normal distribution takes two: a location parameter, its mean, which places the centre, and a scale parameter, its standard deviation, which sets the spread. A binomial takes the number of trials and the probability of a yes result on one trial.",
+        "aliases": [
+          "parameter"
+        ],
+        "sceneIds": [
+          "scene-two-numbers-fix-the-curve",
+          "scene-counting-yes-or-no"
+        ],
+        "alignment": {
+          "priorLesson": "PREM-SCI-010",
+          "relation": "narrow",
+          "note": "PREM-SCI-010 defines a model parameter as a model quantity held fixed during one run and free to change between runs. This lesson narrows the word to the quantities that identify one member of a distribution family, so that changing a parameter changes which curve you are using rather than which scenario you are running."
+        }
+      },
+      {
+        "id": "term-probability-density",
+        "term": "probability density",
+        "definition": "The height of a continuous distribution's curve at a given value. Density is not probability: probability is area under the curve between two values, so the probability that a continuous measurement takes any one exact value is zero, and a question about a continuous measurement has to name a range before it has an answer.",
+        "aliases": [
+          "density"
+        ],
+        "sceneIds": [
+          "scene-two-numbers-fix-the-curve"
+        ]
+      },
+      {
+        "id": "term-empirical-rule",
+        "term": "empirical rule",
+        "definition": "The statement that the areas a normal distribution places within one, two and three standard deviations of its mean round to 68.27, 95.45 and 99.73 per cent, usually quoted as about 68, 95 and 99.7 per cent. The underlying areas are defined by the normal cumulative distribution function; these displayed percentages are rounded, belong to the model, and transfer to a dataset only to the extent that a normal distribution describes it.",
+        "aliases": [
+          "68-95-99.7 rule",
+          "three-sigma rule"
+        ],
+        "sceneIds": [
+          "scene-two-numbers-fix-the-curve",
+          "scene-checking-the-model",
+          "scene-where-the-bell-misleads",
+          "scene-practice-props-removed",
+          "scene-transfer-length-of-stay"
+        ]
+      },
+      {
+        "id": "term-z-score",
+        "term": "z-score",
+        "definition": "A measurement re-expressed as its distance from the mean of a stated reference distribution, counted in standard deviations: z = (x − μ)/σ. It carries no units, so it compares quantities that share none, and it is unchanged by converting the original measurement between units. It reports distance only; turning it into a probability requires a distributional assumption that has been checked.",
+        "aliases": [
+          "standard score",
+          "standardised value"
+        ],
+        "sceneIds": [
+          "scene-common-ruler",
+          "scene-counting-yes-or-no",
+          "scene-practice-props-removed",
+          "scene-clinical-wrap-up"
+        ]
+      },
+      {
+        "id": "term-standard-normal-distribution",
+        "term": "standard normal distribution",
+        "definition": "The normal distribution with mean 0 and standard deviation 1, which is what any normal measurement becomes once it has been standardised. Because every normal distribution maps onto this one, the same three percentages describe the bands at ±1, ±2 and ±3 for every measurement ever standardised.",
+        "aliases": [
+          "z distribution"
+        ],
+        "sceneIds": [
+          "scene-common-ruler"
+        ]
+      },
+      {
+        "id": "term-right-skewed-distribution",
+        "term": "right-skewed distribution",
+        "definition": "A distribution whose values crowd towards the low end and thin out slowly towards the high end; its mean is often above its median because high values pull the mean towards the long tail. A lower bound and no stated upper bound do not by themselves force this shape, so skew must be supported by the observed distribution or summaries such as a mean above the median. No normal distribution can reproduce established skew because the normal family has no parameter that permits a lean.",
+        "aliases": [
+          "positively skewed distribution",
+          "right skew"
+        ],
+        "sceneIds": [
+          "scene-where-the-bell-misleads",
+          "scene-practice-props-removed",
+          "scene-clinical-wrap-up",
+          "scene-transfer-length-of-stay"
+        ]
+      },
+      {
+        "id": "term-discrete-distribution",
+        "term": "discrete distribution",
+        "definition": "A probability distribution over outcomes that can be listed one by one, such as the whole numbers 0 through 60. Unlike a continuous distribution it gives each individual outcome a probability of its own, so asking for the probability of exactly 49 has a real answer rather than zero.",
+        "aliases": [],
+        "sceneIds": [
+          "scene-counting-yes-or-no"
+        ]
+      },
+      {
+        "id": "term-binomial-distribution",
+        "term": "binomial distribution",
+        "definition": "The discrete distribution of the number of yes results in a fixed number of trials, when each trial has exactly two mutually exclusive outcomes, the probability of yes is the same on every trial, and the trials are independent. With n trials and probability p it puts the count's mean at np and its standard deviation at the square root of np(1 − p).",
+        "aliases": [
+          "binomial model"
+        ],
+        "sceneIds": [
+          "scene-counting-yes-or-no",
+          "scene-practice-props-removed",
+          "scene-clinical-wrap-up"
+        ]
+      }
+    ]
+  },
+  "attributionHtml": "<h1>Attribution — PREM-STA-005, Probability distributions</h1>\n<h2>Accountable author</h2>\n<p>VSBDev (<code>github:VSBDev</code>) is accountable for this lesson pack. Authorship used material agent\nassistance, disclosed in <code>lesson.json</code> under <code>aiAssistance</code>. The agent system, provider, model and\nversion fields carry the literal placeholder <code>RUNTIME-STAMPED</code> and are stamped by the operator at\nsubmission; the run identifier and the instructions digest are recorded as emitted by the run.</p>\n<p>The instructions digest covers the exact discloseable UTF-8 lesson-authoring task payload supplied\nto this run, including its terminal newline. It does not cover hidden provider or system\ninstructions, which cannot be exported.</p>\n<h2>Licence</h2>\n<p>Lesson content is released under CC BY 4.0, as recorded in <code>lesson.json</code>.</p>\n<h2>Sources and how they were used</h2>\n<p>Every source below was retrieved and read directly during authorship. Agent-access terms were\nchecked before substantive access in each case, and the check is recorded per source in\n<code>references.json</code> under <code>agentAccess</code>. No source is cited from a search result, a summary, or a\nrecord that could not be opened.</p>\n<table>\n<thead>\n<tr>\n<th>Source</th>\n<th>Used for</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>NIST/SEMATECH e-Handbook 1.3.6.6.1, Normal Distribution</td>\n<td>The normal density, the mean as location parameter and the standard deviation as scale parameter, the standard normal case, and the distribution&#39;s standing in statistics</td>\n</tr>\n<tr>\n<td>NIST/SEMATECH e-Handbook 6.5.1, What do we mean by &quot;Normal&quot; data?</td>\n<td>The statistical meaning of calling data normal, the standardising transformation z = (x − μ)/σ, and the 68.27 / 95.45 / 99.73 per cent population figures</td>\n</tr>\n<tr>\n<td>NIST/SEMATECH e-Handbook 1.3.3.21, Normal Probability Plot</td>\n<td>Approximate normality as something a technique assesses, and departures from the reference line as departures from normality</td>\n</tr>\n<tr>\n<td>NIST/SEMATECH e-Handbook 1.3.6.6.18, Binomial Distribution</td>\n<td>Two mutually exclusive outcomes, fixed p across trials, the probability mass function, and the mean np with standard deviation √(np(1 − p))</td>\n</tr>\n<tr>\n<td>Encyclopedia of Mathematics, Binomial distribution</td>\n<td>Independence of the underlying trials as a condition of the model, corroborating the expectation and variance</td>\n</tr>\n<tr>\n<td>Vistisen D, Colagiuri S, Borch-Johnsen K; DETECT-2 Collaboration. Diabetes Care 2009;32(3):397–403</td>\n<td>Fasting and 2-hour plasma glucose distributions being skewed to the right, the log transformation applied before model fitting, the scale of the pooled surveys, and the finding that bimodality is not generally useful for deriving diabetes cut points</td>\n</tr>\n<tr>\n<td>NIDDK, Diabetes Tests &amp; Diagnosis</td>\n<td>Fasting plasma glucose reference values, the definition of fasting, and confirmation by a second test</td>\n</tr>\n<tr>\n<td>International Hypoglycaemia Study Group. Diabetologia 2017;60(1):3–6</td>\n<td>The glucose alert value of 3.9 mmol/l (70 mg/dl) and the paired reporting of thresholds in both units, which fixes the conversion factor used in the z-score demonstration</td>\n</tr>\n</tbody></table>\n<p>The three NIST handbook sections are US Government work; NIST states that information on its sites\nis public information that may be distributed or copied, and requests appropriate credit. The\nEncyclopedia of Mathematics entry is available under CC BY-SA 3.0 and the GNU Free Documentation\nLicense. The DETECT-2 article is © 2009 American Diabetes Association, and its PMC record states\nthat readers may use it under CC BY-NC-ND 3.0 for non-profit educational purposes with proper\ncitation. The International Hypoglycaemia Study Group statement is © the Author(s) 2016 under CC BY\n4.0. NIDDK content is a public service of the National Institutes of Health.</p>\n<p>Every use is a factual reference under <code>facts-only-original-expression</code>. No table, figure, dataset,\nquestion, example or wording from any source is reproduced or closely paraphrased. Each source&#39;s\n<code>rightsBasisEvidence</code> in <code>references.json</code> names the specific facts drawn from it.</p>\n<h2>Original material</h2>\n<p>The following are constructed for this lesson and for the Statistics &amp; Data block, and are not\nobservations of any real person, service, or dataset:</p>\n<ul>\n<li>the 60-person dinner-timing cohort and its stipulated counts and summaries, including the mean of\n142 mg/dL and standard deviation of 18 mg/dL carried forward from earlier lessons in the block;\nthe underlying 60 readings are not included in this pack, so those summaries are teaching inputs\nrather than independently reproducible evidence;</li>\n<li>the 1000-person workplace screening dataset in <code>charts/screening-glucose-right-skew.chart.json</code>,\nwhose mean of 104.2 mg/dL, standard deviation of 17.4 mg/dL and median of about 101 mg/dL were\ncomputed here from the bin midpoints shown in the chart&#39;s own data table;</li>\n<li>the second and third clinics and the acute medical unit in the practice scene, the renal clinic\nand biochemistry service in the assessment, and the diabetes service in the clinical wrap-up;</li>\n<li>every z-score, band boundary, predicted count, binomial probability, expected count and standard\ndeviation stated anywhere in the pack, each computed during authorship from the stated parameters.</li>\n</ul>\n<p>Both charts are declarative JSON under <code>charts/</code>, authored here, carrying <code>alt</code> and\n<code>longDescription</code> and rendering to a data table so that no quantity appears only in a picture.</p>\n<h2>Boundary</h2>\n<p>Every clinical scenario in this pack is labelled a teaching example and not medical advice. The pack\ngives no diagnostic, screening, or treatment recommendation. Published reference values are quoted\nonly where the reasoning needs a real threshold to work against, and are attributed at the point of\nuse.</p>\n<h2>Status</h2>\n<p><code>status: draft</code>, <code>sourceConfidence: pending-review</code>, and every claim in <code>claims.json</code> at\n<code>reviewStatus: pending-review</code>. No review or adjudication artefact was produced by this run, and\nnone should be inferred from it.</p>\n"
+}

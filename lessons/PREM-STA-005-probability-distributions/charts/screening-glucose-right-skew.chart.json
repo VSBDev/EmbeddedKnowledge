@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-chart-v1",
+  "id": "chart-screening-glucose-right-skew",
+  "type": "histogram",
+  "title": "A constructed screening distribution with a long right tail: 1000 adults, bins 10 mg/dL wide",
+  "alt": "Histogram of 1000 fasting glucose readings with a tall peak between 90 and 100 mg/dL and a tail that thins slowly out to 200 mg/dL.",
+  "longDescription": "One thousand fasting glucose readings from a constructed workplace screening are grouped into thirteen bins 10 mg/dL wide, running from 70 to 200 mg/dL. The counts are 18, 132, 331, 268, 118, 55, 30, 20, 12, 7, 5, 2 and 2 people. The distribution has one hump, but it is lopsided: the left side falls from the 90 to 100 peak to zero within twenty units, while the right side takes more than ninety units to run out. Computed from the bin midpoints, the mean is 104.2 mg/dL and the standard deviation is 17.4 mg/dL, and the median of about 101 sits below the mean, which is the arithmetic signature of a right-hand tail. Vertical lines mark the mean at 104.2 mg/dL and the two boundaries a normal model would place two standard deviations out, at 69.4 and 139.0 mg/dL. The normal model puts about 23 of the 1000 readings below 69.4 mg/dL; no reading below 70 mg/dL was recorded. The same model puts about 23 readings above 139.0 mg/dL; at least 48 people sat at or above 140 mg/dL. The model is wrong in both directions at once, and it is wrong in the tails, which is where a screening service is looking.",
+  "xAxis": {
+    "label": "Fasting glucose",
+    "unit": "mg/dL",
+    "min": 60,
+    "max": 200,
+    "ticks": [
+      { "at": 60, "label": "60" },
+      { "at": 80, "label": "80" },
+      { "at": 100, "label": "100" },
+      { "at": 120, "label": "120" },
+      { "at": 140, "label": "140" },
+      { "at": 160, "label": "160" },
+      { "at": 180, "label": "180" },
+      { "at": 200, "label": "200" }
+    ]
+  },
+  "yAxis": {
+    "label": "Number of people",
+    "unit": null,
+    "min": 0,
+    "max": 350,
+    "ticks": [
+      { "at": 0, "label": "0" },
+      { "at": 50, "label": "50" },
+      { "at": 100, "label": "100" },
+      { "at": 150, "label": "150" },
+      { "at": 200, "label": "200" },
+      { "at": 250, "label": "250" },
+      { "at": 300, "label": "300" },
+      { "at": 350, "label": "350" }
+    ]
+  },
+  "series": [
+    {
+      "id": "series-screening-glucose",
+      "label": "People in each 10 mg/dL bin",
+      "bins": [
+        { "from": 70, "to": 80, "count": 18 },
+        { "from": 80, "to": 90, "count": 132 },
+        { "from": 90, "to": 100, "count": 331 },
+        { "from": 100, "to": 110, "count": 268 },
+        { "from": 110, "to": 120, "count": 118 },
+        { "from": 120, "to": 130, "count": 55 },
+        { "from": 130, "to": 140, "count": 30 },
+        { "from": 140, "to": 150, "count": 20 },
+        { "from": 150, "to": 160, "count": 12 },
+        { "from": 160, "to": 170, "count": 7 },
+        { "from": 170, "to": 180, "count": 5 },
+        { "from": 180, "to": 190, "count": 2 },
+        { "from": 190, "to": 200, "count": 2 }
+      ]
+    }
+  ],
+  "markers": [
+    { "x": 69.4, "label": "Normal model, two standard deviations below the mean: 69.4 mg/dL" },
+    { "x": 104.2, "label": "Mean 104.2 mg/dL" },
+    { "x": 139.0, "label": "Normal model, two standard deviations above the mean: 139.0 mg/dL" }
+  ]
+}

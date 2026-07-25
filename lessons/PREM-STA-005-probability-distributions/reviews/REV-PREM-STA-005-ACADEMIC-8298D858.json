@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-STA-005-ACADEMIC-8298D858",
+  "lessonId": "PREM-STA-005",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "21530018686f869c27ad2c651eaf4993fc7b3eb2",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable academic reviewer",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-STA-005-8298D858-52A3-4841-8014-A795D2E6E998",
+      "instructionsDigest": "sha256:e8b1007042be98f686cde03c48b7980a9cbb7956dfff95a54c76ddab13645d01"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#outcomes-prerequisites-objectives-scenes",
+    "content/01-the-curve-someone-drew.md",
+    "content/02-two-numbers-fix-the-curve.md",
+    "content/03-checking-the-model.md",
+    "content/04-a-common-ruler.md",
+    "content/05-where-the-bell-misleads.md",
+    "content/06-counting-yes-or-no.md",
+    "content/07-practice-with-the-props-removed.md",
+    "content/08-somewhere-else-entirely.md",
+    "content/09-clinical-wrap-up.md",
+    "assessment.json#items-and-rubrics",
+    "claims.json#claims",
+    "references.json#sources",
+    "glossary.json#terms",
+    "charts/cohort-glucose-normal-curve.chart.json",
+    "charts/screening-glucose-right-skew.chart.json",
+    "ATTRIBUTION.md",
+    "references.json#source-nist-normal-distribution",
+    "references.json#source-nist-normal-data",
+    "references.json#source-nist-normal-probability-plot",
+    "references.json#source-nist-binomial",
+    "references.json#source-eom-binomial",
+    "references.json#source-detect2-glucose-distribution",
+    "references.json#source-niddk-diabetes-tests",
+    "references.json#source-ihsg-hypoglycaemia-reporting"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "content/03-checking-the-model.md#misconception-bell-shape-by-inspection",
+      "finding": "The corrective rule says that disagreement by more than one or two people per band establishes that the distributional shape is wrong. This ignores sampling variation and the additional effect of estimating the mean and standard deviation from the same sample. Even with fixed true parameters and n = 60, the count inside the one-standard-deviation band has standard deviation sqrt(60 × 0.6827 × 0.3173) = 3.61, while either one-standard-deviation tail count has standard deviation about 2.83. Differences exceeding two people are therefore routine under the model. The resulting retain-or-reject procedure is uncalibrated, yet it is used as the central mastery operation in later practice and assessment.",
+      "resolution": "Replace the deterministic one-or-two-person rule with an academically defensible assessment of fit that accounts for sampling variability and estimated parameters, such as a properly interpreted normal probability plot or a calibrated goodness-of-fit procedure. If band counts remain as an informal diagnostic, state explicitly that they can reveal large directional discrepancies but cannot by themselves license a binary retain-or-reject verdict. Propagate the correction through scenes 05 and 07 and the assessment items that key model rejection from these counts."
+    },
+    {
+      "severity": "major",
+      "target": "content/03-checking-the-model.md#worked-example-check-the-normal-model",
+      "finding": "The central worked example reports exact observed band counts, tail counts, a median of 142.0, skewness of −0.01, extrema, subgroup summaries and later threshold counts, but the candidate contains neither the constructed 60 readings nor a sufficient frequency table and computation specification. The committed normal-curve chart contains only the fitted parameters, not the observations. These central calculations and the claimed empirical acceptance of the model therefore cannot be independently reproduced from the frozen candidate.",
+      "resolution": "Commit the constructed observations or a sufficient pack-local frequency table, together with the convention used to calculate standard deviation and skewness, and make every reported count and summary reproducible from it. Otherwise present the quantities as unverified givens and do not use them as evidence that the model passed a check."
+    },
+    {
+      "severity": "major",
+      "target": "content/06-counting-yes-or-no.md#check-binomial-conditions",
+      "finding": "The keyed response says the fourth case satisfies every binomial condition, but the same scene has already established probabilities of approximately 0.76 and 0.90 for the two dinner-time subgroups. A single common p therefore does not apply to all 60 people, including for another threshold unless homogeneity is separately justified. The clinical wrap-up nevertheless assigns every patient p = 0.81 and interprets the resulting binomial interval operationally. This contradicts the lesson's own fixed-probability condition and rewards a false shortcut in model selection.",
+      "resolution": "Make the worked and checked cases explicitly homogeneous independent Bernoulli trials, or use a stratified or Poisson-binomial model when participant probabilities differ. Correct the fourth keyed response and revise the capacity example in scene 09 so it does not recommend a binomial interval after documenting failure of the common-p assumption."
+    },
+    {
+      "severity": "major",
+      "target": "assessment.json#item-z-needs-a-reference",
+      "finding": "The keyed answer requires both a reference distribution and evidence of normality, although the prompt concludes only that z = +1.4 is a high reading. Once the reference distribution is named, +1.4 validly means 1.4 standard deviations above its mean regardless of distributional shape. Normality is required only to convert that distance into a normal-model percentile or tail probability, which the prompt never asks for. If clinically high is intended, the missing evidence is instead the raw concentration and an appropriate clinical reference or threshold. The current item is underdetermined and its answer logic conflicts with the lesson's correct statement that a z-score survives non-normality.",
+      "resolution": "Either change the prompt to make an asserted percentile or tail probability explicit, making a shape check relevant, or revise the keyed response to distinguish relative statistical position from a clinically high raw reading and require the appropriate raw value and clinical comparator."
+    },
+    {
+      "severity": "major",
+      "target": "content/08-somewhere-else-entirely.md#check-transfer-length-of-stay",
+      "finding": "For a normal model with mean 6.2 days, standard deviation 5.8 days and a minimum possible stay of 1 day, the total impossible probability is P(X < 1) = Phi((1 − 6.2)/5.8), approximately 0.185, not 0.02275. The 2.275 per cent figure is only the mass below mean minus two standard deviations, −5.4 days, and is a strict subset of the impossible region. The scene also treats a lower bound and no stated upper bound as sufficient to imply right skew; that implication is not mathematically valid. The supplied mean exceeding the median and the observed shape can support a right-skew diagnosis, but support alone cannot.",
+      "resolution": "Calculate the probability below the actual lower bound, or say only that at least 2.275 per cent is demonstrably impossible from the empirical-rule information. Remove the claim that the support forces right skew and base the shape judgment on the stated mean-median relationship or observed distribution. Make the corresponding correction in glossary.json#term-right-skewed-distribution and assessment.json#item-diagnose-the-failure."
+    },
+    {
+      "severity": "major",
+      "target": "content/05-where-the-bell-misleads.md#the-same-check-run-on-a-population-that-fails-it",
+      "finding": "The proposed physiological explanation for glucose skew—narrow regulation at the low end, effectively no comparable upper constraint, and increasing loss of glucose control farther right—is a material causal health claim. DETECT-2 supports the empirical right skew and use of a log transformation, but it does not support this mechanism; claims.json explicitly labels the explanation as the lesson's own reasoning, and the scene's source note does not map it to evidence. The wording also overstates the upper tail as effectively unbounded.",
+      "resolution": "Remove the causal explanation, clearly label it as a limited hypothesis and map it to suitable physiological evidence, or replace it with the narrower sourced observation that the surveyed distributions were right-skewed. Do not infer a medical mechanism solely from the distribution's support."
+    },
+    {
+      "severity": "minor",
+      "target": "content/06-counting-yes-or-no.md#equation-binomial-mean-sd",
+      "finding": "The standard deviation 3.04 describes one quarterly count around its model mean. It is not the standard deviation of the change between two independent quarters; that difference has standard deviation sqrt(2) × 3.04 = 4.30 under the stated model. Saying that the count is expected to move by about three people between quarters conflates these quantities.",
+      "resolution": "Describe 3.04 as the spread of a single quarter around 48.6, or compute and explain the approximately 4.30-patient standard deviation for a difference between independent quarters."
+    },
+    {
+      "severity": "minor",
+      "target": "content/02-two-numbers-fix-the-curve.md#the-empirical-rule",
+      "finding": "The percentages 68.27, 95.45 and 99.73 are rounded decimal representations of normal-curve areas, not exact percentages as the prose and claim ledger state. The underlying probabilities are defined exactly by the normal cumulative distribution function.",
+      "resolution": "Call the displayed percentages rounded normal-model areas and reserve exactness for the corresponding cumulative-distribution expressions."
+    },
+    {
+      "severity": "note",
+      "target": "charts/screening-glucose-right-skew.chart.json#series-screening-glucose",
+      "finding": "Independent recalculation from the thirteen committed bins confirms a total of 1000 observations, midpoint-based mean 104.2 mg/dL, population standard deviation approximately 17.406 mg/dL, and 48 observations in bins beginning at 140 mg/dL or higher. The chart's stated numerical summaries and tail comparison are internally consistent.",
+      "resolution": "No change required for these chart calculations."
+    }
+  ],
+  "limitations": [
+    "The supplied review scope prohibited reading site/, so the graph-node definition, cross-lesson terminology ledger, quorum-policy file and review schema were not independently inspected in this run.",
+    "The pack does not contain the 60 constructed cohort observations or an equivalent table, preventing independent recalculation of its central cohort counts, median, skewness, subgroup summaries and threshold counts.",
+    "Direct opening of the two cited PMC pages encountered an automated browser challenge. DETECT-2's primary full text was available through the indexed PMC record, and the hypoglycaemia thresholds were corroborated from an accessible copy and an NCBI clinical reference, but the cited IHSG page and i...",
+    "This review addresses academic statistics, quantitative reasoning and source alignment; it is not a clinical-practice authorization or an endocrinology guideline review."
+  ],
+  "signedAt": "2026-07-25T14:43:12Z"
+}
