@@ -71,7 +71,7 @@ Here is that replication drawn out.
 
 The shaded band excludes zero, so the result is statistically significant at the conventional level. The band is also entirely below 5 mg/dL, and 3.8 mg/dL is the largest difference the data are compatible with. Both statements are true of the same study at the same time.
 
-Push the arithmetic further and the point becomes hard to escape. With this spread, a difference of 1.0 mg/dL would clear the 0.05 line in a trial of about 1970 people per group, and a difference of 0.5 mg/dL would do it with about 7870 per group. Those are large trials and they get run. Statistical significance is reachable for almost any non-zero difference if you recruit enough people.
+Push the arithmetic further and the point becomes hard to escape. With this spread, a difference of 1.0 mg/dL would clear the 0.05 line in a trial of about 1970 people per group, and a difference of 0.5 mg/dL would do it with about 7870 per group. Under this model, statistical significance is reachable for almost any non-zero difference if the study is made large enough.
 
 The same lever runs the other way. Methodologists cataloguing the standard misreadings put both halves plainly: when a study is large, very minor effects can produce statistically significant tests, and when a study is small, even large effects can be drowned in noise and fail to be detected.
 
@@ -96,11 +96,11 @@ What it has not done is answer his question. He still needs to know whether 9 mg
 :::{check}
 :id: check-two-senses
 
-A colleague says: "The replication is the stronger finding. It got *p* = 0.030 with a much tighter interval, so the effect is better established and therefore more clinically relevant."
+A colleague says: "The replication is the stronger finding. It got *p* = 0.030 with a much tighter interval, so the effect is more precisely estimated and therefore more clinically relevant."
 
 Two of those three clauses are fine. One is doing something the data cannot support. Which, and why?
 
-Answer. The tight interval is real: 0.2 to 3.8 is a precise result and the replication has pinned its effect down well. "Better established" is defensible in the sense that the study has narrowed the range of compatible values. The last clause fails. The replication established that the difference is somewhere between 0.2 and 3.8 mg/dL, which is a statement that the effect is *small*. Precision and importance move independently, and here the precise study is the one that ruled the larger effects out.
+Answer. The tight interval is a feature of the reported analysis: 0.2 to 3.8 is much narrower than 0.9 to 17.1, so the replication estimates its parameter more precisely under the stated model. The last clause fails. Every value in the replication's reported interval is below 5 mg/dL, but precision does not turn that interval into a claim about clinical relevance. Precision and importance move independently, and here the precise study is the one whose reported interval excludes effects at or above the illustrative threshold.
 :::
 
 :::{source-note}

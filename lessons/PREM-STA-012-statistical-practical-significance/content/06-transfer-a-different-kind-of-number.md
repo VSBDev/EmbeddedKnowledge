@@ -35,7 +35,7 @@ Now do the four steps.
 
 **Step 3. Place the threshold.** Five percentage points sits above the interval's upper limit of 3.9. The whole interval falls below the threshold.
 
-**Step 4. Say what the trial supports.** Position B. The reminder does raise attendance and the trial has shown that the increase is smaller than the commissioning group's threshold. Every value compatible with these data falls short of 5 points. The correct decision on the stated criterion is to decline the rollout, and the trial has genuinely settled it.
+**Step 4. Say what the trial supports.** Position B. Under the stated model, the data support a positive attendance difference, while every value in the reported interval falls short of the commissioning group's 5-point threshold. On that prespecified criterion, the evidence weighs against the rollout; this is not a claim that the effect is proved or that no other decision consideration matters.
 
 This is the useful case that a threshold-free reading destroys. Reported as "a statistically significant 5% improvement in screening attendance", the same trial reads as a success.
 
@@ -54,7 +54,7 @@ A second version of the same trial, run in 1000 people per arm, reports attendan
 
 Against the same 5 percentage point threshold, which position is this, and how does the decision differ from the first trial's?
 
-Answer. Position C. The interval contains 5, running from 1.7 at one end to 10.3 at the other, so the data are compatible with a gain well below the threshold and with one twice the threshold. The first trial, with its smaller effect and its larger *p*-value, answered the commissioning group's question. This one, with the larger effect and the smaller *p*-value, does not. The decision differs because a study that settles a question is worth more than a study that produces an impressive-looking result, and *p* = 0.007 against *p* = 0.042 tells you nothing about which is which.
+Answer. Position C. The interval contains 5, running from 1.7 at one end to 10.3 at the other, so the data are compatible with a gain well below the threshold and with one twice the threshold. The first trial, with its smaller effect and its larger *p*-value, reports an interval entirely below the commissioning group's threshold. This one, with the larger effect and the smaller *p*-value, leaves values on both sides of the threshold in its interval. The decision evidence differs because the interval positions differ, and *p* = 0.007 against *p* = 0.042 does not identify which position either trial occupies.
 :::
 
 :::{source-note}

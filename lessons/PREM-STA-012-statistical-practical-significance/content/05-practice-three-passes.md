@@ -22,7 +22,7 @@ For each paper, say which of the five positions it occupies and write one senten
 
 **Paper Q is position E.** The interval contains 0 and it also contains 5, so both questions come back open. Minute: this study distinguishes nothing, since it is compatible with a small effect in the opposite direction and with an effect nearly six times the agreed threshold. The estimate of 14.0 is the value most compatible with the data and the study cannot support acting on it.
 
-**Paper R is position B.** The interval excludes 0 and its upper limit of 4.3 falls below 5. Minute: the effect is real and the study has shown it is smaller than the threshold the service set. This is the most decisive of the three, and it decides against changing the advice.
+**Paper R is position B.** The interval excludes 0 and its upper limit of 4.3 falls below 5. Minute: under the stated model, the data support a positive effect while every value in the reported interval is smaller than the threshold the service set. On that criterion, the evidence weighs against changing the advice.
 
 Notice the ranking by *p*-value would put P and R together at the top and Q at the bottom. The ranking by usefulness to the service puts R first, P second, and Q nowhere.
 
@@ -38,30 +38,40 @@ Write down what you can conclude, what you cannot, and the single most useful th
 
 What you can conclude is thin. The data sit awkwardly with a true difference of zero, under the trial's model. That is very nearly everything the sentence supports.
 
-What you cannot conclude is most of what a reader would take from it. You have no effect size, so "reduction" is a direction with no magnitude attached. With 1200 people in each group a difference of about 1.3 mg/dL would already clear the 0.05 line, so *p* = 0.004 is compatible with a difference far too small to matter and with a large one. The word *large* in the first clause describes the trial, and a reader's eye moves it onto the effect.
+What you cannot conclude is most of what a reader would take from it. You have no effect size, so "reduction" is a direction with no magnitude attached. With 1200 people in each group a difference of about 1.3 mg/dL would already clear the 0.05 line, so *p* = 0.004 does not tell you whether the difference is below or above the service's threshold. The word *large* in the first clause describes the trial, and a reader's eye moves it onto the effect.
 
 The single most useful thing to ask for is the effect estimate with its confidence interval, in mg/dL. One line of that kind settles the position question immediately, and no *p*-value ever will. The methodological literature makes the same request in general form: read the size of the estimate and the confidence limits, and treat which side of 0.05 the *p*-value fell on as the least informative part of the report.
 
 ## Task three: run it forwards
 
-The service is now designing its own trial. It has agreed on the 5 mg/dL threshold and it wants a trial that can actually return a verdict. Suppose the true difference really is 9.0 mg/dL, and the within-group spread is 16 mg/dL as before.
+The service is now designing its own trial. It has agreed on the 5 mg/dL threshold and wants an 80% probability that the lower limit of its 95% interval will exceed 5 mg/dL if the true difference is 9.0 mg/dL. Use the same known-spread normal approximation as the rest of the lesson, with a within-group spread of 16 mg/dL.
 
-1. How large must each group be for the interval to exclude 5 at its lower end?
+1. How large must each group be to meet that 80% target?
 2. What happens to that plan if the true difference is 3.0 mg/dL instead?
 
 ---
 
-**Part 1.** The lower limit is the estimate minus 1.96 standard errors, and it sits above 5 when 1.96 × SE is less than 9.0 − 5.0 = 4.0 mg/dL. So the standard error must fall below 4.0 / 1.96 = 2.0408 mg/dL.
+**Part 1.** The future estimate is random. Its lower limit is the observed estimate minus 1.96 standard errors, so designing around the expected estimate of 9.0 mg/dL would give only about a 50% chance of clearing 5 mg/dL. The design also needs the standard-normal quantile for the target probability, $z_{0.80} \approx 0.84$.
 
-Now turn that into people. **PREM-STA-006** gave the standard error of a difference between two equal groups of *n* as the within-group spread times √(2/*n*), which here is 16 × √(2/*n*). Setting that below 2.0408 means √(2/*n*) < 2.0408 / 16 = 0.12755. Squaring both sides to get *n* out from under the root gives 2/*n* < 0.016269, so *n* > 122.9, which rounds up to **123 per group**. A calculator handles every step.
+For an 80% chance that the lower limit exceeds 5, the true difference must clear the threshold by $1.96 + 0.84 = 2.80$ standard errors. Therefore the standard error target is
 
-Check it. At 123 per group the standard error is 2.04, the margin is 1.96 × 2.04 = 4.00, and the interval runs from 5.00 to 13.00 mg/dL. Position A, by the smallest margin the arithmetic allows. The service would sensibly recruit somewhat more than 123 to leave itself room.
+$$
+\mathrm{SE} \leq \frac{9.0 - 5.0}{1.96 + 0.84} \approx 1.43\ \mathrm{mg/dL}.
+$$
 
-Compare that with the 30 per group it has. Four times the people is what it takes to move from a study that cannot answer its own question to one that can.
+**PREM-STA-006** gave the standard error of a difference between two equal groups of $n$ as the within-group spread times $\sqrt{2/n}$, which here is $16\sqrt{2/n}$. Substitution gives
 
-**Part 2.** Nothing works. If the true difference is 3.0 mg/dL, it sits below the threshold, so no sample size will ever put the whole interval above 5. A very large trial would put the whole interval *below* 5, which is position B and a perfectly good answer: the service would learn that the effect is real and too small to act on. What no trial can deliver is position A for an effect that is genuinely smaller than the threshold.
+$$
+n \geq 2\left(\frac{16(1.96 + 0.84)}{9.0 - 5.0}\right)^2 \approx 251.2.
+$$
 
-That is the honest relationship between design and importance. Sample size buys precision. Precision lets you find out which side of the line the effect falls. It cannot move the effect across the line.
+Round up to **252 people per group**. Check it: at 252 per group the standard error is about 1.43 mg/dL, the expected lower limit is about 6.21 mg/dL, and the probability that the observed lower limit exceeds 5 mg/dL is about 80% under the assumed true difference, spread and normal model. This is an operating probability, not a promise about one realised study.
+
+**Part 2.** If the true difference is 3.0 mg/dL, position A would be an error rather than the intended conclusion. A random finite sample can still return it, so “no sample size will ever do so” would be false. With 252 per group the probability is about 0.04% under these assumptions. As the groups grow, that error probability approaches zero and the interval increasingly tends to fall below 5.
+
+The 252-per-group design is not symmetric: if the true effect is 3.0 mg/dL, it has only about a 29% chance of putting the whole 95% interval below 5. To obtain an 80% chance of position B at a true difference of 3.0 mg/dL, the same calculation uses the 2.0 mg/dL gap and requires about **1005 people per group**.
+
+That is the honest relationship between design and importance. Sample size buys precision and changes the probabilities of the possible interval positions. It cannot move the true effect across the line or guarantee the position returned by one random study.
 
 :::{source-note}
 :claims: claim-report-estimates-and-intervals, claim-size-decides-significance

@@ -38,6 +38,7 @@
         "reasoning": "Award 1 point for forming the margin of error as 1.96 multiplied by the standard error, giving 2.22 mg/dL, and 1 point for subtracting it from the estimate to reach 2.3 mg/dL. A learner who returns 3.4 has subtracted one standard error instead of 1.96 of them. A learner who returns 5.6 has subtracted the estimate from the threshold, which mixes two quantities that belong on the same axis but play different roles. Check the answer by adding the same margin to get the upper limit of 6.7, then confirm the interval is symmetric about 4.5. On retry, do the same computation for study T, where 1.96 x 0.453 = 0.89 and the interval runs from 0.9 to 2.7.",
         "acceptableResponses": [
           "2.3",
+          "2.28",
           "2.29",
           "4.5 - 1.96 x 1.131"
         ],
@@ -91,7 +92,7 @@
       },
       "answer": {
         "correct": "option-straddles-threshold",
-        "summary": "Position C. The interval clears zero and contains 5, so direction is settled and magnitude against the threshold is not.",
+        "summary": "Position C. Under the stated model and confidence procedure, excluding zero supports the direction, while containing 5 leaves the threshold comparison inconclusive.",
         "reasoning": "Award 1 point for placing zero outside the interval and reading that as support for the direction, 1 point for placing 5 inside the interval, and 1 point for concluding that the service's question is left open rather than answered either way. The second option treats the point estimate as though it were the whole result and ignores that values up to 6.7 remain compatible with the data, so the study cannot rule the effect below the threshold. The third option is the substitution this lesson exists to block: p < 0.001 reports incompatibility with zero and says nothing about whether 4.5 mg/dL is worth acting on. The fourth option inverts what an interval means, since containing a value is not evidence for that value, and the estimate most compatible with the data remains 4.5. On retry, classify study T the same way and notice that it reaches a firmer verdict with a smaller effect.",
         "acceptableResponses": [
           "The option stating that the interval excludes zero and contains 5, leaving the direction supported and the threshold question inconclusive."
@@ -208,7 +209,7 @@
       "outcomeIds": [
         "topic-statistics-data-statistical-practical-significance"
       ],
-      "prompt": "The service has to justify its 5 mg/dL threshold to an audit committee. Which account of where the figure came from is defensible?",
+      "prompt": "The service has to justify its 5 mg/dL threshold to an audit committee. Which account defensibly describes a service decision threshold, rather than claiming to have estimated an MCID?",
       "stimulus": "Invented service and threshold. Illustrative teaching example, not medical advice.",
       "points": 3,
       "responseSpec": {
@@ -216,7 +217,7 @@
         "options": [
           {
             "id": "option-anchored-and-justified",
-            "text": "It was set before the papers were read, from what people living with the condition said would make the dietary change worth keeping up, checked against how much change the measurement can resolve, and recorded with its reasoning so the committee can disagree with it."
+            "text": "It was set before the papers were read, using patient preference elicitation about what would make the dietary change worth keeping up, information about measurement resolution, costs and alternatives, and a recorded argument connecting those inputs to the between-group effect. The service calls it a decision threshold, not an MCID."
           },
           {
             "id": "option-from-the-data",
@@ -238,15 +239,15 @@
       },
       "answer": {
         "correct": "option-anchored-and-justified",
-        "summary": "A defensible threshold is anchored in what patients value, fixed before the results are read, and recorded with its reasoning.",
-        "reasoning": "Award 1 point for choosing an account anchored in what the people with the condition perceive as worthwhile, which is what the minimal clinically important difference is defined against. Award 1 point for choosing one that fixes the figure before the results are seen, so that the threshold cannot be tuned to the answer. Award 1 point for choosing one whose reasoning is written down and open to challenge. The second option lets the sample size decide what matters, which reverses the whole logic of the lesson. The third option confuses a level with a change: the diagnostic bands say where a person's glucose sits and carry no information about how much movement is worth pursuing. The fourth option ignores that these thresholds are context-specific and take different values across populations, outcomes and instruments, so borrowing one without an argument makes it validated for somebody else's question. On retry, write the two sentences the service would put in its minutes to record the threshold and its basis.",
+        "summary": "A defensible service threshold can combine patient preferences, measurement information, costs and alternatives, provided it is fixed in advance, connected explicitly to the between-group effect and not mislabelled as an MCID.",
+        "reasoning": "Award 1 point for choosing an account that uses patient preference elicitation as one input without calling that exercise an anchor-based MCID estimate. Award 1 point for choosing one that fixes the figure before the results are seen and explicitly connects the inputs to the between-group effect, so the threshold cannot be tuned to the answer or borrowed from an individual-change construct without a bridge. Award 1 point for choosing one whose reasoning is written down and open to challenge. The second option lets the sample size decide what matters, which reverses the lesson's logic. The third option confuses a level with a change: the diagnostic bands say where a person's glucose sits and carry no information about how much movement is worth pursuing. The fourth option ignores context, population, outcome and estimand. On retry, write two sentences the service would put in its minutes to record the threshold, its inputs and its status as a decision rule rather than an MCID.",
         "acceptableResponses": [
-          "The option describing a threshold anchored in what patients said would make the change worthwhile, fixed in advance, sanity-checked against measurement resolution, and recorded with its reasoning."
+          "The option describing a service decision threshold informed by patient preferences, measurement resolution, costs and alternatives, fixed in advance, explicitly connected to the between-group effect, and not labelled an MCID."
         ],
         "commonErrors": [
           "Letting the study's detectable difference define what counts as important",
           "Treating a diagnostic cut-point for a level as a threshold for a change",
-          "Importing a published threshold from a different outcome or population without argument"
+          "Importing a published threshold from a different outcome, population or estimand without argument"
         ]
       },
       "rubricId": "rubric-threshold-source",
@@ -270,7 +271,7 @@
         "options": [
           {
             "id": "option-estimate-displaced",
-            "text": "It voids the comparison until the estimate is corrected. A systematic measurement difference moves every repeat of the study the same way, so it displaces the whole interval instead of widening it, and a shift of about 4 mg/dL is more than twice the reported effect and could reverse its direction."
+            "text": "It voids the comparison until the estimate is corrected. A systematic measurement difference can displace the estimate and the whole reported interval without widening it, and a shift of about 4 mg/dL is more than twice the reported effect and could reverse its direction."
           },
           {
             "id": "option-interval-covers-it",
@@ -292,10 +293,10 @@
       },
       "answer": {
         "correct": "option-estimate-displaced",
-        "summary": "A systematic measurement difference displaces the interval bodily, and here the displacement exceeds the effect it is meant to be measuring.",
-        "reasoning": "Award 1 point for identifying the problem as a systematic distortion in the sense the design lessons established, and not as extra random variation. Award 1 point for stating that such a distortion moves the whole interval instead of widening it, so precision offers no protection. Award 1 point for comparing the size of the displacement, about 4 mg/dL, with the reported effect of 1.8 mg/dL and concluding that the direction itself is in doubt. The second and third options both treat a confidence interval as though it insured against systematic error; width describes how far repeat estimates would scatter and says nothing about whether every repeat would be wrong the same way. The fourth option gets the arithmetic backwards: the home meters read low in the group that appears better, so correcting for the discrepancy would move the estimate towards zero and past it, and the walking group could turn out to have higher true glucose. On retry, state what the service should ask for before the paper is discussed again.",
+        "summary": "A systematic measurement difference can displace the estimate and interval without widening the interval, and here the possible displacement exceeds the reported effect.",
+        "reasoning": "Award 1 point for identifying the problem as a systematic distortion in the sense the design lessons established, and not as extra random variation. Award 1 point for stating that such a distortion can shift the estimate and reported interval without widening it, so precision offers no protection. Award 1 point for comparing the size of the displacement, about 4 mg/dL, with the reported effect of 1.8 mg/dL and concluding that the direction itself is in doubt. The second and third options both treat a confidence interval as though it insured against systematic error; interval width describes random uncertainty under the fitted model and need not represent systematic measurement differences. The fourth option gets the arithmetic backwards: the home meters read low in the group that appears better, so correcting for the discrepancy would move the estimate towards zero and past it, and the walking group could turn out to have higher true glucose. On retry, state what the service should ask for before the paper is discussed again.",
         "acceptableResponses": [
-          "The option stating that a systematic measurement difference displaces the whole interval, that a 4 mg/dL shift exceeds the 1.8 mg/dL effect, and that the comparison is void until the estimate is corrected."
+          "The option stating that a systematic measurement difference can displace the estimate and interval without widening them, that a 4 mg/dL shift exceeds the 1.8 mg/dL effect, and that the comparison is void until the estimate is corrected."
         ],
         "commonErrors": [
           "Treating a confidence interval as though it accounted for systematic measurement error",
@@ -398,12 +399,12 @@
       "criteria": [
         {
           "id": "criterion-anchored-in-patients",
-          "description": "Award 1 point only when the chosen account anchors the threshold in what people with the condition perceive as worthwhile.",
+          "description": "Award 1 point only when the chosen account uses patient preference elicitation as an input while keeping it distinct from an anchor-based MCID estimate.",
           "maxPoints": 1
         },
         {
           "id": "criterion-fixed-in-advance",
-          "description": "Award 1 point only when the chosen account fixes the threshold before the results are read.",
+          "description": "Award 1 point only when the chosen account fixes the threshold before the results are read and explicitly connects it to the between-group effect.",
           "maxPoints": 1
         },
         {
@@ -424,7 +425,7 @@
         },
         {
           "id": "criterion-interval-moves-not-widens",
-          "description": "Award 1 point only when the distortion is described as displacing the whole interval instead of widening it, so that precision gives no protection.",
+          "description": "Award 1 point only when the distortion is described as capable of displacing the estimate and interval without widening the interval, so that precision gives no protection.",
           "maxPoints": 1
         },
         {

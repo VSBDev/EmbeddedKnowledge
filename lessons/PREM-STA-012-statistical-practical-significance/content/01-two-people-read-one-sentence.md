@@ -16,7 +16,7 @@ That gap is what this lesson is about. It is the last lesson in the block, and i
 
 Nine milligrams per decilitre is about 0.5 mmol/L, the unit used in most of the world outside the United States. Across the whole cohort the mean fasting glucose was 142 mg/dL, about 7.9 mmol/L.
 
-So the study is proposing that moving dinner later shifts a person from roughly 137 to roughly 146 on a morning meter reading. Whether that shift is worth a conversation in clinic is a question about diabetes, about what patients are already being asked to do, and about what else that conversation would displace. It is not a question about *p*.
+At the group-mean scale, the comparison is roughly 137 mg/dL against 146 mg/dL. A difference between group means does not say that any individual person's reading would shift by 9 mg/dL. Whether the group-level difference should affect a clinical conversation requires evidence and judgements beyond this invented study. It is not a question about *p*.
 
 **Teaching example, not medical advice.** The cohort, the study, the clinic, and every threshold discussed in this lesson are invented for teaching. Nothing here reports a finding about real patients or supports any change to anyone's care. Two things in this lesson are real and are named where they appear: the American Statistical Association's published principles on *p*-values, and the diagnostic glucose ranges published by the US National Institute of Diabetes and Digestive and Kidney Diseases.
 
@@ -46,7 +46,7 @@ If all three came easily, carry on. Nothing below assumes more than those three 
 
 By the end you will be able to do four things.
 
-State what the phrase *statistically significant* claims and what it leaves untouched, and rewrite a sentence that has slid from the technical sense into the everyday one. Show why a study's size decides whether a difference clears the conventional bar, so that a difference of no consequence can clear it and a large one can miss it. Say what a minimal clinically important difference is, who fixes it, and why it can never be read off the study's own data. And take an estimate with its interval, lay it against a stated threshold, and say which of five verdicts the study supports.
+State what the phrase *statistically significant* claims and what it leaves untouched, and rewrite a sentence that has slid from the technical sense into the everyday one. Show why a study's size decides whether a difference clears the conventional bar, so that a difference of no consequence can clear it and a large one can miss it. Distinguish an estimate of a minimal clinically important difference from patient preference elicitation and from a service's decision threshold. And take an estimate with its interval, lay it against a stated threshold, and say which of five readings the interval supports.
 
 ## What this lesson will not do
 

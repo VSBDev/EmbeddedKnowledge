@@ -31,11 +31,11 @@ Combining them gives five arrangements, and since T is a positive number an inte
 
 | Position | Contains 0? | Sits, relative to T | What the study supports |
 | --- | --- | --- | --- |
-| A | No | Entirely above | An effect at least as large as the threshold. Answered in favour |
-| B | No | Entirely below | A real effect, demonstrably smaller than the threshold. Answered against |
-| C | No | Across it | Direction established, magnitude open. Inconclusive on the decision |
-| D | Yes | Entirely below | Direction not established, and an effect as large as T is ruled out. Answered against |
-| E | Yes | Across it | Nothing established either way. Uninformative |
+| A | No | Entirely above | Under the stated model and procedure, the interval supports a positive effect at least as large as the threshold. Evidence favours the threshold criterion |
+| B | No | Entirely below | The interval supports a positive effect while placing every reported compatible value below the threshold. Evidence weighs against the threshold criterion |
+| C | No | Across it | The interval supports the stated direction, while values below and above the threshold remain compatible. Inconclusive on the criterion |
+| D | Yes | Entirely below | The interval leaves direction open and does not include effects as large as T. Evidence weighs against the threshold criterion |
+| E | Yes | Across it | The interval includes both no difference and the threshold. Inconclusive on both comparisons |
 
 Five studies, one for each.
 
@@ -47,9 +47,9 @@ Five studies, one for each.
 | Bedtime-snack trial | 300 | 2.0 | −0.6 to 4.6 | 0.13 | D |
 | Half-size pilot | 15 | 9.0 | −2.5 to 20.5 | 0.12 | E |
 
-Three of those five clear the conventional bar, and they land in three different positions supporting three different decisions. Sorting by statistical significance would have put A, B and C in one pile, which is exactly the sorting that loses what the clinic needs.
+Three of those five clear the conventional bar, and they land in three different positions that bear differently on the service's criterion. Sorting by statistical significance would have put A, B and C in one pile, which is exactly the sorting that loses what the clinic needs.
 
-Compare D and E, the two that miss the bar. Both would be written up as negative studies. The bedtime-snack trial is genuinely decisive: it did not establish a direction, and it ruled out anything as large as 5 mg/dL, so the service can stop thinking about it. The half-size pilot settled nothing at all, since its interval covers a fall of 2.5 and a rise of 20.5. One negative study answered the question and the other did not, and the *p*-values, 0.13 and 0.12, are almost identical.
+Compare D and E, the two that miss the bar. Both might be written up as negative studies. The bedtime-snack interval contains zero but ends below 5 mg/dL, so values at or above the service's threshold lie outside that reported interval. The half-size pilot's interval covers both a fall of 2.5 and a rise of 20.5, so it leaves both comparisons open. One reported interval weighs against the threshold criterion and the other is inconclusive, while the *p*-values, 0.13 and 0.12, are almost identical.
 
 ### One restriction on the table
 
@@ -62,15 +62,21 @@ The table assumes T has been stated in the direction of the effect being sought,
 
 A service reads the dinner-timing paper with a threshold of 5 mg/dL already agreed. Four steps.
 
+**Plan.** First put the estimate, interval, zero and the threshold on one scale. Then compare the interval separately with zero and with the threshold. Finally translate those two comparisons into a calibrated sentence about what the data support under the stated model.
+
 **Step 1. Recover the estimate and the interval, in the units of the decision.** Difference 9.0 mg/dL, interval 0.9 to 17.1 mg/dL, width 16.2 mg/dL. All three are in mg/dL, and so is the threshold, so no conversion is needed. If the threshold had been expressed as 0.3 mmol/L, everything would have to move onto one scale first, and 5 mg/dL is about 0.28 mmol/L.
 
-**Step 2. Place 0.** The interval excludes it. The direction is supported.
+**Step 2. Place 0.** The interval excludes it. Under the stated model and confidence procedure, the data support a positive association.
 
 **Step 3. Place T.** 5 falls between 0.9 and 17.1, so the interval contains it. Position C.
 
-**Step 4. State the verdict in words the service can act on.** The data support the claim that later dinners are associated with higher fasting glucose. They do not establish whether the association is large enough to be worth acting on, because they are compatible with 0.9 mg/dL, a fifth of the service's threshold, and with 17.1 mg/dL, more than three times it. The study answers a question about direction and leaves the question about magnitude open.
+**Step 4. State the verdict in words the service can act on.** Under the stated model, the data support a positive association between later dinners and fasting glucose. The reported interval does not determine whether the association is large enough to be worth acting on, because it contains values from 0.9 mg/dL, a fifth of the service's threshold, through 17.1 mg/dL, more than three times it. The analysis provides evidence about direction and leaves the threshold question open.
 
-The fourth step is the one that gets skipped. Steps 2 and 3 are geometry; step 4 is where the reader has to say out loud what has and has not been shown.
+The fourth step is the one that gets skipped. Steps 2 and 3 are geometry; step 4 is where the reader has to say out loud what the reported interval supports and what it leaves open.
+
+**Independent check.** The interval is symmetric around the estimate: both 9.0 − 0.9 and 17.1 − 9.0 equal 8.1 mg/dL. That check confirms that the limits and estimate were copied consistently before the threshold reading is attempted.
+
+**Self-explanation.** Why does excluding zero support the stated direction under this procedure without showing that the effect clears the service's 5 mg/dL threshold?
 :::
 
 :::{misconception}
