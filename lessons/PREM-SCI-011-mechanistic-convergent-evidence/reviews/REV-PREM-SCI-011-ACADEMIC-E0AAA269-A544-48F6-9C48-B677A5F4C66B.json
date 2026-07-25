@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-SCI-011-ACADEMIC-E0AAA269-A544-48F6-9C48-B677A5F4C66B",
+  "lessonId": "PREM-SCI-011",
+  "lessonVersion": "0.2.0",
+  "candidateCommit": "bce762c0ebeee2bab92f3eb06532c3ead44b28f2",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable operator, academic review role",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-SCI-011-E0AAA269-A544-48F6-9C48-B677A5F4C66B",
+      "instructionsDigest": "sha256:1b8b60bb5f2059b6166d7cd89277f0a41c473da79f330c12afd63f854f05cc19"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "The accountable review operator is the same GitHub principal named as the lesson's accountable author. This review used a distinct academic-review run, but personal independence from the author was not established."
+  },
+  "evidenceChecked": [
+    "lesson.json#PREM-SCI-011",
+    "content/010-orientation.md#one-result-says-yes",
+    "content/020-concept.md#what-each-evidence-line-can-see",
+    "content/030-worked-example.md#worked-example-tide-one",
+    "content/040-misconception.md#misconception-four-votes",
+    "content/040-misconception.md#misconception-randomization-proves-all",
+    "content/050-practice.md#fade-the-evidence-audit",
+    "content/060-transfer.md#the-harbor-7-bundle",
+    "content/070-synthesis.md#mastery-check",
+    "content/080-clinical-wrap-up.md#clinical-wrap-up-weigh-the-dinner-timing-evidence",
+    "assessment.json#item-a-evidence-contribution",
+    "assessment.json#item-a-convergence",
+    "assessment.json#item-a-calibrated-claim",
+    "assessment.json#item-a-conflict",
+    "assessment.json#item-b-evidence-contribution",
+    "assessment.json#item-b-convergence",
+    "assessment.json#item-b-calibrated-claim",
+    "assessment.json#item-b-conflict",
+    "assessment.json#rubric-evidence-contribution",
+    "assessment.json#rubric-convergence",
+    "assessment.json#rubric-calibrated-claim",
+    "assessment.json#rubric-conflict",
+    "claims.json#claim-lines-answer-different-questions",
+    "claims.json#claim-weigh-before-integrate",
+    "claims.json#claim-independent-convergence",
+    "claims.json#claim-randomization-boundary",
+    "claims.json#claim-mechanistic-limits",
+    "claims.json#claim-conflict-response",
+    "claims.json#claim-calibrated-conclusion",
+    "references.json#source-efsa-weight-evidence — official Wiley text, abstract and sections 1.5, 2.5, 2.6, 4.5, and 6",
+    "references.json#source-lawlor-triangulation — PMC-indexed article text, abstract and triangulation criteria",
+    "references.json#source-fda-ich-e9 — direct FDA PDF, sections 2.3.1, 2.3.2, and 5.3",
+    "references.json#source-iarc-preamble — direct IARC PDF, Part A section 6 and Part B sections 4–6",
+    "glossary.json#terms",
+    "diagrams/evidence-integration.diagram.json#diagram-evidence-integration",
+    "ATTRIBUTION.md#attribution"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "lesson.json#scene-clinical-wrap-up",
+      "finding": "The scene is declared no-material-claims, but content/080-clinical-wrap-up.md teaches material methodological claims about distinct evidence contributions, reliability, relevance, consistency, independence, randomization boundaries, causal scope, conflict handling, and calibrated conclusions. These are applications of the pack's central claim ledger, not mere navigation or reflection. The absent same-scene claim mapping and source note therefore create an evidence gap.",
+      "resolution": "Change scene-clinical-wrap-up to claims-mapped, add this scene to every applicable claim in claims.json, and add a learner-visible source note listing all sources attached to those claims."
+    },
+    {
+      "severity": "major",
+      "target": "content/030-worked-example.md#worked-example-tide-one",
+      "finding": "The inhibitor design states that, within each of three backgrounds, 100 seedlings per arm were randomized, which describes 300 assignments per arm. The reported observed and missing counts instead total 100 assignments per arm: 96 plus 4 and 97 plus 3. Consequently, the displayed percentages, missingness rates, and extreme-allocation calculations cannot all describe the stated design.",
+      "resolution": "Clarify that 100 seedlings total per arm were allocated across or stratified by the three backgrounds, if that is intended. Otherwise supply the three-background counts totaling 300 per arm and recalculate every percentage and missing-outcome bound."
+    },
+    {
+      "severity": "major",
+      "target": "content/030-worked-example.md#worked-example-tide-one",
+      "finding": "The solution correctly identifies the untested hinge as whether the particular Tide-1 DNA-binding event mediates survival, but its proposed study—restoring functional Tide-1 while measuring target-gene activity and survival—does not discriminate that mediation claim from parallel Tide-1 functions. Both measurements could recover even if the assayed binding event is not the causal bridge. Calling this the study that most directly tests the named hinge overstates the mechanistic inference.",
+      "resolution": "Use a design that intervenes on the proposed bridge and states rival predictions, such as comparing rescue by wild-type Tide-1 with rescue by a binding-defective form, or perturbing the regulatory sequence in vivo while preserving other Tide-1 functions. Align any related assessment exemplars with the corrected discrimination logic."
+    },
+    {
+      "severity": "minor",
+      "target": "content/080-clinical-wrap-up.md#1-state-each-contribution-before-combining",
+      "finding": "The phrase within-person crossover conventionally denotes exposure to multiple intervention conditions, yet the scene says it would contain an intervention element only if dinner timing were assigned. That conditional treatment blurs the distinction between an assigned crossover experiment and an observational within-person repeated-measures comparison.",
+      "resolution": "Choose one design explicitly: call it an observational within-person comparison if timing is not assigned, or state that an assigned crossover is simultaneously organismal and intervention evidence, with randomization of period order addressed separately."
+    },
+    {
+      "severity": "note",
+      "target": "content/030-worked-example.md#worked-example-tide-one",
+      "finding": "Independent recalculation confirms the arithmetic conditional on 100 assignments per arm: 49% minus 82% is -33 percentage points; the stated independent-binomial 95% interval is approximately -45.4 to -20.6 percentage points; and the two extreme missing-outcome allocations give differences of -18 and -25 percentage points. The text appropriately labels the interval assumption-dependent.",
+      "resolution": "No change is required to these calculations once the randomized-design denominator is made internally consistent."
+    }
+  ],
+  "limitations": [
+    "The requested prohibition on reading site/ prevented inspection of the graph node, the cross-lesson terminology registry, the quorum policy, and review.schema.json. Cross-lesson terminology and graph alignment were therefore not independently verified.",
+    "The requested prohibition on reading scripts/ and site/ prevented repository validation; no npm validation command was run.",
+    "Direct browser retrieval of the two PMC article bodies encountered reCAPTCHA. Verification used the official Wiley text for the EFSA guidance and PMC-indexed text for the Lawlor article; the FDA and IARC PDFs were directly accessible.",
+    "No authoring conversation, other lesson pack, other review conclusion, or adjudication draft was inspected.",
+    "No personal subject-matter expertise or independence beyond the disclosed isolated runtime review is claimed."
+  ],
+  "signedAt": "2026-07-25T00:45:23Z"
+}
