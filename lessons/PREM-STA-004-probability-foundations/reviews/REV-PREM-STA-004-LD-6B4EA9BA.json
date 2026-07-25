@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-STA-004-LD-6B4EA9BA",
+  "lessonId": "PREM-STA-004",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "5fa28cc2301dfe32e8996036693db9ab2df4855b",
+  "role": "learning-design",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev (learning-design reviewer)",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.7",
+      "runId": "agy-learning-design-PREM-STA-004-6B4EA9BA-4E12-4D8E-A4B4-1C500DF89AFB",
+      "instructionsDigest": "sha256:b116c2df0f6b7766f20e74b777f9201bcb786f9403ad617149d0bdc9953a13f8"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Founding-stage isolation check: the accountable principal VSBDev operates the authoring, review, and finalization agents, so principal-level independence is absent. Agent-level role isolation was strictly maintained: no authoring history, other review output, or adjudication draft was read, and no other EmbeddedKnowledge role script was run during this review execution."
+  },
+  "evidenceChecked": [
+    "lessons/PREM-STA-004-probability-foundations/lesson.json",
+    "lessons/PREM-STA-004-probability-foundations/claims.json",
+    "lessons/PREM-STA-004-probability-foundations/references.json",
+    "lessons/PREM-STA-004-probability-foundations/glossary.json",
+    "lessons/PREM-STA-004-probability-foundations/ATTRIBUTION.md",
+    "lessons/PREM-STA-004-probability-foundations/assessment.json",
+    "lessons/PREM-STA-004-probability-foundations/charts/running-share-of-high-nights.chart.json",
+    "lessons/PREM-STA-004-probability-foundations/content/01-sixty-rows.md",
+    "lessons/PREM-STA-004-probability-foundations/content/02-long-run-and-counting.md",
+    "lessons/PREM-STA-004-probability-foundations/content/03-combining-events.md",
+    "lessons/PREM-STA-004-probability-foundations/content/04-inverted-conditional.md",
+    "lessons/PREM-STA-004-probability-foundations/content/05-faded-practice.md",
+    "lessons/PREM-STA-004-probability-foundations/content/06-carry-to-counselling.md",
+    "lessons/PREM-STA-004-probability-foundations/content/07-mastery-and-spacing.md",
+    "lessons/PREM-STA-004-probability-foundations/content/08-clinical-wrap-up.md",
+    "CONTENT-STANDARD.md"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "lessons/PREM-STA-004-probability-foundations/content/03-combining-events.md#worked-example-two-draws",
+      "finding": "The worked example 'worked-example-two-draws' is missing a self-explanation prompt about the decision that most strongly determines the solution. According to Section 5.1 of the CONTENT-STANDARD.md, every worked example must include a self-explanation prompt to encourage the learner to reflect on the core decision determining the solution.",
+      "resolution": "Add a self-explanation prompt at the end of the worked example, such as asking the learner to explain to themselves why Route two had to use the conditional form of the multiplication rule instead of the plain product, or why the draws are dependent when drawing without replacement."
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-STA-004-probability-foundations/content/01-sixty-rows.md#L1",
+      "finding": "First-read check: The lesson opener uses a concrete thought experiment (the sorting and counting of 60 adult fasting glucose readings under early vs late dinners) to ground abstract concepts of probability before formally defining outcomes, sample spaces, or events. The register is natural and avoids bureaucratic tells (e.g. em-dash density is 0.0 per 1000 words, 'rather than' is avoided in prose, and there are no marker words). A learner at the prerequisite level can easily explain what the lesson teaches (basic probability, conditional probability, multiplication rules, and common biases), why it matters (to evaluate chance vs relationship in clinical studies and screenings), and how the central procedure works.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-STA-004-probability-foundations/lesson.json#scenes",
+      "finding": "The instructional arc demonstrates high cohesion and constructive alignment. The scenes trace the argument cleanly: orientation via count tables (Scene 1), defining probability and LLN (Scene 2), rules for union/intersection/independence (Scene 3), misconception repair of the inverted conditional in screening and p-values (Scene 4), faded practice (Scene 5), transfer to recessive gene inheritance (Scene 6), mastery check on a new evening walk audit table (Scene 7), and clinical wrap-up (Scene 8). Assessment items in assessment.json align directly with the stated learning objectives.",
+      "resolution": null
+    }
+  ],
+  "limitations": [
+    "Expert-simulation review: This review represents a single-pass advisory input by a simulated learning-design expert under standard-lesson-v3 guidelines. No real learner testing was conducted.",
+    "Conflict of interest: The same GitHub principal (VSBDev) is responsible for the authoring and review run operators. Agent-level isolation was maintained, but principal-level independence is absent.",
+    "Scope restriction: The review is strictly bounded to learning-design metrics (e.g., clarity, coherence, practice, alignment, and transfer). Scientific accuracy, rights audits, and final typesetting checks are excluded.",
+    "Technical verification limits: No rendered build environment, screen reader, or keyboard navigation pathways were evaluated physically; findings are based solely on the static Markdown and JSON source files."
+  ],
+  "signedAt": "2026-07-25T14:27:00Z"
+}

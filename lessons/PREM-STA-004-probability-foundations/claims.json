@@ -1,0 +1,151 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-claims-v1",
+  "lessonId": "PREM-STA-004",
+  "lessonVersion": "0.1.0",
+  "claims": [
+    {
+      "id": "claim-probability-as-long-run-frequency",
+      "statement": "A probability is a real number between 0 and 1 attached to an event, read in this lesson as the relative frequency the event settles toward across many repetitions under stable conditions; the law of large numbers states that the observed frequency of an event in independent repeated trials converges to its probability as the number of trials grows.",
+      "sceneIds": [
+        "scene-sixty-rows",
+        "scene-long-run-counting",
+        "scene-faded-practice",
+        "scene-mastery-and-spacing",
+        "scene-clinical-wrap-up"
+      ],
+      "sourceIds": [
+        "source-sep-probability-interpretations",
+        "source-gum-statistical-terms",
+        "source-eom-law-of-large-numbers"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "The frequency reading of probability for repeatable events with stable conditions, and convergence of observed frequency to probability under independent repetition.",
+      "uncertainty": "The frequency reading is one of several defensible interpretations of probability, and the cited reference work records standing objections to it, including the reference-class problem and the difficulty of assigning a probability to a single unrepeatable event. The lesson adopts the frequency reading for teaching without claiming it settles the interpretive question.",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-complement-and-addition",
+      "statement": "Under the standard probability axioms of non-negativity, normalisation, and additivity over events that cannot both occur, the probability of an event's complement is one minus the probability of the event, and for any two events the probability that at least one occurs equals the sum of their probabilities minus the probability that both occur, which reduces to the plain sum when the events are mutually exclusive.",
+      "sceneIds": [
+        "scene-long-run-counting",
+        "scene-combining-events",
+        "scene-faded-practice",
+        "scene-carry-to-counselling",
+        "scene-mastery-and-spacing",
+        "scene-clinical-wrap-up"
+      ],
+      "sourceIds": [
+        "source-sep-probability-interpretations"
+      ],
+      "support": "synthesis",
+      "confidence": "high",
+      "scope": "Finitely many events in a sample space carrying a probability function that satisfies the standard axioms.",
+      "uncertainty": "The cited source states the axioms, including finite additivity for disjoint events; the complement rule and the general addition rule are standard consequences derived in the lesson rather than quoted from it. Countable additivity, infinite sample spaces, and measure-theoretic conditions are outside the lesson's scope.",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-conditional-probability-definition",
+      "statement": "For events A and B with P(B) greater than zero, the conditional probability of A given B is defined as the probability that both occur divided by the probability of B; rearranged, the probability that both occur equals the probability of B multiplied by the conditional probability of A given B. Because the two conditional probabilities P(A given B) and P(B given A) share a numerator but divide it by different totals, they are in general different numbers.",
+      "sceneIds": [
+        "scene-combining-events",
+        "scene-inverted-conditional",
+        "scene-faded-practice",
+        "scene-carry-to-counselling",
+        "scene-mastery-and-spacing",
+        "scene-clinical-wrap-up"
+      ],
+      "sourceIds": [
+        "source-sep-probability-interpretations",
+        "source-eom-conditional-probability"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "The standard ratio definition of conditional probability for a conditioning event of positive probability, and the general multiplication rule obtained from it.",
+      "uncertainty": "The cited reference works note that this ratio is the technical definition and need not match every pretheoretic use of the word conditional. Conditioning on an event of probability zero requires machinery the lesson does not introduce.",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-independence-product-rule",
+      "statement": "Two events are independent exactly when the probability that both occur equals the product of their separate probabilities, which for a conditioning event of positive probability is equivalent to the conditional probability of one given the other equalling its unconditional probability; when events are not independent the plain product misstates the joint probability and the conditional form of the multiplication rule must be used.",
+      "sceneIds": [
+        "scene-combining-events",
+        "scene-faded-practice",
+        "scene-carry-to-counselling",
+        "scene-mastery-and-spacing",
+        "scene-clinical-wrap-up"
+      ],
+      "sourceIds": [
+        "source-sep-probability-interpretations",
+        "source-gum-statistical-terms",
+        "source-eom-independence"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "Independence of two events in a finite sample space, and the choice between the plain and conditional multiplication rules.",
+      "uncertainty": "The cited standard states independence as a product condition for random variables while the reference work states it for events; the lesson uses the event form. Pairwise independence does not extend automatically to mutual independence of three or more events, and independence of repeated measurements is a modelling assumption about the data-generating process rather than a property the lesson can verify. The lesson states this limit where it treats repeated readings from one person as independent.",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-conditional-asymmetry-screening",
+      "statement": "In screening, the detection rate is conditioned on a person's true state, describing the probability of a positive result among people who have the condition, while the predictive value of a positive result is conditioned on the result, describing the probability of the condition among people who screened positive. These are different conditional probabilities. In this lesson's invented clinic comparison, only prevalence changes while the positive-given-condition and negative-given-no-condition rates are held fixed, so the predictive value changes; in real applications those conditional performance rates can also vary with threshold, case spectrum and subgroup composition, and reference-standard procedures. Treating one conditional probability as the other is the reasoning error known as confusion of the inverse.",
+      "sceneIds": [
+        "scene-inverted-conditional",
+        "scene-faded-practice",
+        "scene-mastery-and-spacing",
+        "scene-clinical-wrap-up"
+      ],
+      "sourceIds": [
+        "source-screening-predictive-values"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "Interpretation of screening-test measures in a defined tested group, used here only to illustrate the asymmetry of conditional probability.",
+      "uncertainty": "The two clinic calculations isolate prevalence by stipulation and do not imply that conditional performance rates are fixed properties of a test. The lesson does not develop these measures; lesson 10 is the place where they are defined and named.",
+      "risk": "health-sensitive",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-p-value-conditional-direction",
+      "statement": "A p value is computed on the assumption that the tested hypothesis and the rest of the statistical model are correct, so its conditioning event is that assumption; it is therefore not the probability that the tested hypothesis is true given the observed data, and reading it that way reverses the conditional.",
+      "sceneIds": [
+        "scene-inverted-conditional",
+        "scene-clinical-wrap-up"
+      ],
+      "sourceIds": [
+        "source-p-value-misinterpretations"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "The direction of the conditional in a frequentist p value, stated here only to show where this lesson's asymmetry reappears.",
+      "uncertainty": "This lesson does not define a test statistic, a null hypothesis, or a tail area, and does not teach how a p value is computed or when a test is appropriate. Lesson 08 carries those obligations.",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "claim-short-run-compensation-error",
+      "statement": "Expecting a deviation observed in a short run of independent trials to be corrected by later trials misdescribes independence, since the probability of the next trial is unchanged by earlier outcomes and the law of large numbers constrains the growing relative frequency rather than the running count; this error is documented in clinical populations, with 54.2 per cent of 153 medical residents surveyed at multiple centres answering a clinical vignette built on it correctly, and residents scoring higher on biostatistics questions being less prone to it.",
+      "sceneIds": [
+        "scene-long-run-counting",
+        "scene-faded-practice",
+        "scene-carry-to-counselling",
+        "scene-mastery-and-spacing"
+      ],
+      "sourceIds": [
+        "source-eom-law-of-large-numbers",
+        "source-resident-probability-biases"
+      ],
+      "support": "direct",
+      "confidence": "medium-high",
+      "scope": "Independent repeated trials with a fixed probability, and the documented frequency of the corresponding reasoning error in one surveyed group of medical residents.",
+      "uncertainty": "The survey figure comes from a single cross-sectional questionnaire study of 153 residents at Greek centres with a 76.5 per cent response rate, so the exact percentage should not be transported to other populations or read as an estimate of clinical error rates. The reasoning point itself does not depend on the survey.",
+      "risk": "routine",
+      "reviewStatus": "reviewed"
+    }
+  ]
+}

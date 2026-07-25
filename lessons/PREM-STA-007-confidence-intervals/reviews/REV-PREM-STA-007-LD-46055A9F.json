@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-STA-007-LD-46055A9F",
+  "lessonId": "PREM-STA-007",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "d7722d436069543ff67db6cd166f02fef5864372",
+  "role": "learning-design",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev (learning-design reviewer)",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.7",
+      "runId": "agy-learning-design-PREM-STA-007-46055A9F-4CCA-4AF9-91C3-4E6C191404B7",
+      "instructionsDigest": "sha256:8b03326b4b6a751f56b5b338a878c43c7cd6ccbda0c484395d30dd7ac3aa4ade"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Founding-stage isolation check: the accountable principal VSBDev operates the authoring, review, and finalization agents, so principal-level independence is absent. Agent-level role isolation was strictly maintained: no authoring history, other review output, or adjudication draft was read, and no other EmbeddedKnowledge role script was run during this review execution."
+  },
+  "evidenceChecked": [
+    "lessons/PREM-STA-007-confidence-intervals/lesson.json",
+    "lessons/PREM-STA-007-confidence-intervals/claims.json",
+    "lessons/PREM-STA-007-confidence-intervals/references.json",
+    "lessons/PREM-STA-007-confidence-intervals/glossary.json",
+    "lessons/PREM-STA-007-confidence-intervals/ATTRIBUTION.md",
+    "lessons/PREM-STA-007-confidence-intervals/assessment.json",
+    "lessons/PREM-STA-007-confidence-intervals/charts/difference-interval.chart.json",
+    "lessons/PREM-STA-007-confidence-intervals/charts/difference-interval-larger-study.chart.json",
+    "lessons/PREM-STA-007-confidence-intervals/content/010-one-number-from-one-study.md",
+    "lessons/PREM-STA-007-confidence-intervals/content/020-an-estimate-with-a-range.md",
+    "lessons/PREM-STA-007-confidence-intervals/content/030-nine-milligrams-and-its-range.md",
+    "lessons/PREM-STA-007-confidence-intervals/content/040-ninety-five-percent-of-what.md",
+    "lessons/PREM-STA-007-confidence-intervals/content/050-what-moves-the-edges.md",
+    "lessons/PREM-STA-007-confidence-intervals/content/060-reading-intervals.md",
+    "lessons/PREM-STA-007-confidence-intervals/content/070-a-different-trial.md",
+    "lessons/PREM-STA-007-confidence-intervals/content/080-clinical-wrap-up.md",
+    "CONTENT-STANDARD.md"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "lessons/PREM-STA-007-confidence-intervals/content/030-nine-milligrams-and-its-range.md#worked-example-difference-interval",
+      "finding": "The worked example `worked-example-difference-interval` is missing a self-explanation prompt about the decision that most strongly determines the solution. According to `CONTENT-STANDARD.md` Section 5.1, a worked example must include this prompt to encourage active reflection on key expert decisions.",
+      "resolution": "Add a self-explanation prompt at the end of the worked example, asking the learner to reflect on the key decision of the calculation—for example, how the choice of standard error versus the confidence level affects the resulting interval's width, or why keeping the direction of subtraction attached is critical."
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-STA-007-confidence-intervals/content/030-nine-milligrams-and-its-range.md#worked-example-difference-interval",
+      "finding": "The worked example does not explicitly show or instruct the learner to perform an independent check or plausibility test of their computed limits (e.g., verifying that the estimate is the exact midpoint of the interval), which is required by `CONTENT-STANDARD.md` Section 5.1 Criterion 7.",
+      "resolution": "Add an explicit checking step to the worked example demonstrating how to verify that the point estimate is the exact center of the calculated limits: (0.9 + 17.1) / 2 = 9.0."
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-STA-007-confidence-intervals/content/010-one-number-from-one-study.md#L26",
+      "finding": "First-read gate and prerequisite diagnostic: The lesson opens with a concrete description of the study's results and immediately frames the core question before introducing formal jargon. The diagnostic check `check-prerequisite-standard-error` effectively activates prerequisite knowledge of standard error and sample size scaling from PREM-STA-006, providing a clear and supportive recovery path. The prose flows naturally, is free of bureaucratic jargon, and is easy to read aloud.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-STA-007-confidence-intervals/content/040-ninety-five-percent-of-what.md#misconception-probability-in-the-interval",
+      "finding": "Pedagogical treatment of misconceptions: Scene 4 handles the classic confidence interval misconception (treating the fixed parameter as random) exceptionally well. The table in `check-diagnose-the-sentence` is an excellent diagnostic tool that tests both this misconception and the confusion of group averages with individual patient distributions, directly aligning with cognitive support guidelines.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-STA-007-confidence-intervals/content/070-a-different-trial.md#check-transfer-blood-pressure",
+      "finding": "Transfer design: Scene 7 provides a highly effective transfer task, moving the learners from glucose levels (mg/dL) to systolic/diastolic blood pressure (mmHg). It successfully requires learners to construct and interpret two-sided intervals in a new context, reinforcing the core model without repeating irrelevant surface details.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-STA-007-confidence-intervals/content/080-clinical-wrap-up.md#L1",
+      "finding": "Clinical wrap-up and threshold synthesis: Scene 8 provides outstanding synthesis by laying the calculated interval against the NIDDK fasting glucose bands and introducing the clinical decision-making threshold concept. This clearly teaches the distinction between statistical direction (clearing zero) and clinical importance, directly aligning outcomes to practical mastery.",
+      "resolution": null
+    }
+  ],
+  "limitations": [
+    "Expert-simulation review: This review represents a single-pass advisory input by a simulated learning-design expert under standard-lesson-v3 guidelines. No real learner testing was conducted.",
+    "Conflict of interest: The same GitHub principal (VSBDev) is responsible for the authoring and review run operators. Agent-level isolation was maintained, but principal-level independence is absent.",
+    "Scope restriction: The review is strictly bounded to learning-design metrics (e.g., clarity, coherence, practice, alignment, and transfer). Scientific accuracy, rights audits, and final typesetting checks are excluded.",
+    "Technical verification limits: No rendered build environment, screen reader, or keyboard navigation pathways were evaluated physically; findings are based solely on the static Markdown and JSON source files."
+  ],
+  "signedAt": "2026-07-25T15:08:50Z"
+}

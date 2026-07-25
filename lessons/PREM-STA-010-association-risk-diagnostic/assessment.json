@@ -1,0 +1,318 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-assessment-v1",
+  "lessonId": "PREM-STA-010",
+  "lessonVersion": "0.1.0",
+  "assessmentId": "assessment-association-risk-diagnostic-mastery",
+  "title": "Effect measures and diagnostic measures mastery check",
+  "purpose": "mastery-gate",
+  "attemptPolicy": {
+    "retakeable": true,
+    "timeLimitMinutes": null,
+    "feedback": "after-attempt"
+  },
+  "items": [
+    {
+      "id": "item-risk-difference-from-audit",
+      "type": "numeric",
+      "sceneId": "scene-mastery-check",
+      "objectiveIds": [
+        "objective-compute-effect-measures"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-association-risk"
+      ],
+      "prompt": "Compute the risk difference between the two groups in the audit, taking the three-hours-or-more group as the baseline. Give a decimal to two places.",
+      "stimulus": "Invented clinic audit of 500 adults with type 2 diabetes. Dinner-to-sleep interval under 3 hours: 90 read 140 mg/dL or above, 160 read below, 250 people. Interval 3 hours or more: 50 read 140 or above, 200 read below, 250 people. Column totals: 140 read 140 or above, 360 read below, 500 adults. A shorter interval means a later dinner. Illustrative teaching example, not medical advice.",
+      "points": 2,
+      "responseSpec": {
+        "mode": "number",
+        "units": null,
+        "tolerance": 0.005,
+        "maxSelections": null,
+        "maxLength": null
+      },
+      "answer": {
+        "correct": 0.16,
+        "summary": "0.16, or 16 people per 100.",
+        "reasoning": "Award 1 point for the two risks read with the group in the denominator: 90/250 = 0.36 for the short interval and 50/250 = 0.20 for the long. Award 1 point for the subtraction in the stated direction: 0.36 - 0.20 = 0.16, which is 16 people per 100. An answer of 1.80 gives the risk ratio, which is a relative measure and answers a different question. An answer of 0.64 divides 90 by 140 and conditions on the reading instead of on the group. On retry, state the denominator aloud before each division and say which of the two measures keeps the units of the outcome.",
+        "acceptableResponses": [
+          "0.16",
+          "0.160",
+          "16%",
+          "16 per 100",
+          "16 percentage points"
+        ],
+        "commonErrors": [
+          "Reporting the risk ratio of 1.80 in place of the difference",
+          "Dividing 90 by the 140 people who read 140 or above, which conditions on the reading instead of the group",
+          "Subtracting the counts, 90 - 50 = 40, and reporting a count as a risk difference"
+        ]
+      },
+      "rubricId": "rubric-risk-difference-from-audit",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-odds-ratio-from-audit",
+      "type": "short-answer",
+      "sceneId": "scene-mastery-check",
+      "objectiveIds": [
+        "objective-compute-effect-measures"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-association-risk"
+      ],
+      "prompt": "Compute the odds ratio for a high reading, short interval against long interval, from the same audit. Give a decimal to two places. In one sentence, state whether it may be reported as a risk ratio here.",
+      "stimulus": "Use the same invented audit of 500 adults. Interval under 3 hours: 90 read 140 mg/dL or above, 160 read below. Interval 3 hours or more: 50 read 140 or above, 200 read below. Illustrative teaching example, not medical advice.",
+      "points": 3,
+      "responseSpec": {
+        "mode": "text",
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "maxLength": 900
+      },
+      "answer": {
+        "correct": "2.25. It may not be reported as a risk ratio here because the outcome occurred in 36 and 20 per cent of the groups; the odds ratio of 2.25 sits further from 1 than the risk ratio of 1.80.",
+        "summary": "2.25, and it may not be reported as a risk ratio, because the outcome occurred in 36 and 20 per cent of the groups.",
+        "reasoning": "Award 1 point for the two odds, each dividing cases by non-cases within a group: 90/160 = 0.5625 and 50/200 = 0.25. Award 1 point for the ratio, 0.5625 / 0.25 = 2.25, or equivalently the cross-product (90 x 200) / (160 x 50) = 18,000 / 8,000 = 2.25. Award 1 point for stating that the outcome is common here, at 36 and 20 per cent, so the odds ratio of 2.25 sits further from 1 than the risk ratio of 1.80 and may not be described as a risk ratio. An answer of 1.80 computed the risk ratio. An answer of 0.44 inverted the ratio, comparing long against short. On retry, compute both ratios on the sixty-row cohort from scene 2 and say which is which.",
+        "acceptableResponses": [
+          "2.25; no, because the outcome is common at 36 and 20 per cent and the risk ratio is 1.80",
+          "2.250, and it may not be called a risk ratio because the odds ratio and risk ratio diverge for this common outcome",
+          "18000/8000 = 2.25; report it as an odds ratio, not as the 1.80 risk ratio",
+          "9/4 = 2.25; no, the outcome is common and this is not the risk ratio"
+        ],
+        "commonErrors": [
+          "Reporting the risk ratio of 1.80, which divides risks instead of odds",
+          "Inverting the comparison and reporting 0.44",
+          "Dividing cases by the group total instead of by the non-cases, which produces risks and not odds",
+          "Describing 2.25 as 'the risk is 2.25 times higher' when the outcome is common"
+        ]
+      },
+      "rubricId": "rubric-odds-ratio-from-audit",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-number-needed-to-treat",
+      "type": "short-answer",
+      "sceneId": "scene-mastery-check",
+      "objectiveIds": [
+        "objective-absolute-versus-relative"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-association-risk"
+      ],
+      "prompt": "Compute the number needed to treat for this trial, to one decimal place. Then write the sentence a clinician could say, including the time period.",
+      "stimulus": "Invented randomised trial. 1,200 adults with type 2 diabetes, 600 assigned to a meal-timing programme and 600 to usual care, one yes-or-no outcome recorded at twelve months. Usual care: 168 had the outcome, 432 did not. Programme: 120 had the outcome, 480 did not. Illustrative teaching example, not medical advice.",
+      "points": 3,
+      "responseSpec": {
+        "mode": "text",
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "maxLength": 900
+      },
+      "answer": {
+        "correct": "12.5, rounded upward to about 13 adults joining the programme instead of usual care for one additional person to avoid the outcome within twelve months.",
+        "summary": "12.5, so about 13 adults join the programme instead of usual care for one additional person to avoid the outcome within twelve months.",
+        "reasoning": "Award 1 point for the two risks: 168/600 = 0.280 and 120/600 = 0.200. Award 1 point for the risk difference, 0.280 - 0.200 = 0.080, and its reciprocal, 1 / 0.080 = 12.5. Award 1 point for a sentence that names the comparison and the period, for example: about 13 adults would join the programme instead of usual care for one additional person to avoid the outcome within twelve months. A sentence without the period or without 'instead of usual care' does not earn the third point. An answer of 3.5 took the reciprocal of the relative reduction of 0.286, which is not a count of people. An answer of 5.0 used the reciprocal of the treated-group risk. On retry, recompute the scene 3 trial and check that its reciprocal comes out at 10.",
+        "acceptableResponses": [
+          "12.5; about 13 adults join the programme instead of usual care for one additional person to avoid the outcome within twelve months",
+          "12.50, rounded upward to 13 people treated instead of usual care for one additional person to avoid the outcome over one year",
+          "1/0.08 = 12.5; about 13 adults receive the programme rather than usual care for one additional avoided outcome by twelve months",
+          "13, rounded up from 12.5, for one additional person to avoid the outcome within twelve months compared with usual care"
+        ],
+        "commonErrors": [
+          "Taking the reciprocal of the relative risk reduction of 0.286 and reporting 3.5",
+          "Taking the reciprocal of a single group's risk instead of the difference",
+          "Quoting the number with no time period and no comparison",
+          "Rounding 12.5 down to 12, which understates the number of people required"
+        ]
+      },
+      "rubricId": "rubric-number-needed-to-treat",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-positive-predictive-value",
+      "type": "numeric",
+      "sceneId": "scene-mastery-check",
+      "objectiveIds": [
+        "objective-build-diagnostic-measures",
+        "objective-prevalence-moves-predictive-value"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-association-risk"
+      ],
+      "prompt": "Using 10,000 people, build the two-by-two table for this test and compute its positive predictive value. Give a decimal to two places.",
+      "stimulus": "Invented point-of-care test with a sensitivity of 0.80 and a specificity of 0.95, used in a population where 10 per cent have the target condition according to the reference standard. Illustrative teaching example, not medical advice.",
+      "points": 3,
+      "responseSpec": {
+        "mode": "number",
+        "units": null,
+        "tolerance": 0.005,
+        "maxSelections": null,
+        "maxLength": null
+      },
+      "answer": {
+        "correct": 0.64,
+        "summary": "0.64, from 800 true positives among 1,250 positive tests.",
+        "reasoning": "Award 1 point for the column totals from the prevalence: 1,000 with the condition and 9,000 without. Award 1 point for the four cells: 0.80 x 1,000 = 800 true positives leaving 200 missed, and 0.95 x 9,000 = 8,550 true negatives leaving 450 false positives. Award 1 point for dividing by the row total that the question asks about: positives total 800 + 450 = 1,250, so 800/1,250 = 0.64. An answer of 0.80 returned the sensitivity, which divides by the 1,000 people with the condition instead of the 1,250 whose test fired. An answer of 0.08 divided the true positives by all 10,000. On retry, rebuild the clinic and health-fair tables from scene 5 and check all four fractions against the denominator table at the end of scene 4.",
+        "acceptableResponses": [
+          "0.64",
+          "0.640",
+          "800/1250",
+          "64%"
+        ],
+        "commonErrors": [
+          "Reporting the sensitivity of 0.80, which divides by the condition-defined group",
+          "Dividing the true positives by the whole population and reporting 0.08",
+          "Applying the specificity to the wrong column and building 9,000 people into the condition-present group",
+          "Reporting the negative predictive value of 0.977, which answers the other row"
+        ]
+      },
+      "rubricId": "rubric-positive-predictive-value",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-name-the-inversion",
+      "type": "short-answer",
+      "sceneId": "scene-mastery-check",
+      "objectiveIds": [
+        "objective-prevalence-moves-predictive-value"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-association-risk"
+      ],
+      "prompt": "A colleague reads the same test's figures and says: \"It picks up 80 per cent, so eight in ten people whose test fires have the condition.\" Name the error, state which two denominators have been swapped, and give the correct number.",
+      "stimulus": "Use the same invented test: sensitivity 0.80, specificity 0.95, prevalence 10 per cent, 10,000 people. Illustrative teaching example, not medical advice.",
+      "points": 3,
+      "responseSpec": {
+        "mode": "text",
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "maxLength": 900
+      },
+      "answer": {
+        "correct": "The colleague has read a sensitivity as a positive predictive value, which is confusion of the inverse. Sensitivity divides the 800 true positives by the 1,000 people who have the condition; the positive predictive value divides the same 800 by the 1,250 people whose test fired. The correct figure is 800/1,250 = 0.64, so about two in three, and the gap between 0.80 and 0.64 would widen if the condition were less common in this population.",
+        "summary": "Confusion of the inverse: sensitivity conditions on the condition, the predictive value conditions on the result. The correct value is 0.64.",
+        "reasoning": "Award 1 point for naming the error as reading a sensitivity as a positive predictive value, or as confusion of the inverse, or as swapping P(positive given condition) for P(condition given positive). Award 1 point for identifying both denominators: 1,000 people with the condition against 1,250 whose test fired. Award 1 point for the correct value, 800/1,250 = 0.64, or an equivalent statement such as about two in three. A response that only says 'the colleague is wrong' earns no points. A response that gives 0.64 without naming which denominators moved earns 1 point. On retry, write the four-row denominator table from scene 4 from memory and check each fraction against it.",
+        "acceptableResponses": [
+          "Confusion of the inverse; sensitivity divides by the 1,000 with the condition, the positive predictive value divides by the 1,250 who tested positive; the correct value is 0.64",
+          "The 80 per cent is P(test positive given condition present); the question asks P(condition present given test positive), which is 800/1250 = 0.64",
+          "Sensitivity has been read as a positive predictive value; denominators 1,000 and 1,250; correct answer 0.64"
+        ],
+        "commonErrors": [
+          "Calling the statement wrong without naming which two groups the fractions divide by",
+          "Attributing the error to the specificity rather than to the swapped conditioning group",
+          "Giving 0.64 while still describing it as a property of the device rather than of the person holding the result",
+          "Claiming the sensitivity itself was misreported, when the 0.80 is correct for the question it answers"
+        ]
+      },
+      "rubricId": "rubric-name-the-inversion",
+      "safetyCritical": false
+    }
+  ],
+  "rubrics": [
+    {
+      "id": "rubric-risk-difference-from-audit",
+      "title": "Absolute comparison read from a two-by-two table",
+      "criteria": [
+        {
+          "id": "criterion-risks-with-group-denominators",
+          "description": "Both group risks are computed with the group as the denominator: 90/250 = 0.36 and 50/250 = 0.20.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-difference-in-stated-direction",
+          "description": "The difference is taken in the direction the question specifies and reported as 0.16, or equivalently 16 people per 100.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-odds-ratio-from-audit",
+      "title": "Odds ratio and its reporting limits",
+      "criteria": [
+        {
+          "id": "criterion-odds-within-groups",
+          "description": "Odds are formed as cases per non-case inside each group: 90/160 = 0.5625 and 50/200 = 0.25.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-ratio-or-cross-product",
+          "description": "The ratio is computed correctly as 2.25, by dividing the odds or by the cross-product of the diagonals.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-common-outcome-caveat",
+          "description": "The response states that the outcome is common at 36 and 20 per cent, so the odds ratio sits further from 1 than the risk ratio of 1.80 and may not be reported as a risk ratio.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-number-needed-to-treat",
+      "title": "Number needed to treat with its conditions attached",
+      "criteria": [
+        {
+          "id": "criterion-arm-risks",
+          "description": "Both arm risks are computed correctly: 168/600 = 0.280 and 120/600 = 0.200.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-reciprocal-of-difference",
+          "description": "The risk difference of 0.080 is taken and its reciprocal reported as 12.5.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-sentence-with-period-and-comparison",
+          "description": "The sentence names the comparison and the twelve-month period, for example about 13 adults joining the programme instead of usual care for one additional person to avoid the outcome within a year.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-positive-predictive-value",
+      "title": "Two-by-two table built from stipulated test figures",
+      "criteria": [
+        {
+          "id": "criterion-column-totals-from-prevalence",
+          "description": "Prevalence is used to set the column totals: 1,000 with the condition and 9,000 without, out of 10,000.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-four-cells",
+          "description": "All four cells are correct: 800 true positives, 200 false negatives, 450 false positives, 8,550 true negatives.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-divide-by-the-row",
+          "description": "The positive predictive value divides 800 by the 1,250 positive tests, giving 0.64.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-name-the-inversion",
+      "title": "Diagnosis of an inverted conditional in a spoken claim",
+      "criteria": [
+        {
+          "id": "criterion-name-the-error",
+          "description": "The error is named as reading a sensitivity as a positive predictive value, or as confusion of the inverse, or by stating the two conditional probabilities in the correct direction.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-both-denominators",
+          "description": "Both denominators are identified: the 1,000 people with the condition and the 1,250 whose test fired.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-correct-value",
+          "description": "The correct positive predictive value of 0.64 is given, or an equivalent statement such as about two in three.",
+          "maxPoints": 1
+        }
+      ]
+    }
+  ]
+}
