@@ -60,3 +60,33 @@ VSBDev, the accountable principal, is verified as `github:VSBDev`. The system, p
 No third-party assets are present and the pack contains no images, diagrams, charts, or datasets. Every learner task has a text-first path, and the tables restate information the surrounding prose also states, so no meaning depends on a visual arrangement.
 
 Every person in this lesson is invented. R., M., K., P., A., and D. describe no real patient, clinician, employer, practice, ward, or service, and no quoted document is a real record. The lesson carries the teaching-example boundary in three scenes, describes risk only at the level of what a learner should notice and record, names no treatment, and reaches no diagnosis for any case. The passage on R.'s five-day period is deliberately held at description; what it might mean belongs to the next outcome in the module. There are no licence exceptions to the CC BY 4.0 contribution grant.
+
+## Adjudication repairs to the 0.1.0 candidate
+
+The academic review returned request-changes with five major and three minor findings; the
+learning-design review approved with five notes. Each finding was a bounded correction to a claim,
+a key, or a line of prose, so the maintainer repaired them in place. None was declined.
+
+- **The risk line asserted a negative nobody obtained.** No question about a plan is documented, so
+  the line now records R.'s reported intention and reported history as exactly that, and states that
+  the plan domain was not covered rather than writing an unqualified *no plan, no intent, no act*.
+- **A second dated self-report was described as independent corroboration.** The July practice entry
+  is the same account on another date, and the text now says so, which is what the scene's own
+  explanation had already established.
+- **The mixed-features question was treated as closed.** Absence of elevation and irritability does
+  not settle it: the specifier turns on at least three opposite-pole symptoms drawn from a wider
+  list, two of which were never asked about here. The scene now records what was asked and what
+  that supports, and stops short of *no mixed features*.
+- **A recall study was carried past what it measured.** It studied retrospectively reported
+  depressive episodes, not raised activity, and the summary "real signal, soft edges" was doing work
+  the evidence does not license. The passage now states the limit and notes that the reappraisal
+  evidence for raised activity points the other way.
+- **An answer key converted two ordinary phrases into syndrome language and a course.** It now
+  records what D. said, attributes it, and names what is still unasked.
+- **Impairment was described as required across work, home life and self-care.** One important area
+  is enough, and the text says so.
+- **Residual cognitive change was stated without qualification.** It can persist for some people,
+  which is what the guidance supports.
+- **An uncited population claim about people not raising thoughts of death unprompted was removed**;
+  the safety priority rests on the domain being unaddressed and potentially urgent, which needs no
+  such claim.

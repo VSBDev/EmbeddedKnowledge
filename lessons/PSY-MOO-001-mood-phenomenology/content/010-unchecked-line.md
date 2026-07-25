@@ -18,7 +18,7 @@ In an hour you will meet R., who is 34 and works rotating night shifts in a ware
 
 Depression is two words sharing a spelling, and the two get swapped without anyone noticing.
 
-In ordinary speech it names a low mood: *I was depressed about the interview.* Usually about something, usually passing, and no one means anything technical by it. In clinical use, a major depressive episode names a syndrome. Depressed mood or loss of interest and pleasure has to be present most days for at least two weeks, carrying several further changes alongside it: energy, sleep, concentration, guilt or a sense of worthlessness, movement, weight, thoughts of death. Function suffers across work, home life, and self-care.
+In ordinary speech it names a low mood: *I was depressed about the interview.* Usually about something, usually passing, and no one means anything technical by it. In clinical use, a major depressive episode names a syndrome. Depressed mood or loss of interest and pleasure has to be present most days for at least two weeks, carrying several further changes alongside it: energy, sleep, concentration, guilt or a sense of worthlessness, movement, weight, thoughts of death. The syndrome also requires clinically significant distress, or impairment in social, occupational, or another important area. One area is enough; nothing requires that work, home life and self-care all give way together.
 
 The referral used the second sense on evidence that would only support the first, and that happens constantly. This lesson writes **low mood** when it means the state and spells the syndrome out in full when it means the syndrome. Do the same in anything you write, and the ambiguity stops travelling.
 

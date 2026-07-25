@@ -79,7 +79,7 @@ The conversation lasted twenty minutes. Here is everything it produced, in the o
 
 *Family (S12).* R. reports that a parent had "nerves" and took lithium for years, and that R. does not know what it was for. Recorded exactly at that strength: R.'s second-hand account of a medicine, with the indication unknown to R.
 
-*Risk (S13).* Passive thoughts that life would not be missed, no plan, no intent, no act, and R. raised none of it until asked directly. That last clause is part of the finding.
+*Risk (S13).* Passive thoughts that life would not be missed. R. said "I wouldn't do anything about it" and "I never have", which is R.'s reported current intention and R.'s reported history, and that is how the line records them. No question about a plan is documented anywhere in the material, so the description says the domain was not covered rather than writing a negative nobody obtained. R. raised none of this until asked directly, and that clause is part of the finding too. An unqualified *no plan, no intent, no act* would be the same failure this lesson spends its length naming: a tidy line that a later reader cannot check and that no one in the room actually established.
 
 *Asked and denied (S14, S15).* R. described no hallucinations and no beliefs that others found strange, no irritability, and no days within the four months when the mood lifted. Three established negatives, written as findings, so the next reader knows which questions were put. The last of them also settles the mixed element, which cannot be described until somebody asks whether the mood ever went the other way.
 
@@ -100,7 +100,7 @@ A good answer picks the weight decision or the energy decision, and for the same
 
 One line of the finished description reads:
 
-> Waking at about 04:00 without returning to sleep, most nights other than nights worked late, since around March by R.'s account, and recorded independently by the practice in July.
+> Waking at about 04:00 without returning to sleep, most nights other than nights worked late, since around March by R.'s account, and recorded again in the practice notes in July, where it is the same self-report on a second date rather than a second source.
 
 Rewrite it as the referral would have: "poor sleep". Then name three specific questions that a clinician in October can answer from the first version and cannot answer from the second.
 :::
