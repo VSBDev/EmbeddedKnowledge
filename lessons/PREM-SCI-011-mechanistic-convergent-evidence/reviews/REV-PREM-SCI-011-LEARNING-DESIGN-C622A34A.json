@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-SCI-011-LEARNING-DESIGN-C622A34A",
+  "lessonId": "PREM-SCI-011",
+  "lessonVersion": "0.2.0",
+  "candidateCommit": "bce762c0ebeee2bab92f3eb06532c3ead44b28f2",
+  "role": "learning-design",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev (learning-design reviewer)",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.7",
+      "runId": "agy-learning-design-PREM-SCI-011-C622A34A-1574-42BB-8B62-05DFFADCFBA8",
+      "instructionsDigest": "sha256:07a3520b6c72fba1dac35daed232198c16eb11c04071ff3fedf99341d65d5ebe"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "The accountable principal github:VSBDev is the author of this candidate commit, so principal-level independence is absent. However, agent-level role isolation has been maintained: this agent did not consult any other role reviews or adjudication drafts in the current run."
+  },
+  "evidenceChecked": [
+    "lessons/PREM-SCI-011-mechanistic-convergent-evidence/lesson.json",
+    "lessons/PREM-SCI-011-mechanistic-convergent-evidence/claims.json",
+    "lessons/PREM-SCI-011-mechanistic-convergent-evidence/references.json",
+    "lessons/PREM-SCI-011-mechanistic-convergent-evidence/glossary.json",
+    "lessons/PREM-SCI-011-mechanistic-convergent-evidence/ATTRIBUTION.md",
+    "lessons/PREM-SCI-011-mechanistic-convergent-evidence/content/010-orientation.md",
+    "lessons/PREM-SCI-011-mechanistic-convergent-evidence/content/020-concept.md",
+    "lessons/PREM-SCI-011-mechanistic-convergent-evidence/content/030-worked-example.md",
+    "lessons/PREM-SCI-011-mechanistic-convergent-evidence/content/040-misconception.md",
+    "lessons/PREM-SCI-011-mechanistic-convergent-evidence/content/050-practice.md",
+    "lessons/PREM-SCI-011-mechanistic-convergent-evidence/content/060-transfer.md",
+    "lessons/PREM-SCI-011-mechanistic-convergent-evidence/content/070-synthesis.md",
+    "lessons/PREM-SCI-011-mechanistic-convergent-evidence/content/080-clinical-wrap-up.md",
+    "lessons/PREM-SCI-011-mechanistic-convergent-evidence/assessment.json",
+    "CONTENT-STANDARD.md"
+  ],
+  "findings": [
+    {
+      "severity": "note",
+      "target": "lessons/PREM-SCI-011-mechanistic-convergent-evidence/content/010-orientation.md#L1-L14",
+      "finding": "First-read gate and opening: The lesson orientation opens with a concrete phenomenon (Tide-1 protein in fictional salt-tolerant marsh grass) to ground abstract concepts of causal evidence streams before introducing formal learning objectives or definitions. This gives the novice a tangible mental model to picture, satisfying Criterion 1 in Section 4 of the Content Standard.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-SCI-011-mechanistic-convergent-evidence/content/040-misconception.md#L10-L46",
+      "finding": "Misconception repair sequence: The misconception scene addresses two critical errors (treating agreeing statistical methods as independent confirmations, and assuming randomized interventions rule out all alternate pathways) using the full 6-step repair sequence (prediction commitment, neutral representation, counterexample explanation, adequate model, direct comparison, and a recheck case). This successfully addresses high-value cognitive traps as outlined in Section 7 of the Content Standard.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-SCI-011-mechanistic-convergent-evidence/content/050-practice.md",
+      "finding": "Practice and transfer progression: The instructional arc transitions from highly scaffolded practice (completing claims, filling audit tables, comparing evidence bundles) in Scene 5 to a completely independent, complex transfer task in Scene 6 (investigating snail shell thickening and cue C). This progression is well-scaffolded, avoiding premature cognitive overload.",
+      "resolution": null
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-SCI-011-mechanistic-convergent-evidence/glossary.json",
+      "finding": "Glossary metadata omission: The newly added clinical synthesis wrap-up scene, `scene-clinical-wrap-up` (content/080-clinical-wrap-up.md), correctly uses core terminology defined in the glossary (such as 'evidence line', 'organismal evidence', 'population evidence', 'intervention evidence', 'reliability', 'relevance', 'consistency', 'calibrated claim', 'pivotal evidence', 'confounding', and 'randomization'), but the scene ID 'scene-clinical-wrap-up' is omitted from the 'sceneIds' lists for these terms in glossary.json.",
+      "resolution": "Add 'scene-clinical-wrap-up' to the 'sceneIds' array of each of the following terms in glossary.json: term-evidence-line, term-organismal-evidence, term-population-evidence, term-intervention-evidence, term-reliability, term-relevance, term-consistency, term-calibrated-claim, term-pivotal-evidence, term-confounding, and term-randomization."
+    }
+  ],
+  "limitations": [
+    "Expert-simulation review: This review represents a single-pass advisory input by a simulated learning-design expert under standard-lesson-v3 guidelines. No real learner testing was conducted.",
+    "Conflict of interest: The same GitHub principal (VSBDev) is responsible for the authoring and review run operators. Agent-level isolation was maintained, but principal-level independence is absent.",
+    "Scope restriction: The review is strictly bounded to learning-design metrics (e.g., clarity, coherence, practice, alignment, and transfer). Scientific accuracy, rights audits, and final typesetting checks are excluded.",
+    "Technical verification limits: No rendered build environment, screen reader, or keyboard navigation pathways were evaluated physically; findings are based solely on the static Markdown and JSON source files."
+  ],
+  "signedAt": "2026-07-25T00:48:30Z"
+}

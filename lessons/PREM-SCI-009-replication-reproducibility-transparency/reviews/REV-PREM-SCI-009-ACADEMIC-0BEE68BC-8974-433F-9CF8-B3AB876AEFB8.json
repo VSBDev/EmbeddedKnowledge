@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-SCI-009-ACADEMIC-0BEE68BC-8974-433F-9CF8-B3AB876AEFB8",
+  "lessonId": "PREM-SCI-009",
+  "lessonVersion": "0.2.0",
+  "candidateCommit": "b81211b42a7a9b565837bf09e61361bdc3c95fff",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable operator, academic reviewer",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-SCI-009-0BEE68BC-8974-433F-9CF8-B3AB876AEFB8",
+      "instructionsDigest": "sha256:9b82d3869b7caad867127f73cc19e94bb8d8fed92ce4207f3f121087cbf2ed54"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#id, version, outcomes, prerequisites, objectives, scenes, and claimCoverage",
+    "content/01-result-with-a-trail.md#When a result leaves a trail",
+    "content/02-four-questions.md#Four questions for one claim",
+    "content/03-follow-the-seedling-claim.md#Follow a seedling claim through four checks",
+    "content/04-shortcuts-under-stress.md#Put the shortcuts under stress",
+    "content/05-transfer-and-mastery.md#Build a verification plan in a new setting",
+    "content/06-clinical-wrap-up.md#Make the diabetes result checkable",
+    "diagrams/four-safeguard-questions.diagram.json#diagram-four-safeguard-questions",
+    "assessment.json#item-reproduce-or-replicate",
+    "assessment.json#item-interpret-three-checks",
+    "assessment.json#item-responsible-openness",
+    "assessment.json#item-design-four-part-plan",
+    "assessment.json#rubrics",
+    "claims.json#all ten claim records, scene mappings, source mappings, scope, uncertainty, and reviewStatus",
+    "references.json#all seven source records, locators, uses, and agentAccess declarations",
+    "glossary.json#all twelve terms",
+    "ATTRIBUTION.md#lesson identity, scientific editorial decisions, source-use account, and source-access attestation",
+    "references.json#source-reproducibility-consensus — [official PLOS article](https://journals.plos.org/plosbiology/article?id=10.1371%2Fjournal.pbio.3003726) and [May 2026 correction](https://journals.plos.org/plosbiology/article?id=10.1371%2Fjournal.pbio.3003792)",
+    "references.json#source-replication-perspective — [official PLOS article](https://journals.plos.org/plosbiology/article?id=10.1371%2Fjournal.pbio.3000691)",
+    "references.json#source-cos-preregistration — [Center for Open Science guidance](https://www.cos.io/initiatives/prereg)",
+    "references.json#source-cos-registered-reports — [Center for Open Science guidance](https://www.cos.io/initiatives/registered-reports)",
+    "references.json#source-fda-sensitivity — [FDA/ICH E9(R1) guidance](https://www.fda.gov/media/148473/download)",
+    "references.json#source-nih-data-privacy — [NIH participant-privacy guidance](https://www.grants.nih.gov/policy-and-compliance/policy-topics/sharing-policies/dms/privacy/best-practices)",
+    "references.json#source-multiverse-analysis — [official SAGE article](https://journals.sagepub.com/doi/10.1177/1745691616658637)"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "content/06-clinical-wrap-up.md#Give each check one job",
+      "finding": "This scene repeats material definitions and evidential interpretations for preregistration, open methods, computational reproducibility, replication, sensitivity analysis, and participant-data protection. However, lesson.json marks scene-clinical-wrap-up as no-material-claims, claims.json maps none of the corresponding claims to this scene, and the scene has no learner-visible source-note. The newly added clinical recap therefore presents central methodological claims without the required scene-level evidence trail.",
+      "resolution": "Change scene-clinical-wrap-up to claims-mapped, map the relevant existing claims to it—at minimum the terminology, preregistration, open-methods, privacy-boundary, replication, sensitivity, and complementarity claims—and add a same-scene source-note naming every supporting source. Keep the diabetes result explicitly fictional and non-advisory; if any real empirical medical implication is introduced, add a separately supported, appropriately bounded claim."
+    },
+    {
+      "severity": "minor",
+      "target": "claims.json#claims[*].reviewStatus",
+      "finding": "All ten claim records are already marked reviewed even though lesson.json identifies this as a draft candidate with sourceConfidence pending-review and the current version contains an unreviewed added scene. Those values overstate the academic state of version 0.2.0 and obscure that the scene-to-claim mapping has not yet passed this review.",
+      "resolution": "Return the candidate claim records to pending-review. Promote only retained claims through the authorized post-review finalization and publication-state transition."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#item-interpret-three-checks",
+      "finding": "Independent recalculation confirms that the replication estimate of 3 lies within the stated sensitivity range of 2 to 13 and that the replication interval's upper endpoint, 5, is below the prespecified large-effect threshold of 8. The answer correctly distinguishes same-file regeneration, sensitivity analysis, and new-data replication and avoids deriving an unsupported combined effect estimate.",
+      "resolution": "No academic change required."
+    },
+    {
+      "severity": "note",
+      "target": "content/03-follow-the-seedling-claim.md#6. Calibrate the conclusion",
+      "finding": "Independent recalculation confirms that +0.4 cm lies within the stated +0.2 to +1.8 cm sensitivity range and that the replication interval's upper endpoint, +0.7 cm, is below the prespecified +1.0 cm large-effect threshold. The resulting conclusion is appropriately bounded to a smaller possible effect under tested conditions and does not treat either study as a final verdict.",
+      "resolution": "No academic change required."
+    }
+  ],
+  "limitations": [
+    "The imposed review scope prohibited site/ and other lesson packs, so the graph-node record and cross-lesson terminology registry were not independently inspected. The lesson's declared outcome ID and internal mappings were checked only within this pack.",
+    "Direct verification covered the principal PLOS, Center for Open Science, FDA, NIH, and SAGE sources. Source-access terms and reuse rights were not independently adjudicated because this run is limited to the academic role.",
+    "The diabetes and plant examples are explicitly fictional. They were evaluated for methodological accuracy and unsafe implication, not as evidence for real clinical or biological effects.",
+    "Repository/schema validation was not run because the assigned role forbids edits and the explicit scope prohibited site/ and scripts/ inspection."
+  ],
+  "signedAt": "2026-07-25T01:21:16Z"
+}

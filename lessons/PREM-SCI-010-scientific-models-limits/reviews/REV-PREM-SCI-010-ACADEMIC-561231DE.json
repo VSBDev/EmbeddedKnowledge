@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-SCI-010-ACADEMIC-561231DE",
+  "lessonId": "PREM-SCI-010",
+  "lessonVersion": "0.2.0",
+  "candidateCommit": "94278f604dbadd2d78d8142574039edd2b84c1a4",
+  "role": "academic",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable operator, academic reviewer",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-SCI-010-561231DE-0517-4226-8400-62E73411F55A",
+      "instructionsDigest": "sha256:00c2c8fb68fc988cacfd55ad0d1d5c057847e0a09411c4afe298c71569ab6599"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#objectives",
+    "lesson.json#scenes",
+    "claims.json#claim-model-purpose",
+    "claims.json#claim-model-components",
+    "claims.json#claim-model-domain-scale",
+    "claims.json#claim-sensitivity-analysis",
+    "claims.json#claim-model-uncertainty",
+    "claims.json#claim-ideal-gas-relation",
+    "claims.json#claim-ideal-gas-limits",
+    "claims.json#claim-bounded-evidence",
+    "references.json#source-epa-model-guidance",
+    "references.json#source-nasa-equation-state",
+    "references.json#source-nasa-real-gas-limits",
+    "content/01-precise-answer-wrong-tool.md#equation-ideal-gas-orientation",
+    "content/02-four-question-model-audit.md#definition-scientific-model",
+    "content/02-four-question-model-audit.md#the-complete-route",
+    "content/03-worked-pressure-prediction.md#worked-example-pressure-audit",
+    "content/03-worked-pressure-prediction.md#check-temperature-sensitivity",
+    "content/04-stress-test-and-repair.md#misconception-fit-means-true",
+    "content/04-stress-test-and-repair.md#completion-problem-inside-and-outside-a-fitted-range",
+    "content/04-stress-test-and-repair.md#supported-problem-separate-calibration-from-a-test",
+    "content/04-stress-test-and-repair.md#independent-model-audit",
+    "content/05-transfer-to-new-chamber.md#check-transfer-chamber",
+    "content/06-mastery-and-retrieval.md#final-synthesis",
+    "content/07-clinical-wrap-up.md#audit-before-use",
+    "content/07-clinical-wrap-up.md#stress-test-an-assumption-and-diagnose-the-failure",
+    "assessment.json#item-fit-and-mechanism",
+    "assessment.json#item-feeder-domain-failure",
+    "assessment.json#item-pressure-sensitivity",
+    "assessment.json#item-transfer-mixing-model",
+    "glossary.json#terms",
+    "diagrams/model-use-cycle.diagram.json#diagram-model-use-cycle",
+    "ATTRIBUTION.md#lesson-identity-and-accountability"
+  ],
+  "findings": [
+    {
+      "severity": "note",
+      "target": "content/03-worked-pressure-prediction.md#worked-example-pressure-audit",
+      "finding": "Independent recalculation confirms 99.1 kPa for the stated base case, approximately 101.1 kPa at 2.45 L, and approximately 100.8 kPa at 303 K. Unit cancellation, inverse volume response, direct absolute-temperature response, and the warning that these local checks do not validate ideal-gas structure are academically correct.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#item-pressure-sensitivity",
+      "finding": "Independent recalculation gives 99.768 kPa at 5.00 L, 105.019 kPa at 4.75 L, and 95.017 kPa at 5.25 L. The keyed rounded values, tolerance, inverse-response interpretation, and stated limits of a one-input local sensitivity check are correct.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#item-transfer-mixing-model",
+      "finding": "The answer key correctly distinguishes an unweighted mean of three point measurements from a chamber-volume average when representativeness and volume weights are unknown. It also correctly treats the 17-to-7 spatial spread as evidence against the model's uniform-everywhere prediction and distinguishes an average-only evidence requirement from the structural revision needed for zone-specific output.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "content/07-clinical-wrap-up.md#stress-test-an-assumption-and-diagnose-the-failure",
+      "finding": "Within the explicitly stipulated toy model, a positive shared k preserves the predicted directional difference caused by a larger lateness score, so recalibrating that single rate cannot represent the stipulated unchanged response without violating the model's own structure. The scene repeatedly labels every relationship as invented and does not present the exercise as evidence about glucose physiology or clinical care.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "minor",
+      "target": "ATTRIBUTION.md#lesson-identity-and-accountability",
+      "finding": "The attribution record identifies the candidate state as version 0.1.1 and later repeats that the pack remains 0.1.1, while the frozen lesson, claims, references, glossary, and assessment identify version 0.2.0. It also describes review and adjudication artifacts as recorded inside the pack although none are present at the reviewed commit. This does not alter the scientific argument, but it makes the frozen candidate identity and provenance narrative factually inconsistent.",
+      "resolution": "Update the candidate-state and closing provenance text to describe version 0.2.0 accurately, and remove or clearly historicize statements about review or adjudication artifacts that are not present in this frozen pack."
+    }
+  ],
+  "limitations": [
+    "The operator-imposed scope prohibited inspection of site data and graph files, so the outcome ID, prerequisite edge, and cross-lesson terminology collisions could not be independently verified beyond the mappings and alignment blocks contained in this pack.",
+    "The NTRS citation landing page returned HTTP 403 through the review browser. The corresponding official NASA PDF content and NASA-indexed metadata were nevertheless accessible and supported the cited qualitative low-pressure/high-temperature ideal-gas boundary.",
+    "The clinical wrap-up was reviewed only as an explicitly fictional model-audit exercise. It supplies no real clinical dataset or physiological proposition to validate, and this approval must not be interpreted as clinical validation or medical guidance.",
+    "No material academic claim remained unverifiable within the permitted scope, and no expertise or conflict limitation prevented a responsible approve verdict."
+  ],
+  "signedAt": "2026-07-25T01:01:54Z"
+}

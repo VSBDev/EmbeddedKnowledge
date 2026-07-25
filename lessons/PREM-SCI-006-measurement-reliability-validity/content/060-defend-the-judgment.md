@@ -18,7 +18,7 @@ The assessment contains four untimed, retakeable items worth 14 points:
 - `item-conditions-calibration`: distinguish repeatability, reproducibility, and reference evidence; and
 - `item-transfer-greenhouse`: defend a complete judgment in a new biological-imaging context.
 
-Attempt every item before opening its answer and reasoning. Mastery means at least 11 of 14 points, including at least 2 points on `item-operational-construct` and at least 3 points on `item-transfer-greenhouse`. Those minimums prevent a strong error calculation from hiding a weak construct-validity judgment.
+Attempt every item before opening its answer and reasoning. Mastery means at least 11 of 14 points, including at least 2 points on `item-operational-construct` with its narrower-interpretation-or-evidence criterion earned, and at least 3 points on `item-transfer-greenhouse` with both its construct-validity and bounded-conclusion criteria earned. Those requirements prevent a strong error calculation from hiding a weak construct-validity judgment.
 
 On a retry, use the alternate context named in each item's feedback rather than replaying the same answer sequence. Explain what changed in your reasoning.
 

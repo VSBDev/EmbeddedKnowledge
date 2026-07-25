@@ -17,9 +17,14 @@ They do different jobs. None is a certificate that a claim is true. Together the
 
 ## Activate what you know about bias
 
+:::{check}
+:id: check-bias-activation
+:kind: retrieval
+
 Before reading further, answer from memory:
 
-> A researcher tries several defensible outcome definitions after seeing the data, then reports only the definition that gives the largest difference. What made the result vulnerable to bias: the existence of several definitions, the timing of the choice, or the incomplete report?
+A researcher tries several defensible outcome definitions after seeing the data, then reports only the definition that gives the largest difference. What made the result vulnerable to bias: the existence of several definitions, the timing of the choice, or the incomplete report?
+:::
 
 All three matter, but in different ways. Several defensible definitions create **researcher degrees of freedom**. Choosing after seeing the result lets that flexibility favor a desired story. Reporting only the winning choice hides the dependence from the reader.
 

@@ -2,7 +2,7 @@
 
 ## Pack identity and licence
 
-This is the draft Lesson Format v1 pack for **PREM-SCI-006, “When a number earns its name: measurement, repeatability, and validity”**, version 0.1.0. It maps to `topic-scientific-inquiry-measurement-validity`, declares `topic-scientific-inquiry-variables-controls` as its prerequisite outcome, and has nominal learning time of 180 minutes.
+This is the draft Lesson Format v1 pack for **PREM-SCI-006, “When a number earns its name: measurement, repeatability, and validity”**, version 0.2.0. It maps to `topic-scientific-inquiry-measurement-validity`, declares `topic-scientific-inquiry-variables-controls` as its prerequisite outcome, and has nominal learning time of 190 minutes.
 
 VSBDev (`github:VSBDev`) is the accountable principal. Except for the factual sources listed below, the lesson prose, instructional sequence, fictional cases and data, assessment items, feedback, remediation, glossary wording, and declarative diagram were newly synthesized for EmbeddedKnowledge and are offered under **CC BY 4.0**. There are no third-party assets, embedded media, datasets, quotations, or licence exceptions in this pack.
 
@@ -50,3 +50,5 @@ The complete machine-readable source and agent-access record is in `references.j
 - AERA, APA, and NCME, *Standards for Educational and Psychological Testing* (2014): validity arguments, reliability/precision conditions, construct evidence, and population and setting boundaries.
 
 The `measurement-audit` diagram is original declarative data authored for this pack. Its visible labels, ordered structure, and long description communicate the same four-question audit; it contains no active content or external asset.
+
+Clinical-framing revision: VSBDev (`github:VSBDev`) added an original illustrative diabetes measurement-audit wrap-up applying operational-definition repair, random-versus-systematic error, repeatability-versus-reproducibility, and construct-validity evidence, with system, provider, model, and version `RUNTIME-STAMPED` in isolated run `codex-reauthor-PREM-SCI-006-B481B46B-D8E5-4781-B965-309FFCCE2B2B`; task digest `sha256:900a5aad3d054f18a2a5cb42a80b646f9fcf1989aad397a80c123ce6bfa63a5c`; no real patient data, new factual medical claim, external source, third-party asset, or dataset was introduced.
