@@ -35,6 +35,7 @@ Check cross-lesson terminology. Read `site/data/premed-terminology.json`. For ev
 7. Check prerequisite claims, graph outcome coverage, route relevance, non-clinical boundaries, and any statement that could be mistaken for medical advice or professional authorization.
 8. Search for plausible counterexamples and common expert objections. Distinguish factual error from pedagogical preference.
 9. Do not treat model agreement, citation count, prestigious venue, fluent prose, or successful schema validation as evidence of correctness.
+10. Check the vocabulary for unearned strength. Crucial, pivotal, robust, comprehensive, seamless, and their relatives assert something a source has to establish, and in this corpus they usually arrive as decoration. For each one, confirm the mapped reference supports the strength claimed, or record a `minor` finding and ask for the plain word. A term the lesson defines and then uses technically is a different case and should stay. `npm run lesson:tells` lists these words per lesson alongside the other machine-register counts; the authoring skill states the writing contract behind them.
 
 If a central claim cannot be independently verified, abstain or request changes. Never fill an evidence gap with inference presented as a checked fact.
 

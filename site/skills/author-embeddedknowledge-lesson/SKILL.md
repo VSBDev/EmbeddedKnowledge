@@ -64,6 +64,19 @@ Choose the smallest instructional arc that can teach and assess the target. The 
 6. If a fresh context is unavailable, put the prototype aside, then read it aloud without opening metadata or ledgers and answer the same questions in plain language.
 7. Repair the prototype until it passes before extending the voice across the complete pack. Alignment without first-read comprehension is failure, not rigor.
 
+## Keep the prose out of the machine register
+
+An audit of this corpus found that lessons drift toward a recognisable machine register. Almost no single sentence is wrong; the tell is frequency, and frequency is invisible to a reviewer reading one paragraph at a time. Check the following while the prototype is still short, then again across the finished pack.
+
+1. **Punctuation.** The corpus averages 2.4 em-dashes per 1000 words. One lesson reached 7.1 and read as machine-written on the page. Commas, colons, and full stops carry almost every job the dash is doing there. Keep the dash for a genuine sharp aside.
+2. **Negative parallelism.** "Not X, but Y" and "it is not A, it is B" are the most recognisable constructions in the set. Allow about one per scene, and only where that contrast is the point you are making. Everywhere else, state the positive claim directly.
+3. **Contrastive filler.** "Rather than" is fine occasionally and a tic in bulk; one lesson used it 24 times. Reach for "instead of", "and not", or a sentence that simply says what is true.
+4. **Marker vocabulary.** Unless the science needs the word, avoid delve, tapestry, testament, realm, underscore, showcase, crucial, pivotal, leverage, foster, harness, intricate, multifaceted, meticulous, comprehensive, robust, seamless, holistic, myriad, plethora, "navigate the complexities", "at its core", and "shed light on". A term the lesson defines and then uses technically is a different case: keep it, and define it.
+5. **Empty frames.** Delete "It's important to note that", "It's worth noting", "Keep in mind that", "In conclusion", "Let's dive in", "When it comes to", and "That being said". The sentence such a frame introduces is the sentence you wanted. Moreover, Furthermore, and Additionally stand in for a connective you have not chosen; name the actual relation between the two sentences or drop the word.
+6. **Structure.** Vary paragraph length. Break the rule of three when the material has two reasons or five. Open scenes differently from one another, and let lesson titles differ in shape as well as in subject. Uniformity across a pack is as legible a signature as any phrase.
+
+Run `npm run lesson:tells` before candidate freeze. It counts each of these per lesson against the corpus and names the words behind a count. A number over a ceiling means reread that passage; it never means edit until the number falls.
+
 ## Build the lesson pack
 
 1. Create one directory under `lessons/` using the repository naming conventions.
