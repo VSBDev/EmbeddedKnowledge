@@ -1,6 +1,11 @@
 # Put the shortcuts under stress
 
+:::{check}
+:id: check-recall-four-audit-questions
+:kind: retrieval
+
 Start without looking back. Write the four audit questions from memory. Then attach one word to each question: **before**, **inspect**, **new data**, and **alternatives**.
+:::
 
 A complete reconstruction is:
 
@@ -79,11 +84,16 @@ That is a new outcome and a new question, not a sensitivity analysis of the day-
 
 ## Faded practice
 
+:::{check}
+:id: check-faded-safeguard-practice
+:kind: practice
+
 For each case below, write three lines: **safeguard**, **evidence gained**, **remaining limit**. No template words are supplied this time.
 
 1. A registered plan names one primary outcome, but a broken instrument forces a replacement measure. The report marks the change and gives the reason.
 2. Twelve reasonable data-processing combinations produce estimates ranging from nearly zero to a large difference.
 3. A new team follows the same core procedure in a different season and finds a similar result.
+:::
 
 Use this guide only after committing:
 

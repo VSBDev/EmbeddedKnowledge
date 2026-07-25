@@ -5,7 +5,7 @@
 - Lesson: **PREM-SCI-009 — A trustworthy evidence trail: replication, reproducibility, and transparency**
 - Accountable principal: **VSBDev** (`github:VSBDev`)
 - Course-content licence: **Creative Commons Attribution 4.0 International (CC BY 4.0)**
-- Candidate state: version `0.1.0`, draft, source confidence pending review
+- Candidate state: version `0.2.0`, draft, source confidence pending review
 
 ## Blind science baseline
 
@@ -69,11 +69,17 @@ These excluded routes do not appear in `references.json` and support no lesson c
 
 No third-party image, diagram, audio, video, dataset, or other asset is included. `diagrams/four-safeguard-questions.diagram.json` is an original declarative representation authored for this pack. All numeric study results are explicitly labeled fictional teaching material.
 
-## Post-review finalization
+## Prior version 0.1.0 post-review finalization
 
 VSBDev (`github:VSBDev`) is accountable for the single post-review revision and adjudication. Material finalizer assistance used run `codex-finalizer-PREM-SCI-009-6039609A-483F-4729-B36E-2E36D2A7B67A` under discloseable-instructions digest `sha256:be27f517ba2c2c955ecd76d527a026c546086f575737698a6409d9faf522efd3`. Runtime system, provider, model, and version are recorded as `RUNTIME-STAMPED` in `adjudication.json` for operator substitution from the runtime banner.
 
 The finalizer independently revised the original fictional quantitative cases, their answer logic, the researcher-flexibility claim mapping, source classification, and pacing estimate in response to the two preserved reviews. These changes reuse no third-party expression, media, or dataset.
+
+## Version 0.2.0 post-review finalization
+
+VSBDev (`github:VSBDev`) is accountable for the single post-review revision and adjudication of version `0.2.0`. Material finalizer assistance used run `codex-finalizer-PREM-SCI-009-983CCA2E-8F1F-4C9F-9794-D1163BB02CC7` under discloseable-instructions digest `sha256:0eed959f77f548a3d13ea8e3a4633e04b5373dd3d49a1edeb150dc3a23775d42`. Runtime system, provider, model, and version are recorded as `RUNTIME-STAMPED` in `adjudication.json` for operator substitution from the runtime banner.
+
+This revision maps the clinical recap to the existing methodological claims and sources, restores candidate claim-review states to pending review, and adds semantic retrieval/practice wrappers plus a worked-example self-explanation prompt. It changes no fictional study result or scientific conclusion and reuses no third-party expression, media, or dataset.
 
 ## Governance boundary
 

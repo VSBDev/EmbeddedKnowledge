@@ -28,3 +28,10 @@ The distinctions depend on the evidence question. **Same data and scripts** test
 The final sentence should stay bounded: these checks may raise or lower confidence in the reported participant-level pattern under the tested definitions and conditions, but no single agreement, disagreement, or act of transparency proves a general effect.
 
 The next lesson, **Scientific models and their limits**, builds a simple model of the glucose response. That is the next question; this scene stops at making the evidence trail checkable.
+
+:::{source-note}
+:claims: claim-four-safeguards-complementary, claim-terminology-convention, claim-preregistration-role, claim-open-methods-role, claim-privacy-boundary, claim-replication-role, claim-sensitivity-role
+:sources: source-reproducibility-consensus, source-replication-perspective, source-cos-preregistration, source-nih-data-privacy, source-fda-sensitivity
+
+These sources support the distinct jobs and limits assigned to preregistration, open methods, computational reproducibility, replication, sensitivity analysis, and privacy-protecting access in this fictional clinical recap. The dinner-timing case, sequence, and wording are original teaching material, not evidence about a real glucose effect or medical advice.
+:::
