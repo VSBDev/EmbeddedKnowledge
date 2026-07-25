@@ -32,27 +32,27 @@ Look at where 9.0 falls. The curve is still drawn there, so the null model does 
 
 **Givens.** Observed difference, late minus early: 9.0 mg/dL. Within-group standard deviation: 16 mg/dL. Group sizes: 30 and 30. Null hypothesis: true difference 0 mg/dL. Alternative: true difference not 0, either direction.
 
-**Unknowns.** The test statistic, its degrees of freedom, and the tail area beyond it.
+**Unknowns.** The test statistic and the tail area beyond it.
 
 **The principle, and why it applies.** A raw difference cannot be compared across studies, because every study has its own units and its own noise. Dividing the difference by its own standard error strips both away. The result counts how many standard errors the observation sits from the null value, which is a pure number and can be looked up on the reference curve. This works here because the quantity of interest is a difference of two means and its standard error has already been established.
 
-**The plan.** Divide the observed difference by its standard error. Count the degrees of freedom. Read the area in both tails beyond that distance. Interpret the area.
+**The plan.** Divide the observed difference by its standard error. Use the same normal approximation that produced the reported 1.96-based interval. Read the area in both tails beyond that distance. Interpret the area.
 
 **Execution.**
 
 Step 1, the distance. Divide 9.0 by 4.13.
 
-$$t = \frac{9.0 - 0}{4.13} = 2.18$$
+$$z = \frac{9.0 - 0}{4.13} = 2.18$$
 
 Zero is written into the numerator on purpose. It is the null value, and a null placed at some other number would change what gets subtracted and therefore the answer. So the study's difference sits 2.18 standard errors above what the null model expects.
 
-Step 2, the degrees of freedom. Two groups of thirty, with one mean estimated in each, gives 30 + 30 - 2 = 58. Report this number with the statistic. It says how much information went into estimating the spread, and it is what tells a reader which reference curve the tail area should be read from. The last section of this scene comes back to that choice, because it turns out to matter.
+Step 2, the reference curve. This worked example uses a large-sample normal approximation, so the standardized statistic is labelled $z$ and its tail area is read from the standard normal curve. That choice keeps the test consistent with the reported interval, which used the normal multiplier 1.96. The 4.13 mg/dL standard error is still estimated rather than known exactly, so the normal curve is an approximation, not a claim that no uncertainty entered the spread. The last section of this scene compares it with a pooled two-sample $t$ procedure.
 
 Step 3, the tail area. This is the one step you cannot do with arithmetic alone. The area under a bell curve beyond a given distance has no elementary formula, so it is read from a table of the standard normal distribution or returned by a statistical function in software. Look up 2.18: the area beyond it is 0.0146, which is where that number comes from and the only place it could have come from. The alternative is two-sided, so the area at or beyond -2.18 counts too, and it is the same size by symmetry. Adding them:
 
 $$p = 0.0146 + 0.0146 = 0.029$$
 
-**Units, signs, and assumptions.** The 9.0, the 4.13, and the axis of the chart are all in mg/dL. The 2.18 has no units, which is the point of the division. The sign is positive because the late group ran higher; a difference of -9.0 would give t = -2.18 and, on a two-sided test, exactly the same *p*. The arithmetic assumes everything listed in the model from scene 2, and the shaded area is only as trustworthy as that list.
+**Units, signs, and assumptions.** The 9.0, the 4.13, and the axis of the chart are all in mg/dL. The 2.18 has no units, which is the point of the division. The sign is positive because the late group ran higher; a difference of -9.0 would give $z = -2.18$ and, on a two-sided test, exactly the same *p*. The arithmetic assumes everything listed in the model from scene 2, and the shaded area is only as trustworthy as that list.
 
 **An independent check.** A result sitting exactly two standard errors from centre leaves about 4.6 per cent in the two tails of a normal curve. That figure is worth memorising, because it lets you audit any tail area you are handed without a table. This result sits further out than two, at 2.18, so the answer has to come in below 4.6 per cent. It does, at 2.9 per cent. The check fixes the direction and the ceiling; it will not confirm the third decimal place, and tail areas fall away faster than the distance grows, so do not expect the two figures to sit close.
 
@@ -62,7 +62,7 @@ Treat this as arithmetic confirming itself and nothing more. The next section ex
 
 **Interpretation.** The number 0.029 answers one question: if the true difference were zero and every other model assumption held, how often would a study like this one produce a difference at least as far from zero as 9.0 mg/dL, in either direction? The answer is about 29 times in 1000.
 
-**Explain it to yourself.** Cover the page and say aloud what each of the three numbers is: what 9.0 measures, what 4.13 measures, and what 0.029 is the probability of. If the third sentence starts with the words "the probability that", check very carefully what noun comes next. The following scene is about the wrong nouns.
+**Explain it to yourself.** Cover the page and say aloud what each of the three numbers is: what 9.0 measures, what 4.13 measures, and what 0.029 is the probability of. Then explain why this lesson doubles the one-tail area of 0.0146 instead of stopping there, and name the choice in the hypotheses that made both tails count. If the third sentence starts with the words "the probability that", check very carefully what noun comes next. The following scene is about the wrong nouns.
 :::
 
 ## The interval and the test are one fact, described twice
@@ -89,9 +89,9 @@ The interval carries more information for a reader, because it names the range o
 
 One more honesty check, and it prepares the next scene.
 
-The reference curve used throughout this block is the normal curve, and 1.96 is its 0.05 cut-off. That is a large-sample approximation. The statistic computed above is a *t* statistic with 58 degrees of freedom, and the exact *t* curve has slightly heavier tails than the normal curve, so it puts a little more area beyond 2.18. Carried through, the same data returns about 0.033 instead of 0.029.
+The reference curve used throughout this block is the normal curve, and 1.96 is its 0.05 cut-off. The worked statistic is therefore a normal-approximation $z$, not a $t$ statistic. Because the 4.13 mg/dL standard error was estimated from the two groups, a pooled two-sample $t$ procedure is a defensible alternative. It would use the same standardized distance of 2.18 with 30 + 30 - 2 = 58 degrees of freedom. The $t$ curve has slightly heavier tails than the normal curve, so it returns about 0.033 instead of 0.029.
 
-This is where those 58 degrees of freedom were going. No participant was added and no glucose reading moved; a modelling choice that no clinician would call substantive shifted the third decimal place. The gap it opened, from 0.029 to 0.033, is about the same size as the gap between 0.048 and 0.052.
+No participant was added and no glucose reading moved; changing only the reference curve shifted the third decimal place. The gap it opened, from 0.029 to 0.033, is about the same size as the gap between 0.048 and 0.052.
 
 The worked example above reads its area from the normal curve, which keeps it consistent with the interval lesson 07 built using 1.96, and here both readings land on the same side of the conventional line. Keep the wobble in mind anyway. A number that moves when you change the curve behind it is a number that should not be carrying a decision on its own.
 

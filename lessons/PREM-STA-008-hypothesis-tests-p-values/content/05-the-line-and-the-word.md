@@ -38,7 +38,7 @@ The phrase describes the outcome of a test procedure. It reports where a number 
 
 Here the lesson has to stop and name a collision, because the technical sense above shares a word with an everyday sense that means important, sizeable, or worth attention. Those two senses are unrelated, and the shared spelling does an enormous amount of harm.
 
-A statistically significant result can be tiny. The larger study in scene 4 found 2.0 mg/dL with *p* = 0.030, which clears the conventional bar while describing a difference no clinician would notice. Run a study large enough and almost any non-zero difference will clear it. A result that fails to clear the bar can be large, as the reduced 30-person version of the dinner study showed at 9.0 mg/dL and *p* = 0.12.
+A statistically significant result can be much smaller than another result. The larger study in scene 4 found 2.0 mg/dL with *p* = 0.030, which clears the conventional bar while describing a difference less than a quarter of the 9.0 mg/dL dinner-timing estimate. Run a study large enough and almost any non-zero difference will clear it. A result that fails to clear the bar can be larger, as the reduced 30-person version of the dinner study showed at 9.0 mg/dL and *p* = 0.12.
 
 So the technical phrase carries no information about magnitude or importance, and the everyday word carries nothing else. This course uses the phrase only in its technical sense, and uses plain words like large, small, or worth acting on for the other job.
 

@@ -21,15 +21,26 @@ A surgical unit changes its skin-preparation protocol and audits surgical-site i
 
 The infection rate under the new protocol is less than half the old one. The difference between the two rates is 4.7 percentage points.
 
-The standard error of a difference between two rates is built from the two rates and the two denominators, and for these figures it comes to 2.66 percentage points. That formula is not this lesson's business. What matters is that it does the same job the 4.13 did in scene 3: it says how far apart two rates would drift if the protocol changed nothing and only sampling variation were at work.
+This illustration uses one named procedure throughout: an **unpooled Wald normal approximation** for two independent proportions. Write the observed rates as $\hat p_{\mathrm{old}} = 12/150 = 0.080$ and $\hat p_{\mathrm{new}} = 5/150 = 0.033$. The procedure estimates the standard error from both sample rates:
+
+$$
+\mathrm{SE}_{\mathrm{Wald}} =
+\sqrt{\frac{\hat p_{\mathrm{old}}(1-\hat p_{\mathrm{old}})}{150}
++\frac{\hat p_{\mathrm{new}}(1-\hat p_{\mathrm{new}})}{150}}
+= 0.0266
+$$
+
+That is 2.66 percentage points. The same estimated standard error is used for the test statistic and the interval, so those two results remain internally consistent.
 
 From there the machinery is the machinery you already have.
 
 $$z = \frac{4.67 - 0}{2.66} = 1.76$$
 
-The letter changed from *t* to *z*, and the reason is worth one sentence. With measurements like glucose the spread has to be estimated from the data, which costs degrees of freedom and calls for a *t* curve. With counts the spread follows from the rates themselves, so nothing extra is estimated, there are no degrees of freedom to report, and the normal curve is the reference.
+The letter is $z$ because this named procedure uses a normal approximation. Both rates and their variance are estimated from the observed counts; the normal curve is not justified by estimating nothing. It is an approximation to the sampling behaviour of the difference between two independent sample proportions.
 
 The two-sided *p* is 0.079. The 95 per cent interval for the difference in rates runs from -0.5 to 9.9 percentage points.
+
+This first audit has only five infections in the new-protocol arm. That sparse count makes the Wald approximation fragile: its interval can cover the true difference less often than its 95 per cent label promises. The example is retained because its job is to transfer the reading of a reported result, not to recommend this method for a clinical audit. A real sparse-count analysis should use a method chosen for that setting with statistical oversight.
 
 ## Reading it
 
@@ -82,8 +93,8 @@ Answers. Only the first. It reports the rates, labels the test result correctly 
 :::
 
 :::{source-note}
-:claims: claim-p-value-definition, claim-p-not-hypothesis-probability, claim-nonsignificance-not-no-effect, claim-significance-property-of-test
-:sources: source-asa-p-value-statement, source-p-value-misinterpretations
+:claims: claim-p-value-definition, claim-p-not-hypothesis-probability, claim-nonsignificance-not-no-effect, claim-significance-property-of-test, claim-two-proportion-wald-approximation
+:sources: source-asa-p-value-statement, source-p-value-misinterpretations, source-nist-difference-proportions
 
-The association's statement of principles and the methodological guide support the reading of the probability as a statement about data computed under an assumed model, the rejection of the inverted reading, the correction that a result above the cut-off does not demonstrate absence of an effect, and the point that the technical label describes a test result and not the effect being studied. The audit, both protocols, and all counts are invented for teaching.
+The association's statement of principles and the methodological guide support the reading of the probability as a statement about data computed under an assumed model, the rejection of the inverted reading, the correction that a result above the cut-off does not demonstrate absence of an effect, and the point that the technical label describes a test result and not the effect being studied. The NIST reference gives the unpooled Wald formula used here and warns that its actual interval coverage can fall below the nominal level. The audit, both protocols, and all counts are invented for teaching.
 :::

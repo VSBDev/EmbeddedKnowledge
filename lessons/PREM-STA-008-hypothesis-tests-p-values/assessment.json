@@ -14,7 +14,7 @@
   "items": [
     {
       "id": "item-compute-statistic",
-      "type": "numeric",
+      "type": "single-choice",
       "sceneId": "scene-mastery-check",
       "objectiveIds": [
         "objective-state-hypotheses",
@@ -23,28 +23,44 @@
       "outcomeIds": [
         "topic-statistics-data-hypothesis-tests"
       ],
-      "prompt": "State the null hypothesis study A is tested against, then compute its test statistic. Give the statistic to two decimal places.",
-      "stimulus": "Invented study A: pharmacist-led medication review, 100 participants. Mean fasting glucose 7.2 mg/dL lower in the review group, standard error of that difference 4.0 mg/dL, two-sided p = 0.072, 95 per cent interval -0.6 to 15.0 mg/dL. Alpha fixed at 0.05 in advance. Illustrative teaching example, not medical advice.",
+      "prompt": "Which answer correctly states the null hypothesis for study A and computes its normal-approximation test statistic to two decimal places?",
+      "stimulus": "Invented study A: pharmacist-led medication review, 100 participants. Mean fasting glucose 7.2 mg/dL lower in the review group, standard error of that difference 4.0 mg/dL, two-sided normal-approximation p = 0.072, 95 per cent normal-approximation interval -0.6 to 15.0 mg/dL. Alpha fixed at 0.05 in advance. Illustrative teaching example, not medical advice.",
       "points": 2,
       "responseSpec": {
-        "mode": "number",
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-null-zero-z-1-80",
+            "text": "The null hypothesis fixes the true difference in mean fasting glucose at 0 mg/dL; z = (7.2 - 0) / 4.0 = 1.80."
+          },
+          {
+            "id": "option-sample-null-z-1-80",
+            "text": "The null hypothesis says the observed sample difference is 0 mg/dL; z = (7.2 - 0) / 4.0 = 1.80."
+          },
+          {
+            "id": "option-null-observed-z-zero",
+            "text": "The null hypothesis fixes the true difference at 7.2 mg/dL; z = (7.2 - 7.2) / 4.0 = 0.00."
+          },
+          {
+            "id": "option-null-zero-inverted-ratio",
+            "text": "The null hypothesis fixes the true difference at 0 mg/dL; z = 4.0 / (7.2 - 0) = 0.56."
+          }
+        ],
         "units": null,
-        "tolerance": 0.005,
-        "maxSelections": null,
+        "tolerance": null,
+        "maxSelections": 1,
         "maxLength": null
       },
       "answer": {
-        "correct": 1.8,
+        "correct": "option-null-zero-z-1-80",
         "summary": "The null fixes the true difference in mean fasting glucose at 0 mg/dL, and the statistic is 1.80, from the observed difference minus that null value, divided by the standard error.",
-        "reasoning": "Award 1 point for stating a null that fixes the true difference at 0 mg/dL and using it as the value subtracted, so that the numerator is 7.2 - 0 rather than something else, and 1 point for the arithmetic 7.2 / 4.0 = 1.80. The statistic has no units; the mg/dL in the difference and the mg/dL in the standard error cancel, which is the reason the statistic can be compared across studies. A learner who returns 7.2 has not divided by the standard error. A learner who returns 0.072 has copied the p-value, which is an area and not a distance. On retry, compute the statistic for study B as well, where 0.9 / 0.30 = 3.00, and say in one sentence which study's data sits further from its own null.",
+        "reasoning": "Award 1 point for selecting a null that fixes the true population difference at 0 mg/dL and uses that value in the numerator, and 1 point for selecting the correct division 7.2 / 4.0 = 1.80. The sample-null option confuses a hypothesis about the population quantity with an observed sample result. The zero-statistic option wrongly places the null at the observed difference. The inverted-ratio option divides the standard error by the difference. The statistic has no units; the mg/dL in the difference and standard error cancel. On retry, state the null and compute the statistic for study B, where 0.9 / 0.30 = 3.00, then say which study's data sits further from its own null.",
         "acceptableResponses": [
-          "1.8",
-          "1.80",
-          "7.2/4.0"
+          "The option stating that the null fixes the true difference at 0 mg/dL and that z = (7.2 - 0) / 4.0 = 1.80."
         ],
         "commonErrors": [
-          "Reporting the raw difference of 7.2 without dividing by the standard error",
-          "Reporting the p-value 0.072 in place of the test statistic",
+          "Treating the observed sample difference as the quantity fixed by the null hypothesis",
+          "Placing the null at the observed difference instead of at 0 mg/dL",
           "Dividing the standard error by the difference, giving 0.56"
         ]
       },
@@ -64,7 +80,7 @@
         "topic-statistics-data-hypothesis-tests"
       ],
       "prompt": "Study A reports p = 0.072. Which sentence states correctly what that number is the probability of?",
-      "stimulus": "Invented study A: pharmacist-led medication review, 100 participants, difference 7.2 mg/dL, standard error 4.0 mg/dL, two-sided p = 0.072. Illustrative teaching example, not medical advice.",
+      "stimulus": "Invented study A: pharmacist-led medication review, 100 participants, difference 7.2 mg/dL, standard error 4.0 mg/dL, two-sided normal-approximation p = 0.072. Illustrative teaching example, not medical advice.",
       "points": 3,
       "responseSpec": {
         "mode": "single-choice",
@@ -118,7 +134,7 @@
         "topic-statistics-data-hypothesis-tests"
       ],
       "prompt": "Study A's p = 0.072 sits above the alpha of 0.05 fixed in advance. Which conclusion does the study support?",
-      "stimulus": "Invented study A: 100 participants, difference 7.2 mg/dL lower with pharmacist review, standard error 4.0 mg/dL, two-sided p = 0.072, 95 per cent interval -0.6 to 15.0 mg/dL. Illustrative teaching example, not medical advice.",
+      "stimulus": "Invented study A: 100 participants, difference 7.2 mg/dL lower with pharmacist review, standard error 4.0 mg/dL, two-sided normal-approximation p = 0.072, 95 per cent normal-approximation interval -0.6 to 15.0 mg/dL. Illustrative teaching example, not medical advice.",
       "points": 3,
       "responseSpec": {
         "mode": "single-choice",
@@ -173,7 +189,7 @@
         "topic-statistics-data-hypothesis-tests"
       ],
       "prompt": "Study B reports a smaller p-value than study A. Which comparison between the two studies do their p-values support?",
-      "stimulus": "Invented study A: 100 participants, difference 7.2 mg/dL, standard error 4.0, p = 0.072, interval -0.6 to 15.0 mg/dL. Invented study B: workplace dietary programme, 2000 participants, difference 0.9 mg/dL, standard error 0.30, p = 0.003, interval 0.3 to 1.5 mg/dL. Illustrative teaching example, not medical advice.",
+      "stimulus": "Invented study A: 100 participants, difference 7.2 mg/dL, standard error 4.0, normal-approximation p = 0.072, interval -0.6 to 15.0 mg/dL. Invented study B: workplace dietary programme, 2000 participants, difference 0.9 mg/dL, standard error 0.30, normal-approximation p = 0.003, interval 0.3 to 1.5 mg/dL. Both intervals use the matching normal approximation. Illustrative teaching example, not medical advice.",
       "points": 3,
       "responseSpec": {
         "mode": "single-choice",
@@ -227,7 +243,7 @@
         "topic-statistics-data-hypothesis-tests"
       ],
       "prompt": "Study B reports an interval of 0.3 to 1.5 mg/dL, which excludes zero, and p = 0.003, which is below 0.05. A reviewer writes that the two results confirm each other. Which reply is correct?",
-      "stimulus": "Invented study B: 2000 participants, difference 0.9 mg/dL, standard error 0.30 mg/dL, two-sided p = 0.003, 95 per cent interval 0.3 to 1.5 mg/dL. Illustrative teaching example, not medical advice.",
+      "stimulus": "Invented study B: 2000 participants, difference 0.9 mg/dL, standard error 0.30 mg/dL, two-sided normal-approximation p = 0.003, 95 per cent normal-approximation interval 0.3 to 1.5 mg/dL. Illustrative teaching example, not medical advice.",
       "points": 3,
       "responseSpec": {
         "mode": "single-choice",

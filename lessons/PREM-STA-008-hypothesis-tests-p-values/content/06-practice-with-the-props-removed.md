@@ -4,6 +4,8 @@ Four problems, each with less help than the one before. Every study below is inv
 
 Work each one on paper before opening the feedback. The feedback tells you what was right, which idea explains the error, and what to do next.
 
+Unless a problem says otherwise, use the same two-sided normal approximation and the same 1.96 interval multiplier as the worked example.
+
 ## Problem 1, with most of the work already done
 
 An education trial compares two formats for teaching self-monitoring. Mean HbA1c at six months is 0.30 percentage points lower in the group given the structured format. The standard error of that difference is 0.15 percentage points. Alpha was fixed at 0.05 before recruitment.
@@ -11,7 +13,7 @@ An education trial compares two formats for teaching self-monitoring. Mean HbA1c
 Three of the four steps are filled in. Supply the missing one, then answer the question underneath.
 
 - Null hypothesis: the true difference in mean HbA1c is 0 percentage points.
-- Test statistic: *t* = 0.30 / 0.15 = ?
+- Test statistic: $z = 0.30 / 0.15 = ?$
 - Two-sided *p*: 0.046.
 - 95 per cent interval: 0.30 plus or minus 1.96 x 0.15, giving 0.01 to 0.59 percentage points.
 
@@ -94,7 +96,7 @@ Which of the following are licensed by that result? Mark each yes or no and give
 
 Statement 1 holds, since 0.012 is below 0.05. Statement 4 is the correct reading, with the conditional stated and the noun attached to data.
 
-Statement 2 is the everyday sense of the word sneaking back in. A difference of 0.4 mg/dL is a very small movement in fasting glucose, and whether it is worth anything to a patient is the question **PREM-STA-012** takes up.
+Statement 2 is the everyday sense of the word sneaking back in. The difference is 0.4 mg/dL; whether a change of that size is worth anything to a patient is the question **PREM-STA-012** takes up.
 
 Statement 3 is the inversion.
 

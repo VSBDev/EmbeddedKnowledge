@@ -11,9 +11,11 @@ Both studies below are invented for teaching. Neither describes a real trial, a 
 
 Alpha was fixed at 0.05 in advance in both.
 
+Both reported *p*-values and intervals use the same two-sided normal approximation as the dinner-timing worked example.
+
 The five items ask you to:
 
-1. compute study A's test statistic from its difference and standard error;
+1. state study A's null hypothesis and compute its test statistic from the difference and standard error;
 2. choose the sentence that states correctly what study A's *p*-value is the probability of;
 3. decide what study A's result does and does not establish about pharmacist review;
 4. compare the two studies on effect size and on *p*, and say which comparison the *p*-values support;

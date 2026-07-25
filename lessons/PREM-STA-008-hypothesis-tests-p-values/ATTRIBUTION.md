@@ -34,20 +34,22 @@ The following material is original, created for this pack, and offered under CC 
 - the four faded practice problems, the education, sub-study, medication-review, and dietary-programme cases behind them, and every feedback route;
 - the invented surgical-site infection audit and its 150-per-arm and 600-per-arm comparison, used as the transfer case;
 - studies A and B in the mastery check, and every assessment item, distractor, rubric criterion, and retry route;
-- the Thursday clinic meeting that closes the pack, its four questions, and the minute it recommends;
+- the Thursday clinic meeting that closes the pack, its four questions, and the minute it records;
 - the instructional sequence, headings, accessibility equivalents, and recovery route.
 
 Every quantity stated in the pack was recomputed during authorship rather than carried over from any source, and the block's canonical values were re-derived rather than assumed:
 
 - `16 x sqrt(2/30) = 4.1312`, reported as the canonical standard error 4.13 mg/dL;
-- `9.0 / 4.13 = 2.179`, reported as the canonical statistic 2.18, with `30 + 30 - 2 = 58` degrees of freedom;
-- the two-sided normal tail area beyond 2.18 standard errors, `0.0293`, reported as the canonical `p` = 0.029;
+- `9.0 / 4.13 = 2.179`, reported as the normal-approximation statistic `z = 2.18`;
+- the two-sided normal-approximation tail area beyond 2.18 standard errors, `0.0293`, reported as the canonical `p` = 0.029;
 - `1.96 x 4.13 = 8.0948`, giving `0.905` to `17.095` and so the canonical interval 0.9 to 17.1 mg/dL, and confirming the interval-test correspondence, since the area beyond plus or minus 8.0948 mg/dL is `0.0500` to four decimal places;
 - the paired counter-cases: `2.0 / 0.924 = 2.17` giving `p` = 0.030 at 600 per group, and `9.0 / 5.84 = 1.54` giving `p` = 0.12 at 15 per group;
-- the transfer audit: rates of `12/150` and `5/150`, a difference of `4.67` percentage points, a standard error of `2.66` percentage points, `z = 1.76` and `p` = 0.079, against `48/600` and `20/600` giving the same difference with a standard error of `1.33`, `z = 3.51` and `p` = 0.0004;
+- the transfer audit under its declared unpooled Wald normal approximation: rates of `12/150` and `5/150`, a difference of `4.67` percentage points, a standard error of `2.66` percentage points, `z = 1.76` and `p` = 0.079, against `48/600` and `20/600` giving the same difference with a standard error of `1.33`, `z = 3.51` and `p` = 0.0004;
 - the mastery studies: `7.2 / 4.0 = 1.80` with `p` = 0.072 and interval `-0.64` to `15.04`, and `0.9 / 0.30 = 3.00` with `p` = 0.003 and interval `0.312` to `1.488`.
 
-One arithmetic point deserves explicit record because it affects how a reviewer should read the pack. The block's canonical `p` = 0.029 and its canonical interval are both computed against the **normal** reference curve, which is what the block's use of the 1.96 multiplier implies. The exact Student *t* curve with 58 degrees of freedom returns about **0.033** for the same data. The pack states this openly in scene 3 and uses it in scene 5 as evidence that the 0.05 convention cannot bear the weight often placed on it. The canonical values are used exactly as the block brief specifies; the `t` figure is an added number that contradicts none of them, and it is presented as this pack's own computation rather than as a sourced result.
+One arithmetic point deserves explicit record because it affects how a reviewer should read the pack. The block's canonical `p` = 0.029 and its canonical interval are both computed with a declared large-sample **normal approximation**, which is what the block's use of the 1.96 multiplier implies. The worked statistic is therefore labelled `z`, not `t`. Because the standard error is estimated, a pooled Student *t* procedure is a defensible alternative; with 58 degrees of freedom it returns about **0.033** for the same data. The pack states this openly in scene 3 and uses it in scene 5 as evidence that the 0.05 convention cannot bear the weight often placed on it.
+
+The transfer audit uses the unpooled Wald normal approximation consistently for both its statistic and interval. The five-event cell makes that approximation fragile, so scene 7 explicitly limits the calculation to an interpretation exercise and does not recommend it for clinical analysis.
 
 ## Source use
 
@@ -55,6 +57,7 @@ Every source in `references.json` was used as a factual reference only, under th
 
 - The association's release states its six principles as a numbered list. None of the six is quoted or reproduced here. Each proposition the lesson takes from them is restated in this pack's own words and demonstrated on invented data, and the lesson's ordering of the errors follows its own teaching sequence.
 - The methodological guide presents its corrections as a numbered catalogue of misinterpretations with its own examples. That catalogue's wording, numbering, and examples are not reproduced or re-skinned. Only the underlying propositions are used, and the birth-month reductio, the paired studies, the infection audit, and every worked case here were written from scratch.
+- The NIST Dataplot reference is used only to verify the unpooled Wald formula and its below-nominal coverage limitation. Its example, software output, wording, and organisation are not reused.
 
 Displayed source licences are recorded in `references.json` for transparency. The share-alike licence displayed by the mathematics reference work is not relied on, because no expression from those entries is reused.
 
@@ -65,6 +68,7 @@ Before substantive access on 25 July 2026, the robots route or published terms o
 - **American Statistical Association (amstat.org):** the host publishes no robots file, the route returning HTTP 404, and exposes no terms page or machine-readable crawler directive restricting automated reading. The three-page release PDF was retrieved in one plain HTTPS request.
 - **NCBI:** the wildcard record in the robots file disallows the generic `/pmc/articles/` route, which was not used. The guide was read through the public NCBI BioC REST endpoint for PMC4877414, which no record disallows, with the stable PubMed record used for metadata.
 - **Encyclopedia of Mathematics:** the robots route serves no path restrictions and the copyrights page states CC BY-SA 3.0 and GFDL terms with no machine-reading prohibition. Both entries were read over plain HTTPS at a low request rate, and their revision identifiers are recorded in `references.json`.
+- **NIST Information Technology Laboratory:** a search result identified the page, after which the NIST use policy and privacy notice were checked before the page was opened directly. Those policies permit ordinary access to public information and state no agent-ingestion restriction for the Dataplot reference page. The page was opened over HTTPS without a login, paywall, CAPTCHA, rate-limit breach, or access-control bypass.
 
 No login, paywall, rate limit, CAPTCHA, or technical control was bypassed, and no source is marked `human-only`.
 
@@ -100,6 +104,6 @@ The pack also stops short of two judgements on purpose. Whether a 9.0 mg/dL diff
 
 None. The chart under `charts/` is declarative JSON authored for this pack and is offered under CC BY 4.0. No image, audio, video, software, or dataset from any third party is included.
 
-## Candidate boundary
+## Finalization boundary
 
-This pack is a draft candidate. Every claim in `claims.json` remains `pending-review` and the lesson's `sourceConfidence` remains `pending-review`. No review record, adjudication, or publication transition is present, and none may be inferred from this file.
+This pack remains in draft state. Every claim in `claims.json` remains `pending-review` and the lesson's `sourceConfidence` remains `pending-review`; the maintainer performs any permitted publication transition separately. The frozen review records and final adjudication are governance artifacts and do not themselves publish the lesson.

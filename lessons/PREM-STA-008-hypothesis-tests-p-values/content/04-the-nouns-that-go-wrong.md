@@ -52,7 +52,7 @@ There is a further trap in the word "alone". Chance was one of several assumptio
 
 The consultant's sentence has its own failure mode, and a pair of invented studies exposes it cleanly.
 
-| Study | Participants | Difference | Standard error | *t* | Two-sided *p* |
+| Study | Participants | Difference | Standard error | Normal-approximation $z$ | Two-sided *p* |
 | --- | ---: | ---: | ---: | ---: | ---: |
 | Dinner timing, as run | 60 | 9.0 mg/dL | 4.13 | 2.18 | 0.029 |
 | A larger study | 1200 | 2.0 mg/dL | 0.92 | 2.17 | 0.030 |
@@ -65,7 +65,7 @@ The *p*-value moved hardly at all because it measures distance in standard error
 
 A fourth error runs the other way. Nobody in Thursday's meeting made it, because the study came in under the line, which is exactly why it is worth installing before you need it. It does more quiet damage than the other three, since it usually arrives dressed as a conclusion.
 
-Suppose the dinner-timing study had recruited 30 people instead of 60, split 15 and 15. The observed difference comes out 9.0 mg/dL again, exactly as before. The standard error is now 16 x sqrt(2/15) = 5.84, so *t* = 9.0 / 5.84 = 1.54 and the two-sided *p* is 0.12.
+Suppose the dinner-timing study had recruited 30 people instead of 60, split 15 and 15. The observed difference comes out 9.0 mg/dL again, exactly as before. The standard error is now $16 \sqrt{2/15} = 5.84$, so the normal-approximation statistic is $z = 9.0 / 5.84 = 1.54$ and the two-sided *p* is 0.12.
 
 Dinner timing behaved identically in the two versions. The effect is 9.0 mg/dL in both. Half the sample and a *p*-value of 0.12 is a study that failed to pin the difference down, and a report of "no effect" would be describing the study rather than the biology.
 

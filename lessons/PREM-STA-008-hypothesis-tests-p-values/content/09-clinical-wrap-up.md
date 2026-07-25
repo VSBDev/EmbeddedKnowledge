@@ -26,9 +26,9 @@ That sentence licenses one conclusion. The data sits awkwardly against a model i
 
 The *p*-value has nothing to contribute here, so put it aside and read the other two numbers.
 
-The estimate is 9.0 mg/dL. The 95 per cent interval runs from 0.9 to 17.1 mg/dL. The clinic should look hard at both ends of that interval, because they describe very different worlds.
+The estimate is 9.0 mg/dL. The 95 per cent interval runs from 0.9 to 17.1 mg/dL. The clinic should look hard at both ends of that interval, because they represent effect sizes that differ nearly twenty-fold.
 
-At the top end, dinner timing moves fasting glucose by 17 mg/dL, which would be a change worth building a service around. At the bottom end it moves it by 0.9 mg/dL, which would be invisible in any individual patient and swamped by the day-to-day variation in their readings. This study is compatible with both.
+This lesson has not established the clinical importance of either 0.9 mg/dL or 17.1 mg/dL, and it has not established how either compares with day-to-day variation in an individual. The interval says only that the data remain compatible with values across that wide statistical range. Judging what any value in the range would mean for care belongs to **PREM-STA-012**.
 
 That width is the honest finding, and it is what a *p*-value of 0.029 conceals when it is reported alone. The consultant in scene 1 was reaching for the right question and using the wrong number to answer it.
 
@@ -60,9 +60,9 @@ That question is not statistical. It weighs how much a fasting glucose change of
 
 The defensible summary, using every tool from this lesson:
 
-> Mean fasting glucose was 9.0 mg/dL higher after a late dinner (95 per cent interval 0.9 to 17.1 mg/dL; *p* = 0.029, alpha set at 0.05 in advance). The interval and the *p*-value describe one result and agree by construction. The study is compatible with effects ranging from negligible to substantial. The report does not state how participants came to be in each group or how repeated nights were handled, so confounding and overstated precision cannot be excluded. The clinical importance of a change in this range has not been assessed. Recommend no change to the education session pending a larger randomised study.
+> Mean fasting glucose was 9.0 mg/dL higher after a late dinner (95 per cent interval 0.9 to 17.1 mg/dL; *p* = 0.029, alpha set at 0.05 in advance). The interval and the *p*-value describe one result and agree by construction. The study is compatible with a wide range of effect sizes. The report does not state how participants came to be in each group or how repeated nights were handled, so confounding and overstated precision cannot be excluded. The clinical importance of a change in this range has not been assessed, and this hypothesis-testing analysis alone does not determine whether the education session should change.
 
-Every clause in that paragraph is something this lesson taught you to write, and the recommendation at the end is the one all four readings in scene 1 would have got wrong.
+Every clause in that paragraph is something this lesson taught you to write. It ends at the boundary the four readings in scene 1 crossed: the test result alone does not make the clinical decision.
 
 :::{source-note}
 :claims: claim-null-hypothesis-definition, claim-p-value-definition, claim-p-not-hypothesis-probability, claim-p-not-effect-size, claim-ci-test-correspondence, claim-p-value-assumes-whole-model
