@@ -1,0 +1,141 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://embeddedknowledge.io/schemas/chart.schema.json",
+  "title": "EmbeddedKnowledge lesson chart v1",
+  "description": "Declarative source for a quantitative chart. The JSON is canonical and inert: it carries data and encoding, never drawing instructions or executable code. A renderer derives static SVG from it. Every chart must also carry a text equivalent, because a learner who cannot see the plot must still be able to read the quantities it shows.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "format", "id", "type", "alt", "longDescription", "xAxis", "yAxis"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "format": { "const": "embeddedknowledge-chart-v1" },
+    "id": { "type": "string", "pattern": "^chart-[a-z0-9-]+$" },
+    "type": {
+      "enum": ["normal-curve", "line", "scatter", "bar", "histogram", "box"],
+      "description": "normal-curve is parameterised rather than point-listed, so a sampling distribution stays exact and legible in source."
+    },
+    "title": { "type": "string", "maxLength": 160 },
+    "alt": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 300,
+      "description": "The one-sentence description a screen reader announces in place of the image."
+    },
+    "longDescription": {
+      "type": "string",
+      "minLength": 20,
+      "maxLength": 2000,
+      "description": "What the chart shows and what the learner should read from it. Not a restatement of the caption."
+    },
+    "xAxis": { "$ref": "#/$defs/axis" },
+    "yAxis": { "$ref": "#/$defs/axis" },
+    "series": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 6,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "label"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^series-[a-z0-9-]+$" },
+          "label": { "type": "string", "minLength": 1, "maxLength": 120 },
+          "points": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["x", "y"],
+              "properties": { "x": { "type": "number" }, "y": { "type": "number" } }
+            },
+            "description": "line and scatter data."
+          },
+          "categories": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["label", "value"],
+              "properties": { "label": { "type": "string", "maxLength": 60 }, "value": { "type": "number" } }
+            },
+            "description": "bar data."
+          },
+          "bins": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["from", "to", "count"],
+              "properties": { "from": { "type": "number" }, "to": { "type": "number" }, "count": { "type": "number", "minimum": 0 } }
+            },
+            "description": "histogram data."
+          },
+          "summary": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["min", "q1", "median", "q3", "max"],
+            "properties": {
+              "min": { "type": "number" }, "q1": { "type": "number" }, "median": { "type": "number" },
+              "q3": { "type": "number" }, "max": { "type": "number" }
+            },
+            "description": "box data: a five-number summary."
+          },
+          "mean": { "type": "number", "description": "normal-curve centre." },
+          "sd": { "type": "number", "exclusiveMinimum": 0, "description": "normal-curve spread." }
+        }
+      }
+    },
+    "shadedRegions": {
+      "type": "array",
+      "maxItems": 4,
+      "description": "Regions under the curve or across the plot, for tail areas, confidence intervals, and reference bands.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["from", "to", "label"],
+        "properties": {
+          "from": { "type": ["number", "string"], "description": "A number, or \"-inf\" for an open lower tail." },
+          "to": { "type": ["number", "string"], "description": "A number, or \"inf\" for an open upper tail." },
+          "label": { "type": "string", "minLength": 1, "maxLength": 160 }
+        }
+      }
+    },
+    "markers": {
+      "type": "array",
+      "maxItems": 6,
+      "description": "Labelled vertical reference lines: a mean, a cut-off, an observed value.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["x", "label"],
+        "properties": {
+          "x": { "type": "number" },
+          "label": { "type": "string", "minLength": 1, "maxLength": 120 }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "axis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["label"],
+      "properties": {
+        "label": { "type": "string", "minLength": 1, "maxLength": 120 },
+        "unit": { "type": ["string", "null"], "maxLength": 40 },
+        "min": { "type": "number" },
+        "max": { "type": "number" },
+        "ticks": {
+          "type": "array",
+          "maxItems": 12,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["at", "label"],
+            "properties": { "at": { "type": "number" }, "label": { "type": "string", "maxLength": 40 } }
+          }
+        }
+      }
+    }
+  }
+}
