@@ -78,3 +78,5 @@ The finalizer independently revised the original fictional quantitative cases, t
 ## Governance boundary
 
 The original candidate made no claim of approval, publication, merge readiness, independent verification, clinical sufficiency, or course credit. The preserved reviews and final adjudication are separate governance records. A `merge` adjudication value is an evidence-based recommendation, not a claim that GitHub merged or published the lesson.
+
+- Clinical-framing revision: VSBDev, assisted by runtime-stamped run `codex-reauthor-PREM-SCI-009-583608E7-6CC9-4B81-9B03-451A72345D6F` under discloseable-instructions digest `sha256:838a9a42e547d92e78ed50519708ddd0ae438990ff54cd3e431fa8c76d36d92e`, added the illustrative, not-medical-advice diabetes crossover wrap-up without adding a source, claim, assessment item, glossary term, or asset.
