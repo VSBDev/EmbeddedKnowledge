@@ -57,6 +57,8 @@ A defensible summary is:
 > In this fictional example, the reported estimate and interval can be reproduced from the original files, but the point estimate is sensitive to plausible handling of missing observations. The new-data estimate of +0.4 cm falls within the original study's +0.2 to +1.8 cm sensitivity range, and its interval is below the prespecified threshold for a large effect. These independent checks do not establish one combined effect size, but together they show that +1.8 cm should not be treated as a stable estimate. The evidence supports, at most, a smaller positive effect under the tested conditions and does not support a confident claim of a large, condition-independent effect.
 
 Notice what the summary does not say. It does not declare S effective because the first estimate was positive. It does not discard the first result because the repeat was smaller. It reports what each check changed about confidence.
+
+**Self-explanation:** Which decision most strongly controls the final calibrated conclusion: the preregistered handling of missing heights, the prespecified replication threshold, or another decision in the trail? Explain what would change if that decision changed.
 :::
 
 ## Why the four checks cannot substitute for one another
