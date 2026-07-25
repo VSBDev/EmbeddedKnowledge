@@ -1,0 +1,224 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-claims-v1",
+  "lessonId": "PREM-STA-005",
+  "lessonVersion": "0.1.0",
+  "claims": [
+    {
+      "id": "claim-normal-is-a-named-distribution",
+      "statement": "The normal distribution is one specific named distribution with a stated probability density function, described in the reference literature as probably the most important distribution in statistics; calling a set of data normal is the statistical assertion that they are drawn from a population having that distribution, and carries neither the everyday meaning of usual nor the clinical meaning of within a laboratory reference range. The same reference literature justifies the distribution's standing partly by the central limit theorem, under which the sampling distribution of the mean becomes approximately normal as sample size increases regardless of the distribution of the original variable.",
+      "sceneIds": [
+        "scene-curve-someone-drew",
+        "scene-two-numbers-fix-the-curve"
+      ],
+      "sourceIds": [
+        "source-nist-normal-distribution",
+        "source-nist-normal-data"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "The statistical sense of the word. The first source states the density, the distribution's standing, and the central limit theorem justification; the second states that normal data are data drawn from a population that has a normal distribution.",
+      "uncertainty": "Neither source discusses the everyday or clinical senses of the word. The observation that the three senses collide, and the instruction to keep them apart, is this lesson's own teaching point rather than a sourced fact.",
+      "risk": "routine",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-normal-two-parameters",
+      "statement": "A normal distribution is completely determined by two parameters: a location parameter equal to the mean, which places its centre, and a scale parameter equal to the standard deviation, which sets its spread; the special case with mean 0 and standard deviation 1 is the standard normal distribution.",
+      "sceneIds": [
+        "scene-two-numbers-fix-the-curve",
+        "scene-common-ruler"
+      ],
+      "sourceIds": [
+        "source-nist-normal-distribution"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "The normal family as parameterised in the source, where mu is identified as the location parameter and sigma as the scale parameter, and the standard normal is the case mu = 0, sigma = 1.",
+      "uncertainty": "The consequence this lesson draws, that the family therefore cannot express skew, bimodality, or a hard floor, follows from the parameterisation rather than being stated by the source.",
+      "risk": "routine",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-empirical-rule-areas",
+      "statement": "For any normal distribution, 68.27 per cent of the population falls between the mean and one standard deviation either side, 95.45 per cent between the mean and two standard deviations either side, and 99.73 per cent between the mean and three, which is the empirical rule usually quoted as about 68, 95 and 99.7 per cent.",
+      "sceneIds": [
+        "scene-two-numbers-fix-the-curve",
+        "scene-checking-the-model",
+        "scene-common-ruler",
+        "scene-where-the-bell-misleads",
+        "scene-practice-props-removed",
+        "scene-transfer-length-of-stay"
+      ],
+      "sourceIds": [
+        "source-nist-normal-data"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "Exact areas of the normal curve, which hold for every normal distribution regardless of its parameters. They describe a mathematical model and are not a property that any dataset possesses automatically.",
+      "uncertainty": "The percentages apply to a dataset only to the extent that a normal distribution describes it. Every predicted count reported in this lesson is the product of these percentages with a stated sample size and was computed here.",
+      "risk": "routine",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-z-score-definition",
+      "statement": "Subtracting the mean from a measurement and dividing by the standard deviation, z = (x - mu)/sigma, expresses the measurement as a distance in standard deviations and lets a normal probability be evaluated without reference to the original mean, standard deviation, or units.",
+      "sceneIds": [
+        "scene-common-ruler",
+        "scene-counting-yes-or-no",
+        "scene-practice-props-removed",
+        "scene-clinical-wrap-up"
+      ],
+      "sourceIds": [
+        "source-nist-normal-data",
+        "source-nist-normal-distribution"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "The standardising transformation as stated in the first source, together with the standard normal distribution it maps onto from the second.",
+      "uncertainty": "That the transformation leaves a z-score unchanged under a unit conversion is arithmetic demonstrated in the lesson rather than a claim taken from either source. The lesson's separation of a z-score as a distance from the probability attached to it is also its own teaching point.",
+      "risk": "routine",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-normality-is-checkable",
+      "statement": "Whether a data set is approximately normally distributed is something a technique can assess rather than something an analyst may assume; a normal probability plot is one such technique, and departures from its straight reference line indicate departures from normality.",
+      "sceneIds": [
+        "scene-curve-someone-drew",
+        "scene-checking-the-model",
+        "scene-practice-props-removed",
+        "scene-transfer-length-of-stay"
+      ],
+      "sourceIds": [
+        "source-nist-normal-probability-plot"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "Graphical assessment of approximate normality for a univariate data set.",
+      "uncertainty": "The source describes the plot and the meaning of departures from its line. The band-counting procedure this lesson uses instead, and its rule that a one-sided miss indicates a shape failure, are the lesson's own construction and are presented as a coarser check than the plot.",
+      "risk": "routine",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-fpg-right-skewed",
+      "statement": "In general adult populations the distribution of fasting plasma glucose is skewed to the right, so much so that a large pooled analysis of 43 surveys covering 135,383 participants from 27 countries log transformed glucose values before fitting distributional models in order to reduce that skew.",
+      "sceneIds": [
+        "scene-where-the-bell-misleads",
+        "scene-clinical-wrap-up"
+      ],
+      "sourceIds": [
+        "source-detect2-glucose-distribution"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "Fasting plasma glucose and 2-hour plasma glucose measured during an oral glucose tolerance test in the pooled DETECT-2 surveys, which span multiple continents and include both known and undiagnosed diabetes.",
+      "uncertainty": "The source states the skew and the transformation without quantifying the skew for any single population, and the degree of skew varies between populations. The illustrative 60-person cohort of people already diagnosed with type 2 diabetes used elsewhere in this lesson is close to symmetric, which the lesson treats as a difference between a diagnosed subgroup and a general population rather than as a contradiction. The physiological explanation offered for the skew is the lesson's own reasoning and is not asserted by the source.",
+      "risk": "routine",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-glucose-bimodality-not-general",
+      "statement": "Distributions of fasting plasma glucose and 2-hour plasma glucose did not, in general, produce bimodal structures useful for deriving diagnostic cut points for diabetes, and where a biologically meaningful bimodal structure was present it appeared to be driven by participants with already-known diabetes.",
+      "sceneIds": [
+        "scene-where-the-bell-misleads"
+      ],
+      "sourceIds": [
+        "source-detect2-glucose-distribution"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "The DETECT-2 pooled analysis, which fitted a mixture of two normal distributions to plasma glucose in each survey and estimated a candidate cut point at their intersection.",
+      "uncertainty": "The finding concerns the usefulness of bimodality for deriving diagnostic cut points across pooled international surveys. It does not establish that no population anywhere shows two humps, and this lesson uses it only to say that right skew rather than bimodality is the ordinary shape of this measurement.",
+      "risk": "routine",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-binomial-conditions",
+      "statement": "The binomial distribution applies to the number of successes in a fixed number of trials when each trial has exactly two mutually exclusive outcomes, the probability of success is fixed for all trials, and the trials are independent; the probability of exactly k successes in n trials is n-choose-k multiplied by p to the power k and by (1 - p) to the power n minus k.",
+      "sceneIds": [
+        "scene-counting-yes-or-no",
+        "scene-clinical-wrap-up"
+      ],
+      "sourceIds": [
+        "source-nist-binomial",
+        "source-eom-binomial"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "The first source supplies the two mutually exclusive outcomes, the fixed number of trials, the assumption that p is fixed for all trials, and the probability formula. The second supplies the requirement that the underlying trials be independent.",
+      "uncertainty": "Whether a given study satisfies the four conditions is a judgment about that study. The lesson's counter-cases, including repeated nights within one person and a clinic closure removing patients together, are constructed illustrations of the conditions failing rather than sourced findings.",
+      "risk": "routine",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-binomial-mean-sd",
+      "statement": "A binomial count over n trials with success probability p has mean np and standard deviation equal to the square root of np(1 - p).",
+      "sceneIds": [
+        "scene-counting-yes-or-no",
+        "scene-practice-props-removed",
+        "scene-clinical-wrap-up"
+      ],
+      "sourceIds": [
+        "source-nist-binomial",
+        "source-eom-binomial"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "The mean and standard deviation of the binomial distribution as tabulated by the first source, corroborated by the second, which gives the expectation np and the variance np(1 - p).",
+      "uncertainty": "The summaries hold only where the four binomial conditions hold. Every expected count and standard deviation quoted in this lesson was computed from these formulas with stated values of n and p.",
+      "risk": "routine",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-fpg-thresholds",
+      "statement": "On a fasting plasma glucose test, a result of 99 mg/dL or below is reported as normal, 100 to 125 mg/dL as prediabetes and 126 mg/dL or above as diabetes; fasting means having nothing to eat or drink except sips of water, and a doctor will usually use a second test to confirm a diagnosis of diabetes.",
+      "sceneIds": [
+        "scene-counting-yes-or-no",
+        "scene-clinical-wrap-up"
+      ],
+      "sourceIds": [
+        "source-niddk-diabetes-tests"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "The fasting plasma glucose reference values published by NIDDK, quoted so that the lesson's threshold has a real basis. The lesson uses 126 mg/dL only as the cut-off in a counting model.",
+      "uncertainty": "Diagnostic practice, and the values used, can vary by guideline body and jurisdiction and can change over time; the page states a Last Reviewed date of July 2022. This lesson makes no diagnostic or treatment recommendation and every patient in it is invented.",
+      "risk": "health-sensitive",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-hypoglycaemia-alert-value",
+      "statement": "A joint position statement of the American Diabetes Association and the European Association for the Study of Diabetes reports a glucose alert value of 3.9 mmol/l, equal to 70 mg/dl, and a clinically important concentration of less than 3.0 mmol/l, equal to 54 mg/dl.",
+      "sceneIds": [
+        "scene-common-ruler",
+        "scene-where-the-bell-misleads",
+        "scene-clinical-wrap-up"
+      ],
+      "sourceIds": [
+        "source-ihsg-hypoglycaemia-reporting"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "The statement's paired reporting of glucose concentrations in mmol/l and mg/dl, used here for the alert value itself and for the conversion factor of 18 that the paired figures imply.",
+      "uncertainty": "The statement addresses the reporting of hypoglycaemia in clinical trials, and its thresholds are quoted here only as real reference values for a teaching comparison. This lesson gives no guidance on recognising or treating hypoglycaemia, and an erratum to the statement is recorded in the source registry.",
+      "risk": "health-sensitive",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-glucose-unit-conversion",
+      "statement": "A glucose concentration in mg/dL divided by 18 gives the same concentration in mmol/L, so the two reporting conventions describe one measurement; because the conversion multiplies every value, the mean and the standard deviation by the same constant, a z-score computed in either unit is identical.",
+      "sceneIds": [
+        "scene-common-ruler"
+      ],
+      "sourceIds": [
+        "source-ihsg-hypoglycaemia-reporting"
+      ],
+      "support": "inference",
+      "confidence": "medium-high",
+      "scope": "The conversion factor is inferred from the source's own paired reporting of the same thresholds in both units, where 3.0 mmol/l is given as 54 mg/dl and 3.9 mmol/l as 70 mg/dl.",
+      "uncertainty": "The source states paired values rather than a conversion factor, and clinical practice rounds the exact factor implied by the molar mass of glucose to 18. The invariance of the z-score under the conversion is arithmetic demonstrated in the lesson and does not rest on the source.",
+      "risk": "routine",
+      "reviewStatus": "pending-review"
+    }
+  ]
+}

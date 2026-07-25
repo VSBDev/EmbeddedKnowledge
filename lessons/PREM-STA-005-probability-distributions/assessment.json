@@ -1,0 +1,385 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-assessment-v1",
+  "lessonId": "PREM-STA-005",
+  "lessonVersion": "0.1.0",
+  "assessmentId": "assessment-probability-distributions",
+  "title": "Fit a curve, check it, standardise a reading, count the yes results",
+  "purpose": "mixed",
+  "attemptPolicy": {
+    "retakeable": true,
+    "timeLimitMinutes": null,
+    "feedback": "after-attempt"
+  },
+  "items": [
+    {
+      "id": "item-band-boundaries",
+      "type": "numeric",
+      "sceneId": "scene-two-numbers-fix-the-curve",
+      "objectiveIds": [
+        "objective-fit-the-normal-model"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-distributions"
+      ],
+      "prompt": "A renal clinic records serum creatinine for its outpatients and adopts a normal model with mean 96 micromol/L and standard deviation 14 micromol/L. Give the upper boundary of the band that lies two standard deviations above the mean, in micromol/L.",
+      "stimulus": null,
+      "points": 3,
+      "responseSpec": {
+        "mode": "number",
+        "units": "micromol/L",
+        "tolerance": 0
+      },
+      "answer": {
+        "correct": 124,
+        "summary": "124 micromol/L.",
+        "reasoning": "Two standard deviations above the mean is 96 + 2 × 14 = 96 + 28 = 124 micromol/L. The corresponding lower boundary is 96 − 28 = 68, and the empirical rule places 95.45 per cent of the modelled values between them.",
+        "acceptableResponses": [
+          "124",
+          "124 micromol/L"
+        ],
+        "commonErrors": [
+          "Answering 110, which adds one standard deviation instead of two.",
+          "Answering 138, which adds three standard deviations because the 99.7 per cent figure was recalled instead of the 95 per cent one."
+        ]
+      },
+      "rubricId": "rubric-model-arithmetic",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-density-is-not-probability",
+      "type": "single-choice",
+      "sceneId": "scene-two-numbers-fix-the-curve",
+      "objectiveIds": [
+        "objective-fit-the-normal-model"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-distributions"
+      ],
+      "prompt": "Under a normal model for fasting glucose with mean 142 mg/dL and standard deviation 18 mg/dL, what is the probability that a randomly chosen person's fasting glucose is exactly 142 mg/dL?",
+      "stimulus": null,
+      "points": 3,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-zero",
+            "text": "Zero, because a single value spans no width and encloses no area under the curve."
+          },
+          {
+            "id": "option-highest",
+            "text": "It is the highest probability of any value, because 142 is where the curve peaks."
+          },
+          {
+            "id": "option-sixty-eight",
+            "text": "About 0.68, because 142 is the mean and the empirical rule assigns 68 per cent there."
+          },
+          {
+            "id": "option-one-sixtieth",
+            "text": "About 1 in 60, because the cohort has 60 people and one of them could be at the mean."
+          }
+        ]
+      },
+      "answer": {
+        "correct": "option-zero",
+        "summary": "Zero.",
+        "reasoning": "For a continuous distribution, probability is area under the curve between two values. A single point has no width, so it encloses no area and its probability is zero. The curve's height at 142 is a probability density, which is at its maximum there, and a density is not a probability. The 68 per cent figure applies to the whole band from 124 to 160, not to the centre point. The 1 in 60 answer confuses a question about the model with a question about the sample in hand.",
+        "acceptableResponses": [
+          "Zero.",
+          "0, because probability is area and a point has no width."
+        ],
+        "commonErrors": [
+          "Reading the peak height of the curve as the probability of the mean.",
+          "Attaching the 68 per cent band figure to the single value at its centre."
+        ]
+      },
+      "rubricId": "rubric-model-concepts",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-standardise-a-reading",
+      "type": "numeric",
+      "sceneId": "scene-common-ruler",
+      "objectiveIds": [
+        "objective-standardise-a-reading"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-distributions"
+      ],
+      "prompt": "In the study cohort fasting glucose has mean 142 mg/dL and standard deviation 18 mg/dL. Give the z-score of a reading of 169 mg/dL, to two decimal places.",
+      "stimulus": null,
+      "points": 3,
+      "responseSpec": {
+        "mode": "number",
+        "units": null,
+        "tolerance": 0.01
+      },
+      "answer": {
+        "correct": 1.5,
+        "summary": "z = +1.50.",
+        "reasoning": "Subtract the mean and divide by the standard deviation: (169 − 142) ÷ 18 = 27 ÷ 18 = 1.50. The reading sits one and a half standard deviations above the centre of this cohort. The answer carries no units, because the mg/dL in the numerator and the denominator cancel.",
+        "acceptableResponses": [
+          "1.5",
+          "1.50",
+          "+1.5"
+        ],
+        "commonErrors": [
+          "Answering 27, which is the raw distance from the mean rather than the distance in standard deviations.",
+          "Answering 9.39 by dividing the reading by the standard deviation without subtracting the mean first."
+        ]
+      },
+      "rubricId": "rubric-model-arithmetic",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-z-needs-a-reference",
+      "type": "short-answer",
+      "sceneId": "scene-common-ruler",
+      "objectiveIds": [
+        "objective-standardise-a-reading"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-distributions"
+      ],
+      "prompt": "A colleague writes in a report: \"Patient K's fasting glucose has a z-score of +1.4, so this is a high reading.\" Two separate things are missing before that sentence can be assessed. Name both, and say why each one matters.",
+      "stimulus": null,
+      "points": 6,
+      "responseSpec": {
+        "mode": "text",
+        "maxLength": 1200
+      },
+      "answer": {
+        "correct": "The reference distribution the score was computed against, and the check that the reference distribution is the right shape before the score is turned into a probability.",
+        "summary": "The reference group is unnamed, and the shape of that group's distribution has not been established.",
+        "reasoning": "A z-score is a distance from the centre of a particular distribution, so the same reading standardises differently against a cohort of people with diagnosed type 2 diabetes, centred near 142 mg/dL, and against a general screening population centred nearer 104 mg/dL. Without the reference group named, +1.4 cannot be converted back into a glucose value or compared with anyone else's score. Separately, the phrase implies a share of people who are lower, and that conversion from a distance to a percentage is read off a normal curve. If the reference distribution is right-skewed, as fasting plasma glucose is in a general population, the distance survives and the implied percentage does not. A strong answer also notes that neither problem is fixed by more decimal places.",
+        "acceptableResponses": [
+          "The reference distribution is not stated, and its shape has not been checked, so the distance cannot be interpreted or converted into a probability.",
+          "Which population the mean and standard deviation came from, and whether that population's distribution is actually normal."
+        ],
+        "commonErrors": [
+          "Naming only the missing reference group and treating the conversion from z to a percentage as automatic.",
+          "Answering that the units are missing, when a z-score correctly has none.",
+          "Treating +1.4 as clinically high on its own, which is a statement about position in a group rather than about the patient."
+        ]
+      },
+      "rubricId": "rubric-model-reasoning",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-diagnose-the-failure",
+      "type": "data-interpretation",
+      "sceneId": "scene-where-the-bell-misleads",
+      "objectiveIds": [
+        "objective-check-the-model"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-distributions"
+      ],
+      "prompt": "A hospital biochemistry service fits a normal model to 500 serum triglyceride results, obtaining a mean of 1.5 mmol/L and a standard deviation of 0.9 mmol/L. It then counts how many results fall in each region and compares them with the model, giving the table in the stimulus. All the figures are constructed for this task. State whether the normal model should be retained, and give the specific evidence that decides it.",
+      "stimulus": "Region | Results recorded | Normal model predicts\n--- | --- | ---\nBelow −0.3 mmol/L (mean − 2 sd) | 0 | about 11\n−0.3 up to 0.6 mmol/L | 9 | about 68\n0.6 up to 2.4 mmol/L (within 1 sd) | 431 | about 341\n2.4 up to 3.3 mmol/L | 39 | about 68\n3.3 mmol/L and above (mean + 2 sd) | 21 | about 11\n\nThe recorded results total 500.",
+      "points": 8,
+      "responseSpec": {
+        "mode": "text",
+        "maxLength": 1600
+      },
+      "answer": {
+        "correct": "Reject the model. Its lower two-standard-deviation boundary is a negative concentration, its whole left tail is missing from the data, and its far right tail is about half the size of the one actually recorded.",
+        "summary": "Reject it: the model places probability below zero, loses on the left and under-counts the far right, and the aggregate inside two standard deviations conceals both.",
+        "reasoning": "Two standard deviations below the mean is 1.5 − 1.8 = −0.3 mmol/L. A concentration cannot be negative, so the model assigns probability to outcomes that cannot occur, and that settles the question before any count is consulted. The counts then say the same thing three ways. Below 0.6 mmol/L the model expects about 11 + 68 = 79 results and the service recorded 0 + 9 = 9, so nearly the whole left tail is imaginary. Inside one standard deviation it expects about 341 and the service recorded 431, so the middle is far more crowded than a symmetric curve allows. Above 3.3 mmol/L it expects about 11 and the service recorded 21, roughly double, which is a long thin tail the model cannot reach. The critical observation is what an aggregate would have done: inside two standard deviations the service recorded 0 + 9 + 431 + 39 = 479 against a prediction of about 477, near enough to wave the model through. Splitting the comparison by region is what exposes the failure. All three features point one way: the measurement is bounded below and open above, so it leans right, and no choice of mean and standard deviation lets a symmetric family reproduce a lean.",
+        "acceptableResponses": [
+          "Reject it. Mean minus two standard deviations is −0.3 mmol/L, which is impossible; the predicted left tail of about 79 results is almost absent, the middle holds 431 against about 341, and the far right holds 21 against about 11. The data are right-skewed.",
+          "Do not retain the model: it predicts negative concentrations, its left tail is missing, and it under-predicts the far right tail by about a factor of two, even though the total inside two standard deviations looks correct."
+        ],
+        "commonErrors": [
+          "Retaining the model because the total inside two standard deviations, 479 against about 477, is close, which is exactly the cancellation the lesson warns about.",
+          "Rejecting the model for the right reason but describing the shape as left-skewed by reading the direction of the long tail backwards.",
+          "Proposing to fix the problem by recomputing the mean and standard deviation, which cannot introduce a lean into a symmetric family."
+        ]
+      },
+      "rubricId": "rubric-model-reasoning",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-binomial-conditions",
+      "type": "multiple-choice",
+      "sceneId": "scene-counting-yes-or-no",
+      "objectiveIds": [
+        "objective-model-a-count"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-distributions"
+      ],
+      "prompt": "Select every situation in which a binomial model for the count is defensible, given one clearly defined yes-or-no outcome per trial.",
+      "stimulus": null,
+      "points": 6,
+      "responseSpec": {
+        "mode": "multiple-choice",
+        "options": [
+          {
+            "id": "option-forty-independent-patients",
+            "text": "The number of 40 unrelated outpatients, each measured once, whose fasting glucose is at or above a fixed threshold, with one stated probability applying to all of them."
+          },
+          {
+            "id": "option-repeated-nights",
+            "text": "The number of nights above a threshold across a study in which each of 60 people contributed between 5 and 14 nights, counting every night as a trial."
+          },
+          {
+            "id": "option-household-contacts",
+            "text": "The number of people in 25 households who catch a respiratory infection during one outbreak, counting each person as a trial."
+          },
+          {
+            "id": "option-coin-of-unknown-bias",
+            "text": "The number of heads in 30 tosses of one coin whose bias is unknown but fixed for all 30 tosses."
+          }
+        ],
+        "maxSelections": 4
+      },
+      "answer": {
+        "correct": [
+          "option-forty-independent-patients",
+          "option-coin-of-unknown-bias"
+        ],
+        "summary": "The 40 outpatients and the 30 coin tosses.",
+        "reasoning": "The outpatient count has a fixed number of trials, a binary outcome, one probability applying to every trial, and one measurement per person, so the trials do not share a person. The coin satisfies every condition too: the probability being unknown is not a problem, because the binomial requires only that it be the same on every trial, and an unknown p can be estimated afterwards. The repeated nights fail independence, since nights from one person are clustered and knowing one night tells you a great deal about the next for that individual; treating them as separate trials manufactures precision. The household contacts fail independence for a different reason: infection spreads within a household, so one person's outcome changes their housemates' probabilities.",
+        "acceptableResponses": [
+          "The 40 outpatients and the 30 coin tosses.",
+          "Options 1 and 4."
+        ],
+        "commonErrors": [
+          "Rejecting the coin because p is unknown, when the condition is that p is constant rather than known.",
+          "Accepting the repeated nights because the total number of trials is larger and the answer looks more precise.",
+          "Accepting the household contacts because each person plainly has two possible outcomes, which is only one of the four conditions."
+        ]
+      },
+      "rubricId": "rubric-model-concepts",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-expected-count-and-spread",
+      "type": "numeric",
+      "sceneId": "scene-counting-yes-or-no",
+      "objectiveIds": [
+        "objective-model-a-count"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-distributions"
+      ],
+      "prompt": "A clinic will measure 50 patients, and a model gives each one a probability of 0.20 of being at or above a chosen glucose threshold. Assuming the binomial conditions hold, give the standard deviation of the count of patients over the threshold, to two decimal places.",
+      "stimulus": null,
+      "points": 4,
+      "responseSpec": {
+        "mode": "number",
+        "units": "patients",
+        "tolerance": 0.01
+      },
+      "answer": {
+        "correct": 2.83,
+        "summary": "2.83 patients.",
+        "reasoning": "The standard deviation of a binomial count is the square root of np(1 − p), so √(50 × 0.20 × 0.80) = √8 = 2.83 patients. The expected count itself is np = 50 × 0.20 = 10, so a clinic planning on this model should expect about 10 patients over the threshold and should treat a result three or four either side of that as ordinary variation.",
+        "acceptableResponses": [
+          "2.83",
+          "2.83 patients",
+          "sqrt(8)"
+        ],
+        "commonErrors": [
+          "Answering 10, which is the mean np rather than the standard deviation.",
+          "Answering 8, which is the variance np(1 − p) with the square root omitted.",
+          "Answering 3.16 by taking the square root of np and forgetting the (1 − p) factor."
+        ]
+      },
+      "rubricId": "rubric-model-arithmetic",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-plan-and-caveat",
+      "type": "open-response",
+      "sceneId": "scene-clinical-wrap-up",
+      "objectiveIds": [
+        "objective-check-the-model",
+        "objective-model-a-count"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-distributions"
+      ],
+      "prompt": "A diabetes service fitted a normal model to 60 patients already under its care, mean fasting glucose 142 mg/dL and standard deviation 18 mg/dL, and used it to plan clinic capacity. It now proposes to reuse the same mean, standard deviation and threshold probability to plan a community screening event open to the general public. Write a short note to the service explaining what has to change and why, using this lesson's tools. Treat the numbers as an illustrative teaching example.",
+      "stimulus": null,
+      "points": 10,
+      "responseSpec": {
+        "mode": "text",
+        "maxLength": 2500
+      },
+      "answer": {
+        "correct": "Refit the parameters to the screening population, then check the shape against that population's own data, and use the model only in the region where the check passed.",
+        "summary": "The parameters are wrong for the new population, and the normal shape is wrong for it too; both have to be re-established before any count is planned.",
+        "reasoning": "A complete answer separates two failures. The first is the parameters: the model was fitted to people who already have a diagnosis of type 2 diabetes and is centred at 142 mg/dL, whereas a public screening draws mostly people without that diagnosis and centres far lower, so every z-score computed at the event against the old parameters would be misplaced and the threshold probability of about 0.81 would be far too high. The second failure survives refitting: fasting plasma glucose in a general population is skewed to the right, and a normal curve has no parameter that can lean, so even with a correct mean and standard deviation it will place probability below the measurement's practical floor and under-predict the high tail that the screening exists to find. The recommended sequence is to refit the parameters to the screening population, check the fit tail by tail against that population's own counts rather than in aggregate, and restrict use of the model to the region where the check passed. A strong answer also notes that the binomial count of people over a threshold is only as good as the probability fed into it, so a bad shape upstream corrupts the capacity plan downstream, and that the whole exercise is illustrative rather than a recommendation about any real service.",
+        "acceptableResponses": [
+          "Refit the mean and standard deviation to the screening population, then check the shape against its own data before using the model; expect right skew, which no normal curve can represent, and plan capacity only from the region where the check held.",
+          "Two things are wrong: the parameters belong to a diagnosed cohort, and the normal shape does not fit a general population's glucose, which leans right. Refit, recheck by tail, and only then compute expected counts."
+        ],
+        "commonErrors": [
+          "Recommending only that the mean and standard deviation be recomputed, which leaves the shape failure in place.",
+          "Recommending a larger screening sample, which sharpens the estimates of parameters for a model that is the wrong shape.",
+          "Judging the refitted model acceptable on the total inside two standard deviations, when the two tails can be wrong in opposite directions and cancel.",
+          "Treating the illustrative capacity figures as a recommendation for a real service."
+        ]
+      },
+      "rubricId": "rubric-model-reasoning",
+      "safetyCritical": false
+    }
+  ],
+  "rubrics": [
+    {
+      "id": "rubric-model-arithmetic",
+      "title": "Computing with a distribution's parameters",
+      "criteria": [
+        {
+          "id": "criterion-correct-formula",
+          "description": "Selects the right expression for the quantity asked for, distinguishing a band boundary from a z-score, and a binomial mean from a binomial standard deviation.",
+          "maxPoints": 2
+        },
+        {
+          "id": "criterion-correct-value",
+          "description": "Produces the correct value with the stated rounding, and attaches a unit where the quantity has one or omits it where the quantity is unit-free.",
+          "maxPoints": 2
+        }
+      ]
+    },
+    {
+      "id": "rubric-model-concepts",
+      "title": "Distinguishing what a distribution model does and does not say",
+      "criteria": [
+        {
+          "id": "criterion-density-versus-probability",
+          "description": "Keeps density, area and count apart, and treats a probability for a continuous measurement as attached to a range rather than to a point.",
+          "maxPoints": 3
+        },
+        {
+          "id": "criterion-conditions-tested",
+          "description": "Tests each stated condition of a model against the situation described instead of accepting the model because one condition is met.",
+          "maxPoints": 3
+        }
+      ]
+    },
+    {
+      "id": "rubric-model-reasoning",
+      "title": "Judging whether a model may be used",
+      "criteria": [
+        {
+          "id": "criterion-evidence-named",
+          "description": "Names the specific numerical evidence that decides the judgment, including a comparison run tail by tail rather than in aggregate.",
+          "maxPoints": 4
+        },
+        {
+          "id": "criterion-failure-diagnosed",
+          "description": "Identifies the kind of failure correctly, distinguishing wrong parameters from a wrong distributional shape, and states which repairs would and would not address it.",
+          "maxPoints": 4
+        },
+        {
+          "id": "criterion-limits-stated",
+          "description": "States the limits of the conclusion, including the region of the distribution the evidence covers and the illustrative status of the example.",
+          "maxPoints": 2
+        }
+      ]
+    }
+  ]
+}
