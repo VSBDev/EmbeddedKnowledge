@@ -91,6 +91,6 @@ Every clinical detail in this pack is invented for teaching. The cohort, the two
 
 None. The chart under `charts/` is declarative JSON authored for this pack and is offered under CC BY 4.0. No image, audio, video, software, or dataset from any third party is included.
 
-## Candidate boundary
+## Finalization boundary
 
-This pack is a draft candidate. Every claim in `claims.json` remains `pending-review` and the lesson's `sourceConfidence` remains `pending-review`. No review record, adjudication, or publication transition is present, and none may be inferred from this file.
+The original draft candidate at `0246ce91e2324195a72a1c264921387010e17580` was reviewed once by the committed academic and learning-design advisory runs. A separate fresh finalizer made the bounded post-review revision and recorded its provenance, indexed finding dispositions, accessibility-and-rights audit, limitations, and decision in `adjudication.json`. Every claim in `claims.json` and the lesson's `sourceConfidence` remain `pending-review`, and the lesson remains `draft`; no publication transition or merge is asserted here.

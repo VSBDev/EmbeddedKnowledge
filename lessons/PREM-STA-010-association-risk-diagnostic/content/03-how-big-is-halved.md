@@ -28,11 +28,11 @@ The risk difference already counts people, and one more step makes the count con
 :::{definition}
 :id: definition-number-needed-to-treat
 
-**Number needed to treat.** The number of people who would have to receive the intervention instead of the comparison, over the stated period, for one additional person to avoid the outcome. It is the reciprocal of the risk difference.
+**Number needed to treat.** The number of people who would have to receive the intervention instead of the comparison, over the stated period, for one additional person to benefit. It is the reciprocal of a beneficial absolute risk reduction.
 
-$$\text{NNT} = \frac{1}{\text{risk difference}}.$$
+$$\text{NNT} = \frac{1}{\text{absolute risk reduction}}.$$
 
-Programme A: 1 / 0.12 = 8.33, so about 9 people. Programme B: 1 / 0.004 = 250 people. The two halvings are 9 and 250.
+Programme A: 1 / 0.12 = 8.33, conventionally rounded upward to about 9 people. Programme B: 1 / 0.004 = 250 people. The two halvings are 9 and 250. If the reduction is zero, there is no finite number needed to treat; if the intervention instead increases an unwanted outcome, the corresponding reciprocal is a number needed to harm.
 :::
 
 Three things ride along with any number needed to treat, and quoting one without them is how the measure gets abused.
@@ -50,12 +50,16 @@ The dinner-timing cohort could not support a causal claim, so suppose the servic
 :::{worked-example}
 :id: worked-example-trial-effect-size
 
+**Task.** Report the invented trial's absolute and relative effects, attach the comparison and twelve-month horizon, and translate the beneficial absolute reduction into a number needed to treat.
+
 **The table.** Of the 500 on usual care, 130 had the outcome. Of the 500 in the programme, 80 did.
 
 | Arm | Outcome | No outcome | People |
 | --- | ---: | ---: | ---: |
 | Usual care | 130 | 370 | 500 |
 | Programme | 80 | 420 | 500 |
+
+**Plan.** Compute each arm's risk, subtract usual care minus programme for the beneficial absolute reduction, divide programme by usual care for the risk ratio, and use the reciprocal of the absolute reduction for the number needed to treat. Compute the odds ratio only as a labelled comparison.
 
 **Step 1. Risks.** Usual care: 130/500 = 0.260. Programme: 80/500 = 0.160.
 
@@ -69,7 +73,11 @@ The dinner-timing cohort could not support a causal claim, so suppose the servic
 
 **Step 6. Odds ratio, for comparison.** Odds on usual care are 130/370 = 0.351; in the programme, 80/420 = 0.190. The ratio is 0.190 / 0.351 = 0.542. The outcome is common here too, so the odds ratio again sits further from 1 than the risk ratio of 0.615.
 
+**Independent check.** The programme has 50 fewer outcomes among 500 people, and 50/500 = 0.100, matching the risk difference. Treating 500 people for 50 additional avoided outcomes also gives 500/50 = 10, matching the reciprocal.
+
 **Answer.** In this invented trial the programme cut the twelve-month risk from 26.0 per cent to 16.0 per cent: a reduction of 10 per 100, a relative reduction of 38.5 per cent, and about 10 people treated for one additional person to avoid the outcome.
+
+**Self-explanation.** If the same relative reduction occurred from a much lower usual-care risk, why would the number needed to treat increase?
 :::
 
 Read step 4 and step 5 side by side. "Cuts the risk by nearly forty per cent" and "ten people for one avoided outcome" describe one result, and only the second tells a clinic how many appointments buy how much.

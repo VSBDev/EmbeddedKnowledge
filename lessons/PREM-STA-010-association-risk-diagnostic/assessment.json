@@ -54,7 +54,7 @@
     },
     {
       "id": "item-odds-ratio-from-audit",
-      "type": "numeric",
+      "type": "short-answer",
       "sceneId": "scene-mastery-check",
       "objectiveIds": [
         "objective-compute-effect-measures"
@@ -66,21 +66,21 @@
       "stimulus": "Use the same invented audit of 500 adults. Interval under 3 hours: 90 read 140 mg/dL or above, 160 read below. Interval 3 hours or more: 50 read 140 or above, 200 read below. Illustrative teaching example, not medical advice.",
       "points": 3,
       "responseSpec": {
-        "mode": "number",
+        "mode": "text",
         "units": null,
-        "tolerance": 0.01,
+        "tolerance": null,
         "maxSelections": null,
-        "maxLength": null
+        "maxLength": 900
       },
       "answer": {
-        "correct": 2.25,
+        "correct": "2.25. It may not be reported as a risk ratio here because the outcome occurred in 36 and 20 per cent of the groups; the odds ratio of 2.25 sits further from 1 than the risk ratio of 1.80.",
         "summary": "2.25, and it may not be reported as a risk ratio, because the outcome occurred in 36 and 20 per cent of the groups.",
         "reasoning": "Award 1 point for the two odds, each dividing cases by non-cases within a group: 90/160 = 0.5625 and 50/200 = 0.25. Award 1 point for the ratio, 0.5625 / 0.25 = 2.25, or equivalently the cross-product (90 x 200) / (160 x 50) = 18,000 / 8,000 = 2.25. Award 1 point for stating that the outcome is common here, at 36 and 20 per cent, so the odds ratio of 2.25 sits further from 1 than the risk ratio of 1.80 and may not be described as a risk ratio. An answer of 1.80 computed the risk ratio. An answer of 0.44 inverted the ratio, comparing long against short. On retry, compute both ratios on the sixty-row cohort from scene 2 and say which is which.",
         "acceptableResponses": [
-          "2.25",
-          "2.250",
-          "18000/8000",
-          "9/4"
+          "2.25; no, because the outcome is common at 36 and 20 per cent and the risk ratio is 1.80",
+          "2.250, and it may not be called a risk ratio because the odds ratio and risk ratio diverge for this common outcome",
+          "18000/8000 = 2.25; report it as an odds ratio, not as the 1.80 risk ratio",
+          "9/4 = 2.25; no, the outcome is common and this is not the risk ratio"
         ],
         "commonErrors": [
           "Reporting the risk ratio of 1.80, which divides risks instead of odds",
@@ -94,7 +94,7 @@
     },
     {
       "id": "item-number-needed-to-treat",
-      "type": "numeric",
+      "type": "short-answer",
       "sceneId": "scene-mastery-check",
       "objectiveIds": [
         "objective-absolute-versus-relative"
@@ -106,21 +106,21 @@
       "stimulus": "Invented randomised trial. 1,200 adults with type 2 diabetes, 600 assigned to a meal-timing programme and 600 to usual care, one yes-or-no outcome recorded at twelve months. Usual care: 168 had the outcome, 432 did not. Programme: 120 had the outcome, 480 did not. Illustrative teaching example, not medical advice.",
       "points": 3,
       "responseSpec": {
-        "mode": "number",
+        "mode": "text",
         "units": null,
-        "tolerance": 0.05,
+        "tolerance": null,
         "maxSelections": null,
-        "maxLength": null
+        "maxLength": 900
       },
       "answer": {
-        "correct": 12.5,
+        "correct": "12.5, rounded upward to about 13 adults joining the programme instead of usual care for one additional person to avoid the outcome within twelve months.",
         "summary": "12.5, so about 13 adults join the programme instead of usual care for one additional person to avoid the outcome within twelve months.",
         "reasoning": "Award 1 point for the two risks: 168/600 = 0.280 and 120/600 = 0.200. Award 1 point for the risk difference, 0.280 - 0.200 = 0.080, and its reciprocal, 1 / 0.080 = 12.5. Award 1 point for a sentence that names the comparison and the period, for example: about 13 adults would join the programme instead of usual care for one additional person to avoid the outcome within twelve months. A sentence without the period or without 'instead of usual care' does not earn the third point. An answer of 3.5 took the reciprocal of the relative reduction of 0.286, which is not a count of people. An answer of 5.0 used the reciprocal of the treated-group risk. On retry, recompute the scene 3 trial and check that its reciprocal comes out at 10.",
         "acceptableResponses": [
-          "12.5",
-          "12.50",
-          "1/0.08",
-          "13 (rounded up from 12.5)"
+          "12.5; about 13 adults join the programme instead of usual care for one additional person to avoid the outcome within twelve months",
+          "12.50, rounded upward to 13 people treated instead of usual care for one additional person to avoid the outcome over one year",
+          "1/0.08 = 12.5; about 13 adults receive the programme rather than usual care for one additional avoided outcome by twelve months",
+          "13, rounded up from 12.5, for one additional person to avoid the outcome within twelve months compared with usual care"
         ],
         "commonErrors": [
           "Taking the reciprocal of the relative risk reduction of 0.286 and reporting 3.5",

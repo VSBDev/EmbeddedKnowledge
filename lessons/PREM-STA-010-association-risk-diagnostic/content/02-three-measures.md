@@ -74,6 +74,8 @@ The odds ratio is the one that misleads, and the reason is mechanical. An odds d
 
 **Task.** Report the association between dinner timing and a high morning reading in the sixty-row cohort, using measures a reader cannot misread.
 
+**Plan.** Fix the comparison direction, compute both group risks, report one absolute and one relative measure, then compute the odds ratio and label it without substituting it for the risk ratio.
+
 **Step 1. Fix the four counts.** Late: 21 high, 9 not. Early: 12 high, 18 not.
 
 **Step 2. Risks.** 21/30 = 0.70 and 12/30 = 0.40.
@@ -86,7 +88,11 @@ The odds ratio is the one that misleads, and the reason is mechanical. An odds d
 
 **Step 6. Say what kind of claim this is.** These are measures of **association**: the two variables moved together in this sample. [From correlation to a causal claim](https://embeddedknowledge.io/premed/lessons/read/?lesson=PREM-SCI-007) established that the pattern alone does not say why. The study observed dinner times and did not assign them, so nothing here licenses "eating late raises your reading by 30 per 100".
 
+**Independent check.** Because the groups are the same size, the nine-person difference in high readings gives 9/30 = 0.30, matching the risk difference. The odds-ratio cross-product also reproduces 3.5.
+
 **Answer.** In this invented cohort, 70 per cent of late diners and 40 per cent of early diners read 140 mg/dL or above: a risk difference of 30 per 100 and a risk ratio of 1.75, with an odds ratio of 3.5 reflecting how common the outcome is.
+
+**Self-explanation.** Why does the odds ratio move much further from 1 than the risk ratio when the outcome is common in both groups?
 :::
 
 A note on direction, because this block has been careful about it. The variable the study recorded is the dinner-to-sleep interval in hours, so a *later* dinner is a *shorter* interval. Glucose rises as the interval shortens. Plotted against the interval the association is negative, and it was lesson 02 that turned that sign into a teaching point. The table above groups people instead of plotting the interval, which is why the arithmetic reads the intuitive way round. The underlying association has not changed sign.

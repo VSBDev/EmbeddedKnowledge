@@ -12,7 +12,7 @@ The first is operational. Should the fingerstick meter go, and what should the s
 
 ## 1. What the meter will do at the fair
 
-The meter's own figures travel: sensitivity 0.90, specificity 0.85. The population does not. In the clinic, 40 per cent of morning samples came back at or above the cut. At a fair, stipulate 4 per cent.
+For this toy comparison, stipulate that sensitivity remains 0.90 and specificity 0.85 at the fair. The population prevalence changes: in the clinic, 40 per cent of morning samples came back at or above the cut; at the fair, stipulate 4 per cent. Real sensitivity and specificity may also change between settings, so this isolates prevalence rather than asserting that test performance travels.
 
 Per 10,000 people who stop at the table: 400 with a laboratory value at or above the cut and 9,600 below. The meter fires for 360 of the first group and 1,440 of the second, so 1,800 beeps in total.
 
@@ -24,7 +24,7 @@ That settles the script. A beep is a reason to arrange a laboratory sample and n
 
 The 1,440 false alarms are the cost of the morning, and they are not free. Each one is a person who goes home worried and returns for a venous sample. The service can weigh that against 360 people found. What the arithmetic cannot do is decide whether that trade is acceptable; that is a judgement about people, and it is what the block's final lesson is for.
 
-Two levers exist and both are visible in the table. Testing a group with a higher prevalence raises the positive predictive value without touching the device. Raising the meter's specificity shrinks the false-positive cell directly, because the 1,440 came from a 15 per cent error rate applied to 9,600 people.
+Two levers are visible in the table. Under the fixed-performance assumption, testing a group with a higher prevalence raises the positive predictive value. Raising the meter's specificity shrinks the false-positive cell directly, because the 1,440 came from a 15 per cent error rate applied to 9,600 people.
 
 ## 3. What to say about the programme
 
@@ -34,7 +34,7 @@ The trial from scene 3 is the evidence: 500 per arm, twelve months, 130 outcomes
 - Relative: a risk ratio of 0.615, so a 38.5 per cent relative reduction.
 - In people: about 10 adults joining the programme instead of usual care for one additional person to avoid the outcome within a year.
 
-All three describe one result. The third is the one that answers "should I bother?", and it is the one a leaflet quoting only "cuts your risk by nearly 40 per cent" leaves out.
+All three describe one result. The third makes the absolute benefit concrete and informs the question "should I bother?", but it does not settle that decision. Outcome importance, harms, uncertainty, burden, cost, alternatives, and patient preferences also matter; a leaflet quoting only "cuts your risk by nearly 40 per cent" leaves even the absolute benefit out.
 
 ## 4. What the original study still cannot say
 

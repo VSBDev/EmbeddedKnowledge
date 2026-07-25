@@ -36,7 +36,7 @@ A stipulated trial randomises 800 adults, 400 per arm, and records one uncommon 
 
 Compute the risk in each arm, the risk ratio, the odds ratio, and the number of people who would have to receive the intervention for one additional person to have the outcome. Then say why the two ratios came out close together.
 
-*Answer.* Risks are 4/400 = 0.010 and 2/400 = 0.005. The risk ratio is 2.00. The odds ratio is (4 × 398) / (396 × 2) = 1,592 / 792 = 2.01. The risk difference is 0.005, and its reciprocal is 200 people over six months. The two ratios agree to two decimal places because the outcome is rare, so the group without it is barely changed by removing the few who had it. A headline of "double the risk" here covers a gap of 5 people per 1,000.
+*Answer.* Risks are 4/400 = 0.010 and 2/400 = 0.005. The risk ratio is 2.00. The odds ratio is (4 × 398) / (396 × 2) = 1,592 / 792 = 2.01. The risk increase is 0.005, and its reciprocal is a number needed to harm of 200 people over six months. The two ratios agree to two decimal places because the outcome is rare, so the group without it is barely changed by removing the few who had it. A headline of "double the risk" here covers a gap of 5 people per 1,000.
 
 ## 4. Build the table yourself
 
@@ -62,8 +62,8 @@ Read this stipulated press summary and write down every sentence you would refus
 
 - "Detects 95 per cent of cases, so a positive result is almost certainly correct" reads a sensitivity as a positive predictive value. The two divide by different groups, and the second cannot be computed without knowing how common the condition is.
 - "Halved the risk, a 50 per cent reduction" gives only a relative measure. Without the baseline risk it could be 40 per cent down to 20, or 0.4 per cent down to 0.2.
-- "The odds ratio of 2.8 shows how strong the effect is" mixes measures: an odds ratio above 1 describes an increase, which contradicts the halving in the previous clause, and an odds ratio should not be read as a risk ratio unless the outcome is rare.
-- "It should perform as it did in our specialist clinic" is the prevalence error. Sensitivity and specificity may carry over; the predictive values will not, and a general population almost always has a lower prevalence than a specialist clinic.
+- "The odds ratio of 2.8 shows how strong the effect is" leaves out the outcome and comparison direction. A value above 1 could reverse the groups or concern the complementary outcome, so its sign alone neither confirms nor contradicts the stated halving. Even after those directions are fixed, an odds ratio must not be read as a risk ratio unless the outcome is rare.
+- "It should perform as it did in our specialist clinic" assumes transportability. Even if sensitivity and specificity were stipulated unchanged, predictive values would move when prevalence changed; in practice sensitivity and specificity may also change with the cut-off, reference standard, sample, and patient spectrum.
 
 :::{source-note}
 :claims: claim-effect-measures-from-a-table, claim-odds-ratio-diverges-when-events-common, claim-report-both-absolute-and-relative, claim-nnt-is-reciprocal-of-risk-difference, claim-diagnostic-measures-are-conditionals, claim-predictive-values-depend-on-prevalence

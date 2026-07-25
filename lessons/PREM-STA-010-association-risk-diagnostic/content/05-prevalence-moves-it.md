@@ -1,6 +1,6 @@
 # The same meter in a different room
 
-The diabetes service is asked to take the meter to a community health fair. Same device, same firmware, same 90 per cent and 85 per cent. The people walking past the table are different, and that is enough to change what a beep means.
+The diabetes service is asked to take the meter to a community health fair. For this toy comparison, stipulate the same 90 per cent sensitivity and 85 per cent specificity in both settings so that only the population mix changes. That assumption is enough to isolate how prevalence changes what a beep means; it is not a claim that real test performance must travel unchanged.
 
 :::{callout}
 :kind: boundary
@@ -20,13 +20,13 @@ Rebuild the table from the outside in, exactly as before. Ten thousand people, 4
 | Meter quiet | 40 | 8,160 | 8,200 |
 | All | 400 | 9,600 | 10,000 |
 
-Check the device first. Sensitivity is 360/400 = 0.90. Specificity is 8,160/9,600 = 0.85. Both are untouched, because each divides inside a single column and the columns are the only thing the change in population touched.
+Check the stipulated performance first. Sensitivity is 360/400 = 0.90. Specificity is 8,160/9,600 = 0.85. Both remain unchanged by construction, because this comparison changes only the column sizes.
 
 Now the two row-wise measures.
 
 $$\text{PPV} = \frac{360}{1{,}800} = 0.20, \qquad \text{NPV} = \frac{8{,}160}{8{,}200} = 0.995.$$
 
-A beep at the health fair carries a 20 per cent probability of a high laboratory value. The same beep in the clinic carried 80 per cent. Four out of five people who leave the fair worried have nothing to be worried about, and the meter behaved identically in both rooms.
+A beep at the health fair carries a 20 per cent probability of a high laboratory value. The same beep in the clinic carried 80 per cent. Four out of five people who leave the fair worried have nothing to be worried about, under the stipulated identical performance in both rooms.
 
 :::{chart} ../charts/predictive-values-by-prevalence.chart.json
 :::
@@ -42,25 +42,25 @@ The negative predictive value moved the other way, from 0.927 to 0.995. A quiet 
 
 **The claim.** The meter picks up 90 per cent of high readings, so a person whose meter fired has about a 90 per cent chance of a high reading.
 
-**Why it appeals.** Both sentences use the same three ideas in a different order, and English does not mark the swap. The first is a property of the device and is stable. The second feels like a restatement of it.
+**Why it appeals.** Both sentences use the same three ideas in a different order, and English does not mark the swap. The first is computed within the condition-present group and is held stable in these toy tables. The second feels like a restatement of it.
 
 **What is actually true.** Sensitivity is P(test fires given condition present) and positive predictive value is P(condition present given test fires). They share the true-positive cell and divide it by different totals: 4,000 against 4,500 in the clinic, 400 against 1,800 at the fair. Formal logic calls treating one as the other confusion of the inverse, and [Probability foundations](https://embeddedknowledge.io/premed/lessons/read/?lesson=PREM-STA-004) met it before either measure had a name. Here it turns 0.90 into 0.80 in one room and 0.20 in the other.
 
-**The repair.** When a number is attached to a test, ask which of the two questions it answers. "Out of everyone with the condition" describes the device. "Out of everyone whose test fired" describes the patient. Then ask how common the condition is where the test is being used, because that is the only thing standing between the two answers.
+**The repair.** When a number is attached to a test, ask which of the two questions it answers. "Out of everyone with the condition" describes sensitivity in the evaluated setting. "Out of everyone whose test fired" describes the patient holding that result. Then ask how common the condition is where the test is being used. When comparing settings, also ask whether the cut-off, reference standard, sample, and patient spectrum make unchanged sensitivity and specificity a defensible assumption.
 
-**Where this reappears.** Every time a test moves from the population it was validated in to a population with a different prevalence. A test written up as excellent in a specialist clinic can produce mostly false alarms in general screening without a single figure in its validation paper being wrong.
+**Where this reappears.** Every time a test moves from the population it was evaluated in to a population with a different prevalence. Even if its sensitivity and specificity were unchanged, predictive values would move; in practice those performance measures may also differ between settings.
 :::
 
 ## Why the direction of the shift is predictable
 
 You do not have to rebuild a table to know which way a predictive value will move. Odds from scene 2 do the work in one line.
 
-Start with the odds that a person walking up has the condition. In the clinic that is 0.40 / 0.60 = 0.667. At the fair it is 0.04 / 0.96 = 0.0417. A fired test multiplies those odds by a fixed factor, the sensitivity divided by one minus the specificity, which here is 0.90 / 0.15 = 6.
+Start with the odds that a person walking up has the condition. In the clinic that is 0.40 / 0.60 = 0.667. At the fair it is 0.04 / 0.96 = 0.0417. A fired test multiplies those odds by sensitivity divided by one minus specificity. Under this toy comparison's fixed-performance assumption, that multiplier is 0.90 / 0.15 = 6 in both settings.
 
 - Clinic: 0.667 × 6 = 4.0, and converting back, 4.0 / 5.0 = 0.80.
 - Fair: 0.0417 × 6 = 0.25, and 0.25 / 1.25 = 0.20.
 
-The multiplier belongs to the device and never moves. The starting odds belong to the population. A multiplier of 6 cannot lift starting odds of 0.0417 into anything confident, which is why the same device is a reasonable triage step in one room and a false-alarm generator in the next.
+Here the multiplier is stipulated not to move, while the starting odds change with the population. A multiplier of 6 cannot lift starting odds of 0.0417 into anything confident. In real comparisons the multiplier can also change when sensitivity or specificity changes, so this calculation isolates the prevalence mechanism rather than proving transportability.
 
 ## Accessibility and alternatives
 
@@ -83,7 +83,7 @@ Predict before you compute.
 3. Which two of the four measures did not move?
 :::
 
-Prevalence rose, so the positive predictive value rises and the negative predictive value falls. Building it: 7,000 with the condition and 3,000 without; 6,300 true positives and 700 missed; 2,550 true negatives and 450 false positives. Fired tests total 6,750, so PPV = 6,300/6,750 = 0.933. Quiet tests total 3,250, so NPV = 2,550/3,250 = 0.785. Sensitivity and specificity are still 0.90 and 0.85.
+Under the stipulated unchanged performance, prevalence rose, so the positive predictive value rises and the negative predictive value falls. Building it: 7,000 with the condition and 3,000 without; 6,300 true positives and 700 missed; 2,550 true negatives and 450 false positives. Fired tests total 6,750, so PPV = 6,300/6,750 = 0.933. Quiet tests total 3,250, so NPV = 2,550/3,250 = 0.785. Sensitivity and specificity remain 0.90 and 0.85 by assumption.
 
 :::{source-note}
 :claims: claim-predictive-values-depend-on-prevalence, claim-diagnostic-measures-are-conditionals

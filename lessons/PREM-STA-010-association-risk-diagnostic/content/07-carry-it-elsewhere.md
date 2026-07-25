@@ -25,7 +25,7 @@ Now change one thing and nothing else. Suppose the same drug produced the same 3
 
 ## A screening programme where almost every alarm is false
 
-A stipulated newborn screening test for a rare metabolic condition has a sensitivity of 0.99 and a specificity of 0.995. Both are excellent by any standard. The condition affects about 1 in 5,000 newborns.
+A stipulated newborn screening test for a rare metabolic condition has a sensitivity of 0.99 and a specificity of 0.995. These high values are held fixed for the calculation. The invented condition affects 1 in 5,000 newborns.
 
 Build the table across a million births. One in 5,000 gives 200 affected and 999,800 unaffected. Ninety-nine per cent of 200 is 198 detected, leaving 2 missed. Ninety-nine and a half per cent of 999,800 is 994,801 correctly cleared, leaving 4,999 false alarms.
 
@@ -39,7 +39,7 @@ $$\text{PPV} = \frac{198}{5{,}197} = 0.038, \qquad \text{NPV} = \frac{994{,}801}
 
 Fewer than four positives in every hundred are true. The remaining 96 are families told their newborn needs another test. The specificity of 0.995 sounds like a rounding error until it is applied to 999,800 babies, at which point the 0.5 per cent becomes 4,999 people and swamps the 198 the programme was built to find.
 
-This is why a real screening programme is a sequence rather than a single test. The first test is set to miss almost nobody, and a second, more demanding test is applied only to the small group the first one flagged. The 5,197 who screen positive have a pre-test probability of 3.8 per cent instead of 0.02 per cent, and a second test starting from those odds behaves completely differently.
+One possible hypothetical response is a two-stage sequence: use an initial test intended to miss few cases, then apply a more demanding test only to the smaller flagged group. The table does not establish that every real screening programme uses or should use this design. It only shows why a second test applied to the 5,197 flagged newborns would start from a 3.8 per cent probability rather than 0.02 per cent and would therefore have different predictive values.
 
 :::{check}
 :id: check-transfer-reasoning
