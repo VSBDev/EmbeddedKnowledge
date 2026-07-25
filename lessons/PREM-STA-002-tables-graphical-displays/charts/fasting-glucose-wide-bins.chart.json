@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-chart-v1",
+  "id": "chart-fasting-glucose-wide-bins",
+  "type": "histogram",
+  "title": "The same 60 fasting glucose values, bins 30 mg/dL wide",
+  "alt": "Histogram of the same 60 fasting glucose values in only three wide bins, showing one tall middle bar and two short ones.",
+  "longDescription": "The same sixty values from the previous histogram are grouped into three bins 30 mg/dL wide: 10 people from 95 to 125 mg/dL, 36 people from 125 to 155, and 14 people from 155 to 185. Nothing about the data changed; only the bin width did. At this width the picture reports that most people sit in the middle, and it can no longer show where the peak falls inside that middle bin, how quickly the counts drop on either side, or that the right tail is longer than the left. The mean of 142 mg/dL is marked, and at this width it looks like the centre of a featureless block.",
+  "xAxis": {
+    "label": "Fasting glucose",
+    "unit": "mg/dL",
+    "min": 95,
+    "max": 185,
+    "ticks": [
+      { "at": 95, "label": "95" },
+      { "at": 125, "label": "125" },
+      { "at": 155, "label": "155" },
+      { "at": 185, "label": "185" }
+    ]
+  },
+  "yAxis": {
+    "label": "Number of people",
+    "unit": null,
+    "min": 0,
+    "max": 40,
+    "ticks": [
+      { "at": 0, "label": "0" },
+      { "at": 10, "label": "10" },
+      { "at": 20, "label": "20" },
+      { "at": 30, "label": "30" },
+      { "at": 40, "label": "40" }
+    ]
+  },
+  "series": [
+    {
+      "id": "series-cohort-glucose-wide",
+      "label": "People in each 30 mg/dL bin",
+      "bins": [
+        { "from": 95, "to": 125, "count": 10 },
+        { "from": 125, "to": 155, "count": 36 },
+        { "from": 155, "to": 185, "count": 14 }
+      ]
+    }
+  ],
+  "markers": [
+    { "x": 142, "label": "Mean 142 mg/dL" }
+  ]
+}
