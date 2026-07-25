@@ -722,6 +722,42 @@
   overflow-wrap: anywhere;
 }
 
+/* Guided view pages a scene into fixed-height frames, and an image figure travels through them
+   carrying its credit and its long-description control. Media sized for continuous reading
+   overflows a frame once a credit sits under it, so the media is capped here rather than the
+   credit shortened: the attribution is the part that cannot be dropped. Scoped to .ek-figure so
+   charts and diagrams, which carry no credit and are sized by their own viewBox, are untouched. */
+.reader-guided-mode .reader-frame .reader-scene-content .ek-figure {
+  margin: 10px 0;
+}
+
+.reader-guided-mode .reader-frame .reader-scene-content .ek-figure img,
+.reader-guided-mode .reader-frame .reader-scene-content .ek-figure svg {
+  max-height: 20vh;
+  width: auto;
+}
+
+/* The default block margins between the media, its credit, and the long-description control add up
+   to more than the credit itself, so inside a frame they are set rather than inherited. */
+.reader-guided-mode .reader-frame .reader-scene-content .ek-figure > * + * {
+  margin-top: 6px;
+}
+
+.reader-guided-mode .reader-frame .reader-scene-content .ek-figure figcaption,
+.reader-guided-mode .reader-frame .reader-scene-content .ek-figure .ek-figure-credit,
+.reader-guided-mode .reader-frame .reader-scene-content .ek-figure .ek-long-description {
+  margin-bottom: 0;
+}
+
+/* Credit for a third-party image. The licence is satisfied by the learner seeing it, not by the
+   record in lesson.json, so it is set quieter than the caption and never hidden behind a control. */
+.reader-scene-content .ek-figure-credit {
+  margin-top: 6px;
+  color: var(--muted);
+  font: 12px/1.5 var(--sans);
+  overflow-wrap: anywhere;
+}
+
 .reader-scene-content table {
   display: block;
   max-width: 100%;

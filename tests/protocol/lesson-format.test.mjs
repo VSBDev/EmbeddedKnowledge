@@ -311,3 +311,44 @@ test("expressive source reuse requires compatible rights and attribution", () =>
   assert.ok(validateLessonRightsContract({ lesson: badAsset, references: { sources: [] }, attribution: "" })
     .some((problem) => problem.includes("has no modification notice")));
 });
+
+test("a declared third-party asset reaches the learner as a visible credit", () => {
+  // A credit recorded in lesson.json and never rendered satisfies an auditor rather than the
+  // licence. This is a regression guard: the specimen builder once omitted thirdPartyAssets from
+  // the render context, so the figure rendered with an empty credit slot and nothing failed.
+  const metadata = readJson(path.join(specimenPack, "lesson.json"));
+  const declared = metadata.thirdPartyAssets ?? [];
+  assert.ok(declared.length >= 1, "the specimen must keep a worked third-party asset example");
+
+  const attribution = fs.readFileSync(path.join(specimenPack, metadata.files.attribution), "utf8");
+  const specimen = readJson(specimenOutput);
+  const production = buildProductionLessonArtifact({
+    packPath: specimenPack,
+    metadata,
+    publicAssetBase: "/assets/lesson-specimen"
+  });
+
+  for (const asset of declared) {
+    assert.ok(attribution.includes(asset.path), `ATTRIBUTION.md must name ${asset.path}`);
+
+    for (const [label, artifact] of [["specimen", specimen], ["production", production]]) {
+      const showing = artifact.scenes.filter((scene) => scene.contentHtml?.includes(asset.path));
+      assert.ok(showing.length >= 1, `${label}: no scene renders ${asset.path}`);
+
+      for (const scene of showing) {
+        assert.match(scene.contentHtml, /class="ek-figure-credit"/,
+          `${label}: ${asset.path} renders without a credit element`);
+        assert.ok(scene.contentHtml.includes(asset.attribution),
+          `${label}: the declared attribution for ${asset.path} is not the text shown`);
+        if (asset.source) {
+          assert.ok(scene.contentHtml.includes(asset.source),
+            `${label}: the credit for ${asset.path} does not link its source`);
+        }
+        if (asset.modified) {
+          assert.ok(scene.contentHtml.includes(asset.modifications),
+            `${label}: ${asset.path} is modified but the change is not disclosed to the reader`);
+        }
+      }
+    }
+  }
+});

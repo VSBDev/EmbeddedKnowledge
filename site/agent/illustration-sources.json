@@ -2,6 +2,7 @@
   "schemaVersion": 1,
   "format": "embeddedknowledge-illustration-sources-v1",
   "purpose": "Where to look for a scientific illustration, and what has to be true before one enters a lesson. This lists candidate pools and the licence rule they have to satisfy. It does not certify any individual file: licences on these sites are set per item and change, so the author verifies the specific file, records the evidence in lesson.json thirdPartyAssets, and appends what they found to site/agent/source-access-ledger.json.",
+  "workedExample": "examples/lesson-pack declares assets/buffer-titration.svg in thirdPartyAssets and names it in ATTRIBUTION.md. Read that pack before sourcing your first image: it is the whole path, from the file page to the credit the learner sees.",
   "acceptedLicences": {
     "values": [
       "CC-BY-4.0",
@@ -9,43 +10,122 @@
       "Public-Domain",
       "Written-Permission"
     ],
-    "note": "Set by lesson.schema.json. Share-alike licences are absent deliberately and are not a gap to fill casually: CC BY-SA obliges an adaptation to carry the same licence, and cropping, relabelling, or recolouring a figure makes an adaptation. Most illustrations on general encyclopaedic media sites are BY-SA, so that pool is mostly unusable here. Prefer public-domain government galleries and CC BY 4.0 medical-art libraries, where the whole collection is one licence and the check is quick."
+    "note": "Set by lesson.schema.json. Share-alike licences are absent deliberately and are not a gap to fill casually: CC BY-SA obliges an adaptation to carry the same licence, and cropping, relabelling, or recolouring a figure makes an adaptation. Most illustrations on general encyclopaedic media sites are BY-SA, so that pool is mostly unusable here. Note also that the enum names CC BY 4.0 and not CC BY 3.0: a 3.0 file is rejected even though it is permissive, so read the version and not just the letters."
   },
+  "hardRules": [
+    {
+      "rule": "Take the licence from the canonical host, and take the file from there too.",
+      "why": "The same artwork carries different terms on different sites, and the permissive original is often not the copy that ranks in a search. Confirmed 2026-07-25: Wikimedia Commons hosts a large mirror of Servier Medical Art tagged Creative Commons Attribution-Share Alike 3.0 Unported, while the identical library on smart.servier.com is CC BY 4.0. A Commons-first workflow would import hundreds of cell-biology assets under terms that fail twice over, on share-alike and on version, while the author believed Servier was cleared.",
+      "consequence": "Never source a Servier asset from Wikimedia Commons. More generally, when a file names an upstream creator, go to that creator's own site and license it from there."
+    },
+    {
+      "rule": "A government or institutional host does not imply public domain.",
+      "why": "Confirmed 2026-07-25: the NIH NIGMS Image and Video Gallery applies one blanket CC BY-NC-SA 3.0 licence to every item. This catalogue previously assumed the opposite and listed it as a per-item check."
+    },
+    {
+      "rule": "Institutional memory about a licence is not evidence.",
+      "why": "OpenStax is CC BY-NC-SA 4.0 on its own pages while most secondary library guides still describe it as CC BY 4.0. Read the current page."
+    },
+    {
+      "rule": "Per-author heuristics are unsafe; read every file.",
+      "why": "On Commons, Kelvinsong's Animal_cell_cycle-en.svg is CC0 1.0 while the same author's Centrosome_Cycle.svg is CC BY 3.0, which this project rejects."
+    }
+  ],
   "candidatePools": [
     {
-      "name": "NIH NIGMS Image and Video Gallery",
-      "url": "https://images.nigms.nih.gov/",
-      "expect": "Cell structure, organelles, microscopy, molecular machinery.",
+      "name": "Servier Medical Art (SMART)",
+      "url": "https://smart.servier.com/",
+      "expect": "About 700 cell-biology components: organelles, membranes, receptors, channels, filaments, plus oncology and tissue sets.",
+      "verdict": "usable",
+      "why": "Verified 2026-07-25 on the site and on an individual item page: one uniform licence, CC BY 4.0, commercial use permitted, no share-alike, no account needed. Required credit, in their wording: Image(s) provided by Servier Medical Art (https://smart.servier.com), licensed under CC BY 4.0.",
+      "caveats": [
+        "This is a component library, not a library of finished figures. Items are parts, for example a single exchanger or one Golgi body, and a part shown on its own is decoration rather than teaching.",
+        "The web downloads are small rasters. A sampled component measured 125 by 117 pixels.",
+        "The vector art ships as EMF inside the per-category PowerPoint kits, not as SVG on the item pages. Converting EMF needs software this repo does not have and does not currently depend on.",
+        "Because the licence has no share-alike term, a figure you build from these components stays yours, which is the reason this pool is worth the assembly effort at all.",
+        "robots.txt disallows /search/, /*?s= and /*filter-tag=. Browse the category pages instead."
+      ]
+    },
+    {
+      "name": "NIH BioArt Source (NIAID)",
+      "url": "https://bioart.niaid.nih.gov/",
+      "expect": "Clean, modern biomedical illustrations, including whole processes such as apoptosis.",
       "verdict": "verify-per-item",
-      "why": "A US government gallery, so many items are public domain, but it also hosts contributed images under other terms. The item page states the terms for that item."
+      "why": "Verified 2026-07-25 on their terms page: the illustrations are free for any use, including educational, research, informational, and commercial purposes, and the terms direct the user to the licence on each entry for attribution requirements. Sampled entries carry a Public Domain label. No account is needed. Record the per-entry label every time, because the terms are explicit that it varies.",
+      "caveats": [
+        "Their suggested credit form is: Illustration from NIAID NIH BioArt Source (bioart.niaid.nih.gov/bioart/###)."
+      ]
+    },
+    {
+      "name": "Wikimedia Commons, restricted to the CC0 and public-domain subset",
+      "url": "https://commons.wikimedia.org/",
+      "expect": "A thin but real seam of public-domain teaching diagrams, largely older uploads.",
+      "verdict": "restricted",
+      "why": "Licences are per file and most cell-biology diagrams drawn after about 2010 are CC BY-SA, which this project does not accept. The usable seam is mainly public-domain releases by individual authors, some US federal Science Primer figures, and scattered CC0 uploads. The file page is the evidence.",
+      "caveats": [
+        "Never take an asset here that names an upstream creator with a site of their own. See hardRules.",
+        "The API makes the licence check fast and is the quickest way to filter a search. Query action=query with prop=imageinfo and iiprop=extmetadata, then read LicenseShortName, UsageTerms, Copyrighted and Artist. Send a descriptive User-Agent. Confirm the result on the file page before use, because the file page is what an auditor will read."
+      ]
+    },
+    {
+      "name": "RCSB PDB-101, Molecule of the Month illustrations",
+      "url": "https://pdb101.rcsb.org/motm/motm-image-download",
+      "expect": "Molecular-scale art: channels, pumps, motors, enzymes.",
+      "verdict": "usable",
+      "why": "The Molecule of the Month illustrations are offered under CC BY 4.0, with attribution to the article author and the RCSB PDB. The article text is not under that licence, so take the picture and write your own words.",
+      "caveats": [
+        "Molecular scale only. It will not answer a cell-scale or process-scale figure need."
+      ]
+    },
+    {
+      "name": "Bioicons",
+      "url": "https://bioicons.com/",
+      "expect": "SVG icons for intracellular components, membranes, cell types.",
+      "verdict": "verify-per-item",
+      "why": "Licences are per icon and span CC0, CC BY 3.0, CC BY 4.0, CC BY-SA, MIT and BSD. Only the CC0 and CC BY 4.0 items qualify.",
+      "caveats": [
+        "CC BY 3.0 items must be rejected as well as the share-alike ones. The accepted enum names 4.0."
+      ]
+    },
+    {
+      "name": "PMC Open Access Subset",
+      "url": "https://pmc.ncbi.nlm.nih.gov/",
+      "expect": "Complete, publication-quality figures, at full size.",
+      "verdict": "verify-per-item",
+      "why": "The subset mixes CC0, CC BY, CC BY-SA, CC BY-ND and the NonCommercial variants, and PMC states plainly that terms vary and must be read per article. A CC BY 4.0 article clears its own figures.",
+      "caveats": [
+        "The article licence covers the figure only when the figure is the authors' own. A figure reprinted from another publisher carries that publisher's terms, usually stated in the caption.",
+        "Research-review figures are often too dense for a premed learner. Licence is necessary, not sufficient; the quality bar still applies.",
+        "Use the pmc.ncbi.nlm.nih.gov host, whose robots.txt allows /articles/. The older www.ncbi.nlm.nih.gov disallows /pmc/articles/."
+      ]
+    },
+    {
+      "name": "NIH NIGMS Image and Video Gallery",
+      "url": "https://www.nigms.nih.gov/image-gallery",
+      "expect": "Cell structure, organelles, microscopy, molecular machinery.",
+      "verdict": "excluded",
+      "why": "Verified 2026-07-25. One blanket licence covers every item: Creative Commons Attribution Non-Commercial ShareAlike 3.0. NonCommercial and ShareAlike are both outside the accepted set and the licence is uniform, so there is no per-item exception to look for."
+    },
+    {
+      "name": "OpenStax",
+      "url": "https://openstax.org/",
+      "expect": "Textbook figures.",
+      "verdict": "excluded",
+      "why": "Its own pages state CC BY-NC-SA 4.0, which fails twice. Its robots.txt also disallows GPTBot on the book paths, and the site asserts that the books may not be used to train large language models."
+    },
+    {
+      "name": "Reactome",
+      "url": "https://reactome.org/",
+      "expect": "Pathway diagrams.",
+      "verdict": "excluded",
+      "why": "Their robots.txt sets User-agent: ClaudeBot with Disallow: /. Not fetched, and the licence is therefore unverified. Access rules come before licence questions."
     },
     {
       "name": "NCI Visuals Online",
       "url": "https://visualsonline.cancer.gov/",
       "expect": "Cells, tissue, and process illustrations produced for the National Cancer Institute.",
-      "verdict": "verify-per-item",
-      "why": "Many items are US government work in the public domain; some are credited to outside illustrators with their own terms."
-    },
-    {
-      "name": "Servier Medical Art",
-      "url": "https://smart.servier.com/",
-      "expect": "A large library of medical and cell-biology drawing components.",
-      "verdict": "verify-per-item",
-      "why": "Published under a Creative Commons licence, but the version has changed over time and only CC BY 4.0 is accepted here. Confirm the version shown on the site at the time of use."
-    },
-    {
-      "name": "EMBL-EBI training materials",
-      "url": "https://www.ebi.ac.uk/training/",
-      "expect": "Molecular biology and bioinformatics figures.",
-      "verdict": "verify-per-item",
-      "why": "Training material is frequently CC BY, stated per page."
-    },
-    {
-      "name": "Wikimedia Commons",
-      "url": "https://commons.wikimedia.org/",
-      "expect": "Broad coverage, variable quality.",
-      "verdict": "restricted",
-      "why": "Licences are per file and a large share are CC BY-SA, which this project does not accept. Usable only where a specific file is CC0, public domain, or CC BY 4.0, and the file page is the evidence."
+      "verdict": "unverified",
+      "why": "The host did not resolve on 2026-07-25 across repeated attempts, so its terms were never read. Do not rely on second-hand descriptions of its terms. Re-check before use, and record what you find."
     },
     {
       "name": "BioRender",
@@ -62,19 +142,30 @@
       "why": "Redrawing one does not remove the original expression. The rights policy names a lightly redrawn figure as still carrying it. Build the figure from the underlying anatomy instead."
     }
   ],
+  "formatConstraints": [
+    "An SVG asset must begin at the svg element. A file saved by a drawing tool usually starts with an XML declaration and an editor comment, and those have to be removed. That is a modification, so declare it.",
+    "An SVG asset must carry non-empty title and desc elements. Most sourced files have neither, and adding them is also a modification.",
+    "Lesson SVG is inert by validation: no script, style, use, image, foreignObject, href, url(), or data: URI. A raster therefore cannot be embedded inside an SVG, so third-party components cannot be assembled into one of our vector figures. The supported choices are a complete third-party image used as it stands, or a wholly original figure. If you assemble a composite from licensed components, produce it as a raster outside the repo, commit that raster, and declare it as modified.",
+    "Allowed image types are png, jpg, jpeg, webp, avif and svg. Reader CSS sets max-width 100 percent with no upscaling, so a small source file stays small rather than turning blurry.",
+    "Every image a scene shows must be declared in thirdPartyAssets or listed in originalAssets, and every thirdPartyAssets entry must also be named in the pack's ATTRIBUTION.md. Both are enforced.",
+    "The declared attribution and the modifications text are rendered to the learner beneath the figure. Keep modifications to one readable line and put the fuller account in ATTRIBUTION.md. A three-line credit costs about as much vertical space as it sounds.",
+    "Guided view pages a scene into fixed-height frames and a figure travels with its credit and its long-description control, so the media is capped at 20vh there. At the smallest supported viewport that is roughly 145 pixels of height. Continuous reading shows the figure at full size, and the cap applies only to the figure directive, not to charts or diagrams.",
+    "Prefer landscape figures. A frame is wide and short, so a picture around two or three times wider than it is tall uses the full width and stays legible, while a tall picture is scaled down until its labels are hard to read. Aspect ratio is worth checking before licence when you are choosing between candidates, because it is the constraint that will actually reject one."
+  ],
   "beforeUse": [
-    "Confirm the licence on the item's own page, not on the site's front page or a search result.",
-    "Record source URL, title, creator, licence, and the evidence you read in lesson.json thirdPartyAssets.",
-    "State whether you modified it, and how, in the same record. Cropping, relabelling, and recolouring are modifications.",
+    "Confirm the licence on the item's own page on the canonical host, not on the site's front page, not on a search result, and not on a mirror.",
+    "Record source URL, title, creator, licence, and the evidence you read in lesson.json thirdPartyAssets. Quote the licence wording in rightsEvidence rather than summarising it.",
+    "State whether you modified it, and how, in the same record. Cropping, relabelling, recolouring, stripping an XML prolog, and adding accessibility text are all modifications.",
+    "Name the asset in the pack's ATTRIBUTION.md; validation fails if you do not.",
     "Give the file a pack-local copy under assets/; never hotlink.",
     "Append the domain and what you found to site/agent/source-access-ledger.json."
   ],
   "qualityBar": [
     "The structure shown is correct and current, and the lesson can state what it is looking at without hedging.",
     "Labels are legible at the size a learner reads, and in English, or absent so the lesson can caption them.",
-    "Meaning survives without colour: a reader who cannot separate red from green still gets the point.",
+    "Meaning survives without colour: a reader who cannot separate red from green still gets the point. A figure that codes meaning only by colour fails, one that also labels each coloured element passes.",
     "The alt text and long description can carry the whole teaching point, because some readers will only get those.",
     "No watermark, no house branding, no embedded citation to a third party's own figure.",
-    "It teaches the thing the scene needs, rather than being decoration that happens to be biological."
+    "It teaches the thing the scene needs, rather than being decoration that happens to be biological. A single component from an icon library, shown alone, fails this test."
   ]
 }
