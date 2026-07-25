@@ -6,7 +6,7 @@ Work each task before reading its answer. The support drops away as you go: the 
 
 ## Task one: build it
 
-A second team repeats the dinner-timing comparison in a different clinic. Their estimate of the difference is 6.4 mg/dL and its standard error is 3.5 mg/dL.
+A second team repeats the dinner-timing comparison in a large clinic. Their estimate, late group minus early group, is 6.4 mg/dL and its standard error is 3.5 mg/dL. The report specifies a large-sample normal approximation, so use 1.96.
 
 Build the 95% confidence interval, state its width, and say in one sentence what the interval supports.
 
@@ -18,7 +18,7 @@ It contains zero. This clinic's data are compatible with no difference at all, a
 
 ## Task two: read three of them
 
-Three trials of three different interventions report a difference in fasting glucose, in mg/dL, with a 95% confidence interval.
+Three trials of three different interventions report the difference in average fasting glucose as **control minus intervention**, in mg/dL, with a 95% confidence interval. Positive values mean the intervention group's average was lower; negative values mean it was higher. No clinical-importance threshold has been supplied, so interpret direction and numerical precision only.
 
 | Trial | Estimate | 95% interval | Width |
 | --- | --- | --- | --- |
@@ -36,13 +36,13 @@ No arithmetic. Answer three questions.
 
 Trials A and C exclude zero. Trial B does not: its interval reaches from −3 to 27.
 
-Trial A has pinned its effect down most tightly in absolute terms, with a width of 0.6 mg/dL. Every value it is compatible with is under 1 mg/dL, so it has established a direction and established that the effect is small. Trial C is nearly as tight and its compatible values are all appreciable. Between them, A and C are the two studies that answered the question they asked, and they gave opposite answers about magnitude.
+Trial A has pinned its effect down most tightly in absolute terms, with a width of 0.6 mg/dL. Its whole compatible range is positive under the stated control-minus-intervention contrast. Trial C is also entirely positive, but its interval is 6.0 mg/dL wide—ten times the width of A's. Without a pre-stated clinical threshold, neither interval justifies calling its effect clinically small, large, or appreciable.
 
-Trial B is the uninformative one. Its interval covers a harm of 3, no effect, and a benefit of 27, so it distinguishes nothing. That is not the same as evidence of no effect. Trial B is consistent with the intervention doing a great deal; it simply cannot tell. A reader who writes "trial B showed no effect" has turned an absence of evidence into evidence of absence, which is a stronger claim and one this trial cannot support.
+Trial B is the uninformative one for direction and size. Its interval covers negative values, zero, and positive values across a 30.0 mg/dL span. That is not the same as evidence of no effect. Trial B is compatible with values far from zero in either direction; it simply cannot locate the parameter well. A reader who writes "trial B showed no effect" has turned an absence of evidence into evidence of absence, which is a stronger claim and one this trial cannot support.
 
 ## Task three: run it backwards
 
-A paper reports a difference of 6.0 mg/dL with a **90%** confidence interval of 0.8 to 11.2. The authors note that the interval excludes zero.
+A large-sample paper reports a difference of 6.0 mg/dL with a normal-approximation **90%** confidence interval of 0.8 to 11.2. The authors note that the interval excludes zero.
 
 1. Recover the standard error.
 2. Work out what the 95% interval would have been.

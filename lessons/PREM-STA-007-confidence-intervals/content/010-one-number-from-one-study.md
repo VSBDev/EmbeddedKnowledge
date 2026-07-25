@@ -54,7 +54,7 @@ You will not test a hypothesis, compute a p-value, or decide whether a result co
 
 ## Accessibility and alternatives
 
-Reading this lesson without the pictures costs you nothing. Each chart opens a panel called "Read the chart as text" holding the numbers it was drawn from, and every quantity in a chart is also stated in the surrounding prose, including both edges of each shaded band. Working from those panels is a complete route through the lesson, and no question here asks you to estimate a width by eye or to tell two shaded areas apart by colour.
+The lesson's quantitative representations are equations and Markdown tables, and every important relationship is also stated in words. No question asks you to estimate a width by eye, distinguish values by colour, drag an object, or depend on a timed reveal.
 
 The arithmetic is the kind you can do on paper: one multiplication and two additions per interval. Every multiplier is printed in the text where it is used, so you never need a statistical table beside you. Limits are given to one decimal place throughout, which occasionally puts a printed width 0.1 away from twice the printed margin of error; the worked example says where that comes from.
 

@@ -14,15 +14,15 @@ Only two quantities appear. So only two things can move the edges: the multiplie
 
 ## Lever one: the confidence level
 
-This is the lever that costs nothing and buys nothing. Keep the study exactly as it is, keep the estimate at 9.0 and the standard error at 4.13, and change only the multiplier.
+This is the lever that costs nothing and buys nothing. Keep the study exactly as it is, keep the estimate at 9.0 and the standard error at 4.13, and change only the t multiplier at 58 degrees of freedom.
 
 | Level | Multiplier | Margin of error | Interval (mg/dL) | Width |
 | --- | --- | --- | --- | --- |
-| 90% | 1.645 | 6.79 | 2.2 to 15.8 | 13.6 |
-| 95% | 1.960 | 8.09 | 0.9 to 17.1 | 16.2 |
-| 99% | 2.576 | 10.64 | −1.6 to 19.6 | 21.2 |
+| 90% | 1.672 | 6.91 | 2.1 to 15.9 | 13.8 |
+| 95% | 2.002 | 8.27 | 0.7 to 17.3 | 16.6 |
+| 99% | 2.663 | 11.00 | −2.0 to 20.0 | 22.0 |
 
-Read down the last two columns and something uncomfortable appears. At 95% the interval clears zero. At 99% it does not: −1.6 is a negative number, so the 99% interval contains the possibility that late dinners go with *lower* morning glucose.
+Read down the last two columns and something uncomfortable appears. At 95% the interval clears zero. At 99% it does not: −2.0 is a negative number, so the 99% interval contains the possibility that late dinners go with *lower* morning glucose.
 
 No new data arrived. Nobody measured anything again. The only thing that changed was how often the author wants the procedure to succeed in the long run, and asking for a better success rate means casting a wider net. Demand certainty about the method and you give up sharpness about the answer.
 
@@ -37,7 +37,7 @@ The standard error of a two-group difference has two inputs: how much people dif
 :::{investigation}
 :id: investigation-what-a-bigger-study-buys
 
-Work these three out before reading on. The estimate stays at 9.0 mg/dL and the level stays at 95%.
+Work these three out before reading on. These are conditional comparisons: hold the estimate at 9.0 mg/dL while changing one precision input, and keep the level at 95%. They show what the width would be under those inputs; they do not predict where a future study's estimate or interval will land.
 
 **A.** A repeat study recruits 120 people per group instead of 30, in a population with the same within-group standard deviation of 16 mg/dL. Compute the new standard error, then the new interval.
 
@@ -46,14 +46,11 @@ Work these three out before reading on. The estimate stays at 9.0 mg/dL and the 
 **C.** Which of the two repeats gives the tighter answer, and which one could a research team actually arrange?
 :::
 
-**A.** With 120 in each group, the standard error becomes 16 × √(1/120 + 1/120) = 16 × 0.1291 = 2.07 mg/dL. The margin of error is 1.96 × 2.07 = 4.06, so the interval runs from **4.9 to 13.1 mg/dL** and is 8.2 mg/dL wide.
+**A.** With 120 in each group, the standard error becomes 16 × √(1/120 + 1/120) = 16 × 0.1291 = 2.07 mg/dL. For this large-sample planning approximation, use 1.96. The margin of error is therefore about 4.06 mg/dL, so the conditional interval runs from **4.9 to 13.1 mg/dL** and is 8.2 mg/dL wide.
 
-:::{chart} ../charts/difference-interval-larger-study.chart.json
-:::
+Follow the standard error rather than the conditional limits, because that is where the planning rule lives: 4.13 became 2.07, exactly half, since the group size sits under a square root and four times 30 is 120. The change from the original t multiplier to the large-sample normal approximation makes the displayed width almost, but not mathematically exactly, half the original 16.6 mg/dL. The square-root rule generalises: to target about half the width you need about four times the sample, and to target about a tenth of the width you need about a hundred times, provided the design and population spread stay the same.
 
-Follow the standard error rather than the printed limits, because that is where the rule lives: 4.13 became 2.07, exactly half, since the group size sits under a square root and four times 30 is 120. Half the standard error is half the margin of error and so half the width, next to the 16.2 mg/dL you started with. The rule generalises and it is a harsh one. To halve an interval you need four times the sample, and to reach a tenth of the width you need a hundred times.
-
-**B.** With a within-group standard deviation of 10 mg/dL and 30 people per group, the standard error is 10 × 0.2582 = 2.58 mg/dL. The margin of error is 1.96 × 2.58 = 5.06, so the interval runs from **3.9 to 14.1 mg/dL** and is 10.2 mg/dL wide.
+**B.** With a within-group standard deviation of 10 mg/dL and 30 people per group, the standard error is 10 × 0.2582 = 2.58 mg/dL. The 58-degree-of-freedom t multiplier remains 2.002, so the margin of error is 5.17 mg/dL. The interval runs from **3.8 to 14.2 mg/dL** and is 10.4 mg/dL wide.
 
 **C.** Repeat A is tighter. It is also the only one a team can arrange. Recruiting more people is a budget decision. Making people less variable is not a decision at all, though a study can get part of the way there by measuring more carefully, by narrowing who is eligible, or by comparing each person with themselves. Those choices belong to the design lessons, and this is where their payoff finally becomes visible as a number.
 
@@ -69,7 +66,7 @@ The clinical-trials guidance makes this an argument for intervals in the first p
 
 Answer from the width formula alone, without arithmetic.
 
-1. A trial reports a difference of 3.0 units with a 95% interval of 2.8 to 3.2. Roughly what is its standard error?
+1. A large trial reports a difference of 3.0 units with a normal-approximation 95% interval of 2.8 to 3.2. Roughly what is its standard error?
 2. Two trials report identical estimates. One used 400 patients, the other 100, and both populations were equally variable. How do the two interval widths compare?
 3. An author widens their interval from 95% to 99% and the interval starts to include zero. What changed about the evidence?
 :::
@@ -77,8 +74,8 @@ Answer from the width formula alone, without arithmetic.
 The first interval has a width of 0.4, so the margin of error is 0.2 and the standard error is 0.2 / 1.96, which is about 0.10 units. The second pair differ by a factor of four in sample size, so their widths differ by a factor of two: the 400-patient trial's interval is half as wide. And in the third, nothing about the evidence changed. One estimate, one standard error, one dataset, and a different convention applied to it.
 
 :::{source-note}
-:claims: claim-width-depends-on-n-and-sd, claim-width-depends-on-level, claim-normal-975-quantile, claim-ich-e9-imprecision
-:sources: source-nist-confidence-limits, source-nist-normal-table, source-ich-e9
+:claims: claim-width-depends-on-n-and-sd, claim-width-depends-on-level, claim-normal-975-quantile, claim-t-multipliers, claim-ich-e9-imprecision
+:sources: source-nist-confidence-limits, source-nist-normal-table, source-nist-t-table, source-ich-e9
 
-The NIST/SEMATECH handbook supports the statements that the interval narrows as the sample size grows through the square-root term and widens with the sample standard deviation, and its normal table supplies the three multipliers used in the level comparison. The clinical-trials guidance supports the point that an interval is preferred where estimates are imprecise because it displays that imprecision. Every worked figure above is computed from this block's own cohort values.
+The NIST/SEMATECH handbook supports the statements that the interval narrows as the sample size grows through the square-root term and widens with the sample standard deviation. Its t table supplies the 58-degree-of-freedom multipliers used in the level comparison, while its normal table supplies the large-sample 1.96 used in the recovery check. The clinical-trials guidance supports the point that an interval is preferred where estimates are imprecise because it displays that imprecision. Every worked figure above is computed from this block's own cohort values.
 :::

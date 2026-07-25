@@ -10,8 +10,10 @@ A hospital tests a pharmacist-led medicines review for adults with high blood pr
 
 | Outcome | Difference, review minus usual care | Standard error |
 | --- | --- | --- |
-| Systolic blood pressure | 2.4 mmHg lower | 1.1 mmHg |
-| Diastolic blood pressure | 1.0 mmHg lower | 3.2 mmHg |
+| Systolic blood pressure | −2.4 mmHg | 1.1 mmHg |
+| Diastolic blood pressure | −1.0 mmHg | 3.2 mmHg |
+
+Because the contrast is review minus usual care, a negative value means the review group had the lower average pressure. The trial is large, and its report specifies the large-sample normal approximation with multiplier 1.96.
 
 The published abstract says: *the review lowered blood pressure.*
 
@@ -28,19 +30,19 @@ Do this before reading on.
 
 ## Working it
 
-For the systolic outcome, the margin of error is 1.96 × 1.1 = 2.16 mmHg. That gives 2.4 − 2.16 = 0.24 and 2.4 + 2.16 = 4.56, so the interval runs from **0.2 to 4.6 mmHg** and is 4.4 mmHg wide.
+For the systolic outcome, the margin of error is 1.96 × 1.1 = 2.16 mmHg. That gives −2.4 − 2.16 = −4.56 and −2.4 + 2.16 = −0.24, so the interval runs from **−4.6 to −0.2 mmHg** and is 4.4 mmHg wide.
 
-For the diastolic outcome, the margin of error is 1.96 × 3.2 = 6.27 mmHg. That gives 1.0 − 6.27 = −5.27 and 1.0 + 6.27 = 7.27, so the interval runs from **−5.3 to 7.3 mmHg** and is 12.6 mmHg wide.
+For the diastolic outcome, the margin of error is 1.96 × 3.2 = 6.27 mmHg. That gives −1.0 − 6.27 = −7.27 and −1.0 + 6.27 = 5.27, so the interval runs from **−7.3 to 5.3 mmHg** and is 12.6 mmHg wide.
 
 ## Two intervals, two different readings
 
-The systolic interval excludes zero. It is also tight, and every value inside it is below 5 mmHg. This is the reading that did not appear in the dinner-timing study: a result that establishes a direction *and* rules out anything large. The study has told you the effect is real in direction and small in size, and it has told you both with the same three numbers.
+The systolic interval excludes zero and lies entirely on the negative side, so under the stated subtraction order it supports a lower average systolic pressure in the review group. Its compatible reductions range from 0.2 to 4.6 mmHg. Without a pre-stated clinical threshold, the interval does not by itself label that range clinically small or important.
 
-The diastolic interval contains zero and is nearly three times as wide. It rules out almost nothing between a rise of 5 mmHg and a fall of 7. On this outcome the trial has no answer.
+The diastolic interval contains zero and is nearly three times as wide. Under review minus usual care, it remains compatible with the review group averaging as much as 7.3 mmHg lower or 5.3 mmHg higher. On this outcome the trial has not settled the direction.
 
-An honest abstract sentence has to carry both. Something like: *the review lowered systolic pressure by 2.4 mmHg (95% CI 0.2 to 4.6); the diastolic difference of 1.0 mmHg (95% CI −5.3 to 7.3) was too imprecise to interpret.* The published version, "the review lowered blood pressure", takes one outcome's direction and quietly borrows it for the other, then drops the magnitude for both.
+An honest abstract sentence has to carry both. Something like: *the review-minus-usual-care difference in systolic pressure was −2.4 mmHg (95% CI −4.6 to −0.2); the diastolic difference was −1.0 mmHg (95% CI −7.3 to 5.3), leaving its direction unresolved.* The published version, "the review lowered blood pressure", takes one outcome's direction and quietly borrows it for the other, then drops the uncertainty for both.
 
-Whether a fall of somewhere between 0.2 and 4.6 mmHg is worth a pharmacist's time is a clinical and economic question, and the interval does not answer it. What the interval does is stop the question being asked about the wrong number. Guidance for clinical trials asks for intervals alongside effect estimates for this reason: the size of an effect and the uncertainty around it are what a reader needs, and neither survives being compressed into a verdict.
+Whether a reduction of somewhere between 0.2 and 4.6 mmHg is worth a pharmacist's time is a clinical and economic question, and the interval does not answer it. What the interval does is stop the question being asked about the wrong number. Guidance for clinical trials asks for intervals alongside effect estimates for this reason: the size of an effect and the uncertainty around it are what a reader needs, and neither survives being compressed into a verdict.
 
 :::{check}
 :id: check-transfer-sample-size

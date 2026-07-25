@@ -7,7 +7,7 @@
     {
       "id": "term-confidence-interval",
       "term": "confidence interval",
-      "definition": "A range computed from sample data by a procedure with a stated success rate, reported as a lower and an upper limit in the units of the quantity being estimated. It gives the values of the unknown parameter that the sample is compatible with, and it says nothing about where any individual observation sits.",
+      "definition": "A range computed from sample data by a procedure with a stated conditional success rate, reported as a lower and an upper limit in the units of a defined population quantity. It gives the parameter values that the sample is compatible with under the stated sampling and analysis model, and it says nothing about where any individual observation sits.",
       "aliases": [
         "interval estimate",
         "confidence limits",
@@ -26,7 +26,7 @@
     {
       "id": "term-confidence-level",
       "term": "confidence level",
-      "definition": "The stated success rate of the procedure that produced an interval: the proportion of samples for which an interval built that way would contain the fixed parameter, if sampling and rebuilding were repeated. It is a property of the method and carries none of the everyday sense of confidence as a feeling of certainty held by a person.",
+      "definition": "The stated conditional success rate of the procedure that produced an interval: the long-run proportion of intervals that would contain the fixed parameter if independent sampling and analysis were repeated under the procedure's assumptions. It is a property of the method, not a feeling of certainty, and it does not repair bias or guarantee generalisation beyond the defined population.",
       "aliases": [
         "confidence coefficient",
         "coverage level"
@@ -97,19 +97,18 @@
     {
       "id": "term-sampling-distribution",
       "term": "sampling distribution",
-      "definition": "The distribution of an estimate across every sample of a given size that could have been drawn: where repeats of the same study would land. Its spread is the standard error, and the curves drawn in this lesson are pictures of it.",
+      "definition": "The distribution of an estimate across every sample of a given size that could have been drawn under a stated model. For an unbiased estimator it is centred on the fixed true parameter, not on the estimate from one observed sample, and its spread is the standard error.",
       "aliases": [
         "distribution of the estimate"
       ],
       "sceneIds": [
         "scene-one-number",
-        "scene-nine-milligrams",
         "scene-ninety-five-percent-of-what"
       ],
       "alignment": {
         "priorLesson": "PREM-STA-006",
         "relation": "adopt",
-        "note": "PREM-STA-006 owns this term and this lesson keeps its meaning unchanged. The only addition is a use: the charts here mark a confidence interval on a curve of that shape, and the accompanying text is explicit that the curve describes where repeat estimates would fall and not where the fixed parameter lies."
+        "note": "PREM-STA-006 owns this term and this lesson keeps its meaning unchanged. This lesson uses it only to distinguish the fixed parameter from the estimates and intervals that vary across repeated samples; it does not centre a hypothetical repeat-study distribution on the observed estimate."
       }
     },
     {
@@ -179,6 +178,7 @@
         "Student's t distribution"
       ],
       "sceneIds": [
+        "scene-estimate-with-a-range",
         "scene-nine-milligrams"
       ]
     },
@@ -196,7 +196,7 @@
     {
       "id": "term-compatible-values",
       "term": "compatible values",
-      "definition": "The values of the unknown parameter that a study's data do not argue against at a stated level, which is what the numbers between an interval's limits are. Describing an interval this way keeps the statement about the data and avoids assigning a probability to the parameter.",
+      "definition": "The values of the unknown parameter that a study's data do not argue against at a stated level under the analysis model. Describing an interval this way keeps the statement about the data, preserves the model conditions, and avoids assigning a probability to the parameter.",
       "aliases": [
         "compatibility interval"
       ],

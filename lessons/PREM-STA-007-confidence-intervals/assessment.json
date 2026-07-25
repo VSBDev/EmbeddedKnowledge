@@ -22,8 +22,8 @@
       "outcomeIds": [
         "topic-statistics-data-confidence-intervals"
       ],
-      "prompt": "A second clinic repeats the dinner-timing comparison. Its estimate of the difference in next-morning fasting glucose is 7.5 mg/dL, with a standard error of 2.6 mg/dL. Give the upper limit of the two-sided 95% confidence interval, in mg/dL, to one decimal place.",
-      "stimulus": "Use the normal multiplier for a two-sided 95% interval. Teaching example, not medical advice: this clinic and its numbers are invented.",
+      "prompt": "A large-sample analysis reports an estimate of the difference in next-morning fasting glucose of 7.5 mg/dL, with a standard error of 2.6 mg/dL, and specifies the normal approximation. Give the upper limit of its two-sided 95% confidence interval, in mg/dL, to one decimal place.",
+      "stimulus": "Use the supplied normal-approximation multiplier of 1.96. Teaching example, not medical advice: this clinic and its numbers are invented.",
       "points": 4,
       "responseSpec": {
         "mode": "number",
@@ -43,7 +43,7 @@
         "commonErrors": [
           "Answering 2.4, which is the lower limit rather than the upper one.",
           "Answering 10.1 by using 1.0 times the standard error, or 5.1 by reporting the margin of error instead of the limit.",
-          "Answering 12.7 by using the t multiplier without being asked for it; the item names the normal multiplier and the tolerance does not stretch that far.",
+          "Using a multiplier other than the supplied 1.96, which changes the stated large-sample normal-approximation task.",
           "Dividing by the square root of a sample size that was never given; the standard error has already been computed for you."
         ]
       },
@@ -60,7 +60,7 @@
       "outcomeIds": [
         "topic-statistics-data-confidence-intervals"
       ],
-      "prompt": "A trial reports a difference of 9.0 mg/dL with a 95% confidence interval of 0.9 to 17.1 mg/dL. Which statement about that interval is defensible?",
+      "prompt": "A trial reports a difference of 9.0 mg/dL with a 95% confidence interval of 0.7 to 17.3 mg/dL. Which statement about that interval is defensible?",
       "stimulus": null,
       "points": 4,
       "responseSpec": {
@@ -68,30 +68,30 @@
         "options": [
           {
             "id": "option-probability-in-interval",
-            "text": "There is a 95% probability that the true difference lies between 0.9 and 17.1 mg/dL."
+            "text": "There is a 95% probability that the true difference lies between 0.7 and 17.3 mg/dL."
           },
           {
             "id": "option-long-run-procedure",
-            "text": "If studies of this design were repeated many times and an interval built each time, about 95% of those intervals would contain the true difference."
+            "text": "If independent samples from the same defined population were repeatedly analysed with this adequate model, about 95% of the intervals would contain the true difference."
           },
           {
             "id": "option-covers-patients",
-            "text": "About 95% of patients in this population have a dinner-timing effect between 0.9 and 17.1 mg/dL."
+            "text": "About 95% of patients in this population have a dinner-timing effect between 0.7 and 17.3 mg/dL."
           },
           {
             "id": "option-repeat-lands-inside",
-            "text": "If the study were repeated, there is a 95% probability the new estimate would fall between 0.9 and 17.1 mg/dL."
+            "text": "If the study were repeated, there is a 95% probability the new estimate would fall between 0.7 and 17.3 mg/dL."
           },
           {
             "id": "option-true-value-near-nine",
-            "text": "The true difference is 9.0 mg/dL, and 0.9 to 17.1 shows how accurately it was measured."
+            "text": "The true difference is 9.0 mg/dL, and 0.7 to 17.3 shows how accurately it was measured."
           }
         ]
       },
       "answer": {
         "correct": "option-long-run-procedure",
         "summary": "The statement about repeated studies and the proportion of intervals that would contain the true difference.",
-        "reasoning": "The confidence level is a property of the procedure across repeated samples, so the only defensible statement is the one that describes what happens when intervals are built again and again. The probability statement about this interval treats the true difference as random when it is fixed and unknown; either this interval contains it or it does not. The statement about 95% of patients confuses an interval for a population average with the spread of individual people, who vary far more widely. The statement about a repeat estimate landing inside is a different quantity and is not what the level refers to; a repeat estimate has its own sampling distribution and would land inside this particular interval less often than 95% of the time. The last option asserts the true difference equals the point estimate, which is the one thing a study never establishes.",
+        "reasoning": "The confidence level is a conditional property of the procedure across repeated samples, so the defensible statement names the repeated sampling, the population, and the adequacy of the model. The probability statement about this interval treats the true difference as random when it is fixed and unknown; either this interval contains it or it does not. The statement about 95% of patients confuses an interval for a population average with the spread of individual people. The statement about a repeat estimate landing inside is a different quantity and is not what the level refers to. The last option asserts the true difference equals the point estimate, which a study does not establish. Even the defensible statement concerns random-error coverage under its assumptions; it does not repair bias or establish generalisability beyond the sampled population.",
         "acceptableResponses": [
           "option-long-run-procedure"
         ],
@@ -114,7 +114,7 @@
       "outcomeIds": [
         "topic-statistics-data-confidence-intervals"
       ],
-      "prompt": "A colleague writes: \"We are 95% sure the true effect is somewhere between 0.9 and 17.1 mg/dL.\" In two or three sentences, name the quantity their sentence has treated as random, say why that quantity is fixed, and rewrite the sentence so it is defensible.",
+      "prompt": "A colleague writes: \"We are 95% sure the true effect is somewhere between 0.7 and 17.3 mg/dL.\" In two or three sentences, name the quantity their sentence has treated as random, say why that quantity is fixed, and rewrite the sentence so it is defensible and conditional on the sampling and analysis model.",
       "stimulus": null,
       "points": 6,
       "responseSpec": {
@@ -122,14 +122,14 @@
         "maxLength": 900
       },
       "answer": {
-        "correct": "The true effect has been treated as random. It is a fixed unknown quantity belonging to the population, and it does not change when a sample is drawn; the interval is the thing that varies from sample to sample. A defensible rewrite: the data are compatible with true effects from about 0.9 to about 17.1 mg/dL, and this interval came from a procedure that captures the true effect in about 95% of repeated studies.",
+        "correct": "The true effect has been treated as random. It is a fixed unknown quantity belonging to the defined population, and it does not change when a sample is drawn; the interval is the thing that varies from sample to sample. A defensible rewrite: under the stated sampling and analysis model, the data are compatible with true effects from about 0.7 to about 17.3 mg/dL, and the procedure captures the true effect in about 95% of repeated samples when its conditions hold.",
         "summary": "The true effect is the fixed quantity; the interval is what varies; the rewrite must not attach a probability to the parameter.",
         "reasoning": "Two things could in principle vary: the parameter and the limits. Only the limits do. Recruiting sixty different people gives a different estimate, a different standard error, and a different pair of limits, while the true effect in that population is unchanged by who happened to be recruited. So a probability statement about whether a fixed number lies between two other fixed numbers has nothing left to be random. Any rewrite that either describes the long-run behaviour of the procedure, or states which parameter values the data are compatible with, is acceptable.",
         "acceptableResponses": [
           "Names the true effect, the true difference, or the population parameter as the quantity wrongly treated as random.",
           "Explains that the parameter is fixed and the interval varies across repeated samples.",
-          "Rewrites using the long-run proportion of intervals that contain the true value.",
-          "Rewrites using compatibility: the data are compatible with values from 0.9 to 17.1 mg/dL."
+          "Rewrites using the conditional long-run proportion of intervals that contain the true value.",
+          "Rewrites using compatibility under the stated model: the data are compatible with values from 0.7 to 17.3 mg/dL."
         ],
         "commonErrors": [
           "Saying the sentence is fine because 95% is only an approximation; the problem is the object of the probability, not its precision.",
@@ -151,8 +151,8 @@
       "outcomeIds": [
         "topic-statistics-data-confidence-intervals"
       ],
-      "prompt": "A trial with 150 patients in each arm reports a 95% confidence interval 12 units wide. The team wants a 95% interval 4 units wide, with the same outcome measure, the same population spread, and the same design. How many patients per arm do they need?",
-      "stimulus": "Teaching example, not medical advice: the trial is invented, and the question is about the arithmetic of interval width only.",
+      "prompt": "A large-sample trial with 150 patients in each arm reports a normal-approximation 95% confidence interval 12 units wide. The team wants an anticipated 95% interval 4 units wide, with the same outcome measure, population spread, design, and multiplier. How many patients per arm do they need?",
+      "stimulus": "Teaching example, not medical advice: the trial is invented, and the question is about planning anticipated width only; a future realised interval will also depend on the new sample.",
       "points": 5,
       "responseSpec": {
         "mode": "number",
@@ -248,27 +248,27 @@
       "outcomeIds": [
         "topic-statistics-data-confidence-intervals"
       ],
-      "prompt": "Three trials each report a difference in fasting glucose in mg/dL with a 95% confidence interval. Trial P: 0.5 (0.2 to 0.8). Trial Q: 14.0 (-2.0 to 30.0). Trial R: 8.0 (5.0 to 11.0). For each trial say whether the interval excludes zero, and then answer in a short paragraph: which trial has established a direction while ruling out a large effect, which trial cannot distinguish a large benefit from a small harm, and why the second of those is different from a trial that has shown the intervention does nothing.",
-      "stimulus": "Teaching example, not medical advice: all three trials are invented for this item.",
+      "prompt": "Three trials report the difference in average fasting glucose as control minus intervention, in mg/dL, with a 95% confidence interval. Positive values mean the intervention group's average was lower; negative values mean it was higher. Trial P: 0.5 (0.2 to 0.8). Trial Q: 14.0 (-2.0 to 30.0). Trial R: 8.0 (5.0 to 11.0). For each trial say whether the interval excludes zero, identify the numerically tightest interval, and explain why Q is uninformative rather than evidence that the difference is zero.",
+      "stimulus": "Teaching example, not medical advice: all three trials are invented. No clinical-importance threshold is supplied, so do not label an effect clinically small, large, beneficial, or harmful.",
       "points": 8,
       "responseSpec": {
         "mode": "text",
         "maxLength": 1500
       },
       "answer": {
-        "correct": "P and R exclude zero; Q does not. Trial P has established a direction while ruling out anything large, because its whole interval sits between 0.2 and 0.8 mg/dL. Trial Q cannot distinguish a benefit of 30 from a harm of 2, because its interval spans both. That is not the same as showing the intervention does nothing: Q is compatible with a large effect and simply cannot tell, so it is an absence of evidence rather than evidence of absence. Trial R has both excluded zero and pinned the effect to a range that is entirely appreciable.",
-        "summary": "P and R exclude zero, Q does not; P rules out a large effect, Q rules out almost nothing, and an uninformative interval is not evidence of no effect.",
-        "reasoning": "Excluding zero is a question about location and is answered by looking at the limits: P runs 0.2 to 0.8 and R runs 5.0 to 11.0, both entirely positive, while Q runs from -2.0 to 30.0 and straddles zero. Width answers the second question. P is 0.6 wide and every compatible value is under 1 mg/dL, so it has settled both the direction and the size. Q is 32.0 wide, wider than any effect anyone proposed, so it distinguishes nothing. The distinction that matters is between a study that found the effect to be near zero and a study that could not locate it at all. Q's data are compatible with 25 mg/dL, so writing it up as no effect would convert an uninformative result into a negative one.",
+        "correct": "P and R exclude zero; Q does not. Trial P is numerically tightest, with width 0.6 mg/dL. Under the stated control-minus-intervention contrast, P and R are entirely positive, while Q remains compatible with negative, zero, and positive differences across a 32.0 mg/dL span. Q therefore has not located the parameter well; that absence of evidence is not evidence that the difference is zero. No clinical magnitude or value judgement follows because the item supplies no clinical threshold.",
+        "summary": "P and R exclude zero, Q does not; P is tightest, and Q's wide interval leaves direction and size unresolved rather than showing no difference.",
+        "reasoning": "Excluding zero is a question about location and is answered by looking at the limits: P runs 0.2 to 0.8 and R runs 5.0 to 11.0, both entirely positive under control minus intervention, while Q runs from -2.0 to 30.0 and straddles zero. Width answers the precision question: P is 0.6 wide, R is 6.0 wide, and Q is 32.0 wide. Q is compatible with values far from zero in both directions, so writing it up as no difference would convert an uninformative result into a negative one. Calling any compatible range clinically small or large would require a pre-stated threshold that this item does not provide.",
         "acceptableResponses": [
           "States that P and R exclude zero and Q does not.",
-          "Identifies P as the trial that establishes a direction while ruling out a large effect.",
-          "Identifies Q as uninformative and explains that its interval covers both a substantial benefit and a small harm.",
+          "Identifies P as the numerically tightest interval and may note that R is ten times as wide.",
+          "Identifies Q as uninformative and explains that its interval covers negative, zero, and positive differences.",
           "Distinguishes absence of evidence from evidence of absence, in any wording."
         ],
         "commonErrors": [
           "Writing that trial Q showed no effect, which is the error the item is built around.",
           "Ranking the trials by the size of the point estimate, which puts Q first.",
-          "Calling trial P's result unimportant because the numbers are small, which is a clinical judgement the interval cannot make.",
+          "Calling any result clinically small, large, beneficial, or harmful without a stated threshold.",
           "Saying trial R is best because it excludes zero by the widest margin, which confuses distance from zero with precision."
         ]
       },
@@ -286,7 +286,7 @@
       "outcomeIds": [
         "topic-statistics-data-confidence-intervals"
       ],
-      "prompt": "A diabetes service decides that it would only change its dietary advice if the true difference in next-morning fasting glucose were at least 6 mg/dL. The study in front of it reports 9.0 mg/dL with a 95% confidence interval of 0.9 to 17.1. Write a short paragraph for the meeting that states what the study does and does not settle against that threshold, and says what a study four times the size would and would not add. Do not recommend a change to anyone's care.",
+      "prompt": "A diabetes service decides that it would only change its dietary advice if the true difference in next-morning fasting glucose were at least 6 mg/dL. The study in front of it reports 9.0 mg/dL with a 95% confidence interval of 0.7 to 17.3. Write a short paragraph for the meeting that states what the study does and does not settle against that threshold, and distinguishes the anticipated precision of a study four times the size from the unknown location of its realised interval. Do not recommend a change to anyone's care.",
       "stimulus": "Teaching example, not medical advice: the service, the study, and the 6 mg/dL threshold are invented for this item.",
       "points": 8,
       "responseSpec": {
@@ -294,20 +294,22 @@
         "maxLength": 2000
       },
       "answer": {
-        "correct": "The interval excludes zero, so the study supports the direction. It does not settle the service's question, because 6 mg/dL lies inside 0.9 to 17.1: the data are compatible with a true difference below the threshold and with one well above it. A study with four times the people would have a standard error of about 2.07 instead of 4.13 and an interval about 4.9 to 13.1, half the width. That would put the whole interval above 3 mg/dL but would still contain 6, so even the larger study might not settle this particular threshold. Whether 6 mg/dL is the right threshold is a clinical judgement, and no interval decides it.",
-        "summary": "Direction supported, threshold unsettled because 6 sits inside the interval; four times the size halves the width to about 4.9 to 13.1, which still contains 6.",
-        "reasoning": "The threshold question is answered by asking where the chosen value sits relative to both limits, not by asking whether the interval excludes zero. Here 6 is between 0.9 and 17.1, so the study is compatible with the effect being under the threshold and with it being far above, and it cannot choose. The larger-study arithmetic follows the square-root rule: four times the people cuts the standard error in half, from 4.13 to 2.07 mg/dL, so the margin of error falls from 8.09 to 4.06 and the interval runs about 4.9 to 13.1. That still contains 6. A complete answer says so, because the natural assumption is that a bigger study always settles the question, and here it does not. A strong answer also notes that the threshold itself is a clinical choice, and that nothing in the arithmetic makes it the right one.",
+        "correct": "The interval excludes zero, so the study supports a positive direction under the stated contrast. It does not settle the service's question, because 6 mg/dL lies inside 0.7 to 17.3: the data remain compatible with a true difference below or above the threshold. With the same design and population spread, four times the people would be expected to cut the standard error from 4.13 to about 2.07 mg/dL and roughly halve the width. If the future estimate happened to remain 9.0, the interval would be about 4.9 to 13.1 and would still contain 6. That location is not predetermined: the future estimate and estimated spread are random, so the realised interval could shift. Whether 6 mg/dL is the right threshold is a clinical judgement, and no interval decides it.",
+        "summary": "Direction supported and threshold unsettled; four times the size approximately halves anticipated width, but 4.9 to 13.1 is conditional on the future estimate remaining 9.0, not a guaranteed future interval.",
+        "reasoning": "The threshold question is answered by asking where the chosen value sits relative to both limits, not only whether the interval excludes zero. Here 6 is between 0.7 and 17.3, so the study cannot choose between values below and above the threshold. The square-root rule says that, if design and population spread stay the same, four times the people approximately halves the anticipated standard error and width. Holding the estimate at 9.0 only for illustration gives about 4.9 to 13.1. A new sample will generate a new estimate and spread, so that conditional interval is useful for precision planning but is not a prediction of the realised limits. A complete answer preserves that distinction and keeps the threshold itself as a clinical choice.",
         "acceptableResponses": [
           "States that the interval excludes zero and so supports the direction.",
-          "States that 6 mg/dL lies inside the interval, so the threshold question is unsettled.",
-          "Computes or quotes the four-times-larger interval as roughly 4.9 to 13.1 mg/dL, half the width.",
-          "Notes that the larger interval would still contain 6 mg/dL.",
+          "States that 6 mg/dL lies inside 0.7 to 17.3, so the threshold question is unsettled.",
+          "States that four times the sample approximately halves the anticipated standard error and interval width under unchanged design and spread.",
+          "Labels 4.9 to 13.1 mg/dL as conditional on the future estimate remaining 9.0, rather than a guaranteed future interval.",
+          "Notes that the conditional 4.9 to 13.1 interval would still contain 6 mg/dL.",
           "Keeps the choice of threshold as a clinical judgement and makes no care recommendation."
         ],
         "commonErrors": [
           "Concluding that the service should change its advice because the estimate of 9.0 is above 6.",
           "Treating the exclusion of zero as an answer to the threshold question.",
-          "Assuming a larger study would automatically resolve the threshold, without checking where 6 falls in the new interval.",
+          "Treating 4.9 to 13.1 as the predetermined interval from a future larger study.",
+          "Assuming a larger study would automatically resolve the threshold.",
           "Reporting the larger study's interval as a quarter of the width instead of half, by scaling the width by the sample-size factor instead of its square root."
         ]
       },

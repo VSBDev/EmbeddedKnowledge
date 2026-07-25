@@ -27,10 +27,9 @@ Every source in `references.json` was retrieved and read directly at the URL rec
 | NIST/SEMATECH e-Handbook, 1.3.5.2 Confidence Limits for the Mean | The interval-estimate form; the statement that a 95% interval is not a 95% probability that the interval holds the true mean; the dependence of width on sample size and standard deviation | Facts only, original expression |
 | NIST/SEMATECH e-Handbook, 7.1.4 What are confidence intervals? | The interval as a range likely to contain the parameter; the repeated-sampling reading of the level; two-sided versus one-sided | Facts only, original expression |
 | NIST/SEMATECH e-Handbook, 1.3.6.7.1 Cumulative Distribution Function of the Standard Normal Distribution | The multipliers 1.645, 1.960 and 2.576 at the 90%, 95% and 99% levels | Facts only, original expression |
-| NIST/SEMATECH e-Handbook, 1.3.6.7.2 Critical Values of the Student's t Distribution | The value 2.002 at 58 degrees of freedom, used only to size the approximation this lesson accepts by working with 1.96 | Facts only, original expression |
+| NIST/SEMATECH e-Handbook, 1.3.6.7.2 Critical Values of the Student's t Distribution | The 29- and 58-degree-of-freedom critical values used as the primary multipliers when the sample standard deviation is estimated | Facts only, original expression |
 | NIST/SEMATECH e-Handbook, 7.3.1 Do two processes have the same mean? | The pooled two-sample standard error and its degrees of freedom | Facts only, original expression |
 | FDA, Guidance for Industry: E9 Statistical Principles for Clinical Trials | Reporting effect estimates with confidence intervals; two-sided intervals for the size of a difference; equivalence margins that the whole interval must fall within; the preference for intervals where estimates are imprecise; the glossary definition of frequentist methods | Facts only, original expression |
-| NIDDK, Diabetes Tests & Diagnosis | Fasting plasma glucose reference values, the use of a second test to confirm, and the definition of fasting | Facts only, original expression |
 
 No source's wording, structure, table, figure, example, question, or dataset is reproduced or adapted. Where the lesson repeats a source's position closely enough for a reader to check it, the passage is a statement of fact, is attributed in the surrounding source note, and is written in this pack's own words.
 
@@ -44,20 +43,19 @@ Two access notes belong on the record. The NIST handbook is served from `itl.nis
 
 Everything below was created for this lesson and is covered by the pack's CC BY 4.0 licence:
 
-- both chart sources under `charts/`, their alt text, and their long descriptions;
-- every worked interval in the pack, including the single-group interval of 140.8 to 152.2 mg/dL, the main interval of 0.9 to 17.1, the level comparison at 90% and 99%, the four-times-larger study at 4.9 to 13.1, and the narrower-population case at 3.9 to 14.1;
-- the twenty-city thought experiment and the four candidate sentences the misconception scene sorts;
+- every Markdown table, equation, and worked interval in the pack, including the single-group interval of 140.5 to 152.5 mg/dL, the main interval of 0.7 to 17.3, the level comparison at 90% and 99%, the conditional four-times-larger illustration at 4.9 to 13.1, and the narrower-population case at 3.8 to 14.2;
+- the repeated-study thought experiment and the four candidate sentences the misconception scene sorts;
 - the three practice trials, the reverse-engineered 90% interval, the pharmacist-led medicines review and its two blood-pressure outcomes, and the diabetes service's invented 5 mg/dL decision threshold;
 - all scene prose, checks, assessment items, answer logic, and rubrics.
 
-The cohort's headline figures are fixed by the Statistics and Data block brief so that the twelve lessons in the block describe one consistent study: sixty adults with type 2 diabetes, thirty in each dinner-timing group, a within-group standard deviation of 16 mg/dL, an observed difference of 9.0 mg/dL, and a standard error of 4.13 for that difference. Every interval in this pack was recomputed from those figures rather than copied, and the resulting 95% interval of 0.9 to 17.1 mg/dL is the one the block's later lessons rely on.
+The cohort's headline figures are fixed by the Statistics and Data block brief so that the twelve lessons in the block describe one consistent study: sixty adults with type 2 diabetes, thirty in each dinner-timing group, a within-group standard deviation of 16 mg/dL, an observed difference of 9.0 mg/dL, and a standard error of 4.13 for that difference. Every interval in this pack was recomputed from those figures rather than copied. With the matching 58-degree-of-freedom t multiplier, this lesson's two-sided 95% interval is 0.7 to 17.3 mg/dL.
 
 ## Boundaries
 
-The cohort, the diabetes service, the Monday decision, the three practice trials, and the blood-pressure trial are invented for teaching. Nothing in the pack reports an observation about real patients, and nothing in it recommends or supports a diagnostic, monitoring, or treatment decision. The 5 mg/dL and 6 mg/dL thresholds used to show how an interval is read against a clinical value were chosen for the example and are labelled as invented wherever they appear. Clinical reference values appear only so that an interval measured in mg/dL has a real scale to be laid against, and they are attributed to the body that publishes them. The lesson carries the *teaching example, not medical advice* boundary in its orientation, practice, transfer, and clinical wrap-up scenes.
+The cohort, the diabetes service, the meeting, the three practice trials, and the blood-pressure trial are invented for teaching. Nothing in the pack reports an observation about real patients, and nothing in it recommends or supports a diagnostic, monitoring, or treatment decision. The 5 mg/dL and 6 mg/dL thresholds used to show how an interval is read against a service threshold were chosen for the examples and are labelled as invented wherever they appear. No individual diagnostic cut point is used as a scale for the population mean contrast. The lesson carries the *teaching example, not medical advice* boundary in its orientation, practice, transfer, and clinical wrap-up scenes.
 
 The lesson deliberately stops short of two neighbouring outcomes. It does not test a hypothesis or interpret a p-value, which the next lesson owns, and it does not judge whether a 9 mg/dL difference matters to a patient, which the block's final lesson owns.
 
 ## Third-party assets
 
-None. `thirdPartyAssets` in `lesson.json` is empty. Both charts in this pack are declarative JSON authored here and rendered from that JSON at build time; no external image, font, script, plotting library, dataset, or remote resource is referenced.
+None. `thirdPartyAssets` in `lesson.json` is empty. The pack uses only prose, equations, and Markdown tables authored for the lesson; no external image, font, script, plotting library, dataset, or remote resource is referenced.

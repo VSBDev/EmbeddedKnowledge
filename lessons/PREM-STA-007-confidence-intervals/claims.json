@@ -6,7 +6,7 @@
   "claims": [
     {
       "id": "claim-ci-definition",
-      "statement": "A confidence interval is an interval estimate for a population quantity, computed from sample data as the point estimate plus and minus a multiplier times the standard error of that estimate, and it supplies a range of values likely to contain the parameter of interest; a two-sided interval brackets the parameter from above and below, while a one-sided interval supplies a single bound.",
+      "statement": "A confidence interval is an interval estimate for a defined population quantity, computed from sample data as the point estimate plus and minus a multiplier matched to the sampling model and confidence level times the standard error of that estimate; a two-sided interval brackets the parameter from above and below, while a one-sided interval supplies a single bound.",
       "sceneIds": [
         "scene-estimate-with-a-range",
         "scene-nine-milligrams",
@@ -18,14 +18,14 @@
       ],
       "support": "direct",
       "confidence": "high",
-      "scope": "Two-sided intervals for a mean or for a difference between two means, built on a normal or t sampling distribution. The handbook states the interval-estimate framing and the estimate-plus-or-minus-multiplier-times-standard-error form; this lesson names the three parts as a recipe and applies them to its own cohort.",
-      "uncertainty": "The form assumes the sampling distribution of the estimate is approximately normal. This lesson works with means of 30 and 120 per group and does not treat small samples, strongly skewed outcomes, or intervals for proportions and ratios, where other constructions are used.",
+      "scope": "Two-sided intervals for a mean or for a difference between two independent means, built on an adequate normal or t sampling model for a defined sampled population. The handbook states the interval-estimate framing and the estimate-plus-or-minus-multiplier-times-standard-error form; this lesson names the three parts as a recipe and applies them to its own cohort.",
+      "uncertainty": "Nominal coverage depends on the sampling and analysis model, including independence and an adequate distributional and variance model. The form does not repair selection or measurement bias, establish external validity, or cover small samples, strongly skewed outcomes, proportions, or ratios without a suitable construction.",
       "risk": "routine",
       "reviewStatus": "pending-review"
     },
     {
       "id": "claim-confidence-level-long-run",
-      "statement": "A stated confidence level is a property of the procedure and not a probability attached to one computed interval: a 95% confidence interval does not mean there is a 95% probability that the interval contains the true value, and the confidence coefficient is the proportion of samples of a given size whose intervals would be expected to contain it, so that repeated sampling from the same population would produce intervals bracketing the true parameter in approximately 95% of cases.",
+      "statement": "A stated confidence level is a conditional property of the procedure and not a probability attached to one computed interval: when independent samples from the defined population are analysed repeatedly under an adequate sampling and analysis model, a 95% procedure produces intervals that contain the fixed parameter in approximately 95% of cases in the long run.",
       "sceneIds": [
         "scene-estimate-with-a-range",
         "scene-ninety-five-percent-of-what",
@@ -37,8 +37,8 @@
       ],
       "support": "direct",
       "confidence": "high",
-      "scope": "The frequentist reading of a confidence level, which is the reading used throughout this lesson and in the clinical-trial reporting conventions it describes. Both handbook sections state it explicitly, one of them in the negative form used in the misconception scene.",
-      "uncertainty": "Other statistical frameworks produce intervals for which a probability statement about the parameter is meaningful, and they require an additional input in the form of a prior distribution. The lesson names that this alternative exists and does not teach it.",
+      "scope": "The frequentist reading of a confidence level under the conditions of the stated procedure, which is the reading used throughout this lesson and in the clinical-trial reporting conventions it describes. Both handbook sections state the repeated-sampling interpretation, one of them in the negative form used in the misconception scene.",
+      "uncertainty": "Nominal coverage can fail under dependence, clustering, biased or selective sampling, measurement bias, an undefined target population, or a misspecified distribution or variance model. Coverage concerns random sampling under the model and does not establish external validity. Other statistical frameworks can support probability statements about a parameter with additional modelling inputs; this lesson does not teach them.",
       "risk": "routine",
       "reviewStatus": "pending-review"
     },
@@ -49,7 +49,8 @@
         "scene-estimate-with-a-range",
         "scene-nine-milligrams",
         "scene-what-moves-the-edges",
-        "scene-a-different-trial"
+        "scene-a-different-trial",
+        "scene-service-decision"
       ],
       "sourceIds": [
         "source-nist-normal-table"
@@ -62,18 +63,21 @@
       "reviewStatus": "pending-review"
     },
     {
-      "id": "claim-t-multiplier-at-58-df",
-      "statement": "The critical value of the Student's t distribution at 58 degrees of freedom for a cumulative probability of 0.975 is 2.002, so a two-sided 95% interval built on the t distribution for a comparison of two groups of 30 uses a multiplier of about 2.00 in place of the normal curve's 1.960.",
+      "id": "claim-t-multipliers",
+      "statement": "When a standard deviation is estimated from the analysed sample, a two-sided interval for a mean or pooled difference of means uses a Student's t multiplier: at 95% the multiplier is 2.045 for 29 degrees of freedom and 2.002 for 58 degrees of freedom; at 58 degrees of freedom the 90% and 99% multipliers are 1.672 and 2.663, and substituting the normal multiplier 1.96 gives about 94.5% rather than 95% coverage.",
       "sceneIds": [
-        "scene-nine-milligrams"
+        "scene-estimate-with-a-range",
+        "scene-nine-milligrams",
+        "scene-what-moves-the-edges",
+        "scene-service-decision"
       ],
       "sourceIds": [
         "source-nist-t-table"
       ],
-      "support": "direct",
+      "support": "inference",
       "confidence": "high",
-      "scope": "The single tabulated value at 58 degrees of freedom. The lesson uses it only to show the size of the approximation it accepts by working with 1.96 throughout, and quantifies that approximation as about 0.2 mg/dL at each limit for this cohort.",
-      "uncertainty": "Which multiplier is exact depends on assumptions about the two groups' standard deviations that this lesson takes as given from its own constructed cohort. The lesson states that it uses 1.96 for clarity and names the situation in which the exact multiplier should be preferred.",
+      "scope": "The tabulated two-sided critical values used for the one-group and pooled two-group examples. The lesson uses the matching t multiplier as the primary calculation when the standard deviation was estimated from the same observations; the approximate 94.5% coverage is calculated from the 58-degree-of-freedom t distribution.",
+      "uncertainty": "The appropriate degrees of freedom and t construction depend on the variance model. The pooled two-group example assumes equal variances by construction; unequal variances require a different degrees-of-freedom calculation. At large degrees of freedom the t multiplier approaches the corresponding normal multiplier.",
       "risk": "routine",
       "reviewStatus": "pending-review"
     },
@@ -112,17 +116,18 @@
     },
     {
       "id": "claim-width-depends-on-level",
-      "statement": "Raising the confidence level widens the interval with no change to the data, because the level enters the calculation only through the multiplier, which grows from 1.645 at 90% to 1.960 at 95% and 2.576 at 99%.",
+      "statement": "Raising the confidence level widens an interval with no change to the data because the level enters through a larger multiplier; for example, at 58 degrees of freedom the t multiplier grows from 1.672 at 90% to 2.002 at 95% and 2.663 at 99%.",
       "sceneIds": [
         "scene-what-moves-the-edges"
       ],
       "sourceIds": [
         "source-nist-normal-table",
+        "source-nist-t-table",
         "source-nist-confidence-limits"
       ],
       "support": "inference",
       "confidence": "high",
-      "scope": "Two-sided intervals of the estimate-plus-or-minus-multiplier-times-standard-error form. The multiplier values are tabulated by the source and the interval form is stated by the handbook; the consequence that the interval widens follows from the two together and is demonstrated in the lesson on one fixed estimate and standard error.",
+      "scope": "Two-sided intervals of the estimate-plus-or-minus-multiplier-times-standard-error form. The normal and t multiplier values are tabulated by the sources and the interval form is stated by the handbook; the widening consequence follows from them and is demonstrated on one fixed estimate and standard error.",
       "uncertainty": "The sources state the form and the quantiles separately and do not draw this consequence in the words used here. The lesson derives it and shows the resulting intervals for one dataset.",
       "risk": "routine",
       "reviewStatus": "pending-review"
@@ -191,22 +196,6 @@
       "scope": "Stated in the guidance for the evaluation of safety and tolerability, where low event frequencies make estimates imprecise. Used here to support the general teaching point that a wide interval is an accurate report of a study's limits.",
       "uncertainty": "The guidance makes the recommendation in a specific reporting context. The lesson applies the reasoning to a mean difference, where the source of imprecision is sample size and biological spread instead of low event counts.",
       "risk": "routine",
-      "reviewStatus": "pending-review"
-    },
-    {
-      "id": "claim-fpg-thresholds",
-      "statement": "The US National Institute of Diabetes and Digestive and Kidney Diseases states that a fasting plasma glucose result of 99 mg/dL or below is normal, 100 to 125 mg/dL indicates prediabetes, and 126 mg/dL or above indicates diabetes, that a doctor will usually use a second test to confirm a diabetes diagnosis, and that fasting means having nothing to eat or drink except sips of water.",
-      "sceneIds": [
-        "scene-service-decision"
-      ],
-      "sourceIds": [
-        "source-niddk-diabetes-tests"
-      ],
-      "support": "direct",
-      "confidence": "high",
-      "scope": "Reference values for the fasting plasma glucose test as published for a general US audience at the access date. Quoted in this lesson only so that a confidence interval measured in mg/dL can be laid against a real clinical scale.",
-      "uncertainty": "Thresholds and their qualifications are set by clinical bodies, can be revised, and differ in presentation between countries and guidelines. The lesson makes no diagnostic, monitoring, or treatment recommendation, its cohort is invented, and the 5 mg/dL decision threshold it uses is explicitly invented for the example.",
-      "risk": "health-sensitive",
       "reviewStatus": "pending-review"
     }
   ]
