@@ -3,7 +3,7 @@
 ## Lesson identity
 
 - Lesson: **PREM-SCI-003 — Variables and controls: what a comparison really tests**
-- Version: `0.1.1`
+- Version: `0.2.0`
 - Outcome: `topic-scientific-inquiry-variables-controls` / PREM-02.03
 - Accountable principal: VSBDev (`github:VSBDev`)
 - Course-content licence: [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/)
@@ -18,7 +18,7 @@ The published PREM-SCI-001 learner-facing pack and the frozen PREM-SCI-002 candi
 
 Three sources support factual and terminological claims. All were used for facts only, followed by independent instructional structure and original expression. Complete locators, use records, rights evidence, and dated agent-access checks appear in `references.json`.
 
-- NIST/SEMATECH, *e-Handbook of Statistical Methods*: experimental factors, responses, controlled and uncontrolled inputs, and confounding.
+- NIST/SEMATECH, *e-Handbook of Statistical Methods*: experimental factors, responses, and controlled and uncontrolled inputs. Its design-of-experiments aliasing sense of “confounding” is not used for the third-variable definition taught here.
 - Haas et al., *In Vivo Assay Guidelines*, NCBI Bookshelf / *Assay Guidance Manual*: manipulated, response, and extraneous variables and the functions of positive and negative controls.
 - Fumo-dos-Santos and Ferreira, *Dealing with confounding in observational studies*: the third-variable definition of confounding, including the exclusion of an intermediate factor on the causal pathway.
 
@@ -34,7 +34,9 @@ Before substantive source access on 2026-07-20 and 2026-07-21, the accountable r
 - Material-instructions digest: `sha256:8dec3af49e5263519344b46ec6b8542adb07e143432dbde96f13403875253357`
 - Clinical-framing revision: VSBDev, the accountable author, used a runtime-stamped agent (`RUNTIME-STAMPED` for system, provider, model, and version) in run `codex-reauthor-PREM-SCI-003-C7CCE2C7-ECAA-4262-A194-51D314CAFB44` with material-instructions digest `sha256:8e9d702ad1efa029e21d71f0044b81ceeeebd4ace812df7835f97f10f7bdd09b` to add the illustrative dinner-timing and next-morning fasting-glucose role audit; the case makes no factual medical claim and is not medical advice.
 
-The bounded one-pass final lesson revision, final accessibility-and-rights audit, and adjudication used a runtime-stamped agent in fresh run `codex-finalizer-PREM-SCI-003-5CF92166-30E6-4EE3-A0CC-6FAABFFA3A5B`. Its system, provider, model, and version are recorded as the operator-stamped literal `RUNTIME-STAMPED` in `adjudication.json`. Its material-instructions digest is `sha256:201d7302cbf65ad5030c77170804fbf21f11ae281df3d5560381704f002eabc9`.
+The version 0.1.1 bounded final lesson revision, accessibility-and-rights audit, and adjudication used a runtime-stamped agent in fresh run `codex-finalizer-PREM-SCI-003-5CF92166-30E6-4EE3-A0CC-6FAABFFA3A5B`. Its material-instructions digest was `sha256:201d7302cbf65ad5030c77170804fbf21f11ae281df3d5560381704f002eabc9`.
+
+The version 0.2.0 bounded post-review revision, final accessibility-and-rights audit, and adjudication used a runtime-stamped agent in fresh run `codex-finalizer-PREM-SCI-003-D7B1B991-E9CE-41B8-A6EE-F45720AAA9CF`. Its system, provider, model, and version are recorded as the operator-stamped literal `RUNTIME-STAMPED` in `adjudication.json`. Its material-instructions digest is `sha256:197d7368352dc9732c529f86c16ca81e198677da03ffd05351acf910928ce899`.
 
 Each digest covers the exact UTF-8 material task payload supplied by the root agent, including its final newline. It excludes hidden provider and system instructions that cannot be exported. VSBDev remains accountable for the contribution and attests the disclosed provenance.
 

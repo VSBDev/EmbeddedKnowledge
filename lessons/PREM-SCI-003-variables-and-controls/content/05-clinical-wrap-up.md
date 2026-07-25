@@ -39,8 +39,13 @@ The label identifies an ambiguity in the supplied comparison. It does not choose
 
 ## Keep control checks in their own role
 
-If the fictional comparison also supplied a **positive-control condition** defined in advance to produce a known meter response, a successful result would show that the setup can reveal that response. If it supplied a **negative-control condition** defined in advance to remain at a baseline response, that result would show whether the setup produced a response where none was expected. These would be extra comparison conditions, not variables held alike across dinner times.
+For a concrete invented check, suppose the fictional meter's bench-test kit includes two non-patient test inputs. A high-signal simulator is expected to produce a reading in a labelled range; it is the **positive-control condition** because it checks that the setup can reveal the expected response. A zero-signal simulator is expected to remain at baseline; it is the **negative-control condition** because it checks for a response where none is expected. These are extra comparison conditions, not variables held alike across dinner times. They are stipulated teaching materials, not instructions for checking a real meter.
 
 The role audit now has a narrow conclusion: dinner timing is the factor compared, next-morning fasting glucose is the response recorded, the listed conditions are held alike, and the stipulated activity pattern is a rival factor that travels with dinner timing. The next lesson, [Choosing a study design: assignment, selection, and time (PREM-SCI-004)](https://embeddedknowledge.io/premed/lessons/read/?lesson=PREM-SCI-004), arranges this comparison in time.
 
-*This scene is illustrative and cites no source; it makes no factual medical assertion.*
+:::{source-note}
+:claims: claim-variable-roles, claim-confounder-ambiguity, claim-control-functions, claim-controls-have-limits
+:sources: source-nist-handbook, source-ncbi-assay-guidelines, source-confounding-observational
+
+The sources support the variable-role distinctions, the three-part confounder check, the expected-response functions of positive and negative controls, and the limits of what controls establish. The dinner-timing case, activity schedule, meter simulators, and expected readings are stipulated fictional teaching details; they make no claim about diabetes physiology or real-device procedure.
+:::
