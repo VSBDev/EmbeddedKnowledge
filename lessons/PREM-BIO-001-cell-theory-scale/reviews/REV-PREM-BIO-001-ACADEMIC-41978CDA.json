@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-BIO-001-ACADEMIC-41978CDA",
+  "lessonId": "PREM-BIO-001",
+  "lessonVersion": "0.1.2",
+  "candidateCommit": "dfb6e787790147341ba6c7bbeb636820e41a778f",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable academic reviewer",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-BIO-001-41978CDA-8ADA-4202-A954-34703299C41D",
+      "instructionsDigest": "sha256:aef18994a76564eae5ac985854d3be3ec4bf44da2d7e7eeaef588f2e5c5c2fdd"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "Candidate commit dfb6e787790147341ba6c7bbeb636820e41a778f exists, contains the stated pack, and has no lesson-pack diff from the presented working tree.",
+    "lesson.json#identity,outcomes,objectives,scenes,authors,assets",
+    "content/01-lining-you-cannot-see.md#entire-file",
+    "content/02-arithmetic-of-invisibility.md#entire-file",
+    "content/03-cork-and-the-word.md#entire-file",
+    "content/04-theory-is-not-a-guess.md#entire-file",
+    "content/05-what-a-sheet-can-do.md#entire-file",
+    "content/06-practice-and-recovery.md#entire-file",
+    "content/07-clinical-wrap-up.md#entire-file",
+    "assessment.json#all-items-and-rubrics",
+    "claims.json#all-claims-and-scene-source-mappings",
+    "references.json#all-source-records,locators,uses,and-agentAccess-records",
+    "glossary.json#all-terms",
+    "diagrams/scale-ladder.diagram.json#diagram-scale-ladder",
+    "assets/cork-bark-micrograph.jpg#visual-content,scale-bar,and-sha256:062053bae101211b3a79d90231357bdf85e9c6772c0d7dbebe1c63320ee0678c",
+    "ATTRIBUTION.md#entire-file",
+    "references.json#source-ashraf-eye-resolution — checked against [Nature Communications](https://www.nature.com/articles/s41467-025-64679-2).",
+    "references.json#source-vanderwath-crypt-model — checked against [PLOS ONE](https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0073204).",
+    "references.json#source-galbraith-resolution-limit — checked against the indexed [Journal of Cell Science article](https://pmc.ncbi.nlm.nih.gov/articles/PMC3085433/).",
+    "references.json#source-nguyen-colonic-crypt — checked against [Cells](https://www.mdpi.com/2073-4409/14/18/1428).",
+    "references.json#source-mullerwille-cell-theory — checked against [Studies in History and Philosophy of Biological and Biomedical Sciences](https://www.sciencedirect.com/science/article/pii/S1369848610000427).",
+    "references.json#source-kettenmann-virchow — checked against the indexed [review article](https://pmc.ncbi.nlm.nih.gov/articles/PMC11584505/).",
+    "references.json#source-alberts-muscle-fusion — checked against [NCBI Bookshelf](https://www.ncbi.nlm.nih.gov/books/NBK26853/).",
+    "references.json#source-weisberg-how-science-works — checked against [NCBI Bookshelf](https://www.ncbi.nlm.nih.gov/books/NBK621586/).",
+    "references.json#source-dossantos-tissue-self-organization — checked against the indexed [FEBS Journal review](https://pmc.ncbi.nlm.nih.gov/articles/PMC6519261/).",
+    "Independent recalculation: 1 arcminute = 2.908882086657216e-4 rad; thresholds are 72.72 µm at 25 cm, 101.81 µm at 35 cm, 116.36 µm at 40 cm, and 58.18 µm at 20 cm; 94 ppd at 25 cm gives 46.42 µm.",
+    "Independent recalculation: 22 × 10 µm / π = 70.03 µm; 700/4 = 175 cells/day = 7.29 cells/hour; 320–640 µm at 4 µm/hour = 80–160 hours; 12/0.25 = 48; 250/2 = 125."
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "glossary.json#term-resolution",
+      "finding": "The definition turns spatial resolution into \"a limit on what can be found out\" and the dependent lesson text turns failure to resolve 2 nm structure into an assertion that a conventional light microscope cannot show the object at all. Resolution is the ability to distinguish spatial detail or nearby features; a sub-resolution labelled object can still be detected and localized, while its internal dimensions remain unresolved. The mapped Galbraith source itself says a small object appears as the point-spread function, not that it is invisible. This error propagates through content/02, content/06, the scale ladder, and the assessment's instrument verdicts.",
+      "resolution": "Redefine resolution narrowly as spatial separation/detail, distinguish resolution from detection, localization, contrast, and size estimation, change every claim that the 2 nm helix is not \"shown at all\" to the defensible claim that its 2 nm width is not resolved, and re-audit the dependent answer keys."
+    },
+    {
+      "severity": "major",
+      "target": "assessment.json#item-integrated-protocol-review",
+      "finding": "The key and rubric require resolution finer than 10 µm to follow one cell and conclude from a 40 µm spatial-resolution value alone that no single cell can be followed. That necessity does not follow from the supplied data: a selectively labelled sub-resolution object can be detected and localized without its shape or neighbours being resolved, whereas tracking unlabelled adjacent cells depends on contrast, labelling, sampling, motion, and the separation actually being discriminated. The prompt explicitly supplies none of those conditions, so it cannot have the stated unique numerical answer even inside a diffraction-limited model.",
+      "resolution": "Either stipulate an unlabelled two-object discrimination task with the relevant separation and adequate contrast, or make the correct answer that spatial resolution alone cannot determine the tracking requirement. Update the rubric and content/06#check-design-the-observation consistently."
+    },
+    {
+      "severity": "major",
+      "target": "content/06-practice-and-recovery.md#check-classify-emergence",
+      "finding": "Item 7 states that \"the lining is entirely replaced every few days,\" and the feedback treats that statement as correct. This contradicts claim-epithelial-renewal and the lesson's earlier boundary that the three-to-five-day value is a bulk turnover interval, self-renewing lineages persist, cell-type lifetimes vary, and some cells last longer. The current answer teaches and rewards an explicitly false shortcut.",
+      "resolution": "Replace \"entirely replaced\" with the exact supported population, such as the rapidly renewed bulk or absorptive population, while retaining continuity as the tissue-level property; make the feedback repeat the non-synchronous, cell-type-specific boundary."
+    },
+    {
+      "severity": "major",
+      "target": "assessment.json#item-theory-status",
+      "finding": "The keyed refutation route says a tissue \"built from something other than cells\" would refute the composition proposition, even though this pack correctly states that normal tissues include extracellular material and may be matrix-dominated. It also treats any cell origin without pre-existing cellular material as a refuter without explicitly limiting the proposition to ongoing cellular lineages; origin-of-life chemistry is outside that scope. These formulations make the required tests scientifically ambiguous and can mark a defensible answer wrong.",
+      "resolution": "State the composition test in terms of a living tissue whose basic living units and activities are shown not to be cellular after accounting for cell-derived extracellular matrix. State the lineage test within extant cellular lineages and defined conditions, explicitly excluding the origin of the first cells. Apply the same boundaries in the rubric and acceptable responses."
+    },
+    {
+      "severity": "major",
+      "target": "content/04-theory-is-not-a-guess.md#what-would-have-destroyed-it",
+      "finding": "The learner-visible table asserts that two centuries of microscopy repeatedly tested the tissue proposition and that rival non-cellular formation accounts were investigated and did not survive, but those empirical-history assertions are not represented by a mapped claim with an exact supporting locator. The mapped records here summarize historical formulations of cell theory, the muscle-fusion boundary, Virchow, and scientific vocabulary. This matters because assessment.json#item-theory-status requires learners to claim that the proposed refutations were actually pursued.",
+      "resolution": "Add a material claim and an authoritative history or primary-source locator that directly supports the investigations and their outcomes, or remove the requirement to assert that this specific historical testing occurred. Keep the revised statement within the cellular-lineage and extracellular-matrix boundaries."
+    },
+    {
+      "severity": "minor",
+      "target": "content/05-what-a-sheet-can-do.md#three-things-a-crypt-does-and-a-cell-does-not",
+      "finding": "The conclusion that \"everything\" the lining has to do is a property of arrangement contradicts the scene's own scientifically correct distinction that transcellular transport and membrane regulation are individual-cell properties. The further claim that a single continuous living sheet could not retire a worn section without tearing is an unsupported biological necessity, not a consequence of the cited emergence review.",
+      "resolution": "Limit the conclusion to the three tissue-level properties actually demonstrated—continuous coverage, positional organization, and coordinated renewal—and avoid claiming that all epithelial work or every conceivable continuous living sheet must satisfy the same argument."
+    },
+    {
+      "severity": "minor",
+      "target": "content/02-arithmetic-of-invisibility.md#step-3-compare",
+      "finding": "The worked example states a 25 cm viewing distance and correctly calculates 72.7 µm, but then uses a rounded 100 µm threshold to report a five-to-ten-fold cell comparison. At the stated 25 cm distance the factors are about 3.6 to 7.3. The five-to-ten range belongs to the separately introduced 35 cm/100 µm benchmark, so the current transition weakens the objective's requirement to compare at a stated distance.",
+      "resolution": "Keep the 25 cm calculation and report 3.6–7.3 there, or explicitly change the comparison distance to 35 cm before using the 100 µm benchmark. Reserve coarse rounding for order-of-magnitude conclusions, not the requested factor."
+    },
+    {
+      "severity": "minor",
+      "target": "glossary.json#term-stem-cell",
+      "finding": "The general definition says a stem cell is a cell that \"keeps dividing.\" Stem cells are defined by self-renewal and differentiation potential, and some stem-cell populations are quiescent until activated; the pack's own cited Alberts chapter describes quiescent satellite stem cells. Continuous division is appropriate only for a narrowed description of active crypt-base populations.",
+      "resolution": "Define a stem cell by capacity for self-renewal and production of differentiated progeny, note that division may be active or quiescent depending on the population, and then state the active crypt example separately."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#item-scale-computation",
+      "finding": "The numerical key is internally correct: 400 mm × 2.9 × 10^-4 = 0.116 mm = 116 µm, 116/12 is about 9.7, and 12/0.25 = 48. These factors establish the stated scale margins, but the last factor is not by itself evidence that a real specimen supplies adequate cell-boundary contrast.",
+      "resolution": "No arithmetic change is required; apply the resolution-versus-detection and contrast boundary required by the major findings."
+    }
+  ],
+  "limitations": [
+    "This was an academic review only. Accessibility, rights adjudication, governance adjudication, and content editing were outside the assigned role.",
+    "Per the supplied scope, site/, graph data, the cross-lesson terminology ledger, schemas, scripts, workflows, and other lesson packs were not inspected; outcome-node scope, cross-lesson terminology continuity, and repository-wide structural validation were therefore not assessed.",
+    "Direct PMC article routes presented a reCAPTCHA in this environment. Central claims were checked through accessible publisher pages and indexed official NCBI/PMC records where available.",
+    "The exact source-baker-crypt-dynamics locator for the reported 4 µm/hour lower-crypt migration speed was not independently reachable in the accessible article text. The 80–160 hour calculation was verified as conditional on that stated input, and the evidence-access limit does not change the verd...",
+    "The reviewer is not claiming specialist authority in microscopy engineering or the historiography of nineteenth-century biology. The request-changes verdict rests on internally checkable model-boundary errors, incorrect assessment logic, and missing claim-to-source support that remain material de..."
+  ],
+  "signedAt": "2026-07-25T22:41:02Z"
+}
