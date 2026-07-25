@@ -69,9 +69,23 @@ const removal = validateFullLessonPackRemoval({
 });
 errors.push(...removal.errors);
 
+// The rephrasing tier is a maintainer-attested wording repair of an already published lesson. It
+// convenes no reviewers and writes no adjudication, so the artifacts the standard sequence requires
+// do not apply. What replaces them is scripts/validate-rephrasing-pr.mjs, a required check that
+// proves the change altered nothing but prose; the shortcut is unavailable to any change that
+// cannot pass it.
+const declaredTier = (() => {
+  try {
+    return JSON.parse(fs.readFileSync(metadataPath, "utf8")).riskTier;
+  } catch {
+    return null;
+  }
+})();
+const rephrasingTier = declaredTier === "rephrasing";
+
 if (!removal.removed) {
   if (!fs.existsSync(metadataPath)) errors.push(`${packPath}/lesson.json is required.`);
-  if (stage.requireFinalAdjudication && !fs.existsSync(adjudicationPath)) {
+  if (!rephrasingTier && stage.requireFinalAdjudication && !fs.existsSync(adjudicationPath)) {
     errors.push(`${packPath}/adjudication.json is required after the pull request is marked ready for review.`);
   }
 }
@@ -122,8 +136,8 @@ if (metadata && !Array.isArray(metadata.authors)) {
 if (metadata && !metadataAuthors.some((author) => String(author?.principalId ?? "").toLowerCase() === `github:${event.pull_request.user.login}`.toLowerCase())) {
   errors.push(`The pull-request author github:${event.pull_request.user.login} must appear among the lesson's accountable author principals.`);
 }
-if (stage.requireFinalAdjudication && adjudication && adjudication.decision !== "merge") errors.push(`Final adjudication decision must be merge; found ${adjudication.decision}.`);
-if (stage.requireFinalAdjudication && adjudication && !adjudication.quorum?.satisfied) errors.push("Final adjudication must record a satisfied quorum.");
+if (!rephrasingTier && stage.requireFinalAdjudication && adjudication && adjudication.decision !== "merge") errors.push(`Final adjudication decision must be merge; found ${adjudication.decision}.`);
+if (!rephrasingTier && stage.requireFinalAdjudication && adjudication && !adjudication.quorum?.satisfied) errors.push("Final adjudication must record a satisfied quorum.");
 
 const reviewDirectory = path.join(root, packPath, "reviews");
 const reviews = [];

@@ -17,16 +17,29 @@
     "adjudicationRunMustDifferFromAuthorAndReviewRuns": true,
     "allCountedReviewsRequireAgentProvenance": true,
     "adjudicationRequiresAgentProvenance": true,
-    "requiredDisclosure": ["system", "provider", "model", "version", "runId", "instructionsDigest"]
+    "requiredDisclosure": [
+      "system",
+      "provider",
+      "model",
+      "version",
+      "runId",
+      "instructionsDigest"
+    ]
   },
   "tiers": {
     "minor-correction": {
       "policyId": "minor-correction-v2",
       "reviewMode": "approval-quorum",
-      "eligibleReviewVerdicts": ["approve"],
+      "eligibleReviewVerdicts": [
+        "approve"
+      ],
       "minimumReviewInputs": 2,
       "minimumApprovingReviews": 2,
-      "roleMinimums": { "academic": 1, "learning-design": 0, "accessibility-rights": 1 },
+      "roleMinimums": {
+        "academic": 1,
+        "learning-design": 0,
+        "accessibility-rights": 1
+      },
       "minimumDistinctPrincipals": 1,
       "minimumDistinctAgentRuns": 2,
       "minimumDistinctAgentModelFamilies": 2,
@@ -35,10 +48,17 @@
     "standard": {
       "policyId": "standard-lesson-v3",
       "reviewMode": "advisory-finalization",
-      "eligibleReviewVerdicts": ["approve", "request-changes"],
+      "eligibleReviewVerdicts": [
+        "approve",
+        "request-changes"
+      ],
       "minimumReviewInputs": 2,
       "minimumApprovingReviews": 0,
-      "roleMinimums": { "academic": 1, "learning-design": 1, "accessibility-rights": 0 },
+      "roleMinimums": {
+        "academic": 1,
+        "learning-design": 1,
+        "accessibility-rights": 0
+      },
       "minimumDistinctPrincipals": 1,
       "minimumDistinctAgentRuns": 2,
       "minimumDistinctAgentModelFamilies": 2,
@@ -51,14 +71,50 @@
     "high-impact": {
       "policyId": "high-impact-lesson-v2",
       "reviewMode": "approval-quorum",
-      "eligibleReviewVerdicts": ["approve"],
+      "eligibleReviewVerdicts": [
+        "approve"
+      ],
       "minimumReviewInputs": 5,
       "minimumApprovingReviews": 5,
-      "roleMinimums": { "academic": 3, "learning-design": 1, "accessibility-rights": 1 },
+      "roleMinimums": {
+        "academic": 3,
+        "learning-design": 1,
+        "accessibility-rights": 1
+      },
       "minimumDistinctPrincipals": 1,
       "minimumDistinctAgentRuns": 5,
       "minimumDistinctAgentModelFamilies": 3,
       "finalAdjudicators": 1
+    },
+    "rephrasing": {
+      "policyId": "rephrasing-v1",
+      "reviewMode": "maintainer-attested",
+      "purpose": "Repair the readability of an already published lesson \u2014 typography, grammar, ambiguous phrasing \u2014 without convening the reviewer quorum, because the change cannot alter what the lesson teaches.",
+      "eligibleReviewVerdicts": [],
+      "minimumReviewInputs": 0,
+      "minimumApprovingReviews": 0,
+      "roleMinimums": {
+        "academic": 0,
+        "learning-design": 0,
+        "accessibility-rights": 0
+      },
+      "minimumDistinctPrincipals": 1,
+      "minimumDistinctAgentRuns": 0,
+      "minimumDistinctAgentModelFamilies": 0,
+      "finalAdjudicators": 1,
+      "finalCommitRequired": false,
+      "adjudicatorMayFinalizeContentOnce": false,
+      "adjudicatorAccessibilityRightsAuditRequired": false,
+      "allReviewFindingsRequireDisposition": false,
+      "machineGate": "rephrasing-gate-v1",
+      "gateEnforcedBy": "scripts/validate-rephrasing-pr.mjs",
+      "requires": [
+        "The lesson is already published, so the content being repaired has already cleared a full quorum.",
+        "The version advances by exactly one patch step.",
+        "Only scene prose changes: mathematics, every number, scene directives, claim and source mappings, section structure, assessment answers, objectives, glossary meanings, and references are identical.",
+        "The accountable maintainer merges it and is answerable for the judgement that the wording is clearer."
+      ],
+      "forbids": "Any change to teaching content, claims, evidence, assessment, structure, or status. A change that cannot pass the machine gate uses the standard tier."
     }
   },
   "legacyAdjudications": [
@@ -68,10 +124,16 @@
       "riskTier": "standard",
       "policyId": "standard-lesson-v2",
       "reviewMode": "approval-quorum",
-      "eligibleReviewVerdicts": ["approve"],
+      "eligibleReviewVerdicts": [
+        "approve"
+      ],
       "minimumReviewInputs": 3,
       "minimumApprovingReviews": 3,
-      "roleMinimums": { "academic": 1, "learning-design": 1, "accessibility-rights": 1 },
+      "roleMinimums": {
+        "academic": 1,
+        "learning-design": 1,
+        "accessibility-rights": 1
+      },
       "minimumDistinctPrincipals": 1,
       "minimumDistinctAgentRuns": 3,
       "minimumDistinctAgentModelFamilies": 3,
@@ -89,7 +151,11 @@
     "finalAdjudicationFileMustBeCommittedWithLesson": true,
     "adjudicationRunMustBeFresh": true,
     "standardLessonFinalization": "Two role-isolated reviews advise one fresh adjudicator. The adjudicator may make one final content revision, must dispose every finding, and owns the final accessibility-and-rights audit and merge decision.",
-    "postCandidateMutableFields": ["lesson.json.status", "lesson.json.sourceConfidence", "claims.json.claims[].reviewStatus"],
+    "postCandidateMutableFields": [
+      "lesson.json.status",
+      "lesson.json.sourceConfidence",
+      "claims.json.claims[].reviewStatus"
+    ],
     "staleReviewsAreDismissedAfterLessonChanges": true
   }
 }

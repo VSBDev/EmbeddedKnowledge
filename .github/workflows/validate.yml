@@ -15,7 +15,14 @@ on:
 
 permissions:
   contents: read
+  # The provenance checks read pull-request reviews.
   pull-requests: read
+  # A pull request's labels are issue labels, so the stage labeller needs only issues: write. That
+  # is deliberately narrower than pull-requests: write, which would also let a workflow merge a pull
+  # request -- and this repository's ruleset requires no approving review, so merge authority would
+  # then rest on convention alone. With this scope no workflow can merge anything: the maintainer
+  # keeps the final say by permission, not by habit.
+  issues: write
 
 jobs:
   agent-protocol:
@@ -51,6 +58,15 @@ jobs:
       - name: Verify lesson candidate or merge readiness
         if: github.event_name == 'pull_request' || github.event_name == 'pull_request_review'
         run: node scripts/validate-lesson-pr.mjs
+      - name: Prove a rephrasing-tier change is wording-only
+        if: github.event_name == 'pull_request' || github.event_name == 'pull_request_review'
+        run: node scripts/validate-rephrasing-pr.mjs
+      - name: Label the lesson pull request with its governance stage
+        if: github.event_name == 'pull_request' || github.event_name == 'pull_request_review'
+        run: node scripts/label-lesson-pr.mjs
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
       - name: Install Playwright browser
         run: npx playwright install --with-deps chromium
       - run: npm test

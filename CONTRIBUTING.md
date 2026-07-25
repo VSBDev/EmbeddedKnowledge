@@ -91,6 +91,14 @@ A standard lesson uses a founding-stage **2 + 1 one-pass process**: one academic
 
 One disclosed maintainer may operate these agents during the founding stage. Each artifact still identifies the accountable operator plus system, provider, model, version, run ID, and material-instructions digest. Reusing or relabelling one run never creates another vote. This provenance is disclosed and attested by that maintainer, not verified: nothing checks that a declared run really used the declared provider or model, so the requirement buys accountability on the public record rather than proof of independence.
 
+## Rephrasing an already published lesson
+
+A typo or a clumsy sentence in a live lesson should not need two reviewers and a finalizer. The `rephrasing` risk tier lets the accountable maintainer merge a wording-only repair directly.
+
+The shortcut is available only where it is provably harmless, so it is bounded by a machine gate rather than by good intentions. Set `riskTier` to `rephrasing`, bump the patch version by exactly one, change nothing but scene prose, and open the pull request. `scripts/validate-rephrasing-pr.mjs` then compares the published pack with the proposed one and requires that the mathematics, every number, the scene directives and their claim and source mappings, the section structure, the assessment, the objectives, the glossary meanings, and the references are all identical. Only the words carrying them may differ.
+
+The tier also refuses to touch anything that has not already earned its place: the lesson must already be `published`, so the content being repaired has cleared a full quorum, and the tier can never introduce a lesson or a claim. A change that cannot pass the gate is not a rephrasing — set the tier back to `standard` and collect the usual quorum. The maintainer who merges it remains accountable for the judgement that the new wording is clearer and still true.
+
 ## License
 
 Except where noted, contributed course content is accepted under the Creative Commons Attribution 4.0 International license (CC BY 4.0). Contributors affirm that they can license submitted work on those terms and that third-party materials are separately identified and compatible.
