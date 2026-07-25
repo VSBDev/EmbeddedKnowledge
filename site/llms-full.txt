@@ -1375,6 +1375,7 @@ Only these colon-fenced directives are valid:
 | `{investigation}` | Practical, simulation, dataset, or experimental inquiry |
 | `{figure}` | Validated local static image |
 | `{diagram}` | Validated local declarative diagram source |
+| `{chart}` | Validated local declarative chart source |
 | `{equation}` | Display mathematics |
 | `{chemistry}` | Display chemical notation or reaction |
 | `{source-note}` | Visible bridge from prose to claim and source IDs |
@@ -1441,6 +1442,21 @@ Diagram source uses [`site/schemas/diagram.schema.json`](site/schemas/diagram.sc
 ```
 
 The JSON source and its long description are canonical. Mermaid, DOT, Vega-Lite, canvas, SVG, or another presentation can be derived later, but those languages are not accepted as canonical lesson diagram source in format v1. Layout engines must not be allowed to fetch URLs or emit active markup.
+
+### Charts
+
+Quantitative lessons need distributions, not just relationships: a bell curve with a shaded tail, a scatter of two measurements, a histogram of a sample. Chart source uses [`site/schemas/chart.schema.json`](site/schemas/chart.schema.json) and is referenced with a `{chart}` directive:
+
+```markdown
+:::{chart} ../charts/sampling-distribution.chart.json
+:::
+```
+
+The same rule as diagrams applies, and for the same reason: the JSON carries data and encoding, and the picture is derived from it at build time. A lesson never ships a plotting library, a script, or a remote embed, so a chart cannot execute, cannot fetch, and renders identically wherever the pack is read.
+
+Supported `type` values are `normal-curve`, `line`, `scatter`, `bar`, `histogram`, and `box`. A normal curve is parameterised by `mean` and `sd` rather than listed as points, so a sampling distribution stays exact and legible in source. `shadedRegions` mark tail areas and intervals; `markers` label a mean, a cut-off, or an observed value.
+
+Every chart requires `alt` and `longDescription`, and the renderer emits the underlying numbers as a data table beside the picture. A distribution a learner cannot see is still a set of numbers they must be able to read, so the text equivalent is part of the chart rather than a courtesy attached to it.
 
 ## 6. Claims and sources
 

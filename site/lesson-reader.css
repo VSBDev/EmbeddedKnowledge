@@ -1759,3 +1759,104 @@ body.reader-dark {
   .reader-shell,
   .reader-scrim { display: none; }
 }
+
+/* Charts. The SVG is generated at build time from declarative source, so these rules style a
+   static picture: there is no plotting library and no script. currentColor keeps the chart legible
+   when the reader switches theme, and the data table inside the disclosure stays readable at any
+   width for learners who read the numbers instead of the plot. */
+.reader-scene-content .ek-chart-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 15px 0;
+  background: var(--paper);
+}
+
+.reader-scene-content .ek-chart-title {
+  margin: 0;
+  font-weight: 600;
+}
+
+.reader-scene-content .ek-chart-axis {
+  stroke: var(--ink);
+  stroke-width: 1.5;
+}
+
+.reader-scene-content .ek-chart-tick {
+  stroke: var(--ink);
+  stroke-width: 1;
+}
+
+.reader-scene-content .ek-chart-ticklabel,
+.reader-scene-content .ek-chart-axislabel,
+.reader-scene-content .ek-chart-markerlabel {
+  fill: var(--ink);
+  font-size: 13px;
+}
+
+.reader-scene-content .ek-chart-axislabel {
+  font-weight: 600;
+}
+
+.reader-scene-content .ek-chart-line {
+  stroke: var(--ink);
+  stroke-width: 2.5;
+}
+
+.reader-scene-content .ek-chart-point {
+  fill: var(--ink);
+}
+
+.reader-scene-content .ek-chart-bar {
+  fill: var(--ink);
+  fill-opacity: 0.72;
+}
+
+/* Shaded areas read as emphasis, not as another series, so they stay light and unstroked. */
+.reader-scene-content .ek-chart-shade {
+  fill: var(--ink);
+  fill-opacity: 0.16;
+}
+
+.reader-scene-content .ek-chart-marker {
+  stroke: var(--ink);
+  stroke-width: 1.5;
+  stroke-dasharray: 5 4;
+}
+
+/* A second and third series need to be distinguishable without relying on colour alone, so they
+   also change dash pattern and point shape density. */
+.reader-scene-content .ek-chart-series--1.ek-chart-line { stroke-dasharray: 8 5; }
+.reader-scene-content .ek-chart-series--2.ek-chart-line { stroke-dasharray: 2 4; }
+.reader-scene-content .ek-chart-series--1.ek-chart-bar { fill-opacity: 0.45; }
+.reader-scene-content .ek-chart-series--2.ek-chart-bar { fill-opacity: 0.28; }
+
+.reader-scene-content .ek-chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 6px 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.92rem;
+}
+
+.reader-scene-content .ek-chart-legend li::before {
+  content: "—";
+  margin-right: 6px;
+  font-weight: 700;
+}
+
+.reader-scene-content .ek-chart-table {
+  width: 100%;
+  margin-top: 10px;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.reader-scene-content .ek-chart-table th,
+.reader-scene-content .ek-chart-table td {
+  padding: 5px 8px;
+  text-align: left;
+  border-bottom: 1px solid color-mix(in srgb, var(--ink) 25%, transparent);
+}
