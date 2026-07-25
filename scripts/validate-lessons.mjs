@@ -25,6 +25,7 @@ const schemas = {
   claims: readProjectJson("site/schemas/claims.schema.json"),
   glossary: readProjectJson("site/schemas/glossary.schema.json"),
   diagram: readProjectJson("site/schemas/diagram.schema.json"),
+  chart: readProjectJson("site/schemas/chart.schema.json"),
   review: readProjectJson("site/schemas/review.schema.json"),
   adjudication: readProjectJson("site/schemas/adjudication.schema.json")
 };
@@ -34,14 +35,14 @@ const topicIdsByCourse = new Map([
   ["PSY-", new Set(readProjectJson("site/data/psychiatry-graph.json").nodes.filter((node) => node.kind === "topic").map((node) => node.id))]
 ]);
 const topicIds = new Set([...topicIdsByCourse.values()].flatMap((ids) => [...ids]));
-const ajv = new Ajv2020({ allErrors: true, strict: true });
+const ajv = new Ajv2020({ allErrors: true, strict: true, allowUnionTypes: true });
 addFormats(ajv);
 for (const schema of Object.values(schemas)) ajv.addSchema(schema);
 const errors = [];
 
 const directiveWhitelist = new Set([
   "definition", "theorem", "derivation", "worked-example", "check", "misconception",
-  "investigation", "figure", "diagram", "equation", "chemistry", "source-note", "callout"
+  "investigation", "figure", "diagram", "chart", "equation", "chemistry", "source-note", "callout"
 ]);
 const directiveOptionWhitelist = new Set(["id", "label", "kind", "alt", "longdesc", "claims", "sources"]);
 const roleWhitelist = new Set(["math", "chem"]);
@@ -88,6 +89,28 @@ function validateSvg(filePath, relativePath, packName) {
     /javascript:|data:/i
   ];
   if (dangerous.some((pattern) => pattern.test(svg))) error(packName, `${relativePath} contains disallowed active or externally loaded SVG content.`);
+}
+
+function validateChart(filePath, relativePath, packName) {
+  let chart;
+  try {
+    chart = readJson(filePath);
+  } catch (parseError) {
+    error(packName, `${relativePath} is not valid JSON: ${parseError.message}`);
+    return;
+  }
+  validateSchema("chart", chart, relativePath, packName);
+  // A chart carries its own text equivalent rather than taking one from the directive, so the
+  // accessibility requirement is checked on the source instead of on :alt:/:longdesc:.
+  if (!chart.alt || chart.alt.length < 10) error(packName, `${relativePath} requires alt text a screen reader can announce.`);
+  if (!chart.longDescription || chart.longDescription.length < 20) error(packName, `${relativePath} requires a longDescription a learner can read instead of the picture.`);
+  // Every type needs the data it is drawn from; a chart that renders empty is a silent failure.
+  for (const series of chart.series || []) {
+    const hasData = series.points?.length || series.categories?.length || series.bins?.length
+      || series.summary || (typeof series.mean === "number" && typeof series.sd === "number");
+    if (!hasData) error(packName, `${relativePath} series ${series.id} carries no data for a ${chart.type} chart.`);
+  }
+  if (!(chart.series || []).length) error(packName, `${relativePath} declares no series.`);
 }
 
 function validateDiagram(filePath, relativePath, packName) {
@@ -189,10 +212,12 @@ function validateMarkdown(packPath, scene, packName, featureState) {
       if (forbiddenTex.test(body)) error(packName, `${scene.source}:${block.line} uses a disallowed TeX command.`);
       if (block.name === "chemistry" && /<\/?[A-Za-z]/.test(body)) error(packName, `${scene.source}:${block.line} contains markup-like chemistry content.`);
     }
-    if (["figure", "diagram"].includes(block.name)) {
+    if (["figure", "diagram", "chart"].includes(block.name)) {
       if (!block.argument) error(packName, `${scene.source}:${block.line} requires a local file argument.`);
-      if (!block.options.alt || block.options.alt.length < 8) error(packName, `${scene.source}:${block.line} requires meaningful :alt: text.`);
-      if (!block.options.longdesc || block.options.longdesc.length < 20) error(packName, `${scene.source}:${block.line} requires a :longdesc: equivalent.`);
+      if (block.name !== "chart") {
+        if (!block.options.alt || block.options.alt.length < 8) error(packName, `${scene.source}:${block.line} requires meaningful :alt: text.`);
+        if (!block.options.longdesc || block.options.longdesc.length < 20) error(packName, `${scene.source}:${block.line} requires a :longdesc: equivalent.`);
+      }
       if (!block.argument) continue;
       const referenced = path.resolve(path.dirname(filePath), block.argument);
       if (!referenced.startsWith(`${packPath}${path.sep}`) || !fs.existsSync(referenced)) {
@@ -203,6 +228,9 @@ function validateMarkdown(packPath, scene, packName, featureState) {
       if (block.name === "figure") {
         if (!imageExtensions.has(path.extname(referenced).toLowerCase())) error(packName, `${relative} is not an allowed static image type.`);
         if (path.extname(referenced).toLowerCase() === ".svg") validateSvg(referenced, relative, packName);
+      } else if (block.name === "chart") {
+        if (!relative.endsWith(".chart.json")) error(packName, `${relative} must use the .chart.json suffix.`);
+        else validateChart(referenced, relative, packName);
       } else {
         if (!relative.endsWith(".diagram.json")) error(packName, `${relative} must use the .diagram.json suffix.`);
         else validateDiagram(referenced, relative, packName);
@@ -396,6 +424,18 @@ for (const entry of packDirectories) {
     error(packName, `${lesson.status} lessons require adjudication.json.`);
   }
   if (!adjudication) continue;
+
+  // A maintainer-attested tier convenes no reviewers and writes no adjudication, so a lesson
+  // repaired under it still carries the review record of the version that earned publication. That
+  // record documents the earlier version and is deliberately kept: deleting it to satisfy a
+  // wording fix would destroy the evidence that the lesson passed a real quorum. Validate it as
+  // history — schema and internal consistency already checked above — and do not judge it against
+  // a tier it was never produced under. Any review-based tier still requires artifacts that match
+  // the current version, so a genuinely stale adjudication keeps failing.
+  const currentTier = policy.tiers?.[lesson.riskTier];
+  if (currentTier?.reviewMode === "maintainer-attested" && adjudication.lessonVersion !== lesson.version) {
+    continue;
+  }
 
   const tier = resolveRule(policy, {
     lessonId: lesson.id,
