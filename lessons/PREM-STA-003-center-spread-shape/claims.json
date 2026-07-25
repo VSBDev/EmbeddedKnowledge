@@ -25,7 +25,7 @@
     },
     {
       "id": "claim-symmetry-coincidence",
-      "statement": "For a symmetric distribution the mode, the mean, and the median are identical at the population level, so a symmetric shape has an unambiguous typical value; a skewed distribution has no centre in the usual sense and those three summaries are then markedly different.",
+      "statement": "For a distribution symmetric about a centre, an existing mean and a unique median lie at that centre; only when the distribution is also unimodal with a single central mode does the mode join them. Mean-median agreement by itself does not establish symmetry or unimodality.",
       "sceneIds": [
         "scene-centre",
         "scene-transfer",
@@ -34,10 +34,10 @@
       "sourceIds": [
         "source-nist-histogram-skewed"
       ],
-      "support": "direct",
+      "support": "synthesis",
       "confidence": "high",
-      "scope": "The population-level relationship between shape and the three centre summaries. In a finite sample the three will differ a little even under symmetry, so the lesson treats close agreement rather than exact equality as the observable signal.",
-      "uncertainty": "The implication runs from symmetry to agreement of the summaries. The lesson shows by counter-example that the reverse does not follow, because two separated groups placed evenly either side of a gap also make the mean and the median agree.",
+      "scope": "A conditional population-level relationship. The mean must exist, the median must be unique, and a modal conclusion additionally requires a unimodal distribution with a single central mode. Finite-sample agreement is not used to identify shape.",
+      "uncertainty": "Agreement of sample summaries is neither necessary nor sufficient evidence for a specific shape. Skewed, heavy-tailed, or multimodal samples can have close or equal mean and median, and symmetric multimodal distributions can have modes away from the symmetry centre.",
       "risk": "routine",
       "reviewStatus": "pending-review"
     },
@@ -72,7 +72,7 @@
       "support": "direct",
       "confidence": "high",
       "scope": "Guidance on summarizing and characterizing a skewed data set, stated by the cited handbook. It is a recommendation about description, not a reporting standard imposed by any journal or regulator, and the lesson presents it as such.",
-      "uncertainty": "The mode is of little use for finely measured continuous data, where values rarely repeat, so the third summary in the recommendation is often uninformative in the clinical setting this lesson uses.",
+      "uncertainty": "An exact-value sample mode may be absent or unstable for finely measured continuous data, but a modal interval in a histogram or a population-density mode can still reveal one or several peaks.",
       "risk": "routine",
       "reviewStatus": "pending-review"
     },
@@ -125,7 +125,7 @@
       "support": "direct",
       "confidence": "medium-high",
       "scope": "Normally distributed data. The source states the convergence as the sample size grows, so the figure is an asymptotic reference value that a real sample will only approach.",
-      "uncertainty": "In a small sample the observed ratio varies around 1.35 by chance alone, so a departure from it is a prompt to inspect the shape rather than a test with a stated error rate.",
+      "uncertainty": "In a small sample the observed ratio varies around 1.35 by chance alone. A departure is a nonspecific prompt to inspect the distribution and cannot distinguish skew, heavy tails, truncation, light tails, or separated groups.",
       "risk": "routine",
       "reviewStatus": "pending-review"
     },
@@ -142,7 +142,7 @@
       "support": "direct",
       "confidence": "high",
       "scope": "Definitional. Applies to the shape of a distribution of one quantitative variable; the lesson uses the qualitative definition and does not compute a skewness coefficient.",
-      "uncertainty": "The source notes that the sign of a computed skewness coefficient can be difficult to interpret for multi-peaked data, which is one reason this lesson diagnoses shape from several summaries together.",
+      "uncertainty": "The source notes that the sign of a computed skewness coefficient can be difficult to interpret for multi-peaked data. This lesson therefore treats summaries as provisional warnings and requires a plot or raw values before concluding shape.",
       "risk": "routine",
       "reviewStatus": "pending-review"
     },

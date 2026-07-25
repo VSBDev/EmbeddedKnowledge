@@ -40,7 +40,9 @@ Two checks. First, $17^2 = 289$, so the square root of 290 has to be a shade abo
 
 **Step 6. Say what it means in the units of the problem.**
 
-On a typical morning, participant 14's fasting glucose lands about 17 mg/dL away from their own five-day average of 142. Their range over those mornings is $160 - 118 = 42$ mg/dL, and their median is 142, the same as their mean, so these five readings show no lean in either direction.
+On a typical morning, participant 14's fasting glucose lands about 17 mg/dL away from their own five-day average of 142. Their range over those mornings is $160 - 118 = 42$ mg/dL, and their median happens to equal their mean at 142. That agreement does not establish symmetry or rule out a lean; the ordered spacings or a plot must be inspected before making a shape claim.
+
+**Self-explanation before you leave the example:** Why would averaging the unsquared deviations always give zero, and how does squaring them change the problem into a usable spread calculation? Explain the decision in your own words before checking the next scene.
 :::
 
 ## What that single number is worth knowing next to

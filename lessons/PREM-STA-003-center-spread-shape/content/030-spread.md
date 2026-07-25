@@ -12,19 +12,19 @@ The bluntest measure subtracts the smallest value from the largest.
 :id: definition-range
 :label: Range, in the sense used here
 
-The largest value minus the smallest. For the sixty-person cohort the lowest reading is 104 mg/dL and the highest is 181, so the range is 77 mg/dL. Note that earlier quantitative lessons used the word *range* for the set of outputs a function can produce, which is a collection of values. Here it is a single number with the same unit as the data, and it depends only on the two most extreme observations in the set.
+The largest value minus the smallest. For the sixty-person cohort the lowest reading is 104 mg/dL and the highest is 180, so the range is 76 mg/dL. Note that earlier quantitative lessons used the word *range* for the set of outputs a function can produce, which is a collection of values. Here it is a single number with the same unit as the data, and it depends only on the two most extreme observations in the set.
 :::
 
-Depending on only two observations makes the range fragile. One mistyped reading of 1810 instead of 181 would multiply it by more than twenty. The second measure ignores the extremes on purpose.
+Depending on only two observations makes the range fragile. One mistyped reading of 1800 instead of 180 would multiply it by more than twenty. The second measure ignores the extremes on purpose.
 
 :::{definition}
 :id: definition-iqr
 :label: Quartiles and the interquartile range
 
-The quartiles cut an ordered data set into four parts of equal size. The lower quartile Q1 is the value at the 25th percentile, the second quartile is the median, and the upper quartile Q3 sits at the 75th percentile. The interquartile range is $Q_3 - Q_1$, the width of the middle half of the data. For the cohort, Q1 is 130 mg/dL and Q3 is 155 mg/dL, so the interquartile range is 25 mg/dL.
+The quartiles cut an ordered data set into four parts of equal size. The lower quartile Q1 is the value at the 25th percentile, the second quartile is the median, and the upper quartile Q3 sits at the 75th percentile. The interquartile range is $Q_3 - Q_1$, the width of the middle half of the data. For the cohort, Q1 is 130 mg/dL and Q3 is 154 mg/dL, so the interquartile range is 24 mg/dL.
 :::
 
-Those five numbers together are called the five-number summary, and for this cohort they are 104, 130, 142, 155, 181 mg/dL. Read left to right they say: the lowest quarter of the group runs from 104 up to 130, the middle half occupies 130 to 155, and the top quarter runs from 155 to 181. Half the cohort sits inside a 25 mg/dL band while the full spread is three times as wide, which is a fact about the shape and not just about the size of the numbers.
+Those five numbers together are called the five-number summary, and for this cohort they are 104, 130, 142, 154, 180 mg/dL. Read left to right they say: the lowest quarter of the group runs from 104 up to 130, the middle half occupies 130 to 154, and the top quarter runs from 154 to 180. Half the cohort sits inside a 24 mg/dL band while the full spread is more than three times as wide. Those distances can warn you to inspect the shape, but they cannot identify it by themselves.
 
 ## The measure that uses every value
 
@@ -56,7 +56,7 @@ For the full cohort the standard deviation is 18 mg/dL. Treat it as roughly the 
 
 ## Two spread measures on the same data
 
-The cohort now has two spread figures: an interquartile range of 25 mg/dL and a standard deviation of 18 mg/dL. They are not competitors, and their ratio carries information. When data follow a normal shape, the interquartile range settles at about 1.35 standard deviations. Here $25/18 = 1.39$, close to that value, which is one more sign that this distribution is behaving symmetrically. When the ratio departs sharply from 1.35, something about the shape is worth looking at, and the next scene shows what.
+The cohort now has two spread figures: an interquartile range of 24 mg/dL and a standard deviation of 18.0 mg/dL. They are not competitors, and their ratio can act as a warning. When data follow a normal shape, the interquartile range settles at about 1.35 standard deviations. Here $24/18.0 = 1.33$, close to that reference. That is compatible with the roughly symmetric histogram already inspected, but it does not establish the shape. A sharp departure from 1.35 signals non-normal scale structure without telling you whether the cause is skew, heavy tails, truncation, or separated groups.
 
 :::{source-note}
 :claims: claim-variance-sd-units, claim-range-iqr, claim-iqr-sd-normal

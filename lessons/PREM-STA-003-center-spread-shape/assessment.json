@@ -96,7 +96,7 @@
       "outcomeIds": [
         "topic-statistics-data-center-spread"
       ],
-      "prompt": "A clinic audit of 60 adults finds a mean fasting glucose of 160 mg/dL and a median of 140 mg/dL, with quartiles at 122 and 179 and a maximum of 382 mg/dL. Which line belongs in the audit summary?",
+      "prompt": "A clinic audit of 60 adults shows a long right tail in its histogram and reports a mean fasting glucose of 160 mg/dL and a median of 140 mg/dL, with quartiles at 122 and 179 and a maximum of 382 mg/dL. Which line belongs in the audit summary?",
       "stimulus": null,
       "points": 2,
       "responseSpec": {
@@ -108,7 +108,7 @@
           },
           {
             "id": "option-skewed-median",
-            "text": "The median of 140 mg/dL with quartiles of 122 and 179, because the long right tail has pulled the mean above the reading of most of the sample."
+            "text": "The median of 140 mg/dL with quartiles of 122 and 179, together with the visible upper tail, because the inspected long right tail has made the mean a poor description of the middle."
           },
           {
             "id": "option-skewed-trimmed",
@@ -122,13 +122,13 @@
       },
       "answer": {
         "correct": "option-skewed-median",
-        "summary": "The median with its quartiles.",
-        "reasoning": "The 20 mg/dL gap between the mean and the median is the signature of a right-skewed distribution, and half the sample sits below 140. Using every reading is a virtue only when every reading is describing the same kind of thing; here a handful of very high values are loading the total, so the mean reports a value most of the group does not have. Deleting readings above a cut-off discards real measurements from the patients whose control is worst and would misstate the clinic. The mode is close to meaningless for finely measured continuous data, where values rarely repeat.",
+        "summary": "The median with its quartiles and the inspected upper tail.",
+        "reasoning": "The histogram establishes the long right tail; the 20 mg/dL mean-median gap is consistent with it, but would not diagnose it by itself. Half the sample sits below 140, while high observations load the total and make the mean a poor description of the middle. Deleting every reading above a cut-off without investigating validity could discard accurate observations as well as errors. An exact-value sample mode may be absent or unstable at fine measurement precision, but a histogram's modal interval or a population-density mode can still reveal one or several peaks.",
         "acceptableResponses": [],
         "commonErrors": [
           "Treating the mean as automatically better because it uses every value",
           "Deleting high readings rather than reporting a resistant summary alongside the tail",
-          "Reaching for the mode on continuous data"
+          "Confusing an unstable exact-value sample mode with the potentially informative modal intervals or density peaks of continuous data"
         ]
       },
       "rubricId": "rubric-choose-summary-skewed",
@@ -145,7 +145,7 @@
       "outcomeIds": [
         "topic-statistics-data-center-spread"
       ],
-      "prompt": "That same clinic runs an intervention aimed at its worst-controlled patients. Afterwards the five highest readings have fallen from between 280 and 382 mg/dL to around 180, and nobody else has changed. The mean falls from 160 to 148 mg/dL and the median stays at 140 mg/dL. What should the follow-up report give?",
+      "prompt": "That same fictional clinic runs an intervention aimed at its five highest readings. Those readings change from 280, 300, 320, 340, and 382 mg/dL to 178, 179, 180, 181, and 184 mg/dL, while nobody else changes. The mean falls from 160 to 148 mg/dL and the median stays at 140 mg/dL. What should the follow-up report give?",
       "stimulus": null,
       "points": 3,
       "responseSpec": {
@@ -172,7 +172,7 @@
       "answer": {
         "correct": "option-converse-both-plus-tail",
         "summary": "Both centre summaries plus the upper tail.",
-        "reasoning": "Resistance works in both directions. The median is built from the 30th and 31st readings in rank order, and those two people were untouched, so it cannot move no matter how much the highest readings fall. A median-only report would state that nothing changed, which is false. The mean did move, from 160 to 148 mg/dL, because the total fell by about 720 mg/dL. Neither centre summary is wrong; each answers a different question, and this intervention targeted exactly the part of the distribution that neither centre summary describes well, which is why the upper quartile and the maximum belong in the report. Removing the five patients who changed would delete the only effect there was.",
+        "reasoning": "Resistance works in both directions. The median is built from the 30th and 31st readings in rank order, and those observations were untouched, so it does not move. A median-only report would state that nothing changed, which is false. The mean moves from 160 to 148 mg/dL because the total falls by exactly 720 mg/dL. Neither centre summary is wrong; each answers a different question, and this intervention targeted exactly the part of the distribution that neither centre summary describes well, which is why the upper quartile and maximum belong in the report. Removing the five changed observations would delete the only effect there was.",
         "acceptableResponses": [],
         "commonErrors": [
           "Over-applying the skew repair and treating the median as always safer",
@@ -193,7 +193,7 @@
       "outcomeIds": [
         "topic-statistics-data-center-spread"
       ],
-      "prompt": "An emergency department audits the time from arrival to first analgesia for 150 patients and reports: mean 52 minutes, median 34, lower quartile 21, upper quartile 61, minimum 4, maximum 388, standard deviation 58. You cannot see the data. State what shape these numbers point to, give the two comparisons that led you there, and name the summaries you would print in the audit.",
+      "prompt": "An emergency department audits the time from arrival to first analgesia for 150 patients and reports: mean 52 minutes, median 34, lower quartile 21, upper quartile 61, minimum 4, maximum 388, standard deviation 58. You cannot see the data. State what shape these numbers provisionally suggest, give the two comparisons that led you there, explain why they are not conclusive, name the plot or data you would request, and name the summaries you would print while investigating.",
       "stimulus": null,
       "points": 5,
       "responseSpec": {
@@ -201,16 +201,16 @@
         "maxLength": 1200
       },
       "answer": {
-        "correct": "Right-skewed, shown by the mean exceeding the median by 18 minutes and by the standard deviation of 58 exceeding the interquartile range of 40; print the median of 34 minutes with quartiles 21 to 61, and give the maximum.",
-        "summary": "A right-skewed distribution with a long tail of very delayed patients; report the median with the quartiles and show the tail.",
-        "reasoning": "Two comparisons agree. First, the mean of 52 minutes sits 18 minutes above the median of 34, and a mean above the median is what a long right tail produces. Second, the interquartile range is 61 - 21 = 40 minutes, while the standard deviation is 58 minutes; a roughly normal shape would put the standard deviation near 40 / 1.35, which is about 30, so a standard deviation half again larger than that says values far out in the upper tail are inflating it. The maximum of 388 minutes, more than six hours, confirms where the tail reaches. Print the median of 34 minutes with the quartiles 21 to 61 as the honest description of a typical patient, and report the maximum and the count of patients beyond some clinically meaningful threshold as well, because those long waits are the finding an audit exists to surface and no centre summary will show them.",
+        "correct": "A long right tail is a provisional hypothesis: the mean exceeds the median by 18 minutes and the standard deviation of 58 exceeds both the interquartile range of 40 and the roughly 30-minute normal-reference value implied by that interquartile range. These summaries do not identify shape, so request a histogram or ordered raw values. Meanwhile report the median of 34 minutes with quartiles 21 to 61 and keep the maximum visible.",
+        "summary": "The summaries warn of a possible long right tail but do not diagnose it; request a histogram or ordered values, and report the median, quartiles, and tail while investigating.",
+        "reasoning": "Two warnings agree. First, the mean of 52 minutes sits 18 minutes above the median of 34. Second, the interquartile range is 61 - 21 = 40 minutes, while the standard deviation is 58 minutes; a normal reference would put the standard deviation near 40 / 1.35, about 30. The maximum of 388 makes a long upper tail plausible. None of these summaries can exclude a heavy-tailed, truncated, or mixed distribution with similar values, so a histogram, box plot with the observations, or ordered raw data is needed before concluding shape. While investigating, print the median of 34 minutes with quartiles 21 to 61, and report the maximum and a count beyond a predeclared audit threshold so the extreme waits remain visible.",
         "acceptableResponses": [
-          "Right-skewed or positively skewed, because the mean is above the median and the standard deviation is larger than the interquartile range; report the median with quartiles, plus the tail.",
-          "Skewed to the right, with a small number of very long waits; median 34 with interquartile range 21 to 61 is the honest summary, and the maximum of 388 must be shown.",
-          "The distribution leans high. Mean minus median is +18, and 58 is well above the 30 or so a symmetric shape would give for an interquartile range of 40. Print the median and quartiles and flag the longest waits."
+          "The summaries suggest right skew because the mean is 18 above the median and 58 is large relative to the IQR of 40, but that is provisional. Request a histogram or raw values; report median 34, quartiles 21 to 61, and the maximum meanwhile.",
+          "A long upper tail is plausible from the mean-median gap, the normal-reference comparison, and the maximum of 388, but summaries cannot prove shape. Inspect a plot; print the median and quartiles with the tail visible.",
+          "Possible right skew, not a diagnosis: mean minus median is 18 and 58 is well above the roughly 30 normal-reference SD for an IQR of 40. Ask for ordered data and report median 34, quartiles 21 to 61, and maximum 388."
         ],
         "commonErrors": [
-          "Calling the shape symmetric because no picture was supplied",
+          "Naming right skew as certain without requesting a plot or the raw observations",
           "Giving only one of the two comparisons",
           "Computing the interquartile range as 61 - 34 or 34 - 21 rather than 61 - 21",
           "Recommending the mean because it is the familiar summary",
@@ -362,11 +362,11 @@
     },
     {
       "id": "rubric-diagnose-shape",
-      "title": "Diagnosing shape from summary values alone",
+      "title": "Using summaries as provisional shape warnings",
       "criteria": [
         {
           "id": "criterion-shape-named",
-          "description": "Names a right-skewed distribution with a long upper tail.",
+          "description": "Names a long right tail as a provisional hypothesis rather than a conclusion.",
           "maxPoints": 1
         },
         {
@@ -376,8 +376,13 @@
         },
         {
           "id": "criterion-shape-comparison-spread",
-          "description": "Computes the interquartile range as 40 minutes and compares it with the standard deviation of 58, referencing the roughly 1.35 ratio a normal shape gives.",
-          "maxPoints": 2
+          "description": "Computes the interquartile range as 40 minutes and compares the standard deviation of 58 with the roughly 30-minute normal-reference value.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-shape-evidence-request",
+          "description": "States that the summaries are not conclusive and requests a histogram, suitable observation plot, or ordered raw data.",
+          "maxPoints": 1
         },
         {
           "id": "criterion-shape-reporting-choice",

@@ -1,6 +1,6 @@
 # Sixty numbers and no summary yet
 
-The dinner-timing study has finished collecting. On the screen is a column of sixty fasting glucose readings, one per adult with type 2 diabetes: 137, 118, 155, 142, 129, and on down the list. Nobody can hold sixty numbers in mind at once, and no clinician, journal reader, or ethics committee wants to. They want two things. What is a typical reading in this group? And how far apart are these people?
+The dinner-timing study has finished collecting. On the screen is a column of sixty fasting glucose readings, one per adult with type 2 diabetes: 138, 120, 156, 142, 130, and on down the list. Nobody can hold sixty numbers in mind at once, and no clinician, journal reader, or ethics committee wants to. They want two things. What is a typical reading in this group? And how far apart are these people?
 
 Those two questions are what this lesson answers. By the end you will be able to pick a summary of the centre, calculate a summary of the spread, and say which pair of numbers tells the truth about a particular column of data. You will also be able to say when a perfectly correct average is a misleading thing to publish.
 
