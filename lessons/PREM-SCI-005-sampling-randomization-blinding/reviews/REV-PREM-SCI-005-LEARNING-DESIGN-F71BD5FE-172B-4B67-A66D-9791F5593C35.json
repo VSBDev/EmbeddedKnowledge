@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-SCI-005-LEARNING-DESIGN-F71BD5FE-172B-4B67-A66D-9791F5593C35",
+  "lessonId": "PREM-SCI-005",
+  "lessonVersion": "0.2.0",
+  "candidateCommit": "d33191a7f1a26a7e85e7f595e40d00ad3c3b8386",
+  "role": "learning-design",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — learning-design reviewer",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.7",
+      "runId": "agy-learning-design-PREM-SCI-005-F71BD5FE-172B-4B67-A66D-9791F5593C35",
+      "instructionsDigest": "sha256:18a0c5a47263dc5a9f900cdc04c5f2bcc952bab528b6b56a1a78362ac56683b2"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Founding-stage single-operator disclosure: VSBDev (github:VSBDev) operates both the authoring agent and this review agent. This review is an isolated run with a distinct provider, model, and unique run ID; it did not read the authoring conversation, any other review conclusion, or an adjudication draft."
+  },
+  "evidenceChecked": [
+    "content/01-two-chains.md#first-read-and-timeline-coherence",
+    "content/02-worked-audit.md#worked-example-breathing-audit",
+    "content/03-same-word-different-moment.md#timing-table-and-empirical-data",
+    "content/04-practice.md#faded-practice-sets",
+    "content/05-transfer-synthesis.md#transfer-essay-marking-case",
+    "content/06-clinical-wrap-up.md#synthesis-crossover-diabetes-case",
+    "lesson.json#objectives-scenes-minutes",
+    "assessment.json#rubrics-and-items",
+    "claims.json#claim-coverage",
+    "references.json#source-records",
+    "glossary.json#terminology-ledger",
+    "ATTRIBUTION.md#agent-disclosure"
+  ],
+  "findings": [
+    {
+      "severity": "note",
+      "target": "content/01-two-chains.md#first-read-gate",
+      "finding": "First-read gate: PASS. Reading the scenes cold in lesson.json order, scene 1 immediately establishes what the learner is learning (distinguishing sampling, allocation, and blinding), why it matters (trusting what a study's number actually means), and how the central procedure works (four questions: entry, assignment, foreknowledge, awareness). The opening scenario of a small student breathing trial provides a concrete, picturable anchor before presenting definitions or objectives, and no learner-visible prose depends on hidden project machinery, validator-facing vocabulary, or schema fields.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "content/06-clinical-wrap-up.md#clinical-synthesis",
+      "finding": "The new synthesis scene content/06-clinical-wrap-up.md is an excellent addition to the learning design. It successfully applies the four-question audit framework (Entry, Allocation, Foreknowledge, Awareness) to the clinical context of a diabetes crossover study (within-person comparison of dinner timings). This serves as a valuable retrieval opportunity connecting back to PREM-SCI-004 and anchors the concepts in a clinically relevant context without introducing unnecessary new claims.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "minor",
+      "target": "assessment.json#lessonVersion",
+      "finding": "First-read and design verification shows that while the lesson version in lesson.json and ledger files has been incremented to 0.2.0 in this candidate commit (d33191a7), the lessonVersion in assessment.json remains set to 0.1.0. This metadata version mismatch is a quality issue, although it does not directly interfere with student-facing instruction.",
+      "resolution": "Update lessonVersion in assessment.json to 0.2.0 for consistency."
+    },
+    {
+      "severity": "note",
+      "target": "content/04-practice.md#practice-progression",
+      "finding": "The practice progression in content/04-practice.md successfully implements support fading: Practice 1 provides scaffolding with three pre-filled questions and one completion; Practice 2 provides the structural headings only; and Practice 3 requires a fully independent audit. Detailed feedback is provided after each, explaining corrected and incorrect paths to prevent false fluency.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#item-full-audit",
+      "finding": "The open-response assessment item (item-full-audit) and its accompanying rubric-inference-audit are constructively aligned with the final audit objectives. The item tasks the learner with auditing a hospital leaflet study, which maps directly to the entry, allocation, foreknowledge, and awareness framework taught in the lesson. The rubric criteria are precise and award points based on structural reasoning rather than superficial labeling.",
+      "resolution": "No change required."
+    }
+  ],
+  "limitations": [
+    "No real learner performance data exists; this review is a structured cold read and instructional-argument trace by an agent, not evidence that real learners mastered the outcome.",
+    "Canonical Markdown and JSON sources were reviewed. Rendered guided-mode behavior, screen-reader compatibility, zoom/reflow, and print export were not physically exercised.",
+    "Validation of the underlying epidemiological findings and statistics in ROBES and MetaBLIND belongs to the academic review; no scientific errors were identified at learning-design reading depth."
+  ],
+  "signedAt": "2026-07-25T01:47:10Z"
+}
