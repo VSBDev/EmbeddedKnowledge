@@ -26,7 +26,9 @@ These repairs do not decide whether dinner timing affects glucose. They make the
 
 ## Separate scatter from shift
 
-Suppose a supplied fictional record contains several readings made under the same stated conditions. Reading-to-reading scatter represents a random error component. Averaging can reduce the influence of that scatter when the varying component is suitably centered and the readings are sufficiently independent.
+Suppose the meter is checked repeatedly with a stable control or reference material, or with suitable aliquots of the same specimen, under stated repeatability conditions. Scatter among those results is evidence about a varying measurement-error component. Averaging can reduce the influence of that component when it is suitably centered and the readings are sufficiently independent.
+
+Sequential readings from a person are not, by themselves, this analytic repeatability check. Unless the glucose quantity and relevant physiological conditions stayed sufficiently stable between readings, observed differences mix possible change in the measurand with measurement error.
 
 Now suppose the same meter reads consistently high when checked against an appropriate reference. That shared shift represents a systematic error component. Averaging the shifted readings does not remove the shift; a reference check can reveal it and direct investigation or correction.
 
@@ -39,9 +41,9 @@ Neither judgment answers what the fasting-glucose record means as an indicator o
 
 ## Name what stayed the same and what changed
 
-For a **repeatability** check in this teaching record, compare readings with the same meter, person, procedure, and day. The question is how closely the operation agrees when the named conditions are held fixed.
+For a **repeatability** check in this teaching record, compare replicate measurements of a stable control or reference material, or suitable aliquots of the same specimen, over a justified short interval with the meter, operator, procedure, location, and other relevant operating conditions held fixed. The question is how closely the operation agrees when both the measurand and the named measurement conditions are sufficiently stable.
 
-For a **reproducibility** check, deliberately change a condition and name it. Compare results from different meters or from different laboratories using the specified procedures. Agreement across those changes adds reproducibility evidence; disagreement identifies a condition that needs investigation. It does not, by itself, identify a cause or validate the broader study.
+For a **reproducibility** check, deliberately change a condition and name it while measuring the same or similar stable material, such as suitable aliquots of the same specimen. Compare results from different meters or from different laboratories using the specified procedures. Agreement across those changes adds reproducibility evidence; disagreement identifies a set of changed conditions that needs investigation. It does not, by itself, identify a cause or validate the broader study.
 
 ## Ask whether one reading represents the intended construct
 
@@ -62,4 +64,9 @@ Stop there. Do not reopen study design or sampling, and do not add confounding o
 
 The next lesson, **Correlation, causation, and confounding**, asks whether an association, even when both quantities are well measured, is causal.
 
-This scene is illustrative and cites no source.
+:::{source-note}
+:claims: claim-operational-definition, claim-error-components, claim-averaging-boundary, claim-repeatability-reproducibility, claim-calibration-traceability, claim-validity-interpretation, claim-construct-evidence, claim-consistency-not-sufficient
+:sources: source-nist-operational-definition, source-jcgm-vim, source-nist-tn1297, source-testing-standards
+
+The sources support the operational-definition, error, repeatability, reproducibility, calibration, and construct-validity distinctions applied here. The diabetes framing, records, and audit choices are original fictional teaching material and are not empirical claims about patients or treatment.
+:::
