@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-SCI-003-LEARNING-DESIGN-25B9B6EF",
+  "lessonId": "PREM-SCI-003",
+  "lessonVersion": "0.2.0",
+  "candidateCommit": "bc2466310c9c8cfee2c0f01101ee9ab400d05991",
+  "role": "learning-design",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — learning-design reviewer",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.7",
+      "runId": "agy-learning-design-PREM-SCI-003-25B9B6EF-8BA4-4540-BBF5-A51D19712A3A",
+      "instructionsDigest": "sha256:7d68c91c870134fb0a9ee5c0fde979d5d427f04bb4d5c318af9c1a1762b264a4"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "The lesson author is VSBDev, who is also the operator of this review run. This is a declared founding-stage conflict of interest."
+  },
+  "evidenceChecked": [
+    "lesson.json#objectives-and-scenes",
+    "glossary.json#terms",
+    "claims.json#claims",
+    "references.json#sources",
+    "ATTRIBUTION.md#lesson-identity",
+    "content/01-zero-two-meanings.md#first-read-expositions",
+    "content/02-worked-run.md#worked-example-indicator-audit",
+    "content/03-practise-repair.md#seedling-and-resin-practice",
+    "content/04-transfer-synthesis.md#field-sensor-transfer",
+    "content/05-clinical-wrap-up.md#diabetes-clinical-wrap-up",
+    "assessment.json#assessment-variables-controls"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "content/05-clinical-wrap-up.md#L1",
+      "finding": "Scene 5 (content/05-clinical-wrap-up.md) actively teaches and applies core variables and controls concepts in a clinical context but is declared in lesson.json as having 'no-material-claims'. It lacks both claims mapping and a {source-note} block, which violates CONTENT-STANDARD.md Section 4.3 (stating that transfer scenes repeating sourced claims are not exempt).",
+      "resolution": "Update lesson.json to map scene-clinical-wrap-up to the relevant claims (claim-variable-roles, claim-confounder-ambiguity, claim-control-functions, claim-controls-have-limits), and add a corresponding {source-note} block at the end of content/05-clinical-wrap-up.md listing these claims and their respective sources."
+    },
+    {
+      "severity": "minor",
+      "target": "assessment.json#L5",
+      "finding": "The lessonVersion metadata property in assessment.json is declared as '0.1.1', which is inconsistent with the candidate lesson version of '0.2.0'.",
+      "resolution": "Change the value of lessonVersion in assessment.json to '0.2.0'."
+    },
+    {
+      "severity": "minor",
+      "target": "ATTRIBUTION.md#L6",
+      "finding": "The version in ATTRIBUTION.md is declared as '0.1.1', which is inconsistent with the candidate lesson version of '0.2.0'.",
+      "resolution": "Change the version string on line 6 of ATTRIBUTION.md to '0.2.0'."
+    },
+    {
+      "severity": "minor",
+      "target": "content/05-clinical-wrap-up.md#L40-L44",
+      "finding": "The positive and negative control conditions are introduced purely as abstract, hypothetical concepts ('If the fictional comparison also supplied a positive-control condition...') in the clinical context, without providing a concrete medical example that a learner can easily picture.",
+      "resolution": "Provide a concrete medical example of controls, such as using a glucose meter manufacturer's control solution to verify meter responsiveness (positive control) or testing a zero-glucose solution/water (negative control) to check for background signal or calibration issues."
+    },
+    {
+      "severity": "minor",
+      "target": "assessment.json#L6",
+      "finding": "Although the lesson is reframed with a clinical context, none of the assessment items in assessment.json assess variables and controls in a clinical or medical scenario. They remain set in engineering, botany, physics, and laboratory detector contexts.",
+      "resolution": "Add or adapt at least one assessment item to evaluate variables, controls, and confounders in a clinical or medical setting, matching the new clinical focus of the lesson."
+    },
+    {
+      "severity": "note",
+      "target": "content/01-zero-two-meanings.md#L1",
+      "finding": "The first-read experience is highly engaging and effectively structured. The opening scenario of a reader showing '0' provides immediate concrete context, and the distinction between controlled variables and control conditions is explained clearly.",
+      "resolution": "No action required; maintain this clear and concrete introductory structure."
+    }
+  ],
+  "limitations": [
+    "No real learners or independent human subject-matter experts tested this lesson draft.",
+    "The review was conducted solely on the source repository files using static analysis and validation scripts; no rendering or assistive technology paths were executed."
+  ],
+  "signedAt": "2026-07-25T01:05:00Z"
+}
