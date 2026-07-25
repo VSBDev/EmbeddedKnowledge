@@ -43,8 +43,8 @@ The two open-access reviews were read at `pmc.ncbi.nlm.nih.gov/articles/`, a pat
 Everything below was created for this lesson and is covered by the pack's CC BY 4.0 licence:
 
 - both chart sources under `charts/`, their alt text, and their long descriptions;
-- the four-position scheme for reading an interval against a threshold, its table, and the worked example that runs it in four steps;
-- the three-row sample-size table, the four studies in the position table, the three papers in the practice scene, the press release, the retinal-screening reminder trial, and studies S and T in the mastery check;
+- the five-position scheme for reading an interval against a threshold, its table, and the worked example that runs it in four steps;
+- the three-row sample-size table, the five studies in the position table, the three papers in the practice scene, the press release, the retinal-screening reminder trial, and studies S and T in the mastery check;
 - the invented 5 mg/dL importance threshold, the 5 percentage point commissioning threshold, the service, the meeting, the consultant, and the patient;
 - all scene prose, worked reasoning, checks, misconceptions, assessment items, answer logic, and rubrics.
 

@@ -45,7 +45,7 @@ The procedure travelled unchanged. Put the estimate and its interval on the scal
 
 The threshold itself did not travel at all. Five percentage points of screening attendance and 5 mg/dL of fasting glucose share a numeral and nothing else. They were set by different people weighing different things: one by a commissioning group balancing cost against screening yield, the other by a clinical team thinking about what a patient would have to change to gain it. Thresholds are local to the outcome, the population and the decision, and the literature on minimal important differences says the same thing about its own estimates.
 
-One further translation is worth having. Two percentage points means about 50 people invited for every one extra person screened, because 1 divided by 0.02 is 50. Whether one extra retinal screen per 50 reminders is worth the programme's cost is, again, a question for the people holding the budget and the clinical responsibility. The arithmetic hands them a clean number and stops.
+One further translation is worth having. Two percentage points means about 50 people moved from the letter to the text reminder for every one extra person screened, because 1 divided by 0.02 is 50. Whether one extra retinal screen per 50 people switched is worth the programme's cost is, again, a question for the people holding the budget and the clinical responsibility. The arithmetic hands them a clean number and stops.
 
 :::{check}
 :id: check-transfer-scales

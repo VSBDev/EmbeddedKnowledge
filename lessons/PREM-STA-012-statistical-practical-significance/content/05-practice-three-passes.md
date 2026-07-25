@@ -14,13 +14,13 @@ A hospital diabetes service has agreed in advance that it will change its dietar
 | Q | 14.0 mg/dL | −1.0 to 29.0 | 0.067 |
 | R | 3.1 mg/dL | 1.9 to 4.3 | < 0.001 |
 
-For each paper, say which of the four positions it occupies and write one sentence the service could put in its minutes.
+For each paper, say which of the five positions it occupies and write one sentence the service could put in its minutes.
 
 ---
 
 **Paper P is position A.** The whole interval sits above 5, with the lower limit at 5.4. Minute: the data support an effect of at least the size the service agreed to act on, somewhere between 5.4 and 8.2 mg/dL.
 
-**Paper Q is position D.** The interval contains 0 and runs well past 5 at the far end. Minute: this study distinguishes nothing, since it is compatible with a small effect in the opposite direction and with an effect nearly six times the agreed threshold. The estimate of 14.0 is the value most compatible with the data and the study cannot support acting on it.
+**Paper Q is position E.** The interval contains 0 and it also contains 5, so both questions come back open. Minute: this study distinguishes nothing, since it is compatible with a small effect in the opposite direction and with an effect nearly six times the agreed threshold. The estimate of 14.0 is the value most compatible with the data and the study cannot support acting on it.
 
 **Paper R is position B.** The interval excludes 0 and its upper limit of 4.3 falls below 5. Minute: the effect is real and the study has shown it is smaller than the threshold the service set. This is the most decisive of the three, and it decides against changing the advice.
 
@@ -30,7 +30,7 @@ Notice the ranking by *p*-value would put P and R together at the top and Q at t
 
 A press release states:
 
-> A large trial has shown a statistically significant reduction in fasting glucose with the new evening-meal programme (*p* = 0.004, n = 2400).
+> A large trial has shown a statistically significant reduction in fasting glucose with the new meal-replacement programme (*p* = 0.004, n = 2400).
 
 Write down what you can conclude, what you cannot, and the single most useful thing to ask for.
 
@@ -51,7 +51,9 @@ The service is now designing its own trial. It has agreed on the 5 mg/dL thresho
 
 ---
 
-**Part 1.** The lower limit is the estimate minus 1.96 standard errors, and it clears 5 when 1.96 × SE is less than 9.0 − 5.0 = 4.0 mg/dL. So the standard error must fall below 4.0 / 1.96 = 2.04 mg/dL. The standard error of a difference between two groups of *n* is 16 × √(2/*n*), and setting that below 2.04 gives *n* ≥ 123 per group.
+**Part 1.** The lower limit is the estimate minus 1.96 standard errors, and it sits above 5 when 1.96 × SE is less than 9.0 − 5.0 = 4.0 mg/dL. So the standard error must fall below 4.0 / 1.96 = 2.0408 mg/dL.
+
+Now turn that into people. **PREM-STA-006** gave the standard error of a difference between two equal groups of *n* as the within-group spread times √(2/*n*), which here is 16 × √(2/*n*). Setting that below 2.0408 means √(2/*n*) < 2.0408 / 16 = 0.12755. Squaring both sides to get *n* out from under the root gives 2/*n* < 0.016269, so *n* > 122.9, which rounds up to **123 per group**. A calculator handles every step.
 
 Check it. At 123 per group the standard error is 2.04, the margin is 1.96 × 2.04 = 4.00, and the interval runs from 5.00 to 13.00 mg/dL. Position A, by the smallest margin the arithmetic allows. The service would sensibly recruit somewhat more than 123 to leave itself room.
 

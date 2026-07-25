@@ -8,8 +8,8 @@ A diabetes service has agreed, before reading either paper, that it will change 
 
 | Study | Per group | Difference in mean fasting glucose | Standard error | Two-sided *p* | 95% interval |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| S: structured bedtime routine | 400 | 4.5 mg/dL lower | 1.13 mg/dL | < 0.001 | 2.3 to 6.7 mg/dL |
-| T: community walking programme | 2500 | 1.8 mg/dL lower | 0.45 mg/dL | < 0.001 | 0.9 to 2.7 mg/dL |
+| S: structured bedtime routine | 400 | 4.5 mg/dL lower | 1.131 mg/dL | < 0.001 | 2.3 to 6.7 mg/dL |
+| T: community walking programme | 2500 | 1.8 mg/dL lower | 0.453 mg/dL | < 0.001 | 0.9 to 2.7 mg/dL |
 
 The two *p*-values are equal to the precision printed. Both round to 0.00007.
 
@@ -28,7 +28,7 @@ Every item is scored on the reasoning as much as the arithmetic. A correct posit
 
 Each item's feedback names the idea behind the right answer and points at the scene that teaches it.
 
-A miss on item 1 or 2 sends you to the four positions in scene 4, and specifically to the worked example that runs the four steps in order. A miss on item 3 sends you to the three-row table in scene 2, where the same *p*-value appears beside two very different effects. A miss on item 4 sends you to the definition at the top of scene 2. A miss on item 5 sends you to the anchor-based and distribution-based methods in scene 3. A miss on item 6 sends you to the closing scene, where a biased estimate is laid against a threshold and the comparison falls apart.
+A miss on item 1 or 2 sends you to the five positions in scene 4, and specifically to the worked example that runs the four steps in order. A miss on item 3 sends you to the three-row table in scene 2, where the same *p*-value appears beside two very different effects. A miss on item 4 sends you to the definition at the top of scene 2. A miss on item 5 sends you to the anchor-based and distribution-based methods in scene 3. A miss on item 6 sends you to the closing scene, where a biased estimate is laid against a threshold and the comparison falls apart.
 
 Retake as often as you like. Nothing is timed.
 
@@ -40,7 +40,7 @@ The two senses of the word drift back together with time, and they drift in a pr
 - **Within two weeks.** Find any paper reporting a statistically significant clinical result. Write down the effect estimate, the interval, and the threshold the authors used. If there is no threshold in the paper, write down that fact, because its absence is the finding.
 - **When you next read a press release.** Check whether the number quoted is a level or a change, and whether it is absolute or relative. Those two questions catch most of what goes wrong before any statistics are involved.
 
-Lesson 01 of this block asked what kind of thing each column in the dataset was. Twelve lessons later the answer to the question that started it all turns out to depend on a number that is in no column at all.
+Lesson 01 of this block asked what kind of thing each column in the dataset was. Eleven lessons later the answer to the question that started it all turns out to depend on a number that is in no column at all.
 
 :::{source-note}
 :claims: claim-significance-not-importance, claim-size-decides-significance, claim-mcid-definition, claim-mcid-methods, claim-report-estimates-and-intervals, claim-threshold-not-sole-basis

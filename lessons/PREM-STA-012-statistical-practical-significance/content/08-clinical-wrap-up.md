@@ -44,7 +44,7 @@ The last consideration is the one that unsettles people most, and it survives ev
 
 Fasting glucose is a laboratory measurement. Nobody's life is made better or worse by a number on a meter. What the number stands in for is what happens over the following decade to eyes, kidneys, nerves and arteries, and the link between a small persistent shift in morning glucose and any of those outcomes is a separate question this study never asked.
 
-The cohort's mean fasting glucose was 142 mg/dL. The national institute that publishes diagnostic ranges gives 126 mg/dL or above as diabetes, so these are people already diagnosed and already being managed. The decision in front of the service is about management. Moving someone from 146 to 137 changes a category boundary for nobody in this cohort, and whether it changes anything they would notice is the question that no column in the dataset answers.
+The cohort's mean fasting glucose was 142 mg/dL. The US National Institute of Diabetes and Digestive and Kidney Diseases gives 126 mg/dL or above as diabetes, so most of this cohort sits above the diagnostic line and these are people already diagnosed and already being managed. The decision in front of the service is about management. A 9 mg/dL shift will move a few of them across a category boundary, since with a spread of 16 mg/dL some of the cohort sits near it, and it will leave most exactly where they are. Whether it changes anything any of them would notice is the question no column in the dataset answers.
 
 ## What the service actually does
 

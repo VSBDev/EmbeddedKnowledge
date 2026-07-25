@@ -23,7 +23,7 @@
         "topic-statistics-data-statistical-practical-significance"
       ],
       "prompt": "Compute the lower limit of study S's 95% confidence interval from its difference and standard error. Give the answer in mg/dL to one decimal place.",
-      "stimulus": "Invented study S: structured bedtime routine, 400 people per group. Mean fasting glucose 4.5 mg/dL lower in the intervention group, standard error of that difference 1.13 mg/dL. The service agreed an importance threshold of 5 mg/dL before reading the paper. Illustrative teaching example, not medical advice.",
+      "stimulus": "Invented study S: structured bedtime routine, 400 people per group. Mean fasting glucose 4.5 mg/dL lower in the intervention group, standard error of that difference 1.131 mg/dL. The service agreed an importance threshold of 5 mg/dL before reading the paper. Illustrative teaching example, not medical advice.",
       "points": 2,
       "responseSpec": {
         "mode": "number",
@@ -34,12 +34,12 @@
       },
       "answer": {
         "correct": 2.3,
-        "summary": "The margin of error is 1.96 x 1.13 = 2.21 mg/dL, so the lower limit is 4.5 - 2.21 = 2.29, which is 2.3 mg/dL to one decimal place.",
-        "reasoning": "Award 1 point for forming the margin of error as 1.96 multiplied by the standard error, giving 2.21 mg/dL, and 1 point for subtracting it from the estimate to reach 2.3 mg/dL. A learner who returns 3.4 has subtracted one standard error instead of 1.96 of them. A learner who returns 5.6 has subtracted the estimate from the threshold, which mixes two quantities that belong on the same axis but play different roles. Check the answer by adding the same margin to get the upper limit of 6.7, then confirm the interval is symmetric about 4.5. On retry, do the same computation for study T, where 1.96 x 0.45 = 0.88 and the interval runs from 0.9 to 2.7.",
+        "summary": "The margin of error is 1.96 x 1.131 = 2.22 mg/dL, so the lower limit is 4.5 - 2.22 = 2.28, which is 2.3 mg/dL to one decimal place.",
+        "reasoning": "Award 1 point for forming the margin of error as 1.96 multiplied by the standard error, giving 2.22 mg/dL, and 1 point for subtracting it from the estimate to reach 2.3 mg/dL. A learner who returns 3.4 has subtracted one standard error instead of 1.96 of them. A learner who returns 5.6 has subtracted the estimate from the threshold, which mixes two quantities that belong on the same axis but play different roles. Check the answer by adding the same margin to get the upper limit of 6.7, then confirm the interval is symmetric about 4.5. On retry, do the same computation for study T, where 1.96 x 0.453 = 0.89 and the interval runs from 0.9 to 2.7.",
         "acceptableResponses": [
           "2.3",
           "2.29",
-          "4.5 - 1.96 x 1.13"
+          "4.5 - 1.96 x 1.131"
         ],
         "commonErrors": [
           "Subtracting one standard error instead of 1.96 standard errors, giving 3.4",
@@ -62,7 +62,7 @@
         "topic-statistics-data-statistical-practical-significance"
       ],
       "prompt": "Study S reports a difference of 4.5 mg/dL with a 95% interval of 2.3 to 6.7 mg/dL. The service's threshold is 5 mg/dL. Which sentence states what the study supports?",
-      "stimulus": "Invented study S: structured bedtime routine, 400 people per group, difference 4.5 mg/dL, standard error 1.13 mg/dL, two-sided p < 0.001, 95% interval 2.3 to 6.7 mg/dL. The service agreed a 5 mg/dL importance threshold before reading the paper. Illustrative teaching example, not medical advice.",
+      "stimulus": "Invented study S: structured bedtime routine, 400 people per group, difference 4.5 mg/dL, standard error 1.131 mg/dL, two-sided p < 0.001, 95% interval 2.3 to 6.7 mg/dL. The service agreed a 5 mg/dL importance threshold before reading the paper. Illustrative teaching example, not medical advice.",
       "points": 3,
       "responseSpec": {
         "mode": "single-choice",
@@ -117,7 +117,7 @@
         "topic-statistics-data-statistical-practical-significance"
       ],
       "prompt": "Studies S and T report p-values that are equal to the precision printed, both rounding to 0.00007. Which comparison between the two studies do those p-values support?",
-      "stimulus": "Invented study S: bedtime routine, 400 per group, difference 4.5 mg/dL, standard error 1.13, 95% interval 2.3 to 6.7. Invented study T: community walking programme, 2500 per group, difference 1.8 mg/dL, standard error 0.45, 95% interval 0.9 to 2.7. Service threshold 5 mg/dL. Illustrative teaching example, not medical advice.",
+      "stimulus": "Invented study S: bedtime routine, 400 per group, difference 4.5 mg/dL, standard error 1.131, 95% interval 2.3 to 6.7. Invented study T: community walking programme, 2500 per group, difference 1.8 mg/dL, standard error 0.453, 95% interval 0.9 to 2.7. Service threshold 5 mg/dL. Illustrative teaching example, not medical advice.",
       "points": 3,
       "responseSpec": {
         "mode": "single-choice",
@@ -147,7 +147,7 @@
       "answer": {
         "correct": "option-equal-distance-different-effects",
         "summary": "Equal p-values report equal distance from each study's own null, and the two effects differ by a factor of 2.5.",
-        "reasoning": "Award 1 point for comparing the effect sizes directly, 4.5 mg/dL against 1.8 mg/dL, 1 point for attributing study T's matching p-value to its standard error of 0.45 against study S's 1.13, and 1 point for refusing to read either p-value as a statement about magnitude or worth. The second option is the misreading the lesson demonstrates with its three-row table: the statistic combines the effect with its precision and cannot be taken apart again. The third option adds the everyday sense of the word on top of that error and reaches a recommendation neither study supports. The fourth option confuses precision with accuracy, since a larger study estimates its own effect more precisely and that says nothing about which programme does more. On retry, state which of the two studies answers the service's question and why the answer is negative.",
+        "reasoning": "Award 1 point for comparing the effect sizes directly, 4.5 mg/dL against 1.8 mg/dL, 1 point for attributing study T's matching p-value to its standard error of 0.453 against study S's 1.131, and 1 point for refusing to read either p-value as a statement about magnitude or worth. The second option is the misreading the lesson demonstrates with its three-row table: the statistic combines the effect with its precision and cannot be taken apart again. The third option adds the everyday sense of the word on top of that error and reaches a recommendation neither study supports. The fourth option confuses precision with accuracy, since a larger study estimates its own effect more precisely and that says nothing about which programme does more. On retry, state which of the two studies answers the service's question and why the answer is negative.",
         "acceptableResponses": [
           "The option stating that equal p-values report equal distance from each study's own null while study S found the larger effect and study T bought its p-value with precision."
         ],
@@ -263,7 +263,7 @@
         "topic-statistics-data-statistical-practical-significance"
       ],
       "prompt": "A reviewer discovers that in study T, glucose in the walking group was measured on participants' home meters while the comparison group was measured in the hospital laboratory, and that the home meters read on average about 4 mg/dL lower than the laboratory. What does this do to the threshold comparison?",
-      "stimulus": "Invented study T: community walking programme, 2500 per group, difference 1.8 mg/dL lower with the programme, standard error 0.45, two-sided p < 0.001, 95% interval 0.9 to 2.7 mg/dL. Service threshold 5 mg/dL. Illustrative teaching example, not medical advice.",
+      "stimulus": "Invented study T: community walking programme, 2500 per group, difference 1.8 mg/dL lower with the programme, standard error 0.453, two-sided p < 0.001, 95% interval 0.9 to 2.7 mg/dL. Service threshold 5 mg/dL. Illustrative teaching example, not medical advice.",
       "points": 3,
       "responseSpec": {
         "mode": "single-choice",
@@ -278,7 +278,7 @@
           },
           {
             "id": "option-narrow-interval-protects",
-            "text": "Little, because with 2500 people per group the standard error is only 0.45 mg/dL, and an estimate that precise is not meaningfully affected by a measurement discrepancy."
+            "text": "Little, because with 2500 people per group the standard error is only 0.453 mg/dL, and an estimate that precise is not meaningfully affected by a measurement discrepancy."
           },
           {
             "id": "option-still-below-threshold",
@@ -314,7 +314,7 @@
       "criteria": [
         {
           "id": "criterion-form-the-margin",
-          "description": "Award 1 point only when the margin of error is formed as 1.96 multiplied by the standard error, giving 2.21 mg/dL.",
+          "description": "Award 1 point only when the margin of error is formed as 1.96 multiplied by the standard error, giving 2.22 mg/dL.",
           "maxPoints": 1
         },
         {
@@ -356,7 +356,7 @@
         },
         {
           "id": "criterion-attribute-to-precision",
-          "description": "Award 1 point only when study T's matching p-value is attributed to its standard error of 0.45 against study S's 1.13, and so to its sample size.",
+          "description": "Award 1 point only when study T's matching p-value is attributed to its standard error of 0.453 against study S's 1.131, and so to its sample size.",
           "maxPoints": 1
         },
         {

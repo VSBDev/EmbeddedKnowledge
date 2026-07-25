@@ -1,8 +1,8 @@
 # Where the interval sits when a line is drawn
 
-Everything so far has been preparation for one move, and the move is simple enough to describe in a sentence. Put the threshold on the same axis as the estimate and its interval, then look at where the interval sits relative to the line.
+Everything so far has been preparation for one move, and the move is simple enough to describe in a sentence. Put the importance threshold on the same axis as the estimate and its interval, then look at where the interval sits relative to the line.
 
-That is the whole technique. What makes it worth a scene is that it has four outcomes, and three of them are routinely reported as though they were the fourth.
+That is the whole technique. What makes it worth a scene is that it has five outcomes, and four of them are routinely reported as though they were the fifth.
 
 ## The dinner-timing result, with a line drawn on it
 
@@ -19,29 +19,41 @@ The line at 5 sits inside the shaded band. The interval reaches 4.1 mg/dL below 
 
 That combination is the ordinary state of affairs, and it has an ugly property: the paper can honestly report a statistically significant finding while the clinical question stays exactly where it was.
 
-## Four positions
+## Two questions, asked separately
 
-Write T for the threshold and 0 for no difference. Any interval falls into one of four arrangements.
+Write T for the threshold and 0 for no difference. There are two comparisons to make, and the habit worth building is making them one at a time.
 
-| Position | Where the interval sits | What the study supports |
-| --- | --- | --- |
-| A | Entirely above T | An effect at least as large as the threshold. The decision is answered in favour |
-| B | Excludes 0, entirely below T | A real effect, and one demonstrably too small to matter. Answered against |
-| C | Contains T | Inconclusive for the decision, whatever the *p*-value says |
-| D | Contains 0 and extends beyond T | Uninformative. Compatible with nothing happening and with a great deal happening |
+The first asks about direction. Does the interval contain 0? If it does not, the study supports an effect in the stated direction.
 
-Four studies from this lesson, one for each position.
+The second asks about magnitude. Does the interval sit entirely above T, entirely below T, or across it? Every interval does exactly one of those three things, so the question always has an answer.
+
+Combining them gives five arrangements, and since T is a positive number an interval cannot both contain 0 and sit entirely above T. Five is the whole list.
+
+| Position | Contains 0? | Sits, relative to T | What the study supports |
+| --- | --- | --- | --- |
+| A | No | Entirely above | An effect at least as large as the threshold. Answered in favour |
+| B | No | Entirely below | A real effect, demonstrably smaller than the threshold. Answered against |
+| C | No | Across it | Direction established, magnitude open. Inconclusive on the decision |
+| D | Yes | Entirely below | Direction not established, and an effect as large as T is ruled out. Answered against |
+| E | Yes | Across it | Nothing established either way. Uninformative |
+
+Five studies, one for each.
 
 | Study | Per group | Difference | 95% interval | *p* | Position |
 | --- | --- | --- | --- | --- | --- |
 | Evening-meal programme | 60 | 12.0 | 6.3 to 17.7 | < 0.001 | A |
 | Large replication | 600 | 2.0 | 0.2 to 3.8 | 0.030 | B |
 | Dinner-timing study | 30 | 9.0 | 0.9 to 17.1 | 0.029 | C |
-| Half-size pilot | 15 | 9.0 | −2.5 to 20.5 | 0.12 | D |
+| Bedtime-snack trial | 300 | 2.0 | −0.6 to 4.6 | 0.13 | D |
+| Half-size pilot | 15 | 9.0 | −2.5 to 20.5 | 0.12 | E |
 
-Three of those four clear the conventional bar. The three that clear it land in three different positions and support three different decisions. Sorting results by statistical significance would have put A, B and C in one pile, which is precisely the sorting that loses the information the clinic needs.
+Three of those five clear the conventional bar, and they land in three different positions supporting three different decisions. Sorting by statistical significance would have put A, B and C in one pile, which is exactly the sorting that loses what the clinic needs.
 
-Notice B and D in particular. The replication is statistically significant and settles that the effect is small. The pilot is not statistically significant and settles nothing at all, since its interval covers a reduction of 2.5 and a rise of 20.5. Calling B the positive study and D the negative one describes the *p*-values accurately and the evidence backwards.
+Compare D and E, the two that miss the bar. Both would be written up as negative studies. The bedtime-snack trial is genuinely decisive: it did not establish a direction, and it ruled out anything as large as 5 mg/dL, so the service can stop thinking about it. The half-size pilot settled nothing at all, since its interval covers a fall of 2.5 and a rise of 20.5. One negative study answered the question and the other did not, and the *p*-values, 0.13 and 0.12, are almost identical.
+
+### One restriction on the table
+
+The table assumes T has been stated in the direction of the effect being sought, and that the interval lies on that side of zero or straddles it. An interval sitting entirely below 0, meaning the intervention looks harmful, is a different finding, and reading it as "smaller than the threshold" would be a serious misreading. Harm gets its own threshold and its own comparison, set by the same kind of clinical judgement and usually at a different number.
 
 ## Working one through
 
@@ -56,7 +68,7 @@ A service reads the dinner-timing paper with a threshold of 5 mg/dL already agre
 
 **Step 3. Place T.** 5 falls between 0.9 and 17.1, so the interval contains it. Position C.
 
-**Step 4. State the verdict in words the service can act on.** The data support the claim that later dinners are associated with higher fasting glucose. They do not establish whether the association is large enough to be worth acting on, because they are compatible with 0.9 mg/dL, which nobody would act on, and with 17.1 mg/dL, which would probably change the conversation. The study answers a question about direction and leaves the question about magnitude open.
+**Step 4. State the verdict in words the service can act on.** The data support the claim that later dinners are associated with higher fasting glucose. They do not establish whether the association is large enough to be worth acting on, because they are compatible with 0.9 mg/dL, a fifth of the service's threshold, and with 17.1 mg/dL, more than three times it. The study answers a question about direction and leaves the question about magnitude open.
 
 The fourth step is the one that gets skipped. Steps 2 and 3 are geometry; step 4 is where the reader has to say out loud what has and has not been shown.
 :::
@@ -66,7 +78,7 @@ The fourth step is the one that gets skipped. Steps 2 and 3 are geometry; step 4
 
 **The belief.** There is already a real number for glucose, so use that one. Diabetes is diagnosed at a fasting plasma glucose of 126 mg/dL, so 126 is the threshold that matters.
 
-**Why it fails.** Those published figures are a classification scheme. The national institute that publishes them gives 99 mg/dL or below as normal, 100 to 125 mg/dL as prediabetes, and 126 mg/dL or above as diabetes, with a second test usually used to confirm a diagnosis. Each of those is a value a person's glucose sits *at*. An MCID is a distance a person's glucose *moves*. The two quantities have the same unit and answer different questions, in the way that a temperature of 38 degrees and a rise of 38 degrees do.
+**Why it fails.** Those published figures are a classification scheme. The US National Institute of Diabetes and Digestive and Kidney Diseases gives 99 mg/dL or below as normal, 100 to 125 mg/dL as prediabetes, and 126 mg/dL or above as diabetes, with a second test usually used to confirm a diagnosis. Each of those is a value a person's glucose sits *at*. An MCID is a distance a person's glucose *moves*. The two quantities have the same unit and answer different questions, in the way that a temperature of 38 degrees and a rise of 38 degrees do.
 
 **The discriminating case.** A person at 121 mg/dL and a person at 88 mg/dL both gain 9 mg/dL. The first arrives at 130 and crosses into the diabetes band; the second arrives at 97 and stays inside the normal range. The same movement has different consequences at different starting points, which is exactly what a diagnostic cut-point cannot encode and one of the reasons MCID values vary with baseline severity.
 
@@ -77,9 +89,9 @@ The fourth step is the one that gets skipped. Steps 2 and 3 are geometry; step 4
 
 Both charts in this lesson are read entirely from their numbers, and every quantity that appears in either picture also appears in the tables and prose around it. The renderer publishes the underlying values as a data table beside each chart, so nothing in this scene depends on seeing a curve.
 
-If the plots are unavailable, the technique reduces to three comparisons you can carry out on a written interval: is the lower limit above T, is the upper limit below T, and does the interval contain 0. Those three answers select one of the four positions in the table above without reference to any picture. Colour carries no information in either chart, and the shaded band is stated as a pair of numbers wherever it is mentioned.
+If the plots are unavailable, the technique reduces to three comparisons you can carry out on a written interval: is the lower limit above T, is the upper limit below T, and does the interval contain 0. Those three answers select one of the five positions in the table above without reference to any picture. Colour carries no information in either chart, and the shaded band is stated as a pair of numbers wherever it is mentioned.
 
-The arithmetic in this lesson needs nothing beyond addition, subtraction and comparison of decimals. No part of any task requires you to supply your own health information, a glucose reading, or any personal measurement.
+Most of the arithmetic here needs only addition, subtraction and comparison of decimals. One task in the practice scene works a sample size backwards and uses a square root, and an ordinary calculator is enough for it. No task at any point requires you to supply your own health information, a glucose reading, or any personal measurement.
 
 :::{source-note}
 :claims: claim-report-estimates-and-intervals, claim-size-decides-significance, claim-fpg-diagnostic-ranges

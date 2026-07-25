@@ -6,7 +6,7 @@ Here is the result line from the dinner-timing study, written the way a journal 
 
 Two people read it on the same morning.
 
-The trial statistician reads it and stops. Every question she was asked has an answer now. The estimate is 9.0. The data are compatible with true differences from 0.9 to 17.1. A test of zero returns 0.029, which clears the level the protocol fixed before recruitment. Her work is finished and it is correct.
+The trial statistician reads it and stops. Every question she was asked has an answer now. The estimate is 9.0. The data are compatible with true differences from 0.9 to 17.1. A test of zero returns 0.029, which falls below the level the protocol fixed before recruitment. Her work is finished and it is correct.
 
 The diabetes consultant reads the same line and has not started. He wants to know whether he should say anything different to the person coming into clinic at ten past nine. For that he needs to know whether 9 mg/dL is a lot of glucose or a little. And nothing in that sentence tells him.
 
@@ -18,7 +18,7 @@ Nine milligrams per decilitre is about 0.5 mmol/L, the unit used in most of the 
 
 So the study is proposing that moving dinner later shifts a person from roughly 137 to roughly 146 on a morning meter reading. Whether that shift is worth a conversation in clinic is a question about diabetes, about what patients are already being asked to do, and about what else that conversation would displace. It is not a question about *p*.
 
-**Teaching example, not medical advice.** The cohort, the study, the clinic, and every threshold discussed in this lesson are invented for teaching. Nothing here reports a finding about real patients or supports any change to anyone's care. Two things in this lesson are real and are attributed where they appear: a professional association's published principles on *p*-values, and the diagnostic glucose ranges published by a national health institute.
+**Teaching example, not medical advice.** The cohort, the study, the clinic, and every threshold discussed in this lesson are invented for teaching. Nothing here reports a finding about real patients or supports any change to anyone's care. Two things in this lesson are real and are named where they appear: the American Statistical Association's published principles on *p*-values, and the diagnostic glucose ranges published by the US National Institute of Diabetes and Digestive and Kidney Diseases.
 
 ## Three things you should already be able to say
 
@@ -46,7 +46,7 @@ If all three came easily, carry on. Nothing below assumes more than those three 
 
 By the end you will be able to do four things.
 
-State what the phrase *statistically significant* claims and what it leaves untouched, and rewrite a sentence that has slid from the technical sense into the everyday one. Show why a study's size decides whether a difference clears the conventional bar, so that a difference of no consequence can clear it and a large one can miss it. Say what a minimal clinically important difference is, who fixes it, and why it can never be read off the study's own data. And take an estimate with its interval, lay it against a stated threshold, and say which of four verdicts the study supports.
+State what the phrase *statistically significant* claims and what it leaves untouched, and rewrite a sentence that has slid from the technical sense into the everyday one. Show why a study's size decides whether a difference clears the conventional bar, so that a difference of no consequence can clear it and a large one can miss it. Say what a minimal clinically important difference is, who fixes it, and why it can never be read off the study's own data. And take an estimate with its interval, lay it against a stated threshold, and say which of five verdicts the study supports.
 
 ## What this lesson will not do
 

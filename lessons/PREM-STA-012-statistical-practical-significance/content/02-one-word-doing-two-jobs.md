@@ -13,12 +13,14 @@ A result is **statistically significant** at a stated level when the *p*-value c
 
 The *p*-value measures how compatible the data are with one specified statistical model, the one containing the null value together with every other assumption the calculation needs. A small value says the data sit awkwardly with that whole model.
 
+That is the same quantity you already know as the probability of a result at least as extreme as the one observed, computed while assuming the null. Describing it as compatibility just names what that probability is *for*, and keeps the whole set of assumptions in view instead of the null alone.
+
 The label therefore reports one thing: where a number computed from the data landed relative to a line drawn beforehand.
 :::
 
 Read that definition again and notice everything it has no room for. It says nothing about how big the difference is. It says nothing about whether the difference would change a decision. It says nothing about who would benefit or by how much. Those quantities never enter the calculation, so no arrangement of the output can return them.
 
-The association of professional statisticians that publishes principles on this puts the point directly: a *p*-value, or statistical significance, does not measure the size of an effect or the importance of a result.
+The American Statistical Association, in the statement of principles it issued on this exact problem, puts the point directly: a *p*-value, or statistical significance, does not measure the size of an effect or the importance of a result.
 
 ## Why the shared spelling does damage
 
@@ -51,6 +53,12 @@ Three versions, all with the same within-group spread of 16 mg/dL.
 | Half-size pilot | 15 | 9.0 mg/dL | 5.84 | 0.12 | −2.5 to 20.5 |
 | The study you have | 30 | 9.0 mg/dL | 4.13 | 0.029 | 0.9 to 17.1 |
 | Large replication | 600 | 2.0 mg/dL | 0.92 | 0.030 | 0.2 to 3.8 |
+
+:::{callout}
+:kind: note
+
+Every *p*-value and interval in this lesson is computed against a normal reference curve, which keeps the arithmetic checkable with a calculator. The exact *t* curve moves them slightly: the middle row's 0.029 becomes about 0.033 on 58 degrees of freedom. None of the comparisons in this lesson turns on that difference, and **PREM-STA-008** works through why the choice of reference curve is itself a modelling assumption.
+:::
 
 Read the first two rows together. The difference is identical at 9.0 mg/dL. Doubling the group size shrinks the standard error from 5.84 to 4.13, and the *p*-value falls from 0.12 to 0.029. The pilot and the full study disagree about statistical significance while agreeing exactly about the size of the effect they found.
 
@@ -99,5 +107,5 @@ Answer. The tight interval is real: 0.2 to 3.8 is a precise result and the repli
 :claims: claim-significance-is-model-compatibility, claim-significance-not-importance, claim-size-decides-significance
 :sources: source-asa-p-value-statement, source-p-value-misinterpretations
 
-The association's principles support two of the statements above: that a *p*-value indicates how incompatible data are with a specified statistical model, and that neither a *p*-value nor statistical significance measures the size of an effect or the importance of a result. The methodological guide supports both halves of the sample-size point, that minor effects reach statistical significance in large studies and that large effects can miss it in small ones. The three versions of the study, their arithmetic, and the 4000-per-group figure are this lesson's own computations on invented data.
+The association's principles support two of the statements above: that a *p*-value indicates how incompatible data are with a specified statistical model, and that neither a *p*-value nor statistical significance measures the size of an effect or the importance of a result. The methodological guide supports both halves of the sample-size point, that minor effects reach statistical significance in large studies and that large effects can miss it in small ones. The three versions of the study, their arithmetic, and the figures of about 1970 and about 7870 per group are this lesson's own computations on invented data.
 :::
