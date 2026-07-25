@@ -35,7 +35,9 @@ The lesson indexes, progress and terminology ledgers, landing-page counters, and
 agent context derive from every published lesson rather than from any one of
 them, so they are refreshed once for a batch instead of being carried, and
 re-conflicted, by every lesson pull request."
-git -C "$WT" push -q origin "HEAD:$BRANCH"
+# Pushing from a detached HEAD needs the fully qualified ref, or git cannot tell whether the
+# destination is a branch it should create.
+git -C "$WT" push -q origin "HEAD:refs/heads/$BRANCH"
 git worktree remove --force "$WT"
 gh pr create --base main --head "$BRANCH" \
   --title "Refresh generated output after merged lessons" \

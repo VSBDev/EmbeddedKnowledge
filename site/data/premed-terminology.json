@@ -4,14 +4,39 @@
   "course": "premed",
   "purpose": "Consult before defining a glossary term. If a prior published lesson already defines it, adopt that meaning and cross-reference, or declare a glossary `alignment` block that names the prior lesson and the relation (adopt/narrow/extend/distinct-sense/supersede) with a rationale. Never silently redefine a term another lesson owns.",
   "summary": {
-    "terms": 244,
-    "multiLesson": 26,
-    "consistent": 1,
-    "divergent": 25,
+    "terms": 327,
+    "multiLesson": 36,
+    "consistent": 0,
+    "divergent": 36,
     "divergentUndeclared": 8,
-    "senseShifted": 21
+    "senseShifted": 31
   },
   "terms": [
+    {
+      "term": "addition rule",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-004"
+      ],
+      "ids": [
+        "term-addition-rule"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-004",
+          "id": "term-addition-rule",
+          "definition": "The rule for the probability that at least one of two events occurs: add their separate probabilities and subtract the probability that both occur, so that outcomes lying in both events are counted once rather than twice. The subtraction vanishes when the events are mutually exclusive.",
+          "aliases": [
+            "rule of addition",
+            "inclusion rule"
+          ],
+          "alignment": null
+        }
+      ]
+    },
     {
       "term": "allocation concealment",
       "status": "single-lesson",
@@ -33,6 +58,35 @@
             "concealment"
           ],
           "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "alternative hypothesis",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-008"
+      ],
+      "ids": [
+        "term-alternative-hypothesis"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-008",
+          "id": "term-alternative-hypothesis",
+          "definition": "The statement covering the values the null hypothesis excludes. A two-sided alternative allows the quantity to differ from the null value in either direction, which is the form used throughout this lesson; a one-sided alternative allows departure in one direction only and counts the other direction as no evidence at all.",
+          "aliases": [
+            "H1",
+            "two-sided alternative"
+          ],
+          "alignment": {
+            "priorLesson": "PREM-SCI-002",
+            "relation": "narrow",
+            "note": "Narrows PREM-SCI-002's general sense of a hypothesis to the specific complementary statement paired with a null in a statistical test. It is defined by what the null leaves out rather than by an explanatory account of its own, so it is a weaker object than the scientific hypothesis PREM-SCI-002 teaches."
+          }
         }
       ]
     },
@@ -109,12 +163,13 @@
     },
     {
       "term": "association",
-      "status": "consistent",
-      "sense": null,
-      "minDefinitionOverlap": null,
+      "status": "divergent",
+      "sense": "reworded",
+      "minDefinitionOverlap": 0.56,
       "lessons": [
         "PREM-SCI-007",
-        "PREM-STA-002"
+        "PREM-STA-002",
+        "PREM-STA-010"
       ],
       "ids": [
         "term-association"
@@ -142,6 +197,19 @@
             "priorLesson": "PREM-SCI-007",
             "relation": "adopt",
             "note": "PREM-SCI-007 owns this term and this lesson keeps its meaning unchanged. The only thing added here is the display that makes an association visible for two quantitative variables. Causal interpretation of an association remains the earlier lesson's territory, and the scatter scene points the learner back to it."
+          }
+        },
+        {
+          "lessonId": "PREM-STA-010",
+          "id": "term-association",
+          "definition": "A pattern in which measured values or categories of two variables differ together in a sampled dataset; the pattern alone does not specify why it occurs. Every measure in this lesson quantifies how large such a pattern is, and none of them turns it into a cause.",
+          "aliases": [
+            "statistical association"
+          ],
+          "alignment": {
+            "priorLesson": "PREM-SCI-007",
+            "relation": "adopt",
+            "note": "Adopts the meaning established by PREM-SCI-007: a pattern in which two variables differ together in a sample, with no claim about why. This lesson adds only measurement, giving the pattern a size through the risk difference, risk ratio, and odds ratio, and repeats that the size of an association says nothing about its cause."
           }
         }
       ]
@@ -267,6 +335,31 @@
       ]
     },
     {
+      "term": "baseline risk",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-010"
+      ],
+      "ids": [
+        "term-baseline-risk"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-010",
+          "id": "term-baseline-risk",
+          "definition": "The risk of the outcome in the group that did not receive the intervention, or in the comparison group of an observed contrast. It is the starting point a relative measure divides out and an absolute measure preserves, which is why the same relative change corresponds to different numbers of people at different baselines.",
+          "aliases": [
+            "control risk",
+            "comparison-group risk"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
       "term": "bias",
       "status": "single-lesson",
       "sense": null,
@@ -316,6 +409,30 @@
       ]
     },
     {
+      "term": "binomial distribution",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-005"
+      ],
+      "ids": [
+        "term-binomial-distribution"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-005",
+          "id": "term-binomial-distribution",
+          "definition": "The discrete distribution of the number of yes results in a fixed number of trials, when each trial has exactly two mutually exclusive outcomes, the probability of yes is the same on every trial, and the trials are independent. With n trials and probability p it puts the count's mean at np and its standard deviation at the square root of np(1 − p).",
+          "aliases": [
+            "binomial model"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
       "term": "biochemistry",
       "status": "single-lesson",
       "sense": null,
@@ -356,6 +473,30 @@
           "definition": "Withholding knowledge of the assigned condition from people involved in a study, from the moment of allocation until the study ends. Applies separately to participants, providers, data collectors, outcome assessors, and analysts.",
           "aliases": [
             "masking"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "bonferroni correction",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-009"
+      ],
+      "ids": [
+        "term-bonferroni-correction"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-009",
+          "id": "term-bonferroni-correction",
+          "definition": "Holding the family-wise error rate near a target by testing each of m hypotheses at the target divided by m, so five comparisons intended to give an overall 0.05 are each judged at 0.01. It works, and it is conservative: the stricter threshold lowers the power of every comparison it is applied to.",
+          "aliases": [
+            "Bonferroni adjustment"
           ],
           "alignment": null
         }
@@ -617,6 +758,30 @@
       ]
     },
     {
+      "term": "central limit theorem",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-006"
+      ],
+      "ids": [
+        "term-central-limit-theorem"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-006",
+          "id": "term-central-limit-theorem",
+          "definition": "For independent observations drawn from the same population with finite mean and variance, the result that the standardized sampling distribution of the mean approaches a normal distribution as sample size grows. The mean's centre at the population mean and variance sigma squared divided by n are exact under those conditions; approximate normal shape is the asymptotic conclusion. The theorem gives no universal finite-sample threshold and says nothing about the shape of individual observations.",
+          "aliases": [
+            "CLT"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
       "term": "coded value",
       "status": "single-lesson",
       "sense": null,
@@ -637,6 +802,32 @@
             "numeric code",
             "category code",
             "code"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "coefficient of determination",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-011"
+      ],
+      "ids": [
+        "term-coefficient-of-determination"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-011",
+          "id": "term-coefficient-of-determination",
+          "definition": "The proportion of the total variation in the response that the fitted model accounts for, obtained as the regression sum of squares divided by the total sum of squares. With a single predictor it equals the square of the correlation coefficient. It measures how much, and says nothing about whether the fitted shape is right.",
+          "aliases": [
+            "r-squared",
+            "R2",
+            "proportion of variation explained"
           ],
           "alignment": null
         }
@@ -762,6 +953,30 @@
       ]
     },
     {
+      "term": "compatible values",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-007"
+      ],
+      "ids": [
+        "term-compatible-values"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-007",
+          "id": "term-compatible-values",
+          "definition": "The values of the unknown parameter that a study's data do not argue against at a stated level under the analysis model. Describing an interval this way keeps the statement about the data, preserves the model conditions, and avoids assigning a probability to the parameter.",
+          "aliases": [
+            "compatibility interval"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
       "term": "competing hypotheses",
       "status": "single-lesson",
       "sense": null,
@@ -781,6 +996,31 @@
           "aliases": [
             "alternative hypotheses",
             "candidate hypotheses"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "complementary events",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-004"
+      ],
+      "ids": [
+        "term-complementary-events"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-004",
+          "id": "term-complementary-events",
+          "definition": "An event and the event that it does not occur. Together they cover the whole sample space and share no outcome, so their probabilities sum to 1 and the probability of one is one minus the probability of the other.",
+          "aliases": [
+            "complement",
+            "complement rule"
           ],
           "alignment": null
         }
@@ -882,6 +1122,31 @@
       ]
     },
     {
+      "term": "conditional probability",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-004"
+      ],
+      "ids": [
+        "term-conditional-probability"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-004",
+          "id": "term-conditional-probability",
+          "definition": "The probability of one event among the outcomes where another event holds, written P(A given B) and equal to the probability that both occur divided by the probability of the conditioning event, which must be greater than zero. Conditioning discards every outcome outside the stated group and rescales what remains, so P(A given B) and P(B given A) are different questions with different answers.",
+          "aliases": [
+            "probability given",
+            "restricted probability"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
       "term": "conditioning",
       "status": "single-lesson",
       "sense": null,
@@ -901,6 +1166,57 @@
           "aliases": [
             "adjustment",
             "controlling for"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "confidence interval",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-007"
+      ],
+      "ids": [
+        "term-confidence-interval"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-007",
+          "id": "term-confidence-interval",
+          "definition": "A range computed from sample data by a procedure with a stated conditional success rate, reported as a lower and an upper limit in the units of a defined population quantity. It gives the parameter values that the sample is compatible with under the stated sampling and analysis model, and it says nothing about where any individual observation sits.",
+          "aliases": [
+            "interval estimate",
+            "confidence limits",
+            "CI"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "confidence level",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-007"
+      ],
+      "ids": [
+        "term-confidence-level"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-007",
+          "id": "term-confidence-level",
+          "definition": "The stated conditional success rate of the procedure that produced an interval: the long-run proportion of intervals that would contain the fixed parameter if independent sampling and analysis were repeated under the procedure's assumptions. It is a property of the method, not a feeling of certainty, and it does not repair bias or guarantee generalisation beyond the defined population.",
+          "aliases": [
+            "confidence coefficient",
+            "coverage level"
           ],
           "alignment": null
         }
@@ -966,6 +1282,46 @@
             "confounder"
           ],
           "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "confusion of the inverse",
+      "status": "divergent",
+      "sense": "shifted",
+      "minDefinitionOverlap": 0.32,
+      "lessons": [
+        "PREM-STA-004",
+        "PREM-STA-008"
+      ],
+      "ids": [
+        "term-confusion-of-the-inverse"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-004",
+          "id": "term-confusion-of-the-inverse",
+          "definition": "The reasoning error of treating the probability of A given B as though it were the probability of B given A. In screening it turns a test's detection rate into a claim about a patient holding a positive result; in reading a study it turns a probability computed under a hypothesis into a probability of that hypothesis.",
+          "aliases": [
+            "inverted conditional",
+            "transposed conditional"
+          ],
+          "alignment": null
+        },
+        {
+          "lessonId": "PREM-STA-008",
+          "id": "term-confusion-of-the-inverse",
+          "definition": "The reasoning error of treating the probability of A given B as though it were the probability of B given A. Applied to a test result it turns a probability computed under a hypothesis into a probability of that hypothesis, so that p = 0.029 is misread as a 2.9 per cent chance the null is true or a 97.1 per cent chance the effect is real.",
+          "aliases": [
+            "inverted conditional",
+            "transposed conditional"
+          ],
+          "alignment": {
+            "priorLesson": "PREM-STA-004",
+            "relation": "adopt",
+            "note": "Adopts PREM-STA-004's meaning without change: treating P(A given B) as though it were P(B given A). That lesson established the error with screening tables, where the same test gave 0.269 in one clinic and 0.818 in another while its detection rate stayed fixed. This lesson applies the identical error to a p-value, which is the case PREM-STA-004 explicitly forwarded here, and adds no new sense of the term."
+          }
         }
       ]
     },
@@ -1255,6 +1611,31 @@
       ]
     },
     {
+      "term": "correlation coefficient",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-011"
+      ],
+      "ids": [
+        "term-correlation-coefficient"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-011",
+          "id": "term-correlation-coefficient",
+          "definition": "A unitless summary of how tightly two quantitative measurements follow a straight-line pattern, always between −1 and +1, sharing its sign with the slope. It reports linear strength only, so a strong curved relationship can produce a small value and very different scatters can produce the same one.",
+          "aliases": [
+            "Pearson correlation",
+            "r"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
       "term": "cosine",
       "status": "single-lesson",
       "sense": null,
@@ -1298,6 +1679,30 @@
           "aliases": [
             "potential outcome",
             "unobserved alternative outcome"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "critical value",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-009"
+      ],
+      "ids": [
+        "term-critical-value"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-009",
+          "id": "term-critical-value",
+          "definition": "The value of the reported statistic at which a test switches from not rejecting the null hypothesis to rejecting it. For a two-sided test at a significance level of 0.05 on a difference between means, it sits 1.96 standard errors either side of zero, which for the dinner-timing study is 8.09 mg/dL.",
+          "aliases": [
+            "rejection threshold"
           ],
           "alignment": null
         }
@@ -1372,6 +1777,30 @@
           "definition": "A positive per-interval multiplier below one in a discrete exponential model.",
           "aliases": [
             "retention factor"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "degrees of freedom",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-007"
+      ],
+      "ids": [
+        "term-degrees-of-freedom"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-007",
+          "id": "term-degrees-of-freedom",
+          "definition": "A count of how many numbers in a sample were still free to vary once the quantities already computed from it are held fixed. Comparing two groups of 30 leaves 58, because two group averages were computed from the 60 readings before any spread could be measured, and it is the number that selects a row of the t table.",
+          "aliases": [
+            "df"
           ],
           "alignment": null
         }
@@ -1571,6 +2000,28 @@
       ]
     },
     {
+      "term": "discrete distribution",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-005"
+      ],
+      "ids": [
+        "term-discrete-distribution"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-005",
+          "id": "term-discrete-distribution",
+          "definition": "A probability distribution over outcomes that can be listed one by one, such as the whole numbers 0 through 60. Unlike a continuous distribution it gives each individual outcome a probability of its own, so asking for the probability of exactly 49 has a real answer rather than zero.",
+          "aliases": [],
+          "alignment": null
+        }
+      ]
+    },
+    {
       "term": "discrete variable",
       "status": "single-lesson",
       "sense": null,
@@ -1639,6 +2090,34 @@
             "discriminating expected outcome"
           ],
           "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "distribution parameter",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-005"
+      ],
+      "ids": [
+        "term-distribution-parameter"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-005",
+          "id": "term-distribution-parameter",
+          "definition": "A quantity that has to be supplied before a named distribution describes anything in particular. A normal distribution takes two: a location parameter, its mean, which places the centre, and a scale parameter, its standard deviation, which sets the spread. A binomial takes the number of trials and the probability of a yes result on one trial.",
+          "aliases": [
+            "parameter"
+          ],
+          "alignment": {
+            "priorLesson": "PREM-SCI-010",
+            "relation": "narrow",
+            "note": "PREM-SCI-010 defines a model parameter as a model quantity held fixed during one run and free to change between runs. This lesson narrows the word to the quantities that identify one member of a distribution family, so that changing a parameter changes which curve you are using rather than which scenario you are running."
+          }
         }
       ]
     },
@@ -1775,6 +2254,31 @@
       ]
     },
     {
+      "term": "effect size",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-009"
+      ],
+      "ids": [
+        "term-effect-size"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-009",
+          "id": "term-effect-size",
+          "definition": "The magnitude of the difference or association a study is trying to detect, stated in the units of the measurement, for example a 9.0 mg/dL difference in mean fasting glucose. In a power calculation it is a quantity named in advance, chosen because a difference that size would be worth finding, and it is not the difference the study went on to observe.",
+          "aliases": [
+            "detectable difference",
+            "target effect"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
       "term": "empirical question",
       "status": "single-lesson",
       "sense": null,
@@ -1794,6 +2298,31 @@
           "aliases": [
             "testable question",
             "empirically answerable question"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "empirical rule",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-005"
+      ],
+      "ids": [
+        "term-empirical-rule"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-005",
+          "id": "term-empirical-rule",
+          "definition": "The statement that the areas a normal distribution places within one, two and three standard deviations of its mean round to 68.27, 95.45 and 99.73 per cent, usually quoted as about 68, 95 and 99.7 per cent. The underlying areas are defined by the normal cumulative distribution function; these displayed percentages are rounded, belong to the model, and transfer to a dataset only to the extent that a normal distribution describes it.",
+          "aliases": [
+            "68-95-99.7 rule",
+            "three-sigma rule"
           ],
           "alignment": null
         }
@@ -1867,6 +2396,52 @@
           "aliases": [
             "equivalent forms"
           ],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "estimate",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-006"
+      ],
+      "ids": [
+        "term-estimate"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-006",
+          "id": "term-estimate",
+          "definition": "A value computed from a sample and offered as a stand-in for an unknown population quantity. Calling a number an estimate commits you to saying how far off it might be, which is what the standard error is for.",
+          "aliases": [
+            "point estimate"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "event",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-004"
+      ],
+      "ids": [
+        "term-event"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-004",
+          "id": "term-event",
+          "definition": "Any collection of outcomes from a sample space that a question is about, such as \"the drawn participant ate late\" or \"the reading was 140 mg/dL or above\". An event either occurs or does not on a given trial.",
+          "aliases": [],
           "alignment": null
         }
       ]
@@ -2058,11 +2633,12 @@
     },
     {
       "term": "extrapolation",
-      "status": "single-lesson",
-      "sense": null,
-      "minDefinitionOverlap": null,
+      "status": "divergent",
+      "sense": "shifted",
+      "minDefinitionOverlap": 0.24,
       "lessons": [
-        "PREM-SCI-010"
+        "PREM-SCI-010",
+        "PREM-STA-011"
       ],
       "ids": [
         "term-extrapolation"
@@ -2075,6 +2651,19 @@
           "definition": "Using a fitted or calibrated relationship beyond the conditions or range that supplied its direct evidential support.",
           "aliases": [],
           "alignment": null
+        },
+        {
+          "lessonId": "PREM-STA-011",
+          "id": "term-extrapolation",
+          "definition": "Using a fitted relationship beyond the range or conditions that supplied its evidence. The equation returns a number regardless, and a straight line returns increasingly extreme values the further out it is pushed, so the arithmetic completing is no sign that the answer is supported.",
+          "aliases": [
+            "prediction outside range"
+          ],
+          "alignment": {
+            "priorLesson": "PREM-SCI-010",
+            "relation": "adopt",
+            "note": "PREM-SCI-010 defined extrapolation as using a fitted or calibrated relationship beyond the conditions or range that supplied its direct evidential support, and this lesson adopts that meaning without change. What is added is the concrete case: the range of one predictor in one fitted line, and the specific values that line returns outside it."
+          }
         }
       ]
     },
@@ -2097,6 +2686,31 @@
           "definition": "A recognizable way a model becomes inadequate for its intended use, such as an assumption failing, a boundary being crossed, or output disagreeing materially with evidence.",
           "aliases": [
             "model failure"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "family-wise error rate",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-009"
+      ],
+      "ids": [
+        "term-family-wise-error-rate"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-009",
+          "id": "term-family-wise-error-rate",
+          "definition": "The probability of at least one Type I error across a whole set of tests. For k independent tests each at level alpha it equals 1 minus (1 minus alpha) raised to the power k, so five comparisons at 0.05 give 0.226. Without the joint dependence structure the exact rate cannot be inferred from k and alpha alone; the general Bonferroni upper bound is the smaller of 1 and k times alpha.",
+          "aliases": [
+            "FWER",
+            "family-wise Type I error rate"
           ],
           "alignment": null
         }
@@ -2167,6 +2781,31 @@
           "definition": "The number of observations falling in a given category or bin.",
           "aliases": [
             "count"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "frequentist",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-007"
+      ],
+      "ids": [
+        "term-frequentist"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-007",
+          "id": "term-frequentist",
+          "definition": "Describes the family of statistical methods, confidence intervals among them, whose statements are read as frequencies across imagined repeats of the same study. A frequentist method reports how often a procedure would behave in a given way and never attaches a probability to the fixed parameter itself.",
+          "aliases": [
+            "frequentist methods",
+            "frequentist statistics"
           ],
           "alignment": null
         }
@@ -2463,6 +3102,31 @@
       ]
     },
     {
+      "term": "independent events",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-004"
+      ],
+      "ids": [
+        "term-independent-events"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-004",
+          "id": "term-independent-events",
+          "definition": "Two events whose joint probability equals the product of their separate probabilities, equivalently two events where learning that one occurred leaves the probability of the other unchanged. Independence is a property to be tested against the data or defended as a modelling assumption, never assumed for convenience.",
+          "aliases": [
+            "statistically independent events",
+            "independence"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
       "term": "independent groups",
       "status": "single-lesson",
       "sense": null,
@@ -2611,6 +3275,31 @@
       ]
     },
     {
+      "term": "intercept",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-011"
+      ],
+      "ids": [
+        "term-intercept"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-011",
+          "id": "term-intercept",
+          "definition": "The fitted value of the response when every predictor is zero, in the units of the response. It positions the line vertically and is often a statement about conditions nobody observed, as in this lesson where no one had a dinner-to-sleep interval of zero.",
+          "aliases": [
+            "constant term",
+            "a"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
       "term": "internal validity",
       "status": "single-lesson",
       "sense": null,
@@ -2628,6 +3317,30 @@
           "id": "term-internal-validity",
           "definition": "The degree to which a study's own comparison supports the conclusion drawn about the people or items that were in it.",
           "aliases": [],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "interpolation",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-011"
+      ],
+      "ids": [
+        "term-interpolation"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-011",
+          "id": "term-interpolation",
+          "definition": "Using a fitted relationship at a predictor value inside the range the data covered, where observations exist on both sides of the value being asked about.",
+          "aliases": [
+            "prediction within range"
+          ],
           "alignment": null
         }
       ]
@@ -2790,6 +3503,55 @@
       ]
     },
     {
+      "term": "law of large numbers",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-004"
+      ],
+      "ids": [
+        "term-law-of-large-numbers"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-004",
+          "id": "term-law-of-large-numbers",
+          "definition": "The result that the observed relative frequency of an event across independent repeated trials converges to its probability as the number of trials grows. It constrains the share over a long record and says nothing about the next trial, so it never implies that a short-run deviation will be repaid.",
+          "aliases": [],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "least-squares line",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-011"
+      ],
+      "ids": [
+        "term-least-squares-line"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-011",
+          "id": "term-least-squares-line",
+          "definition": "The single straight line for which the sum of the squared vertical distances from the observed points is as small as it can be. Distances are measured in the response because the line is used to describe the response, and they are squared so that misses in opposite directions cannot cancel.",
+          "aliases": [
+            "line of best fit",
+            "fitted line",
+            "regression line",
+            "ordinary least squares"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
       "term": "level of measurement",
       "status": "single-lesson",
       "sense": null,
@@ -2810,6 +3572,30 @@
             "measurement scale",
             "scale of measurement",
             "measurement level"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "leverage",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-011"
+      ],
+      "ids": [
+        "term-leverage"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-011",
+          "id": "term-leverage",
+          "definition": "A property determined by how extreme an observation's predictor values are relative to the rest of the design; in a one-predictor fit, points near the ends of the predictor range have higher leverage. Leverage is distinct from a large residual: an observation is especially influential when high leverage is combined with a residual large enough to move the fitted line. The everyday sense of leverage, meaning advantage gained over something, is unrelated.",
+          "aliases": [
+            "influence of a single point"
           ],
           "alignment": null
         }
@@ -2931,6 +3717,30 @@
           "definition": "The nonnegative length or Euclidean norm of a vector.",
           "aliases": [
             "norm"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "margin of error",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-007"
+      ],
+      "ids": [
+        "term-margin-of-error"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-007",
+          "id": "term-margin-of-error",
+          "definition": "Half the width of a confidence interval: the multiplier times the standard error, in the units of the estimate. It is the distance you reach out from the estimate in each direction, and doubling it gives the interval's width.",
+          "aliases": [
+            "half-width"
           ],
           "alignment": null
         }
@@ -3475,6 +4285,81 @@
       ]
     },
     {
+      "term": "multiple regression",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-011"
+      ],
+      "ids": [
+        "term-multiple-regression"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-011",
+          "id": "term-multiple-regression",
+          "definition": "A regression with more than one predictor, each carrying its own coefficient. Each coefficient reports the fitted change in the response per unit of its own predictor while the other predictors stay where they are, which is what a report means when it calls a result adjusted for those variables.",
+          "aliases": [
+            "multivariable regression",
+            "adjusted model"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "multiplication rule",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-004"
+      ],
+      "ids": [
+        "term-multiplication-rule"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-004",
+          "id": "term-multiplication-rule",
+          "definition": "The rule for the probability that two events both occur: multiply the probability of one by the conditional probability of the other given it. When the events are independent the conditional factor equals the unconditional probability and the rule reduces to the plain product of the two probabilities.",
+          "aliases": [
+            "rule of multiplication",
+            "chain rule for two events"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "multiplicity",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-009"
+      ],
+      "ids": [
+        "term-multiplicity"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-009",
+          "id": "term-multiplicity",
+          "definition": "The situation in which a study carries out more than one hypothesis test, so that each additional test is another opportunity for a Type I error and the study's overall chance of at least one false alarm exceeds the level any single test was set at.",
+          "aliases": [
+            "multiple testing",
+            "multiple comparisons"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
       "term": "multiverse analysis",
       "status": "single-lesson",
       "sense": null,
@@ -3493,6 +4378,30 @@
           "definition": "A systematic analysis across many reasonable data-processing or analytic paths to reveal which choices materially affect a result.",
           "aliases": [
             "multiverse"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "mutually exclusive events",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-004"
+      ],
+      "ids": [
+        "term-mutually-exclusive-events"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-004",
+          "id": "term-mutually-exclusive-events",
+          "definition": "Two events that cannot both occur on the same trial, so the probability that both occur is zero and the probability that at least one occurs is the plain sum of their probabilities. Being in the early-dinner group and being in the late-dinner group is such a pair.",
+          "aliases": [
+            "disjoint events"
           ],
           "alignment": null
         }
@@ -3601,6 +4510,55 @@
       ]
     },
     {
+      "term": "negative predictive value",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-010"
+      ],
+      "ids": [
+        "term-negative-predictive-value"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-010",
+          "id": "term-negative-predictive-value",
+          "definition": "Among people whose test was negative, the share who do not have the target condition: P(condition absent given test negative). It divides the true negatives by a group defined by the test result, and it rises as the condition becomes less common in the group tested, moving opposite to the positive predictive value.",
+          "aliases": [
+            "NPV"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "no-difference value",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-007"
+      ],
+      "ids": [
+        "term-no-difference-value"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-007",
+          "id": "term-no-difference-value",
+          "definition": "The number an effect would take if the two groups being compared were the same: zero for a difference between two averages. Checking whether an interval contains it is the first thing most readers do, and it answers only whether the direction is supported.",
+          "aliases": [
+            "no-effect value",
+            "value of no difference"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
       "term": "nominal variable",
       "status": "single-lesson",
       "sense": null,
@@ -3621,6 +4579,111 @@
             "nominal scale",
             "unordered categorical variable",
             "nominal"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "normal distribution",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-005"
+      ],
+      "ids": [
+        "term-normal-distribution"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-005",
+          "id": "term-normal-distribution",
+          "definition": "One specific continuous probability distribution: symmetric about its centre, single-humped, and fixed entirely by a mean and a standard deviation. The name collides with two other senses a reader already holds. In plain English normal means usual; in a clinic a normal result is one inside a laboratory reference range. Neither is implied here, and a measurement can follow a normal distribution while every value in it is clinically alarming.",
+          "aliases": [
+            "Gaussian distribution",
+            "normal curve"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "null distribution",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-008"
+      ],
+      "ids": [
+        "term-null-distribution"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-008",
+          "id": "term-null-distribution",
+          "definition": "The distribution of results the null model predicts across repeats of the study. For the dinner-timing difference this lesson uses a normal approximation centred on 0 mg/dL with an estimated standard error of 4.13 mg/dL. A p-value is an area measured on the selected distribution, which is why the shape of the curve is itself a modelling assumption.",
+          "aliases": [
+            "distribution under the null",
+            "reference distribution"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "null hypothesis",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-008"
+      ],
+      "ids": [
+        "term-null-hypothesis"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-008",
+          "id": "term-null-hypothesis",
+          "definition": "A statement fixing the quantity under study at one specified value, adopted so that a model can predict what data should look like if it held. In this lesson it sets the true difference in mean fasting glucose between the late and early dinner groups at 0 mg/dL. It is adopted as a starting assumption for calculation and carries no suggestion that anyone believes it.",
+          "aliases": [
+            "H0",
+            "test hypothesis",
+            "null"
+          ],
+          "alignment": {
+            "priorLesson": "PREM-SCI-002",
+            "relation": "narrow",
+            "note": "PREM-SCI-002 defines a hypothesis as a proposed explanation or relationship from which observable expectations can be derived. A null hypothesis is one of those, narrowed in two ways: it must fix a numerical quantity at a single stated value, and it is adopted for the purpose of being tested against rather than because it is the explanation on offer. The scientific hypothesis in the dinner-timing study is that later dinners raise fasting glucose; the null hypothesis is its numerical foil, and scene 2 bridges the two senses where the word first appears in the new sense."
+          }
+        }
+      ]
+    },
+    {
+      "term": "number needed to treat",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-010"
+      ],
+      "ids": [
+        "term-number-needed-to-treat"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-010",
+          "id": "term-number-needed-to-treat",
+          "definition": "The reciprocal of a beneficial absolute risk reduction for a specified outcome and comparison: the number of people who would have to receive one condition instead of the other, over a stated period, for one additional person to benefit. A non-integer patient count is conventionally rounded upward. A zero reduction has no finite number needed to treat; if the intervention increases an unwanted outcome, the corresponding reciprocal is a number needed to harm. The measure is incomplete without its time period, comparison, and baseline risk.",
+          "aliases": [
+            "NNT",
+            "number needed to harm"
           ],
           "alignment": null
         }
@@ -3723,6 +4786,50 @@
             "relation": "extend",
             "note": "Relates this observer-knowledge mechanism to PREM-SCI-005's term-detection-bias. Detection bias can include broader systematic differences in outcome assessment, so it is not treated here as an exact alias."
           }
+        }
+      ]
+    },
+    {
+      "term": "odds ratio",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-010"
+      ],
+      "ids": [
+        "term-odds-ratio"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-010",
+          "id": "term-odds-ratio",
+          "definition": "The odds in one group divided by the odds in the other, equal to the cross-product of the diagonals of a two-by-two table of counts. It approximates the risk ratio when the outcome is rare and sits further from 1 than the risk ratio when the outcome is common, so it may not be read as a risk ratio without checking how often the outcome occurred.",
+          "aliases": [],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "odds",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-010"
+      ],
+      "ids": [
+        "term-odds"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-010",
+          "id": "term-odds",
+          "definition": "The probability that an event occurs divided by the probability that it does not, which counting people is cases per non-case. Odds and risk carry the same information and convert freely, by odds = risk / (1 - risk) and risk = odds / (1 + odds). The betting sense of the word contributes only the cases-to-non-cases form, and nothing about stakes or payouts.",
+          "aliases": [],
+          "alignment": null
         }
       ]
     },
@@ -3958,6 +5065,31 @@
       ]
     },
     {
+      "term": "p-value",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-008"
+      ],
+      "ids": [
+        "term-p-value"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-008",
+          "id": "term-p-value",
+          "definition": "The probability, computed on the assumption that the null hypothesis and every other assumption in the statistical model are correct, that the test statistic would be at least as extreme as the value actually observed. For the dinner-timing study the two-sided normal-approximation value is 0.029. It is a statement about data made under an assumption about the world, and it reports neither the probability that the null is true, nor the probability that chance produced the result, nor the size of any effect.",
+          "aliases": [
+            "p",
+            "observed significance level"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
       "term": "paired data",
       "status": "single-lesson",
       "sense": null,
@@ -3980,6 +5112,49 @@
             "paired"
           ],
           "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "parameter",
+      "status": "divergent",
+      "sense": "shifted",
+      "minDefinitionOverlap": 0.13,
+      "lessons": [
+        "PREM-STA-006",
+        "PREM-STA-007"
+      ],
+      "ids": [
+        "term-parameter"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-006",
+          "id": "term-parameter",
+          "definition": "A fixed numerical property of the whole population, such as its mean or its standard deviation. A parameter is one definite number that nobody has measured; a statistic computed from a sample is an estimate of it.",
+          "aliases": [
+            "population parameter"
+          ],
+          "alignment": {
+            "priorLesson": "PREM-SCI-010",
+            "relation": "distinct-sense",
+            "note": "PREM-SCI-010 defines a model parameter as a model quantity held fixed during one run and free to change between runs or calibrations. That is a setting the modeller chooses. The statistical sense used here is the opposite in one respect: a population parameter is a fact about the world that is fixed whether anyone knows it or not, and the whole point of a sample is to estimate it. Both senses are standard and the surrounding context decides which is meant; this lesson always means the population quantity."
+          }
+        },
+        {
+          "lessonId": "PREM-STA-007",
+          "id": "term-parameter",
+          "definition": "A fixed unknown quantity belonging to the population a sample was drawn from, such as the true difference in average fasting glucose between two ways of eating. It has one value, that value does not change when you sample, and no study observes it directly.",
+          "aliases": [
+            "population parameter",
+            "true value"
+          ],
+          "alignment": {
+            "priorLesson": "PREM-SCI-010",
+            "relation": "distinct-sense",
+            "note": "PREM-SCI-010 defines a model parameter as a quantity an author sets or adjusts inside a scientific model to make it behave. The statistical sense used here is the opposite arrangement: nobody sets it and nobody can read it off, because it belongs to the population and the study exists to estimate it. Both senses are standard and the concept scene bridges them where the word first appears in this lesson."
+          }
         }
       ]
     },
@@ -4147,6 +5322,31 @@
       ]
     },
     {
+      "term": "point estimate",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-007"
+      ],
+      "ids": [
+        "term-point-estimate"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-007",
+          "id": "term-point-estimate",
+          "definition": "The single value a sample gives for a quantity you want to know, such as the 9.0 mg/dL difference this study measured. It is the best guess the sample supports and it carries no information about how far off it might be.",
+          "aliases": [
+            "estimate",
+            "sample estimate"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
       "term": "population evidence",
       "status": "single-lesson",
       "sense": null,
@@ -4191,6 +5391,34 @@
       ]
     },
     {
+      "term": "population",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-006"
+      ],
+      "ids": [
+        "term-population"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-006",
+          "id": "term-population",
+          "definition": "The complete group a study means to describe, as opposed to the sample it actually measured. In this lesson the population has numerical properties of its own, including a mean and a standard deviation, and the sample's job is to estimate them.",
+          "aliases": [
+            "statistical population"
+          ],
+          "alignment": {
+            "priorLesson": "PREM-SCI-005",
+            "relation": "extend",
+            "note": "PREM-SCI-005 defines the target population as the whole group a study is meant to describe, as distinct from the group it enrolled, and this lesson keeps that meaning unchanged. What it adds is that the population has a mean and a standard deviation of its own, which are the quantities a sample mean and sample standard deviation estimate. The earlier lesson's point still governs everything here: a sample can at best speak for the frame it was drawn from, and no standard error repairs a frame that missed the intended population."
+          }
+        }
+      ]
+    },
+    {
       "term": "positive control",
       "status": "single-lesson",
       "sense": null,
@@ -4210,6 +5438,31 @@
           "aliases": [
             "positive-control condition",
             "known-response control"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "positive predictive value",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-010"
+      ],
+      "ids": [
+        "term-positive-predictive-value"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-010",
+          "id": "term-positive-predictive-value",
+          "definition": "Among people whose test was positive, the share who have the target condition: P(condition present given test positive). It divides the true positives by a group defined by the test result, so it describes the person holding that result, and it falls as the condition becomes less common in the group tested. Note that a positive result means the test fired, which for most tests is unwelcome news.",
+          "aliases": [
+            "PPV",
+            "post-test probability of a positive"
           ],
           "alignment": null
         }
@@ -4236,6 +5489,74 @@
             "power model"
           ],
           "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "power",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-009"
+      ],
+      "ids": [
+        "term-power"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-009",
+          "id": "term-power",
+          "definition": "The probability that a test rejects the null hypothesis when a stated alternative is true: power equals one minus beta. It rises with the size of the true effect and the sample size, and falls with the variability of the measurement and with a stricter significance level. A power figure quoted without naming the effect it was computed against describes nothing.",
+          "aliases": [
+            "statistical power"
+          ],
+          "alignment": {
+            "priorLesson": "PREM-QNT-010",
+            "relation": "distinct-sense",
+            "note": "PREM-QNT-010 uses power in the algebraic sense, in the relationship y = kx^p where p is the exponent of a power law, and PREM-QNT-001 defines an exponent in the same family of meanings. Statistical power shares nothing with that sense beyond the word: it is a probability between 0 and 1 attached to a study design, and no exponent is involved. The orientation scene names the collision with both the algebraic sense and the everyday sense of force or authority before the term is used."
+          }
+        }
+      ]
+    },
+    {
+      "term": "precision",
+      "status": "divergent",
+      "sense": "shifted",
+      "minDefinitionOverlap": 0.09,
+      "lessons": [
+        "PREM-STA-006",
+        "PREM-STA-007"
+      ],
+      "ids": [
+        "term-precision"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-006",
+          "id": "term-precision",
+          "definition": "How closely repeated attempts at the same quantity agree with one another. Applied to an estimate, it means how tightly the distribution of repeated estimates clusters around its population target, which is what the standard error measures. Precision says nothing about whether the estimate is aimed at the right population.",
+          "aliases": [],
+          "alignment": {
+            "priorLesson": "PREM-SCI-006",
+            "relation": "extend",
+            "note": "PREM-SCI-006 defines measurement precision as how closely replicate measured values agree under specified conditions, and warns that precision describes dispersion without establishing closeness to a reference. This lesson keeps that meaning and extends what is being replicated: instead of repeating a measurement on one thing, the repeat is the whole study on a fresh sample. The earlier lesson's warning carries across intact, and the clinical wrap-up restates it as the point that a larger sample buys precision and nothing else."
+          }
+        },
+        {
+          "lessonId": "PREM-STA-007",
+          "id": "term-precision",
+          "definition": "How tightly a study has pinned down the quantity it set out to estimate, read directly from the width of its interval. A narrow interval is a precise result and a wide one is an imprecise result, whatever the estimate at the centre happens to be.",
+          "aliases": [
+            "statistical precision"
+          ],
+          "alignment": {
+            "priorLesson": "PREM-SCI-006",
+            "relation": "distinct-sense",
+            "note": "PREM-SCI-006 owns measurement precision, which is how closely repeated measurements of the same thing by the same instrument agree. The sense used here is a property of a whole study's estimate, and the two are related without being the same: a precise instrument reduces the spread that feeds the standard error, but sample size moves this kind of precision and instrument quality alone cannot. The width scene keeps the two apart where they meet."
+          }
         }
       ]
     },
@@ -4289,12 +5610,42 @@
       ]
     },
     {
-      "term": "prevalence",
+      "term": "prespecified analysis",
       "status": "single-lesson",
       "sense": null,
       "minDefinitionOverlap": null,
       "lessons": [
-        "PREM-SCI-004"
+        "PREM-STA-009"
+      ],
+      "ids": [
+        "term-prespecified-analysis"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-009",
+          "id": "term-prespecified-analysis",
+          "definition": "A comparison named in the study protocol before the data were seen. Prespecification separates planned tests from data-selected ones and improves interpretability, but it does not remove multiplicity when several comparisons were planned; a confirmatory strategy must also allocate its error rate across the planned family.",
+          "aliases": [
+            "prespecified outcome",
+            "primary outcome"
+          ],
+          "alignment": {
+            "priorLesson": "PREM-SCI-009",
+            "relation": "extend",
+            "note": "PREM-SCI-009 defines preregistration as a dated research plan recorded before the relevant outcomes are known, so that planned decisions can be told apart from later changes and exploration. This lesson keeps that meaning and adds the multiplicity boundary: prespecification prevents data-driven selection but does not remove the need to control the family-wise error rate when several confirmatory comparisons are planned. The earlier lesson's distinction between planned and exploratory analysis is used here without being redefined."
+          }
+        }
+      ]
+    },
+    {
+      "term": "prevalence",
+      "status": "divergent",
+      "sense": "shifted",
+      "minDefinitionOverlap": 0.28,
+      "lessons": [
+        "PREM-SCI-004",
+        "PREM-STA-010"
       ],
       "ids": [
         "term-prevalence"
@@ -4309,6 +5660,19 @@
             "prevalence proportion"
           ],
           "alignment": null
+        },
+        {
+          "lessonId": "PREM-STA-010",
+          "id": "term-prevalence",
+          "definition": "The proportion of a defined population with a specified condition or characteristic at a stated time or over a stated period. In this lesson it is the share of a tested group whose reference standard says the target condition is present. The toy comparison changes this quantity while stipulating unchanged sensitivity and specificity so that its effect on predictive values can be isolated.",
+          "aliases": [
+            "pre-test probability"
+          ],
+          "alignment": {
+            "priorLesson": "PREM-SCI-004",
+            "relation": "adopt",
+            "note": "Adopts the definition established by PREM-SCI-004 without change: the proportion of a defined population with a specified condition at a stated time. This lesson applies that meaning to the group a test is used in, and shows that it is what separates a test's detection measures from its predictive values."
+          }
         }
       ]
     },
@@ -4333,6 +5697,86 @@
             "principal value"
           ],
           "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "probability density",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-005"
+      ],
+      "ids": [
+        "term-probability-density"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-005",
+          "id": "term-probability-density",
+          "definition": "The height of a continuous distribution's curve at a given value. Density is not probability: probability is area under the curve between two values, so the probability that a continuous measurement takes any one exact value is zero, and a question about a continuous measurement has to name a range before it has an answer.",
+          "aliases": [
+            "density"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "probability distribution",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-005"
+      ],
+      "ids": [
+        "term-probability-distribution"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-005",
+          "id": "term-probability-distribution",
+          "definition": "A rule assigning a probability to every range of values a measurement could take, describing the population a reading is drawn from rather than the readings in hand. For a measurement that can take any value in a range it is drawn as a curve, and probability is read as the area under that curve between two values.",
+          "aliases": [
+            "distribution model"
+          ],
+          "alignment": {
+            "priorLesson": "PREM-STA-002",
+            "relation": "distinct-sense",
+            "note": "PREM-STA-002 uses distribution for the observed shape of a set of measured values, read off a histogram of the data you have. A probability distribution is the idealised object standing behind those values: it covers readings nobody recorded, extends past both ends of the data, and assigns probability rather than counts. The lesson draws the second over the first and then checks whether the fit holds."
+          }
+        }
+      ]
+    },
+    {
+      "term": "probability model",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-005"
+      ],
+      "ids": [
+        "term-probability-model"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-005",
+          "id": "term-probability-model",
+          "definition": "A named probability distribution adopted to represent how one measurement is spread across its possible values, together with the parameter values chosen for it. Adopting one is a decision that can be checked against data and rejected, and this lesson treats the normal curve fitted to cohort fasting glucose as exactly that.",
+          "aliases": [
+            "distributional model"
+          ],
+          "alignment": {
+            "priorLesson": "PREM-SCI-010",
+            "relation": "narrow",
+            "note": "PREM-SCI-010 defines a scientific model broadly as a selective representation of a system built to answer a stated question. This lesson narrows the word to one job: representing the spread of a single measurement across its possible values. It keeps the earlier lesson's discipline of stated assumptions, a domain of use, and tests that can fail, and it drops any claim about mechanism."
+          }
         }
       ]
     },
@@ -4362,14 +5806,39 @@
       ]
     },
     {
+      "term": "probability",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-004"
+      ],
+      "ids": [
+        "term-probability"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-004",
+          "id": "term-probability",
+          "definition": "A number between 0 and 1 attached to a stated event under stated conditions. This lesson reads it as the relative frequency the event settles toward across many repetitions, which is what makes it checkable against a record.",
+          "aliases": [
+            "chance of an event"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
       "term": "proportion",
       "status": "divergent",
       "sense": "shifted",
-      "minDefinitionOverlap": 0.06,
+      "minDefinitionOverlap": 0.05,
       "lessons": [
         "PREM-QNT-003",
         "PREM-STA-001",
-        "PREM-STA-002"
+        "PREM-STA-002",
+        "PREM-STA-004"
       ],
       "ids": [
         "term-proportion"
@@ -4411,6 +5880,20 @@
             "priorLesson": "PREM-QNT-003",
             "relation": "distinct-sense",
             "note": "PREM-QNT-003 defines a proportion as an equation asserting that two ratios are equal, such as a/b = c/d, which a learner solves for an unknown. This block uses the statistical sense: a part-to-whole fraction between 0 and 1 attached to a count. Both senses are standard and neither replaces the other; the surrounding context decides which is meant, and the concept scene bridges them where the word first appears here."
+          }
+        },
+        {
+          "lessonId": "PREM-STA-004",
+          "id": "term-proportion",
+          "definition": "A part measured against the whole it came from, expressed as a number between 0 and 1. Every probability computed by counting in this lesson is a proportion in this sense: the count of outcomes in the event over the count of outcomes in the group being counted inside.",
+          "aliases": [
+            "part-to-whole fraction",
+            "share"
+          ],
+          "alignment": {
+            "priorLesson": "PREM-QNT-003",
+            "relation": "distinct-sense",
+            "note": "PREM-QNT-003 defines a proportion as an equation asserting that two ratios are equal, such as a/b = c/d, and flags that data-analysis lessons use the word differently. This lesson introduces that second, statistical sense: a part measured against its whole. Both senses are standard and neither replaces the other; the opening scene names the collision before the word is used, and only the part-to-whole sense appears afterwards."
           }
         }
       ]
@@ -4948,6 +6431,31 @@
       ]
     },
     {
+      "term": "reference standard",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-010"
+      ],
+      "ids": [
+        "term-reference-standard"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-010",
+          "id": "term-reference-standard",
+          "definition": "The procedure treated as giving the correct answer while a test is being judged against it. It is the best available comparison for the study at hand and not a guarantee of truth, so a test's reported figures describe its agreement with that particular standard.",
+          "aliases": [
+            "gold standard",
+            "criterion standard"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
       "term": "registered report",
       "status": "single-lesson",
       "sense": null,
@@ -4966,6 +6474,86 @@
           "definition": "A publication format in which a journal evaluates the research question and proposed method before results are known and later evaluates execution, justified changes, and conclusions.",
           "aliases": [
             "registered reports"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "regression model",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-011"
+      ],
+      "ids": [
+        "term-regression-model"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-011",
+          "id": "term-regression-model",
+          "definition": "A fitted equation giving an expected value of one measured quantity from one or more others, together with the acknowledgement that individual observations depart from it. In this lesson the fitted part is a straight line, y = a + bx, and the departures are the residuals.",
+          "aliases": [
+            "model",
+            "fitted model",
+            "linear model"
+          ],
+          "alignment": {
+            "priorLesson": "PREM-QNT-010",
+            "relation": "narrow",
+            "note": "PREM-QNT-010 narrowed 'model' from the broad scientific sense to one fitted relationship, y = kx^p, judged by fit, residuals, and assumptions instead of by mechanism. This lesson narrows the word again to a different family of shapes: an additive equation with an intercept and a rate per unit of each predictor. The standard of judgment carries over unchanged, so a learner holding that meaning need only swap the shape, and neither sense claims to explain why anything happens. The concept scene bridges the two where the word first appears here."
+          }
+        }
+      ]
+    },
+    {
+      "term": "regression",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-011"
+      ],
+      "ids": [
+        "term-regression"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-011",
+          "id": "term-regression",
+          "definition": "A family of methods that describe one measured quantity, the response, in terms of one or more others, the predictors, by fitting a function to observed data. The word carries none of its everyday sense of sliding backwards or deteriorating; it is a historical label for the fitting method. When a paper reports that the authors ran a regression, it means they fitted a relationship of this kind.",
+          "aliases": [
+            "regression analysis",
+            "fitting a regression"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "relative frequency",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-004"
+      ],
+      "ids": [
+        "term-relative-frequency"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-004",
+          "id": "term-relative-frequency",
+          "definition": "The share of recorded trials in which an event occurred: the count of occurrences divided by the number of trials so far. It is an observed quantity that moves as a record grows, unlike the fixed probability it approaches.",
+          "aliases": [
+            "observed frequency",
+            "running share"
           ],
           "alignment": null
         }
@@ -5150,12 +6738,37 @@
       ]
     },
     {
-      "term": "residual",
+      "term": "residual plot",
       "status": "single-lesson",
       "sense": null,
       "minDefinitionOverlap": null,
       "lessons": [
-        "PREM-QNT-010"
+        "PREM-STA-011"
+      ],
+      "ids": [
+        "term-residual-plot"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-011",
+          "id": "term-residual-plot",
+          "definition": "A scatter of the residuals against the predictor, with a reference line at zero. Because the fitted trend has been subtracted away, any remaining pattern is displayed at full height. An arch, a funnel, or an influential point can indicate a specific fault; a shapeless band provides no clear evidence against the fitted form over the observed range but does not prove it uniquely correct.",
+          "aliases": [
+            "plot of residuals"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "residual",
+      "status": "divergent",
+      "sense": "shifted",
+      "minDefinitionOverlap": 0.3,
+      "lessons": [
+        "PREM-QNT-010",
+        "PREM-STA-011"
       ],
       "ids": [
         "term-residual"
@@ -5170,6 +6783,20 @@
             "prediction error"
           ],
           "alignment": null
+        },
+        {
+          "lessonId": "PREM-STA-011",
+          "id": "term-residual",
+          "definition": "An observed value minus the value the fitted model gives at the same input, in the units of the response. A positive residual means the observation came in above the fitted line, a negative one below it.",
+          "aliases": [
+            "prediction error",
+            "leftover"
+          ],
+          "alignment": {
+            "priorLesson": "PREM-QNT-010",
+            "relation": "adopt",
+            "note": "PREM-QNT-010 defined a residual as the observed response minus the response predicted by a model at the same input, and this lesson keeps that meaning exactly. Only the fitted shape differs: a straight line here, a power relationship there. The lesson also flags that the everyday clinical sense of 'residual', meaning something left behind in a patient, is unrelated to the vertical distance meant here."
+          }
         }
       ]
     },
@@ -5273,6 +6900,106 @@
       ]
     },
     {
+      "term": "right-skewed distribution",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-005"
+      ],
+      "ids": [
+        "term-right-skewed-distribution"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-005",
+          "id": "term-right-skewed-distribution",
+          "definition": "A distribution whose values crowd towards the low end and thin out slowly towards the high end; its mean is often above its median because high values pull the mean towards the long tail. A lower bound and no stated upper bound do not by themselves force this shape, so skew must be supported by the observed distribution or summaries such as a mean above the median. No normal distribution can reproduce established skew because the normal family has no parameter that permits a lean.",
+          "aliases": [
+            "positively skewed distribution",
+            "right skew"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "risk difference",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-010"
+      ],
+      "ids": [
+        "term-risk-difference"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-010",
+          "id": "term-risk-difference",
+          "definition": "One group's risk subtracted from the other's. It is an absolute measure: it keeps the units of the outcome, so it states how many people per hundred, or per thousand, the comparison moves. When the comparison is an intervention that lowers risk it is usually called the absolute risk reduction.",
+          "aliases": [
+            "absolute risk reduction",
+            "absolute effect"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "risk ratio",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-010"
+      ],
+      "ids": [
+        "term-risk-ratio"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-010",
+          "id": "term-risk-ratio",
+          "definition": "One group's risk divided by the other's. It is a relative measure: the units cancel, so it states how many times as large one risk is and says nothing about where either started. One minus the ratio is the relative risk reduction.",
+          "aliases": [
+            "relative risk",
+            "relative effect"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "risk",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-010"
+      ],
+      "ids": [
+        "term-risk"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-010",
+          "id": "term-risk",
+          "definition": "The probability that a stated outcome occurs in a stated group over a stated period, written as a share of that group. It is a conditional probability with the group named in the condition, and it carries no verdict about harm: a risk of recovery is a risk in this sense. The everyday sense of danger is a different meaning of the word.",
+          "aliases": [
+            "absolute risk",
+            "event rate"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
       "term": "robustness",
       "status": "single-lesson",
       "sense": null,
@@ -5297,6 +7024,68 @@
       ]
     },
     {
+      "term": "sample space",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-004"
+      ],
+      "ids": [
+        "term-sample-space"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-004",
+          "id": "term-sample-space",
+          "definition": "The set of all outcomes that a stated chance procedure can produce, with each outcome listed once. Drawing one of sixty study rows at random has a sample space of those sixty rows.",
+          "aliases": [
+            "outcome set"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "sampling distribution",
+      "status": "divergent",
+      "sense": "shifted",
+      "minDefinitionOverlap": 0.2,
+      "lessons": [
+        "PREM-STA-006",
+        "PREM-STA-007"
+      ],
+      "ids": [
+        "term-sampling-distribution"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-006",
+          "id": "term-sampling-distribution",
+          "definition": "The distribution of the values a statistic would take across repeated samples of a fixed size drawn from the same population. For a sample mean it is centred on the population mean and is narrower than the distribution of the individual observations.",
+          "aliases": [
+            "sampling distribution of the mean"
+          ],
+          "alignment": null
+        },
+        {
+          "lessonId": "PREM-STA-007",
+          "id": "term-sampling-distribution",
+          "definition": "The distribution of an estimate across every sample of a given size that could have been drawn under a stated model. For an unbiased estimator it is centred on the fixed true parameter, not on the estimate from one observed sample, and its spread is the standard error.",
+          "aliases": [
+            "distribution of the estimate"
+          ],
+          "alignment": {
+            "priorLesson": "PREM-STA-006",
+            "relation": "adopt",
+            "note": "PREM-STA-006 owns this term and this lesson keeps its meaning unchanged. This lesson uses it only to distinguish the fixed parameter from the estimates and intervals that vary across repeated samples; it does not centre a hypothetical repeat-study distribution on the observed estimate."
+          }
+        }
+      ]
+    },
+    {
       "term": "sampling frame",
       "status": "single-lesson",
       "sense": null,
@@ -5315,6 +7104,35 @@
           "definition": "The list or route through which a study can actually reach people — a resident register, an appointment list, the room a recruitment poster hangs in. A sample can at best represent its frame, and a frame can fall short of the target population.",
           "aliases": [],
           "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "sampling variation",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-006"
+      ],
+      "ids": [
+        "term-sampling-variation"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-006",
+          "id": "term-sampling-variation",
+          "definition": "The differences between results computed from different samples drawn the same way from the same population. It arises because each sample contains different individuals, and it is present even when every step of the study was carried out correctly.",
+          "aliases": [
+            "sampling variability",
+            "sampling error"
+          ],
+          "alignment": {
+            "priorLesson": "PREM-SCI-008",
+            "relation": "narrow",
+            "note": "PREM-SCI-008 defines random error as unpredictable variation across repetitions that contributes imprecision rather than a systematic shift, and lists sampling variation as one of its components alongside unpredictable measurement variation. This lesson uses that same idea narrowed to the sampling component only: the variation produced by drawing different individuals, with measurement held fixed. The word error in the alias sampling error carries no suggestion of a mistake, and the orientation scene says so before the term is used."
+          }
         }
       ]
     },
@@ -5628,6 +7446,71 @@
       ]
     },
     {
+      "term": "sensitivity",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-010"
+      ],
+      "ids": [
+        "term-sensitivity"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-010",
+          "id": "term-sensitivity",
+          "definition": "Among people who have the target condition according to the reference standard, the share whose test is positive: P(test positive given condition present). It divides the true positives by a group defined by the reference standard and describes test performance in the evaluated setting, not the probability that a positive result is correct. The everyday sense of being easily affected is unrelated, and so is the sensitivity analysis of PREM-SCI-009 and PREM-SCI-010, which reruns a result under different assumptions.",
+          "aliases": [
+            "true positive rate",
+            "detection rate"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "significance level",
+      "status": "divergent",
+      "sense": "shifted",
+      "minDefinitionOverlap": 0.14,
+      "lessons": [
+        "PREM-STA-008",
+        "PREM-STA-009"
+      ],
+      "ids": [
+        "term-significance-level"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-008",
+          "id": "term-significance-level",
+          "definition": "A probability chosen before the data are seen, setting how far into the tail of the null distribution a result must fall before the analysis calls the data incompatible with the null. It belongs to the study's design and is conventionally 0.05. It is compared with the p-value and is a separate quantity from it, since one is fixed in advance and the other is measured afterwards.",
+          "aliases": [
+            "alpha",
+            "cut-off"
+          ],
+          "alignment": null
+        },
+        {
+          "lessonId": "PREM-STA-009",
+          "id": "term-significance-level",
+          "definition": "The cut-off a study fixes in advance for rejecting the null hypothesis, written alpha. Setting it at 0.05 accepts a 5 in 100 chance of rejecting a true null. It is a design decision made before the data arrive and is not adjusted in light of them.",
+          "aliases": [
+            "alpha",
+            "alpha level"
+          ],
+          "alignment": {
+            "priorLesson": "PREM-STA-008",
+            "relation": "adopt",
+            "note": "PREM-STA-008 introduces hypothesis testing, the p-value, and the threshold a p-value is compared against, and this lesson keeps that meaning unchanged. What is added here is the reading of the threshold as a rate: the proportion of studies of a true null that would reject it. Anything about how a p-value is computed or what it conditions on belongs to the earlier lesson, and this lesson assumes it. The everyday sense of the word describing a result as noteworthy is not used anywhere in this block."
+          }
+        }
+      ]
+    },
+    {
       "term": "simple randomization",
       "status": "single-lesson",
       "sense": null,
@@ -5699,6 +7582,32 @@
       ]
     },
     {
+      "term": "slope",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-011"
+      ],
+      "ids": [
+        "term-slope"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-011",
+          "id": "term-slope",
+          "definition": "The fitted change in the response for a one-unit increase in the predictor, carrying the units of the response divided by the units of the predictor. In this lesson it is −3.37 mg/dL per hour. Its sign depends on the direction the predictor was defined to count, so a slope means nothing until the axis is named.",
+          "aliases": [
+            "regression coefficient",
+            "gradient",
+            "b"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
       "term": "solution set",
       "status": "single-lesson",
       "sense": null,
@@ -5723,12 +7632,37 @@
       ]
     },
     {
-      "term": "standard deviation",
+      "term": "specificity",
       "status": "single-lesson",
       "sense": null,
       "minDefinitionOverlap": null,
       "lessons": [
-        "PREM-STA-003"
+        "PREM-STA-010"
+      ],
+      "ids": [
+        "term-specificity"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-010",
+          "id": "term-specificity",
+          "definition": "Among people who do not have the target condition according to the reference standard, the share whose test is negative: P(test negative given condition absent). It divides the true negatives by a group defined by the reference standard and describes test performance in the evaluated setting. Its complement is the false-positive rate.",
+          "aliases": [
+            "true negative rate"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "standard deviation",
+      "status": "divergent",
+      "sense": "shifted",
+      "minDefinitionOverlap": 0.12,
+      "lessons": [
+        "PREM-STA-003",
+        "PREM-STA-006"
       ],
       "ids": [
         "term-standard-deviation"
@@ -5742,6 +7676,192 @@
           "aliases": [
             "SD",
             "sample standard deviation"
+          ],
+          "alignment": null
+        },
+        {
+          "lessonId": "PREM-STA-006",
+          "id": "term-standard-deviation",
+          "definition": "The square root of a distribution's variance, returning its spread to the unit of the values. It can describe any distribution, including a distribution of individual observations or a sampling distribution. The sample standard deviation s describes the observed sample and estimates the population standard deviation sigma; the standard deviation of a statistic's sampling distribution is its standard error.",
+          "aliases": [
+            "SD"
+          ],
+          "alignment": {
+            "priorLesson": "PREM-STA-003",
+            "relation": "adopt",
+            "note": "PREM-STA-003 owns this term and this lesson keeps its meaning exactly. It is restated here only because the whole misconception scene turns on holding it apart from the standard error, and a learner needs both definitions in view at once to do that. Anything about how a standard deviation is computed from the data belongs to the earlier lesson."
+          }
+        }
+      ]
+    },
+    {
+      "term": "standard error",
+      "status": "divergent",
+      "sense": "shifted",
+      "minDefinitionOverlap": 0.09,
+      "lessons": [
+        "PREM-STA-006",
+        "PREM-STA-007"
+      ],
+      "ids": [
+        "term-standard-error"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-006",
+          "id": "term-standard-error",
+          "definition": "The standard deviation of a statistic's sampling distribution, measuring its spread across repeated samples. For a mean of independent observations it is the population standard deviation sigma divided by the square root of n. Because sigma is usually unknown, s divided by the square root of n is reported as an estimated standard error. Comparing two independent means requires combining both standard errors rather than treating one as the spread around the other.",
+          "aliases": [
+            "standard error of the mean",
+            "SE",
+            "SEM"
+          ],
+          "alignment": {
+            "priorLesson": "PREM-SCI-006",
+            "relation": "distinct-sense",
+            "note": "PREM-SCI-006 defines measurement error as the difference between a measured value and a reference value, which is the sense in which a mis-calibrated meter produces an error. A standard error contains the same word and reports something else entirely: how far a correctly computed statistic would move if the study were repeated on different people. No measurement is wrong when a standard error is large. The orientation scene names this collision before the term is first used and keeps both senses available."
+          }
+        },
+        {
+          "lessonId": "PREM-STA-007",
+          "id": "term-standard-error",
+          "definition": "The standard deviation of an estimate across repeated samples of the same size: how far the study's number would move if the whole study were run again on fresh people. It sets the unit an interval is measured in.",
+          "aliases": [
+            "SE",
+            "standard error of the estimate"
+          ],
+          "alignment": {
+            "priorLesson": "PREM-STA-006",
+            "relation": "adopt",
+            "note": "PREM-STA-006 owns this term and its derivation from the sampling distribution, and this lesson keeps that meaning unchanged. Nothing new is added to the definition here; the standard error is taken as an input and turned into the width of an interval. A learner who cannot say what the standard error describes is sent back to that lesson in the opening scene."
+          }
+        }
+      ]
+    },
+    {
+      "term": "standard normal distribution",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-005"
+      ],
+      "ids": [
+        "term-standard-normal-distribution"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-005",
+          "id": "term-standard-normal-distribution",
+          "definition": "The normal distribution with mean 0 and standard deviation 1, which is what any normal measurement becomes once it has been standardised. Because every normal distribution maps onto this one, the same three percentages describe the bands at ±1, ±2 and ±3 for every measurement ever standardised.",
+          "aliases": [
+            "z distribution"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "statistic",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-006"
+      ],
+      "ids": [
+        "term-statistic"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-006",
+          "id": "term-statistic",
+          "definition": "Any value computed from the observations in a sample, such as their mean, their standard deviation, or the proportion of them above a cut-point. Because the sample was one of many that could have been drawn, a statistic is a quantity that would come out differently on a repeat.",
+          "aliases": [
+            "sample statistic"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "statistical adjustment",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-011"
+      ],
+      "ids": [
+        "term-statistical-adjustment"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-011",
+          "id": "term-statistical-adjustment",
+          "definition": "Comparing observations that already match on one or more recorded variables, so those variables cannot account for the difference being reported. It is arithmetic performed on data already collected, not an intervention, so it reaches only the variables somebody measured and only as well as they were measured.",
+          "aliases": [
+            "adjusting for",
+            "controlling for",
+            "holding constant"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "statistical model",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-008"
+      ],
+      "ids": [
+        "term-statistical-model"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-008",
+          "id": "term-statistical-model",
+          "definition": "The full set of assumptions needed to turn a hypothesis into a prediction about data. For the dinner-timing comparison it holds the null value, the treatment of participants as independent contributors, the within-group spread of 16 mg/dL, the shape of the reference curve, and the assumption that the analysis reported was the analysis planned. Every probability in this lesson is computed inside this set, so it inherits every fault the set contains.",
+          "aliases": [
+            "the model",
+            "model assumptions"
+          ],
+          "alignment": {
+            "priorLesson": "PREM-SCI-010",
+            "relation": "narrow",
+            "note": "PREM-SCI-010 defines a scientific model as a selective representation of a system built to answer a stated question, and PREM-SCI-010's term-model-assumption as a simplification accepted so the model can represent selected relationships. This lesson narrows both to the statistical case: the representation is of how data would be generated under a stated hypothesis, and its assumptions are the specific conditions a test's probability calculation relies on. The narrower sense does not replace the broader one, and the assumptions here are model assumptions in exactly PREM-SCI-010's sense."
+          }
+        }
+      ]
+    },
+    {
+      "term": "statistically significant",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-008"
+      ],
+      "ids": [
+        "term-statistically-significant"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-008",
+          "id": "term-statistically-significant",
+          "definition": "A label applied to a test result whose p-value falls at or below the significance level chosen in advance. It records where one number landed relative to a threshold. In this technical sense the word carries no information about how large an effect is, how important it is, or whether anyone should act on it, which separates it sharply from the everyday sense of significant meaning sizeable or worth attention.",
+          "aliases": [
+            "statistical significance",
+            "significant at the 0.05 level"
           ],
           "alignment": null
         }
@@ -5765,6 +7885,30 @@
           "id": "term-statistics",
           "definition": "Methods for describing variation in data and reasoning carefully from observations to bounded conclusions.",
           "aliases": [],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "subgroup analysis",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-009"
+      ],
+      "ids": [
+        "term-subgroup-analysis"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-009",
+          "id": "term-subgroup-analysis",
+          "definition": "A comparison carried out within part of the study population, such as women over 60 or patients above a body mass index cut-point. Subgroups are usually smaller than the whole study, and examining many raises multiplicity concerns. A claim that effects differ between subgroups requires an appropriate interaction analysis, not merely significance in one subgroup and non-significance in another.",
+          "aliases": [
+            "subgroup effect"
+          ],
           "alignment": null
         }
       ]
@@ -5866,6 +8010,30 @@
       ]
     },
     {
+      "term": "t distribution",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-007"
+      ],
+      "ids": [
+        "term-t-distribution"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-007",
+          "id": "term-t-distribution",
+          "definition": "A curve shaped like the normal one but with slightly heavier tails, used in place of it when the spread of the data had to be estimated from the same sample as the estimate. Its multipliers are a little larger than the normal ones, and the difference shrinks as the sample grows.",
+          "aliases": [
+            "Student's t distribution"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
       "term": "tangent",
       "status": "single-lesson",
       "sense": null,
@@ -5944,6 +8112,31 @@
           "definition": "The quantity that a measurement is intended to estimate, such as the duration of a specified event.",
           "aliases": [
             "quantity of interest"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "test statistic",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-008"
+      ],
+      "ids": [
+        "term-test-statistic"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-008",
+          "id": "term-test-statistic",
+          "definition": "A number computed from the data to measure how far the observation sits from what the model predicts, built so that it grows as the data depart from the hypothesis. In this lesson it is the observed difference minus the null value, divided by the standard error, which expresses the gap in standard errors and so removes the original units. The two-mean worked examples label it z because they use a declared normal approximation; another procedure may use a different reference curve and label.",
+          "aliases": [
+            "t statistic",
+            "z statistic"
           ],
           "alignment": null
         }
@@ -6046,6 +8239,66 @@
             "cut axis"
           ],
           "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "type i error",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-009"
+      ],
+      "ids": [
+        "term-type-i-error"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-009",
+          "id": "term-type-i-error",
+          "definition": "Rejecting the null hypothesis when it is true: announcing an effect that is not there. Its probability, fixed by the investigator before the study, is the significance level alpha. It names a decision that did not match reality and never a mistake in the conduct of the study.",
+          "aliases": [
+            "false positive",
+            "alpha error",
+            "error of the first kind"
+          ],
+          "alignment": {
+            "priorLesson": "PREM-SCI-006",
+            "relation": "distinct-sense",
+            "note": "PREM-SCI-006 defines measurement error as the difference between a measured value and an appropriate reference quantity, which is the sense in which a mis-calibrated meter produces an error. A Type I error contains the same word and reports something else entirely: a correctly executed test on honest data reached a decision that happened not to match the world. No measurement is wrong when a Type I error occurs. The orientation scene names this collision in learner prose before either error term is used, and keeps the measurement sense available."
+          }
+        }
+      ]
+    },
+    {
+      "term": "type ii error",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-009"
+      ],
+      "ids": [
+        "term-type-ii-error"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-009",
+          "id": "term-type-ii-error",
+          "definition": "Failing to reject the null hypothesis when it is false: missing an effect that is there. Its probability is written beta, and unlike alpha it is not chosen. It depends on the size of the real effect, the sample size, the variability of the measurement, and the threshold, so it has no single value for a study until an effect size is named.",
+          "aliases": [
+            "false negative",
+            "beta error",
+            "error of the second kind"
+          ],
+          "alignment": {
+            "priorLesson": "PREM-SCI-008",
+            "relation": "distinct-sense",
+            "note": "PREM-SCI-008 defines random error as unpredictable variation across repetitions that contributes imprecision rather than a systematic shift. That is a property of measurements and samples. A Type II error is a property of a decision rule: the test looked, and concluded nothing was there while something was. Sampling variation is one of the reasons a Type II error happens, so the two ideas are connected, but they are not the same object and this lesson never uses error in the earlier lesson's sense."
+          }
         }
       ]
     },
@@ -6246,6 +8499,31 @@
           "id": "term-vector",
           "definition": "A mathematical object that supports vector addition and multiplication by scalars and can be represented by signed components in a chosen basis; only a nonzero Euclidean vector has a unique direction.",
           "aliases": [],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "z-score",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-005"
+      ],
+      "ids": [
+        "term-z-score"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-005",
+          "id": "term-z-score",
+          "definition": "A measurement re-expressed as its distance from the mean of a stated reference distribution, counted in standard deviations: z = (x − μ)/σ. It carries no units, so it compares quantities that share none, and it is unchanged by converting the original measurement between units. It reports distance only; turning it into a probability requires a distributional assumption that has been checked.",
+          "aliases": [
+            "standard score",
+            "standardised value"
+          ],
           "alignment": null
         }
       ]
