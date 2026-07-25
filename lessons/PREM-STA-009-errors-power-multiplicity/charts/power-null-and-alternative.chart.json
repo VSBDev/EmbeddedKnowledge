@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-chart-v1",
+  "id": "chart-power-null-and-alternative",
+  "type": "normal-curve",
+  "title": "Two worlds the dinner-timing study could be in, drawn on one axis",
+  "alt": "Two bell curves of equal width on one axis, one centred on 0 and one centred on 9.0 mg/dL, with dashed lines at -8.09, 0 and +8.09, and the part of the 9.0 curve beyond +8.09 shaded.",
+  "longDescription": "The horizontal axis is the difference in mean fasting glucose the study would report, late group minus early group, running from -18 to 26 mg/dL. Both curves have a standard deviation of 4.13 mg/dL, which is the standard error of that difference for this 60-person design, so they are the same width and differ only in where they sit. The curve centred on 9.0 is the alternative: it says where the reported difference would land across repeats of the study if the true difference really were 9.0 mg/dL. The curve centred on 0 is the null: where the reported difference would land if dinner timing made no difference at all. Three dashed vertical lines mark -8.09, 0 and +8.09 mg/dL. The two outer lines are the critical values, 1.96 standard errors either side of zero, and a two-sided test at a significance level of 0.05 rejects the null when the reported difference falls beyond one of them. One area is shaded, and it lies under the alternative curve to the right of +8.09. That shaded area is the power of this design against a true difference of 9.0 mg/dL, and it is 0.587: 59 repeats in 100 would report a difference far enough from zero to cross the threshold. The unshaded remainder of that same alternative curve, everything to the left of +8.09, is the Type II error rate beta, and it is 0.413: 41 repeats in 100 would report a difference too close to zero and would miss a real effect. Alpha lives on the other curve and is not shaded, so that shading always means an area under the alternative. Under the null curve centred on 0, the tail beyond +8.09 holds 0.025 of the area and the tail beyond -8.09 holds another 0.025, which is the 0.05 significance level. On the picture those two alpha tails are the thin feet of the null curve where it crosses the outer dashed lines. Read the chart as one comparison. The same vertical line at +8.09 cuts both curves: on the null curve it separates alpha from the rest, and on the alternative curve it separates power from beta.",
+  "xAxis": {
+    "label": "Difference in mean fasting glucose the study reports, late minus early",
+    "unit": "mg/dL",
+    "min": -18,
+    "max": 26,
+    "ticks": [
+      { "at": -18, "label": "-18" },
+      { "at": -12, "label": "-12" },
+      { "at": -6, "label": "-6" },
+      { "at": 0, "label": "0" },
+      { "at": 6, "label": "6" },
+      { "at": 12, "label": "12" },
+      { "at": 18, "label": "18" },
+      { "at": 24, "label": "24" }
+    ]
+  },
+  "yAxis": {
+    "label": "Relative frequency across repeats of the study",
+    "unit": null,
+    "min": 0,
+    "max": 0.105,
+    "ticks": [{ "at": 0, "label": "0" }]
+  },
+  "series": [
+    {
+      "id": "series-alternative-nine",
+      "label": "Alternative: the true difference is 9.0 mg/dL",
+      "mean": 9.0,
+      "sd": 4.13
+    },
+    {
+      "id": "series-null-zero",
+      "label": "Null: the true difference is zero",
+      "mean": 0,
+      "sd": 4.13
+    }
+  ],
+  "shadedRegions": [
+    {
+      "from": 8.09,
+      "to": "inf",
+      "label": "Power, 0.587, under the alternative curve: repeats that cross +8.09 when the true difference is 9.0 mg/dL"
+    }
+  ],
+  "markers": [
+    { "x": -8.09, "label": "-8.09" },
+    { "x": 0, "label": "0" },
+    { "x": 8.09, "label": "+8.09" }
+  ]
+}
