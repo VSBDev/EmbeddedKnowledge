@@ -43,7 +43,28 @@ jobs:
         run: npm run graph:build && npm run site:build
       - name: Verify committed generated output matches a fresh build
         run: |
-          if ! git diff --exit-code -- site/; then
+          # The corpus-wide aggregates depend on every published lesson, so requiring each lesson
+          # pull request to carry them made every merge invalidate every other open request: the
+          # cost of merging n lessons grew with n squared, and the branches spent longer being
+          # re-synced than reviewed. They are refreshed on main by refresh-generated.yml instead,
+          # and are excluded here so a lesson only owns the output derived from itself.
+          AGGREGATES=(
+            ':!site/data/premed-lessons.json'
+            ':!site/data/psychiatry-lessons.json'
+            ':!site/data/premed-progress.json'
+            ':!site/data/psychiatry-progress.json'
+            ':!site/data/premed-terminology.json'
+            ':!site/data/psychiatry-terminology.json'
+            ':!site/premed/index.html'
+            ':!site/psychiatry/index.html'
+            ':!site/llms-full.txt'
+          )
+          if [ "${{ github.event_name }}" = "push" ]; then
+            TARGET=(site/)
+          else
+            TARGET=(site/ "${AGGREGATES[@]}")
+          fi
+          if ! git diff --exit-code -- "${TARGET[@]}"; then
             echo "::error::Committed generated files under site/ do not match a fresh build."
             echo "The files above were committed by hand or are stale. Run:"
             echo "  npm run graph:build && npm run site:build"
