@@ -177,6 +177,27 @@ To repair an already-mis-pinned review without re-running the agent: realign the
 past the immutable earlier COMMENTED ones), regenerate the exact body, and re-submit pinned via the
 REST endpoint.
 
+## Refresh the generated aggregates after a batch
+
+The lesson indexes, progress and terminology ledgers, landing-page counters, and agent context
+derive from every published lesson. Lesson pull requests no longer carry them, because requiring it
+made every merge invalidate every other open request: nine open lessons meant nine re-syncs and nine
+more validation runs for each single merge.
+
+They cannot be refreshed automatically either. This repository sets the default workflow token to
+read-only, and the `main` ruleset requires a pull request with no bypass actor, so nothing running in
+Actions can commit here. Both settings are right, and neither is worth weakening to update a counter.
+
+So it is one operator step after a batch of lessons merges:
+
+```bash
+bash scripts/refresh-generated-output.sh
+```
+
+It rebuilds from the merged corpus and opens a single pull request with the result, or reports that
+nothing drifted. Run it before checking the served counters, since until it runs the site still shows
+the count from the previous refresh.
+
 ## Keep branches current and clean
 
 - **Strict status checks.** The `main protection contract` ruleset sets
