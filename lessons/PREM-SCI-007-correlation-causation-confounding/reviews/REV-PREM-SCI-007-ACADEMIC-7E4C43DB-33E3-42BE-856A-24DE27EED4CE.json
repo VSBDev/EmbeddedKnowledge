@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-SCI-007-ACADEMIC-7E4C43DB-33E3-42BE-856A-24DE27EED4CE",
+  "lessonId": "PREM-SCI-007",
+  "lessonVersion": "0.2.0",
+  "candidateCommit": "394b402e4005e3e4f336ac6e19c0145f0731eacb",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable operator, academic review",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-SCI-007-7E4C43DB-33E3-42BE-856A-24DE27EED4CE",
+      "instructionsDigest": "sha256:350edcdea04b1345f9819121d80451116d1e1d5e94c0d0871b6af009ad24c618"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#id-version-outcomes-objectives-scenes",
+    "content/01-read-the-claim.md#the-same-difference-can-support-different-claims",
+    "content/02-build-the-map.md#ask-what-the-evidence-is-trying-to-prove",
+    "content/03-audit-the-app-study.md#worked-example-app-evidence",
+    "content/04-repair-and-practise.md#do-not-adjust-by-reflex",
+    "content/05-transfer-the-judgment.md#transfer-the-judgment-to-a-laboratory-system",
+    "content/06-mastery-and-spacing.md#make-the-strongest-claim-the-design-can-carry",
+    "content/07-clinical-wrap-up.md#clinical-wrap-up-test-the-late-dinner-correlation",
+    "assessment.json#items",
+    "assessment.json#rubrics",
+    "claims.json#claims",
+    "references.json#source-causal-diagrams",
+    "references.json#source-natural-experiments",
+    "references.json#source-randomized-trials",
+    "references.json#source-mechanistic-evidence",
+    "references.json#source-negative-controls",
+    "references.json#source-triangulation",
+    "glossary.json#terms",
+    "diagrams/third-variable-roles.diagram.json#nodes-and-edges",
+    "ATTRIBUTION.md#lesson-identity-and-accountability",
+    "ATTRIBUTION.md#candidate-boundary"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "lesson.json#scene-clinical-wrap-up.claimCoverage",
+      "finding": "The clinical synthesis is declared no-material-claims even though content/07-clinical-wrap-up.md teaches evidence-dependent distinctions among association, mechanism, confounding, mediation, collider conditioning, adjustment, identifying assumptions, and causal attribution. None of those repeated claims is mapped to this scene, and the scene has no learner-visible source note. This leaves a health-framed application of the lesson's central model outside the evidence chain.",
+      "resolution": "Change the scene to claims-mapped, add scene-clinical-wrap-up to every applicable claim in claims.json, and add a same-scene source note listing all supporting sources. If any genuinely medical empirical claim is introduced during repair, support it with an appropriate medical source rather than relying only on the general causal-inference references."
+    },
+    {
+      "severity": "major",
+      "target": "content/07-clinical-wrap-up.md#3-choose-adjustment-for-the-causal-question",
+      "finding": "The proposed conclusion says that changing habitual dinner timing \"would increase\" fasting glucose merely after stipulating a positive adjusted contrast and a partial assumption list. No precision information is supplied, so the direction of the underlying effect remains uncertain by the lesson's own reasoning in the app example and randomized assessment item. The assumption list also omits whether earlier-versus-later dinner is a sufficiently well-defined, feasible contrast and whether comparable units exist across the relevant exposure levels. The result is stronger causal language in a clinical context than the described evidence warrants.",
+      "resolution": "Recast the conclusion as an uncertain adjusted estimate rather than an established increase, explicitly preserving uncertainty in direction when no interval or equivalent precision evidence is supplied. Either add plain-language versions of the well-defined-intervention and exposure-overlap assumptions or state that the introductory audit is insufficient for a bounded causal attribution in this case."
+    },
+    {
+      "severity": "major",
+      "target": "claims.json#claims[*].reviewStatus",
+      "finding": "All eight claims are marked reviewed in the frozen version 0.2.0 candidate even though lesson.json still records pending-review and this run is the academic review of that exact candidate. The current clinical scene also applies those claims without being mapped. These values therefore represent an academic-review state that the present candidate has not earned and conflict with the attribution statement that the claim states remain pending review.",
+      "resolution": "Set every claim in the frozen candidate back to pending-review. Promote only retained claims through the permitted post-adjudication transition after the exact candidate's review and finalization requirements are satisfied."
+    },
+    {
+      "severity": "minor",
+      "target": "ATTRIBUTION.md#lesson-identity-and-accountability",
+      "finding": "The attribution identifies the lesson as version 0.1.1, while the manifest, claims, references, glossary, and assessment identify version 0.2.0. Its candidate-boundary section discusses earlier 0.1.0 and 0.1.1 commits but does not identify commit 394b402e4005e3e4f336ac6e19c0145f0731eacb as the current candidate. This obscures which academic source-verification and provenance statements apply to the reviewed revision.",
+      "resolution": "Update the lesson identity and candidate-boundary text to version 0.2.0 and the exact current candidate commit, and remove or clearly label stale statements about prior cohorts and claim states."
+    },
+    {
+      "severity": "note",
+      "target": "content/03-audit-the-app-study.md#worked-example-app-evidence",
+      "finding": "The displayed calculation 77 minus 74 equals 3 is correct. The interpretation appropriately distinguishes the intention-to-treat effect of offering access from an effect of actual app use, limits transport to the studied course, and states that absent precision information even the underlying effect's direction remains uncertain.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#item-transfer-external-allocation",
+      "finding": "The answer logic correctly treats the external lottery as a natural-experiment candidate requiring verification, refuses to infer an association or effect direction without a reported field contrast, and keeps the bench mechanism result separate from the missing field-outcome effect.",
+      "resolution": "No change required."
+    }
+  ],
+  "limitations": [
+    "The assigned scope prohibited reading site/, so the graph node, cross-lesson terminology ledger, quorum policy, and review schema were not independently inspected; outcome identity, terminology continuity, and automated schema conformance remain unverified.",
+    "The six cited sources were checked through accessible PubMed, PMC, publisher, or institutional-repository text. Some PubMed routes presented automated-access challenges, but corresponding accessible records supported the central methodological claims; no source was marked human-only.",
+    "The review assessed introductory causal-inference accuracy and internal assessment logic. It did not verify a real clinical effect of dinner timing because the scene labels its medical scenario as fictional and supplies no empirical clinical evidence.",
+    "No artifact was written and repository validation was not run because the role prohibited edits and the assigned scope prohibited reading or executing site and script material.",
+    "The working-tree lesson pack was identical to candidate commit 394b402e4005e3e4f336ac6e19c0145f0731eacb at review time."
+  ],
+  "signedAt": "2026-07-24T23:33:13Z"
+}
