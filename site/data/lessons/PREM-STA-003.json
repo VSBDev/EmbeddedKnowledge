@@ -1,0 +1,1153 @@
+{
+  "schemaVersion": 3,
+  "format": "embeddedknowledge-lesson-v1",
+  "artifactType": "production-lesson",
+  "id": "PREM-STA-003",
+  "version": "0.1.0",
+  "title": "Look at the shape before you choose the summary: centre, spread, and distribution shape",
+  "status": "draft",
+  "riskTier": "standard",
+  "estimatedMinutes": 166,
+  "outcomes": [
+    "topic-statistics-data-center-spread"
+  ],
+  "prerequisites": [
+    "topic-statistics-data-data-types"
+  ],
+  "objectives": [
+    {
+      "id": "objective-choose-centre",
+      "statement": "Choose between the mean, the median, and the mode for a given column of study data and justify the choice from the data's kind and shape.",
+      "outcomeIds": [
+        "topic-statistics-data-center-spread"
+      ]
+    },
+    {
+      "id": "objective-calculate-spread",
+      "statement": "Calculate the range, the interquartile range, the variance, and the standard deviation for a small data set and state each result with its correct unit.",
+      "outcomeIds": [
+        "topic-statistics-data-center-spread"
+      ]
+    },
+    {
+      "id": "objective-interpret-standard-deviation",
+      "statement": "Interpret a standard deviation as a typical distance from the mean in the data's own units, and use it as a yardstick to express a group difference as a standardized quantity.",
+      "outcomeIds": [
+        "topic-statistics-data-center-spread"
+      ]
+    },
+    {
+      "id": "objective-read-shape",
+      "statement": "Diagnose symmetry, skew, and separated groups from summary values alone, and predict how the mean, the median, and each spread measure respond to each shape.",
+      "outcomeIds": [
+        "topic-statistics-data-center-spread"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene-orientation",
+      "title": "Sixty numbers and no summary yet",
+      "kind": "orientation",
+      "source": "content/010-orientation.md",
+      "estimatedMinutes": 14,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Sixty numbers and no summary yet</h1>\n<p>The dinner-timing study has finished collecting. On the screen is a column of sixty fasting glucose readings, one per adult with type 2 diabetes: 137, 118, 155, 142, 129, and on down the list. Nobody can hold sixty numbers in mind at once, and no clinician, journal reader, or ethics committee wants to. They want two things. What is a typical reading in this group? And how far apart are these people?</p>\n<p>Those two questions are what this lesson answers. By the end you will be able to pick a summary of the centre, calculate a summary of the spread, and say which pair of numbers tells the truth about a particular column of data. You will also be able to say when a perfectly correct average is a misleading thing to publish.</p>\n<p>A fasting glucose reading is not an arbitrary number. It is the concentration of glucose in a blood sample drawn after the person has gone without food or drink other than water for at least eight hours, which is why a study can compare one person&#39;s Tuesday morning with another&#39;s Thursday morning at all. The overnight fast is the shared condition that makes the sixty readings comparable.</p>\n<h2>Check the two prerequisites</h2>\n<p>Answer both before reading the routing feedback.</p>\n<ol>\n<li>In this study, fasting glucose is recorded in mg/dL and can in principle take any value in its range, while an adherence rating takes only the labels 1, 2, 3, and 4 in a fixed order. What kind of data is each?</li>\n<li>A colleague adds up the sixty glucose readings and divides by sixty. What quantity have they calculated, and what does its unit have to be?</li>\n</ol>\n<p>Fasting glucose is continuous quantitative data; the adherence rating is ordinal. The colleague has calculated the arithmetic mean, and because every reading is in mg/dL the total is in mg/dL and dividing by a plain count leaves it in mg/dL. Your wording need not match.</p>\n<h2>Recovery route</h2>\n<p>If either answer was unavailable, take this bridge before continuing.</p>\n<ul>\n<li>For data kinds, write each study column on its own line and ask two questions of it: can a value sit between two other values, and is the distance between neighbouring values fixed and meaningful? Continuous quantitative data answers yes to both. Ordinal data answers yes to the first and no to the second.</li>\n<li>For units, redo one small division out loud: 710 mg/dL shared among 5 people is 142 mg/dL each. The count carries no unit, so it cannot change the unit of the answer.</li>\n</ul>\n<p>Then reread the two questions. Continue when you can name the kind of each column and state the unit of an average without hesitating.</p>\n<aside class=\"ek-block ek-callout ek-block--boundary\" data-directive=\"callout\">\n    <div class=\"ek-block-label directive-label\">Callout</div>\n    <div class=\"ek-block-meta\"><span><b>label</b> Educational boundary</span></div>\n    <div class=\"ek-block-content\"><p>Every cohort, reading, and clinic sample in this lesson is an illustrative teaching example, not medical advice and not a record of real patients. The numbers are invented so the arithmetic is checkable. No task asks you to measure your own glucose, interpret anyone&#39;s results, or change anyone&#39;s care.</p>\n</div>\n  </aside>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-fasting-definition</span><span><b>sources</b> source-medlineplus-blood-glucose</span></div>\n    <div class=\"ek-block-content\"><p>The source supports the fasting condition a fasting blood glucose test requires. The cohort, its readings, and the prerequisite bridge are original teaching material.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-centre",
+      "title": "What one number is being asked to do",
+      "kind": "concept",
+      "source": "content/020-centre.md",
+      "estimatedMinutes": 24,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>What one number is being asked to do</h1>\n<p>Ask for &quot;the typical fasting glucose in this cohort&quot; and you are asking a single number to stand in for sixty. Three different numbers can take that job, and they answer three different questions.</p>\n<aside class=\"ek-block ek-definition ek-block--definition\" data-directive=\"definition\">\n    <div class=\"ek-block-label directive-label\">Definition</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> definition-mean</span><span><b>label</b> Arithmetic mean</span></div>\n    <div class=\"ek-block-content\"><p>Add every value and divide by how many values there are. For the sixty readings the total is 8520 mg/dL, so the mean is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>8520</mn><mi>/</mi><mn>60</mn><mo>=</mo><mn>142</mn></mrow><annotation encoding=\"application/x-tex\">8520/60 = 142</annotation></semantics></math></span> mg/dL. The mean answers: if the total were shared out equally, how much would each person get?</p>\n</div>\n  </aside>\n<aside class=\"ek-block ek-definition ek-block--definition\" data-directive=\"definition\">\n    <div class=\"ek-block-label directive-label\">Definition</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> definition-median</span><span><b>label</b> Median</span></div>\n    <div class=\"ek-block-content\"><p>Put the values in order and take the middle one. With an even count there is no single middle, so take the average of the two central values. Ordering the sixty readings and averaging the 30th and 31st gives 142 mg/dL. The median answers: what value splits the group in half?</p>\n</div>\n  </aside>\n<aside class=\"ek-block ek-definition ek-block--definition\" data-directive=\"definition\">\n    <div class=\"ek-block-label directive-label\">Definition</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> definition-mode</span><span><b>label</b> Mode</span></div>\n    <div class=\"ek-block-content\"><p>The value that occurs most often. Fasting glucose measured to the nearest mg/dL rarely repeats, so the mode of this column is close to meaningless. The mode earns its keep on data that comes in a small number of fixed levels.</p>\n</div>\n  </aside>\n<h2>Where each one is honest</h2>\n<p>The adherence rating in this study is ordinal, with four levels, and the sixty adults fall out like this.</p>\n<table>\n<thead>\n<tr>\n<th>Adherence rating</th>\n<th>Number of adults</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>1</td>\n<td>6</td>\n</tr>\n<tr>\n<td>2</td>\n<td>14</td>\n</tr>\n<tr>\n<td>3</td>\n<td>25</td>\n</tr>\n<tr>\n<td>4</td>\n<td>15</td>\n</tr>\n</tbody></table>\n<p>The mode is 3, and it says something a reader can act on: more adults gave that rating than any other. The median is also 3, because the 30th and 31st adults in rank order both sit in that level. Averaging the labels gives <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>169</mn><mi>/</mi><mn>60</mn><mo>=</mo><mn>2.82</mn></mrow><annotation encoding=\"application/x-tex\">169/60 = 2.82</annotation></semantics></math></span>, and 2.82 is not a rating anyone gave. Worse, the arithmetic assumes the step from 1 to 2 is the same size as the step from 3 to 4, which nothing about the rating scale guarantees. Ordinal levels are ordered labels, so the median and the mode describe them and the mean does not.</p>\n<p>Continuous readings such as glucose are the opposite case. The mode is empty there, and the mean and median both have work to do.</p>\n<h2>Why the mean and median agreed here</h2>\n<p>Look at the sixty glucose readings grouped into bins.</p>\n<figure class=\"ek-block ek-chart\" data-directive=\"chart\" data-chart-source=\"charts/cohort-fasting-glucose.chart.json\">\n    <div class=\"ek-block-label directive-label\">Chart</div>\n    <p class=\"ek-chart-title\">Fasting glucose in the 60-person dinner-timing cohort</p>\n    <svg viewBox=\"0 0 720 380\" class=\"ek-chart-svg\" role=\"img\" aria-label=\"A roughly symmetric histogram of 60 fasting glucose readings, tallest between 136 and 148 mg/dL, with one line marking the mean and median at 142 mg/dL.\" xmlns=\"http://www.w3.org/2000/svg\"><title>A roughly symmetric histogram of 60 fasting glucose readings, tallest between 136 and 148 mg/dL, with one line marking the mean and median at 142 mg/dL.</title><line x1=\"380\" y1=\"28\" x2=\"380\" y2=\"324\" class=\"ek-chart-marker\"/><text x=\"380\" y=\"20\" class=\"ek-chart-markerlabel\" text-anchor=\"middle\">Mean and median, both 142</text><rect x=\"64\" y=\"279.6\" width=\"89.29\" height=\"44.4\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"154.29\" y=\"220.4\" width=\"89.29\" height=\"103.6\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"244.57\" y=\"161.2\" width=\"89.29\" height=\"162.8\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"334.86\" y=\"57.6\" width=\"89.29\" height=\"266.4\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"425.14\" y=\"161.2\" width=\"89.29\" height=\"162.8\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"515.43\" y=\"220.4\" width=\"89.29\" height=\"103.6\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"605.71\" y=\"279.6\" width=\"89.29\" height=\"44.4\" class=\"ek-chart-bar ek-chart-series--0\"/><line x1=\"64\" y1=\"28\" x2=\"64\" y2=\"324\" class=\"ek-chart-axis\"/>\n    <line x1=\"64\" y1=\"324\" x2=\"696\" y2=\"324\" class=\"ek-chart-axis\"/>\n    <line x1=\"64\" y1=\"324\" x2=\"64\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"64\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">100</text><line x1=\"154.29\" y1=\"324\" x2=\"154.29\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"154.29\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">112</text><line x1=\"244.57\" y1=\"324\" x2=\"244.57\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"244.57\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">124</text><line x1=\"334.86\" y1=\"324\" x2=\"334.86\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"334.86\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">136</text><line x1=\"425.14\" y1=\"324\" x2=\"425.14\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"425.14\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">148</text><line x1=\"515.43\" y1=\"324\" x2=\"515.43\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"515.43\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">160</text><line x1=\"605.71\" y1=\"324\" x2=\"605.71\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"605.71\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">172</text><line x1=\"696\" y1=\"324\" x2=\"696\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"696\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">184</text><line x1=\"59\" y1=\"324\" x2=\"64\" y2=\"324\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"328\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">0</text><line x1=\"59\" y1=\"250\" x2=\"64\" y2=\"250\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"254\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">5</text><line x1=\"59\" y1=\"176\" x2=\"64\" y2=\"176\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"180\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">10</text><line x1=\"59\" y1=\"102\" x2=\"64\" y2=\"102\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"106\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">15</text><line x1=\"59\" y1=\"28\" x2=\"64\" y2=\"28\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"32\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">20</text>\n    <text x=\"380\" y=\"368\" class=\"ek-chart-axislabel\" text-anchor=\"middle\">Fasting glucose (mg/dL)</text>\n    <text x=\"16\" y=\"176\" class=\"ek-chart-axislabel\" text-anchor=\"middle\" transform=\"rotate(-90 16 176)\">Number of people</text></svg>\n    \n    <figcaption>A roughly symmetric histogram of 60 fasting glucose readings, tallest between 136 and 148 mg/dL, with one line marking the mean and median at 142 mg/dL.</figcaption>\n    <details class=\"ek-long-description\"><summary>Read the chart as text</summary><p>Sixty fasting glucose readings are grouped into seven bins 12 mg/dL wide, running from 100 to 184 mg/dL. The counts rise from 3 in the lowest bin to 18 in the 136-to-148 bin and fall away again to 3 in the highest bin, so the left and right sides of the picture look much alike. Because the shape is close to symmetric, the mean and the median land on the same value, 142 mg/dL, and a single marker carries both. The five-number summary of these readings is minimum 104, lower quartile 130, median 142, upper quartile 155, maximum 181 mg/dL, giving a range of 77 mg/dL and an interquartile range of 25 mg/dL. The standard deviation is 18 mg/dL. This is an illustrative teaching data set, not a record of real patients.</p><table class=\"ek-chart-table\"><caption>Chart data</caption><thead><tr><th scope=\"col\">Series</th><th scope=\"col\">Value</th></tr></thead><tbody><tr><td>Fasting glucose readings (60 adults)</td><td>100 to 112: 3</td></tr><tr><td>Fasting glucose readings (60 adults)</td><td>112 to 124: 7</td></tr><tr><td>Fasting glucose readings (60 adults)</td><td>124 to 136: 11</td></tr><tr><td>Fasting glucose readings (60 adults)</td><td>136 to 148: 18</td></tr><tr><td>Fasting glucose readings (60 adults)</td><td>148 to 160: 11</td></tr><tr><td>Fasting glucose readings (60 adults)</td><td>160 to 172: 7</td></tr><tr><td>Fasting glucose readings (60 adults)</td><td>172 to 184: 3</td></tr><tr><td>Marker</td><td>Fasting glucose 142: Mean and median, both 142</td></tr></tbody></table></details>\n  </figure>\n<p>The picture is close to symmetric: it looks about the same to the left and the right of its centre, with 3 people in the lowest bin and 3 in the highest, 7 in the second and 7 in the second from the top. Symmetry is exactly the condition under which the mean and the median coincide, which is why both came out at 142 mg/dL. Skewness is the name for the lack of that symmetry, and a distribution with a right tail longer than its left is called skewed right.</p>\n<p>That agreement is worth understanding rather than assuming, because the two summaries respond very differently to extreme values. The mean is computed from every value, so a reading in the far tail is added into the total and pulls the answer toward itself. The median is computed from ranks, so an extreme reading contributes one rank whether it is 190 or 900. A summary that barely moves when a few extreme values change is called resistant. The median is resistant; the mean is not.</p>\n<p>Test the difference on a small set before continuing.</p>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-swap-one-value</span></div>\n    <div class=\"ek-block-content\"><p>Five readings are 130, 138, 142, 146, 154 mg/dL. Their mean is 142 and their median is 142. Now replace 154 with 454, a reading a laboratory might flag but might also simply record. Predict both summaries before you calculate. What happens to the median, and what happens to the mean?</p>\n<p><strong>Answer after your prediction:</strong> The ordered list becomes 130, 138, 142, 146, 454. The middle value is still 142, so the median does not move at all. The total rises from 710 to 1010, so the mean rises from 142 to <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1010</mn><mi>/</mi><mn>5</mn><mo>=</mo><mn>202</mn></mrow><annotation encoding=\"application/x-tex\">1010/5 = 202</annotation></semantics></math></span> mg/dL. One changed value moved the mean by 60 mg/dL and the median by nothing.</p>\n</div>\n  </aside>\n<h2>Accessibility and alternatives</h2>\n<p>Both charts in this lesson carry their numbers in text as well as in the picture. Each one has a short description, a longer description that states the shape and the summary values, and a table of every bin count and every marked value, so the bin heights, the five-number summary, and the positions of the mean and median can be read without seeing the plot. Nothing in this lesson depends on colour, hover, animation, or the position of an element on a screen. Where a scene says a distribution &quot;leans right&quot;, the same fact is stated numerically as a gap between the mean and the median, and every calculation can be reproduced from the tables alone.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-mean-not-resistant, claim-symmetry-coincidence, claim-right-tail-lifts-mean, claim-skewness-symmetry</span><span><b>sources</b> source-nist-location, source-nist-histogram-skewed, source-nist-skewness</span></div>\n    <div class=\"ek-block-content\"><p>The sources support the mean being distorted by extreme tail values while the rank-based median is not, the mode, mean, and median being identical for a symmetric distribution and markedly different for a skewed one, and skewness as the lack of symmetry with a long right tail meaning positive skew. That a high-side tail lifts the mean above the median is drawn from the first two of those facts together rather than quoted from either. The cohort, the adherence table, and the retrieval item are original teaching material.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-spread",
+      "title": "Two clinics with the same average and nothing else in common",
+      "kind": "concept",
+      "source": "content/030-spread.md",
+      "estimatedMinutes": 26,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Two clinics with the same average and nothing else in common</h1>\n<p>Five readings from one fictional clinic: 138, 140, 142, 144, 146 mg/dL. Five from another: 102, 122, 142, 162, 182 mg/dL. Both total 710, so both have a mean of 142 mg/dL. A report that gave only the mean would describe these two clinics identically, and they are not remotely alike. The first clinic&#39;s patients are almost interchangeable. The second contains someone at 102 and someone at 182, and any advice built for the average patient there fits neither.</p>\n<p>A centre summary on its own is half a description. The other half is spread: how far the values sit from each other and from the middle.</p>\n<h2>Three ways to measure how far apart people are</h2>\n<p>The bluntest measure subtracts the smallest value from the largest.</p>\n<aside class=\"ek-block ek-definition ek-block--definition\" data-directive=\"definition\">\n    <div class=\"ek-block-label directive-label\">Definition</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> definition-range</span><span><b>label</b> Range, in the sense used here</span></div>\n    <div class=\"ek-block-content\"><p>The largest value minus the smallest. For the sixty-person cohort the lowest reading is 104 mg/dL and the highest is 181, so the range is 77 mg/dL. Note that earlier quantitative lessons used the word <em>range</em> for the set of outputs a function can produce, which is a collection of values. Here it is a single number with the same unit as the data, and it depends only on the two most extreme observations in the set.</p>\n</div>\n  </aside>\n<p>Depending on only two observations makes the range fragile. One mistyped reading of 1810 instead of 181 would multiply it by more than twenty. The second measure ignores the extremes on purpose.</p>\n<aside class=\"ek-block ek-definition ek-block--definition\" data-directive=\"definition\">\n    <div class=\"ek-block-label directive-label\">Definition</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> definition-iqr</span><span><b>label</b> Quartiles and the interquartile range</span></div>\n    <div class=\"ek-block-content\"><p>The quartiles cut an ordered data set into four parts of equal size. The lower quartile Q1 is the value at the 25th percentile, the second quartile is the median, and the upper quartile Q3 sits at the 75th percentile. The interquartile range is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>Q</mi><mn>3</mn></msub><mo>−</mo><msub><mi>Q</mi><mn>1</mn></msub></mrow><annotation encoding=\"application/x-tex\">Q_3 - Q_1</annotation></semantics></math></span>, the width of the middle half of the data. For the cohort, Q1 is 130 mg/dL and Q3 is 155 mg/dL, so the interquartile range is 25 mg/dL.</p>\n</div>\n  </aside>\n<p>Those five numbers together are called the five-number summary, and for this cohort they are 104, 130, 142, 155, 181 mg/dL. Read left to right they say: the lowest quarter of the group runs from 104 up to 130, the middle half occupies 130 to 155, and the top quarter runs from 155 to 181. Half the cohort sits inside a 25 mg/dL band while the full spread is three times as wide, which is a fact about the shape and not just about the size of the numbers.</p>\n<h2>The measure that uses every value</h2>\n<p>Range uses two observations and the interquartile range uses the middle half. The third measure uses all of them, by asking how far each value sits from the mean and then averaging those distances.</p>\n<p>Distances have a sign problem. The deviations from the mean always sum to zero, because that is what the mean is, so averaging them directly gives zero every time. Squaring each deviation removes the signs and gives a quantity that grows when values sit further out.</p>\n<figure class=\"ek-block ek-equation\" data-directive=\"equation\"><div class=\"ek-block-label directive-label\">Sample variance</div><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><msup><mi>s</mi><mn class=\"tml-sml-pad\">2</mn></msup><mo>=</mo><mfrac><mn>1</mn><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></mfrac><mrow><munderover><mo movablelimits=\"false\">∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover></mrow><msup><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"true\">(</mo><msub><mi>x</mi><mi>i</mi></msub><mo>−</mo><mover><mi>x</mi><mo stretchy=\"false\" class=\"chr-sml wbk-sml-acc\" style=\"math-depth:0;\">‾</mo></mover><mo fence=\"true\" form=\"postfix\" stretchy=\"true\">)</mo></mrow><mn>2</mn></msup></mrow><annotation encoding=\"application/x-tex\">s^2 = \\frac{1}{n-1}\\sum_{i=1}^{n}\\left(x_i - \\bar{x}\\right)^2</annotation></semantics></math><figcaption>TeX source: <code>s^2 = \\frac{1}{n-1}\\sum_{i=1}^{n}\\left(x_i - \\bar{x}\\right)^2</code></figcaption></figure>\n<p>Read it as: subtract the mean from every value, square each result, add them up, and divide by one less than the number of values. That quantity is the sample variance. The divisor is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">n-1</annotation></semantics></math></span> rather than <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>n</mi><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span> because the deviations were measured from the sample&#39;s own mean rather than from the true population mean, which makes them slightly too small on average; dividing by the smaller number compensates.</p>\n<p>The variance has one awkward property. Squaring mg/dL gives mg²/dL², so a variance of 324 is 324 mg²/dL², a unit nobody has any feel for. Taking the square root undoes it.</p>\n<figure class=\"ek-block ek-equation\" data-directive=\"equation\"><div class=\"ek-block-label directive-label\">Sample standard deviation</div><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mi>s</mi><mo>=</mo><msqrt><msup><mi>s</mi><mn class=\"tml-sml-pad\">2</mn></msup></msqrt><mo>=</mo><msqrt><mrow><mfrac><mn>1</mn><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></mfrac><mrow><munderover><mo movablelimits=\"false\">∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover></mrow><msup><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"true\">(</mo><msub><mi>x</mi><mi>i</mi></msub><mo>−</mo><mover><mi>x</mi><mo stretchy=\"false\" class=\"chr-sml wbk-sml-acc\" style=\"math-depth:0;\">‾</mo></mover><mo fence=\"true\" form=\"postfix\" stretchy=\"true\">)</mo></mrow><mn>2</mn></msup></mrow></msqrt></mrow><annotation encoding=\"application/x-tex\">s = \\sqrt{s^2} = \\sqrt{\\frac{1}{n-1}\\sum_{i=1}^{n}\\left(x_i - \\bar{x}\\right)^2}</annotation></semantics></math><figcaption>TeX source: <code>s = \\sqrt{s^2} = \\sqrt{\\frac{1}{n-1}\\sum_{i=1}^{n}\\left(x_i - \\bar{x}\\right)^2}</code></figcaption></figure>\n<p>The standard deviation returns the spread to the original data units. That is the whole reason it, rather than the variance, is the number that gets reported. A standard deviation of 18 mg/dL can be compared directly with a reading of 142 mg/dL, with a group difference of 9 mg/dL, and with a laboratory&#39;s stated measurement precision, because all four are in mg/dL. A variance of 324 mg²/dL² can be compared with nothing a clinician handles.</p>\n<p>Applied to the two clinics at the top of this scene: the first has deviations of <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>4</mn><mo separator=\"true\">,</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>0</mn><mo separator=\"true\">,</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">-4, -2, 0, 2, 4</annotation></semantics></math></span>, giving a variance of <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>40</mn><mi>/</mi><mn>4</mn><mo>=</mo><mn>10</mn></mrow><annotation encoding=\"application/x-tex\">40/4 = 10</annotation></semantics></math></span> and a standard deviation of 3.2 mg/dL. The second has deviations exactly ten times as large, giving a variance of <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>4000</mn><mi>/</mi><mn>4</mn><mo>=</mo><mn>1000</mn></mrow><annotation encoding=\"application/x-tex\">4000/4 = 1000</annotation></semantics></math></span> and a standard deviation of 31.6 mg/dL. Same mean, spreads a factor of ten apart, and now the report can say so in one number each.</p>\n<p>For the full cohort the standard deviation is 18 mg/dL. Treat it as roughly the distance a typical person sits from 142, in either direction.</p>\n<h2>Two spread measures on the same data</h2>\n<p>The cohort now has two spread figures: an interquartile range of 25 mg/dL and a standard deviation of 18 mg/dL. They are not competitors, and their ratio carries information. When data follow a normal shape, the interquartile range settles at about 1.35 standard deviations. Here <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>25</mn><mi>/</mi><mn>18</mn><mo>=</mo><mn>1.39</mn></mrow><annotation encoding=\"application/x-tex\">25/18 = 1.39</annotation></semantics></math></span>, close to that value, which is one more sign that this distribution is behaving symmetrically. When the ratio departs sharply from 1.35, something about the shape is worth looking at, and the next scene shows what.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-variance-sd-units, claim-range-iqr, claim-iqr-sd-normal</span><span><b>sources</b> source-nist-scale, source-wan-median-to-mean</span></div>\n    <div class=\"ek-block-content\"><p>The sources support the sample variance formula with its <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">n-1</annotation></semantics></math></span> divisor, the standard deviation as its square root restoring the original data units while the variance squares them, the range as the largest minus the smallest value depending only on the extremes, the interquartile range as the 75th minus the 25th percentile describing variability near the centre and being less sensitive to outliers than the range, and the ratio of interquartile range to standard deviation approaching about 1.35 for normal data. The two clinics, the cohort figures, and the worked comparisons are original teaching material.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-worked-example",
+      "title": "One standard deviation, computed by hand",
+      "kind": "worked-example",
+      "source": "content/040-worked-example.md",
+      "estimatedMinutes": 20,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>One standard deviation, computed by hand</h1>\n<p>Software returns a standard deviation in a keystroke, and the number stays opaque until you have built one yourself. Do it once on a set small enough to hold in view.</p>\n<p>Participant 14 in the dinner-timing study recorded fasting glucose on five separate mornings: 118, 134, 142, 156, 160 mg/dL. This is one person&#39;s night-to-night variation, not a comparison between people.</p>\n<aside class=\"ek-block ek-worked-example ek-block--worked-example\" data-directive=\"worked-example\">\n    <div class=\"ek-block-label directive-label\">Worked Example</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> worked-example-standard-deviation</span></div>\n    <div class=\"ek-block-content\"><p><strong>Step 1. Find the mean, because every deviation is measured from it.</strong></p>\n<p><span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>118</mn><mo>+</mo><mn>134</mn><mo>+</mo><mn>142</mn><mo>+</mo><mn>156</mn><mo>+</mo><mn>160</mn><mo>=</mo><mn>710</mn></mrow><annotation encoding=\"application/x-tex\">118 + 134 + 142 + 156 + 160 = 710</annotation></semantics></math></span>, and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>710</mn><mi>/</mi><mn>5</mn><mo>=</mo><mn>142</mn></mrow><annotation encoding=\"application/x-tex\">710/5 = 142</annotation></semantics></math></span> mg/dL.</p>\n<p><strong>Step 2. Subtract the mean from each reading.</strong></p>\n<table>\n<thead>\n<tr>\n<th>Reading (mg/dL)</th>\n<th>Deviation from 142</th>\n<th>Squared deviation</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>118</td>\n<td>-24</td>\n<td>576</td>\n</tr>\n<tr>\n<td>134</td>\n<td>-8</td>\n<td>64</td>\n</tr>\n<tr>\n<td>142</td>\n<td>0</td>\n<td>0</td>\n</tr>\n<tr>\n<td>156</td>\n<td>14</td>\n<td>196</td>\n</tr>\n<tr>\n<td>160</td>\n<td>18</td>\n<td>324</td>\n</tr>\n<tr>\n<td><strong>Total</strong></td>\n<td><strong>0</strong></td>\n<td><strong>1160</strong></td>\n</tr>\n</tbody></table>\n<p>The deviations sum to zero, which is the first check worth running. If they do not, the mean is wrong or an arithmetic slip has crept in. This is also the concrete reason the deviations get squared: their raw average is zero for every data set ever collected, so it measures nothing.</p>\n<p><strong>Step 3. Divide the squared total by <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">n-1</annotation></semantics></math></span> to get the variance.</strong></p>\n<p>There are five readings, so divide by four.</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><msup><mi>s</mi><mn class=\"tml-sml-pad\">2</mn></msup><mo>=</mo><mfrac><mn>1160</mn><mn>4</mn></mfrac><mo>=</mo><mn>290</mn><msup><mtext> mg</mtext><mn>2</mn></msup><mi>/</mi><msup><mtext>dL</mtext><mn>2</mn></msup><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">s^2 = \\frac{1160}{4} = 290 \\text{ mg}^2/\\text{dL}^2.</annotation></semantics></math></div>\n<p><strong>Step 4. Take the square root to return to mg/dL.</strong></p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mi>s</mi><mo>=</mo><msqrt><mn>290</mn></msqrt><mo>=</mo><mn>17.0</mn><mtext> mg/dL</mtext><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">s = \\sqrt{290} = 17.0 \\text{ mg/dL}.</annotation></semantics></math></div>\n<p><strong>Step 5. Check the answer against something you already know.</strong></p>\n<p>Two checks. First, <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>17</mn><mn>2</mn></msup><mo>=</mo><mn>289</mn></mrow><annotation encoding=\"application/x-tex\">17^2 = 289</annotation></semantics></math></span>, so the square root of 290 has to be a shade above 17; the answer is in the right place. Second, the standard deviation should be comparable to a typical deviation in the table, and the deviations were 24, 8, 0, 14 and 18. A typical distance of 17 mg/dL sits sensibly among them, larger than the middle ones because squaring gives the two biggest deviations extra weight.</p>\n<p><strong>Step 6. Say what it means in the units of the problem.</strong></p>\n<p>On a typical morning, participant 14&#39;s fasting glucose lands about 17 mg/dL away from their own five-day average of 142. Their range over those mornings is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>160</mn><mo>−</mo><mn>118</mn><mo>=</mo><mn>42</mn></mrow><annotation encoding=\"application/x-tex\">160 - 118 = 42</annotation></semantics></math></span> mg/dL, and their median is 142, the same as their mean, so these five readings show no lean in either direction.</p>\n</div>\n  </aside>\n<h2>What that single number is worth knowing next to</h2>\n<p>The cohort of sixty adults had a standard deviation of 18 mg/dL, measured across people. Participant 14&#39;s standard deviation of 17 mg/dL was measured across mornings within one person. Those two numbers are close, and that is a result with teeth: if one person varies almost as much from morning to morning as the whole cohort varies from person to person, then a single morning reading is a shaky description of the person who gave it.</p>\n<p>That observation cannot be settled here. It is the reason later lessons ask how much a summary would move if the study were repeated. What this scene establishes is narrower and firm: a standard deviation is a distance in the data&#39;s own units, built from every value, and you can compute one and check it.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-variance-sd-units</span><span><b>sources</b> source-nist-scale</span></div>\n    <div class=\"ek-block-content\"><p>The source supports the sample variance as the summed squared deviations divided by <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">n-1</annotation></semantics></math></span> and the standard deviation as its square root, expressed in the original data units while the variance is in squared units. Participant 14, the readings, and every step of the check are original teaching material.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-misconception",
+      "title": "The average patient who does not exist",
+      "kind": "misconception",
+      "source": "content/050-misconception.md",
+      "estimatedMinutes": 22,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>The average patient who does not exist</h1>\n<p>A fictional clinic audit opens with this sentence: &quot;Across the 60 adults reviewed, mean fasting glucose was 160 mg/dL.&quot; The arithmetic behind it is flawless. The sentence is still misleading, and the histogram shows why.</p>\n<figure class=\"ek-block ek-chart\" data-directive=\"chart\" data-chart-source=\"charts/skewed-clinic-sample.chart.json\">\n    <div class=\"ek-block-label directive-label\">Chart</div>\n    <p class=\"ek-chart-title\">A right-skewed clinic sample, where the mean and the median part company</p>\n    <svg viewBox=\"0 0 720 380\" class=\"ek-chart-svg\" role=\"img\" aria-label=\"A right-skewed histogram of 60 fasting glucose readings piled below 150 mg/dL with a thin tail reaching 390, marking the median at 140 and the mean at 160 mg/dL.\" xmlns=\"http://www.w3.org/2000/svg\"><title>A right-skewed histogram of 60 fasting glucose readings piled below 150 mg/dL with a thin tail reaching 390, marking the median at 140 and the mean at 160 mg/dL.</title><rect x=\"169.33\" y=\"28\" width=\"42.13\" height=\"296\" class=\"ek-chart-shade ek-chart-shade--0\"/><line x1=\"169.33\" y1=\"28\" x2=\"169.33\" y2=\"324\" class=\"ek-chart-marker\"/><text x=\"169.33\" y=\"20\" class=\"ek-chart-markerlabel\" text-anchor=\"middle\">Median</text><line x1=\"211.47\" y1=\"28\" x2=\"211.47\" y2=\"324\" class=\"ek-chart-marker\"/><text x=\"211.47\" y=\"20\" class=\"ek-chart-markerlabel\" text-anchor=\"middle\">Mean</text><rect x=\"64\" y=\"250\" width=\"41.13\" height=\"74\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"106.13\" y=\"72.4\" width=\"41.13\" height=\"251.6\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"148.27\" y=\"72.4\" width=\"41.13\" height=\"251.6\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"190.4\" y=\"250\" width=\"41.13\" height=\"74\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"232.53\" y=\"264.8\" width=\"41.13\" height=\"59.2\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"274.67\" y=\"279.6\" width=\"41.13\" height=\"44.4\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"316.8\" y=\"294.4\" width=\"41.13\" height=\"29.6\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"358.93\" y=\"309.2\" width=\"41.13\" height=\"14.8\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"401.07\" y=\"309.2\" width=\"41.13\" height=\"14.8\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"443.2\" y=\"309.2\" width=\"41.13\" height=\"14.8\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"485.33\" y=\"309.2\" width=\"41.13\" height=\"14.8\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"527.47\" y=\"309.2\" width=\"41.13\" height=\"14.8\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"569.6\" y=\"309.2\" width=\"41.13\" height=\"14.8\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"611.73\" y=\"324\" width=\"41.13\" height=\"0\" class=\"ek-chart-bar ek-chart-series--0\"/><rect x=\"653.87\" y=\"309.2\" width=\"41.13\" height=\"14.8\" class=\"ek-chart-bar ek-chart-series--0\"/><line x1=\"64\" y1=\"28\" x2=\"64\" y2=\"324\" class=\"ek-chart-axis\"/>\n    <line x1=\"64\" y1=\"324\" x2=\"696\" y2=\"324\" class=\"ek-chart-axis\"/>\n    <line x1=\"64\" y1=\"324\" x2=\"64\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"64\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">90</text><line x1=\"169.33\" y1=\"324\" x2=\"169.33\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"169.33\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">140</text><line x1=\"274.67\" y1=\"324\" x2=\"274.67\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"274.67\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">190</text><line x1=\"380\" y1=\"324\" x2=\"380\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"380\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">240</text><line x1=\"485.33\" y1=\"324\" x2=\"485.33\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"485.33\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">290</text><line x1=\"590.67\" y1=\"324\" x2=\"590.67\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"590.67\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">340</text><line x1=\"696\" y1=\"324\" x2=\"696\" y2=\"329\" class=\"ek-chart-tick\"/><text x=\"696\" y=\"344\" class=\"ek-chart-ticklabel\" text-anchor=\"middle\">390</text><line x1=\"59\" y1=\"324\" x2=\"64\" y2=\"324\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"328\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">0</text><line x1=\"59\" y1=\"250\" x2=\"64\" y2=\"250\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"254\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">5</text><line x1=\"59\" y1=\"176\" x2=\"64\" y2=\"176\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"180\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">10</text><line x1=\"59\" y1=\"102\" x2=\"64\" y2=\"102\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"106\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">15</text><line x1=\"59\" y1=\"28\" x2=\"64\" y2=\"28\" class=\"ek-chart-tick\"/><text x=\"55\" y=\"32\" class=\"ek-chart-ticklabel\" text-anchor=\"end\">20</text>\n    <text x=\"380\" y=\"368\" class=\"ek-chart-axislabel\" text-anchor=\"middle\">Fasting glucose (mg/dL)</text>\n    <text x=\"16\" y=\"176\" class=\"ek-chart-axislabel\" text-anchor=\"middle\" transform=\"rotate(-90 16 176)\">Number of people</text></svg>\n    \n    <figcaption>A right-skewed histogram of 60 fasting glucose readings piled below 150 mg/dL with a thin tail reaching 390, marking the median at 140 and the mean at 160 mg/dL.</figcaption>\n    <details class=\"ek-long-description\"><summary>Read the chart as text</summary><p>Sixty fasting glucose readings from a separate illustrative clinic sample are grouped into bins 20 mg/dL wide from 90 to 390 mg/dL. Thirty-nine of the sixty readings fall below 150 mg/dL, with the two tallest bins holding 17 people each between 110 and 150. Above 190 the counts thin to three, two, one, one, one, one, one, one and one, so the right side of the picture is a long sparse tail rather than a mirror of the left. The median sits at 140 mg/dL and the mean at 160 mg/dL, a gap of 20 mg/dL opened entirely by that tail; the shaded band between the two markers shows the gap. The five-number summary is minimum 96, lower quartile 122, median 140, upper quartile 179, maximum 382 mg/dL, giving a range of 286 mg/dL and an interquartile range of 57 mg/dL. The standard deviation is about 61 mg/dL, larger than the interquartile range, which is the reverse of what a symmetric shape produces. This is an illustrative teaching data set, not a record of real patients.</p><table class=\"ek-chart-table\"><caption>Chart data</caption><thead><tr><th scope=\"col\">Series</th><th scope=\"col\">Value</th></tr></thead><tbody><tr><td>Fasting glucose readings (60 adults, separate clinic sample)</td><td>90 to 110: 5</td></tr><tr><td>Fasting glucose readings (60 adults, separate clinic sample)</td><td>110 to 130: 17</td></tr><tr><td>Fasting glucose readings (60 adults, separate clinic sample)</td><td>130 to 150: 17</td></tr><tr><td>Fasting glucose readings (60 adults, separate clinic sample)</td><td>150 to 170: 5</td></tr><tr><td>Fasting glucose readings (60 adults, separate clinic sample)</td><td>170 to 190: 4</td></tr><tr><td>Fasting glucose readings (60 adults, separate clinic sample)</td><td>190 to 210: 3</td></tr><tr><td>Fasting glucose readings (60 adults, separate clinic sample)</td><td>210 to 230: 2</td></tr><tr><td>Fasting glucose readings (60 adults, separate clinic sample)</td><td>230 to 250: 1</td></tr><tr><td>Fasting glucose readings (60 adults, separate clinic sample)</td><td>250 to 270: 1</td></tr><tr><td>Fasting glucose readings (60 adults, separate clinic sample)</td><td>270 to 290: 1</td></tr><tr><td>Fasting glucose readings (60 adults, separate clinic sample)</td><td>290 to 310: 1</td></tr><tr><td>Fasting glucose readings (60 adults, separate clinic sample)</td><td>310 to 330: 1</td></tr><tr><td>Fasting glucose readings (60 adults, separate clinic sample)</td><td>330 to 350: 1</td></tr><tr><td>Fasting glucose readings (60 adults, separate clinic sample)</td><td>350 to 370: 0</td></tr><tr><td>Fasting glucose readings (60 adults, separate clinic sample)</td><td>370 to 390: 1</td></tr><tr><td>Shaded region</td><td>140 to 160: The 20 mg/dL the tail puts between the median and the mean</td></tr><tr><td>Marker</td><td>Fasting glucose 140: Median</td></tr><tr><td>Marker</td><td>Fasting glucose 160: Mean</td></tr></tbody></table></details>\n  </figure>\n<p>Thirty-nine of these sixty adults have a reading below 150 mg/dL. Thirty of them are at or below 140. The 160 in the audit sentence sits above the reading of about seven adults in every ten it claims to describe, and it got there because twelve readings stretch from 190 up to 382 and each one enters the total at full weight.</p>\n<aside class=\"ek-block ek-misconception ek-block--misconception\" data-directive=\"misconception\">\n    <div class=\"ek-block-label directive-label\">Misconception</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> misconception-mean-on-skewed-data</span></div>\n    <div class=\"ek-block-content\"><p><strong>The wrong model:</strong> the mean is the average, the average is the typical value, so the mean is what you report.</p>\n<p><strong>What the data shows instead:</strong> this sample&#39;s median is 140 mg/dL and its mean is 160 mg/dL, a gap of 20 mg/dL. Half the sample sits below 140. The mean is not describing a middle; it is describing a total shared out equally, and a handful of very high readings have loaded that total. Values that sit far from the bulk of the data like this are called outliers, and calling a reading an outlier says only where it sits, not that it is a mistake: a fasting glucose of 382 mg/dL in a clinic caring for people with poorly controlled diabetes is a real measurement of a real problem. The distribution is skewed right, its long tail is on the high side, and skew is exactly the condition that separates the mean from the median.</p>\n<p><strong>The repair:</strong> for a skewed distribution, report the median as the centre and pair it with the quartiles. Here the five-number summary is 96, 122, 140, 179, 382 mg/dL. Those five numbers say the middle half of the clinic sits between 122 and 179, one person is at 382, and no single value was ever going to carry all of that.</p>\n<p><strong>A test you can run without seeing the picture:</strong> compare the two spread measures. This sample has an interquartile range of 57 mg/dL and a standard deviation of about 61 mg/dL, so the standard deviation is the larger of the two. In the symmetric cohort from earlier the interquartile range was 25 and the standard deviation 18, the other way round, and their ratio of 1.39 was near the 1.35 a normal shape produces. When the standard deviation swells past the interquartile range, values far out in a tail are doing the work, and the mean is being pulled with them. Checking the gap between the mean and the median tests the same thing: 20 mg/dL on a distribution whose middle half is 57 mg/dL wide is not a rounding difference.</p>\n</div>\n  </aside>\n<h2>Now the mistake people make on the way back</h2>\n<p>The repair above is easy to over-apply. A learner who has been burned once starts reporting the median for everything and treating the mean as a trap. That throws away information the median never had.</p>\n<aside class=\"ek-block ek-misconception ek-block--misconception\" data-directive=\"misconception\">\n    <div class=\"ek-block-label directive-label\">Misconception</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> misconception-median-only</span></div>\n    <div class=\"ek-block-content\"><p><strong>The wrong model:</strong> the median is resistant, therefore the median is always the safer summary, so report it and drop the mean.</p>\n<p><strong>What the data shows instead:</strong> resistance cuts both ways. A summary that does not move when extreme values change also fails to report it when those values change for a real reason. Suppose this clinic runs an intervention aimed squarely at its worst-controlled patients, and the five highest readings, which were spread from 280 up to 382 mg/dL, come down to around 180. Nobody else changes at all.</p>\n<p>The median is calculated from the 30th and 31st readings in rank order. Those two people were untouched, so the median stays at exactly 140 mg/dL. The total falls by about 720 mg/dL, so the mean drops from 160 to <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>8880</mn><mi>/</mi><mn>60</mn><mo>=</mo><mn>148</mn></mrow><annotation encoding=\"application/x-tex\">8880/60 = 148</annotation></semantics></math></span> mg/dL. A report giving only the median would state that the clinic&#39;s fasting glucose was unchanged, which is false, and would hide the only effect the intervention had.</p>\n<p><strong>The repair:</strong> choose the summary that matches the question, and when a distribution is skewed, say so and give both. The median answers &quot;what is the middle person like&quot;. The mean answers &quot;what is the total, shared out&quot;, and multiplying it by the number of people returns that total, which the median cannot do. A question about who is typical wants the median. A question about aggregate burden, total dose, or total cost wants the mean. A question about whether a treatment reached the sickest patients wants the tail, which neither centre summary reports and the quartiles and the maximum do.</p>\n</div>\n  </aside>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-diagnose-the-shape</span></div>\n    <div class=\"ek-block-content\"><p>A colleague reports a hospital length-of-stay figure for 200 admissions: mean 6.4 days, median 4.0 days, interquartile range 3.0 days, standard deviation 7.1 days. You have not seen the data. Decide, before reading on, what shape it has, which summary you would print, and what you would ask for next.</p>\n<p><strong>Answer after your attempt:</strong> Two signals agree. The mean sits 2.4 days above the median, and the standard deviation of 7.1 days is more than twice the interquartile range of 3.0, where a symmetric shape would put it at roughly <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3.0</mn><mi>/</mi><mn>1.35</mn><mo>=</mo><mn>2.2</mn></mrow><annotation encoding=\"application/x-tex\">3.0/1.35 = 2.2</annotation></semantics></math></span>. Both point to a right-skewed distribution with a small number of very long stays. Print the median with the quartiles. Then ask for the maximum and the number of stays beyond, say, 14 days, because those long admissions are likely to be where most of the total bed-days actually sit, and the median cannot show them.</p>\n</div>\n  </aside>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-mean-not-resistant, claim-right-tail-lifts-mean, claim-range-iqr, claim-report-both-when-skewed</span><span><b>sources</b> source-nist-location, source-nist-histogram-skewed, source-nist-scale, source-wan-median-to-mean</span></div>\n    <div class=\"ek-block-content\"><p>The sources support extreme tail values distorting the mean while the rank-based median resists them, a skewed distribution having no single centre and its summaries differing markedly, the recommendation to report at least the mean and the median for such a distribution, the interquartile range as the middle-half width that is less sensitive to outliers than the range, and the roughly 1.35 ratio of interquartile range to standard deviation for normal data. That the mean is lifted above the median specifically when the long tail is on the high side follows from combining the first two of those facts. The clinic sample, the intervention scenario, and the length-of-stay item are original teaching material and describe no real patients.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-practice",
+      "title": "Choose the summary, then defend it",
+      "kind": "practice",
+      "source": "content/060-practice.md",
+      "estimatedMinutes": 24,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Choose the summary, then defend it</h1>\n<p>Work all four before reading any feedback. The support fades: the first item names the steps, the last names nothing.</p>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-practice-centre-and-range</span></div>\n    <div class=\"ek-block-content\"><p><strong>1. Centre and range, with the steps given.</strong> Seven adults in a fictional screening clinic record fasting glucose of 121, 128, 133, 139, 144, 150, 187 mg/dL. Add the values and divide by seven for the mean. Order them and take the middle one for the median. Subtract the smallest from the largest for the range. Then say which of the two centre summaries the value 187 has moved, and by roughly how much.</p>\n</div>\n  </aside>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-practice-diagnose-shape</span></div>\n    <div class=\"ek-block-content\"><p><strong>2. Diagnose a shape you cannot see.</strong> A discharge audit reports the interval from discharge to first follow-up appointment for 180 patients: minimum 2 days, lower quartile 5, median 7, upper quartile 10, maximum 46, mean 9.8, standard deviation 6.9. Work out the interquartile range, compare it with the standard deviation, compare the mean with the median, and state what shape the two comparisons agree on. Then name the pair of numbers you would print in the audit.</p>\n</div>\n  </aside>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-practice-compute-sd</span></div>\n    <div class=\"ek-block-content\"><p><strong>3. Spread from scratch.</strong> Five fasting glucose readings: 134, 138, 142, 146, 150 mg/dL. Report the variance and the standard deviation, each with its unit.</p>\n</div>\n  </aside>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-practice-units</span></div>\n    <div class=\"ek-block-content\"><p><strong>4. Units, unaided.</strong> A colleague&#39;s output for the sixty-person cohort reads <code>variance = 324</code>. What number belongs in the paper, what are the units of each of the two quantities, and why does the one they printed rarely appear in a results table?</p>\n</div>\n  </aside>\n<h2>Feedback after all four attempts</h2>\n<ol>\n<li>The total is 1002, so the mean is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1002</mn><mi>/</mi><mn>7</mn><mo>=</mo><mn>143.1</mn></mrow><annotation encoding=\"application/x-tex\">1002/7 = 143.1</annotation></semantics></math></span> mg/dL. The middle value of seven ordered readings is the fourth, so the median is 139 mg/dL. The range is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>187</mn><mo>−</mo><mn>121</mn><mo>=</mo><mn>66</mn></mrow><annotation encoding=\"application/x-tex\">187 - 121 = 66</annotation></semantics></math></span> mg/dL. The reading of 187 sits far above the rest and has pushed the mean about 4 mg/dL above the median; the median would be 139 whether that last reading were 187 or 1187, because it contributes one rank either way.</li>\n<li>The interquartile range is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>10</mn><mo>−</mo><mn>5</mn><mo>=</mo><mn>5</mn></mrow><annotation encoding=\"application/x-tex\">10 - 5 = 5</annotation></semantics></math></span> days. The standard deviation of 6.9 days is larger than that, where a symmetric shape would put it near <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>5</mn><mi>/</mi><mn>1.35</mn><mo>=</mo><mn>3.7</mn></mrow><annotation encoding=\"application/x-tex\">5/1.35 = 3.7</annotation></semantics></math></span>. The mean of 9.8 sits 2.8 days above the median of 7. Both comparisons say the same thing: the distribution leans right, with a small number of long waits, the longest at 46 days. Print the median with the quartiles, so the audit reads 7 days with a middle half of 5 to 10.</li>\n<li>The total is 710 and the mean is 142 mg/dL. The deviations are <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>8</mn><mo separator=\"true\">,</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><mn>4</mn><mo separator=\"true\">,</mo><mn>0</mn><mo separator=\"true\">,</mo><mn>4</mn><mo separator=\"true\">,</mo><mn>8</mn></mrow><annotation encoding=\"application/x-tex\">-8, -4, 0, 4, 8</annotation></semantics></math></span>, their squares are 64, 16, 0, 16, 64, and those sum to 160. Dividing by <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi><mo>−</mo><mn>1</mn><mo>=</mo><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">n-1 = 4</annotation></semantics></math></span> gives a variance of 40 mg²/dL². The square root gives a standard deviation of 6.3 mg/dL.</li>\n<li>The paper needs <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msqrt><mn>324</mn></msqrt><mo>=</mo><mn>18</mn></mrow><annotation encoding=\"application/x-tex\">\\sqrt{324} = 18</annotation></semantics></math></span> mg/dL. The variance of 324 is in mg²/dL² and the standard deviation of 18 is in mg/dL. Squared milligrams per squared decilitre answers no question a reader has; the standard deviation can be set beside a mean of 142 mg/dL or a group difference of 9 mg/dL and compared directly, because all three are in the same unit.</li>\n</ol>\n<h2>Where to go if one of these failed</h2>\n<ul>\n<li>Mean and median swapped, or the median taken before ordering: redo item 1 by writing the ordered list on its own line first.</li>\n<li>Shape called symmetric in item 2: recheck which of the interquartile range and the standard deviation was larger, then reread the two-signal test in the misconception scene.</li>\n<li>Divided by 5 instead of 4 in item 3: the divisor is one less than the count, and the worked example explains what it compensates for.</li>\n<li>Units missing anywhere: attach the unit to every line of the calculation rather than to the final answer, and squaring will carry itself through.</li>\n</ul>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-mean-not-resistant, claim-right-tail-lifts-mean</span><span><b>sources</b> source-nist-location, source-nist-histogram-skewed</span></div>\n    <div class=\"ek-block-content\"><p>The sources support the mean being distorted by extreme tail values while the rank-based median is not, and the centre summaries of a skewed distribution differing markedly from one another. That a high-side tail lifts the mean above the median follows from those two facts together. Every practice item, data set, and feedback route is original teaching material.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-transfer",
+      "title": "A column where both centre summaries agree and both are wrong",
+      "kind": "transfer",
+      "source": "content/070-transfer.md",
+      "estimatedMinutes": 20,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>A column where both centre summaries agree and both are wrong</h1>\n<p>Turn away from glucose and look at the study&#39;s other main column: the interval between the last meal and going to sleep, recorded in hours for the same sixty adults. Here is the whole column, grouped.</p>\n<table>\n<thead>\n<tr>\n<th>Hours from dinner to sleep</th>\n<th>Number of adults</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>1.0 to 1.4</td>\n<td>8</td>\n</tr>\n<tr>\n<td>1.4 to 1.8</td>\n<td>14</td>\n</tr>\n<tr>\n<td>1.8 to 2.2</td>\n<td>8</td>\n</tr>\n<tr>\n<td>2.2 to 2.6</td>\n<td>0</td>\n</tr>\n<tr>\n<td>2.6 to 3.0</td>\n<td>0</td>\n</tr>\n<tr>\n<td>3.0 to 3.4</td>\n<td>0</td>\n</tr>\n<tr>\n<td>3.4 to 3.8</td>\n<td>4</td>\n</tr>\n<tr>\n<td>3.8 to 4.2</td>\n<td>7</td>\n</tr>\n<tr>\n<td>4.2 to 4.6</td>\n<td>8</td>\n</tr>\n<tr>\n<td>4.6 to 5.0</td>\n<td>7</td>\n</tr>\n<tr>\n<td>5.0 to 5.4</td>\n<td>4</td>\n</tr>\n</tbody></table>\n<p>The mean is 3.0 hours. The median is 2.9 hours. Those two summaries sit a tenth of an hour apart, which by the test used so far would say the distribution is behaving symmetrically and either number is safe to report.</p>\n<p>Now read the table again. Not one adult in this study recorded an interval between 2.2 and 3.4 hours. The mean and the median have landed together in a gap where the data has nobody at all.</p>\n<h2>Work out what happened before reading on</h2>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-transfer-bimodal</span></div>\n    <div class=\"ek-block-content\"><p>Answer these four before continuing.</p>\n<ol>\n<li>Why did the mean and the median agree even though this shape is nothing like the symmetric glucose histogram?</li>\n<li>The standard deviation of the whole column is about 1.5 hours. Within the group below 2.2 hours it is about 0.3 hours, and within the group above 3.4 hours about 0.5 hours. Where did the extra spread come from?</li>\n<li>The lower quartile of this column is 1.6 hours and the upper quartile is 4.4. Work out the interquartile range, divide it by the standard deviation of 1.5, and compare the result with the 1.35 a normal shape gives. Which direction did it move, and why is that the opposite of what the skewed clinic sample did?</li>\n<li>What should the study&#39;s results table actually print for this column?</li>\n</ol>\n<p><strong>Answers after your attempt.</strong></p>\n<ol>\n<li>Agreement of the mean and the median rules out a lean to one side. It does not rule out a hole in the middle. This column has two clusters of thirty people placed roughly evenly on either side of the gap, so the pull each cluster exerts on the mean cancels the other, and the 30th and 31st values in rank order fall on opposite banks of the gap. Symmetry makes the mean and the median agree; the mean and the median agreeing does not prove the shape is a single symmetric peak.</li>\n<li>From the separation itself. Each cluster is tight, with people sitting a few tenths of an hour from their own group&#39;s centre. The whole-column standard deviation of 1.5 hours is three to five times larger than either of those, and the difference is almost entirely the 2.8 hours between one cluster&#39;s centre and the other&#39;s. A standard deviation calculated across two separated groups measures the gap between them more than it measures the variation among people.</li>\n<li>The interquartile range is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>4.4</mn><mo>−</mo><mn>1.6</mn><mo>=</mo><mn>2.8</mn></mrow><annotation encoding=\"application/x-tex\">4.4 - 1.6 = 2.8</annotation></semantics></math></span> hours, and <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2.8</mn><mi>/</mi><mn>1.5</mn><mo>=</mo><mn>1.9</mn></mrow><annotation encoding=\"application/x-tex\">2.8/1.5 = 1.9</annotation></semantics></math></span>, well above 1.35. Look at where those quartiles fell. The lower quartile of 1.6 hours is the late group&#39;s own centre and the upper quartile of 4.4 is the early group&#39;s, so the middle half of the data straddles the empty gap and the interquartile range has ended up measuring the distance between the two groups. That is the mirror image of the skewed sample, where a long tail inflated the standard deviation while the quartiles stayed put and the ratio fell to 0.93. A ratio far below 1.35 points to a tail; a ratio far above it points to a split.</li>\n<li>The two groups separately. This study recruited thirty adults who ate early and thirty who ate late, so the two clusters are the design, not a quirk of the data. The honest line reads: early group 4.4 hours, late group 1.6 hours. A single pooled centre of 3.0 hours would erase the exposure contrast the whole study was built to examine.</li>\n</ol>\n</div>\n  </aside>\n<h2>The rule this generalizes to</h2>\n<p>Every summary in this lesson answers a question, and every one of them can be handed a distribution it was never meant to describe. A mean given a long tail reports a value nobody has. A median given a treatment effect confined to the extremes reports no change. A pooled standard deviation given two distinct groups reports the distance between them and calls it variability.</p>\n<p>None of that is a fault in the arithmetic. It is what happens when a summary is chosen before the shape is looked at. Order the values, look at the shape, then choose. That order is the transferable part, and it holds whether the column is glucose, hours, hospital days, or a laboratory assay you have never seen before.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-symmetry-coincidence, claim-skewness-symmetry, claim-iqr-sd-normal</span><span><b>sources</b> source-nist-histogram-skewed, source-nist-skewness, source-wan-median-to-mean</span></div>\n    <div class=\"ek-block-content\"><p>The sources support symmetry as the condition under which the mode, mean, and median coincide, skewness as a measure of the lack of symmetry, and the ratio of interquartile range to standard deviation approaching about 1.35 for normal data. The dinner-timing column, its grouped table, and the ratios computed from it are original teaching material.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-clinical-wrap-up",
+      "title": "Clinical wrap-up: write the study's results table",
+      "kind": "worked-example",
+      "source": "content/080-clinical-wrap-up.md",
+      "estimatedMinutes": 16,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Clinical wrap-up: write the study&#39;s results table</h1>\n<p>Every clinical paper opens with a table describing who was studied and what was measured, and every cell in it is a choice made by someone who had to decide which summary told the truth. That table is the job now.</p>\n<p><strong>Illustrative teaching example, not medical advice.</strong> The dinner-timing study, its sixty adults, and every number below are invented so the arithmetic can be checked. Nothing here describes real patients or should guide anyone&#39;s care.</p>\n<h2>The four columns and the decision each one forces</h2>\n<p>The study recorded four things about sixty adults with type 2 diabetes. Some biomedical papers report a mean with a standard deviation and others report a median with quartiles or with the minimum and maximum, so a reader has to be able to interpret both, and an author has to be able to justify the one they chose.</p>\n<table>\n<thead>\n<tr>\n<th>Column</th>\n<th>What it is</th>\n<th>What the shape does</th>\n<th>What the table should print</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>Fasting glucose, mg/dL</td>\n<td>Continuous, measured after at least eight hours without food or drink other than water</td>\n<td>Close to symmetric, mean and median both 142</td>\n<td>Mean 142 (SD 18)</td>\n</tr>\n<tr>\n<td>Adherence rating, 1 to 4</td>\n<td>Ordinal levels in a fixed order</td>\n<td>The step from 1 to 2 is not guaranteed to equal the step from 3 to 4</td>\n<td>Median 3, with the count at each level</td>\n</tr>\n<tr>\n<td>Nights recorded per person</td>\n<td>Discrete count, 5 to 14</td>\n<td>A few participants who stayed in the study far longer than the rest would drag a mean upward; the median is built from ranks and would not move</td>\n<td>Median 9 (quartiles 7 to 11)</td>\n</tr>\n<tr>\n<td>Hours from dinner to sleep</td>\n<td>Continuous, but recruited as two groups</td>\n<td>Two separated clusters, with nobody in the middle</td>\n<td>By group: early 4.4 hours, late 1.6 hours</td>\n</tr>\n</tbody></table>\n<p>Three of the four rows refuse the mean, and each refuses it for a different reason. The adherence rating refuses because averaging ordered labels assumes an even spacing the scale never promised. The night count refuses because its shape leans and its mean would report a value the middle participant does not have. The dinner interval refuses because a single centre would sit in the gap between two groups the study deliberately created. Only the glucose column, whose mean and median agree because its shape is close to symmetric, hands the mean an honest job.</p>\n<h2>Reading the outcome the study was built to test</h2>\n<p>The comparison the study exists for is between the two dinner-timing groups.</p>\n<table>\n<thead>\n<tr>\n<th>Group</th>\n<th>Adults</th>\n<th>Mean fasting glucose</th>\n<th>Standard deviation within the group</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>Early dinner</td>\n<td>30</td>\n<td>137.5 mg/dL</td>\n<td>16 mg/dL</td>\n</tr>\n<tr>\n<td>Late dinner</td>\n<td>30</td>\n<td>146.5 mg/dL</td>\n<td>16 mg/dL</td>\n</tr>\n</tbody></table>\n<p>The two group means average to <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mn>137.5</mn><mo>+</mo><mn>146.5</mn><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mi>/</mi><mn>2</mn><mo>=</mo><mn>142</mn></mrow><annotation encoding=\"application/x-tex\">(137.5 + 146.5)/2 = 142</annotation></semantics></math></span> mg/dL, which is the cohort figure from the first scene, and their difference is <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>146.5</mn><mo>−</mo><mn>137.5</mn><mo>=</mo><mn>9.0</mn></mrow><annotation encoding=\"application/x-tex\">146.5 - 137.5 = 9.0</annotation></semantics></math></span> mg/dL in the direction the study predicted.</p>\n<p>Notice that the within-group standard deviation of 16 mg/dL is smaller than the 18 across the whole cohort. That is the transfer scene&#39;s lesson in a milder form: part of the spread among all sixty adults is the separation between the two groups, and removing it leaves less variation behind. The within-group figure is the one that describes how much adults differ from others treated the same way.</p>\n<p>That makes it the right yardstick for the difference. Nine mg/dL means nothing on its own; it means something once it is set against how much people vary anyway.</p>\n<div class=\"ek-display-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mfrac><mrow><mn>9.0</mn><mtext> mg/dL</mtext></mrow><mrow><mn>16</mn><mtext> mg/dL</mtext></mrow></mfrac><mo>=</mo><mn>0.56.</mn></mrow><annotation encoding=\"application/x-tex\">\\frac{9.0 \\text{ mg/dL}}{16 \\text{ mg/dL}} = 0.56.</annotation></semantics></math></div>\n<p>The difference between the groups is about 0.56 of a within-group standard deviation. Dividing by the standard deviation cancels the units, which is the point: 0.56 can be compared with a standardized difference from a study that measured something else entirely, and 9.0 mg/dL cannot. This works only because the standard deviation is in the same unit as the difference, which is why the variance, sitting in mg²/dL², could never have done the job.</p>\n<h2>What this table settles and what it does not</h2>\n<p>The table now states honestly what a typical adult in this study looked like and how much these adults differed. Three questions remain open, and none of them is answerable with the tools in this lesson.</p>\n<ul>\n<li>Would a repeat of this study produce 9.0 mg/dL again, or something else? That depends on how much a group mean moves from sample to sample, which is a different quantity from the spread among people.</li>\n<li>What range of true differences is compatible with the 9.0 that was observed?</li>\n<li>Does a difference of about 0.56 standard deviations, or 9 mg/dL, matter to a person living with type 2 diabetes? That is a clinical judgement, and no amount of arithmetic will produce it.</li>\n</ul>\n<p>The first two are what the next lessons in this module take up. The third is the question the module ends on, and it stays a clinical one.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-mean-not-resistant, claim-symmetry-coincidence, claim-variance-sd-units, claim-median-iqr-reporting, claim-fasting-definition</span><span><b>sources</b> source-nist-location, source-nist-histogram-skewed, source-nist-scale, source-wan-median-to-mean, source-medlineplus-blood-glucose</span></div>\n    <div class=\"ek-block-content\"><p>The sources support the rank-based median resisting extreme values that distort the mean, the mode, mean, and median coinciding under symmetry and differing markedly under skew, the standard deviation as the square root of the variance carrying the original data units, the practice of reporting a median with quartiles or with minimum and maximum instead of a mean and standard deviation in some medical trial reports, and the fasting condition required by a fasting blood glucose test. The study, its four columns, its group figures, and the completed table are original teaching material.</p>\n</div>\n  </aside>\n"
+    }
+  ],
+  "authors": [
+    {
+      "principalId": "github:VSBDev",
+      "displayName": "VSBDev — accountable author",
+      "agent": {
+        "system": "RUNTIME-STAMPED",
+        "provider": "RUNTIME-STAMPED",
+        "model": "RUNTIME-STAMPED",
+        "version": "RUNTIME-STAMPED",
+        "runId": "author-PREM-STA-003-65b2222e-b9fd-43f4-919c-7f26134b9c27",
+        "instructionsDigest": "sha256:0cd10dccc8c84bfc77ea7fb97850404677c91ceae86d6025bbfac63f9be4acc2"
+      }
+    }
+  ],
+  "license": "CC-BY-4.0",
+  "sourceConfidence": "pending-review",
+  "aiAssistance": {
+    "used": true,
+    "disclosure": "VSBDev (github:VSBDev) is the accountable author of this draft. Material authoring assistance used system RUNTIME-STAMPED, provider RUNTIME-STAMPED, model RUNTIME-STAMPED, version RUNTIME-STAMPED, in isolated run author-PREM-STA-003-65b2222e-b9fd-43f4-919c-7f26134b9c27. The instructions digest covers the exact discloseable UTF-8 lesson-authoring task payload supplied to that run, including its terminal newline; it excludes hidden provider and system instructions, which cannot be exported."
+  },
+  "assessment": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-assessment-v1",
+    "lessonId": "PREM-STA-003",
+    "lessonVersion": "0.1.0",
+    "assessmentId": "assessment-centre-spread-shape",
+    "title": "Centre, spread, and distribution shape mastery gate",
+    "purpose": "mastery-gate",
+    "attemptPolicy": {
+      "retakeable": true,
+      "timeLimitMinutes": null,
+      "feedback": "after-attempt"
+    },
+    "items": [
+      {
+        "id": "item-compute-standard-deviation",
+        "type": "numeric",
+        "sceneId": "scene-worked-example",
+        "objectiveIds": [
+          "objective-calculate-spread"
+        ],
+        "outcomeIds": [
+          "topic-statistics-data-center-spread"
+        ],
+        "prompt": "Five fasting glucose readings from one participant are 136, 148, 150, 152, and 164 mg/dL. Report the sample standard deviation in mg/dL, to one decimal place.",
+        "stimulus": null,
+        "points": 3,
+        "responseSpec": {
+          "mode": "number",
+          "units": "mg/dL",
+          "tolerance": 0.2
+        },
+        "answer": {
+          "correct": 10,
+          "summary": "10.0 mg/dL.",
+          "reasoning": "The five readings total 750, so the mean is 750 / 5 = 150 mg/dL. The deviations are -14, -2, 0, 2 and 14, which sum to zero as they must. Their squares are 196, 4, 0, 4 and 196, summing to 400. Dividing by n - 1 = 4 gives a variance of 100 mg squared per dL squared, and the square root of 100 is a standard deviation of 10.0 mg/dL. A quick sanity check: the deviations run from 0 to 14, so a typical distance of 10 sits sensibly among them.",
+          "acceptableResponses": [
+            "10",
+            "10.0",
+            "10.0 mg/dL",
+            "s = 10 mg/dL"
+          ],
+          "commonErrors": [
+            "Dividing the squared total by 5 instead of 4, which gives 80 and a standard deviation of 8.9",
+            "Reporting the variance of 100 instead of taking the square root",
+            "Averaging the unsquared deviations, which gives zero for every data set",
+            "Omitting the unit or attaching mg squared per dL squared to the standard deviation"
+          ]
+        },
+        "rubricId": "rubric-compute-standard-deviation",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-compute-iqr",
+        "type": "numeric",
+        "sceneId": "scene-spread",
+        "objectiveIds": [
+          "objective-calculate-spread"
+        ],
+        "outcomeIds": [
+          "topic-statistics-data-center-spread"
+        ],
+        "prompt": "A fictional laboratory reports the five-number summary of 120 fasting glucose readings as minimum 88, lower quartile 118, median 133, upper quartile 161, maximum 244 mg/dL. Report the interquartile range in mg/dL.",
+        "stimulus": null,
+        "points": 3,
+        "responseSpec": {
+          "mode": "number",
+          "units": "mg/dL",
+          "tolerance": 0
+        },
+        "answer": {
+          "correct": 43,
+          "summary": "43 mg/dL.",
+          "reasoning": "The interquartile range is the upper quartile minus the lower quartile, so 161 - 118 = 43 mg/dL. It is the width of the middle half of the readings, meaning 60 of these 120 people sit between 118 and 161 mg/dL. The range, by contrast, is 244 - 88 = 156 mg/dL, more than three times as wide, because it is fixed entirely by the single lowest and single highest readings.",
+          "acceptableResponses": [
+            "43",
+            "43 mg/dL",
+            "IQR = 43 mg/dL"
+          ],
+          "commonErrors": [
+            "Reporting 156, which is the range rather than the interquartile range",
+            "Subtracting the median from the upper quartile, giving 28",
+            "Reporting the interval 118 to 161 without subtracting"
+          ]
+        },
+        "rubricId": "rubric-compute-iqr",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-choose-summary-skewed",
+        "type": "single-choice",
+        "sceneId": "scene-misconception",
+        "objectiveIds": [
+          "objective-choose-centre"
+        ],
+        "outcomeIds": [
+          "topic-statistics-data-center-spread"
+        ],
+        "prompt": "A clinic audit of 60 adults finds a mean fasting glucose of 160 mg/dL and a median of 140 mg/dL, with quartiles at 122 and 179 and a maximum of 382 mg/dL. Which line belongs in the audit summary?",
+        "stimulus": null,
+        "points": 2,
+        "responseSpec": {
+          "mode": "single-choice",
+          "options": [
+            {
+              "id": "option-skewed-mean",
+              "text": "The mean of 160 mg/dL, because it is calculated from every reading and therefore uses all the information."
+            },
+            {
+              "id": "option-skewed-median",
+              "text": "The median of 140 mg/dL with quartiles of 122 and 179, because the long right tail has pulled the mean above the reading of most of the sample."
+            },
+            {
+              "id": "option-skewed-trimmed",
+              "text": "The mean recalculated after deleting every reading above 250 mg/dL, because those readings are outliers."
+            },
+            {
+              "id": "option-skewed-mode",
+              "text": "The mode, because it is the only centre summary the tail cannot affect."
+            }
+          ]
+        },
+        "answer": {
+          "correct": "option-skewed-median",
+          "summary": "The median with its quartiles.",
+          "reasoning": "The 20 mg/dL gap between the mean and the median is the signature of a right-skewed distribution, and half the sample sits below 140. Using every reading is a virtue only when every reading is describing the same kind of thing; here a handful of very high values are loading the total, so the mean reports a value most of the group does not have. Deleting readings above a cut-off discards real measurements from the patients whose control is worst and would misstate the clinic. The mode is close to meaningless for finely measured continuous data, where values rarely repeat.",
+          "acceptableResponses": [],
+          "commonErrors": [
+            "Treating the mean as automatically better because it uses every value",
+            "Deleting high readings rather than reporting a resistant summary alongside the tail",
+            "Reaching for the mode on continuous data"
+          ]
+        },
+        "rubricId": "rubric-choose-summary-skewed",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-median-only-trap",
+        "type": "single-choice",
+        "sceneId": "scene-misconception",
+        "objectiveIds": [
+          "objective-choose-centre",
+          "objective-read-shape"
+        ],
+        "outcomeIds": [
+          "topic-statistics-data-center-spread"
+        ],
+        "prompt": "That same clinic runs an intervention aimed at its worst-controlled patients. Afterwards the five highest readings have fallen from between 280 and 382 mg/dL to around 180, and nobody else has changed. The mean falls from 160 to 148 mg/dL and the median stays at 140 mg/dL. What should the follow-up report give?",
+        "stimulus": null,
+        "points": 3,
+        "responseSpec": {
+          "mode": "single-choice",
+          "options": [
+            {
+              "id": "option-converse-median-only",
+              "text": "The median alone, because it resists extreme values and is therefore the safer summary to publish."
+            },
+            {
+              "id": "option-converse-mean-only",
+              "text": "The mean alone, because the median failed to detect the change and has been shown unreliable."
+            },
+            {
+              "id": "option-converse-both-plus-tail",
+              "text": "Both centre summaries, together with the upper quartile and the maximum, because the change happened in the tail and only summaries that respond to the tail can report it."
+            },
+            {
+              "id": "option-converse-drop-changed",
+              "text": "The mean recalculated with the five changed patients removed, so that the before and after groups are comparable."
+            }
+          ]
+        },
+        "answer": {
+          "correct": "option-converse-both-plus-tail",
+          "summary": "Both centre summaries plus the upper tail.",
+          "reasoning": "Resistance works in both directions. The median is built from the 30th and 31st readings in rank order, and those two people were untouched, so it cannot move no matter how much the highest readings fall. A median-only report would state that nothing changed, which is false. The mean did move, from 160 to 148 mg/dL, because the total fell by about 720 mg/dL. Neither centre summary is wrong; each answers a different question, and this intervention targeted exactly the part of the distribution that neither centre summary describes well, which is why the upper quartile and the maximum belong in the report. Removing the five patients who changed would delete the only effect there was.",
+          "acceptableResponses": [],
+          "commonErrors": [
+            "Over-applying the skew repair and treating the median as always safer",
+            "Concluding from an unchanged median that the intervention did nothing",
+            "Discarding the changed observations rather than reporting the tail"
+          ]
+        },
+        "rubricId": "rubric-median-only-trap",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-diagnose-shape",
+        "type": "data-interpretation",
+        "sceneId": "scene-transfer",
+        "objectiveIds": [
+          "objective-read-shape"
+        ],
+        "outcomeIds": [
+          "topic-statistics-data-center-spread"
+        ],
+        "prompt": "An emergency department audits the time from arrival to first analgesia for 150 patients and reports: mean 52 minutes, median 34, lower quartile 21, upper quartile 61, minimum 4, maximum 388, standard deviation 58. You cannot see the data. State what shape these numbers point to, give the two comparisons that led you there, and name the summaries you would print in the audit.",
+        "stimulus": null,
+        "points": 5,
+        "responseSpec": {
+          "mode": "text",
+          "maxLength": 1200
+        },
+        "answer": {
+          "correct": "Right-skewed, shown by the mean exceeding the median by 18 minutes and by the standard deviation of 58 exceeding the interquartile range of 40; print the median of 34 minutes with quartiles 21 to 61, and give the maximum.",
+          "summary": "A right-skewed distribution with a long tail of very delayed patients; report the median with the quartiles and show the tail.",
+          "reasoning": "Two comparisons agree. First, the mean of 52 minutes sits 18 minutes above the median of 34, and a mean above the median is what a long right tail produces. Second, the interquartile range is 61 - 21 = 40 minutes, while the standard deviation is 58 minutes; a roughly normal shape would put the standard deviation near 40 / 1.35, which is about 30, so a standard deviation half again larger than that says values far out in the upper tail are inflating it. The maximum of 388 minutes, more than six hours, confirms where the tail reaches. Print the median of 34 minutes with the quartiles 21 to 61 as the honest description of a typical patient, and report the maximum and the count of patients beyond some clinically meaningful threshold as well, because those long waits are the finding an audit exists to surface and no centre summary will show them.",
+          "acceptableResponses": [
+            "Right-skewed or positively skewed, because the mean is above the median and the standard deviation is larger than the interquartile range; report the median with quartiles, plus the tail.",
+            "Skewed to the right, with a small number of very long waits; median 34 with interquartile range 21 to 61 is the honest summary, and the maximum of 388 must be shown.",
+            "The distribution leans high. Mean minus median is +18, and 58 is well above the 30 or so a symmetric shape would give for an interquartile range of 40. Print the median and quartiles and flag the longest waits."
+          ],
+          "commonErrors": [
+            "Calling the shape symmetric because no picture was supplied",
+            "Giving only one of the two comparisons",
+            "Computing the interquartile range as 61 - 34 or 34 - 21 rather than 61 - 21",
+            "Recommending the mean because it is the familiar summary",
+            "Reporting a centre summary alone and leaving the 388-minute wait invisible"
+          ]
+        },
+        "rubricId": "rubric-diagnose-shape",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-standardized-difference",
+        "type": "numeric",
+        "sceneId": "scene-clinical-wrap-up",
+        "objectiveIds": [
+          "objective-interpret-standard-deviation"
+        ],
+        "outcomeIds": [
+          "topic-statistics-data-center-spread"
+        ],
+        "prompt": "A separate fictional trial reports a mean difference of 7.2 mg/dL in fasting glucose between its two arms, with a within-arm standard deviation of 24 mg/dL. Express the difference as a multiple of the within-arm standard deviation, to two decimal places.",
+        "stimulus": null,
+        "points": 3,
+        "responseSpec": {
+          "mode": "number",
+          "units": null,
+          "tolerance": 0.01
+        },
+        "answer": {
+          "correct": 0.3,
+          "summary": "0.30 standard deviations.",
+          "reasoning": "Divide the difference by the standard deviation: 7.2 / 24 = 0.30. The mg/dL in the numerator cancels the mg/dL in the denominator, which is the whole point of the calculation and the reason it works only because the standard deviation carries the same unit as the data. The result of 0.30 says the gap between the arms is about three tenths of the distance a typical patient sits from their own arm's mean, and because it has no unit it can be set beside a standardized difference from a trial that measured something entirely different. It says nothing about whether the difference matters clinically.",
+          "acceptableResponses": [
+            "0.3",
+            "0.30",
+            "0.30 SD",
+            "0.3 standard deviations"
+          ],
+          "commonErrors": [
+            "Inverting the ratio to give 24 / 7.2 = 3.33",
+            "Attaching mg/dL to the answer when the units have cancelled",
+            "Dividing by the variance of 576 instead of the standard deviation",
+            "Reading 0.30 as a probability or as a claim about clinical importance"
+          ]
+        },
+        "rubricId": "rubric-standardized-difference",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-why-sd-not-variance",
+        "type": "short-answer",
+        "sceneId": "scene-spread",
+        "objectiveIds": [
+          "objective-interpret-standard-deviation"
+        ],
+        "outcomeIds": [
+          "topic-statistics-data-center-spread"
+        ],
+        "prompt": "The cohort's variance is 324 and its standard deviation is 18. Give the unit of each, and explain in two or three sentences why a results table prints the second and not the first.",
+        "stimulus": null,
+        "points": 3,
+        "responseSpec": {
+          "mode": "text",
+          "maxLength": 700
+        },
+        "answer": {
+          "correct": "The variance is 324 mg squared per dL squared and the standard deviation is 18 mg/dL. The table prints 18 because it shares the unit of the data and can therefore be compared directly with the mean of 142 mg/dL or a group difference of 9 mg/dL, while squared milligrams per squared decilitre answers no question a reader has.",
+          "summary": "Variance in mg squared per dL squared, standard deviation in mg/dL; only the second is comparable with the other numbers in the table.",
+          "reasoning": "Squaring the deviations was needed so that positive and negative distances would not cancel, and it left the result in squared units. Taking the square root undoes that and returns the spread to mg/dL. That matters because every other quantity in a glucose results table is in mg/dL: the mean, the group difference, the laboratory's measurement precision. A spread measure in the same unit can be set beside all of them and read as a distance; a spread measure in squared units cannot.",
+          "acceptableResponses": [
+            "Variance: mg squared per dL squared. Standard deviation: mg/dL. Only the standard deviation is in the same unit as the readings, so only it can be compared with the mean or with a difference between groups.",
+            "324 is in squared units and 18 is in mg/dL. Readers reason in mg/dL, so the square root is the number that can sit next to a mean of 142 and mean something.",
+            "The variance carries mg squared per dL squared because the deviations were squared; the standard deviation carries mg/dL because the square root undid it, and that is the unit the rest of the table uses."
+          ],
+          "commonErrors": [
+            "Giving both quantities the same unit",
+            "Saying the standard deviation is preferred because it is smaller",
+            "Explaining that the square root is taken without saying what the units do",
+            "Claiming the variance is wrong rather than that it is in an unusable unit"
+          ]
+        },
+        "rubricId": "rubric-why-sd-not-variance",
+        "safetyCritical": false
+      }
+    ],
+    "rubrics": [
+      {
+        "id": "rubric-compute-standard-deviation",
+        "title": "Standard deviation from raw values",
+        "criteria": [
+          {
+            "id": "criterion-sd-mean-and-deviations",
+            "description": "Finds the mean of 150 mg/dL and deviations that sum to zero.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-sd-divisor",
+            "description": "Divides the squared total of 400 by n - 1 = 4 to reach a variance of 100.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-sd-root-and-unit",
+            "description": "Takes the square root and reports 10.0 mg/dL with the correct unit.",
+            "maxPoints": 1
+          }
+        ]
+      },
+      {
+        "id": "rubric-compute-iqr",
+        "title": "Interquartile range from a five-number summary",
+        "criteria": [
+          {
+            "id": "criterion-iqr-quartiles-selected",
+            "description": "Selects the upper and lower quartiles rather than the extremes or the median.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-iqr-value-and-unit",
+            "description": "Reports 43 mg/dL with the correct unit.",
+            "maxPoints": 1
+          }
+        ]
+      },
+      {
+        "id": "rubric-choose-summary-skewed",
+        "title": "Choosing a centre summary under skew",
+        "criteria": [
+          {
+            "id": "criterion-skewed-choice",
+            "description": "Selects the median with its quartiles for a right-skewed distribution.",
+            "maxPoints": 2
+          }
+        ]
+      },
+      {
+        "id": "rubric-median-only-trap",
+        "title": "Recognizing what a resistant summary hides",
+        "criteria": [
+          {
+            "id": "criterion-converse-choice",
+            "description": "Selects reporting both centre summaries together with the upper tail.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-converse-reason",
+            "description": "Avoids the two failure routes of a median-only report and of deleting the changed observations.",
+            "maxPoints": 1
+          }
+        ]
+      },
+      {
+        "id": "rubric-diagnose-shape",
+        "title": "Diagnosing shape from summary values alone",
+        "criteria": [
+          {
+            "id": "criterion-shape-named",
+            "description": "Names a right-skewed distribution with a long upper tail.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-shape-comparison-centre",
+            "description": "Gives the mean-above-median comparison with its size of about 18 minutes.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-shape-comparison-spread",
+            "description": "Computes the interquartile range as 40 minutes and compares it with the standard deviation of 58, referencing the roughly 1.35 ratio a normal shape gives.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-shape-reporting-choice",
+            "description": "Recommends the median with quartiles and keeps the upper tail visible.",
+            "maxPoints": 1
+          }
+        ]
+      },
+      {
+        "id": "rubric-standardized-difference",
+        "title": "A difference expressed in standard deviations",
+        "criteria": [
+          {
+            "id": "criterion-standardized-ratio",
+            "description": "Divides the difference by the standard deviation in the correct order to obtain 0.30.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-standardized-units",
+            "description": "Reports the result without a unit, recognizing that mg/dL cancels.",
+            "maxPoints": 1
+          }
+        ]
+      },
+      {
+        "id": "rubric-why-sd-not-variance",
+        "title": "Units of variance and standard deviation",
+        "criteria": [
+          {
+            "id": "criterion-units-both",
+            "description": "Gives mg squared per dL squared for the variance and mg/dL for the standard deviation.",
+            "maxPoints": 2
+          },
+          {
+            "id": "criterion-units-reason",
+            "description": "Explains that only the standard deviation can be compared with the mean, a group difference, or a measurement precision because it shares their unit.",
+            "maxPoints": 1
+          }
+        ]
+      }
+    ]
+  },
+  "references": {
+    "schemaVersion": 2,
+    "format": "embeddedknowledge-references-v2",
+    "lessonId": "PREM-STA-003",
+    "lessonVersion": "0.1.0",
+    "sources": [
+      {
+        "id": "source-nist-location",
+        "type": "reference-work",
+        "title": "NIST/SEMATECH e-Handbook of Statistical Methods, 1.3.5.1 Measures of Location",
+        "creators": [
+          "NIST/SEMATECH"
+        ],
+        "publisher": "National Institute of Standards and Technology",
+        "issued": null,
+        "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda351.htm",
+        "accessed": "2026-07-25",
+        "version": null,
+        "locator": "Section 1.3.5.1, Measures of Location, paragraphs on the mean, the median, and robustness to tail values",
+        "license": null,
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only to verify that extreme tail values distort the mean while the rank-based median is not distorted by them, and that the median is the better location estimate for data with extreme tail values. No wording, example, dataset, or figure from the handbook is reproduced; the cohort, the clinic sample, and every worked calculation in this lesson are original."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://www.nist.gov/privacy-policy",
+          "checked": "2026-07-25",
+          "notes": "Public United States government handbook page retrieved over HTTPS without login, paywall, or any access control. The handbook host serves no robots.txt; a request for one redirects to the NIST ITL landing page, so no crawler directive applies to this path. No licence term or site notice prohibiting automated retrieval or model ingestion was found when checked. The page carries no visible publication date, licence statement, or version identifier, which is why issued, version, and license are recorded as null rather than guessed."
+        }
+      },
+      {
+        "id": "source-nist-scale",
+        "type": "reference-work",
+        "title": "NIST/SEMATECH e-Handbook of Statistical Methods, 1.3.5.6 Measures of Scale",
+        "creators": [
+          "NIST/SEMATECH"
+        ],
+        "publisher": "National Institute of Standards and Technology",
+        "issued": null,
+        "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda356.htm",
+        "accessed": "2026-07-25",
+        "version": null,
+        "locator": "Section 1.3.5.6, Measures of Scale, definitions of the range, the variance, the standard deviation, and the interquartile range",
+        "license": null,
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only to verify the sample variance as the summed squared deviations from the mean divided by N minus 1, the standard deviation as its square root restoring the original data units while the variance squares them, the range as the largest minus the smallest value depending only on the two extremes, and the interquartile range as the seventy-fifth minus the twenty-fifth percentile describing variability near the centre. No wording, worked example, or dataset is reproduced; the participant, the two clinics, and every computed value are original."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://www.nist.gov/privacy-policy",
+          "checked": "2026-07-25",
+          "notes": "Public United States government handbook page retrieved over HTTPS without login, paywall, or any access control. The handbook host serves no robots.txt; a request for one redirects to the NIST ITL landing page, so no crawler directive applies to this path. No licence term or site notice prohibiting automated retrieval or model ingestion was found when checked. No publication date, licence statement, or version identifier appears on the page."
+        }
+      },
+      {
+        "id": "source-nist-skewness",
+        "type": "reference-work",
+        "title": "NIST/SEMATECH e-Handbook of Statistical Methods, 1.3.5.11 Measures of Skewness and Kurtosis",
+        "creators": [
+          "NIST/SEMATECH"
+        ],
+        "publisher": "National Institute of Standards and Technology",
+        "issued": null,
+        "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda35b.htm",
+        "accessed": "2026-07-25",
+        "version": null,
+        "locator": "Section 1.3.5.11, Measures of Skewness and Kurtosis, definition of skewness and of a symmetric data set",
+        "license": null,
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only to verify that skewness measures the lack of symmetry, that a data set is symmetric when it looks the same to the left and to the right of its centre point, and that positive skewness means the right tail is long relative to the left. No wording, formula presentation, figure, or example data is reproduced."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://www.nist.gov/privacy-policy",
+          "checked": "2026-07-25",
+          "notes": "Public United States government handbook page retrieved over HTTPS without login, paywall, or any access control. The handbook host serves no robots.txt; a request for one redirects to the NIST ITL landing page, so no crawler directive applies to this path. No licence term or site notice prohibiting automated retrieval or model ingestion was found when checked. No publication date, licence statement, or version identifier appears on the page."
+        }
+      },
+      {
+        "id": "source-nist-histogram-skewed",
+        "type": "reference-work",
+        "title": "NIST/SEMATECH e-Handbook of Statistical Methods, 1.3.3.14.6 Histogram Interpretation: Skewed (Non-Normal) Right",
+        "creators": [
+          "NIST/SEMATECH"
+        ],
+        "publisher": "National Institute of Standards and Technology",
+        "issued": null,
+        "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/histogr6.htm",
+        "accessed": "2026-07-25",
+        "version": null,
+        "locator": "Section 1.3.3.14.6, the discussion of what counts as a typical value for symmetric and for skewed distributions and the recommendation on which summaries to report",
+        "license": null,
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only to verify that for symmetric distributions the mode, mean, and median are identical at the population level, that a skewed distribution has no centre in the usual sense and these three summaries are then markedly different, and that the recommendation for a skewed distribution is to report at least the mean and the median. No wording, histogram, dataset, or example is reproduced; the cohort, the clinic sample, and every figure in this lesson are original."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://www.nist.gov/privacy-policy",
+          "checked": "2026-07-25",
+          "notes": "Public United States government handbook page retrieved over HTTPS without login, paywall, or any access control. The handbook host serves no robots.txt; a request for one redirects to the NIST ITL landing page, so no crawler directive applies to this path. No licence term or site notice prohibiting automated retrieval or model ingestion was found when checked. The page carries no publication date, licence statement, or version identifier."
+        }
+      },
+      {
+        "id": "source-wan-median-to-mean",
+        "type": "primary-research",
+        "title": "Estimating the sample mean and standard deviation from the sample size, median, range and/or interquartile range",
+        "creators": [
+          "Xiang Wan",
+          "Wenqian Wang",
+          "Jiming Liu",
+          "Tiejun Tong"
+        ],
+        "publisher": "BMC Medical Research Methodology",
+        "issued": "2014",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4383202/",
+        "accessed": "2026-07-25",
+        "version": "Volume 14, article 135",
+        "locator": "Background, on trials reporting the median with quartiles or with minimum and maximum; and the section deriving the interquartile range estimator, where the denominator converges to 2 times the inverse normal at 0.75, which is 1.34898",
+        "license": "CC BY 4.0",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only to verify that some medical trial reports give the median with the first and third quartiles or with the minimum and maximum instead of the mean and standard deviation, that the interquartile range is usually less sensitive to outliers than the range, and that for normal data the ratio of interquartile range to standard deviation converges to about 1.35. No formula derivation, table, simulation result, or wording is reproduced; the ratios computed in this lesson are calculated from its own invented data."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://www.ncbi.nlm.nih.gov/home/about/policies/",
+          "checked": "2026-07-25",
+          "notes": "Open-access article retrieved from PubMed Central over HTTPS without login, paywall, or any access control. The PubMed Central robots.txt was checked on this date and explicitly allows /articles/ paths for all user agents. The publisher's own domain redirected to a Springer authentication endpoint, which was not followed, so the openly licensed PubMed Central copy is the record cited here. The article states a Creative Commons Attribution 4.0 licence."
+        }
+      },
+      {
+        "id": "source-medlineplus-blood-glucose",
+        "type": "reference-work",
+        "title": "Blood Glucose Test",
+        "creators": [
+          "MedlinePlus"
+        ],
+        "publisher": "National Library of Medicine, National Institutes of Health",
+        "issued": "2024-12-30",
+        "url": "https://medlineplus.gov/lab-tests/blood-glucose-test/",
+        "accessed": "2026-07-25",
+        "version": "Page last updated 30 December 2024",
+        "locator": "Section describing test preparation, on fasting before a fasting blood glucose test",
+        "license": null,
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only to verify that a fasting blood glucose test requires the person to have gone without eating or drinking anything except water for at least eight hours before the sample. No wording, patient guidance, or reference range is reproduced, and this lesson asserts no diagnostic threshold."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://medlineplus.gov/about/using/usingcontent/",
+          "checked": "2026-07-25",
+          "notes": "Public United States National Library of Medicine consumer-health page retrieved over HTTPS without login, paywall, or any access control. No term prohibiting automated retrieval of this page was found when checked. The retrieved page states a last-updated date of 30 December 2024 and gives no numeric diagnostic thresholds, so no threshold claim is drawn from it."
+        }
+      }
+    ]
+  },
+  "claims": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-claims-v1",
+    "lessonId": "PREM-STA-003",
+    "lessonVersion": "0.1.0",
+    "claims": [
+      {
+        "id": "claim-mean-not-resistant",
+        "statement": "Extreme values in the tails of a data set distort the arithmetic mean, while the median is based on ranks and is not distorted by them, so for data with extreme tail values the median gives the better estimate of location.",
+        "sceneIds": [
+          "scene-centre",
+          "scene-misconception",
+          "scene-practice",
+          "scene-clinical-wrap-up"
+        ],
+        "sourceIds": [
+          "source-nist-location"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Descriptive summaries of a single quantitative variable. States which summary moves when extreme values change; says nothing about whether an extreme value is an error, should be excluded, or is clinically meaningful.",
+        "uncertainty": "How far the mean moves depends on the sample size and on how far the extreme values sit from the rest, so the effect is a direction rather than a fixed magnitude.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-symmetry-coincidence",
+        "statement": "For a symmetric distribution the mode, the mean, and the median are identical at the population level, so a symmetric shape has an unambiguous typical value; a skewed distribution has no centre in the usual sense and those three summaries are then markedly different.",
+        "sceneIds": [
+          "scene-centre",
+          "scene-transfer",
+          "scene-clinical-wrap-up"
+        ],
+        "sourceIds": [
+          "source-nist-histogram-skewed"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "The population-level relationship between shape and the three centre summaries. In a finite sample the three will differ a little even under symmetry, so the lesson treats close agreement rather than exact equality as the observable signal.",
+        "uncertainty": "The implication runs from symmetry to agreement of the summaries. The lesson shows by counter-example that the reverse does not follow, because two separated groups placed evenly either side of a gap also make the mean and the median agree.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-right-tail-lifts-mean",
+        "statement": "When a distribution's long tail lies on the high side, its mean is pulled above its median, because the extreme values in that tail distort the mean while the rank-based median is not distorted by them.",
+        "sceneIds": [
+          "scene-centre",
+          "scene-misconception",
+          "scene-practice"
+        ],
+        "sourceIds": [
+          "source-nist-location",
+          "source-nist-histogram-skewed"
+        ],
+        "support": "inference",
+        "confidence": "high",
+        "scope": "Drawn by combining two sourced facts: that tail values distort the mean but not the rank-based median, and that the centre summaries of a skewed distribution differ markedly. The direction follows from which side the tail sits on, and the lesson demonstrates it arithmetically on its own data rather than asserting it as a theorem.",
+        "uncertainty": "Constructed distributions exist in which a right-skewed shape has a mean below its median, so the direction is the usual case rather than a universal one.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-report-both-when-skewed",
+        "statement": "For a skewed distribution the recommendation is to report at least the mean and the median together, and preferably the mode as well, rather than choosing a single centre summary.",
+        "sceneIds": [
+          "scene-misconception"
+        ],
+        "sourceIds": [
+          "source-nist-histogram-skewed"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Guidance on summarizing and characterizing a skewed data set, stated by the cited handbook. It is a recommendation about description, not a reporting standard imposed by any journal or regulator, and the lesson presents it as such.",
+        "uncertainty": "The mode is of little use for finely measured continuous data, where values rarely repeat, so the third summary in the recommendation is often uninformative in the clinical setting this lesson uses.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-variance-sd-units",
+        "statement": "The sample variance is the sum of the squared deviations from the mean divided by one less than the number of observations, and the standard deviation is its square root, which restores the spread to the original data units while the variance is expressed in squared units.",
+        "sceneIds": [
+          "scene-spread",
+          "scene-worked-example",
+          "scene-clinical-wrap-up"
+        ],
+        "sourceIds": [
+          "source-nist-scale"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "The sample variance and standard deviation of a set of measured values. The lesson's explanation of why the divisor is one less than the count is given as the standard rationale rather than as a derivation, and no distributional assumption is attached.",
+        "uncertainty": null,
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-range-iqr",
+        "statement": "The range is the largest value minus the smallest and is based only on the two most extreme observations, whereas the interquartile range is the seventy-fifth percentile minus the twenty-fifth, measures variability near the centre, and is usually less sensitive to outliers than the range.",
+        "sceneIds": [
+          "scene-spread",
+          "scene-misconception"
+        ],
+        "sourceIds": [
+          "source-nist-scale",
+          "source-wan-median-to-mean"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Descriptive spread measures for a single quantitative variable. Percentile definitions vary slightly between conventions and software, which can shift a quartile by a small amount in a small sample.",
+        "uncertainty": "Quartile values depend on the interpolation rule used, so two packages can report interquartile ranges that differ slightly on the same data.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-iqr-sd-normal",
+        "statement": "For normally distributed data the ratio of the interquartile range to the standard deviation approaches twice the inverse normal at 0.75, which is about 1.35, so a normal-shaped sample has an interquartile range of roughly 1.35 standard deviations.",
+        "sceneIds": [
+          "scene-spread",
+          "scene-transfer"
+        ],
+        "sourceIds": [
+          "source-wan-median-to-mean"
+        ],
+        "support": "direct",
+        "confidence": "medium-high",
+        "scope": "Normally distributed data. The source states the convergence as the sample size grows, so the figure is an asymptotic reference value that a real sample will only approach.",
+        "uncertainty": "In a small sample the observed ratio varies around 1.35 by chance alone, so a departure from it is a prompt to inspect the shape rather than a test with a stated error rate.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-skewness-symmetry",
+        "statement": "Skewness measures the lack of symmetry in a distribution: a data set is symmetric when it looks the same to the left and to the right of its centre point, and positive skewness means the right tail is long relative to the left tail.",
+        "sceneIds": [
+          "scene-centre",
+          "scene-transfer"
+        ],
+        "sourceIds": [
+          "source-nist-skewness"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Definitional. Applies to the shape of a distribution of one quantitative variable; the lesson uses the qualitative definition and does not compute a skewness coefficient.",
+        "uncertainty": "The source notes that the sign of a computed skewness coefficient can be difficult to interpret for multi-peaked data, which is one reason this lesson diagnoses shape from several summaries together.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-median-iqr-reporting",
+        "statement": "Some medical trial reports summarize a continuous outcome with the median together with the first and third quartiles, or with the minimum and maximum, instead of with the mean and standard deviation.",
+        "sceneIds": [
+          "scene-clinical-wrap-up"
+        ],
+        "sourceIds": [
+          "source-wan-median-to-mean"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "A description of reporting practice observed in the medical trial literature that the cited paper addresses. It is not a claim that any particular guideline mandates a specific format, and no reporting standard is asserted here.",
+        "uncertainty": "The cited paper documents that the practice occurs and is common enough to require conversion methods for meta-analysis; it does not quantify how often each format is used.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-fasting-definition",
+        "statement": "A fasting blood glucose test requires that the person has not eaten or drunk anything other than water for at least eight hours before the sample is taken.",
+        "sceneIds": [
+          "scene-orientation",
+          "scene-clinical-wrap-up"
+        ],
+        "sourceIds": [
+          "source-medlineplus-blood-glucose"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "The preparation condition that defines a fasting blood glucose measurement, used here to explain why readings from different people are comparable. No diagnostic threshold, reference range, or interpretation of any result is claimed.",
+        "uncertainty": "Local laboratory and study protocols may specify a longer fast or additional conditions, so eight hours is the minimum the cited consumer-health source states rather than a universal protocol.",
+        "risk": "health-sensitive",
+        "reviewStatus": "pending-review"
+      }
+    ]
+  },
+  "glossary": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-glossary-v1",
+    "lessonId": "PREM-STA-003",
+    "lessonVersion": "0.1.0",
+    "terms": [
+      {
+        "id": "term-arithmetic-mean",
+        "term": "arithmetic mean",
+        "definition": "The sum of all the values divided by how many values there are. It answers what each observation would receive if the total were shared out equally, it carries the same unit as the data, and multiplying it by the number of observations returns the total. Every value enters it at full weight, so a value far out in a tail pulls it toward that tail.",
+        "aliases": [
+          "mean",
+          "average"
+        ],
+        "sceneIds": [
+          "scene-centre",
+          "scene-spread",
+          "scene-worked-example",
+          "scene-misconception",
+          "scene-practice",
+          "scene-transfer",
+          "scene-clinical-wrap-up"
+        ]
+      },
+      {
+        "id": "term-median",
+        "term": "median",
+        "definition": "The middle value once the observations are placed in order, or the average of the two middle values when the count is even. It answers which value splits the group in half. Because it is determined by ranks rather than by magnitudes, changing how extreme an extreme value is does not move it.",
+        "aliases": [
+          "second quartile",
+          "50th percentile"
+        ],
+        "sceneIds": [
+          "scene-centre",
+          "scene-spread",
+          "scene-worked-example",
+          "scene-misconception",
+          "scene-practice",
+          "scene-transfer",
+          "scene-clinical-wrap-up"
+        ]
+      },
+      {
+        "id": "term-mode",
+        "term": "mode",
+        "definition": "The value that occurs most often in a data set. It is informative for data recorded as a small number of fixed levels or categories, and close to useless for finely measured continuous data where values rarely repeat. A data set can have more than one mode.",
+        "aliases": [
+          "modal value"
+        ],
+        "sceneIds": [
+          "scene-centre"
+        ]
+      },
+      {
+        "id": "term-resistant-summary",
+        "term": "resistant summary",
+        "definition": "A summary whose value changes little when a small number of extreme observations change. The median and the quartiles are resistant; the mean, the range, and the standard deviation are not. Resistance is a property to choose deliberately, because a summary that ignores a change in the extremes also fails to report one that matters.",
+        "aliases": [
+          "resistant",
+          "resistance"
+        ],
+        "sceneIds": [
+          "scene-centre",
+          "scene-misconception",
+          "scene-practice",
+          "scene-clinical-wrap-up"
+        ]
+      },
+      {
+        "id": "term-deviation-from-mean",
+        "term": "deviation from the mean",
+        "definition": "One observation minus the mean of its data set, carrying a sign and the unit of the data. The deviations of any data set sum to zero, which is why a spread measure squares them before averaging rather than averaging them directly.",
+        "aliases": [
+          "deviation"
+        ],
+        "sceneIds": [
+          "scene-spread",
+          "scene-worked-example",
+          "scene-practice"
+        ]
+      },
+      {
+        "id": "term-range",
+        "term": "range",
+        "definition": "In this lesson, a single number that measures spread: the largest value in a data set minus the smallest, carrying the same unit as the data. It uses only the two most extreme observations, so one unusual or mistyped value can change it dramatically.",
+        "aliases": [
+          "data range",
+          "spread from smallest to largest"
+        ],
+        "sceneIds": [
+          "scene-spread",
+          "scene-worked-example",
+          "scene-practice"
+        ],
+        "alignment": {
+          "priorLesson": "PREM-QNT-007",
+          "relation": "distinct-sense",
+          "note": "PREM-QNT-007 defines range as the set of outputs a function produces over its declared domain, which is a collection of values. The statistical sense used here is a different technical meaning of the same word: one number, the maximum minus the minimum of an observed data set, with the unit of the data. The two senses are bridged in the scene where the term is introduced so a learner meeting both is not left to reconcile them alone."
+        }
+      },
+      {
+        "id": "term-quartile",
+        "term": "quartile",
+        "definition": "One of the three values that cut an ordered data set into four parts of equal size. The lower quartile Q1 sits at the 25th percentile, the second quartile is the median, and the upper quartile Q3 sits at the 75th percentile. Software packages use slightly different interpolation rules, so reported quartiles can differ a little on the same small sample.",
+        "aliases": [
+          "Q1",
+          "Q3",
+          "lower quartile",
+          "upper quartile"
+        ],
+        "sceneIds": [
+          "scene-spread",
+          "scene-misconception",
+          "scene-practice",
+          "scene-transfer",
+          "scene-clinical-wrap-up"
+        ]
+      },
+      {
+        "id": "term-interquartile-range",
+        "term": "interquartile range",
+        "definition": "The upper quartile minus the lower quartile, that is the width of the middle half of an ordered data set, in the unit of the data. It describes variability near the centre and is usually less sensitive to outliers than the range.",
+        "aliases": [
+          "IQR",
+          "middle-half width"
+        ],
+        "sceneIds": [
+          "scene-spread",
+          "scene-misconception",
+          "scene-practice",
+          "scene-transfer"
+        ]
+      },
+      {
+        "id": "term-five-number-summary",
+        "term": "five-number summary",
+        "definition": "The minimum, lower quartile, median, upper quartile, and maximum of a data set, reported in that order. Together they describe where the middle half sits, how far each tail reaches, and whether the two tails are alike, which a single centre value cannot do.",
+        "aliases": [],
+        "sceneIds": [
+          "scene-spread",
+          "scene-misconception"
+        ]
+      },
+      {
+        "id": "term-variance",
+        "term": "variance",
+        "definition": "The sum of the squared deviations from the mean divided by one less than the number of observations, for a sample. Squaring removes the signs so the deviations do not cancel, at the cost of leaving the result in squared units, such as mg squared per dL squared for glucose data.",
+        "aliases": [
+          "sample variance"
+        ],
+        "sceneIds": [
+          "scene-spread",
+          "scene-worked-example",
+          "scene-practice"
+        ]
+      },
+      {
+        "id": "term-standard-deviation",
+        "term": "standard deviation",
+        "definition": "The square root of the variance, which returns the spread to the unit of the original data. Read it as roughly the distance a typical observation sits from the mean, in either direction. Because it shares the data's unit, it can be set beside a mean, a group difference, or a measurement precision and compared directly, and dividing a difference by it produces a quantity with no unit at all.",
+        "aliases": [
+          "SD",
+          "sample standard deviation"
+        ],
+        "sceneIds": [
+          "scene-spread",
+          "scene-worked-example",
+          "scene-misconception",
+          "scene-practice",
+          "scene-transfer",
+          "scene-clinical-wrap-up"
+        ]
+      },
+      {
+        "id": "term-symmetric-distribution",
+        "term": "symmetric distribution",
+        "definition": "A distribution that looks the same to the left and to the right of its centre point. Symmetry is the condition under which the mean and the median agree. The reverse does not follow: the mean and the median can also agree when the data splits into two separated groups on either side of an empty middle.",
+        "aliases": [
+          "symmetry"
+        ],
+        "sceneIds": [
+          "scene-centre",
+          "scene-transfer"
+        ]
+      },
+      {
+        "id": "term-skew",
+        "term": "skew",
+        "definition": "The lack of symmetry in a distribution. A distribution is skewed right when its right tail is long relative to its left, which pulls the mean above the median; it is skewed left when the long tail is on the low side, which pulls the mean below the median.",
+        "aliases": [
+          "skewness",
+          "skewed distribution"
+        ],
+        "sceneIds": [
+          "scene-centre",
+          "scene-misconception",
+          "scene-practice",
+          "scene-transfer"
+        ]
+      },
+      {
+        "id": "term-outlier",
+        "term": "outlier",
+        "definition": "An observation that sits far from the bulk of the data. The label describes a position in the distribution and nothing more; an outlier may be a recording error, or it may be an accurate measurement of a person whose situation genuinely differs from the rest, and deciding which is a matter for the investigator rather than for the arithmetic.",
+        "aliases": [
+          "extreme value"
+        ],
+        "sceneIds": [
+          "scene-misconception"
+        ]
+      }
+    ]
+  },
+  "attributionHtml": "<h1>Attribution</h1>\n<h2>Lesson identity and licence</h2>\n<ul>\n<li>Lesson: <strong>PREM-STA-003 — Look at the shape before you choose the summary: centre, spread, and distribution shape</strong></li>\n<li>Outcome: <strong>PREM-04.03</strong> (<code>topic-statistics-data-center-spread</code>)</li>\n<li>Accountable principal: <strong>VSBDev</strong> (<code>github:VSBDev</code>)</li>\n<li>Licence: <strong>Creative Commons Attribution 4.0 International (CC BY 4.0)</strong></li>\n<li>State: <strong>draft</strong>, source confidence <strong>pending-review</strong></li>\n</ul>\n<h2>Material agent assistance</h2>\n<p>One author-role run researched, drafted, and packaged this lesson. No review or adjudication artifact was produced by that run, and none exists in this pack.</p>\n<table>\n<thead>\n<tr>\n<th>System</th>\n<th>Provider</th>\n<th>Model</th>\n<th>Version</th>\n<th>Run ID</th>\n<th>Material-instructions digest</th>\n</tr>\n</thead>\n<tbody><tr>\n<td><code>RUNTIME-STAMPED</code></td>\n<td><code>RUNTIME-STAMPED</code></td>\n<td><code>RUNTIME-STAMPED</code></td>\n<td><code>RUNTIME-STAMPED</code></td>\n<td><code>author-PREM-STA-003-65b2222e-b9fd-43f4-919c-7f26134b9c27</code></td>\n<td><code>sha256:0cd10dccc8c84bfc77ea7fb97850404677c91ceae86d6025bbfac63f9be4acc2</code></td>\n</tr>\n</tbody></table>\n<p>The four runtime identity fields are left as <code>RUNTIME-STAMPED</code> for the accountable operator to replace from what the runtime actually reported, because an agent cannot reliably report its own model. The digest covers the exact discloseable UTF-8 authoring task payload supplied to the run, including its terminal newline. It does not cover hidden provider or system instructions, which cannot be exported.</p>\n<h2>Originality, sources, and rights</h2>\n<p>Every data set in this lesson is invented for teaching and is labelled as such: the sixty-adult dinner-timing cohort, the participant recording five mornings, the two clinics with equal means, the right-skewed clinic audit and its intervention, the grouped dinner-to-sleep column, the screening-clinic readings, the discharge and emergency-department audits, and the trial in the assessment. They describe no real patient, clinic, or study. All prose, tables, chart source, worked steps, retrieval prompts, practice items, feedback, recovery routes, and assessment content are original.</p>\n<p>Sources are used for facts only, under an independently written instructional structure and expression. No source wording, worked example, table, figure, dataset, or question is copied or adapted.</p>\n<ul>\n<li>The NIST/SEMATECH e-Handbook of Statistical Methods supports the location facts (extreme tail values distort the mean; the rank-based median is not distorted; the median is the better location estimate for such data), the scale facts (the sample variance with its <code>n - 1</code> divisor, the standard deviation as its square root restoring the original data units, the range as largest minus smallest, the interquartile range as the seventy-fifth minus the twenty-fifth percentile), the definition of skewness as a lack of symmetry, and the histogram-interpretation facts that a symmetric distribution has mode, mean, and median identical at the population level while a skewed one has no single centre and should be summarized with at least the mean and the median.</li>\n<li>Wan, Wang, Liu and Tong (2014), read from its open-access PubMed Central copy under CC BY 4.0, supports the observation that some medical trial reports give the median with quartiles or with minimum and maximum instead of the mean and standard deviation, that the interquartile range is usually less sensitive to outliers than the range, and that the ratio of interquartile range to standard deviation converges to about 1.35 for normal data.</li>\n<li>MedlinePlus, published by the United States National Library of Medicine, supports the fasting condition a fasting blood glucose test requires. No diagnostic threshold or reference range is drawn from it or asserted anywhere in this lesson.</li>\n</ul>\n<p>One statement in the lesson, that a high-side tail lifts the mean above the median, is recorded in <code>claims.json</code> as an inference combining two sourced facts rather than as a direct quotation of either, and the lesson demonstrates it arithmetically on its own invented data.</p>\n<h2>A source opened and then excluded</h2>\n<p>OpenStax <em>Introductory Statistics 2e</em> section 2.6 was opened during research before its terms were checked. The check then found that the OpenStax <code>robots.txt</code> disallows <code>/books/</code> for at least one named AI crawler, and an earlier academic review in this repository recorded that current OpenStax book pages carry an explicit restriction on ingestion into large-language-model or generative-AI offerings. The source was therefore removed from <code>references.json</code>, from every claim, and from every source note, and the affected claims were re-grounded on the NIST handbook. Nothing read from OpenStax is quoted, adapted, or relied on as support in this pack.</p>\n<h2>Access checks</h2>\n<p>The displayed licences, terms routes, and public access conditions for every retained source were checked on 2026-07-25 and recorded with that date in <code>references.json</code>. No login, paywall, or technical control was bypassed for any source. The PubMed Central <code>robots.txt</code> was read and explicitly allows <code>/articles/</code> for all user agents. The NIST handbook host serves no <code>robots.txt</code>; a request for one redirects to the NIST ITL landing page.</p>\n<p>No third-party assets, images, datasets, personal data, or patient material are included. <code>thirdPartyAssets</code> in <code>lesson.json</code> is empty.</p>\n<h2>Boundaries</h2>\n<p>This lesson teaches descriptive statistics. It provides no clinical advice, asserts no diagnostic threshold, and makes no claim of review, approval, publication, measured effectiveness, academic credit, or clinical competence. The clinical wrap-up is an illustrative reporting exercise built on invented data and is labelled as a teaching example rather than medical advice.</p>\n"
+}

@@ -1,0 +1,183 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-claims-v1",
+  "lessonId": "PREM-STA-003",
+  "lessonVersion": "0.1.0",
+  "claims": [
+    {
+      "id": "claim-mean-not-resistant",
+      "statement": "Extreme values in the tails of a data set distort the arithmetic mean, while the median is based on ranks and is not distorted by them, so for data with extreme tail values the median gives the better estimate of location.",
+      "sceneIds": [
+        "scene-centre",
+        "scene-misconception",
+        "scene-practice",
+        "scene-clinical-wrap-up"
+      ],
+      "sourceIds": [
+        "source-nist-location"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "Descriptive summaries of a single quantitative variable. States which summary moves when extreme values change; says nothing about whether an extreme value is an error, should be excluded, or is clinically meaningful.",
+      "uncertainty": "How far the mean moves depends on the sample size and on how far the extreme values sit from the rest, so the effect is a direction rather than a fixed magnitude.",
+      "risk": "routine",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-symmetry-coincidence",
+      "statement": "For a symmetric distribution the mode, the mean, and the median are identical at the population level, so a symmetric shape has an unambiguous typical value; a skewed distribution has no centre in the usual sense and those three summaries are then markedly different.",
+      "sceneIds": [
+        "scene-centre",
+        "scene-transfer",
+        "scene-clinical-wrap-up"
+      ],
+      "sourceIds": [
+        "source-nist-histogram-skewed"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "The population-level relationship between shape and the three centre summaries. In a finite sample the three will differ a little even under symmetry, so the lesson treats close agreement rather than exact equality as the observable signal.",
+      "uncertainty": "The implication runs from symmetry to agreement of the summaries. The lesson shows by counter-example that the reverse does not follow, because two separated groups placed evenly either side of a gap also make the mean and the median agree.",
+      "risk": "routine",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-right-tail-lifts-mean",
+      "statement": "When a distribution's long tail lies on the high side, its mean is pulled above its median, because the extreme values in that tail distort the mean while the rank-based median is not distorted by them.",
+      "sceneIds": [
+        "scene-centre",
+        "scene-misconception",
+        "scene-practice"
+      ],
+      "sourceIds": [
+        "source-nist-location",
+        "source-nist-histogram-skewed"
+      ],
+      "support": "inference",
+      "confidence": "high",
+      "scope": "Drawn by combining two sourced facts: that tail values distort the mean but not the rank-based median, and that the centre summaries of a skewed distribution differ markedly. The direction follows from which side the tail sits on, and the lesson demonstrates it arithmetically on its own data rather than asserting it as a theorem.",
+      "uncertainty": "Constructed distributions exist in which a right-skewed shape has a mean below its median, so the direction is the usual case rather than a universal one.",
+      "risk": "routine",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-report-both-when-skewed",
+      "statement": "For a skewed distribution the recommendation is to report at least the mean and the median together, and preferably the mode as well, rather than choosing a single centre summary.",
+      "sceneIds": [
+        "scene-misconception"
+      ],
+      "sourceIds": [
+        "source-nist-histogram-skewed"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "Guidance on summarizing and characterizing a skewed data set, stated by the cited handbook. It is a recommendation about description, not a reporting standard imposed by any journal or regulator, and the lesson presents it as such.",
+      "uncertainty": "The mode is of little use for finely measured continuous data, where values rarely repeat, so the third summary in the recommendation is often uninformative in the clinical setting this lesson uses.",
+      "risk": "routine",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-variance-sd-units",
+      "statement": "The sample variance is the sum of the squared deviations from the mean divided by one less than the number of observations, and the standard deviation is its square root, which restores the spread to the original data units while the variance is expressed in squared units.",
+      "sceneIds": [
+        "scene-spread",
+        "scene-worked-example",
+        "scene-clinical-wrap-up"
+      ],
+      "sourceIds": [
+        "source-nist-scale"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "The sample variance and standard deviation of a set of measured values. The lesson's explanation of why the divisor is one less than the count is given as the standard rationale rather than as a derivation, and no distributional assumption is attached.",
+      "uncertainty": null,
+      "risk": "routine",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-range-iqr",
+      "statement": "The range is the largest value minus the smallest and is based only on the two most extreme observations, whereas the interquartile range is the seventy-fifth percentile minus the twenty-fifth, measures variability near the centre, and is usually less sensitive to outliers than the range.",
+      "sceneIds": [
+        "scene-spread",
+        "scene-misconception"
+      ],
+      "sourceIds": [
+        "source-nist-scale",
+        "source-wan-median-to-mean"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "Descriptive spread measures for a single quantitative variable. Percentile definitions vary slightly between conventions and software, which can shift a quartile by a small amount in a small sample.",
+      "uncertainty": "Quartile values depend on the interpolation rule used, so two packages can report interquartile ranges that differ slightly on the same data.",
+      "risk": "routine",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-iqr-sd-normal",
+      "statement": "For normally distributed data the ratio of the interquartile range to the standard deviation approaches twice the inverse normal at 0.75, which is about 1.35, so a normal-shaped sample has an interquartile range of roughly 1.35 standard deviations.",
+      "sceneIds": [
+        "scene-spread",
+        "scene-transfer"
+      ],
+      "sourceIds": [
+        "source-wan-median-to-mean"
+      ],
+      "support": "direct",
+      "confidence": "medium-high",
+      "scope": "Normally distributed data. The source states the convergence as the sample size grows, so the figure is an asymptotic reference value that a real sample will only approach.",
+      "uncertainty": "In a small sample the observed ratio varies around 1.35 by chance alone, so a departure from it is a prompt to inspect the shape rather than a test with a stated error rate.",
+      "risk": "routine",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-skewness-symmetry",
+      "statement": "Skewness measures the lack of symmetry in a distribution: a data set is symmetric when it looks the same to the left and to the right of its centre point, and positive skewness means the right tail is long relative to the left tail.",
+      "sceneIds": [
+        "scene-centre",
+        "scene-transfer"
+      ],
+      "sourceIds": [
+        "source-nist-skewness"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "Definitional. Applies to the shape of a distribution of one quantitative variable; the lesson uses the qualitative definition and does not compute a skewness coefficient.",
+      "uncertainty": "The source notes that the sign of a computed skewness coefficient can be difficult to interpret for multi-peaked data, which is one reason this lesson diagnoses shape from several summaries together.",
+      "risk": "routine",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-median-iqr-reporting",
+      "statement": "Some medical trial reports summarize a continuous outcome with the median together with the first and third quartiles, or with the minimum and maximum, instead of with the mean and standard deviation.",
+      "sceneIds": [
+        "scene-clinical-wrap-up"
+      ],
+      "sourceIds": [
+        "source-wan-median-to-mean"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "A description of reporting practice observed in the medical trial literature that the cited paper addresses. It is not a claim that any particular guideline mandates a specific format, and no reporting standard is asserted here.",
+      "uncertainty": "The cited paper documents that the practice occurs and is common enough to require conversion methods for meta-analysis; it does not quantify how often each format is used.",
+      "risk": "routine",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-fasting-definition",
+      "statement": "A fasting blood glucose test requires that the person has not eaten or drunk anything other than water for at least eight hours before the sample is taken.",
+      "sceneIds": [
+        "scene-orientation",
+        "scene-clinical-wrap-up"
+      ],
+      "sourceIds": [
+        "source-medlineplus-blood-glucose"
+      ],
+      "support": "direct",
+      "confidence": "high",
+      "scope": "The preparation condition that defines a fasting blood glucose measurement, used here to explain why readings from different people are comparable. No diagnostic threshold, reference range, or interpretation of any result is claimed.",
+      "uncertainty": "Local laboratory and study protocols may specify a longer fast or additional conditions, so eight hours is the minimum the cited consumer-health source states rather than a universal protocol.",
+      "risk": "health-sensitive",
+      "reviewStatus": "pending-review"
+    }
+  ]
+}
