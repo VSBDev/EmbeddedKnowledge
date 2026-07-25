@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-chart-v1",
+  "id": "chart-sampling-distribution-mean",
+  "type": "normal-curve",
+  "title": "Where the cohort mean would land across repeats of the study, 60 people each time",
+  "alt": "A narrow bell curve centred on 142 mg/dL, almost all of it between about 135 and 149, with the band from 139.7 to 144.3 shaded.",
+  "longDescription": "This curve is not a picture of patients. Each point on the horizontal axis is a value the cohort mean could take if the study were run again on 60 different adults from the same list, and the curve says how often each of those values would come up. It is centred on 142 mg/dL and its standard deviation, which is what the standard error of the mean is, is 2.32 mg/dL. The shaded band runs from 139.7 to 144.3 mg/dL, one standard error either side of 142, and holds roughly two thirds of the repeats. Almost the whole curve lies between about 135 and 149 mg/dL, three standard errors either side of centre. The horizontal axis runs from 88 to 196 mg/dL, the same range as the chart of individual values, so the two can be compared directly: this curve occupies a narrow slice of a range the individual readings fill. The vertical axis is relative frequency with no units, and it is scaled to this curve's own peak, so the comparison to make between the two charts is width and not height.",
+  "xAxis": {
+    "label": "Value the cohort mean takes on a repeat",
+    "unit": "mg/dL",
+    "min": 88,
+    "max": 196,
+    "ticks": [
+      { "at": 88, "label": "88" },
+      { "at": 106, "label": "106" },
+      { "at": 124, "label": "124" },
+      { "at": 142, "label": "142" },
+      { "at": 160, "label": "160" },
+      { "at": 178, "label": "178" },
+      { "at": 196, "label": "196" }
+    ]
+  },
+  "yAxis": {
+    "label": "Relative frequency across repeats",
+    "unit": null,
+    "min": 0,
+    "max": 0.19,
+    "ticks": [{ "at": 0, "label": "0" }]
+  },
+  "series": [
+    {
+      "id": "series-mean-of-60",
+      "label": "Mean of 60 people, repeat after repeat",
+      "mean": 142,
+      "sd": 2.32
+    }
+  ],
+  "shadedRegions": [
+    { "from": 139.7, "to": 144.3, "label": "One standard error either side of 142: 139.7 to 144.3 mg/dL" }
+  ],
+  "markers": [{ "x": 142, "label": "142" }]
+}
