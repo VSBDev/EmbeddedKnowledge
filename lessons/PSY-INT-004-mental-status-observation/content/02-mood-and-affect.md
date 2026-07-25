@@ -26,7 +26,9 @@ Items 1 and 3 came from R. Items 2 and 4 came from the room. That sorting is the
 
 **Affect** is the emotional expression the examiner observed during the encounter: the face, the voice, the posture, and how those moved as the conversation moved. It covers the period you were in the room.
 
-One is reported. The other is watched. Neither is evidence for the other.
+One is reported. The other is watched. Neither substitutes for the other, and each is attributed separately: an observed expression written into the mood line, or a reported state written into the affect line, loses the distinction the record depends on.
+
+Separate is not the same as unrelated. Holding the two side by side is exactly what congruence means, and a gap between them is worth noticing and worth asking about. What the gap does not do is settle anything on its own, and it is never a licence to overwrite one line with the other.
 :::
 
 ## Describing an affect instead of grading one
@@ -35,7 +37,7 @@ Affect has parts, and naming them keeps a description from collapsing into a sin
 
 - **Range** is how much of the available expression appeared. The conventional words run from flat, through blunted and restricted, up to full and broad.
 - **Intensity** is how strong a change was when it came.
-- **Reactivity** is whether the expression moved with what was being discussed.
+- **Reactivity** is whether the expression moved with what was being discussed. Reference chapters do not list this as a separate descriptor the way they list the others; what they carry instead is *labile*, which marks expression that shifts markedly and quickly. Record what you saw move and when, rather than reaching for a one-word grade.
 - **Congruence** is whether what appeared fits the mood the person has reported and the subject they are on.
 
 Now R., in those terms.

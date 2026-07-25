@@ -39,3 +39,41 @@ This lesson supports academic study and fictional-case reasoning. It confers no 
 ## Candidate status
 
 This is an authoring candidate. Its lesson status is `draft`, its source confidence is `pending-review`, and every claim in `claims.json` is `pending-review`. No review or adjudication artifact exists for it. Passing validation or an author's own audit establishes no approval, publication, outcome coverage, learner effectiveness, university credit, clinical competence, licensure, or authority to practise.
+
+## Adjudication repairs to the 0.1.0 candidate
+
+The academic review returned request-changes with five major and two minor findings; the
+learning-design review approved with three notes. The maintainer applied the repairs below rather
+than returning the pack for re-authoring, because each is a bounded correction to a claim or a key
+rather than a rebuild of the lesson's structure.
+
+- **The clock test was stated too absolutely.** It now governs sentences that report an observation.
+  Reported material stays in the record and carries a stated source and its own period instead, which
+  is the source test the next scene introduces. The affected objective was rewritten to match.
+- **Mood and affect are no longer described as mutually non-evidential.** They are attributed
+  separately and neither substitutes for the other, and holding them side by side is named as what
+  congruence means. A gap between them is worth asking about and settles nothing on its own.
+- **The account of "denies" was wrong and is corrected.** In clinical use it conventionally records
+  that something was asked about and reported absent, which is how the reference chapter this lesson
+  cites writes it. The cost is compression, not an invented refusal: the phrase discards the question,
+  the wording, the period, and the answer. The residual point about a word that has not worn smooth
+  for the person reading their own record is kept, because it is a different and defensible claim.
+  The same correction was applied to the table row and to the "refused water" line.
+- **Affect dimensions now match what the source supports.** The cited chapter names range terms,
+  illustrates intensity, and defines congruence, but does not name reactivity as a separate
+  dimension. The claim and the objective were narrowed accordingly, and reactivity is presented as an
+  observation to record, alongside the term *labile* that reference chapters do carry.
+- **The congruence assessment key was not uniquely defensible and no longer requires that judgement.**
+  The reported mood in that stem covers an unstated interval and each observed change tracked its own
+  subject, so the item now scores accurate separate attribution and a bounded description, and the
+  answer states why congruence is deliberately not keyed.
+- **The stigmatising-language point estimates were removed.** The reviewer identified them as the
+  values from a published correction. The article of record displays different figures again, and the
+  correction's text is not reachable through this project's permitted routes, so the numbers could not
+  be confirmed either way. The lesson now carries the direction and the fact of both differences,
+  which is what the scene needs, and the reference records the correction's existence.
+- **The prevalence sentence is bounded to what was measured**: 2.5 per cent of notes in that sample
+  carried at least one term from the study's restricted descriptor lists, with the authors' own
+  warning that the lists likely underestimate.
+
+No finding was declined.

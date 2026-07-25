@@ -34,12 +34,14 @@ A mental-status examination describes how a person looked, spoke, moved, and res
 
 That reads like a filing convention until you look at what the second note put in its opening sentence. R. had been awake since the previous evening. *Slow to answer, still face, low energy* describes a person eight hours off a night shift about as well as it describes anything psychiatric, and no amount of care in the wording will separate those two readings on its own. A reader who has the shift time can hold both open. A reader who does not will hand the whole picture to R.
 
-So every sentence in this document has to survive the addition of *during those forty minutes*.
+So every sentence that reports an **observation** has to survive the addition of *during those forty minutes*.
 
 - "R.'s face was still for most of those forty minutes" survives, and says something a reader can use.
 - "R. is flat" does not survive, because it was never a statement about the forty minutes in the first place.
 
-Call it the clock test. It costs a second per sentence, and it catches most of what goes wrong here. A sentence that fails it has stopped describing a period and started describing a person.
+Call it the clock test. It costs a second per sentence, and it catches most of what goes wrong here. An observation that fails it has stopped describing a period and started describing a person.
+
+The examination is not made only of observations, and the clock test is not a rule against writing anything else down. R.'s account of how the last four months have felt belongs in the record, and it obviously does not describe the forty minutes. What it needs is the other half of the pair: a stated source and a stated period, so a later reader can see that it is R.'s report about four months and not the examiner's observation of an afternoon. Scene three calls that the source test, and the two work together. An observation is anchored to the encounter. A report is anchored to whoever gave it and to whatever stretch of time they were describing. What goes wrong is a sentence that carries the content of the second while borrowing the authority of the first.
 
 ## What you are bringing with you
 
