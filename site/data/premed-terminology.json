@@ -4,12 +4,12 @@
   "course": "premed",
   "purpose": "Consult before defining a glossary term. If a prior published lesson already defines it, adopt that meaning and cross-reference, or declare a glossary `alignment` block that names the prior lesson and the relation (adopt/narrow/extend/distinct-sense/supersede) with a rationale. Never silently redefine a term another lesson owns.",
   "summary": {
-    "terms": 327,
-    "multiLesson": 36,
+    "terms": 333,
+    "multiLesson": 38,
     "consistent": 0,
-    "divergent": 36,
-    "divergentUndeclared": 8,
-    "senseShifted": 31
+    "divergent": 38,
+    "divergentUndeclared": 9,
+    "senseShifted": 33
   },
   "terms": [
     {
@@ -109,6 +109,30 @@
           "definition": "The units and records actually included in a particular analysis, which may differ from those initially eligible or enrolled.",
           "aliases": [
             "analytic sample"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "anchor-based method",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-012"
+      ],
+      "ids": [
+        "term-anchor-based-method"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-012",
+          "id": "term-anchor-based-method",
+          "definition": "A way of estimating an MCID by relating each person's observed change on an outcome measure to an independent external standard, the anchor, which is often a patient-reported global judgement of change. The target measure supplies the scale and the anchor identifies a reference category of meaningful change.",
+          "aliases": [
+            "anchor-based approach"
           ],
           "alignment": null
         }
@@ -361,11 +385,12 @@
     },
     {
       "term": "bias",
-      "status": "single-lesson",
-      "sense": null,
-      "minDefinitionOverlap": null,
+      "status": "divergent",
+      "sense": "shifted",
+      "minDefinitionOverlap": 0.44,
       "lessons": [
-        "PREM-SCI-008"
+        "PREM-SCI-008",
+        "PREM-STA-012"
       ],
       "ids": [
         "term-bias"
@@ -380,6 +405,19 @@
             "systematic error"
           ],
           "alignment": null
+        },
+        {
+          "lessonId": "PREM-STA-012",
+          "id": "term-bias",
+          "definition": "A systematic distortion of a study estimate or conclusion introduced through design, conduct, measurement, analysis, or reporting. It can systematically displace an estimate and its confidence interval without making the interval wider, so a precise threshold comparison can still answer the wrong question.",
+          "aliases": [
+            "systematic error"
+          ],
+          "alignment": {
+            "priorLesson": "PREM-SCI-008",
+            "relation": "adopt",
+            "note": "PREM-SCI-008 owns this term and its meaning is kept unchanged here, including the list of routes by which the distortion enters. This lesson adds no new sense and only draws out one consequence that matters for threshold reasoning: bias shifts an interval rather than widening it, so the arithmetic of a threshold comparison gives no warning when the estimate at its centre is displaced."
+          }
         }
       ]
     },
@@ -2146,6 +2184,30 @@
       ]
     },
     {
+      "term": "distribution-based method",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-012"
+      ],
+      "ids": [
+        "term-distribution-based-method"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-012",
+          "id": "term-distribution-based-method",
+          "definition": "A way of contributing to an MCID estimate from statistical characteristics of scores within a sample, such as the standard deviation of change or the measurement error of the instrument. It describes change relative to variation or measurement error, but by itself cannot establish whether a change matters to the person who has it.",
+          "aliases": [
+            "distribution-based approach"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
       "term": "domain restriction",
       "status": "single-lesson",
       "sense": null,
@@ -2255,16 +2317,19 @@
     },
     {
       "term": "effect size",
-      "status": "single-lesson",
-      "sense": null,
-      "minDefinitionOverlap": null,
+      "status": "divergent",
+      "sense": "shifted",
+      "minDefinitionOverlap": 0.13,
       "lessons": [
-        "PREM-STA-009"
+        "PREM-STA-009",
+        "PREM-STA-012"
       ],
       "ids": [
         "term-effect-size"
       ],
-      "undeclaredRedefinitions": [],
+      "undeclaredRedefinitions": [
+        "PREM-STA-012"
+      ],
       "uses": [
         {
           "lessonId": "PREM-STA-009",
@@ -2273,6 +2338,16 @@
           "aliases": [
             "detectable difference",
             "target effect"
+          ],
+          "alignment": null
+        },
+        {
+          "lessonId": "PREM-STA-012",
+          "id": "term-effect-size",
+          "definition": "The magnitude of an estimated effect, reported in the units of the outcome, such as 9.0 mg/dL of fasting glucose or 2.0 percentage points of screening attendance. It is the quantity a threshold comparison is made against, and it is the part of a result that a p-value cannot be decomposed back into.",
+          "aliases": [
+            "size of the effect",
+            "magnitude of the effect"
           ],
           "alignment": null
         }
@@ -3073,6 +3148,31 @@
           "id": "term-immunology",
           "definition": "The study of biological defence, including barriers, rapid responses, targeted responses, tolerance, and immune memory.",
           "aliases": [],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "importance threshold",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-012"
+      ],
+      "ids": [
+        "term-importance-threshold"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-012",
+          "id": "term-importance-threshold",
+          "definition": "The value an effect must reach before a particular group would act on it, written on the same axis and in the same units as the effect estimate. It is an input to the reading of a result, supplied by the people accountable for the decision. An estimated minimal clinically important difference may inform it, but an individual-change MCID does not automatically become a service threshold for a between-group effect. Stated openly it can be argued with; left implicit it governs the conclusion anyway.",
+          "aliases": [
+            "decision threshold",
+            "threshold of importance"
+          ],
           "alignment": null
         }
       ]
@@ -4020,6 +4120,32 @@
           "id": "term-microbiology",
           "definition": "The study of microscopic organisms and related biological entities, including how they grow, change, and interact with hosts and environments.",
           "aliases": [],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "minimal clinically important difference",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-012"
+      ],
+      "ids": [
+        "term-minimal-clinically-important-difference"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-012",
+          "id": "term-minimal-clinically-important-difference",
+          "definition": "The smallest change in an outcome measure that patients perceive as beneficial. It belongs to a specified outcome and population and to a patient-referenced judgement of meaningful change. Sample data can contribute through anchor-based or distribution-based estimation, but variation within the sample cannot by itself establish what patients perceive as beneficial, and a value lifted from a different population needs a clinical argument before reuse.",
+          "aliases": [
+            "MCID",
+            "minimal important difference",
+            "minimum clinically important difference"
+          ],
           "alignment": null
         }
       ]
@@ -5517,6 +5643,32 @@
             "relation": "distinct-sense",
             "note": "PREM-QNT-010 uses power in the algebraic sense, in the relationship y = kx^p where p is the exponent of a power law, and PREM-QNT-001 defines an exponent in the same family of meanings. Statistical power shares nothing with that sense beyond the word: it is a probability between 0 and 1 attached to a study design, and no exponent is involved. The orientation scene names the collision with both the algebraic sense and the everyday sense of force or authority before the term is used."
           }
+        }
+      ]
+    },
+    {
+      "term": "practical significance",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-012"
+      ],
+      "ids": [
+        "term-practical-significance"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-012",
+          "id": "term-practical-significance",
+          "definition": "The property of an effect that is large enough to change a decision someone is actually facing. Judging it requires the effect estimate in the units of the decision, a threshold saying how much would be enough, and a view of what acting would cost. Only the first of those comes out of a statistical analysis, so this judgement is made by people and not returned by a test.",
+          "aliases": [
+            "clinical significance",
+            "clinical importance",
+            "practical importance"
+          ],
+          "alignment": null
         }
       ]
     },
@@ -7838,6 +7990,35 @@
             "priorLesson": "PREM-SCI-010",
             "relation": "narrow",
             "note": "PREM-SCI-010 defines a scientific model as a selective representation of a system built to answer a stated question, and PREM-SCI-010's term-model-assumption as a simplification accepted so the model can represent selected relationships. This lesson narrows both to the statistical case: the representation is of how data would be generated under a stated hypothesis, and its assumptions are the specific conditions a test's probability calculation relies on. The narrower sense does not replace the broader one, and the assumptions here are model assumptions in exactly PREM-SCI-010's sense."
+          }
+        }
+      ]
+    },
+    {
+      "term": "statistical significance",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-012"
+      ],
+      "ids": [
+        "term-statistical-significance"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-012",
+          "id": "term-statistical-significance",
+          "definition": "The property of a test result whose p-value falls at or below a cut-off chosen in advance. The p-value measures how compatible the data are with one specified statistical model, so the label records where a number computed from the data landed relative to a line drawn beforehand. It reports nothing about how large the effect is, nothing about whether the effect would change a decision, and nothing about who would benefit.",
+          "aliases": [
+            "statistically significant",
+            "significant at the 0.05 level"
+          ],
+          "alignment": {
+            "priorLesson": "PREM-STA-008",
+            "relation": "extend",
+            "note": "PREM-STA-008 introduced the label and its arithmetic. This lesson keeps that meaning exactly and extends it with the disambiguation the learner needs: in ordinary English significant means large enough to matter, and the technical phrase carries no such content. Scene 2 bridges the two senses where the everyday word first appears, and names the second question practical significance so it can be asked separately."
           }
         }
       ]
