@@ -1140,7 +1140,7 @@ test("the psychiatry graph exposes the proposed stable outcome map", async ({ pa
   await page.goto(route("psychiatry/graph/"), { waitUntil: "networkidle" });
 
   await expect(page.locator(".graph-node")).toHaveCount(184);
-  await expect(page.locator(".graph-link")).toHaveCount(385);
+  await expect(page.locator(".graph-link")).toHaveCount(391);
   await expect(page.locator("[data-graph-status]")).toContainText("184 of 184 nodes");
   await page.locator("[data-graph-search]").fill("field and boundaries");
   const firstOutcome = page.locator(".directory-item", { hasText: "Psychiatry's field and boundaries" }).first();
@@ -1150,7 +1150,7 @@ test("the psychiatry graph exposes the proposed stable outcome map", async ({ pa
   await expect(page.locator("[data-inspector-summary]")).toContainText("clinical authority");
 
   const graph = await getJson(page.request, "data/psychiatry-graph.json");
-  expect(graph.metrics).toMatchObject({ domains: 4, modules: 26, topics: 154, links: 385, estimatedHours: 1440 });
+  expect(graph.metrics).toMatchObject({ domains: 4, modules: 26, topics: 154, links: 391, estimatedHours: 1440 });
   expect(errors).toEqual([]);
 });
 

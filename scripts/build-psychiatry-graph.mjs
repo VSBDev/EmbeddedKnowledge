@@ -345,9 +345,14 @@ const modulePrerequisites = {
   "210": [R("130", "feedback-and-calibration"), R("140", "effects-harms-heterogeneity")],
   "220": [R("110", "mind-brain-integration"), R("130", "chronology-function-goals")],
   "230": [R("210", "communicate-and-update"), R("220", "delirium-and-cognitive-change")],
-  "240": [R("210", "communicate-and-update"), R("230", "collaborative-crisis-plan")],
-  "250": [R("210", "communicate-and-update"), R("230", "collaborative-crisis-plan")],
-  "260": [R("210", "communicate-and-update"), R("230", "safeguarding-capacity-rights")],
+  // Describing what a presentation looks like is a description skill, not a management skill.
+  // These three modules used to open behind formulation and crisis planning, which put the first
+  // mental-health presentation 51 topics into the course. Their phenomenology now follows
+  // description and mental-status observation instead; everything downstream of it keeps the old
+  // gates, re-declared in topicPrerequisites so relaxing a module's entry does not relax the module.
+  "240": [R("101", "description-and-inference"), R("130", "mental-status-observation")],
+  "250": [R("101", "description-and-inference"), R("130", "mental-status-observation")],
+  "260": [R("101", "description-and-inference"), R("130", "mental-status-observation")],
   "270": [R("210", "differential-and-bayes"), R("230", "intoxication-withdrawal-catatonia")],
   "280": [R("120", "life-course-formulation"), R("210", "causal-maintenance-formulation")],
   "310": [R("140", "effects-harms-heterogeneity"), R("220", "integrated-physical-plan")],
@@ -365,6 +370,30 @@ const modulePrerequisites = {
   "460": [R("410", "human-rights-and-coercion"), R("420", "culturally-safe-action"), R("430", "evaluate-and-stop"), R("440", "privacy-security-governance"), R("450", "conflict-error-and-repair")]
 };
 
+// Prerequisites for individual topics, overriding the module default. A topic listed here states
+// its own dependencies in full. This exists so a module can open early on a describable outcome
+// while the reasoning, safety, and treatment work inside it still waits for formulation and crisis
+// care: differential diagnosis in a condition module is where those genuinely start to bind.
+const conditionModules = new Set(["240", "250", "260"]);
+
+const topicPrerequisites = {
+  [R("240", "psychosis-differential")]: [
+    R("240", "psychosis-phenomenology"),
+    R("210", "communicate-and-update"),
+    R("230", "collaborative-crisis-plan")
+  ],
+  [R("250", "mood-differential-course")]: [
+    R("250", "mood-phenomenology"),
+    R("210", "communicate-and-update"),
+    R("230", "collaborative-crisis-plan")
+  ],
+  [R("260", "anxiety-trauma-differential")]: [
+    R("260", "anxiety-trauma-phenomenology"),
+    R("210", "communicate-and-update"),
+    R("230", "safeguarding-capacity-rights")
+  ]
+};
+
 const topics = [];
 for (const module of modules) {
   const code = module.code.replace("PSY-", "");
@@ -373,9 +402,14 @@ for (const module of modules) {
   const baseHours = Math.floor(module.declaredHours / rows.length);
   const extraHours = module.declaredHours % rows.length;
   rows.forEach(([slug, title, outcome], localIndex) => {
-    const prerequisites = localIndex === 0
-      ? (modulePrerequisites[code] ?? [])
-      : [R(code, rows[0][0])];
+    // A module's later topics normally hang off its opening topic. In a condition module that
+    // would let the relaxed phenomenology entry carry safety and treatment along with it, so those
+    // topics hang off the differential instead, which is where the clinical gates are re-declared.
+    const chainAnchor = conditionModules.has(code) && localIndex > 1 ? rows[1][0] : rows[0][0];
+    const prerequisites = topicPrerequisites[R(code, slug)]
+      ?? (localIndex === 0
+        ? (modulePrerequisites[code] ?? [])
+        : [R(code, chainAnchor)]);
     topics.push({
       id: R(code, slug),
       code: `${module.code}.${String(localIndex + 1).padStart(2, "0")}`,
