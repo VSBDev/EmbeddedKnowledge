@@ -57,11 +57,12 @@ function compareSkeletons(file, base, head) {
 // Files whose content must be byte-identical apart from the version field the maintainer bumps.
 const VERSIONED_LEDGERS = ["glossary.json", "assessment.json", "claims.json", "references.json"];
 
-const stripVersion = (value, key) => {
+const stripFields = (value, ...keys) => {
   const clone = JSON.parse(JSON.stringify(value));
-  delete clone[key];
+  for (const key of keys) delete clone[key];
   return JSON.stringify(clone);
 };
+const stripVersion = (value, key) => stripFields(value, key);
 
 function isPatchBump(from, to) {
   const parse = (v) => String(v ?? "").split(".").map(Number);
@@ -97,9 +98,13 @@ export function rephrasingGateProblems(io) {
   if (!isPatchBump(base.version, head.version)) {
     problems.push(`A rephrasing must bump the patch version by one (${base.version} -> ${base.version.replace(/(\d+)$/, (m) => Number(m) + 1)}); found ${head.version}.`);
   }
-  // 3. Nothing in lesson.json may change except the version.
-  if (stripVersion(base, "version") !== stripVersion(head, "version")) {
-    problems.push("lesson.json changed beyond its version: objectives, scenes, status, tier, or metadata are not rephrasable.");
+  // 3. Nothing in lesson.json may change except the version and the tier declaration itself.
+  //    Declaring `riskTier: "rephrasing"` is how a pull request enters this pathway, so forbidding
+  //    it would make the tier unusable. Everything the declaration could be used to smuggle is
+  //    still compared: objectives, scenes, status, and the rest of the metadata must be identical,
+  //    and the published-status check above independently prevents entering the pathway early.
+  if (stripFields(base, "version", "riskTier") !== stripFields(head, "version", "riskTier")) {
+    problems.push("lesson.json changed beyond its version and tier declaration: objectives, scenes, status, and metadata are not rephrasable.");
   }
   // 4. The evidence and assessment ledgers must be identical apart from lessonVersion.
   for (const ledger of VERSIONED_LEDGERS) {
