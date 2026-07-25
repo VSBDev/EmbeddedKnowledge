@@ -11,7 +11,7 @@ Compare two lengths: the smallest detail a good eye can separate at ordinary vie
 | Quantity | Value | Where it comes from |
 | --- | --- | --- |
 | Reference limit of human vision | about 1 minute of arc | the standard behind 20/20 vision, equivalent to 60 pixels per degree |
-| Best measured foveal limit | about 94 pixels per degree | a 2025 measurement, finer than the 60 ppd standard |
+| Study mean for high-contrast foveal achromatic stimuli | about 94 pixels per degree | a 2025 behavioural measurement, finer than the 60 ppd standard under those conditions |
 | Viewing distance | 25 cm | an assumption of this calculation, roughly where you hold a page |
 | Width of one colonic epithelial cell | about 10 to 20 µm | animal cells sit mostly in the 10 to 20 µm band, and a crypt-modelling study uses a mean cell radius of 5 µm |
 
@@ -69,7 +69,7 @@ A cell sits a factor of five to ten below the threshold. Both ends of that band 
 
 ### Step 4: check it by another route
 
-Take the best measured performance instead of the classroom standard. A foveal limit of 94 pixels per degree is finer than the standard 60 ppd by a factor of $94/60 \approx 1.6$, so the threshold length falls from about 73 µm to about 47 µm at 25 cm. A 15 µm cell is still roughly three times smaller than that. Handing the eye its best possible performance leaves the answer standing, which is the mark of a conclusion resting on the size gap and not on the input someone picked.
+Take the study's mean high-contrast foveal achromatic threshold instead of the classroom standard. A mean of 94 pixels per degree is finer than the standard 60 ppd by a factor of $94/60 \approx 1.6$, so the threshold length falls from about 73 µm to about 47 µm at 25 cm. A 15 µm cell is still roughly three times smaller than that. This is a behavioural threshold under the study's conditions, not a universal two-object resolution limit or the best any participant achieved. It serves only as a robustness check: the cell remains below the threshold when a finer observed mean replaces the classroom standard.
 
 ### Units and assumptions, stated plainly
 
@@ -82,8 +82,8 @@ An unaided eye could never have settled the question, because the units it would
 ## Put the numbers on a ladder
 
 :::{diagram} ../diagrams/scale-ladder.diagram.json
-:alt: A ladder of five sizes running from the 0.1 mm limit of unaided vision down to the 2 nm width of the DNA double helix, with a colonic crypt, one crypt cell, and the light-microscope limit in between.
-:longdesc: Five rungs, largest at the top. The unaided eye separates detail down to about 0.1 mm. One colonic crypt, about 700 cells stacked roughly 32 along its length, comes to a few hundred micrometres and is therefore three to six times larger than that threshold. One crypt cell is about 10 to 20 micrometres, which is five to ten times below the threshold, and that is the gap a lens had to close. A conventional light microscope separates detail down to about 0.25 micrometres, so a cell is forty to eighty times wider than that limit and is shown easily. The DNA double helix is about 2 nanometres across, roughly a hundred times finer than the light-microscope limit, so no light microscope shows it at all.
+:alt: A ladder of five sizes running from a colonic crypt down through the 0.1 mm unaided-eye threshold, one crypt cell, the light-microscope threshold, and the 2 nm DNA double helix.
+:longdesc: Five rungs, largest at the top. One colonic crypt, about 700 cells stacked roughly 32 along its length, is a few hundred micrometres long. It sits above the unaided-eye threshold of about 0.1 mm because it is three to six times larger. One crypt cell is about 10 to 20 micrometres, which is five to ten times below the eye threshold, and that is the gap a lens had to close. A conventional light microscope separates detail down to about 0.25 micrometres, so a cell is forty to eighty times wider than that limit and is shown easily. The DNA double helix is about 2 nanometres across, roughly a hundred times finer than the light-microscope limit, so no conventional light microscope shows it at all.
 :::
 
 Two thresholds sit on that ladder, and between them they explain how this block is sequenced. The eye's threshold explains why cell biology begins in the 1660s. The light microscope's threshold of about 0.25 µm explains why the three centuries that followed produced a detailed account of cells and a very thin account of what is inside them. Structures under a quarter of a micrometre were not small mysteries awaiting a clever experiment. They were invisible to every instrument in the building.
@@ -105,5 +105,5 @@ An unaided eye could separate the crypt and nothing below it, since the crypt is
 :claims: claim-eye-resolution, claim-cell-size-band, claim-cell-size-spread, claim-crypt-cell-count, claim-light-microscope-limit, claim-dna-helix-width
 :sources: source-ashraf-eye-resolution, source-li-cell-size, source-vanderwath-crypt-model, source-hatton-cell-count, source-galbraith-resolution-limit, source-seeman-dna
 
-The angular limit comes from a 2025 study of human spatial resolution, which states the 1 minute of arc standard and reports a measured foveal achromatic limit near 94 pixels per degree. Converting that angle into a length at a stated viewing distance is this lesson's own arithmetic, and the result moves with the distance you assume, which is why it is carried as about 0.1 mm and never as a fixed value. The cell width comes from a review reporting that most animal cells are 10 to 20 µm across, together with a crypt-modelling study that uses a mean cell radius of 5 µm; a 2023 census of human cells reports that cell sizes across the body span about seven orders of magnitude in mass, so the working figure is a band and never a constant. The light-microscope limit of about 250 nm and the DNA helix width of about 2 nm come from a microscopy review and a structural review respectively.
+The angular limit comes from a 2025 study of human spatial resolution, which states the 1 minute of arc standard and reports a mean foveal achromatic threshold near 94 pixels per degree for high-contrast stimuli under the study's conditions. Converting that angle into a length at a stated viewing distance is this lesson's own arithmetic, and the result moves with the distance you assume, which is why it is carried as about 0.1 mm and never as a fixed value. The cell width comes from a review reporting that most animal cells are 10 to 20 µm across, together with a crypt-modelling study that uses a mean cell radius of 5 µm; a 2023 census of human cells reports that cell sizes across the body span about seven orders of magnitude in mass, so the working figure is a band and never a constant. The light-microscope limit of about 250 nm and the DNA helix width of about 2 nm come from a microscopy review and a structural review respectively.
 :::

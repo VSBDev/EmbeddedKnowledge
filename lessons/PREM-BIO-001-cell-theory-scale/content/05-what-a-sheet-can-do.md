@@ -1,6 +1,6 @@
 # What seven hundred cells do that one cannot
 
-One colonic cell cannot keep bacteria out of your blood. It has a boundary of its own and it maintains it perfectly well, and that is not the same job. A barrier is a property of coverage, and coverage needs a population arranged so that no gap is left anywhere. There is nothing mystical in that sentence. It is arithmetic about area.
+One colonic cell cannot provide continuous tissue-level exclusion of luminal contents across an area. It has a boundary of its own and regulates movement through its membranes, and that is not the same job. In an epithelium, **transcellular permeability** describes routes through individual cells, while **paracellular permeability** describes routes between cells and depends on their junctions. The uninterrupted barrier across an area needs a joined population arranged so that no gap is left anywhere. There is nothing mystical in that sentence. It is arithmetic about area and organisation.
 
 This is the shape of an idea that will come up in every biology course you take, and it is worth stating precisely once, here, before it gets loose.
 
@@ -15,7 +15,7 @@ The operative word is **organisation**, meaning which component sits where, what
 
 ## Three things a crypt does and a cell does not
 
-**It holds a barrier.** Colonic cells maintain the integrity of the epithelial barrier, and mucus secreted by the goblet cells among them adds a second protective layer over it. Both descriptions are about a sheet. One cell contributes a patch of that sheet and a share of the mucus; the sealed surface that keeps a colon's contents out of the tissue underneath exists only across the population.
+**It holds a barrier.** Colonic cells maintain the integrity of the epithelial barrier, and mucus secreted by the goblet cells among them adds a second protective layer over it. The emergent property being classified here is continuous exclusion across the area of the sheet, not every permeability property associated with epithelium. One cell contributes a patch and has transcellular transport and permeability properties of its own; the junctions between cells regulate paracellular routes. The uninterrupted tissue-level surface exists only across the joined population.
 
 **It tells a cell where it is.** Signalling from the crypt base falls off along the crypt axis, so how much signal a cell is receiving carries information about how far up the tube it has travelled. A cell in a dish has no position. Position is a relation to other cells, and a gradient is a property of an arranged population. Take the crypt apart into a suspension and every cell survives while the gradient does not.
 
@@ -66,8 +66,8 @@ Cell theory fixed the unit. The scale argument explained why the unit stayed hid
 Every remaining lesson in this block is an instance. Lesson 05 asks how a cell moves sodium and glucose across itself, which only matters because a sheet of such cells moves water across a tissue. Lesson 07 asks what physically joins one cell to the next, which is where the barrier stops being a metaphor. Lesson 10 asks what happens when a cell in the crypt stops obeying the arrangement.
 
 :::{source-note}
-:claims: claim-crypt-cell-count, claim-crypt-architecture, claim-epithelial-renewal, claim-crypt-migration-speed, claim-cell-size-band
-:sources: source-nguyen-colonic-crypt, source-vanderwath-crypt-model, source-baker-crypt-dynamics, source-li-cell-size
+:claims: claim-crypt-cell-count, claim-crypt-architecture, claim-epithelial-renewal, claim-crypt-migration-speed, claim-cell-size-band, claim-epithelial-barrier-routes
+:sources: source-nguyen-colonic-crypt, source-vanderwath-crypt-model, source-baker-crypt-dynamics, source-li-cell-size, source-odenwald-epithelial-barrier
 
-A 2025 review of colonic crypt biology supports the barrier role of the colonic cells, the mucus layer contributed by goblet cells, the fall in signalling along the crypt axis, and the three-to-five-day renewal with absorptive cells lasting four to five days. A 2013 modelling study supplies the figure of about 700 cells per crypt in the descending colon, arranged about 32 along its length. The migration speed of about 4 µm per hour comes from a 2014 study of human colonic crypts and is reported for the lower half of the crypt, which is why extending it over the whole climb is flagged as an assumption. What none of these sources supplies is the definition of an emergent property; that is a conceptual convention this lesson states explicitly so that later lessons can use it without reopening it.
+A 2025 review of colonic crypt biology supports the barrier role of the colonic cells, the mucus layer contributed by goblet cells, the fall in signalling along the crypt axis, and the three-to-five-day renewal with absorptive cells lasting four to five days. A review of the intestinal epithelial barrier supports the distinction between transcellular routes through individual cells, paracellular routes governed by junctions, and continuous barrier function requiring a contiguous cell layer. A 2013 modelling study supplies the figure of about 700 cells per crypt in the descending colon, arranged about 32 along its length. The migration speed of about 4 µm per hour comes from a 2014 study of human colonic crypts and is reported for the lower half of the crypt, which is why extending it over the whole climb is flagged as an assumption. What none of these sources supplies is the definition of an emergent property; that is a conceptual convention this lesson states explicitly so that later lessons can use it without reopening it.
 :::

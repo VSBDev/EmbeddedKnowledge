@@ -31,7 +31,7 @@ They sit at the same order of magnitude: both are a few times $10^{13}$, so thei
 
 ## One word, three meanings
 
-The word **cell** arrives already loaded. A prison cell is a room. A spreadsheet cell is a box in a grid. A battery cell is a power source. All three carry the idea of a small bounded compartment, which is exactly where the biological term came from, and the resemblance stops there. From here on, *cell* means the smallest unit of a living thing that is itself alive: bounded, self-maintaining, and able to give rise to more of its kind. Everything else the word does in English can be set aside.
+The word **cell** arrives already loaded. A prison cell is a room. A spreadsheet cell is a box in a grid. A battery cell is a power source. All three carry the idea of a small bounded compartment, which is exactly where the biological term came from, and the resemblance stops there. From here on, *cell* means the basic bounded unit of living tissue that is itself alive and maintains an organised internal state. Cells continue cellular lineages from pre-existing cells, but that does not mean every individual cell can divide: mature skeletal muscle fibres are living cells that do not divide. Everything else the word does in English can be set aside.
 
 ## What this lesson has to answer
 
@@ -40,8 +40,8 @@ Everything above was unavailable to anyone before the middle of the seventeenth 
 That is a claim about a number, and the next scene asks you to work the number out.
 
 :::{source-note}
-:claims: claim-crypt-cell-count, claim-crypt-architecture, claim-epithelial-renewal, claim-cell-and-bacteria-counts
-:sources: source-nguyen-colonic-crypt, source-vanderwath-crypt-model, source-sender-cell-numbers, source-hatton-cell-count
+:claims: claim-crypt-cell-count, claim-crypt-architecture, claim-epithelial-renewal, claim-cell-and-bacteria-counts, claim-individual-cell-division-boundary
+:sources: source-nguyen-colonic-crypt, source-vanderwath-crypt-model, source-sender-cell-numbers, source-hatton-cell-count, source-alberts-muscle-fusion
 
-A 2025 review of colonic crypt biology supports the crypt's layout, the upward migration, the fall in signalling along the crypt axis, and the three-to-five-day renewal of the lining. A 2013 modelling study of crypt organisation supplies the cell counts for a descending-colon crypt and reports the same renewal figure for humans. The two cell-count estimates come from different teams using different methods: one gives $3\times10^{13}$ human cells and $3.8\times10^{13}$ bacteria in the colon for a 70 kg reference man, the other gives about 36 trillion cells for an adult male and about 28 trillion for an adult female. They disagree by tens of per cent and agree on the order of magnitude, which is the only part this lesson uses.
+A 2025 review of colonic crypt biology supports the crypt's layout, the upward migration, the fall in signalling along the crypt axis, and the three-to-five-day renewal of the lining. A 2013 modelling study of crypt organisation supplies the cell counts for a descending-colon crypt and reports the same renewal figure for humans. A cell-biology textbook chapter supplies the boundary on the cell definition: mature skeletal muscle fibres are living cells formed by fusion of pre-existing myoblasts and do not themselves divide. The two cell-count estimates come from different teams using different methods: one gives $3\times10^{13}$ human cells and $3.8\times10^{13}$ bacteria in the colon for a 70 kg reference man, the other gives about 36 trillion cells for an adult male and about 28 trillion for an adult female. They disagree by tens of per cent and agree on the order of magnitude, which is the only part this lesson uses.
 :::

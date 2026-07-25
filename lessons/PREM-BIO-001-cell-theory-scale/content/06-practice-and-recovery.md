@@ -44,7 +44,7 @@ Classify each as a property of a single cell or a property of the organisation. 
 
 Items 1, 3, and 6 are properties of a single cell. Each one is present in a cell on its own and each survives dissociating the crypt, so both halves of the test say the same thing.
 
-Items 2, 4, 5, and 7 are properties of the organisation. Item 2 is coverage, which no single patch supplies. Item 4 needs many secreting cells over an area, and a mucin protein made by one cell is not a layer. Item 5 is the sharpest case: distance from the base is a relation to other cells, so a dissociated cell has no such distance and there is nothing left for its behaviour to depend on. Item 7 needs cells doing different jobs in different places at the same time, which one cell cannot do at any moment.
+Items 2, 4, 5, and 7 are properties of the organisation. Item 2 is continuous tissue-level coverage, which no single patch supplies; that does not deny the transcellular permeability of an individual cell or the paracellular permeability governed by junctions. Item 4 needs many secreting cells over an area, and a mucin protein made by one cell is not a layer. Item 5 is the sharpest case: distance from the base is a relation to other cells, so a dissociated cell has no such distance and there is nothing left for its behaviour to depend on. Item 7 needs cells doing different jobs in different places at the same time, which one cell cannot do at any moment.
 
 If you called item 4 a single-cell property, reread the difference between item 3 and item 4. Making the molecule and covering the tissue are separate claims, and the lesson's whole point sits in the gap between them.
 
@@ -54,16 +54,16 @@ If you called item 4 a single-cell property, reread the difference between item 
 :id: check-design-the-observation
 :kind: practice
 
-A group wants to watch one cell travel from the base of a human colonic crypt to the surface, in a living person, using an instrument that delivers about 30 µm of resolution to the observer.
+A group wants to watch one cell travel from the base of a human colonic crypt to the surface, in a living person, using an instrument that delivers about 30 µm of resolution to the observer. Work only within the lesson's idealised scale-and-diffraction model.
 
-Say what that instrument will show and what it will not, name the resolution they would need instead, say whether physics or engineering is the obstacle, and say roughly how long the observation would have to run.
+Say what that instrument will show and what it will not, name the resolution the model requires instead, say what the comparison with the conventional light-microscope floor does and does not establish about feasibility, and say roughly how long the observation would have to run.
 :::
 
 ### Feedback after your attempt
 
 At 30 µm the group resolves the crypt and its opening, since a crypt runs a few hundred micrometres, so they can see where crypts are and how they are spaced. Individual cells are 10 to 20 µm, which is below 30 µm, so cells are not separated from each other and no single cell can be followed. They would need resolution better than about 10 µm, meaning finer than one cell width, with more margin than that if they want to see a cell's shape and not merely register that it is there.
 
-The obstacle is engineering. A light microscope's floor is about 0.25 µm, which is roughly forty times finer than they need, so there is a great deal of room between what physics permits and what an instrument that can be threaded into a living colon currently delivers. And the observation would have to run for days: cells take three to five days to make the climb, so a single session of any length shows one frame of a slow process.
+Within this idealised model, the conventional light-microscope diffraction floor is not the limiting term: 0.25 µm is roughly forty times finer than the required 10 µm. That comparison does **not** establish that engineering is the only obstacle or that the observation is feasible in a living person. The exercise supplies no evidence about optical access, contrast or labelling, tissue effects, physiological motion, safety, or stable tracking, so it cannot decide those questions. The observation time in the model is days: cells take roughly three to five days to make the climb, so a six-hour or single-session view would capture only a small part of the process.
 
 ## Where to go next
 
@@ -89,8 +89,8 @@ If emergence still feels like a special ingredient, take the dissociation test l
 If the crypt itself is not yet a clear picture, redraw it: a tube sunk into the wall, dividing cells at the bottom, cells changing job as they rise, working cells at the top, and cells leaving at the surface. If you can draw that from memory you have what the rest of this block builds on. If it is still not clear after another reading, ask your course text or instructor instead of pressing on, because every remaining lesson in the module returns to this structure.
 
 :::{source-note}
-:claims: claim-eye-resolution, claim-cell-size-band, claim-light-microscope-limit, claim-dna-helix-width, claim-crypt-cell-count, claim-epithelial-renewal
-:sources: source-ashraf-eye-resolution, source-li-cell-size, source-galbraith-resolution-limit, source-seeman-dna, source-vanderwath-crypt-model, source-nguyen-colonic-crypt
+:claims: claim-eye-resolution, claim-cell-size-band, claim-light-microscope-limit, claim-dna-helix-width, claim-crypt-cell-count, claim-epithelial-renewal, claim-epithelial-barrier-routes
+:sources: source-ashraf-eye-resolution, source-li-cell-size, source-galbraith-resolution-limit, source-seeman-dna, source-vanderwath-crypt-model, source-nguyen-colonic-crypt, source-odenwald-epithelial-barrier
 
-The thresholds and sizes used in these tasks are the ones established earlier in the lesson and carry the same sources. The statement that an object smaller than the microscope's limit appears at the size of that limit however much the image is enlarged, and that two objects closer together than the limit are never separated, comes from the microscopy review cited for the 250 nm figure. The hand lens, the ten-times magnification, and the imagined instrument delivering 30 µm are this lesson's own constructions for practice, and the assumption that resolution improves in direct proportion to magnification is stated in the task because it holds only until an instrument reaches its own resolution floor.
+The thresholds and sizes used in these tasks are the ones established earlier in the lesson and carry the same sources. The statement that an object smaller than the microscope's limit appears at the size of that limit however much the image is enlarged, and that two objects closer together than the limit are never separated, comes from the microscopy review cited for the 250 nm figure. The distinction between continuous epithelial coverage, transcellular routes and junction-dependent paracellular routes comes from the intestinal-barrier review. The hand lens, the ten-times magnification, and the imagined instrument delivering 30 µm are this lesson's own constructions for practice, and the assumption that resolution improves in direct proportion to magnification is stated in the task because it holds only until an instrument reaches its own resolution floor. The third pass is explicitly an idealised scale-and-diffraction exercise and makes no claim that its two numerical requirements establish the feasibility of real intravital observation.
 :::
