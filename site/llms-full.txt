@@ -1454,7 +1454,7 @@ Quantitative lessons need distributions, not just relationships: a bell curve wi
 
 The same rule as diagrams applies, and for the same reason: the JSON carries data and encoding, and the picture is derived from it at build time. A lesson never ships a plotting library, a script, or a remote embed, so a chart cannot execute, cannot fetch, and renders identically wherever the pack is read.
 
-Supported `type` values are `normal-curve`, `line`, `scatter`, `bar`, `histogram`, and `box`. A normal curve is parameterised by `mean` and `sd` rather than listed as points, so a sampling distribution stays exact and legible in source. `shadedRegions` mark tail areas and intervals; `markers` label a mean, a cut-off, or an observed value.
+Supported `type` values are `normal-curve`, `line`, `scatter`, `bar`, `histogram`, and `box`. A normal curve is parameterised by `mean` and `sd` rather than listed as points, so a sampling distribution stays exact and legible in source. `shadedRegions` mark tail areas and intervals; `markers` label a mean, a cut-off, or an observed value. A series may set `mark` to `point` or `line` to override the chart type's default, which is how a scatter of observations carries a fitted line over the same axes.
 
 Every chart requires `alt` and `longDescription`, and the renderer emits the underlying numbers as a data table beside the picture. A distribution a learner cannot see is still a set of numbers they must be able to read, so the text equivalent is part of the chart rather than a courtesy attached to it.
 
