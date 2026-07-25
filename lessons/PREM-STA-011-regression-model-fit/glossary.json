@@ -1,0 +1,224 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-glossary-v1",
+  "lessonId": "PREM-STA-011",
+  "lessonVersion": "0.1.0",
+  "terms": [
+    {
+      "id": "term-regression",
+      "term": "regression",
+      "definition": "A family of methods that describe one measured quantity, the response, in terms of one or more others, the predictors, by fitting a function to observed data. The word carries none of its everyday sense of sliding backwards or deteriorating; it is a historical label for the fitting method. When a paper reports that the authors ran a regression, it means they fitted a relationship of this kind.",
+      "aliases": [
+        "regression analysis",
+        "fitting a regression"
+      ],
+      "sceneIds": [
+        "scene-a-difference-without-a-rate",
+        "scene-a-line-with-units",
+        "scene-fitting-the-line",
+        "scene-holding-a-variable-still"
+      ]
+    },
+    {
+      "id": "term-regression-model",
+      "term": "regression model",
+      "definition": "A fitted equation giving an expected value of one measured quantity from one or more others, together with the acknowledgement that individual observations depart from it. In this lesson the fitted part is a straight line, y = a + bx, and the departures are the residuals.",
+      "aliases": [
+        "model",
+        "fitted model",
+        "linear model"
+      ],
+      "sceneIds": [
+        "scene-a-line-with-units",
+        "scene-fitting-the-line",
+        "scene-a-line-is-not-a-lever",
+        "scene-holding-a-variable-still"
+      ],
+      "alignment": {
+        "priorLesson": "PREM-QNT-010",
+        "relation": "narrow",
+        "note": "PREM-QNT-010 narrowed 'model' from the broad scientific sense to one fitted relationship, y = kx^p, judged by fit, residuals, and assumptions instead of by mechanism. This lesson narrows the word again to a different family of shapes: an additive equation with an intercept and a rate per unit of each predictor. The standard of judgment carries over unchanged, so a learner holding that meaning need only swap the shape, and neither sense claims to explain why anything happens. The concept scene bridges the two where the word first appears here."
+      }
+    },
+    {
+      "id": "term-least-squares-line",
+      "term": "least-squares line",
+      "definition": "The single straight line for which the sum of the squared vertical distances from the observed points is as small as it can be. Distances are measured in the response because the line is used to describe the response, and they are squared so that misses in opposite directions cannot cancel.",
+      "aliases": [
+        "line of best fit",
+        "fitted line",
+        "regression line",
+        "ordinary least squares"
+      ],
+      "sceneIds": [
+        "scene-a-line-with-units",
+        "scene-fitting-the-line",
+        "scene-what-the-line-leaves-over",
+        "scene-predict-and-refuse"
+      ]
+    },
+    {
+      "id": "term-leverage",
+      "term": "leverage",
+      "definition": "A property determined by how extreme an observation's predictor values are relative to the rest of the design; in a one-predictor fit, points near the ends of the predictor range have higher leverage. Leverage is distinct from a large residual: an observation is especially influential when high leverage is combined with a residual large enough to move the fitted line. The everyday sense of leverage, meaning advantage gained over something, is unrelated.",
+      "aliases": [
+        "influence of a single point"
+      ],
+      "sceneIds": [
+        "scene-a-line-with-units",
+        "scene-what-the-line-leaves-over",
+        "scene-a-line-is-not-a-lever"
+      ]
+    },
+    {
+      "id": "term-slope",
+      "term": "slope",
+      "definition": "The fitted change in the response for a one-unit increase in the predictor, carrying the units of the response divided by the units of the predictor. In this lesson it is −3.37 mg/dL per hour. Its sign depends on the direction the predictor was defined to count, so a slope means nothing until the axis is named.",
+      "aliases": [
+        "regression coefficient",
+        "gradient",
+        "b"
+      ],
+      "sceneIds": [
+        "scene-a-line-with-units",
+        "scene-fitting-the-line",
+        "scene-a-line-is-not-a-lever",
+        "scene-predict-and-refuse",
+        "scene-clinical-wrap-up"
+      ]
+    },
+    {
+      "id": "term-intercept",
+      "term": "intercept",
+      "definition": "The fitted value of the response when every predictor is zero, in the units of the response. It positions the line vertically and is often a statement about conditions nobody observed, as in this lesson where no one had a dinner-to-sleep interval of zero.",
+      "aliases": [
+        "constant term",
+        "a"
+      ],
+      "sceneIds": [
+        "scene-a-line-with-units",
+        "scene-fitting-the-line",
+        "scene-predict-and-refuse"
+      ]
+    },
+    {
+      "id": "term-residual",
+      "term": "residual",
+      "definition": "An observed value minus the value the fitted model gives at the same input, in the units of the response. A positive residual means the observation came in above the fitted line, a negative one below it.",
+      "aliases": [
+        "prediction error",
+        "leftover"
+      ],
+      "sceneIds": [
+        "scene-what-the-line-leaves-over",
+        "scene-a-line-is-not-a-lever",
+        "scene-predict-and-refuse",
+        "scene-clinical-wrap-up"
+      ],
+      "alignment": {
+        "priorLesson": "PREM-QNT-010",
+        "relation": "adopt",
+        "note": "PREM-QNT-010 defined a residual as the observed response minus the response predicted by a model at the same input, and this lesson keeps that meaning exactly. Only the fitted shape differs: a straight line here, a power relationship there. The lesson also flags that the everyday clinical sense of 'residual', meaning something left behind in a patient, is unrelated to the vertical distance meant here."
+      }
+    },
+    {
+      "id": "term-residual-plot",
+      "term": "residual plot",
+      "definition": "A scatter of the residuals against the predictor, with a reference line at zero. Because the fitted trend has been subtracted away, any remaining pattern is displayed at full height. An arch, a funnel, or an influential point can indicate a specific fault; a shapeless band provides no clear evidence against the fitted form over the observed range but does not prove it uniquely correct.",
+      "aliases": [
+        "plot of residuals"
+      ],
+      "sceneIds": [
+        "scene-what-the-line-leaves-over",
+        "scene-a-line-is-not-a-lever",
+        "scene-predict-and-refuse"
+      ]
+    },
+    {
+      "id": "term-correlation-coefficient",
+      "term": "correlation coefficient",
+      "definition": "A unitless summary of how tightly two quantitative measurements follow a straight-line pattern, always between −1 and +1, sharing its sign with the slope. It reports linear strength only, so a strong curved relationship can produce a small value and very different scatters can produce the same one.",
+      "aliases": [
+        "Pearson correlation",
+        "r"
+      ],
+      "sceneIds": [
+        "scene-fitting-the-line",
+        "scene-what-the-line-leaves-over",
+        "scene-clinical-wrap-up"
+      ]
+    },
+    {
+      "id": "term-coefficient-of-determination",
+      "term": "coefficient of determination",
+      "definition": "The proportion of the total variation in the response that the fitted model accounts for, obtained as the regression sum of squares divided by the total sum of squares. With a single predictor it equals the square of the correlation coefficient. It measures how much, and says nothing about whether the fitted shape is right.",
+      "aliases": [
+        "r-squared",
+        "R2",
+        "proportion of variation explained"
+      ],
+      "sceneIds": [
+        "scene-what-the-line-leaves-over",
+        "scene-a-line-is-not-a-lever",
+        "scene-predict-and-refuse",
+        "scene-clinical-wrap-up"
+      ]
+    },
+    {
+      "id": "term-interpolation",
+      "term": "interpolation",
+      "definition": "Using a fitted relationship at a predictor value inside the range the data covered, where observations exist on both sides of the value being asked about.",
+      "aliases": [
+        "prediction within range"
+      ],
+      "sceneIds": [
+        "scene-predict-and-refuse",
+        "scene-clinical-wrap-up"
+      ]
+    },
+    {
+      "id": "term-extrapolation",
+      "term": "extrapolation",
+      "definition": "Using a fitted relationship beyond the range or conditions that supplied its evidence. The equation returns a number regardless, and a straight line returns increasingly extreme values the further out it is pushed, so the arithmetic completing is no sign that the answer is supported.",
+      "aliases": [
+        "prediction outside range"
+      ],
+      "sceneIds": [
+        "scene-predict-and-refuse",
+        "scene-clinical-wrap-up"
+      ],
+      "alignment": {
+        "priorLesson": "PREM-SCI-010",
+        "relation": "adopt",
+        "note": "PREM-SCI-010 defined extrapolation as using a fitted or calibrated relationship beyond the conditions or range that supplied its direct evidential support, and this lesson adopts that meaning without change. What is added is the concrete case: the range of one predictor in one fitted line, and the specific values that line returns outside it."
+      }
+    },
+    {
+      "id": "term-multiple-regression",
+      "term": "multiple regression",
+      "definition": "A regression with more than one predictor, each carrying its own coefficient. Each coefficient reports the fitted change in the response per unit of its own predictor while the other predictors stay where they are, which is what a report means when it calls a result adjusted for those variables.",
+      "aliases": [
+        "multivariable regression",
+        "adjusted model"
+      ],
+      "sceneIds": [
+        "scene-holding-a-variable-still",
+        "scene-clinical-wrap-up"
+      ]
+    },
+    {
+      "id": "term-statistical-adjustment",
+      "term": "statistical adjustment",
+      "definition": "Comparing observations that already match on one or more recorded variables, so those variables cannot account for the difference being reported. It is arithmetic performed on data already collected, not an intervention, so it reaches only the variables somebody measured and only as well as they were measured.",
+      "aliases": [
+        "adjusting for",
+        "controlling for",
+        "holding constant"
+      ],
+      "sceneIds": [
+        "scene-holding-a-variable-still",
+        "scene-clinical-wrap-up"
+      ]
+    }
+  ]
+}

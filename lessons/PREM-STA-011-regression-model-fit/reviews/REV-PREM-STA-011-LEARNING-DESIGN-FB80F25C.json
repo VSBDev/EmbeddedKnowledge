@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-STA-011-LEARNING-DESIGN-FB80F25C",
+  "lessonId": "PREM-STA-011",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "eb11c75dfa89ff41929279bea9cd96de672717d4",
+  "role": "learning-design",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev (learning-design reviewer)",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.7",
+      "runId": "agy-learning-design-PREM-STA-011-FB80F25C-C69B-4B46-A836-594695788634",
+      "instructionsDigest": "sha256:da33fb10635f491b6269f0cd764b370d841986a40770e33ceb9812ed635e2386"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Founding-stage isolation check: the accountable principal VSBDev operates the authoring, review, and finalization agents, so principal-level independence is absent. Agent-level role isolation was strictly maintained: no authoring history, other review output, or adjudication draft was read, and no other EmbeddedKnowledge role script was run during this review execution."
+  },
+  "evidenceChecked": [
+    "lessons/PREM-STA-011-regression-model-fit/lesson.json",
+    "lessons/PREM-STA-011-regression-model-fit/claims.json",
+    "lessons/PREM-STA-011-regression-model-fit/references.json",
+    "lessons/PREM-STA-011-regression-model-fit/glossary.json",
+    "lessons/PREM-STA-011-regression-model-fit/ATTRIBUTION.md",
+    "lessons/PREM-STA-011-regression-model-fit/assessment.json",
+    "lessons/PREM-STA-011-regression-model-fit/charts/fitted-line-dinner-glucose.chart.json",
+    "lessons/PREM-STA-011-regression-model-fit/charts/residuals-against-interval.chart.json",
+    "lessons/PREM-STA-011-regression-model-fit/content/010-a-difference-without-a-rate.md",
+    "lessons/PREM-STA-011-regression-model-fit/content/020-a-line-with-units.md",
+    "lessons/PREM-STA-011-regression-model-fit/content/030-fitting-the-line.md",
+    "lessons/PREM-STA-011-regression-model-fit/content/040-what-the-line-leaves-over.md",
+    "lessons/PREM-STA-011-regression-model-fit/content/050-a-line-is-not-a-lever.md",
+    "lessons/PREM-STA-011-regression-model-fit/content/060-holding-a-variable-still.md",
+    "lessons/PREM-STA-011-regression-model-fit/content/070-predict-and-refuse.md",
+    "lessons/PREM-STA-011-regression-model-fit/content/080-clinical-wrap-up.md",
+    "CONTENT-STANDARD.md",
+    "RIGHTS-POLICY.md"
+  ],
+  "findings": [
+    {
+      "severity": "note",
+      "target": "lessons/PREM-STA-011-regression-model-fit/content/010-a-difference-without-a-rate.md#L1-L10",
+      "finding": "First-read clarity: The orientation scene successfully engages the learner with a concrete clinical question (a patient asking about moving her dinner from 10 pm to 8 pm to lower fasting glucose) before introducing any technical formulas, definitions, or course administration, adhering fully to the first-read gate requirements in CONTENT-STANDARD.md Section 4.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-STA-011-regression-model-fit/content/030-fitting-the-line.md#worked-example-fit-the-line",
+      "finding": "Worked example quality: The worked example `worked-example-fit-the-line` is exceptionally thorough, structured around the 9 requirements in CONTENT-STANDARD.md Section 5.1 (including task description, representation of data, plan, step-by-step execution, two independent checks, interpretation, and a self-explanation prompt).",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-STA-011-regression-model-fit/content/050-a-line-is-not-a-lever.md#misconception-line-is-a-lever",
+      "finding": "Misconception repair: The misconception scene `scene-a-line-is-not-a-lever` provides a high-quality repair sequence for the two main pitfalls: confusing association with causation/intervention, and treating a high coefficient of determination as proof of a correct functional form. The check tasks (e.g. `check-diagnose-two-reports`) are well-designed to test discrimination of shape vs strength.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-STA-011-regression-model-fit/content/080-clinical-wrap-up.md#check-clinical-transfer",
+      "finding": "Clinical transfer: The transfer task `check-clinical-transfer` is a genuine, high-value clinical application task that successfully challenges the learner to apply a cohort-level model to a single patient, evaluate residuals against typical error, and bridge the association-versus-effect boundary without making unsubstantiated claims.",
+      "resolution": null
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-STA-011-regression-model-fit/content/010-a-difference-without-a-rate.md#L51-L52",
+      "finding": "Recovery route hyperlinking: The recovery route in Scene 1 provides a hyperlink for `Functions and graphs` but lacks a hyperlink for the prerequisite lesson `centre and spread` (which corresponds to `PREM-STA-003-center-spread-shape`), introducing a slight inconsistency in navigating the recovery path.",
+      "resolution": "Update the text 'earlier lesson on centre and spread' to include a Markdown link matching the structure of the other recovery route link (pointing to the published lesson `PREM-STA-003`)."
+    }
+  ],
+  "limitations": [
+    "Expert-simulation review: This review represents a single-pass advisory input by a simulated learning-design expert under standard-lesson-v3 guidelines. No real learner testing was conducted.",
+    "Conflict of interest: The same GitHub principal (VSBDev) is responsible for the authoring and review run operators. Agent-level isolation was maintained, but principal-level independence is absent.",
+    "Scope restriction: The review is strictly bounded to learning-design metrics (e.g., clarity, coherence, practice, alignment, and transfer). Scientific accuracy, rights audits, and final typesetting checks are excluded.",
+    "Technical verification limits: No rendered build environment, screen reader, or keyboard navigation pathways were evaluated physically; findings are based solely on the static Markdown and JSON source files."
+  ],
+  "signedAt": "2026-07-25T16:06:22Z"
+}
