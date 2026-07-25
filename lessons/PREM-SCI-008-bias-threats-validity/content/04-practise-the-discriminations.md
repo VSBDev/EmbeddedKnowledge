@@ -62,7 +62,7 @@ D. After enrollment, low early responders are more likely to stop returning meas
 
 E. A registry lists 14 completed studies, but studies with null results are much less likely to have an accessible report.
 
-F. A durability analysis samples only device models still sold; discontinued models and their failure records are absent.
+F. A durability analysis targets all device models introduced in the last decade but samples only models still sold; discontinued models and their failure records are absent.
 
 ### Independent feedback
 

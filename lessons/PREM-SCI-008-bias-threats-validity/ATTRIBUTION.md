@@ -3,7 +3,7 @@
 ## Lesson identity and accountable principal
 
 - Lesson: **PREM-SCI-008 — Bias and threats to validity: follow the missing evidence**
-- Version and state: **0.1.1 / draft / pending-review**
+- Version and state: **0.2.0 / draft / pending-review**
 - Accountable principal: **VSBDev** (`github:VSBDev`), confirmed as the active GitHub identity through `gh api user` on 2026-07-21
 - Course-content licence: **Creative Commons Attribution 4.0 International (CC BY 4.0)**
 - Clinical-framing revision: on 2026-07-25, run `codex-reauthor-PREM-SCI-008-59A47627-37F3-4C5E-86A4-4E6B43CA0856` added the illustrative dinner-timing clinical wrap-up scene as a teaching example, not medical advice, with no new source or asserted medical claim.
@@ -52,8 +52,8 @@ The single post-review content revision, final accessibility-and-rights audit, a
 - Provider: **RUNTIME-STAMPED**
 - Model: **RUNTIME-STAMPED**
 - Version: **RUNTIME-STAMPED**
-- Run ID: `codex-finalizer-PREM-SCI-008-94B5B07F-97E8-49CD-AEA2-691AB9E3978F`
-- Material-instructions digest: `sha256:205f5c885328c9f9550525673b748d84a584829d1cd81a4dc3109e0d5ff32a46`
+- Run ID: `codex-finalizer-PREM-SCI-008-7C2CFBB3-6B0B-4111-AB3F-D629C9408D69`
+- Material-instructions digest: `sha256:65f36027a3594dfce6c93382e3c223a44281269f02cd78293dd47f30656ebe5d`
 
 The four agent-identity fields remain literal runtime placeholders for the accountable operator to stamp from the runtime banner. This run revised only the lesson pack, did not alter review artifacts, and did not perform the maintainer's publication-state transition.
 
@@ -73,6 +73,6 @@ Before substantive source access on 2026-07-21, the accountable packaging run ch
 
 ## Governance state
 
-The frozen version 0.1.1 candidate reviewed by the eligible academic and learning-design inputs is commit `e270afdba6c4aa1a21172886c8f810b96a338fda`. The eligible artifacts are `REV-PREM-SCI-008-ACADEMIC-490EE4FC` and `REV-PREM-SCI-008-LEARNING-DESIGN-4C0205CF`; both are advisory approvals under `standard-lesson-v3`. The two retained version 0.1.0 review artifacts target an earlier candidate and are not counted for this adjudication.
+The frozen version 0.2.0 candidate reviewed by the eligible academic and learning-design inputs is commit `172e7667b8fb45e1f306f44ca8a856902630edbe`. The eligible artifacts are `REV-PREM-SCI-008-ACADEMIC-8EECF18D` with advisory verdict `request-changes` and `REV-PREM-SCI-008-LEARNING-DESIGN-6E5D6E8F` with advisory verdict `approve` under `standard-lesson-v3`.
 
-The fresh finalizer made the bounded post-review revision and recorded every finding disposition, the final accessibility-and-rights audit, and its decision in `adjudication.json`. Its `finalCommit` remains `PENDING-FINAL-COMMIT` until the operator commits this revision and substitutes the resulting SHA. Every claim remains `pending-review`, source confidence remains `pending-review`, and the maintainer retains the separate publication transition. Nothing in this attribution claims publication, coverage, completed merge readiness, independently verified agent identity, clinical sufficiency, university credit, or professional authorization.
+The fresh finalizer made the bounded post-review revision and recorded every finding disposition, the final accessibility-and-rights audit, and its decision in `adjudication.json`. Its `finalCommit` remains `PENDING-FINAL-COMMIT` until the operator commits this revision and substitutes the resulting SHA. Claim review states remain as they were in the reviewed candidate, source confidence remains `pending-review`, and the maintainer retains the separate publication transition. Nothing in this attribution claims publication, coverage, completed merge readiness, independently verified agent identity, clinical sufficiency, university credit, or professional authorization.
