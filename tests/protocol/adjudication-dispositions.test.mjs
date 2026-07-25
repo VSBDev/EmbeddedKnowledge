@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { targetFile, unbackedIncorporations } from "../../scripts/lib/adjudication-dispositions.mjs";
+import { targetFiles, unbackedIncorporations } from "../../scripts/lib/adjudication-dispositions.mjs";
 
 const packPath = "lessons/PREM-BIO-001-cell-theory-scale";
 
@@ -13,15 +13,29 @@ function scenario({ dispositions, changedFiles, findings }) {
   });
 }
 
-test("a finding target resolves to the pack-relative file it names", () => {
-  assert.equal(targetFile("glossary.json#term-cell", packPath), "glossary.json");
-  assert.equal(targetFile("diagrams/scale-ladder.diagram.json#diagram-x", packPath), "diagrams/scale-ladder.diagram.json");
+test("a finding target resolves to every pack-relative file it names", () => {
+  assert.deepEqual(targetFiles("glossary.json#term-cell", packPath), ["glossary.json"]);
   // Reviewers write the target both ways; a repo-relative one must normalise to the same file.
-  assert.equal(targetFile(`${packPath}/lesson.json#L8`, packPath), "lesson.json");
+  assert.deepEqual(targetFiles(`${packPath}/lesson.json#L8`, packPath), ["lesson.json"]);
+  // One finding routinely spans several files. Reading only the first was this check's own bug.
+  assert.deepEqual(
+    targetFiles("charts/a.chart.json#series-x; charts/b.chart.json#series-y; content/030.md#sec", packPath),
+    ["charts/a.chart.json", "charts/b.chart.json", "content/030.md"]
+  );
   // Nothing falsifiable is named by these, so they are not checkable.
-  assert.equal(targetFile("#section-only", packPath), null);
-  assert.equal(targetFile(packPath, packPath), null);
-  assert.equal(targetFile(undefined, packPath), null);
+  assert.deepEqual(targetFiles("#section-only", packPath), []);
+  assert.deepEqual(targetFiles(packPath, packPath), []);
+  assert.deepEqual(targetFiles(undefined, packPath), []);
+});
+
+test("a repair in any file the finding names answers it", () => {
+  const findings = [{ target: "charts/a.chart.json#x; charts/b.chart.json#y; content/030.md#z" }];
+  const dispositions = [{ reviewId: "REV-ACADEMIC", findingIndex: 0, action: "incorporated" }];
+  // The repair landed in the third file named, which is the merged-history case that exposed this.
+  assert.deepEqual(scenario({ dispositions, findings, changedFiles: ["content/030.md"] }), []);
+  const none = scenario({ dispositions, findings, changedFiles: ["glossary.json"] });
+  assert.equal(none.length, 1);
+  assert.match(none[0], /none of charts\/a\.chart\.json, charts\/b\.chart\.json, content\/030\.md are changed/);
 });
 
 test("an incorporated repair must have touched the file its finding names", () => {

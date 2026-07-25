@@ -13,17 +13,24 @@
 // path with an optional fragment, so an incorporated disposition asserts something falsifiable:
 // that file must differ between the candidate commit and the final commit.
 
-/** Resolve a finding `target` to the pack-relative file it names, or null when it names none. */
-export function targetFile(target, packPath) {
-  if (typeof target !== "string" || !target) return null;
-  const withoutFragment = target.split("#")[0].trim();
-  if (!withoutFragment) return null;
+/**
+ * Resolve a finding `target` to the pack-relative files it names.
+ *
+ * One finding often spans several files, written as a separated list, for example
+ * `charts/a.chart.json#series-x; charts/b.chart.json#series-y; content/030.md#section`. Reading
+ * only the first was this check's own first bug: run across merged history it reported repairs as
+ * missing when they had landed in the third file the finding named. A change to any file in the
+ * set answers the finding.
+ */
+export function targetFiles(target, packPath) {
+  if (typeof target !== "string" || !target) return [];
   const prefix = `${packPath}/`;
-  const relative = withoutFragment.startsWith(prefix)
-    ? withoutFragment.slice(prefix.length)
-    : withoutFragment;
-  // A bare fragment, or a target naming the pack itself, pins no file and cannot be checked.
-  return relative && relative !== packPath ? relative : null;
+  return target
+    .split(/[;,]/)
+    .map((part) => part.split("#")[0].trim())
+    .map((part) => (part.startsWith(prefix) ? part.slice(prefix.length) : part))
+    // A bare fragment, or a target naming the pack itself, pins no file and cannot be checked.
+    .filter((part) => part && part !== packPath && /\.[a-z0-9]+$/i.test(part));
 }
 
 /**
@@ -72,12 +79,13 @@ export function unbackedIncorporations({ adjudication, reviews, changedFiles, pa
       continue;
     }
 
-    const file = targetFile(finding.target, packPath);
-    if (!file) continue;
+    const files = targetFiles(finding.target, packPath);
+    if (!files.length) continue;
 
-    if (!changed.has(file)) {
+    if (!files.some((file) => changed.has(file))) {
       problems.push(
-        `${disposition.reviewId} finding ${disposition.findingIndex} is recorded as incorporated, but ${file} is unchanged between the candidate and final commits. ` +
+        `${disposition.reviewId} finding ${disposition.findingIndex} is recorded as incorporated, but ` +
+        `${files.length === 1 ? `${files[0]} is unchanged` : `none of ${files.join(", ")} are changed`} between the candidate and final commits. ` +
         `Target: ${finding.target}.`
       );
     }

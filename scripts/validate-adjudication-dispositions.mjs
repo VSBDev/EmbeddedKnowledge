@@ -18,18 +18,51 @@ import { unbackedIncorporations } from "./lib/adjudication-dispositions.mjs";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const packArgument = process.argv[2];
 
-// With no argument, check every pack carrying an adjudication. A squash merge removes the
-// candidate and final commits from main's history, so a merged pack's range stops being
-// resolvable; those are reported as skipped rather than failed. The range a pull request is
-// asking to merge is always resolvable, because both commits sit on the branch under review,
-// and that is the case this guard has to hold.
+// A pull request answers for the adjudication it is asking to merge, not for the corpus's
+// history. Checking everything re-opens settled lessons whose repairs were made in a different
+// file than the finding named, which is a judgement already taken at merge time and not this
+// gate's to reverse. So in a pull-request event only the packs the branch actually touches are
+// checked; outside one, and with no argument, every pack is swept as a report.
+//
+// A squash merge also removes the candidate and final commits from main's history, so a merged
+// pack's range stops being resolvable and is skipped rather than failed. The range a pull request
+// asks to merge is always resolvable, because both commits sit on the branch under review, and
+// that is the case this guard has to hold for.
+const packsWithAdjudication = () =>
+  fs.readdirSync(path.join(root, "lessons"), { withFileTypes: true })
+    .filter((entry) => entry.isDirectory())
+    .map((entry) => `lessons/${entry.name}`)
+    .filter((pack) => fs.existsSync(path.join(root, pack, "adjudication.json")))
+    .sort();
+
+function packsChangedInPullRequest() {
+  const eventPath = process.env.GITHUB_EVENT_PATH;
+  if (!eventPath || !fs.existsSync(eventPath)) return null;
+  let event;
+  try {
+    event = JSON.parse(fs.readFileSync(eventPath, "utf8"));
+  } catch {
+    return null;
+  }
+  if (!event.pull_request?.base?.sha || !event.pull_request?.head?.sha) return null;
+
+  const changed = execFileSync(
+    "git",
+    ["diff", "--name-only", `${event.pull_request.base.sha}...${event.pull_request.head.sha}`],
+    { cwd: root, encoding: "utf8" }
+  ).split("\n").filter(Boolean);
+
+  const packs = new Set();
+  for (const file of changed) {
+    const match = /^(lessons\/[^/]+)\//.exec(file);
+    if (match && fs.existsSync(path.join(root, match[1], "adjudication.json"))) packs.add(match[1]);
+  }
+  return [...packs].sort();
+}
+
 const packPaths = packArgument
   ? [packArgument.replace(/\/+$/, "")]
-  : fs.readdirSync(path.join(root, "lessons"), { withFileTypes: true })
-      .filter((entry) => entry.isDirectory())
-      .map((entry) => `lessons/${entry.name}`)
-      .filter((pack) => fs.existsSync(path.join(root, pack, "adjudication.json")))
-      .sort();
+  : packsChangedInPullRequest() ?? packsWithAdjudication();
 
 let failures = 0;
 let skipped = 0;
