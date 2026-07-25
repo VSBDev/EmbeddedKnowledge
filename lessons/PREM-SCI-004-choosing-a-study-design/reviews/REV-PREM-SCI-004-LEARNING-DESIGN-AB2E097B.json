@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-SCI-004-LEARNING-DESIGN-AB2E097B",
+  "lessonId": "PREM-SCI-004",
+  "lessonVersion": "0.2.0",
+  "candidateCommit": "e34e788706daa9b1ef5b7271a72b247bbf52643d",
+  "role": "learning-design",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev (learning-design reviewer)",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.7",
+      "runId": "agy-learning-design-PREM-SCI-004-AB2E097B-CE7E-47F4-8A22-3C1C46BA519A",
+      "instructionsDigest": "sha256:1aae7d9c192e8905036c04fe17256a8ec8f10c91f431d621314fc02df1974b5a"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Founding-stage isolation check: the accountable principal VSBDev operates the authoring, review, and finalization agents, so principal-level independence is absent. Agent-level role isolation was strictly maintained: no authoring history, other review output, or adjudication draft was read, and no other EmbeddedKnowledge role script was run during this review execution."
+  },
+  "evidenceChecked": [
+    "lessons/PREM-SCI-004-choosing-a-study-design/lesson.json",
+    "lessons/PREM-SCI-004-choosing-a-study-design/claims.json",
+    "lessons/PREM-SCI-004-choosing-a-study-design/references.json",
+    "lessons/PREM-SCI-004-choosing-a-study-design/glossary.json",
+    "lessons/PREM-SCI-004-choosing-a-study-design/ATTRIBUTION.md",
+    "lessons/PREM-SCI-004-choosing-a-study-design/content/01-who-creates-comparison.md",
+    "lessons/PREM-SCI-004-choosing-a-study-design/content/02-worked-choice.md",
+    "lessons/PREM-SCI-004-choosing-a-study-design/content/03-practise-repair.md",
+    "lessons/PREM-SCI-004-choosing-a-study-design/content/04-transfer-synthesis.md",
+    "lessons/PREM-SCI-004-choosing-a-study-design/content/05-clinical-wrap-up.md",
+    "lessons/PREM-SCI-004-choosing-a-study-design/assessment.json",
+    "CONTENT-STANDARD.md",
+    "RIGHTS-POLICY.md"
+  ],
+  "findings": [
+    {
+      "severity": "note",
+      "target": "lessons/PREM-SCI-004-choosing-a-study-design/content/01-who-creates-comparison.md#L3-L10",
+      "finding": "First-read clarity: The orientation scene establishes a strong concrete starting point using the residence-hall quiet-hours alertness scenario. It introduces the key decisions (who creates the exposure, and where to enter the timeline) before introducing the formal terminology.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-SCI-004-choosing-a-study-design/content/02-worked-choice.md#worked-example-retrospective-cohort",
+      "finding": "Worked example scaffolding: The worked example for the retrospective cohort design successfully implements the required 9-step template, and has an explicit self-explanation prompt targeting the common calendar-time vs selection-logic misconception.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-SCI-004-choosing-a-study-design/content/03-practise-repair.md#misconception-retrospective-means-case-control",
+      "finding": "Misconception repair: The lesson includes two clear misconception repair blocks (retrospective cohort vs case-control selection, and natural experiment vs voluntary/uncontrolled rollout) that elicit a commitment, explain the failure of the shortcut, repair the model, and recheck the distinction.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-SCI-004-choosing-a-study-design/content/04-transfer-synthesis.md#L3-L15",
+      "finding": "Active transfer: The air-filtration grant scenario provides a strong transfer task in a novel context that requires the learner to select checks, justify a design, and calibrate the causal inference boundary rather than copy a worked procedure.",
+      "resolution": null
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-SCI-004-choosing-a-study-design/glossary.json",
+      "finding": "Glossary metadata omission: The newly added clinical synthesis wrap-up scene, 'scene-clinical-wrap-up' (Scene 5), uses core vocabulary terms ('exposure', 'outcome', 'experiment', 'observational study', 'cohort study', and 'causal inference'), but this scene's ID is not listed in their 'sceneIds' lists in glossary.json.",
+      "resolution": "Add 'scene-clinical-wrap-up' to the 'sceneIds' lists of term-exposure, term-outcome, term-experiment, term-observational-study, term-cohort-study, and term-causal-inference in glossary.json."
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-SCI-004-choosing-a-study-design/ATTRIBUTION.md#L17-L33",
+      "finding": "Metadata version mismatch: The lesson version has been bumped to '0.2.0' in lesson.json and other metadata files, but ATTRIBUTION.md still declares the candidate state as version '0.1.1' on lines 17 and 33.",
+      "resolution": "Update lines 17 and 33 of ATTRIBUTION.md to refer to version '0.2.0' instead of '0.1.1'."
+    }
+  ],
+  "limitations": [
+    "Expert-simulation review: This review represents a single-pass advisory input by a simulated learning-design expert under standard-lesson-v3 guidelines. No real learner testing was conducted.",
+    "Conflict of interest: The same GitHub principal (VSBDev) is responsible for the authoring and review run operators. Agent-level isolation was maintained, but principal-level independence is absent.",
+    "Scope restriction: The review is strictly bounded to learning-design metrics (e.g., clarity, coherence, practice, alignment, and transfer). Scientific accuracy, rights audits, and final typesetting checks are excluded.",
+    "Technical verification limits: No rendered build environment, screen reader, or keyboard navigation pathways were evaluated physically; findings are based solely on the static Markdown and JSON source files."
+  ],
+  "signedAt": "2026-07-25T01:26:30Z"
+}
