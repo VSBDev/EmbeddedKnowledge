@@ -1,0 +1,1126 @@
+{
+  "schemaVersion": 3,
+  "format": "embeddedknowledge-lesson-v1",
+  "artifactType": "production-lesson",
+  "id": "PREM-STA-007",
+  "version": "0.1.0",
+  "title": "Nine milligrams, give or take: confidence intervals",
+  "status": "published",
+  "riskTier": "standard",
+  "estimatedMinutes": 180,
+  "outcomes": [
+    "topic-statistics-data-confidence-intervals"
+  ],
+  "prerequisites": [
+    "topic-statistics-data-sampling-standard-error"
+  ],
+  "objectives": [
+    {
+      "id": "objective-construct-an-interval",
+      "statement": "Construct a two-sided confidence interval from a point estimate, its standard error, and the multiplier matching a stated confidence level, reporting both limits with their units and naming the quantity the interval describes.",
+      "outcomeIds": [
+        "topic-statistics-data-confidence-intervals"
+      ]
+    },
+    {
+      "id": "objective-state-what-confidence-means",
+      "statement": "State what a stated confidence level claims about the procedure across repeated samples, and reject the reading that assigns a probability to a particular interval containing the fixed parameter, naming the quantity each faulty reading has treated as random.",
+      "outcomeIds": [
+        "topic-statistics-data-confidence-intervals"
+      ]
+    },
+    {
+      "id": "objective-relate-width-to-inputs",
+      "statement": "Predict and quantify how an interval's width responds to the standard error, to the number of observations, and to the chosen confidence level, including the sample size needed to reach a target width.",
+      "outcomeIds": [
+        "topic-statistics-data-confidence-intervals"
+      ]
+    },
+    {
+      "id": "objective-read-an-interval-for-an-effect",
+      "statement": "Read a reported interval for an effect by locating it against the no-difference value and against a stated clinical threshold, and by describing the range of effect sizes it leaves open, distinguishing an uninformative result from evidence of no effect.",
+      "outcomeIds": [
+        "topic-statistics-data-confidence-intervals"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene-one-number",
+      "title": "One study, one number, and the question it leaves open",
+      "kind": "orientation",
+      "source": "content/010-one-number-from-one-study.md",
+      "estimatedMinutes": 16,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>One study, one number, and the question it leaves open</h1>\n<p>The dinner-timing study has finished counting. Thirty adults with type 2 diabetes ate late, thirty ate earlier, and the late group&#39;s next-morning fasting glucose came out 9.0 mg/dL higher.</p>\n<p>Nine milligrams per decilitre. That is the whole result, and by itself it is close to useless.</p>\n<p>The previous lesson explained why. Run the same study again on thirty new pairs of people and the difference will not be 9.0. It might be 5. It might be 14. It might come out negative. The estimate carries a standard error, and for this design that standard error is 4.13 mg/dL, which is large compared with the 9.0 sitting on top of it.</p>\n<p>So a reader of this study is stuck with a fair question. The study saw 9.0. What could the truth be?</p>\n<p>A confidence interval is the answer people actually publish. It converts one estimate into a range of values the sample is compatible with, and it does that with arithmetic you already have.</p>\n<p>Medicine asks for that range as a matter of routine. The international guidance that regulators in Europe, Japan and the United States apply to clinical trials says that estimates of treatment effects should be accompanied by confidence intervals whenever possible, and that the protocol should say in advance how they will be worked out. A trial that reported only its point estimate would be an incomplete trial.</p>\n<h2>What you will be able to do</h2>\n<p>By the end of this lesson you will be able to:</p>\n<ul>\n<li>build a confidence interval from an estimate and its standard error;</li>\n<li>say what a stated confidence level claims, and what it does not;</li>\n<li>predict how the interval&#39;s width responds to the standard error, to the number of people, and to the level you pick;</li>\n<li>read a published interval by checking where it sits against the value that would mean no effect, and by describing what its width leaves open.</li>\n</ul>\n<h2>Bring forward two things from the previous lesson</h2>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-prerequisite-standard-error</span></div>\n    <div class=\"ek-block-content\"><p>Without looking anything up, answer these two.</p>\n<p>First: the standard error of the difference in this study is 4.13 mg/dL. What does that number describe? Say what would have to happen, physically, for you to observe the spread it measures.</p>\n<p>Second: the study has 30 people in each group and a within-group standard deviation of 16 mg/dL. If a new team ran the same study with 120 people in each group, would the standard error go up, go down, or stay the same, and roughly by how much?</p>\n</div>\n  </aside>\n<p>The standard error describes the spread of the estimate itself. If you repeated the whole study many times over, drawing fresh people each time from the same population and running the same 30-and-30 design, the differences you got would scatter around the true difference. The standard error is the standard deviation of that scatter. Nobody repeats a study a thousand times, which is why the standard error is computed from a formula instead of observed.</p>\n<p>More people shrinks it. The count sits under a square root, so four times the people cuts the standard error in half: from 4.13 mg/dL to about 2.07. That fact does a lot of work later in this lesson.</p>\n<aside class=\"ek-block ek-callout ek-block--recovery\" data-directive=\"callout\">\n    <div class=\"ek-block-label directive-label\">Callout</div>\n    \n    <div class=\"ek-block-content\"><h2>Recovery route</h2>\n<p>If either answer felt like a guess, go back to the lesson on sampling distributions and standard error before continuing. Everything here is built on top of it, and the arithmetic will feel arbitrary without it. You do not need a score from that lesson to come back; you need the picture of one estimate scattering around a fixed truth.</p>\n</div>\n  </aside>\n<h2>What this lesson does not do</h2>\n<p>You will not test a hypothesis, compute a p-value, or decide whether a result counts as a finding. The next lesson takes that route through the same data, and the two descriptions agree by construction. You will also not judge whether a 9.0 mg/dL difference matters to a patient. That is a clinical question, the block&#39;s final lesson is built around it, and confusing it with the statistics is one of the commonest errors in reading medical evidence.</p>\n<p><strong>Teaching example, not medical advice.</strong> Every cohort, trial, clinic, and threshold in this lesson is invented for teaching. Nothing here reports a finding about real patients or supports any change to anyone&#39;s care.</p>\n<h2>Accessibility and alternatives</h2>\n<p>The lesson&#39;s quantitative representations are equations and Markdown tables, and every important relationship is also stated in words. No question asks you to estimate a width by eye, distinguish values by colour, drag an object, or depend on a timed reveal.</p>\n<p>The arithmetic is the kind you can do on paper: one multiplication and two additions per interval. Every multiplier is printed in the text where it is used, so you never need a statistical table beside you. Limits are given to one decimal place throughout, which occasionally puts a printed width 0.1 away from twice the printed margin of error; the worked example says where that comes from.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-ich-e9-report-ci</span><span><b>sources</b> source-ich-e9</span></div>\n    <div class=\"ek-block-content\"><p>This source is the international guidance on statistical principles for clinical trials adopted as guidance for industry by the US Food and Drug Administration. It supports the statement that estimates of treatment effects should be reported with confidence intervals wherever possible and that the method of calculation should be identified in advance. The cohort and its numbers are original teaching material.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-estimate-with-a-range",
+      "title": "An estimate, a ruler, and the range it buys you",
+      "kind": "concept",
+      "source": "content/020-an-estimate-with-a-range.md",
+      "estimatedMinutes": 26,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>An estimate, a ruler, and the range it buys you</h1>\n<p>Start with the word, because the word will mislead you if you let it.</p>\n<p>In ordinary speech, confidence is something a person feels. A doctor is confident about a diagnosis. A student is confident about an exam. It sits inside somebody&#39;s head and it moves with the day.</p>\n<p>The confidence in a confidence interval is nothing of that kind. It is a property of a calculation under its sampling and analysis assumptions. It records how often a procedure of that shape lands on the truth when it is used over and over under those conditions, and it would mean the same thing if every person using it felt uncertain. When you meet the phrase in a paper, hear it as a conditional claim about a method&#39;s track record.</p>\n<h2>The two quantities an interval sits between</h2>\n<p>There is a number you want and cannot see. Here it is the true difference in average fasting glucose between eating late and eating earlier, across the whole population the cohort came from. It is fixed. It has a value right now, the same value it had before anybody was recruited, and sampling does not change it. A fixed unknown quantity of that sort is called a <strong>parameter</strong>.</p>\n<p>You met the word once already, in the lesson on scientific models, where a model parameter was a knob you set to make a model behave. This use is different. Nobody sets this number and nobody can read it off. It belongs to the population, and the whole study exists to guess at it.</p>\n<p>Then there is the number you can see. The study measured a difference of 9.0 mg/dL. That single value, computed from the data, is a <strong>point estimate</strong> of the parameter. It is the best guess this sample supports, and it is almost certainly off by some amount, because a different thirty pairs of people would have given a different figure.</p>\n<p>An <strong>interval estimate</strong> replaces the single guess with a range. Confidence limits are exactly that: an interval estimate, built by a procedure with a stated success rate.</p>\n<aside class=\"ek-block ek-definition ek-block--definition\" data-directive=\"definition\">\n    <div class=\"ek-block-label directive-label\">Definition</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> definition-confidence-interval</span></div>\n    <div class=\"ek-block-content\"><p>A <strong>confidence interval</strong> is a range computed from sample data by a procedure whose stated <strong>confidence level</strong> is the proportion of samples for which such a range would contain the fixed parameter, if you drew sample after sample of the same size under the stated sampling and analysis model and rebuilt the range each time.</p>\n<p>At a 95% level: when the model&#39;s conditions hold, draw many samples, build the interval each time, and about 95 in every 100 of those intervals would contain the true value. The level describes the factory under those conditions. The interval in front of you is one item off that production line.</p>\n</div>\n  </aside>\n<p>For this invented cohort, that track-record claim assumes that the two groups are independent samples from the population named in the question, that observations within the groups are independent, that the normal two-sample model is adequate, and that the two groups have the same variance as the pooled calculation assumes. It also assumes the study is not systematically biased by recruitment or measurement. The interval describes random sampling error under that model; it cannot repair bias or establish that the sampled population represents some wider population.</p>\n<h2>The recipe</h2>\n<p>Almost every interval in a medical paper has the same three-part shape.</p>\n<figure class=\"ek-block ek-equation\" data-directive=\"equation\"><div class=\"ek-block-label directive-label\">equation-interval-recipe</div><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mtext>estimate</mtext><mo>±</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mtext>multiplier</mtext><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>×</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mtext>standard error</mtext><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\text{estimate} \\pm (\\text{multiplier}) \\times (\\text{standard error})</annotation></semantics></math><figcaption>TeX source: <code>\\text{estimate} \\pm (\\text{multiplier}) \\times (\\text{standard error})</code></figcaption></figure>\n<p>The estimate is what the study measured. The standard error is what the previous lesson taught you to compute, and it sets the natural unit of wobble for that estimate. The multiplier decides how many of those units you reach out in each direction, and it is the only piece the confidence level touches.</p>\n<p>Reaching out in both directions is what <strong>two-sided</strong> means. You are drawing a fence with two posts and you have to decide how much probability to leave outside each of them. A two-sided 95% interval leaves 2.5% beyond each post. A one-sided interval spends the whole 5% at one end and gives you a single bound, which is what you want when only one direction of the effect would change anything. Everything in this lesson is two-sided, because a study reporting how big a difference is usually needs both ends.</p>\n<p>Where does the multiplier come from? The sampling model fixes it. If the standard error is known or a large-sample normal approximation is justified, a 95% two-sided interval uses <strong>1.96</strong>. The value with 0.975 of the standard normal curve below it is 1.960, so going 1.960 units above and below the centre leaves 0.025 in each tail and encloses the middle 95%.</p>\n<p>Two neighbouring normal multipliers are worth holding on to:</p>\n<table>\n<thead>\n<tr>\n<th>Confidence level</th>\n<th>Multiplier</th>\n<th>Left in each tail</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>90%</td>\n<td>1.645</td>\n<td>0.05</td>\n</tr>\n<tr>\n<td>95%</td>\n<td>1.960</td>\n<td>0.025</td>\n</tr>\n<tr>\n<td>99%</td>\n<td>2.576</td>\n<td>0.005</td>\n</tr>\n</tbody></table>\n<p>When the standard deviation is estimated from the same data, the primary calculation uses the <strong>t distribution</strong> instead. Its multiplier is slightly larger and depends on the degrees of freedom. The normal values remain useful large-sample approximations, but the examples with a reported sample standard deviation below use the matching t multiplier.</p>\n<h2>A first interval, on a single group</h2>\n<p>Before the difference, do the simpler thing. Take the late-dinner group on its own: 30 people, average fasting glucose 146.5 mg/dL, standard deviation 16 mg/dL.</p>\n<p>Its standard error is the group&#39;s standard deviation divided by the square root of the group size.</p>\n<figure class=\"ek-block ek-equation\" data-directive=\"equation\"><div class=\"ek-block-label directive-label\">equation-late-group-standard-error</div><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mpadded lspace=\"0\"><mi>SE</mi></mpadded><mo>=</mo><mfrac><mn>16</mn><msqrt><mn>30</mn></msqrt></mfrac><mo>=</mo><mfrac><mn>16</mn><mn>5.477</mn></mfrac><mo>=</mo><mn>2.92</mn><mtext> mg/dL</mtext></mrow><annotation encoding=\"application/x-tex\">\\mathrm{SE} = \\frac{16}{\\sqrt{30}} = \\frac{16}{5.477} = 2.92 \\text{ mg/dL}</annotation></semantics></math><figcaption>TeX source: <code>\\mathrm{SE} = \\frac{16}{\\sqrt{30}} = \\frac{16}{5.477} = 2.92 \\text{ mg/dL}</code></figcaption></figure>\n<p>Because the standard deviation of 16 mg/dL was estimated from these 30 people, use the 95% t multiplier with 29 degrees of freedom, <strong>2.045</strong>, rather than 1.96.</p>\n<figure class=\"ek-block ek-equation\" data-directive=\"equation\"><div class=\"ek-block-label directive-label\">equation-late-group-interval</div><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mn>146.5</mn><mo>±</mo><mn>2.045</mn><mo>×</mo><mn>2.92</mn><mo>=</mo><mn>146.5</mn><mo>±</mo><mn>5.97</mn></mrow><annotation encoding=\"application/x-tex\">146.5 \\pm 2.045 \\times 2.92 = 146.5 \\pm 5.97</annotation></semantics></math><figcaption>TeX source: <code>146.5 \\pm 2.045 \\times 2.92 = 146.5 \\pm 5.97</code></figcaption></figure>\n<p>The interval runs from <strong>140.5 to 152.5 mg/dL</strong>. It is 12.0 mg/dL wide.</p>\n<p>Read that back carefully. It is a range for the average fasting glucose of the population those thirty people came from. It is not a range for any one person&#39;s glucose. Most of the thirty individuals sat outside it, which is exactly what you would expect: people differ from each other far more than group averages differ from sample to sample.</p>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-recipe-parts</span></div>\n    <div class=\"ek-block-content\"><p>Cover the arithmetic above and answer from memory.</p>\n<ol>\n<li>Which of the three parts of the recipe changes when you move from a 95% interval to a 99% interval?</li>\n<li>How does recruiting more people change the standard error, and what smaller secondary change occurs in a t interval?</li>\n<li>The range 140.5 to 152.5 mg/dL is a range for what, exactly?</li>\n</ol>\n</div>\n  </aside>\n<p>The confidence level changes the multiplier, and the interval widens without a single new measurement. Recruiting more people shrinks the standard error because the group size sits under a square root in its denominator; in a t interval it also increases the degrees of freedom, making the multiplier move slightly towards its normal-curve limit. And the range is a range for the population mean of the late-dinner group, a fixed number nobody has observed.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-ci-definition, claim-confidence-level-long-run, claim-normal-975-quantile, claim-t-multipliers</span><span><b>sources</b> source-nist-confidence-limits, source-nist-what-are-ci, source-nist-normal-table, source-nist-t-table</span></div>\n    <div class=\"ek-block-content\"><p>The NIST/SEMATECH handbook is the source for the interval-estimate form used above, for the two-sided and one-sided distinction, and for the conditional long-run reading of a confidence level. Its normal table supplies 1.645, 1.960 and 2.576, and its t table supplies 2.045 at 29 degrees of freedom. Nothing in the cohort or the worked arithmetic comes from a source; both were built for this block.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-nine-milligrams",
+      "title": "Nine milligrams per decilitre, and everything else it could have been",
+      "kind": "worked-example",
+      "source": "content/030-nine-milligrams-and-its-range.md",
+      "estimatedMinutes": 28,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Nine milligrams per decilitre, and everything else it could have been</h1>\n<p>Now the number the study was built to produce.</p>\n<p>Late group average 146.5 mg/dL. Early group average 137.5 mg/dL. The difference, late minus early, is 9.0 mg/dL. That is the point estimate, and the parameter behind it is the true difference in the population.</p>\n<p>Comparing two independent groups changes only the standard error. The published form pools the two groups&#39; standard deviations into one value, then scales it by both group sizes at once, so with 30 people in each group and a within-group standard deviation of 16 mg/dL:</p>\n<figure class=\"ek-block ek-equation\" data-directive=\"equation\"><div class=\"ek-block-label directive-label\">equation-difference-standard-error</div><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mpadded lspace=\"0\"><mi>SE</mi></mpadded><mo>=</mo><mn>16</mn><mo>×</mo><msqrt><mrow><mfrac><mn>1</mn><mn>30</mn></mfrac><mo>+</mo><mfrac><mn>1</mn><mn>30</mn></mfrac></mrow></msqrt><mo>=</mo><mn>16</mn><mo>×</mo><mn>0.2582</mn><mo>=</mo><mn>4.13</mn><mtext> mg/dL</mtext></mrow><annotation encoding=\"application/x-tex\">\\mathrm{SE} = 16 \\times \\sqrt{\\frac{1}{30} + \\frac{1}{30}} = 16 \\times 0.2582 = 4.13 \\text{ mg/dL}</annotation></semantics></math><figcaption>TeX source: <code>\\mathrm{SE} = 16 \\times \\sqrt{\\frac{1}{30} + \\frac{1}{30}} = 16 \\times 0.2582 = 4.13 \\text{ mg/dL}</code></figcaption></figure>\n<p>Look at that number beside the 9.0 before going further. The estimate is a bit over two standard errors from zero. A study in which the effect is only twice its own wobble is a study whose interval is going to be wide.</p>\n<aside class=\"ek-block ek-worked-example ek-block--worked-example\" data-directive=\"worked-example\">\n    <div class=\"ek-block-label directive-label\">Worked Example</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> worked-example-difference-interval</span></div>\n    <div class=\"ek-block-content\"><p><strong>Build the 95% confidence interval for the difference in fasting glucose.</strong></p>\n<p><strong>Step 1. Name the estimate and its units.</strong> The estimate is 9.0 mg/dL, the late group&#39;s average minus the early group&#39;s. Keeping the direction attached matters: reversing the subtraction would give −9.0 and an interval with both signs flipped.</p>\n<p><strong>Step 2. Take the standard error.</strong> 4.13 mg/dL, from the calculation above.</p>\n<p><strong>Step 3. Choose the level and the matching model.</strong> The within-group standard deviation was estimated from these 60 readings, so use the 95% t multiplier with 58 degrees of freedom: 2.002.</p>\n<p><strong>Step 4. Multiply.</strong> 2.002 × 4.13 = 8.27 mg/dL. This half-width is the <strong>margin of error</strong>.</p>\n<p><strong>Step 5. Add and subtract.</strong></p>\n<p>Lower limit: 9.0 − 8.27 = 0.73, which rounds to 0.7 mg/dL.</p>\n<p>Upper limit: 9.0 + 8.27 = 17.27, which rounds to 17.3 mg/dL.</p>\n<p><strong>The 95% confidence interval for the difference is 0.7 to 17.3 mg/dL.</strong></p>\n<p><strong>Independent check.</strong> The estimate should be the midpoint: (0.7 + 17.3) / 2 = 9.0 mg/dL. The printed limits also sit 8.3 mg/dL on either side of 9.0 after rounding. If either check failed, the first things to inspect would be the subtraction order and whether the margin was added at one end and subtracted at the other.</p>\n<p><strong>A note on rounding.</strong> Both limits are rounded to one decimal place, and this lesson does that everywhere. Widths are always the subtraction you can do on the page: here it is 17.3 − 0.7 = 16.6. Twice the unrounded margin of error is about 16.5 after rounding to one decimal place. The 0.1 difference comes from rounding the two limits separately; trust the subtraction of the displayed limits when reporting their displayed width.</p>\n<p><strong>Explain the decisive choice to yourself.</strong> Why does this calculation use 2.002 rather than 1.96, and why must “late minus early” stay attached to the estimate before either limit is calculated?</p>\n</div>\n  </aside>\n<h2>Two things to read off it</h2>\n<p>The four landmarks on the number line are enough to read the interval without pretending that a future sampling distribution is centred on this study&#39;s estimate:</p>\n<table>\n<thead>\n<tr>\n<th>Landmark</th>\n<th align=\"right\">Difference in fasting glucose, late minus early</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>No difference</td>\n<td align=\"right\">0.0 mg/dL</td>\n</tr>\n<tr>\n<td>Lower confidence limit</td>\n<td align=\"right\">0.7 mg/dL</td>\n</tr>\n<tr>\n<td>Observed difference</td>\n<td align=\"right\">9.0 mg/dL</td>\n</tr>\n<tr>\n<td>Upper confidence limit</td>\n<td align=\"right\">17.3 mg/dL</td>\n</tr>\n</tbody></table>\n<p><strong>It excludes zero.</strong> Zero here is the <strong>no-difference value</strong>: what the difference would be if the two groups had the same population average. It is the number a reader checks against first. Every value inside this interval is positive, which puts the whole compatible range on the side where late dinners go with higher morning glucose in this invented cohort. That direction is what the study supports.</p>\n<p>Notice how narrowly it manages it. The lower limit is 0.7 mg/dL. Push the estimate down by more than 0.73 mg/dL while holding the margin fixed, or increase the margin by more than 0.73 mg/dL while holding the estimate fixed, and zero would be inside. This is a result that clears the bar and does not clear it by much.</p>\n<p><strong>It is wide.</strong> The interval spans 16.6 mg/dL, from 0.7 to 17.3. That width is nearly twice the estimate sitting in the middle of it. The study is compatible with a true difference below 1 mg/dL and equally compatible with one above 17 mg/dL. The evidence covers both and does not choose between them. The clinical wrap-up lays the interval against a pre-stated service threshold, and the distance between the limits is why that scene exists.</p>\n<p>That double reading is the whole point of the interval. Reporting only &quot;9.0 mg/dL, and it beat zero&quot; hides a study that could not tell a trivial effect from a large one.</p>\n<h2>Why the t multiplier is the primary one here</h2>\n<p>The 1.96 multiplier is read off a normal curve, and that curve assumes you know how much people vary. You do not. The 16 mg/dL came from the same 60 readings as the 9.0, so the study is paying for two guesses at once and the interval has to be a little wider to cover the second one.</p>\n<p>Statisticians handle this with the <strong>t distribution</strong>, a curve shaped like the normal one but with slightly fatter tails, so its multipliers are slightly larger. How much larger depends on how much data went into estimating the spread, a quantity counted in <strong>degrees of freedom</strong>. Sixty readings went in, and two group averages were computed from them before any spread could be measured, so 58 numbers were still free to vary. The published table gives 2.002 at 58 degrees of freedom.</p>\n<p>That is why the worked interval uses 2.002 as its primary multiplier. Using the large-sample normal approximation of 1.96 would instead give 0.9 to 17.1 mg/dL, moving each end inward by about 0.2. Under the exact 58-degree-of-freedom t model, those z-based limits have about 94.5% coverage rather than the stated 95%. The numerical difference is small here, but the t calculation matches the stated level under the model actually used. The gap between t and normal shrinks as the study grows.</p>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-reverse-the-interval</span></div>\n    <div class=\"ek-block-content\"><p>A colleague reports the same comparison the other way round: early minus late, and the difference is −9.0 mg/dL.</p>\n<p>Write down their 95% confidence interval without recomputing anything, then say whether their result and yours disagree.</p>\n</div>\n  </aside>\n<p>Their interval is −17.3 to −0.7 mg/dL. The limits swap places and both change sign, because subtracting in the other order flips every number in the calculation. Nothing disagrees. Two people have described one comparison from opposite ends, and both intervals exclude zero on the same side of it. This is why a reported interval is unreadable until you know which group was subtracted from which.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-ci-definition, claim-normal-975-quantile, claim-two-sample-pooled-interval, claim-t-multipliers</span><span><b>sources</b> source-nist-confidence-limits, source-nist-what-are-ci, source-nist-normal-table, source-nist-two-sample, source-nist-t-table</span></div>\n    <div class=\"ek-block-content\"><p>The NIST/SEMATECH handbook supports the interval-estimate recipe, the pooled two-sample form of the standard error with its degrees of freedom, the normal comparison value 1.960, and the value 2.002 read from its table of critical values of the t distribution at 58 degrees of freedom. The cohort, its group averages, and every step of the arithmetic above are original teaching material.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-ninety-five-percent-of-what",
+      "title": "Ninety-five per cent of what?",
+      "kind": "misconception",
+      "source": "content/040-ninety-five-percent-of-what.md",
+      "estimatedMinutes": 26,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Ninety-five per cent of what?</h1>\n<p>Here is the sentence almost everyone writes the first time, and a good many people go on writing for years.</p>\n<blockquote>\n<p>There is a 95% probability that the true difference lies between 0.7 and 17.3 mg/dL.</p>\n</blockquote>\n<p>It is wrong. It is wrong in a specific way that is worth working through slowly, because the correct reading is only a small step away and the two get confused in published papers, in teaching, and in conversations about what a trial showed.</p>\n<h2>Why it fails</h2>\n<p>Count the things in that sentence that could vary.</p>\n<p>The true difference is one fixed number. Whatever it is, it was that before the study started and it is still that now. Nobody knows it. Not knowing a number does not make it random, in the same way that the number of red cells in a tube you have not counted yet is fixed and unknown.</p>\n<p>The limits 0.7 and 17.3 are also two fixed numbers now. They came out of one particular sample of sixty people.</p>\n<p>So the sentence puts a probability on a relationship between three fixed numbers. Either 0.7 to 17.3 contains the true difference or it does not. There is no 95% about it. The statement is either entirely true or entirely false, and which one it is depends on a fact nobody has access to.</p>\n<p>The randomness was never in the parameter. It was in the sampling. Recruit sixty different people and you get a different estimate, a different standard error, and a different pair of limits. The interval is the thing that moves.</p>\n<h2>Where the 95% actually lives</h2>\n<aside class=\"ek-block ek-misconception ek-block--misconception\" data-directive=\"misconception\">\n    <div class=\"ek-block-label directive-label\">Misconception</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> misconception-probability-in-the-interval</span></div>\n    <div class=\"ek-block-content\"><p><strong>The wrong model:</strong> the interval is fixed and the parameter is uncertain, so 95% is the chance the parameter fell inside.</p>\n<p><strong>What is really going on:</strong> the parameter is fixed and the interval is what varies from sample to sample. The 95% belongs to the procedure under its sampling and analysis assumptions. It is the long-run proportion of samples for which an interval built this way would capture the true value when those conditions hold.</p>\n<p><strong>The correcting test:</strong> ask whether the number you are putting a probability on could come out differently if the study were repeated. The true difference could not. The limits could.</p>\n</div>\n  </aside>\n<p>This reading has a name. Confidence intervals belong to the <strong>frequentist</strong> methods, and the international guidance for clinical trials defines that family as the methods interpreted through the frequency of certain outcomes across hypothetical repeated runs of the same experimental situation. The word <em>frequency</em> is the whole definition: you are counting how often something happens when a study is imagined again and again.</p>\n<p>The handbook that supplies the arithmetic says the same thing in plainer language. A 95% confidence interval does not mean there is a 95% probability that the interval contains the true mean, and the level of confidence attaches to the method of calculating the interval.</p>\n<h2>Twenty studies, one truth</h2>\n<p>Picture research teams repeatedly running the dinner-timing study, each on its own sixty people independently sampled from the same defined population. They use the same valid design and 95% t recipe, the equal-variance and approximate-normal model remains adequate, and recruitment and measurement introduce no systematic bias. They publish intervals that differ from sample to sample.</p>\n<p>There is one true difference underneath all the repeats, and it never moves. Across a long sequence, about 95% of the intervals would contain it and about 5% would miss it. A particular batch of twenty need not contain exactly nineteen successes. An interval that misses would look no different from the others on the page, and nothing in a published interval tells you which kind you are holding.</p>\n<p>That is the honest reading of your own interval: under the stated conditions, it came from a procedure with about 95% long-run coverage, and you cannot check whether this particular interval contains the parameter. The coverage statement concerns random sampling error. It does not guarantee that a biased sample represents a wider population or that a misspecified analysis reaches its nominal level.</p>\n<h2>Saying it correctly without sounding like a textbook</h2>\n<p>You still have to write a results section. Three sentences that are defensible:</p>\n<ul>\n<li>&quot;The difference was 9.0 mg/dL, 95% confidence interval 0.7 to 17.3.&quot; Report the numbers and let the reader interpret them.</li>\n<li>&quot;Under the stated model, the data are compatible with true differences from about 0.7 to about 17.3 mg/dL.&quot; Compatibility is a statement about the data and the parameter values, and it survives scrutiny.</li>\n<li>&quot;Under the stated model, values outside 0.7 to 17.3 are the ones this study argues against, at the 95% level.&quot; Turns the interval around and says what it rules out.</li>\n</ul>\n<p>What none of them do is hand a probability to the true difference. Sentences of that shape are available, from Bayesian methods, and they cost an extra ingredient the frequentist recipe never asked for: a stated belief about the parameter before the data arrived. Supply one and you can talk about the probability of the parameter, because you have made it a quantity with a distribution. That is a different course, and this lesson&#39;s interval was not built that way.</p>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-diagnose-the-sentence</span></div>\n    <div class=\"ek-block-content\"><p>Four sentences describe the same interval. Two are defensible and two are not. Sort them, and for each bad one name the number that has been treated as random when it is fixed.</p>\n<ol>\n<li>&quot;There is a 95% chance the true difference is between 0.7 and 17.3 mg/dL.&quot;</li>\n<li>&quot;If independent samples from the same population were analysed repeatedly under this adequate model, about 95% of the intervals produced this way would contain the true difference.&quot;</li>\n<li>&quot;95% of adults with type 2 diabetes have a dinner-timing effect between 0.7 and 17.3 mg/dL.&quot;</li>\n<li>&quot;Under the stated model, the true difference is unknown and this study is compatible with values from 0.7 to 17.3 mg/dL.&quot;</li>\n</ol>\n</div>\n  </aside>\n<p>Sentences 2 and 4 are defensible. Sentence 2 states the long-run property of the procedure, which is what the level means. Sentence 4 makes a compatibility claim about values and never assigns a probability to the parameter.</p>\n<p>Sentence 1 treats the true difference as random. It is fixed; the interval is the thing that varies across repeats.</p>\n<p>Sentence 3 makes a different mistake, and it is a common one in clinical reading. It treats the interval as a range covering individual people. This interval describes a population average. Individual people vary far more widely, and no confidence interval for an average ever tells you where 95% of patients sit.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-confidence-level-long-run, claim-ich-e9-frequentist</span><span><b>sources</b> source-nist-confidence-limits, source-nist-what-are-ci, source-ich-e9</span></div>\n    <div class=\"ek-block-content\"><p>The correction at the centre of this scene is the handbook&#39;s own. It states directly that a 95% confidence interval does not mean a 95% probability that the interval contains the true mean, and that the confidence coefficient is the proportion of samples of a given size expected to contain it under the procedure&#39;s conditions. The clinical-trials guidance supplies the name and the definition of frequentist methods, in terms of the frequency of outcomes across hypothetical repeated realisations of the same experimental situation. The repeated-study example and the four candidate sentences were written for this scene.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-what-moves-the-edges",
+      "title": "What moves the edges",
+      "kind": "investigation",
+      "source": "content/050-what-moves-the-edges.md",
+      "estimatedMinutes": 24,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>What moves the edges</h1>\n<p>An interval&#39;s width is the part people skip, and it carries most of the information about how good the study was.</p>\n<p>The width is the margin of error twice over:</p>\n<figure class=\"ek-block ek-equation\" data-directive=\"equation\"><div class=\"ek-block-label directive-label\">equation-interval-width</div><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mtext>width</mtext><mo>=</mo><mn>2</mn><mo>×</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mtext>multiplier</mtext><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow><mo>×</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">(</mo><mtext>standard error</mtext><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\text{width} = 2 \\times (\\text{multiplier}) \\times (\\text{standard error})</annotation></semantics></math><figcaption>TeX source: <code>\\text{width} = 2 \\times (\\text{multiplier}) \\times (\\text{standard error})</code></figcaption></figure>\n<p>Only two quantities appear. So only two things can move the edges: the multiplier, which you choose when you choose a confidence level, and the standard error, which the study&#39;s design and the biology hand you.</p>\n<h2>Lever one: the confidence level</h2>\n<p>This is the lever that costs nothing and buys nothing. Keep the study exactly as it is, keep the estimate at 9.0 and the standard error at 4.13, and change only the t multiplier at 58 degrees of freedom.</p>\n<table>\n<thead>\n<tr>\n<th>Level</th>\n<th>Multiplier</th>\n<th>Margin of error</th>\n<th>Interval (mg/dL)</th>\n<th>Width</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>90%</td>\n<td>1.672</td>\n<td>6.91</td>\n<td>2.1 to 15.9</td>\n<td>13.8</td>\n</tr>\n<tr>\n<td>95%</td>\n<td>2.002</td>\n<td>8.27</td>\n<td>0.7 to 17.3</td>\n<td>16.6</td>\n</tr>\n<tr>\n<td>99%</td>\n<td>2.663</td>\n<td>11.00</td>\n<td>−2.0 to 20.0</td>\n<td>22.0</td>\n</tr>\n</tbody></table>\n<p>Read down the last two columns and something uncomfortable appears. At 95% the interval clears zero. At 99% it does not: −2.0 is a negative number, so the 99% interval contains the possibility that late dinners go with <em>lower</em> morning glucose.</p>\n<p>No new data arrived. Nobody measured anything again. The only thing that changed was how often the author wants the procedure to succeed in the long run, and asking for a better success rate means casting a wider net. Demand certainty about the method and you give up sharpness about the answer.</p>\n<p>Keep checking intervals against zero; that check tells you which directions the study supports and it is the first thing to do with any reported effect. What this table takes the drama out of is the <em>verdict</em> people attach to it. Whether an interval clears zero depends on a level somebody chose, and ninety-five per cent is a habit rather than a law of nature. The next lesson will show you the same convention wearing a different costume.</p>\n<h2>Lever two: the standard error</h2>\n<p>This is the lever that costs money and buys precision. The word arrives with baggage: the measurement lesson used <em>precision</em> for how closely one instrument&#39;s repeated readings agree. Here it means something wider, namely how tightly a whole study has pinned down the quantity it set out to estimate, and you read it straight off the interval&#39;s width. A perfectly repeatable glucose meter still gives an imprecise study if only thirty people were measured with it.</p>\n<p>The standard error of a two-group difference has two inputs: how much people differ from each other within a group, and how many of them you recruited.</p>\n<aside class=\"ek-block ek-investigation ek-block--investigation\" data-directive=\"investigation\">\n    <div class=\"ek-block-label directive-label\">Investigation</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> investigation-what-a-bigger-study-buys</span></div>\n    <div class=\"ek-block-content\"><p>Work these three out before reading on. These are conditional comparisons: hold the estimate at 9.0 mg/dL while changing one precision input, and keep the level at 95%. They show what the width would be under those inputs; they do not predict where a future study&#39;s estimate or interval will land.</p>\n<p><strong>A.</strong> A repeat study recruits 120 people per group instead of 30, in a population with the same within-group standard deviation of 16 mg/dL. Compute the new standard error, then the new interval.</p>\n<p><strong>B.</strong> A different repeat keeps 30 per group but recruits from a narrower population, where the within-group standard deviation is 10 mg/dL. Compute that standard error and interval.</p>\n<p><strong>C.</strong> Which of the two repeats gives the tighter answer, and which one could a research team actually arrange?</p>\n</div>\n  </aside>\n<p><strong>A.</strong> With 120 in each group, the standard error becomes 16 × √(1/120 + 1/120) = 16 × 0.1291 = 2.07 mg/dL. For this large-sample planning approximation, use 1.96. The margin of error is therefore about 4.06 mg/dL, so the conditional interval runs from <strong>4.9 to 13.1 mg/dL</strong> and is 8.2 mg/dL wide.</p>\n<p>Follow the standard error rather than the conditional limits, because that is where the planning rule lives: 4.13 became 2.07, exactly half, since the group size sits under a square root and four times 30 is 120. The change from the original t multiplier to the large-sample normal approximation makes the displayed width almost, but not mathematically exactly, half the original 16.6 mg/dL. The square-root rule generalises: to target about half the width you need about four times the sample, and to target about a tenth of the width you need about a hundred times, provided the design and population spread stay the same.</p>\n<p><strong>B.</strong> With a within-group standard deviation of 10 mg/dL and 30 people per group, the standard error is 10 × 0.2582 = 2.58 mg/dL. The 58-degree-of-freedom t multiplier remains 2.002, so the margin of error is 5.17 mg/dL. The interval runs from <strong>3.8 to 14.2 mg/dL</strong> and is 10.4 mg/dL wide.</p>\n<p><strong>C.</strong> Repeat A is tighter. It is also the only one a team can arrange. Recruiting more people is a budget decision. Making people less variable is not a decision at all, though a study can get part of the way there by measuring more carefully, by narrowing who is eligible, or by comparing each person with themselves. Those choices belong to the design lessons, and this is where their payoff finally becomes visible as a number.</p>\n<h2>What a wide interval is telling you</h2>\n<p>A wide interval is not a broken result. It is an accurate report that the study was too small, or too noisy, or both, to pin the answer down.</p>\n<p>The clinical-trials guidance makes this an argument for intervals in the first place. Where events are rare and estimates are shaky, it prefers reporting an interval precisely because the imprecision is then displayed instead of hidden. A summary that reports only which direction a study leant can be written from an interval spanning almost everything, and the reader will never know.</p>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-predict-the-width</span></div>\n    <div class=\"ek-block-content\"><p>Answer from the width formula alone, without arithmetic.</p>\n<ol>\n<li>A large trial reports a difference of 3.0 units with a normal-approximation 95% interval of 2.8 to 3.2. Roughly what is its standard error?</li>\n<li>Two trials report identical estimates. One used 400 patients, the other 100, and both populations were equally variable. How do the two interval widths compare?</li>\n<li>An author widens their interval from 95% to 99% and the interval starts to include zero. What changed about the evidence?</li>\n</ol>\n</div>\n  </aside>\n<p>The first interval has a width of 0.4, so the margin of error is 0.2 and the standard error is 0.2 / 1.96, which is about 0.10 units. The second pair differ by a factor of four in sample size, so their widths differ by a factor of two: the 400-patient trial&#39;s interval is half as wide. And in the third, nothing about the evidence changed. One estimate, one standard error, one dataset, and a different convention applied to it.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-width-depends-on-n-and-sd, claim-width-depends-on-level, claim-normal-975-quantile, claim-t-multipliers, claim-ich-e9-imprecision</span><span><b>sources</b> source-nist-confidence-limits, source-nist-normal-table, source-nist-t-table, source-ich-e9</span></div>\n    <div class=\"ek-block-content\"><p>The NIST/SEMATECH handbook supports the statements that the interval narrows as the sample size grows through the square-root term and widens with the sample standard deviation. Its t table supplies the 58-degree-of-freedom multipliers used in the level comparison, while its normal table supplies the large-sample 1.96 used in the recovery check. The clinical-trials guidance supports the point that an interval is preferred where estimates are imprecise because it displays that imprecision. Every worked figure above is computed from this block&#39;s own cohort values.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-reading-intervals",
+      "title": "Three kinds of practice",
+      "kind": "practice",
+      "source": "content/060-reading-intervals.md",
+      "estimatedMinutes": 22,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Three kinds of practice</h1>\n<p>Work each task before reading its answer. The support drops away as you go: the first gives you every input, the second gives you no arithmetic at all, and the third asks you to run the recipe backwards.</p>\n<p><strong>Teaching example, not medical advice.</strong> Every cohort, trial, clinic, and threshold in this lesson is invented for teaching. Nothing here reports a finding about real patients or supports any change to anyone&#39;s care.</p>\n<h2>Task one: build it</h2>\n<p>A second team repeats the dinner-timing comparison in a large clinic. Their estimate, late group minus early group, is 6.4 mg/dL and its standard error is 3.5 mg/dL. The report specifies a large-sample normal approximation, so use 1.96.</p>\n<p>Build the 95% confidence interval, state its width, and say in one sentence what the interval supports.</p>\n<hr>\n<p>The margin of error is 1.96 × 3.5 = 6.86 mg/dL. Subtracting gives 6.4 − 6.86 = −0.46, and adding gives 6.4 + 6.86 = 13.26. The interval runs from <strong>−0.5 to 13.3 mg/dL</strong> and is 13.8 mg/dL wide.</p>\n<p>It contains zero. This clinic&#39;s data are compatible with no difference at all, and equally compatible with a difference of 13 mg/dL, and with a small effect running the other way. What it supports is very little. A study can produce a positive-looking estimate and still leave the direction open, and reporting 6.4 mg/dL on its own would have concealed that.</p>\n<h2>Task two: read three of them</h2>\n<p>Three trials of three different interventions report the difference in average fasting glucose as <strong>control minus intervention</strong>, in mg/dL, with a 95% confidence interval. Positive values mean the intervention group&#39;s average was lower; negative values mean it was higher. No clinical-importance threshold has been supplied, so interpret direction and numerical precision only.</p>\n<table>\n<thead>\n<tr>\n<th>Trial</th>\n<th>Estimate</th>\n<th>95% interval</th>\n<th>Width</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>A</td>\n<td>0.4</td>\n<td>0.1 to 0.7</td>\n<td>0.6</td>\n</tr>\n<tr>\n<td>B</td>\n<td>12.0</td>\n<td>−3.0 to 27.0</td>\n<td>30.0</td>\n</tr>\n<tr>\n<td>C</td>\n<td>9.0</td>\n<td>6.0 to 12.0</td>\n<td>6.0</td>\n</tr>\n</tbody></table>\n<p>No arithmetic. Answer three questions.</p>\n<ol>\n<li>Which trials exclude zero?</li>\n<li>Which trial has pinned down the size of its effect most tightly?</li>\n<li>Which trial&#39;s result would you describe as uninformative, and why is that different from saying the intervention does nothing?</li>\n</ol>\n<hr>\n<p>Trials A and C exclude zero. Trial B does not: its interval reaches from −3 to 27.</p>\n<p>Trial A has pinned its effect down most tightly in absolute terms, with a width of 0.6 mg/dL. Its whole compatible range is positive under the stated control-minus-intervention contrast. Trial C is also entirely positive, but its interval is 6.0 mg/dL wide—ten times the width of A&#39;s. Without a pre-stated clinical threshold, neither interval justifies calling its effect clinically small, large, or appreciable.</p>\n<p>Trial B is the uninformative one for direction and size. Its interval covers negative values, zero, and positive values across a 30.0 mg/dL span. That is not the same as evidence of no effect. Trial B is compatible with values far from zero in either direction; it simply cannot locate the parameter well. A reader who writes &quot;trial B showed no effect&quot; has turned an absence of evidence into evidence of absence, which is a stronger claim and one this trial cannot support.</p>\n<h2>Task three: run it backwards</h2>\n<p>A large-sample paper reports a difference of 6.0 mg/dL with a normal-approximation <strong>90%</strong> confidence interval of 0.8 to 11.2. The authors note that the interval excludes zero.</p>\n<ol>\n<li>Recover the standard error.</li>\n<li>Work out what the 95% interval would have been.</li>\n<li>Say what you now think of the authors&#39; note.</li>\n</ol>\n<hr>\n<p>The margin of error is half the width, and the width is 10.4, so the margin is 5.2 mg/dL. A 90% interval uses a multiplier of 1.645, so the standard error is 5.2 / 1.645 = 3.16 mg/dL. Check it against the centre: (0.8 + 11.2) / 2 = 6.0, which matches the reported estimate.</p>\n<p>At 95% the multiplier is 1.96, so the margin becomes 1.96 × 3.16 = 6.19. The interval would have been <strong>−0.2 to 12.2 mg/dL</strong>, and it would have contained zero.</p>\n<p>The authors&#39; note is true and it is doing a lot of quiet work. The same data at the level almost every journal uses would not have excluded zero. Reporting a 90% interval is a legitimate choice if it was made in advance and stated plainly, and it is something else if the level was chosen after the 95% interval was inspected. You cannot tell which happened from the paper alone, which is why the design lessons insisted on saying what you will do before you look.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-ci-definition, claim-confidence-level-long-run</span><span><b>sources</b> source-nist-confidence-limits, source-nist-what-are-ci</span></div>\n    <div class=\"ek-block-content\"><p>These sources support two things only: the interval-estimate recipe run in every task above, and the reading of a confidence level as a property of the procedure across repeated samples. The three trials and the paper reporting at 90% were invented for this lesson.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-a-different-trial",
+      "title": "The same recipe, a different clinic",
+      "kind": "transfer",
+      "source": "content/070-a-different-trial.md",
+      "estimatedMinutes": 18,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>The same recipe, a different clinic</h1>\n<p>Nothing in the last five scenes was about glucose. Change the outcome, change the units, change the disease, and the three parts of the recipe stay where they are.</p>\n<p><strong>Teaching example, not medical advice.</strong> Every cohort, trial, clinic, and threshold in this lesson is invented for teaching. Nothing here reports a finding about real patients or supports any change to anyone&#39;s care.</p>\n<h2>The trial</h2>\n<p>A hospital tests a pharmacist-led medicines review for adults with high blood pressure. Four hundred patients are randomly allocated: half get the review, half get usual care. After six months the team compares the two arms on two outcomes.</p>\n<table>\n<thead>\n<tr>\n<th>Outcome</th>\n<th>Difference, review minus usual care</th>\n<th>Standard error</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>Systolic blood pressure</td>\n<td>−2.4 mmHg</td>\n<td>1.1 mmHg</td>\n</tr>\n<tr>\n<td>Diastolic blood pressure</td>\n<td>−1.0 mmHg</td>\n<td>3.2 mmHg</td>\n</tr>\n</tbody></table>\n<p>Because the contrast is review minus usual care, a negative value means the review group had the lower average pressure. The trial is large, and its report specifies the large-sample normal approximation with multiplier 1.96.</p>\n<p>The published abstract says: <em>the review lowered blood pressure.</em></p>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-transfer-blood-pressure</span></div>\n    <div class=\"ek-block-content\"><p>Do this before reading on.</p>\n<ol>\n<li>Build the 95% confidence interval for each outcome.</li>\n<li>Say for each one whether it excludes zero.</li>\n<li>Write one sentence for the abstract that a careful reader could not object to.</li>\n</ol>\n</div>\n  </aside>\n<h2>Working it</h2>\n<p>For the systolic outcome, the margin of error is 1.96 × 1.1 = 2.16 mmHg. That gives −2.4 − 2.16 = −4.56 and −2.4 + 2.16 = −0.24, so the interval runs from <strong>−4.6 to −0.2 mmHg</strong> and is 4.4 mmHg wide.</p>\n<p>For the diastolic outcome, the margin of error is 1.96 × 3.2 = 6.27 mmHg. That gives −1.0 − 6.27 = −7.27 and −1.0 + 6.27 = 5.27, so the interval runs from <strong>−7.3 to 5.3 mmHg</strong> and is 12.6 mmHg wide.</p>\n<h2>Two intervals, two different readings</h2>\n<p>The systolic interval excludes zero and lies entirely on the negative side, so under the stated subtraction order it supports a lower average systolic pressure in the review group. Its compatible reductions range from 0.2 to 4.6 mmHg. Without a pre-stated clinical threshold, the interval does not by itself label that range clinically small or important.</p>\n<p>The diastolic interval contains zero and is nearly three times as wide. Under review minus usual care, it remains compatible with the review group averaging as much as 7.3 mmHg lower or 5.3 mmHg higher. On this outcome the trial has not settled the direction.</p>\n<p>An honest abstract sentence has to carry both. Something like: <em>the review-minus-usual-care difference in systolic pressure was −2.4 mmHg (95% CI −4.6 to −0.2); the diastolic difference was −1.0 mmHg (95% CI −7.3 to 5.3), leaving its direction unresolved.</em> The published version, &quot;the review lowered blood pressure&quot;, takes one outcome&#39;s direction and quietly borrows it for the other, then drops the uncertainty for both.</p>\n<p>Whether a reduction of somewhere between 0.2 and 4.6 mmHg is worth a pharmacist&#39;s time is a clinical and economic question, and the interval does not answer it. What the interval does is stop the question being asked about the wrong number. Guidance for clinical trials asks for intervals alongside effect estimates for this reason: the size of an effect and the uncertainty around it are what a reader needs, and neither survives being compressed into a verdict.</p>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-transfer-sample-size</span></div>\n    <div class=\"ek-block-content\"><p>The team wants the diastolic interval to be about as tight as the systolic one. Roughly how many patients would they need, and what assumption are you making when you answer?</p>\n</div>\n  </aside>\n<p>The diastolic interval is about three times as wide, so its standard error has to fall by a factor of about three. Sample size sits under a square root, so that needs roughly nine times as many patients: something near 3,600 instead of 400. The assumption is that everything else stays the same, in particular that patients in the larger trial vary by the same amount as these did. If the wider diastolic spread came from a measurement problem instead of from real variation between people, a better measurement method would be cheaper than nine times the patients.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-ich-e9-report-ci, claim-normal-975-quantile</span><span><b>sources</b> source-ich-e9, source-nist-normal-table</span></div>\n    <div class=\"ek-block-content\"><p>Two facts here come from outside. Effect estimates should be reported with confidence intervals wherever possible, and two-sided intervals are the usual form for estimating how large a difference between two treatments might be; both are stated in the clinical-trials guidance. The 1.96 multiplier comes from the standard normal table. The trial itself was invented for this scene, arms, outcomes, numbers and abstract alike.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-service-decision",
+      "title": "Clinical wrap-up: what a diabetes service should do with 0.7 to 17.3",
+      "kind": "synthesis",
+      "source": "content/080-clinical-wrap-up.md",
+      "estimatedMinutes": 20,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Clinical wrap-up: what a diabetes service should do with 0.7 to 17.3</h1>\n<p><strong>Teaching example, not medical advice.</strong> Every cohort, trial, clinic, and threshold in this lesson is invented for teaching. Nothing here reports a finding about real patients or supports any change to anyone&#39;s care.</p>\n<p>A diabetes service has the dinner-timing result in front of it. Difference 9.0 mg/dL, 95% confidence interval 0.7 to 17.3. Two decisions are on the agenda.</p>\n<blockquote>\n<p>Should we start telling patients to move dinner earlier?</p>\n<p>Should we fund a larger study?</p>\n</blockquote>\n<p>The interval answers the second question well and the first question only partly. Working out which is which is the skill this lesson exists for.</p>\n<h2>Give the interval the right ruler</h2>\n<p>The ruler must describe the same quantity as the interval: here, a difference between two population averages. A diagnostic cut point for one person&#39;s glucose result would answer a different question and cannot establish the clinical importance of this group-mean contrast.</p>\n<p>For this teaching example, suppose the service states in advance that a population mean difference smaller than 5 mg/dL would not change its advice. The value is invented; real work would need clinical justification for the exact estimand and population.</p>\n<h2>The no-difference value is rarely the number a service cares about</h2>\n<p>Clearing zero says the direction is supported. A service is asking a different question: is the effect big enough to be worth changing what we say to patients?</p>\n<p>That means picking a value first. Equivalence trials, which ask whether two treatments are close enough to be treated as interchangeable, already work this way. In an equivalence trial the margins of acceptable difference are set in advance and justified clinically, and equivalence is inferred only when the entire confidence interval falls inside those margins. The general move is the useful one here: choose the difference that would change practice, then look at where the interval sits relative to <em>that</em> number as well as relative to zero.</p>\n<p>Suppose the service decides that anything under 5 mg/dL would not change its advice.</p>\n<ul>\n<li>The interval runs from 0.7 to 17.3. The value 5 sits inside it.</li>\n<li>So the study is compatible with the effect being below the service&#39;s threshold, and compatible with it being well above.</li>\n<li>The interval has not answered the service&#39;s question, even though it excluded zero.</li>\n</ul>\n<p>That is the honest answer to the first agenda item. The study supports the direction and cannot support the advice.</p>\n<h2>What a larger study could buy</h2>\n<p>The second agenda item begins with arithmetic. The width is set mainly by the standard error, and the standard error falls with the square root of the group size. Planning can therefore target precision, but it cannot predetermine the next study&#39;s centre.</p>\n<table>\n<thead>\n<tr>\n<th>Study design</th>\n<th>Per group</th>\n<th>Anticipated standard error</th>\n<th>95% half-width</th>\n<th>Interval if the estimate remained 9.0</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>The study in hand</td>\n<td>30</td>\n<td>4.13</td>\n<td>8.27</td>\n<td>0.7 to 17.3</td>\n</tr>\n<tr>\n<td>Four times the size, large-sample normal approximation</td>\n<td>120</td>\n<td>about 2.07</td>\n<td>about 4.06</td>\n<td>about 4.9 to 13.1</td>\n</tr>\n</tbody></table>\n<p>Four times the people approximately halves the anticipated standard error and width if the population spread and design stay the same. The last column is only a conditional illustration: it holds the point estimate at 9.0 to show what the narrower width would look like. A future sample will produce a new estimate and a new estimated spread, so its realised interval is not known in advance and need not be 4.9 to 13.1.</p>\n<p>For planning, the service must state an anticipated effect and spread and choose a target half-width or another justified design criterion. If it anticipates a 9 mg/dL effect and wants a lower limit above 5, it needs a target half-width below 4 mg/dL. The four-times design is close but its anticipated half-width of about 4.06 mg/dL does not meet that target. Even a design that meets the precision target cannot guarantee the realised interval will clear 5, because the future estimate is random. Precision is something a study can plan to buy; the eventual location of its interval is not.</p>\n<h2>Where this stops</h2>\n<p>Three things are outside this lesson on purpose.</p>\n<p>The interval says nothing about whether the study was any good. A biased design produces a narrow interval around the wrong number, because the width answers how much the estimate would wobble across repeats and says nothing about whether every repeat would be wrong in the same direction. Everything the design lessons taught about allocation, blinding, measurement, and confounding still applies, and none of it is repaired by arithmetic.</p>\n<p>The interval says nothing about whether 9 mg/dL matters to a patient. The 5 mg/dL threshold above was invented for the example. Choosing that number in real work needs clinical judgement about outcomes, side effects, cost, and what patients actually want, and the block&#39;s final lesson is built around exactly that decision.</p>\n<p>The interval attaches no probability to the parameter. That was the misconception scene, and it holds in a meeting room as well as on paper: the service cannot say there is a 95% chance the effect is between 0.7 and 17.3. What it can say is that, under the stated sampling and analysis conditions, a procedure with about 95% long-run coverage produced this range and values outside it are the ones this study argues against.</p>\n<h2>What comes next</h2>\n<p>You now have one description of this evidence. The next lesson builds the other one, which starts from the assumption that the true difference is zero and asks how surprising 9.0 mg/dL would be. It reaches a compatible conclusion, and it is the version most papers lead with. Having built the interval first, you will be able to see what that version leaves out.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-ich-e9-margins, claim-width-depends-on-n-and-sd, claim-ich-e9-report-ci, claim-t-multipliers, claim-normal-975-quantile</span><span><b>sources</b> source-ich-e9, source-nist-confidence-limits, source-nist-t-table, source-nist-normal-table</span></div>\n    <div class=\"ek-block-content\"><p>These sources support the clinical-trials guidance on pre-specified and clinically justified margins that an entire confidence interval must fall within, the requirement to report effect estimates with confidence intervals, the dependence of interval width on sample size through the square-root term, the t multiplier used for the study in hand, and the normal multiplier used for the larger-study planning approximation. The service, the meeting, the 5 mg/dL threshold, and every figure in the table are original teaching material and are not observations of real patients.</p>\n</div>\n  </aside>\n"
+    }
+  ],
+  "authors": [
+    {
+      "principalId": "github:VSBDev",
+      "displayName": "VSBDev — accountable author",
+      "agent": {
+        "system": "RUNTIME-STAMPED",
+        "provider": "RUNTIME-STAMPED",
+        "model": "RUNTIME-STAMPED",
+        "version": "RUNTIME-STAMPED",
+        "runId": "author-PREM-STA-007-C23AC166-284D-4DFE-BB93-F6B3B307EB33",
+        "instructionsDigest": "sha256:5e503b01adbb2327caae3d05876924d57a93e00f58b0a66f0b233ff10580fba4"
+      }
+    }
+  ],
+  "license": "CC-BY-4.0",
+  "sourceConfidence": "medium-high",
+  "aiAssistance": {
+    "used": true,
+    "disclosure": "VSBDev (github:VSBDev) is the accountable principal for this authoring run. Material authoring assistance used system RUNTIME-STAMPED, provider RUNTIME-STAMPED, model RUNTIME-STAMPED, version RUNTIME-STAMPED, in isolated run author-PREM-STA-007-C23AC166-284D-4DFE-BB93-F6B3B307EB33. The instructions digest covers the recorded discloseable UTF-8 authoring-task payload for this run, including its terminal newline; it excludes hidden provider and system instructions that cannot be exported."
+  },
+  "assessment": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-assessment-v1",
+    "lessonId": "PREM-STA-007",
+    "lessonVersion": "0.1.0",
+    "assessmentId": "assessment-confidence-intervals",
+    "title": "Building, reading, and refusing to over-read a confidence interval",
+    "purpose": "mixed",
+    "attemptPolicy": {
+      "retakeable": true,
+      "timeLimitMinutes": null,
+      "feedback": "after-attempt"
+    },
+    "items": [
+      {
+        "id": "item-build-the-interval",
+        "type": "numeric",
+        "sceneId": "scene-nine-milligrams",
+        "objectiveIds": [
+          "objective-construct-an-interval"
+        ],
+        "outcomeIds": [
+          "topic-statistics-data-confidence-intervals"
+        ],
+        "prompt": "A large-sample analysis reports an estimate of the difference in next-morning fasting glucose of 7.5 mg/dL, with a standard error of 2.6 mg/dL, and specifies the normal approximation. Give the upper limit of its two-sided 95% confidence interval, in mg/dL, to one decimal place.",
+        "stimulus": "Use the supplied normal-approximation multiplier of 1.96. Teaching example, not medical advice: this clinic and its numbers are invented.",
+        "points": 4,
+        "responseSpec": {
+          "mode": "number",
+          "units": "mg/dL",
+          "tolerance": 0.2
+        },
+        "answer": {
+          "correct": 12.6,
+          "summary": "12.6 mg/dL.",
+          "reasoning": "The multiplier for a two-sided 95% interval is 1.96. The margin of error is 1.96 x 2.6 = 5.096 mg/dL, which rounds to 5.10. Adding it to the estimate gives 7.5 + 5.096 = 12.596, so the upper limit is 12.6 mg/dL. Subtracting it gives 2.4 mg/dL as the lower limit, so the interval is 2.4 to 12.6 and is 10.2 mg/dL wide. It excludes zero, and every value inside it is smaller than the upper limit of the original study's interval.",
+          "acceptableResponses": [
+            "12.6",
+            "12.60",
+            "12.596",
+            "12.6 mg/dL"
+          ],
+          "commonErrors": [
+            "Answering 2.4, which is the lower limit rather than the upper one.",
+            "Answering 10.1 by using 1.0 times the standard error, or 5.1 by reporting the margin of error instead of the limit.",
+            "Using a multiplier other than the supplied 1.96, which changes the stated large-sample normal-approximation task.",
+            "Dividing by the square root of a sample size that was never given; the standard error has already been computed for you."
+          ]
+        },
+        "rubricId": "rubric-numeric-interval",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-what-the-level-means",
+        "type": "single-choice",
+        "sceneId": "scene-ninety-five-percent-of-what",
+        "objectiveIds": [
+          "objective-state-what-confidence-means"
+        ],
+        "outcomeIds": [
+          "topic-statistics-data-confidence-intervals"
+        ],
+        "prompt": "A trial reports a difference of 9.0 mg/dL with a 95% confidence interval of 0.7 to 17.3 mg/dL. Which statement about that interval is defensible?",
+        "stimulus": null,
+        "points": 4,
+        "responseSpec": {
+          "mode": "single-choice",
+          "options": [
+            {
+              "id": "option-probability-in-interval",
+              "text": "There is a 95% probability that the true difference lies between 0.7 and 17.3 mg/dL."
+            },
+            {
+              "id": "option-long-run-procedure",
+              "text": "If independent samples from the same defined population were repeatedly analysed with this adequate model, about 95% of the intervals would contain the true difference."
+            },
+            {
+              "id": "option-covers-patients",
+              "text": "About 95% of patients in this population have a dinner-timing effect between 0.7 and 17.3 mg/dL."
+            },
+            {
+              "id": "option-repeat-lands-inside",
+              "text": "If the study were repeated, there is a 95% probability the new estimate would fall between 0.7 and 17.3 mg/dL."
+            },
+            {
+              "id": "option-true-value-near-nine",
+              "text": "The true difference is 9.0 mg/dL, and 0.7 to 17.3 shows how accurately it was measured."
+            }
+          ]
+        },
+        "answer": {
+          "correct": "option-long-run-procedure",
+          "summary": "The statement about repeated studies and the proportion of intervals that would contain the true difference.",
+          "reasoning": "The confidence level is a conditional property of the procedure across repeated samples, so the defensible statement names the repeated sampling, the population, and the adequacy of the model. The probability statement about this interval treats the true difference as random when it is fixed and unknown; either this interval contains it or it does not. The statement about 95% of patients confuses an interval for a population average with the spread of individual people. The statement about a repeat estimate landing inside is a different quantity and is not what the level refers to. The last option asserts the true difference equals the point estimate, which a study does not establish. Even the defensible statement concerns random-error coverage under its assumptions; it does not repair bias or establish generalisability beyond the sampled population.",
+          "acceptableResponses": [
+            "option-long-run-procedure"
+          ],
+          "commonErrors": [
+            "Choosing the probability statement, which is the dominant error and treats the fixed parameter as the random quantity.",
+            "Choosing the statement about patients, which reads an interval for an average as a reference range for individuals.",
+            "Choosing the statement about a repeat estimate, which swaps the parameter for a future observation."
+          ]
+        },
+        "rubricId": "rubric-single-selection",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-name-the-fixed-quantity",
+        "type": "short-answer",
+        "sceneId": "scene-ninety-five-percent-of-what",
+        "objectiveIds": [
+          "objective-state-what-confidence-means"
+        ],
+        "outcomeIds": [
+          "topic-statistics-data-confidence-intervals"
+        ],
+        "prompt": "A colleague writes: \"We are 95% sure the true effect is somewhere between 0.7 and 17.3 mg/dL.\" In two or three sentences, name the quantity their sentence has treated as random, say why that quantity is fixed, and rewrite the sentence so it is defensible and conditional on the sampling and analysis model.",
+        "stimulus": null,
+        "points": 6,
+        "responseSpec": {
+          "mode": "text",
+          "maxLength": 900
+        },
+        "answer": {
+          "correct": "The true effect has been treated as random. It is a fixed unknown quantity belonging to the defined population, and it does not change when a sample is drawn; the interval is the thing that varies from sample to sample. A defensible rewrite: under the stated sampling and analysis model, the data are compatible with true effects from about 0.7 to about 17.3 mg/dL, and the procedure captures the true effect in about 95% of repeated samples when its conditions hold.",
+          "summary": "The true effect is the fixed quantity; the interval is what varies; the rewrite must not attach a probability to the parameter.",
+          "reasoning": "Two things could in principle vary: the parameter and the limits. Only the limits do. Recruiting sixty different people gives a different estimate, a different standard error, and a different pair of limits, while the true effect in that population is unchanged by who happened to be recruited. So a probability statement about whether a fixed number lies between two other fixed numbers has nothing left to be random. Any rewrite that either describes the long-run behaviour of the procedure, or states which parameter values the data are compatible with, is acceptable.",
+          "acceptableResponses": [
+            "Names the true effect, the true difference, or the population parameter as the quantity wrongly treated as random.",
+            "Explains that the parameter is fixed and the interval varies across repeated samples.",
+            "Rewrites using the conditional long-run proportion of intervals that contain the true value.",
+            "Rewrites using compatibility under the stated model: the data are compatible with values from 0.7 to 17.3 mg/dL."
+          ],
+          "commonErrors": [
+            "Saying the sentence is fine because 95% is only an approximation; the problem is the object of the probability, not its precision.",
+            "Rewriting as \"we are 95% confident\", which changes the wording and keeps the same claim.",
+            "Naming the sample or the sample size as the quantity treated as random, when both are known.",
+            "Rewriting into a statement about individual patients rather than the population parameter."
+          ]
+        },
+        "rubricId": "rubric-written-reading",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-width-and-sample-size",
+        "type": "numeric",
+        "sceneId": "scene-what-moves-the-edges",
+        "objectiveIds": [
+          "objective-relate-width-to-inputs"
+        ],
+        "outcomeIds": [
+          "topic-statistics-data-confidence-intervals"
+        ],
+        "prompt": "A large-sample trial with 150 patients in each arm reports a normal-approximation 95% confidence interval 12 units wide. The team wants an anticipated 95% interval 4 units wide, with the same outcome measure, population spread, design, and multiplier. How many patients per arm do they need?",
+        "stimulus": "Teaching example, not medical advice: the trial is invented, and the question is about planning anticipated width only; a future realised interval will also depend on the new sample.",
+        "points": 5,
+        "responseSpec": {
+          "mode": "number",
+          "units": "patients per arm",
+          "tolerance": 5
+        },
+        "answer": {
+          "correct": 1350,
+          "summary": "1,350 patients per arm.",
+          "reasoning": "Width is twice the multiplier times the standard error, and the multiplier is unchanged because the level stays at 95%. So the width has to fall by the same factor as the standard error. Going from 12 units to 4 units is a factor of 3. The sample size sits under a square root in the standard error, so cutting the standard error by 3 needs 3 squared, which is 9, times as many patients: 150 x 9 = 1,350 per arm. The rule behind it is the same one the lesson used on the dinner-timing study, where four times the people bought half the width.",
+          "acceptableResponses": [
+            "1350",
+            "1,350",
+            "1350 per arm",
+            "about 1350"
+          ],
+          "commonErrors": [
+            "Answering 450 by scaling the sample size by 3 instead of by 3 squared, which forgets the square root.",
+            "Answering 600 by reasoning from the four-times-for-half-the-width rule without adjusting it to a factor of 3.",
+            "Answering 2,700 by applying the factor to the combined trial size instead of per arm.",
+            "Trying to change the confidence level to reach the target width, which would change what the interval claims."
+          ]
+        },
+        "rubricId": "rubric-numeric-interval",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-width-levers",
+        "type": "multiple-choice",
+        "sceneId": "scene-what-moves-the-edges",
+        "objectiveIds": [
+          "objective-relate-width-to-inputs"
+        ],
+        "outcomeIds": [
+          "topic-statistics-data-confidence-intervals"
+        ],
+        "prompt": "A team has computed a two-sided 95% confidence interval. Which of the following changes would make the interval wider? Select all that apply.",
+        "stimulus": null,
+        "points": 5,
+        "responseSpec": {
+          "mode": "multiple-choice",
+          "options": [
+            {
+              "id": "option-raise-level",
+              "text": "Reporting the interval at the 99% level instead of 95%."
+            },
+            {
+              "id": "option-fewer-patients",
+              "text": "Recruiting 100 patients per arm instead of 400."
+            },
+            {
+              "id": "option-more-variable-population",
+              "text": "Drawing from a population in which the outcome varies more between people."
+            },
+            {
+              "id": "option-more-decimal-places",
+              "text": "Reporting the estimate and its limits to three decimal places instead of one."
+            },
+            {
+              "id": "option-larger-estimate",
+              "text": "Finding a larger point estimate, with the standard error unchanged."
+            }
+          ],
+          "maxSelections": 5
+        },
+        "answer": {
+          "correct": [
+            "option-raise-level",
+            "option-fewer-patients",
+            "option-more-variable-population"
+          ],
+          "summary": "Raising the level, recruiting fewer patients, and drawing from a more variable population.",
+          "reasoning": "Width is twice the multiplier times the standard error, so only those two quantities can move it. Raising the level to 99% raises the multiplier from 1.960 to 2.576 and widens the interval with no new data. Cutting the sample from 400 per arm to 100 is a factor of four, which doubles the standard error because the count sits under a square root. A more variable population raises the standard deviation that feeds the standard error. Reporting more decimal places changes nothing about the calculation; it only changes how the same numbers are printed. A larger point estimate slides the whole interval along the axis and leaves its width alone, which is exactly why an impressive estimate tells you nothing about how well the study pinned it down.",
+          "acceptableResponses": [
+            "option-raise-level, option-fewer-patients, option-more-variable-population"
+          ],
+          "commonErrors": [
+            "Selecting the larger point estimate, which moves the interval's centre without touching its width.",
+            "Selecting more decimal places, which confuses reporting precision with the precision of the estimate.",
+            "Selecting only the level change and missing that both inputs to the standard error also move the width."
+          ]
+        },
+        "rubricId": "rubric-single-selection",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-read-three-intervals",
+        "type": "data-interpretation",
+        "sceneId": "scene-reading-intervals",
+        "objectiveIds": [
+          "objective-read-an-interval-for-an-effect"
+        ],
+        "outcomeIds": [
+          "topic-statistics-data-confidence-intervals"
+        ],
+        "prompt": "Three trials report the difference in average fasting glucose as control minus intervention, in mg/dL, with a 95% confidence interval. Positive values mean the intervention group's average was lower; negative values mean it was higher. Trial P: 0.5 (0.2 to 0.8). Trial Q: 14.0 (-2.0 to 30.0). Trial R: 8.0 (5.0 to 11.0). For each trial say whether the interval excludes zero, identify the numerically tightest interval, and explain why Q is uninformative rather than evidence that the difference is zero.",
+        "stimulus": "Teaching example, not medical advice: all three trials are invented. No clinical-importance threshold is supplied, so do not label an effect clinically small, large, beneficial, or harmful.",
+        "points": 8,
+        "responseSpec": {
+          "mode": "text",
+          "maxLength": 1500
+        },
+        "answer": {
+          "correct": "P and R exclude zero; Q does not. Trial P is numerically tightest, with width 0.6 mg/dL. Under the stated control-minus-intervention contrast, P and R are entirely positive, while Q remains compatible with negative, zero, and positive differences across a 32.0 mg/dL span. Q therefore has not located the parameter well; that absence of evidence is not evidence that the difference is zero. No clinical magnitude or value judgement follows because the item supplies no clinical threshold.",
+          "summary": "P and R exclude zero, Q does not; P is tightest, and Q's wide interval leaves direction and size unresolved rather than showing no difference.",
+          "reasoning": "Excluding zero is a question about location and is answered by looking at the limits: P runs 0.2 to 0.8 and R runs 5.0 to 11.0, both entirely positive under control minus intervention, while Q runs from -2.0 to 30.0 and straddles zero. Width answers the precision question: P is 0.6 wide, R is 6.0 wide, and Q is 32.0 wide. Q is compatible with values far from zero in both directions, so writing it up as no difference would convert an uninformative result into a negative one. Calling any compatible range clinically small or large would require a pre-stated threshold that this item does not provide.",
+          "acceptableResponses": [
+            "States that P and R exclude zero and Q does not.",
+            "Identifies P as the numerically tightest interval and may note that R is ten times as wide.",
+            "Identifies Q as uninformative and explains that its interval covers negative, zero, and positive differences.",
+            "Distinguishes absence of evidence from evidence of absence, in any wording."
+          ],
+          "commonErrors": [
+            "Writing that trial Q showed no effect, which is the error the item is built around.",
+            "Ranking the trials by the size of the point estimate, which puts Q first.",
+            "Calling any result clinically small, large, beneficial, or harmful without a stated threshold.",
+            "Saying trial R is best because it excludes zero by the widest margin, which confuses distance from zero with precision."
+          ]
+        },
+        "rubricId": "rubric-written-reading",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-clinical-threshold",
+        "type": "open-response",
+        "sceneId": "scene-service-decision",
+        "objectiveIds": [
+          "objective-read-an-interval-for-an-effect",
+          "objective-relate-width-to-inputs"
+        ],
+        "outcomeIds": [
+          "topic-statistics-data-confidence-intervals"
+        ],
+        "prompt": "A diabetes service decides that it would only change its dietary advice if the true difference in next-morning fasting glucose were at least 6 mg/dL. The study in front of it reports 9.0 mg/dL with a 95% confidence interval of 0.7 to 17.3. Write a short paragraph for the meeting that states what the study does and does not settle against that threshold, and distinguishes the anticipated precision of a study four times the size from the unknown location of its realised interval. Do not recommend a change to anyone's care.",
+        "stimulus": "Teaching example, not medical advice: the service, the study, and the 6 mg/dL threshold are invented for this item.",
+        "points": 8,
+        "responseSpec": {
+          "mode": "text",
+          "maxLength": 2000
+        },
+        "answer": {
+          "correct": "The interval excludes zero, so the study supports a positive direction under the stated contrast. It does not settle the service's question, because 6 mg/dL lies inside 0.7 to 17.3: the data remain compatible with a true difference below or above the threshold. With the same design and population spread, four times the people would be expected to cut the standard error from 4.13 to about 2.07 mg/dL and roughly halve the width. If the future estimate happened to remain 9.0, the interval would be about 4.9 to 13.1 and would still contain 6. That location is not predetermined: the future estimate and estimated spread are random, so the realised interval could shift. Whether 6 mg/dL is the right threshold is a clinical judgement, and no interval decides it.",
+          "summary": "Direction supported and threshold unsettled; four times the size approximately halves anticipated width, but 4.9 to 13.1 is conditional on the future estimate remaining 9.0, not a guaranteed future interval.",
+          "reasoning": "The threshold question is answered by asking where the chosen value sits relative to both limits, not only whether the interval excludes zero. Here 6 is between 0.7 and 17.3, so the study cannot choose between values below and above the threshold. The square-root rule says that, if design and population spread stay the same, four times the people approximately halves the anticipated standard error and width. Holding the estimate at 9.0 only for illustration gives about 4.9 to 13.1. A new sample will generate a new estimate and spread, so that conditional interval is useful for precision planning but is not a prediction of the realised limits. A complete answer preserves that distinction and keeps the threshold itself as a clinical choice.",
+          "acceptableResponses": [
+            "States that the interval excludes zero and so supports the direction.",
+            "States that 6 mg/dL lies inside 0.7 to 17.3, so the threshold question is unsettled.",
+            "States that four times the sample approximately halves the anticipated standard error and interval width under unchanged design and spread.",
+            "Labels 4.9 to 13.1 mg/dL as conditional on the future estimate remaining 9.0, rather than a guaranteed future interval.",
+            "Notes that the conditional 4.9 to 13.1 interval would still contain 6 mg/dL.",
+            "Keeps the choice of threshold as a clinical judgement and makes no care recommendation."
+          ],
+          "commonErrors": [
+            "Concluding that the service should change its advice because the estimate of 9.0 is above 6.",
+            "Treating the exclusion of zero as an answer to the threshold question.",
+            "Treating 4.9 to 13.1 as the predetermined interval from a future larger study.",
+            "Assuming a larger study would automatically resolve the threshold.",
+            "Reporting the larger study's interval as a quarter of the width instead of half, by scaling the width by the sample-size factor instead of its square root."
+          ]
+        },
+        "rubricId": "rubric-written-reading",
+        "safetyCritical": false
+      }
+    ],
+    "rubrics": [
+      {
+        "id": "rubric-numeric-interval",
+        "title": "Numerical work on interval limits and widths",
+        "criteria": [
+          {
+            "id": "criterion-correct-value",
+            "description": "The value is correct within the stated tolerance and is the quantity the item asked for, not a neighbouring one such as the other limit or the margin of error.",
+            "maxPoints": 3
+          },
+          {
+            "id": "criterion-units-and-rounding",
+            "description": "The answer carries the right units and is rounded as the item specified, with no silent change of scale.",
+            "maxPoints": 2
+          }
+        ]
+      },
+      {
+        "id": "rubric-single-selection",
+        "title": "Selecting defensible statements about an interval",
+        "criteria": [
+          {
+            "id": "criterion-selection-correct",
+            "description": "Every correct option is selected and no incorrect option is selected.",
+            "maxPoints": 4
+          },
+          {
+            "id": "criterion-no-partial-misconception",
+            "description": "The response does not include an option that treats the fixed parameter as random, reads an interval for an average as a range for individuals, or confuses reporting precision with statistical precision.",
+            "maxPoints": 1
+          }
+        ]
+      },
+      {
+        "id": "rubric-written-reading",
+        "title": "Written reading of a reported interval",
+        "criteria": [
+          {
+            "id": "criterion-locates-the-interval",
+            "description": "States where the interval sits relative to the value it is being read against, whether that is zero or a stated threshold, and draws the right conclusion about direction.",
+            "maxPoints": 3
+          },
+          {
+            "id": "criterion-uses-the-width",
+            "description": "Uses the width of the interval to say what range of effect sizes the study leaves open, including any arithmetic the item asked for.",
+            "maxPoints": 3
+          },
+          {
+            "id": "criterion-no-over-reading",
+            "description": "Attaches no probability to the parameter, does not convert an uninformative interval into evidence of no effect, and keeps clinical judgement and care recommendations out of the statistical conclusion.",
+            "maxPoints": 2
+          }
+        ]
+      }
+    ]
+  },
+  "references": {
+    "schemaVersion": 2,
+    "format": "embeddedknowledge-references-v2",
+    "lessonId": "PREM-STA-007",
+    "lessonVersion": "0.1.0",
+    "sources": [
+      {
+        "id": "source-nist-confidence-limits",
+        "type": "reference-work",
+        "title": "NIST/SEMATECH e-Handbook of Statistical Methods, section 1.3.5.2: Confidence Limits for the Mean",
+        "creators": [
+          "National Institute of Standards and Technology",
+          "SEMATECH"
+        ],
+        "publisher": "National Institute of Standards and Technology, U.S. Department of Commerce",
+        "issued": null,
+        "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm",
+        "accessed": "2026-07-25",
+        "version": "NIST/SEMATECH e-Handbook of Statistical Methods, online edition retrieved 2026-07-25; no publication or revision date is stated on the page",
+        "locator": "Section 1.3.5.2, Confidence Limits for the Mean: definition, formula, the meaning of the confidence coefficient, and the effect of sample size and standard deviation on interval width",
+        "license": "US Government work; NIST states that information on its sites is public information and may be distributed or copied, with credit requested",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only for the facts that confidence limits for the mean are an interval estimate formed as the estimate plus and minus a multiplier times the standard error; that a 95% confidence interval does not mean a 95% probability that the interval contains the true mean, because the level of confidence is associated with the method of calculating the interval and the confidence coefficient is the proportion of samples of a given size expected to contain the true mean; and that the interval narrows as the sample size grows through the square-root term and widens as the sample standard deviation grows. All wording, the cohort, and every worked example here are original. NIST copyright guidance at https://www.nist.gov/oism/copyrights states that NIST information is public information that may be distributed or copied and requests appropriate credit."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://www.nist.gov/oism/copyrights",
+          "checked": "2026-07-25",
+          "notes": "Checked before substantive access. https://www.itl.nist.gov/robots.txt returns a 302 redirect to the NIST ITL landing page and serves no robots file of its own; https://www.nist.gov/robots.txt was retrieved on 2026-07-25 and disallows only administrative, user-account, search and facet paths, placing no restriction on /div898/. No terms-of-use clause prohibiting automated retrieval was found. The page was read directly rather than through a search summary."
+        }
+      },
+      {
+        "id": "source-nist-what-are-ci",
+        "type": "reference-work",
+        "title": "NIST/SEMATECH e-Handbook of Statistical Methods, section 7.1.4: What are confidence intervals?",
+        "creators": [
+          "National Institute of Standards and Technology",
+          "SEMATECH"
+        ],
+        "publisher": "National Institute of Standards and Technology, U.S. Department of Commerce",
+        "issued": null,
+        "url": "https://www.itl.nist.gov/div898/handbook/prc/section1/prc14.htm",
+        "accessed": "2026-07-25",
+        "version": "NIST/SEMATECH e-Handbook of Statistical Methods, online edition retrieved 2026-07-25; no publication or revision date is stated on the page",
+        "locator": "Section 7.1.4, What are confidence intervals?: the interval as a range likely to contain the population parameter, the repeated-sampling reading of the confidence level, and the distinction between two-sided and one-sided intervals",
+        "license": "US Government work; NIST states that information on its sites is public information and may be distributed or copied, with credit requested",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only for the facts that a confidence interval provides a range of values likely to contain the population parameter of interest; that if the same population is sampled on numerous occasions and interval estimates made each time, the resulting intervals would bracket the true population parameter in approximately 95% of cases at that level; and that a two-sided interval brackets the parameter from above and below while a one-sided interval supplies a single bound. All expression, examples and arithmetic in this lesson are original. NIST copyright guidance at https://www.nist.gov/oism/copyrights states that NIST information is public information that may be distributed or copied and requests appropriate credit."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://www.nist.gov/oism/copyrights",
+          "checked": "2026-07-25",
+          "notes": "Checked before substantive access. https://www.nist.gov/robots.txt was retrieved on 2026-07-25 and places no restriction on /div898/; itl.nist.gov serves no robots file of its own and redirects that path to the NIST ITL landing page. The page was read directly."
+        }
+      },
+      {
+        "id": "source-nist-normal-table",
+        "type": "reference-work",
+        "title": "NIST/SEMATECH e-Handbook of Statistical Methods, section 1.3.6.7.1: Cumulative Distribution Function of the Standard Normal Distribution",
+        "creators": [
+          "National Institute of Standards and Technology",
+          "SEMATECH"
+        ],
+        "publisher": "National Institute of Standards and Technology, U.S. Department of Commerce",
+        "issued": null,
+        "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda3671.htm",
+        "accessed": "2026-07-25",
+        "version": "NIST/SEMATECH e-Handbook of Statistical Methods, online edition retrieved 2026-07-25; no publication or revision date is stated on the page",
+        "locator": "Section 1.3.6.7.1: the summary table of commonly used values, giving Z at cumulative probabilities 0.900, 0.950, 0.975, 0.990, 0.995 and 0.999, and the main table row at z = 1.9",
+        "license": "US Government work; NIST states that information on its sites is public information and may be distributed or copied, with credit requested",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only for the tabulated values of the standard normal distribution: the summary row giving 1.645 at cumulative probability 0.950, 1.960 at 0.975 and 2.576 at 0.995, and the main-table entry of 0.47500 for the area from 0 to 1.96, which places 0.975 of the curve below 1.96. No table, layout, figure or wording from the source is reproduced; the three multipliers are individual numerical facts about the standard normal distribution and every use of them here is in original examples. NIST copyright guidance at https://www.nist.gov/oism/copyrights states that NIST information is public information that may be distributed or copied and requests appropriate credit."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://www.nist.gov/oism/copyrights",
+          "checked": "2026-07-25",
+          "notes": "Checked before substantive access. https://www.nist.gov/robots.txt was retrieved on 2026-07-25 and places no restriction on /div898/. The page was retrieved and its table read directly, not through a search summary or a secondary table of normal values."
+        }
+      },
+      {
+        "id": "source-nist-t-table",
+        "type": "reference-work",
+        "title": "NIST/SEMATECH e-Handbook of Statistical Methods, section 1.3.6.7.2: Critical Values of the Student's t Distribution",
+        "creators": [
+          "National Institute of Standards and Technology",
+          "SEMATECH"
+        ],
+        "publisher": "National Institute of Standards and Technology, U.S. Department of Commerce",
+        "issued": null,
+        "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda3672.htm",
+        "accessed": "2026-07-25",
+        "version": "NIST/SEMATECH e-Handbook of Statistical Methods, online edition retrieved 2026-07-25; no publication or revision date is stated on the page",
+        "locator": "Section 1.3.6.7.2: rows for 29 and 58 degrees of freedom and columns headed by probabilities 0.950, 0.975, and 0.995",
+        "license": "US Government work; NIST states that information on its sites is public information and may be distributed or copied, with credit requested",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only for individual tabulated values of the Student's t distribution: 2.045 at 29 degrees of freedom for cumulative probability 0.975, and 1.672, 2.002, and 2.663 at 58 degrees of freedom for cumulative probabilities 0.950, 0.975, and 0.995. The lesson's approximate 94.5% coverage for using 1.96 at 58 degrees of freedom is an original calculation from that distribution. No table, layout, or wording from the source is reproduced, and every comparison and worked calculation is original. NIST copyright guidance at https://www.nist.gov/oism/copyrights states that NIST information is public information that may be distributed or copied and requests appropriate credit."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://www.nist.gov/oism/copyrights",
+          "checked": "2026-07-25",
+          "notes": "Checked before substantive access. https://www.nist.gov/robots.txt was retrieved on 2026-07-25 and places no restriction on /div898/. The relevant table rows and columns were read directly from the retrieved page."
+        }
+      },
+      {
+        "id": "source-nist-two-sample",
+        "type": "reference-work",
+        "title": "NIST/SEMATECH e-Handbook of Statistical Methods, section 7.3.1: Do two processes have the same mean?",
+        "creators": [
+          "National Institute of Standards and Technology",
+          "SEMATECH"
+        ],
+        "publisher": "National Institute of Standards and Technology, U.S. Department of Commerce",
+        "issued": null,
+        "url": "https://www.itl.nist.gov/div898/handbook/prc/section3/prc31.htm",
+        "accessed": "2026-07-25",
+        "version": "NIST/SEMATECH e-Handbook of Statistical Methods, online edition retrieved 2026-07-25; no publication or revision date is stated on the page",
+        "locator": "Section 7.3.1: the form of the statistic for two independent samples with equivalent standard deviations, the pooled standard deviation, and its degrees of freedom",
+        "license": "US Government work; NIST states that information on its sites is public information and may be distributed or copied, with credit requested",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only for the facts that comparing the means of two independent samples with equivalent standard deviations uses a pooled standard deviation with the factor sqrt(1/N1 + 1/N2), that the assumption of equivalent standard deviations should be tested before it is made, and that the associated degrees of freedom are N1 + N2 - 2. The lesson applies that structure to its own invented cohort and writes every step in its own words. NIST copyright guidance at https://www.nist.gov/oism/copyrights states that NIST information is public information that may be distributed or copied and requests appropriate credit."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://www.nist.gov/oism/copyrights",
+          "checked": "2026-07-25",
+          "notes": "Checked before substantive access. https://www.nist.gov/robots.txt was retrieved on 2026-07-25 and places no restriction on /div898/. The page was read directly."
+        }
+      },
+      {
+        "id": "source-ich-e9",
+        "type": "guideline",
+        "title": "Guidance for Industry: E9 Statistical Principles for Clinical Trials",
+        "creators": [
+          "International Conference on Harmonisation of Technical Requirements for Registration of Pharmaceuticals for Human Use",
+          "U.S. Food and Drug Administration, Center for Drug Evaluation and Research",
+          "U.S. Food and Drug Administration, Center for Biologics Evaluation and Research"
+        ],
+        "publisher": "U.S. Department of Health and Human Services, Food and Drug Administration",
+        "issued": "1998-09",
+        "url": "https://www.fda.gov/media/71336/download",
+        "accessed": "2026-07-25",
+        "version": "PDF retrieved from the FDA guidance library on 2026-07-25; cover states September 1998. The later ICH E9(R1) addendum on estimands does not alter the passages relied on here.",
+        "locator": "Section V.E, Estimation, Confidence Intervals, and Hypothesis Testing (5.5); section III.C.2 on equivalence and noninferiority margins; section VI.D on safety and tolerability; and the Glossary entry for frequentist methods",
+        "license": "US Government work as published by the FDA; the underlying guidance was developed by the International Conference on Harmonisation",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only for the facts that estimates of treatment effects should be accompanied by confidence intervals whenever possible with the method of calculation identified in advance; that two-sided confidence intervals are generally appropriate for estimating the possible size of the difference between two treatments; that for equivalence trials two-sided intervals should be used and equivalence is inferred when the entire confidence interval falls within equivalence margins whose choice must be justified clinically; that for safety and tolerability the use of confidence intervals is preferred to hypothesis testing because the imprecision arising from low frequencies of occurrence is then clearly demonstrated; and that the guidance glossary defines frequentist methods, naming confidence intervals among them, as methods interpreted in terms of the frequency of certain outcomes occurring in hypothetical repeated realizations of the same experimental situation. No sentence, table or example from the guidance is reproduced or closely paraphrased in learner-facing prose; the dinner-timing service, the invented threshold, and the blood-pressure trial are original."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://www.fda.gov/robots.txt",
+          "checked": "2026-07-25",
+          "notes": "Checked before substantive access. https://www.fda.gov/robots.txt was retrieved on 2026-07-25; it applies a 30-second crawl delay to general agents and disallows only administrative, node, file, taxonomy, search and user paths, placing no restriction on /media/. No terms-of-use clause prohibiting automated retrieval of published guidance was found. The PDF was downloaded once from the recorded URL and its text read directly; the HTML guidance landing page at /regulatory-information/search-fda-guidance-documents/e9-statistical-principles-clinical-trials returned 404 at the time of access and is therefore not the recorded route."
+        }
+      }
+    ]
+  },
+  "claims": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-claims-v1",
+    "lessonId": "PREM-STA-007",
+    "lessonVersion": "0.1.0",
+    "claims": [
+      {
+        "id": "claim-ci-definition",
+        "statement": "A confidence interval is an interval estimate for a defined population quantity, computed from sample data as the point estimate plus and minus a multiplier matched to the sampling model and confidence level times the standard error of that estimate; a two-sided interval brackets the parameter from above and below, while a one-sided interval supplies a single bound.",
+        "sceneIds": [
+          "scene-estimate-with-a-range",
+          "scene-nine-milligrams",
+          "scene-reading-intervals"
+        ],
+        "sourceIds": [
+          "source-nist-confidence-limits",
+          "source-nist-what-are-ci"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Two-sided intervals for a mean or for a difference between two independent means, built on an adequate normal or t sampling model for a defined sampled population. The handbook states the interval-estimate framing and the estimate-plus-or-minus-multiplier-times-standard-error form; this lesson names the three parts as a recipe and applies them to its own cohort.",
+        "uncertainty": "Nominal coverage depends on the sampling and analysis model, including independence and an adequate distributional and variance model. The form does not repair selection or measurement bias, establish external validity, or cover small samples, strongly skewed outcomes, proportions, or ratios without a suitable construction.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      },
+      {
+        "id": "claim-confidence-level-long-run",
+        "statement": "A stated confidence level is a conditional property of the procedure and not a probability attached to one computed interval: when independent samples from the defined population are analysed repeatedly under an adequate sampling and analysis model, a 95% procedure produces intervals that contain the fixed parameter in approximately 95% of cases in the long run.",
+        "sceneIds": [
+          "scene-estimate-with-a-range",
+          "scene-ninety-five-percent-of-what",
+          "scene-reading-intervals"
+        ],
+        "sourceIds": [
+          "source-nist-confidence-limits",
+          "source-nist-what-are-ci"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "The frequentist reading of a confidence level under the conditions of the stated procedure, which is the reading used throughout this lesson and in the clinical-trial reporting conventions it describes. Both handbook sections state the repeated-sampling interpretation, one of them in the negative form used in the misconception scene.",
+        "uncertainty": "Nominal coverage can fail under dependence, clustering, biased or selective sampling, measurement bias, an undefined target population, or a misspecified distribution or variance model. Coverage concerns random sampling under the model and does not establish external validity. Other statistical frameworks can support probability statements about a parameter with additional modelling inputs; this lesson does not teach them.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      },
+      {
+        "id": "claim-normal-975-quantile",
+        "statement": "In the standard normal distribution the value with cumulative probability 0.975 is 1.960, the value with cumulative probability 0.950 is 1.645, and the value with cumulative probability 0.995 is 2.576, so two-sided intervals at the 95%, 90% and 99% levels use those three multipliers.",
+        "sceneIds": [
+          "scene-estimate-with-a-range",
+          "scene-nine-milligrams",
+          "scene-what-moves-the-edges",
+          "scene-a-different-trial",
+          "scene-service-decision"
+        ],
+        "sourceIds": [
+          "source-nist-normal-table"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Tabulated quantiles of the standard normal distribution as published by NIST, read from its summary row of commonly used values and confirmed against the main table entry of 0.47500 for the area from 0 to 1.96.",
+        "uncertainty": "The values are rounded to three decimal places in the source. The step from a quantile to a two-sided interval multiplier is arithmetic and is shown in the lesson.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      },
+      {
+        "id": "claim-t-multipliers",
+        "statement": "When a standard deviation is estimated from the analysed sample, a two-sided interval for a mean or pooled difference of means uses a Student's t multiplier: at 95% the multiplier is 2.045 for 29 degrees of freedom and 2.002 for 58 degrees of freedom; at 58 degrees of freedom the 90% and 99% multipliers are 1.672 and 2.663, and substituting the normal multiplier 1.96 gives about 94.5% rather than 95% coverage.",
+        "sceneIds": [
+          "scene-estimate-with-a-range",
+          "scene-nine-milligrams",
+          "scene-what-moves-the-edges",
+          "scene-service-decision"
+        ],
+        "sourceIds": [
+          "source-nist-t-table"
+        ],
+        "support": "inference",
+        "confidence": "high",
+        "scope": "The tabulated two-sided critical values used for the one-group and pooled two-group examples. The lesson uses the matching t multiplier as the primary calculation when the standard deviation was estimated from the same observations; the approximate 94.5% coverage is calculated from the 58-degree-of-freedom t distribution.",
+        "uncertainty": "The appropriate degrees of freedom and t construction depend on the variance model. The pooled two-group example assumes equal variances by construction; unequal variances require a different degrees-of-freedom calculation. At large degrees of freedom the t multiplier approaches the corresponding normal multiplier.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      },
+      {
+        "id": "claim-two-sample-pooled-interval",
+        "statement": "Comparing the means of two independent samples whose standard deviations are equivalent uses a pooled standard deviation together with the factor sqrt(1/N1 + 1/N2), with N1 + N2 - 2 degrees of freedom, and the assumption that the two standard deviations are equivalent should be tested before it is relied on.",
+        "sceneIds": [
+          "scene-nine-milligrams"
+        ],
+        "sourceIds": [
+          "source-nist-two-sample"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Two independent groups of continuous measurements. The source presents the structure for the two-sample statistic; this lesson uses the same standard error to build an interval, which is the standard correspondence between the two.",
+        "uncertainty": "The source presents a separate form for the case where the two standard deviations are not equivalent. This lesson's cohort was constructed with a single within-group standard deviation of 16 mg/dL, so the pooled form applies to it by construction, and the lesson does not teach the test of that assumption.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      },
+      {
+        "id": "claim-width-depends-on-n-and-sd",
+        "statement": "The width of a confidence interval narrows as the number of observations increases, through a square-root term in the standard error, and widens as the sample standard deviation increases, so reaching half the width requires about four times as many observations with everything else unchanged.",
+        "sceneIds": [
+          "scene-what-moves-the-edges",
+          "scene-service-decision"
+        ],
+        "sourceIds": [
+          "source-nist-confidence-limits"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Intervals for a mean or for a difference between means, where the sample size enters the standard error under a square root. The source states both dependences directly; the four-times-for-half-the-width consequence is arithmetic on the same square-root term and is worked through in the lesson on its own figures.",
+        "uncertainty": "The rule assumes the population spread and the design stay the same as the sample grows. A larger study that recruits a broader population can raise the standard deviation and so recover less width than the square-root rule promises.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      },
+      {
+        "id": "claim-width-depends-on-level",
+        "statement": "Raising the confidence level widens an interval with no change to the data because the level enters through a larger multiplier; for example, at 58 degrees of freedom the t multiplier grows from 1.672 at 90% to 2.002 at 95% and 2.663 at 99%.",
+        "sceneIds": [
+          "scene-what-moves-the-edges"
+        ],
+        "sourceIds": [
+          "source-nist-normal-table",
+          "source-nist-t-table",
+          "source-nist-confidence-limits"
+        ],
+        "support": "inference",
+        "confidence": "high",
+        "scope": "Two-sided intervals of the estimate-plus-or-minus-multiplier-times-standard-error form. The normal and t multiplier values are tabulated by the sources and the interval form is stated by the handbook; the widening consequence follows from them and is demonstrated on one fixed estimate and standard error.",
+        "uncertainty": "The sources state the form and the quantiles separately and do not draw this consequence in the words used here. The lesson derives it and shows the resulting intervals for one dataset.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      },
+      {
+        "id": "claim-ich-e9-report-ci",
+        "statement": "International guidance on statistical principles for clinical trials, adopted by the US Food and Drug Administration as guidance for industry, states that estimates of treatment effects should be accompanied by confidence intervals whenever possible and that the way in which they will be calculated should be identified, and that two-sided confidence intervals are generally appropriate for estimating the possible size of the difference between two treatments.",
+        "sceneIds": [
+          "scene-one-number",
+          "scene-a-different-trial",
+          "scene-service-decision"
+        ],
+        "sourceIds": [
+          "source-ich-e9"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Statistical principles for clinical trials supporting marketing applications in Europe, Japan and the United States. Quoted here as a reporting expectation for effect estimates, not as a rule about how any individual analysis must be carried out.",
+        "uncertainty": "The guidance dates from 1998 and has since been extended by an addendum on estimands and sensitivity analysis. The addendum changes how a treatment effect is defined and does not remove the expectation that an estimate is reported with an interval. Journal and reporting-guideline conventions outside the regulatory setting are separate documents and are not relied on here.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      },
+      {
+        "id": "claim-ich-e9-frequentist",
+        "statement": "The same clinical-trials guidance defines frequentist methods, naming confidence intervals among them, as methods that are interpreted in terms of the frequency of certain outcomes occurring in hypothetical repeated realizations of the same experimental situation.",
+        "sceneIds": [
+          "scene-ninety-five-percent-of-what"
+        ],
+        "sourceIds": [
+          "source-ich-e9"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "The guidance glossary's definition, used in this lesson to show that the repeated-sampling reading is the one regulators write into clinical-trial practice and not a classroom nicety.",
+        "uncertainty": "The definition is a statement of how a family of methods is interpreted and not itself a mathematical result. The lesson pairs it with the handbook's plainer statement of the same reading.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      },
+      {
+        "id": "claim-ich-e9-margins",
+        "statement": "The same guidance states that for equivalence trials two-sided confidence intervals should be used and equivalence is inferred when the entire confidence interval falls within pre-specified equivalence margins whose choice must be justified clinically, and that for safety and tolerability the use of confidence intervals is preferred to hypothesis testing because the imprecision arising from low frequencies of occurrence is then clearly demonstrated.",
+        "sceneIds": [
+          "scene-service-decision"
+        ],
+        "sourceIds": [
+          "source-ich-e9"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Equivalence and noninferiority trials, and the reporting of safety and tolerability data. Used in this lesson to establish that reading an interval against a clinically chosen value is established regulatory practice, and that a wide interval is treated as information about imprecision.",
+        "uncertainty": "The guidance sets that rule for equivalence and noninferiority designs specifically. The lesson's more general move, of choosing a threshold that would change practice and reading the interval against it, is the lesson's own extension of the same logic to a superiority setting and is presented as a way of framing a service's question, not as a regulatory requirement.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      },
+      {
+        "id": "claim-ich-e9-imprecision",
+        "statement": "The same clinical-trials guidance prefers reporting confidence intervals to hypothesis testing where estimates are imprecise, because the interval displays the imprecision that a test result does not.",
+        "sceneIds": [
+          "scene-what-moves-the-edges"
+        ],
+        "sourceIds": [
+          "source-ich-e9"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "Stated in the guidance for the evaluation of safety and tolerability, where low event frequencies make estimates imprecise. Used here to support the general teaching point that a wide interval is an accurate report of a study's limits.",
+        "uncertainty": "The guidance makes the recommendation in a specific reporting context. The lesson applies the reasoning to a mean difference, where the source of imprecision is sample size and biological spread instead of low event counts.",
+        "risk": "routine",
+        "reviewStatus": "reviewed"
+      }
+    ]
+  },
+  "glossary": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-glossary-v1",
+    "lessonId": "PREM-STA-007",
+    "lessonVersion": "0.1.0",
+    "terms": [
+      {
+        "id": "term-confidence-interval",
+        "term": "confidence interval",
+        "definition": "A range computed from sample data by a procedure with a stated conditional success rate, reported as a lower and an upper limit in the units of a defined population quantity. It gives the parameter values that the sample is compatible with under the stated sampling and analysis model, and it says nothing about where any individual observation sits.",
+        "aliases": [
+          "interval estimate",
+          "confidence limits",
+          "CI"
+        ],
+        "sceneIds": [
+          "scene-estimate-with-a-range",
+          "scene-nine-milligrams",
+          "scene-ninety-five-percent-of-what",
+          "scene-what-moves-the-edges",
+          "scene-reading-intervals",
+          "scene-a-different-trial",
+          "scene-service-decision"
+        ]
+      },
+      {
+        "id": "term-confidence-level",
+        "term": "confidence level",
+        "definition": "The stated conditional success rate of the procedure that produced an interval: the long-run proportion of intervals that would contain the fixed parameter if independent sampling and analysis were repeated under the procedure's assumptions. It is a property of the method, not a feeling of certainty, and it does not repair bias or guarantee generalisation beyond the defined population.",
+        "aliases": [
+          "confidence coefficient",
+          "coverage level"
+        ],
+        "sceneIds": [
+          "scene-estimate-with-a-range",
+          "scene-ninety-five-percent-of-what",
+          "scene-what-moves-the-edges",
+          "scene-reading-intervals"
+        ]
+      },
+      {
+        "id": "term-point-estimate",
+        "term": "point estimate",
+        "definition": "The single value a sample gives for a quantity you want to know, such as the 9.0 mg/dL difference this study measured. It is the best guess the sample supports and it carries no information about how far off it might be.",
+        "aliases": [
+          "estimate",
+          "sample estimate"
+        ],
+        "sceneIds": [
+          "scene-estimate-with-a-range",
+          "scene-nine-milligrams",
+          "scene-reading-intervals"
+        ]
+      },
+      {
+        "id": "term-parameter",
+        "term": "parameter",
+        "definition": "A fixed unknown quantity belonging to the population a sample was drawn from, such as the true difference in average fasting glucose between two ways of eating. It has one value, that value does not change when you sample, and no study observes it directly.",
+        "aliases": [
+          "population parameter",
+          "true value"
+        ],
+        "sceneIds": [
+          "scene-estimate-with-a-range",
+          "scene-ninety-five-percent-of-what",
+          "scene-service-decision"
+        ],
+        "alignment": {
+          "priorLesson": "PREM-SCI-010",
+          "relation": "distinct-sense",
+          "note": "PREM-SCI-010 defines a model parameter as a quantity an author sets or adjusts inside a scientific model to make it behave. The statistical sense used here is the opposite arrangement: nobody sets it and nobody can read it off, because it belongs to the population and the study exists to estimate it. Both senses are standard and the concept scene bridges them where the word first appears in this lesson."
+        }
+      },
+      {
+        "id": "term-standard-error",
+        "term": "standard error",
+        "definition": "The standard deviation of an estimate across repeated samples of the same size: how far the study's number would move if the whole study were run again on fresh people. It sets the unit an interval is measured in.",
+        "aliases": [
+          "SE",
+          "standard error of the estimate"
+        ],
+        "sceneIds": [
+          "scene-one-number",
+          "scene-estimate-with-a-range",
+          "scene-nine-milligrams",
+          "scene-what-moves-the-edges",
+          "scene-reading-intervals",
+          "scene-a-different-trial",
+          "scene-service-decision"
+        ],
+        "alignment": {
+          "priorLesson": "PREM-STA-006",
+          "relation": "adopt",
+          "note": "PREM-STA-006 owns this term and its derivation from the sampling distribution, and this lesson keeps that meaning unchanged. Nothing new is added to the definition here; the standard error is taken as an input and turned into the width of an interval. A learner who cannot say what the standard error describes is sent back to that lesson in the opening scene."
+        }
+      },
+      {
+        "id": "term-sampling-distribution",
+        "term": "sampling distribution",
+        "definition": "The distribution of an estimate across every sample of a given size that could have been drawn under a stated model. For an unbiased estimator it is centred on the fixed true parameter, not on the estimate from one observed sample, and its spread is the standard error.",
+        "aliases": [
+          "distribution of the estimate"
+        ],
+        "sceneIds": [
+          "scene-one-number",
+          "scene-ninety-five-percent-of-what"
+        ],
+        "alignment": {
+          "priorLesson": "PREM-STA-006",
+          "relation": "adopt",
+          "note": "PREM-STA-006 owns this term and this lesson keeps its meaning unchanged. This lesson uses it only to distinguish the fixed parameter from the estimates and intervals that vary across repeated samples; it does not centre a hypothetical repeat-study distribution on the observed estimate."
+        }
+      },
+      {
+        "id": "term-margin-of-error",
+        "term": "margin of error",
+        "definition": "Half the width of a confidence interval: the multiplier times the standard error, in the units of the estimate. It is the distance you reach out from the estimate in each direction, and doubling it gives the interval's width.",
+        "aliases": [
+          "half-width"
+        ],
+        "sceneIds": [
+          "scene-nine-milligrams",
+          "scene-what-moves-the-edges",
+          "scene-reading-intervals",
+          "scene-a-different-trial"
+        ]
+      },
+      {
+        "id": "term-precision",
+        "term": "precision",
+        "definition": "How tightly a study has pinned down the quantity it set out to estimate, read directly from the width of its interval. A narrow interval is a precise result and a wide one is an imprecise result, whatever the estimate at the centre happens to be.",
+        "aliases": [
+          "statistical precision"
+        ],
+        "sceneIds": [
+          "scene-what-moves-the-edges",
+          "scene-a-different-trial",
+          "scene-service-decision"
+        ],
+        "alignment": {
+          "priorLesson": "PREM-SCI-006",
+          "relation": "distinct-sense",
+          "note": "PREM-SCI-006 owns measurement precision, which is how closely repeated measurements of the same thing by the same instrument agree. The sense used here is a property of a whole study's estimate, and the two are related without being the same: a precise instrument reduces the spread that feeds the standard error, but sample size moves this kind of precision and instrument quality alone cannot. The width scene keeps the two apart where they meet."
+        }
+      },
+      {
+        "id": "term-no-difference-value",
+        "term": "no-difference value",
+        "definition": "The number an effect would take if the two groups being compared were the same: zero for a difference between two averages. Checking whether an interval contains it is the first thing most readers do, and it answers only whether the direction is supported.",
+        "aliases": [
+          "no-effect value",
+          "value of no difference"
+        ],
+        "sceneIds": [
+          "scene-nine-milligrams",
+          "scene-reading-intervals",
+          "scene-a-different-trial",
+          "scene-service-decision"
+        ]
+      },
+      {
+        "id": "term-frequentist",
+        "term": "frequentist",
+        "definition": "Describes the family of statistical methods, confidence intervals among them, whose statements are read as frequencies across imagined repeats of the same study. A frequentist method reports how often a procedure would behave in a given way and never attaches a probability to the fixed parameter itself.",
+        "aliases": [
+          "frequentist methods",
+          "frequentist statistics"
+        ],
+        "sceneIds": [
+          "scene-ninety-five-percent-of-what"
+        ]
+      },
+      {
+        "id": "term-t-distribution",
+        "term": "t distribution",
+        "definition": "A curve shaped like the normal one but with slightly heavier tails, used in place of it when the spread of the data had to be estimated from the same sample as the estimate. Its multipliers are a little larger than the normal ones, and the difference shrinks as the sample grows.",
+        "aliases": [
+          "Student's t distribution"
+        ],
+        "sceneIds": [
+          "scene-estimate-with-a-range",
+          "scene-nine-milligrams"
+        ]
+      },
+      {
+        "id": "term-degrees-of-freedom",
+        "term": "degrees of freedom",
+        "definition": "A count of how many numbers in a sample were still free to vary once the quantities already computed from it are held fixed. Comparing two groups of 30 leaves 58, because two group averages were computed from the 60 readings before any spread could be measured, and it is the number that selects a row of the t table.",
+        "aliases": [
+          "df"
+        ],
+        "sceneIds": [
+          "scene-nine-milligrams"
+        ]
+      },
+      {
+        "id": "term-compatible-values",
+        "term": "compatible values",
+        "definition": "The values of the unknown parameter that a study's data do not argue against at a stated level under the analysis model. Describing an interval this way keeps the statement about the data, preserves the model conditions, and avoids assigning a probability to the parameter.",
+        "aliases": [
+          "compatibility interval"
+        ],
+        "sceneIds": [
+          "scene-ninety-five-percent-of-what",
+          "scene-reading-intervals",
+          "scene-service-decision"
+        ]
+      }
+    ]
+  },
+  "attributionHtml": "<h1>Attribution</h1>\n<h2>Lesson identity and licence</h2>\n<ul>\n<li>Lesson: <strong>PREM-STA-007 — Nine milligrams, give or take: confidence intervals</strong></li>\n<li>Graph outcome: <code>topic-statistics-data-confidence-intervals</code> (PREM-04.07, &quot;Confidence intervals&quot;)</li>\n<li>Accountable principal: <strong>VSBDev</strong> (<code>github:VSBDev</code>)</li>\n<li>Course-content licence: <strong>Creative Commons Attribution 4.0 International (CC BY 4.0)</strong></li>\n<li>Author-stage state: <strong>draft</strong>, source confidence <strong>pending-review</strong></li>\n</ul>\n<p>VSBDev is accountable for the scientific, editorial, pedagogical, accessibility, rights, and provenance record in this pack. The local authenticated GitHub identity check <code>gh api user --jq .login</code> returned <code>VSBDev</code> on 2026-07-25.</p>\n<h2>Agent provenance</h2>\n<p>Material authoring assistance was used for this pack. The agent system, provider, model, and version are recorded in <code>lesson.json</code> as the literal placeholder <code>RUNTIME-STAMPED</code>; the operator stamps the real values with <code>npm run provenance:stamp</code> before the candidate is frozen. The authoring run is <code>author-PREM-STA-007-C23AC166-284D-4DFE-BB93-F6B3B307EB33</code>.</p>\n<p>The instructions digest is <code>sha256:5e503b01adbb2327caae3d05876924d57a93e00f58b0a66f0b233ff10580fba4</code>. It covers the recorded discloseable UTF-8 authoring-task payload for this run, including its terminal newline. That payload is the operator&#39;s authoring instruction as transcribed for the record; it is not a verbatim export of every layer of instruction the run received, and the digest explicitly does <strong>not</strong> cover hidden provider, system, harness, or tool instructions that cannot be exported.</p>\n<p>Only the author role was used. No review, adjudication, or governance artifact was produced, inspected, or anticipated in this run.</p>\n<h2>Sources and how they were used</h2>\n<p>Every source in <code>references.json</code> was retrieved and read directly at the URL recorded there on 2026-07-25. No claim rests on a search-result snippet, a generated summary, or a source the run could not open. Agent-access terms were checked before substantive access in every case and are recorded per source with the checked route&#39;s terms URL.</p>\n<table>\n<thead>\n<tr>\n<th>Source</th>\n<th>Used for</th>\n<th>Basis</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>NIST/SEMATECH e-Handbook, 1.3.5.2 Confidence Limits for the Mean</td>\n<td>The interval-estimate form; the statement that a 95% interval is not a 95% probability that the interval holds the true mean; the dependence of width on sample size and standard deviation</td>\n<td>Facts only, original expression</td>\n</tr>\n<tr>\n<td>NIST/SEMATECH e-Handbook, 7.1.4 What are confidence intervals?</td>\n<td>The interval as a range likely to contain the parameter; the repeated-sampling reading of the level; two-sided versus one-sided</td>\n<td>Facts only, original expression</td>\n</tr>\n<tr>\n<td>NIST/SEMATECH e-Handbook, 1.3.6.7.1 Cumulative Distribution Function of the Standard Normal Distribution</td>\n<td>The multipliers 1.645, 1.960 and 2.576 at the 90%, 95% and 99% levels</td>\n<td>Facts only, original expression</td>\n</tr>\n<tr>\n<td>NIST/SEMATECH e-Handbook, 1.3.6.7.2 Critical Values of the Student&#39;s t Distribution</td>\n<td>The 29- and 58-degree-of-freedom critical values used as the primary multipliers when the sample standard deviation is estimated</td>\n<td>Facts only, original expression</td>\n</tr>\n<tr>\n<td>NIST/SEMATECH e-Handbook, 7.3.1 Do two processes have the same mean?</td>\n<td>The pooled two-sample standard error and its degrees of freedom</td>\n<td>Facts only, original expression</td>\n</tr>\n<tr>\n<td>FDA, Guidance for Industry: E9 Statistical Principles for Clinical Trials</td>\n<td>Reporting effect estimates with confidence intervals; two-sided intervals for the size of a difference; equivalence margins that the whole interval must fall within; the preference for intervals where estimates are imprecise; the glossary definition of frequentist methods</td>\n<td>Facts only, original expression</td>\n</tr>\n</tbody></table>\n<p>No source&#39;s wording, structure, table, figure, example, question, or dataset is reproduced or adapted. Where the lesson repeats a source&#39;s position closely enough for a reader to check it, the passage is a statement of fact, is attributed in the surrounding source note, and is written in this pack&#39;s own words.</p>\n<h2>Access and exclusions</h2>\n<p>No source was excluded from this pack on agent-access grounds: every source recorded above was checked before access and none restricted automated retrieval or agent ingestion.</p>\n<p>Two access notes belong on the record. The NIST handbook is served from <code>itl.nist.gov</code>, which does not publish a robots file of its own and redirects that path to the NIST ITL landing page; the applicable NIST robots file at <code>www.nist.gov/robots.txt</code> was retrieved and places no restriction on the <code>/div898/</code> handbook tree. The FDA&#39;s HTML landing page for the E9 guidance returned HTTP 404 on the access date, so the PDF in the FDA guidance library is the route recorded in <code>references.json</code> and the route the text was read from. That PDF&#39;s cover states September 1998; a later addendum, ICH E9(R1), extends the guidance on estimands and sensitivity analysis and leaves the passages relied on here in place. That limitation is recorded in the claim ledger rather than hidden in the prose.</p>\n<h2>Original material in this pack</h2>\n<p>Everything below was created for this lesson and is covered by the pack&#39;s CC BY 4.0 licence:</p>\n<ul>\n<li>every Markdown table, equation, and worked interval in the pack, including the single-group interval of 140.5 to 152.5 mg/dL, the main interval of 0.7 to 17.3, the level comparison at 90% and 99%, the conditional four-times-larger illustration at 4.9 to 13.1, and the narrower-population case at 3.8 to 14.2;</li>\n<li>the repeated-study thought experiment and the four candidate sentences the misconception scene sorts;</li>\n<li>the three practice trials, the reverse-engineered 90% interval, the pharmacist-led medicines review and its two blood-pressure outcomes, and the diabetes service&#39;s invented 5 mg/dL decision threshold;</li>\n<li>all scene prose, checks, assessment items, answer logic, and rubrics.</li>\n</ul>\n<p>The cohort&#39;s headline figures are fixed by the Statistics and Data block brief so that the twelve lessons in the block describe one consistent study: sixty adults with type 2 diabetes, thirty in each dinner-timing group, a within-group standard deviation of 16 mg/dL, an observed difference of 9.0 mg/dL, and a standard error of 4.13 for that difference. Every interval in this pack was recomputed from those figures rather than copied. With the matching 58-degree-of-freedom t multiplier, this lesson&#39;s two-sided 95% interval is 0.7 to 17.3 mg/dL.</p>\n<h2>Boundaries</h2>\n<p>The cohort, the diabetes service, the meeting, the three practice trials, and the blood-pressure trial are invented for teaching. Nothing in the pack reports an observation about real patients, and nothing in it recommends or supports a diagnostic, monitoring, or treatment decision. The 5 mg/dL and 6 mg/dL thresholds used to show how an interval is read against a service threshold were chosen for the examples and are labelled as invented wherever they appear. No individual diagnostic cut point is used as a scale for the population mean contrast. The lesson carries the <em>teaching example, not medical advice</em> boundary in its orientation, practice, transfer, and clinical wrap-up scenes.</p>\n<p>The lesson deliberately stops short of two neighbouring outcomes. It does not test a hypothesis or interpret a p-value, which the next lesson owns, and it does not judge whether a 9 mg/dL difference matters to a patient, which the block&#39;s final lesson owns.</p>\n<h2>Third-party assets</h2>\n<p>None. <code>thirdPartyAssets</code> in <code>lesson.json</code> is empty. The pack uses only prose, equations, and Markdown tables authored for the lesson; no external image, font, script, plotting library, dataset, or remote resource is referenced.</p>\n"
+}
