@@ -33,12 +33,12 @@ Five of those six columns hold digits. Only three of them hold numbers in the se
 :id: check-prior-variable-sense
 :kind: retrieval
 
-[Variables and controls (PREM-SCI-003)](https://embeddedknowledge.io/premed/lessons/read/?lesson=PREM-SCI-003) sorted the parts of a comparison into three roles: the independent variable, which is the factor deliberately set differently; the dependent variable, which is the response recorded; and the controlled variables, which are the conditions held alike.
+[Variables and controls (PREM-SCI-003)](https://embeddedknowledge.io/premed/lessons/read/?lesson=PREM-SCI-003) sorted the parts of a designed comparison into three roles: the independent variable, which is the factor deliberately set differently; the dependent variable, which is the response recorded; and the controlled variables, which are the conditions held alike.
 
-From memory, put dinner time and fasting glucose into two of those roles. Then answer a harder question: does that sorting tell you whether it is legitimate to average either one?
+This dinner-timing study did not assign when people ate; it observed what they did. From memory, decide which column is the observed exposure or predictor and which is the response or outcome. Then answer a harder question: does that sorting tell you whether it is legitimate to average either one?
 :::
 
-Dinner time is the independent variable and fasting glucose is the dependent variable, so the earlier lesson's roles apply cleanly here. They apply to sex and adherence too, as background characteristics. What they do not settle is the second question. A role tells you what job a column does in the study's reasoning. It says nothing about what arithmetic the column's values will tolerate.
+Dinner time is the observed exposure or predictor, and fasting glucose is the response or outcome. Calling dinner time an independent variable would imply that the researchers deliberately set it, which they did not. Sex and adherence are recorded characteristics that may help describe or interpret the rows, but neither becomes a manipulated variable merely by appearing in the file. What these roles do not settle is the second question. A role tells you what job a column does in the study's reasoning. It says nothing about what arithmetic the column's values will tolerate.
 
 That second property has its own name. The **level of measurement** of a column is what its values can support, and it is fixed by how the values were produced, not by how they are stored.
 

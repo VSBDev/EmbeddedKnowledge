@@ -96,7 +96,7 @@
       "outcomeIds": [
         "topic-statistics-data-data-types"
       ],
-      "prompt": "In an invented study, each of 50 patients starting dialysis is matched with one person of the same age group and sex who is not on dialysis. Serum creatinine is measured once for every one of the 100 people. Which description of the two sets of measurements is correct, and why?",
+      "prompt": "In an invented study, serum creatinine is measured in each of 50 patients immediately before dialysis begins and again after four weeks. Which description of the two sets of measurements is correct, and why?",
       "stimulus": null,
       "points": 2,
       "responseSpec": {
@@ -106,16 +106,16 @@
         "maxSelections": null,
         "options": [
           {
-            "id": "option-independent-different-people",
-            "text": "Independent, because the 100 measurements come from 100 different people and nobody is measured twice."
+            "id": "option-independent-different-times",
+            "text": "Independent, because the measurements were taken at two different times."
           },
           {
-            "id": "option-paired-by-matching",
-            "text": "Paired, because the design ties each patient's value to one specific comparison value, so the file could be written with one row per pair."
+            "id": "option-paired-by-identity",
+            "text": "Paired, because each patient's first value belongs with that same patient's later value, so the file could be written with one row per patient."
           },
           {
-            "id": "option-independent-single-measurement",
-            "text": "Independent, because pairing requires two measurements taken at different times on the same person."
+            "id": "option-independent-separate-columns",
+            "text": "Independent, because the two measurement sets would be stored in separate columns."
           },
           {
             "id": "option-paired-same-quantity",
@@ -125,13 +125,13 @@
         "maxLength": null
       },
       "answer": {
-        "correct": "option-paired-by-matching",
-        "summary": "Deliberate matching creates the pairing, even though every measurement comes from a different body.",
-        "reasoning": "Pairing is a property of how the study collected its values, not of whether the same body was measured twice. Here the design deliberately ties each patient to one comparison person chosen to resemble them, so each patient value has one partner and the file can be written with one row per pair. The two options that answer independent both rely on counting bodies, which is the intuition this item is testing. The remaining paired option gives a reason that would make almost any two datasets paired, since sharing a quantity and a unit creates no correspondence between particular values. If you chose an independent option, redraw the data as a table and ask how many rows it needs; if one row can hold both values without an arbitrary choice, the data are paired. On a retry, decide the structure for a study that measures blood pressure in 40 patients before and after a medication change, and for one that measures it once in 40 patients on drug A and once in 40 other patients on drug B.",
+        "correct": "option-paired-by-identity",
+        "summary": "The repeated measurements are paired because each patient's first value has that same patient's later value as its partner.",
+        "reasoning": "Pairing is a property of how the study collected its values. Here each before-dialysis result is tied to one later result by the patient's identity, so the file can be written with one row per patient and a within-patient change can be calculated. Different times and separate columns do not break that correspondence. The remaining paired option gives a reason that would make almost any two datasets paired, since sharing a quantity and a unit creates no link between particular values. If you chose an independent option, redraw the data as a table and ask whether one row naturally holds both values from the same case. On a retry, decide the structure for a study that measures blood pressure in 40 patients before and after a medication change, and for one that measures it once in 40 patients on drug A and once in 40 other patients on drug B.",
         "acceptableResponses": [],
         "commonErrors": [
-          "Treating pairing as a synonym for repeated measurement on the same person",
-          "Counting distinct participants and concluding independence from the count alone",
+          "Treating measurements taken at different times as automatically independent",
+          "Treating separate storage columns as separate groups",
           "Calling any two sets of the same quantity paired"
         ]
       },
@@ -228,7 +228,7 @@
       "criteria": [
         {
           "id": "criterion-paired-selection",
-          "description": "Award 1 point only when the matched-design option is selected.",
+          "description": "Award 1 point only when the repeated-measurement paired option is selected.",
           "maxPoints": 1
         },
         {

@@ -11,9 +11,9 @@ The Scientific Inquiry block ended with a designed study and a question: in adul
 
 ## The proposal
 
-The clinic's record system prefers flags to numbers. Rather than carry the meter reading, it would store one field per participant: whether that morning's fasting reading reached the level used to diagnose diabetes.
+The clinic's record system prefers flags to numbers. Rather than carry the meter reading, it would store one field per participant: whether that morning's fasting reading reached 126 mg/dL.
 
-The level exists and is not arbitrary. A fasting plasma glucose of 126 mg/dL, which is 7.0 mmol/L, or higher is one of the recognised criteria for diagnosing diabetes, and a fasting value from 100 to 125 mg/dL is described as impaired fasting glucose. Those cut points are why the proposal is tempting: they carry clinical meaning that a raw number does not announce.
+For this invented exercise, 126 mg/dL is an explicitly chosen teaching cut point. It has no diagnostic or treatment meaning here. The readings came from participants' own meters, not from a qualifying laboratory diagnostic test, and the flag must not be used to classify any person's health.
 
 The question for this lesson is narrower than whether the flag is good clinical practice. It is whether the study can still answer its own question after the swap.
 
@@ -44,15 +44,15 @@ P31 at 126 and P44 at 155 are now the same value, 29 mg/dL apart. P12 at 118 and
 
 Record the measurement. Derive the category whenever a question needs it. A category can always be made from a number, and a number can never be recovered from a category, so the choice is not symmetric and it is made once, at collection.
 
-The flag is the right column when the flag is the question. A service asking how many of its patients have a fasting reading at or above the diagnostic level wants a count and a proportion, and a mean in mg/dL would not answer it. What the team must avoid is storing only the flag and later asking a question that needs the number.
+The flag is the right column when the flag is the question. A service asking how many readings met a predeclared monitoring cut point wants a count and a proportion, and a mean in mg/dL would not answer it. What the team must avoid is storing only the flag and later asking a question that needs the number.
 
 So the answer to the proposal is a qualified no. The study can survive it, in the sense that a proportion comparison remains possible. The question it was designed to ask, about how the morning reading moves with dinner timing, cannot be asked of a column that has thrown the movement away.
 
 The next outcome in this block, tables and graphical displays, takes these same columns and asks what the data look like before any summary at all.
 
 :::{source-note}
-:claims: claim-fasting-glucose-thresholds, claim-variable-type-taxonomy, claim-level-constrains-summary, claim-ordinal-codes-lack-spacing
-:sources: source-statpearls-diabetes, source-ali-bhaskar, source-mishra-descriptive, source-sullivan-artino
+:claims: claim-variable-type-taxonomy, claim-level-constrains-summary, claim-ordinal-codes-lack-spacing
+:sources: source-ali-bhaskar, source-mishra-descriptive, source-sullivan-artino
 
-The two glucose figures come from a clinical reference chapter: 126 mg/dL or higher as a diagnostic fasting level, and 100 to 125 mg/dL as impaired fasting glucose. They are quoted so you can see where a clinical category comes from, and for nothing else. Diagnosis rests on several criteria, follows current national guidance that can be revised, and is made by a clinician from a whole clinical picture; none of that is reproduced or interpreted here. Three methods sources support the variable families, the summaries each level sustains, and the point that ordered bands carry rank without a measurable distance. Everything about the study itself, including the six readings and the record-system proposal, is invented.
+Three methods sources support the variable families, the summaries each level sustains, and the point that ordered bands carry rank without a measurable distance. Everything about the study itself, including the six readings, the 126 mg/dL teaching cut point, and the record-system proposal, is invented. The cut point carries no clinical interpretation in this lesson.
 :::

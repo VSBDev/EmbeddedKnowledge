@@ -89,7 +89,7 @@ Both structures live inside this one study.
 - Take each participant's glucose after their latest dinner and their glucose after their earliest dinner. Every value in the first set has a partner in the second: the same person. That is paired.
 - Take the fasting glucose of the 36 women and of the 24 men. Nobody appears twice, and no woman's row is matched with any particular man's row. That is independent.
 
-The difference is not cosmetic. A paired comparison can work on each person's own change, so everything stable about that person, including their weight, their medication, and their meter, cancels out of the difference. An independent comparison carries all of that variation between people into the result and has to account for it.
+The difference is not cosmetic. A paired comparison preserves which measurements belong together and can work on each person's own change. This often reduces variation from stable person-specific baselines, but subtraction guarantees cancellation only for a stable additive component. It does not remove time-varying differences, measurement error, interactions, or carryover. In this observational study, pairing also does not prove that dinner timing caused a glucose change. An independent comparison carries between-person variation into the result and has to account for it.
 
 Which structure you have is settled by how the study collected its data, and no later analysis can change it. This block's tests and intervals will use that fact; today the job is to read the structure off the study description.
 
