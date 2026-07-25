@@ -4,12 +4,12 @@
   "course": "premed",
   "purpose": "Consult before defining a glossary term. If a prior published lesson already defines it, adopt that meaning and cross-reference, or declare a glossary `alignment` block that names the prior lesson and the relation (adopt/narrow/extend/distinct-sense/supersede) with a rationale. Never silently redefine a term another lesson owns.",
   "summary": {
-    "terms": 234,
-    "multiLesson": 22,
+    "terms": 244,
+    "multiLesson": 26,
     "consistent": 1,
-    "divergent": 21,
-    "divergentUndeclared": 5,
-    "senseShifted": 17
+    "divergent": 25,
+    "divergentUndeclared": 8,
+    "senseShifted": 21
   },
   "terms": [
     {
@@ -55,6 +55,31 @@
           "definition": "The units and records actually included in a particular analysis, which may differ from those initially eligible or enrolled.",
           "aliases": [
             "analytic sample"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "arithmetic mean",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-003"
+      ],
+      "ids": [
+        "term-arithmetic-mean"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-003",
+          "id": "term-arithmetic-mean",
+          "definition": "The sum of all the values divided by how many values there are. It answers what each observation would receive if the total were shared out equally, it carries the same unit as the data, and multiplying it by the number of observations returns the total. Every value enters it at full weight, so a value far out in a tail pulls it toward that tail.",
+          "aliases": [
+            "mean",
+            "average"
           ],
           "alignment": null
         }
@@ -1402,6 +1427,30 @@
       ]
     },
     {
+      "term": "deviation from the mean",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-003"
+      ],
+      "ids": [
+        "term-deviation-from-mean"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-003",
+          "id": "term-deviation-from-mean",
+          "definition": "One observation minus the mean of its data set, carrying a sign and the unit of the data. The deviations of any data set sum to zero, which is why a spread measure squares them before averaging rather than averaging them directly.",
+          "aliases": [
+            "deviation"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
       "term": "differential misclassification",
       "status": "single-lesson",
       "sense": null,
@@ -2054,6 +2103,28 @@
       ]
     },
     {
+      "term": "five-number summary",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-003"
+      ],
+      "ids": [
+        "term-five-number-summary"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-003",
+          "id": "term-five-number-summary",
+          "definition": "The minimum, lower quartile, median, upper quartile, and maximum of a data set, reported in that order. Together they describe where the middle half sits and how far each side reaches, which a single centre value cannot do. Those distances can warn that the sides differ, but they do not identify distribution shape without a plot or the raw values.",
+          "aliases": [],
+          "alignment": null
+        }
+      ]
+    },
+    {
       "term": "frequency table",
       "status": "single-lesson",
       "sense": null,
@@ -2562,6 +2633,31 @@
       ]
     },
     {
+      "term": "interquartile range",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-003"
+      ],
+      "ids": [
+        "term-interquartile-range"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-003",
+          "id": "term-interquartile-range",
+          "definition": "The upper quartile minus the lower quartile, that is the width of the middle half of an ordered data set, in the unit of the data. It describes variability near the centre and is usually less sensitive to outliers than the range.",
+          "aliases": [
+            "IQR",
+            "middle-half width"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
       "term": "interval scale",
       "status": "divergent",
       "sense": "reworded",
@@ -3000,22 +3096,35 @@
     },
     {
       "term": "median",
-      "status": "single-lesson",
-      "sense": null,
-      "minDefinitionOverlap": null,
+      "status": "divergent",
+      "sense": "shifted",
+      "minDefinitionOverlap": 0.17,
       "lessons": [
-        "PREM-STA-001"
+        "PREM-STA-001",
+        "PREM-STA-003"
       ],
       "ids": [
         "term-median"
       ],
-      "undeclaredRedefinitions": [],
+      "undeclaredRedefinitions": [
+        "PREM-STA-003"
+      ],
       "uses": [
         {
           "lessonId": "PREM-STA-001",
           "id": "term-median",
           "definition": "The middle position once values are placed in order. With an even number of ordinal categories, the two middle observations define a middle pair or interval unless they fall in the same category; averaging their numerical codes would assume spacing the categories do not establish. For measured amounts, the usual numerical median is the average of the two middle values when there is an even number.",
           "aliases": [],
+          "alignment": null
+        },
+        {
+          "lessonId": "PREM-STA-003",
+          "id": "term-median",
+          "definition": "The middle value once the observations are placed in order, or the average of the two middle values when the count is even. It answers which value splits the group in half. Because it is determined by ranks rather than by magnitudes, changing how extreme an extreme value is does not move it.",
+          "aliases": [
+            "second quartile",
+            "50th percentile"
+          ],
           "alignment": null
         }
       ]
@@ -3155,16 +3264,19 @@
     },
     {
       "term": "mode",
-      "status": "single-lesson",
-      "sense": null,
-      "minDefinitionOverlap": null,
+      "status": "divergent",
+      "sense": "shifted",
+      "minDefinitionOverlap": 0.15,
       "lessons": [
-        "PREM-STA-001"
+        "PREM-STA-001",
+        "PREM-STA-003"
       ],
       "ids": [
         "term-mode"
       ],
-      "undeclaredRedefinitions": [],
+      "undeclaredRedefinitions": [
+        "PREM-STA-003"
+      ],
       "uses": [
         {
           "lessonId": "PREM-STA-001",
@@ -3173,6 +3285,15 @@
           "aliases": [
             "most frequent category",
             "most common"
+          ],
+          "alignment": null
+        },
+        {
+          "lessonId": "PREM-STA-003",
+          "id": "term-mode",
+          "definition": "For a sample, the exact value that occurs most often. It is informative for data recorded as a small number of fixed levels or categories. In finely measured continuous samples, exact repeats depend on measurement precision, so a modal histogram interval or a population-density mode can be more informative. A distribution can have more than one mode.",
+          "aliases": [
+            "modal value"
           ],
           "alignment": null
         }
@@ -3804,22 +3925,34 @@
     },
     {
       "term": "outlier",
-      "status": "single-lesson",
-      "sense": null,
-      "minDefinitionOverlap": null,
+      "status": "divergent",
+      "sense": "shifted",
+      "minDefinitionOverlap": 0.14,
       "lessons": [
-        "PREM-STA-002"
+        "PREM-STA-002",
+        "PREM-STA-003"
       ],
       "ids": [
         "term-outlier"
       ],
-      "undeclaredRedefinitions": [],
+      "undeclaredRedefinitions": [
+        "PREM-STA-003"
+      ],
       "uses": [
         {
           "lessonId": "PREM-STA-002",
           "id": "term-outlier",
           "definition": "An observation lying far enough from the rest of the data to stand apart from them in a display. A histogram or scatter plot can flag one; whether it reflects the measurement, the record, or the person is a separate question the display cannot answer.",
           "aliases": [],
+          "alignment": null
+        },
+        {
+          "lessonId": "PREM-STA-003",
+          "id": "term-outlier",
+          "definition": "An observation that sits far from the bulk of the data. The label describes a position in the distribution and nothing more; an outlier may be a recording error, or it may be an accurate measurement of a person whose situation genuinely differs from the rest, and deciding which is a matter for the investigator rather than for the arithmetic.",
+          "aliases": [
+            "extreme value"
+          ],
           "alignment": null
         }
       ]
@@ -4434,6 +4567,33 @@
       ]
     },
     {
+      "term": "quartile",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-003"
+      ],
+      "ids": [
+        "term-quartile"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-003",
+          "id": "term-quartile",
+          "definition": "One of the three values that cut an ordered data set into four parts of equal size. The lower quartile Q1 sits at the 25th percentile, the second quartile is the median, and the upper quartile Q3 sits at the 75th percentile. Software packages use slightly different interpolation rules, so reported quartiles can differ a little on the same small sample.",
+          "aliases": [
+            "Q1",
+            "Q3",
+            "lower quartile",
+            "upper quartile"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
       "term": "radian",
       "status": "single-lesson",
       "sense": null,
@@ -4593,11 +4753,12 @@
     },
     {
       "term": "range",
-      "status": "single-lesson",
-      "sense": null,
-      "minDefinitionOverlap": null,
+      "status": "divergent",
+      "sense": "shifted",
+      "minDefinitionOverlap": 0.03,
       "lessons": [
-        "PREM-QNT-007"
+        "PREM-QNT-007",
+        "PREM-STA-003"
       ],
       "ids": [
         "term-range"
@@ -4612,6 +4773,20 @@
             "output set"
           ],
           "alignment": null
+        },
+        {
+          "lessonId": "PREM-STA-003",
+          "id": "term-range",
+          "definition": "In this lesson, a single number that measures spread: the largest value in a data set minus the smallest, carrying the same unit as the data. It uses only the two most extreme observations, so one unusual or mistyped value can change it dramatically.",
+          "aliases": [
+            "data range",
+            "spread from smallest to largest"
+          ],
+          "alignment": {
+            "priorLesson": "PREM-QNT-007",
+            "relation": "distinct-sense",
+            "note": "PREM-QNT-007 defines range as the set of outputs a function produces over its declared domain, which is a collection of values. The statistical sense used here is a different technical meaning of the same word: one number, the maximum minus the minimum of an observed data set, with the unit of the data. The two senses are bridged in the scene where the term is introduced so a learner meeting both is not left to reconcile them alone."
+          }
         }
       ]
     },
@@ -4993,6 +5168,31 @@
           "definition": "Observed response minus the response predicted by a model at the same input.",
           "aliases": [
             "prediction error"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "resistant summary",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-003"
+      ],
+      "ids": [
+        "term-resistant-summary"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-003",
+          "id": "term-resistant-summary",
+          "definition": "A summary whose value changes little when a small number of extreme observations change. The median and the quartiles are resistant; the mean, the range, and the standard deviation are not. Resistance is a property to choose deliberately, because a summary that ignores a change in the extremes also fails to report one that matters.",
+          "aliases": [
+            "resistant",
+            "resistance"
           ],
           "alignment": null
         }
@@ -5474,6 +5674,31 @@
       ]
     },
     {
+      "term": "skew",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-003"
+      ],
+      "ids": [
+        "term-skew"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-003",
+          "id": "term-skew",
+          "definition": "The lack of symmetry in a distribution. A distribution is skewed right when its right tail is long relative to its left, and skewed left when its left tail is longer. A long right tail often lifts the mean above the median and a long left tail often lowers it, but the comparison is not a universal shape test.",
+          "aliases": [
+            "skewness",
+            "skewed distribution"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
       "term": "solution set",
       "status": "single-lesson",
       "sense": null,
@@ -5492,6 +5717,31 @@
           "definition": "All values in the declared domain that make an equation true.",
           "aliases": [
             "solutions"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "standard deviation",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-003"
+      ],
+      "ids": [
+        "term-standard-deviation"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-003",
+          "id": "term-standard-deviation",
+          "definition": "The square root of the variance, which returns the spread to the unit of the original data. Read it as roughly the distance a typical observation sits from the mean, in either direction. Because it shares the data's unit, it can be set beside a mean, a group difference, or a measurement precision and compared directly, and dividing a difference by it produces a quantity with no unit at all.",
+          "aliases": [
+            "SD",
+            "sample standard deviation"
           ],
           "alignment": null
         }
@@ -5561,6 +5811,30 @@
           "aliases": [
             "survivor bias",
             "survival bias"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "symmetric distribution",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-003"
+      ],
+      "ids": [
+        "term-symmetric-distribution"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-003",
+          "id": "term-symmetric-distribution",
+          "definition": "A distribution that looks the same to the left and to the right of its centre point. If the mean exists and the median is unique, both lie at that centre. A mode lies there only with an additional unimodal, single-central-mode condition. Mean-median agreement alone does not establish symmetry and can also occur in skewed or separated data.",
+          "aliases": [
+            "symmetry"
           ],
           "alignment": null
         }
@@ -5927,6 +6201,30 @@
             "relation": "extend",
             "note": "PREM-SCI-003 defines a variable by the job it does in one comparison: the factor set differently, the response recorded, or a condition held alike. This lesson keeps that meaning and widens the frame to any recorded characteristic that differs across cases, whatever role it plays in an argument. A column's role and a column's level of measurement are separate properties, and the first scene names that separation for the learner."
           }
+        }
+      ]
+    },
+    {
+      "term": "variance",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-STA-003"
+      ],
+      "ids": [
+        "term-variance"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-STA-003",
+          "id": "term-variance",
+          "definition": "The sum of the squared deviations from the mean divided by one less than the number of observations, for a sample. Squaring removes the signs so the deviations do not cancel, at the cost of leaving the result in squared units, such as mg squared per dL squared for glucose data.",
+          "aliases": [
+            "sample variance"
+          ],
+          "alignment": null
         }
       ]
     },
