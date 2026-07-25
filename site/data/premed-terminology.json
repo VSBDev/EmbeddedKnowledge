@@ -4,12 +4,12 @@
   "course": "premed",
   "purpose": "Consult before defining a glossary term. If a prior published lesson already defines it, adopt that meaning and cross-reference, or declare a glossary `alignment` block that names the prior lesson and the relation (adopt/narrow/extend/distinct-sense/supersede) with a rationale. Never silently redefine a term another lesson owns.",
   "summary": {
-    "terms": 199,
-    "multiLesson": 14,
+    "terms": 210,
+    "multiLesson": 17,
     "consistent": 0,
-    "divergent": 14,
-    "divergentUndeclared": 4,
-    "senseShifted": 11
+    "divergent": 17,
+    "divergentUndeclared": 5,
+    "senseShifted": 14
   },
   "terms": [
     {
@@ -323,11 +323,12 @@
     },
     {
       "term": "calibration",
-      "status": "single-lesson",
-      "sense": null,
-      "minDefinitionOverlap": null,
+      "status": "divergent",
+      "sense": "shifted",
+      "minDefinitionOverlap": 0,
       "lessons": [
-        "PREM-SCI-006"
+        "PREM-SCI-006",
+        "PREM-SCI-010"
       ],
       "ids": [
         "term-calibration"
@@ -340,6 +341,19 @@
           "definition": "An operation that establishes a relation, under specified conditions, between indications and values supplied by measurement standards with associated uncertainties, then uses that relation to obtain a measurement result.",
           "aliases": [],
           "alignment": null
+        },
+        {
+          "lessonId": "PREM-SCI-010",
+          "id": "term-calibration",
+          "definition": "In this lesson, the adjustment or estimation of model parameters within defensible ranges so model output fits relevant observations according to stated criteria.",
+          "aliases": [
+            "parameter estimation"
+          ],
+          "alignment": {
+            "priorLesson": "PREM-SCI-006",
+            "relation": "distinct-sense",
+            "note": "Lesson 6 defines calibration as a metrology operation relating an instrument's indications to measurement standards. Here it is model fitting: adjusting parameters so model output matches observations. Different objects (an instrument vs a model), same aim of making outputs trustworthy."
+          }
         }
       ]
     },
@@ -1779,6 +1793,52 @@
       ]
     },
     {
+      "term": "extrapolation",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-SCI-010"
+      ],
+      "ids": [
+        "term-extrapolation"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-SCI-010",
+          "id": "term-extrapolation",
+          "definition": "Using a fitted or calibrated relationship beyond the conditions or range that supplied its direct evidential support.",
+          "aliases": [],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "failure mode",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-SCI-010"
+      ],
+      "ids": [
+        "term-failure-mode"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-SCI-010",
+          "id": "term-failure-mode",
+          "definition": "A recognizable way a model becomes inadequate for its intended use, such as an assumption failing, a boundary being crossed, or output disagreeing materially with evidence.",
+          "aliases": [
+            "model failure"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
       "term": "function composition",
       "status": "single-lesson",
       "sense": null,
@@ -2663,6 +2723,159 @@
             "classification error"
           ],
           "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "model assumption",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-SCI-010"
+      ],
+      "ids": [
+        "term-model-assumption"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-SCI-010",
+          "id": "term-model-assumption",
+          "definition": "A condition or simplification accepted so the model can represent selected relationships, such as treating a process as constant, negligible, or well mixed.",
+          "aliases": [
+            "assumption"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "model domain",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-SCI-010"
+      ],
+      "ids": [
+        "term-model-domain"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-SCI-010",
+          "id": "term-model-domain",
+          "definition": "The purposes, conditions, scales, and contexts for which a model has a defensible basis of use.",
+          "aliases": [
+            "domain",
+            "application niche"
+          ],
+          "alignment": {
+            "priorLesson": "PREM-QNT-007",
+            "relation": "distinct-sense",
+            "note": "PREM-QNT-007 uses domain for the set of allowable inputs to a function. Here model domain is broader: the supported purposes, conditions, scales, and contexts for applying a scientific model."
+          }
+        }
+      ]
+    },
+    {
+      "term": "model input",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-SCI-010"
+      ],
+      "ids": [
+        "term-model-input"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-SCI-010",
+          "id": "term-model-input",
+          "definition": "A value, condition, or record supplied to a model for a particular use or run.",
+          "aliases": [
+            "input"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "model output",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-SCI-010"
+      ],
+      "ids": [
+        "term-model-output"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-SCI-010",
+          "id": "term-model-output",
+          "definition": "The prediction, estimate, explanation, classification, or other result produced by applying a model.",
+          "aliases": [
+            "output"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "model parameter",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-SCI-010"
+      ],
+      "ids": [
+        "term-model-parameter"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-SCI-010",
+          "id": "term-model-parameter",
+          "definition": "A model quantity treated as fixed during one run but available to change between runs, systems, or calibration choices.",
+          "aliases": [
+            "parameter"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "model variable",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-SCI-010"
+      ],
+      "ids": [
+        "term-model-variable"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-SCI-010",
+          "id": "term-model-variable",
+          "definition": "A quantity represented in the model whose value can differ among states, observations, or times.",
+          "aliases": [
+            "variable"
+          ],
+          "alignment": {
+            "priorLesson": "PREM-SCI-003",
+            "relation": "narrow",
+            "note": "Narrows the established general sense of a variable to a quantity explicitly represented in a model whose value can differ among states, observations, or times."
+          }
         }
       ]
     },
@@ -4351,6 +4564,31 @@
       ]
     },
     {
+      "term": "scale",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-SCI-010"
+      ],
+      "ids": [
+        "term-scale"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-SCI-010",
+          "id": "term-scale",
+          "definition": "The size, duration, resolution, or organizational level at which a model represents a system.",
+          "aliases": [
+            "spatial scale",
+            "temporal scale"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
       "term": "scientific method",
       "status": "single-lesson",
       "sense": null,
@@ -4376,17 +4614,34 @@
     },
     {
       "term": "scientific model",
-      "status": "single-lesson",
-      "sense": null,
-      "minDefinitionOverlap": null,
+      "status": "divergent",
+      "sense": "shifted",
+      "minDefinitionOverlap": 0.14,
       "lessons": [
+        "PREM-SCI-010",
         "PREM-WEL-001"
       ],
       "ids": [
+        "term-scientific-model",
         "term-model"
       ],
-      "undeclaredRedefinitions": [],
+      "undeclaredRedefinitions": [
+        "PREM-WEL-001"
+      ],
       "uses": [
+        {
+          "lessonId": "PREM-SCI-010",
+          "id": "term-scientific-model",
+          "definition": "A selective representation of a system or process, built to answer a stated question by retaining some relationships and omitting others.",
+          "aliases": [
+            "model"
+          ],
+          "alignment": {
+            "priorLesson": "PREM-WEL-001",
+            "relation": "adopt",
+            "note": "Adopts the established meaning of a model as a purposeful representation of selected features; this lesson applies that meaning specifically to scientific questions, assumptions, domains, and failure tests."
+          }
+        },
         {
           "lessonId": "PREM-WEL-001",
           "id": "term-model",
@@ -4486,11 +4741,12 @@
     },
     {
       "term": "sensitivity analysis",
-      "status": "single-lesson",
-      "sense": null,
-      "minDefinitionOverlap": null,
+      "status": "divergent",
+      "sense": "shifted",
+      "minDefinitionOverlap": 0.08,
       "lessons": [
-        "PREM-SCI-009"
+        "PREM-SCI-009",
+        "PREM-SCI-010"
       ],
       "ids": [
         "term-sensitivity-analysis"
@@ -4505,6 +4761,19 @@
             "robustness analysis"
           ],
           "alignment": null
+        },
+        {
+          "lessonId": "PREM-SCI-010",
+          "id": "term-sensitivity-analysis",
+          "definition": "A check of how model output changes when selected inputs, parameters, assumptions, boundaries, or model structure change.",
+          "aliases": [
+            "sensitivity check"
+          ],
+          "alignment": {
+            "priorLesson": "PREM-SCI-009",
+            "relation": "narrow",
+            "note": "Applies Lesson 9's idea to models specifically: there, varying analytic assumptions to test a conclusion's robustness; here, varying a model's inputs, parameters, or structure to see how its output responds. Same robustness logic, applied to a model."
+          }
         }
       ]
     },
@@ -4830,6 +5099,30 @@
       ]
     },
     {
+      "term": "uncertainty",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-SCI-010"
+      ],
+      "ids": [
+        "term-uncertainty"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-SCI-010",
+          "id": "term-uncertainty",
+          "definition": "A limitation in knowledge about a model, its inputs, parameters, structure, or application that affects confidence in its output.",
+          "aliases": [
+            "epistemic uncertainty"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
       "term": "unit circle",
       "status": "single-lesson",
       "sense": null,
@@ -4892,6 +5185,30 @@
           "definition": "The extent to which a measurement, estimate, or inference supports the intended interpretation for its stated target and conditions.",
           "aliases": [
             "study validity"
+          ],
+          "alignment": null
+        }
+      ]
+    },
+    {
+      "term": "variability",
+      "status": "single-lesson",
+      "sense": null,
+      "minDefinitionOverlap": null,
+      "lessons": [
+        "PREM-SCI-010"
+      ],
+      "ids": [
+        "term-variability"
+      ],
+      "undeclaredRedefinitions": [],
+      "uses": [
+        {
+          "lessonId": "PREM-SCI-010",
+          "id": "term-variability",
+          "definition": "Differences or fluctuations in the represented system that can be characterized but are not necessarily removed by collecting more information.",
+          "aliases": [
+            "aleatory variability"
           ],
           "alignment": null
         }
