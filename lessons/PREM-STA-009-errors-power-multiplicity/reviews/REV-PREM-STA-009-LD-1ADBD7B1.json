@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-STA-009-LD-1ADBD7B1",
+  "lessonId": "PREM-STA-009",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "44c7eb3a7cb8dff5c36736facf8b062fca14abe3",
+  "role": "learning-design",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev (learning-design reviewer)",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.7",
+      "runId": "agy-learning-design-PREM-STA-009-1ADBD7B1-0597-4252-BF63-48BBD8010E5E",
+      "instructionsDigest": "sha256:f6c29f0f8f585a61789edabf885b08fe8bf67f4bfe1ec098993e892945240719"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Founding-stage isolation check: the accountable principal VSBDev operates the authoring, review, and finalization agents, so principal-level independence is absent. Agent-level role isolation was strictly maintained: no authoring history, other review output, or adjudication draft was read, and no other EmbeddedKnowledge role script was run during this review execution."
+  },
+  "evidenceChecked": [
+    "lessons/PREM-STA-009-errors-power-multiplicity/lesson.json",
+    "lessons/PREM-STA-009-errors-power-multiplicity/claims.json",
+    "lessons/PREM-STA-009-errors-power-multiplicity/glossary.json",
+    "lessons/PREM-STA-009-errors-power-multiplicity/references.json",
+    "lessons/PREM-STA-009-errors-power-multiplicity/ATTRIBUTION.md",
+    "lessons/PREM-STA-009-errors-power-multiplicity/assessment.json",
+    "lessons/PREM-STA-009-errors-power-multiplicity/charts/false-positive-inflation.chart.json",
+    "lessons/PREM-STA-009-errors-power-multiplicity/charts/power-null-and-alternative.chart.json",
+    "lessons/PREM-STA-009-errors-power-multiplicity/content/010-two-ways-to-be-wrong.md",
+    "lessons/PREM-STA-009-errors-power-multiplicity/content/020-alpha-and-beta.md",
+    "lessons/PREM-STA-009-errors-power-multiplicity/content/030-power-of-this-design.md",
+    "lessons/PREM-STA-009-errors-power-multiplicity/content/040-found-nothing.md",
+    "lessons/PREM-STA-009-errors-power-multiplicity/content/050-how-many-chances.md",
+    "lessons/PREM-STA-009-errors-power-multiplicity/content/060-work-it-out.md",
+    "lessons/PREM-STA-009-errors-power-multiplicity/content/070-transfer.md",
+    "lessons/PREM-STA-009-errors-power-multiplicity/content/080-clinical-wrap-up.md",
+    "CONTENT-STANDARD.md"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "lessons/PREM-STA-009-errors-power-multiplicity/content/030-power-of-this-design.md#worked-example-sample-size-for-eighty-percent",
+      "finding": "The worked example 'worked-example-sample-size-for-eighty-percent' is missing a self-explanation prompt about the decision that most strongly determines the solution. According to CONTENT-STANDARD.md Section 5.1, every worked example must include this element to guide initial learning.",
+      "resolution": "Revise the worked example block to include a self-explanation prompt (e.g. asking the learner to explain why the required sample size scales with the inverse square of the target difference/effect size)."
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-STA-009-errors-power-multiplicity/content/010-two-ways-to-be-wrong.md#scene-two-ways-to-be-wrong",
+      "finding": "First-read check: The orientation scene successfully engages the learner with a concrete clinical dataset (the dinner-timing study results) and poses clear, motivating questions about null hypothesis testing, power, and multiplicity. The diagnostic check and recovery path are well-designed and fully aligned with CONTENT-STANDARD.md guidelines.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-STA-009-errors-power-multiplicity/content/030-power-of-this-design.md#scene-power-of-this-design",
+      "finding": "Visual representation: The dual normal-curve chart (power-null-and-alternative.chart.json) successfully maps the null and alternative distributions onto a single axis, clearly distinguishing alpha, beta, and power relative to the critical value threshold. The prose explicitly coordinates with the chart and labels the exact area calculations.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-STA-009-errors-power-multiplicity/content/070-transfer.md#scene-transfer",
+      "finding": "Practice and Transfer: The lesson features excellent practice items in Scene 6 and genuine transfer tasks in Scene 7 (blood-panel test multiplicity and physiotherapy pilot sample size/power analysis) that push the learner to select and adapt the models in new clinical domains.",
+      "resolution": null
+    }
+  ],
+  "limitations": [
+    "Expert-simulation review: This review represents a single-pass advisory input by a simulated learning-design expert under standard-lesson-v3 guidelines. No real learner testing was conducted.",
+    "Conflict of interest: The same GitHub principal (VSBDev) is responsible for the authoring and review run operators. Agent-level isolation was maintained, but principal-level independence is absent.",
+    "Scope restriction: The review is strictly bounded to learning-design metrics (e.g., clarity, coherence, practice, alignment, and transfer). Scientific accuracy, rights audits, and final typesetting checks are excluded.",
+    "Technical verification limits: No rendered build environment, screen reader, or keyboard navigation pathways were evaluated physically; findings are based solely on the static Markdown and JSON source files."
+  ],
+  "signedAt": "2026-07-25T13:40:00Z"
+}

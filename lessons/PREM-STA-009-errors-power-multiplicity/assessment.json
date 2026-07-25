@@ -1,0 +1,414 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-assessment-v1",
+  "lessonId": "PREM-STA-009",
+  "lessonVersion": "0.1.0",
+  "assessmentId": "assessment-prem-sta-009-errors-power-multiplicity",
+  "title": "Errors, power, and multiplicity: mastery check",
+  "purpose": "mixed",
+  "attemptPolicy": {
+    "retakeable": true,
+    "timeLimitMinutes": 55,
+    "feedback": "after-attempt"
+  },
+  "items": [
+    {
+      "id": "item-identify-the-error",
+      "type": "single-choice",
+      "sceneId": "scene-alpha-and-beta",
+      "objectiveIds": [
+        "objective-distinguish-type-i-and-type-ii"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-errors-power"
+      ],
+      "prompt": "A trial of a new inhaler concludes that the inhaler reduces exacerbations. In fact the inhaler does nothing; the difference the trial saw came from the particular patients it happened to enrol. Which of the following describes what happened, and what its probability was fixed by?",
+      "points": 6,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-type-i-alpha",
+            "text": "A Type I error, whose probability was fixed in advance by the significance level the trial chose."
+          },
+          {
+            "id": "option-type-ii-beta",
+            "text": "A Type II error, whose probability was fixed in advance by the significance level the trial chose."
+          },
+          {
+            "id": "option-type-i-power",
+            "text": "A Type I error, whose probability was determined by the trial's power against the true effect."
+          },
+          {
+            "id": "option-measurement-mistake",
+            "text": "A measurement error, because the trial reported something that was not true of the inhaler."
+          }
+        ]
+      },
+      "answer": {
+        "correct": "option-type-i-alpha",
+        "summary": "A Type I error, with its probability set by the chosen significance level.",
+        "reasoning": "The null hypothesis here is that the inhaler does nothing, and the null is true. The trial rejected it, so this is a Type I error. Its probability is alpha, which the investigators fixed before the data arrived and which is unchanged by anything the data did. Power concerns the other error, and no instrument or record was wrong, so nothing here is a measurement error in the sense the measurement lesson uses.",
+        "acceptableResponses": [],
+        "commonErrors": [
+          "Choosing Type II because the conclusion turned out to be false; the labels are set by which hypothesis is true and which decision was taken, not by whether the reader dislikes the answer.",
+          "Attaching the Type I error to power; power is the probability of rejecting when the alternative is true, and it plays no part when the null is true.",
+          "Reading error as a mistake in conduct, which the lesson's orientation scene rules out explicitly."
+        ]
+      },
+      "rubricId": "rubric-single-response",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-compute-power",
+      "type": "numeric",
+      "sceneId": "scene-power-of-this-design",
+      "objectiveIds": [
+        "objective-compute-power"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-errors-power"
+      ],
+      "prompt": "A two-group study enrols 32 patients per group. The within-group standard deviation of fasting glucose is 16 mg/dL, and the test is two-sided at a significance level of 0.05. Calculate the study's power against a true difference of 12.0 mg/dL. Give your answer as a probability between 0 and 1, to two decimal places.",
+      "points": 10,
+      "responseSpec": {
+        "mode": "number",
+        "units": null,
+        "tolerance": 0.03
+      },
+      "answer": {
+        "correct": 0.85,
+        "summary": "Power is about 0.85.",
+        "reasoning": "The standard error of the difference is 16 times the square root of 2 divided by 32, which is exactly 4.00 mg/dL. The critical value is 1.96 times 4.00, which is 7.84 mg/dL. Against a true difference of 12.0 mg/dL the threshold sits at (7.84 minus 12.0) divided by 4.00, which is 1.04 standard errors below the true value. Power is the area of a standard normal curve above minus 1.04, which is 0.851. The far tail on the opposite side contributes less than 0.0001 and can be ignored. So the design would detect a real 12 mg/dL difference about 85 times in 100, and the Type II error rate against that effect is 0.15.",
+        "acceptableResponses": [
+          "0.85",
+          "0.851",
+          "about 85%"
+        ],
+        "commonErrors": [
+          "Dividing the standard deviation by the square root of the total sample size instead of using the two-group form 16 times the square root of 2 over n.",
+          "Computing the area below the critical value instead of above it, which returns the Type II error rate of 0.15 rather than the power.",
+          "Using 1.64 instead of 1.96, which is the one-sided threshold and gives too high a power."
+        ]
+      },
+      "rubricId": "rubric-numeric-with-working",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-detectable-effect-and-sample-size",
+      "type": "numeric",
+      "sceneId": "scene-power-of-this-design",
+      "objectiveIds": [
+        "objective-relate-power-to-design",
+        "objective-compute-power"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-errors-power"
+      ],
+      "prompt": "A team wants 80% power to detect a true difference of 8.0 mg/dL in mean fasting glucose, working two-sided at a significance level of 0.05, in a population whose within-group standard deviation is 16 mg/dL. How many patients per group are required? Round up to a whole number of patients.",
+      "points": 10,
+      "responseSpec": {
+        "mode": "number",
+        "units": "patients per group",
+        "tolerance": 2
+      },
+      "answer": {
+        "correct": 63,
+        "summary": "63 patients per group, so 126 in total.",
+        "reasoning": "At 80% power the detectable effect is 2.80 times the standard error, where 2.80 is 1.96 plus 0.84. To detect 8.0 mg/dL the standard error must be no larger than 8.0 divided by 2.80, which is 2.857 mg/dL. For two groups of n, the standard error is 16 times the square root of 2 over n, so n equals 2 times the square of 16 divided by 2.857, which is 2 times 31.36, or 62.7. Rounding up gives 63 per group and 126 in total.",
+        "acceptableResponses": [
+          "63",
+          "63 per group",
+          "126 in total"
+        ],
+        "commonErrors": [
+          "Using 1.96 alone instead of 1.96 plus 0.84, which computes the sample size for 50% power and returns about 31 per group.",
+          "Forgetting the factor of 2 for two groups, which halves the answer.",
+          "Rounding down; a sample size is rounded up, because a fractional patient buys no power."
+        ]
+      },
+      "rubricId": "rubric-numeric-with-working",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-what-moves-power",
+      "type": "multiple-choice",
+      "sceneId": "scene-alpha-and-beta",
+      "objectiveIds": [
+        "objective-relate-power-to-design"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-errors-power"
+      ],
+      "prompt": "A design has 60% power against a stated effect. Select every change that would, on its own, increase that power. Assume nothing else about the study changes.",
+      "points": 8,
+      "responseSpec": {
+        "mode": "multiple-choice",
+        "maxSelections": 5,
+        "options": [
+          {
+            "id": "option-more-patients",
+            "text": "Enrolling more patients in each group."
+          },
+          {
+            "id": "option-tighter-alpha",
+            "text": "Moving the significance level from 0.05 to 0.01."
+          },
+          {
+            "id": "option-less-variable-measure",
+            "text": "Replacing the outcome measure with one that varies less between patients."
+          },
+          {
+            "id": "option-larger-true-effect",
+            "text": "The true effect in the population turning out to be larger than the one the power was computed against."
+          },
+          {
+            "id": "option-more-outcomes",
+            "text": "Adding four more outcome comparisons to the analysis plan, each judged at 0.05."
+          }
+        ]
+      },
+      "answer": {
+        "correct": [
+          "option-more-patients",
+          "option-less-variable-measure",
+          "option-larger-true-effect"
+        ],
+        "summary": "More patients, a less variable measure, and a larger true effect.",
+        "reasoning": "Power rises when the true effect is larger, when the sample is larger, and when the measurement varies less; the last two act through the standard error, which pulls the distribution of possible results tighter around the truth. Tightening the significance level to 0.01 moves the critical value further from zero, so fewer real effects reach it and power falls. Adding four more comparisons changes the family-wise error rate rather than the power of the original comparison, and if the threshold is then split across the five it lowers that power as well.",
+        "acceptableResponses": [],
+        "commonErrors": [
+          "Selecting the tighter significance level, on the reasoning that a stricter study is a better study; it buys protection against the first error by conceding the second.",
+          "Selecting the extra comparisons, which confuses multiplicity with power.",
+          "Omitting the larger true effect, which is the single largest driver and the one nobody controls."
+        ]
+      },
+      "rubricId": "rubric-multiple-response",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-read-a-negative-trial",
+      "type": "open-response",
+      "sceneId": "scene-found-nothing",
+      "objectiveIds": [
+        "objective-read-a-negative-result"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-errors-power"
+      ],
+      "prompt": "A trial of a wound dressing enrolled 36 patients, 18 per arm. It reports a mean healing time 1.2 days shorter with the new dressing, a 95% confidence interval from 3.9 days shorter to 1.5 days longer, and concludes that the new dressing offers no benefit. In no more than 150 words: state what the trial has actually established, name the effect sizes its data still allow, and rewrite the conclusion into a sentence the design supports. You do not need to compute a power figure.",
+      "points": 12,
+      "responseSpec": {
+        "mode": "text",
+        "maxLength": 1200
+      },
+      "answer": {
+        "correct": "Healing time was estimated as 1.2 days shorter with the new dressing, with a 95% interval from 3.9 days shorter to 1.5 days longer; the test did not reject zero, and the interval does not exclude benefits as large as 3.9 days.",
+        "summary": "Report the nonzero estimate, interval, and non-rejection without turning them into a claim of no benefit.",
+        "reasoning": "The interval runs from 3.9 days shorter to 1.5 days longer, so it contains zero, which is why the stated test did not reject zero. It also contains benefits of 2, 3, and nearly 4 days, as well as a possible increase in healing time. The completed data therefore have not excluded those effect sizes. A defensible conclusion is: healing time was estimated as 1.2 days shorter with the new dressing (95% confidence interval 3.9 days shorter to 1.5 days longer), and the test did not reject zero; the interval does not exclude a benefit of nearly four days. A response earns full marks when it reports the estimate and interval, states the decision, and does not claim either absence or benefit.",
+        "acceptableResponses": [
+          "Any answer reporting the 1.2-day shorter estimate, the interval from 3.9 days shorter to 1.5 days longer, the failure to reject zero, and that a benefit of up to 3.9 days remains compatible with the data.",
+          "An answer that states the same quantities and says the interval does not establish either no benefit or a benefit."
+        ],
+        "commonErrors": [
+          "Agreeing with the trial's conclusion because the interval contains zero, which reads a wide interval as a null finding.",
+          "Claiming the trial proves the dressing works, which the interval also does not support.",
+          "Recomputing power from the observed 1.2 days and presenting it as extra evidence, which the lesson identifies as a re-expression of the same result."
+        ]
+      },
+      "rubricId": "rubric-negative-result-reading",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-family-wise-rate",
+      "type": "numeric",
+      "sceneId": "scene-how-many-chances",
+      "objectiveIds": [
+        "objective-quantify-multiplicity"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-errors-power"
+      ],
+      "prompt": "A registry study reports 15 independent outcome comparisons, each judged against a significance level of 0.05. Suppose no true difference exists for any of them. Calculate the probability that at least one comparison crosses the threshold. Give a probability between 0 and 1, to two decimal places.",
+      "points": 8,
+      "responseSpec": {
+        "mode": "number",
+        "units": null,
+        "tolerance": 0.02
+      },
+      "answer": {
+        "correct": 0.54,
+        "summary": "About 0.54.",
+        "reasoning": "Each comparison fails to cross with probability 0.95. Fifteen independent comparisons all fail to cross with probability 0.95 raised to the power 15, which is 0.4633. So at least one crosses with probability 1 minus 0.4633, which is 0.5367, or about 0.54. Slightly more than an even chance that a registry study of fifteen dead ends produces something that looks like a finding.",
+        "acceptableResponses": [
+          "0.54",
+          "0.537",
+          "about 54%"
+        ],
+        "commonErrors": [
+          "Multiplying 15 by 0.05 to get 0.75, which counts the overlaps twice and exceeds the true figure.",
+          "Reporting 0.4633, the probability that nothing crosses, without taking the complement.",
+          "Answering 0.05, which is the promise made for a single comparison and not for a report of fifteen."
+        ]
+      },
+      "rubricId": "rubric-numeric-with-working",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-multiplicity-decision",
+      "type": "short-answer",
+      "sceneId": "scene-clinical-wrap-up",
+      "objectiveIds": [
+        "objective-quantify-multiplicity",
+        "objective-relate-power-to-design"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-errors-power"
+      ],
+      "prompt": "The registry team from the previous item wants to hold its family-wise error rate near 0.05 across the same 15 comparisons. State the threshold each comparison should take, and explain in two or three sentences what that adjustment costs the study and what it would have to do to recover it.",
+      "points": 10,
+      "responseSpec": {
+        "mode": "text",
+        "maxLength": 800
+      },
+      "answer": {
+        "correct": "0.0033 per comparison, at the cost of power, recoverable only by enrolling more participants or by nominating a single prespecified outcome.",
+        "summary": "Each comparison takes 0.05 divided by 15, which is about 0.0033.",
+        "reasoning": "The Bonferroni adjustment divides the target family-wise rate by the number of comparisons: 0.05 divided by 15 is 0.0033. The cost is power. A threshold of 0.0033 pushes the critical value out to about 2.94 standard errors from zero instead of 1.96, so every real effect now has to be larger before the study will detect it, and the Type II error rate rises for all fifteen comparisons. The study recovers that power only by shrinking its standard error, which means enrolling more participants or measuring the outcome more precisely. The alternative, and usually the better one, is to nominate a single prespecified primary outcome that keeps the full 0.05 and the full power, and to report the other fourteen as exploratory.",
+        "acceptableResponses": [
+          "Any answer giving 0.0033 or 0.05/15 and identifying the loss of power as the cost, with more participants or a single prespecified outcome as the remedy.",
+          "An answer that gives the threshold as 0.33% and describes the same trade."
+        ],
+        "commonErrors": [
+          "Dividing 0.05 by 15 correctly but describing the cost as a loss of precision in the estimate; the estimate and its standard error are unchanged, and what falls is the probability of detecting a real effect.",
+          "Claiming the adjustment fixes multiplicity at no cost.",
+          "Proposing to drop comparisons after seeing which ones crossed, which reintroduces the selection the adjustment was there to control."
+        ]
+      },
+      "rubricId": "rubric-short-answer-reasoning",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-subgroup-report",
+      "type": "data-interpretation",
+      "sceneId": "scene-how-many-chances",
+      "objectiveIds": [
+        "objective-quantify-multiplicity",
+        "objective-distinguish-type-i-and-type-ii"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-errors-power"
+      ],
+      "prompt": "Read the extract below. In no more than 120 words, state whether the exact family-wise error rate can be calculated from the information given, give the general Bonferroni upper bound, name the error risk if the highlighted subgroup null is true, and state what the finding is worth.",
+      "stimulus": "From the discussion of a cohort study: \"Overall, evening meal timing was not associated with fasting glucose. However, among participants with a diabetes duration above ten years, later dinner was associated with a 10 mg/dL higher mean fasting glucose (p = 0.04). This subgroup should be prioritised for dietary counselling.\" The methods section records that eighteen subgroups were examined and that the analysis plan named none of them.",
+      "points": 12,
+      "responseSpec": {
+        "mode": "text",
+        "maxLength": 1000
+      },
+      "answer": {
+        "correct": "The exact family-wise error rate cannot be calculated without the joint dependence structure; the Bonferroni upper bound is 18 times 0.05, or 0.90. If this subgroup null is true, acting on the selected crossing risks a Type I error. The result is exploratory and needs a prespecified confirmatory strategy.",
+        "summary": "Dependence is unspecified, so there is no exact family-wise probability; 0.90 is a general upper bound, and the selected subgroup is hypothesis-generating.",
+        "reasoning": "The eighteen subgroup analyses reuse participants, and the prompt supplies no joint dependence structure. Therefore 1 minus 0.95 raised to the power 18 is not justified: it would be exact only for independent rejection events. The Bonferroni inequality gives the valid general upper bound min(1, 18 times 0.05), which is 0.90. If the highlighted subgroup null is true, acting on its selected crossing would be a Type I error. Because none of the subgroups was named in a confirmatory analysis plan, the selected p-value has no known selection-adjusted false-alarm rate. The result is worth a hypothesis for a prespecified confirmatory strategy with multiplicity control; a claim of subgroup heterogeneity would also require an appropriate interaction analysis. The counselling recommendation is unsupported.",
+        "acceptableResponses": [
+          "Any answer saying the exact rate is not calculable without dependence information, giving the Bonferroni upper bound of 0.90, identifying the conditional Type I error risk, and treating the result as hypothesis-generating.",
+          "An answer that also says 1 minus 0.95 to the power 18 would apply only under independence and that a confirmatory subgroup-difference claim needs multiplicity control and an interaction analysis."
+        ],
+        "commonErrors": [
+          "Reporting 1 minus 0.95 to the power 18 as exact without an independence assumption.",
+          "Naming a Type II error; if the highlighted subgroup null is true, treating its selected crossing as real is a Type I error.",
+          "Accepting the finding because the p-value is below 0.05, which is exactly the reading the count of eighteen is there to prevent."
+        ]
+      },
+      "rubricId": "rubric-negative-result-reading",
+      "safetyCritical": false
+    }
+  ],
+  "rubrics": [
+    {
+      "id": "rubric-single-response",
+      "title": "Single-response item",
+      "criteria": [
+        {
+          "id": "criterion-correct-option",
+          "description": "Selects the option that names both the error committed and the quantity that fixed its probability.",
+          "maxPoints": 6
+        }
+      ]
+    },
+    {
+      "id": "rubric-multiple-response",
+      "title": "Multiple-response item",
+      "criteria": [
+        {
+          "id": "criterion-all-correct-selected",
+          "description": "Selects each of the three changes that raise power.",
+          "maxPoints": 5
+        },
+        {
+          "id": "criterion-no-distractors",
+          "description": "Selects neither the tighter significance level nor the additional comparisons.",
+          "maxPoints": 3
+        }
+      ]
+    },
+    {
+      "id": "rubric-numeric-with-working",
+      "title": "Numeric item with reasoning",
+      "criteria": [
+        {
+          "id": "criterion-correct-value",
+          "description": "Reports a value within the stated tolerance, in the requested form and to the requested precision.",
+          "maxPoints": 6
+        },
+        {
+          "id": "criterion-correct-route",
+          "description": "Uses the two-group standard error, the correct threshold multiplier, and the correct direction of the tail or complement.",
+          "maxPoints": 4
+        }
+      ]
+    },
+    {
+      "id": "rubric-short-answer-reasoning",
+      "title": "Short answer with a stated trade",
+      "criteria": [
+        {
+          "id": "criterion-threshold-value",
+          "description": "States the adjusted per-comparison threshold and how it was obtained.",
+          "maxPoints": 4
+        },
+        {
+          "id": "criterion-names-the-cost",
+          "description": "Identifies the loss of power as the cost and does not describe it as a loss of precision in the estimate.",
+          "maxPoints": 3
+        },
+        {
+          "id": "criterion-names-the-remedy",
+          "description": "Names a legitimate remedy, either a larger sample or a single prespecified primary outcome, without proposing selection after the results are seen.",
+          "maxPoints": 3
+        }
+      ]
+    },
+    {
+      "id": "rubric-negative-result-reading",
+      "title": "Reading a reported result against its design",
+      "criteria": [
+        {
+          "id": "criterion-quantitative-anchor",
+          "description": "Produces the relevant quantitative anchor: the effect sizes the interval still allows, or a dependence-qualified family-wise statement with the valid Bonferroni bound.",
+          "maxPoints": 5
+        },
+        {
+          "id": "criterion-names-the-error",
+          "description": "Names correctly which of the two errors the reported conclusion risks, and why.",
+          "maxPoints": 4
+        },
+        {
+          "id": "criterion-defensible-rewrite",
+          "description": "States what the result is worth in a sentence the design supports, claiming neither absence nor a confirmed finding.",
+          "maxPoints": 3
+        }
+      ]
+    }
+  ]
+}

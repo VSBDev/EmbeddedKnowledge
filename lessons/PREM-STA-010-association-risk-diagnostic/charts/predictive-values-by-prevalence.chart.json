@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-chart-v1",
+  "id": "chart-predictive-values-by-prevalence",
+  "type": "bar",
+  "title": "One meter, two populations: sensitivity 90% and specificity 85% throughout",
+  "alt": "Bar chart showing the same meter's positive predictive value falling from 80 percent in a 40 percent prevalence clinic to 20 percent at a 4 percent prevalence health fair, while its negative predictive value rises from 92.7 to 99.5 percent.",
+  "longDescription": "Four bars for one invented fingerstick meter whose sensitivity is fixed at 90 per cent and whose specificity is fixed at 85 per cent in both populations. Reading left to right: positive predictive value in the diabetes clinic, where 40 per cent of samples are at or above the cut, is 80.0 per cent; positive predictive value at the community health fair, where 4 per cent are, is 20.0 per cent; negative predictive value in the clinic is 92.7 per cent; negative predictive value at the health fair is 99.5 per cent. The first two bars are the point of the chart: nothing about the device changed, only how common the target condition is, and the chance that a fired meter is correct fell by a factor of four. The second pair moves the opposite way, so a quiet meter is more reassuring at the health fair than in the clinic. The clinic figures come from 3,600 of 4,500 fired tests and 5,100 of 5,500 quiet ones; the health-fair figures come from 360 of 1,800 fired tests and 8,160 of 8,200 quiet ones, in populations of 10,000 each.",
+  "xAxis": {
+    "label": "Predictive value, by population",
+    "unit": null,
+    "min": 0,
+    "max": 1,
+    "ticks": [
+      { "at": 0.125, "label": "" },
+      { "at": 0.375, "label": "" },
+      { "at": 0.625, "label": "" },
+      { "at": 0.875, "label": "" }
+    ]
+  },
+  "yAxis": {
+    "label": "Chance the result is correct",
+    "unit": "per cent",
+    "min": 0,
+    "max": 100,
+    "ticks": [
+      { "at": 0, "label": "0" },
+      { "at": 20, "label": "20" },
+      { "at": 40, "label": "40" },
+      { "at": 60, "label": "60" },
+      { "at": 80, "label": "80" },
+      { "at": 100, "label": "100" }
+    ]
+  },
+  "series": [
+    {
+      "id": "series-predictive-values",
+      "label": "Same meter: sensitivity 90%, specificity 85%",
+      "categories": [
+        { "label": "PPV, clinic (40%)", "value": 80.0 },
+        { "label": "PPV, fair (4%)", "value": 20.0 },
+        { "label": "NPV, clinic (40%)", "value": 92.7 },
+        { "label": "NPV, fair (4%)", "value": 99.5 }
+      ]
+    }
+  ]
+}

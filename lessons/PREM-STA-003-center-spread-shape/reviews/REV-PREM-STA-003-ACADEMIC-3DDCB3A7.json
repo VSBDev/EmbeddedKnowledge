@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-STA-003-ACADEMIC-3DDCB3A7",
+  "lessonId": "PREM-STA-003",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "bfbc6fe2a3e402b1f7f193616620d8226f9806a4",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable operator, academic review",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-STA-003-3DDCB3A7-FC9E-44F4-A34A-A857DD0987AC",
+      "instructionsDigest": "sha256:5e6a0be9f6074dded868fc8404b4a0ac02f4bd95e6cb30d6e971c3f27a95721c"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#PREM-STA-003",
+    "content/010-orientation.md#Sixty-numbers-and-no-summary-yet",
+    "content/020-centre.md#What-one-number-is-being-asked-to-do",
+    "content/030-spread.md#Two-clinics-with-the-same-average-and-nothing-else-in-common",
+    "content/040-worked-example.md#worked-example-standard-deviation",
+    "content/050-misconception.md#misconception-mean-on-skewed-data",
+    "content/060-practice.md#Feedback-after-all-four-attempts",
+    "content/070-transfer.md#check-transfer-bimodal",
+    "content/080-clinical-wrap-up.md#Reading-the-outcome-the-study-was-built-to-test",
+    "charts/cohort-fasting-glucose.chart.json#chart-cohort-fasting-glucose",
+    "charts/skewed-clinic-sample.chart.json#chart-skewed-clinic-sample",
+    "assessment.json#assessment-centre-spread-shape",
+    "claims.json#claim-mean-not-resistant",
+    "claims.json#claim-symmetry-coincidence",
+    "claims.json#claim-right-tail-lifts-mean",
+    "claims.json#claim-iqr-sd-normal",
+    "references.json#source-nist-location",
+    "references.json#source-nist-scale",
+    "references.json#source-nist-skewness",
+    "references.json#source-nist-histogram-skewed",
+    "references.json#source-wan-median-to-mean",
+    "references.json#source-medlineplus-blood-glucose",
+    "glossary.json#terms",
+    "ATTRIBUTION.md#Originality-sources-and-rights",
+    "course/PREMED-SYLLABUS.md#QRS-106",
+    "https://www.itl.nist.gov/div898/handbook/eda/section3/eda351.htm",
+    "https://www.itl.nist.gov/div898/handbook/eda/section3/eda356.htm",
+    "https://www.itl.nist.gov/div898/handbook/eda/section3/eda35b.htm",
+    "https://www.itl.nist.gov/div898/handbook/eda/section3/histogr6.htm",
+    "https://medlineplus.gov/lab-tests/blood-glucose-test/"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "lesson.json#objective-read-shape",
+      "finding": "The objective promises to diagnose symmetry, skew, and separated groups from summary values alone. Mean, median, quartiles, range, and standard deviation do not identify a distribution's shape: materially different unimodal, heavy-tailed, skewed, and multimodal data sets can share those summaries. The downstream practice and assessment consequently reward certainty that the available evidence cannot support.",
+      "resolution": "Replace diagnosis from summaries alone with identifying warning signs or provisional hypotheses. Revise the linked checks, practice, assessment answer, and rubric so learners state what the summaries suggest and request a histogram, suitable plot, or raw data before concluding the shape."
+    },
+    {
+      "severity": "major",
+      "target": "content/070-transfer.md#check-transfer-bimodal",
+      "finding": "The normal-distribution reference IQR/SD ratio of about 1.35 is valid, but the answer overextends it into the rule that a ratio far below 1.35 points to a tail and a ratio far above 1.35 points to a split. The ratio is not shape-specific: symmetric heavy-tailed distributions can produce low ratios, while light-tailed unimodal distributions can produce high ratios. The same invalid diagnostic shortcut appears in the misconception and practice scenes.",
+      "resolution": "Retain 1.35 only as a normal-model reference. State that departure signals non-normal scale structure without identifying its cause, and require inspection of the distribution before distinguishing skew, heavy tails, truncation, or separated groups."
+    },
+    {
+      "severity": "major",
+      "target": "claims.json#claim-symmetry-coincidence",
+      "finding": "The claim generalizes that every symmetric distribution has identical mode, mean, and median and that skewed distributions have markedly different values. A symmetric multimodal distribution can have modes away from its symmetry centre. With a finite mean, symmetry supports a central mean and median, but equality is not unique to symmetric distributions; skewed distributions can also have close or equal mean and median. The cited NIST histogram discussion is too informal and example-bound to support the claim as a general theorem.",
+      "resolution": "Narrow the claim to the applicable conditions, such as a symmetric unimodal distribution with a finite mean and a central mode. Explicitly state that mean-median agreement is neither necessary nor sufficient evidence for a particular shape, then update every mapped scene and the glossary."
+    },
+    {
+      "severity": "major",
+      "target": "content/040-worked-example.md#worked-example-standard-deviation",
+      "finding": "The five readings 118, 134, 142, 156, and 160 have equal mean and median, but that does not establish that they show no lean in either direction. Their deviations are -24, -8, 0, 14, and 18 rather than reflected pairs, and their third central moment is negative. The interpretation repeats the lesson's false inference from mean-median equality to shape.",
+      "resolution": "Report only that the mean and median happen to agree. Remove the shape conclusion or inspect the ordered distances or a plot and describe the limited evidence without claiming symmetry."
+    },
+    {
+      "severity": "major",
+      "target": "content/080-clinical-wrap-up.md#Reading-the-outcome-the-study-was-built-to-test",
+      "finding": "The group and cohort standard deviations are arithmetically incompatible. For two groups of 30 with means 137.5 and 146.5 mg/dL and sample standard deviations of 16 mg/dL, the combined sample standard deviation is sqrt((29*16^2 + 29*16^2 + 30*4.5^2 + 30*4.5^2)/59) = 16.50 mg/dL, not 18 mg/dL. Achieving an overall SD of 18 would require within-group sample SDs of about 17.57 mg/dL.",
+      "resolution": "Revise the invented raw data or the reported group and cohort summaries so they combine exactly under one declared SD convention. Recalculate the chart, prose, and any dependent standardized comparisons from the same data."
+    },
+    {
+      "severity": "major",
+      "target": "charts/cohort-fasting-glucose.chart.json#chart-cohort-fasting-glucose; charts/skewed-clinic-sample.chart.json#chart-skewed-clinic-sample",
+      "finding": "Both charts provide bin counts but assert exact means, medians, quartiles, ranges, standard deviations, rank counts, and intervention totals that cannot be recomputed from those bins. Many raw data sets produce the same histogram while producing different exact summaries. This prevents independent verification of central quantitative examples despite the pack stating that the invented arithmetic is checkable.",
+      "resolution": "Include the complete invented observations or another exact, inspectable data record, generate every histogram and summary from that record, and reconcile the resulting values across charts, scenes, claims, and assessment."
+    },
+    {
+      "severity": "major",
+      "target": "assessment.json#item-choose-summary-skewed",
+      "finding": "The answer treats the mode as close to meaningless merely because the variable is continuous. Exact repeated sample values may indeed be unhelpful after fine measurement, but a continuous population can have a meaningful density mode, and a histogram's modal interval can reveal one or several peaks. The cited NIST location source explicitly makes this distinction. Dismissing the mode categorically undermines the objective of choosing among centre summaries and obscures multimodality.",
+      "resolution": "Distinguish the exact-value sample mode from a modal class or population-density mode. Revise this assessment reasoning, content/020-centre.md, and glossary.json#term-mode so continuity alone is not taught as grounds for discarding modal structure."
+    },
+    {
+      "severity": "major",
+      "target": "content/050-misconception.md#misconception-mean-on-skewed-data",
+      "finding": "The statement that a fasting glucose value of 382 mg/dL is a real measurement of a real problem converts an invented observation into an unsupported clinical interpretation. The mapped sources establish descriptive-statistics behavior, not the validity or clinical meaning of that measurement, and the pack elsewhere says it asserts no diagnostic threshold.",
+      "resolution": "Replace the statement with the academically bounded point that an extreme observation may be valid or may reflect error and requires investigation before exclusion. If a clinical interpretation is retained, support and scope it with an authoritative health-sensitive claim and preserve the non-advice boundary."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#item-compute-standard-deviation",
+      "finding": "Independent recalculation confirms the keyed result: the mean is 150 mg/dL, the squared deviations total 400, the sample variance is 100 mg^2/dL^2, and the sample standard deviation is 10.0 mg/dL.",
+      "resolution": "No change required for this item's numerical answer."
+    }
+  ],
+  "limitations": [
+    "The operator's scope prohibited reading site/, so the course terminology ledger, machine-readable graph node, quorum policy, and review schema were not directly inspected. The artifact follows the supplied academic review template, and outcome scope was checked against course/PREMED-SYLLABUS.md#Q...",
+    "The PubMed Central full text for source-wan-median-to-mean returned an automated-access challenge in this environment. PubMed metadata confirmed the article identity, but the exact cited derivation could not be reopened directly; this does not prevent the verdict because the normal IQR/SD constan...",
+    "The absence of exact raw invented observations prevents independent recalculation of the cohort and skewed-clinic summaries; that evidence limitation is recorded as a major finding rather than filled by inference.",
+    "This review covers introductory descriptive statistics, calculation logic, evidence mapping, reporting boundaries, and assessment correctness. It does not independently establish endocrinology thresholds or clinical significance."
+  ],
+  "signedAt": "2026-07-25T10:58:51Z"
+}
