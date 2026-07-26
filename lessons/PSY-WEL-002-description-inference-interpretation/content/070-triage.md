@@ -16,7 +16,9 @@ Work through it before reading on. Name the kind of each of the four statements 
 
 *Abdominal pain* is a person's report, and it is the reason M. is here. Its check is asking M., which is available immediately and costs nothing.
 
-*Likely functional* is a causal explanation. It asserts that the pain is produced by something other than a disease process in the abdomen. Its check is evidence that separates it from a rival, and the rivals here are the physical causes of abdominal pain. The note does not name one, and no such evidence is in it.
+*Likely functional* is a causal explanation, and it is worth being careful about what it does and does not assert. It is sometimes read as meaning *not a disease of the abdomen*, and that reading is out of date: current gastroenterology frames these presentations as disorders of gut-brain interaction, involving real, describable mechanisms including altered gut sensitivity and motility and central processing of those signals. So the word is not a way of saying nothing is wrong, and using it that way in a note is itself part of the problem.
+
+What makes it a causal explanation is that it commits to a mechanism rather than describing a finding, and its check is evidence separating it from rivals: the structural and inflammatory causes of abdominal pain on one side, and the gut-brain mechanisms on the other. The note names no rival and carries no such evidence. It also arrives attached to *known anxiety disorder*, which is the sequence that should make a reader slow down rather than nod.
 
 *Obs stable*, meaning the routine observations of pulse, blood pressure, temperature and the rest, is a compressed observation. It is the exception the second scene named: the numbers behind it are stored elsewhere in the system, so its check has not expired.
 

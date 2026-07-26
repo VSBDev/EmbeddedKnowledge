@@ -28,7 +28,7 @@ Your job is to assign each line to a kind, name the check that goes with it, and
 | --- | --- | --- | --- |
 | 1 | A person's report | Ask R. again | R.'s own words. *Low mood* and *loss of interest* are the writer's vocabulary, and asking again next month gets a fresh account, not the one R. gave that evening. |
 | 2 | A person's report | Ask R. again | Nothing. Specific, dated, and answerable. |
-| 3 | A person's report | Ask R. again | Only the explicit attribution, which a reader can safely supply here. In a note where the partner also spoke, that would be a real ambiguity. |
+| 3 | Reads as a person's report, though the note never says so | Ask R., and ask whoever wrote the line | Its attribution. Nothing in the extract states whose account this is. It reads as R.'s and probably is, and *probably* is not a source; supplying the attribution silently is the move this lesson exists to catch. The partner spoke at this appointment, which is exactly why the ambiguity is real rather than theoretical. |
 | 4 | Another person's report | Ask the partner | The partner's material. *Not himself* is the partner's own inference, and the note kept the conclusion without what produced it. |
 | 5 | Two candidates and no way to choose | None, until the note says which it was | Its source. If R. was weighed, this is an observation made by whoever weighed him; if R. said so, it is a report. *Unintentional* can only have come from R. |
 | 6 | Direct observation | A second person in the room, at the time | Nothing, and it is the only line whose check has already expired. |

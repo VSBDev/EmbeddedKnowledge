@@ -48,3 +48,48 @@ The four `RUNTIME-STAMPED` values are literal placeholders written by the author
 ## Candidate status
 
 This is an authoring candidate. Its lesson status is `draft`, its source confidence is `pending-review`, and every claim in `claims.json` is `pending-review`. No review or adjudication artifact exists. Validation, self-audit, and a developmental cold read do not establish approval, publication, outcome coverage, learner effectiveness, university credit, clinical competence, licensure, board eligibility, or authority to practise psychiatry.
+
+## Adjudication repairs to the 0.1.0 candidate
+
+The academic review returned request-changes with seven major findings, one minor and one
+verification note; the learning-design review approved with five notes and one minor. All were
+repaired in one finalization pass and none was declined.
+
+- **Inter-rater agreement was doing work it cannot do.** A kappa describes how reproducibly a
+  category is applied across raters and cases. It says nothing about whether a particular
+  classification of a particular person is correct, and two clinicians landing apart is not made
+  ordinary by a low figure. The check on an individual classification is now stated as reading the
+  published requirements against the recorded findings, with reproducibility named as the related but
+  different question.
+- **The lesson taught post hoc reasoning as if it were a definition.** *"Symptoms began after the
+  redundancy"* was keyed as a causal explanation because of the word *after*. It asserts temporal
+  order. The feedback now says so, and relocates the difficulty to where it belongs: the line states
+  no source and no purpose, and a reader who comes away with an explanation supplied the causation
+  themselves.
+- **The worked example contradicted its own governing rule.** It stated that the extract does not
+  identify who said what, then supplied an attribution and called that safe. The row now records the
+  attribution as lost, notes that the line reads as R.'s and probably is, and says that *probably* is
+  not a source. The partner spoke at this appointment, which makes the ambiguity real.
+- **"Likely functional" was defined in an outdated frame.** Current gastroenterology treats these
+  presentations as disorders of gut-brain interaction with real, describable mechanisms, so the phrase
+  is not a way of saying nothing is wrong. What makes it a causal explanation is that it commits to a
+  mechanism, and its rivals are named on both sides.
+- **Hypothyroidism was described as resting on one number.** Overt primary hypothyroidism is defined
+  by a raised thyroid-stimulating hormone together with a low free thyroxine, and the uncommon central
+  forms can present with a low or unremarkable TSH alongside a low free thyroxine, which is exactly
+  what a single-number rule would miss.
+- **"An explanation cannot be acted on" was false, and contradicted an earlier scene** that says a
+  causal explanation invites action. The danger is the opposite of inertness: an unsupported causal
+  explanation narrows what anyone looks for and makes the next clinician's search feel already done.
+- **The lesson's central model had no claim record.** The six-way taxonomy, its per-kind checks, and
+  the separation of classification from causal explanation are this lesson's own analytic convention,
+  not a finding reported by a source. That is now recorded as a claim, declared as a convention,
+  resting on the sourced foundation it does have, and stating that other cuts are defensible.
+- **"Near-universal public standing" overstated the surveys**, which reported agreement at or above
+  eighty per cent in particular countries and periods. The prose now matches the ledger, and says
+  plainly that the overstatement was the same drift the scene is about.
+
+The learning-design review's minor concerns the cross-course `alignment` on *interpretation*, which
+premed treats as an alias for inference and this lesson reserves for classification and causal
+explanation. That declaration is deliberate and is left standing; it is recorded as a distinct-sense
+protest rather than an accident, which is what the alignment block is for.

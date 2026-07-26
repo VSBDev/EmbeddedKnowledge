@@ -34,7 +34,7 @@ In 2022 a systematic umbrella review in *Molecular Psychiatry*, meaning a review
 
 In 2023 the same journal published a reply from a different group, who argued that the review had applied its methods inconsistently, reported the evidence selectively, and misread the brain-imaging studies, and who held that the serotonin system is implicated in depression.
 
-The dispute is live and this lesson does not settle it. What the episode shows is the shape of the problem. A causal sentence reached near-universal public standing while the evidence behind it was under specialist dispute, and the places it travelled to, from a leaflet to a conversation to a letter, did not carry the dispute with it.
+The dispute is live and this lesson does not settle it. What the episode shows is the shape of the problem. A causal sentence became very widely believed while the evidence behind it was under specialist dispute, and the places it travelled to, from a leaflet to a conversation to a letter, did not carry the dispute with it. The surveys behind that belief were run in particular countries and particular periods and reported agreement at or above eighty per cent in those samples, which is what the claim ledger records; *near-universal* was this lesson overstating its own source, and the overstatement is the same kind of drift the scene is about.
 
 ## What to write instead
 
