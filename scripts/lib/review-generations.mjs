@@ -11,7 +11,11 @@
 // whose reviews were thrown away. A legitimate re-authoring cycle looks almost identical except that
 // it carries that record, so the record is what this asks for.
 
-/** Lesson versions whose review artifacts were deleted somewhere in the range. */
+/**
+ * Lesson versions whose review artifacts were deleted and are still absent.
+ * Callers pass only deletions whose file is missing at head: a record that was removed and then
+ * restored is not a discard, and restoring it is the correct way to undo one.
+ */
 export function discardedReviewVersions({ deletions, versionAt }) {
   const versions = new Map();
   for (const { path, commit } of deletions) {
