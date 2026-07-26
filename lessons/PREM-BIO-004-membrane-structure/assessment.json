@@ -1,0 +1,346 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-assessment-v1",
+  "lessonId": "PREM-BIO-004",
+  "lessonVersion": "0.1.0",
+  "assessmentId": "assessment-membrane-structure-fluidity",
+  "title": "Membrane structure and fluidity mastery check",
+  "purpose": "mastery-gate",
+  "attemptPolicy": {
+    "retakeable": true,
+    "timeLimitMinutes": null,
+    "feedback": "after-attempt"
+  },
+  "items": [
+    {
+      "id": "item-predict-fluidity-directions",
+      "type": "open-response",
+      "sceneId": "scene-stiffer-looser-cholesterol",
+      "objectiveIds": [
+        "objective-predict-fluidity-change"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-membrane-structure"
+      ],
+      "prompt": "A cell line is grown at 37 degrees Celsius and then moved to 25 degrees Celsius, where it is kept for several generations. For each of the following, state the direction of the change and the mechanism behind it in one sentence: (a) what happens to membrane fluidity in the minutes immediately after the temperature drop, before the cell has changed anything; (b) what change to the proportion of cis-unsaturated chains you would expect the cell to make over the following generations, and why; (c) what change to hydrocarbon chain length you would expect, and why; (d) name one reason your predictions in (b) and (c) could both be wrong while the cell still ends up with a membrane at a working viscosity.",
+      "stimulus": null,
+      "points": 4,
+      "responseSpec": {
+        "mode": "text",
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "maxLength": 1600
+      },
+      "answer": {
+        "correct": "(a) Fluidity falls immediately. Less thermal energy means less chain motion and tighter packing, and if the drop crossed the phase transition the bilayer would move towards the rigid crystalline state rather than merely stiffening. (b) The cell should raise the proportion of cis-unsaturated chains. A cis double bond kinks a chain so the chains pack together less easily, which lowers the phase transition temperature and keeps the membrane liquid in the cold. (c) The cell should shorten its chains. A shorter chain has less length along which to interact with its neighbours, so shorter chains also lower the transition temperature. (d) The general principle names more than two levers. An organism can hold viscosity steady by changing branched-chain content or by changing the lipid head groups instead, so a correct prediction about the outcome, a membrane held at working viscosity, is compatible with a wrong prediction about which mechanism was used. The evidence for the mechanisms is also largely bacterial, so a mammalian cell line need not use the same route.",
+        "summary": "Fluidity falls at once; the cell should then raise cis-unsaturation and shorten chains, both of which lower the transition temperature; and the prediction can fail on mechanism because branched chains and head groups are alternative routes to the same viscosity.",
+        "reasoning": "Award one point for (a) only when the answer gives both the direction and a thermal-motion or packing mechanism; naming the phase transition is credited but not required. Award one point for (b) only when the direction is upward and the reason is the kink obstructing packing, rather than an unexplained association between unsaturation and fluidity. Award one point for (c) only when the direction is towards shorter chains and the reason is reduced chain-to-chain interaction along a shorter contact. Award one point for (d) only when the answer identifies an alternative compositional route, such as branched chains or head groups, or the bacterial provenance of the evidence, and connects it to the difference between predicting an outcome and predicting a mechanism. An answer that says only 'biology is complicated' does not earn this point.",
+        "acceptableResponses": [
+          "For (a), 'less fluid, less thermal motion so the chains pack more tightly' is sufficient.",
+          "For (d), either the alternative-mechanism route or the bacterial-provenance limitation earns the point; naming both is not required.",
+          "Answers that use 'more ordered' or 'more viscous' in place of 'less fluid' are equivalent and acceptable."
+        ],
+        "commonErrors": [
+          "Giving (b) and (c) as memorised associations with no mechanism, which does not survive a rephrased question.",
+          "Predicting longer chains in the cold by reasoning that longer chains are somehow more flexible; chain length raises the transition temperature.",
+          "Treating (a) as a question about what the cell does, when it asks what happens before the cell does anything.",
+          "Answering (d) with a generic hedge instead of naming an alternative route or the limits of the evidence."
+        ]
+      },
+      "rubricId": "rubric-predict-fluidity-directions",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-cholesterol-direction",
+      "type": "single-choice",
+      "sceneId": "scene-stiffer-looser-cholesterol",
+      "objectiveIds": [
+        "objective-predict-fluidity-change"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-membrane-structure"
+      ],
+      "prompt": "A bilayer built from saturated chains is held at a temperature just below its phase transition, so the chains have packed into the rigid crystalline state. Cholesterol is then added until it makes up a large fraction of the lipid. What happens, and why?",
+      "stimulus": null,
+      "points": 1,
+      "responseSpec": {
+        "mode": "single-choice",
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "options": [
+          {
+            "id": "option-more-fluid-blocks-crystallising",
+            "text": "More fluid than the same bilayer without cholesterol, because cholesterol prevents the hydrocarbon chains from coming together and crystallising."
+          },
+          {
+            "id": "option-less-fluid-rigid-rings",
+            "text": "Less fluid, because cholesterol's rigid ring system restricts the movement of the hydrocarbon chains."
+          },
+          {
+            "id": "option-no-change-inert",
+            "text": "No change, because cholesterol sits at the boundary between the two leaflets and does not interact with the hydrocarbon chains."
+          },
+          {
+            "id": "option-more-fluid-kinks",
+            "text": "More fluid, because cholesterol introduces cis double bonds into the neighbouring hydrocarbon chains."
+          },
+          {
+            "id": "option-less-fluid-thicker",
+            "text": "Less fluid, because cholesterol increases bilayer thickness and a thicker bilayer is always more ordered."
+          }
+        ],
+        "maxLength": null
+      },
+      "answer": {
+        "correct": "option-more-fluid-blocks-crystallising",
+        "summary": "Below the phase transition, cholesterol obstructs crystallisation, so the membrane is more fluid than the same bilayer without it.",
+        "reasoning": "Cholesterol acts in two opposite directions depending on the starting state. Above the phase transition, its rigid rings restrict chain movement and the membrane becomes less fluid, which is the second option and is the right mechanism attached to the wrong starting state. Below the transition, the chains are trying to crystallise and cholesterol gets in the way of that, so the membrane stays more fluid than it otherwise would. The question specifies a temperature below the transition, so the second effect is the one operating. The third option is false, since cholesterol is wedged among the chains. The fourth is false, since cholesterol does not modify neighbouring chains chemically. The fifth attaches a real thickness effect to an invented rule; the study that measured bilayer thickness across compartments found cholesterol depletion changed thickness by at most one angstrom, with protein doing the modulating.",
+        "acceptableResponses": [],
+        "commonErrors": [
+          "Choosing the second option, which is the commonest error and reflects a single memorised direction for cholesterol rather than a dependence on the starting state.",
+          "Choosing any option without noticing that the prompt fixed the temperature below the transition, which is the whole content of the question."
+        ]
+      },
+      "rubricId": "rubric-cholesterol-direction",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-diffusion-arithmetic",
+      "type": "open-response",
+      "sceneId": "scene-how-far-a-lipid-gets",
+      "objectiveIds": [
+        "objective-quantify-two-dimensional-fluid"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-membrane-structure"
+      ],
+      "prompt": "Take a lateral diffusion coefficient of D = 2 micrometres squared per second and the two-dimensional relation mean square displacement equals 4Dt. (a) How long does a lipid take to diffuse 4 micrometres in the plane of the membrane? Show the arithmetic and carry the units. (b) How long to diffuse 40 micrometres, and by what factor is that longer than your answer to (a)? (c) A lipid delivered into the outer leaflet of that same membrane is still, days later, mostly in the outer leaflet. Explain why that is consistent with your answers and not in tension with them. (d) The coefficient you were given, 2 micrometres squared per second, is itself in the range measured in living cell membranes. Given that, say whether protein crowding is a further reason your answer to (a) is too short, and name one thing about a real polarised cell that this relation does not represent at all.",
+      "stimulus": null,
+      "points": 3,
+      "responseSpec": {
+        "mode": "text",
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "maxLength": 1600
+      },
+      "answer": {
+        "correct": "(a) t = r squared divided by 4D = (4 micrometres) squared / (4 x 2 micrometres squared per second) = 16 / 8 = 2 seconds. (b) t = (40) squared / 8 = 1600 / 8 = 200 seconds, which is 100 times longer than 2 seconds. Ten times the distance costs a hundred times the time because the relation puts time in proportion to the square of the distance. (c) The two are different movements. The arithmetic describes lateral diffusion within one leaflet, which is fast. Crossing to the other leaflet means dragging a water-attracting head group through the water-avoiding interior, which is rare: less than once a month per molecule in synthetic bilayers, and days of half-time for an established asymmetry in a plasma membrane. A membrane is fluid within its plane and effectively solid across it, so both observations describe the same structure. (d) No. Crowding is already inside the number. Lipid tracers in a living cell membrane diffuse about four times more slowly than in a model membrane, roughly 0.5 to 4 micrometres squared per second against 5 to 15, because proteins, ordered domains and the cytoskeleton obstruct the path, and the 2 given here sits inside that measured range. Applying the slowdown again would count it twice. What the relation does not represent is whether the journey is available at all: in a polarised cell the tight junction is a fence in the outer leaflet, so a lipid delivered into the outer leaflet of the apical membrane does not reach the basolateral face however long it diffuses. The relation gives the time for unobstructed diffusion over a distance. Whether the path exists is a separate question, and no value of D answers it.",
+        "summary": "2 seconds; 200 seconds, a factor of 100 for ten times the distance; the leaflet observation concerns a different movement that is slower by many orders of magnitude; and the crowding correction is already inside the given coefficient, while what the relation omits is whether the path exists at all.",
+        "reasoning": "Award one point for (a) only when the rearrangement to t = r squared over 4D is used with units carried and the answer is 2 seconds. Award one point for (b) only when the answer is 200 seconds and the factor is identified as 100 with the square-law reason given; a factor of 10 shows a proportional model used where a square-law model belongs and does not earn the point. Award one point for (c) and (d) together, and only when (c) distinguishes lateral diffusion from transbilayer crossing rather than describing the leaflet result as slow diffusion, and (d) recognises that the given coefficient is already a living-cell value, so crowding is not a further correction, and names something the relation does not represent, the tight-junction fence being the one this lesson supplies. An answer that applies the crowding slowdown on top of the given D has double-counted it and does not earn the point, even though the physics it cites is real.",
+        "acceptableResponses": [
+          "Any correct algebraic route to 2 seconds and 200 seconds is acceptable.",
+          "For (d), any obstruction the relation does not contain is acceptable in place of the fence, including confinement to an ordered domain or corralling by the cytoskeleton, provided the answer treats it as a limit on the model rather than as a further multiplier on the given coefficient.",
+          "For (c), an answer framed as 'the membrane is a two-dimensional fluid, so the third dimension is a different problem' earns the point when it also names the head group and the water-avoiding interior.",
+          "For (d), noting that displacement over tens of micrometres departs from the square-law relation because diffusion at that scale is not free is a stronger answer than the expected one and earns the point."
+        ],
+        "commonErrors": [
+          "Reporting the factor in (b) as 10 rather than 100.",
+          "Forgetting the factor of 4 and computing t = r squared over D.",
+          "Treating (c) as evidence that the membrane is not really fluid, rather than as evidence that fluidity is directional.",
+          "Answering (d) by applying the living-cell slowdown to a coefficient that was already measured in a living cell, which counts the same obstruction twice.",
+          "Answering (d) with a change that would shorten the time, such as a higher temperature, which does not address what was asked."
+        ]
+      },
+      "rubricId": "rubric-diffusion-arithmetic",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-asymmetry-mechanisms",
+      "type": "open-response",
+      "sceneId": "scene-one-cell-two-membranes",
+      "objectiveIds": [
+        "objective-explain-membrane-organisation"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-membrane-structure"
+      ],
+      "prompt": "An absorptive intestinal cell keeps two separations going at once: a difference between the two leaflets of one membrane, and a difference between its apical and basolateral membranes. For each separation, name the mechanism that holds it and one observation that demonstrates that mechanism is doing the work. Then consider interrupting the cell's ATP supply for several hours as a way of telling the two mechanisms apart, and say what that experiment would and would not establish.",
+      "stimulus": null,
+      "points": 4,
+      "responseSpec": {
+        "mode": "text",
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "maxLength": 2000
+      },
+      "answer": {
+        "correct": "The leaflet difference is created and maintained by ATP-driven transporters, principally flippases moving phosphatidylserine and phosphatidylethanolamine to the cytoplasmic leaflet, and it persists because spontaneous crossing between leaflets is very slow. The demonstrating observations are that flippases are ATP-dependent and that, once established, an asymmetry takes a half-time of several days to run down without enzymatic help. The apical-to-basolateral difference is held by the tight junction acting as a fence. The demonstrating observation is the liposome-fusion experiment in a polarised kidney monolayer: a fluorescent phospholipid delivered into the outer leaflet of the apical membrane did not reach the basolateral side, while the same marker delivered into both leaflets redistributed immediately, showing that the fence operates in the outer leaflet and not the cytoplasmic one. Composition contributes too, since the apical membrane's glycolipid enrichment and ordered domains are properties of what it is made of. Interrupting ATP for several hours establishes less than it looks like it should, because it is not a selective intervention. One half of the reasoning does hold. If the flippases alone stopped, the leaflet difference would lose little over several hours, because what preserves it is the slowness of spontaneous crossing rather than the pumps: an established asymmetry runs down with a half-time of days. That is the real lesson, and it is about timescale, not about one separation being ATP-dependent and the other not. The other half does not hold. Removing ATP removes it from everything, including the cytoskeleton the junction is anchored to and the transport and calcium handling the junction depends on, so the fence cannot be assumed to sit there intact while only the flippases stop. This lesson's sources establish that spontaneous flip-flop is slow and that the junction is a fence in the outer leaflet. They do not establish what a general energy failure does to that fence, and it is not safe to assume nothing. So the experiment cannot attribute what survives to the mechanism being asked about: an intervention that hits everything cannot isolate one thing. Separating a pump from a barrier needs an intervention aimed at one of them.",
+        "summary": "Leaflet difference: ATP-driven flippases create it and slow spontaneous flip-flop preserves it, evidenced by ATP dependence and a days-long decay half-time. Apical against basolateral: the tight-junction fence, evidenced by the outer-leaflet-only liposome result, with composition contributing. A general ATP interruption cannot tell the two apart, because it removes energy from the junction's own supporting structures as well as from the pumps; what it does show is that the leaflet difference is stable on the wrong timescale to be pump-maintained hour to hour.",
+        "reasoning": "Award one point for naming ATP-driven flippases as the maintaining mechanism for the leaflet difference together with slow spontaneous flip-flop as the reason it persists. Award one point for the demonstrating observation for that separation, either the ATP dependence of the transporters or the days-long decay half-time. Award one point for naming the tight junction as a fence and reconstructing the liposome experiment, including the contrast between outer-leaflet and both-leaflet delivery; an answer that names the junction without an observation does not earn this point. Award one point for the ATP-interruption reasoning when it does both of two things: identifies that several hours is short against a days-long decay, so stopping the pumps alone would remove little of the leaflet asymmetry, and recognises that removing ATP is not selective, so what happens to the junction is not something the intervention or this lesson's sources settle. An answer that asserts the leaflet difference collapses within hours has confused maintenance with the barrier that makes maintenance cheap. An answer that confidently reports both separations surviving intact has treated a global intervention as a targeted one, and earns the point only if it names that as an assumption.",
+        "acceptableResponses": [
+          "Mentioning scramblase activation as a faster route to collapsing the leaflet difference is correct and does not lose a point, provided the answer notes that this is a different mechanism rather than the ATP interruption described.",
+          "Crediting composition, in the form of glycolipid enrichment and ordered domains, alongside the junction for the apical-to-basolateral separation is correct and welcome.",
+          "An answer that says the leaflet asymmetry degrades over days and is therefore only partly reduced after several hours is equivalent to 'largely survives' for the first half of the reasoning.",
+          "Proposing a better-aimed experiment, such as inhibiting or deleting a single flippase rather than starving the whole cell, is a stronger answer than the expected one and earns the point."
+        ],
+        "commonErrors": [
+          "Claiming the tight junction blocks both leaflets, which the experiment specifically rules out.",
+          "Claiming the tight junction is what puts each protein on the correct face, which confuses retention with sorting.",
+          "Asserting that stopping ATP collapses lipid asymmetry within hours, which ignores the rate that made the asymmetry stable in the first place.",
+          "Treating ATP starvation as though it stopped only the flippases, which is the assumption the last part of this item is asking you to notice.",
+          "Naming mechanisms without any observation, which answers a different question from the one asked."
+        ]
+      },
+      "rubricId": "rubric-asymmetry-mechanisms",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-integrated-drug-case",
+      "type": "open-response",
+      "sceneId": "scene-clinical-wrap-up",
+      "objectiveIds": [
+        "objective-predict-fluidity-change",
+        "objective-explain-membrane-organisation"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-membrane-structure"
+      ],
+      "prompt": "A research group describes an experimental antifungal that removes ergosterol from fungal membranes and reports that it binds ergosterol about thirty times more readily than it binds cholesterol. Using only the membrane reasoning from this lesson, answer four things. (a) Predict two directions in which a fungal membrane's behaviour changes once its sterol is removed. (b) Say what a thirtyfold binding preference does and does not tell you about effects on human cells. (c) A colleague proposes that raising the dose until fungal killing is complete is safe because the preference is so large. Say what is wrong with that reasoning in terms of membranes rather than in terms of clinical practice. (d) Predict one route by which a fungal population could become resistant, and state what you would measure to see whether that route carried a cost. This is a teaching exercise; do not give clinical advice, doses, or recommendations.",
+      "stimulus": null,
+      "points": 4,
+      "responseSpec": {
+        "mode": "text",
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "maxLength": 2000
+      },
+      "answer": {
+        "correct": "(a) A sterol-depleted membrane loses what was restricting chain movement and obstructing crystallisation, so its fluidity becomes more sensitive to temperature and to composition than it was; and it loses the reduction in deformability that sterol provided, so it becomes more permeable to small water-soluble molecules. Either direction, expressed as loss of the buffering role or as increased leakiness, is the point. (b) A thirtyfold preference says the drug binds one sterol about thirty times more readily than the other. It does not say human membranes are untouched, because a preference is a ratio and not a switch; a drug with a tenfold preference is already known to disrupt mammalian membranes non-selectively. (c) Raising the dose raises the occupancy of both sterols together, and the margin does not hold while it does. Binding saturates. The preferred target fills up first, so as the dose climbs the fungal sterol approaches full occupancy while the human sterol keeps rising, and the gap between them closes: the thirtyfold advantage is largest at low occupancy and worth nothing once both are saturated. Raising the dose until fungal killing is complete is deliberately driving the system towards the end where the preference has been spent. There is a second problem with the reasoning even before that. A binding preference is a ratio of affinities, and an affinity ratio is not an effect ratio; getting from one to the other needs how much drug reaches each membrane, how much sterol is there to bind, how many bound molecules it takes to do anything, and how each membrane responds. The colleague has treated a ratio as a threshold, and assumed the ratio survives the dose increase. Neither holds. (d) The fungus could alter its own membrane sterol, replacing ergosterol with another sterol the drug binds poorly, which is the known route for this drug class. To see whether that carried a cost I would measure the membrane behaviour the substituted sterol is now responsible for: chain order or viscosity across a range of temperatures, and passive permeability to a small water-soluble tracer, comparing resistant and parent strains.",
+        "summary": "Loss of sterol removes both the buffering of fluidity and the reduction in permeability; a thirtyfold preference is a ratio rather than a switch, and because binding saturates the preferred target fills first, so raising the dose narrows the margin rather than preserving it; resistance most plausibly comes from substituting the sterol, and the cost would show up in chain order or viscosity across temperature and in passive permeability.",
+        "reasoning": "Award one point for (a) only when two directions are given and each is tied to a stated property of sterol in a membrane; two restatements of the same effect earn one direction, not two. Award one point for (b) only when the answer identifies the preference as a ratio rather than an absence of effect. Award one point for (c) only when the argument is made in membrane terms and gets the direction right: raising the dose raises occupancy of both sterols, and because binding saturates the preferred one fills first, so the margin narrows as the dose climbs. An answer stating that the ratio stays fixed while the absolute effect rises has the second half right and the first half wrong, and does not earn the point, because a fixed ratio is the reassuring version of the error the item is built around. Recognising instead that an affinity ratio is not an effect ratio without exposure, sterol abundance, stoichiometry and response also earns the point. An answer that appeals to clinical practice or to toxicity generally, without a membrane-level argument, does not. Award one point for (d) only when the resistance route is a change in the membrane's own sterol composition and the proposed measurement is a membrane behaviour rather than a growth or survival readout alone. An answer containing a dose, an indication, or a clinical recommendation loses that point regardless of its other content, because the prompt set that boundary.",
+        "acceptableResponses": [
+          "For (a), 'the membrane is less able to hold its properties steady as temperature changes' and 'the membrane leaks small water-soluble molecules more readily' are the two expected directions; equivalent phrasings are acceptable.",
+          "For (d), naming a specific biosynthetic step is not required; 'replaces ergosterol with a sterol the drug binds poorly' is sufficient.",
+          "Proposing an additional measurement, such as sensitivity to a membrane-disrupting agent, alongside the two named is acceptable.",
+          "For (c), either route earns the point: that saturation narrows the margin as the dose rises, or that an affinity ratio cannot be converted into an effect ratio from affinity alone. Both together is a full answer and is what a strong response looks like."
+        ],
+        "commonErrors": [
+          "Answering (b) by restating the preference as evidence of safety, which is the error the item is built around.",
+          "Answering (c) with the claim that the ratio between the two effects holds steady as the dose rises, which sounds like the careful answer and is the opposite of what saturable binding does.",
+          "Answering (c) with clinical reasoning about monitoring or dosing, which the prompt excludes and which the lesson never taught.",
+          "Predicting in (a) that the membrane becomes less permeable, which reverses the direction sterol acts in.",
+          "Proposing in (d) a resistance route that changes the drug rather than the membrane, which the question's framing about membranes does not support."
+        ]
+      },
+      "rubricId": "rubric-integrated-drug-case",
+      "safetyCritical": true
+    }
+  ],
+  "rubrics": [
+    {
+      "id": "rubric-predict-fluidity-directions",
+      "title": "Predicting compositional and thermal effects on membrane fluidity",
+      "criteria": [
+        {
+          "id": "criterion-immediate-thermal-effect",
+          "description": "Award 1 point only when the immediate effect of cooling is given as reduced fluidity with a thermal-motion or packing mechanism, and the answer does not substitute the cell's later adaptive response for it.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-unsaturation-direction",
+          "description": "Award 1 point only when the predicted change is towards more cis-unsaturated chains and the reason given is the kink obstructing packing, so that the transition temperature falls.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-chain-length-direction",
+          "description": "Award 1 point only when the predicted change is towards shorter chains and the reason given is reduced chain-to-chain interaction along a shorter contact.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-prediction-limits",
+          "description": "Award 1 point only when the answer names a genuine alternative route to the same viscosity, such as branched chains or head-group change, or the bacterial provenance of the evidence, and connects it to the difference between predicting an outcome and predicting a mechanism.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-cholesterol-direction",
+      "title": "Cholesterol's direction depends on the starting state",
+      "criteria": [
+        {
+          "id": "criterion-cholesterol-below-transition",
+          "description": "Award 1 point only for the option stating that the membrane is more fluid than it would otherwise be because cholesterol obstructs crystallisation. The option naming rigid rings restricting chain movement is the right mechanism for the wrong starting state and earns nothing.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-diffusion-arithmetic",
+      "title": "Diffusion arithmetic and the direction of membrane fluidity",
+      "criteria": [
+        {
+          "id": "criterion-first-time",
+          "description": "Award 1 point only when the relation is rearranged to t = r squared over 4D, units are carried, and the answer is 2 seconds.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-square-law-factor",
+          "description": "Award 1 point only when the second time is 200 seconds and the factor is identified as 100 with the square-law reason stated. A factor of 10 earns nothing here.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-directionality-and-idealisation",
+          "description": "Award 1 point only when the leaflet observation is explained as a different movement rather than as slow lateral diffusion, and a named obstruction in a real membrane is given as a reason the idealised time is too short.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-asymmetry-mechanisms",
+      "title": "Mechanisms and evidence for two membrane separations",
+      "criteria": [
+        {
+          "id": "criterion-leaflet-mechanism",
+          "description": "Award 1 point only when ATP-driven flippases are named as the maintaining mechanism together with slow spontaneous flip-flop as the reason the difference persists.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-leaflet-evidence",
+          "description": "Award 1 point only when a demonstrating observation is supplied for the leaflet separation, either the ATP dependence of the transporters or the days-long decay half-time.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-fence-evidence",
+          "description": "Award 1 point only when the tight junction is named as a fence and the liposome experiment is reconstructed, including the contrast between outer-leaflet and both-leaflet delivery and the conclusion that the fence acts in the outer leaflet only.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-atp-interruption",
+          "description": "Award 1 point only when the ATP reasoning turns on timescale, recognising that several hours is short against a days-long decay so both separations largely survive. Asserting immediate collapse of the leaflet asymmetry earns nothing.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-integrated-drug-case",
+      "title": "Transferring membrane reasoning to a sterol-targeting drug",
+      "criteria": [
+        {
+          "id": "criterion-two-directions",
+          "description": "Award 1 point only when two distinct directions of change are predicted for a sterol-depleted membrane, each tied to a stated property of sterol. Two phrasings of the same effect count once.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-ratio-not-switch",
+          "description": "Award 1 point only when the binding preference is identified as a ratio that does not imply human membranes are unaffected.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-dose-argument-in-membrane-terms",
+          "description": "Award 1 point only when the dose argument is answered in membrane terms, that raising the dose raises absolute occupancy of both sterols while leaving the ratio unchanged. Appeals to clinical practice earn nothing here.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-resistance-and-cost",
+          "description": "Award 1 point only when the resistance route is a change in the fungal membrane's own sterol and the proposed measurement is a membrane behaviour such as chain order, viscosity across temperature, or passive permeability. Deduct this point if the response states any dose, indication, or clinical recommendation, which the prompt excluded.",
+          "maxPoints": 1
+        }
+      ]
+    }
+  ]
+}
