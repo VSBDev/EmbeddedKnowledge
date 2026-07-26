@@ -9,6 +9,7 @@
   --acid: #dfff00;
   --blue: #a8d8e8;
   --violet: #c8b9e8;
+  --violet-deep: #6b4a9e;
   --green: #b9d89b;
   --white: #fffdf7;
   --reader-dark-line: #55595d;
@@ -216,10 +217,10 @@ svg {
   transform: rotate(45deg);
 }
 
-.site-header:not(.is-scrolled) .primary-nav a:nth-child(n + 3),
-.site-header:not(.is-scrolled) .header-cta {
-  color: var(--white);
-}
+/* This turned the last four navigation items and the call to action cream before the page is
+   scrolled, which was written for a dark hero that does not exist: on the paper ground they sat at
+   1.13:1 and were invisible on arrival. The header is light at every scroll position, so the
+   links keep the ink colour they inherit. */
 
 .menu-button {
   display: none;
@@ -684,8 +685,10 @@ h2 em {
   justify-content: space-between;
   padding: 24px;
   overflow: hidden;
-  color: var(--white);
-  background: var(--red);
+  /* Each book owns its colour. The tokens default to book 01's so nothing else has to change,
+     and a third book is one declaration rather than a fork of this rule. */
+  color: var(--book-ink, var(--white));
+  background: var(--book-bg, var(--red));
   border: 1px solid var(--ink);
   box-shadow: 12px 12px 0 var(--ink);
 }
@@ -723,7 +726,7 @@ h2 em {
 .poster-topline,
 .poster-footer,
 .poster-title span {
-  color: var(--ink);
+  color: var(--book-small-ink, var(--ink));
 }
 
 .poster-orbit {
@@ -1482,4 +1485,12 @@ h2 em {
 
 @media (scripting: none) {
   .reveal { opacity: 1; transform: none; }
+}
+
+/* Book 02. Dark small text reads at 2.65:1 on this ground and fails, so the whole cover inverts to
+   cream, which reads at 6.66:1. Book 01 keeps its dark small text on the lighter orange at 4.83:1. */
+.book-psychiatry {
+  --book-bg: var(--violet-deep);
+  --book-ink: var(--white);
+  --book-small-ink: var(--white);
 }

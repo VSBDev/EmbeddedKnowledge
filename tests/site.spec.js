@@ -60,7 +60,13 @@ test("the root is an EmbeddedKnowledge landing page with a book library", async 
 
   await expect(page.locator("h1")).toContainText(/University\s*knowledge/);
   await expect(page.locator("#ethos h2")).toContainText("Only one of those is necessary");
-  await expect(page.locator("#method h2")).toContainText("Understanding is a loop");
+  // The books now sit directly under the hero. That ordering is the page's whole argument about
+  // what it is for, so it is asserted rather than left to whoever edits the sections next.
+  const order = await page.evaluate(() => {
+    const nodes = [...document.querySelectorAll(".book-link, #ethos")];
+    return nodes.map((n) => (n.id === "ethos" ? "ethos" : "book"));
+  });
+  expect(order.slice(0, 3)).toEqual(["book", "book", "ethos"]);
   const bookLinks = page.locator(".book-link");
   await expect(bookLinks).toHaveCount(2);
   await expect(bookLinks.first()).toHaveAttribute("href", "premed/");
