@@ -1,0 +1,157 @@
+{
+  "schemaVersion": 1,
+  "adjudicationId": "ADJ-PREM-BIO-004-A8FDC330",
+  "lessonId": "PREM-BIO-004",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "aa2468544ad34f4580735aedc69daa12b225c39f",
+  "finalCommit": "fd54546acbee45c0d55651423932dd27e61986a5",
+  "riskTier": "standard",
+  "policyId": "standard-lesson-v3",
+  "reviewIds": [
+    "REV-PREM-BIO-004-ACADEMIC-56264239-B250-4486-80CF-7F2B85C039A3",
+    "REV-PREM-BIO-004-FBE5975D-4474-41DA-B83E-0D1CE7FDBBB9"
+  ],
+  "quorum": {
+    "satisfied": true,
+    "approvals": 1,
+    "reviewInputs": 2,
+    "changeRequests": 1,
+    "roleCounts": {
+      "academic": 1,
+      "learningDesign": 1,
+      "accessibilityRights": 0
+    },
+    "distinctPrincipals": 1,
+    "distinctAgentRuns": 2,
+    "distinctAgentModelFamilies": 2
+  },
+  "decision": "merge",
+  "rationale": "Both role-isolated advisory inputs were present from distinct runs and model families, pinned to the same frozen candidate. The academic review returned request-changes with five major and three minor findings; the learning-design review approved with five notes. None carries blocking severity and all eight were correctable in this pass, so all were disposed here. Three of the majors were the most serious kind of defect this corpus can ship: answer keys that required a false argument to score. One had the direction of saturable binding backwards, so a learner who correctly saw the selectivity margin narrow as the dose rose would have lost the point to the reassuring version of the error the item was built to catch. One required the answer that a general ATP interruption leaves a tight junction intact, which the lesson's sources do not support; it now asks what that experiment would and would not establish, which is a better question. One demanded a crowding correction on a diffusion coefficient that already contained it. Two content findings were also right: the pore and sponge accounts of amphotericin B do not share a destination, and a scene that had said the two faces of a polarised cell are continuous went on to call them separate membranes. The academic verdict stands as dissent and no reviewer has seen the repaired text.",
+  "dissent": [
+    "The academic review's request-changes verdict stands as material dissent from the candidate as reviewed. Its findings were incorporated by the maintainer afterwards; no reviewer has approved the repaired text.",
+    "Three of the eight findings were places where the claim ledger was already correct and the teaching surface had drifted from it. Reading prose against the source catches an unsupported claim; it does not catch this. Whether the pack needs a check that reads the teaching surface against its own ledger is left open rather than settled here."
+  ],
+  "conditions": [
+    "The repaired content is committed first and that commit is stamped as finalCommit, with no teaching-content change afterward.",
+    "Strict source preflight and full validation must pass on the final content before merge.",
+    "The publication transition is the maintainer's separate act and is not authorised by this decision."
+  ],
+  "adjudicator": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable maintainer and adjudicator",
+    "agent": {
+      "system": "Claude Code",
+      "provider": "Anthropic",
+      "model": "claude-opus-5",
+      "version": "2.1.215",
+      "runId": "claude-adjudicator-PREM-BIO-004-B1A1A3C08E1B",
+      "instructionsDigest": "sha256:2add5371bcf9393285281f0e2fb3afb93e43749f1fa916074900c5383398ef1b"
+    }
+  },
+  "adjudicatedAt": "2026-07-26T19:47:18Z",
+  "finalization": {
+    "materialChanges": [
+      "Separated the pore and sterol-sponge accounts of amphotericin B, which do not share a destination, and attributed the sterol-removal predictions to the branch that supports them.",
+      "Rewrote the dose argument so saturation narrows the selectivity margin as the dose rises, and named the fixed-ratio answer as a non-scoring error.",
+      "Reframed the ATP-interruption question around what a non-selective intervention can and cannot establish.",
+      "Resolved scene 5's self-contradiction: apical and basolateral are domains of one continuous plasma membrane, and the thickness difference demonstrates structural difference between domains.",
+      "Rewrote the diffusion item's last part so the given coefficient is recognised as already a living-cell value, and the fence is named as something the relation does not represent.",
+      "Removed floppase as an alias of flippase, microvillus and microvilli as aliases of brush border, and transmembrane protein as an alias of integral membrane protein, stating each distinction in the definition."
+    ],
+    "reviewDispositions": [
+      {
+        "reviewId": "REV-PREM-BIO-004-ACADEMIC-56264239-B250-4486-80CF-7F2B85C039A3",
+        "findingIndex": 0,
+        "action": "incorporated",
+        "rationale": "content/07-clinical-wrap-up.md: the two accounts no longer share a destination; the sterol stays in the membrane in the pore account, and the sterol-removal predictions are attributed to the sponge branch that supports them."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-004-ACADEMIC-56264239-B250-4486-80CF-7F2B85C039A3",
+        "findingIndex": 1,
+        "action": "incorporated",
+        "rationale": "assessment.json: item-integrated-drug-case part (c) now has saturation narrowing the margin as the dose rises, with the fixed-ratio answer named in the rubric as a non-scoring error, and credits the affinity-is-not-effect route."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-004-ACADEMIC-56264239-B250-4486-80CF-7F2B85C039A3",
+        "findingIndex": 2,
+        "action": "incorporated",
+        "rationale": "assessment.json: item-asymmetry-mechanisms asks what a general ATP interruption would and would not establish, keeps the timescale reasoning that the sources support, and credits a better-aimed experiment."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-004-ACADEMIC-56264239-B250-4486-80CF-7F2B85C039A3",
+        "findingIndex": 3,
+        "action": "incorporated",
+        "rationale": "content/05-one-cell-two-membranes.md: apical and basolateral are domains of one continuous plasma membrane; the heading and the argument now claim structural difference between domains rather than separateness."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-004-ACADEMIC-56264239-B250-4486-80CF-7F2B85C039A3",
+        "findingIndex": 4,
+        "action": "incorporated",
+        "rationale": "assessment.json: item-diffusion-arithmetic part (d) now requires the learner to see that the given coefficient is already a living-cell value, and to name something the relation does not represent, the fence being the one this lesson supplies."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-004-ACADEMIC-56264239-B250-4486-80CF-7F2B85C039A3",
+        "findingIndex": 5,
+        "action": "incorporated",
+        "rationale": "glossary.json: floppase removed as an alias of flippase, with the definition stating it is a different transporter running the other way."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-004-ACADEMIC-56264239-B250-4486-80CF-7F2B85C039A3",
+        "findingIndex": 6,
+        "action": "incorporated",
+        "rationale": "glossary.json: microvillus and microvilli removed as aliases of brush border, with the one-versus-array distinction stated."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-004-ACADEMIC-56264239-B250-4486-80CF-7F2B85C039A3",
+        "findingIndex": 7,
+        "action": "incorporated",
+        "rationale": "glossary.json: transmembrane protein removed as an alias of integral membrane protein, with single-leaflet integral proteins named as the reason it is the narrower word."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-004-FBE5975D-4474-41DA-B83E-0D1CE7FDBBB9",
+        "findingIndex": 0,
+        "action": "no-change-required",
+        "rationale": "Recorded as a strength of the candidate; nothing to change."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-004-FBE5975D-4474-41DA-B83E-0D1CE7FDBBB9",
+        "findingIndex": 1,
+        "action": "no-change-required",
+        "rationale": "Recorded as a strength of the candidate; nothing to change."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-004-FBE5975D-4474-41DA-B83E-0D1CE7FDBBB9",
+        "findingIndex": 2,
+        "action": "no-change-required",
+        "rationale": "Recorded as a strength of the candidate; nothing to change."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-004-FBE5975D-4474-41DA-B83E-0D1CE7FDBBB9",
+        "findingIndex": 3,
+        "action": "no-change-required",
+        "rationale": "Recorded as a strength of the candidate; nothing to change."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-004-FBE5975D-4474-41DA-B83E-0D1CE7FDBBB9",
+        "findingIndex": 4,
+        "action": "no-change-required",
+        "rationale": "Recorded as a strength of the candidate; nothing to change."
+      }
+    ],
+    "accessibilityRightsAudit": {
+      "satisfied": true,
+      "evidenceChecked": [
+        "All seven scenes keep one level-one heading, semantic Markdown, linear reading order and text-first instruction, with no raw HTML, embeds or executable content.",
+        "The scene-5 map carries alt text and a long description that state both faces, the fence result and the measured thicknesses; the numbers in the long description were checked against the repaired prose.",
+        "Sources are used facts-only with no reuse of source expression, and no Servier asset was fetched or used.",
+        "Every repair narrows a claim to its evidence or corrects a direction, which lowers the pack's accuracy exposure. The safety-critical item is now scoreable by a learner who reasons correctly, which it was not."
+      ],
+      "limitations": [
+        "A maintainer reading of the repaired text, not an independent accessibility or rights review; the accessibility-rights role was not staffed for this tier.",
+        "No screen-reader run was performed against the rendered lesson.",
+        "The repaired assessment keys have not been tried on a learner, so whether the rewritten parts read as answerable is untested.",
+        "The thickness measurement is a hepatocyte result presented as such; the intestinal specifics come from separate composition work, and a rights reviewer may want to confirm that separation is visible to a reader."
+      ]
+    }
+  }
+}

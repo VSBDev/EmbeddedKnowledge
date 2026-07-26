@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-diagram-v1",
+  "id": "diagram-enterocyte-two-faces",
+  "type": "concept-map",
+  "direction": "top-to-bottom",
+  "alt": "One absorptive intestinal cell with an apical membrane facing the lumen, a basolateral membrane facing the tissue beneath, and a tight junction between them acting as a fence in the outer layer of the membrane.",
+  "longDescription": "A map of one absorptive intestinal epithelial cell and the two membranes that enclose it. At the top is the gut lumen, which carries bile salts, pancreatic digestive enzymes and bacteria. Facing the lumen is the apical membrane, thrown into microvilli about one micrometre long and about one hundred nanometres across; the brush border it forms increases apical surface area roughly thirtyfold. That membrane is unusually rich in glycolipids, over thirty per cent of its lipid in pig against roughly five per cent in a typical cell membrane, and those glycolipids together with cholesterol and sphingomyelin form liquid-ordered domains in the outer layer. The organisation gives the apical membrane physical and chemical stability against the lumen. Below the cell is the tissue side, with neighbouring cells and the basement membrane; facing it is the basolateral membrane, which carries a different set of lipids and proteins and handles contact with neighbours and with the basement membrane. Between the two membranes sits the tight junction. It acts as a fence in the outer layer of the membrane, so a labelled lipid placed in the outer layer of the apical membrane does not reach the basolateral side, while the same label placed in the inner layer redistributes immediately. The fence therefore explains how two membranes with different compositions stay different while both remain fluid. Measured bilayer thickness differs between the two faces of a polarised cell: about 42.5 angstroms apical against about 35.6 angstroms basolateral, measured phosphate to phosphate in rat liver membranes, with membrane protein rather than cholesterol accounting for the difference.",
+  "nodes": [
+    {
+      "id": "node-lumen",
+      "label": "Gut lumen: bile salts, pancreatic digestive enzymes, bacteria",
+      "shape": "box",
+      "group": "compartment"
+    },
+    {
+      "id": "node-apical",
+      "label": "Apical membrane: brush border of microvilli, about 1 µm long and about 100 nm across, roughly 30-fold surface increase",
+      "shape": "rounded-box",
+      "group": "membrane"
+    },
+    {
+      "id": "node-apical-lipids",
+      "label": "Apical lipid: glycolipids over 30 per cent in pig against about 5 per cent typical, with cholesterol and sphingomyelin forming liquid-ordered domains",
+      "shape": "ellipse",
+      "group": "composition"
+    },
+    {
+      "id": "node-tight-junction",
+      "label": "Tight junction: fence in the outer layer only",
+      "shape": "diamond",
+      "group": "boundary"
+    },
+    {
+      "id": "node-basolateral",
+      "label": "Basolateral membrane: different lipid and protein set, faces neighbouring cells and the basement membrane",
+      "shape": "rounded-box",
+      "group": "membrane"
+    },
+    {
+      "id": "node-tissue",
+      "label": "Tissue side: neighbouring cells and basement membrane",
+      "shape": "box",
+      "group": "compartment"
+    },
+    {
+      "id": "node-thickness",
+      "label": "Measured bilayer thickness differs by face: about 42.5 Å apical against about 35.6 Å basolateral, phosphate to phosphate, in rat liver",
+      "shape": "pill",
+      "group": "evidence"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-lumen-apical",
+      "from": "node-lumen",
+      "to": "node-apical",
+      "kind": "directed",
+      "label": "the apical membrane is what the lumen is pressed against"
+    },
+    {
+      "id": "edge-apical-lipids",
+      "from": "node-apical-lipids",
+      "to": "node-apical",
+      "kind": "directed",
+      "label": "this composition gives the apical membrane stability against bile salts, digestive enzymes and pathogens"
+    },
+    {
+      "id": "edge-apical-junction",
+      "from": "node-apical",
+      "to": "node-tight-junction",
+      "kind": "directed",
+      "label": "outer-layer lipid placed here does not cross the junction"
+    },
+    {
+      "id": "edge-junction-basolateral",
+      "from": "node-tight-junction",
+      "to": "node-basolateral",
+      "kind": "inhibits",
+      "label": "the fence blocks the outer layer; inner-layer lipid redistributes immediately"
+    },
+    {
+      "id": "edge-basolateral-tissue",
+      "from": "node-basolateral",
+      "to": "node-tissue",
+      "kind": "directed",
+      "label": "handles contact with neighbours and with the basement membrane"
+    },
+    {
+      "id": "edge-thickness-apical",
+      "from": "node-thickness",
+      "to": "node-apical",
+      "kind": "directed",
+      "label": "evidence that the two faces are physically different membranes"
+    },
+    {
+      "id": "edge-thickness-basolateral",
+      "from": "node-thickness",
+      "to": "node-basolateral",
+      "kind": "directed",
+      "label": "the thinner of the two measured faces"
+    }
+  ]
+}
