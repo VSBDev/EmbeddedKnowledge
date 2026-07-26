@@ -4,18 +4,18 @@
   "id": "diagram-what-the-criterion-licenses",
   "type": "flow",
   "direction": "left-to-right",
-  "alt": "One structural test splits cells into two groups, and three tiers of consequence hang off it: what follows directly, what is only a tendency, and what the test does not license at all.",
-  "longDescription": "The diagram starts from a single test: is this cell's DNA enclosed by a membrane envelope of its own? Answering yes gives a eukaryotic cell, whose DNA sits inside a nuclear envelope. Answering no gives a prokaryotic cell, whose DNA sits in the cytoplasm as a nucleoid. Two consequences follow directly from the answer, because they are about where transcription and translation can happen. In a eukaryotic cell the two processes are in separate compartments, so a transcript can be processed and checked before any ribosome reads it. In a prokaryotic cell they share one compartment, so a ribosome can begin reading a transcript that is still being made. Two further boxes are marked as tendencies rather than rules: prokaryotic cells are usually smaller and usually divide faster, and both statements have documented exceptions. A final box sits apart from the chain and is reached from both cell types by an edge labelled does not follow: the test says nothing about which cell type is older, simpler, or less capable. Reading the diagram from the test outward tells you how much weight each downstream statement can carry.",
+  "alt": "One structural test splits cells into two groups, and three tiers of consequence hang off it: what follows directly, what is only a tendency, and what the test does not license at all, plus a branch for what the separation makes possible rather than causes and a branch for what the test does not settle at all.",
+  "longDescription": "The diagram starts from a single working test: is this cell's DNA enclosed by a membrane envelope of its own? Answering yes gives a eukaryotic cell, whose nuclear DNA sits inside a nuclear envelope. Answering no gives a prokaryotic cell, whose DNA sits in the cytoplasm as a nucleoid. Two consequences follow directly from the answer, because they are about where transcription and translation can happen. In a eukaryotic cell the two are in separate compartments for the genes in the nucleus, so a transcript cannot be read until it has crossed the envelope; the cell's mitochondrial genes are outside that arrangement. In a prokaryotic cell they share one compartment, so a ribosome can begin reading a transcript that is still being made. A third box, reached from the eukaryotic branch by an edge labelled made possible rather than follows, holds what the separation opens up rather than causes: processing, quality control and selective export, each of which needs machinery the envelope does not supply. Two further boxes are marked as tendencies rather than rules: prokaryotic cells are usually smaller and usually divide faster, and both statements have documented exceptions. A box reached from both cell types by an edge labelled does not follow holds the conclusions the test cannot support: older, simpler, or less capable. A final box, attached to the test itself, records what the test does not settle at all: which groups a cell belongs to, which is decided by ancestry from sequence comparison, and the known counterexample of a bacterium whose chromosomes sit inside membrane-bound compartments. Reading the diagram outward from the test tells you how much weight each downstream statement can carry.",
   "nodes": [
     {
       "id": "node-test",
-      "label": "The test: is this cell's DNA enclosed by a membrane envelope of its own?",
+      "label": "Working test: is this cell's DNA enclosed by a membrane envelope of its own?",
       "shape": "diamond",
       "group": "test"
     },
     {
       "id": "node-eukaryote",
-      "label": "Eukaryotic cell: DNA inside a nuclear envelope",
+      "label": "Eukaryotic cell: nuclear DNA inside a nuclear envelope",
       "shape": "rounded-box",
       "group": "answer"
     },
@@ -27,7 +27,7 @@
     },
     {
       "id": "node-separated",
-      "label": "Follows: transcription and translation sit in separate compartments, so a transcript can be processed and checked before it is read",
+      "label": "Follows: a nuclear transcript cannot be read until it has crossed the envelope",
       "shape": "box",
       "group": "follows"
     },
@@ -54,6 +54,18 @@
       "label": "Does not follow: older, simpler, or less capable",
       "shape": "ellipse",
       "group": "excluded"
+    },
+    {
+      "id": "node-made-possible",
+      "label": "Made possible, not caused: processing, quality control, selective export",
+      "shape": "rounded-box",
+      "group": "enabled"
+    },
+    {
+      "id": "node-not-settled",
+      "label": "Not settled by the test: which groups a cell belongs to, which ancestry decides; and a bacterium whose chromosomes sit inside membranes",
+      "shape": "box",
+      "group": "limit"
     }
   ],
   "edges": [
@@ -112,6 +124,20 @@
       "to": "node-not-licensed",
       "kind": "directed",
       "label": "does not follow"
+    },
+    {
+      "id": "edge-euk-made-possible",
+      "from": "node-eukaryote",
+      "to": "node-made-possible",
+      "kind": "directed",
+      "label": "made possible, and needs machinery the envelope does not supply"
+    },
+    {
+      "id": "edge-test-not-settled",
+      "from": "node-test",
+      "to": "node-not-settled",
+      "kind": "directed",
+      "label": "does not settle"
     }
   ]
 }

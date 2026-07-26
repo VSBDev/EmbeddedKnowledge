@@ -74,3 +74,64 @@ The figure was licensed from `commons.wikimedia.org`, recorded in the ledger as 
 Material agent assistance was used and is disclosed in `lesson.json`. The run ID is `author-PREM-BIO-002-8BDF09DB-992E-47E4-93D9-5BBD15BD116E`. The agent system, provider, model, and version are recorded as the literal `RUNTIME-STAMPED` and are stamped by the operator before review. The recorded instruction digest is the SHA-256 of the exact disclosed UTF-8 material task payload, including the mid-run operator correction about illustration sourcing and the payload's final newline; it does not cover hidden provider or system instructions, which cannot be exported.
 
 No review or adjudication artifact was produced by this run. Claims remain `pending-review` and lesson source confidence remains `pending-review`, as an authoring candidate requires.
+
+## Adjudication repairs to the 0.1.0 candidate
+
+The academic review returned request-changes with one blocking finding, three major, three minor and
+one verification note; the learning-design review approved with five notes. All seven actionable
+findings were repaired in one finalization pass and none was declined.
+
+**The blocking finding was right, and it was the lesson arguing with itself.** Scene 4 already taught
+the correct position: a criterion stated as a bright line met an organism sitting on the line, and
+what settled the organism was ancestry rather than counting membranes. The objective, the scene 1
+definition, the diagram, the glossary and four answer keys had never caught up with it. They asked the
+learner to classify *any* cell from DNA location alone, which is the exact habit scene 4 spends a page
+dismantling, and which has no answer for a bacterium whose chromosomes sit inside pepins.
+
+The repair does not weaken the test, because the test is the right place for a learner to start. It
+states its standing. It is the working criterion, it is how the two words get applied to almost every
+cell you will meet, and it describes construction rather than deciding membership. The objective now
+requires the learner to say what the test does not settle. The glossary entries for both cell types
+say that ancestry decides the group. The diagram gained a branch off the test itself for what the test
+does not settle at all.
+
+Two consequences of that finding needed separate work. The claim that transcription and translation
+are separated is true of nuclear genes and not of mitochondrial ones, which are transcribed and
+translated in the same compartment inside a eukaryotic cell; scene 3, the diagram and the sort item now
+say so. And the lesson had three tiers where it needed four. Transcript processing and quality control
+are *made possible* by the separation, not caused by it — a membrane inspects nothing, and each step
+needs machinery the envelope does not supply. Scene 3 now names that tier where it first earns it,
+scene 4's sorting rule has four entries, the diagram has a made-possible branch, and the sort item's
+discriminating option tests it.
+
+The three majors were all in answer keys.
+
+- **A tier error inside the item that teaches tiers.** The sort item's key scored transcript
+  processing and quality control as following directly. The lesson's own `claim-nucleus-regulatory-layer`
+  scopes them as regulatory *potential*. The option now states the direct consequence, that a nuclear
+  transcript cannot be read until it has crossed, and a new option carries the quality-control claim as
+  the option a learner should leave unselected.
+- **False precision on a diffusion time.** Inverting the mean-squared-displacement relation gives the
+  characteristic time at which typical displacement reaches a distance, not the latency for a protein
+  to cross a cell. The cited source supports an order of magnitude. The prompt now says characteristic
+  time and says what it is not, the tolerance is loosened from 0.8 to 1.5 seconds, and the key states
+  that diffusion has no arrival time.
+- **A ploidy error and an unsupported causal chain.** The key used 3,054,815,472 base pairs, one
+  haploid telomere-to-telomere assembly, as the amount a human cell copies. A diploid cell copies
+  roughly six billion across 46 chromosome copies, so the key had halved the work it was asking the
+  learner to explain. It also attributed genome size, linear chromosomes, open mitosis and cycle
+  duration to the nuclear envelope, none of which the criterion entails — bacteria organise and
+  segregate chromosomes too, and eukaryotic lineages differ in mitotic architecture. The key now says
+  these features travel together in the two cells being compared rather than being produced by the
+  criterion, which is the same tier discipline the rest of the lesson teaches, applied to itself.
+
+The three minors: scene 1 asserted functions for the capsule, plasmids, pili and the flagellum that no
+claim in this pack establishes, so those are now labels with the gap stated; the mycobacterial culture
+claim called a 2014 study "current tools" and said a two-week negative means almost nothing, and now
+says what that study reported, that molecular testing leads initial diagnosis while culture stays slow,
+and that how weak an interim negative is depends on specimen, burden and system; and the mitochondrial
+ribosome key presented one medium-confidence 2001 proposal as the reason such drugs are toxic at all,
+and now carries it at the strength it was offered.
+
+The academic reviewer also independently recalculated the scene 2 geometry and all fourteen chart
+points and confirmed them. That is recorded as verified rather than as a change.

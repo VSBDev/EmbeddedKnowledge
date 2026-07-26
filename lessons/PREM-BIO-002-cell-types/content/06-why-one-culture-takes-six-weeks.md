@@ -23,7 +23,7 @@ Work out how long 27 doublings takes for each of these, and give the answer in t
 
 Twenty-seven doublings at 18 minutes is 486 minutes, a little over eight hours: set the plate up in the afternoon and read it in the morning. At 52 minutes it is 1404 minutes, close to a full day. At 24 hours it is 648 hours, which is 27 days, or near enough four weeks.
 
-Now the independent check. Published figures for *M. tuberculosis* say identifiable colonies may not appear for four to six weeks on solid media inoculated with clinical material, and that with current tools a primary culture is obtained in two to four weeks on average. Our estimate of about four weeks lands inside that band, from an assumed colony size and a published doubling time, with nothing fitted to the answer. The estimate is doing real work instead of being decorated with a number.
+Now the independent check. Published figures for *M. tuberculosis* say identifiable colonies may not appear for four to six weeks on solid media inoculated with clinical material, and the 2014 study cited here reports a primary culture obtained in two to four weeks on average. Our estimate of about four weeks lands inside that band, from an assumed colony size and a published doubling time, with nothing fitted to the answer. The estimate is doing real work instead of being decorated with a number.
 
 ## The part that breaks the tendency
 
@@ -39,7 +39,7 @@ Why a mycobacterium is slow is a real question and this lesson does not answer i
 
 ## What the delay costs a patient
 
-Turnaround time is not an administrative detail. A stool culture answering overnight means a decision the next day. A mycobacterial culture answering in four to six weeks, with drug-susceptibility testing needing another two to four weeks after that, means treatment decisions get made long before the culture confirms them. That gap is why tuberculosis diagnosis leans so heavily on methods that do not wait for growth, and why anyone reading a negative mycobacterial culture at two weeks has to know it means almost nothing yet.
+Turnaround time is not an administrative detail. A stool culture answering overnight means a decision the next day. A mycobacterial culture answering in four to six weeks, with drug-susceptibility testing needing another two to four weeks after that, means treatment decisions get made long before the culture confirms them. That gap is why tuberculosis diagnosis now leads with molecular methods that do not wait for growth, while culture and phenotypic susceptibility testing stay slow and stay necessary. It is also why a negative mycobacterial culture at two weeks has to be read as weak evidence rather than as a result. How weak depends on the specimen, how many organisms were in it, and which system the laboratory used, and none of those are things this lesson can settle for you. The timings above come from one 2014 study and describe culture, not the diagnosis a patient receives today.
 
 This is a teaching example and not clinical guidance, and it prescribes nothing. What it illustrates is that a doubling time measured in a flask propagates all the way to how a clinic is run.
 

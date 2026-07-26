@@ -18,7 +18,9 @@ A **eukaryotic** cell answers yes. The envelope and the DNA it encloses are toge
 
 A **prokaryotic** cell answers no. Its DNA sits in the same continuous interior as everything else, in a dense region called the **nucleoid** that is not walled off by a membrane. Bacteria are prokaryotic, and so are archaea, a second and separately named group you will meet again in this lesson.
 
-The words carry no other content. Everything else you will read about the two kinds of cell either follows from this answer, tends to go with it, or has nothing to do with it, and telling those three apart is most of the work here.
+One thing to fix before you use it. This is the working criterion, not a definition of what these groups *are*. It is how the two words are applied to almost every cell you will meet, it is reliable there, and it is what the rest of this lesson reasons from. It is also known to fail. One bacterium keeps its chromosomes inside membrane-bound compartments and is a bacterium anyway; scene 4 takes that case seriously, because what it shows is that membership is settled by ancestry while this test describes construction. So use the test to reason about how a cell is built. Do not use it to decide what a cell is related to, and do not expect it to answer for every cell in a body.
+
+Everything else you will read about the two kinds of cell either follows from this answer, tends to go with it, or has nothing to do with it, and telling those three apart is most of the work here.
 :::
 
 Two ordinary words shift meaning as you cross into this vocabulary, and both will catch you out if nobody says so.
@@ -36,7 +38,7 @@ Two ordinary words shift meaning as you cross into this vocabulary, and both wil
 
 That is a generic prokaryotic cell, opened along its length, with the nucleoid and the ribosomes sharing one continuous interior. Read it for the negative space. The DNA is a loop, usually circular, lying loose in the cytoplasm. The ribosomes, which are the machines that build protein from a transcript, are scattered through the same fluid. Nothing separates them. Compare that with a lining cell, where a transcript made in the nucleus has to be finished, checked, and moved out through the envelope before any ribosome touches it.
 
-The other labels are worth having but are not the definitional point. A **cell wall** outside the membrane is a rigid layer that resists the cell bursting; a **capsule** outside that is a sticky coat. A **plasmid** is a small separate DNA loop that a bacterium can gain, lose, or pass to a neighbour, which is one route by which antibiotic resistance spreads. **Pili** are short surface projections used for attachment and for that transfer; a **flagellum** is a rotating whip used to swim.
+The other labels are there so the drawing is readable, and this lesson sources none of them beyond what it names. The **cell wall** outside the membrane is rigid, and that is the only one of them this lesson uses. A **capsule** is the layer outside the wall, a **plasmid** is a separate small DNA loop, **pili** are the short surface projections, and the **flagellum** is the long whip at one end. What each of those does, and how a plasmid moves between cells, is microbiology and is not established anywhere in this pack. Take the words as labels for now.
 
 ## What this lesson does and does not cover
 

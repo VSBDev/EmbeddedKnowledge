@@ -49,14 +49,15 @@
       "answer": {
         "correct": "option-prokaryotic-chromosome",
         "summary": "Prokaryotic, decided by the location of the chromosome alone.",
-        "reasoning": "The criterion asks one question: is the DNA enclosed by a membrane envelope of its own? Here it is not, so the cell is prokaryotic. The other three descriptions are distractors of different kinds. Internal protein-shelled compartments are not a nucleus and do not bear on a criterion about the DNA specifically; carboxysomes are exactly such a compartment and occur in bacteria. A 40-hour generation time is a tendency running the wrong way, and Mycobacterium tuberculosis already breaks that tendency at 18 to 24 hours. The 3 micrometre width is likewise a tendency, and a bacterium 2 centimetres long is on record. Weighing four facts and taking a majority verdict is the habit this item is testing for.",
+        "reasoning": "The criterion asks one question: is the DNA enclosed by a membrane envelope of its own? Here it is not, so the criterion supports prokaryotic, which is what the prompt asked. Note what that does and does not mean. The criterion describes how the cell is built. It is not what decides which group the organism belongs to, and the lesson supplies the case that proves it: Candidatus Thiomargarita magnifica keeps chromosomes inside membrane-bound compartments, so this same test would answer eukaryotic for it, and it is a bacterium. Ancestry settled that, from sequence comparison. The other three descriptions here are distractors of different kinds. Internal protein-shelled compartments are not a nucleus and do not bear on a criterion about the DNA specifically; carboxysomes are exactly such a compartment and occur in bacteria. A 40-hour generation time is a tendency running the wrong way, and Mycobacterium tuberculosis already breaks that tendency at 18 to 24 hours. The 3 micrometre width is likewise a tendency, and a bacterium 2 centimetres long is on record. Weighing four facts and taking a majority verdict is the habit this item is testing for.",
         "acceptableResponses": [
           "option-prokaryotic-chromosome"
         ],
         "commonErrors": [
           "Choosing eukaryotic because the cell has internal compartments: the criterion is about one compartment, around one thing, and prokaryotes build others.",
           "Choosing eukaryotic because the organism divides slowly: division rate is a tendency with documented exceptions and never decides classification.",
-          "Choosing undecidable: only one of the four descriptions is definitional, so the other three cannot outvote it."
+          "Choosing undecidable: only one of the four descriptions is definitional, so the other three cannot outvote it.",
+          "Treating the criterion's answer as the organism's group membership rather than as what the criterion supports, which is the error the giant bacterium exists to catch."
         ]
       },
       "rubricId": "rubric-classification",
@@ -72,12 +73,12 @@
       "outcomeIds": [
         "topic-cell-biology-cell-types"
       ],
-      "prompt": "Select every statement that follows directly from whether a membrane envelope encloses a cell's DNA, rather than being a tendency with exceptions or a claim the criterion does not license at all.",
+      "prompt": "Select every statement that follows directly from whether a membrane envelope encloses a cell's DNA. Leave unselected anything that is only made possible by that arrangement, anything that is a tendency with exceptions, and anything the criterion does not license at all.",
       "stimulus": null,
       "points": 5,
       "responseSpec": {
         "mode": "multiple-choice",
-        "maxSelections": 5,
+        "maxSelections": 6,
         "options": [
           {
             "id": "option-follows-coupled",
@@ -85,7 +86,11 @@
           },
           {
             "id": "option-follows-processing",
-            "text": "A transcript can be processed and checked before any ribosome reads it."
+            "text": "A transcript made from a gene in the nucleus cannot be read until it has crossed the envelope."
+          },
+          {
+            "id": "option-possible-quality-control",
+            "text": "Transcripts are checked for defects and the faulty ones held back before any ribosome reads them."
           },
           {
             "id": "option-tendency-small",
@@ -107,11 +112,12 @@
           "option-follows-processing"
         ],
         "summary": "Only the two statements about where transcription and translation sit relative to each other.",
-        "reasoning": "Both correct options are consequences of the same structural fact: if a membrane stands between the DNA and the ribosomes, transcription and translation are in different places and a transcript must cross before it is read; if no membrane stands between them, a ribosome can reach a transcript as it is made. Size is a tendency, and a bacterium 2 centimetres long exists. The claim that prokaryotic cells have no internal compartments is simply false, because bacteria build carboxysomes, magnetosomes and other organelles. Which cell type is older is a question about ancestry, settled by sequence comparison rather than by architecture, and eukaryotes emerge from within the Archaea rather than after prokaryotes as a whole.",
+        "reasoning": "Both correct options are consequences of the same structural fact: if a membrane stands between the nuclear DNA and the ribosomes, transcription and translation of those genes are in different places and a transcript must cross before it is read; if no membrane stands between them, a ribosome can reach a transcript as it is made. Checking transcripts and holding back the faulty ones is the tier this item was rebuilt to test. The separation makes it possible, and nothing more: a membrane does not inspect anything, and the processing, quality control and selective export that follow all need machinery the envelope does not supply. Collapsing made possible into follows directly is the error the lesson exists to prevent, and it is easiest to make on the option that sounds most like the point of a nucleus. Size is a tendency, and a bacterium 2 centimetres long exists. The claim that prokaryotic cells have no internal compartments is simply false, because bacteria build carboxysomes, magnetosomes and other organelles. Which cell type is older is a question about ancestry, settled by sequence comparison rather than by architecture, and eukaryotes emerge from within the Archaea rather than after prokaryotes as a whole.",
         "acceptableResponses": [
           "option-follows-coupled and option-follows-processing selected, with no others"
         ],
         "commonErrors": [
+          "Selecting the quality-control statement: the separation makes it possible, and a membrane by itself checks nothing. This is the discriminating option.",
           "Selecting the size statement: it is the tendency tier, and the lesson supplies a counterexample four orders of magnitude away.",
           "Selecting the no-compartments statement: it feels like it should follow from a criterion about a compartment, but the criterion concerns one compartment around one thing.",
           "Selecting the age statement: architecture does not establish ancestry, and the phylogenomic evidence points the other way."
@@ -167,28 +173,30 @@
       "outcomeIds": [
         "topic-cell-biology-cell-types"
       ],
-      "prompt": "Using the relation between diffusion time and distance, with a diffusion coefficient of 7.7 square micrometres per second, how many seconds does a protein take to diffuse across a cell 15 micrometres wide? Give your answer to two significant figures.",
+      "prompt": "Using the relation between diffusion time and distance, with a diffusion coefficient of 7.7 square micrometres per second, what is the characteristic time over which a protein diffuses a distance of 15 micrometres, the width of a cell? Give your answer to two significant figures. This is the time at which typical displacement reaches that distance, not a delivery time for any particular molecule.",
       "stimulus": null,
       "points": 3,
       "responseSpec": {
         "mode": "number",
         "units": "seconds",
-        "tolerance": 0.8
+        "tolerance": 1.5
       },
       "answer": {
         "correct": 14.6,
-        "summary": "About 15 seconds.",
-        "reasoning": "The relation is time equals distance squared divided by twice the diffusion coefficient. Fifteen squared is 225, and twice 7.7 is 15.4, so the time is 225 divided by 15.4, which is 14.6 seconds. Sanity-check it against the worked example: a 20 micrometre cell gave 26 seconds, and 15 micrometres is three-quarters of 20, so the answer should be about nine sixteenths of 26, which is 14.6. That agreement is the square law showing up again.",
+        "summary": "About 15 seconds, as a characteristic timescale rather than an arrival time.",
+        "reasoning": "The relation is time equals distance squared divided by twice the diffusion coefficient. Fifteen squared is 225, and twice 7.7 is 15.4, so the time is 225 divided by 15.4, which is 14.6 seconds. Sanity-check it against the worked example: a 20 micrometre cell gave 26 seconds, and 15 micrometres is three-quarters of 20, so the answer should be about nine sixteenths of 26, which is 14.6. That agreement is the square law showing up again. What the number is worth is worth stating. It is the time at which root-mean-square displacement equals 15 micrometres, which is a characteristic scale and not a schedule. Diffusion has no arrival time: some molecules cross far sooner, some much later, and turning this into a latency would need a starting position, a geometry and boundary conditions that the question does not give. Read it as an order of magnitude, which is all the source supports and all the lesson's argument needs.",
         "acceptableResponses": [
           "14.6",
           "15",
           "14.6 s",
-          "about 15 seconds"
+          "about 15 seconds",
+          "Any answer between 13 and 16 seconds, since the relation supports an order of magnitude rather than two-figure precision."
         ],
         "commonErrors": [
           "Answering 0.97 by forgetting to square the distance; the square is the entire point of the relation.",
           "Answering 29.2 by dividing by the diffusion coefficient rather than by twice it.",
-          "Answering 19.5 by using the 20 micrometre worked value scaled linearly instead of by the square of the ratio."
+          "Answering 19.5 by using the 20 micrometre worked value scaled linearly instead of by the square of the ratio.",
+          "Reading the result as the time at which a newly made protein arrives at the far end, which treats a characteristic scale as a delivery schedule."
         ]
       },
       "rubricId": "rubric-calculation",
@@ -279,13 +287,16 @@
         "maxLength": 2000
       },
       "answer": {
-        "correct": "Most of the gap between the first two figures is about how much work a division is. A human cell has to copy about three billion base pairs spread over more than twenty linear chromosomes and then sort them so each daughter gets a full set, which needs chromosome condensation, a spindle, and taking the nuclear envelope apart and rebuilding it. A bacterium copies a few million base pairs on one circular molecule and needs none of that machinery. That much is downstream of the architectural difference, because the sorting problem and the envelope cycle exist only when the DNA is enclosed and split across many molecules. The third figure shows the limit of the explanation. Mycobacterium tuberculosis has the bacterial architecture and none of that extra work, and it is still as slow as a human cell, so architecture cannot be what sets the rate. Division rate belongs on the tendency branch of the model, and its causes in any particular organism lie in its own metabolism and cell envelope rather than in whether its DNA is enclosed.",
-        "summary": "Genome size and mitotic machinery, both downstream of the architecture, explain the first gap; the mycobacterium shows that architecture does not set the rate, so division time is a tendency rather than a consequence.",
-        "reasoning": "The item tests whether the learner can use the model and also say where it stops. The first half should connect the human figure to the amount of DNA and to the sorting machinery that an enclosed, multi-chromosome genome requires. The second half is the discriminating part: a prokaryotic organism dividing as slowly as a human cell shows that the criterion does not determine rate, so the learner must relocate the claim from the consequence tier to the tendency tier. An answer that explains the first two figures well and treats the third as an anomaly has not met the second requirement.",
+        "correct": "Most of the gap between the first two figures is about how much work a division is. A human cell copies roughly six billion base pairs, because a diploid cell holds two copies of a genome of about three billion, spread over 46 chromosome copies, and then has to sort them so each daughter gets a full set. In human cells that sorting uses chromosome condensation, a spindle, and taking the nuclear envelope apart and rebuilding it. A bacterium copies a few million base pairs on one circular molecule. Be careful about what that buys as an explanation. Having the DNA enclosed does not by itself entail a large genome, many linear chromosomes, or that particular way of dividing: bacteria organise and segregate their chromosomes too, and eukaryotic lineages differ in how their mitosis is arranged. The honest statement is that these things travel together in the two cells being compared, and that the amount to be copied and the sorting machinery are what the time is spent on, not that the criterion produces them. The third figure shows the limit plainly. Mycobacterium tuberculosis has the bacterial architecture and none of that extra work, and it is still as slow as a human cell, so architecture cannot be what sets the rate. Division rate belongs on the tendency branch of the model, and its causes in any particular organism lie in its own metabolism and cell envelope rather than in whether its DNA is enclosed.",
+        "summary": "The work of a division — about six billion base pairs copied across 46 chromosome copies in a diploid human cell, plus the sorting machinery — accounts for the first gap; those features travel with the architecture rather than being entailed by it; and the mycobacterium shows that architecture does not set the rate, so division time is a tendency.",
+        "reasoning": "The item tests whether the learner can use the model and also say where it stops. The first half should connect the human figure to the amount of DNA and to the sorting machinery a large, enclosed, multi-chromosome genome requires, and should use a per-cell figure: a diploid human cell copies about six billion base pairs, not the three billion of a single haploid assembly. An answer quoting three billion as the amount a human cell copies has halved the work and does not earn that part. Claiming that nuclear enclosure entails genome size, linear chromosomes or open mitosis also does not earn it, because none of those follows from the criterion. The second half is the discriminating part: a prokaryotic organism dividing as slowly as a human cell shows that the criterion does not determine rate, so the learner must relocate the claim from the consequence tier to the tendency tier. An answer that explains the first two figures well and treats the third as an anomaly has not met the second requirement.",
         "acceptableResponses": [
-          "Any answer that connects the human figure to genome size and to the machinery required to sort many enclosed chromosomes, and that uses the mycobacterium to conclude that division rate is a tendency rather than something the criterion determines."
+          "Any answer that connects the human figure to the per-cell amount of DNA and to the machinery required to sort many enclosed chromosomes, treats those as travelling with the architecture rather than as entailed by it, and uses the mycobacterium to conclude that division rate is a tendency rather than something the criterion determines.",
+          "Quoting about 6.1 billion, or two copies of about 3.05 billion, or roughly 6 billion base pairs are all acceptable for the diploid figure."
         ],
         "commonErrors": [
+          "Quoting three billion base pairs as the amount a human cell copies, which is one haploid assembly rather than what a diploid cell replicates.",
+          "Saying that enclosing the DNA is why the genome is large or why there are many linear chromosomes, which the criterion does not entail.",
           "Explaining the first two figures and calling the mycobacterium an exception without drawing the conclusion, which leaves the tendency and the consequence tiers still confused.",
           "Claiming the mycobacterium must therefore be closer to a eukaryote, which reintroduces the ranking error.",
           "Attributing the whole difference to cell size, which the lesson's own numbers do not support: size affects mixing and supply, and the division work is set by what has to be copied and sorted."
@@ -313,16 +324,17 @@
         "maxLength": 2000
       },
       "answer": {
-        "correct": "The difference to exploit is between the bacterial ribosome and the eukaryotic cytoplasmic ribosome, which differ enough that a molecule can bind one and not the other; whole drug classes already work this way, and eukaryotic cytoplasmic ribosomes are insensitive to several of them. That difference belongs on the correlate branch rather than the consequence branch, because nothing about a membrane around DNA determines the sequence of a ribosomal RNA. It matters because a correlate carries less weight than a consequence: it holds where it has been checked and cannot be assumed everywhere. The assumption breaks down inside the mitochondria, whose ribosomes retain bacterial-like features and are susceptible to drugs the cytoplasmic ribosomes ignore; that susceptibility has been proposed as the reason such drugs are toxic in patients at all.",
+        "correct": "The difference to exploit is between the bacterial ribosome and the eukaryotic cytoplasmic ribosome, which differ enough that a molecule can bind one and not the other; whole drug classes already work this way, and eukaryotic cytoplasmic ribosomes are insensitive to several of them. That difference belongs on the correlate branch rather than the consequence branch, because nothing about a membrane around DNA determines the sequence of a ribosomal RNA. It matters because a correlate carries less weight than a consequence: it holds where it has been checked and cannot be assumed everywhere. The assumption breaks down inside the mitochondria, whose ribosomes retain bacterial-like features and are susceptible to drugs the cytoplasmic ribosomes ignore; one 2001 study's authors proposed that susceptibility as the source of the in-vivo toxicity of some such drugs, with aminoglycoside ear and kidney toxicity as their example. Hold that at the strength it was offered: it is one proposed mechanism among several, and both the susceptibility and the route to toxicity vary by drug and by tissue. What the lesson needs from it is that a eukaryotic cell contains a compartment where the assumption fails, not a settled account of why any particular drug harms anyone.",
         "summary": "Exploit the ribosome difference; it sits on the correlate branch, not the consequence branch; and it fails inside the mitochondria.",
-        "reasoning": "This is the transfer item, and it asks for three separate moves. Naming the ribosome is recall. Placing it on the correlate branch is the model being used rather than recited, and the reason must be that architecture does not determine ribosome sequence. Naming the mitochondria is the payoff: a learner who filed the ribosome difference under consequences would predict that anything eukaryotic is safe, and the mitochondrial exception is exactly the prediction failing. Answers may add that the drug will also remove resident gut bacteria, which is correct and is credited, but it does not substitute for naming the mitochondrial exception.",
+        "reasoning": "This is the transfer item, and it asks for three separate moves. Naming the ribosome is recall. Placing it on the correlate branch is the model being used rather than recited, and the reason must be that architecture does not determine ribosome sequence. Naming the mitochondria is the payoff, and it earns the point on the structural claim alone; an answer is not required to explain clinical toxicity, and one that presents the mitochondrial mechanism as the established cause of it has overstated a medium-confidence proposal and should be marked as overstating rather than as wrong.  a learner who filed the ribosome difference under consequences would predict that anything eukaryotic is safe, and the mitochondrial exception is exactly the prediction failing. Answers may add that the drug will also remove resident gut bacteria, which is correct and is credited, but it does not substitute for naming the mitochondrial exception.",
         "acceptableResponses": [
           "Any answer that names the ribosome difference, places it on the correlate or tendency tier with a reason connected to architecture not determining ribosome structure, and identifies the mitochondrial ribosome as where the assumption fails."
         ],
         "commonErrors": [
           "Naming the nuclear envelope as the difference to exploit, which confuses the criterion with the structural difference a ribosome-targeting molecule actually acts on.",
           "Filing the ribosome difference under consequences, which produces the over-confident prediction that any eukaryotic cell is safe.",
-          "Missing the mitochondrial exception, which is the whole reason the item distinguishes tiers."
+          "Missing the mitochondrial exception, which is the whole reason the item distinguishes tiers.",
+          "Presenting the mitochondrial ribosome as the established reason ribosome-targeting drugs are toxic, which states one proposed mechanism as a settled one."
         ]
       },
       "rubricId": "rubric-explanation",
