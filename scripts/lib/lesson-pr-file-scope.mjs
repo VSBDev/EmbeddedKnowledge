@@ -3,19 +3,23 @@ const lessonIdPattern = /^(?:PREM|PSY)-[A-Z]{3}-[0-9]{3}$/;
 // Files the trusted site build regenerates from the lesson corpus. A lesson pull request may carry
 // them because publishing a lesson necessarily changes them, and the workflow rebuilds and compares
 // them anyway. The course landing page belongs here for the same reason as the ledgers: its
-// published-lesson counter is generated from the lesson index, so publishing moves the number.
+// published-lesson counter is generated from the lesson index, so publishing moves the number. The
+// site landing page is listed under both books for the same reason: it quotes each book's published
+// count, so a lesson in either book moves it.
 const sharedGeneratedFilesByPrefix = new Map([
   ["PREM-", new Set([
     "site/data/premed-lessons.json",
     "site/data/premed-progress.json",
     "site/data/premed-terminology.json",
-    "site/premed/index.html"
+    "site/premed/index.html",
+    "site/index.html"
   ])],
   ["PSY-", new Set([
     "site/data/psychiatry-lessons.json",
     "site/data/psychiatry-progress.json",
     "site/data/psychiatry-terminology.json",
-    "site/psychiatry/index.html"
+    "site/psychiatry/index.html",
+    "site/index.html"
   ])]
 ]);
 

@@ -66,7 +66,6 @@ test("lesson pull requests reject gate changes, sibling outputs, and path-prefix
     "tests/protocol/lesson-pr-file-scope.test.mjs",
     "package.json",
     "lessons/PREM-LPP-002-diagnostic-baseline/lesson.json",
-    "site/index.html",
     "site/data/premed-graph.json",
     "site/data/lessons/PREM-LPP-999.json",
     `site/data/lessons/${currentId}-copy.json`,
@@ -79,6 +78,16 @@ test("lesson pull requests reject gate changes, sibling outputs, and path-prefix
     packPath,
     lessonIds: [currentId]
   }), rejected);
+});
+
+test("the shared landing page is in scope for a lesson in either book", () => {
+  // It carries a generated published counter for each book, so publishing in either one moves it.
+  // It was rejected here until the landing page started quoting those counts.
+  assert.deepEqual(lessonPrOutsideFiles({
+    changedFiles: [`${packPath}/lesson.json`, "site/index.html"],
+    packPath,
+    lessonIds: [currentId]
+  }), []);
 });
 
 test("invalid metadata IDs cannot widen the generated-output allowlist", () => {
