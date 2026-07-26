@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-diagram-v1",
+  "id": "diagram-what-the-criterion-licenses",
+  "type": "flow",
+  "direction": "left-to-right",
+  "alt": "One structural test splits cells into two groups, and three tiers of consequence hang off it: what follows directly, what is only a tendency, and what the test does not license at all.",
+  "longDescription": "The diagram starts from a single test: is this cell's DNA enclosed by a membrane envelope of its own? Answering yes gives a eukaryotic cell, whose DNA sits inside a nuclear envelope. Answering no gives a prokaryotic cell, whose DNA sits in the cytoplasm as a nucleoid. Two consequences follow directly from the answer, because they are about where transcription and translation can happen. In a eukaryotic cell the two processes are in separate compartments, so a transcript can be processed and checked before any ribosome reads it. In a prokaryotic cell they share one compartment, so a ribosome can begin reading a transcript that is still being made. Two further boxes are marked as tendencies rather than rules: prokaryotic cells are usually smaller and usually divide faster, and both statements have documented exceptions. A final box sits apart from the chain and is reached from both cell types by an edge labelled does not follow: the test says nothing about which cell type is older, simpler, or less capable. Reading the diagram from the test outward tells you how much weight each downstream statement can carry.",
+  "nodes": [
+    {
+      "id": "node-test",
+      "label": "The test: is this cell's DNA enclosed by a membrane envelope of its own?",
+      "shape": "diamond",
+      "group": "test"
+    },
+    {
+      "id": "node-eukaryote",
+      "label": "Eukaryotic cell: DNA inside a nuclear envelope",
+      "shape": "rounded-box",
+      "group": "answer"
+    },
+    {
+      "id": "node-prokaryote",
+      "label": "Prokaryotic cell: DNA in the cytoplasm, as a nucleoid",
+      "shape": "rounded-box",
+      "group": "answer"
+    },
+    {
+      "id": "node-separated",
+      "label": "Follows: transcription and translation sit in separate compartments, so a transcript can be processed and checked before it is read",
+      "shape": "box",
+      "group": "follows"
+    },
+    {
+      "id": "node-coupled",
+      "label": "Follows: transcription and translation share one compartment, so a ribosome can read a transcript that is still being made",
+      "shape": "box",
+      "group": "follows"
+    },
+    {
+      "id": "node-tendency-size",
+      "label": "Tendency, with exceptions: prokaryotic cells are smaller",
+      "shape": "pill",
+      "group": "tendency"
+    },
+    {
+      "id": "node-tendency-speed",
+      "label": "Tendency, with exceptions: prokaryotic cells divide faster",
+      "shape": "pill",
+      "group": "tendency"
+    },
+    {
+      "id": "node-not-licensed",
+      "label": "Does not follow: older, simpler, or less capable",
+      "shape": "ellipse",
+      "group": "excluded"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-test-yes",
+      "from": "node-test",
+      "to": "node-eukaryote",
+      "kind": "directed",
+      "label": "yes, an envelope encloses it"
+    },
+    {
+      "id": "edge-test-no",
+      "from": "node-test",
+      "to": "node-prokaryote",
+      "kind": "directed",
+      "label": "no, it lies in the cytoplasm"
+    },
+    {
+      "id": "edge-eukaryote-separated",
+      "from": "node-eukaryote",
+      "to": "node-separated",
+      "kind": "directed",
+      "label": "follows directly from the envelope"
+    },
+    {
+      "id": "edge-prokaryote-coupled",
+      "from": "node-prokaryote",
+      "to": "node-coupled",
+      "kind": "directed",
+      "label": "follows directly from the shared compartment"
+    },
+    {
+      "id": "edge-prokaryote-size",
+      "from": "node-prokaryote",
+      "to": "node-tendency-size",
+      "kind": "directed",
+      "label": "usually, and a centimetre-long bacterium is the counterexample"
+    },
+    {
+      "id": "edge-prokaryote-speed",
+      "from": "node-prokaryote",
+      "to": "node-tendency-speed",
+      "kind": "directed",
+      "label": "usually, and a tuberculosis bacillus is the counterexample"
+    },
+    {
+      "id": "edge-eukaryote-excluded",
+      "from": "node-eukaryote",
+      "to": "node-not-licensed",
+      "kind": "directed",
+      "label": "does not follow"
+    },
+    {
+      "id": "edge-prokaryote-excluded",
+      "from": "node-prokaryote",
+      "to": "node-not-licensed",
+      "kind": "directed",
+      "label": "does not follow"
+    }
+  ]
+}

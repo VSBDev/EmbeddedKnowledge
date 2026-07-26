@@ -1,0 +1,402 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-assessment-v1",
+  "lessonId": "PREM-BIO-002",
+  "lessonVersion": "0.1.0",
+  "assessmentId": "assessment-prem-bio-002-cell-types",
+  "title": "Prokaryotic and eukaryotic cells: classification, size constraints, and the cost of a compartment",
+  "purpose": "mixed",
+  "attemptPolicy": {
+    "retakeable": true,
+    "timeLimitMinutes": null,
+    "feedback": "after-attempt"
+  },
+  "items": [
+    {
+      "id": "item-classify-described-cell",
+      "type": "single-choice",
+      "sceneId": "scene-not-primitive",
+      "objectiveIds": [
+        "objective-apply-architecture-criterion"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-cell-types"
+      ],
+      "prompt": "An organism recovered from a hot spring is described in a report as follows: cells about 3 micrometres across; a single circular chromosome lying in the cytoplasm with no membrane around it; internal compartments with protein shells that concentrate one enzyme; a generation time of about 40 hours. Which classification does the architectural criterion support, and on what?",
+      "stimulus": null,
+      "points": 4,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-prokaryotic-chromosome",
+            "text": "Prokaryotic, because the chromosome lies in the cytoplasm with no membrane enclosing it."
+          },
+          {
+            "id": "option-eukaryotic-compartments",
+            "text": "Eukaryotic, because the cell has internal compartments."
+          },
+          {
+            "id": "option-eukaryotic-slow",
+            "text": "Eukaryotic, because a 40-hour generation time is far too slow for a prokaryotic cell."
+          },
+          {
+            "id": "option-undecidable",
+            "text": "It cannot be decided, because the four descriptions point in different directions."
+          }
+        ]
+      },
+      "answer": {
+        "correct": "option-prokaryotic-chromosome",
+        "summary": "Prokaryotic, decided by the location of the chromosome alone.",
+        "reasoning": "The criterion asks one question: is the DNA enclosed by a membrane envelope of its own? Here it is not, so the cell is prokaryotic. The other three descriptions are distractors of different kinds. Internal protein-shelled compartments are not a nucleus and do not bear on a criterion about the DNA specifically; carboxysomes are exactly such a compartment and occur in bacteria. A 40-hour generation time is a tendency running the wrong way, and Mycobacterium tuberculosis already breaks that tendency at 18 to 24 hours. The 3 micrometre width is likewise a tendency, and a bacterium 2 centimetres long is on record. Weighing four facts and taking a majority verdict is the habit this item is testing for.",
+        "acceptableResponses": [
+          "option-prokaryotic-chromosome"
+        ],
+        "commonErrors": [
+          "Choosing eukaryotic because the cell has internal compartments: the criterion is about one compartment, around one thing, and prokaryotes build others.",
+          "Choosing eukaryotic because the organism divides slowly: division rate is a tendency with documented exceptions and never decides classification.",
+          "Choosing undecidable: only one of the four descriptions is definitional, so the other three cannot outvote it."
+        ]
+      },
+      "rubricId": "rubric-classification",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-sort-what-follows",
+      "type": "multiple-choice",
+      "sceneId": "scene-not-primitive",
+      "objectiveIds": [
+        "objective-apply-architecture-criterion"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-cell-types"
+      ],
+      "prompt": "Select every statement that follows directly from whether a membrane envelope encloses a cell's DNA, rather than being a tendency with exceptions or a claim the criterion does not license at all.",
+      "stimulus": null,
+      "points": 5,
+      "responseSpec": {
+        "mode": "multiple-choice",
+        "maxSelections": 5,
+        "options": [
+          {
+            "id": "option-follows-coupled",
+            "text": "A ribosome can begin translating a transcript that RNA polymerase is still making."
+          },
+          {
+            "id": "option-follows-processing",
+            "text": "A transcript can be processed and checked before any ribosome reads it."
+          },
+          {
+            "id": "option-tendency-small",
+            "text": "The cell is less than 10 micrometres across."
+          },
+          {
+            "id": "option-false-no-compartments",
+            "text": "The cell has no internal compartments of any kind."
+          },
+          {
+            "id": "option-unlicensed-older",
+            "text": "The cell type is the older of the two."
+          }
+        ]
+      },
+      "answer": {
+        "correct": [
+          "option-follows-coupled",
+          "option-follows-processing"
+        ],
+        "summary": "Only the two statements about where transcription and translation sit relative to each other.",
+        "reasoning": "Both correct options are consequences of the same structural fact: if a membrane stands between the DNA and the ribosomes, transcription and translation are in different places and a transcript must cross before it is read; if no membrane stands between them, a ribosome can reach a transcript as it is made. Size is a tendency, and a bacterium 2 centimetres long exists. The claim that prokaryotic cells have no internal compartments is simply false, because bacteria build carboxysomes, magnetosomes and other organelles. Which cell type is older is a question about ancestry, settled by sequence comparison rather than by architecture, and eukaryotes emerge from within the Archaea rather than after prokaryotes as a whole.",
+        "acceptableResponses": [
+          "option-follows-coupled and option-follows-processing selected, with no others"
+        ],
+        "commonErrors": [
+          "Selecting the size statement: it is the tendency tier, and the lesson supplies a counterexample four orders of magnitude away.",
+          "Selecting the no-compartments statement: it feels like it should follow from a criterion about a compartment, but the criterion concerns one compartment around one thing.",
+          "Selecting the age statement: architecture does not establish ancestry, and the phylogenomic evidence points the other way."
+        ]
+      },
+      "rubricId": "rubric-classification",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-surface-to-volume-numeric",
+      "type": "numeric",
+      "sceneId": "scene-membrane-and-crossing",
+      "objectiveIds": [
+        "objective-compute-size-constraints"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-cell-types"
+      ],
+      "prompt": "An archaeal cell is modelled as a sphere 1.5 micrometres across. Using the relation for a sphere, give its surface area per unit volume in reciprocal micrometres, to two significant figures.",
+      "stimulus": null,
+      "points": 3,
+      "responseSpec": {
+        "mode": "number",
+        "units": "per micrometre",
+        "tolerance": 0.15
+      },
+      "answer": {
+        "correct": 4,
+        "summary": "4.0 per micrometre.",
+        "reasoning": "For a sphere, surface area per unit volume is three divided by the radius. The cell is 1.5 micrometres across, so its radius is 0.75 micrometres, and 3 divided by 0.75 gives 4.0 per micrometre. Comparing with the values from the worked example: this cell sits between the modelled bacterium at about 5.0 and the modelled human cell at 0.30, closer to the bacterium, as its size suggests.",
+        "acceptableResponses": [
+          "4",
+          "4.0",
+          "4.0 per micrometre",
+          "4 µm^-1"
+        ],
+        "commonErrors": [
+          "Answering 2.0 by dividing three by the diameter instead of the radius; the relation is three over r, and r is half of what was stated.",
+          "Answering 8.0 by inverting the division; check that a smaller cell gives a larger ratio, not a smaller one.",
+          "Omitting units: the answer is a reciprocal length, and its units are part of the result."
+        ]
+      },
+      "rubricId": "rubric-calculation",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-diffusion-crossing-time",
+      "type": "numeric",
+      "sceneId": "scene-membrane-and-crossing",
+      "objectiveIds": [
+        "objective-compute-size-constraints"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-cell-types"
+      ],
+      "prompt": "Using the relation between diffusion time and distance, with a diffusion coefficient of 7.7 square micrometres per second, how many seconds does a protein take to diffuse across a cell 15 micrometres wide? Give your answer to two significant figures.",
+      "stimulus": null,
+      "points": 3,
+      "responseSpec": {
+        "mode": "number",
+        "units": "seconds",
+        "tolerance": 0.8
+      },
+      "answer": {
+        "correct": 14.6,
+        "summary": "About 15 seconds.",
+        "reasoning": "The relation is time equals distance squared divided by twice the diffusion coefficient. Fifteen squared is 225, and twice 7.7 is 15.4, so the time is 225 divided by 15.4, which is 14.6 seconds. Sanity-check it against the worked example: a 20 micrometre cell gave 26 seconds, and 15 micrometres is three-quarters of 20, so the answer should be about nine sixteenths of 26, which is 14.6. That agreement is the square law showing up again.",
+        "acceptableResponses": [
+          "14.6",
+          "15",
+          "14.6 s",
+          "about 15 seconds"
+        ],
+        "commonErrors": [
+          "Answering 0.97 by forgetting to square the distance; the square is the entire point of the relation.",
+          "Answering 29.2 by dividing by the diffusion coefficient rather than by twice it.",
+          "Answering 19.5 by using the 20 micrometre worked value scaled linearly instead of by the square of the ratio."
+        ]
+      },
+      "rubricId": "rubric-calculation",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-explain-size-consequences",
+      "type": "open-response",
+      "sceneId": "scene-four-problems",
+      "objectiveIds": [
+        "objective-compute-size-constraints"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-cell-types"
+      ],
+      "prompt": "Two spherical cells differ by a factor of 10 in radius. Explain, in your own words and without doing any arithmetic beyond stating factors, why one consequence of that difference is a factor of 10 and the other is a factor of 100. Name which is which and say what each one constrains for the cell.",
+      "stimulus": null,
+      "points": 5,
+      "responseSpec": {
+        "mode": "text",
+        "maxLength": 1500
+      },
+      "answer": {
+        "correct": "Surface area per unit volume goes as three over the radius, so a tenfold larger radius gives a tenth of the ratio, a factor of 10. Diffusion time goes as the square of the distance, so a tenfold larger cell takes a hundred times as long to cross, a factor of 100. The first constrains supply, because everything the cell takes in or gives out has to cross its surface and each unit of interior now has a tenth as much membrane serving it. The second constrains coordination, because anything moving by diffusion alone takes a hundred times longer to get anywhere, so a large cell cannot rely on parts finding each other and needs directed transport and local organisation instead.",
+        "summary": "Surface per unit volume falls as 1/r, giving 10; diffusion time rises as the square of distance, giving 100. The first constrains supply, the second coordination.",
+        "reasoning": "The two relations carry different powers of the size, and that is the whole reason the answers differ. Surface-to-volume is three over the radius, an inverse first power, so ten times the radius gives one tenth the ratio. Diffusion time is distance squared over twice the diffusion coefficient, a second power, so ten times the distance gives a hundred times the time. Growing a cell therefore hurts its internal mixing far more than it hurts its supply, which is why a large cell needs internal organisation rather than merely more membrane.",
+        "acceptableResponses": [
+          "Any answer that identifies the inverse first power for surface-to-volume and the second power for diffusion time, assigns the factors of 10 and 100 correctly, and states that the first bears on exchange or supply across the surface and the second on internal transport, mixing, coordination, or signalling."
+        ],
+        "commonErrors": [
+          "Giving both consequences the same factor: this is the single most common error and it comes from not reading the exponents.",
+          "Assigning the factor of 100 to the surface ratio, usually by remembering that area goes as the square of a length and stopping there; the ratio in question divides area by volume, and volume goes as the cube.",
+          "Describing the consequences without saying what each constrains, which answers half the question."
+        ]
+      },
+      "rubricId": "rubric-explanation",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-envelope-tradeoff",
+      "type": "open-response",
+      "sceneId": "scene-room-of-its-own",
+      "objectiveIds": [
+        "objective-explain-compartmentalisation-tradeoff"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-cell-types"
+      ],
+      "prompt": "A classmate asks why a cell would bother enclosing its DNA at all, since the envelope only seems to get in the way. Answer in a short paragraph. State what the envelope makes possible, state what it costs, and give one reason a colonic lining cell can afford that cost while a bacterium in the lumen might not.",
+      "stimulus": null,
+      "points": 6,
+      "responseSpec": {
+        "mode": "text",
+        "maxLength": 2000
+      },
+      "answer": {
+        "correct": "The envelope separates transcription from translation, so a transcript cannot be read the moment it is made. It has to be finished, modified, have non-coding stretches removed, pass quality control, and be exported before a ribosome sees it. Every one of those steps is a place the cell can decide something, so the compartment converts a one-step process into a staged one with control points a shared compartment cannot have. What it costs is transport and time: transcripts out, proteins in, through pores, with machinery to recognise what is allowed through. A bacterium can have new protein appearing while a gene is still being read, and a eukaryotic cell cannot. A colonic lining cell can afford the delay because its job is to hold a barrier for a few days and then be replaced, so it is not competing on speed of response; a bacterium in the lumen is competing for nutrients and space against everything else there, where responding quickly is worth more than regulating finely.",
+        "summary": "The envelope buys staged regulation of gene expression and charges transport and time; the lining cell's job tolerates the delay, while a lumen bacterium is competing on speed.",
+        "reasoning": "A complete answer has three parts and they are graded separately. The benefit must be about regulation made possible by separating transcription from translation, not merely protecting the DNA. The cost must name transport, machinery, or delay, and ideally the loss of coupled transcription and translation. The third part asks the learner to relate the trade-off to what each cell actually has to do, which is the transfer step: the lining cell holds a barrier on a several-day schedule and is replaced, while a lumen bacterium competes in a crowded environment where a fast response matters. Answers that say the nucleus protects DNA from damage are outside what this lesson established and should be marked as unsupported rather than wrong.",
+        "acceptableResponses": [
+          "Any answer that names staged regulation, processing, or quality control before translation as the benefit; names transport, machinery, or delay as the cost; and gives a defensible reason connected to what each cell has to do rather than to a ranking of the two cell types."
+        ],
+        "commonErrors": [
+          "Saying the nucleus exists to protect the DNA: this may be true in other treatments but is not what this lesson established, and it does not explain the regulatory consequence.",
+          "Naming a benefit but no cost, which misses half of what a trade-off means.",
+          "Justifying the third part by calling eukaryotic cells more advanced, which is the ranking error the lesson repairs."
+        ]
+      },
+      "rubricId": "rubric-explanation",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-generation-time-account",
+      "type": "open-response",
+      "sceneId": "scene-culture-timing",
+      "objectiveIds": [
+        "objective-explain-compartmentalisation-tradeoff",
+        "objective-apply-architecture-criterion"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-cell-types"
+      ],
+      "prompt": "Escherichia coli in rich broth doubles in under 20 minutes; a human cell in culture takes about 24 hours; Mycobacterium tuberculosis, which is prokaryotic, also takes about 24 hours. Account for all three figures. Your answer must make clear which parts of the difference the architectural criterion explains and which parts it does not.",
+      "stimulus": null,
+      "points": 6,
+      "responseSpec": {
+        "mode": "text",
+        "maxLength": 2000
+      },
+      "answer": {
+        "correct": "Most of the gap between the first two figures is about how much work a division is. A human cell has to copy about three billion base pairs spread over more than twenty linear chromosomes and then sort them so each daughter gets a full set, which needs chromosome condensation, a spindle, and taking the nuclear envelope apart and rebuilding it. A bacterium copies a few million base pairs on one circular molecule and needs none of that machinery. That much is downstream of the architectural difference, because the sorting problem and the envelope cycle exist only when the DNA is enclosed and split across many molecules. The third figure shows the limit of the explanation. Mycobacterium tuberculosis has the bacterial architecture and none of that extra work, and it is still as slow as a human cell, so architecture cannot be what sets the rate. Division rate belongs on the tendency branch of the model, and its causes in any particular organism lie in its own metabolism and cell envelope rather than in whether its DNA is enclosed.",
+        "summary": "Genome size and mitotic machinery, both downstream of the architecture, explain the first gap; the mycobacterium shows that architecture does not set the rate, so division time is a tendency rather than a consequence.",
+        "reasoning": "The item tests whether the learner can use the model and also say where it stops. The first half should connect the human figure to the amount of DNA and to the sorting machinery that an enclosed, multi-chromosome genome requires. The second half is the discriminating part: a prokaryotic organism dividing as slowly as a human cell shows that the criterion does not determine rate, so the learner must relocate the claim from the consequence tier to the tendency tier. An answer that explains the first two figures well and treats the third as an anomaly has not met the second requirement.",
+        "acceptableResponses": [
+          "Any answer that connects the human figure to genome size and to the machinery required to sort many enclosed chromosomes, and that uses the mycobacterium to conclude that division rate is a tendency rather than something the criterion determines."
+        ],
+        "commonErrors": [
+          "Explaining the first two figures and calling the mycobacterium an exception without drawing the conclusion, which leaves the tendency and the consequence tiers still confused.",
+          "Claiming the mycobacterium must therefore be closer to a eukaryote, which reintroduces the ranking error.",
+          "Attributing the whole difference to cell size, which the lesson's own numbers do not support: size affects mixing and supply, and the division work is set by what has to be copied and sorted."
+        ]
+      },
+      "rubricId": "rubric-explanation",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-antibiotic-selectivity-transfer",
+      "type": "open-response",
+      "sceneId": "scene-clinical-wrap-up",
+      "objectiveIds": [
+        "objective-apply-architecture-criterion",
+        "objective-explain-compartmentalisation-tradeoff"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-cell-types"
+      ],
+      "prompt": "A study group is designing a molecule intended to shut down protein synthesis in bacteria and leave human cells untouched. Using only this lesson's model, name the structural difference the design would exploit, say which tier of the model that difference belongs to and why that matters, and name the one place inside a human cell where the design's assumption breaks down. This is a reasoning exercise about cell architecture and is not a question about treating anyone.",
+      "stimulus": null,
+      "points": 6,
+      "responseSpec": {
+        "mode": "text",
+        "maxLength": 2000
+      },
+      "answer": {
+        "correct": "The difference to exploit is between the bacterial ribosome and the eukaryotic cytoplasmic ribosome, which differ enough that a molecule can bind one and not the other; whole drug classes already work this way, and eukaryotic cytoplasmic ribosomes are insensitive to several of them. That difference belongs on the correlate branch rather than the consequence branch, because nothing about a membrane around DNA determines the sequence of a ribosomal RNA. It matters because a correlate carries less weight than a consequence: it holds where it has been checked and cannot be assumed everywhere. The assumption breaks down inside the mitochondria, whose ribosomes retain bacterial-like features and are susceptible to drugs the cytoplasmic ribosomes ignore; that susceptibility has been proposed as the reason such drugs are toxic in patients at all.",
+        "summary": "Exploit the ribosome difference; it sits on the correlate branch, not the consequence branch; and it fails inside the mitochondria.",
+        "reasoning": "This is the transfer item, and it asks for three separate moves. Naming the ribosome is recall. Placing it on the correlate branch is the model being used rather than recited, and the reason must be that architecture does not determine ribosome sequence. Naming the mitochondria is the payoff: a learner who filed the ribosome difference under consequences would predict that anything eukaryotic is safe, and the mitochondrial exception is exactly the prediction failing. Answers may add that the drug will also remove resident gut bacteria, which is correct and is credited, but it does not substitute for naming the mitochondrial exception.",
+        "acceptableResponses": [
+          "Any answer that names the ribosome difference, places it on the correlate or tendency tier with a reason connected to architecture not determining ribosome structure, and identifies the mitochondrial ribosome as where the assumption fails."
+        ],
+        "commonErrors": [
+          "Naming the nuclear envelope as the difference to exploit, which confuses the criterion with the structural difference a ribosome-targeting molecule actually acts on.",
+          "Filing the ribosome difference under consequences, which produces the over-confident prediction that any eukaryotic cell is safe.",
+          "Missing the mitochondrial exception, which is the whole reason the item distinguishes tiers."
+        ]
+      },
+      "rubricId": "rubric-explanation",
+      "safetyCritical": false
+    }
+  ],
+  "rubrics": [
+    {
+      "id": "rubric-classification",
+      "title": "Applying the architectural criterion and sorting claims by tier",
+      "criteria": [
+        {
+          "id": "criterion-uses-the-criterion",
+          "description": "Decides the classification from the location of the DNA alone, rather than by weighing several described features against each other.",
+          "maxPoints": 3
+        },
+        {
+          "id": "criterion-rejects-distractors",
+          "description": "Identifies size, division rate, and the presence of other internal compartments as irrelevant to the classification, and names why each is irrelevant.",
+          "maxPoints": 3
+        },
+        {
+          "id": "criterion-no-ranking",
+          "description": "Avoids any claim about which cell type is older, simpler, or more advanced.",
+          "maxPoints": 2
+        }
+      ]
+    },
+    {
+      "id": "rubric-calculation",
+      "title": "Quantitative work on cell geometry and diffusion",
+      "criteria": [
+        {
+          "id": "criterion-correct-relation",
+          "description": "Selects the correct relation and uses the radius or distance the relation calls for rather than the diameter or width when they differ.",
+          "maxPoints": 3
+        },
+        {
+          "id": "criterion-correct-value-and-units",
+          "description": "Produces a numerically correct result within tolerance and states its units.",
+          "maxPoints": 2
+        },
+        {
+          "id": "criterion-plausibility-check",
+          "description": "Checks the answer against a value already established in the lesson, or against the expected direction of the effect.",
+          "maxPoints": 2
+        }
+      ]
+    },
+    {
+      "id": "rubric-explanation",
+      "title": "Explaining the trade-off and the limits of the model",
+      "criteria": [
+        {
+          "id": "criterion-mechanism-named",
+          "description": "Names the actual mechanism at stake, in terms of where transcription, translation, copying, or sorting happens, rather than restating the classification.",
+          "maxPoints": 3
+        },
+        {
+          "id": "criterion-both-sides",
+          "description": "Gives both what is gained and what is paid, or both what the model explains and where it stops.",
+          "maxPoints": 3
+        },
+        {
+          "id": "criterion-tier-discipline",
+          "description": "Places each claim used on the correct tier, distinguishing what follows from the criterion, what is a tendency, and what the criterion does not license.",
+          "maxPoints": 3
+        },
+        {
+          "id": "criterion-boundaries-respected",
+          "description": "Keeps any clinical content as illustration, makes no recommendation about a drug, dose, or patient, and does not assert frequencies the lesson has not established.",
+          "maxPoints": 1
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-chart-v1",
+  "id": "chart-surface-to-volume",
+  "type": "line",
+  "title": "Surface area per unit volume against radius, for a spherical cell",
+  "alt": "A curve falling steeply from 12 down to 0.25 as radius rises from 0.25 to 12 micrometres, with reference lines at radius 0.5 and radius 10 micrometres.",
+  "longDescription": "The curve plots three divided by the radius, which is the surface-to-volume ratio of a sphere, against radius in micrometres. At a radius of 0.25 micrometres the ratio is 12 per micrometre. It halves to 6 at 0.5 micrometres, falls to 3 at 1 micrometre, 1.5 at 2, 1 at 3, 0.6 at 5, 0.3 at 10, and 0.25 at 12. The fall is steep on the left and nearly flat on the right, so a change of half a micrometre matters enormously to a bacterium and hardly at all to a human cell. Two reference lines are marked. The first is at radius 0.5 micrometres, the half-width of the rod model of Escherichia coli used in this lesson, where a sphere would give 6 per micrometre; the rod itself gives 5 per micrometre, so shape shifts the answer by less than shape-free size does. The second is at radius 10 micrometres, the half-width of the 20 micrometre sphere used here for a human cell, where the ratio is 0.3 per micrometre. The two marked positions differ by a factor of 20 in radius and about 17 to 20 in the ratio, because the ratio is inversely proportional to radius.",
+  "xAxis": {
+    "label": "Radius of the modelled cell",
+    "unit": "µm",
+    "min": 0,
+    "max": 12,
+    "ticks": [
+      { "at": 0, "label": "0" },
+      { "at": 2, "label": "2" },
+      { "at": 4, "label": "4" },
+      { "at": 6, "label": "6" },
+      { "at": 8, "label": "8" },
+      { "at": 10, "label": "10" },
+      { "at": 12, "label": "12" }
+    ]
+  },
+  "yAxis": {
+    "label": "Surface area per unit volume",
+    "unit": "per µm",
+    "min": 0,
+    "max": 12,
+    "ticks": [
+      { "at": 0, "label": "0" },
+      { "at": 3, "label": "3" },
+      { "at": 6, "label": "6" },
+      { "at": 9, "label": "9" },
+      { "at": 12, "label": "12" }
+    ]
+  },
+  "series": [
+    {
+      "id": "series-sphere-ratio",
+      "label": "Three divided by the radius",
+      "mark": "line",
+      "points": [
+        { "x": 0.25, "y": 12 },
+        { "x": 0.35, "y": 8.57 },
+        { "x": 0.5, "y": 6 },
+        { "x": 0.75, "y": 4 },
+        { "x": 1, "y": 3 },
+        { "x": 1.5, "y": 2 },
+        { "x": 2, "y": 1.5 },
+        { "x": 3, "y": 1 },
+        { "x": 4, "y": 0.75 },
+        { "x": 5, "y": 0.6 },
+        { "x": 6, "y": 0.5 },
+        { "x": 8, "y": 0.375 },
+        { "x": 10, "y": 0.3 },
+        { "x": 12, "y": 0.25 }
+      ]
+    }
+  ],
+  "markers": [
+    { "x": 0.5, "label": "0.5 µm: half-width of the rod model of E. coli" },
+    { "x": 10, "label": "10 µm: half-width of the 20 µm human-cell sphere" }
+  ]
+}
