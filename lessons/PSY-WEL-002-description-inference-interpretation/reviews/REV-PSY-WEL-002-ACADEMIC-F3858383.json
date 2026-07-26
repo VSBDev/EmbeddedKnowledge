@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PSY-WEL-002-ACADEMIC-F3858383",
+  "lessonId": "PSY-WEL-002",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "6d3a23e71e5530989aaf200cbe8cb243de399899",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable academic reviewer",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PSY-WEL-002-F3858383-1C99-4C03-BCB3-A16536C2BE3C",
+      "instructionsDigest": "sha256:5364da7a61d1d2d3522a37d1b9e1cf0a8ae7844cb8f83df3896cac8cfdbfa534"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#PSY-WEL-002",
+    "content/010-one-evening.md#Six sentences about the same forty minutes",
+    "content/020-six-kinds.md#What each kind of statement commits you to",
+    "content/030-sorting-the-note.md#worked-example-sorting-the-note",
+    "content/040-collapse.md#Two shortcuts, and what they cost the next reader",
+    "content/050-authority.md#The two that get believed hardest",
+    "content/060-practice.md#Practice on a record you have not seen",
+    "content/070-triage.md#Transfer: nine words in an emergency department",
+    "content/080-clinical-wrap-up.md#Clinical wrap-up: one sentence in R.'s referral letter",
+    "assessment.json#item-sort-unseen-extract",
+    "assessment.json#item-spot-the-collapsed-line",
+    "assessment.json#item-repair-collapsed-line",
+    "assessment.json#item-classification-and-cause",
+    "assessment.json#item-transfer-referral-sentence",
+    "claims.json#claims",
+    "references.json#sources",
+    "glossary.json#terms",
+    "ATTRIBUTION.md#Attribution",
+    "references.json#source-nordgaard-interview; checked against [PMC indexed full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC3668119/)",
+    "references.json#source-delosreyes-informants; checked against [PMC indexed full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC4103654/)",
+    "references.json#source-carlson-asymmetry; checked against [PMC indexed full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC3424287/)",
+    "references.json#source-wang-note-text; checked against [PMC indexed full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC5818790/)",
+    "references.json#source-hallyburton-overshadowing; checked against [PMC indexed full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC9796883/)",
+    "references.json#source-reed-icd11-reliability; checked against [PMC indexed full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC5980511/)",
+    "references.json#source-chaker-hypothyroidism; checked against [PMC indexed full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC6619426/)",
+    "content/070-triage.md#Do the sort first; terminology checked against the [British Society of Gastroenterology functional-dyspepsia guideline](https://gut.bmj.com/content/71/9/1697)"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "content/020-six-kinds.md#Classification",
+      "finding": "The lesson treats agreement by a second clinician as the check on an individual classification and later says that a kappa of 0.45 is what two clinicians applying a guideline correctly but landing apart looks like. Inter-rater agreement estimates reproducibility across a sample; it does not establish the correctness or validity of an individual classification, nor does a kappa value show that either rater applied the guideline correctly. The glossary's description of expected agreement as agreement produced by literal guessing compounds this statistical error.",
+      "resolution": "Separate criterion fit, inter-rater reliability, and diagnostic validity. Define kappa at sample level using observed agreement relative to agreement expected from the raters' category-assignment distributions, then revise the mirrored explanation in content/050-authority.md and the classification assessment reasoning."
+    },
+    {
+      "severity": "major",
+      "target": "content/020-six-kinds.md#check-sort-three-lines",
+      "finding": "The keyed feedback classifies \"Symptoms began after the redundancy\" as a causal explanation because the word \"after\" supposedly implies cause. The sentence asserts temporal order, not causation. Treating temporal succession as a causal claim teaches the post hoc inference that the lesson is otherwise intended to expose.",
+      "resolution": "Either classify the sentence as a temporally ordered report or description whose source still needs attribution, or replace it with wording that explicitly asserts causation, such as \"The redundancy caused the symptoms.\""
+    },
+    {
+      "severity": "major",
+      "target": "content/030-sorting-the-note.md#worked-example-sorting-the-note",
+      "finding": "The worked example first states that the extract does not identify which words came from R., the partner, or the writer, but its answer then assigns lines 2, 3, 8, and 9 to R. and says attribution can be safely supplied. That contradicts the lesson's governing rule that origin determines whether a statement is self-report, informant report, observation, or inference. The further claim that \"unintentional\" can only have come from R. is also unjustified; it could be an informant report or the writer's inference.",
+      "resolution": "Add explicit attribution to every line whose intended origin matters, or mark each genuinely unattributed line as indeterminate and show the alternative classifications and checks. Do not credit learners for guessing a speaker that the record does not identify."
+    },
+    {
+      "severity": "major",
+      "target": "content/070-triage.md#Do the sort first",
+      "finding": "The scene defines \"likely functional\" as a causal assertion that pain is produced by something other than a disease process in the abdomen. In current gastroenterology, functional disorders are generally framed as disorders of gut-brain interaction with potentially central and peripheral mechanisms; the term can operate as a provisional syndromic classification or inference and does not necessarily assert a non-physical cause. The present explanation reinforces the psychiatric-versus-physical dichotomy that the diagnostic-overshadowing example is meant to challenge.",
+      "resolution": "Use an unequivocal causal statement such as \"pain due to anxiety\" if causal collapse is the intended target. If \"likely functional\" is retained, teach its ambiguity and current disciplinary meaning without treating it as proof that abdominal disease processes are absent, and add an appropriate mapped source."
+    },
+    {
+      "severity": "major",
+      "target": "content/080-clinical-wrap-up.md#Why this particular loss matters",
+      "finding": "The scene says that diagnosing hypothyroidism rests on measuring thyroid-stimulating hormone in blood. The cited review defines overt primary hypothyroidism using both raised TSH and low free thyroxine and notes that central hypothyroidism can present with low or low-normal TSH. The lesson therefore narrows \"biochemical testing\" to a single measurement in a way its own source does not support.",
+      "resolution": "Refer to appropriately interpreted biochemical thyroid-function testing rather than TSH alone. If test components are named, include free thyroxine and preserve the distinction between primary and central hypothyroidism without turning the teaching example into patient-specific advice."
+    },
+    {
+      "severity": "major",
+      "target": "content/080-clinical-wrap-up.md#Why this particular loss matters",
+      "finding": "The claim that \"an explanation cannot be acted on\" is false and directly contradicts content/050-authority.md, which says a causal explanation invites action. Unsupported causal explanations are dangerous precisely because clinicians can act on them, prematurely narrow investigation, or fail to revisit alternatives. The same false distinction recurs in assessment.json#item-transfer-referral-sentence, where an explanation is contrasted with an allegedly actionable report.",
+      "resolution": "State that a causal explanation can direct action but is unsafe when its evidence, uncertainty, and alternatives are hidden. Revise the transfer assessment answer and reasoning so they test whether the causal claim is supportable and discriminated from rivals, not whether explanations are intrinsically uninvestigable."
+    },
+    {
+      "severity": "major",
+      "target": "claims.json#claims",
+      "finding": "The lesson's central material model—the six-way taxonomy, the proposed check for each kind, the distinction between classification and causal explanation, and the rule that causal claims require named rivals—has no corresponding claim record. The existing Nordgaard claim supports the narrower symptom-sign and expressive-behaviour point, not the complete taxonomy or its normative checking procedure. Because these definitions drive every scene and the answer keys, this is an unsupported central evidence gap rather than an incidental omission.",
+      "resolution": "Add explicit claims for the central definitional and methodological propositions, identify whether each is directly supported, synthesized, or author-proposed, supply sources and limitations appropriate to each component, and expose those mappings in the relevant same-scene source notes. Narrow or relabel any component that cannot be supported as a disciplinary rule."
+    },
+    {
+      "severity": "minor",
+      "target": "content/050-authority.md#A causal sentence that outran its evidence",
+      "finding": "The phrase \"near-universal public standing\" overstates survey evidence reported second-hand as 80% or more in particular countries and periods. claims.json#claim-chemical-imbalance-belief correctly limits the figure, but the learner-facing prose removes that scope and strengthens \"widespread\" into near universality.",
+      "resolution": "Replace the phrase with wording such as \"widespread in the surveyed populations\" and keep the country, period, and second-hand-survey limitations adjacent to the claim."
+    },
+    {
+      "severity": "note",
+      "target": "references.json#source-wang-note-text",
+      "finding": "The reported sample of 23,630 notes by 460 clinicians and the 18% manually entered, 46% copied, and 36% imported proportions match the indexed paper, and the lesson consistently limits the result to one United States centre and its 2016 documentation system.",
+      "resolution": "No change required for this source interpretation or its stated scope."
+    }
+  ],
+  "limitations": [
+    "Direct opening of the PMC article pages was blocked by a reCAPTCHA interstitial. Independent verification therefore used indexed PMC full-text extracts for the important numerical and methodological claims. The Moncrieff-Jauhar serotonin exchange could not be re-read in full, so no finding depend...",
+    "Per the assigned scope, site files were not inspected. The graph node, cross-lesson terminology ledger, quorum policy, and review schema were therefore not independently checked; lesson identity and outcome mapping were assessed from the frozen pack, and artifact structure follows the academic re...",
+    "This was a document-based academic review of published claims, model boundaries, and answer logic. It did not reanalyse study-level raw data or make any patient-specific clinical judgment."
+  ],
+  "signedAt": "2026-07-25T23:36:21Z"
+}
