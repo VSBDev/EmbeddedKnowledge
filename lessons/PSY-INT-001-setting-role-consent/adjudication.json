@@ -1,0 +1,145 @@
+{
+  "schemaVersion": 1,
+  "adjudicationId": "ADJ-PSY-INT-001-FC9BD941",
+  "lessonId": "PSY-INT-001",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "dfc92031abe4466636bd92ef3378668f5c08215e",
+  "finalCommit": "b99eb02e5fb3ced951d52fdb18a01e2f359dbc7e",
+  "riskTier": "standard",
+  "policyId": "standard-lesson-v3",
+  "reviewIds": [
+    "REV-PSY-INT-001-ACADEMIC-1A223E08",
+    "REV-PSY-INT-001-LEARNING-DESIGN-A8479BBB"
+  ],
+  "quorum": {
+    "satisfied": true,
+    "approvals": 1,
+    "reviewInputs": 2,
+    "changeRequests": 1,
+    "roleCounts": {
+      "academic": 1,
+      "learningDesign": 1,
+      "accessibilityRights": 0
+    },
+    "distinctPrincipals": 1,
+    "distinctAgentRuns": 2,
+    "distinctAgentModelFamilies": 2
+  },
+  "decision": "merge",
+  "rationale": "Both role-isolated advisory inputs were present from distinct runs and model families, pinned to the same frozen candidate. The academic review returned request-changes with one blocking, four major and two minor findings; the learning-design review approved. The blocking finding was the decisive one: the clinical wrap-up issued a documentation and information-sharing instruction that none of its sources supported and that varies by jurisdiction, employer policy and a risk assessment the scene never performs. It was resolved by removing the instruction rather than by sourcing it, because a lesson explicitly scoped away from clinical authority should not be answering that question at all. The remaining findings were bounded corrections to a source's currency, a misread pair of survey items, two answer keys, a sorting heuristic and one counterfactual, and were repaired in the same single finalization pass. The academic verdict stands as dissent; no reviewer has seen the repaired text.",
+  "dissent": [
+    "The academic review's request-changes verdict stands as material dissent from the candidate as reviewed, including its blocking finding. That finding was incorporated by removing the prescribed answer; no reviewer has approved the result."
+  ],
+  "conditions": [
+    "The repaired content is committed first and that commit is stamped as finalCommit, with no teaching-content change afterward.",
+    "Strict source preflight and full validation must pass on the final content before merge.",
+    "The publication transition is the maintainer's separate act and is not authorised by this decision."
+  ],
+  "adjudicator": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable maintainer and adjudicator",
+    "agent": {
+      "system": "Claude Code",
+      "provider": "Anthropic",
+      "model": "claude-opus-5",
+      "version": "2.1.215",
+      "runId": "claude-adjudicator-PSY-INT-001-138A3DCFC0DF",
+      "instructionsDigest": "sha256:2bd366ec2c512d86affcdd7bbf69bc08614b945482710d2344fc1c7998fec087"
+    }
+  },
+  "adjudicatedAt": "2026-07-26T08:00:58Z",
+  "finalization": {
+    "materialChanges": [
+      "Removed the prescribed documentation decision from the clinical wrap-up and replaced it with what the decision would require: jurisdiction, employer policy, clinical purpose, and a risk assessment the lesson does not make.",
+      "Qualified the 2015 consent position paper to the general consent-as-process model rather than current jurisdiction-specific rules, recording that its own association treats papers over five years old as needing review.",
+      "Restated the two student-presence survey items separately and removed the subtraction between a simple and a compound item.",
+      "Re-keyed the five-month wait as a reason to check that declining is consequence-free rather than as proof of involuntariness.",
+      "Separated withdrawing from a participation arrangement, which the person controls, from determining record content, which they do not.",
+      "Replaced the recovery route's who-could-check-it test with sorting by what a sentence states and to whom it is attributed.",
+      "Bounded the interpreter counterfactual to a stated mechanism rather than a prediction about the record.",
+      "Added the missing comma the learning-design review identified."
+    ],
+    "reviewDispositions": [
+      {
+        "reviewId": "REV-PSY-INT-001-ACADEMIC-1A223E08",
+        "findingIndex": 0,
+        "action": "incorporated",
+        "rationale": "content/07-clinical-wrap-up-the-letter.md: the prescribed answer is removed; the scene now names what the decision needs and what the earlier conversation did and did not settle."
+      },
+      {
+        "reviewId": "REV-PSY-INT-001-ACADEMIC-1A223E08",
+        "findingIndex": 1,
+        "action": "incorporated",
+        "rationale": "references.json: the 2015 position paper's scope and currency are stated in its locator."
+      },
+      {
+        "reviewId": "REV-PSY-INT-001-ACADEMIC-1A223E08",
+        "findingIndex": 2,
+        "action": "incorporated",
+        "rationale": "claims.json: both survey items are stated exactly, the compound item is identified as compound, and the gap claim is removed."
+      },
+      {
+        "reviewId": "REV-PSY-INT-001-ACADEMIC-1A223E08",
+        "findingIndex": 3,
+        "action": "incorporated",
+        "rationale": "assessment.json: item-arrange-a-new-encounter keys the wait as a prompt to check voluntariness, not as proof of its absence."
+      },
+      {
+        "reviewId": "REV-PSY-INT-001-ACADEMIC-1A223E08",
+        "findingIndex": 4,
+        "action": "incorporated",
+        "rationale": "assessment.json: item-state-of-the-agreement distinguishes withdrawal from control over record content, in both the option and the reasoning."
+      },
+      {
+        "reviewId": "REV-PSY-INT-001-ACADEMIC-1A223E08",
+        "findingIndex": 5,
+        "action": "incorporated",
+        "rationale": "content/05-three-passes-and-a-way-back.md: the recovery route sorts by stated provenance and inferential content."
+      },
+      {
+        "reviewId": "REV-PSY-INT-001-ACADEMIC-1A223E08",
+        "findingIndex": 6,
+        "action": "incorporated",
+        "rationale": "content/02-six-decisions-behind-one-conversation.md: the counterfactual is bounded and the evidence's observational, non-psychiatric base is stated."
+      },
+      {
+        "reviewId": "REV-PSY-INT-001-LEARNING-DESIGN-A8479BBB",
+        "findingIndex": 0,
+        "action": "no-change-required",
+        "rationale": "Recorded as a strength; no change requested."
+      },
+      {
+        "reviewId": "REV-PSY-INT-001-LEARNING-DESIGN-A8479BBB",
+        "findingIndex": 1,
+        "action": "no-change-required",
+        "rationale": "Recorded as a strength; no change requested."
+      },
+      {
+        "reviewId": "REV-PSY-INT-001-LEARNING-DESIGN-A8479BBB",
+        "findingIndex": 2,
+        "action": "no-change-required",
+        "rationale": "Recorded as a strength; no change requested."
+      },
+      {
+        "reviewId": "REV-PSY-INT-001-LEARNING-DESIGN-A8479BBB",
+        "findingIndex": 3,
+        "action": "incorporated",
+        "rationale": "content/06-the-same-six-decisions-by-telephone.md: comma added after the introductory phrase."
+      }
+    ],
+    "accessibilityRightsAudit": {
+      "satisfied": true,
+      "evidenceChecked": [
+        "All seven scenes keep one level-one heading, semantic Markdown, linear reading order and text-first instruction, with no raw HTML, embeds or executable content.",
+        "The pack carries no images or diagrams, so no alternative-text obligation arises.",
+        "All nine sources are used facts-only across four named jurisdictions, none presented as universal.",
+        "Removing the prescribed documentation instruction lowers the pack's clinical-authority exposure, which was the blocking concern."
+      ],
+      "limitations": [
+        "A maintainer reading of the repaired text, not an independent accessibility or rights review; the accessibility-rights role was not staffed for this tier.",
+        "No screen-reader run was performed against the rendered lesson.",
+        "The 2015 consent source could not be confirmed as re-endorsed through permitted routes, so its currency is stated rather than resolved."
+      ]
+    }
+  }
+}
