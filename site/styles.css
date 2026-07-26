@@ -944,6 +944,21 @@ h2 em {
   align-self: start;
 }
 
+/* The heading column is sticky, so anything auto-placed beneath it in the same column scrolls up
+   underneath the pinned text. The review-boundary note belongs beside the evidence it qualifies
+   anyway, so it is placed in the second column rather than left to fall into the first. */
+.method > .course-boundary {
+  grid-column: 2;
+  margin-top: 48px;
+}
+
+@media (max-width: 900px) {
+  .method > .course-boundary {
+    grid-column: 1;
+    margin-top: 32px;
+  }
+}
+
 .method-heading h2 {
   margin-top: 42px;
 }
