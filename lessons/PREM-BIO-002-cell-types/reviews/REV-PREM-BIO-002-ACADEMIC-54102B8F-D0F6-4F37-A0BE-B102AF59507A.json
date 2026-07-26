@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-BIO-002-ACADEMIC-54102B8F-D0F6-4F37-A0BE-B102AF59507A",
+  "lessonId": "PREM-BIO-002",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "718c9052607af873c7776fa5d56bf15a52c89906",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable operator, academic reviewer",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-BIO-002-54102B8F-D0F6-4F37-A0BE-B102AF59507A",
+      "instructionsDigest": "sha256:b84d497f1cad5261684bf5845a9dcd87f65685c96b88979abaab5e99f94d2d8b"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#identity-objectives-prerequisites-and-scene-manifest",
+    "content/01-two-ways-to-build-a-cell.md#complete-scene-including-definition-two-architectures-and-source-note",
+    "content/02-how-much-membrane-how-long-to-cross.md#complete-scene-including-all-equations-and-source-note",
+    "content/03-a-room-of-its-own.md#complete-scene-including-genome-table-and-source-note",
+    "content/04-older-simpler-lesser.md#complete-scene-including-misconception-prokaryote-means-primitive-and-source-note",
+    "content/05-four-problems-less-help-each-time.md#complete-scene-including-all-four-checks-and-source-note",
+    "content/06-why-one-culture-takes-six-weeks.md#complete-scene-including-culture-estimate-and-source-note",
+    "content/07-clinical-wrap-up.md#complete-scene-including-clinical-boundary-transfer-check-and-source-note",
+    "assessment.json#all-eight-items-answer-keys-common-errors-and-three-rubrics",
+    "claims.json#all-28-claim-records",
+    "references.json#all-23-source-records-locators-rights-records-and-agent-access-statuses",
+    "glossary.json#all-14-terms-and-domain-alignment",
+    "charts/surface-to-volume.chart.json#all-points-markers-alt-and-long-description",
+    "diagrams/what-the-criterion-licenses.diagram.json#all-nodes-edges-alt-and-long-description",
+    "assets/prokaryote-cell-labelled.png#candidate-blob-c524492c5c903d1323b336781a864c1a8f0167a0-visual-label-and-dimension-inspection",
+    "ATTRIBUTION.md#complete-attribution-source-use-terminology-and-provenance-record",
+    "content/02-how-much-membrane-how-long-to-cross.md#equation-bacterium-volume-equation-bacterium-surface-equation-ratio-comparison-and-equation-crossing-times-independently-recalculated",
+    "content/05-four-problems-less-help-each-time.md#check-coccus-arithmetic-independently-recalculated",
+    "content/06-why-one-culture-takes-six-weeks.md#check-time-to-a-visible-colony-independently-recalculated",
+    "references.json#source-cooper-origin-evolution-cells-direct-source-text-checked",
+    "references.json#source-ionescu-giant-bacteria-direct-full-text-and-Volland-2022-primary-PubMed-record-checked",
+    "references.json#source-nurk-complete-human-genome-direct-full-text-checked-for-haplotype-and-46XX-context",
+    "references.json#source-elowitz-protein-mobility-PubMed-record-and-abstract-checked",
+    "references.json#source-shine-cotranscriptional-PubMed-record-and-abstract-checked",
+    "references.json#source-bottger-ribosomal-antibiotics-PubMed-record-and-abstract-checked",
+    "references.json#source-spang-asgard-PubMed-record-checked",
+    "references.json#source-spigaglia-cdi-PubMed-record-and-abstract-checked",
+    "WHO-Global-Tuberculosis-Report-2025#diagnostic-testing-and-WHO-recommended-rapid-tests",
+    "CDC-2025-TB-laboratory-performance-targets#culture-and-drug-susceptibility-turnaround"
+  ],
+  "findings": [
+    {
+      "severity": "blocking",
+      "target": "lesson.json#objective-apply-architecture-criterion",
+      "finding": "The objective and core definition treat enclosure of DNA by a membrane as a universally sufficient, definitional classifier for any cell. The pack's own claim-giant-bacterium and source-ionescu-giant-bacteria, confirmed by the 2022 primary report, identify Candidatus Thiomargarita magnifica as a bacterium whose genomic material and ribosomes occupy membrane-bound organelles. Scene 4 acknowledges that ancestry, not this membrane test, resolves the organism, yet the objective, definition-two-architectures, diagram, glossary, classification rubric, and answer keys continue to reward classification from DNA location alone. The same universal wording also has no answer for enucleated eukaryotic cells and overgeneralizes nuclear transcription/translation consequences to organellar genomes. This internal contradiction defeats the lesson's primary classification outcome.",
+      "resolution": "Reframe the membrane distinction as a conventional nuclear-genome architectural pattern with an explicit scope, not a universal lineage classifier. Distinguish structural description from phylogenetic classification; delimit the transcription/translation consequence to nuclear genes and cytoplasmic ribosomes; handle giant bacteria, organellar genomes, and enucleated cells explicitly. Revise every objective, definition, diagram, glossary entry, rubric, and assessment key that says the criterion is single, definitional, universal, or sufficient alone. If classification remains assessed, provide lineage evidence or ask only what architecture the description supports."
+    },
+    {
+      "severity": "major",
+      "target": "assessment.json#item-sort-what-follows",
+      "finding": "The key places both nascent-transcript translation and transcript processing/quality control on the follows-directly tier. A nuclear boundary directly provides spatial separation of nuclear transcription from cytoplasmic translation; processing, quality-control, selective export, and the resulting regulatory stages require additional machinery and are possibilities enabled by that separation. claim-nucleus-regulatory-layer correctly scopes them as regulatory potential, and claim-transcription-translation-coupling states that tight coupling in prokaryotes is not universal. The item therefore collapses made possible into follows directly and rewards the central tier error the lesson is meant to prevent.",
+      "resolution": "Key only a statement that is structurally entailed, such as separation of nuclear transcription from cytoplasmic translation, or rewrite the question to ask what the envelope makes possible. Treat RNA processing, quality control, and coupling as mechanisms with stated scope rather than necessary consequences, and align the scene-4 diagram, scene-5 feedback, rubric, and acceptable responses."
+    },
+    {
+      "severity": "major",
+      "target": "assessment.json#item-diffusion-crossing-time",
+      "finding": "The relation t = x^2/(2D) is introduced by inverting the one-dimensional mean-squared-displacement relation. Without a specified initial position, geometry, and reflecting/absorbing boundary conditions, it gives a characteristic time at which the root-mean-square displacement equals x, not the deterministic time a protein takes to cross a cell. The cited Elowitz source supports an order-of-magnitude diffusion timescale, not the exact crossing latency implied by the prompt, tight numeric tolerance, and repeated claims that a newly made protein reaches the far end after the calculated time. The square-law comparison is useful, but the assessed interpretation is false precision.",
+      "resolution": "Across the objective, scenes 2 to 5, glossary, claims, and assessment, label this a characteristic free-diffusion timescale for a one-dimensional RMS displacement under the stated idealization, and state that actual first-passage/crossing times depend on start position, boundaries, crowding, binding, and transport. Alternatively define and solve an explicit first-passage model. Preserve the square-law factor comparison but adjust the prompt, key, tolerance, and causal prose."
+    },
+    {
+      "severity": "major",
+      "target": "assessment.json#item-generation-time-account",
+      "finding": "The keyed answer says that most of the E. coli-versus-human 24-hour gap is explained by DNA amount and machinery downstream of the nuclear envelope, but the mapped sources establish genome sizes and representative cycle times, not that causal account. Nuclear enclosure does not entail genome size, multiple linear chromosomes, open mitosis, or cycle duration; bacteria also organize and segregate chromosomes, and eukaryotic lineages vary in mitotic architecture. The quantitative comparison also uses the 3,054,815,472-base T2T-CHM13 haplotype as the amount copied by a human cell. A typical diploid human cell copies roughly 6.1 billion nuclear base pairs across 46 chromosome copies. The answer therefore combines a per-cell ploidy error with an unsupported attribution of cycle time to the architectural criterion.",
+      "resolution": "Correct scene 3, claim-genome-sizes, and the key to distinguish one haploid genome assembly from DNA copied by a diploid somatic cell. Present genome size, chromosome organization, replication, segregation, checkpoints, growth, and organism-specific physiology as contributors with appropriate evidence, not as consequences determined by the nuclear envelope. Rewrite the item to compare documented division work and model limits, or add sources that support the narrower causal claims and accept scientifically valid multifactorial accounts."
+    },
+    {
+      "severity": "minor",
+      "target": "content/01-two-ways-to-build-a-cell.md#What-the-inside-of-a-prokaryotic-cell-looks-like",
+      "finding": "The prose makes material claims about capsule function, plasmid gain/loss and antibiotic-resistance transfer, pili in attachment and transfer, and flagellar rotation. The scene source-note maps claim-prokaryote-cell-features, but that claim and its Cooper locator cover the wall, membrane, nucleoid, circular chromosome, and ribosomes rather than these additional structures and functions. The third-party illustration is expression, not academic evidence, so the same-scene claim trace is incomplete.",
+      "resolution": "Add one or more precise mapped claims and suitable authoritative sources for each retained structure/function, and include those source IDs in this scene's source-note; otherwise trim the unsupported functional assertions."
+    },
+    {
+      "severity": "minor",
+      "target": "claims.json#claim-mtb-culture-time",
+      "finding": "The claim calls a 2014 study current tools, while scene 6 broadly says that a negative mycobacterial culture at two weeks means almost nothing. The pack's own older source reports broth detection in 5 to 12 days, and contemporary WHO guidance makes rapid molecular tests central to initial TB diagnosis and resistance detection. Culture and phenotypic susceptibility testing remain slow, but turnaround and the meaning of an interim negative depend on specimen, burden, system, protocol, and whether the result is molecular or culture-based. The present wording is time-unstable and too broad for health-sensitive content.",
+      "resolution": "Bound every turnaround figure to its dated solid-media, broth, or phenotypic workflow; remove current tools and the unqualified clinical interpretation of a two-week negative. If present practice is discussed, cite current authoritative guidance and distinguish rapid molecular diagnosis/resistance testing from culture and phenotypic drug-susceptibility testing."
+    },
+    {
+      "severity": "minor",
+      "target": "assessment.json#item-antibiotic-selectivity-transfer",
+      "finding": "The key turns a qualified 2001 authors' proposal into the broad statement that mitochondrial-ribosome susceptibility is the reason such drugs are toxic in patients at all. claim-mitoribosome-toxicity itself records medium confidence, multiple proposed mechanisms, and an aminoglycoside example; susceptibility and toxicity mechanisms vary by agent and tissue. The mitochondrial exception is academically useful, but the causal generalization exceeds the cited evidence.",
+      "resolution": "Require identification of mitochondria as an exception to a simple bacterial-versus-eukaryotic-ribosome model, while describing mitoribosome inhibition only as one proposed or documented contributor for specified drug contexts. Remove any implication that it explains all toxicity of all ribosome-targeting antibacterials."
+    },
+    {
+      "severity": "note",
+      "target": "content/02-how-much-membrane-how-long-to-cross.md#Steps-1-to-3",
+      "finding": "The cylinder and sphere arithmetic was independently recalculated: volumes are 1.57 and 4188.79 cubic micrometres, areas 7.85 and 1256.64 square micrometres, surface-to-volume ratios 5.0 and 0.30 per micrometre, and the ratio factors are approximately 2667 and 16.67. The rounded values in the lesson and all fourteen chart points for 3/r are numerically correct within their stated precision.",
+      "resolution": "No change required to these geometry calculations; retain the declared shape idealizations and rounding."
+    }
+  ],
+  "limitations": [
+    "Per the assigned scope, no scripts, site files, workflow files, graph data, terminology ledger, schema file, or other lesson pack was inspected. Cross-lesson graph and terminology checks were therefore not repeated; the artifact structure follows the supplied academic review template.",
+    "Several cited PMC full-text routes returned a browser reCAPTCHA during independent checking. For source-elowitz-protein-mobility, source-shine-cotranscriptional, source-bottger-ribosomal-antibiotics, source-spigaglia-cdi, and source-spang-asgard, the pack records were read in full and PubMed meta...",
+    "The Science full text for the 2022 Candidatus Thiomargarita magnifica primary report was not accessible through the cited pack route; its PubMed abstract and the directly accessible 2023 review were checked. This limitation does not prevent a verdict because both explicitly report bacterial ident...",
+    "No conflict of interest is declared. This is a general academic cell-biology review, not clinical care or a specialist infectious-disease consultation; health-sensitive findings are limited to source scope, wording, and assessment validity."
+  ],
+  "signedAt": "2026-07-26T19:29:44Z"
+}
