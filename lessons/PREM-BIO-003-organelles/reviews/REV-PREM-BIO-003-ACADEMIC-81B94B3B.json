@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-BIO-003-ACADEMIC-81B94B3B",
+  "lessonId": "PREM-BIO-003",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "2485aa1600a56a13c18300fd137ad58c39db2c55",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable academic reviewer",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-BIO-003-81B94B3B-53E6-4B1C-8A21-A999068618E6",
+      "instructionsDigest": "sha256:598bbc1f99defdaf3e75d208eba253a6de879e0cd970578af8eab8b7cdc0daed"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "The accountable reviewer principal is also the candidate's accountable author. Founding-stage policy permits one disclosed principal to operate distinct isolated runs; this academic run independently inspected the frozen candidate and did not read another review or an adjudication."
+  },
+  "evidenceChecked": [
+    "candidate commit 2485aa1600a56a13c18300fd137ad58c39db2c55#pack-tree-and-working-tree-equivalence",
+    "lesson.json#identity-version-outcomes-objectives-scenes-provenance-and-assets",
+    "content/01-two-outsides.md#complete-scene",
+    "content/02-proton-arithmetic.md#complete-scene-and-equation-proton-ratio",
+    "content/03-membrane-was-not-the-protection.md#complete-scene-and-misconception-membrane-as-wall",
+    "content/04-getting-there.md#complete-scene-and-check-route-failure-points",
+    "content/05-compartment-as-machine.md#complete-scene-and-check-uncoupler-versus-pump-block",
+    "content/06-practice.md#complete-scene-and-all-practice-checks",
+    "content/07-clinical-wrap-up.md#complete-scene-and-callout-teaching-boundary",
+    "assessment.json#all-items-answer-keys-rubrics-and-retry-guidance",
+    "claims.json#all-claims-support-scopes-uncertainties-and-scene-mappings",
+    "references.json#all-source-records-locators-rights-records-and-agent-access-statuses",
+    "glossary.json#all-terms-definitions-aliases-and-scene-mappings",
+    "diagrams/route-to-the-surface.diagram.json#all-nodes-edges-alt-and-long-description",
+    "assets/animal-cell-structure.png#visual-inspection-of-complete-1280-by-856-raster",
+    "ATTRIBUTION.md#complete-attribution-provenance-source-use-and-boundaries",
+    "references.json#source-alberts-tgn-lysosomes and [NCBI Bookshelf source text](https://www.ncbi.nlm.nih.gov/books/NBK26844/)",
+    "references.json#source-feng-lysosome-hydrolases and [indexed source text](https://pmc.ncbi.nlm.nih.gov/articles/PMC10191866/)",
+    "references.json#source-schneeberger-mvid and [indexed cited review](https://pmc.ncbi.nlm.nih.gov/articles/PMC5894939/)",
+    "external verification#[NCBI mitochondrial translation account](https://www.ncbi.nlm.nih.gov/books/NBK9896/)",
+    "external verification#[NCBI lysosomal precursor-processing account](https://www.ncbi.nlm.nih.gov/books/NBK11604/)",
+    "external verification#[primary MYO5B ion-transport study](https://pmc.ncbi.nlm.nih.gov/articles/PMC6279525/)",
+    "external verification#[primary bacterial proton-motive-force study](https://pubmed.ncbi.nlm.nih.gov/4279406/)",
+    "external verification#[primary bacterial magnetosome study](https://pubmed.ncbi.nlm.nih.gov/20212111/)",
+    "external verification#[primary peroxisome-derived-hydrogen-peroxide study](https://pubmed.ncbi.nlm.nih.gov/35557958/)"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "content/02-proton-arithmetic.md#check-it-against-something-that-was-not-fitted-to-it",
+      "finding": "The scene calls the reported 500–1000-fold value an independently measured gradient, says it came from measurements of the gradient, and treats agreement as a reason to trust both inputs. The cited Feng record reports the factor alongside lysosomal acidity but does not establish an independent measurement method in the supplied locator. The same pack's claims.json uncertainty instead says the convergence is not evidence for either input. Because objective-compute-compartment-gradient expressly requires comparison with an independently reported gradient, the claimed independence is a central unsupported premise rather than a wording preference.",
+      "resolution": "Supply a source and precise locator documenting a genuinely independent gradient measurement and its method, or relabel the comparison as a non-independent arithmetic consistency check. In the latter case, revise the objective and any assessment language requiring independence, and reconcile the prose with claims.json#claim-proton-ratio-arithmetic."
+    },
+    {
+      "severity": "major",
+      "target": "assessment.json#item-gradient-arithmetic",
+      "finding": "The answer key requires the inference that the more acidic compartment leaks harder and therefore has a larger standing energy cost. The pH values determine concentration ratios and a chemical-potential difference, but they do not determine proton flux, maintenance power, or relative ATP consumption. Those depend on membrane proton conductance or permeability, area, electrical potential, counterion pathways, buffering, pump stoichiometry and regulation. The answer inserts an all-else-equal assumption absent from the prompt, so a scientifically correct response that refuses to rank the compartments' ATP costs could lose credit.",
+      "resolution": "Revise the prompt, key and rubric to distinguish gradient magnitude or thermodynamic work per proton from maintenance power. Either specify the equal permeability, area, voltage and pump assumptions needed for a conditional comparison, or require the learner to state that relative ATP use cannot be inferred from pH alone."
+    },
+    {
+      "severity": "major",
+      "target": "content/03-membrane-was-not-the-protection.md#misconception-membrane-as-wall",
+      "finding": "The replacement model makes acidity the sole switch for lysosomal hydrolases, states that containment and activation are the same act, and later describes an enzyme travelling with its full digestive capacity. Acidification is important, but many soluble lysosomal enzymes are synthesized as precursors and several require proteolytic processing or additional factors; the cited Feng source itself emphasizes chloride-dependent activation. The admitted absence of an activity-versus-pH curve also leaves the claimed degree of inactivity in the Golgi unverified. The current model rewards a false monocausal shortcut.",
+      "resolution": "Qualify acidity as one major component of lysosomal activation and cytosolic protection. Incorporate precursor processing and relevant cofactors at the level needed to prevent the pH-only inference, and revise check-recheck-conditions so its answer does not claim that compartment pH alone establishes safety throughout the route."
+    },
+    {
+      "severity": "major",
+      "target": "content/03-membrane-was-not-the-protection.md#a-second-case-where-the-chemistry-has-to-be-kept-close",
+      "finding": "The peroxisome case says hydrogen peroxide never gets a chance to travel, that its journey remains within a few tens of nanometres, and that its working concentration appears nowhere else. The mapped source establishes oxidase–catalase colocalization but not absolute confinement or the stated diffusion distance. Peroxisome-derived hydrogen peroxide can cross the organelle boundary and participate in cytosolic and mitochondrial redox signaling. The same unsupported absolute is made mastery-critical in assessment.json#item-condition-then-compartment.",
+      "resolution": "Describe catalase colocalization as limiting hydrogen-peroxide accumulation and exposure rather than preventing all escape. Acknowledge membrane permeation and signaling, remove the unsourced distance claim, and revise the assessment answer and rubric so they do not require absolute confinement."
+    },
+    {
+      "severity": "major",
+      "target": "content/05-compartment-as-machine.md#adding-up-the-bill",
+      "finding": "The conclusion that bacteria pay none of these costs and buy none of these benefits is false. Bacteria build membranes and transport systems, use membrane proton-motive force to synthesize ATP, spatially target proteins, and some possess functional compartments such as magnetosomes or protein-shell microcompartments. This absolute also lacks a mapped claim or source. It undermines the lesson's central cost–benefit comparison by confusing absence of a eukaryotic endomembrane system in many bacteria with absence of compartmentalization, membrane energetics and addressing altogether.",
+      "resolution": "Narrow the comparison to the absence of a eukaryotic-style endomembrane system in many bacteria, while explicitly preserving bacterial membrane energetics, transport, localization and known compartment exceptions. Map the revised material claim to suitable evidence."
+    },
+    {
+      "severity": "major",
+      "target": "content/07-clinical-wrap-up.md#does-the-model-predict-the-clinical-picture",
+      "finding": "The scene attributes the watery diarrhea to failure to build enough absorptive surface: unabsorbed material remains in the lumen and leaves with the stool. The cited MVID review explicitly says surface-area reduction does not fully explain the phenotype, and primary MYO5B work shows selective loss of apical sodium and water absorptive transporters with maintained apical CFTR-mediated chloride secretion. The disease is therefore not explained by surface area alone. The accompanying claim that transcription, folding, Golgi modification, addressing and packaging are all intact and only the final leg fails is also too uniform for heterogeneous MYO5B, STX3 and STXBP2 mechanisms and apical-recycling defects.",
+      "resolution": "Revise the clinical reasoning to distinguish impaired absorptive-transporter localization from maintained secretory pathways, and state that the contribution of brush-border loss and trafficking defects varies by genotype and model. Do not assert that every upstream manufacturing and sorting step is proven intact unless evidence supports that scope."
+    },
+    {
+      "severity": "minor",
+      "target": "diagrams/route-to-the-surface.diagram.json#node-ribosome",
+      "finding": "The node and long description say translation of every protein starts on a cytosolic ribosome. Human mitochondrial DNA encodes 13 proteins that are translated by mitochondrial ribosomes inside mitochondria. The universal statement is therefore false even in the lesson's animal-cell scope.",
+      "resolution": "Change the statement to nucleus-encoded proteins on the route taught here, or otherwise state the mitochondrial-encoded exception. Apply the same qualification to the corresponding universal wording in content/04-getting-there.md."
+    },
+    {
+      "severity": "minor",
+      "target": "glossary.json#term-brush-border",
+      "finding": "The aliases list treats microvillus and microvilli as synonyms for brush border, although the definition correctly distinguishes an individual microvillus from the collective brush border. The alias mapping therefore collapses two different anatomical levels.",
+      "resolution": "Remove microvillus and microvilli as aliases of brush border and, if glossary coverage is needed, define microvillus separately."
+    },
+    {
+      "severity": "minor",
+      "target": "glossary.json#term-proton-gradient",
+      "finding": "The definition conflates a hydrogen-ion concentration gradient with a charge difference and aliases it to proton potential. A transmembrane proton electrochemical potential has separable chemical and electrical components; the lesson's pH arithmetic computes only the chemical concentration ratio. Treating all three expressions as interchangeable obscures what the calculations do and do not establish.",
+      "resolution": "Distinguish the pH or concentration gradient, membrane potential, and combined proton-motive or electrochemical potential, then use those terms consistently in the lysosomal arithmetic and mitochondrial mechanism."
+    }
+  ],
+  "limitations": [
+    "The assigned scope prohibited reading site/, scripts/, workflows and other lesson packs. Cross-lesson terminology-ledger and knowledge-graph-node checks were therefore not performed; this does not prevent a request-changes verdict because multiple pack-internal major errors were established.",
+    "Direct opening of several PMC article endpoints returned an automated browser challenge. I checked the complete source records in the pack and accessible NCBI Bookshelf, PubMed, publisher and indexed article text, but do not claim line-by-line re-reading of every external article.",
+    "This was a general academic cell-biology review, not a specialist paediatric-gastroenterology or membrane-biophysics consultation. The cited-source contradiction and incorrect assessment logic are nevertheless sufficiently direct to support the verdict.",
+    "No other review conclusion, adjudication draft, authoring conversation or post-candidate lesson content was consulted."
+  ],
+  "signedAt": "2026-07-26T19:09:59Z"
+}
