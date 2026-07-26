@@ -45,11 +45,11 @@ The answer is a fence, and the experiment that found it is clean enough to recon
 
 Protein is held apart the same way. Some plasma-membrane enzymes and transport proteins are confined to the apical surface and others to the basal and lateral surfaces, and that separation of both protein and lipid is attributed at least in part to the tight junction. Lesson 07 is where a junction stops being a line on a diagram and becomes a set of proteins.
 
-## The two faces are physically different membranes
+## The two faces are physically different, and still one membrane
 
-The strongest single piece of evidence that these are two membranes rather than two regions of one is that you can measure the difference.
+Earlier in this scene the two faces were continuous with each other around the top of the cell, and that has not changed: apical and basolateral are domains of one plasma membrane, not two membranes. What the domains are is physically different, and the strongest single piece of evidence for that is that you can measure the difference.
 
-Solution X-ray scattering across purified membranes from rat liver gives the distance from the phosphate groups on one side to those on the other. Apical plasma membrane came out at 42.5 ± 0.3 Å, basolateral at 35.6 ± 0.6 Å, with the Golgi at 39.5 ± 0.4 Å and the endoplasmic reticulum at 37.5 ± 0.4 Å. The two faces of one polarised cell differ in bilayer thickness by around 7 Å, which is close to 20 per cent.
+Solution X-ray scattering across purified membranes from rat liver gives the distance from the phosphate groups on one side to those on the other. Apical plasma membrane came out at 42.5 ± 0.3 Å, basolateral at 35.6 ± 0.6 Å, with the Golgi at 39.5 ± 0.4 Å and the endoplasmic reticulum at 37.5 ± 0.4 Å. The two faces of one polarised cell differ in bilayer thickness by around 7 Å, which is close to 20 per cent. A continuous sheet whose two ends differ by a fifth in thickness is a strong result: it says the difference between the domains is structural and not only a matter of which proteins are parked where.
 
 Two cautions come with that number. It is a hepatocyte measurement, so the apical membrane in question is a bile canalicular one and not an intestinal brush border; the general finding is that a polarised cell's faces are physically different, and the intestinal specifics come from the composition work quoted above. And the phosphate-to-phosphate distance is smaller than the membrane's overall 5-nanometre thickness because it stops at the phosphates instead of at the outer edge of the head groups. When a source gives a number, check where it put the edge.
 

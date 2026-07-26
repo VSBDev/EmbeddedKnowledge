@@ -13,9 +13,11 @@ Fungi build their membranes with **ergosterol** where human cells build theirs w
 
 ## Step one: what is the target
 
-Amphotericin B interacts with ergosterol rather than with an enzyme. Two accounts of what follows are current. In one, the drug and the sterol together form pores through which ions leak. In the other, the drug assembles into large aggregates sitting outside the membrane and pulls ergosterol out of the bilayer into them, which is described as a sterol sponge. Both accounts end in a membrane that no longer has the sterol it was built around, and the disagreement is over the route and not the destination.
+Amphotericin B interacts with ergosterol rather than with an enzyme. Two accounts of what follows are current. In one, the drug and the sterol together form pores through which ions leak. In the other, the drug assembles into large aggregates sitting outside the membrane and pulls ergosterol out of the bilayer into them, which is described as a sterol sponge. The disagreement is not only about the route. In the pore account the drug and the sterol build an ion-conducting structure together and the sterol stays in the membrane as part of it; in the sponge account the sterol leaves. Only the second ends in a membrane that no longer has the sterol it was built around.
 
-Take a moment on what that means with this lesson's model in hand. A membrane stripped of its sterol has lost the component that restricts chain movement, obstructs the phase transition, and holds down permeability to small water-soluble molecules. The consequences are consequences of membrane behaviour, and you can predict their direction from the third scene without knowing anything else about fungal biology.
+Take the sponge account for a moment, because it is the one this lesson's model speaks to. A membrane stripped of its sterol has lost the component that restricts chain movement, obstructs the phase transition, and holds down permeability to small water-soluble molecules. Those consequences are consequences of membrane behaviour, and you can predict their direction from the third scene without knowing anything else about fungal biology.
+
+The pore account arrives at leakage by a different road: the structure the drug and the sterol form is itself the hole. Both accounts predict a membrane that leaks, which is why the disagreement has been hard to settle from the outcome alone. They do not predict the same membrane. Keep the two apart when you reason forward from either, because a prediction that starts from sterol removal is a prediction about only one of them.
 
 ## Step two: why it is more toxic to a fungus than to us
 

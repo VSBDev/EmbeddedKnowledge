@@ -86,3 +86,58 @@ Two figures in this pack are carried at scopes narrower than the running case, a
 The graph prerequisite `topic-biomolecules-lipids` has no published lesson. The first scene states that plainly, supplies the three definitions the rest of the lesson needs, and directs the learner to read the prerequisite lesson first once it exists. No lipid chemistry beyond those three definitions is assumed anywhere in the pack.
 
 There are no licence exceptions to the CC BY 4.0 contribution grant beyond the single third-party asset recorded above, which is in the public domain and therefore redistributable within this corpus.
+
+## Adjudication repairs to the 0.1.0 candidate
+
+The academic review returned request-changes with five major and three minor findings; the
+learning-design review approved with five notes. All eight were repaired in one finalization pass and
+none was declined.
+
+Three of the majors were answer keys that required a false argument to score full marks, which is the
+worst kind of defect this corpus can ship: a learner who reasons correctly loses the point.
+
+- **A dose argument had the direction of saturation backwards.** The key said that raising the dose
+  leaves the ratio between fungal and human effect roughly unchanged while the absolute effect rises.
+  Binding saturates, so the preferred target fills first and the margin *narrows* as the dose climbs;
+  a thirtyfold advantage is largest at low occupancy and worth nothing once both sterols are
+  saturated. The fixed-ratio version is the reassuring form of the very error the item was built to
+  catch. The key now also credits the deeper answer, that an affinity ratio is not an effect ratio
+  without exposure, sterol abundance, stoichiometry and response.
+- **An intervention that hits everything was treated as though it isolated one thing.** The key
+  required the answer that interrupting ATP for several hours leaves both separations intact. Half of
+  that holds: stopping the flippases alone would remove little of the leaflet asymmetry, because what
+  preserves it is the slowness of spontaneous crossing rather than the pumps. The other half does not,
+  because removing ATP also removes it from the cytoskeleton the junction is anchored to, and this
+  lesson's sources say nothing about what a general energy failure does to the fence. The item now
+  asks what the experiment would and would not establish, and credits a learner who proposes a
+  better-aimed one. It is a better question than the one it replaced.
+- **A correction was required twice on a number that already contained it.** The stem stipulates
+  D = 2 µm²/s, which sits inside the 0.5 to 4 range measured in living cell membranes, so the key's
+  demand that crowding makes the answer an underestimate double-counted the crowding. Part (d) now
+  asks the learner to notice that, and to name something the relation does not represent at all — the
+  tight-junction fence from scene 5, which stops the journey rather than slowing it. That ties the
+  arithmetic scene to the polarity scene, which the item previously did not.
+
+- **The two accounts of amphotericin B were collapsed into one destination.** The scene said the
+  disagreement was over the route and not the destination. In the pore account the sterol stays in the
+  membrane as part of an ion-conducting structure; only the sponge account ends in a sterol-depleted
+  membrane. Both predict a membrane that leaks, which is why the outcome alone has not settled the
+  question, and the scene now says that instead. The sterol-removal predictions are attributed to the
+  branch that supports them.
+- **Scene 5 contradicted itself.** It stated that the two faces are continuous around the top of the
+  cell, then called them two membranes rather than two regions of one. Apical and basolateral are
+  domains of a single plasma membrane. The 7 Å thickness difference demonstrates that the domains are
+  structurally different, which is the stronger and the true claim, and the heading and the argument
+  now say that.
+- Three glossary corrections: a floppase is a different transporter and not another name for a
+  flippase; a microvillus is one projection and the brush border is the array; and transmembrane is
+  the narrower word rather than a synonym for integral, since some integral proteins sit in one
+  leaflet only.
+
+Worth recording about all three glossary findings and the amphotericin one: the claim ledger was
+already correct in each case. `claim-flippase-scramblase` separates the three transporter families,
+`claim-microvillus-dimensions` says thousands of microvilli form the brush border, and
+`claim-amphotericin-target` states the two mechanisms distinctly. The defect each time was in the
+teaching surface drifting from a ledger that had it right, not in the sourcing. That is a different
+failure from an unsupported claim and it needs a different check: reading the prose against the
+ledger rather than against the source.
