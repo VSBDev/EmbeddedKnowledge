@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { marked, Renderer } from "marked";
 import temml from "temml";
+import { renderDiagramHtml } from "./lib/render-diagram.mjs";
 import { renderChartHtml } from "./lib/render-chart.mjs";
 
 const allowedDirectives = new Set([
@@ -161,23 +162,7 @@ function renderDiagram(head, options, context) {
   if (!head) throw new Error("diagram directive requires a pack-local JSON source.");
   const file = resolvePackFile(context, head);
   const diagram = JSON.parse(fs.readFileSync(file.resolved, "utf8"));
-  const nodes = (diagram.nodes || []).map((node, index) => {
-    const arrow = index ? '<span class="ek-diagram-arrow" aria-hidden="true">→</span>' : "";
-    return `${arrow}<span class="ek-diagram-node ek-diagram-node--${escapeHtml(node.shape || "box")}">${escapeHtml(node.label)}</span>`;
-  }).join("");
-  const relationships = (diagram.edges || []).map((edge) => {
-    const from = diagram.nodes.find((node) => node.id === edge.from)?.label || edge.from;
-    const to = diagram.nodes.find((node) => node.id === edge.to)?.label || edge.to;
-    return `<li><strong>${escapeHtml(from)}</strong> → <strong>${escapeHtml(to)}</strong>${edge.label ? `: ${escapeHtml(edge.label)}` : ""}</li>`;
-  }).join("");
-  const alt = options.alt || diagram.alt || "Structured lesson diagram.";
-  const longDescription = options.longdesc || diagram.longDescription || alt;
-  return `<figure class="ek-block ek-diagram" data-directive="diagram" data-diagram-source="${escapeHtml(file.relative)}">
-    <div class="ek-block-label directive-label">Diagram</div>
-    <div class="ek-diagram-visual" role="img" aria-label="${escapeHtml(alt)}">${nodes}</div>
-    <figcaption>${escapeHtml(alt)}</figcaption>
-    <details class="ek-long-description"><summary>Read the diagram as text</summary><p>${escapeHtml(longDescription)}</p><ul>${relationships}</ul></details>
-  </figure>`;
+  return renderDiagramHtml(diagram, file.relative, options);
 }
 
 function renderChart(head, options, context) {

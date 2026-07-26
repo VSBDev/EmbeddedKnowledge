@@ -1082,14 +1082,17 @@ test("chemistry and equation cards fit narrow pages without lateral scrolling", 
 
   await advanceUntilVisible(page, '[data-directive="chemistry"]');
   await assertFormulaFits('[data-directive="chemistry"]');
-  await advanceUntilVisible(page, '[data-directive="diagram"] .ek-diagram-visual');
-  const diagramDimensions = await page.locator('[data-scene-container] [data-directive="diagram"] .ek-diagram-visual').evaluate((element) => ({
+  await advanceUntilVisible(page, '[data-directive="diagram"] .ek-diagram-svg');
+  const diagramDimensions = await page.locator('[data-scene-container] [data-directive="diagram"] .ek-diagram-svg').evaluate((element) => ({
     clientWidth: element.clientWidth,
     scrollWidth: element.scrollWidth,
-    direction: getComputedStyle(element).flexDirection,
+    intrinsicRatio: element.viewBox.baseVal.width / Math.max(1, element.viewBox.baseVal.height),
   }));
   expect(diagramDimensions.scrollWidth).toBeLessThanOrEqual(diagramDimensions.clientWidth + 1);
-  expect(diagramDimensions.direction).toBe("column");
+  // The diagram used to be a flex row that this test forced into a column on narrow pages. It is now
+  // a computed SVG that scales to its container, so fitting without lateral scroll is the whole
+  // requirement and there is no flex direction left to assert.
+  expect(diagramDimensions.intrinsicRatio).toBeGreaterThan(0);
 
   await page.locator("[data-index-open]").click();
   await page.locator(".reader-scene-link", { hasText: "Annotating conjugate pairs" }).click();
@@ -1371,3 +1374,61 @@ test("mobile navigation keeps every item readable in light and dark themes", asy
   await page.locator("[data-menu-button]").click();
   await assertOpenMenu({ background: "rgb(23, 26, 29)", foreground: "rgb(238, 234, 224)" });
 });
+
+test("no diagram label is painted wider than the box it sits in", async ({ page }) => {
+  // The renderer wraps labels from an estimated character width, and the browser then lays the text
+  // out for real. An optimistic estimate is invisible in the JSON and obvious on the page: at 5.35px
+  // per character, "endoplasmic reticulum," and "Defensible measurement claim" ran past their boxes.
+  // Only the browser can settle this, so the check measures painted text rather than re-deriving the
+  // estimate that produced it, which would agree with itself and prove nothing.
+  //
+  // The SVGs come from the built lesson payloads rather than from a fresh render, so this measures the
+  // markup that actually ships.
+  const fs = require("node:fs");
+  const path = require("node:path");
+  const dir = "site/data/lessons";
+  const scoped = [];
+  for (const name of fs.readdirSync(dir).sort().filter((entry) => entry.endsWith(".json"))) {
+    const payload = JSON.parse(fs.readFileSync(path.join(dir, name), "utf8"));
+    for (const scene of payload.scenes || []) {
+      for (const svg of (scene.contentHtml || "").match(/<svg [^>]*class="ek-diagram-svg".*?<\/svg>/gs) || []) {
+        scoped.push(`<div class="reader-scene-content" data-pack="${payload.id}">${svg}</div>`);
+      }
+    }
+  }
+  expect(scoped.length).toBeGreaterThanOrEqual(10);
+
+  const css = fs.readFileSync("site/lesson-reader.css", "utf8");
+  await page.setViewportSize({ width: 1280, height: 900 });
+  // system-ui is a different font with different metrics on every platform, and the wrap is computed
+  // at build time on one of them. The label width therefore has to hold regardless of which font
+  // arrives, so this renders under a deliberately wide one as well as the platform default.
+  const fonts = ["system-ui,sans-serif", "'DejaVu Sans',Verdana,sans-serif"];
+  const overflowing = [];
+  for (const stack of fonts) {
+    await page.setContent(`<style>:root{--paper:#f7f4ec;--ink:#14171a;--acid:#d7ff4f;--sans:${stack};--muted:#666;--line:#ccc}${css}</style>${scoped.join("")}`);
+    overflowing.push(...await measure(page, stack));
+  }
+  expect(overflowing).toEqual([]);
+});
+
+async function measure(page, stack) {
+  return page.evaluate((fontStack) => {
+
+    const over = [];
+    document.querySelectorAll("[data-pack]").forEach((scope) => {
+      scope.querySelectorAll("g.ek-diagram-cell").forEach((cell) => {
+        const box = cell.querySelector("rect").getBBox().width;
+        cell.querySelectorAll("tspan").forEach((span) => {
+          const painted = span.getComputedTextLength();
+          // The wrap reserves 8px each side. Requiring all of it flagged labels sitting 5px clear,
+          // which look fine, so the bar is 4px each side: past that the text touches its border.
+          if (painted > box - 8) {
+            over.push({ font: fontStack, pack: scope.dataset.pack, text: span.textContent, painted: Math.round(painted), box: Math.round(box) });
+          }
+        });
+      });
+    });
+    return over;
+  }, stack);
+}

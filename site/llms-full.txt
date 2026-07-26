@@ -1451,6 +1451,10 @@ pools, what to check before using one, and the quality bar a scientific illustra
 
 Diagram source uses [`site/schemas/diagram.schema.json`](site/schemas/diagram.schema.json). It supports bounded flow, concept-map, process, cycle, and timeline structures with labelled nodes and edges.
 
+The picture is computed from the `edges`, not from the order the nodes are declared in. Nodes are placed in layers by longest path from a root, so a chain reads as a chain and genuine siblings sit side by side, and an arrow appears only where an edge was declared. A cycle is drawn: the edge that closes it is found and drawn as a dashed return rather than laid out as if it went forward. `direction` is a hint and not a guarantee — the renderer will lay a diagram along the other axis when the declared one would shrink its labels below about 9px in the reading column, because a diagram nobody can read is not a diagram. Node labels are the author's and are never shortened; a long one wraps and grows its own row.
+
+Two consequences for authors. Declare every relationship you want drawn, because nothing is inferred from adjacency. And keep `longDescription` a faithful text equivalent of the same graph, since it is the alternative for readers who do not see the picture and the two are checked against each other.
+
 ```md
 :::{diagram} ../diagrams/model-scope.diagram.json
 :alt: Proton-transfer cases are a subset of the broader electron-pair model.
