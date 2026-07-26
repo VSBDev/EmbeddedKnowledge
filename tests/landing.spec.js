@@ -94,3 +94,32 @@ test("a visitor reaches a book without three screens of argument", async ({ page
   // The page shipped with the first book 3.1 screens down, behind three sections of philosophy.
   expect(screens, `first book is ${screens.toFixed(1)} screens down`).toBeLessThan(2);
 });
+
+test("header navigation is readable before the page is scrolled", async ({ page }) => {
+  // The last four nav items and the call to action were cream on paper at 1.13:1 on arrival, from a
+  // rule written for a dark hero the page does not have. Invisible text passes every markup check.
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto(route(), { waitUntil: "networkidle" });
+  const worst = await page.evaluate(() => {
+    const channel = (v) => (v / 255 <= 0.03928 ? v / 255 / 12.92 : ((v / 255 + 0.055) / 1.055) ** 2.4);
+    const parse = (s) => (s.match(/\d+/g) || []).slice(0, 3).map(Number);
+    const lum = ([r, g, b]) => 0.2126 * channel(r) + 0.7152 * channel(g) + 0.0722 * channel(b);
+    const ratio = (a, b) => {
+      const [x, y] = [lum(parse(a)), lum(parse(b))].sort((m, n) => n - m);
+      return (x + 0.05) / (y + 0.05);
+    };
+    const ground = (el) => {
+      for (let n = el; n && n !== document.documentElement; n = n.parentElement) {
+        const bg = getComputedStyle(n).backgroundColor;
+        if (bg && bg !== "rgba(0, 0, 0, 0)" && bg !== "transparent") return bg;
+      }
+      return getComputedStyle(document.body).backgroundColor;
+    };
+    const targets = [...document.querySelectorAll(".primary-nav a, .header-cta")];
+    return targets.reduce((low, el) => {
+      const r = ratio(getComputedStyle(el).color, ground(el));
+      return r < low.ratio ? { ratio: r, text: el.textContent.trim().split("\n")[0] } : low;
+    }, { ratio: Infinity, text: "" });
+  });
+  expect(worst.ratio, `"${worst.text}" sits at ${worst.ratio.toFixed(2)}:1 against its ground`).toBeGreaterThanOrEqual(4.5);
+});
