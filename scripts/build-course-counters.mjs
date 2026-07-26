@@ -18,17 +18,10 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { courses } from "./lib/course-counters.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
-const courses = [
-  { id: "premed", index: "site/data/premed-lessons.json", pages: ["site/premed/index.html"] },
-  { id: "psychiatry", index: "site/data/psychiatry-lessons.json", pages: ["site/psychiatry/index.html"] },
-  // The landing page quotes each book's published count on its own, without the outcome total, so it
-  // carries a second marker form. A hand-edited number there goes stale the moment a lesson merges.
-  { id: "premed-published", index: "site/data/premed-lessons.json", pages: ["site/index.html"], form: "published-only" },
-  { id: "psychiatry-published", index: "site/data/psychiatry-lessons.json", pages: ["site/index.html"], form: "published-only" }
-];
 
 const plural = (n, word) => `${n} ${word}${n === 1 ? "" : "s"}`;
 
