@@ -5,6 +5,7 @@ import test from "node:test";
 import { fileURLToPath } from "node:url";
 import { evaluateProposal, resolveGeneratedAt } from "../../scripts/fetch-open-lesson-prs.mjs";
 import { finalCommitLineageRequired } from "../../scripts/lib/quorum-policy.mjs";
+import { discardedReviewVersions, unrecordedDiscards } from "../../scripts/lib/review-generations.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const read = (name) => JSON.parse(fs.readFileSync(path.join(root, "examples/agent-protocol", name), "utf8"));
@@ -165,4 +166,40 @@ test("the open-PR index timestamp remains valid when the contribution queue is e
     ], async () => fallback),
     "2026-07-20T09:30:00.000Z"
   );
+});
+
+test("a discarded review record needs a recorded decision, not another cohort", () => {
+  // The adjudicate skill says a request-changes review is "evidence to resolve rather than an
+  // instruction to repeat the cohort", and forbids reopening authoring, launching another review
+  // cohort, and changing the lesson version during finalization. It said so in four places and the
+  // mistake was still made, so the invariant is checked rather than only written down.
+  const deletions = [
+    { commit: "c1", path: "lessons/X/reviews/REV-A.json" },
+    { commit: "c1", path: "lessons/X/reviews/REV-B.json" }
+  ];
+  const versionAt = () => "0.1.0";
+  const discarded = discardedReviewVersions({ deletions, versionAt });
+  assert.deepEqual([...discarded.keys()], ["0.1.0"]);
+
+  // Throwing the cohort away with no record of a decision is the failure.
+  const silent = unrecordedDiscards({ discarded, adjudicatedVersions: new Map() });
+  assert.equal(silent.length, 1);
+  assert.match(silent[0], /no adjudication recording a decision/);
+  assert.match(silent[0], /not an instruction to repeat the cohort/);
+
+  // A merge decision does not retire a candidate: it is the decision that keeps it.
+  const merged = unrecordedDiscards({ discarded, adjudicatedVersions: new Map([["0.1.0", "merge"]]) });
+  assert.equal(merged.length, 1);
+  assert.match(merged[0], /Only revise or reject retire a candidate/);
+
+  // Recording revise, then replacing the candidate, is the legitimate route.
+  for (const decision of ["revise", "reject"]) {
+    assert.deepEqual(unrecordedDiscards({ discarded, adjudicatedVersions: new Map([["0.1.0", decision]]) }), []);
+  }
+
+  // A pack that keeps its reviews raises nothing at all.
+  assert.deepEqual(unrecordedDiscards({
+    discarded: discardedReviewVersions({ deletions: [], versionAt }),
+    adjudicatedVersions: new Map()
+  }), []);
 });
