@@ -95,31 +95,31 @@ test("a visitor reaches a book without three screens of argument", async ({ page
   expect(screens, `first book is ${screens.toFixed(1)} screens down`).toBeLessThan(2);
 });
 
-test("header navigation is readable before the page is scrolled", async ({ page }) => {
-  // The last four nav items and the call to action were cream on paper at 1.13:1 on arrival, from a
-  // rule written for a dark hero the page does not have. Invisible text passes every markup check.
-  await page.setViewportSize({ width: 1440, height: 900 });
-  await page.goto(route(), { waitUntil: "networkidle" });
-  const worst = await page.evaluate(() => {
-    const channel = (v) => (v / 255 <= 0.03928 ? v / 255 / 12.92 : ((v / 255 + 0.055) / 1.055) ** 2.4);
-    const parse = (s) => (s.match(/\d+/g) || []).slice(0, 3).map(Number);
-    const lum = ([r, g, b]) => 0.2126 * channel(r) + 0.7152 * channel(g) + 0.0722 * channel(b);
-    const ratio = (a, b) => {
-      const [x, y] = [lum(parse(a)), lum(parse(b))].sort((m, n) => n - m);
-      return (x + 0.05) / (y + 0.05);
-    };
-    const ground = (el) => {
-      for (let n = el; n && n !== document.documentElement; n = n.parentElement) {
-        const bg = getComputedStyle(n).backgroundColor;
-        if (bg && bg !== "rgba(0, 0, 0, 0)" && bg !== "transparent") return bg;
-      }
-      return getComputedStyle(document.body).backgroundColor;
-    };
-    const targets = [...document.querySelectorAll(".primary-nav a, .header-cta")];
-    return targets.reduce((low, el) => {
-      const r = ratio(getComputedStyle(el).color, ground(el));
-      return r < low.ratio ? { ratio: r, text: el.textContent.trim().split("\n")[0] } : low;
-    }, { ratio: Infinity, text: "" });
-  });
-  expect(worst.ratio, `"${worst.text}" sits at ${worst.ratio.toFixed(2)}:1 against its ground`).toBeGreaterThanOrEqual(4.5);
+test("header items match the side of the hero split they sit on", async ({ page }) => {
+  // The hero is split diagonally: paper on the left, a near-black panel on the right, with the
+  // header crossing both. Two opposite regressions have shipped from getting this wrong — items
+  // cream on the paper side at 1.13:1, then items ink on the panel at about the same — and neither
+  // is visible to a check that reads an ancestor's background, because the panel is a sibling.
+  // The boundary sits near 47% of the viewport width at the navigation's own y. If the hero
+  // geometry or the number of navigation items changes, re-measure rather than adjust the ratio.
+  for (const width of [1440, 1280]) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto(route(), { waitUntil: "networkidle" });
+    const edge = width * 0.47;
+    const items = await page.evaluate(() => {
+      const els = [...document.querySelectorAll(".primary-nav a"), document.querySelector(".header-cta")].filter(Boolean);
+      return els.map((el) => {
+        const r = el.getBoundingClientRect();
+        return { text: el.textContent.trim().split("\n")[0].slice(0, 14), cx: r.left + r.width / 2, color: getComputedStyle(el).color };
+      });
+    });
+    expect(items.length, `no header items found at ${width}`).toBeGreaterThan(3);
+    const wrong = items.filter((it) => {
+      const overPanel = it.cx > edge;
+      const isCream = !/^rgba?\(2[0-9], 2[0-9], 2[0-9]/.test(it.color);
+      return overPanel !== isCream;
+    });
+    expect(wrong.map((w) => `${w.text} at ${Math.round(w.cx)} is ${w.color}`),
+      `header items on the wrong side of the hero split at ${width}px`).toEqual([]);
+  }
 });

@@ -217,10 +217,20 @@ svg {
   transform: rotate(45deg);
 }
 
-/* This turned the last four navigation items and the call to action cream before the page is
-   scrolled, which was written for a dark hero that does not exist: on the paper ground they sat at
-   1.13:1 and were invisible on arrival. The header is light at every scroll position, so the
-   links keep the ink colour they inherit. */
+/* The hero is split diagonally: paper on the left, a near-black knowledge-field panel on the right,
+   with the header crossing both. Items sitting over the dark panel have to be cream, and items over
+   the paper have to be ink, so the split is expressed here.
+   Measured at the navigation's own y, the panel edge falls near 47% of the viewport width: at 1440
+   the items sit at 513, 580, 651, 737, 824, 912 and the call to action at 1336, so the fourth item
+   onward is over the panel. This rule previously began at the third, which put Premed in cream on
+   the paper side at 1.13:1, and removing it altogether put the last three in ink on the panel at
+   about the same. Below 1100 the navigation collapses into the menu and the split does not apply. */
+@media (min-width: 1101px) {
+  .site-header:not(.is-scrolled) .primary-nav a:nth-child(n + 4),
+  .site-header:not(.is-scrolled) .header-cta {
+    color: var(--white);
+  }
+}
 
 .menu-button {
   display: none;
