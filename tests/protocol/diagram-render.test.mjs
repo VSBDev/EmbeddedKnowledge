@@ -45,6 +45,9 @@ for (const { file, diagram } of diagrams) {
       `${diagram.edges.length} edge(s) declared but ${drawn} arrow(s) drawn`);
     const boxes = (svg.match(/<rect /g) || []).length;
     assert.equal(boxes, diagram.nodes.length);
+    // A marker element is stripped by the reader, so each edge carries its own polygon head.
+    const heads = (svg.match(/class="ek-diagram-head"/g) || []).length;
+    assert.equal(heads, diagram.edges.length, `${diagram.edges.length} edge(s) but ${heads} arrowhead(s)`);
   });
 
   test(`${name} lays out from the edges rather than declaration order`, () => {
@@ -62,15 +65,22 @@ for (const { file, diagram } of diagrams) {
     assert.equal(layers.flat().length, diagram.nodes.length, "every node is placed exactly once");
   });
 
-  test(`${name} renders at a size its labels stay readable at`, () => {
+  test(`${name} is drawn at its own size so its labels keep theirs`, () => {
     const svg = renderDiagramSvg(diagram, diagram.alt);
-    const [, , width] = svg.match(/viewBox="(-?[\d.]+) (-?[\d.]+) ([\d.]+) ([\d.]+)"/).slice(1).map(Number);
-    // Labels are set at 11.5px and the reader column is about 700px, so anything wider than roughly
-    // 900 renders them under 9px. The renderer is allowed to override the declared direction to stay
-    // inside that, which is why this is checked on the output and not on the source.
-    assert.ok(width <= 900, `${width}px wide would scale 11.5px labels below 9px in the reader column`);
-    assert.match(svg, /style="max-width:\d+px"/,
-      "a diagram narrower than the column must be capped, or it scales its own text up instead");
+    const [, , width, height] = svg.match(/viewBox="(-?[\d.]+) (-?[\d.]+) ([\d.]+) ([\d.]+)"/).slice(1).map(Number);
+    // The label size is fixed in the stylesheet, so it survives only if the drawing is not scaled to
+    // its container. That means carrying the natural size in width and height — the reader strips a
+    // style attribute, so a CSS max-width set inline silently does nothing — and letting anything
+    // wider than the column pan in its scroller instead. Scaling to fit is what put 11.5px labels at
+    // 7.4px in the 404px column a 1280px viewport gives.
+    assert.match(svg, new RegExp(`width="${width}"`), "the drawn width must travel as an attribute");
+    assert.match(svg, new RegExp(`height="${height}"`), "the drawn height must travel as an attribute");
+    assert.doesNotMatch(svg, /style="/, "a style attribute is stripped by the reader and must not be relied on");
+    // Nothing the reader's sanitiser drops: tspan, defs, marker, marker-end, textLength.
+    for (const banned of [/<tspan/, /<defs/, /<marker/, /marker-end=/, /textLength=/]) {
+      assert.doesNotMatch(svg, banned, `${banned} does not survive the reader and must not be emitted`);
+    }
+    assert.ok(height > 0 && width > 0);
   });
 
   test(`${name} carries an accessible name and a title`, () => {
@@ -110,6 +120,7 @@ test("a deliberate cycle is drawn as a return rather than refused or mangled", (
   assert.equal(diagram.edges.filter(isBackEdge).length, 1, "exactly the closing edge is a back edge");
   const svg = renderDiagramSvg(diagram, diagram.alt);
   assert.equal((svg.match(/class="ek-diagram-edge/g) || []).length, 3, "all three edges are drawn");
+  assert.equal((svg.match(/class="ek-diagram-head"/g) || []).length, 3, "every edge keeps its head");
   assert.match(svg, /ek-diagram-edge--return/, "the closing edge is marked as a return");
   // The bow sits outside the stack, so the viewBox has to start before the origin or it is clipped.
   // Which axis it extends depends on the orientation the renderer chose, so either one satisfies it.

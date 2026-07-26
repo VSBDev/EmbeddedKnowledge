@@ -1432,3 +1432,52 @@ async function measure(page, stack) {
     return over;
   }, stack);
 }
+
+test("the reader's sanitiser keeps every part of a diagram the renderer emits", async ({ page }) => {
+  // This is the check that was missing, and its absence is why a broken diagram shipped. The reader
+  // sanitises compiled lesson HTML before inserting it, and its allowlist predates the SVG diagram
+  // renderer: <tspan>, <defs>, <marker>, marker-end, textLength and inline styles are all dropped. So
+  // every wrapped label collapsed into one unpositioned run — "Nucleus, about pH 7.2:holds the
+  // genome,principal site of DNA and" — and every arrowhead vanished. Rendering the same markup in a
+  // standalone harness looked perfect, which is exactly the trap: the renderer's output was verified
+  // and the reader's output never was.
+  //
+  // So this asserts against the live DOM after sanitising, not against the built markup.
+  const errors = collectRuntimeErrors(page);
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto(route("premed/lessons/read/?lesson=PREM-BIO-003"), { waitUntil: "networkidle" });
+
+  const svg = await advanceUntilVisible(page, "svg.ek-diagram-svg");
+  const declared = JSON.parse(
+    require("node:fs").readFileSync("lessons/PREM-BIO-003-organelles/diagrams/route-to-the-surface.diagram.json", "utf8")
+  );
+
+  const live = await svg.evaluate((element) => ({
+    labelElements: element.querySelectorAll("text.ek-diagram-label").length,
+    boxes: element.querySelectorAll("g.ek-diagram-cell rect").length,
+    edges: element.querySelectorAll("path.ek-diagram-edge").length,
+    arrowheads: element.querySelectorAll("polygon.ek-diagram-head").length,
+    widthAttribute: element.getAttribute("width"),
+    labelFontSize: getComputedStyle(element.querySelector("text.ek-diagram-label")).fontSize,
+    // A collapsed label is the signature of the bug: several lines fused with no separator.
+    longestLabelLine: Math.max(...[...element.querySelectorAll("text.ek-diagram-label")].map((t) => t.textContent.length))
+  }));
+
+  expect(live.edges, "every declared edge survives sanitising").toBe(declared.edges.length);
+  expect(live.arrowheads, "an edge without a head does not read as a direction").toBe(declared.edges.length);
+  expect(live.boxes).toBe(declared.nodes.length);
+  // Each node label wraps to more than one line, so one <text> per node would mean tspans were eaten.
+  expect(live.labelElements).toBeGreaterThan(declared.nodes.length);
+  expect(live.widthAttribute, "the natural size must not travel in a style attribute").toMatch(/^\d+$/);
+  // The whole point: the label is drawn at the size it was designed at, not scaled down with the SVG.
+  expect(live.labelFontSize).toBe("11.5px");
+  expect(live.longestLabelLine).toBeLessThan(40);
+
+  // A diagram wider than the column pans in its own region and never makes the page scroll sideways.
+  const region = page.locator(".ek-diagram-scroll").first();
+  await expect(region).toHaveAttribute("role", "group");
+  await expect(region).toHaveAttribute("aria-label", /diagram/i);
+  const pageOverflows = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth + 1);
+  expect(pageOverflows).toBe(false);
+  expect(errors).toEqual([]);
+});

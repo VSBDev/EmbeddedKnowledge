@@ -736,19 +736,15 @@
   width: auto;
 }
 
-/* A diagram is sized by its own viewBox, which is what a reader wants in continuous flow and what
-   overflows a fixed frame: a four-layer vertical diagram is 456px of drawing before its caption and
-   disclosure, inside a frame whose content box is about 330px at a 720px viewport. So the drawing is
-   capped and the figure's own spacing is tightened, the same treatment .ek-figure already gets — a
-   diagram carries a caption and a long-description control too, and capping the drawing alone left
-   the figure 40px over. Continuous reading keeps the drawing at full size.
-
-   The cap belongs here and not inside a width media query, which is where it was first written and
-   where it never applied to the desktop frame that was overflowing. */
-.reader-guided-mode .reader-frame .reader-scene-content .ek-diagram-svg {
-  max-height: 26vh;
-  width: auto;
+/* A guided frame is a fixed height and a diagram is as tall as it needs to be, so inside a frame the
+   scroller takes the height it can have and pans in both directions. Capping the drawing instead was
+   the earlier approach and it is what made the labels unreadable: shrinking a 456px diagram into a
+   frame left it 85px wide with 5px text. A diagram that pans can be read; one shrunk to fit cannot. */
+.reader-guided-mode .reader-frame .reader-scene-content .ek-diagram-scroll {
+  max-height: 30vh;
+  overflow: auto;
   margin-block: 0;
+  padding: 8px;
 }
 
 .reader-guided-mode .reader-frame .reader-scene-content .ek-diagram {
@@ -866,18 +862,26 @@
   border-color: #87975b;
 }
 
-/* The diagram is a computed SVG whose geometry comes from the declared edges, so it scales like the
-   chart does and needs no width rules of its own beyond fitting its column. currentColor carries the
-   theme into the strokes, which is why the dark override sets only colour. */
-.reader-scene-content .ek-diagram-svg {
-  display: block;
-  width: 100%;
-  height: auto;
-  margin-inline: auto;
+/* The diagram is a computed SVG whose geometry comes from the declared edges. It is drawn at the size
+   it was laid out for — the width and height attributes, not a percentage — because scaling it to the
+   column scales its labels with it: a 624px diagram in the 404px column a 1280px viewport gives puts
+   11.5px text at 7.4px. So a diagram wider than the column pans inside its own scroller instead, and
+   the page itself never scrolls sideways. currentColor carries the theme into the strokes, which is
+   why the dark override sets only colour. */
+.reader-scene-content .ek-diagram-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
   margin: 15px 0;
   padding: 14px;
   color: var(--paper);
   background: var(--ink);
+}
+
+.reader-scene-content .ek-diagram-svg {
+  display: block;
+  height: auto;
+  max-width: none;
+  margin-inline: auto;
 }
 
 .reader-scene-content .ek-diagram-cell rect {
@@ -887,7 +891,7 @@
   opacity: .78;
 }
 
-.reader-scene-content .ek-diagram-cell text {
+.reader-scene-content .ek-diagram-label {
   fill: currentColor;
   font: 600 11.5px/1.35 var(--sans);
 }
@@ -897,14 +901,15 @@
   opacity: 1;
 }
 
-.reader-scene-content .ek-diagram-cell--diamond text { fill: var(--ink); }
+.reader-scene-content .ek-diagram-cell--diamond .ek-diagram-label { fill: var(--ink); }
 
 .reader-scene-content .ek-diagram-edge {
   stroke: var(--acid);
   stroke-width: 1.6;
 }
 
-.reader-scene-content .ek-diagram-svg marker path { fill: var(--acid); }
+/* Markers are stripped by the reader's sanitiser, so the arrowhead is a polygon and is filled here. */
+.reader-scene-content .ek-diagram-head { fill: var(--acid); }
 
 /* A return edge closes a loop the lesson means to show, so it is dashed to distinguish it from the
    forward path it runs against rather than left to look like a contradiction. */
@@ -1503,7 +1508,7 @@ body.reader-dark {
 .reader-dark .reader-scene-content .equation,
 .reader-dark .reader-scene-content .ek-chemistry,
 .reader-dark .reader-scene-content .ek-equation,
-.reader-dark .reader-scene-content .ek-diagram-svg {
+.reader-dark .reader-scene-content .ek-diagram-scroll {
   color: #f6f2e8;
   background: #090b0d;
 }
@@ -1623,7 +1628,7 @@ body.reader-dark {
     padding: 13px;
   }
 
-  .reader-guided-mode .reader-scene-content .ek-diagram-svg {
+  .reader-guided-mode .reader-scene-content .ek-diagram-scroll {
     margin-block: 8px;
     padding: 8px;
   }
