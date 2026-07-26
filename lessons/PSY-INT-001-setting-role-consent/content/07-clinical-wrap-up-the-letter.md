@@ -29,7 +29,11 @@ This is a real clinical question with a real consequence for the person receivin
 
 The third option is the only one that costs nothing later, and it is only available if something was said earlier. That is the whole argument of this lesson in one row of a table. More than half of the people in two United States surveys who withheld something from a clinician named keeping it out of the medical record as a reason; the second option manufactures exactly that reason for R., and it does so at the moment R. has most to lose by acting on it.
 
-**So what does the clinician do this evening?** Writes the sentence, in the terms R. used, in the section where a GP will find it, because the letter was described to R. as carrying what the GP needs. And the reason the clinician can do that without a phone call to R. first is that R. was told, in the room, what the letter was for and that R. could read it and query it. Had that not been said, the honest options this evening would be a call to R. or an incomplete letter, and both are more expensive than forty seconds at minute 0.
+**So what does the clinician do this evening?** This lesson does not answer that, and the reason matters more than an answer would. What a referral letter must carry, and to whom, is set by local law and employer policy, by the clinical purpose the GP will put it to, and by a risk assessment nobody in this scene has performed. None of the sources here settle any of those, and they differ by jurisdiction. A lesson that handed you a sentence to write would be pretending otherwise.
+
+What the lesson can show is what the forty seconds at minute 0 bought. Because R. was told what the letter was for, and that R. could read it and query it, this evening's decision is not being made under a consent problem as well as a clinical one. The earlier conversation did not decide the content. It removed a class of expensive problems from whoever decides.
+
+Before writing anything, list what you would still need: what the jurisdiction requires a referral to contain, what the employer's policy says about recording risk, what the GP will use the letter for, and a risk assessment this lesson has not made and cannot stand in for.
 
 ## What you should be able to reconstruct
 

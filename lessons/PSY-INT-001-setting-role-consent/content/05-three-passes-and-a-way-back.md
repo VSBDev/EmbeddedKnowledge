@@ -80,7 +80,7 @@ For the third part, the two facts should each hang on one change. Anything the p
 
 ## Recovery route
 
-If sorting observation from report from addition in the first scene was where you came unstuck, that is the preceding outcome, **Description, inference, and interpretation**, and this lesson leans on it without teaching it. You can rebuild enough of it here: take any three sentences from a record and, for each, write who would have to be asked to check it. If the answer is the patient, it is a report. If the answer is anyone who was in the room, it is an observation. If there is nobody to ask, someone added it.
+If sorting observation from report from addition in the first scene was where you came unstuck, that is the preceding outcome, **Description, inference, and interpretation**, and this lesson leans on it without teaching it. You can rebuild enough of it here, but not with a who-could-check-it test: witnesses disagree, and an inference can be discussed by everyone in the room and still be an inference. Sort by what each sentence states instead. Take any three sentences from a record and, for each, ask whose account it is. If it is attributed to the patient, it is a report. If it describes behaviour without importing a reading of that behaviour, it is an observation. If it carries a reading, it is an interpretation, and it belongs next to whatever it rests on and labelled as one.
 
 If the consent material read as familiar and you found the practice harder than expected, the gap is usually that consent is being held as a topic rather than as a state that changes. Take R.'s five exchanges and write the state after each one as a single sentence beginning "R. has agreed to". Five sentences. If any two are identical, look again at what changed.
 

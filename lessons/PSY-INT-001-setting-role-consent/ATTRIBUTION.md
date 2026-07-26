@@ -52,3 +52,37 @@ The four `RUNTIME-STAMPED` fields are literal placeholders that the operator rep
 ## Candidate status
 
 This is an authoring candidate. Lesson status is `draft`, source confidence is `pending-review`, and every claim is `pending-review`. No review or adjudication artifact exists and none was consulted. Validation and author self-audit do not establish approval, publication, outcome coverage, learner effectiveness, university credit, clinical competence, licensure, board eligibility, or authority to practise psychiatry.
+
+## Adjudication repairs to the 0.1.0 candidate
+
+The academic review returned request-changes with one blocking, four major and two minor findings;
+the learning-design review approved with three notes and one typographic minor. All were repaired in
+one finalization pass and none was declined.
+
+- **Blocking: the wrap-up prescribed a documentation decision it had no basis for.** It told the
+  reader to write the passive-death-thought sentence to the GP and named a phone call or an
+  incomplete letter as the only alternatives. What a referral must carry is set by jurisdiction,
+  employer policy, clinical purpose, and a risk assessment the scene never performs, and no mapped
+  source settles any of it. The scene now refuses the answer, says why, and asks the reader to list
+  what the decision would still need. What the earlier conversation bought is stated without
+  pretending it decided the content.
+- **The consent model rested on one 2015 position paper.** Its own association treats papers older
+  than five years as requiring review, and no re-endorsement was verifiable through permitted
+  routes. The record now says the source carries the general consent-as-process model and not
+  current jurisdiction-specific rules.
+- **Two survey percentages were subtracted from each other and should not have been.** The 31%
+  figure comes from a compound item covering introducing oneself *and* asking permission, so it does
+  not measure permission alone. Both items are now stated separately and the claimed role-clarity gap
+  is gone.
+- **A five-month wait was keyed as proof that consent was involuntary.** The stimulus records a wait
+  and no threat, no misleading statement, and no condition on continuing care. It is now keyed as a
+  reason to check that declining is genuinely free of consequence.
+- **A right to withdraw was conflated with control over the record.** R. can revisit or withdraw
+  from the arrangements, and can ask that something be left out and expect an answer. That is not an
+  entitlement to determine what a clinical record contains, and the option and reasoning now say so.
+- **The recovery route's sorting test was invalid.** Asking who could check a sentence breaks:
+  witnesses disagree and an inference can be discussed by everyone present. The route now sorts by
+  what the sentence states and to whom it is attributed.
+- **An interpreter counterfactual was too strong.** The evidence is mostly observational and mostly
+  outside psychiatry, so the passage now offers a bounded mechanism rather than predicting what would
+  have been in the record.
