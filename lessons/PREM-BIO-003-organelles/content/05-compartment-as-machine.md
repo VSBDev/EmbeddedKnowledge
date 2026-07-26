@@ -36,7 +36,9 @@ The purchases are on the table. Here is the invoice.
 
 Set that against what it buys. Incompatible chemistries at once, which is how a cell can hold a compartment at pH 5 and another near 7.2 and let both work. Local concentration, which is how hydrogen ions can be five hundred times more concentrated in one small volume than a nanometre away. Controlled sequence, which is how a fixed order of compartments gives a fixed order of modifications without needing a controller. And a fourth thing this scene added: a boundary that is itself the working part of an energy-converting device.
 
-Bacteria pay none of these costs and buy none of these things, and they are doing fine. The investment is real and it is optional, and everything a eukaryotic cell does with it is what the rest of this module is about.
+What most bacteria lack is not membranes, energetics, or targeting. They build membranes, they run a proton-motive force across the plasma membrane and make ATP from it, they localise proteins to particular places, and some carry genuine internal compartments: the carboxysome is one, and the two-centimetre bacterium from the previous lesson has membrane-bound chromosome compartments. What they mostly lack is the eukaryotic endomembrane system, the set of internal compartments with a sorting route between them that this scene has been describing.
+
+So the investment is real and its scale is optional, and the rest of this module is about what a cell does with the expensive version.
 
 :::{check}
 :id: check-uncoupler-versus-pump-block

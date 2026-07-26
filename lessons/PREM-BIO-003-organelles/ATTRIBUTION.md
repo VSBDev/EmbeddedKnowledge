@@ -186,3 +186,42 @@ in people, and no such statement is made or implied.
 There is one licence exception to the CC BY 4.0 contribution grant: the third-party figure recorded
 above, which is in the public domain and therefore redistributable within this corpus without
 further condition. The pack contains no other third-party expression, media, or dataset.
+
+## Adjudication repairs to the 0.1.0 candidate
+
+The academic review returned request-changes with six major and three minor findings; the
+learning-design review approved with four notes. All were repaired in one finalization pass and none
+was declined.
+
+- **A consistency check was described as an independent measurement.** The 500 to 1000-fold figure
+  the literature quotes is itself derived from pH values, so comparing it with the lesson's own
+  subtraction confirms the arithmetic and not the inputs. The scene now says exactly that, and the
+  claim ledger was reconciled with it. The check is kept, because it still catches a wrong exponent.
+- **An answer key inferred maintenance cost from pH.** A concentration ratio gives thermodynamic work
+  per proton; the power a cell spends holding a compartment also depends on leakiness, membrane area,
+  membrane potential and pump regulation, none of which the stem supplies. The key now credits the
+  two ratios and the statement that relative ATP use cannot be inferred from pH alone.
+- **Acidity was made the sole switch for lysosomal hydrolases.** Many are made as inactive precursors
+  and cleaved on the way, and some need cofactors. Containment and activation are tightly coupled
+  rather than the same act, and pH is the condition this scene can demonstrate arithmetically rather
+  than the whole mechanism.
+- **The peroxisome was described as preventing all escape.** Hydrogen peroxide crosses membranes and
+  is used deliberately as a signal elsewhere. Colocalising catalase with the oxidases limits how much
+  accumulates and how far the cell is exposed; the unsourced distance claim is gone and segregation is
+  now presented as a matter of degree.
+- **"Bacteria pay none of these costs and buy none of these things" was false.** Bacteria build
+  membranes, run a proton-motive force and make ATP from it, localise proteins, and some carry
+  genuine internal compartments including the carboxysome and the chromosome compartments of the
+  two-centimetre bacterium from the previous lesson. What most lack is the eukaryotic endomembrane
+  system, and that is what the comparison now says.
+- **The clinical picture was attributed to lost surface area alone.** The review the case rests on
+  states that reduced surface area does not fully account for the fluid loss. The scene now
+  distinguishes apical transporters that fail to arrive from secretory routes that are less affected,
+  says the balance between absorption and secretion is disturbed as well as the surface reduced, and
+  notes that the contribution varies by genotype and model. That is a better fit for a scene about
+  delivery: a sorting failure removes what depended on the broken route, not function evenly.
+- Three minor corrections: translation is stated for nucleus-encoded proteins with the thirteen
+  mitochondrially encoded exceptions named, in the prose and in the diagram; *microvillus* and
+  *microvilli* are no longer aliases of *brush border*, since one projection is not the array; and the
+  proton-gradient entry now separates the concentration gradient, the membrane potential, and the
+  proton-motive force, and says the lesson computes only the first.

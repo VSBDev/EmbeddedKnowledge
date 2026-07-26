@@ -37,18 +37,20 @@ Read that carefully and the causal arrow reverses. The acid is *half the contain
 
 **What it cannot explain.** Why the enzymes require an acid environment at all, and why an organelle would spend ATP continuously to hold a five-hundred-fold proton gradient when a wall would already have done the job. On the wall model, the pH inside the lysosome is an incidental detail. It is not.
 
-**The model that replaces it.** A compartment is a maintained condition, and the chemistry it holds is possible only inside that condition. The lysosomal membrane and the pump in it produce an acid interior; the acid interior is what switches the hydrolases on. Containment and activation are the same act.
+**The model that replaces it.** A compartment is a maintained condition, and the chemistry it holds runs properly only inside that condition. The lysosomal membrane and the pump in it produce an acid interior, and that acidity is a major part of why the hydrolases work there and do little elsewhere.
+
+It is not the whole story, and the lesson should not pretend otherwise. Many of these enzymes are made as inactive precursors and are cleaved on the way, some need particular cofactors, and the acid interior also drives the processing that produces the mature form. So containment and activation are tightly coupled rather than the same act, and the honest claim is that a compartment supplies several of the conditions activity depends on at once, of which pH is the one this scene can demonstrate arithmetically.
 
 **Test the two models on one case.** Consider a lysosome whose membrane is intact and whose enzyme content is completely normal, but whose interior has been allowed to drift up towards pH 7. The wall model predicts nothing much: the wall is standing, the enzymes are inside, digestion should carry on. The condition model predicts that digestion inside that lysosome slows or stops, because the enzymes are no longer near their optimum, and it predicts this even though nothing has leaked and nothing is missing. The two models disagree sharply, and that is what makes this a test rather than a restatement.
 :::
 
 ## A second case where the chemistry has to be kept close
 
-The lysosome is one way of segregating chemistry. The **peroxisome** is another, and it makes the general point more cleanly because the thing it is handling never gets a chance to travel.
+The lysosome is one way of segregating chemistry. The **peroxisome** is another, and it makes the general point from the opposite direction: instead of holding a condition, it holds a reaction and its clean-up in the same small volume.
 
 Peroxisomes break down fatty acids that are too long for the mitochondria to start on, in a chain of oxidation steps. Those steps, and other peroxisomal oxidases, generate hydrogen peroxide as a by-product. Hydrogen peroxide is a reactive molecule and a cell would rather not have it wandering about. The peroxisome's answer is to carry **catalase**, an enzyme that decomposes hydrogen peroxide, in the same compartment where the peroxide is being produced.
 
-That arrangement is worth pausing on. Nothing here is being locked away from the cell. The dangerous species is manufactured and destroyed inside one small volume, so its typical journey is a few tens of nanometres and its lifetime is short. Segregation buys the cell a place where a reactive intermediate can exist at a working concentration without that concentration ever appearing anywhere else.
+That arrangement is worth pausing on, and worth stating carefully. Nothing here is locked away absolutely. Hydrogen peroxide can cross membranes, and cells use it deliberately as a signal elsewhere, so the peroxisome is not a sealed box. What colocalising the oxidases with catalase buys is that the peroxide is destroyed close to where it is made, which limits how much accumulates and how far the rest of the cell is exposed. Segregation here is a matter of degree, and the useful lesson is that keeping a reaction and its remedy together is often cheaper than keeping a product away from everything.
 
 Both organelles are answering the same design problem in different ways: chemistry the cell needs, and chemistry the cell cannot afford to have everywhere. That is what the first purchase actually buys.
 

@@ -27,7 +27,11 @@ Read that against the diagram. Manufacture is intact: transcription, translation
 
 **Does the model predict what the pathologist sees?** It predicts three things, and all three are what is reported. Apical proteins should be found subapically instead of on the surface, and they are. The brush border should be absent or abnormal, because it is built from material that has to be delivered to that face, and it is. Vesicles that cannot fuse where they were meant to should be visible as accumulated intracellular structures, and they are, along with the inclusions the disease is named for.
 
-**Does the model predict the clinical picture?** The absorptive surface of the intestine is not being built, so the intestine cannot absorb across it, and what is not absorbed stays in the lumen and leaves with the stool. Extremely watery diarrhoea from the first days of life, with dehydration and weight loss, is what published description reports, and it is what a failure to build the absorptive surface would produce.
+**Does the model predict the clinical picture?** Partly, and the gap is instructive. Extremely watery diarrhoea from the first days of life, with dehydration and weight loss, is what published description reports.
+
+A missing absorptive surface is part of that, but the review this case rests on says plainly that reduced surface area does not fully account for the fluid loss. The trafficking defect does not disable the cell evenly: transporters that have to reach the apical surface are the ones that fail to arrive, while secretory routes are less affected, so the balance between absorption and secretion is disturbed as well as the surface being smaller. How much each contributes varies between genotypes and between model systems.
+
+That is the more useful lesson for a scene about compartments and delivery. A sorting failure is not a uniform loss of function; it removes whatever depended on the route that broke, and what depended on other routes carries on.
 
 ## Why this belongs in a lesson about organelles
 

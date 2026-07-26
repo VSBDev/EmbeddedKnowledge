@@ -33,7 +33,11 @@ Attempt all three before you read the next paragraph. The third one is the point
 
 **Execution.** $10^{2.7}$ is a little over 500. In words: the lysosome holds hydrogen ions about five hundred times more concentrated than the fluid immediately outside it, across a boundary a few nanometres thick.
 
-**Check it against something that was not fitted to it.** Published work on lysosomes reports the hydrogen-ion gradient across the lysosomal membrane as 500 to 1000-fold, established and maintained by vacuolar-type proton pumps, the V-ATPases, which drive protons inward at the expense of ATP. Our 500 came out of two pH values and a subtraction; their figure came out of measurements of the gradient. The two agree at the acid end of the range, which is the end we picked, and that agreement is a reason to trust both. Had the arithmetic produced 5, or 50 000, one of the inputs would have been wrong.
+**Check the arithmetic against the figure the literature quotes.** Published work on lysosomes reports the hydrogen-ion gradient across the lysosomal membrane as 500 to 1000-fold, established and maintained by vacuolar-type proton pumps, the V-ATPases, which drive protons inward at the expense of ATP.
+
+Be careful about what that comparison is worth. A quoted fold-difference of this kind is itself derived from pH values, so it is not an independent measurement of the gradient made by some other route. Our 500 and their 500 to 1000 are the same calculation done from similar inputs, and agreement between them confirms that the arithmetic is right, not that the pH values are. This is a consistency check on the working, and calling it anything stronger would be borrowing authority the comparison does not carry.
+
+It is still worth doing. Had the arithmetic produced 5, or 50 000, something would have been wrong with an input or with the exponent, and that is exactly the class of error a check like this catches.
 
 **Interpretation.** The answer to the third part of the check is now forced. A five-hundred-fold difference does not sit still on its own. Protons leak back down a gradient that steep, so something has to keep pushing them in, continuously, for as long as the lysosome exists. That something is a pump, and it runs on ATP.
 
