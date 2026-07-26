@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PSY-MOO-002-ACADEMIC-B15BE506-F5B5-43FC-8761-2B7B676D4418",
+  "lessonId": "PSY-MOO-002",
+  "lessonVersion": "0.1.1",
+  "candidateCommit": "83bf93dce8adddbb1148182e84ff09845c516f37",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable academic reviewer",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PSY-MOO-002-B15BE506-F5B5-43FC-8761-2B7B676D4418",
+      "instructionsDigest": "sha256:32ceee16386fb90010174df8ffece6607702b36777726f9c8861caf8a6e1b3f0"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#PSY-MOO-002-version-0.1.1-objectives-scenes-prerequisites-and-boundaries",
+    "content/010-two-readings.md#scene-two-readings",
+    "content/020-weight-and-channel.md#scene-weight-and-channel",
+    "content/030-working-the-five-days.md#worked-example-five-days",
+    "content/040-the-drink-and-the-waking.md#misconception-alcohol-explains-the-sleep",
+    "content/050-the-rest-of-the-list.md#mixed-selection",
+    "content/060-transfer-a-different-file.md#check-transfer-tasks",
+    "content/070-clinical-wrap-up.md#scene-clinical-wrap-up",
+    "assessment.json#all-items-rubrics-answer-keys-and-retry-logic",
+    "claims.json#all-15-claims-and-scene-source-mappings",
+    "references.json#all-15-source-records-locators-scope-and-agent-access",
+    "glossary.json#all-terms-definitions-and-alignment-records",
+    "ATTRIBUTION.md#complete-attribution-provenance-boundaries-and-declared-omissions",
+    "references.json#source-regeer-direct-full-text-check",
+    "references.json#source-odonovan-alda-independent-full-text-index-check",
+    "references.json#source-ghaemi-crdc-independent-full-text-index-check",
+    "references.json#source-gilman-nesarc-independent-full-text-index-check",
+    "references.json#source-shivani-direct-full-text-check",
+    "references.json#source-stein-friedmann-independent-full-text-index-check",
+    "references.json#source-zamwar-independent-full-text-index-check",
+    "references.json#source-samuels-independent-full-text-index-check",
+    "references.json#source-rogers-pies-independent-full-text-index-check",
+    "references.json#source-stewart-swain-independent-full-text-index-check",
+    "references.json#source-leissner-reduce-ami-independent-full-text-index-check",
+    "references.json#source-molero-betablockers-independent-full-text-index-check",
+    "independent-verification#NCBI-Bookshelf-Improving-Diagnosis-in-Health-Care-diagnostic-process-and-pretest-probability"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "content/050-the-rest-of-the-list.md#mixed-selection",
+      "finding": "The central ranking model treats an alternative that was not asked about as having no position at all and refuses to place the unipolar and bipolar-spectrum course hypotheses relative to one another on this file. Failure to ask must never be rewritten as a negative finding, but it does not erase pre-test probability: a clinical differential updates prior plausibility from prevalence and known patient/course features with the likelihood and reliability of new findings. The pack also places mutually exclusive course hypotheses on the same nominal ranking as potentially co-occurring contributors such as alcohol, shift work, grief, medication, and thyroid disease without defining a common rank quantity. As written, the output is neither a probability ranking nor a defined ordering by contribution, urgency, or decision relevance, and assessment.json explicitly penalizes base-rate use as though prevalence were not evidence.",
+      "resolution": "Keep the important distinction between unasked and negative, but define exactly what is ranked and on what scale. Incorporate prior/pre-test plausibility and its uncertainty before evidentiary updates, and separate mutually exclusive course classification from co-occurring etiologic or contributing hypotheses, or define a defensible multidimensional ordering. Propagate that repair through the objectives, nine-row table, model note, assessment keys, rubrics, and recovery guidance."
+    },
+    {
+      "severity": "major",
+      "target": "content/030-working-the-five-days.md#worked-example-five-days",
+      "finding": "The worked example assigns the five-day report high weight and calls it the observation that reclassifies the present picture if it happened as described. The described item does not establish elevated, expansive, or irritable mood; it records little sleep rather than decreased need for sleep; and it does not establish an observable change in functioning or the consequences needed to characterize an episode. Increased activity, talkativeness, and impulsive buying make the report important to investigate, but they do not make the underspecified item course-reclassifying. This also conflicts with glossary.json#term-hypomania and with the conditional-weight logic correctly used for K. in assessment.json#item-weight-and-channel-of-one-item.",
+      "resolution": "Key R.'s item as suggestive and conditionally high-weight, not reclassifying as reported. Elicit and require the missing core mood/activity, decreased-need-for-sleep, observability/function, duration, exclusion, and context features before assigning episode-level weight, then align the interpretation, wrap-up note, glossary use, and assessment logic."
+    },
+    {
+      "severity": "major",
+      "target": "references.json#source-shivani",
+      "finding": "The locator and mapped claim attribute a two-to-four-week abstinence interval, justified by most symptoms resolving within four weeks, to Shivani, Goldsmith, and Anthenelli. Direct checking found that this article instead advises examining stable abstinence of at least three months as a conservative approach because mood and psychovegetative symptoms can persist; it describes improvement over days or weeks but does not supply the lesson's two-to-four-week rule. source-stewart-swain addresses withdrawal assessment and management, not that diagnostic interval. The exact four-week convention is therefore unsupported by the cited records even though content/040, content/070, claim-substance-chronology-discriminator, and item-chronology-choice depend on it.",
+      "resolution": "Either replace the locator and mapping with a current, directly verified source that supports the exact interval and its population/conditions, or revise the claim, scenes, glossary, and assessment to the source-supported variability. Do not score four weeks as a validated discriminator until that evidentiary gap is closed."
+    },
+    {
+      "severity": "major",
+      "target": "claims.json#claim-alcohol-rebound-second-half",
+      "finding": "The claim generalizes evening alcohol as shortening sleep latency, sedating the first part of the night, and producing a second-half rebound across adults who drink in the evening. The cited review reports variable, dose- and timing-dependent effects: lower doses can increase rather than shorten latency, while the illustrative near-zero blood-alcohol/3 a.m. rebound assumes a high bedtime dose. R.'s file contains no quantity or drinking time and does not establish dependence. The scene's statements that the mechanism fits R.'s clock and that alcohol at the current level is a strong candidate for holding the waking open are therefore not supported at the person level.",
+      "resolution": "Narrow the claim scope to the dose, timing, and population actually supported; state the bidirectional or variable low-dose evidence; and remove the person-level fit and strong-candidate language until R.'s quantity and timing are elicited. The chronology point about the later escalation may remain, clearly separated from the unsupported sleep-mechanism inference."
+    },
+    {
+      "severity": "major",
+      "target": "assessment.json#item-rank-a-new-file",
+      "finding": "The same K. stem is keyed incompatibly across two mastery items. item-rank-a-new-file counts the undated spell of ease and spending as weak evidence for bipolar-spectrum and against unipolar, while item-weight-and-channel-of-one-item says that until mood or energy/activity change, duration, observable departure, associated features, and consequences are elicited, the item carries no weight of its own and functions only as a prompt for enquiry. A learner can therefore give the scientifically cautious interpretation rewarded in one item and lose credit for it in the other.",
+      "resolution": "Choose one defensible interpretation of the reported item and use it consistently. On the current stem, treat it as an enquiry trigger with conditional potential weight, or add the missing phenomenology if it is meant to carry weak positive evidence. Align both answer keys, summaries, criteria, common errors, and retries."
+    },
+    {
+      "severity": "minor",
+      "target": "content/060-transfer-a-different-file.md#one",
+      "finding": "The scene calls the REDUCE-AMI quality-of-life substudy a randomized trial in T.'s exact situation, but T.'s preserved left-ventricular ejection fraction, obstructive coronary disease, and absence of another beta-blocker indication are not in the file. The second source's own sensitivity analyses found inconsistent psychiatric-hospitalization associations, so combining the two studies does not establish a person-level or class-wide effect bounded between nothing and very small, although it does support that no consistent population-level association was demonstrated. The chronology still argues that a drug begun one month after the mood change did not initiate that change.",
+      "resolution": "Remove exact situation, state the REDUCE-AMI eligibility limits, describe the cohort result as inconsistent across sensitivity analyses, and retain the narrower chronology conclusion without turning these two studies into a precise class-wide effect bound for T."
+    }
+  ],
+  "limitations": [
+    "The user-scoped review prohibited reading site/, so the graph-node record, quorum JSON, terminology ledger, and review schema were not independently inspected; outcome scope was assessed from lesson.json and the complete pack, and no cross-lesson terminology conclusion is offered.",
+    "PMC intermittently returned a reCAPTCHA page for several cited URLs. The highest-impact claims were checked through accessible PMC full text or indexed full-text excerpts, but not every one of the 15 external articles was opened end-to-end; no source was marked human-only.",
+    "This is an academic evidence and assessment-logic review of fictional teaching cases, not a clinical assessment of any person or authorization for practice. No conflict of interest was identified."
+  ],
+  "signedAt": "2026-07-25T23:44:38Z"
+}

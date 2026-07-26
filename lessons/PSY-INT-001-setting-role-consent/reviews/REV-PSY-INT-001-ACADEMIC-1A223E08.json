@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PSY-INT-001-ACADEMIC-1A223E08",
+  "lessonId": "PSY-INT-001",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "dfc92031abe4466636bd92ef3378668f5c08215e",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable academic reviewer",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PSY-INT-001-1A223E08-8D58-436E-9159-468339479A11",
+      "instructionsDigest": "sha256:1a6be4001fb598738c225c62d8534d4387a40a7f055f8aaee3ea196f48c34407"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "The accountable reviewer principal, github:VSBDev, is also the candidate's accountable author. The project permits one founding-stage principal to operate isolated role runs, but this remains a disclosed authorship conflict and is not independent human review."
+  },
+  "evidenceChecked": [
+    "lesson.json#outcomes,prerequisites,objectives,scenes",
+    "content/01-the-sentence-that-was-asked-for.md#entire-scene",
+    "content/02-six-decisions-behind-one-conversation.md#entire-scene",
+    "content/03-what-r-actually-agreed-to.md#entire-scene",
+    "content/04-two-models-that-fail-quietly.md#entire-scene",
+    "content/05-three-passes-and-a-way-back.md#entire-scene",
+    "content/06-the-same-six-decisions-by-telephone.md#entire-scene",
+    "content/07-clinical-wrap-up-the-letter.md#entire-scene",
+    "assessment.json#items-and-rubrics",
+    "claims.json#all-claims",
+    "references.json#all-sources",
+    "glossary.json#all-terms",
+    "ATTRIBUTION.md#entire-file",
+    "references.json#source-cpa-consent-2015",
+    "references.json#source-moreira-consent-teaching-2023",
+    "references.json#source-levy-nondisclosure-2019",
+    "references.json#source-mathias-asking-2012",
+    "references.json#source-geiderman-privacy-2006",
+    "references.json#source-geiderman-reporting-2020",
+    "references.json#source-karliner-interpreters-2007",
+    "references.json#source-irving-consultation-time-2017",
+    "references.json#source-meier-diedrich-open-notes-2025"
+  ],
+  "findings": [
+    {
+      "severity": "blocking",
+      "target": "content/07-clinical-wrap-up-the-letter.md#So-what-does-the-clinician-do-this-evening",
+      "finding": "The scene gives a definitive clinical documentation and information-sharing decision—write the passive-death-thought sentence to the GP—and calls a telephone call or an incomplete letter the only alternatives if the earlier discussion had not occurred. None of the mapped sources establishes that this information is required in this fictional referral letter, that the GP needs it, or that these are the only defensible options. The decision depends on clinical risk assessment, the purpose and legal basis of the communication, local documentation duties, service policy, and facts deliberately excluded from this outcome. The boundary callout does not neutralize the subsequent prescriptive answer. This crosses the lesson's non-clinical role boundary and teaches an unsafe clinical shortcut about suicide-related documentation.",
+      "resolution": "Remove the single prescribed documentation answer. Reframe the task around identifying the missing jurisdictional, policy, clinical-purpose, and risk-assessment information, or constrain it to tracing how the earlier record discussion affects later communication. Retain a clinical decision only if current jurisdiction-specific authoritative guidance, the necessary clinical prerequisites, and a supervised-role boundary are supplied."
+    },
+    {
+      "severity": "major",
+      "target": "references.json#source-cpa-consent-2015",
+      "finding": "This 2015 position paper is the sole support for the lesson's central consent model, withdrawal rule, disclosure list, voluntariness model, capacity boundary, and jurisdictional claims. The article record states that Canadian Psychiatric Association documents older than five years without an explicit reviewed-and-retained statement should be treated as historical references only. The pack itself admits that no later Canadian revision was verified, yet assigns high confidence and uses the source to determine assessment answers. It also extends treatment-consent guidance into observer presence, conversational setup, record content, and remote encounters without separately establishing that each extension is valid.",
+      "resolution": "Verify whether the CPA has formally retained or replaced the paper and record that evidence. Otherwise replace or supplement it with current authoritative, jurisdiction-specific sources for treatment or assessment consent, teaching observers, information sharing, capacity, and remote encounters. Revise every dependent claim, definition, scene, and answer key to the scope actually supported."
+    },
+    {
+      "severity": "major",
+      "target": "claims.json#claim-student-presence-consent-gap",
+      "finding": "The claim and four dependent scenes compare 75% who recalled a physician asking whether students could be present with 31% who recalled students introducing themselves and asking permission. The source's 31% item was a compound item about introducing themselves and requesting consent to perform the medical examination, not consent for mere presence. The lesson therefore treats two different acts as a measured gap in role disclosure and incorrectly places R.'s observer-only situation inside one percentage and outside the other. The source does support concerns about student presence and intimate disclosure, but not this specific numerical inference.",
+      "resolution": "State the two survey items exactly and do not interpret the 31% as permission for observer presence. Remove the claimed 75%-versus-31% role-clarity gap and R.'s numerical classification, or support that distinction with evidence that measured introductions and observer consent separately."
+    },
+    {
+      "severity": "major",
+      "target": "assessment.json#item-arrange-a-new-encounter",
+      "finding": "The keyed answer says that a five-month wait is a voluntariness problem and that an agreement by someone who fears losing the appointment is not freely given. The stimulus supplies the wait but supplies no expressed fear, threat, misleading statement, loss-of-care condition, or inability to decline the trainee or recording. A long wait may create pressure that should be explored, but it does not by itself establish undue influence or invalidate agreement. The claim ledger explicitly admits that classifying a particular arrangement this way is the lesson's inference, so the safety-critical item currently rewards an unsupported conclusion as correct.",
+      "resolution": "Key the wait as a reason to check whether declining is genuinely consequence-free, not as proof of involuntariness. If the assessment is meant to test compromised voluntariness, add an explicit threatened consequence or other evidence and map the answer to current authoritative support."
+    },
+    {
+      "severity": "major",
+      "target": "assessment.json#item-state-of-the-agreement",
+      "finding": "The keyed option says R. can still change any part of the agreement, including asking at minute 50 that earlier material be left out. This conflates a right to withdraw consent to treatment or observer participation with control over the contents of a clinical record or communication. R. may request that handling be reconsidered, but the lesson itself says some record decisions are not under R.'s control. The current key rewards the false shortcut that asking for omission necessarily changes the agreement or determines the record.",
+      "resolution": "Distinguish the right to request, revisit, or withdraw from an entitlement to determine record content. Rewrite the option and reasoning so that observer participation can be withdrawn, while documentation and disclosure requests remain subject to the stated purpose, applicable duties, and jurisdiction-specific rules."
+    },
+    {
+      "severity": "minor",
+      "target": "content/05-three-passes-and-a-way-back.md#Recovery-route",
+      "finding": "The recovery rule—ask who could check a sentence; if the patient, it is report; if anyone in the room, observation; if nobody, someone added—is not a valid distinction between observation and inference. Witnesses can disagree, an inference can be discussed with people in the room, and an observation remains one observer's account rather than becoming objective because another person could be asked. This introduces a false epistemic shortcut in remediation for the declared prerequisite.",
+      "resolution": "Classify statements by their stated provenance and inferential content: attribute reports to the speaker, describe observable behaviour without importing an interpretation, and label interpretations or hypotheses explicitly. Do not use the identity of a hypothetical checker as the classification test."
+    },
+    {
+      "severity": "minor",
+      "target": "content/02-six-decisions-behind-one-conversation.md#Communication-access-whether-the-conversation-is-possible-at-all",
+      "finding": "The systematic review supports associations between professional interpreter use and better communication or care than ad hoc interpreting in mostly observational, non-psychiatric studies. It does not support the specific counterfactual that R.'s passive thoughts would probably be absent from the record if the partner interpreted. That prediction is causal, person-specific, and stronger than the cited evidence.",
+      "resolution": "Change the counterfactual to a bounded possibility and identify the uncertainty, for example that use of an accompanying partner could alter what R. is willing or able to disclose and therefore might change the record."
+    },
+    {
+      "severity": "note",
+      "target": "claims.json#claim-people-withhold-and-the-record-is-a-reason",
+      "finding": "The two reported nondisclosure proportions, their denominators, and the medical-record reason percentages match the cited study. The claim and learner-visible source notes appropriately limit these figures to nonprobability online self-report samples and do not present them as observed consultation prevalence.",
+      "resolution": "No change required."
+    }
+  ],
+  "limitations": [
+    "The assigned scope prohibited reading site data, scripts, and other lesson packs. I therefore could not verify the exact atomic graph-node definitions, the generated terminology ledger, or the asserted prior-lesson alignment for clinical authority. The PSY-130 syllabus scope was checked and broad...",
+    "Direct PMC article endpoints presented an automated-access challenge during this run. Important claims were checked through accessible publisher pages, PubMed or ERIC records, and PMC-indexed article text, but not every line of every full source was independently reopened.",
+    "I am not acting as jurisdiction-specific legal counsel. Legal and regulatory statements were judged for academic scope, evidentiary support, currency, and learner safety rather than as legal advice.",
+    "No learner-performance or clinical-effectiveness evidence was available; the verdict concerns the frozen candidate's academic claims, model boundaries, and assessment correctness."
+  ],
+  "signedAt": "2026-07-25T23:28:55Z"
+}

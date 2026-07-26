@@ -83,6 +83,9 @@ jobs:
       - name: Prove every incorporated repair actually changed a file
         if: github.event_name == 'pull_request' || github.event_name == 'pull_request_review'
         run: node scripts/validate-adjudication-dispositions.mjs
+      - name: Refuse a discarded review record with no recorded decision
+        if: github.event_name == 'pull_request' || github.event_name == 'pull_request_review'
+        run: node scripts/validate-review-generations.mjs
       - name: Prove a rephrasing-tier change is wording-only
         if: github.event_name == 'pull_request' || github.event_name == 'pull_request_review'
         run: node scripts/validate-rephrasing-pr.mjs
