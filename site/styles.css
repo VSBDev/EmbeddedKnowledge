@@ -674,6 +674,10 @@ h2 em {
 
 .course-poster {
   position: relative;
+  /* The poster is a grid child next to a copy column, so without this it stretches to whichever
+     column is taller and the two books end up different sizes. A book cover has a fixed shape. */
+  align-self: start;
+  aspect-ratio: 2 / 3;
   min-height: 680px;
   display: flex;
   flex-direction: column;
@@ -725,6 +729,7 @@ h2 em {
 .poster-orbit {
   position: absolute;
   inset: 5% -22%;
+  z-index: 0;
   display: grid;
   place-items: center;
 }
@@ -743,14 +748,23 @@ h2 em {
 
 .poster-cross {
   font-family: var(--serif);
-  font-size: 110px;
+  font-size: 96px;
   font-weight: 300;
+  /* Centred in the orbit, the glyph lands exactly behind the wordmark and shows through the gaps
+     between letters. Lift it into the empty band above the title instead. */
+  transform: translateY(-118%);
+  opacity: 0.72;
 }
 
 .poster-title {
   position: relative;
   z-index: 2;
   text-align: center;
+  /* The orbit lines are near-white; behind a near-white wordmark they read as crossing the letters.
+     A hairline of the poster's own red around each glyph keeps the letterforms whole. */
+  text-shadow:
+    0 0 6px var(--red), 0 0 6px var(--red),
+    0 0 14px var(--red);
 }
 
 .poster-title span,
