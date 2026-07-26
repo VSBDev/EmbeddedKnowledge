@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-BIO-004-ACADEMIC-56264239-B250-4486-80CF-7F2B85C039A3",
+  "lessonId": "PREM-BIO-004",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "aa2468544ad34f4580735aedc69daa12b225c39f",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable academic reviewer",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-BIO-004-56264239-B250-4486-80CF-7F2B85C039A3",
+      "instructionsDigest": "sha256:308dc0e4446a6d6a7aaa54f84e0eb4c2de92a9cf4be3693900c68133fd3af89c"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json",
+    "content/01-lumen-other-side.md",
+    "content/02-how-far-a-lipid-gets.md",
+    "content/03-stiffer-looser-cholesterol.md",
+    "content/04-fluid-not-shuffled.md",
+    "content/05-one-cell-two-membranes.md",
+    "content/06-practice-and-recovery.md",
+    "content/07-clinical-wrap-up.md",
+    "assessment.json",
+    "claims.json",
+    "references.json",
+    "glossary.json",
+    "diagrams/enterocyte-two-faces.diagram.json",
+    "assets/cell-membrane-components.svg",
+    "ATTRIBUTION.md",
+    "claims.json#claim-amphotericin-target",
+    "claims.json#claim-tight-junction-fence",
+    "claims.json#claim-apical-basolateral-distinct",
+    "claims.json#claim-bilayer-thickness-differs-by-face",
+    "references.json#source-carolus-amphotericin",
+    "references.json#source-vanmeer-tight-junction",
+    "references.json#source-mitra-bilayer-thickness",
+    "references.json#source-segawa-flippases",
+    "assessment.json#item-diffusion-arithmetic",
+    "assessment.json#item-asymmetry-mechanisms",
+    "assessment.json#item-integrated-drug-case",
+    "Independent recalculation of assessment.json#item-diffusion-arithmetic: 2 seconds, 200 seconds, and a factor of 100",
+    "Independent mass-action check for assessment.json#item-integrated-drug-case: if cholesterol Kd is thirty times ergosterol Kd, the ergosterol-to-cholesterol occupancy ratio is (30K + L)/(K + L), which approaches 1 rather than remaining constant as ligand concentration rises",
+    "[PubMed PMID 33261213 — Amphotericin B and Other Polyenes](https://pubmed.ncbi.nlm.nih.gov/33261213/)",
+    "[PubMed PMID 3743548 — tight-junction lipid fence experiment](https://pubmed.ncbi.nlm.nih.gov/3743548/)",
+    "[PubMed PMID 15016920 — apical and basolateral bilayer thickness](https://pubmed.ncbi.nlm.nih.gov/15016920/)",
+    "[PubMed PMID 7706387 — ATP depletion and loss of tight-junction fence function](https://pubmed.ncbi.nlm.nih.gov/7706387/)"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "content/07-clinical-wrap-up.md#step-one-what-is-the-target",
+      "finding": "The statement that the pore and sterol-sponge models both end with a membrane that has lost its sterol is false. In the pore model, amphotericin–sterol assemblies form ion-conducting structures in the membrane; extraction of ergosterol from the bilayer is the defining outcome of the sponge or surface-adsorption models. Collapsing the models into a shared sterol-depletion destination erases the stated mechanistic uncertainty and makes the subsequent sterol-removal predictions invalid for the pore branch.",
+      "resolution": "Keep pore formation and sterol extraction as distinct mechanistic models. Apply predictions about a sterol-depleted membrane only to the extraction model; for the pore model, predict ion leakage without asserting that the membrane has lost its sterol."
+    },
+    {
+      "severity": "major",
+      "target": "assessment.json#item-integrated-drug-case/answer",
+      "finding": "The scored dose argument incorrectly says that increasing concentration leaves the ratio between fungal and human effects roughly unchanged. For simple saturable binding with a thirtyfold Kd difference, fractional occupancies are nonlinear: the occupancy ratio narrows from approximately 30 at low concentration toward 1 as both targets saturate. Moreover, an effect ratio cannot be inferred from affinity alone without exposure, target abundance, stoichiometry, and response information. The current rubric therefore requires a quantitatively false argument.",
+      "resolution": "Rewrite part (c), its reasoning, and its rubric to state that finite cholesterol affinity permits increasing human-membrane binding as concentration rises and that affinity preference alone does not establish an effect ratio or safety threshold. If occupancy is to be quantitative, provide concentrations and use the mass-action occupancy equation."
+    },
+    {
+      "severity": "major",
+      "target": "assessment.json#item-asymmetry-mechanisms/answer",
+      "finding": "Interrupting cellular ATP for several hours is not a selective way to stop P4-ATPase flippases while leaving junctions, calcium homeostasis, cytoskeleton, trafficking, and cell viability unchanged. Primary MDCK evidence reports that ATP depletion uncouples tight-junction gate and fence functions as junction-associated actin architecture breaks down. The cited lesson sources establish slow spontaneous flip-flop and the junction's fence function, but they do not support the required answer that both separations largely survive generalized ATP depletion.",
+      "resolution": "Replace generalized ATP interruption with a selective perturbation, such as inhibiting the relevant flippase while explicitly holding scrambling, junction integrity, and cell physiology constant. Alternatively, accept contingent answers that discuss ATP-depletion-induced junction failure and possible scrambling, supported by appropriate evidence."
+    },
+    {
+      "severity": "major",
+      "target": "content/05-one-cell-two-membranes.md#the-two-faces-are-physically-different-membranes",
+      "finding": "Apical and basolateral surfaces are distinct domains of one topologically continuous plasma membrane, not two separate membranes rather than two regions of one. The scene itself earlier states that the domains are continuous, and the cited polarity and tight-junction literature describes apical and basolateral membrane domains. A thickness difference demonstrates physical and compositional domain differences; it does not demonstrate membrane separateness.",
+      "resolution": "Revise the heading, explanatory paragraph, and corresponding diagram language to describe physically distinct apical and basolateral domains of one continuous plasma membrane. Present the thickness measurement as evidence of domain-specific organization, not evidence that two separate membranes exist."
+    },
+    {
+      "severity": "major",
+      "target": "assessment.json#item-diffusion-arithmetic/part-d",
+      "finding": "The prompt stipulates D = 2 micrometres squared per second for the same membrane, yet the required answer says a real cell must take longer because living-cell diffusion coefficients are roughly 0.5 to 4 micrometres squared per second. The stipulated value already lies inside that range, and if D is the membrane's effective coefficient, crowding and obstruction are already represented in it. The conclusion that the calculated time is necessarily an underestimate does not follow from the given data.",
+      "resolution": "Explicitly identify the supplied coefficient as a model-bilayer value and choose a value consistent with the stated model range, then ask how a smaller measured cellular coefficient changes the time. Alternatively, ask learners to name an idealization that can fail without requiring the direction of the error."
+    },
+    {
+      "severity": "minor",
+      "target": "glossary.json#term-flippase/aliases",
+      "finding": "The alias list treats “floppase” as a synonym for “flippase,” although the definition correctly identifies floppases as distinct transporters that move lipids in the opposite direction and generally belong to another transporter family.",
+      "resolution": "Remove “floppase” from the aliases and retain the distinction in the definition."
+    },
+    {
+      "severity": "minor",
+      "target": "glossary.json#term-brush-border/aliases",
+      "finding": "“Microvillus” and “microvilli” are not synonyms for “brush border.” A brush border is the apical specialization formed by an array of many microvilli and associated components.",
+      "resolution": "Remove “microvillus” and “microvilli” from the aliases or create a separate microvillus glossary entry linked from the brush-border definition."
+    },
+    {
+      "severity": "minor",
+      "target": "glossary.json#term-integral-membrane-protein/aliases",
+      "finding": "“Transmembrane protein” is narrower than “integral membrane protein”; some integral membrane proteins are embedded in only one leaflet rather than spanning the bilayer. Treating the terms as interchangeable overstates their equivalence.",
+      "resolution": "Remove the alias or qualify the entry to say that transmembrane proteins are a major subclass of integral membrane proteins."
+    }
+  ],
+  "limitations": [
+    "The explicit review scope prohibited reading site/, so site/schemas/review.schema.json, the public terminology ledger, and the quorum-policy file were not inspected; the artifact structure follows .github/REVIEW_TEMPLATE/academic.md.",
+    "Repository validation was not run because it would invoke prohibited site/ and scripts/ scope and could produce generated changes; JSON pack files were inspected at the frozen candidate commit.",
+    "Direct PMC full-text retrieval encountered an automated browser challenge. Important claims were cross-checked through the candidate's complete source records and accessible PubMed abstracts and figure descriptions; this did not prevent a responsible verdict."
+  ],
+  "signedAt": "2026-07-26T19:20:19Z"
+}
