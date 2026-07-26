@@ -105,9 +105,10 @@ test("Premed opens as a course workspace with explicit scientific disciplines", 
   await expect(page.locator("[data-coverage-percentage]")).toHaveText(formattedCoverage(progress.outcomes.coveredByOpenLessons, progress.outcomes.total));
   await expect(page.locator("[data-covered-outcomes]")).toHaveText(progress.outcomes.coveredByOpenLessons.toLocaleString());
   await expect(page.locator("[data-total-outcomes]")).toHaveText(progress.outcomes.total.toLocaleString());
-  await expect(page.locator("[data-contributed-lessons]")).toHaveText(progress.lessons.contributed.toLocaleString());
   await expect(page.locator("[data-open-lessons]")).toHaveText(progress.lessons.publishedOpen.toLocaleString());
-  await expect(page.locator(".corpus-contribute")).toContainText("lesson contributions open");
+  // The meter is one line and a bar. The contribution note and the per-count captions that used to
+  // sit beside it are gone; the way in is the lesson-commons link asserted just below.
+  await expect(page.locator("[data-coverage-bar]")).toBeVisible();
   await expect(page.locator('.course-action.primary[href="lessons/"]')).toContainText("Open the lesson commons");
   await expect(page.locator('.course-action[href="syllabus/"]')).toBeVisible();
   await expect(page.locator('.course-action[href="graph/"]')).toBeVisible();
