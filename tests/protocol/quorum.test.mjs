@@ -203,3 +203,18 @@ test("a discarded review record needs a recorded decision, not another cohort", 
     adjudicatedVersions: new Map()
   }), []);
 });
+
+test("a review record that was removed and restored is not a discard", () => {
+  // The first version of this guard failed a branch whose history contained a deletion even after
+  // the artifacts were put back. Restoring the record is the correct repair for having removed it,
+  // so only deletions that are still absent at head count.
+  const versionAt = () => "0.1.0";
+  const restored = discardedReviewVersions({ deletions: [], versionAt });
+  assert.deepEqual(unrecordedDiscards({ discarded: restored, adjudicatedVersions: new Map() }), []);
+
+  const stillGone = discardedReviewVersions({
+    deletions: [{ commit: "c1", path: "lessons/X/reviews/REV-A.json" }],
+    versionAt
+  });
+  assert.equal(unrecordedDiscards({ discarded: stillGone, adjudicatedVersions: new Map() }).length, 1);
+});

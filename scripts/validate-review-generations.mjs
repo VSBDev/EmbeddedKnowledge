@@ -47,13 +47,19 @@ for (const packPath of packs) {
     if (/^[0-9a-f]{40}$/.test(line.trim())) { commit = line.trim(); continue; }
     if (line.trim() && commit) deletions.push({ commit, path: line.trim() });
   }
-  if (!deletions.length) continue;
+  // A deletion in history is not a discard if the artifact is back at head. Restoring the record is
+  // the right correction for having removed it, and it must not keep failing afterwards.
+  const presentAtHead = (file) => {
+    try { git("cat-file", "-e", `${headSha}:${file}`); return true; } catch { return false; }
+  };
+  const stillGone = deletions.filter(({ path: file }) => !presentAtHead(file));
+  if (!stillGone.length) continue;
 
   const versionAt = (sha, file) => {
     try { return JSON.parse(git("show", `${sha}^:${file}`)).lessonVersion || null; }
     catch { return null; }
   };
-  const discarded = discardedReviewVersions({ deletions, versionAt });
+  const discarded = discardedReviewVersions({ deletions: stillGone, versionAt });
 
   // every adjudication that ever existed in range, by the version it judged
   const adjudicatedVersions = new Map();
