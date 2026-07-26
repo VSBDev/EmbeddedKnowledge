@@ -1,0 +1,158 @@
+{
+  "schemaVersion": 1,
+  "adjudicationId": "ADJ-PREM-BIO-003-03A75FD7",
+  "lessonId": "PREM-BIO-003",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "2485aa1600a56a13c18300fd137ad58c39db2c55",
+  "finalCommit": "f73e5f5ed1e980942508f24151c2d3b0ccc111da",
+  "riskTier": "standard",
+  "policyId": "standard-lesson-v3",
+  "reviewIds": [
+    "REV-PREM-BIO-003-ACADEMIC-81B94B3B",
+    "REV-PREM-BIO-003-AA5E4A31-0E64-4735-81FB-D2D72C3757B7"
+  ],
+  "quorum": {
+    "satisfied": true,
+    "approvals": 1,
+    "reviewInputs": 2,
+    "changeRequests": 1,
+    "roleCounts": {
+      "academic": 1,
+      "learningDesign": 1,
+      "accessibilityRights": 0
+    },
+    "distinctPrincipals": 1,
+    "distinctAgentRuns": 2,
+    "distinctAgentModelFamilies": 2
+  },
+  "decision": "merge",
+  "rationale": "Both role-isolated advisory inputs were present from distinct runs and model families, pinned to the same frozen candidate. The academic review returned request-changes with six major and three minor findings; the learning-design review approved with four notes. No finding carries blocking severity and every one was correctable in this pass, so all were disposed here. Three mattered most. A comparison the lesson used to justify trusting its inputs was not independent of them, because the quoted fold-difference is itself derived from pH values; it is now a consistency check on the arithmetic and nothing more. A claim that bacteria pay none of the costs of compartmentalisation and buy none of its benefits was simply false, and is narrowed to the eukaryotic endomembrane system with bacterial energetics, transport, localisation and known compartment exceptions preserved. And the clinical wrap-up attributed the presentation to lost absorptive surface when the review it rests on says that does not fully account for it; the scene now distinguishes the apical route that fails from the secretory routes that do not, which is a better fit for a lesson about delivery. The academic verdict stands as dissent and no reviewer has seen the repaired text.",
+  "dissent": [
+    "The academic review's request-changes verdict stands as material dissent from the candidate as reviewed. Its findings were incorporated by the maintainer afterwards; no reviewer has approved the repaired text."
+  ],
+  "conditions": [
+    "The repaired content is committed first and that commit is stamped as finalCommit, with no teaching-content change afterward.",
+    "Strict source preflight and full validation must pass on the final content before merge.",
+    "The publication transition is the maintainer's separate act and is not authorised by this decision."
+  ],
+  "adjudicator": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable maintainer and adjudicator",
+    "agent": {
+      "system": "Claude Code",
+      "provider": "Anthropic",
+      "model": "claude-opus-5",
+      "version": "2.1.215",
+      "runId": "claude-adjudicator-PREM-BIO-003-5B3B11133ACC",
+      "instructionsDigest": "sha256:90cf4878ffd07b880e570acf0f5218a3d08309d063c2bdefa51af976b6df3823"
+    }
+  },
+  "adjudicatedAt": "2026-07-26T19:30:23Z",
+  "finalization": {
+    "materialChanges": [
+      "Relabelled the gradient comparison as a consistency check on the arithmetic and reconciled the claim ledger with it.",
+      "Stopped the gradient assessment item inferring maintenance cost from pH alone.",
+      "Made acidity one major component of hydrolase activation rather than the sole switch, naming precursor cleavage and cofactors.",
+      "Described catalase colocalisation as limiting accumulation and exposure rather than preventing escape, and removed the unsourced distance claim.",
+      "Narrowed the bacterial comparison to the eukaryotic endomembrane system while preserving bacterial energetics, transport, localisation and compartment exceptions.",
+      "Rewrote the clinical reasoning to separate failed apical delivery from maintained secretory routes and to state that surface-area loss does not fully account for the fluid loss.",
+      "Qualified translation to nucleus-encoded proteins in the prose and the diagram, naming the thirteen mitochondrially encoded exceptions.",
+      "Removed microvillus and microvilli as aliases of brush border, and separated concentration gradient, membrane potential and proton-motive force in the glossary."
+    ],
+    "reviewDispositions": [
+      {
+        "reviewId": "REV-PREM-BIO-003-ACADEMIC-81B94B3B",
+        "findingIndex": 0,
+        "action": "incorporated",
+        "rationale": "content/02-proton-arithmetic.md and claims.json: the comparison is relabelled a consistency check on the arithmetic, with the reason the quoted figure is not independent stated in both prose and claim."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-003-ACADEMIC-81B94B3B",
+        "findingIndex": 1,
+        "action": "incorporated",
+        "rationale": "assessment.json: item-gradient-arithmetic no longer infers maintenance cost from pH; the key credits the two ratios and the statement that relative ATP use cannot be inferred from pH alone."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-003-ACADEMIC-81B94B3B",
+        "findingIndex": 2,
+        "action": "incorporated",
+        "rationale": "content/03-membrane-was-not-the-protection.md: acidity is one major component of activation rather than the sole switch, with precursor cleavage and cofactors named and containment and activation described as coupled rather than identical."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-003-ACADEMIC-81B94B3B",
+        "findingIndex": 3,
+        "action": "incorporated",
+        "rationale": "content/03-membrane-was-not-the-protection.md: catalase colocalisation limits accumulation and exposure rather than preventing escape; the unsourced distance claim is removed and peroxide's membrane permeation and signalling role acknowledged."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-003-ACADEMIC-81B94B3B",
+        "findingIndex": 4,
+        "action": "incorporated",
+        "rationale": "content/05-compartment-as-machine.md: the comparison is narrowed to the eukaryotic endomembrane system, explicitly preserving bacterial membrane energetics, transport, localisation and known compartment exceptions."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-003-ACADEMIC-81B94B3B",
+        "findingIndex": 5,
+        "action": "incorporated",
+        "rationale": "content/07-clinical-wrap-up.md: the clinical reasoning distinguishes apical transporter mislocalisation from less-affected secretory routes, states that surface-area loss does not fully account for the fluid loss, and notes variation by genotype and model."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-003-ACADEMIC-81B94B3B",
+        "findingIndex": 6,
+        "action": "incorporated",
+        "rationale": "content/04-getting-there.md and diagrams/route-to-the-surface.diagram.json: translation is stated for nucleus-encoded proteins, with the thirteen mitochondrially encoded proteins named as the exception."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-003-ACADEMIC-81B94B3B",
+        "findingIndex": 7,
+        "action": "incorporated",
+        "rationale": "glossary.json: microvillus and microvilli are removed as aliases of brush border and the distinction between one projection and the array is stated."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-003-ACADEMIC-81B94B3B",
+        "findingIndex": 8,
+        "action": "incorporated",
+        "rationale": "glossary.json: the entry separates the hydrogen-ion concentration gradient, the membrane potential and the proton-motive force, and states that this lesson computes only the first."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-003-AA5E4A31-0E64-4735-81FB-D2D72C3757B7",
+        "findingIndex": 0,
+        "action": "no-change-required",
+        "rationale": "Recorded as a strength or an observation requiring no change."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-003-AA5E4A31-0E64-4735-81FB-D2D72C3757B7",
+        "findingIndex": 1,
+        "action": "no-change-required",
+        "rationale": "Recorded as a strength or an observation requiring no change."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-003-AA5E4A31-0E64-4735-81FB-D2D72C3757B7",
+        "findingIndex": 2,
+        "action": "no-change-required",
+        "rationale": "Recorded as a strength or an observation requiring no change."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-003-AA5E4A31-0E64-4735-81FB-D2D72C3757B7",
+        "findingIndex": 3,
+        "action": "no-change-required",
+        "rationale": "Recorded as a strength or an observation requiring no change."
+      }
+    ],
+    "accessibilityRightsAudit": {
+      "satisfied": true,
+      "evidenceChecked": [
+        "All seven scenes keep one level-one heading, semantic Markdown, linear reading order and text-first instruction, with no raw HTML, embeds or executable content.",
+        "The third-party figure carries learner-visible alt text, a long description, and a rendered credit naming its public-domain release; the original diagram carries alt text and a long description that state the route and the pH of each compartment.",
+        "All twelve sources are used facts-only with no reuse of source expression, and no Servier asset was fetched or used.",
+        "Every repair narrows a claim to its evidence or removes an over-statement, which lowers the pack's accuracy exposure."
+      ],
+      "limitations": [
+        "A maintainer reading of the repaired text, not an independent accessibility or rights review; the accessibility-rights role was not staffed for this tier.",
+        "No screen-reader run was performed against the rendered lesson.",
+        "Two sources are CC BY-NC-SA and one CC BY 3.0, used facts-only with no expression reused; a rights reviewer may want to confirm that basis.",
+        "PREM-BIO-002 was not merged when this candidate was written, so the prerequisite is named in prose rather than linked."
+      ]
+    }
+  }
+}

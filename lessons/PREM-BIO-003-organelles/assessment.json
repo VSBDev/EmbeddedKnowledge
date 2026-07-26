@@ -1,0 +1,269 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-assessment-v1",
+  "lessonId": "PREM-BIO-003",
+  "lessonVersion": "0.1.0",
+  "assessmentId": "assessment-organelles-compartmentalisation",
+  "title": "Organelles and compartmentalisation mastery check",
+  "purpose": "mastery-gate",
+  "attemptPolicy": {
+    "retakeable": true,
+    "timeLimitMinutes": null,
+    "feedback": "after-attempt"
+  },
+  "items": [
+    {
+      "id": "item-condition-then-compartment",
+      "type": "open-response",
+      "sceneId": "scene-membrane-not-protection",
+      "objectiveIds": [
+        "objective-name-condition-then-compartment"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-organelles"
+      ],
+      "prompt": "Three jobs a cell has to do. First, run an oxidation whose by-product is a reactive molecule that must not circulate. Second, use an enzyme that achieves its activity only in strongly acid conditions. Third, make ATP by letting protons flow down a difference in their concentration. For each job, name the condition the job requires before you name any organelle, then name the compartment that maintains that condition. Then, for each, state what would stop working if that condition alone were lost while every protein involved remained present and intact. One of the three is different in kind from the other two; say which and why.",
+      "stimulus": null,
+      "points": 3,
+      "responseSpec": {
+        "mode": "text",
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "maxLength": 1800
+      },
+      "answer": {
+        "correct": "The first job requires that the reactive product be destroyed where it is made, so that its journey is short. That condition is met in the peroxisome, which holds catalase in the same compartment as the oxidases producing hydrogen peroxide. Remove the condition, by having catalase somewhere else, and hydrogen peroxide leaves the compartment before it is decomposed even though every enzyme is present and working. The second job requires an acid environment, around pH 4.5 to 5.0, held against a cytosol near 7.2. That condition is maintained in the lysosome by a proton pump that consumes ATP. Stop the pump and the interior drifts towards 7.2, the acid hydrolases fall away from their optimum, and digestion inside an undamaged lysosome full of undamaged enzymes slows. The third job requires a difference in proton concentration between two sides of a boundary. That is the mitochondrion, where the electron transport chain pumps protons across the membrane and their return flow drives ATP synthase. Make the boundary freely permeable to protons and the potential collapses, so respiration continues while ATP synthesis stops. The third is different in kind. In the first two, the compartment holds a condition in which chemistry happens; in the third, the compartment boundary is part of the mechanism, because a gradient is a difference between two sides and cannot exist without a boundary. Removing the boundary there does not open the device, it removes it.",
+        "summary": "Proximity of production and disposal in the peroxisome; an acid interior held by a pump in the lysosome; a proton difference across a boundary in the mitochondrion, which is the one where the compartment is the mechanism rather than the setting.",
+        "reasoning": "Award one point when all three conditions are stated before the organelle names and each condition is the right one: co-localisation of production and disposal, an acid environment maintained against the cytosol, and a proton-concentration difference across a boundary. A response that leads with organelle names and then justifies them does not earn this point, because naming first is the habit the item exists to test. Award one point for three failure predictions in which the components stay intact and the function stops anyway. Award one point for identifying the mitochondrion as different in kind and giving the reason, that a gradient exists only across a boundary, so the boundary is the mechanism and not the setting. On a retry, run the same three steps for a compartment that must keep newly made proteins away from cytosolic conditions while they fold, and for a compartment that must modify a protein in a fixed order.",
+        "acceptableResponses": [
+          "Any response that names proximity of production and disposal, a maintained acid environment, and a proton difference across a boundary as the three conditions, attaches each to the peroxisome, lysosome and mitochondrion respectively, predicts a functional failure in each case with the components intact, and singles out the mitochondrion on the ground that a gradient requires two sides."
+        ],
+        "commonErrors": [
+          "Naming the organelle first and reverse-engineering a condition to fit it",
+          "Giving the peroxisome's condition as containment of a poison rather than destruction close to the site of production",
+          "Predicting that the enzymes are destroyed or lost when the condition is removed, rather than that they remain and stop being effective",
+          "Treating the mitochondrion as a container of ATP-making machinery, which loses the reason it is different in kind",
+          "Answering the third case with the citric acid cycle or the electron transport chain as the condition, which names a process instead of the difference the process maintains"
+        ]
+      },
+      "rubricId": "rubric-condition-then-compartment",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-gradient-arithmetic",
+      "type": "open-response",
+      "sceneId": "scene-proton-arithmetic",
+      "objectiveIds": [
+        "objective-compute-compartment-gradient"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-organelles"
+      ],
+      "prompt": "The cytosol sits at pH 7.2. Take one compartment at pH 6.0 and a second at pH 4.5. Compute the ratio of hydrogen-ion concentrations between each compartment and the cytosol, showing the arithmetic. Then give the factor by which the second compartment's gradient exceeds the first, and obtain that factor twice: once by dividing your two answers and once directly from the two compartment pH values. Say what the comparison implies about the relative standing energy cost of the two compartments, and name one quantity this comparison cannot give you.",
+      "stimulus": null,
+      "points": 3,
+      "responseSpec": {
+        "mode": "text",
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "maxLength": 1600
+      },
+      "answer": {
+        "correct": "Because pH is minus the base-ten logarithm of hydrogen-ion concentration, a ratio of concentrations is ten raised to the difference of the pH values. For the compartment at 6.0 the ratio is 10 to the power (7.2 minus 6.0), that is 10 to the power 1.2, about 16. For the compartment at 4.5 it is 10 to the power (7.2 minus 4.5), that is 10 to the power 2.7, a little over 500. Dividing, about 500 over about 16 is roughly thirty, so the more acidic compartment sits about thirty times further from the cytosol in hydrogen-ion concentration than the other one does.\n\nWhat the arithmetic does not license is a claim about which compartment costs more to maintain. A concentration ratio gives the thermodynamic work per proton moved; the power a cell actually spends holding a compartment there also depends on how leaky its membrane is, how much membrane there is, the membrane potential, and how the pumps are regulated, none of which is given. Credit is for the two ratios, the comparison between them, and for saying that relative ATP use cannot be inferred from pH alone.",
+        "summary": "About 16-fold at pH 6.0 and about 500-fold at pH 4.5, the second steeper than the first by about 32, obtained either by division or directly from the 1.5 pH-unit gap; a steeper gradient implies a larger standing cost, but no pH value yields an ATP consumption rate.",
+        "reasoning": "Award one point for both ratios computed as ten raised to a pH difference, giving about 16 and about 500, with the reasoning shown rather than the answers asserted. Award one point for obtaining the factor of about 32 by both routes and saying why they must agree. Award one point for the interpretation: a steeper gradient leaks harder and costs more to hold, together with a named quantity the arithmetic cannot supply, such as the rate of ATP consumption or the leak rate, with a reason. On a retry, do the same for a compartment at pH 5.5 against a cytosol at 7.4, and compare it with a compartment at pH 6.8, then say what changes and what does not when the cytosolic reference moves. The common over-reach on this item is to conclude that the more acidic compartment leaks harder and therefore costs more. It may, but nothing in the stem establishes it.",
+        "acceptableResponses": [
+          "Any response giving about 16 and about 500 from ten raised to the pH difference, about 32 for the comparison by both routes, a statement that the steeper gradient carries the larger standing cost, and a named quantity the pH values cannot supply. Values within about twenty per cent are correct, since the inputs are approximate."
+        ],
+        "commonErrors": [
+          "Subtracting the pH values and reporting the difference itself as the ratio, so 1.2 is given instead of about 16",
+          "Dividing the pH values instead of subtracting them",
+          "Getting the sign the wrong way round, so the more acid compartment comes out less concentrated in hydrogen ions",
+          "Reporting a ratio to several significant figures from inputs given to one decimal place",
+          "Concluding that the more acid compartment consumes a specific amount of ATP, which the pH values do not determine",
+          "Naming a quantity the comparison cannot give without saying why it is not contained in a pH value"
+        ]
+      },
+      "rubricId": "rubric-gradient-arithmetic",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-signal-sequence-loss",
+      "type": "single-choice",
+      "sceneId": "scene-getting-there",
+      "objectiveIds": [
+        "objective-predict-route-failure"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-organelles"
+      ],
+      "prompt": "In a colonocyte, a mutation removes the signal sequence from a protein whose working location is the apical membrane. The rest of the amino-acid sequence is unchanged and the protein is still translated normally. Which statement predicts the outcome, and for the right reason?",
+      "stimulus": null,
+      "points": 2,
+      "responseSpec": {
+        "mode": "single-choice",
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "options": [
+          {
+            "id": "option-stays-cytosolic",
+            "text": "It is made on a cytosolic ribosome and stays in the cytosol, because nothing diverts it into the endoplasmic reticulum, so it never reaches the Golgi, is never sorted, and arrives at neither face."
+          },
+          {
+            "id": "option-goes-basolateral",
+            "text": "It reaches the basolateral membrane instead, because a protein that loses its apical address defaults to the other face."
+          },
+          {
+            "id": "option-sorted-anyway",
+            "text": "It reaches the apical membrane anyway, because the trans-Golgi network sorts cargo by destination and would recognise this protein."
+          },
+          {
+            "id": "option-degraded-in-lysosome",
+            "text": "It is delivered to the lysosome and degraded, because a protein with no address is disposed of."
+          }
+        ],
+        "maxLength": null
+      },
+      "answer": {
+        "correct": "option-stays-cytosolic",
+        "summary": "It stays in the cytosol, because the signal sequence is what diverts a protein out of the default cytosolic route, and losing it means the protein never enters the route at all.",
+        "reasoning": "The signal sequence acts at the very first branch point, while the chain is still emerging from the ribosome. Removing it removes the diversion, so the protein is completed in the cytosol and no later step of the route ever sees it. The basolateral option treats the two surface addresses as a pair with a default, which they are not; sorting between them happens in the trans-Golgi network, and this protein never gets there. The trans-Golgi option puts the failure at the wrong step: sorting can only act on cargo that has arrived, and the point of this item is that arrival is what failed. The lysosome option invents a disposal rule the lesson does not teach and that the mannose 6-phosphate route contradicts, since reaching a lysosome is itself an addressed delivery and not a default. On a retry, predict the outcome when the signal sequence is intact but the mannose 6-phosphate transferase in the Golgi is missing, and say at which step the two cases diverge.",
+        "acceptableResponses": [],
+        "commonErrors": [
+          "Assuming the two cell surfaces are alternatives with a default, so losing one address sends the protein to the other",
+          "Locating the failure at the sorting step instead of at entry to the route",
+          "Inventing an automatic disposal route for unaddressed proteins",
+          "Answering correctly that the protein stays in the cytosol but giving the number of proteins on the endoplasmic reticulum route as the reason rather than the diversion mechanism"
+        ]
+      },
+      "rubricId": "rubric-signal-sequence-loss",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-two-interventions",
+      "type": "open-response",
+      "sceneId": "scene-clinical-wrap-up",
+      "objectiveIds": [
+        "objective-name-condition-then-compartment",
+        "objective-compute-compartment-gradient",
+        "objective-predict-route-failure"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-organelles"
+      ],
+      "prompt": "An invented laboratory group works on cultured intestinal epithelial cells and plans two separate interventions. Predict what each would produce, working only from the mechanisms in this lesson. Intervention A blocks the addition of mannose 6-phosphate groups in the Golgi and changes nothing else. Intervention B blocks the proton pump in the lysosomal membrane and changes nothing else. (1) For each, say whether it attacks a maintained condition or the addressing system, and predict what happens to the cell's ability to break down material it has taken in. (2) In intervention A, predict where the soluble lysosomal enzymes end up, with your reason. (3) In intervention B the lysosomal interior is stated to drift from pH 4.6 to pH 6.4; compute the factor by which the hydrogen-ion concentration inside falls. (4) The group argues that intervention B is the safer of the two for the cell, because nothing is released from the lysosome. Judge that argument using this lesson's model of what protects the cytosol. (5) Name two things these predictions do not establish. Nothing in this item describes a real study, device, patient or clinical procedure, and none of it is guidance for any real investigation.",
+      "stimulus": null,
+      "points": 4,
+      "responseSpec": {
+        "mode": "text",
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "maxLength": 2600
+      },
+      "answer": {
+        "correct": "Intervention A attacks the addressing system. The soluble lysosomal enzymes are made and folded normally and travel the route normally, but with no mannose 6-phosphate group there is nothing for the mannose 6-phosphate receptors in the trans-Golgi network to recognise, so they are not diverted at the sorting step. They stay in the default outward flow of the secretory route and are predicted to leave the cell, appearing outside it rather than inside a lysosome. The lysosome is undamaged and the enzymes are not defective; the cell's capacity to break down material it has taken in falls because the enzymes are not there. Intervention B attacks a maintained condition. The pump stops, protons are no longer driven inward, and the interior drifts towards the cytosolic pH. The enzymes are all present and the membrane is intact, and degradation slows anyway because the hydrolases are no longer near their acid optimum. From pH 4.6 to pH 6.4 is a rise of 1.8 pH units, so the hydrogen-ion concentration falls by ten to the power 1.8, a factor of about 63. The group's safety argument misreads the model. On the picture in which the membrane is the whole protection, a rupture is the dangerous event and a pH drift is harmless. This lesson's model says the cytosol is doubly protected: a rupture releases hydrolases that can do little at the cytosolic pH of about 7.2, while the pH drift disables the digestion the cell actually needs, inside an organelle that is still intact. Neither intervention is safe, they fail differently, and the one the group calls safer is the one that removes the function. Two things these predictions do not establish, among others: what fraction of the untagged enzymes actually leaves the cell, since no source here reports that; and how much hydrolase activity survives at pH 6.4, since no activity-versus-pH curve for a named enzyme was supplied and the loss is inferred from the optimum rather than measured. A third is the specificity of intervention B, since the same family of proton pumps acidifies the Golgi, endosomes and secretory granules, so blocking it in the lysosome alone is an idealisation of the item rather than a property of a real reagent.",
+        "summary": "A is an addressing failure that sends undamaged enzymes out of the cell; B is a lost condition that stops digestion inside an intact organelle; the pH drift of 1.8 units is a fall of about 63-fold in hydrogen-ion concentration; the safety argument mistakes the loss of function for safety; and the predictions establish neither the fraction of enzyme lost nor the residual activity, and treat the pump block as compartment-specific when it is not.",
+        "reasoning": "Award one point for classifying A as an addressing failure and B as a lost maintained condition, with both predicted to reduce degradation by different routes and with the components intact in each case. Award one point for the destination in A, outside the cell by the default secretory flow, with the reason given as the absent tag and the unrecognising receptor rather than as damage. Award one point for the arithmetic: 1.8 pH units, ten to the power 1.8, about 63, computed rather than asserted. Award one point for judging the safety argument against the double-protection model and for naming two genuine limits of the prediction with reasons. On a retry, review a third intervention in which the vesicles carrying tagged enzymes are made normally and reach the lysosome but cannot fuse with it, and say which of the two failure types that is and what the cell would show.",
+        "acceptableResponses": [
+          "Any response that separates the addressing failure from the lost condition, predicts secretion of the untagged enzymes with the receptor as the reason, computes about a 63-fold fall from a 1.8 pH-unit rise, rejects the safety argument by way of the double protection, and names two limits with reasons, such as the unknown fraction secreted, the unmeasured residual activity at pH 6.4, or the non-specificity of a proton-pump block."
+        ],
+        "commonErrors": [
+          "Treating intervention A as a manufacturing fault, so the enzymes are described as defective rather than misdelivered",
+          "Predicting that untagged enzymes are destroyed, which invents a disposal route the lesson does not teach",
+          "Reporting the pH change of 1.8 units as the answer instead of raising ten to that power",
+          "Agreeing that intervention B is safer because nothing is released, which is the membrane-as-wall model reappearing",
+          "Concluding that a rupture would be harmless, which overshoots the double-protection statement in the other direction",
+          "Naming limits that are generic, such as this is only a model, instead of limits the sources and arithmetic actually leave open",
+          "Treating the lysosome-only pump block as achievable, when the same pump family acidifies several compartments"
+        ]
+      },
+      "rubricId": "rubric-two-interventions",
+      "safetyCritical": false
+    }
+  ],
+  "rubrics": [
+    {
+      "id": "rubric-condition-then-compartment",
+      "title": "Naming the condition before the compartment",
+      "criteria": [
+        {
+          "id": "criterion-conditions-named-first",
+          "description": "Award 1 point only when all three conditions are stated before any organelle is named and each is correct: destruction close to the site of production, a maintained acid environment, and a proton-concentration difference across a boundary.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-failure-with-components-intact",
+          "description": "Award 1 point only when each of the three failure predictions keeps every component present and intact and still predicts loss of function.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-mechanism-versus-setting",
+          "description": "Award 1 point only when the mitochondrion is identified as different in kind, with the reason that a gradient is a difference between two sides and so cannot exist without the boundary.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-gradient-arithmetic",
+      "title": "Computing and interpreting a compartment gradient",
+      "criteria": [
+        {
+          "id": "criterion-two-ratios",
+          "description": "Award 1 point only when both ratios are computed as ten raised to a pH difference, giving about 16 and about 500, with the working shown.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-two-routes-agree",
+          "description": "Award 1 point only when the factor of about 32 is obtained both by dividing the two ratios and directly from the 1.5 pH-unit gap, with a statement of why the two routes must agree.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-cost-and-limit",
+          "description": "Award 1 point only when the steeper gradient is tied to a larger standing maintenance cost and one quantity the arithmetic cannot supply is named with a reason.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-signal-sequence-loss",
+      "title": "Locating a failure on the route",
+      "criteria": [
+        {
+          "id": "criterion-first-branch-point",
+          "description": "Award 2 points only when the cytosolic option is selected; that option places the failure at entry to the route and states the consequence that no later step ever sees the protein.",
+          "maxPoints": 2
+        }
+      ]
+    },
+    {
+      "id": "rubric-two-interventions",
+      "title": "Integrated review of two unfamiliar interventions",
+      "criteria": [
+        {
+          "id": "criterion-classify-both-interventions",
+          "description": "Award 1 point only when A is classified as an addressing failure and B as a lost maintained condition, each predicted to reduce degradation with every component intact.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-destination-and-reason",
+          "description": "Award 1 point only when the untagged enzymes are predicted to leave the cell in the default secretory flow, with the unread address as the reason and no claim that the enzymes are defective.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-ph-arithmetic",
+          "description": "Award 1 point only when the 1.8 pH-unit rise is converted to a fall of about 63-fold by raising ten to that power, computed rather than asserted.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-judgement-and-limits",
+          "description": "Award 1 point only when the safety argument is judged against the double-protection model, without overshooting into calling a rupture harmless, and two genuine limits of the prediction are named with reasons.",
+          "maxPoints": 1
+        }
+      ]
+    }
+  ]
+}
