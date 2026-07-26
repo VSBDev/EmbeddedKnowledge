@@ -1400,9 +1400,21 @@ test("no diagram label is painted wider than the box it sits in", async ({ page 
 
   const css = fs.readFileSync("site/lesson-reader.css", "utf8");
   await page.setViewportSize({ width: 1280, height: 900 });
-  await page.setContent(`<style>:root{--paper:#f7f4ec;--ink:#14171a;--acid:#d7ff4f;--sans:system-ui,sans-serif;--muted:#666;--line:#ccc}${css}</style>${scoped.join("")}`);
+  // system-ui is a different font with different metrics on every platform, and the wrap is computed
+  // at build time on one of them. The label width therefore has to hold regardless of which font
+  // arrives, so this renders under a deliberately wide one as well as the platform default.
+  const fonts = ["system-ui,sans-serif", "'DejaVu Sans',Verdana,sans-serif"];
+  const overflowing = [];
+  for (const stack of fonts) {
+    await page.setContent(`<style>:root{--paper:#f7f4ec;--ink:#14171a;--acid:#d7ff4f;--sans:${stack};--muted:#666;--line:#ccc}${css}</style>${scoped.join("")}`);
+    overflowing.push(...await measure(page, stack));
+  }
+  expect(overflowing).toEqual([]);
+});
 
-  const overflowing = await page.evaluate(() => {
+async function measure(page, stack) {
+  return page.evaluate((fontStack) => {
+
     const over = [];
     document.querySelectorAll("[data-pack]").forEach((scope) => {
       scope.querySelectorAll("g.ek-diagram-cell").forEach((cell) => {
@@ -1412,12 +1424,11 @@ test("no diagram label is painted wider than the box it sits in", async ({ page 
           // The wrap reserves 8px each side. Requiring all of it flagged labels sitting 5px clear,
           // which look fine, so the bar is 4px each side: past that the text touches its border.
           if (painted > box - 8) {
-            over.push({ pack: scope.dataset.pack, text: span.textContent, painted: Math.round(painted), box: Math.round(box) });
+            over.push({ font: fontStack, pack: scope.dataset.pack, text: span.textContent, painted: Math.round(painted), box: Math.round(box) });
           }
         });
       });
     });
     return over;
-  });
-  expect(overflowing).toEqual([]);
-});
+  }, stack);
+}
