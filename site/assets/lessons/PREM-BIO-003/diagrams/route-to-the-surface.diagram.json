@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-diagram-v1",
+  "id": "diagram-route-to-the-surface",
+  "type": "process",
+  "direction": "left-to-right",
+  "alt": "The route a protein takes in a colonocyte from the nucleus through a cytosolic ribosome, the rough endoplasmic reticulum and the Golgi to the trans-Golgi network, which then dispatches it to the apical membrane, the basolateral membrane or a lysosome.",
+  "longDescription": "A single route with a three-way branch at the end, with the pH of each compartment given because the condition is the point of the compartment. The route starts at the nucleus, near pH 7.2, which holds the genome and is the principal site of DNA and RNA synthesis. From there the message passes to a ribosome in the cytosol, also near pH 7.2, where translation of every protein begins. A protein carrying a signal sequence takes the next step: the signal sequence emerging from the ribosome is recognised and captured by the signal recognition particle, which delivers the ribosome and its unfinished chain to the endoplasmic reticulum membrane and hands the sequence to the Sec61 translocon. Inside the rough endoplasmic reticulum, near pH 7.2, the chain is threaded across the membrane and folding begins. Vesicles then carry the folded protein forward into the Golgi stack, which runs from about pH 6.7 at its entry face down to about 6.0 at its exit face and where the protein is successively modified, including the addition of a mannose 6-phosphate tag to enzymes bound for lysosomes. Everything then arrives at the trans-Golgi network, the sorting and dispatching station, which packages cargo into transport vesicles by destination. Three destinations branch from it. First, the apical membrane, the brush border facing the lumen, reached by vesicles addressed to that face; this is the step that fails in the clinical case at the end of the lesson. Second, the basolateral membrane, facing neighbouring cells and the blood, reached by vesicles addressed to that face. Third, the lysosome at about pH 5, reached because mannose 6-phosphate receptors in the trans-Golgi network recognise the tag and divert the tagged enzyme there. The two membrane destinations are different addresses on the same cell and are not interchangeable.",
+  "nodes": [
+    {
+      "id": "node-nucleus",
+      "label": "Nucleus, about pH 7.2: holds the genome, principal site of DNA and RNA synthesis",
+      "shape": "rounded-box",
+      "group": "route"
+    },
+    {
+      "id": "node-ribosome",
+      "label": "Ribosome in the cytosol, about pH 7.2: translation of every protein starts here",
+      "shape": "rounded-box",
+      "group": "route"
+    },
+    {
+      "id": "node-rough-er",
+      "label": "Rough endoplasmic reticulum, about pH 7.2: chain threaded across the membrane, folding begins",
+      "shape": "rounded-box",
+      "group": "route"
+    },
+    {
+      "id": "node-golgi",
+      "label": "Golgi stack, about pH 6.7 falling to 6.0: successive modification, including the mannose 6-phosphate tag",
+      "shape": "rounded-box",
+      "group": "route"
+    },
+    {
+      "id": "node-trans-golgi-network",
+      "label": "Trans-Golgi network: sorting and dispatch, packaged into vesicles by destination",
+      "shape": "diamond",
+      "group": "route"
+    },
+    {
+      "id": "node-apical-membrane",
+      "label": "Apical membrane: brush border facing the lumen",
+      "shape": "box",
+      "group": "destination"
+    },
+    {
+      "id": "node-basolateral-membrane",
+      "label": "Basolateral membrane: facing neighbouring cells and the blood",
+      "shape": "box",
+      "group": "destination"
+    },
+    {
+      "id": "node-lysosome",
+      "label": "Lysosome, about pH 5: acid hydrolases at their optimum",
+      "shape": "box",
+      "group": "destination"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-nucleus-ribosome",
+      "from": "node-nucleus",
+      "to": "node-ribosome",
+      "kind": "directed",
+      "label": "the message leaves the nucleus; translation happens in the cytosol"
+    },
+    {
+      "id": "edge-ribosome-er",
+      "from": "node-ribosome",
+      "to": "node-rough-er",
+      "kind": "directed",
+      "label": "a signal sequence on the emerging chain is caught by the signal recognition particle and handed to the Sec61 translocon"
+    },
+    {
+      "id": "edge-er-golgi",
+      "from": "node-rough-er",
+      "to": "node-golgi",
+      "kind": "directed",
+      "label": "vesicles carry folded cargo forward"
+    },
+    {
+      "id": "edge-golgi-tgn",
+      "from": "node-golgi",
+      "to": "node-trans-golgi-network",
+      "kind": "directed",
+      "label": "modification finishes; the address is now readable"
+    },
+    {
+      "id": "edge-tgn-apical",
+      "from": "node-trans-golgi-network",
+      "to": "node-apical-membrane",
+      "kind": "directed",
+      "label": "vesicles addressed to the apical face; this is the step that fails in the clinical case"
+    },
+    {
+      "id": "edge-tgn-basolateral",
+      "from": "node-trans-golgi-network",
+      "to": "node-basolateral-membrane",
+      "kind": "directed",
+      "label": "vesicles addressed to the basolateral face"
+    },
+    {
+      "id": "edge-tgn-lysosome",
+      "from": "node-trans-golgi-network",
+      "to": "node-lysosome",
+      "kind": "directed",
+      "label": "mannose 6-phosphate receptors recognise the tag and divert the enzyme here"
+    }
+  ]
+}

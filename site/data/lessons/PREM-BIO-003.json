@@ -1,0 +1,1491 @@
+{
+  "schemaVersion": 3,
+  "format": "embeddedknowledge-lesson-v1",
+  "artifactType": "production-lesson",
+  "id": "PREM-BIO-003",
+  "version": "0.1.0",
+  "title": "Why a cell pays to keep its chemistry apart",
+  "status": "draft",
+  "riskTier": "standard",
+  "estimatedMinutes": 99,
+  "outcomes": [
+    "topic-cell-biology-organelles"
+  ],
+  "prerequisites": [
+    "topic-cell-biology-cell-types"
+  ],
+  "objectives": [
+    {
+      "id": "objective-name-condition-then-compartment",
+      "statement": "Given a stated cellular job, name the maintained condition it requires before naming any organelle, identify the compartment that holds that condition, and predict the loss of function that follows when the condition alone is removed while every component stays intact.",
+      "outcomeIds": [
+        "topic-cell-biology-organelles"
+      ]
+    },
+    {
+      "id": "objective-compute-compartment-gradient",
+      "statement": "Compute the ratio of hydrogen-ion concentrations between two compartments from their pH values, compare that result with an independently reported gradient, and state both what the difference costs the cell to hold and what the arithmetic cannot establish.",
+      "outcomeIds": [
+        "topic-cell-biology-organelles"
+      ]
+    },
+    {
+      "id": "objective-predict-route-failure",
+      "statement": "Predict where a product ends up and what stops working when a named step on the route from gene to working location fails, distinguishing a fault of manufacture from a fault of delivery and locating the failure at the correct step.",
+      "outcomeIds": [
+        "topic-cell-biology-organelles"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene-two-outsides",
+      "title": "A cell with two outsides",
+      "kind": "concept",
+      "source": "content/01-two-outsides.md",
+      "estimatedMinutes": 13,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>A cell with two outsides</h1>\n<p>Pick one absorptive cell near the top of a colonic crypt and stand it up the way it actually sits. Above it is the lumen: water, salts, whatever the bacteria down there have finished fermenting, and the bacteria themselves. Below it is the tissue, the blood supply, and the rest of you. The cell is the join.</p>\n<p>Anatomy calls this cell a colonocyte, and it is the absorptive kind of enterocyte that makes up most of the colonic lining. It is polarised, meaning its two ends are built differently and do different work. The end facing the lumen carries <strong>microvilli</strong>, fine finger-like projections packed so densely that they form a single fuzzy border under a light microscope. A mature absorptive cell of this kind carries around a thousand of them. They multiply the area available for taking things up, and water absorption from the gut contents happens across them. The other end faces neighbouring cells and the sheet of material the epithelium sits on, and it is where the cell hands its cargo onward.</p>\n<p>Two names to keep straight, because the rest of the lesson uses them constantly. The lumen-facing end is <strong>apical</strong>. The other end, along with the sides in contact with neighbours, is <strong>basolateral</strong>. They are not interchangeable. A pump that belongs on one of them is useless on the other, and a great deal of what this cell does is a matter of getting the right protein to the right face.</p>\n<h2>The division you cannot see from outside</h2>\n<p>So far this is a division of the cell&#39;s <em>surface</em>. The more interesting division is inside.</p>\n<p>If you could open the cell, you would not find one bag of soup with machinery floating in it. You would find membranes running all through the interior, folding into stacks and tubes and closed sacs, marking off spaces that are chemically nothing like the fluid around them. Taken together, those membrane-enclosed compartments occupy close to half the volume of a cell. Each one holds its own distinct set of proteins, which is another way of saying each one does a job the others do not.</p>\n<figure class=\"ek-block ek-figure\" data-directive=\"figure\">\n    <img src=\"/assets/lessons/PREM-BIO-003/assets/animal-cell-structure.png\" alt=\"A labelled cutaway of a generic animal cell, showing the nucleus, rough and smooth endoplasmic reticulum, Golgi, mitochondria, a lysosome and a peroxisome as separate membrane-bounded spaces inside the plasma membrane.\" loading=\"lazy\">\n    \n    <p class=\"ek-figure-credit\">Animal cell structure by LadyofHats (Mariana Ruiz), released into the public domain. <a href=\"https://commons.wikimedia.org/wiki/File:Animal_cell_structure_en.svg\" rel=\"license noopener\">source</a> · adapted: Rendered from the original SVG to PNG at 1280 pixels wide by the Wikimedia thumbnail service; content unchanged.</p>\n    <details class=\"ek-long-description\"><summary>Read the image description</summary><p>A cutaway drawing of one animal cell, seen as if a slice had been lifted away. The outer boundary is labelled plasma membrane, and the fluid inside it is labelled cytoplasm. Near the centre sits the nucleus, drawn with a nuclear envelope, nuclear pores through that envelope, chromatin inside, and a nucleolus. Wrapped around the nucleus is the rough endoplasmic reticulum, studded with ribosomes; smooth endoplasmic reticulum continues from it without the studs, and free ribosomes are labelled separately out in the cytoplasm. To one side is a stack of flattened sacs labelled Golgi vesicles, with a secretory vesicle labelled nearby. Two mitochondria are drawn with folded interiors. A lysosome and a peroxisome are each drawn as small closed sacs, labelled separately. Filament networks are also labelled: actin filaments, intermediate filaments and microtubules, with a centrosome holding two centrioles. A long flagellum extends from the lower left. The point the figure makes is the one the sentence above states: the interior is divided into about a dozen separately labelled spaces, most of them bounded by their own membrane, and not one continuous volume.</p></details>\n  </figure>\n<p>That should look expensive, because it is. Membrane costs lipid and protein to build. Anything the cell wants to move from one compartment to another now has to cross a boundary, which needs machinery. And every product now has an address problem: made in one place, needed in another.</p>\n<p>So the question this lesson answers is the one a sceptical engineer would ask.</p>\n<p><strong>Why would a cell pay for internal membranes at all?</strong></p>\n<p>The answer has three parts, and they are not obvious until you see them working. A compartment lets the cell run chemistries at the same time that would ruin each other in one shared volume. It lets the cell hold a local concentration far away from the concentration outside it. And because compartments sit in a fixed order along a route, passing through them imposes a fixed order on what gets done to a molecule.</p>\n<p>Against those three purchases there is a standing bill, and the last scene of the lesson adds it up.</p>\n<h2>One sentence about emergence, then onwards</h2>\n<p><a href=\"https://embeddedknowledge.io/premed/lessons/read/?lesson=PREM-BIO-001\" rel=\"noreferrer noopener\">Cell theory, scale, and emergence (PREM-BIO-001)</a> defined an emergent property as one belonging to an organisation of components and not to any component alone, and gave you a two-part test for it. Compartmentalisation is that same idea one level down: the cell is the organisation, the compartments are the components, and an acid interior or a proton gradient is a property of the arrangement and of nothing in it. Apply the test where it helps and do not make a mystery of it.</p>\n<h2>What you already need, and where to get it</h2>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-prerequisite-architecture</span></div>\n    <div class=\"ek-block-content\"><p>Before reading on, answer from memory. The prerequisite topic on prokaryotic and eukaryotic cells compared two architectures. Which of the two has an interior divided by membranes into separate compartments, and which does most of its chemistry in one shared volume?</p>\n<p>Then a harder one. If both kinds of cell run the same basic chemistry, what does that tell you about whether compartments are <em>necessary</em> for life?</p>\n</div>\n  </aside>\n<p>Eukaryotic cells are the compartmentalised ones. Bacteria and archaea run most of their chemistry in a single internal volume, bounded by the plasma membrane and whatever surrounds it.</p>\n<p>The second question is the one worth sitting with. Bacteria are alive, they are numerous, and they manage without an endomembrane system, so compartments are plainly not a requirement for being a cell. That reframes the whole question. Compartments are an investment a eukaryotic cell makes, and an investment is only sensible if it buys something. Everything below is an answer to what.</p>\n<h2>Recovery route</h2>\n<p>If the eukaryote-and-prokaryote comparison did not come back cleanly, that is the prerequisite topic for this lesson and not a gap you should paper over. Go back to <code>Prokaryotic and eukaryotic cells</code> in the Cell Biology module and return here. What you need from it is small and specific: that a eukaryotic cell has a nucleus and an internal membrane system, that a bacterium generally does not, and that both are alive.</p>\n<p>If the arithmetic in the next scene is the part that worries you, the tool it uses is a base-ten logarithm and nothing more. <a href=\"https://embeddedknowledge.io/premed/lessons/read/?lesson=PREM-QNT-006\" rel=\"noreferrer noopener\">Logarithms and change (PREM-QNT-006)</a> has the whole of it, and you can read the worked example there and come straight back.</p>\n<h2>What this lesson leaves alone</h2>\n<p>Two neighbouring questions are deliberately not answered here. What a membrane is actually made of, and why its behaviour changes with its composition, belongs to the lesson on membrane structure. How a specific molecule is moved across a membrane, against a gradient or down one, belongs to the lesson on membrane transport after it. This lesson treats a membrane as a boundary that can hold a difference, and asks what a cell does with that.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-colonocyte-polarity, claim-brush-border-microvilli, claim-compartment-volume-and-proteins</span><span><b>sources</b> source-nguyen-colonic-crypt, source-schneeberger-mvid, source-alberts-compartmentalization</span></div>\n    <div class=\"ek-block-content\"><p>A 2025 review of colonic crypt biology reports that colonic enterocytes, called colonocytes, are polarised, with a distinct basolateral end and an apical membrane carrying microvilli that increase surface area and assist water absorption. A 2018 review of intestinal epithelial polarity supplies the count of roughly a thousand microvilli on a mature enterocyte forming the brush border, the statement that the apical membrane faces the intestinal lumen, and the statement that the basolateral membrane matters for contact with neighbouring cells and with the basement membrane. Both are descriptions of healthy human intestinal epithelium. The volume figure and the distinct-protein-set statement come from a cell-biology textbook chapter on cellular compartmentalisation; the volume figure is an average across cell types, and a cell with unusual demands will sit away from it.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-proton-arithmetic",
+      "title": "Do the arithmetic before you accept the number",
+      "kind": "worked-example",
+      "source": "content/02-proton-arithmetic.md",
+      "estimatedMinutes": 16,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Do the arithmetic before you accept the number</h1>\n<p>Somewhere in the colonocyte you have just met there is a small sac called a <strong>lysosome</strong>, and the fluid inside it is acid. Not slightly acid. The cytosol around it sits near pH 7.2, and the lysosome runs somewhere around pH 5 and can be lower.</p>\n<p>Written as pH values those two numbers look close together, which is exactly the trap. pH is a logarithmic scale, so a gap of two and a bit is not a small difference in a shared quantity. Work out how large it really is before reading on.</p>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-proton-ratio</span></div>\n    <div class=\"ek-block-content\"><p>Take the cytosol at pH 7.2 and the lysosome at pH 4.5, which is the acid end of the reported range.</p>\n<ol>\n<li>Write the hydrogen-ion concentration in each compartment as a power of ten.</li>\n<li>Divide one by the other. How many times more concentrated are hydrogen ions inside the lysosome than outside it?</li>\n<li>Say in one sentence what has to be true of the lysosomal membrane for that answer to be possible.</li>\n</ol>\n<p>Attempt all three before you read the next paragraph. The third one is the point of the scene.</p>\n</div>\n  </aside>\n<h2>Working it through</h2>\n<p><strong>The task.</strong> Two compartments, two stated pH values, and one question: what is the ratio of hydrogen-ion concentrations between them?</p>\n<p><strong>What is given, and what the symbols mean.</strong> pH is defined so that <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mpadded lspace=\"0\"><mi>pH</mi></mpadded><mo>=</mo><mo form=\"prefix\" stretchy=\"false\">−</mo><msub><mi>log</mi><mn>10</mn></msub><mo>⁡</mo><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">[</mo><msup><mrow><mi mathvariant=\"normal\">H</mi><mspace></mspace></mrow><mo form=\"prefix\" stretchy=\"false\">+</mo></msup><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">]</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\mathrm{pH} = -\\log_{10}[\\mathrm{H}^+]</annotation></semantics></math></span>, with the concentration in moles per litre. Rearranged, <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">[</mo><msup><mrow><mi mathvariant=\"normal\">H</mi><mspace></mspace></mrow><mo form=\"prefix\" stretchy=\"false\">+</mo></msup><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">]</mo></mrow><mo>=</mo><msup><mn>10</mn><mrow><mo form=\"prefix\" stretchy=\"false\" lspace=\"0em\" rspace=\"0em\">−</mo><mpadded lspace=\"0\"><mi>pH</mi></mpadded></mrow></msup></mrow><annotation encoding=\"application/x-tex\">[\\mathrm{H}^+] = 10^{-\\mathrm{pH}}</annotation></semantics></math></span>. The two given values are cytosol 7.2 and lysosome 4.5, both dimensionless, both approximate.</p>\n<p><strong>Choosing the relation.</strong> The question asks for a ratio of concentrations, and the given quantities are logarithms of those concentrations. A ratio of two numbers is a difference of their logarithms, so the whole job is a subtraction followed by one power of ten. This is the reason the pH scale is worth having: it turns a factor into a gap you can read off by eye.</p>\n<figure class=\"ek-block ek-equation\" data-directive=\"equation\"><div class=\"ek-block-label directive-label\">equation-proton-ratio</div><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\" class=\"tml-display\" style=\"display:block math;\"><semantics><mrow><mfrac><msub><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">[</mo><msup><mrow><mi mathvariant=\"normal\">H</mi><mspace></mspace></mrow><mo form=\"prefix\" stretchy=\"false\">+</mo></msup><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">]</mo></mrow><mtext>lysosome</mtext></msub><msub><mrow><mo fence=\"true\" form=\"prefix\" stretchy=\"false\">[</mo><msup><mrow><mi mathvariant=\"normal\">H</mi><mspace></mspace></mrow><mo form=\"prefix\" stretchy=\"false\">+</mo></msup><mo fence=\"true\" form=\"postfix\" stretchy=\"false\">]</mo></mrow><mtext>cytosol</mtext></msub></mfrac><mo>=</mo><mfrac><msup><mn>10</mn><mrow><mo form=\"prefix\" stretchy=\"false\" lspace=\"0em\" rspace=\"0em\">−</mo><mn>4.5</mn></mrow></msup><msup><mn>10</mn><mrow><mo form=\"prefix\" stretchy=\"false\" lspace=\"0em\" rspace=\"0em\">−</mo><mn>7.2</mn></mrow></msup></mfrac><mo>=</mo><msup><mn>10</mn><mrow><mn>7.2</mn><mo>−</mo><mn>4.5</mn></mrow></msup><mo>=</mo><msup><mn>10</mn><mn>2.7</mn></msup></mrow><annotation encoding=\"application/x-tex\">\\frac{[\\mathrm{H}^+]_{\\text{lysosome}}}{[\\mathrm{H}^+]_{\\text{cytosol}}} = \\frac{10^{-4.5}}{10^{-7.2}} = 10^{7.2 - 4.5} = 10^{2.7}</annotation></semantics></math><figcaption>TeX source: <code>\\frac{[\\mathrm{H}^+]_{\\text{lysosome}}}{[\\mathrm{H}^+]_{\\text{cytosol}}} = \\frac{10^{-4.5}}{10^{-7.2}} = 10^{7.2 - 4.5} = 10^{2.7}</code></figcaption></figure>\n<p><strong>Execution.</strong> <span class=\"ek-inline-math\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mn>10</mn><mn>2.7</mn></msup><annotation encoding=\"application/x-tex\">10^{2.7}</annotation></semantics></math></span> is a little over 500. In words: the lysosome holds hydrogen ions about five hundred times more concentrated than the fluid immediately outside it, across a boundary a few nanometres thick.</p>\n<p><strong>Check it against something that was not fitted to it.</strong> Published work on lysosomes reports the hydrogen-ion gradient across the lysosomal membrane as 500 to 1000-fold, established and maintained by vacuolar-type proton pumps, the V-ATPases, which drive protons inward at the expense of ATP. Our 500 came out of two pH values and a subtraction; their figure came out of measurements of the gradient. The two agree at the acid end of the range, which is the end we picked, and that agreement is a reason to trust both. Had the arithmetic produced 5, or 50 000, one of the inputs would have been wrong.</p>\n<p><strong>Interpretation.</strong> The answer to the third part of the check is now forced. A five-hundred-fold difference does not sit still on its own. Protons leak back down a gradient that steep, so something has to keep pushing them in, continuously, for as long as the lysosome exists. That something is a pump, and it runs on ATP.</p>\n<h2>What a compartment actually is</h2>\n<aside class=\"ek-block ek-definition ek-block--definition\" data-directive=\"definition\">\n    <div class=\"ek-block-label directive-label\">Definition</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> definition-compartment</span><span><b>label</b> Compartment</span></div>\n    <div class=\"ek-block-content\"><p>A <strong>compartment</strong> is a space inside a cell enclosed by membrane, holding conditions that differ from the cytosol and that are actively maintained against the tendency of those differences to even out. An <strong>organelle</strong> is a compartment, or in a few cases a structure, with a recognisable identity and a distinct job.</p>\n<p>The operative word is <em>maintained</em>. A compartment is not a container that happens to hold something; it is a difference that costs energy to hold. Stop paying and the difference goes, while the membrane is still perfectly intact.</p>\n</div>\n  </aside>\n<p>It is tempting to call a compartment a room, and the picture is useful for about one sentence. Rooms and compartments both let you keep incompatible things apart, and both need a way in and out. The mapping fails at the wall. A room&#39;s wall is passive: it does nothing, costs nothing to keep standing, and holds a temperature difference only until the heat leaks away. A compartment&#39;s boundary is loaded with pumps and channels, it is where a good deal of the chemistry actually happens, and holding the difference is a continuous expense. Once you have that, drop the room and use the real word.</p>\n<h2>The cell keeps several conditions at once</h2>\n<p>The lysosome is not one exception in an otherwise uniform interior. Measured across a mammalian cell, the pH landscape looks like this.</p>\n<table>\n<thead>\n<tr>\n<th>Compartment</th>\n<th>Approximate pH</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>Cytosol, nucleus, endoplasmic reticulum</td>\n<td>7.2</td>\n</tr>\n<tr>\n<td>Golgi network, falling from its entry face to its exit face</td>\n<td>6.7 down to 6.0</td>\n</tr>\n<tr>\n<td>Early and recycling endosomes</td>\n<td>6.3 to 6.5</td>\n</tr>\n<tr>\n<td>Late endosomes</td>\n<td>5.5</td>\n</tr>\n<tr>\n<td>Secretory granules</td>\n<td>5.2 to 5.7</td>\n</tr>\n<tr>\n<td>Lysosome, the most acidic</td>\n<td>4.7 to 5.5 by one report, 4.5 to 5.0 by another</td>\n</tr>\n</tbody></table>\n<p>Read that table as a list of simultaneous conditions instead of a list of numbers. At this moment the same cell is holding a near-neutral compartment, a mildly acid one, and a strongly acid one, side by side, each one steady, each one costing energy. That is the first of the three purchases: <strong>incompatible chemistries running at the same time.</strong> A reaction that needs pH 5 and a reaction that needs pH 7.2 cannot both proceed in one shared volume, and a cell with one internal volume has to choose. A compartmentalised cell does not.</p>\n<p>Notice also what the two reports of lysosomal pH do. They overlap and they disagree at the edges, because these are measurements on living cells using different probes and different cell types, not constants. Take about pH 5 as the working figure, remember it is a band, and do not carry a decimal place through a calculation that its inputs cannot support.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-compartment-ph-landscape, claim-lysosome-proton-gradient, claim-proton-ratio-arithmetic</span><span><b>sources</b> source-banerjee-organelle-ph, source-feng-lysosome-hydrolases</span></div>\n    <div class=\"ek-block-content\"><p>A 2020 review of V-ATPase regulation supplies the pH landscape: cytosol, nucleus and endoplasmic reticulum near 7.2; the Golgi network at roughly 6.7 down to 6.0 across its cis, medial and trans compartments; early and recycling endosomes at 6.3 to 6.5 and late endosomes at 5.5; secretory granules at 5.2 to 5.7; and the lysosome as the most acidic organelle at 4.7 to 5.5 in mammals. It also states that V-ATPase hydrolyses cytosolic ATP to drive proton transport from the cytosol into the organelle lumen, and that the acidic lysosomal environment is optimal for hydrolytic enzymes. A 2023 review of lysosomal hydrolase activation reports the lysosomal lumen at pH 4.5 to 5.0 and the resulting hydrogen-ion gradient across the lysosomal membrane as 500 to 1000-fold, established by V-ATPase pumping at the expense of ATP. The ratio of about 500 computed above is this lesson&#39;s own arithmetic from two stated pH values; it is presented as a consistency check against the independently reported gradient and not as a measurement.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-membrane-not-protection",
+      "title": "The membrane was never the whole of the protection",
+      "kind": "misconception",
+      "source": "content/03-membrane-was-not-the-protection.md",
+      "estimatedMinutes": 15,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>The membrane was never the whole of the protection</h1>\n<p>Commit to an answer before reading on, because the answer you already hold is the thing worth examining.</p>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-burst-lysosome-prediction</span></div>\n    <div class=\"ek-block-content\"><p>A colonocyte contains lysosomes, each full of enzymes that break down the large molecules a cell is made of. Suppose one of them ruptured and emptied its entire contents into the cytosol.</p>\n<p>Write down, in one sentence, what you expect to happen to that cell. Then write down what feature of the lysosome you think was preventing it.</p>\n</div>\n  </aside>\n<h2>The model most people arrive with</h2>\n<p>Stated fairly, it goes like this. A lysosome is a bag of digestive enzymes. Those enzymes would destroy the cell if they were loose in it, so the cell keeps them behind a membrane. The membrane is the safety device. Break the membrane and the cell digests itself.</p>\n<p>Nothing in that is stupid, and part of it is true. Lysosomes really do contain enzymes that dismantle almost everything a cell is made of. They are where material taken in from outside ends up, and electron micrographs of normal cells show lysosomes with whole mitochondria inside them, being taken apart. The organelle really is where degradation happens.</p>\n<p>The trouble is the second half: that the membrane is what stands between the cell and destruction.</p>\n<h2>The observation the model cannot survive</h2>\n<p>Every one of those enzymes is an <strong>acid hydrolase</strong>. That is not a description of where they live; it is a description of what they require. They achieve their activity in an acid environment, with optima around pH 4.5 to 5.0, which is why the organelle is held there at all.</p>\n<p>Now put an acid hydrolase into cytosol at pH 7.2. It is more than two pH units above the conditions it needs, and it does very little. A cell-biology account of this puts it as double protection: the membrane normally keeps the digestive enzymes out of the cytosol, and even if they leaked out, they could do little damage at the cytosolic pH of about 7.2.</p>\n<p>Read that carefully and the causal arrow reverses. The acid is <em>half the containment</em>, and not merely a service the cell provides so that its enzymes can work in comfort. It is what makes those enzymes safe to own.</p>\n<h2>The model that fits</h2>\n<aside class=\"ek-block ek-misconception ek-block--misconception\" data-directive=\"misconception\">\n    <div class=\"ek-block-label directive-label\">Misconception</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> misconception-membrane-as-wall</span><span><b>label</b> The membrane is the safety device</span></div>\n    <div class=\"ek-block-content\"><p><strong>The model to discard.</strong> A lysosome is a bag; its membrane is a wall; the wall is what protects the cell; breaching the wall releases active enzymes into the cytosol.</p>\n<p><strong>What it cannot explain.</strong> Why the enzymes require an acid environment at all, and why an organelle would spend ATP continuously to hold a five-hundred-fold proton gradient when a wall would already have done the job. On the wall model, the pH inside the lysosome is an incidental detail. It is not.</p>\n<p><strong>The model that replaces it.</strong> A compartment is a maintained condition, and the chemistry it holds is possible only inside that condition. The lysosomal membrane and the pump in it produce an acid interior; the acid interior is what switches the hydrolases on. Containment and activation are the same act.</p>\n<p><strong>Test the two models on one case.</strong> Consider a lysosome whose membrane is intact and whose enzyme content is completely normal, but whose interior has been allowed to drift up towards pH 7. The wall model predicts nothing much: the wall is standing, the enzymes are inside, digestion should carry on. The condition model predicts that digestion inside that lysosome slows or stops, because the enzymes are no longer near their optimum, and it predicts this even though nothing has leaked and nothing is missing. The two models disagree sharply, and that is what makes this a test rather than a restatement.</p>\n</div>\n  </aside>\n<h2>A second case where the chemistry has to be kept close</h2>\n<p>The lysosome is one way of segregating chemistry. The <strong>peroxisome</strong> is another, and it makes the general point more cleanly because the thing it is handling never gets a chance to travel.</p>\n<p>Peroxisomes break down fatty acids that are too long for the mitochondria to start on, in a chain of oxidation steps. Those steps, and other peroxisomal oxidases, generate hydrogen peroxide as a by-product. Hydrogen peroxide is a reactive molecule and a cell would rather not have it wandering about. The peroxisome&#39;s answer is to carry <strong>catalase</strong>, an enzyme that decomposes hydrogen peroxide, in the same compartment where the peroxide is being produced.</p>\n<p>That arrangement is worth pausing on. Nothing here is being locked away from the cell. The dangerous species is manufactured and destroyed inside one small volume, so its typical journey is a few tens of nanometres and its lifetime is short. Segregation buys the cell a place where a reactive intermediate can exist at a working concentration without that concentration ever appearing anywhere else.</p>\n<p>Both organelles are answering the same design problem in different ways: chemistry the cell needs, and chemistry the cell cannot afford to have everywhere. That is what the first purchase actually buys.</p>\n<h2>Recheck, in a case you have not seen</h2>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-recheck-conditions</span></div>\n    <div class=\"ek-block-content\"><p>A cell contains a compartment holding an enzyme that works best at pH 5. The enzyme is made in the endoplasmic reticulum, which sits at about pH 7.2, and travels through the Golgi, which runs from about 6.7 down to about 6.0, before arriving.</p>\n<ol>\n<li>During that journey the enzyme passes through the cell carrying its full digestive capacity. Why is the cargo it travels alongside not destroyed on the way?</li>\n<li>Which of the two models from this scene does your answer use?</li>\n<li>Name one thing your answer assumes that the numbers alone do not establish.</li>\n</ol>\n</div>\n  </aside>\n<p>The route runs from a near-neutral compartment through a mildly acid one, and only the destination is strongly acid. An enzyme with an optimum near pH 5 is below its best performance for the whole journey and reaches full activity only on arrival. The condition model gives that answer directly; the wall model has nothing to say about it, because on the wall model the enzyme is equally dangerous everywhere and its safety is purely a matter of which side of a membrane it is on.</p>\n<p>The assumption worth naming is that each enzyme&#39;s activity falls away smoothly and substantially as pH rises above its optimum, and by enough to matter over a difference of one to two pH units. Optima differ between enzymes, and how steeply activity falls either side of an optimum is a property of the particular enzyme. The two published figures used here establish where the compartments sit and that the lysosomal environment is optimal for these enzymes. The inference that a hydrolase is substantially less effective at Golgi pH follows from that, and it is an inference, so it is labelled as one.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-acid-hydrolases-double-protection, claim-lysosome-degrades-material, claim-compartment-ph-landscape, claim-peroxisome-peroxide-and-catalase, claim-hydrolase-activity-off-optimum</span><span><b>sources</b> source-alberts-tgn-lysosomes, source-feng-lysosome-hydrolases, source-banerjee-organelle-ph, source-schrader-peroxisome</span></div>\n    <div class=\"ek-block-content\"><p>A cell-biology textbook chapter on transport to lysosomes supplies the acid-hydrolase description, the lysosomal interior at about pH 5.0, and the double-protection statement that leaked hydrolases could do little damage at the cytosolic pH of about 7.2. It also supplies the observation that endocytosed material meets the lysosomal hydrolases after passing through endosomes, and that micrographs of normal cells show lysosomes containing mitochondria. A 2023 review gives the hydrolase optima as pH 4.5 to 5.0. The pH values for the endoplasmic reticulum and the Golgi are the ones tabulated in the previous scene, from a 2020 review of V-ATPase regulation, which also states that the acidic lysosomal environment is optimal for hydrolytic enzymes. A 2008 review of peroxisome biology supports the peroxisomal beta-oxidation of very-long-chain fatty acids and the co-localisation of hydrogen-peroxide-producing oxidases with catalase, which decomposes the peroxide, in the same organelle. The statement that a hydrolase is substantially less effective at Golgi pH than at lysosomal pH is this lesson&#39;s inference from the optima and the compartment pH values; no source cited here reports an activity-versus-pH curve for a named enzyme, and the prose says so where the inference is made.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-getting-there",
+      "title": "An acid compartment is no use if the enzyme never arrives",
+      "kind": "concept",
+      "source": "content/04-getting-there.md",
+      "estimatedMinutes": 16,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>An acid compartment is no use if the enzyme never arrives</h1>\n<p>Dividing a cell into compartments creates a problem the undivided cell did not have. Every protein is built by a ribosome, and ribosomes start work in the cytosol. The hydrolase that has to end up at pH 5, the pump that has to end up on the apical face and nowhere else, the enzyme that has to end up inside a peroxisome: all of them begin in the same place, and none of them belongs there.</p>\n<p>So a compartmentalised cell needs a postal system. Each newly made protein has to find its way from a ribosome to its working location by a specific route, guided by signals in its own amino-acid sequence. That is a real, separate piece of machinery, and it is a large part of what compartmentalisation costs.</p>\n<h2>The route, once</h2>\n<figure class=\"ek-block ek-diagram\" data-directive=\"diagram\" data-diagram-source=\"diagrams/route-to-the-surface.diagram.json\">\n    <div class=\"ek-block-label directive-label\">Diagram</div>\n    <div class=\"ek-diagram-visual\" role=\"img\" aria-label=\"The route from nucleus to ribosome to rough endoplasmic reticulum to Golgi to the trans-Golgi network, which branches to the apical membrane, the basolateral membrane and the lysosome.\"><span class=\"ek-diagram-node ek-diagram-node--rounded-box\">Nucleus, about pH 7.2: holds the genome, principal site of DNA and RNA synthesis</span><span class=\"ek-diagram-arrow\" aria-hidden=\"true\">→</span><span class=\"ek-diagram-node ek-diagram-node--rounded-box\">Ribosome in the cytosol, about pH 7.2: translation of every protein starts here</span><span class=\"ek-diagram-arrow\" aria-hidden=\"true\">→</span><span class=\"ek-diagram-node ek-diagram-node--rounded-box\">Rough endoplasmic reticulum, about pH 7.2: chain threaded across the membrane, folding begins</span><span class=\"ek-diagram-arrow\" aria-hidden=\"true\">→</span><span class=\"ek-diagram-node ek-diagram-node--rounded-box\">Golgi stack, about pH 6.7 falling to 6.0: successive modification, including the mannose 6-phosphate tag</span><span class=\"ek-diagram-arrow\" aria-hidden=\"true\">→</span><span class=\"ek-diagram-node ek-diagram-node--diamond\">Trans-Golgi network: sorting and dispatch, packaged into vesicles by destination</span><span class=\"ek-diagram-arrow\" aria-hidden=\"true\">→</span><span class=\"ek-diagram-node ek-diagram-node--box\">Apical membrane: brush border facing the lumen</span><span class=\"ek-diagram-arrow\" aria-hidden=\"true\">→</span><span class=\"ek-diagram-node ek-diagram-node--box\">Basolateral membrane: facing neighbouring cells and the blood</span><span class=\"ek-diagram-arrow\" aria-hidden=\"true\">→</span><span class=\"ek-diagram-node ek-diagram-node--box\">Lysosome, about pH 5: acid hydrolases at their optimum</span></div>\n    <figcaption>The route from nucleus to ribosome to rough endoplasmic reticulum to Golgi to the trans-Golgi network, which branches to the apical membrane, the basolateral membrane and the lysosome.</figcaption>\n    <details class=\"ek-long-description\"><summary>Read the diagram as text</summary><p>A single route with a three-way branch. Nucleus at about pH 7.2, then a cytosolic ribosome at about pH 7.2, then the rough endoplasmic reticulum at about pH 7.2 where the chain is threaded in and folding starts, then the Golgi stack running from about pH 6.7 to 6.0 where the protein is successively modified and lysosomal enzymes are tagged with mannose 6-phosphate, then the trans-Golgi network which sorts cargo by destination. From there, three branches: the apical membrane facing the lumen, the basolateral membrane facing neighbours and blood, and the lysosome at about pH 5 reached by mannose 6-phosphate receptors. The apical branch is the one that fails in the clinical case at the end of the lesson.</p><ul><li><strong>Nucleus, about pH 7.2: holds the genome, principal site of DNA and RNA synthesis</strong> → <strong>Ribosome in the cytosol, about pH 7.2: translation of every protein starts here</strong>: the message leaves the nucleus; translation happens in the cytosol</li><li><strong>Ribosome in the cytosol, about pH 7.2: translation of every protein starts here</strong> → <strong>Rough endoplasmic reticulum, about pH 7.2: chain threaded across the membrane, folding begins</strong>: a signal sequence on the emerging chain is caught by the signal recognition particle and handed to the Sec61 translocon</li><li><strong>Rough endoplasmic reticulum, about pH 7.2: chain threaded across the membrane, folding begins</strong> → <strong>Golgi stack, about pH 6.7 falling to 6.0: successive modification, including the mannose 6-phosphate tag</strong>: vesicles carry folded cargo forward</li><li><strong>Golgi stack, about pH 6.7 falling to 6.0: successive modification, including the mannose 6-phosphate tag</strong> → <strong>Trans-Golgi network: sorting and dispatch, packaged into vesicles by destination</strong>: modification finishes; the address is now readable</li><li><strong>Trans-Golgi network: sorting and dispatch, packaged into vesicles by destination</strong> → <strong>Apical membrane: brush border facing the lumen</strong>: vesicles addressed to the apical face; this is the step that fails in the clinical case</li><li><strong>Trans-Golgi network: sorting and dispatch, packaged into vesicles by destination</strong> → <strong>Basolateral membrane: facing neighbouring cells and the blood</strong>: vesicles addressed to the basolateral face</li><li><strong>Trans-Golgi network: sorting and dispatch, packaged into vesicles by destination</strong> → <strong>Lysosome, about pH 5: acid hydrolases at their optimum</strong>: mannose 6-phosphate receptors recognise the tag and divert the enzyme here</li></ul></details>\n  </figure>\n<p>Take that route one step at a time, because each step is answering a different question.</p>\n<p><strong>Where the instructions are kept.</strong> The nucleus holds the main genome and is the principal site of DNA and RNA synthesis. Translation happens outside it, on ribosomes in the cytosol. That separation of where a message is written from where it is read is itself a compartment doing work, and later lessons in this course use it heavily.</p>\n<p><strong>How a protein gets diverted off the default path.</strong> Translation starts in the cytosol for every protein, and about thirty per cent of newly synthesised ones are pulled off that default course almost immediately. As the first stretch of the new chain emerges from the ribosome, a <strong>signal sequence</strong> in it is recognised and captured by a particle called the signal recognition particle, which carries the whole ribosome-and-chain assembly to the endoplasmic reticulum membrane and hands the signal sequence over to a channel there, the Sec61 translocon. The chain is then threaded across the membrane as it is made.</p>\n<p>Notice what kind of thing that is. The address is part of the product, readable while the product is still being built, and it is read by a receptor whose job is to recognise it. No sorting office attaches it afterwards. Compartmentalisation obliges a cell to encode a destination in every item it makes.</p>\n<p><strong>What the sequence of compartments does to the product.</strong> Once inside the endoplasmic reticulum the protein folds. From there it moves on through the Golgi apparatus, and along that path it passes through a series of compartments where it is successively modified. Order matters here: the same protein arriving at the Golgi is not the object that left the ribosome, and it will not be the object that leaves the Golgi.</p>\n<p>This is the second purchase. <strong>A fixed order of compartments imposes a fixed order of operations.</strong> A cell with one internal volume would have to control the sequence of a dozen modifications some other way, with every enzyme present in the same solution at the same time. A cell with a route gets the sequence for free from the geometry.</p>\n<p><strong>How the cell decides where it goes next.</strong> The route ends at the <strong>trans-Golgi network</strong>, which is where sorting happens. It packages finished proteins into transport vesicles and dispatches them to their specific destinations. The clearest worked case is the lysosome: enzymes bound for lysosomes have mannose 6-phosphate groups added to their sugar chains as they pass through the Golgi, those groups are recognised by mannose 6-phosphate receptors in the trans-Golgi network, and the tagged enzyme is diverted accordingly.</p>\n<p>A chemical tag, and a receptor that reads it. That is the whole address system in miniature, and it explains something the previous scene left open: how the hydrolases and the acid compartment ever find each other, given that they are made in different places by different machinery.</p>\n<h2>The extra axis a polarised cell has to sort on</h2>\n<p>For a cell that is not polarised, the plasma membrane is one destination. For the colonocyte it is two. The apical face and the basolateral face carry different proteins and do different work, so a vesicle leaving the trans-Golgi network cannot simply be addressed to &quot;the surface&quot;. It has to be addressed to a <em>face</em>.</p>\n<p>Hold on to that, because it is where the lesson ends. A cell that has to sort to two surfaces has a delivery step that can fail on its own, without anything being wrong with manufacture. The final scene is a case where exactly that happens.</p>\n<h2>Retrieval, before you move on</h2>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-route-failure-points</span></div>\n    <div class=\"ek-block-content\"><p>A colonocyte makes a transport protein whose working location is the apical membrane.</p>\n<ol>\n<li>Name the step at which this protein first leaves the default cytosolic route, and say what physically causes it to leave.</li>\n<li>Two different faults are possible: the protein could be built wrongly, or it could be built correctly and delivered wrongly. For each, say where in the route you would look.</li>\n<li>If a fault removed the mannose 6-phosphate tag from a lysosomal enzyme, where would you predict that enzyme ends up, and why?</li>\n</ol>\n</div>\n  </aside>\n<p>The protein leaves the cytosolic route at the ribosome, as soon as its signal sequence emerges and is caught by the signal recognition particle. A fault of manufacture shows up early, in the sequence itself or in folding inside the endoplasmic reticulum, and the product is defective wherever it goes. A fault of delivery shows up after the trans-Golgi network, and the product is intact but in the wrong place. Those are different diagnoses with different consequences, and separating them is the skill this lesson is training.</p>\n<p>For the third: an untagged lysosomal enzyme has nothing for the mannose 6-phosphate receptors to recognise, so it is not diverted at the sorting step. It stays in the default flow of the secretory route, which runs to the cell surface, and leaves the cell. The lysosome is not damaged and the enzyme is not defective. It is simply not there. Predicting that from the tag alone is the point of understanding the address system as a separate system.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-sorting-signals-and-route, claim-cotranslational-er-targeting, claim-successive-modification-and-tgn-sorting, claim-mannose-6-phosphate-address, claim-nucleus-site-of-rna-synthesis, claim-colonocyte-polarity, claim-compartment-ph-landscape</span><span><b>sources</b> source-alberts-compartmentalization, source-sun-signal-sequences, source-alberts-er-golgi, source-alberts-tgn-lysosomes, source-nguyen-colonic-crypt, source-schneeberger-mvid, source-banerjee-organelle-ph, source-feng-lysosome-hydrolases</span></div>\n    <div class=\"ek-block-content\"><p>A cell-biology textbook chapter on cellular compartmentalisation supports the statement that each newly synthesised organelle protein must find its way from a ribosome in the cytosol by a specific pathway guided by signals in its amino-acid sequence, and that the nucleus contains the main genome and is the principal site of DNA and RNA synthesis. A 2022 review supplies the figure that about thirty per cent of newly synthesised proteins from cytosolic ribosomes are delivered to the endoplasmic reticulum by co-translational targeting, and the mechanism: the signal sequence emerging from the ribosome is recognised and captured by the signal recognition particle, the assembly is delivered to the endoplasmic reticulum membrane through the signal recognition particle receptor, and the sequence is transferred to the Sec61 translocon. A textbook chapter on transport from the endoplasmic reticulum through the Golgi supports the successive modification of proteins along that route and the trans-Golgi network as the station that packages proteins into transport vesicles and dispatches them to their destinations. A textbook chapter on transport from the trans-Golgi network to lysosomes supports the addition of mannose 6-phosphate groups to lysosomal enzymes in the Golgi and their recognition by mannose 6-phosphate receptors in the trans-Golgi network. The two-faced destination problem rests on the polarity of the colonocyte reported in a 2025 crypt review and in a 2018 review of intestinal epithelial polarity. The pH values shown in the diagram are the ones tabulated in the second scene. The prediction that an untagged lysosomal enzyme leaves the cell by the default secretory flow is stated here as a prediction from the sorting mechanism; the sources establish the tag and the receptor, not the fate of a particular untagged enzyme in a colonocyte.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-compartment-as-machine",
+      "title": "Where the compartment is the machine",
+      "kind": "concept",
+      "source": "content/05-compartment-as-machine.md",
+      "estimatedMinutes": 15,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Where the compartment is the machine</h1>\n<p>Everything so far treats a compartment as a place with conditions: somewhere to put chemistry, or somewhere to put it in order. The mitochondrion is different, and the difference is worth a scene of its own, because getting it wrong is what makes &quot;the powerhouse of the cell&quot; such a useless thing to have memorised.</p>\n<p>Here is the mechanism in one pass. Oxidising fuel releases energy, and a mitochondrion does not use that energy directly to make ATP. It uses it to pump protons across a membrane, building an electrical and chemical potential difference between the two sides. Then it lets the protons flow back, and the returning flow turns the rotor of an enzyme, ATP synthase, which makes ATP as it turns. The energy takes a detour through a gradient before it becomes chemistry.</p>\n<p>Now ask what that arrangement requires. A gradient is a <em>difference between two sides</em>. It does not exist in a substance; it exists across a boundary. There is no such thing as a proton gradient in an open volume, in the same way there is no such thing as a pressure difference in a room with no wall down the middle.</p>\n<p>So the membrane here belongs to the mechanism. Oxidative phosphorylation requires a membrane to couple the transport of protons to the synthesis of ATP; take the membrane away and you have not removed a wrapper, you have removed the machine. Chemical uncouplers make the same point experimentally: they let protons cross the membrane freely, which dissipates the proton potential, and respiration then proceeds while ATP synthesis falls to nothing. Fuel is still being burnt. Nothing is stored, because there is nowhere for the difference to sit.</p>\n<p>That is why the label is unhelpful. A power station is a building containing generators, and you could in principle move the generators outdoors. You cannot move this one outdoors. Say instead that a mitochondrion is a compartment whose boundary holds a gradient, and the mechanism follows from the sentence.</p>\n<h2>What this particular cell is burning</h2>\n<p>Ask what a mature colonocyte is actually burning, and the crypt argument closes on itself. Seventy to eighty per cent of its energy comes from <strong>butyrate</strong>, a short-chain fatty acid, oxidised to carbon dioxide by the mitochondrial oxidative phosphorylation system. That is the machinery just described, running at high load.</p>\n<p>Where does the butyrate come from? It is made by the bacteria in the lumen, on the other side of the apical membrane, as a product of their fermentation. The cell described at the start of this lesson takes up a fuel manufactured by the population it is keeping out of the tissue.</p>\n<p>That metabolism has a measurable consequence. Mature colonocytes running this way consume oxygen heavily, which holds the oxygen partial pressure at the epithelium below 7.6 mmHg, under one per cent oxygen. The surface of the colonic lining is a hypoxic place, and it is hypoxic because of what is happening inside the mitochondria of the cells that make it up.</p>\n<p>Stop there instead of going one step further. Whether that epithelial hypoxia is what maintains the anaerobic community in the lumen is an active research question and a claim this lesson does not make. What is established is the direction of the arrow so far: bacterial fermentation supplies the fuel, mitochondrial compartments burn it, and the oxygen tension at the tissue surface is a consequence.</p>\n<p>Note also what kind of property that is. No single mitochondrion has an oxygen tension. Epithelial hypoxia belongs to a sheet of cells all consuming oxygen at once, which is the emergence test from the first lesson applied at tissue scale to a process that starts inside an organelle.</p>\n<h2>Adding up the bill</h2>\n<p>The purchases are on the table. Here is the invoice.</p>\n<p><strong>Building material.</strong> Every compartment needs a boundary, and boundaries are built from lipid and protein that the cell has to synthesise. Membrane-enclosed compartments take up close to half a cell&#39;s volume, so this is not a marginal expense.</p>\n<p><strong>Standing energy.</strong> Each maintained condition leaks. The V-ATPase pumps protons into the lysosome for as long as the lysosome exists, using ATP to do it, because a five-hundred-fold gradient runs down the moment you stop. That cost never ends and it never falls.</p>\n<p><strong>Crossing charges.</strong> In an undivided cell a molecule made in one place is already everywhere it needs to be. Once you have boundaries, everything that has to get from one side to the other needs a transporter, a channel, or a vesicle, and each of those is a protein the cell has to make, place and regulate.</p>\n<p><strong>Addressing.</strong> Every product needs a destination encoded in it and a receptor able to read the code: signal sequences read by the signal recognition particle, mannose 6-phosphate read by mannose 6-phosphate receptors, and a separate apparatus again for sorting to the apical face against the basolateral face.</p>\n<p>Set that against what it buys. Incompatible chemistries at once, which is how a cell can hold a compartment at pH 5 and another near 7.2 and let both work. Local concentration, which is how hydrogen ions can be five hundred times more concentrated in one small volume than a nanometre away. Controlled sequence, which is how a fixed order of compartments gives a fixed order of modifications without needing a controller. And a fourth thing this scene added: a boundary that is itself the working part of an energy-converting device.</p>\n<p>Bacteria pay none of these costs and buy none of these things, and they are doing fine. The investment is real and it is optional, and everything a eukaryotic cell does with it is what the rest of this module is about.</p>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-uncoupler-versus-pump-block</span></div>\n    <div class=\"ek-block-content\"><p>Two hypothetical interventions on the same colonocyte, each affecting one compartment.</p>\n<ol>\n<li>An agent makes the mitochondrial inner membrane freely permeable to protons.</li>\n<li>An agent stops the V-ATPase in the lysosomal membrane.</li>\n</ol>\n<p>For each, say which of the three purchases is being attacked, and predict what stops working. Then say what the two cases have in common that a list of organelle names would not have told you.</p>\n</div>\n  </aside>\n<p>The first attacks the gradient itself. Protons stop accumulating on one side, the potential difference collapses, and ATP synthesis stops even though fuel is still being oxidised and every protein in the mitochondrion is intact. The second attacks a maintained condition. Protons stop being driven into the lysosome, the interior drifts towards the cytosolic pH, the acid hydrolases move away from their optimum, and digestion inside an undamaged lysosome full of undamaged enzymes slows.</p>\n<p>What the two have in common is the shape of the failure. In neither case is a component broken. In both cases a <em>difference</em> has been lost, and everything that depended on the difference stops. That is what it means to say a compartment is a maintained condition rather than a container, and it is not a fact you can reach by learning which organelle is which.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-membrane-required-for-oxidative-phosphorylation, claim-proton-gradient-drives-atp-synthase, claim-uncouplers-dissipate-gradient, claim-butyrate-fuels-colonocytes, claim-colonocyte-oxygen-consumption-hypoxia, claim-compartment-volume-and-proteins, claim-lysosome-proton-gradient, claim-sorting-signals-and-route, claim-mannose-6-phosphate-address, claim-cotranslational-er-targeting</span><span><b>sources</b> source-alberts-compartmentalization, source-xu-atp-synthase, source-gasaly-butyrate, source-litvak-colonocyte-metabolism, source-feng-lysosome-hydrolases, source-sun-signal-sequences, source-alberts-tgn-lysosomes</span></div>\n    <div class=\"ek-block-content\"><p>A cell-biology textbook chapter on cellular compartmentalisation states that oxidative phosphorylation requires a membrane to couple the transport of protons to the synthesis of ATP, and supplies the volume figure for membrane-enclosed compartments. A 2015 review of the mitochondrial ATP synthase describes the enzyme as powered by the flow of protons down a potential gradient across the mitochondrial membrane created by the electron transport chain during respiration, with that flow driving the rotor that synthesises ATP, and reports that classical chemical uncouplers allow respiration without ATP synthesis by dissipating the proton potential across the membrane. A 2021 review of butyrate in colonic homeostasis reports that butyrate oxidation in mature colonocytes produces seventy to eighty per cent of their energetic requirements, that butyrate is oxidised to carbon dioxide by the mitochondrial oxidative phosphorylation system, and that the butyrate is synthesised by the resident bacteria. A 2018 review of colonocyte metabolism reports mitochondrial beta-oxidation with oxygen consumption through oxidative phosphorylation, and an oxygen partial pressure below 7.6 mmHg, under one per cent oxygen, described as epithelial hypoxia. Whether that hypoxia maintains the anaerobic luminal community is not claimed here. The lysosomal gradient and its ATP-consuming pump, the signal-sequence route and the mannose 6-phosphate address are the ones established in earlier scenes and carry the same sources.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-practice",
+      "title": "Name the condition, then predict the failure",
+      "kind": "practice",
+      "source": "content/06-practice.md",
+      "estimatedMinutes": 13,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Name the condition, then predict the failure</h1>\n<p>Everything in this lesson reduces to one habit. Given a job a cell has to do, do not ask which organelle does it. Ask what <em>condition</em> the job needs, and then ask which compartment holds that condition. The organelle name is the last thing you work out, not the first.</p>\n<p>Three passes below, with less help each time. Work each one before reading the response under it.</p>\n<h2>Pass one, with the reasoning laid out</h2>\n<p>A colonocyte takes in a fragment of bacterial protein from the lumen and needs it broken down to amino acids it can reuse.</p>\n<p>Worked in full, so the shape is visible:</p>\n<ul>\n<li><strong>The job.</strong> Cutting peptide bonds, thoroughly, on material of unpredictable composition.</li>\n<li><strong>The condition it needs.</strong> The enzymes that do this work are acid hydrolases, at their optimum around pH 4.5 to 5.0. So the job needs a small volume held at that pH, separated from a cytosol at 7.2 where those enzymes would achieve very little.</li>\n<li><strong>The compartment that holds it.</strong> The lysosome, which the cell maintains near pH 5 by pumping protons inward with a V-ATPase.</li>\n<li><strong>Remove the condition and what fails.</strong> Stop the pump and the interior drifts up towards 7.2. The membrane is intact, the enzymes are all present, and the digestion stops anyway. That last sentence is the one to carry forward.</li>\n</ul>\n<h2>Pass two, with the first step given</h2>\n<p>An oxidation reaction the cell needs to run on a very-long-chain fatty acid produces hydrogen peroxide as a by-product. Hydrogen peroxide is reactive and the cell would rather it did not circulate.</p>\n<p>The condition here is not a pH. It is proximity: the requirement is that the peroxide is destroyed close enough to where it is made that it never travels.</p>\n<p>You finish it. Which compartment holds that condition, what does it contain that meets the requirement, and how is this a different solution from the lysosome&#39;s?</p>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-practice-peroxisome</span></div>\n    <div class=\"ek-block-content\"><p>Answer the three parts above in writing before reading on. The third part is the one that matters.</p>\n</div>\n  </aside>\n<p>The peroxisome. It carries catalase, which decomposes hydrogen peroxide, in the same compartment as the oxidases producing it, so production and disposal are a few tens of nanometres apart. The solution differs from the lysosome&#39;s in what is being segregated. A lysosome segregates a <em>capability</em>: the enzymes are kept where their conditions are, and are largely harmless outside. A peroxisome segregates a <em>transient product</em>: the peroxide is never meant to leave, and the compartment exists so that a reactive intermediate can be at a working concentration in one small volume and nowhere else.</p>\n<h2>Pass three, on your own</h2>\n<aside class=\"ek-block ek-check ek-block--check\" data-directive=\"check\">\n    <div class=\"ek-block-label directive-label\">Check</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> check-practice-independent</span></div>\n    <div class=\"ek-block-content\"><p>Three situations. For each, name the condition the job requires, name the compartment or route involved, and say what you would predict if the named element failed. One of the three has no compartment in the answer, and identifying which is part of the task.</p>\n<ol>\n<li>A pump protein has to end up in the apical membrane of a colonocyte and nowhere else. The gene is normal, the protein folds normally, and the trans-Golgi network packages it. Vesicle delivery to the apical face fails.</li>\n<li>An enzyme has to reach the lysosome. Every step of manufacture is normal, but the mannose 6-phosphate tag is never added in the Golgi.</li>\n<li>An enzyme does its work in the cytosol at pH 7.2 and is needed nowhere else.</li>\n</ol>\n<p>Then, across all three: which are failures of <em>manufacture</em> and which are failures of <em>delivery</em>?</p>\n</div>\n  </aside>\n<p><strong>One.</strong> The condition is a location: this protein works only on the face that meets the lumen, so the requirement is delivery to a specific face rather than to &quot;the surface&quot;. Break vesicle delivery to that face and the protein exists, folded and functional, sitting in the wrong place. Predict a cell that is alive, that is making everything it should, and that cannot do the apical job. Hold this one; the last scene is a real version of it.</p>\n<p><strong>Two.</strong> The condition is an address that a receptor can read. With no mannose 6-phosphate group there is nothing for the mannose 6-phosphate receptors to recognise at the sorting step, so the enzyme is not diverted, stays in the default outward flow of the secretory route, and leaves the cell. The lysosome is undamaged and the enzyme is not defective. It is simply somewhere else, and the digestive capacity of the lysosome falls because of an addressing failure rather than a manufacturing one.</p>\n<p><strong>Three.</strong> This is the one without a compartment. About thirty per cent of newly made proteins are diverted into the endoplasmic reticulum route; being diverted is the special case, and a protein with no signal sequence stays in the cytosol because nothing removes it. The right answer is that no compartment is needed and none is used. A learner who has started sorting everything into organelles will invent one here, and inventing one is the error the item is looking for.</p>\n<p>Across the three: the first two are delivery failures, and neither involves a defective product. The third has no failure in it. Nothing here is a failure of manufacture, which is deliberate, because the manufacture story is the one most learners already have and the delivery story is the one this lesson is adding.</p>\n<h2>Where to go if a pass went wrong</h2>\n<p>Each failure has a specific route back, and none of them is &quot;read the lesson again&quot;.</p>\n<p>If pass one went wrong at the condition rather than at the name, reread the second scene, and particularly the arithmetic. The number five hundred is what makes the difference between a container and a maintained condition concrete.</p>\n<p>If pass two produced an answer about the peroxisome keeping something locked away from the cell, reread the second half of the third scene. The distinction between segregating a capability and segregating a transient product is the whole of that pass.</p>\n<p>If pass three&#39;s third item produced an organelle, that is the most useful mistake in the lesson and it means the framing has overshot. Return to the last part of the first scene: bacteria run almost everything in one volume, so a compartment is never the default answer to anything.</p>\n<p>If the two kinds of failure ran together, work the diagram in the fourth scene backwards from each destination and say at which step each fault would first become visible.</p>\n<h2>Accessibility and alternatives</h2>\n<p>Nothing in this lesson requires seeing a picture. The route diagram in the fourth scene carries a long description that states every node, every step, the pH of each compartment, and the three destinations, in the order the argument uses them, and the surrounding prose walks the same route in sentences. The pH landscape in the second scene is a table of text, and the two quantities that matter, cytosol 7.2 and lysosome about 5, appear in the prose as well as in the table.</p>\n<p>All arithmetic is written out in words and symbols together: the ratio is a subtraction of two pH values followed by one power of ten, and the equation and its plain reading sit next to each other. No prompt, answer, or piece of feedback depends on colour, position, animation, hover, or timing, and no task asks you to drag anything. Every check can be answered in writing and reread as often as you like.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-acid-hydrolases-double-protection, claim-lysosome-proton-gradient, claim-peroxisome-peroxide-and-catalase, claim-mannose-6-phosphate-address, claim-cotranslational-er-targeting, claim-colonocyte-polarity, claim-compartment-ph-landscape</span><span><b>sources</b> source-alberts-tgn-lysosomes, source-feng-lysosome-hydrolases, source-banerjee-organelle-ph, source-schrader-peroxisome, source-sun-signal-sequences, source-nguyen-colonic-crypt, source-schneeberger-mvid</span></div>\n    <div class=\"ek-block-content\"><p>Every fact used in these three passes was established earlier and carries the sources it carried there: the acid-hydrolase optima and the double-protection statement, the lysosomal pH and its ATP-driven proton pump, the compartment pH landscape, the co-localisation of peroxisomal oxidases with catalase and the peroxisomal beta-oxidation of very-long-chain fatty acids, the mannose 6-phosphate tag and its receptors, the figure of about thirty per cent of new proteins entering the endoplasmic reticulum route, and the polarity of the colonocyte. The three practice situations, the interventions described in them, and the predicted outcomes are constructed for this lesson. In particular, the fate of an untagged lysosomal enzyme and the consequences of a failed apical delivery are predictions from the sourced mechanisms and not results reported by any source cited here.</p>\n</div>\n  </aside>\n"
+    },
+    {
+      "id": "scene-clinical-wrap-up",
+      "title": "Clinical wrap-up: everything was built, and none of it arrived",
+      "kind": "transfer",
+      "source": "content/07-clinical-wrap-up.md",
+      "estimatedMinutes": 11,
+      "required": true,
+      "claimCoverage": "claims-mapped",
+      "contentHtml": "<h1>Clinical wrap-up: everything was built, and none of it arrived</h1>\n<aside class=\"ek-block ek-callout ek-block--boundary\" data-directive=\"callout\">\n    <div class=\"ek-block-label directive-label\">Callout</div>\n    <div class=\"ek-block-meta\"><span><b>id</b> callout-teaching-boundary</span></div>\n    <div class=\"ek-block-content\"><p>Teaching example, not medical advice. The infant below is invented. The condition described is real and the findings quoted come from published review, but nothing here is a diagnostic criterion, a threshold, a test performance, a management plan, or a statement of what any finding would mean in any real patient. This is a reasoning exercise about compartments and delivery.</p>\n</div>\n  </aside>\n<p>An invented newborn, a few days old, has watery diarrhoea that does not stop and does not respond to withholding feeds. The infant is losing weight and losing water faster than it can be replaced by mouth. A small-bowel biopsy is taken.</p>\n<p>Under the microscope the epithelium is there. The cells are present, they are alive, they are the right shape and in the right place. What is missing is the brush border: the apical surface has few microvilli, or abnormal ones, or none. Staining for a protein that belongs on the apical membrane does not find it on the surface. It finds it in a band just underneath, inside the cell. There are vesicle-like structures in the cytoplasm, and in some cells there are microvilli sitting <em>inside</em> an intracellular inclusion, pointing into a space that has no business existing.</p>\n<p>This is microvillus inclusion disease, and everything you need to reason about it is in the fourth scene of this lesson.</p>\n<h2>First, note where we have gone</h2>\n<p>This case leaves the colon. Microvillus inclusion disease presents as a severe neonatal enteropathy and its biopsy findings are described in small-bowel tissue, where the same absorptive architecture appears on villi instead of around crypts. The absorptive cell, its apical brush border and its basolateral face are the ones you have been working with all lesson. Take the case, then come back: the colonocyte is the running example for the rest of this module.</p>\n<h2>Work it with the lesson&#39;s own tools</h2>\n<p><strong>Which face does the job, and what is on it?</strong> The absorptive cell&#39;s uptake happens across the apical surface, and the microvilli of the brush border are what make that surface large enough to be worth using. Around a thousand of them on a mature cell, packed together. The basolateral face, doing a different job, is not affected in the way the apical one is.</p>\n<p><strong>Is this a failure of manufacture or of delivery?</strong> Pass three of the practice scene asked exactly this question, and the answer here is delivery. The disease is caused by mutations in genes for myosin Vb, syntaxin 3 or syntaxin binding protein 2. Those are not genes for brush-border proteins. They are genes for the machinery that moves vesicles and fuses them with the plasma membrane, so what fails is vesicle trafficking or vesicle fusion, and the consequence reported is that vesicles carrying apical proteins accumulate subapically.</p>\n<p>Read that against the diagram. Manufacture is intact: transcription, translation, entry into the endoplasmic reticulum, folding, modification through the Golgi, sorting in the trans-Golgi network. The cargo is made, addressed and packaged. The last leg fails, and the cargo stops one step short of where it belongs.</p>\n<p><strong>Does the model predict what the pathologist sees?</strong> It predicts three things, and all three are what is reported. Apical proteins should be found subapically instead of on the surface, and they are. The brush border should be absent or abnormal, because it is built from material that has to be delivered to that face, and it is. Vesicles that cannot fuse where they were meant to should be visible as accumulated intracellular structures, and they are, along with the inclusions the disease is named for.</p>\n<p><strong>Does the model predict the clinical picture?</strong> The absorptive surface of the intestine is not being built, so the intestine cannot absorb across it, and what is not absorbed stays in the lumen and leaves with the stool. Extremely watery diarrhoea from the first days of life, with dehydration and weight loss, is what published description reports, and it is what a failure to build the absorptive surface would produce.</p>\n<h2>Why this belongs in a lesson about organelles</h2>\n<p>Nothing has gone wrong with any organelle&#39;s condition. The lysosomes are still acid. The mitochondria still hold their gradient. The endoplasmic reticulum still folds proteins and the Golgi still modifies them. Every compartment in this lesson is working.</p>\n<p>What has failed is the fourth item on the bill: the system that gets each product to the compartment or the face where it works. The first scene said that internal membranes create an address problem that an undivided cell does not have, and that solving it is part of the price. A disease of the delivery machinery is what that line item looks like when it is not paid.</p>\n<p>That is also why &quot;organelle&quot; is a poor unit of understanding on its own. A list of organelles and their functions has no place to put this case. A cell described as a set of maintained conditions connected by routes has exactly one place to put it, and it is the arrow between two boxes.</p>\n<h2>The thread back to the crypt</h2>\n<p>The absorptive cell in a colonic crypt lives about four to five days, and the whole lining is rebuilt continuously. Every one of those cells has to construct its own brush border, its own apical and basolateral protein sets, and its own complement of compartments, from scratch, within a few days of being born at the crypt base. The delivery machinery in this lesson is not doing a job once. It is doing it in every cell of a tissue that never stops replacing itself.</p>\n<p>The next lessons take the parts of that apart. What a membrane is made of, and why the apical membrane of this cell is built differently from its basolateral membrane, is the lesson on membrane structure. How sodium and glucose actually cross it, and why that matters for treating the dehydration in the case above, is the lesson on membrane transport after it. Both are questions this lesson deliberately left standing.</p>\n<h2>What you should be able to do now</h2>\n<p>Three things, and each has an assessment item.</p>\n<p>Given a stated cellular job, name the condition it requires and the compartment that maintains it, and justify the pairing by the condition rather than by the organelle&#39;s name. Compute a concentration ratio between two compartments from their pH values, check it against an independently reported figure, and say what holding that difference costs. Predict where a product ends up, and what stops working, when a named step of the route from gene to working location fails, separating a fault of manufacture from a fault of delivery.</p>\n<p>The mastery check holds four untimed, retakeable items worth twelve points. Attempt each before opening its reasoning. A missed criterion routes you to a different case, never the same one twice.</p>\n<aside class=\"ek-block ek-source-note ek-block--source-note\" data-directive=\"source-note\">\n    <div class=\"ek-block-label directive-label\">Source Note</div>\n    <div class=\"ek-block-meta\"><span><b>claims</b> claim-mvid-cause-and-trafficking, claim-mvid-histology, claim-mvid-presentation, claim-brush-border-microvilli, claim-colonocyte-polarity, claim-enterocyte-lifespan, claim-mannose-6-phosphate-address, claim-sorting-signals-and-route</span><span><b>sources</b> source-schneeberger-mvid, source-nguyen-colonic-crypt, source-alberts-tgn-lysosomes, source-alberts-compartmentalization</span></div>\n    <div class=\"ek-block-content\"><p>A 2018 review of intestinal epithelial cell polarity supports every statement about the case: that microvillus inclusion disease is caused by mutations in myosin Vb, syntaxin 3 or syntaxin binding protein 2; that these produce a failure of vesicle trafficking or of vesicle fusion with the plasma membrane, so that vesicles containing apical proteins accumulate subapically; that biopsies show absent or abnormal microvilli, subapical staining for a protein of the apical membrane, intracellular vesicle-like structures and subapical microvillus inclusions; that the disease is a severe neonatal enteropathy manifesting mostly in the first days of life with extremely watery diarrhoea, dehydration and weight loss; and that a mature enterocyte carries around a thousand microvilli forming the brush border, with the apical membrane facing the lumen and the basolateral membrane facing neighbouring cells and the basement membrane. A 2025 review of colonic crypt biology supports the polarity of the colonocyte and the replacement of enterocytes every four to five days. The address system and the sorting route carry the sources given when they were introduced. The infant, the sequence of events described, and the reasoning that connects the trafficking defect to the biopsy appearance and to the clinical picture are this lesson&#39;s construction; no source here reports an individual patient, and nothing here states what any finding would mean in any real case.</p>\n</div>\n  </aside>\n"
+    }
+  ],
+  "authors": [
+    {
+      "principalId": "github:VSBDev",
+      "displayName": "VSBDev — accountable author",
+      "agent": {
+        "system": "RUNTIME-STAMPED",
+        "provider": "RUNTIME-STAMPED",
+        "model": "RUNTIME-STAMPED",
+        "version": "RUNTIME-STAMPED",
+        "runId": "author-PREM-BIO-003-CABC592B-3985-448D-A0B2-6E8253DF2544",
+        "instructionsDigest": "sha256:7063c9ca91ad3dc4a82c4902d1bcdbceadc071dbe6989991d5aa8a5dca4ce171"
+      }
+    }
+  ],
+  "license": "CC-BY-4.0",
+  "sourceConfidence": "pending-review",
+  "aiAssistance": {
+    "used": true,
+    "disclosure": "VSBDev (github:VSBDev) is accountable for this authoring candidate. Material agent assistance ran under run ID author-PREM-BIO-003-CABC592B-3985-448D-A0B2-6E8253DF2544 on 2026-07-26; the agent system, provider, model, and version are recorded as the operator-stamped literal RUNTIME-STAMPED and are stamped by the operator before review. The instruction digest covers the exact disclosed UTF-8 material task payload, including its final newline, and excludes hidden provider and system instructions that cannot be exported."
+  },
+  "assessment": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-assessment-v1",
+    "lessonId": "PREM-BIO-003",
+    "lessonVersion": "0.1.0",
+    "assessmentId": "assessment-organelles-compartmentalisation",
+    "title": "Organelles and compartmentalisation mastery check",
+    "purpose": "mastery-gate",
+    "attemptPolicy": {
+      "retakeable": true,
+      "timeLimitMinutes": null,
+      "feedback": "after-attempt"
+    },
+    "items": [
+      {
+        "id": "item-condition-then-compartment",
+        "type": "open-response",
+        "sceneId": "scene-membrane-not-protection",
+        "objectiveIds": [
+          "objective-name-condition-then-compartment"
+        ],
+        "outcomeIds": [
+          "topic-cell-biology-organelles"
+        ],
+        "prompt": "Three jobs a cell has to do. First, run an oxidation whose by-product is a reactive molecule that must not circulate. Second, use an enzyme that achieves its activity only in strongly acid conditions. Third, make ATP by letting protons flow down a difference in their concentration. For each job, name the condition the job requires before you name any organelle, then name the compartment that maintains that condition. Then, for each, state what would stop working if that condition alone were lost while every protein involved remained present and intact. One of the three is different in kind from the other two; say which and why.",
+        "stimulus": null,
+        "points": 3,
+        "responseSpec": {
+          "mode": "text",
+          "units": null,
+          "tolerance": null,
+          "maxSelections": null,
+          "maxLength": 1800
+        },
+        "answer": {
+          "correct": "The first job requires that the reactive product be destroyed where it is made, so that its journey is short. That condition is met in the peroxisome, which holds catalase in the same compartment as the oxidases producing hydrogen peroxide. Remove the condition, by having catalase somewhere else, and hydrogen peroxide leaves the compartment before it is decomposed even though every enzyme is present and working. The second job requires an acid environment, around pH 4.5 to 5.0, held against a cytosol near 7.2. That condition is maintained in the lysosome by a proton pump that consumes ATP. Stop the pump and the interior drifts towards 7.2, the acid hydrolases fall away from their optimum, and digestion inside an undamaged lysosome full of undamaged enzymes slows. The third job requires a difference in proton concentration between two sides of a boundary. That is the mitochondrion, where the electron transport chain pumps protons across the membrane and their return flow drives ATP synthase. Make the boundary freely permeable to protons and the potential collapses, so respiration continues while ATP synthesis stops. The third is different in kind. In the first two, the compartment holds a condition in which chemistry happens; in the third, the compartment boundary is part of the mechanism, because a gradient is a difference between two sides and cannot exist without a boundary. Removing the boundary there does not open the device, it removes it.",
+          "summary": "Proximity of production and disposal in the peroxisome; an acid interior held by a pump in the lysosome; a proton difference across a boundary in the mitochondrion, which is the one where the compartment is the mechanism rather than the setting.",
+          "reasoning": "Award one point when all three conditions are stated before the organelle names and each condition is the right one: co-localisation of production and disposal, an acid environment maintained against the cytosol, and a proton-concentration difference across a boundary. A response that leads with organelle names and then justifies them does not earn this point, because naming first is the habit the item exists to test. Award one point for three failure predictions in which the components stay intact and the function stops anyway. Award one point for identifying the mitochondrion as different in kind and giving the reason, that a gradient exists only across a boundary, so the boundary is the mechanism and not the setting. On a retry, run the same three steps for a compartment that must keep newly made proteins away from cytosolic conditions while they fold, and for a compartment that must modify a protein in a fixed order.",
+          "acceptableResponses": [
+            "Any response that names proximity of production and disposal, a maintained acid environment, and a proton difference across a boundary as the three conditions, attaches each to the peroxisome, lysosome and mitochondrion respectively, predicts a functional failure in each case with the components intact, and singles out the mitochondrion on the ground that a gradient requires two sides."
+          ],
+          "commonErrors": [
+            "Naming the organelle first and reverse-engineering a condition to fit it",
+            "Giving the peroxisome's condition as containment of a poison rather than destruction close to the site of production",
+            "Predicting that the enzymes are destroyed or lost when the condition is removed, rather than that they remain and stop being effective",
+            "Treating the mitochondrion as a container of ATP-making machinery, which loses the reason it is different in kind",
+            "Answering the third case with the citric acid cycle or the electron transport chain as the condition, which names a process instead of the difference the process maintains"
+          ]
+        },
+        "rubricId": "rubric-condition-then-compartment",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-gradient-arithmetic",
+        "type": "open-response",
+        "sceneId": "scene-proton-arithmetic",
+        "objectiveIds": [
+          "objective-compute-compartment-gradient"
+        ],
+        "outcomeIds": [
+          "topic-cell-biology-organelles"
+        ],
+        "prompt": "The cytosol sits at pH 7.2. Take one compartment at pH 6.0 and a second at pH 4.5. Compute the ratio of hydrogen-ion concentrations between each compartment and the cytosol, showing the arithmetic. Then give the factor by which the second compartment's gradient exceeds the first, and obtain that factor twice: once by dividing your two answers and once directly from the two compartment pH values. Say what the comparison implies about the relative standing energy cost of the two compartments, and name one quantity this comparison cannot give you.",
+        "stimulus": null,
+        "points": 3,
+        "responseSpec": {
+          "mode": "text",
+          "units": null,
+          "tolerance": null,
+          "maxSelections": null,
+          "maxLength": 1600
+        },
+        "answer": {
+          "correct": "Because pH is minus the base-ten logarithm of hydrogen-ion concentration, a ratio of concentrations is ten raised to the difference of the pH values. For the compartment at 6.0 the ratio is 10 to the power (7.2 minus 6.0), that is 10 to the power 1.2, about 16. For the compartment at 4.5 it is 10 to the power (7.2 minus 4.5), that is 10 to the power 2.7, a little over 500. Dividing, 500 divided by 16 is about 32. Directly, the two compartments differ by 6.0 minus 4.5, which is 1.5 pH units, and 10 to the power 1.5 is about 32. The two routes agree, as they must, because subtracting logarithms twice in a different order is the same subtraction. The comparison implies that the more acid compartment is holding a much steeper difference and therefore leaks harder, so all else being equal it costs more to maintain. What the comparison cannot give is any actual rate of ATP consumption. That depends on how fast protons leak back, which turns on membrane area, membrane composition, the surface-to-volume ratio of the compartment and how many protons the pump moves per ATP, and none of those is contained in a pH value.",
+          "summary": "About 16-fold at pH 6.0 and about 500-fold at pH 4.5, the second steeper than the first by about 32, obtained either by division or directly from the 1.5 pH-unit gap; a steeper gradient implies a larger standing cost, but no pH value yields an ATP consumption rate.",
+          "reasoning": "Award one point for both ratios computed as ten raised to a pH difference, giving about 16 and about 500, with the reasoning shown rather than the answers asserted. Award one point for obtaining the factor of about 32 by both routes and saying why they must agree. Award one point for the interpretation: a steeper gradient leaks harder and costs more to hold, together with a named quantity the arithmetic cannot supply, such as the rate of ATP consumption or the leak rate, with a reason. On a retry, do the same for a compartment at pH 5.5 against a cytosol at 7.4, and compare it with a compartment at pH 6.8, then say what changes and what does not when the cytosolic reference moves.",
+          "acceptableResponses": [
+            "Any response giving about 16 and about 500 from ten raised to the pH difference, about 32 for the comparison by both routes, a statement that the steeper gradient carries the larger standing cost, and a named quantity the pH values cannot supply. Values within about twenty per cent are correct, since the inputs are approximate."
+          ],
+          "commonErrors": [
+            "Subtracting the pH values and reporting the difference itself as the ratio, so 1.2 is given instead of about 16",
+            "Dividing the pH values instead of subtracting them",
+            "Getting the sign the wrong way round, so the more acid compartment comes out less concentrated in hydrogen ions",
+            "Reporting a ratio to several significant figures from inputs given to one decimal place",
+            "Concluding that the more acid compartment consumes a specific amount of ATP, which the pH values do not determine",
+            "Naming a quantity the comparison cannot give without saying why it is not contained in a pH value"
+          ]
+        },
+        "rubricId": "rubric-gradient-arithmetic",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-signal-sequence-loss",
+        "type": "single-choice",
+        "sceneId": "scene-getting-there",
+        "objectiveIds": [
+          "objective-predict-route-failure"
+        ],
+        "outcomeIds": [
+          "topic-cell-biology-organelles"
+        ],
+        "prompt": "In a colonocyte, a mutation removes the signal sequence from a protein whose working location is the apical membrane. The rest of the amino-acid sequence is unchanged and the protein is still translated normally. Which statement predicts the outcome, and for the right reason?",
+        "stimulus": null,
+        "points": 2,
+        "responseSpec": {
+          "mode": "single-choice",
+          "units": null,
+          "tolerance": null,
+          "maxSelections": null,
+          "options": [
+            {
+              "id": "option-stays-cytosolic",
+              "text": "It is made on a cytosolic ribosome and stays in the cytosol, because nothing diverts it into the endoplasmic reticulum, so it never reaches the Golgi, is never sorted, and arrives at neither face."
+            },
+            {
+              "id": "option-goes-basolateral",
+              "text": "It reaches the basolateral membrane instead, because a protein that loses its apical address defaults to the other face."
+            },
+            {
+              "id": "option-sorted-anyway",
+              "text": "It reaches the apical membrane anyway, because the trans-Golgi network sorts cargo by destination and would recognise this protein."
+            },
+            {
+              "id": "option-degraded-in-lysosome",
+              "text": "It is delivered to the lysosome and degraded, because a protein with no address is disposed of."
+            }
+          ],
+          "maxLength": null
+        },
+        "answer": {
+          "correct": "option-stays-cytosolic",
+          "summary": "It stays in the cytosol, because the signal sequence is what diverts a protein out of the default cytosolic route, and losing it means the protein never enters the route at all.",
+          "reasoning": "The signal sequence acts at the very first branch point, while the chain is still emerging from the ribosome. Removing it removes the diversion, so the protein is completed in the cytosol and no later step of the route ever sees it. The basolateral option treats the two surface addresses as a pair with a default, which they are not; sorting between them happens in the trans-Golgi network, and this protein never gets there. The trans-Golgi option puts the failure at the wrong step: sorting can only act on cargo that has arrived, and the point of this item is that arrival is what failed. The lysosome option invents a disposal rule the lesson does not teach and that the mannose 6-phosphate route contradicts, since reaching a lysosome is itself an addressed delivery and not a default. On a retry, predict the outcome when the signal sequence is intact but the mannose 6-phosphate transferase in the Golgi is missing, and say at which step the two cases diverge.",
+          "acceptableResponses": [],
+          "commonErrors": [
+            "Assuming the two cell surfaces are alternatives with a default, so losing one address sends the protein to the other",
+            "Locating the failure at the sorting step instead of at entry to the route",
+            "Inventing an automatic disposal route for unaddressed proteins",
+            "Answering correctly that the protein stays in the cytosol but giving the number of proteins on the endoplasmic reticulum route as the reason rather than the diversion mechanism"
+          ]
+        },
+        "rubricId": "rubric-signal-sequence-loss",
+        "safetyCritical": false
+      },
+      {
+        "id": "item-two-interventions",
+        "type": "open-response",
+        "sceneId": "scene-clinical-wrap-up",
+        "objectiveIds": [
+          "objective-name-condition-then-compartment",
+          "objective-compute-compartment-gradient",
+          "objective-predict-route-failure"
+        ],
+        "outcomeIds": [
+          "topic-cell-biology-organelles"
+        ],
+        "prompt": "An invented laboratory group works on cultured intestinal epithelial cells and plans two separate interventions. Predict what each would produce, working only from the mechanisms in this lesson. Intervention A blocks the addition of mannose 6-phosphate groups in the Golgi and changes nothing else. Intervention B blocks the proton pump in the lysosomal membrane and changes nothing else. (1) For each, say whether it attacks a maintained condition or the addressing system, and predict what happens to the cell's ability to break down material it has taken in. (2) In intervention A, predict where the soluble lysosomal enzymes end up, with your reason. (3) In intervention B the lysosomal interior is stated to drift from pH 4.6 to pH 6.4; compute the factor by which the hydrogen-ion concentration inside falls. (4) The group argues that intervention B is the safer of the two for the cell, because nothing is released from the lysosome. Judge that argument using this lesson's model of what protects the cytosol. (5) Name two things these predictions do not establish. Nothing in this item describes a real study, device, patient or clinical procedure, and none of it is guidance for any real investigation.",
+        "stimulus": null,
+        "points": 4,
+        "responseSpec": {
+          "mode": "text",
+          "units": null,
+          "tolerance": null,
+          "maxSelections": null,
+          "maxLength": 2600
+        },
+        "answer": {
+          "correct": "Intervention A attacks the addressing system. The soluble lysosomal enzymes are made and folded normally and travel the route normally, but with no mannose 6-phosphate group there is nothing for the mannose 6-phosphate receptors in the trans-Golgi network to recognise, so they are not diverted at the sorting step. They stay in the default outward flow of the secretory route and are predicted to leave the cell, appearing outside it rather than inside a lysosome. The lysosome is undamaged and the enzymes are not defective; the cell's capacity to break down material it has taken in falls because the enzymes are not there. Intervention B attacks a maintained condition. The pump stops, protons are no longer driven inward, and the interior drifts towards the cytosolic pH. The enzymes are all present and the membrane is intact, and degradation slows anyway because the hydrolases are no longer near their acid optimum. From pH 4.6 to pH 6.4 is a rise of 1.8 pH units, so the hydrogen-ion concentration falls by ten to the power 1.8, a factor of about 63. The group's safety argument misreads the model. On the picture in which the membrane is the whole protection, a rupture is the dangerous event and a pH drift is harmless. This lesson's model says the cytosol is doubly protected: a rupture releases hydrolases that can do little at the cytosolic pH of about 7.2, while the pH drift disables the digestion the cell actually needs, inside an organelle that is still intact. Neither intervention is safe, they fail differently, and the one the group calls safer is the one that removes the function. Two things these predictions do not establish, among others: what fraction of the untagged enzymes actually leaves the cell, since no source here reports that; and how much hydrolase activity survives at pH 6.4, since no activity-versus-pH curve for a named enzyme was supplied and the loss is inferred from the optimum rather than measured. A third is the specificity of intervention B, since the same family of proton pumps acidifies the Golgi, endosomes and secretory granules, so blocking it in the lysosome alone is an idealisation of the item rather than a property of a real reagent.",
+          "summary": "A is an addressing failure that sends undamaged enzymes out of the cell; B is a lost condition that stops digestion inside an intact organelle; the pH drift of 1.8 units is a fall of about 63-fold in hydrogen-ion concentration; the safety argument mistakes the loss of function for safety; and the predictions establish neither the fraction of enzyme lost nor the residual activity, and treat the pump block as compartment-specific when it is not.",
+          "reasoning": "Award one point for classifying A as an addressing failure and B as a lost maintained condition, with both predicted to reduce degradation by different routes and with the components intact in each case. Award one point for the destination in A, outside the cell by the default secretory flow, with the reason given as the absent tag and the unrecognising receptor rather than as damage. Award one point for the arithmetic: 1.8 pH units, ten to the power 1.8, about 63, computed rather than asserted. Award one point for judging the safety argument against the double-protection model and for naming two genuine limits of the prediction with reasons. On a retry, review a third intervention in which the vesicles carrying tagged enzymes are made normally and reach the lysosome but cannot fuse with it, and say which of the two failure types that is and what the cell would show.",
+          "acceptableResponses": [
+            "Any response that separates the addressing failure from the lost condition, predicts secretion of the untagged enzymes with the receptor as the reason, computes about a 63-fold fall from a 1.8 pH-unit rise, rejects the safety argument by way of the double protection, and names two limits with reasons, such as the unknown fraction secreted, the unmeasured residual activity at pH 6.4, or the non-specificity of a proton-pump block."
+          ],
+          "commonErrors": [
+            "Treating intervention A as a manufacturing fault, so the enzymes are described as defective rather than misdelivered",
+            "Predicting that untagged enzymes are destroyed, which invents a disposal route the lesson does not teach",
+            "Reporting the pH change of 1.8 units as the answer instead of raising ten to that power",
+            "Agreeing that intervention B is safer because nothing is released, which is the membrane-as-wall model reappearing",
+            "Concluding that a rupture would be harmless, which overshoots the double-protection statement in the other direction",
+            "Naming limits that are generic, such as this is only a model, instead of limits the sources and arithmetic actually leave open",
+            "Treating the lysosome-only pump block as achievable, when the same pump family acidifies several compartments"
+          ]
+        },
+        "rubricId": "rubric-two-interventions",
+        "safetyCritical": false
+      }
+    ],
+    "rubrics": [
+      {
+        "id": "rubric-condition-then-compartment",
+        "title": "Naming the condition before the compartment",
+        "criteria": [
+          {
+            "id": "criterion-conditions-named-first",
+            "description": "Award 1 point only when all three conditions are stated before any organelle is named and each is correct: destruction close to the site of production, a maintained acid environment, and a proton-concentration difference across a boundary.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-failure-with-components-intact",
+            "description": "Award 1 point only when each of the three failure predictions keeps every component present and intact and still predicts loss of function.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-mechanism-versus-setting",
+            "description": "Award 1 point only when the mitochondrion is identified as different in kind, with the reason that a gradient is a difference between two sides and so cannot exist without the boundary.",
+            "maxPoints": 1
+          }
+        ]
+      },
+      {
+        "id": "rubric-gradient-arithmetic",
+        "title": "Computing and interpreting a compartment gradient",
+        "criteria": [
+          {
+            "id": "criterion-two-ratios",
+            "description": "Award 1 point only when both ratios are computed as ten raised to a pH difference, giving about 16 and about 500, with the working shown.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-two-routes-agree",
+            "description": "Award 1 point only when the factor of about 32 is obtained both by dividing the two ratios and directly from the 1.5 pH-unit gap, with a statement of why the two routes must agree.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-cost-and-limit",
+            "description": "Award 1 point only when the steeper gradient is tied to a larger standing maintenance cost and one quantity the arithmetic cannot supply is named with a reason.",
+            "maxPoints": 1
+          }
+        ]
+      },
+      {
+        "id": "rubric-signal-sequence-loss",
+        "title": "Locating a failure on the route",
+        "criteria": [
+          {
+            "id": "criterion-first-branch-point",
+            "description": "Award 2 points only when the cytosolic option is selected; that option places the failure at entry to the route and states the consequence that no later step ever sees the protein.",
+            "maxPoints": 2
+          }
+        ]
+      },
+      {
+        "id": "rubric-two-interventions",
+        "title": "Integrated review of two unfamiliar interventions",
+        "criteria": [
+          {
+            "id": "criterion-classify-both-interventions",
+            "description": "Award 1 point only when A is classified as an addressing failure and B as a lost maintained condition, each predicted to reduce degradation with every component intact.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-destination-and-reason",
+            "description": "Award 1 point only when the untagged enzymes are predicted to leave the cell in the default secretory flow, with the unread address as the reason and no claim that the enzymes are defective.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-ph-arithmetic",
+            "description": "Award 1 point only when the 1.8 pH-unit rise is converted to a fall of about 63-fold by raising ten to that power, computed rather than asserted.",
+            "maxPoints": 1
+          },
+          {
+            "id": "criterion-judgement-and-limits",
+            "description": "Award 1 point only when the safety argument is judged against the double-protection model, without overshooting into calling a rupture harmless, and two genuine limits of the prediction are named with reasons.",
+            "maxPoints": 1
+          }
+        ]
+      }
+    ]
+  },
+  "references": {
+    "schemaVersion": 2,
+    "format": "embeddedknowledge-references-v2",
+    "lessonId": "PREM-BIO-003",
+    "lessonVersion": "0.1.0",
+    "sources": [
+      {
+        "id": "source-nguyen-colonic-crypt",
+        "type": "review",
+        "title": "The Colonic Crypt: Cellular Dynamics and Signaling Pathways in Homeostasis and Cancer",
+        "creators": [
+          "Anh L. Nguyen",
+          "Molly A. Lausten",
+          "Bruce M. Boman"
+        ],
+        "publisher": "Cells",
+        "issued": "2025",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12468274/",
+        "accessed": "2026-07-26",
+        "version": "Volume 14, issue 18, article 1428; DOI 10.3390/cells14181428",
+        "locator": "Statements that colonic enterocytes, termed colonocytes, are polarised with a distinct basolateral end and an apical membrane carrying microvilli that increase surface area and aid water absorption; that enterocytes are replaced every 4 to 5 days while serotonin-producing enteroendocrine cells can persist up to 28 days; that colonic crypts are tube-like pockets whose cells differentiate as they migrate upward; and that goblet cells secrete protective mucus.",
+        "license": "CC BY 4.0; facts-only use, with no source expression reused",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only to verify that the colonocyte is polarised with distinct apical and basolateral ends, that its apical microvilli increase surface area and assist water absorption, and that enterocytes are replaced every four to five days. The review's own subject, signalling pathways in homeostasis and cancer, is outside this lesson's scope. No wording, figure, schematic, table, dataset, or example was copied or adapted; the enterocyte case, the compartment argument, and every teaching task are this lesson's own work."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://pmc.ncbi.nlm.nih.gov/robots.txt",
+          "checked": "2026-07-25",
+          "notes": "The pmc.ncbi.nlm.nih.gov route is recorded as allowed in site/agent/source-access-ledger.json, checked 2026-07-25 and within the ledger's 90-day recheck window, on the basis that robots.txt carries Allow: /articles/ with no AI or LLM crawler restriction. The article was read over the public web through that route without login, paywall, or access-control bypass."
+        }
+      },
+      {
+        "id": "source-schneeberger-mvid",
+        "type": "review",
+        "title": "Intestinal epithelial cell polarity defects in disease: lessons from microvillus inclusion disease",
+        "creators": [
+          "Kerstin Schneeberger",
+          "Sabrina Roth",
+          "Edward E. S. Nieuwenhuis",
+          "Sabine Middendorp"
+        ],
+        "publisher": "Disease Models & Mechanisms",
+        "issued": "2018",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5894939/",
+        "accessed": "2026-07-26",
+        "version": "Volume 11, issue 2, article dmm031088; DOI 10.1242/dmm.031088",
+        "locator": "Statements that the apical membrane of an intestinal epithelial cell faces the lumen and serves barrier and uptake functions; that a mature enterocyte carries about 1000 microvilli forming the brush border; that the basolateral membrane matters for contact with neighbouring cells and the basement membrane; that microvillus inclusion disease follows mutations in MYO5B, STX3 or STXBP2 causing failed vesicle trafficking or fusion; the biopsy findings; and the neonatal presentation.",
+        "license": "Creative Commons Attribution 3.0 (CC BY 3.0) as displayed on the article; facts-only use, with no source expression reused",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only to verify the apical and basolateral division of labour in an absorptive intestinal epithelial cell, the microvillus count of the brush border, and the cause, trafficking mechanism, biopsy findings and clinical presentation of microvillus inclusion disease. The displayed licence is CC BY 3.0, which this project does not accept as a reuse basis for expression or media, so nothing is quoted, reproduced, redrawn or adapted from it. The invented infant, the order in which the case is reasoned through, and the connection drawn to this lesson's compartment argument are this lesson's own work."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://pmc.ncbi.nlm.nih.gov/robots.txt",
+          "checked": "2026-07-25",
+          "notes": "Read through the pmc.ncbi.nlm.nih.gov/articles/ route recorded as allowed in the project source-access ledger on 2026-07-25, within the ledger's 90-day recheck window. No login, paywall, or access control was bypassed."
+        }
+      },
+      {
+        "id": "source-alberts-compartmentalization",
+        "type": "textbook",
+        "title": "The Compartmentalization of Cells",
+        "creators": [
+          "Bruce Alberts",
+          "Alexander Johnson",
+          "Julian Lewis",
+          "Martin Raff",
+          "Keith Roberts",
+          "Peter Walter"
+        ],
+        "publisher": "Garland Science; hosted by NCBI Bookshelf",
+        "issued": "2002",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK26907/",
+        "accessed": "2026-07-26",
+        "version": "Molecular Biology of the Cell, 4th edition; NCBI Bookshelf ID NBK26907",
+        "locator": "Statements that membrane-enclosed compartments together occupy nearly half the volume of a cell; that each organelle holds a distinct set of proteins mediating its own functions; that the nucleus holds the main genome and is the principal site of DNA and RNA synthesis; that each new organelle protein finds its way from a cytosolic ribosome by a pathway guided by signals in its amino acid sequence; and that oxidative phosphorylation needs a membrane to couple H+ transport to ATP synthesis.",
+        "license": "Publisher copyright 2002; facts-only use, with no source expression reused",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only to verify the volume occupied by membrane-enclosed compartments, the distinct protein complement of each organelle, the location of the genome and of RNA synthesis, the existence of sorting signals carried in a protein's own sequence, and the requirement for a membrane in coupling proton transport to ATP synthesis. No wording, figure, table, or example was copied or adapted, and the organising argument of this lesson is its own."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://www.ncbi.nlm.nih.gov/home/about/policies/",
+          "checked": "2026-07-25",
+          "notes": "The public NCBI Bookshelf chapter was read through the /books/NBK route, which the project source-access ledger records as permitted for www.ncbi.nlm.nih.gov on 2026-07-25 while the legacy /pmc/articles route is not. No login or access control was bypassed. Source expression remains publisher copyright and is used for facts only."
+        }
+      },
+      {
+        "id": "source-alberts-er-golgi",
+        "type": "textbook",
+        "title": "Transport from the ER through the Golgi Apparatus",
+        "creators": [
+          "Bruce Alberts",
+          "Alexander Johnson",
+          "Julian Lewis",
+          "Martin Raff",
+          "Keith Roberts",
+          "Peter Walter"
+        ],
+        "publisher": "Garland Science; hosted by NCBI Bookshelf",
+        "issued": "2002",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK26941/",
+        "accessed": "2026-07-26",
+        "version": "Molecular Biology of the Cell, 4th edition; NCBI Bookshelf ID NBK26941",
+        "locator": "Statements that during transport from the ER to the Golgi apparatus and from the Golgi apparatus to the cell surface proteins pass through a series of compartments where they are successively modified; that finished proteins end up in the trans Golgi network, which packages them into transport vesicles and dispatches them to their specific destinations in the cell; and that the Golgi apparatus is a sorting and dispatching station for the products of the ER.",
+        "license": "Publisher copyright 2002; facts-only use, with no source expression reused",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only to verify that a protein is successively modified as it passes through a fixed series of compartments, and that the trans Golgi network sorts finished cargo by destination and dispatches it in vesicles. The chapter's detailed treatment of glycosylation and vesicle coats is outside this lesson's scope. No wording, figure, table, or example was copied or adapted."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://www.ncbi.nlm.nih.gov/home/about/policies/",
+          "checked": "2026-07-25",
+          "notes": "Read through the same public NCBI Bookshelf /books/NBK route recorded as permitted in the project source-access ledger on 2026-07-25. No login or access control was bypassed. Source expression remains publisher copyright and is used for facts only."
+        }
+      },
+      {
+        "id": "source-alberts-tgn-lysosomes",
+        "type": "textbook",
+        "title": "Transport from the Trans Golgi Network to Lysosomes",
+        "creators": [
+          "Bruce Alberts",
+          "Alexander Johnson",
+          "Julian Lewis",
+          "Martin Raff",
+          "Keith Roberts",
+          "Peter Walter"
+        ],
+        "publisher": "Garland Science; hosted by NCBI Bookshelf",
+        "issued": "2002",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK26844/",
+        "accessed": "2026-07-26",
+        "version": "Molecular Biology of the Cell, 4th edition; NCBI Bookshelf ID NBK26844",
+        "locator": "Statements that lysosomal enzymes are acid hydrolases needing an acid environment for optimal activity, which the lysosome supplies by holding about pH 5.0 inside; that the cytosol is doubly protected, since the membrane keeps the enzymes out and leaked enzymes could do little damage at the cytosolic pH of about 7.2; that mannose 6-phosphate groups are added in the Golgi and read by M6P receptors in the trans Golgi network; and that endocytosed material and whole organelles are digested there.",
+        "license": "Publisher copyright 2002; facts-only use, with no source expression reused",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only to verify the acid-hydrolase requirement and the interior pH of the lysosome, the double-protection consequence at cytosolic pH, the mannose 6-phosphate tag and its receptors, and what lysosomes are observed to digest. No wording, figure, table, or example was copied or adapted; the misconception sequence built around the double-protection fact is this lesson's own."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://www.ncbi.nlm.nih.gov/home/about/policies/",
+          "checked": "2026-07-25",
+          "notes": "Read through the same public NCBI Bookshelf /books/NBK route recorded as permitted in the project source-access ledger on 2026-07-25. No login or access control was bypassed. Source expression remains publisher copyright and is used for facts only."
+        }
+      },
+      {
+        "id": "source-banerjee-organelle-ph",
+        "type": "review",
+        "title": "Regulation of V-ATPase Activity and Organelle pH by Phosphatidylinositol Phosphate Lipids",
+        "creators": [
+          "Subhrajit Banerjee",
+          "Patricia M. Kane"
+        ],
+        "publisher": "Frontiers in Cell and Developmental Biology",
+        "issued": "2020",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7324685/",
+        "accessed": "2026-07-26",
+        "version": "Volume 8, article 510; DOI 10.3389/fcell.2020.00510",
+        "locator": "Statements that cytosol, nucleus and endoplasmic reticulum hold a near-neutral pH of approximately 7.2; the Golgi network roughly 6.7 to 6.0 from cis to trans; early and recycling endosomes 6.3 to 6.5 and late endosomes 5.5; secretory granules 5.2 to 5.7; and the lysosome as the most acidic organelle at 4.7 to 5.5 in mammals. Also that hydrolysis of cytosolic ATP drives proton transport into the organelle lumen, and that the acidic lysosomal environment is optimal for hydrolytic enzymes.",
+        "license": "CC BY (Creative Commons Attribution License) as displayed on the article; facts-only use, with no source expression reused",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only to verify the pH values held by each compartment, that the V-ATPase pumps protons into an organelle lumen using cytosolic ATP, and that the acidic lysosomal environment is optimal for its hydrolases. The review's own subject, regulation by phosphatidylinositol phosphate lipids, is outside this lesson's scope. No wording, figure, table, dataset, or example was copied or adapted; the pH table in this lesson is set out and interpreted in this lesson's own terms."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://pmc.ncbi.nlm.nih.gov/robots.txt",
+          "checked": "2026-07-25",
+          "notes": "Read through the pmc.ncbi.nlm.nih.gov/articles/ route recorded as allowed in the project source-access ledger on 2026-07-25, within the ledger's 90-day recheck window. No login, paywall, or access control was bypassed."
+        }
+      },
+      {
+        "id": "source-feng-lysosome-hydrolases",
+        "type": "review",
+        "title": "Not just protons: Chloride also activates lysosomal acidic hydrolases",
+        "creators": [
+          "Xinghua Feng",
+          "Siyu Liu",
+          "Haoxing Xu"
+        ],
+        "publisher": "The Journal of Cell Biology",
+        "issued": "2023",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10191866/",
+        "accessed": "2026-07-26",
+        "version": "Volume 222, issue 6, article e202305007; DOI 10.1083/jcb.202305007",
+        "locator": "Statements that most lysosomal hydrolases exhibit their optimal activities in the acidic pH 4.5 to 5.0 environment of the lysosomal lumen and are for that reason called acidic hydrolases; and that luminal acidity is established and maintained by pumping protons into the lysosome through vacuolar-type H+-ATPases at the expense of ATP, resulting in a 500 to 1000-fold hydrogen-ion concentration gradient across the lysosomal membrane.",
+        "license": "Journal terms as displayed: a restricted licence for six months after publication, then CC BY-NC-SA 4.0; facts-only use, with no source expression reused",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only to verify the lysosomal luminal pH range, the acid optima of lysosomal hydrolases, and the size and maintenance of the proton gradient across the lysosomal membrane. The displayed licence carries NonCommercial and ShareAlike terms, which this project does not accept as a reuse basis, so no wording, figure, table, dataset, or example is reproduced or adapted anywhere in the pack. The arithmetic that recovers a factor of about 500 from two pH values is this lesson's own and is presented as a consistency check."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://pmc.ncbi.nlm.nih.gov/robots.txt",
+          "checked": "2026-07-25",
+          "notes": "Read through the pmc.ncbi.nlm.nih.gov/articles/ route recorded as allowed in the project source-access ledger on 2026-07-25, within the ledger's 90-day recheck window. No login, paywall, or access control was bypassed."
+        }
+      },
+      {
+        "id": "source-schrader-peroxisome",
+        "type": "review",
+        "title": "The peroxisome: still a mysterious organelle",
+        "creators": [
+          "Michael Schrader",
+          "H. Dariush Fahimi"
+        ],
+        "publisher": "Histochemistry and Cell Biology",
+        "issued": "2008",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2668598/",
+        "accessed": "2026-07-26",
+        "version": "Volume 129, issue 4, pages 421-440; DOI 10.1007/s00418-008-0396-9",
+        "locator": "Statements that peroxisomes were characterised by the colocalisation of several hydrogen-peroxide-producing oxidases together with catalase, a hydrogen-peroxide-degrading enzyme; that peroxisomal beta-oxidation and the activity of other peroxisomal oxidases result in the production of hydrogen peroxide, which is decomposed by catalase; and that the major function of peroxisomes in the beta-oxidation of very-long-chain fatty acids is established.",
+        "license": "Springer-Verlag copyright 2008; facts-only use, with no source expression reused",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only to verify that peroxisomal oxidases and beta-oxidation generate hydrogen peroxide, that catalase in the same organelle decomposes it, and that peroxisomes carry out beta-oxidation of very-long-chain fatty acids. No wording, figure, table, or example was copied or adapted; the contrast this lesson draws between segregating a capability and segregating a transient product is its own."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://pmc.ncbi.nlm.nih.gov/robots.txt",
+          "checked": "2026-07-25",
+          "notes": "Read through the pmc.ncbi.nlm.nih.gov/articles/ route recorded as allowed in the project source-access ledger on 2026-07-25, within the ledger's 90-day recheck window. No login, paywall, or access control was bypassed."
+        }
+      },
+      {
+        "id": "source-sun-signal-sequences",
+        "type": "primary-research",
+        "title": "Signal sequences encode information for protein folding in the endoplasmic reticulum",
+        "creators": [
+          "Sha Sun",
+          "Xia Li",
+          "Malaiyalam Mariappan"
+        ],
+        "publisher": "The Journal of Cell Biology",
+        "issued": "2022",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9723807/",
+        "accessed": "2026-07-26",
+        "version": "Volume 222, issue 1, article e202203070; DOI 10.1083/jcb.202203070",
+        "locator": "Introductory statements that about 30 per cent of newly synthesised proteins from cytosolic ribosomes are delivered to the endoplasmic reticulum by co-translational targeting; that signal sequences emerging from ribosomes are recognised and captured by the signal recognition particle; that ribosome-nascent chain complexes are delivered to the endoplasmic reticulum membrane through the signal recognition particle receptor; and that the signal sequence is then transferred to the Sec61 translocon.",
+        "license": "Journal terms as displayed: a restricted licence for six months after publication, then CC BY-NC-SA 4.0; facts-only use, with no source expression reused",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only to verify the proportion of newly synthesised proteins entering the endoplasmic reticulum co-translationally and the sequence of recognition, delivery and hand-off to the Sec61 translocon. The study's own finding, that signal sequences carry folding information, is beyond this lesson's scope and is not taught here. The displayed licence carries NonCommercial and ShareAlike terms, which this project does not accept as a reuse basis, so no wording, figure, table, dataset, or example is reproduced or adapted."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://pmc.ncbi.nlm.nih.gov/robots.txt",
+          "checked": "2026-07-25",
+          "notes": "Read through the pmc.ncbi.nlm.nih.gov/articles/ route recorded as allowed in the project source-access ledger on 2026-07-25, within the ledger's 90-day recheck window. No login, paywall, or access control was bypassed."
+        }
+      },
+      {
+        "id": "source-xu-atp-synthase",
+        "type": "review",
+        "title": "Understanding structure, function, and mutations in the mitochondrial ATP synthase",
+        "creators": [
+          "Ting Xu",
+          "Vijayakanth Pagadala",
+          "David M. Mueller"
+        ],
+        "publisher": "Microbial Cell",
+        "issued": "2015",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4415626/",
+        "accessed": "2026-07-26",
+        "version": "Volume 2, issue 4, pages 105-125; DOI 10.15698/mic2015.04.197",
+        "locator": "Statements that the proton turbine is powered by the flow of protons down a potential gradient across the mitochondrial membrane created by the electron transport chain during respiration, and that rotation of the rotor within F1 drives the synthesis of ATP; and that classical chemical uncouplers such as 2,4-dinitrophenol allow respiration without ATP synthesis by dissipating the proton potential across the mitochondrial membrane.",
+        "license": "CC BY (Creative Commons Attribution License) as displayed on the article; facts-only use, with no source expression reused",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only to verify that the electron transport chain creates a proton potential across the mitochondrial membrane, that the return flow of protons drives ATP synthesis, and that dissipating the potential permits respiration while ATP synthesis stops. The review's own subject, the structure and mutations of the enzyme, is beyond this lesson's scope. No wording, figure, table, or example was copied or adapted."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://pmc.ncbi.nlm.nih.gov/robots.txt",
+          "checked": "2026-07-25",
+          "notes": "Read through the pmc.ncbi.nlm.nih.gov/articles/ route recorded as allowed in the project source-access ledger on 2026-07-25, within the ledger's 90-day recheck window. No login, paywall, or access control was bypassed."
+        }
+      },
+      {
+        "id": "source-gasaly-butyrate",
+        "type": "review",
+        "title": "Butyrate and the Fine-Tuning of Colonic Homeostasis: Implication for Inflammatory Bowel Diseases",
+        "creators": [
+          "Naschla Gasaly",
+          "Marcela A. Hermoso",
+          "Martin Gotteland"
+        ],
+        "publisher": "International Journal of Molecular Sciences",
+        "issued": "2021",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8002420/",
+        "accessed": "2026-07-26",
+        "version": "Volume 22, issue 6, article 3061; DOI 10.3390/ijms22063061",
+        "locator": "Statements that butyrate oxidation in mature colonocytes produces 70 to 80 per cent of their energetic requirements; that butyrate is oxidised to carbon dioxide by the mitochondrial oxidative phosphorylation system, allowing ATP production; and that resident symbiont bacteria synthesise butyrate principally from carbohydrate-derived pyruvate.",
+        "license": "CC BY (Creative Commons Attribution) as displayed on the article; facts-only use, with no source expression reused",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only to verify the share of a mature colonocyte's energy that comes from butyrate oxidation, that the oxidation runs through the mitochondrial oxidative phosphorylation system, and that the butyrate originates from bacterial fermentation in the lumen. The review's own subject, inflammatory bowel disease, is outside this lesson's scope and no clinical statement is drawn from it. No wording, figure, table, dataset, or example was copied or adapted."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://pmc.ncbi.nlm.nih.gov/robots.txt",
+          "checked": "2026-07-25",
+          "notes": "Read through the pmc.ncbi.nlm.nih.gov/articles/ route recorded as allowed in the project source-access ledger on 2026-07-25, within the ledger's 90-day recheck window. No login, paywall, or access control was bypassed."
+        }
+      },
+      {
+        "id": "source-litvak-colonocyte-metabolism",
+        "type": "review",
+        "title": "Colonocyte metabolism shapes the gut microbiota",
+        "creators": [
+          "Yael Litvak",
+          "Mariana X. Byndloss",
+          "Andreas J. Baumler"
+        ],
+        "publisher": "Science",
+        "issued": "2018",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6296223/",
+        "accessed": "2026-07-26",
+        "version": "Volume 362, issue 6418, article eaat9076; DOI 10.1126/science.aat9076; read as the PMC author manuscript",
+        "locator": "Statements that fatty acid metabolism in mature colonocytes results in mitochondrial beta-oxidation of long-chain and short-chain fatty acids with oxygen consumption through oxidative phosphorylation; and that this energy metabolism is characterised by high oxygen consumption, resulting in an oxygen partial pressure of less than 7.6 mmHg, under 1 per cent oxygen, a condition known as epithelial hypoxia.",
+        "license": "Publisher terms, available as a PMC author manuscript; facts-only use, with no source expression reused",
+        "archivedUrl": null,
+        "uses": [
+          {
+            "usageType": "factual-reference",
+            "rightsBasis": "facts-only-original-expression",
+            "rightsBasisEvidence": "Used only to verify that mature colonocytes consume oxygen heavily through mitochondrial oxidation and that the resulting oxygen partial pressure at the epithelium is below 7.6 mmHg. The review's central argument about how colonocyte metabolism shapes the microbiota is explicitly not adopted; this lesson states that the further step is a claim it does not make. No wording, figure, table, dataset, or example was copied or adapted."
+          }
+        ],
+        "agentAccess": {
+          "status": "checked-no-agent-restriction-found",
+          "termsUrl": "https://pmc.ncbi.nlm.nih.gov/robots.txt",
+          "checked": "2026-07-25",
+          "notes": "Read through the pmc.ncbi.nlm.nih.gov/articles/ route recorded as allowed in the project source-access ledger on 2026-07-25, within the ledger's 90-day recheck window. No login, paywall, or access control was bypassed."
+        }
+      }
+    ]
+  },
+  "claims": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-claims-v1",
+    "lessonId": "PREM-BIO-003",
+    "lessonVersion": "0.1.0",
+    "claims": [
+      {
+        "id": "claim-colonocyte-polarity",
+        "statement": "The absorptive cell of the colonic epithelium, the colonocyte, is polarised: it has an apical membrane facing the lumen that carries microvilli and assists water absorption, and a distinct basolateral end facing neighbouring cells and the basement membrane. The two faces carry different proteins and do different work.",
+        "sceneIds": [
+          "scene-two-outsides",
+          "scene-getting-there",
+          "scene-practice",
+          "scene-clinical-wrap-up"
+        ],
+        "sourceIds": [
+          "source-nguyen-colonic-crypt",
+          "source-schneeberger-mvid"
+        ],
+        "support": "synthesis",
+        "confidence": "high",
+        "scope": "The spatial division of labour across an absorptive intestinal epithelial cell in healthy human intestine, used as the anchor case for compartmentalisation and as the destination problem for protein sorting.",
+        "uncertainty": "One source describes colonic enterocytes specifically and the other describes intestinal epithelial cells with its detailed examples drawn from small intestine. The lesson uses only the features both report, namely an apical microvillous surface facing the lumen and a functionally distinct basolateral surface, and it says where the case leaves the colon.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-brush-border-microvilli",
+        "statement": "A mature enterocyte carries approximately 1000 densely packed microvilli, which together form the brush border and substantially increase the apical surface area available for uptake.",
+        "sceneIds": [
+          "scene-two-outsides",
+          "scene-clinical-wrap-up"
+        ],
+        "sourceIds": [
+          "source-schneeberger-mvid"
+        ],
+        "support": "direct",
+        "confidence": "medium-high",
+        "scope": "The microvillus count and its consequence for apical surface area in a mature absorptive intestinal epithelial cell.",
+        "uncertainty": "The figure is a representative count for a mature enterocyte rather than a measurement of any individual cell, and microvillus number and length vary along the intestine, between species and with the state of the tissue. The lesson uses the figure only to establish that the apical surface is elaborated on purpose.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-compartment-volume-and-proteins",
+        "statement": "On average the membrane-enclosed compartments of a cell together occupy nearly half its volume, and each organelle contains a distinct set of proteins that mediate its own functions.",
+        "sceneIds": [
+          "scene-two-outsides",
+          "scene-compartment-as-machine"
+        ],
+        "sourceIds": [
+          "source-alberts-compartmentalization"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "The scale of the investment a eukaryotic cell makes in internal membrane, and the functional distinctness of each compartment, used to establish that compartmentalisation is a large and deliberate cost.",
+        "uncertainty": "The volume figure is an average across cell types and the textbook chapter reports it alongside a table for one cell type. A cell with unusual metabolic or secretory demands will sit away from the average, and the lesson uses the figure only as an order of magnitude.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-compartment-ph-landscape",
+        "statement": "A mammalian cell holds several different pH values at once: cytosol, nucleus and endoplasmic reticulum near 7.2; the Golgi network from about 6.7 down to about 6.0 across its cis, medial and trans compartments; early and recycling endosomes at 6.3 to 6.5 and late endosomes at 5.5; secretory granules at 5.2 to 5.7; and the lysosome as the most acidic, reported as 4.7 to 5.5 by one review and 4.5 to 5.0 by another.",
+        "sceneIds": [
+          "scene-proton-arithmetic",
+          "scene-membrane-not-protection",
+          "scene-getting-there",
+          "scene-practice"
+        ],
+        "sourceIds": [
+          "source-banerjee-organelle-ph",
+          "source-feng-lysosome-hydrolases"
+        ],
+        "support": "synthesis",
+        "confidence": "medium-high",
+        "scope": "Representative steady-state pH values for the compartments of a mammalian cell, used to establish that a cell maintains several incompatible conditions simultaneously.",
+        "uncertainty": "These are measurements on living cells using pH-sensitive probes, and they vary with cell type, probe and physiological state. The two reviews overlap on the lysosome and disagree at the edges of the range, which the lesson states plainly. The lesson treats every value as a band and takes about pH 5 as the working figure for the lysosome and about 7.2 for the cytosol.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-lysosome-proton-gradient",
+        "statement": "Lysosomal luminal acidity is established and maintained by vacuolar-type proton ATPases that pump protons inward at the expense of ATP, producing a hydrogen-ion concentration gradient of 500 to 1000-fold across the lysosomal membrane.",
+        "sceneIds": [
+          "scene-proton-arithmetic",
+          "scene-compartment-as-machine",
+          "scene-practice"
+        ],
+        "sourceIds": [
+          "source-feng-lysosome-hydrolases"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "The size of the lysosomal proton gradient and the ATP-consuming mechanism that holds it, used to show that a compartment is a maintained condition with a standing energy cost.",
+        "uncertainty": "The 500 to 1000-fold range is a representative figure and moves with the lysosomal pH actually reached and with the cytosolic pH assumed. Nothing in the lesson depends on the value beyond its order of magnitude.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-proton-ratio-arithmetic",
+        "statement": "Taking the cytosol at pH 7.2 and the lysosome at pH 4.5, the ratio of hydrogen-ion concentrations is 10 to the power 2.7, a little over 500, which agrees with the independently reported 500 to 1000-fold gradient at the acid end of the reported lysosomal range.",
+        "sceneIds": [
+          "scene-proton-arithmetic"
+        ],
+        "sourceIds": [
+          "source-banerjee-organelle-ph",
+          "source-feng-lysosome-hydrolases"
+        ],
+        "support": "inference",
+        "confidence": "medium-high",
+        "scope": "An arithmetic consistency check between two independently reported quantities, the compartment pH values and the measured proton gradient, used as a worked example of reading a logarithmic scale.",
+        "uncertainty": "This is the lesson's own calculation and not a measurement. Its answer moves with the lysosomal pH chosen: at pH 5.0 the same arithmetic gives about 160 rather than about 500. The agreement holds at the acid end of the reported range, which the worked example states, and the lesson does not treat the convergence as evidence for either input.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-acid-hydrolases-double-protection",
+        "statement": "Lysosomal digestive enzymes are acid hydrolases whose optimal activity lies around pH 4.5 to 5.0, and the lysosome maintains an interior near pH 5.0 to supply that. The cytosol is therefore doubly protected: the lysosomal membrane normally keeps the enzymes out of it, and enzymes that did leak out could do little damage at the cytosolic pH of about 7.2.",
+        "sceneIds": [
+          "scene-membrane-not-protection",
+          "scene-practice"
+        ],
+        "sourceIds": [
+          "source-alberts-tgn-lysosomes",
+          "source-feng-lysosome-hydrolases"
+        ],
+        "support": "synthesis",
+        "confidence": "high",
+        "scope": "The pH requirement of lysosomal hydrolases and its consequence for what protects the cytosol, used to repair the model in which the membrane alone is the safety device.",
+        "uncertainty": "Optima differ between individual hydrolases and the phrase little damage is the textbook's qualitative judgement rather than a measured residual activity. The lesson does not claim that leaked hydrolases are wholly inert at cytosolic pH.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-lysosome-degrades-material",
+        "statement": "Material taken into the cell by endocytosis reaches the lysosomal hydrolases after passing through early and late endosomes, and electron micrographs of normal cells show lysosomes containing whole organelles, including mitochondria, being digested.",
+        "sceneIds": [
+          "scene-membrane-not-protection"
+        ],
+        "sourceIds": [
+          "source-alberts-tgn-lysosomes"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "What the lysosome degrades, stated at the level a first lesson on compartmentalisation needs, and used to establish that the organelle really is the site of degradation before the misconception about its membrane is examined.",
+        "uncertainty": "The lesson does not teach the endosomal maturation route, the autophagy machinery, or the regulation of either. It states only that endocytosed material and worn organelles are degraded there.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-peroxisome-peroxide-and-catalase",
+        "statement": "Peroxisomes carry out beta-oxidation of very-long-chain fatty acids, and that beta-oxidation together with other peroxisomal oxidases produces hydrogen peroxide, which is decomposed by catalase located in the same organelle.",
+        "sceneIds": [
+          "scene-membrane-not-protection",
+          "scene-practice"
+        ],
+        "sourceIds": [
+          "source-schrader-peroxisome"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "The co-localisation of a reactive product and the enzyme that destroys it inside one compartment, used as the second and contrasting case of chemistry that must be kept apart from the cytosol.",
+        "uncertainty": "Peroxisomes carry out many other reactions and vary between tissues, and the lesson does not attempt a full account of peroxisomal metabolism. That hydrogen peroxide is confined to a short journey inside the organelle is the lesson's reading of the co-localisation, not a measured diffusion distance.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-hydrolase-activity-off-optimum",
+        "statement": "An enzyme with an acidic pH optimum is substantially less effective at the higher pH of the compartments it passes through on its way to the lysosome, so a lysosomal hydrolase is below its working activity while in the endoplasmic reticulum near pH 7.2 and in the Golgi at about 6.7 to 6.0.",
+        "sceneIds": [
+          "scene-membrane-not-protection"
+        ],
+        "sourceIds": [
+          "source-feng-lysosome-hydrolases",
+          "source-banerjee-organelle-ph"
+        ],
+        "support": "inference",
+        "confidence": "medium",
+        "scope": "A bounded inference used to explain why cargo travelling alongside a lysosomal enzyme is not destroyed en route, and to discriminate the maintained-condition model from the membrane-as-wall model.",
+        "uncertainty": "No source cited here reports an activity-versus-pH curve for a named lysosomal enzyme. The inference rests on the reported acid optima and on the compartment pH values, and it assumes that activity falls away substantially over one to two pH units above the optimum. How steeply activity falls either side of an optimum is a property of the individual enzyme, and the prose labels this passage an inference where it is made.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-sorting-signals-and-route",
+        "statement": "Each newly synthesised organelle protein must find its way from a ribosome in the cytosol to its working location by following a specific pathway, guided by signals carried in its own amino acid sequence.",
+        "sceneIds": [
+          "scene-getting-there",
+          "scene-compartment-as-machine",
+          "scene-clinical-wrap-up"
+        ],
+        "sourceIds": [
+          "source-alberts-compartmentalization"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "The general principle that destination information is encoded in the product itself, used to establish protein targeting as a distinct cost of compartmentalisation.",
+        "uncertainty": "The lesson teaches one worked route in detail, the endoplasmic reticulum route, and names the mannose 6-phosphate address. Targeting to mitochondria, peroxisomes and the nucleus uses different signals and different machinery, and the lesson says only that they exist.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-cotranslational-er-targeting",
+        "statement": "About 30 per cent of newly synthesised proteins from cytosolic ribosomes are delivered to the endoplasmic reticulum by co-translational targeting: a signal sequence emerging from the ribosome is recognised and captured by the signal recognition particle, the ribosome and its unfinished chain are delivered to the endoplasmic reticulum membrane through the signal recognition particle receptor, and the signal sequence is transferred to the Sec61 translocon.",
+        "sceneIds": [
+          "scene-getting-there",
+          "scene-compartment-as-machine",
+          "scene-practice"
+        ],
+        "sourceIds": [
+          "source-sun-signal-sequences"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "The proportion of new proteins entering the endoplasmic reticulum route and the mechanism by which they are diverted, used to show that an address is read while the product is still being manufactured.",
+        "uncertainty": "The 30 per cent figure is an aggregate for mammalian cells and will differ between cell types; a heavily secretory cell sits above it. A separate post-translational route into the endoplasmic reticulum also exists and is not taught here.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-successive-modification-and-tgn-sorting",
+        "statement": "Proteins travelling from the endoplasmic reticulum to the Golgi apparatus and onward pass through a series of compartments where they are successively modified, and they end in the trans Golgi network, which packages them into transport vesicles and dispatches them to their specific destinations.",
+        "sceneIds": [
+          "scene-getting-there"
+        ],
+        "sourceIds": [
+          "source-alberts-er-golgi"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "The fixed order of compartments along the secretory route and the sorting function of the trans Golgi network, used to establish controlled sequence as the second purchase compartmentalisation makes.",
+        "uncertainty": "The lesson does not teach the chemistry of the modifications, the vesicle coats that carry cargo between compartments, or the mechanisms that retain resident Golgi proteins. It uses only the ordering and the sorting step.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-mannose-6-phosphate-address",
+        "statement": "Mannose 6-phosphate groups are added to the sugar chains of soluble lysosomal enzymes as they pass through the Golgi, and those groups are recognised by transmembrane mannose 6-phosphate receptors present in the trans Golgi network, which is how the enzymes are directed to lysosomes.",
+        "sceneIds": [
+          "scene-getting-there",
+          "scene-compartment-as-machine",
+          "scene-practice",
+          "scene-clinical-wrap-up"
+        ],
+        "sourceIds": [
+          "source-alberts-tgn-lysosomes"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "One fully worked address, a chemical tag and the receptor that reads it, used as the concrete instance of the targeting machinery a compartmentalised cell has to run.",
+        "uncertainty": "This is the route for soluble lysosomal enzymes. Lysosomal membrane proteins and some soluble enzymes reach lysosomes by other routes, which the lesson does not teach. The lesson's prediction about where an untagged enzyme ends up is presented as a prediction from the mechanism and not as a reported result.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-nucleus-site-of-rna-synthesis",
+        "statement": "The nucleus contains the main genome and is the principal site of DNA and RNA synthesis, while translation takes place on ribosomes outside it in the cytosol.",
+        "sceneIds": [
+          "scene-getting-there"
+        ],
+        "sourceIds": [
+          "source-alberts-compartmentalization"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "The separation of where a genetic message is written from where it is read, used as the first compartment on the route this lesson traces.",
+        "uncertainty": "The lesson makes no claim about what that separation permits in gene regulation or RNA processing; those belong to later lessons in the course. It uses only the fact of the separation.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-membrane-required-for-oxidative-phosphorylation",
+        "statement": "Oxidative phosphorylation requires a membrane in order to couple the transport of protons to the synthesis of ATP.",
+        "sceneIds": [
+          "scene-compartment-as-machine"
+        ],
+        "sourceIds": [
+          "source-alberts-compartmentalization"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "The requirement that makes the mitochondrial boundary part of the mechanism rather than a container around it.",
+        "uncertainty": "The statement concerns the requirement for a membrane, not the detailed topology of the mitochondrial inner membrane or the arrangement of its cristae, neither of which this lesson teaches.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-proton-gradient-drives-atp-synthase",
+        "statement": "The electron transport chain creates a proton potential gradient across the mitochondrial membrane during respiration, and the flow of protons back down that gradient turns the rotor of ATP synthase, which synthesises ATP as it turns.",
+        "sceneIds": [
+          "scene-compartment-as-machine"
+        ],
+        "sourceIds": [
+          "source-xu-atp-synthase"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "The mechanism by which a compartment boundary stores energy as a difference and converts it to chemistry, at the level of detail a first lesson on compartmentalisation needs.",
+        "uncertainty": "The lesson does not teach the composition of the electron transport chain, the stoichiometry of proton pumping, or the structure of the synthase. Those belong to later lessons on metabolism.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-uncouplers-dissipate-gradient",
+        "statement": "Classical chemical uncouplers such as 2,4-dinitrophenol dissipate the proton potential across the mitochondrial membrane, so respiration proceeds while ATP synthesis stops.",
+        "sceneIds": [
+          "scene-compartment-as-machine"
+        ],
+        "sourceIds": [
+          "source-xu-atp-synthase"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "The experimental demonstration that the stored quantity is a difference across a boundary, used to separate a compartment that is a container from a compartment that is a mechanism.",
+        "uncertainty": "The statement is about the effect on the proton potential and ATP synthesis in a laboratory setting. Nothing here concerns any use, dose, exposure or effect of these compounds in people, and the lesson makes no such statement.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-butyrate-fuels-colonocytes",
+        "statement": "Butyrate oxidation supplies 70 to 80 per cent of a mature colonocyte's energetic requirements; the butyrate is synthesised by resident bacteria in the lumen, and the colonocyte oxidises it to carbon dioxide through the mitochondrial oxidative phosphorylation system.",
+        "sceneIds": [
+          "scene-compartment-as-machine"
+        ],
+        "sourceIds": [
+          "source-gasaly-butyrate"
+        ],
+        "support": "direct",
+        "confidence": "medium-high",
+        "scope": "The fuel a mature colonocyte actually runs on and where it comes from, used to connect the mitochondrial compartment to the bacterial population on the other side of the apical membrane.",
+        "uncertainty": "The 70 to 80 per cent figure describes mature colonocytes and does not describe the dividing cells at the crypt base, which have a different metabolism. The share will vary with diet, with the composition of the luminal community, and with the state of the tissue.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-colonocyte-oxygen-consumption-hypoxia",
+        "statement": "Mature colonocytes running mitochondrial beta-oxidation consume oxygen heavily through oxidative phosphorylation, and the resulting oxygen partial pressure at the epithelium is below 7.6 mmHg, under 1 per cent oxygen, a condition described as epithelial hypoxia.",
+        "sceneIds": [
+          "scene-compartment-as-machine"
+        ],
+        "sourceIds": [
+          "source-litvak-colonocyte-metabolism"
+        ],
+        "support": "direct",
+        "confidence": "medium-high",
+        "scope": "The oxygen tension at the colonic epithelial surface and its origin in the metabolism of the epithelial cells themselves, used to show that a compartment's activity inside one cell has a consequence at tissue scale.",
+        "uncertainty": "The value is a reported figure for the healthy colonic epithelium and will vary with region, diet and disease. The lesson explicitly does not adopt the further claim that this hypoxia is what maintains the anaerobic luminal community, which is the review's own argument and an active research question.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-enterocyte-lifespan",
+        "statement": "Enterocytes of the intestinal lining are replaced every four to five days, while some other epithelial cell types in the same tissue persist far longer.",
+        "sceneIds": [
+          "scene-clinical-wrap-up"
+        ],
+        "sourceIds": [
+          "source-nguyen-colonic-crypt"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "The replacement interval of the absorptive cell, carried forward from the first lesson of this block and used to show how often the delivery machinery has to rebuild a complete cell.",
+        "uncertainty": "This is a population-level interval, not a claim that every cell shares one lifetime. The same review notes that serotonin-producing enteroendocrine cells can persist for up to 28 days, so cell-type lifetimes within one crypt differ substantially.",
+        "risk": "routine",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-mvid-cause-and-trafficking",
+        "statement": "Microvillus inclusion disease is caused by mutations in the genes for myosin Vb, syntaxin 3 or syntaxin binding protein 2, which produce a failure of vesicle trafficking or of the fusion of vesicles with the plasma membrane, with the result that vesicles containing apical proteins accumulate subapically.",
+        "sceneIds": [
+          "scene-clinical-wrap-up"
+        ],
+        "sourceIds": [
+          "source-schneeberger-mvid"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "The causal genes and the cellular mechanism of one intestinal epithelial polarity disorder, used as a worked case in which manufacture is intact and delivery fails.",
+        "uncertainty": "The reported gene set is not exhaustive and the review describes heterogeneous mutations with differing effects. Nothing here is a diagnostic criterion, a genotype-phenotype statement for any individual, or guidance for investigation or management.",
+        "risk": "health-sensitive",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-mvid-histology",
+        "statement": "Biopsies in microvillus inclusion disease show villus atrophy, absent or abnormal microvilli, subapical staining for a protein that belongs on the apical membrane, intracellular vesicle-like structures, and subapical microvillus inclusions.",
+        "sceneIds": [
+          "scene-clinical-wrap-up"
+        ],
+        "sourceIds": [
+          "source-schneeberger-mvid"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "The reported microscopic findings of one disorder, used to test whether the lesson's delivery model predicts what is actually seen.",
+        "uncertainty": "These are findings reported in a review of the condition, described in small-bowel tissue. The lesson states no sensitivity, specificity, frequency or diagnostic threshold for any of them and makes no statement about what any finding would mean in a real specimen.",
+        "risk": "health-sensitive",
+        "reviewStatus": "pending-review"
+      },
+      {
+        "id": "claim-mvid-presentation",
+        "statement": "Microvillus inclusion disease is a severe neonatal enteropathy that manifests mostly during the first days of life, with extremely watery diarrhoea, dehydration and weight loss.",
+        "sceneIds": [
+          "scene-clinical-wrap-up"
+        ],
+        "sourceIds": [
+          "source-schneeberger-mvid"
+        ],
+        "support": "direct",
+        "confidence": "high",
+        "scope": "The reported clinical presentation of one rare disorder, used only to check the lesson's prediction that a failure to build the absorptive surface produces a failure to absorb.",
+        "uncertainty": "This is a description of a reported presentation and not a diagnostic rule. Many conditions produce neonatal diarrhoea, and the lesson takes no position on how any real presentation should be interpreted, investigated or managed.",
+        "risk": "health-sensitive",
+        "reviewStatus": "pending-review"
+      }
+    ]
+  },
+  "glossary": {
+    "schemaVersion": 1,
+    "format": "embeddedknowledge-glossary-v1",
+    "lessonId": "PREM-BIO-003",
+    "lessonVersion": "0.1.0",
+    "terms": [
+      {
+        "id": "term-compartment",
+        "term": "compartment",
+        "definition": "A space inside a cell enclosed by membrane, holding conditions that differ from the cytosol and actively maintained against the tendency of those differences to even out. The maintained part is what separates a compartment from a container: stop paying for the difference and it goes, while the membrane is still intact.",
+        "aliases": [
+          "cellular compartment"
+        ],
+        "sceneIds": [
+          "scene-two-outsides",
+          "scene-proton-arithmetic",
+          "scene-membrane-not-protection",
+          "scene-getting-there",
+          "scene-compartment-as-machine",
+          "scene-practice",
+          "scene-clinical-wrap-up"
+        ]
+      },
+      {
+        "id": "term-organelle",
+        "term": "organelle",
+        "definition": "A compartment, or in a few cases a structure, with a recognisable identity and a job the others do not do, holding its own distinct set of proteins. Naming an organelle is the end of an explanation and not the beginning of one; the question that does the work is which maintained condition it holds.",
+        "aliases": [],
+        "sceneIds": [
+          "scene-proton-arithmetic",
+          "scene-membrane-not-protection",
+          "scene-getting-there",
+          "scene-compartment-as-machine",
+          "scene-practice",
+          "scene-clinical-wrap-up"
+        ]
+      },
+      {
+        "id": "term-compartmentalisation",
+        "term": "compartmentalisation",
+        "definition": "The division of a cell's interior by membrane into separate compartments. It buys incompatible chemistries running at the same time, local concentrations unlike the cytosol, and a controlled sequence of operations imposed by a fixed order of compartments. It is charged for in membrane, in standing energy, in transport machinery and in an addressing system. It is the idea PREM-BIO-001 called emergence, applied one level below the tissue: the properties belong to the arrangement of parts and to no part alone.",
+        "aliases": [
+          "compartmentalization"
+        ],
+        "sceneIds": [
+          "scene-two-outsides",
+          "scene-getting-there",
+          "scene-compartment-as-machine",
+          "scene-clinical-wrap-up"
+        ]
+      },
+      {
+        "id": "term-cytosol",
+        "term": "cytosol",
+        "definition": "The fluid inside a cell but outside its membrane-enclosed compartments, held near pH 7.2. It is the reference condition against which every compartment in this lesson is compared, and it is where a protein stays when nothing directs it elsewhere.",
+        "aliases": [],
+        "sceneIds": [
+          "scene-proton-arithmetic",
+          "scene-membrane-not-protection",
+          "scene-getting-there",
+          "scene-compartment-as-machine",
+          "scene-practice"
+        ]
+      },
+      {
+        "id": "term-colonocyte",
+        "term": "colonocyte",
+        "definition": "The absorptive cell of the colonic epithelium, and the kind of enterocyte that makes up most of that lining. It is polarised, with an apical surface meeting the lumen and a basolateral surface meeting neighbouring cells and the tissue beneath, and it is the running example of this lesson.",
+        "aliases": [
+          "colonic enterocyte",
+          "absorptive enterocyte"
+        ],
+        "sceneIds": [
+          "scene-two-outsides",
+          "scene-proton-arithmetic",
+          "scene-membrane-not-protection",
+          "scene-getting-there",
+          "scene-compartment-as-machine",
+          "scene-practice",
+          "scene-clinical-wrap-up"
+        ]
+      },
+      {
+        "id": "term-apical-surface",
+        "term": "apical surface",
+        "definition": "The face of an epithelial cell that meets the lumen. In a colonocyte it carries the brush border and is where uptake from the gut contents happens. Its protein complement differs from that of the basolateral surface, and a protein delivered to the wrong one of the two is in the wrong place.",
+        "aliases": [
+          "apical",
+          "apical membrane"
+        ],
+        "sceneIds": [
+          "scene-two-outsides",
+          "scene-getting-there",
+          "scene-compartment-as-machine",
+          "scene-practice",
+          "scene-clinical-wrap-up"
+        ]
+      },
+      {
+        "id": "term-basolateral-surface",
+        "term": "basolateral surface",
+        "definition": "The face of an epithelial cell away from the lumen: the base in contact with the material the sheet sits on, together with the sides in contact with neighbouring cells. In a colonocyte it is where absorbed material is handed onward towards the blood.",
+        "aliases": [
+          "basolateral",
+          "basolateral membrane"
+        ],
+        "sceneIds": [
+          "scene-two-outsides",
+          "scene-getting-there",
+          "scene-compartment-as-machine",
+          "scene-clinical-wrap-up"
+        ]
+      },
+      {
+        "id": "term-brush-border",
+        "term": "brush border",
+        "definition": "The dense array of fine projections, around a thousand of them on a mature absorptive cell, that covers the apical surface and multiplies the area available for uptake. Each projection is a microvillus. Under a light microscope the array reads as one fuzzy border, which is where the name comes from.",
+        "aliases": [
+          "microvillus",
+          "microvilli"
+        ],
+        "sceneIds": [
+          "scene-two-outsides",
+          "scene-clinical-wrap-up"
+        ]
+      },
+      {
+        "id": "term-lysosome",
+        "term": "lysosome",
+        "definition": "A compartment held near pH 5 by a proton pump in its membrane, containing acid hydrolases that break down material taken into the cell and worn-out organelles. The acid interior is not a convenience for the enzymes. It is what switches them on, and therefore also what makes them safe for the cell to own.",
+        "aliases": [],
+        "sceneIds": [
+          "scene-two-outsides",
+          "scene-proton-arithmetic",
+          "scene-membrane-not-protection",
+          "scene-getting-there",
+          "scene-compartment-as-machine",
+          "scene-practice",
+          "scene-clinical-wrap-up"
+        ]
+      },
+      {
+        "id": "term-acid-hydrolase",
+        "term": "acid hydrolase",
+        "definition": "A degradative enzyme whose activity is optimal in acid conditions, around pH 4.5 to 5.0 for the lysosomal set. The name records a requirement and not a location: the same enzyme at the cytosolic pH of about 7.2 can do little.",
+        "aliases": [
+          "acidic hydrolase"
+        ],
+        "sceneIds": [
+          "scene-membrane-not-protection",
+          "scene-compartment-as-machine",
+          "scene-practice"
+        ]
+      },
+      {
+        "id": "term-peroxisome",
+        "term": "peroxisome",
+        "definition": "A compartment that runs oxidation reactions, including the breakdown of fatty acids too long for mitochondria to start on, and that carries catalase alongside the oxidases producing hydrogen peroxide, so the peroxide is destroyed where it is made. It segregates a reactive product, which is a different problem from the one the lysosome solves.",
+        "aliases": [],
+        "sceneIds": [
+          "scene-two-outsides",
+          "scene-membrane-not-protection",
+          "scene-getting-there",
+          "scene-practice"
+        ]
+      },
+      {
+        "id": "term-endoplasmic-reticulum",
+        "term": "endoplasmic reticulum",
+        "definition": "A membrane compartment reaching through much of the cell, held near pH 7.2, which receives proteins carrying a signal sequence while they are still being made and is where their folding begins. The rough form is the part studded with the ribosomes making those proteins.",
+        "aliases": [
+          "ER",
+          "rough endoplasmic reticulum"
+        ],
+        "sceneIds": [
+          "scene-two-outsides",
+          "scene-proton-arithmetic",
+          "scene-membrane-not-protection",
+          "scene-getting-there",
+          "scene-compartment-as-machine",
+          "scene-practice",
+          "scene-clinical-wrap-up"
+        ]
+      },
+      {
+        "id": "term-golgi-apparatus",
+        "term": "Golgi apparatus",
+        "definition": "A stack of compartments running from about pH 6.7 at the face receiving cargo from the endoplasmic reticulum to about 6.0 at the face dispatching it. Proteins are modified in a fixed order as they pass through, and the final compartment, the trans-Golgi network, sorts them by destination and packages them into transport vesicles.",
+        "aliases": [
+          "Golgi",
+          "trans-Golgi network"
+        ],
+        "sceneIds": [
+          "scene-two-outsides",
+          "scene-proton-arithmetic",
+          "scene-membrane-not-protection",
+          "scene-getting-there",
+          "scene-practice",
+          "scene-clinical-wrap-up"
+        ]
+      },
+      {
+        "id": "term-signal-sequence",
+        "term": "signal sequence",
+        "definition": "A stretch of a newly made protein's own amino-acid sequence that says where the protein should go. The signal sequence for the endoplasmic reticulum is recognised by the signal recognition particle as it emerges from the ribosome, and that recognition diverts the whole ribosome and unfinished chain to the endoplasmic reticulum membrane.",
+        "aliases": [
+          "signal peptide"
+        ],
+        "sceneIds": [
+          "scene-getting-there",
+          "scene-compartment-as-machine",
+          "scene-practice"
+        ]
+      },
+      {
+        "id": "term-protein-targeting",
+        "term": "protein targeting",
+        "definition": "The machinery that gets each product to the compartment or the cell face where it works: a destination encoded in the product, and a receptor able to read it. The mannose 6-phosphate group added to lysosomal enzymes in the Golgi, and recognised by mannose 6-phosphate receptors in the trans-Golgi network, is one complete example. Targeting can fail on its own, leaving a correctly made product in the wrong place.",
+        "aliases": [
+          "protein sorting",
+          "address system",
+          "addressing"
+        ],
+        "sceneIds": [
+          "scene-getting-there",
+          "scene-compartment-as-machine",
+          "scene-practice",
+          "scene-clinical-wrap-up"
+        ]
+      },
+      {
+        "id": "term-transport-vesicle",
+        "term": "transport vesicle",
+        "definition": "A small membrane-bounded sac that carries cargo between compartments, or from the trans-Golgi network to a chosen face of the cell surface, and delivers it by fusing with the target membrane. Moving the vesicle and fusing it are separate steps, and they can fail separately.",
+        "aliases": [
+          "vesicle"
+        ],
+        "sceneIds": [
+          "scene-two-outsides",
+          "scene-getting-there",
+          "scene-compartment-as-machine",
+          "scene-practice",
+          "scene-clinical-wrap-up"
+        ]
+      },
+      {
+        "id": "term-mitochondrion",
+        "term": "mitochondrion",
+        "definition": "A compartment whose boundary is part of its mechanism. The electron transport chain pumps protons across that boundary and the return flow of protons drives ATP synthase. Because a gradient is a difference between two sides, removing the boundary removes the device instead of merely opening it.",
+        "aliases": [
+          "mitochondria"
+        ],
+        "sceneIds": [
+          "scene-two-outsides",
+          "scene-membrane-not-protection",
+          "scene-compartment-as-machine",
+          "scene-clinical-wrap-up"
+        ]
+      },
+      {
+        "id": "term-proton-gradient",
+        "term": "proton gradient",
+        "definition": "A difference in hydrogen-ion concentration, and in charge, between the two sides of a membrane. It is a store of energy that exists only across a boundary, and it runs down unless something keeps pushing. Lysosomal acidity and mitochondrial ATP synthesis are two uses of the same physical arrangement.",
+        "aliases": [
+          "proton potential",
+          "hydrogen-ion gradient"
+        ],
+        "sceneIds": [
+          "scene-two-outsides",
+          "scene-proton-arithmetic",
+          "scene-membrane-not-protection",
+          "scene-compartment-as-machine"
+        ]
+      },
+      {
+        "id": "term-butyrate",
+        "term": "butyrate",
+        "definition": "A short-chain fatty acid made by the bacteria of the colonic lumen from material the host has not digested. It supplies seventy to eighty per cent of a mature colonocyte's energy, oxidised inside that cell's mitochondria.",
+        "aliases": [],
+        "sceneIds": [
+          "scene-compartment-as-machine"
+        ]
+      }
+    ]
+  },
+  "attributionHtml": "<h1>Attribution and provenance</h1>\n<h2>Lesson identity</h2>\n<ul>\n<li>Lesson: <strong>PREM-BIO-003 — Why a cell pays to keep its chemistry apart</strong></li>\n<li>Version: <code>0.1.0</code></li>\n<li>Outcome: <code>topic-cell-biology-organelles</code> / PREM-05.03</li>\n<li>Prerequisite: <code>topic-cell-biology-cell-types</code> / PREM-05.02</li>\n<li>Accountable principal: VSBDev (<code>github:VSBDev</code>)</li>\n<li>Course-content licence: <a href=\"https://creativecommons.org/licenses/by/4.0/\" rel=\"noreferrer noopener\">Creative Commons Attribution 4.0 International</a></li>\n</ul>\n<h2>Original contribution</h2>\n<p>The lesson prose, the organising argument of three purchases and a standing bill, the proton-ratio\nworked example and every number derived in it, the pH table as it is set out and interpreted here,\nthe room analogy and the point at which it is retired, the misconception sequence and its\ndiscriminating prediction, the three practice passes, the invented infant in the clinical wrap-up,\nthe invented laboratory interventions in the assessment, all prompts, feedback, assessment items,\nrubrics, and glossary definitions were created for EmbeddedKnowledge and are contributed under\nCC BY 4.0 by the accountable principal.</p>\n<h2>Assets</h2>\n<p>Two figures appear in this pack, one of each kind.</p>\n<ul>\n<li><code>assets/animal-cell-structure.png</code> is <strong>third party</strong>. It is a labelled cutaway of a generic\nanimal cell by LadyofHats (Mariana Ruiz), released by its author into the public domain, at the\n<a href=\"https://commons.wikimedia.org/wiki/File:Animal_cell_structure_en.svg\" rel=\"noreferrer noopener\">file page for <code>File:Animal_cell_structure_en.svg</code></a>.\nThe licence was verified on the file&#39;s own Commons page, which carries the PD-self template\nworded &quot;This work has been released into the public domain by its author, LadyofHats. This applies\nworldwide&quot;, records the copyright status as dedicated to the public domain by the copyright holder,\nand gives the source as own work using Adobe Illustrator. The Commons API returns Public domain for\nboth LicenseShortName and UsageTerms, Copyrighted false, and the same author. The page names no\nupstream artwork creator with a site of its own, so the rule against sourcing another creator&#39;s art\nthrough Commons does not bite here. The copy in this pack was rendered from the original SVG to PNG\nat 1280 pixels wide by the Wikimedia thumbnail service, with no change to the content; that\nrendering is the only modification and is declared in <code>lesson.json</code>. The credit recorded there is\nshown to the learner beside the image. Displayed attribution: Animal cell structure by LadyofHats\n(Mariana Ruiz), released into the public domain.</li>\n<li><code>diagrams/route-to-the-surface.diagram.json</code> is <strong>original work created for this lesson</strong>. Its\neight nodes, seven edges, pH annotations, alt text and long description were written here from the\nmechanisms this pack&#39;s own sources establish. It is declared in <code>originalAssets</code>. No third-party\nfigure was copied, adapted, or redrawn to produce it.</li>\n</ul>\n<p>The two figures do different jobs, and the first scene says so. The third-party drawing is a\nreference that lets a learner attach names to places once; it is a generic animal cell with a\nflagellum and no apical or basolateral asymmetry, so the scene states plainly that it is not the\nlesson&#39;s case cell and that the argument is not organised around it. The route diagram is the figure\nthat does the teaching, and it is ours.</p>\n<p>The Servier Medical Art library on <code>smart.servier.com</code> was considered and rejected. Its images are\ngenuinely CC BY 4.0, but section 3 of its terms of use requires a user not to use automated methods\nto access or download site content, and an authoring agent is an automated method; a licence does\nnot override an access restriction. Nothing was fetched from that host for this pack and no Servier\nasset appears in it. <code>site/agent/source-access-ledger.json</code> has been corrected from <code>allowed</code> to\n<code>excluded</code> for that domain so the next author inherits the finding. Two further findings recorded\nthere: the component images are icon-sized and there is no standalone whole-cell item in the library.</p>\n<h2>Terminology continuity</h2>\n<p>The course terminology ledger was read before the glossary was designed. All nineteen entries\nintroduce terms no published lesson currently owns: compartment, organelle, compartmentalisation,\ncytosol, colonocyte, apical surface, basolateral surface, brush border, lysosome, acid hydrolase,\nperoxisome, endoplasmic reticulum, Golgi apparatus, signal sequence, protein targeting, transport\nvesicle, mitochondrion, proton gradient, and butyrate. No entry declares an <code>alignment</code> block,\nbecause none of these words is defined by an earlier lesson in either course.</p>\n<p>Terms this lesson uses without redefining, because PREM-BIO-001 owns them, are <em>cell</em>, <em>tissue</em>,\n<em>epithelium</em>, <em>lumen</em>, <em>colonic crypt</em>, <em>stem cell</em>, <em>emergent property</em> and <em>biological\norganisation</em>. The first scene cross-references the emergence definition and its two-part test\ninstead of restating them, and the <code>compartmentalisation</code> entry names that relationship explicitly.</p>\n<p>The word <em>membrane</em> is deliberately left undefined here. Membrane structure and fluidity is a\nseparate outcome in this module, and this lesson treats a membrane only as a boundary capable of\nholding a difference, saying so in the first scene and handing the question on in the last.</p>\n<h2>Source use and rights</h2>\n<p>Twelve sources support the factual claims. Every one was used for facts only, followed by an\nindependent instructional structure and original expression; no source is quoted, adapted, redrawn,\nor reorganised anywhere in the pack, and no example, question, table, figure, or dataset is taken\nfrom any of them. Complete locators, use records, rights evidence, and dated agent-access checks\nappear in <code>references.json</code>.</p>\n<ul>\n<li><code>source-nguyen-colonic-crypt</code>, Nguyen, Lausten and Boman, <em>The Colonic Crypt</em> (Cells, 2025,\nCC BY 4.0): that colonocytes are polarised with a distinct basolateral end and an apical membrane\ncarrying microvilli that increase surface area and aid water absorption, and that enterocytes are\nreplaced every four to five days while some enteroendocrine cells persist far longer.</li>\n<li><code>source-schneeberger-mvid</code>, Schneeberger, Roth, Nieuwenhuis and Middendorp (Disease Models &amp;\nMechanisms, 2018): the apical and basolateral domains and what each is for, the roughly one\nthousand microvilli forming the brush border of a mature enterocyte, and the cause, trafficking\nmechanism, biopsy findings and neonatal presentation of microvillus inclusion disease.</li>\n<li><code>source-alberts-compartmentalization</code>, Alberts and colleagues, <em>Molecular Biology of the Cell</em>,\nchapter on the compartmentalisation of cells: that membrane-enclosed compartments occupy nearly\nhalf a cell&#39;s volume, that each organelle holds a distinct protein set, that the nucleus is the\nprincipal site of DNA and RNA synthesis, that sorting signals are carried in a protein&#39;s own\namino-acid sequence, and that oxidative phosphorylation requires a membrane to couple proton\ntransport to ATP synthesis.</li>\n<li><code>source-alberts-er-golgi</code>, same work, chapter on transport from the ER through the Golgi: the\nsuccessive modification of proteins along a fixed series of compartments, and the trans-Golgi\nnetwork as the station that packages cargo into vesicles and dispatches it by destination.</li>\n<li><code>source-alberts-tgn-lysosomes</code>, same work, chapter on transport from the trans-Golgi network to\nlysosomes: the acid-hydrolase requirement, the lysosomal interior near pH 5.0, the double\nprotection of the cytosol at pH 7.2, the mannose 6-phosphate tag and its receptors, and what\nlysosomes are observed to digest.</li>\n<li><code>source-banerjee-organelle-ph</code>, Banerjee and Kane (Frontiers in Cell and Developmental Biology,\n2020, CC BY): the pH values of the cytosol, nucleus, endoplasmic reticulum, Golgi, endosomes,\nsecretory granules and lysosome, and that the V-ATPase hydrolyses cytosolic ATP to drive protons\ninto an organelle lumen.</li>\n<li><code>source-feng-lysosome-hydrolases</code>, Feng, Liu and Xu (The Journal of Cell Biology, 2023): the\nlysosomal lumen at pH 4.5 to 5.0, the acid optima of its hydrolases, and the 500 to 1000-fold\nproton gradient across the lysosomal membrane held at the expense of ATP.</li>\n<li><code>source-schrader-peroxisome</code>, Schrader and Fahimi (Histochemistry and Cell Biology, 2008): that\nperoxisomal beta-oxidation and other oxidases produce hydrogen peroxide, that catalase in the same\norganelle decomposes it, and that peroxisomes handle very-long-chain fatty acids.</li>\n<li><code>source-sun-signal-sequences</code>, Sun, Li and Mariappan (The Journal of Cell Biology, 2022): that\nabout thirty per cent of newly synthesised proteins enter the endoplasmic reticulum\nco-translationally, and the recognition, delivery and hand-off sequence through the signal\nrecognition particle and its receptor to the Sec61 translocon.</li>\n<li><code>source-xu-atp-synthase</code>, Xu, Pagadala and Mueller (Microbial Cell, 2015, CC BY): that the\nelectron transport chain creates a proton potential across the mitochondrial membrane whose return\nflow drives ATP synthesis, and that chemical uncouplers dissipate that potential so respiration\nproceeds without ATP synthesis.</li>\n<li><code>source-gasaly-butyrate</code>, Gasaly, Hermoso and Gotteland (International Journal of Molecular\nSciences, 2021, CC BY): that butyrate oxidation supplies seventy to eighty per cent of a mature\ncolonocyte&#39;s energy, that it runs through mitochondrial oxidative phosphorylation, and that the\nbutyrate is made by resident bacteria.</li>\n<li><code>source-litvak-colonocyte-metabolism</code>, Litvak, Byndloss and Bäumler (Science, 2018): that mature\ncolonocytes consume oxygen heavily through mitochondrial oxidation, giving an oxygen partial\npressure below 7.6 mmHg at the epithelium.</li>\n</ul>\n<p>Several of these sources retain publisher copyright, and two carry NonCommercial and ShareAlike\nterms which this project does not accept as a reuse basis. One is displayed under CC BY 3.0, a\nversion outside the accepted set. None supplies any expression, figure, table, dataset, or example\nto this pack; all are used strictly as evidence for facts, which is the basis recorded for every\nsource in <code>references.json</code>.</p>\n<p>Before substantive source access on 2026-07-26, the accountable run consulted\n<code>site/agent/source-access-ledger.json</code>. Every source was read either through the\n<code>pmc.ncbi.nlm.nih.gov/articles/</code> route, which the ledger records as allowed on the basis that its\nrobots file carries <code>Allow: /articles/</code> with no AI or LLM crawler restriction, or through the NCBI\nBookshelf <code>/books/NBK</code> route on <code>www.ncbi.nlm.nih.gov</code>, which the ledger records as permitted while\nthe legacy <code>/pmc/articles</code> route on the same host is not. Both entries were checked on 2026-07-25\nand sit inside the ledger&#39;s ninety-day recheck window. No login, paywall, rate limit, or access\ncontrol was bypassed for any source, and no new domain required an entry in the ledger.</p>\n<h2>Agent assistance disclosure</h2>\n<ul>\n<li>System: <code>RUNTIME-STAMPED</code></li>\n<li>Provider: <code>RUNTIME-STAMPED</code></li>\n<li>Model: <code>RUNTIME-STAMPED</code></li>\n<li>Version: <code>RUNTIME-STAMPED</code></li>\n<li>Author run ID: <code>author-PREM-BIO-003-CABC592B-3985-448D-A0B2-6E8253DF2544</code></li>\n<li>Material-instructions digest: <code>sha256:7063c9ca91ad3dc4a82c4902d1bcdbceadc071dbe6989991d5aa8a5dca4ce171</code></li>\n</ul>\n<p>VSBDev, the accountable principal, is verified as <code>github:VSBDev</code>. The system, provider, model, and\nversion fields carry the operator-stamped literal <code>RUNTIME-STAMPED</code> and are stamped by the operator\nbefore review. The digest covers the exact UTF-8 material task payload supplied to this authoring\nrun, including its final newline. It excludes hidden provider and system instructions that cannot be\nexported. VSBDev remains accountable for the contribution and attests the disclosed provenance.</p>\n<h2>Boundaries and exceptions</h2>\n<p>Every learner task has a text-first path. The route diagram carries a long description stating every\nnode, every step, the pH of each compartment and all three destinations in the order the argument\nuses them, and the surrounding prose walks the same route in sentences, so no task depends on seeing\nit. The cell drawing carries a long description naming every labelled structure and stating the\nconclusion the figure exists to support, so a reader who never sees it loses nothing the lesson\nneeds. The pH landscape is a table of text and its two load-bearing values appear in the prose as\nwell.\nAll arithmetic is written out in symbols and in words together. Nothing in the pack encodes meaning\nby colour, position, animation, hover, pointer gesture or timing, and no task requires dragging.</p>\n<p>The clinical material is illustrative. The infant in the seventh scene is invented, and so are the\nlaboratory group and the two interventions in the final assessment item. The condition described in\nthe wrap-up is real and its features are cited to published review, but the pack states no\ndiagnostic criterion, threshold, test performance, frequency, prognosis, or management step, and it\ntakes no position on what any finding would mean in any real specimen or person. The wrap-up carries\nan explicit teaching-example boundary. Nothing in the pack is medical advice. The three claims about\nthat condition are recorded as <code>health-sensitive</code> in <code>claims.json</code>.</p>\n<p>The uncoupler named in the fifth scene appears only as a laboratory demonstration that a dissipated\nproton potential stops ATP synthesis. Nothing in the pack concerns its use, dose, exposure or effect\nin people, and no such statement is made or implied.</p>\n<p>There is one licence exception to the CC BY 4.0 contribution grant: the third-party figure recorded\nabove, which is in the public domain and therefore redistributable within this corpus without\nfurther condition. The pack contains no other third-party expression, media, or dataset.</p>\n"
+}
