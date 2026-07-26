@@ -9,8 +9,12 @@
     if (element) element.textContent = value;
   };
 
+  // The meter is not premed's. Each course page names its own ledger on the section, so a second
+  // book gets the same instrument instead of a hand-typed number that goes stale on the next merge.
+  const course = section.dataset.corpusProgress || "premed";
+
   function freshProgressUrl() {
-    const url = new URL("../data/premed-progress.json", document.baseURI);
+    const url = new URL(`../data/${course}-progress.json`, document.baseURI);
     url.searchParams.set("fresh", Date.now().toString(36));
     return url;
   }
