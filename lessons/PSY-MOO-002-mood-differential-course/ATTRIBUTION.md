@@ -111,3 +111,46 @@ Every learner task has a text-first path. No task requires a learner's own healt
 ## Candidate status
 
 This is an authoring candidate. Lesson status is `draft`, source confidence is `pending-review`, and every claim is `pending-review`. No review or adjudication artifact exists. Validation and self-audit establish no approval, publication, outcome coverage, learner effectiveness, clinical competence, licensure, board eligibility, or authority to practise psychiatry.
+
+## Adjudication repairs to the 0.1.1 candidate
+
+The academic review returned request-changes with five major and one minor finding; the
+learning-design review approved with five notes. All were repaired in one finalization pass and none
+was declined.
+
+- **The ranking model over-corrected, and the over-correction came from the previous revision.**
+  Treating an unasked alternative as holding no position at all discards prior likelihood, which is
+  real information. The scene now separates what this file's enquiry established from what was
+  already probable independently of it, and the ranking names the reading it favours instead of
+  refusing to rank. A prior may not be presented as a finding, and an unasked domain may not look
+  examined; those are the two errors being avoided, and neither requires silence about ordering.
+- **The five-day anchor was unconditionally weighted and is now conditional on phenomenology the
+  file does not contain.** The report gives reduced sleep, increased activity, talkativeness and
+  spending. It does not give the mood change an episode requires, and reduced sleep is not a
+  decreased need for sleep. The entry is a lead of high potential weight and unestablished content,
+  and the scene now names what would establish it.
+- **A source was carrying a claim it does not make.** The interval for judging whether a presentation
+  is independent of drinking was attributed to the wrong figure in the source: it advises at least
+  three months of abstinence for reviewing a psychiatric history, while its two-to-four-week period
+  addresses when medication might be considered. Both intervals are now stated with the question each
+  answers, and three months is the one that governs the scene. Verified directly against the article.
+- **The alcohol sleep claim is bounded to what the review reports:** dose- and timing-dependent
+  effects, with lower doses able to lengthen rather than shorten sleep latency, rather than a uniform
+  pattern applicable to an individual night whose dose and timing this file never records.
+- **Two mastery items keyed the same stem incompatibly and now agree.** One asks what the remembered
+  spell weighs and answers indeterminate-but-conditionally-high; the other asks where it sits in a
+  ranking and answers nowhere yet. An item whose content is unestablished cannot be both
+  indeterminate and evidence against an alternative, and the reconciliation is now the teaching point.
+- **A trial was described as being in the transfer case's exact situation.** The file does not
+  establish the ejection fraction, the coronary anatomy, or the absence of another indication that
+  would place him in that population, and the text now says so.
+
+### Standing exposure, stated rather than resolved
+
+This lesson was authored out of learner order as a depth sample, and it sits at a prerequisite depth
+of roughly eighteen topics with almost none of that ladder built as lessons. It has drawn substantive
+major findings in two independent review rounds. The repairs above are real and verified, and the
+structural position is not fixed by them: a lesson that has to name dependencies rather than build on
+them will keep meeting reviewers who notice. The recommendation on record is that this outcome is
+re-authored once its prerequisites exist, and that this candidate is treated as a sample rather than
+as the settled version.

@@ -67,7 +67,9 @@ The habit this lesson is trying to break is giving each alternative a badge. *Su
 
 R.'s thyroid question is the case where the three come apart. Cold intolerance, constipation and fatigue past what the sleep loss explains speak for it. About 6 kg of unintentional weight loss speaks against it. Several of the other features nobody has asked about. And the part that decides it is a blood result that no further conversation will produce. Any single label you pick for that alternative will misdescribe two of the three readings.
 
-One more thing follows from the second reading. An alternative nobody asked about does not sit low on the list; it has no position on the list at all, and putting it low is the quiet version of the error, because the next reader takes a low position as the result of a search. Writing "no history of trauma" when nobody asked is the loud version. Both convert an absence of enquiry into a negative finding, and only the second one is visible.
+One more thing follows from the second reading, and it has to be put carefully. An alternative nobody asked about earns no position *from this file*, because a low position reads as the result of a search that was never run. Writing "no history of trauma" when nobody asked is the loud version of that error; quietly ranking it last is the quiet one, and only the loud one is visible to the next reader.
+
+What that does not mean is that an unasked alternative is a blank. Some things are more likely than others before anyone opens their mouth, and a clinician who pretends otherwise is throwing away real information. So keep the two apart on the page: what this file's enquiry has established, and what was already probable independently of it. A ranking may still say which alternative it favours, and should. What it may not do is present a prior as a finding, or let an unasked domain look examined.
 
 :::{check}
 :id: check-weight-channel-split

@@ -73,7 +73,9 @@ Now work the whole list for R. on current evidence, giving each alternative its 
 | Grief | Nothing. | Nothing. | Whether any loss occurred. | Asking. |
 | Trauma | Nothing. | Nothing. | Whether any trauma exposure occurred. | Asking. |
 
-The top of that table is where a reader expects a winner, and there is not one there. The four-month picture establishes a depressive presentation and leaves the course open, because a depressive syndrome is common to both course alternatives and separates neither from the other. Unipolar stays viable exactly as far as the search for a past elevated or activated episode has gone, and that search has run through one channel, once, six years after the event, with the person volunteering the answer. Five of the nine rows have no position at all yet. Most of what is missing could be closed before the end of the day.
+The top of that table is where a reader expects a winner. There is a favoured reading, and naming it is better than hiding behind the incompleteness: on this file a unipolar course is the more probable one, because a past elevated or activated episode is less common than its absence and nothing here has raised one. That is a prior, not a finding, and holding the difference is the whole discipline of the scene.
+
+The four-month picture does not do that work. A depressive syndrome is common to both course alternatives and separates neither. What keeps unipolar ahead is only how far the search for a past episode has gone, and that search has run through one channel, once, six years after the event, with the person volunteering the answer. A single competent interview with someone who knew R. then would move the ordering further than anything else currently available. Five of the nine rows hold no position from this file's enquiry, and most could be closed before the end of the day.
 
 :::{source-note}
 :claims: claim-hypothyroid-symptoms-nonspecific, claim-subclinical-hypothyroid-depression-link-unestablished
