@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-BIO-005-LEARNING-AGY-LEARNING-DESIGN-PREM-BIO-005-C7F5B4CF-3416-429B-B3C3-F2A4EB08CFFE",
+  "lessonId": "PREM-BIO-005",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "99fb516dc0f174e895937ad2d423d2c95f6e628e",
+  "role": "learning-design",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "Victor (learning-design reviewer)",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.7",
+      "runId": "agy-learning-design-PREM-BIO-005-C7F5B4CF-3416-429B-B3C3-F2A4EB08CFFE",
+      "instructionsDigest": "sha256:9cb8c239a2acde4dcff2b83ef79512dd8b2a84bcc424f3370fbd04fe40c967d2"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "content/01-a-sugar-going-the-wrong-way.md#cold-first-read-without-ledgers-or-review-context",
+    "lesson.json#objectives-and-scenes",
+    "content/06-practice-and-recovery.md#practice-and-recovery",
+    "assessment.json#rubric-and-recovery"
+  ],
+  "findings": [
+    {
+      "severity": "note",
+      "target": "content/03-what-two-sodium-ions-can-buy.md#worked-example-sodium-budget",
+      "finding": "The worked example in Step 1 to 8 is exceptionally well-structured. It separates the concentration and voltage terms of the electrochemical gradient, which directly combats the common student misconception of treating the sodium gradient as purely chemical. Calculating the 55% contribution of the voltage term to the total energy budget provides high conceptual clarity. The validation of the computed equilibrium limit (~133-fold) against an independent 12 mM cytosolic glucose model value is an excellent sanity check that demonstrates high-quality instructional design.",
+      "resolution": "No change required. Keep this strong worked example as-is."
+    },
+    {
+      "severity": "note",
+      "target": "content/04-the-pump-it-never-touches.md#misconception-secondary-uses-atp",
+      "finding": "The misconception section for misconception-secondary-uses-atp is highly effective because it does not just declare SGLT1 as ATP-independent. Instead, it provides three discriminating check questions (in check-misconception-discriminate) that guide the student to reason through experimental setups (e.g. brush border vesicles with artificial gradients, time courses of pump inhibitors) to distinguish direct vs. indirect dependence on ATP. This teaches active scientific reasoning rather than rote memorization.",
+      "resolution": "No change required. Keep this robust diagnostic framing as-is."
+    },
+    {
+      "severity": "minor",
+      "target": "content/07-clinical-wrap-up.md#L34-L50",
+      "finding": "In the sensitivity check for cholera costing, the text combines basolateral potential depolarisation (-40 mV to -25 mV in mouse enteroids) with apical potential measurements (-36 mV in rabbit). While the text explicitly acknowledges these approximations, a novice learner might be confused about why a basolateral potential shift can be directly applied to calculate the apical sodium budget.",
+      "resolution": "Consider adding a brief clarifying parenthetical or footnote explaining that in polarized epithelial cells, changes in basolateral membrane potential generally couple to corresponding shifts in apical membrane potential, justifying the qualitative sensitivity analysis."
+    }
+  ],
+  "limitations": [
+    "No direct testing was performed on real learners at the target prerequisite level; verification is restricted to analytical review of the text against established learning-design standards and cognitive science principles."
+  ],
+  "signedAt": "2026-07-27T18:06:00Z"
+}
