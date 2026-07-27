@@ -911,6 +911,19 @@
 /* Markers are stripped by the reader's sanitiser, so the arrowhead is a polygon and is filled here. */
 .reader-scene-content .ek-diagram-head { fill: var(--acid); }
 
+/* An edge declares what kind of relation it is, and the drawing has to agree. An inhibition ends in a
+   perpendicular bar rather than an arrowhead, because an arrow reads as a push; an undirected edge
+   gets no terminator at all, because an arrowhead on it asserts a direction the author declined. Both
+   were previously drawn as ordinary arrows, in four published lessons. */
+.reader-scene-content .ek-diagram-head--bar {
+  fill: none;
+  stroke: var(--acid);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+}
+
+.reader-scene-content .ek-diagram-edge--undirected { stroke-dasharray: none; opacity: .85; }
+
 /* A return edge closes a loop the lesson means to show, so it is dashed to distinguish it from the
    forward path it runs against rather than left to look like a contradiction. */
 .reader-scene-content .ek-diagram-edge--return {
