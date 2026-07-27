@@ -25,7 +25,11 @@ Start with actin, taking the working figure of about 10 µm for its persistence 
 
 $R = 10\ \mu\text{m} / 1\ \mu\text{m} = 10$
 
-Ten is comfortably above 1, so a single actin filament is rod-like over the length of a microvillus. Check the pessimistic end of the published range as well, because a conclusion that only survives the favourable number is not a conclusion: at the bottom of the 3 to 17 µm range, $R = 3$, still above 1. The answer holds across the range.
+Ten is comfortably above 1, so a single actin filament is rod-like rather than coiled over the length of a microvillus. Check the pessimistic end of the published range as well, because a conclusion that only survives the favourable number is not a conclusion: at the bottom of the 3 to 17 µm range, $R = 3$, still above 1. The classification holds across the range.
+
+Be exact about what that ratio has and has not established. Persistence length is the length over which thermal energy has not yet randomised a filament's direction, so $R$ above 1 says the polymer belongs to the stiff class at this scale and $R$ below 1 says it does not. It does not say the filament can carry the load. Whether a structure holds against a given force depends on the force, on how the ends are held, on the filament's own length, and on whether filaments are cross-linked into a bundle, and the ratio contains none of those.
+
+Which is why the observed microvillus is not one filament. Its core is a cross-linked bundle of about 19 actin filaments, tied together by fimbrin and villin, with myosin-1A cross-bridges to the membrane. The ratio did the job it can do: it narrowed four polymers to one. The bundle is how the cell then meets the load, and a single filament of the right stiffness class is the starting material rather than the finished structure.
 
 Test an intermediate filament against the same demand. With a persistence length of about 0.2 to 1 µm, $R$ runs from 0.2 to 1. At best it is marginal, and at worst the filament bends five times over within the length it is meant to hold straight. Intermediate filaments are ruled out here on stiffness alone, without needing any other argument.
 
@@ -77,10 +81,12 @@ The persistence lengths above were measured on purified single filaments in vitr
 And a favourable ratio never establishes that a cell actually uses a given polymer for a given job. Demand 2 was checked against an observation, not left as a prediction. Where an argument from mechanics is all you have, that is where the argument stops.
 
 :::{source-note}
-:claims: claim-persistence-lengths, claim-if-apolar-no-motors, claim-if-extensibility, claim-if-tensile-vs-actin, claim-mt-apicobasal, claim-microvillus-dimensions, claim-microvillus-core-actin
-:sources: source-pegoraro-cytoskeleton-mechanics, source-vanbodegraven-if-mechanics, source-green-desmosomes, source-sumigray-desmoplakin, source-brown-microvillar
+:claims: claim-persistence-lengths, claim-if-apolar-no-motors, claim-if-extensibility, claim-if-tensile-vs-actin, claim-mt-apicobasal, claim-microvillus-dimensions, claim-microvillus-core-actin, claim-microtubule-diameter, claim-enterocyte-height, claim-stiffness-classification
+:sources: source-pegoraro-cytoskeleton-mechanics, source-vanbodegraven-if-mechanics, source-green-desmosomes, source-sumigray-desmoplakin, source-brown-microvillar, source-nguyen-colonic-crypt
 
 The persistence lengths, the extensional-strain figures and the network strain-stiffening onsets come from the two mechanics sources introduced in the previous scene; the direct tensile comparison between intermediate filaments and actin comes from the desmosome review; the apicobasal microtubule arrangement in these enterocytes comes from the 2012 desmoplakin deletion study; and the microvillus length, the count of about 19 core filaments and the microtubule diameter of about 25 nm come from the 2010 microvillar cytoskeleton study.
 
 Every ratio computed in this scene is this lesson's own arithmetic on those published lengths. No source states these ratios or draws the four conclusions in this form. The enterocyte height of 20 to 25 µm is the working figure carried forward from earlier lessons in this block. The claim that cross-linking raises a bundle's bending resistance above a single filament's is presented as a physical argument and as a limit on the procedure, not as a measured result from these sources.
+
+The decision procedure in this scene is the lesson's own, built on the sourced persistence lengths. What it establishes is a stiffness class over a stated length and not a filament's capacity to bear a load, which is why the microvillus core is a cross-linked bundle rather than one filament. The cell height is the working figure this block uses, an order of magnitude and not a constant.
 :::

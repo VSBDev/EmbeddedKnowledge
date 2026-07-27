@@ -67,3 +67,54 @@ dose, regimen, indication, diagnostic criterion, threshold or recommendation, de
 person, and is not drawn from any patient record. Reported associations between junction proteins
 and intestinal conditions are stated at the level of association, with the direction of causation
 recorded as unresolved by the source that reports them.
+
+## Adjudication repairs to the 0.1.0 candidate
+
+The academic review returned request-changes with six major findings and two verification notes; the
+learning-design review returned request-changes with two major findings and two notes. All ten
+actionable findings were repaired in one finalization pass and none was declined.
+
+- **A stiffness class was read as a load-bearing capacity.** The worked example turned a persistence
+  length ratio above one into proof that a single actin filament could hold a microvillus out against
+  membrane tension. Persistence length is the length over which thermal energy has not randomised a
+  filament's direction; whether a structure holds against a force also depends on the force, the
+  boundary conditions, the contour length and cross-linking. The pack's own source says the observed
+  core is a cross-linked bundle of about 19 filaments. The procedure now narrows the choice of polymer
+  and stops there, the bundle is named as how the cell actually meets the load, and the numeric item's
+  key asks for the ratio and explicitly refuses credit or penalty for any claim about load.
+- **Two junction routes were over-extended from one adhesion system to a whole location.** Nectins
+  were grouped with E-cadherin as reaching actin through the catenins; they reach it principally
+  through afadin. And every basal integrin was given the integrin-linked-kinase route, which the
+  pack's own source limits to the β1 tail, while the α6β4 receptor named in the same sentence carries
+  no β1 subunit and in hemidesmosomes connects laminin to keratin through linkers including plectin.
+  The prose, the diagram, the diagram's long description and the assessment now say β1. The two
+  over-extensions became the two hardest distractors in the pairing item, which is a better item than
+  the one it replaces: the classic inversion it previously tested is easy, and generalising a true
+  route to a whole class of molecules is the error a learner actually makes.
+- **Apolar and motorless was turned into passive.** The lesson concluded that a keratin-linked
+  attachment "can hold, and that is all it can do". The desmosome review it cites describes desmosomes
+  and their intermediate filaments participating in actin organisation, Rho-family signalling,
+  adhesion dynamics, cell mechanics and migration. The claim is now about motors, which is what the
+  evidence supports, and the glossary entry carries the same correction.
+- **A clinical leak was localised more tightly than the evidence allows.** The wrap-up said a
+  desmosomal explanation was ruled out. In an intact epithelium the tight junction is the rate-limiting
+  step for the paracellular route, which is why it is implicated first; inflamed tissue also admits
+  tracer through gaps left by extrusion, through lost adhesion, and through cross-talk between
+  junctions. One desmoplakin deletion, in mouse, under ordinary conditions and without imposed
+  mechanical stress, shows that losing keratin's anchor does not by itself break the barrier. It does
+  not exclude other contributions. The scene now says the model locates a leak first rather than
+  uniquely, and names what ruling one out would take.
+- **Six load-bearing facts had no claim record.** The membrane thickness and the two-dimensional-fluid
+  behaviour that the opening scene's whole premise rests on, the cell height and microtubule diameter
+  used in the comparisons, the stiffness-classification procedure itself, and the leak-localisation
+  inference were all asserted without a structured claim. Two reference records were carried unchanged
+  from the merged PREM-BIO-004 pack, which established the same facts from the same sources. Being
+  inherited from an earlier lesson does not exempt a fact from the ledger, which is the reviewer's
+  point and it is correct.
+- **Two retrieval checks had no answer.** A check a learner cannot mark against anything is a prompt,
+  not a check. Both now carry a worked answer, and the scene-5 one also states that the junctions are
+  not independent and that a prediction is not a result.
+
+Recorded rather than resolved: whether the basal surface of a colonic cell carries a second,
+keratin-linked attachment is not answered by the sources used here, and the map draws the β1 route for
+that reason. The gap is left visible.

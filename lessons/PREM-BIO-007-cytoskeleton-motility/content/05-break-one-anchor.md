@@ -63,6 +63,10 @@ And this is mouse small intestine with a tissue-restricted deletion, in animals 
 Suppose a different experiment removed E-cadherin from these cells instead of desmoplakin.
 
 Using the map from the previous scene, name one function you would expect to fail and one you would expect to survive, and in each case say which anchor your expectation runs through. Then say what evidence would be needed before you could report either expectation as a result.
+
+**Answer.** Expect lateral adhesion between neighbours to fail, because E-cadherin is the adhesive molecule of the adherens junction and the route from it to actin runs through the catenins. Expect the desmosomal route to survive that particular loss, because desmogleins and desmocollins are different adhesion molecules reaching keratin through a different set of linkers. Those are the two anchors the map separates.
+
+Two cautions belong with the prediction. The junctions are not independent in practice: the desmosome review this lesson cites describes desmosomes influencing actin organisation and adhesion dynamics, so removing one adhesive system can change how another behaves. And a prediction is not a result. Reporting either of these would need the experiment done — the protein removed in this tissue, the named functions measured, and the localisation of the other junctions checked, which is exactly the set of observations the desmoplakin study above reports for its own deletion.
 :::
 
 :::{source-note}

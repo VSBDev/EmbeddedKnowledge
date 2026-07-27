@@ -22,7 +22,7 @@
       "outcomeIds": [
         "topic-cell-biology-cytoskeleton-motility"
       ],
-      "prompt": "A cell must hold a straight projection 2 micrometres long, and the actin filament inside it is a single filament that is not cross-linked into a bundle. Taking 10 micrometres as the working persistence length of a single actin filament, compute the ratio of persistence length to the length that must be held straight. Give the ratio as a number.",
+      "prompt": "A cell must hold a straight projection 2 micrometres long. Taking 10 micrometres as the working persistence length of a single actin filament, compute the ratio of persistence length to the length that must be held straight, and give the ratio as a number.",
       "points": 2,
       "responseSpec": {
         "mode": "number",
@@ -31,17 +31,17 @@
       },
       "answer": {
         "correct": 5,
-        "summary": "A ratio of 5.",
-        "reasoning": "The ratio is the persistence length divided by the length of the structure: 10 micrometres divided by 2 micrometres gives 5. Because 5 is comfortably greater than 1, a single actin filament stays essentially straight over 2 micrometres and can hold the projection on its own. Both numbers the calculation needs are supplied in the stem, and the stem states that the filament is not bundled, which is why the single-filament figure is the correct one to use rather than a bundle's higher effective stiffness.",
+        "summary": "5. The ratio places a single actin filament in the stiff class over 2 micrometres; it does not establish that one filament could hold the projection.",
+        "reasoning": "The ratio is the persistence length divided by the length of the structure: 10 micrometres divided by 2 micrometres gives 5. Both numbers are supplied in the stem and the arithmetic is the whole of the required answer.\n\nWhat the number means is worth stating for the marker, because the earlier version of this item asked for more than the ratio can carry. A ratio above 1 says thermal energy has not randomised the filament's direction over that length, so the polymer belongs to the stiff class at this scale. It does not say the filament can bear the load. That depends on the force, the boundary conditions, the filament's contour length, and whether filaments are cross-linked into a bundle. The real microvillus is a cross-linked bundle of about 19 actin filaments, so a single filament is the right stiffness class rather than the finished structure. Do not award or withhold credit for any claim about load-bearing; the item asks for a number.",
         "acceptableResponses": [
           "5",
           "5.0",
-          "10/2"
+          "a ratio of 5",
+          "10/2 = 5"
         ],
         "commonErrors": [
-          "Inverting the ratio to give 0.2, which divides the structure length by the persistence length and reverses the interpretation.",
-          "Using the height of a cell instead of the 2 micrometres given in the stem.",
-          "Answering with a filament name instead of the number the item asks for."
+          "Inverting the ratio and answering 0.2, which would place actin in the floppy class at this length.",
+          "Reading the ratio as a statement that one filament can hold the projection. It places the polymer in the stiff class and says nothing about load, which is why the observed structure is a bundle of about 19 filaments."
         ]
       },
       "rubricId": "rubric-calculation",
@@ -110,11 +110,11 @@
       "outcomeIds": [
         "topic-cell-biology-cytoskeleton-motility"
       ],
-      "prompt": "Select every statement that correctly pairs an attachment structure of a colonic absorptive cell with the cytoskeletal polymer it anchors and the protein that makes the link. Select all that apply.",
+      "prompt": "Select every statement that correctly pairs an attachment of a colonic absorptive cell with the cytoskeletal polymer it anchors and the protein that makes the link. Two of the statements are true of one adhesion system at a junction and are then over-extended to another; read the named proteins and the named subunits, not the junctions. Select all that apply.",
       "points": 4,
       "responseSpec": {
         "mode": "multiple-choice",
-        "maxSelections": 6,
+        "maxSelections": 8,
         "options": [
           {
             "id": "option-tj-actin",
@@ -122,7 +122,7 @@
           },
           {
             "id": "option-aj-actin",
-            "text": "The adherens junction is linked to actin through catenins."
+            "text": "E-cadherin at the adherens junction is linked to actin through the catenins."
           },
           {
             "id": "option-dsm-keratin",
@@ -138,7 +138,15 @@
           },
           {
             "id": "option-integrin-actin",
-            "text": "Basal integrins are linked to actin through integrin-linked kinase."
+            "text": "Basal beta1 integrins are linked to actin through integrin-linked kinase."
+          },
+          {
+            "id": "option-nectin-catenins",
+            "text": "Nectins at the adherens junction are linked to actin through the catenins."
+          },
+          {
+            "id": "option-all-integrins-actin",
+            "text": "Every integrin on the basal surface is linked to actin through integrin-linked kinase."
           }
         ]
       },
@@ -149,15 +157,16 @@
           "option-dsm-keratin",
           "option-integrin-actin"
         ],
-        "summary": "All four actin and keratin pairings are correct; the two that swap the desmosome and adherens junction are not.",
-        "reasoning": "Three of the four attachments converge on actin. The tight junction's claudins, occludin and JAM-A are tied to actin by the ZO-1, ZO-2 and ZO-3 scaffolds. The adherens junction's E-cadherin and nectin reach actin through catenins. Basal integrins reach actin through integrin-linked kinase. The desmosome is the one that does not use actin: its desmogleins and desmocollins connect through plakoglobin and the plakophilins to desmoplakin, which anchors keratin intermediate filaments. The two rejected options are the classic inversion, giving actin to the desmosome and keratin to the adherens junction, and each is wrong in both the polymer and the linking protein.",
+        "summary": "Four are correct. Three attachments converge on actin and the desmosome does not, and the two rejected additions are over-extensions: nectins reach actin through afadin rather than the catenins, and the integrin-linked-kinase route is a beta1 route rather than a property of every basal integrin.",
+        "reasoning": "Three of the four attachments converge on actin. The tight junction's claudins, occludin and JAM-A are tied to actin by the ZO-1, ZO-2 and ZO-3 scaffolds. E-cadherin at the adherens junction reaches actin through the catenins. Basal beta1 integrins reach actin through integrin-linked kinase. The desmosome is the one that does not use actin: its desmogleins and desmocollins connect through plakoglobin and the plakophilins to desmoplakin, which anchors keratin intermediate filaments.\n\nFour statements must be left unselected, and they fail in two different ways. Two are the classic inversion, giving actin to the desmosome and keratin to the adherens junction. The other two are over-extensions of a true statement, which is the harder error and the reason this item exists. Nectins are a separate adhesion system at the same junction and reach actin principally through afadin, so the catenin route does not cover them. And integrin-linked kinase links the beta1 tail: an alpha6beta4 integrin has no beta1 subunit and in hemidesmosomes connects laminin to keratin through linkers including plectin, so 'every integrin on the basal surface' is false even though the beta1 statement is true. A learner who selects either has generalised from the route the lesson draws to the whole class of molecules at that location.",
         "acceptableResponses": [
-          "option-tj-actin, option-aj-actin, option-dsm-keratin, option-integrin-actin"
+          "Exactly option-tj-actin, option-aj-actin, option-dsm-keratin and option-integrin-actin, with no others."
         ],
         "commonErrors": [
-          "Selecting the two inverted pairings, which swaps the desmosome and the adherens junction.",
-          "Omitting the basal integrin pairing on the assumption that only cell-to-cell attachments anchor a polymer.",
-          "Omitting the tight junction pairing because its better known job is sealing rather than anchoring."
+          "Selecting the nectin option, which extends the catenin route to an adhesion system that uses afadin.",
+          "Selecting the every-integrin option, which extends a beta1 route to alpha6beta4 and to the basal surface as a whole.",
+          "Selecting the desmosome-to-actin or adherens-to-keratin options, which swap the two polymers.",
+          "Leaving the beta1 integrin option unselected on the grounds that the basal surface is not a cell-to-cell junction; the item asks about attachments, and the basal one is included."
         ]
       },
       "rubricId": "rubric-multiple-selection",

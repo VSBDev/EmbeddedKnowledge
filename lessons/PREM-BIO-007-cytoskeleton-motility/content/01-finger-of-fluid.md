@@ -34,15 +34,21 @@ The projections sit in a regular hexagonal array, 115 to 120 nanometres from cen
 Before going on, answer in one sentence: why can a lipid bilayer not hold a microvillus in shape by itself?
 
 Then answer a second: if you wanted to shorten every microvillus on a cell quickly, which single protein named above would you go after, and what would you do to it?
+
+**Answer.** A lipid bilayer is a two-dimensional fluid: its molecules exchange places millions of times a second and it has no fixed internal arrangement to resist being pushed out of shape. It will take a shape that is imposed on it and it cannot impose one. Something rigid inside has to hold the projection out, and here that is the actin bundle.
+
+For the second: villin. It cross-links the core bundle at resting calcium and converts to a severing protein as calcium rises, so raising intracellular calcium turns a bundler into a cutter and the core is dismantled from within. Going after fimbrin would remove the primary cross-linker, which is a defensible answer and a slower one; the point of naming villin is that one protein already carries both jobs and the cell switches between them.
 :::
 
 The rest of the lesson generalises this. A cell bounded by a fluid gets its shape, its attachments, and its movement from a set of polymers inside it. There are three of them, they have genuinely different mechanics, and the next scene is about why the differences matter more than the names.
 
 :::{source-note}
-:claims: claim-microvillus-dimensions, claim-microvillus-core-actin, claim-microvillus-bundlers, claim-myosin-membrane-tether, claim-terminal-web, claim-crypt-context
-:sources: source-brown-microvillar, source-nguyen-colonic-crypt
+:claims: claim-microvillus-dimensions, claim-microvillus-core-actin, claim-microvillus-bundlers, claim-myosin-membrane-tether, claim-terminal-web, claim-crypt-context, claim-membrane-thickness, claim-two-dimensional-fluid
+:sources: source-brown-microvillar, source-nguyen-colonic-crypt, source-bickerton-bilayer-thickness, source-alberts-lipid-bilayer
 
 A 2010 modelling study of the microvillar cytoskeleton and brush border organisation supplies the microvillus length of about one micrometre and radius of about 50 nanometres, the thousands of projections per cell, the roughly thirtyfold increase in apical surface area, the hexagonal centre-to-centre spacing of 115 to 120 nanometres, the count of approximately 19 actin filaments in the core bundle, their unipolar arrangement with barbed ends in the dense plaque at the tip, the exclusive addition of new subunits at that barbed end, fimbrin as the primary cross-linker and villin as a secondary one that converts to a severing protein as calcium rises, small espin at about twentyfold lower concentration, the myosin-1A and calmodulin cross-bridges at two to three per outer filament, and the terminal web containing non-erythrocytic spectrin that cross-links adjacent core bundles as they enter the apical cytoplasm. A review of colonic crypt biology supplies the crypt setting this block follows.
 
 The membrane thickness, fluidity and brush-border figures restated in the opening were established in lesson 04 of this block and are used here as given. The comparison between a fluid surface minimising its area and the shape of a projection is this lesson's own argument, not a quoted claim.
+
+The membrane thickness and the two-dimensional-fluid behaviour of the bilayer, including the rate at which a lipid exchanges places with its neighbours, are carried forward from PREM-BIO-004 with the same sources it used. They are the premise of this scene rather than its subject: a sheet that rearranges itself that fast cannot hold a shape of its own.
 :::
