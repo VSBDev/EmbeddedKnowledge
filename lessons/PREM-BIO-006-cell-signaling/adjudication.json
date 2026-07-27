@@ -1,0 +1,163 @@
+{
+  "schemaVersion": 1,
+  "adjudicationId": "ADJ-PREM-BIO-006-2F8912B2",
+  "lessonId": "PREM-BIO-006",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "ba57975846a28e994d326baaa808b19f51ee4a03",
+  "finalCommit": "8b506f7660d1699e7aeef010750ee22a5d33a286",
+  "riskTier": "standard",
+  "policyId": "standard-lesson-v3",
+  "reviewIds": [
+    "REV-PREM-BIO-006-ACADEMIC-4DF024F8",
+    "REV-PREM-BIO-006-19193289-9A64-4EE5-A11D-840296127BB8"
+  ],
+  "quorum": {
+    "satisfied": true,
+    "approvals": 1,
+    "reviewInputs": 2,
+    "changeRequests": 1,
+    "roleCounts": {
+      "academic": 1,
+      "learningDesign": 1,
+      "accessibilityRights": 0
+    },
+    "distinctPrincipals": 1,
+    "distinctAgentRuns": 2,
+    "distinctAgentModelFamilies": 2
+  },
+  "decision": "merge",
+  "rationale": "Both role-isolated advisory inputs were present from distinct runs and model families, pinned to the same frozen candidate. The learning-design review approved with five notes; the academic review returned request-changes with five major findings and two minor. None carries blocking severity and all seven actionable findings were correctable in this pass, so all were disposed here. The largest was a coverage gap rather than an error: the syllabus outcome behind this graph node requires comparing receptor classes and tracing a signal through to cross-talk, and the candidate covered neither while explicitly declaring the first out of scope. Two scenes close it. Two further findings went to the lesson's central quantitative argument, and both were right: the noise term had the wrong sign, so a figure presented as a floor was an optimistic ceiling, and a binary threshold was credited with a full bit regardless of how its outcomes are distributed. Two answer keys required an account the pack itself does not hold, one keying an unsettled mechanism as a causal stage and one keying complete Wnt independence from any truncation. The learning-design approval stands; the academic verdict stands as dissent and no reviewer has seen the repaired text.",
+  "dissent": [
+    "The academic review's request-changes verdict stands as material dissent from the candidate as reviewed. Its findings were incorporated by the maintainer afterwards; no reviewer has approved the repaired text.",
+    "Closing the coverage finding added two scenes and raised the pack from 115 to 136 minutes, from 31 claims to 46 and from 12 sources to 18. That is the largest revision made in any finalization pass in this block, and it is unreviewed. It is defensible because the alternative was shipping a lesson that does not cover the outcome it claims, and because the addition is sourced and validated, but a fresh review of the nine-scene version would be worth having before this pack leaves 0.1.0.",
+    "Frizzled's membership of the G-protein-coupled receptor class is carried as a live disagreement rather than settled either way, and the pack records that its three sources do not weigh equally on it. Nothing else in the lesson depends on the answer.",
+    "No timescale is asserted for any receptor class. The only sourced figures compare ionotropic with metabotropic signalling in chemoreception and say nothing about receptor tyrosine kinases or nuclear receptors, so the comparison table has no speed column and an assessment distractor offers the unsourced inference for the learner to refuse."
+  ],
+  "conditions": [
+    "The repaired content is committed first and that commit is stamped as finalCommit, with no teaching-content change afterward.",
+    "Strict source preflight and full validation must pass on the final content before merge.",
+    "The publication transition is the maintainer's separate act and is not authorised by this decision."
+  ],
+  "adjudicator": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable maintainer and adjudicator",
+    "agent": {
+      "system": "Claude Code",
+      "provider": "Anthropic",
+      "model": "claude-opus-5",
+      "version": "2.1.215",
+      "runId": "claude-adjudicator-PREM-BIO-006-556B42AAFF65",
+      "instructionsDigest": "sha256:2b8d4249f668806f55791bf05453a1c72c0a796c81ae44f5c5cc6750328a4cb6"
+    }
+  },
+  "adjudicatedAt": "2026-07-27T19:05:44Z",
+  "finalization": {
+    "materialChanges": [
+      "Added a receptor-class comparison scene reading four architectures as predictions about what crosses the membrane and how the signal stops.",
+      "Added a cross-talk scene placed as the answer to the limit the positional-information scene establishes.",
+      "Corrected the direction of the noise term and separated it from the assumptions that do raise the information supply.",
+      "Stated that a binary threshold carries at most one bit and only reaches one when its outcomes are equiprobable.",
+      "Bounded the amplification audit to what its measurements support and narrowed the saturation argument.",
+      "Rewrote the ordering item around the observed sequence rather than a causal chain.",
+      "Fixed the APC item's stem and key so the prediction is conditional on which regions the truncation removes.",
+      "Mapped and exposed the four claims the practice scene restates.",
+      "Presented the cascade definition as the narrower of two recorded usages."
+    ],
+    "reviewDispositions": [
+      {
+        "reviewId": "REV-PREM-BIO-006-ACADEMIC-4DF024F8",
+        "findingIndex": 0,
+        "action": "incorporated",
+        "rationale": "lesson.json, ATTRIBUTION.md, content/03-what-kind-of-receptor.md, content/05-reading-more-than-one-input.md, claims.json, references.json, glossary.json and assessment.json: two scenes added covering receptor-class comparison and cross-talk, with six new PMC sources, fifteen claims, three assessment items and two objectives; the declaration that a receptor-class survey was out of scope is removed."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-006-ACADEMIC-4DF024F8",
+        "findingIndex": 1,
+        "action": "incorporated",
+        "rationale": "content/04-what-a-gradient-can-specify.md and content/08-practice.md: independence and graded reading are separated from noise, which subtracts rather than adds, making the figure an optimistic ceiling; and a binary threshold is stated to carry at most one bit, reaching one only when its outcomes are equiprobable."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-006-ACADEMIC-4DF024F8",
+        "findingIndex": 2,
+        "action": "incorporated",
+        "rationale": "content/06-does-the-cascade-amplify.md: the sixfold figure is identified as a ratio of two steady states rather than a gain, the one-to-one occupancy is bounded to what it observes, and the saturation argument is narrowed, since high gain does not by itself entail early saturation."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-006-ACADEMIC-4DF024F8",
+        "findingIndex": 3,
+        "action": "incorporated",
+        "rationale": "assessment.json: item-order-wnt-pathway asks for the observed sequence rather than a causal chain, and instructs the marker not to penalise a learner who records that the step from recruitment to the rise in beta-catenin is unsettled."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-006-ACADEMIC-4DF024F8",
+        "findingIndex": 4,
+        "action": "incorporated",
+        "rationale": "assessment.json: item-apc-decoupling fixes which regions the truncation removes in the stem, keys a cell largely uncoupled rather than fully independent, and requires the learner to name a feature of the truncation that would change the prediction."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-006-ACADEMIC-4DF024F8",
+        "findingIndex": 5,
+        "action": "incorporated",
+        "rationale": "claims.json and content/08-practice.md: the four claims the practice scene restates are mapped to it and exposed in its source-note."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-006-ACADEMIC-4DF024F8",
+        "findingIndex": 6,
+        "action": "incorporated",
+        "rationale": "content/06-does-the-cascade-amplify.md and glossary.json: the cascade definition is presented as the narrower of two usages, recorded by the textbook as common rather than exclusive, with the pack stating which sense it holds to and why."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-006-ACADEMIC-4DF024F8",
+        "findingIndex": 7,
+        "action": "no-change-required",
+        "rationale": "A verification note confirming the not-like-for-like callout correctly distinguishes the two measurements and refuses to divide them. Nothing to change."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-006-19193289-9A64-4EE5-A11D-840296127BB8",
+        "findingIndex": 0,
+        "action": "no-change-required",
+        "rationale": "Recorded as a strength of the candidate; nothing to change."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-006-19193289-9A64-4EE5-A11D-840296127BB8",
+        "findingIndex": 1,
+        "action": "no-change-required",
+        "rationale": "Recorded as a strength of the candidate; nothing to change."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-006-19193289-9A64-4EE5-A11D-840296127BB8",
+        "findingIndex": 2,
+        "action": "no-change-required",
+        "rationale": "Recorded as a strength of the candidate; nothing to change."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-006-19193289-9A64-4EE5-A11D-840296127BB8",
+        "findingIndex": 3,
+        "action": "no-change-required",
+        "rationale": "Recorded as a strength of the candidate; nothing to change."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-006-19193289-9A64-4EE5-A11D-840296127BB8",
+        "findingIndex": 4,
+        "action": "no-change-required",
+        "rationale": "Recorded as a strength of the candidate; nothing to change."
+      }
+    ],
+    "accessibilityRightsAudit": {
+      "satisfied": true,
+      "evidenceChecked": [
+        "All nine scenes keep one level-one heading, semantic Markdown, linear reading order and text-first instruction, with no raw HTML, embeds or executable content.",
+        "The two new scenes were checked for the same properties, including the comparison table, which renders as five data rows by three columns with no cell loss.",
+        "Every source is used facts-only from pmc.ncbi.nlm.nih.gov, which the access ledger records as allowed; two access events during retrieval are recorded in ATTRIBUTION.md and neither was circumvented.",
+        "The health-sensitive APC item now states its own conditions rather than keying a categorical outcome, which lowers the pack's clinical exposure.",
+        "The original diagram's alt text and long description were left unchanged and still describe the graph the renderer draws."
+      ],
+      "limitations": [
+        "A maintainer reading of the repaired text, not an independent accessibility or rights review; the accessibility-rights role was not staffed for this tier.",
+        "No screen-reader run was performed against the rendered lesson.",
+        "Two scenes were added after review and have been seen only by the maintainer.",
+        "The cross-talk mechanisms are better evidenced in mouse small intestine than in human colon, which the pack records."
+      ]
+    }
+  }
+}

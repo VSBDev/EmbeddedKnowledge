@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-BIO-007-19CD00A1-6B97-4BAC-8470-238E6B1F13C4",
+  "lessonId": "PREM-BIO-007",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "8b9a3b86f025d8064b6be0e8b57d834ac49baee2",
+  "role": "learning-design",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev (learning-design reviewer)",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.7",
+      "runId": "agy-learning-design-PREM-BIO-007-19CD00A1-6B97-4BAC-8470-238E6B1F13C4",
+      "instructionsDigest": "sha256:cc57ddf4e43e8d89a6a5bdb3f4f7d3cda6ce6942fad13e44237bf1e7d3326018"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Founding-stage isolation check: the accountable principal VSBDev operates the authoring, review, and finalization agents, so principal-level independence is absent. Agent-level role isolation was strictly maintained: no authoring history, other review output, or adjudication draft was read, and no other EmbeddedKnowledge role script was run during this review execution."
+  },
+  "evidenceChecked": [
+    "lessons/PREM-BIO-007-cytoskeleton-motility/lesson.json",
+    "lessons/PREM-BIO-007-cytoskeleton-motility/claims.json",
+    "lessons/PREM-BIO-007-cytoskeleton-motility/references.json",
+    "lessons/PREM-BIO-007-cytoskeleton-motility/glossary.json",
+    "lessons/PREM-BIO-007-cytoskeleton-motility/ATTRIBUTION.md",
+    "lessons/PREM-BIO-007-cytoskeleton-motility/assessment.json",
+    "lessons/PREM-BIO-007-cytoskeleton-motility/diagrams/junction-anchors.diagram.json",
+    "lessons/PREM-BIO-007-cytoskeleton-motility/content/01-finger-of-fluid.md",
+    "lessons/PREM-BIO-007-cytoskeleton-motility/content/02-three-mechanics.md",
+    "lessons/PREM-BIO-007-cytoskeleton-motility/content/03-choosing-the-polymer.md",
+    "lessons/PREM-BIO-007-cytoskeleton-motility/content/04-junction-hierarchy.md",
+    "lessons/PREM-BIO-007-cytoskeleton-motility/content/05-break-one-anchor.md",
+    "lessons/PREM-BIO-007-cytoskeleton-motility/content/06-the-climb.md",
+    "lessons/PREM-BIO-007-cytoskeleton-motility/content/07-practice-and-recovery.md",
+    "lessons/PREM-BIO-007-cytoskeleton-motility/content/08-clinical-wrap-up.md",
+    "CONTENT-STANDARD.md",
+    "RIGHTS-POLICY.md"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "lessons/PREM-BIO-007-cytoskeleton-motility/content/01-finger-of-fluid.md#L31-L37",
+      "finding": "The self-assessment retrieval check block 'check-why-not-membrane' in Scene 1 does not provide any correct answer or explanatory feedback. Standard learning-design practice in this course requires a retrieval check to show the correct answer and reasoning immediately following the prompt to allow learners to self-assess their model before proceeding.",
+      "resolution": "Insert the correct answer and reasoning immediately following the check directive block in content/01-finger-of-fluid.md (explaining that a lipid bilayer behaves as a fluid in its own plane and surface tension pulls it into a shape with minimum area, and that villin is the calcium-sensitive severing protein to target to shorten microvilli)."
+    },
+    {
+      "severity": "major",
+      "target": "lessons/PREM-BIO-007-cytoskeleton-motility/content/05-break-one-anchor.md#L60-L66",
+      "finding": "The self-assessment check block 'check-predict-the-failure' in Scene 5 does not supply a correct answer or explanatory feedback, violating the retrieval and practice feedback requirement of Section 6 of CONTENT-STANDARD.md. The learner is prompted to make a prediction about removing E-cadherin but is left with no way to verify their reasoning.",
+      "resolution": "Add the correct answer and reasoning immediately below the check directive block in content/05-break-one-anchor.md, explaining that removing E-cadherin breaks cell-to-cell adhesion (which runs through the adherens junction to actin) but leaves the tight junction seal intact (which runs through claudins to actin, although the primary contact stabilisation is lost)."
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-BIO-007-cytoskeleton-motility/content/03-choosing-the-polymer.md#worked-example-which-polymer",
+      "finding": "The worked example 'worked-example-which-polymer' is exceptionally well-structured and aligns perfectly with Section 5.1 of CONTENT-STANDARD.md. It defines a clear stiffness ratio formula, explicitly compares persistence length against both microvillus and cell-height scales, checks the low and high bounds of actin's persistence length range, and concludes with a clear decision criteria.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-BIO-007-cytoskeleton-motility/content/06-the-climb.md#L47-L59",
+      "finding": "The comparison table and the surrounding discussion of the 'Push from below' versus 'Pull from above' theories of crypt migration provide an excellent, balanced, and scientifically honest treatment of a contested mechanism, directly supporting Section 10 of CONTENT-STANDARD.md by distinguishing a measured correlation from a direct force measurement and highlighting the complementary strengths and limitations of both designs.",
+      "resolution": null
+    }
+  ],
+  "limitations": [
+    "Expert-simulation review: This review represents a single-pass advisory input by a simulated learning-design expert under standard-lesson-v3 guidelines. No real learner testing was conducted.",
+    "Conflict of interest: The same GitHub principal (VSBDev) is responsible for the authoring and review run operators. Agent-level isolation was maintained, but principal-level independence is absent.",
+    "Scope restriction: The review is strictly bounded to learning-design metrics (e.g., clarity, coherence, practice, alignment, and transfer). Scientific accuracy, rights audits, and final typesetting checks are excluded.",
+    "Technical verification limits: No rendered build environment, screen reader, or keyboard navigation pathways were evaluated physically; findings are based solely on the static Markdown and JSON source files."
+  ],
+  "signedAt": "2026-07-27T09:12:00Z"
+}

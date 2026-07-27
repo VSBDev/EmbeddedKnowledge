@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-diagram-v1",
+  "id": "diagram-wnt-reception-to-response",
+  "type": "flow",
+  "direction": "left-to-right",
+  "alt": "A chain from mesenchyme at the crypt base through Wnt protein and its receptor to the destruction complex, free beta-catenin, its partnership with TCF/LEF, and the stem-cell gene programme.",
+  "longDescription": "A chain of seven stages read left to right, with two of the six links inhibitory. Stage one, mesenchyme at the crypt base, secretes stage two, Wnt protein. Wnt protein binds stage three, the receptor pair Frizzled with LRP5/6. The bound receptor then acts on stage four, the destruction complex, which includes APC, Axin, CK1A and GSK3B, and that link is inhibitory: the receptor recruits the complex to the membrane, which reduces what the complex does next. The complex in turn acts on stage five, free beta-catenin, and that link is also inhibitory: the complex marks free beta-catenin for degradation. Free beta-catenin enters the nucleus and forms stage six, beta-catenin partnered with TCF/LEF. That partnership switches on stage seven, the stem-cell gene programme, including c-MYC, LGR5 and cyclin D1, and that link is an activating one. The shape of the graph is the point. Only two links carry a negative sign, and they sit next to each other in the chain. Wnt does not switch beta-catenin on; it blocks the machine that was destroying it, so a signal that arrives as an inhibitor produces a rise in the thing being inhibited. Remove the Wnt and the chain reverts, because the destruction complex is running all the time and the fifth stage is being replaced and destroyed continuously.",
+  "nodes": [
+    {
+      "id": "node-mesenchyme",
+      "label": "Mesenchyme at crypt base",
+      "shape": "rounded-box",
+      "group": "outside"
+    },
+    {
+      "id": "node-wnt",
+      "label": "Wnt protein",
+      "shape": "pill",
+      "group": "outside"
+    },
+    {
+      "id": "node-receptor",
+      "label": "Frizzled with LRP5/6",
+      "shape": "box",
+      "group": "membrane"
+    },
+    {
+      "id": "node-destruction-complex",
+      "label": "Destruction complex",
+      "shape": "box",
+      "group": "cytosol"
+    },
+    {
+      "id": "node-free-beta-catenin",
+      "label": "Free beta-catenin",
+      "shape": "pill",
+      "group": "cytosol"
+    },
+    {
+      "id": "node-tcf-partner",
+      "label": "Beta-catenin with TCF/LEF",
+      "shape": "box",
+      "group": "nucleus"
+    },
+    {
+      "id": "node-gene-programme",
+      "label": "Stem-cell gene programme",
+      "shape": "rounded-box",
+      "group": "nucleus"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-secretes",
+      "from": "node-mesenchyme",
+      "to": "node-wnt",
+      "kind": "directed",
+      "label": "secretes"
+    },
+    {
+      "id": "edge-binds",
+      "from": "node-wnt",
+      "to": "node-receptor",
+      "kind": "directed",
+      "label": "binds"
+    },
+    {
+      "id": "edge-recruits",
+      "from": "node-receptor",
+      "to": "node-destruction-complex",
+      "kind": "inhibits",
+      "label": "recruits it to the membrane"
+    },
+    {
+      "id": "edge-marks-for-degradation",
+      "from": "node-destruction-complex",
+      "to": "node-free-beta-catenin",
+      "kind": "inhibits",
+      "label": "marks it for degradation"
+    },
+    {
+      "id": "edge-enters-nucleus",
+      "from": "node-free-beta-catenin",
+      "to": "node-tcf-partner",
+      "kind": "directed",
+      "label": "enters the nucleus"
+    },
+    {
+      "id": "edge-transcribes",
+      "from": "node-tcf-partner",
+      "to": "node-gene-programme",
+      "kind": "activates",
+      "label": "switches on"
+    }
+  ]
+}
