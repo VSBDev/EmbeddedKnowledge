@@ -26,6 +26,13 @@
       "notes": "Licences are per file and most cell-biology diagrams are CC BY-SA, which this project rejects. Usable only for the CC0 and public-domain seam. Never a source for artwork whose creator has a canonical site of their own."
     },
     {
+      "domain": "journals.physiology.org",
+      "verdict": "excluded",
+      "evidence": "robots.txt carries named blocks for GPTBot, ClaudeBot and Google-Extended, each with Disallow: /.",
+      "checked": "2026-07-27",
+      "notes": "Only the robots file was fetched; no content was retrieved. This is the American Physiological Society's own platform, and the exclusion does not extend to APS articles deposited in PMC, which are reachable at pmc.ncbi.nlm.nih.gov/articles/ and were used that way by PREM-BIO-005. Consequence recorded for the next author: Wright, Loo and Hirayama, Biology of human sodium glucose transporters, Physiological Reviews 91:733-794 (2011), is the standard reference for sodium-glucose cotransport energetics and is not in PMC, so its full text is unreachable under these rules. Gyimesi et al. 2020 in Pflugers Archiv (PMC7462921, CC BY 4.0) and Koepsell 2020 (PMC7462918, CC BY 4.0) between them carry the stoichiometry and driving-force statements that review is usually cited for."
+    },
+    {
       "domain": "openstax.org",
       "verdict": "excluded",
       "evidence": "robots.txt sets User-agent: GPTBot with Disallow: /books/, the path holding the book text.",
@@ -110,6 +117,13 @@
       "notes": "Do not bypass the challenge."
     },
     {
+      "domain": "www.who.int",
+      "verdict": "restricted",
+      "evidence": "robots.txt is a 527-entry blocklist of named bad bots, each carrying Disallow:/, with the header comment recording its version and that count. It contains no User-agent: * block and names neither ClaudeBot, anthropic-ai nor GPTBot, so no rule here excludes an agent of this kind; CCBot is present and disallowed. The terms of use at /about/policies/terms-of-use permit review, reproduction or translation of extracts for research or private study, require acknowledgment of WHO as the source with the URL, and prohibit sale, commercial use, and reproduction of substantial portions without prior written authorisation. No text-and-data-mining or AI-training clause was found.",
+      "checked": "2026-07-27",
+      "notes": "Restricted on licence rather than on access. Nothing here is openly licensed: the terms are attribution plus non-commercial, which sits outside this project's accepted reuse set, so the only available rights basis is facts-only-original-expression. Read a fact, write your own sentence, and do not carry WHO wording into a lesson. Practical caution found by PREM-BIO-005: the cholera fact sheet's case-fatality figure is written as a programmatic target for treatment centres and not as a measured before-and-after, so it does not support a claim that any therapy achieved that number. That lesson used a CC BY journal source for the figure instead and cited no WHO page."
+    },
+    {
       "domain": "www.itl.nist.gov",
       "verdict": "allowed",
       "evidence": "Serves no robots file of its own; www.nist.gov/robots.txt applies and permits /div898/.",
@@ -119,9 +133,9 @@
     {
       "domain": "www.ncbi.nlm.nih.gov",
       "verdict": "restricted",
-      "evidence": "robots.txt disallows the legacy /pmc/articles route for unnamed agents.",
-      "checked": "2026-07-25",
-      "notes": "Use pmc.ncbi.nlm.nih.gov/articles/ instead, which robots explicitly allows."
+      "evidence": "robots.txt disallows the legacy /pmc/articles route for unnamed agents. The wildcard User-agent block was read in full on 2026-07-27: it disallows /pmc/articles/ but the only /books/ rule in it is Disallow: /books/?term=, which covers the Bookshelf search query string and not the /books/NBK... record paths. No AI-specific crawler is named anywhere in the file, so the wildcard block governs.",
+      "checked": "2026-07-27",
+      "notes": "Use pmc.ncbi.nlm.nih.gov/articles/ instead for PMC articles, which robots explicitly allows. The /books/NBK... Bookshelf route is separately permitted and is the route PREM-BIO-004 and PREM-BIO-005 used for Molecular Biology of the Cell chapters. Two cautions on that route. Bookshelf pages for that title display 'By agreement with the publisher, this book is accessible by the search feature, but cannot be browsed', which is a publisher limit on paging through the work rather than a prohibition on retrieving a permitted page; retrieve the specific section you cite and no more. And the book is conventionally copyrighted, not openly licensed, so the only rights basis available is facts-only-original-expression: take the fact, write your own sentence. Table content is frequently not served on those pages, only a thumbnail link, so a table's numbers cannot be read this way and must not be reconstructed from memory."
     },
     {
       "domain": "www.niddk.nih.gov",
@@ -138,11 +152,25 @@
       "notes": "Excluded on licence, not on access. Being an NIH gallery does not make the contents public domain. images.nigms.nih.gov no longer resolves; the gallery lives under www.nigms.nih.gov/image-gallery."
     },
     {
+      "domain": "www.thelancet.com",
+      "verdict": "excluded",
+      "evidence": "robots.txt names ClaudeBot and anthropic-ai in their own blocks, each with Disallow: /, alongside GPTBot, CCBot, Google-Extended, PerplexityBot, ChatGPT-User, Bytespider, meta-externalagent and roughly a dozen other AI agents. The User-agent: * block does permit article paths, but a named agent block governs over the wildcard, so the exclusion applies.",
+      "checked": "2026-07-27",
+      "notes": "Not fetched. Consequence for authors: a Lancet item can be established bibliographically through pubmed.ncbi.nlm.nih.gov, which gives title, journal, year, volume, pages and PMID, but its text cannot be read here and so cannot be the source of a claim. PREM-BIO-005 wanted the 1978 editorial 'Water with sugar and salt' and found two secondary sources quoting its best-known line differently, which is exactly the failure mode a second-hand quotation invites; the lesson dropped the quotation rather than repeat one it could not read."
+    },
+    {
       "domain": "www.tandfonline.com",
       "verdict": "excluded",
       "evidence": "robots.txt disallows GPTBot.",
       "checked": "2026-07-25",
       "notes": "The ASA statement on p-values is reachable instead from the ASA's own release of it."
+    },
+    {
+      "domain": "physics.nist.gov",
+      "verdict": "allowed",
+      "evidence": "The host serves no robots.txt of its own (HTTP 404), so www.nist.gov/robots.txt governs, following the same reasoning already recorded here for www.itl.nist.gov. That file's wildcard block disallows administrative, search, user-account and Drupal scaffolding paths only; it does not disallow /cgi-bin/cuu/ or any other fundamental-constants path, and it names no AI-specific crawler, so no agent-specific rule applies.",
+      "checked": "2026-07-27",
+      "notes": "The route for CODATA recommended values of the fundamental constants, one value per page at /cgi-bin/cuu/Value?<symbol>. Each page states the value, the unit, the standard uncertainty or the word exact, and the CODATA adjustment year, which is what a lesson quoting a constant needs. Since the 2019 SI redefinition the molar gas constant and the Faraday constant are both exact, so quote them as exact rather than attaching an uncertainty they no longer have."
     },
     {
       "domain": "pubmed.ncbi.nlm.nih.gov",
