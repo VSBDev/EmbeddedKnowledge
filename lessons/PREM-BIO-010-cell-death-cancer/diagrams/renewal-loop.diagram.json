@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-diagram-v1",
+  "id": "diagram-renewal-loop",
+  "type": "cycle",
+  "direction": "top-to-bottom",
+  "alt": "A five-stage loop: division at the crypt base, climb and differentiate, work at the surface, apoptosis at the top, shed into the lumen, and back to division because the rate of loss sets the rate of replacement.",
+  "longDescription": "Five stages joined into a closed loop of five links. Stage one is division at the crypt base. It leads to stage two, climb and differentiate, and that link carries the note that daughters are pushed upward at around four micrometres per hour in the lower half of the crypt. Stage two leads to stage three, work at the surface, with differentiation finished by the time the crypt top is reached. Stage three leads to stage four, apoptosis at the top, after a few days of work. Stage four leads to stage five, shed into the lumen, and that link carries the note that the cell is removed without releasing its contents into the tissue. The fifth link closes the loop by running from stage five back to stage one, and it is the link the whole lesson turns on: the rate of loss sets the rate that must be replaced. Read the loop as a balance rather than a sequence. Because the last link returns to the first, the number of cells in the crypt stays constant only while the traffic around the loop is equal at every stage. A failure anywhere on the loop shows up as a change in cell number, and the loop gives four separate places where such a failure could sit: cells made too fast at stage one, cells that do not stop climbing or differentiating at stage two, cells that do not reach stage four, and cells that reach stage four but are not removed at stage five.",
+  "nodes": [
+    {
+      "id": "node-division",
+      "label": "Division at the crypt base",
+      "shape": "rounded-box",
+      "group": "renewal"
+    },
+    {
+      "id": "node-climb",
+      "label": "Climb and differentiate",
+      "shape": "rounded-box",
+      "group": "renewal"
+    },
+    {
+      "id": "node-surface",
+      "label": "Work at the surface",
+      "shape": "rounded-box",
+      "group": "renewal"
+    },
+    {
+      "id": "node-apoptosis",
+      "label": "Apoptosis at the top",
+      "shape": "box",
+      "group": "removal"
+    },
+    {
+      "id": "node-shed",
+      "label": "Shed into the lumen",
+      "shape": "box",
+      "group": "removal"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-born-climbs",
+      "from": "node-division",
+      "to": "node-climb",
+      "kind": "directed",
+      "label": "daughters pushed upward, around 4 micrometres per hour"
+    },
+    {
+      "id": "edge-climb-works",
+      "from": "node-climb",
+      "to": "node-surface",
+      "kind": "directed",
+      "label": "differentiation finished by the crypt top"
+    },
+    {
+      "id": "edge-works-dies",
+      "from": "node-surface",
+      "to": "node-apoptosis",
+      "kind": "directed",
+      "label": "after a few days of work"
+    },
+    {
+      "id": "edge-dies-shed",
+      "from": "node-apoptosis",
+      "to": "node-shed",
+      "kind": "directed",
+      "label": "removed without releasing contents into the tissue"
+    },
+    {
+      "id": "edge-loss-sets-replacement",
+      "from": "node-shed",
+      "to": "node-division",
+      "kind": "directed",
+      "label": "the rate of loss sets the rate that must be replaced"
+    }
+  ]
+}
