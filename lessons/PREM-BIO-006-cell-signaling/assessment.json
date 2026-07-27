@@ -1,0 +1,428 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-assessment-v1",
+  "lessonId": "PREM-BIO-006",
+  "lessonVersion": "0.1.0",
+  "assessmentId": "assessment-prem-bio-006-cell-signaling",
+  "title": "Reading a position from a concentration: pathway, bounds, and confidence",
+  "purpose": "mixed",
+  "attemptPolicy": {
+    "retakeable": true,
+    "timeLimitMinutes": null,
+    "feedback": "after-attempt"
+  },
+  "items": [
+    {
+      "id": "item-order-wnt-pathway",
+      "type": "ordering",
+      "sceneId": "scene-four-jobs-one-pathway",
+      "objectiveIds": [
+        "objective-trace-wnt-pathway"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-cell-signaling"
+      ],
+      "prompt": "Put the six stages of canonical Wnt signalling in a colonic crypt cell into the order in which they occur, starting with the earliest.",
+      "points": 3,
+      "responseSpec": {
+        "mode": "ordered-ids",
+        "options": [
+          {
+            "id": "option-beta-catenin-rises",
+            "text": "The amount of available free beta-catenin rises."
+          },
+          {
+            "id": "option-genes-switched-on",
+            "text": "c-MYC, LGR5 and cyclin D1 are switched on."
+          },
+          {
+            "id": "option-mesenchyme-secretes",
+            "text": "Mesenchymal cells near the crypt base secrete Wnt ligands."
+          },
+          {
+            "id": "option-complex-recruited",
+            "text": "The destruction complex is recruited to the cell membrane."
+          },
+          {
+            "id": "option-tcf-partnership",
+            "text": "Beta-catenin reaches the nucleus and acts with TCF and LEF."
+          },
+          {
+            "id": "option-wnt-binds-receptor",
+            "text": "Wnt binds the receptor complex of Frizzled with LRP5/6."
+          }
+        ]
+      },
+      "answer": {
+        "correct": [
+          "option-mesenchyme-secretes",
+          "option-wnt-binds-receptor",
+          "option-complex-recruited",
+          "option-beta-catenin-rises",
+          "option-tcf-partnership",
+          "option-genes-switched-on"
+        ],
+        "summary": "Secretion, binding, recruitment of the destruction complex, the rise in free beta-catenin, the partnership with TCF and LEF, then transcription.",
+        "reasoning": "The chain runs from outside the cell inward. Mesenchymal cells near the base are the source, so secretion comes first. Wnt then binds Frizzled with LRP5/6, which is the reception step. Binding leads to the destruction complex being recruited to the membrane. Because that complex is what marks beta-catenin for proteasomal degradation, interfering with it lets free beta-catenin rise; the rise follows the recruitment rather than causing it, which is the ordering learners most often invert. Beta-catenin then reaches the nucleus and acts with TCF and LEF, and that partnership switches on c-MYC, LGR5 and cyclin D1.",
+        "acceptableResponses": [
+          "Secretion by mesenchyme, Wnt binds Frizzled and LRP5/6, destruction complex recruited to the membrane, free beta-catenin rises, beta-catenin acts with TCF and LEF, target genes switched on."
+        ],
+        "commonErrors": [
+          "Placing the rise in beta-catenin before the recruitment of the destruction complex, which reverses cause and effect: the complex has to be interfered with before beta-catenin can accumulate.",
+          "Placing the TCF and LEF partnership before the rise in beta-catenin, which skips the step that makes enough beta-catenin available to reach the nucleus.",
+          "Treating Wnt binding as switching on beta-catenin production rather than blocking its destruction; the order is the same but the stated reason is wrong, and the misconception shows up in later items."
+        ]
+      },
+      "rubricId": "rubric-ordered-mechanism",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-axin-versus-gsk3b",
+      "type": "single-choice",
+      "sceneId": "scene-practice",
+      "objectiveIds": [
+        "objective-trace-wnt-pathway"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-cell-signaling"
+      ],
+      "prompt": "A quantitative model of the canonical Wnt pathway reports these four figures. Axin is present at about 20 picomolar and APC at about 100 nanomolar. Doubling Axin shortens beta-catenin's half-life by about 50 per cent; doubling GSK3B shortens it by about 10 per cent. Which explanation of that difference in sensitivity do the figures support?",
+      "points": 2,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-axin-scarce",
+            "text": "Axin is by far the scarcest of the major components, about 5000-fold less abundant than APC, so it is what limits how much destruction complex can be assembled; adding to the component in shortest supply changes throughput most."
+          },
+          {
+            "id": "option-gsk3b-kinase",
+            "text": "GSK3B should have been the more sensitive one because it is the kinase that attaches the phosphate, and the 10 per cent figure must therefore reflect measurement error in the model."
+          },
+          {
+            "id": "option-apc-largest",
+            "text": "APC at 100 nanomolar is the most abundant component, so it contributes most of the complex's activity and Axin's effect must come from stabilising APC."
+          },
+          {
+            "id": "option-all-equal",
+            "text": "The components act as one complex, so the difference between 50 and 10 per cent cannot be explained by their concentrations and must come from the order in which they bind."
+          }
+        ]
+      },
+      "answer": {
+        "correct": "option-axin-scarce",
+        "summary": "Axin is the scarce, limiting component: about 5000-fold less abundant than APC, so adding to it changes throughput most.",
+        "reasoning": "Put the two concentrations in one unit before comparing them, which the stem invites: 100 nanomolar is 100,000 picomolar, so APC is present at roughly 5000 times Axin's concentration. A component that scarce is the one that runs out, and therefore the one that limits how much working destruction complex can exist. Doubling it increases the amount of complex and speeds beta-catenin's clearance, which is the 50 per cent figure. Doubling a component already in large excess changes little, because it was never the shortage. The GSK3B option confuses being essential with being rate-limiting: GSK3B does the chemistry and the pathway cannot work without it, but that is a different property from controlling the rate, and only the second is what a doubling tests. Nothing in the figures supports treating the 10 per cent as error, and nothing supports Axin acting through APC.",
+        "acceptableResponses": [
+          "Axin, because at about 20 picomolar against 100 nanomolar it is roughly 5000-fold scarcer and therefore the limiting component.",
+          "Axin is the component in shortest supply, so it caps how much complex can form; GSK3B is essential but not rate-limiting."
+        ],
+        "commonErrors": [
+          "Choosing GSK3B on the reasoning that the enzyme doing the chemistry must be rate-limiting. The chemistry is right and the inference is not.",
+          "Failing to convert units, and so treating 20 picomolar and 100 nanomolar as comparable numbers.",
+          "Choosing APC by equating abundance with influence. Its abundance is exactly why it is not the sensitive point."
+        ]
+      },
+      "rubricId": "rubric-single-selection",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-bits-for-crypt-positions",
+      "type": "numeric",
+      "sceneId": "scene-what-a-gradient-can-specify",
+      "objectiveIds": [
+        "objective-bound-positional-information"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-cell-signaling"
+      ],
+      "prompt": "A crypt of the descending colon is about 32 cells along its length. Suppose, for the sake of the calculation, that every one of those 32 positions had to be told apart from every other. How many binary yes-or-no distinctions would that require? Give a whole number.",
+      "points": 2,
+      "responseSpec": {
+        "mode": "number",
+        "units": "bits",
+        "tolerance": 0
+      },
+      "answer": {
+        "correct": 5,
+        "summary": "5 bits, because 32 halves to 1 in five steps.",
+        "reasoning": "Each yes-or-no question can at best halve the number of remaining candidates. Starting from 32: sixteen, eight, four, two, one. That is five questions, and five binary distinctions is five bits. Equivalently the base-2 logarithm of 32 is 5. Note what the number is and is not. It is the demand that would be created by the supposition in the question. It is not a measurement of the crypt and not a claim that the crypt encodes five bits; the lesson's argument is that the supposition is the part to reject, because a crypt has no use for 32 separate addresses.",
+        "acceptableResponses": [
+          "5",
+          "five",
+          "log base 2 of 32, which is 5"
+        ],
+        "commonErrors": [
+          "Answering 32, which restates the number of positions rather than the number of distinctions needed to separate them.",
+          "Answering 31, which is the number of thresholds needed to cut an axis into 32 zones, a different quantity asked about elsewhere in the lesson.",
+          "Answering 16, which is one halving rather than the count of halvings.",
+          "Answering 6, from rounding up a logarithm that is already a whole number; 2 to the power 5 is exactly 32, so no rounding is needed."
+        ]
+      },
+      "rubricId": "rubric-numeric-with-interpretation",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-thresholds-for-eight-zones",
+      "type": "numeric",
+      "sceneId": "scene-practice",
+      "objectiveIds": [
+        "objective-bound-positional-information"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-cell-signaling"
+      ],
+      "prompt": "A tissue reads one substance whose concentration falls monotonically along an axis. It reads that gradient using genes which act independently of one another and which each switch at a single threshold. How many such thresholds are needed to divide the axis into 8 distinguishable zones? Give a whole number.",
+      "points": 2,
+      "responseSpec": {
+        "mode": "number",
+        "units": "thresholds",
+        "tolerance": 0
+      },
+      "answer": {
+        "correct": 7,
+        "summary": "7 thresholds, because k cuts along a line produce k plus 1 pieces.",
+        "reasoning": "On a concentration that falls in one direction, each threshold marks one place along the axis where a gene changes state. Those places are cuts in a line, and k cuts divide a line into k plus 1 segments. For 8 segments, k plus 1 equals 8, so k equals 7. Every stipulation the answer needs is in the question: the gradient is monotonic, so each threshold is crossed once; the genes are independent and single-threshold, so no gene supplies more than one boundary. This is why reading a single gradient with independent thresholds is an expensive way to encode position, and it is the calculation that motivates looking for something better.",
+        "acceptableResponses": [
+          "7",
+          "seven",
+          "k + 1 = 8 so k = 7"
+        ],
+        "commonErrors": [
+          "Answering 8, by matching one threshold to each zone. Count the boundaries between zones instead: eight zones have seven internal boundaries.",
+          "Answering 3, which is the number of bits needed to label 8 positions. Bits and thresholds are different quantities, and this question asks for thresholds.",
+          "Answering 4, by halving the number of zones, which corresponds to no step in the argument."
+        ]
+      },
+      "rubricId": "rubric-numeric-with-interpretation",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-wnt-gain-interpretation",
+      "type": "single-choice",
+      "sceneId": "scene-does-the-cascade-amplify",
+      "objectiveIds": [
+        "objective-audit-amplification"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-cell-signaling"
+      ],
+      "prompt": "In a quantitative model of the canonical Wnt pathway built on measurements in frog egg extracts, moving from the unstimulated reference state to the standard stimulated state raised free beta-catenin from about 25 nanomolar to about 153 nanomolar. Separately, a textbook reports that vertebrate phototransduction hydrolyses more than 100,000 cyclic GMP molecules for a single absorbed quantum of light. Which conclusion do these two figures together support?",
+      "points": 2,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-modest-and-incommensurable",
+            "text": "Free beta-catenin rose about sixfold, a real but modest change; and because that figure is a ratio of two steady-state concentrations while the phototransduction figure counts molecules per input event, the two cannot be compared numerically at all."
+          },
+          {
+            "id": "option-seventeen-thousand",
+            "text": "Dividing 100,000 by 6 shows that phototransduction amplifies about seventeen thousand times more strongly than the Wnt pathway, so vision is the better-amplified cascade by roughly four orders of magnitude."
+          },
+          {
+            "id": "option-huge-gain",
+            "text": "Both pathways amplify by more than 100,000-fold, because a multi-step signalling chain is a cascade and cascades multiply their input at every step."
+          },
+          {
+            "id": "option-no-transmission",
+            "text": "A sixfold change is within measurement noise, so the Wnt figure shows that this pathway does not transmit its signal to beta-catenin at all."
+          }
+        ]
+      },
+      "answer": {
+        "correct": "option-modest-and-incommensurable",
+        "summary": "About sixfold, and the two figures are different kinds of quantity, so no numerical comparison between the pathways is available.",
+        "reasoning": "Two separate judgements are needed and both must be right. First the arithmetic: 153 divided by 25 is about 6, so the change is real and modest. Second, and this is what the item is really testing, the two numbers do not measure the same kind of thing. The Wnt figure is a dimensionless ratio between two resting concentrations, with no time and no per-event count in it. The phototransduction figure is a tally of molecules hydrolysed per single absorbed photon, accumulated by enzymes turning over. Dividing one by the other produces a number with no meaning, so the tempting 'four orders of magnitude' conclusion is not supported by this evidence, however often it is repeated. What the pair does support is that the word cascade fixes neither the size of a gain nor even the units it is reported in. The other two options fail on the figures themselves: 100,000-fold contradicts the quoted Wnt values and reads amplification out of a label, and a sixfold rise is a clear change rather than noise.",
+        "acceptableResponses": [
+          "About sixfold; and the two figures cannot be compared numerically because one is a steady-state ratio and the other a per-event catalytic count.",
+          "153 over 25 is roughly 6, a modest change, and comparing that with a per-photon molecule tally is a category error."
+        ],
+        "commonErrors": [
+          "Dividing 100,000 by 6 to get a ratio of gains. This is the error the item is built around: the two quantities have different units and different meanings, so their quotient is not a gain ratio.",
+          "Assuming a multi-step pathway must have very high gain, which reads the amplification out of the word cascade instead of out of a measurement.",
+          "Treating a sixfold change as negligible. Small relative to another pathway is not the same as absent.",
+          "Concluding that the response is all-or-none. Two steady-state levels cannot show the shape of a dose-response relationship."
+        ]
+      },
+      "rubricId": "rubric-single-selection",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-settled-versus-proposed",
+      "type": "open-response",
+      "sceneId": "scene-how-the-gradient-gets-made",
+      "objectiveIds": [
+        "objective-separate-settled-from-proposed"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-cell-signaling"
+      ],
+      "prompt": "A revision guide states: \"The Wnt gradient in the intestinal crypt is produced by the diffusion of Wnt away from source cells at the crypt base.\" In your own words, and in four short parts: (a) say what this sentence gets right; (b) say precisely what it asserts beyond what the evidence supports; (c) name one alternative account of Wnt spread reported in the literature, with the observation behind it; (d) name one statement from earlier in this lesson that would still stand if the diffusion account turned out to be wrong for the human colon, and say why it is unaffected.",
+      "points": 5,
+      "responseSpec": {
+        "mode": "text",
+        "maxLength": 3000
+      },
+      "answer": {
+        "correct": "(a) The source and the direction are right: mesenchymal cells near the crypt base secrete Wnt, cells further away do not, and Wnt activity falls progressively up the crypt axis. (b) The mechanism is the overstatement. Saying diffusion produces the profile asserts a settled mechanism where the literature describes the range of Wnt action as long debated and not known, and where Wnt proteins are hydrophobic because of a lipid modification, which is what makes travel through aqueous space hard to explain in the first place. (c) One alternative: short-range spread by lateral transcytosis, in which the ligand is handed between neighbouring cells rather than released to diffuse, reported for Wnt3 in mouse intestinal crypts. Others proposed include carriage on lipoproteins, on heparan sulphate proteoglycans, in exosomes, or along cytonemes; travel as oligomers or micelles was proposed and then argued against, because blocking the movement of one labelled form of Wingless in flies did not affect the spreading of a differently labelled form. (d) Any statement downstream of the ligand reaching a receptor. For example, that the destruction complex including APC, Axin, CK1A and GSK3B marks beta-catenin for degradation, and that Wnt binding to Frizzled with LRP5/6 raises available beta-catenin by interfering with that destruction. It is unaffected because it describes what happens once Wnt arrives at a receptor, which is downstream of however the Wnt got there.",
+        "summary": "Right about source and direction; overstated about mechanism; the short-range handover reading is a live alternative; everything downstream of receptor binding survives either way.",
+        "reasoning": "The item tests whether a learner can hold one sentence at two different confidence levels at once, which is the calibration skill the scene is built around. Part (a) requires separating the profile, which the sources state plainly, from its cause. Part (b) requires naming the specific overreach rather than rejecting the sentence wholesale; the sentence is not simply wrong, and a response that calls the whole thing false has misread the evidence in the other direction. Part (c) requires a named alternative with its evidence, not merely an assertion that alternatives exist. Part (d) tests the structural point that a mechanism dispute about delivery does not propagate downstream of delivery: the reception, transduction and response steps are indifferent to how the ligand arrived. A response naming any claim from the transduction or response scenes, with that reasoning, earns the marks.",
+        "acceptableResponses": [
+          "Any response that identifies the source and falling direction as supported, identifies diffusion as the unsupported part, names lateral transcytosis or another reported route with its supporting observation, and names any post-receptor step as unaffected with the reason that it sits downstream of delivery.",
+          "A response that names the anti-oligomer Wingless labelling experiment as the observation in part (c) instead of the transcytosis result, provided the rest is intact.",
+          "A response that in part (d) names the one-bit ceiling on threshold reading, on the grounds that the information argument requires only that some graded quantity is being read and not any particular means of spreading.",
+          "A response that answers part (c) with the destruction-complex question instead of a transport route, naming saturation of the complex with already-phosphorylated beta-catenin or blocked docking of the ubiquitin-attaching enzyme as competing proposals, provided parts (a), (b) and (d) are intact."
+        ],
+        "commonErrors": [
+          "Rejecting the whole sentence as false. The source and the direction of the gradient are well supported, and only the mechanism is overstated.",
+          "Answering part (b) with a general remark that biology is complicated, instead of naming diffusion as the specific claim that exceeds the evidence.",
+          "Naming an alternative in part (c) without the observation behind it, which repeats the original error of asserting a mechanism without evidence.",
+          "Claiming in part (d) that the whole pathway would have to be rewritten. The reception, transduction and response steps are downstream of delivery and do not depend on how the ligand travelled.",
+          "Choosing for part (d) a statement about the shape of the concentration profile or a calculation of gradient shape from a diffusion coefficient. Those are exactly the statements that would be affected, which is why the lesson does not make them."
+        ]
+      },
+      "rubricId": "rubric-confidence-calibration",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-apc-decoupling",
+      "type": "short-answer",
+      "sceneId": "scene-clinical-wrap-up",
+      "objectiveIds": [
+        "objective-trace-wnt-pathway",
+        "objective-bound-positional-information"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-cell-signaling"
+      ],
+      "prompt": "A cell sits high in a crypt, where Wnt is low, and it carries a truncated APC. Predict its level of free beta-catenin and whether its beta-catenin-dependent gene programme is running, giving the reason from the pathway. Then say in one sentence what that cell has lost about its ability to read its position. Finally, state one thing your prediction does not establish.",
+      "points": 4,
+      "responseSpec": {
+        "mode": "text",
+        "maxLength": 2000
+      },
+      "answer": {
+        "correct": "Free beta-catenin is high and the gene programme is running, despite the low Wnt. The reason is that APC has two roles here: it is a component of the destruction complex that marks beta-catenin for proteasomal degradation, and full-length APC is required for that complex to reorient towards a Wnt cue. With APC truncated, beta-catenin is not cleared efficiently, so it accumulates, reaches the nucleus, acts with TCF and LEF, and switches on c-MYC, LGR5 and cyclin D1. What the cell has lost is the link between input and output: its beta-catenin level no longer tracks the Wnt concentration around it, so it reports the crypt base at any height rather than receiving a wrong answer about where it is. What the prediction does not establish: that this change by itself produces a tumour; anything about an individual person's risk, diagnosis, prognosis or treatment; or which specific truncation produces which degree of decoupling.",
+        "summary": "Beta-catenin high and the programme on despite low Wnt, because damaged APC breaks the destruction step; the cell's output has been decoupled from its input, and the prediction establishes nothing clinical.",
+        "reasoning": "This item runs the pathway from scene 2 forward under a single alteration, which is the transfer the lesson is built towards. The mechanism has two supported parts: APC belongs to the destruction complex whose loss of function permits beta-catenin accumulation, and the colonocyte study found reorientation of the complex towards a localised Wnt cue falling from 61 to 80 per cent of cells with full-length APC to about 30 per cent with truncated APC, and abolished where APC was deleted. Either route leaves beta-catenin uncleared. The positional sentence is the part that matters most: the gradient outside the cell is unchanged and the information is still present, so the failure is in the reading rather than in the signal. The final part is required because the lesson's own claim ledger records the positional interpretation as an inference and the mutation frequency as a population figure, and a learner who states a limit is doing what the lesson asks. A response that predicts high beta-catenin without naming the destruction step earns partial credit only, because the prediction without the mechanism does not show the pathway has been traced.",
+        "acceptableResponses": [
+          "High beta-catenin and the programme on, because the truncated APC leaves the destruction complex unable to clear beta-catenin, so the output is now independent of the Wnt input and the cell behaves as though at the base; and the prediction says nothing about causing cancer in any individual or about diagnosis or treatment.",
+          "A response that names only the destruction complex membership role of APC, without the relocation result, provided the prediction and the decoupling statement are correct and a limit is stated.",
+          "A response whose stated limit is that other changes are needed for a tumour, or that cultured cell lines are not a crypt, or that the positional interpretation is the lesson's inference rather than a quoted finding."
+        ],
+        "commonErrors": [
+          "Predicting low beta-catenin, by treating APC as something that promotes beta-catenin rather than as part of the machinery that destroys it.",
+          "Predicting that nothing happens because Wnt is low. This misses the point of the item: the lesion removes the cell's dependence on Wnt.",
+          "Describing the cell as receiving incorrect positional information. The gradient outside is unchanged and the information is intact; what has failed is the reading of it.",
+          "Stating or implying a diagnosis, a prognosis, a screening recommendation or a treatment. The item asks for a molecular prediction and an explicit limit, and any clinical recommendation is outside what the lesson supports.",
+          "Omitting the final part. A prediction offered without its limit is incomplete on this item's rubric."
+        ]
+      },
+      "rubricId": "rubric-mechanism-transfer",
+      "safetyCritical": true
+    }
+  ],
+  "rubrics": [
+    {
+      "id": "rubric-ordered-mechanism",
+      "title": "Ordering a mechanism by cause rather than by familiarity",
+      "criteria": [
+        {
+          "id": "criterion-order-correct",
+          "description": "All six stages are in the correct causal order.",
+          "maxPoints": 2
+        },
+        {
+          "id": "criterion-recruitment-before-rise",
+          "description": "Recruitment of the destruction complex is placed before the rise in free beta-catenin, showing that the accumulation is a consequence of interference with destruction.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-single-selection",
+      "title": "Selected response with a defensible reason",
+      "criteria": [
+        {
+          "id": "criterion-selection-correct",
+          "description": "The selected option is the one the evidence supports.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-reason-matches-evidence",
+          "description": "The reason attached to the selection is the one the quoted figures support, rather than a plausible statement that the figures do not establish.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-numeric-with-interpretation",
+      "title": "Numeric answer with the right quantity identified",
+      "criteria": [
+        {
+          "id": "criterion-value-correct",
+          "description": "The numeric value is exactly correct.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-quantity-correct",
+          "description": "The answer is the quantity the question asked for, distinguishing a count of binary distinctions from a count of thresholds or of positions.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-confidence-calibration",
+      "title": "Holding a claim at the confidence its evidence earns",
+      "criteria": [
+        {
+          "id": "criterion-identifies-supported-part",
+          "description": "Identifies the part of the statement the sources support, namely the ligand source near the crypt base and the fall in Wnt activity up the axis.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-identifies-overreach",
+          "description": "Names diffusion as the specific mechanism claim that exceeds the evidence, rather than rejecting the whole statement or offering a general remark about complexity.",
+          "maxPoints": 1.5
+        },
+        {
+          "id": "criterion-names-alternative-with-evidence",
+          "description": "Names a reported alternative account of Wnt spread together with the observation supporting it.",
+          "maxPoints": 1.5
+        },
+        {
+          "id": "criterion-identifies-unaffected-claim",
+          "description": "Names a statement that survives the mechanism dispute and gives the structural reason, that it lies downstream of ligand delivery.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-mechanism-transfer",
+      "title": "Running the pathway forward under an alteration, and bounding the conclusion",
+      "criteria": [
+        {
+          "id": "criterion-prediction-correct",
+          "description": "Predicts high free beta-catenin and an active gene programme despite low Wnt.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-mechanism-named",
+          "description": "Attributes the prediction to APC's role in the destruction complex, so that impaired destruction rather than increased production explains the accumulation.",
+          "maxPoints": 1.5
+        },
+        {
+          "id": "criterion-decoupling-stated",
+          "description": "States that the output has become independent of the Wnt input, so the gradient is intact and the reading has failed.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-limit-stated",
+          "description": "States a genuine limit of the prediction and makes no diagnostic, prognostic or treatment claim.",
+          "maxPoints": 0.5
+        }
+      ]
+    }
+  ]
+}
