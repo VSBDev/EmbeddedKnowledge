@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-BIO-006-19193289-9A64-4EE5-A11D-840296127BB8",
+  "lessonId": "PREM-BIO-006",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "ba57975846a28e994d326baaa808b19f51ee4a03",
+  "role": "learning-design",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev (learning-design reviewer)",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.7",
+      "runId": "agy-learning-design-PREM-BIO-006-19193289-9A64-4EE5-A11D-840296127BB8",
+      "instructionsDigest": "sha256:073151e8f190eaa98f96a482f8302f51f777926f9734337424aff0fb44b476dc"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Founding-stage isolation check: the accountable principal VSBDev operates the authoring, review, and finalization agents, so principal-level independence is absent. Agent-level role isolation was strictly maintained: no authoring history, other review output, or adjudication draft was read, and no other EmbeddedKnowledge role script was run during this review execution."
+  },
+  "evidenceChecked": [
+    "lessons/PREM-BIO-006-cell-signaling/lesson.json",
+    "lessons/PREM-BIO-006-cell-signaling/claims.json",
+    "lessons/PREM-BIO-006-cell-signaling/references.json",
+    "lessons/PREM-BIO-006-cell-signaling/glossary.json",
+    "lessons/PREM-BIO-006-cell-signaling/ATTRIBUTION.md",
+    "lessons/PREM-BIO-006-cell-signaling/assessment.json",
+    "lessons/PREM-BIO-006-cell-signaling/diagrams/wnt-reception-to-response.diagram.json",
+    "lessons/PREM-BIO-006-cell-signaling/content/01-no-map-no-address.md",
+    "lessons/PREM-BIO-006-cell-signaling/content/02-four-jobs-one-pathway.md",
+    "lessons/PREM-BIO-006-cell-signaling/content/03-what-a-gradient-can-specify.md",
+    "lessons/PREM-BIO-006-cell-signaling/content/04-does-the-cascade-amplify.md",
+    "lessons/PREM-BIO-006-cell-signaling/content/05-how-the-gradient-gets-made.md",
+    "lessons/PREM-BIO-006-cell-signaling/content/06-practice.md",
+    "lessons/PREM-BIO-006-cell-signaling/content/07-clinical-wrap-up.md",
+    "CONTENT-STANDARD.md",
+    "RIGHTS-POLICY.md"
+  ],
+  "findings": [
+    {
+      "severity": "note",
+      "target": "lessons/PREM-BIO-006-cell-signaling/content/03-what-a-gradient-can-specify.md#worked-example-bits-of-position",
+      "finding": "The worked example of bits and thresholds (worked-example-bits-of-position) is exceptionally well designed. It clearly and arithmetically distinguishes zones, bits, and thresholds, explaining how nested thresholds on a single falling gradient are redundant (meaning their bits do not add). The prompt is accompanied by a self-explanation checking section, perfectly conforming to Section 5.1 of CONTENT-STANDARD.md.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-BIO-006-cell-signaling/content/04-does-the-cascade-amplify.md#misconception-cascade-means-amplification",
+      "finding": "The misconception block (misconception-cascade-means-amplification) clearly dismantles the assumption that all signalling pathways are high-gain cascades. By contrasting visual phototransduction's catalytic tally with Wnt's steady-state ratio (sixfold), it highlights the category error of comparing them numerically, and notes why position reporting requires an unsaturated intermediate. This complies with Section 7 of CONTENT-STANDARD.md.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-BIO-006-cell-signaling/content/06-practice.md",
+      "finding": "The practice progression in Scene 6 effectively fades support, moving from filling in pathway states (Task 1) to quantitative sensitivity reasoning (Task 2), mathematical information bounds (Task 3), and finally auditing a novel constructed pathway (Task 4). It is accompanied by a detailed recovery route mapped to specific points of failure, conforming to Section 6 of CONTENT-STANDARD.md.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-BIO-006-cell-signaling/assessment.json",
+      "finding": "The assessment items align cleanly with the lesson's learning objectives. Item `item-order-wnt-pathway` requires active causal sequencing, `item-wnt-gain-interpretation` explicitly tests the distinction between per-photon tallies and steady-state ratios, and `item-apc-decoupling` tests the decoupling of input/output under mutation, with robust rubrics and safety-critical thresholds. This satisfies Section 5.4 and Section 6 of CONTENT-STANDARD.md.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-BIO-006-cell-signaling/content/05-how-the-gradient-gets-made.md#callout-what-survives",
+      "finding": "The callout mapping what survives and what changes under alternative readings of gradient formation (callout-what-survives) provides excellent epistemic calibration. It ensures the learner understands the difference between the description of a concentration profile and the cellular/physical mechanism that produces it. This complies with Section 10 of CONTENT-STANDARD.md.",
+      "resolution": null
+    }
+  ],
+  "limitations": [
+    "Expert-simulation review: This review represents a single-pass advisory input by a simulated learning-design expert under standard-lesson-v3 guidelines. No real learner testing was conducted.",
+    "Conflict of interest: The same GitHub principal (VSBDev) is responsible for the authoring and review run operators. Agent-level isolation was maintained, but principal-level independence is absent.",
+    "Scope restriction: The review is strictly bounded to learning-design metrics (e.g. clarity, coherence, practice, alignment, and transfer). Scientific accuracy, rights audits, and final typesetting checks are excluded.",
+    "Technical verification limits: No rendered build environment, screen reader, or keyboard navigation pathways were evaluated physically; findings are based solely on the static Markdown and JSON source files."
+  ],
+  "signedAt": "2026-07-27T10:22:00Z"
+}

@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-BIO-006-ACADEMIC-4DF024F8",
+  "lessonId": "PREM-BIO-006",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "ba57975846a28e994d326baaa808b19f51ee4a03",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable academic reviewer",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-BIO-006-4DF024F8-CFFF-49C6-8E1A-34B57531E734",
+      "instructionsDigest": "sha256:3a97d3e5e62da0756469b74fa397134df66692cacbd2bb017f28794d46e38d91"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#outcomes",
+    "lesson.json#objectives",
+    "content/01-no-map-no-address.md",
+    "content/02-four-jobs-one-pathway.md",
+    "content/03-what-a-gradient-can-specify.md",
+    "content/04-does-the-cascade-amplify.md",
+    "content/05-how-the-gradient-gets-made.md",
+    "content/06-practice.md",
+    "content/07-clinical-wrap-up.md",
+    "assessment.json#items",
+    "claims.json#claims",
+    "references.json#sources",
+    "glossary.json#terms",
+    "diagrams/wnt-reception-to-response.diagram.json",
+    "ATTRIBUTION.md",
+    "course/PREMED-SYLLABUS.md#BIO-124",
+    "references.json#source-lee-wnt-quantitative",
+    "references.json#source-parker-apc-recruitment",
+    "references.json#source-hillenbrand-positional-information",
+    "references.json#source-tostevin-position-limits",
+    "references.json#source-alberts-cell-communication",
+    "references.json#source-alberts-gprotein-signaling",
+    "references.json#source-nguyen-colonic-crypt"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "lesson.json#outcomes/topic-cell-biology-cell-signaling",
+      "finding": "The mapped canonical syllabus outcome BIO-124 requires learners to compare receptor classes and trace signalling through transduction, amplification, response, termination, and cross-talk. The lesson objectives and assessment trace one canonical Wnt example, while ATTRIBUTION.md explicitly excludes a receptor-class survey and the pack neither teaches nor assesses cross-talk. The candidate therefore does not cover the full atomic outcome it claims.",
+      "resolution": "Either add appropriately scoped instruction, practice, and assessment for receptor-class comparison and cross-talk, or map the lesson to a narrower existing atomic outcome whose complete performance the pack actually teaches. Keep the objectives and assessment mappings aligned with that decision."
+    },
+    {
+      "severity": "major",
+      "target": "content/03-what-a-gradient-can-specify.md#worked-example-bits-of-position; content/06-practice.md#task-3-bound-a-gradient-in-a-new-tissue",
+      "finding": "The worked example says that its assumptions include no noise and that loosening every assumption raises the information supply; Task 3 repeats that breaking the noiseless assumption raises available information. The cited Hillenbrand source states the opposite: noise entropy can only reduce positional information. The scene also says each nested threshold carries one bit on its own, but a binary threshold carries at most one bit and reaches one bit only when its two states are equiprobable in the noiseless case. These errors affect the central positional-information objective.",
+      "resolution": "State that noise reduces information and precision, while graded outputs, gene interactions, and spatial coupling can increase information relative to an independent binary-threshold baseline. Qualify each threshold as carrying at most one bit. Retain the 31-boundary and five-joint-bit arithmetic only under explicit noiseless, monotonic, equiprobable-position assumptions, and reconcile claims.json and glossary.json with the corrected account."
+    },
+    {
+      "severity": "major",
+      "target": "content/04-does-the-cascade-amplify.md#misconception-cascade-means-amplification",
+      "finding": "The amplification audit conflates several different quantities. A 153-to-25 nanomolar steady-state output ratio is not pathway gain unless the corresponding input change and operating range are quantified. One-to-one ligand occupancy does not establish that an occupied receptor produces no downstream amplification over time. Most importantly, the corrective test says very high gain necessarily saturates and is therefore poorly suited to positional reporting; gain does not itself entail early saturation, which depends on dose-response shape, dynamic range, feedback, adaptation, and input scale. The lesson correctly refuses to divide 100,000 by six, but then draws unsupported conclusions from the same unmatched measurements.",
+      "resolution": "Separate per-event stoichiometric amplification, enzyme turnover, steady-state fold change, and differential input-output gain. Audit matched inputs, outputs, and time windows; remove the general claim that high gain necessarily saturates or is intrinsically unsuitable for positional signalling; and revise objective-audit-amplification, Task 4, and item-wnt-gain-interpretation accordingly."
+    },
+    {
+      "severity": "major",
+      "target": "assessment.json#item-order-wnt-pathway",
+      "finding": "The keyed order makes recruitment of the destruction complex to the membrane a mandatory canonical causal stage before beta-catenin rises. Yet claims.json#claim-inhibition-mechanism-unsettled and the learner prose correctly acknowledge that relocation is partial and proposed, with saturation and impaired ubiquitination also under consideration. The diagram likewise encodes recruitment itself as the inhibitory link. The item therefore rewards a disputed mechanistic account as settled fact and contradicts the candidate's own uncertainty record.",
+      "resolution": "Replace the mandatory recruitment stage with the supported common consequence that Wnt signalling lowers beta-catenin destruction and stabilizes free beta-catenin. Present membrane relocation only as one proposed contributor, and update the answer key, diagram edge and long description, claims, and source notes consistently."
+    },
+    {
+      "severity": "major",
+      "target": "assessment.json#item-apc-decoupling",
+      "finding": "The prompt specifies only a truncated APC but keys high free beta-catenin, an active gene programme, and complete independence from Wnt as categorical consequences. The cited Parker study reports residual localization by truncated APC and discusses retained partial regulation under a just-right model; claims.json#claim-apc-loss-decouples-readout itself admits that the degree of decoupling depends on which part of APC is lost. Different truncations and allelic contexts therefore do not support one unconditional answer. The associated health-sensitive transfer item rewards an overgeneralization.",
+      "resolution": "Specify a defined APC-null or precisely characterized truncation and experimental context, or accept a conditional answer that distinguishes partial from complete loss of regulation. Revise content/07-clinical-wrap-up.md, glossary.json#term-apc, claims.json#claim-apc-loss-decouples-readout, and the rubric so they do not state that every damaged or truncated APC makes output fully Wnt-independent."
+    },
+    {
+      "severity": "minor",
+      "target": "content/06-practice.md#task-1-run-the-pathway-at-the-other-end-of-the-crypt",
+      "finding": "Task 1 repeats material claims about the Frizzled-LRP5/6 receptor, destruction-complex relocation, TCF/LEF targets, and differentiation, but the scene is absent from claim-wnt-receptor-complex, claim-wnt-recruits-complex, claim-tcf-target-genes, and claim-crypt-differentiation-axis. Its source note consequently omits support needed for several learner-visible assertions. Repetition in practice does not remove the evidence-mapping requirement.",
+      "resolution": "Map every retained material claim to scene-practice and include all supporting source IDs in the same-scene source note. If relocation is corrected as required above, map and cite only the bounded proposed mechanism actually retained."
+    },
+    {
+      "severity": "minor",
+      "target": "claims.json#claim-cascade-definition",
+      "finding": "The Alberts source says that a relay chain with multiple amplification steps is often referred to as a signalling cascade. The scenes and glossary turn that convention into a precise exclusive definition and say amplification is what earns the word, even though the claim's uncertainty field acknowledges looser disciplinary usage. This overstates nomenclature and makes the constructed-pathway marking depend on one textbook convention.",
+      "resolution": "Present the Alberts wording as one useful textbook convention, not a universal definition. Preserve the valuable instruction to inspect amplification empirically without declaring that every chain called a cascade must contain multiple amplifying steps."
+    },
+    {
+      "severity": "note",
+      "target": "content/04-does-the-cascade-amplify.md#callout-not-like-for-like",
+      "finding": "The callout correctly distinguishes the phototransduction tally in molecules hydrolysed per absorbed photon from the dimensionless ratio of two Wnt steady states and correctly rejects dividing the two values.",
+      "resolution": "No change required to this specific dimensional-analysis warning; retain it while revising the broader gain conclusions identified above."
+    }
+  ],
+  "limitations": [
+    "The explicit review scope barred site/, so the generated graph, terminology ledger, quorum policy, and review schema were not inspected. Outcome scope was checked against the canonical course syllabus, and terminology continuity was checked only within the pack and its declared glossary alignment.",
+    "Direct PMC article routes returned a browser verification challenge and the MDPI full page later returned HTTP 429. Key claims were independently checked through official PLOS, Nature, NCBI Bookshelf, and indexed publisher text, but not every reference locator could be reopened in full.",
+    "No repository validation command was run because it would execute scripts outside the permitted scope and the environment was read-only. This verdict addresses academic soundness rather than claiming structural validation.",
+    "No raw microscopy images, source datasets, or wet-laboratory experiments were independently reanalysed."
+  ],
+  "signedAt": "2026-07-27T10:09:28Z"
+}
