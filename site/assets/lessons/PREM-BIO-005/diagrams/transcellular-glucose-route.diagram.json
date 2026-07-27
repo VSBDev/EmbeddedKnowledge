@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-diagram-v1",
+  "id": "diagram-transcellular-glucose-route",
+  "type": "flow",
+  "direction": "left-to-right",
+  "alt": "Glucose crosses one absorptive cell by two different mechanisms: a sodium-coupled carrier on the luminal face and an uncoupled carrier on the blood face, with the sodium pump restoring the gradient the first one spends.",
+  "longDescription": "The route one glucose molecule takes across a single absorptive intestinal cell, drawn as six stages with seven labelled relationships. Stage one is the lumen, where sodium is high and glucose is falling as the meal is absorbed. From the lumen, both solutes bind at the apical face to stage two, SGLT1, the sodium-glucose cotransporter of the brush border, which moves two sodium ions together with one glucose molecule. From SGLT1 glucose arrives against its own concentration gradient into stage three, the cytosol, where glucose can stand above the luminal concentration. From the cytosol, glucose leaves downhill and uncoupled through stage four, GLUT2 in the basolateral membrane, which carries glucose alone; from GLUT2 it reaches stage six, the blood side, by facilitated diffusion with no energy spent. Separately from the cytosol, the sodium that SGLT1 brought in passes to stage five, the sodium-potassium ATPase of the basolateral membrane, which exports three sodium ions and imports two potassium ions for every ATP molecule split, and which delivers that sodium to the blood side. The seventh relationship is the one that closes the loop and is drawn as a dashed return: the pump keeps cytosolic sodium low, and that low cytosolic sodium is exactly what SGLT1 spends, so the pump activates the apical step without ever touching it. The conclusion the picture carries is that one sugar crosses two membranes of one cell by two different categories of transport, secondary active on the luminal side and facilitated diffusion on the blood side, because the gradient it faces is different at each face; and that only one protein in the whole route splits ATP.",
+  "nodes": [
+    {
+      "id": "node-lumen",
+      "label": "Lumen: sodium high, glucose falling",
+      "shape": "box",
+      "group": "compartment"
+    },
+    {
+      "id": "node-sglt1",
+      "label": "SGLT1, apical: 2 sodium with 1 glucose",
+      "shape": "rounded-box",
+      "group": "secondary-active"
+    },
+    {
+      "id": "node-cytosol",
+      "label": "Cytosol: glucose above luminal",
+      "shape": "box",
+      "group": "compartment"
+    },
+    {
+      "id": "node-glut2",
+      "label": "GLUT2, basolateral: glucose alone",
+      "shape": "rounded-box",
+      "group": "facilitated"
+    },
+    {
+      "id": "node-pump",
+      "label": "Sodium pump: 3 out, 2 in, 1 ATP",
+      "shape": "diamond",
+      "group": "primary-active"
+    },
+    {
+      "id": "node-blood",
+      "label": "Blood side",
+      "shape": "box",
+      "group": "compartment"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-lumen-sglt1",
+      "from": "node-lumen",
+      "to": "node-sglt1",
+      "kind": "directed",
+      "label": "both solutes bind at the apical face"
+    },
+    {
+      "id": "edge-sglt1-cytosol",
+      "from": "node-sglt1",
+      "to": "node-cytosol",
+      "kind": "directed",
+      "label": "glucose arrives against its own gradient"
+    },
+    {
+      "id": "edge-cytosol-glut2",
+      "from": "node-cytosol",
+      "to": "node-glut2",
+      "kind": "directed",
+      "label": "glucose leaves downhill and uncoupled"
+    },
+    {
+      "id": "edge-glut2-blood",
+      "from": "node-glut2",
+      "to": "node-blood",
+      "kind": "directed",
+      "label": "facilitated diffusion, no energy spent"
+    },
+    {
+      "id": "edge-cytosol-pump",
+      "from": "node-cytosol",
+      "to": "node-pump",
+      "kind": "directed",
+      "label": "the sodium SGLT1 brought in"
+    },
+    {
+      "id": "edge-pump-blood",
+      "from": "node-pump",
+      "to": "node-blood",
+      "kind": "directed",
+      "label": "three sodium out for one ATP split"
+    },
+    {
+      "id": "edge-pump-sglt1",
+      "from": "node-pump",
+      "to": "node-sglt1",
+      "kind": "activates",
+      "label": "keeps cytosolic sodium low, which is what SGLT1 spends"
+    }
+  ]
+}
