@@ -1,0 +1,129 @@
+{
+  "schemaVersion": 1,
+  "adjudicationId": "ADJ-PREM-BIO-005-D3459DE2",
+  "lessonId": "PREM-BIO-005",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "99fb516dc0f174e895937ad2d423d2c95f6e628e",
+  "finalCommit": "deef9a8dd50ee4df1bd5406442390fcb4509f3c8",
+  "riskTier": "standard",
+  "policyId": "standard-lesson-v3",
+  "reviewIds": [
+    "REV-PREM-BIO-005-ACADEMIC-CA10D10E",
+    "REV-PREM-BIO-005-LEARNING-AGY-LEARNING-DESIGN-PREM-BIO-005-C7F5B4CF-3416-429B-B3C3-F2A4EB08CFFE"
+  ],
+  "quorum": {
+    "satisfied": true,
+    "approvals": 1,
+    "reviewInputs": 2,
+    "changeRequests": 1,
+    "roleCounts": {
+      "academic": 1,
+      "learningDesign": 1,
+      "accessibilityRights": 0
+    },
+    "distinctPrincipals": 1,
+    "distinctAgentRuns": 2,
+    "distinctAgentModelFamilies": 2
+  },
+  "decision": "merge",
+  "rationale": "Both role-isolated advisory inputs were present from distinct runs and model families, pinned to the same frozen candidate. The learning-design review approved with two notes and one minor correction; the academic review returned request-changes with three major findings and two minor. None carries blocking severity and all six actionable findings were correctable in this pass, so all were disposed here. Three mattered. A retrieval answer had the osmotic direction backwards, saying pure water in the lumen makes the difference point the wrong way when pure water is hypotonic to the tissue and is absorbed; the repaired answer makes the stronger and correct point about the sodium the water does not supply. An answer key inferred a mechanism from the shape of a decline, when abolishing ATP supply does not empty the ATP pool and the pack's own source-note already recorded that no source reports the time course; the item now asks what the timing cannot establish and requires the learner to name the direct test. And the classification model answered two different questions with one word, since the lesson's test classifies a transport event while calling SGLT1 a secondary active cotransporter classifies the protein. Both readings stand and the scene now distinguishes them, which is a sharper lesson than the one it replaces. The academic verdict stands as dissent and no reviewer has seen the repaired text.",
+  "dissent": [
+    "The academic review's request-changes verdict stands as material dissent from the candidate as reviewed. Its findings were incorporated by the maintainer afterwards; no reviewer has approved the repaired text.",
+    "The equilibrium limit is now presented with its assumptions rather than as a wall. A reviewer who wanted the calculation redone in activities rather than concentrations would be asking for something this pack does not provide, and the limitation is stated instead of removed.",
+    "The cholera scene continues to rest on evidence that glucose-stimulated sodium absorption persists under raised cyclic AMP. What raised cyclic AMP does to the other transporters named in the diagram is not established here, and the scene now says so rather than implying they are unaffected."
+  ],
+  "conditions": [
+    "The repaired content is committed first and that commit is stamped as finalCommit, with no teaching-content change afterward.",
+    "Strict source preflight and full validation must pass on the final content before merge.",
+    "The publication transition is the maintainer's separate act and is not authorised by this decision."
+  ],
+  "adjudicator": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable maintainer and adjudicator",
+    "agent": {
+      "system": "Claude Code",
+      "provider": "Anthropic",
+      "model": "claude-opus-5",
+      "version": "2.1.215",
+      "runId": "claude-adjudicator-PREM-BIO-005-A819E504C580",
+      "instructionsDigest": "sha256:7d9260fdc2d7eac7d0978ca9d3ac84aef1188423afc88d2ee913c898b52c8777"
+    }
+  },
+  "adjudicatedAt": "2026-07-27T19:16:39Z",
+  "finalization": {
+    "materialChanges": [
+      "Corrected the osmotic direction for pure water in the lumen and rebuilt the answer on the sodium it does not supply.",
+      "Rewrote item-atp-withdrawal so the timing of a decline is not treated as standalone evidence, and required the direct vesicle test to be named.",
+      "Separated classifying a transport event from classifying a transporter, and recorded that the SGLT1 cycle is reversible.",
+      "Stated the assumptions the equilibrium limit rests on, including activities against concentrations and tight coupling without slippage.",
+      "Narrowed the cholera claim from every protein working to the persistence of glucose-stimulated sodium absorption.",
+      "Flagged that the depolarisation and apical potential figures come from different preparations and species."
+    ],
+    "reviewDispositions": [
+      {
+        "reviewId": "REV-PREM-BIO-005-ACADEMIC-CA10D10E",
+        "findingIndex": 0,
+        "action": "incorporated",
+        "rationale": "content/05-nothing-pumps-water.md: the osmotic direction is corrected — pure water in the lumen is hypotonic to the tissue and is absorbed — and the answer is rebuilt on what plain water fails to supply, which is sodium, and on the dilution of the luminal solute that drives further uptake."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-005-ACADEMIC-CA10D10E",
+        "findingIndex": 1,
+        "action": "incorporated",
+        "rationale": "assessment.json: item-atp-withdrawal now asks what the timing does and does not establish, states that abolishing supply leaves a residual pool a direct consumer could run on and that the decay rate depends on kinetics, potential, leaks and volume, and requires the learner to name the vesicle experiment with an imposed sodium gradient and no ATP as the test that settles it."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-005-ACADEMIC-CA10D10E",
+        "findingIndex": 2,
+        "action": "incorporated",
+        "rationale": "content/02-two-questions-four-answers.md: the event test and the naming of the protein are separated as two different questions, both answers are given, the obligatory coupling is stated as why sodium is spent either way, and the reversibility of the cycle is recorded."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-005-ACADEMIC-CA10D10E",
+        "findingIndex": 3,
+        "action": "incorporated",
+        "rationale": "content/03-what-two-sodium-ions-can-buy.md: the equilibrium limit is presented as a model boundary, naming the use of concentrations in place of activities, the assumption of a tightly coupled reversible cycle without slippage, and the fixed sodium and membrane potential that transport itself moves."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-005-ACADEMIC-CA10D10E",
+        "findingIndex": 4,
+        "action": "incorporated",
+        "rationale": "content/07-clinical-wrap-up.md: normal histology is limited to what it shows, the blanket statement that every protein in the diagram is still working is removed, and the claim is narrowed to the persistence of glucose-stimulated sodium absorption while cyclic AMP is high."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-005-LEARNING-AGY-LEARNING-DESIGN-PREM-BIO-005-C7F5B4CF-3416-429B-B3C3-F2A4EB08CFFE",
+        "findingIndex": 0,
+        "action": "no-change-required",
+        "rationale": "Recorded as a strength of the candidate; nothing to change."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-005-LEARNING-AGY-LEARNING-DESIGN-PREM-BIO-005-C7F5B4CF-3416-429B-B3C3-F2A4EB08CFFE",
+        "findingIndex": 1,
+        "action": "no-change-required",
+        "rationale": "Recorded as a strength of the candidate; nothing to change."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-005-LEARNING-AGY-LEARNING-DESIGN-PREM-BIO-005-C7F5B4CF-3416-429B-B3C3-F2A4EB08CFFE",
+        "findingIndex": 2,
+        "action": "incorporated",
+        "rationale": "content/07-clinical-wrap-up.md: a note before the sensitivity check states that the depolarisation figures are basolateral measurements in mouse enteroids while the apical figure is from rabbit, that applying one to the other assumes the two faces depolarise together, and that the result is an order-of-magnitude check rather than a measurement of the apical potential in cholera."
+      }
+    ],
+    "accessibilityRightsAudit": {
+      "satisfied": true,
+      "evidenceChecked": [
+        "All seven scenes keep one level-one heading, semantic Markdown, linear reading order and text-first instruction, with no raw HTML, embeds or executable content.",
+        "The transcellular route diagram carries alt text and a long description that state the same graph the renderer draws from its edges.",
+        "Sources are used facts-only and every domain retrieved from is recorded as allowed in the access ledger; no Servier asset was fetched or used.",
+        "The clinical scene carries the teaching-example boundary and states no dose, regimen or recommendation; the repairs narrow rather than widen its claims.",
+        "The corrected osmotic direction removes a statement that was physically wrong in a health-adjacent scene, which is the largest single reduction in this pack's accuracy exposure."
+      ],
+      "limitations": [
+        "A maintainer reading of the repaired text, not an independent accessibility or rights review; the accessibility-rights role was not staffed for this tier.",
+        "No screen-reader run was performed against the rendered lesson.",
+        "The rewritten ATP item is longer than the one it replaces and has not been tried on a learner.",
+        "The sodium budget uses concentrations rather than activities throughout; the limitation is now stated in the scene rather than corrected."
+      ]
+    }
+  }
+}

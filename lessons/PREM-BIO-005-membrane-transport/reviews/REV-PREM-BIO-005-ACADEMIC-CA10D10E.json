@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-BIO-005-ACADEMIC-CA10D10E",
+  "lessonId": "PREM-BIO-005",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "99fb516dc0f174e895937ad2d423d2c95f6e628e",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable operator, academic reviewer",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-BIO-005-CA10D10E-399D-4FDC-80DA-46ACCE5A866C",
+      "instructionsDigest": "sha256:724016ff5422c359ca079a135921b49da34273eed4e4d12f8a9dc1fa6a7cdf61"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#PREM-BIO-005",
+    "content/01-a-sugar-going-the-wrong-way.md#A-sugar-going-the-wrong-way",
+    "content/02-two-questions-four-answers.md#Two-questions-four-answers-and-the-cases-that-sit-on-the-line",
+    "content/03-what-two-sodium-ions-can-buy.md#What-two-sodium-ions-can-buy",
+    "content/04-the-pump-it-never-touches.md#The-pump-it-never-touches",
+    "content/05-nothing-pumps-water.md#Nothing-pumps-water",
+    "content/06-practice-and-recovery.md#Practice-classify-it-cost-it-then-predict-it",
+    "content/07-clinical-wrap-up.md#Clinical-wrap-up-the-route-that-stayed-open",
+    "assessment.json#assessment-prem-bio-005-membrane-transport",
+    "claims.json#claim-sglt1-secondary-active",
+    "claims.json#claim-ouabain-indirect-block",
+    "claims.json#claim-water-transport-passive",
+    "claims.json#claim-camp-independent-glucose-sodium",
+    "references.json#source-alberts-transport-principles",
+    "references.json#source-alberts-active-transport",
+    "references.json#source-gyimesi-slc5",
+    "references.json#source-afshar-enterocyte-model",
+    "references.json#source-thorsen-enterocyte-model",
+    "references.json#source-binder-ort",
+    "references.json#source-reuss-water-transport",
+    "glossary.json#terms",
+    "diagrams/transcellular-glucose-route.diagram.json#diagram-transcellular-glucose-route",
+    "ATTRIBUTION.md#Sources"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "content/05-nothing-pumps-water.md#check-retrieval-water-order",
+      "finding": "The supplied answer reverses the osmotic consequence of putting pure water in the intestinal lumen. Pure water is hypotonic relative to tissue and body fluids, so the effective-osmolality gradient favors net water movement from the lumen toward the tissue, not in the opposite direction. Plain water can therefore be absorbed, although it does not replace sodium and may produce less useful net fluid and electrolyte uptake than glucose-sodium cotransport under diarrhoeal conditions. The statements that pure water makes the gradient point the wrong way, merely replaces volume inside the gut, and supplies nothing that gets volume across the wall are unsupported by claim-water-transport-passive and conflict with the scene's own account of osmosis. The same error is assessed in assessment.json#item-ort-transfer, where the key says water is never absorbed on its own account.",
+      "resolution": "Rewrite the retrieval answer and the ORT assessment logic to distinguish passive absorption of water down an existing osmotic gradient from enhanced net water and sodium uptake created by solute absorption. Remove the claims that pure water cannot cross the intestinal wall or necessarily drives water the wrong way, explain separately why it does not replace an electrolyte deficit, and add a same-scene claim and suitable source for any retained comparison of plain water with glucose-sodium solution."
+    },
+    {
+      "severity": "major",
+      "target": "assessment.json#item-atp-withdrawal",
+      "finding": "The answer key treats a gradual decline after abolishing ATP supply as uniquely demonstrating indirect dependence through a stored sodium gradient. It does not. Stopping ATP production is not the same as instantly removing the intracellular ATP pool, so a hypothetical ATP-hydrolysing transporter could also continue until residual ATP declined. Even if ATP concentration were experimentally clamped to zero, the time course would depend on transporter-cycle kinetics, membrane voltage, sodium leaks, cell volume, and other ATP-dependent processes. The candidate's own source note states that no cited source reports this time course. Consequently, sharp-versus-gradual failure is not valid standalone evidence for the required mechanistic distinction, yet the item and rubric require that inference for credit.",
+      "resolution": "Replace the time-course inference with evidence that directly separates the mechanisms, such as ATP-free brush-border vesicles retaining sodium-gradient-driven glucose uptake, a direct ATPase assay, or structural and biochemical evidence that SGLT1 lacks an ATP-hydrolysing cycle. The lesson's proposed ATP-free vesicle comparison is logically suitable if presented as a hypothetical discriminating experiment. Treat any inhibition time course as model-dependent supporting evidence rather than a unique diagnostic, and revise content/04-the-pump-it-never-touches.md and content/06-practice-and-recovery.md consistently."
+    },
+    {
+      "severity": "major",
+      "target": "content/02-two-questions-four-answers.md#check-retrieval-classify-three",
+      "finding": "The classification model switches between classifying a transport event and classifying the protein. It first defines active transport as a named crossing that moves a solute uphill using outside free energy and says the category is a property of the situation. It then labels downhill glucose entry through SGLT1 as secondary active transport because the category belongs to the protein and never changes. Calling SGLT1 a secondary-active cotransporter is sound, but under the lesson's own event-based test a downhill glucose crossing does not require energy beyond glucose's gradient. The cited SGLT1 review also states that the cycle is reversible and that its direction depends on the sodium and glucose gradients and membrane potential. The current answer therefore conflates transporter mechanism, the thermodynamics of the complete coupled cycle, and whether glucose is presently being moved uphill. This contradicts objective-classify-transport-route and the corresponding assessment rubric.",
+      "resolution": "Define two separate questions: what mechanistic class the transporter belongs to, and whether the stated flux is currently performing uphill work. Retain SGLT1 as a secondary-active cotransporter while explicitly treating the early-meal downhill case as a boundary where the protein's class does not imply active glucose accumulation. Revise the two-part test, the fourth retrieval answer, objective-classify-transport-route, and assessment classification language so they do not force protein identity and event energetics into one category."
+    },
+    {
+      "severity": "minor",
+      "target": "content/03-what-two-sodium-ions-can-buy.md#worked-example-sodium-budget",
+      "finding": "Independent recomputation confirms the displayed arithmetic: RT is about 2.577 kJ/mol, sodium entry is about -6.305 kJ/mol, the ideal 2:1 limit is about 133, the stated sodium-range limits are about 165 to 63, the 30 mM practice result is about 370, and the -25 mV and zero-voltage limits are about 58 and 9. The model boundary is nevertheless incomplete. The electrochemical relation formally uses activities rather than raw concentrations, and the hard limit assumes a reversible, tightly coupled 2-sodium-to-1-glucose cycle with no slippage while sodium concentrations and membrane potential remain fixed. Calling 130 a ceiling beyond which the transporter can go no further is too absolute without those assumptions. The additional assertion that luminal glucose during absorption is far above 0.09 mM is also acknowledged as having no supporting source.",
+      "resolution": "Retain the arithmetic but label the result an ideal thermodynamic estimate under explicit tight-coupling, reversibility, fixed-gradient, and concentration-as-activity assumptions. Replace the absolute wording with a bounded statement, and either source the claim about luminal glucose remaining above 0.09 mM or remove it from the plausibility check."
+    },
+    {
+      "severity": "minor",
+      "target": "content/07-clinical-wrap-up.md#What-the-toxin-does-and-what-it-leaves-alone",
+      "finding": "Normal epithelial histology and the absence of direct toxin-mediated cell killing do not establish that every protein in the lesson's diagram is still present and working normally. The scene itself describes altered CFTR activity, and cyclic AMP can alter multiple transport processes. The cited evidence supports the narrower, load-bearing claim that glucose-stimulated sodium absorption persists despite raised cyclic AMP; it does not support a blanket conclusion about every transporter or about signalling concentration being the only functional change.",
+      "resolution": "Replace the blanket statement with the sourced conclusion that the epithelium remains structurally intact and the glucose-coupled sodium-absorption route remains functional. Avoid inferring unchanged abundance or function for the sodium pump, GLUT2, or every other transport protein unless each is specifically supported."
+    }
+  ],
+  "limitations": [
+    "The imposed scope prohibited reading site/, so the public review schema, quorum-policy file, Premed graph record, and course terminology ledger were not inspected. Lesson identity and outcome mappings were checked within lesson.json, and this artifact follows the supplied academic-review template.",
+    "Direct retrieval verified the NCBI Bookshelf transport sources and accessible indexed or full-text records for SGLT1, oral rehydration, and the enterocyte model. Several PMC article URLs presented an automated-access challenge, so not every source record could be independently reopened. All twent...",
+    "The original 1971 and 1976 rabbit-ileum measurements underlying the apical potential and intracellular-sodium range were not directly checked; the candidate cites those values second-hand through the 2021 computational study. This limits confidence in the physiological inputs but does not prevent..."
+  ],
+  "signedAt": "2026-07-27T18:02:32Z"
+}
