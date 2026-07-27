@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-diagram-v1",
+  "id": "diagram-junction-anchors",
+  "type": "concept-map",
+  "direction": "top-to-bottom",
+  "alt": "The four attachments of a colonic absorptive cell in apical-to-basal order, each joined to the cytoskeletal polymer it anchors: tight junction, adherens junction and basal integrins to actin, and the desmosome to keratin.",
+  "longDescription": "A map of the four attachment structures of one colonic absorptive cell, arranged down the page in the order they sit from the apical surface toward the base, and joined to the cytoskeletal polymer each one grips. The chain of positions runs from the tight junction, to the adherens junction below it, to the desmosome below that, and then to the basal integrins, which are the basal attachment beneath all three cell-to-cell ones. Three of the four connect to actin filaments. The tight junction connects to actin through ZO scaffold proteins. The adherens junction connects to actin through E-cadherin and nectin by way of catenins. The basal integrins connect to actin through integrin-linked kinase. Only one of the four connects to a different polymer: the desmosome, whose desmoplakin anchors keratin filaments, and keratin holds a higher tensile load than actin. Two further relationships complete the map. The tight junction alone leads to sealing the paracellular route, so it is the only one of the four that closes the gap between neighbouring cells; the adherens junction and the desmosome adhere without sealing. The basal integrins lead to the basement membrane, whose laminins and fibronectin they bind. The conclusion the map carries is that which polymer a junction anchors predicts what fails when that junction breaks: breaking the desmosome's link removes a keratin-dependent, tension-bearing function, and does not remove the seal, which depends on the tight junction instead.",
+  "nodes": [
+    {
+      "id": "node-tight-junction",
+      "label": "Tight junction",
+      "shape": "rounded-box",
+      "group": "junction"
+    },
+    {
+      "id": "node-adherens-junction",
+      "label": "Adherens junction",
+      "shape": "rounded-box",
+      "group": "junction"
+    },
+    {
+      "id": "node-desmosome",
+      "label": "Desmosome",
+      "shape": "rounded-box",
+      "group": "junction"
+    },
+    {
+      "id": "node-basal-integrins",
+      "label": "Basal integrins",
+      "shape": "rounded-box",
+      "group": "junction"
+    },
+    {
+      "id": "node-actin",
+      "label": "Actin filaments",
+      "shape": "ellipse",
+      "group": "polymer"
+    },
+    {
+      "id": "node-keratin",
+      "label": "Keratin filaments",
+      "shape": "ellipse",
+      "group": "polymer"
+    },
+    {
+      "id": "node-seal",
+      "label": "Seals the paracellular route",
+      "shape": "pill",
+      "group": "function"
+    },
+    {
+      "id": "node-basement-membrane",
+      "label": "Basement membrane",
+      "shape": "box",
+      "group": "matrix"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-tj-aj",
+      "from": "node-tight-junction",
+      "to": "node-adherens-junction",
+      "kind": "directed",
+      "label": "next attachment down from the apical surface"
+    },
+    {
+      "id": "edge-aj-dsm",
+      "from": "node-adherens-junction",
+      "to": "node-desmosome",
+      "kind": "directed",
+      "label": "next attachment down the lateral surface"
+    },
+    {
+      "id": "edge-dsm-integrins",
+      "from": "node-desmosome",
+      "to": "node-basal-integrins",
+      "kind": "directed",
+      "label": "the basal attachment, beneath the three cell-to-cell ones"
+    },
+    {
+      "id": "edge-tj-actin",
+      "from": "node-tight-junction",
+      "to": "node-actin",
+      "kind": "directed",
+      "label": "claudins, occludin and JAM-A linked to actin through ZO scaffold proteins"
+    },
+    {
+      "id": "edge-aj-actin",
+      "from": "node-adherens-junction",
+      "to": "node-actin",
+      "kind": "directed",
+      "label": "E-cadherin and nectin linked to actin through catenins"
+    },
+    {
+      "id": "edge-dsm-keratin",
+      "from": "node-desmosome",
+      "to": "node-keratin",
+      "kind": "directed",
+      "label": "desmoplakin anchors keratin, which holds higher tensile load than actin"
+    },
+    {
+      "id": "edge-integrins-actin",
+      "from": "node-basal-integrins",
+      "to": "node-actin",
+      "kind": "directed",
+      "label": "linked to actin through integrin-linked kinase"
+    },
+    {
+      "id": "edge-tj-seal",
+      "from": "node-tight-junction",
+      "to": "node-seal",
+      "kind": "directed",
+      "label": "the only one of the four that closes the gap between neighbours"
+    },
+    {
+      "id": "edge-integrins-bm",
+      "from": "node-basal-integrins",
+      "to": "node-basement-membrane",
+      "kind": "directed",
+      "label": "bind the laminins and fibronectin of the matrix beneath the sheet"
+    }
+  ]
+}
