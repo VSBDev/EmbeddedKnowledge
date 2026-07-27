@@ -19,7 +19,13 @@ Before reading on. A patient drinks a litre of pure water. Nothing about the sol
 Why does drinking pure water not fix a sodium and water deficit as efficiently as an appropriate solution would? Answer in terms of what water follows.
 :::
 
-Because water is not absorbed on its own account. Water crosses in response to an osmolality difference, and pure water in the lumen makes that difference point the wrong way, or at least does nothing to create the inward one that drives absorption. Absorbing solute is what creates an inward osmotic gradient, and the water goes where the solute went. Drinking water replaces the volume in the gut without supplying the thing that gets volume across the wall of it.
+Because water is not absorbed on its own account, and because the deficit is not only a water deficit.
+
+Get the direction right first, since it is easy to state backwards. Pure water in the lumen is hypotonic to the tissue beyond it, so the osmotic difference favours water moving out of the lumen and into the body. Plain water is absorbed. The problem is not that it goes the wrong way.
+
+The problem is what it does not bring. The deficit in secretory diarrhoea is of salt as well as water, and plain water supplies no sodium to replace what is being lost. Water absorbed without solute also dilutes what remains in the lumen, so it does not sustain the absorption it started. Solute-coupled absorption is the mechanism this lesson has been building: sodium and glucose cross together, the tissue side becomes locally hypertonic, and water follows the solute that was moved. That is a route that replaces both things at once and keeps working while it does.
+
+So the accurate comparison is between a solution that replaces sodium and drives continued water uptake, and plain water that replaces neither the sodium nor the driving solute. This is a teaching example about mechanism and not advice about what anyone should drink.
 
 ## Which way water actually crosses is not settled
 

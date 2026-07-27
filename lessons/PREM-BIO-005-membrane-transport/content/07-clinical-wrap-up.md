@@ -15,9 +15,13 @@ Cholera is the cleanest case in physiology for the argument this lesson has been
 
 Read that chain again with the fifth scene in mind. Water was never pumped anywhere. Chloride went out, and water followed the solute, in exactly the direction the osmolality difference pointed. The disease is a solute-transport disorder whose symptom is water.
 
-Now the part that matters. The toxin does not kill the cell it acts on; it alters a signalling pathway. Histologically the small-intestinal lining stays intact, and light and electron microscopy of it look normal. There is no destroyed epithelium, no stripped brush border, no missing transporters. Every protein in the second scene's diagram is still in place and still working. What has changed is a signalling molecule's concentration.
+Now the part that matters. The toxin does not kill the cell it acts on; it alters a signalling pathway. Histologically the small-intestinal lining stays intact, and light and electron microscopy of it look normal. There is no destroyed epithelium, no stripped brush border, no missing transporters.
+
+Say precisely what that buys, because normal histology is a weaker claim than it feels. It shows the cells and their brush border are structurally there. It does not show that every protein in the second scene's diagram is working as it was: raised cyclic AMP is a broad signal, this scene is about to describe it changing CFTR's activity, and it acts on more than one transport process. What the evidence supports is the narrower statement the argument actually needs — that glucose-stimulated sodium absorption persists while cyclic AMP is high. The structure survives, one route is switched on, at least one is switched off, and the route this lesson depends on keeps running.
 
 That is the whole basis of what follows. A patient losing litres of fluid has an epithelium that is, structurally, fine.
+
+One note on the numbers used just below, because they come from different preparations. The depolarisation figures are basolateral measurements in mouse enteroids, while the apical figure is a rabbit measurement. The sodium budget in the third scene is an apical calculation, so applying a basolateral shift to it assumes the two faces depolarise together, which is a reasonable expectation in a cell whose membrane potential is set largely by potassium conductance and is not something these sources measured. Treat what follows as an order-of-magnitude sensitivity check on the budget, not as a measurement of the apical potential in cholera.
 
 ## Why an oral solution can work at all
 

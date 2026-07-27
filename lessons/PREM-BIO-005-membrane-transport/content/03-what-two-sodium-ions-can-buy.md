@@ -80,6 +80,8 @@ It says **nothing whatever about rate**. Free energy fixes which way a process r
 
 It is **not a threshold**. Nothing switches at 130. Approaching the ceiling slows net transport smoothly towards zero.
 
+It rests on **assumptions worth stating**, and they are the reason to call it a model boundary rather than a wall. The relation formally uses thermodynamic activities and this calculation uses raw concentrations, which is standard for a first estimate and is not exact in a cytosol this crowded. It assumes a reversible cycle that is tightly coupled at two sodium ions to one glucose with no slippage, so a carrier that occasionally lets sodium through without glucose would not reach it. And it holds the sodium concentrations and the membrane potential fixed, when transport itself moves both. So 130 is what this model permits under those conditions, and a measurement that came out somewhat above it would indict one of the assumptions before it indicted thermodynamics.
+
 ## Why the stoichiometry is the interesting part
 
 Unpack step 6 algebraically and something appears that connects back to [Proportional models (PREM-QNT-010)](https://embeddedknowledge.io/premed/lessons/read/?lesson=PREM-QNT-010).

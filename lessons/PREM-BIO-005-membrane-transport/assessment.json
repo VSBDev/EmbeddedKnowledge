@@ -16,8 +16,12 @@
       "id": "item-classify-late-meal",
       "type": "single-choice",
       "sceneId": "scene-four-routes",
-      "objectiveIds": ["objective-classify-transport-route"],
-      "outcomeIds": ["topic-cell-biology-membrane-transport"],
+      "objectiveIds": [
+        "objective-classify-transport-route"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-membrane-transport"
+      ],
       "prompt": "Late in a meal, luminal glucose has fallen below the cytosolic glucose concentration of a small-intestinal absorptive cell, and SGLT1 goes on bringing glucose in. Which classification applies to that crossing, and for the right reason?",
       "points": 4,
       "responseSpec": {
@@ -62,8 +66,12 @@
       "id": "item-compute-sodium-budget",
       "type": "numeric",
       "sceneId": "scene-sodium-budget",
-      "objectiveIds": ["objective-compute-coupling-ceiling"],
-      "outcomeIds": ["topic-cell-biology-membrane-transport"],
+      "objectiveIds": [
+        "objective-compute-coupling-ceiling"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-membrane-transport"
+      ],
       "prompt": "For a small-intestinal absorptive cell take luminal sodium at 150 mM, cytosolic sodium at 50 mM, and an apical membrane potential of -36 mV with the interior negative. Use RT = 2.577 kJ/mol and F = 96485 C/mol, and the relation that the free-energy change for one mole of an ion moving from outside to inside is RT ln([Na]in/[Na]out) + zF times the membrane potential. Compute the total free-energy change per mole of sodium entering the cell, in kJ/mol, to two significant figures. Give the sign.",
       "points": 5,
       "responseSpec": {
@@ -75,7 +83,12 @@
         "correct": -6.3,
         "summary": "About -6.3 kJ/mol per mole of sodium entering: -2.83 from the concentration term and -3.47 from the voltage term.",
         "reasoning": "The concentration term is RT ln(50/150) = 2.577 times ln(1/3) = 2.577 times -1.099 = -2.83 kJ/mol. The voltage term is zF times the potential, with z = +1 for sodium: 96485 times -0.036 V = -3473 J/mol = -3.47 kJ/mol. Both terms are negative because both favour sodium entering: the lumen is the concentrated side, and a positive ion is drawn towards a negative interior. Adding them gives -6.31 kJ/mol, which to two significant figures is -6.3 kJ/mol. The negative sign means the move is spontaneous, which is what makes sodium entry available as a source of energy for something else. Worth noticing: the voltage term is the larger of the two, supplying about 55 per cent of the total, so a treatment of the sodium gradient as purely a concentration difference discards more than half of it.",
-        "acceptableResponses": ["-6.3", "-6.31", "-6.3 kJ/mol", "about -6.3 kJ/mol"],
+        "acceptableResponses": [
+          "-6.3",
+          "-6.31",
+          "-6.3 kJ/mol",
+          "about -6.3 kJ/mol"
+        ],
         "commonErrors": [
           "Answering -2.8 kJ/mol by computing only the concentration term and omitting the membrane potential. In this cell that loses the larger of the two contributions.",
           "Answering +6.3 kJ/mol by inverting the concentration ratio, using ln(150/50) instead of ln(50/150). The ratio is inside over outside because the ion is moving inward, and the sign of the result is what tells you the direction is spontaneous.",
@@ -90,8 +103,12 @@
       "id": "item-power-law-factor",
       "type": "numeric",
       "sceneId": "scene-sodium-budget",
-      "objectiveIds": ["objective-compute-coupling-ceiling"],
-      "outcomeIds": ["topic-cell-biology-membrane-transport"],
+      "objectiveIds": [
+        "objective-compute-coupling-ceiling"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-membrane-transport"
+      ],
       "prompt": "The largest glucose concentration ratio a sodium-coupled carrier can sustain varies as the sodium concentration ratio across the membrane raised to the power of the coupling stoichiometry. A 2:1 cotransporter is moved into conditions where the sodium concentration ratio across the apical membrane is twice what it was, with the membrane potential and the temperature unchanged. By what factor does the largest attainable glucose concentration ratio increase? Give a number.",
       "points": 4,
       "responseSpec": {
@@ -103,7 +120,12 @@
         "correct": 4,
         "summary": "A factor of 4, because the ceiling goes as the sodium ratio raised to the coupling number and the coupling number is 2.",
         "reasoning": "The ceiling has the form k times the sodium concentration ratio raised to the power n, where n is the coupling stoichiometry and k carries the membrane-potential contribution. Holding the potential and the temperature fixed holds k fixed, so doubling the sodium ratio multiplies the ceiling by 2 raised to the power n. With n = 2 that is a factor of 4. The point of the question is that the exponent is the stoichiometry: the same doubling would buy only a factor of 2 for a 1:1 carrier such as SGLT2, and the advantage of coupling a second ion is that it turns a multiplication into a squaring.",
-        "acceptableResponses": ["4", "4x", "a factor of four", "2^2 = 4"],
+        "acceptableResponses": [
+          "4",
+          "4x",
+          "a factor of four",
+          "2^2 = 4"
+        ],
         "commonErrors": [
           "Answering 2 by carrying the doubling straight through, which treats the relation as a direct proportionality. The relation is a power law and the exponent is 2, so the factor is squared.",
           "Answering 8 by cubing, or by confusing the coupling stoichiometry with the sodium-potassium pump's three-for-two cycle. The exponent is the number of sodium ions the cotransporter carries per glucose molecule, which is 2.",
@@ -117,8 +139,12 @@
       "id": "item-ceiling-limits",
       "type": "multiple-choice",
       "sceneId": "scene-sodium-budget",
-      "objectiveIds": ["objective-compute-coupling-ceiling"],
-      "outcomeIds": ["topic-cell-biology-membrane-transport"],
+      "objectiveIds": [
+        "objective-compute-coupling-ceiling"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-membrane-transport"
+      ],
       "prompt": "A learner computes that a 2:1 sodium-coupled carrier in an enterocyte could sustain a glucose concentration ratio of at most about 130. Select every statement that this calculation does NOT support.",
       "points": 6,
       "responseSpec": {
@@ -144,7 +170,11 @@
         "maxSelections": 4
       },
       "answer": {
-        "correct": ["option-rate", "option-measured", "option-threshold"],
+        "correct": [
+          "option-rate",
+          "option-measured",
+          "option-threshold"
+        ],
         "summary": "The first three are unsupported. Only the fourth follows: a ceiling above 1 does establish that uphill entry is possible.",
         "reasoning": "A free-energy calculation fixes direction and extent and says nothing about speed, so the claim about rate is unsupported; rate depends on how many transporters are present and how fast each cycles, and neither quantity enters the calculation. The claim about a measured concentration is unsupported because the figure is an equilibrium limit, the point at which net transport would cease, and a working cell is held far from equilibrium by glucose leaving basolaterally and being consumed; a published model puts cytosolic glucose near 12 mM, nothing like 130 times a normal luminal concentration. The claim about switching off is unsupported because nothing in the relation is a threshold: the ceiling is the far end of a continuum and approaching it slows net transport smoothly towards zero rather than tripping a switch. The fourth statement is the one thing the calculation does support: a ceiling greater than 1 means the coupling can drive glucose inward against a dilution, which is the whole point of computing it.",
         "acceptableResponses": [
@@ -164,27 +194,30 @@
       "id": "item-atp-withdrawal",
       "type": "short-answer",
       "sceneId": "scene-pump-never-touches",
-      "objectiveIds": ["objective-explain-secondary-dependence"],
-      "outcomeIds": ["topic-cell-biology-membrane-transport"],
-      "prompt": "A cell's ATP supply is abolished instantly. SGLT1 keeps transporting glucose for a period afterwards and then slows. Explain why it does not stop immediately, why it slows eventually, and what the timing of the decline shows about where SGLT1's energy comes from.",
+      "objectiveIds": [
+        "objective-explain-secondary-dependence"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-membrane-transport"
+      ],
+      "prompt": "A cell's ATP supply is abolished. SGLT1 keeps transporting glucose for a period afterwards and then slows. Explain why it does not stop immediately and why it slows eventually. Then say what the timing of the decline does and does not establish about where SGLT1's energy comes from, and name an experiment from this lesson that would settle it.",
       "points": 6,
       "responseSpec": {
         "mode": "text",
         "maxLength": 1600
       },
       "answer": {
-        "correct": "SGLT1 hydrolyses no ATP, so removing ATP does not deprive it of anything it consumes directly. It spends the sodium electrochemical gradient, which is already stored across the membrane and does not vanish when ATP does, so transport continues at first. It slows because the sodium-potassium ATPase, which does consume ATP, has stopped maintaining that gradient: sodium accumulates in the cytosol as SGLT1 keeps bringing it in with glucose, the gradient shrinks, and the free-energy budget per glucose falls. The gradual shape of the decline is the evidence: a transporter with its own ATP-hydrolysing step would stop sharply when ATP disappeared, whereas a store being consumed runs down over time. So SGLT1's dependence on ATP is indirect, mediated entirely by the gradient a different protein builds.",
-        "summary": "SGLT1 spends a stored gradient rather than ATP, so it stops gradually as the gradient runs down. The gradual shape is what shows the ATP dependence is indirect.",
-        "reasoning": "A complete answer has three parts. First, the immediate survival: SGLT1's energy source is the inwardly directed sodium electrochemical gradient, and a gradient is a store that persists after its supply is cut. Second, the eventual decline: the gradient is maintained by the basolateral sodium-potassium ATPase, which does hydrolyse ATP and has stopped, and meanwhile SGLT1 goes on importing sodium, so cytosolic sodium rises, the sodium ratio falls, and the budget per glucose falls with it. Third, the inference from timing: sharp failure would indicate direct consumption of the missing molecule, while gradual failure indicates a store being drawn down, so the shape of the curve discriminates between the two mechanisms even though both end with transport stopped. An answer that reaches the right conclusion by asserting that SGLT1 has no ATP-binding site should be credited, but note that this lesson derives that negative from the sourced statement that the coupling to ATP hydrolysis is indirect rather than from a direct structural observation.",
+        "correct": "SGLT1 hydrolyses no ATP, so removing ATP does not deprive it of anything it consumes directly. It spends the sodium electrochemical gradient, which is already stored across the membrane and does not vanish when ATP does, so transport continues at first. It slows because the sodium-potassium ATPase, which does consume ATP, has stopped maintaining that gradient: sodium accumulates in the cytosol as SGLT1 keeps bringing it in with glucose, the gradient shrinks, and the free-energy budget per glucose falls.\n\nWhat the timing establishes is less than it appears. A gradual decline is consistent with a store being consumed, and it is also consistent with a transporter that does hydrolyse ATP, because abolishing ATP supply is not the same as emptying the ATP pool: a direct consumer would run on until residual ATP fell. Even with ATP held at zero, how fast transport decayed would depend on the transporter's cycle kinetics, the membrane potential, sodium leaks, cell volume, and everything else in the cell that was also stopping. No source in this lesson reports this time course. So the shape of the decline is suggestive and is not evidence on its own.\n\nThe experiment that settles it is the one in scene 4: brush-border membrane vesicles with an artificial sodium gradient imposed across them and no ATP present at all. If glucose accumulates against its own gradient there, the transporter is running on the sodium gradient and nothing else, because there is nothing else. That is a direct test rather than an inference from timing.",
+        "summary": "Transport continues because the gradient is a store that outlasts ATP, and slows because the pump that maintains the store has stopped. The shape of the decline is suggestive rather than probative, since abolishing supply does not empty the pool and the decay rate depends on much else; the vesicle experiment with an imposed sodium gradient and no ATP is what settles it.",
+        "reasoning": "Award the mechanism marks for the store-outlasts-ATP account and the pump's role in maintaining it. Award the reasoning mark only for an answer that limits what the timing shows: it must recognise either that stopping ATP supply leaves a residual pool a direct consumer could run on, or that the decay rate depends on kinetics and other cell processes, and it must name a direct test. An answer asserting that a gradual decline demonstrates indirect dependence has made the inference this item was rewritten to stop rewarding, and does not earn that mark however well the mechanism is described.",
         "acceptableResponses": [
           "It runs on the stored sodium gradient, not ATP, so it continues until that gradient decays once the pump stops maintaining it; the gradual decline shows the ATP dependence is indirect.",
           "No ATP is hydrolysed by SGLT1. The pump that does hydrolyse ATP stops, cytosolic sodium rises, the gradient and therefore the budget shrink, and transport falls off slowly rather than at once, which is the signature of spending a store."
         ],
         "commonErrors": [
-          "Saying SGLT1 has a reserve of ATP inside it. There is no such reserve and no ATP site; what persists is a gradient across the membrane, not a stock of a molecule inside a protein.",
-          "Explaining the delay but not what the timing shows. The question asks for the inference as well as the mechanism, and the discriminating value of a gradual decline is the part that distinguishes direct from indirect dependence.",
-          "Concluding that because glucose transport eventually stopped, SGLT1 must consume ATP after all. The experiment removed ATP and also removed the pump's output; the delay is precisely what separates those two routes of failure.",
-          "Omitting that SGLT1 itself makes the gradient worse by continuing to import sodium while nothing removes it, which is part of why the decline happens on the timescale it does."
+          "Concluding that a gradual decline proves indirect dependence. Abolishing ATP supply does not instantly empty the ATP pool, so a direct consumer would also fade rather than stop dead.",
+          "Saying SGLT1 stops because it has no ATP, which reverses the lesson's whole point about what secondary active transport spends.",
+          "Treating the sodium gradient as unaffected by SGLT1's own activity; the transporter consumes the store it runs on."
         ]
       },
       "rubricId": "rubric-mechanism",
@@ -194,8 +227,12 @@
       "id": "item-protein-does-not-mean-active",
       "type": "short-answer",
       "sceneId": "scene-four-routes",
-      "objectiveIds": ["objective-classify-transport-route"],
-      "outcomeIds": ["topic-cell-biology-membrane-transport"],
+      "objectiveIds": [
+        "objective-classify-transport-route"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-membrane-transport"
+      ],
       "prompt": "A colleague offers this rule: \"If a membrane protein is involved, the transport is active.\" Give one counterexample from this lesson. Then give a further case showing that knowing whether a protein is a channel or a carrier does not settle whether the transport is active.",
       "points": 5,
       "responseSpec": {
@@ -223,8 +260,13 @@
       "id": "item-ort-transfer",
       "type": "open-response",
       "sceneId": "scene-clinical-wrap-up",
-      "objectiveIds": ["objective-classify-transport-route", "objective-explain-secondary-dependence"],
-      "outcomeIds": ["topic-cell-biology-membrane-transport"],
+      "objectiveIds": [
+        "objective-classify-transport-route",
+        "objective-explain-secondary-dependence"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-membrane-transport"
+      ],
       "prompt": "Cholera toxin raises cyclic AMP in intestinal epithelial cells, which drives chloride secretion through CFTR and large osmotic water loss into the lumen, while leaving the epithelium structurally intact. Using this lesson's classification and its account of water movement, explain why a solution containing both salt and glucose given by mouth can still be absorbed while the illness continues. Then state one thing that this absorption does not accomplish. Treat this as an academic reasoning task: do not propose any composition, quantity, or plan of treatment.",
       "points": 8,
       "responseSpec": {
