@@ -138,27 +138,3 @@ test("a finding pinned to a renamed file is backed by the rename", () => {
     changedFiles
   }).length, 1);
 });
-
-test("a finding pinned to a renamed file is backed by the rename", () => {
-  // Inserting a scene renumbers every content file after it, and git reports a rename as one entry
-  // naming only the destination. A reviewer pinned their finding to the path they read, so unless
-  // both sides of the rename count as changed, every finding against a renumbered scene reads as a
-  // repair that was never made. That happened to PREM-BIO-006, whose coverage fix added two scenes.
-  const changedFiles = [
-    "content/03-what-a-gradient-can-specify.md", "content/04-what-a-gradient-can-specify.md",
-    "content/06-practice.md", "content/08-practice.md"
-  ];
-  assert.deepEqual(scenario({
-    dispositions: [{ reviewId: "REV-ACADEMIC", findingIndex: 0, action: "incorporated" }],
-    findings: [{ target: "content/03-what-a-gradient-can-specify.md#worked-example; content/06-practice.md#task-3" }],
-    changedFiles
-  }), []);
-
-  // The allowance is only for paths the diff actually names. A finding against a file nobody touched
-  // still fails, which is the whole point of the guard.
-  assert.equal(scenario({
-    dispositions: [{ reviewId: "REV-ACADEMIC", findingIndex: 0, action: "incorporated" }],
-    findings: [{ target: "content/07-clinical-wrap-up.md#reasoning" }],
-    changedFiles
-  }).length, 1);
-});
