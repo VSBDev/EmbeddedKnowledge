@@ -42,7 +42,7 @@ Two outcomes sit upstream of this one in the course graph, and they are in diffe
 
 **A transcription factor is a protein that changes whether particular genes get read.** It does this by binding DNA, or by binding something already attached to DNA.
 
-**A conserved amino acid** is one that has stayed the same at that position across many species, which usually signals that it matters. Scene 5 refers to a conserved serine; serine is one of the twenty amino acids proteins are built from.
+**A conserved amino acid** is one that has stayed the same at that position across many species, which usually signals that it matters. Scene 7 refers to a conserved serine; serine is one of the twenty amino acids proteins are built from.
 :::
 
 Where this lesson would need more protein chemistry than those lines, it says so and stops.

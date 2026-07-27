@@ -18,7 +18,7 @@ Now put a cell with damaged APC anywhere you like in the crypt and trace scene 2
 
 That last clause is the whole point, and it is a specific kind of failure. The gradient outside the cell is unchanged. The mesenchyme near the base is still secreting, the concentration still falls with height, the positional information is still sitting there in the fluid. What has broken is the reading. The output has become independent of the input, so the cell now reports "I am at the crypt base" at every height, and behaves accordingly at every height.
 
-The same holds under either account of what the cell reads. If the readout tracks the absolute level, the level is now high everywhere. If instead it compares against a recent baseline, as scene 4's fold-change hypothesis proposes, then a cell whose destruction machinery is broken has lost the falling baseline that comparison depended on. Neither version leaves the cell able to locate itself, so the conclusion here does not rest on settling that question.
+The same holds under either account of what the cell reads. If the readout tracks the absolute level, the level is now high everywhere. If instead it compares against a recent baseline, as scene 6's fold-change hypothesis proposes, then a cell whose destruction machinery is broken has lost the falling baseline that comparison depended on. Neither version leaves the cell able to locate itself, so the conclusion here does not rest on settling that question.
 
 Read that against the opening of this lesson. The problem was a cell with no map and no address, solved by reading a concentration. A cell with damaged APC has lost the solution while keeping the problem. It is not receiving a wrong answer about where it is; it has stopped asking.
 

@@ -31,7 +31,7 @@ Now watch one real pathway do all five. This is the pathway that reads position 
 
 The signal is a Wnt protein, secreted by mesenchymal cells near the crypt base. The receptor is a pair of proteins working together: Frizzled, with LRP5/6 alongside it. Wnt binding to that receptor complex is what drives everything downstream.
 
-Note what reception does and does not do. One Wnt molecule occupies one receptor complex. Nothing is multiplied at this step, and nothing about the molecule tells the cell a position. All the cell obtains from a single binding event is one bit of the crudest kind: something arrived. The position information is in the *rate* at which such events happen, which depends on the concentration outside, which depends on height in the crypt. A cell near the base has many occupied receptors at any moment; a cell near the top has few. That is the whole of the trick, and scene 3 asks how well it can possibly work.
+Note what reception does and does not do. One Wnt molecule occupies one receptor complex. Nothing is multiplied at this step, and nothing about the molecule tells the cell a position. All the cell obtains from a single binding event is one bit of the crudest kind: something arrived. The position information is in the *rate* at which such events happen, which depends on the concentration outside, which depends on height in the crypt. A cell near the base has many occupied receptors at any moment; a cell near the top has few. That is the whole of the trick, and scene 4 asks how well it can possibly work.
 
 ## Transduction, which runs backwards
 
@@ -79,7 +79,7 @@ The Wnt pathway gets this almost for free. The destruction complex runs continuo
 
 That is also why a cell can *track* its position instead of merely recording it once. A cell partway up the crypt is continuously re-reading a concentration that is continuously falling as it climbs, and its free beta-catenin level is continuously following.
 
-One caution on that picture, because scene 4 will disturb it. Everything above treats the cell as reading the current concentration, with no reference to any earlier value. That is the straightforward reading of the mechanism, and it is the one this scene has described. Scene 4 introduces evidence for a different possibility, in which what the downstream machinery reads is the *change* in beta-catenin against its recent level, which would require the cell to hold a short-term baseline. Nothing in this scene settles that, so treat "the cell reads the level here and now" as this scene's working account and expect it to be qualified.
+One caution on that picture, because scene 6 will disturb it. Everything above treats the cell as reading the current concentration, with no reference to any earlier value. That is the straightforward reading of the mechanism, and it is the one this scene has described. Scene 6 introduces evidence for a different possibility, in which what the downstream machinery reads is the *change* in beta-catenin against its recent level, which would require the cell to hold a short-term baseline. Nothing in this scene settles that, so treat "the cell reads the level here and now" as this scene's working account and expect it to be qualified.
 
 :::{check}
 :id: check-two-negatives

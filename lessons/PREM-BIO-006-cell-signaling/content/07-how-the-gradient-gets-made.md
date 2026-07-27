@@ -32,7 +32,7 @@ This distinction has teeth. Under free diffusion, the profile is set by how fast
 
 **Which statements in this lesson depend on the answer, and which do not.**
 
-Unaffected. A cell's free beta-catenin level tracks how much Wnt binds its receptors. The amount binding falls with height in the crypt. The destruction complex, its recruitment, and the TCF and LEF response work the same way whatever delivered the ligand. The whole of scenes 2 and 4 stands either way, and so does the information-theoretic bound in scene 3, which cares only that a graded quantity is being read.
+Unaffected. A cell's free beta-catenin level tracks how much Wnt binds its receptors. The amount binding falls with height in the crypt. The destruction complex, its recruitment, and the TCF and LEF response work the same way whatever delivered the ligand. The whole of scenes 2 and 4 stands either way, and so does the information-theoretic bound in scene 4, which cares only that a graded quantity is being read.
 
 Affected. Any statement about *why* the profile has the shape it has. Any prediction about what happens to the gradient if you block diffusion, or if you stop the cells dividing. Any calculation of gradient shape from a diffusion coefficient, which is why this lesson does not attempt one.
 

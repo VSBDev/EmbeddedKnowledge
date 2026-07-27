@@ -23,7 +23,13 @@ Count zones instead. Each threshold draws one boundary across the axis, so *k* t
 
 **Step 5: decide which number to doubt.** Nobody proposes that the crypt runs 31 threshold genes. The step to reject is the supposition in Step 1. The crypt has no use for 32 separate addresses, so the demand was never 5 bits, and the mismatch tells you something about the question instead of something about the gradient.
 
-**What the calculation assumes.** Independent genes, one threshold each, a gradient that falls monotonically, and no noise. Every one of those assumptions is loosened below, and loosening them raises the supply.
+**What the calculation assumes.** Independent genes, one threshold each, a gradient that falls monotonically, and no noise. Those assumptions do not all point the same way when they are loosened, and the difference matters.
+
+Dropping *independent genes* or *one threshold each* raises the supply: genes that regulate one another, or that read graded levels rather than an on-or-off call, can carry more than this floor.
+
+Dropping *no noise* lowers it. The theoretical work this scene draws on is explicit that noise entropy can only subtract from positional information; a reading built on counting randomly arriving molecules cannot beat the same reading made perfectly. So the noiseless assumption is the one that makes this number an optimistic ceiling rather than a floor, and the two kinds of assumption have to be kept apart.
+
+One further correction to the arithmetic above. A binary threshold carries *at most* one bit, and it carries a full bit only when its two outcomes are equally likely. A threshold placed where nearly every cell falls on the same side of it carries almost nothing. So the count of thresholds is an upper bound on the bits they supply, before noise is considered at all.
 :::
 
 The compact form of Step 1:
@@ -43,7 +49,7 @@ A gradient is not a coordinate system. What a monotonic gradient plus threshold-
 
 For the crypt this turns out to be the right shape of answer, because a crypt does not need 32 addresses. It needs a handful of regimes: divide and stay undifferentiated near the base, stop dividing and mature further up, work and be shed at the surface. A gradient read through a few thresholds delivers exactly that. The metaphor oversold the mechanism, and the mechanism is well matched to the job.
 
-That conclusion is about the *output* of the readout, and it carries a requirement for everything upstream of it that scene 4 will need. Coarse zones have to be carved out of something continuous. If the pathway that converts outside concentration into inside signal were to saturate early, every threshold would have to be crammed into the narrow input range below saturation, and no zone boundary could be placed higher up the crypt at all. A few coarse output zones therefore demand a faithfully graded intermediate, not a saturating one. Keep that: the readout is coarse, and what it reads has to be smooth.
+That conclusion is about the *output* of the readout, and it carries a requirement for everything upstream of it that scene 6 will need. Coarse zones have to be carved out of something continuous. If the pathway that converts outside concentration into inside signal were to saturate early, every threshold would have to be crammed into the narrow input range below saturation, and no zone boundary could be placed higher up the crypt at all. A few coarse output zones therefore demand a faithfully graded intermediate, not a saturating one. Keep that: the readout is coarse, and what it reads has to be smooth.
 
 Real tissues also do better than the crude accounting above. In the fruit-fly embryo, where this has been measured most carefully, four genes reading the early gradients were estimated to carry 4.2 plus or minus 0.05 bits of positional information between them, enough for a nucleus to place itself to roughly 1 per cent relative precision. Set that against the arithmetic, which is again this lesson's own. Four genes acting as four independent on-or-off switches could carry at most 4 bits. Four *nested* threshold genes on one falling gradient would manage only five zones, about 2.3 bits. Measured at 4.2 bits, that system exceeds both: the genes influence one another, and their graded expression levels carry information that on-or-off calls would discard. Cells beat the simple threshold ceiling by declining to use simple thresholds.
 
