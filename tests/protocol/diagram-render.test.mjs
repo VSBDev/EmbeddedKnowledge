@@ -45,9 +45,18 @@ for (const { file, diagram } of diagrams) {
       `${diagram.edges.length} edge(s) declared but ${drawn} arrow(s) drawn`);
     const boxes = (svg.match(/<rect /g) || []).length;
     assert.equal(boxes, diagram.nodes.length);
-    // A marker element is stripped by the reader, so each edge carries its own polygon head.
-    const heads = (svg.match(/class="ek-diagram-head"/g) || []).length;
-    assert.equal(heads, diagram.edges.length, `${diagram.edges.length} edge(s) but ${heads} arrowhead(s)`);
+    // A marker element is stripped by the reader, so each edge carries its own terminator — and the
+    // terminator has to match the relation the edge declares. The renderer ignored edge.kind at first
+    // and drew an arrowhead on everything, so three inhibitory edges across two published lessons read
+    // as promoting arrows and four edges an author had declared undirected were given a direction.
+    const arrows = (svg.match(/<polygon class="ek-diagram-head"/g) || []).length;
+    const bars = (svg.match(/ek-diagram-head--bar/g) || []).length;
+    const kinds = diagram.edges.map((edge) => edge.kind || "directed");
+    const expectedBars = kinds.filter((kind) => kind === "inhibits").length;
+    const expectedNone = kinds.filter((kind) => kind === "undirected" || kind === "balances").length;
+    assert.equal(bars, expectedBars, `${expectedBars} inhibiting edge(s) but ${bars} bar terminator(s)`);
+    assert.equal(arrows, diagram.edges.length - expectedBars - expectedNone,
+      `arrowheads must be drawn only for edges that assert a direction, and ${expectedNone} edge(s) here do not`);
   });
 
   test(`${name} lays out from the edges rather than declaration order`, () => {
@@ -120,7 +129,7 @@ test("a deliberate cycle is drawn as a return rather than refused or mangled", (
   assert.equal(diagram.edges.filter(isBackEdge).length, 1, "exactly the closing edge is a back edge");
   const svg = renderDiagramSvg(diagram, diagram.alt);
   assert.equal((svg.match(/class="ek-diagram-edge/g) || []).length, 3, "all three edges are drawn");
-  assert.equal((svg.match(/class="ek-diagram-head"/g) || []).length, 3, "every edge keeps its head");
+  assert.equal((svg.match(/<polygon class="ek-diagram-head"/g) || []).length, 3, "every edge keeps its head");
   assert.match(svg, /ek-diagram-edge--return/, "the closing edge is marked as a return");
   // The bow sits outside the stack, so the viewBox has to start before the origin or it is clipped.
   // Which axis it extends depends on the orientation the renderer chose, so either one satisfies it.
@@ -144,3 +153,28 @@ test("a branch puts its siblings in one layer instead of a false chain", () => {
   const svg = renderDiagramSvg(diagram, diagram.alt);
   assert.equal((svg.match(/class="ek-diagram-edge/g) || []).length, 3);
 });
+
+test("the terminator follows the relation the edge declares", () => {
+  // An arrow reads as a push. Drawing one on an inhibition states the opposite of the author's data,
+  // and drawing one on an undirected edge asserts a direction they declined. Both shipped.
+  const diagram = {
+    id: "diagram-kinds", direction: "top-to-bottom",
+    alt: "One promoting step, one inhibiting step, and one undirected association.",
+    longDescription: "A promotes B, B inhibits C, and C is associated with D without a direction.",
+    nodes: ["a", "b", "c", "d"].map((id) => ({ id, label: id.toUpperCase() })),
+    edges: [
+      { id: "e1", from: "a", to: "b", kind: "directed" },
+      { id: "e2", from: "b", to: "c", kind: "inhibits" },
+      { id: "e3", from: "c", to: "d", kind: "undirected" }
+    ]
+  };
+  const svg = renderDiagramSvg(diagram, diagram.alt);
+  assert.equal((svg.match(/class="ek-diagram-edge/g) || []).length, 3, "all three edges are still drawn");
+  assert.equal((svg.match(/<polygon class="ek-diagram-head"/g) || []).length, 1, "only the directed edge gets an arrow");
+  assert.equal((svg.match(/ek-diagram-head--bar/g) || []).length, 1, "the inhibition gets a bar");
+  assert.match(svg, /ek-diagram-edge--inhibits/, "the kind is exposed to the stylesheet");
+  assert.match(svg, /ek-diagram-edge--undirected/);
+  // A bar drawn as a filled polygon would look like a squashed arrow, so it must be a stroked line.
+  assert.match(svg, /<line class="ek-diagram-head ek-diagram-head--bar"/);
+});
+
