@@ -112,12 +112,22 @@ if (!hasCommit(candidateCommit) || !hasCommit(finalCommit)) {
   return;
 }
 
+// --name-status rather than --name-only, because git collapses a rename into one entry reporting
+// only the destination. A reviewer pins a finding to the path they read, and if the author then
+// reorganises the pack — inserting a scene renumbers every file after it — that path never appears
+// in the diff and every finding against it reads as a repair that was never made. Both sides of a
+// rename count as changed, which is the truth: the old path no longer holds anything, and the
+// content moved and in practice was edited on the way.
 const output = execFileSync(
   "git",
-  ["diff", "--name-only", candidateCommit, finalCommit, "--", packPath],
+  ["diff", "--name-status", candidateCommit, finalCommit, "--", packPath],
   { cwd: root, encoding: "utf8" }
 );
-const changedFiles = output.split("\n").filter(Boolean).map((file) => file.slice(`${packPath}/`.length));
+const changedFiles = output
+  .split("\n")
+  .filter(Boolean)
+  .flatMap((line) => line.split("\t").slice(1))
+  .map((file) => file.slice(`${packPath}/`.length));
 
 const problems = unbackedIncorporations({ adjudication, reviews, changedFiles, packPath });
 
