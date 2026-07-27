@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-BIO-007-ACADEMIC-BCBA0C4C",
+  "lessonId": "PREM-BIO-007",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "8b9a3b86f025d8064b6be0e8b57d834ac49baee2",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable operator, academic reviewer",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-BIO-007-BCBA0C4C-B175-45D7-9973-D5889BE25E4C",
+      "instructionsDigest": "sha256:97a7002ecbdc3d158854263fb7fbc1e80a0bb2d997e1bcb08a0613e58770c041"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#objectives-and-scene-map",
+    "course/PREMED-SYLLABUS.md#BIO-116",
+    "content/01-finger-of-fluid.md#complete-scene",
+    "content/02-three-mechanics.md#complete-scene",
+    "content/03-choosing-the-polymer.md#worked-example-which-polymer",
+    "content/04-junction-hierarchy.md#complete-scene",
+    "content/05-break-one-anchor.md#investigation-desmoplakin-deletion",
+    "content/06-the-climb.md#complete-scene",
+    "content/07-practice-and-recovery.md#complete-scene",
+    "content/08-clinical-wrap-up.md#worked-example-barrier-reasoning",
+    "assessment.json#all-items-and-rubrics",
+    "claims.json#all-claims",
+    "references.json#all-source-records-and-locators",
+    "glossary.json#all-terms",
+    "diagrams/junction-anchors.diagram.json#all-nodes-and-edges",
+    "ATTRIBUTION.md#all-sections",
+    "references.json#source-brown-microvillar",
+    "references.json#source-pegoraro-cytoskeleton-mechanics",
+    "references.json#source-green-desmosomes",
+    "references.json#source-alizadeh-junctional-complex",
+    "references.json#source-benoit-crypt-integrins",
+    "references.json#source-sumigray-desmoplakin",
+    "references.json#source-parker-crypt-migration",
+    "references.json#source-perezgonzalez-crypt-tension",
+    "CONTENT-STANDARD.md#accuracy-epistemics-and-claim-mapping",
+    "RIGHTS-POLICY.md#facts-only-research-and-source-access"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "content/04-junction-hierarchy.md#the-fourth-attachment-faces-down-not-sideways; diagrams/junction-anchors.diagram.json#edge-integrins-actin; assessment.json#item-pair-junction-to-polymer",
+      "finding": "The lesson collapses all basal integrins into one actin-linked attachment even though it names alpha6beta4 among the relevant receptors. Its own source record limits the integrin-linked-kinase connection to the beta1 cytoplasmic tail; alpha6beta4 has a beta4 rather than beta1 subunit and, in hemidesmosomes, connects laminin to keratin intermediate filaments through proteins including plectin. The diagram therefore makes an overbroad basal-integrin-to-actin edge, and the assessment treats that edge as an unqualified correct pairing. The later acknowledgement that the selected intestinal source does not address hemidesmosomes does not make the positive generalization valid. This defeats the objective requiring learners to name each attachment's polymer and linking proteins.",
+      "resolution": "Separate beta1-integrin focal-adhesion routes linked to actin from the alpha6beta4 hemidesmosomal route linked to keratin, using evidence appropriate to intestinal simple epithelium. Update the scene, claim scope, glossary, diagram and assessment together. If the intestinal evidence cannot establish the hemidesmosomal route at the declared scope, narrow the objective and label the beta1 focal-adhesion map explicitly instead of calling it the basal attachment generally."
+    },
+    {
+      "severity": "major",
+      "target": "content/04-junction-hierarchy.md#down-the-side-of-the-cell-in-order; diagrams/junction-anchors.diagram.json#edge-aj-actin; glossary.json#term-adherens-junction; assessment.json#item-pair-junction-to-polymer",
+      "finding": "The adherens-junction route incorrectly groups E-cadherin and nectin together as reaching actin through catenins. The canonical branches differ: classical cadherins use catenins, whereas nectins connect to actin primarily through afadin. Because the objective explicitly requires the proteins making each link, this is not a harmless simplification; the diagram, glossary and assessment reasoning teach the wrong molecular path.",
+      "resolution": "Represent the E-cadherin–catenin–actin and nectin–afadin–actin branches separately, add a source that supports both at the lesson's scope, and revise the diagram and assessment reasoning so learners are not rewarded for assigning catenins to the nectin branch."
+    },
+    {
+      "severity": "major",
+      "target": "content/03-choosing-the-polymer.md#worked-example-which-polymer; content/07-practice-and-recovery.md#task-1-with-the-steps-supplied; assessment.json#item-stiffness-ratio",
+      "finding": "The central decision procedure turns persistence length into proof that a filament can bear an external mechanical demand. Persistence length describes thermal orientational correlation and supports a flexible, semiflexible or stiff classification relative to contour length; it does not by itself establish that a single actin filament can hold a membrane projection against surface tension. Load magnitude, boundary conditions, filament contour length, cross-linking and bundle geometry also determine that result. The observed microvillus contains a cross-linked bundle of about 19 filaments, yet the worked example and numeric answer key state that a single filament with a ratio above 1 can hold the projection on its own. The same example says a 25-nanometre microtubule is ruled out because it is one quarter of a 100-nanometre projection's width, but that dimension means it fits rather than excludes it; the empirical absence of microtubules from the core is a different argument. These shortcuts are embedded in the first objective and its scored reasoning.",
+      "resolution": "Recast the ratio as a thermal-flexibility screen rather than a load-bearing sufficiency test. Distinguish prediction from demonstrated structure, incorporate bundle architecture and the missing force and boundary-condition information, remove the invalid diameter exclusion, and revise the worked example, practice discussion, objective wording and assessment feedback so a learner is not rewarded for claiming functional sufficiency from the ratio alone."
+    },
+    {
+      "severity": "major",
+      "target": "content/02-three-mechanics.md#putting-the-three-properties-together; content/04-junction-hierarchy.md#the-fourth-attachment-faces-down-not-sideways; glossary.json#term-intermediate-filament",
+      "finding": "The lesson repeatedly converts the absence of motors that walk on intermediate filaments into a much broader passive-only model, culminating in the statement that a keratin-linked attachment can hold and that is all it can do. The cited desmosome review itself describes desmosome–intermediate-filament regulation of actin, Rho-family signalling, adhesion dynamics, cell mechanics and migration. Intermediate filaments are not motor tracks analogous to actin or microtubules, but that does not mean their networks cannot participate in polarity, motility, mechanotransduction or regulated remodelling through cytoskeletal cross-talk. The current three-property model therefore produces scientifically false functional exclusions.",
+      "resolution": "Narrow the motor conclusion to the defensible statement that no known myosin-, kinesin- or dynein-like motor walks along an intermediate filament as its directional track. Remove claims that intermediate filaments or keratin-linked adhesions can only hold, and add the signalling, cross-talk and dynamic-adhesion boundary needed to prevent the mechanical comparison from being mistaken for an exhaustive account of function."
+    },
+    {
+      "severity": "major",
+      "target": "content/08-clinical-wrap-up.md#the-reasoning-the-model-supports; content/08-clinical-wrap-up.md#worked-example-barrier-reasoning",
+      "finding": "The constructed clinical case over-localizes a paracellular leak to tight-junction proteins and says failed desmosomal adhesion is ruled out. Tight junctions are the primary rate-limiting determinant of passive paracellular transport in an intact epithelium without gross damage, but tracer passage in inflamed or injured tissue can also reflect epithelial gaps, extrusion, loss of cell adhesion or junction-network cross-talk. One desmoplakin deletion model retaining a barrier under ordinary conditions does not exclude other desmosomal or adherens-junction failures from contributing to barrier loss. Reduced claudin expression plus tracer movement also does not establish that fewer claudins caused the leak. This health-sensitive inference is stronger than the cited evidence and conflicts with the scene's otherwise careful warning about causal direction.",
+      "resolution": "Limit the inference to intact epithelium and state that the findings implicate tight-junction dysfunction as one supported mechanism rather than uniquely locating the defect. Require junction-specific structural or perturbational evidence before ruling out adhesive-junction failure, preserve epithelial-gap and injury alternatives, and remove the claim that the structural map alone performs diagnostic localization."
+    },
+    {
+      "severity": "major",
+      "target": "claims.json#claim-persistence-lengths; content/01-finger-of-fluid.md#opening; content/03-choosing-the-polymer.md#what-the-procedure-does-not-settle; content/08-clinical-wrap-up.md#worked-example-barrier-reasoning",
+      "finding": "Several material claims and inferences used centrally are not represented by a claim ID even though every scene is declared claims-mapped. Examples include the 5-nanometre membrane thickness and millions-per-second lipid exchange in scene 1, the persistence-length decision threshold and its claimed functional sufficiency, the 20-to-25-micrometre cell height used in calculations, the 25-nanometre microtubule diameter used as an exclusion, and the health-sensitive inference that a leak uniquely localizes to the tight junction. Saying that a fact came from an earlier lesson or is this lesson's own reasoning does not replace the required structured claim, scope, uncertainty and source mapping.",
+      "resolution": "Add explicit claim records for every retained material input and inference, including appropriate inference support, uncertainty and health-sensitive risk labels, and expose those claim IDs with all supporting sources in the same-scene source notes. Remove any statement that cannot be supported within the frozen pack's declared evidence boundary."
+    },
+    {
+      "severity": "note",
+      "target": "content/05-break-one-anchor.md#investigation-desmoplakin-deletion; claims.json#claim-dp-partial-phenotype",
+      "finding": "Directly accessible source text supports the bounded experimental details: conditional intestinal desmoplakin loss, shortened irregular microvilli, unchanged E-cadherin and ZO-1 localization, no lateral biotin leak, retained desmosome position and viable animals. The scene also correctly labels the proposed terminal-web mechanism as an interpretation and records partial-rescue and mechanical-stress limitations.",
+      "resolution": "No change required to those bounded observations or to the explicit uncertainty around the proposed mechanism; do not extend them into the broader exclusion addressed in the clinical finding above."
+    },
+    {
+      "severity": "note",
+      "target": "content/06-the-climb.md#first-get-the-scale-of-the-movement; assessment.json#item-weigh-two-designs",
+      "finding": "The migration arithmetic is correct: 9.00 micrometres per hour gives 216 micrometres per day and approximately 9.8, rounded to 10, working cell heights at 22 micrometres each. The scene and open-response key also preserve the mouse small-intestine versus organoid distinction and record author-stated limitations rather than merging the preparations into one quantity.",
+      "resolution": "No change required to the arithmetic or the stated species and preparation boundaries."
+    }
+  ],
+  "limitations": [
+    "The runtime received a reCAPTCHA response when opening several PMC article URLs directly. Central source checks were completed through accessible publisher full text and search-indexed full-text passages, but not every cited article could be traversed line by line in its canonical PMC page.",
+    "The assigned scope prohibited reading site/, so the course terminology ledger, review schema and quorum-policy files were not inspected and repository/schema validation was not run. The artifact structure follows the supplied academic review template.",
+    "The assigned scope prohibited reading other lesson packs. Facts described only as carried forward from earlier lessons, including membrane and cell-height inputs, could not be corroborated against those lessons and were judged on the evidence present in this frozen pack.",
+    "This review is an academic cell-biology assessment, not a specialist experimental replication of cytoskeletal mechanics or intestinal epithelial force measurements; the verdict relies on the cited evidence, independently checked calculations and established model boundaries."
+  ],
+  "signedAt": "2026-07-27T09:05:59Z"
+}
