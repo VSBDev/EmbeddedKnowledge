@@ -1,0 +1,392 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-assessment-v1",
+  "lessonId": "PREM-BIO-007",
+  "lessonVersion": "0.1.0",
+  "assessmentId": "assessment-prem-bio-007-cytoskeleton-motility",
+  "title": "Cytoskeleton, adhesion, and the climb out of a crypt",
+  "purpose": "mixed",
+  "attemptPolicy": {
+    "retakeable": true,
+    "timeLimitMinutes": null,
+    "feedback": "after-attempt"
+  },
+  "items": [
+    {
+      "id": "item-stiffness-ratio",
+      "type": "numeric",
+      "sceneId": "scene-choosing-the-polymer",
+      "objectiveIds": [
+        "objective-predict-filament-for-demand"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-cytoskeleton-motility"
+      ],
+      "prompt": "A cell must hold a straight projection 2 micrometres long. Taking 10 micrometres as the working persistence length of a single actin filament, compute the ratio of persistence length to the length that must be held straight, and give the ratio as a number.",
+      "points": 2,
+      "responseSpec": {
+        "mode": "number",
+        "units": "dimensionless ratio",
+        "tolerance": 0.1
+      },
+      "answer": {
+        "correct": 5,
+        "summary": "5. The ratio places a single actin filament in the stiff class over 2 micrometres; it does not establish that one filament could hold the projection.",
+        "reasoning": "The ratio is the persistence length divided by the length of the structure: 10 micrometres divided by 2 micrometres gives 5. Both numbers are supplied in the stem and the arithmetic is the whole of the required answer.\n\nWhat the number means is worth stating for the marker, because the earlier version of this item asked for more than the ratio can carry. A ratio above 1 says thermal energy has not randomised the filament's direction over that length, so the polymer belongs to the stiff class at this scale. It does not say the filament can bear the load. That depends on the force, the boundary conditions, the filament's contour length, and whether filaments are cross-linked into a bundle. The real microvillus is a cross-linked bundle of about 19 actin filaments, so a single filament is the right stiffness class rather than the finished structure. Do not award or withhold credit for any claim about load-bearing; the item asks for a number.",
+        "acceptableResponses": [
+          "5",
+          "5.0",
+          "a ratio of 5",
+          "10/2 = 5"
+        ],
+        "commonErrors": [
+          "Inverting the ratio and answering 0.2, which would place actin in the floppy class at this length.",
+          "Reading the ratio as a statement that one filament can hold the projection. It places the polymer in the stiff class and says nothing about load, which is why the observed structure is a bundle of about 19 filaments."
+        ]
+      },
+      "rubricId": "rubric-calculation",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-select-for-directed-transport",
+      "type": "single-choice",
+      "sceneId": "scene-choosing-the-polymer",
+      "objectiveIds": [
+        "objective-predict-filament-for-demand"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-cytoskeleton-motility"
+      ],
+      "prompt": "A cell needs to carry a vesicle from the Golgi to one particular face of the cell, a distance of 18 micrometres. Which statement correctly names the filament system suited to the task and the property that decides it? Use the persistence lengths given in this lesson: 3 to 17 micrometres for a single actin filament, greater than 1 millimetre for a microtubule, and a few hundred nanometres to about 1 micrometre for an intermediate filament.",
+      "points": 3,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-if-extensible",
+            "text": "Intermediate filaments, because they are the most extensible of the three and can stretch to reach the destination."
+          },
+          {
+            "id": "option-mt-polar",
+            "text": "Microtubules, because they are polar and carry kinesins and dyneins, so a particular destination can be selected, and they are stiff over this distance."
+          },
+          {
+            "id": "option-actin-long",
+            "text": "Actin filaments, because a single actin filament's persistence length exceeds 18 micrometres."
+          },
+          {
+            "id": "option-any-three",
+            "text": "Any of the three, because all three form networks that span the whole cell."
+          },
+          {
+            "id": "option-if-apolar",
+            "text": "Intermediate filaments, because being apolar means they are not restricted to one direction and can deliver to any face."
+          }
+        ]
+      },
+      "answer": {
+        "correct": "option-mt-polar",
+        "summary": "Microtubules, decided by polarity.",
+        "reasoning": "The demand names a particular destination, so the deciding property is direction. Only a polar filament has ends that differ, and only a polar filament carries motors that can tell those ends apart; microtubules are polar and carry kinesins and dyneins. Their persistence length of more than 1 millimetre also makes them rod-like across 18 micrometres, so stiffness agrees with polarity here. The actin option is false on the arithmetic supplied: the published range tops out at 17 micrometres, which is less than 18, so a single actin filament's persistence length does not exceed the distance. Both intermediate filament options are false because intermediate filaments carry no molecular motors at all, and apolarity is what prevents directed delivery rather than what enables it.",
+        "acceptableResponses": [
+          "option-mt-polar"
+        ],
+        "commonErrors": [
+          "Reading apolarity as freedom of direction when it means no direction can be selected.",
+          "Treating extensibility as relevant to a transport demand.",
+          "Assuming actin transfers from the microvillus case without rechecking the ratio over the longer distance."
+        ]
+      },
+      "rubricId": "rubric-single-selection",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-pair-junction-to-polymer",
+      "type": "multiple-choice",
+      "sceneId": "scene-junction-hierarchy",
+      "objectiveIds": [
+        "objective-map-junction-to-polymer"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-cytoskeleton-motility"
+      ],
+      "prompt": "Select every statement that correctly pairs an attachment of a colonic absorptive cell with the cytoskeletal polymer it anchors and the protein that makes the link. Two of the statements are true of one adhesion system at a junction and are then over-extended to another; read the named proteins and the named subunits, not the junctions. Select all that apply.",
+      "points": 4,
+      "responseSpec": {
+        "mode": "multiple-choice",
+        "maxSelections": 8,
+        "options": [
+          {
+            "id": "option-tj-actin",
+            "text": "The tight junction is linked to actin through the ZO scaffold proteins."
+          },
+          {
+            "id": "option-aj-actin",
+            "text": "E-cadherin at the adherens junction is linked to actin through the catenins."
+          },
+          {
+            "id": "option-dsm-keratin",
+            "text": "The desmosome is linked to keratin intermediate filaments through desmoplakin."
+          },
+          {
+            "id": "option-dsm-actin",
+            "text": "The desmosome is linked to actin through catenins."
+          },
+          {
+            "id": "option-aj-keratin",
+            "text": "The adherens junction is linked to keratin intermediate filaments through desmoplakin."
+          },
+          {
+            "id": "option-integrin-actin",
+            "text": "Basal beta1 integrins are linked to actin through integrin-linked kinase."
+          },
+          {
+            "id": "option-nectin-catenins",
+            "text": "Nectins at the adherens junction are linked to actin through the catenins."
+          },
+          {
+            "id": "option-all-integrins-actin",
+            "text": "Every integrin on the basal surface is linked to actin through integrin-linked kinase."
+          }
+        ]
+      },
+      "answer": {
+        "correct": [
+          "option-tj-actin",
+          "option-aj-actin",
+          "option-dsm-keratin",
+          "option-integrin-actin"
+        ],
+        "summary": "Four are correct. Three attachments converge on actin and the desmosome does not, and the two rejected additions are over-extensions: nectins reach actin through afadin rather than the catenins, and the integrin-linked-kinase route is a beta1 route rather than a property of every basal integrin.",
+        "reasoning": "Three of the four attachments converge on actin. The tight junction's claudins, occludin and JAM-A are tied to actin by the ZO-1, ZO-2 and ZO-3 scaffolds. E-cadherin at the adherens junction reaches actin through the catenins. Basal beta1 integrins reach actin through integrin-linked kinase. The desmosome is the one that does not use actin: its desmogleins and desmocollins connect through plakoglobin and the plakophilins to desmoplakin, which anchors keratin intermediate filaments.\n\nFour statements must be left unselected, and they fail in two different ways. Two are the classic inversion, giving actin to the desmosome and keratin to the adherens junction. The other two are over-extensions of a true statement, which is the harder error and the reason this item exists. Nectins are a separate adhesion system at the same junction and reach actin principally through afadin, so the catenin route does not cover them. And integrin-linked kinase links the beta1 tail: an alpha6beta4 integrin has no beta1 subunit and in hemidesmosomes connects laminin to keratin through linkers including plectin, so 'every integrin on the basal surface' is false even though the beta1 statement is true. A learner who selects either has generalised from the route the lesson draws to the whole class of molecules at that location.",
+        "acceptableResponses": [
+          "Exactly option-tj-actin, option-aj-actin, option-dsm-keratin and option-integrin-actin, with no others."
+        ],
+        "commonErrors": [
+          "Selecting the nectin option, which extends the catenin route to an adhesion system that uses afadin.",
+          "Selecting the every-integrin option, which extends a beta1 route to alpha6beta4 and to the basal surface as a whole.",
+          "Selecting the desmosome-to-actin or adherens-to-keratin options, which swap the two polymers.",
+          "Leaving the beta1 integrin option unselected on the grounds that the basal surface is not a cell-to-cell junction; the item asks about attachments, and the basal one is included."
+        ]
+      },
+      "rubricId": "rubric-multiple-selection",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-desmoplakin-outcome",
+      "type": "single-choice",
+      "sceneId": "scene-break-one-anchor",
+      "objectiveIds": [
+        "objective-map-junction-to-polymer"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-cytoskeleton-motility"
+      ],
+      "prompt": "Desmoplakin was conditionally deleted from mouse intestinal epithelium, so that desmosomes remained assembled and in their proper subapical position but keratin filaments lost their attachment to them. Which statement describes what was actually observed?",
+      "points": 3,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-microvilli-only",
+            "text": "Microvilli were significantly shortened and often irregular and vesiculated, while E-cadherin and ZO-1 localisation, barrier function, light-microscope keratin organisation, desmosome position and the apicobasal microtubule array were all unaffected, and the animals were viable and fertile."
+          },
+          {
+            "id": "option-adhesion-failed",
+            "text": "Adhesion between neighbouring cells failed and the epithelial barrier leaked along the lateral membranes."
+          },
+          {
+            "id": "option-keratin-gone",
+            "text": "Keratin filaments disappeared from the cells, leaving no detectable intermediate filament network."
+          },
+          {
+            "id": "option-mt-lost",
+            "text": "Microtubules lost their apicobasal arrangement and the cells lost their polarity."
+          },
+          {
+            "id": "option-lethal",
+            "text": "The deletion was lethal, and affected animals died before weaning."
+          }
+        ]
+      },
+      "answer": {
+        "correct": "option-microvilli-only",
+        "summary": "Only the microvilli were affected; adhesion, barrier, keratin organisation, desmosome position and the microtubule array were not.",
+        "reasoning": "Removing the keratin anchor removed a keratin-dependent function and left the functions carried by other anchors intact. Microvilli shortened and became irregular and vesiculated. E-cadherin and ZO-1 localisation were unchanged with no change in the apical junctional complex; a biotin tracer showed no lateral leak, and the authors state that desmoplakin is not required for intestinal barrier function; keratin organisation was indistinguishable from wild type at the light-microscope level and stayed apically enriched; desmosomes remained in their proper subapical location; microtubules stayed arranged along the apicobasal axis; every terminal web component examined was normally localised. The animals were viable and fertile with normal lifespan, growth, body weight and intestine length. The four rejected options each attribute to one broken part a failure that was specifically tested for and not found.",
+        "acceptableResponses": [
+          "option-microvilli-only"
+        ],
+        "commonErrors": [
+          "Assuming that breaking one member of the junctional complex degrades adhesion and barrier together, which the biotin tracer result excludes.",
+          "Confusing loss of keratin attachment to the desmosome with loss of the keratin network itself.",
+          "Expecting a severe or lethal phenotype from a structural deletion in a fast-renewing tissue."
+        ]
+      },
+      "rubricId": "rubric-single-selection",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-migration-objection",
+      "type": "single-choice",
+      "sceneId": "scene-the-climb",
+      "objectiveIds": [
+        "objective-weigh-migration-evidence"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-cytoskeleton-motility"
+      ],
+      "prompt": "A study measures cell positions over time in mouse small intestine and finds that when crypt proliferation is suppressed, migration velocity along the villus falls. The authors conclude that mitotic pressure from the crypt is the force that drives migration. Which is the strongest objection to that conclusion as stated?",
+      "points": 3,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-no-force-measured",
+            "text": "No force was measured, so the coupling between the two rates is equally consistent with proliferation and migration both being set by a common upstream factor."
+          },
+          {
+            "id": "option-cannot-measure",
+            "text": "Migration velocities cannot be measured accurately in living mice, so the observation is unreliable."
+          },
+          {
+            "id": "option-no-effect",
+            "text": "Proliferation has no effect on migration, so the observed relationship must be an artefact."
+          },
+          {
+            "id": "option-more-animals",
+            "text": "The study needed more animals, because a larger sample would have established the mechanism."
+          },
+          {
+            "id": "option-organoid-disproved",
+            "text": "Direct tension measurements in organoids proved that proliferation makes no contribution to migration."
+          }
+        ]
+      },
+      "answer": {
+        "correct": "option-no-force-measured",
+        "summary": "The design measured a correlation between two rates, not a force.",
+        "reasoning": "The observation is a coupling between how fast cells are produced and how fast they move. That is consistent with proliferation pushing cells upward, and equally consistent with a common upstream regulator setting both rates, and the design cannot separate the two because it never measured a force. The remaining options each fail for a different reason. The velocities were measured, and the authors of this work report them with confidence intervals, so unreliability is not the objection. Denying any effect contradicts the coupling actually observed and also overstates the case in the opposite direction. Adding animals improves the precision of a correlation and yields no information about a force, so it mistakes precision for validity. And the organoid work found the transit amplifying zone under tension, which contradicts a purely compressive pushing mechanism; it did not show that proliferation contributes nothing, and claiming it did would overstate that study as badly as the original conclusion overstates its own.",
+        "acceptableResponses": [
+          "option-no-force-measured"
+        ],
+        "commonErrors": [
+          "Overcorrecting to the claim that proliferation is irrelevant, which the evidence does not support.",
+          "Treating a larger sample as a remedy for a design that cannot measure the quantity in dispute.",
+          "Reading the organoid tension result as a refutation of any proliferative contribution rather than of a purely compressive mechanism."
+        ]
+      },
+      "rubricId": "rubric-single-selection",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-weigh-two-designs",
+      "type": "open-response",
+      "sceneId": "scene-the-climb",
+      "objectiveIds": [
+        "objective-weigh-migration-evidence"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-cytoskeleton-motility"
+      ],
+      "prompt": "Two studies disagree about what moves cells up a crypt. One measured cell positions and crypt proliferation rates over time in intact mouse duodenum and ileum, and concluded that crypt proliferation is the primary force driving migration. The other measured traction and monolayer tension directly in mouse intestinal organoids grown on soft gels, found the transit amplifying zone to be under tension, and stated that a pushing force from compression downstream of mitotic pressure is incompatible with that observation.\n\nIn no more than 300 words: state what each design can establish about the driving force and what it cannot; explain why the two results are not simply reconcilable as a matter of degree; name one limitation each study's own authors report; and name the single measurement that would do most to discriminate between the accounts.",
+      "points": 8,
+      "responseSpec": {
+        "mode": "text",
+        "maxLength": 2500
+      },
+      "answer": {
+        "correct": "Each design answers a different question. The in vivo work establishes a real coupling: suppress crypt proliferation and villus migration velocity falls, measured in normal tissue with normal geometry. What it cannot establish is a force, because it never measured one. A coupling between two rates is equally consistent with proliferation pushing cells upward and with a common upstream regulator setting both rates, and this design cannot separate those. The organoid work measured the disputed quantity directly, by monolayer stress microscopy, which the first design could not do at all. What it cannot establish is that the same holds in vivo, because the preparation is altered.\n\nThe two results are not a matter of degree because they assign opposite signs to the same region. A pushing mechanism requires the transit amplifying zone to be under compression; the measurement found it under tension. A region cannot be both, so this is not a question of how much each contributes but of which description of that zone is right.\n\nEach set of authors names its own limits. The in vivo authors say they cannot rule out additional mechanisms such as active migration or villus contraction and expansion, and they report a circadian rhythm in villus migration that crypt proliferation does not show. The organoid authors say their transit amplifying zone is shorter than in vivo, that villus geometry is not recapitulated, and that their villus-domain cells are thinner and lack a well-developed brush border.\n\nThe discriminating measurement is a direct measurement of tension or traction in intact tissue with normal three-dimensional geometry. That is the one combination neither study achieved, and it is the measurement that would decide the sign of the stress in the transit amplifying zone. Until it exists, the defensible position is that proliferation is tightly coupled to migration and probably contributes, that actomyosin-generated tension is measurably present, and that the relative contribution is open.",
+        "summary": "The in vivo study establishes a coupling but not a force; the organoid study measures the force but in an altered geometry; compression and tension have opposite signs; and the discriminating measurement is direct tension or traction in intact three-dimensional tissue.",
+        "reasoning": "A full response makes four moves. First, what each design shows: the in vivo work establishes a real coupling between crypt proliferation rate and villus migration velocity in normal tissue with normal geometry, but it inferred the force from that correlation and never measured one, so it cannot exclude a common upstream regulator setting both rates. The organoid work measured the disputed quantity directly by monolayer stress microscopy, which the first design could not do, but in an altered preparation. Second, why this is not a matter of degree: the two accounts assign opposite signs to the same region. A pushing mechanism requires the transit amplifying zone to be under compression, and the measurement found it under tension, and a region cannot be both at once. Third, the authors' own limitations: the in vivo authors state they cannot rule out additional mechanisms such as active migration or villus contraction and expansion, and they report a circadian rhythm in villus migration that crypt proliferation does not show; the organoid authors state that their transit amplifying zone is shorter than in vivo, that villus geometry is not recapitulated, and that villus-domain cells are thinner than in vivo and lack a well-developed brush border. Fourth, the discriminating measurement: a direct measurement of tension or traction in intact tissue with normal three-dimensional geometry, which is the one combination neither study achieved. A strong response also notes that the defensible current position is that proliferation is tightly coupled to migration and probably contributes, that actomyosin-generated tension is measurably present, and that the relative contribution is open.",
+        "acceptableResponses": [
+          "Any response that distinguishes a measured correlation from a measured force, identifies the opposite signs of compression and tension as the reason the disagreement is not one of degree, reports at least one author-stated limitation from each study accurately, and names a direct force or tension measurement in intact three-dimensional tissue as the discriminating step."
+        ],
+        "commonErrors": [
+          "Concluding that one study is simply right and the other wrong, when each is strong where the other is weak.",
+          "Treating the disagreement as a difference of magnitude, which misses that compression and tension have opposite signs.",
+          "Inventing a limitation instead of reporting one the authors state.",
+          "Proposing replication or a larger sample as the discriminating measurement.",
+          "Asserting that the question is settled in either direction."
+        ]
+      },
+      "rubricId": "rubric-evidence-argument",
+      "safetyCritical": false
+    }
+  ],
+  "rubrics": [
+    {
+      "id": "rubric-calculation",
+      "title": "Numeric ratio with correct orientation",
+      "criteria": [
+        {
+          "id": "criterion-correct-value",
+          "description": "Reports the ratio as approximately 5, within the stated tolerance.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-correct-orientation",
+          "description": "Divides persistence length by the length to be held rather than inverting the ratio.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-single-selection",
+      "title": "Single selection with a defensible basis",
+      "criteria": [
+        {
+          "id": "criterion-correct-option",
+          "description": "Selects the option that is true on the information supplied in the stem.",
+          "maxPoints": 2
+        },
+        {
+          "id": "criterion-discriminates-distractors",
+          "description": "Selection is consistent with rejecting distractors that misstate a property, overclaim a result, or confuse precision with validity.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-multiple-selection",
+      "title": "Complete and exclusive pairing",
+      "criteria": [
+        {
+          "id": "criterion-all-true-selected",
+          "description": "Selects all four correct attachment-to-polymer pairings.",
+          "maxPoints": 2
+        },
+        {
+          "id": "criterion-no-inversions",
+          "description": "Selects neither of the two pairings that swap the desmosome's and the adherens junction's polymers.",
+          "maxPoints": 2
+        }
+      ]
+    },
+    {
+      "id": "rubric-evidence-argument",
+      "title": "Weighing two designs on a contested mechanism",
+      "criteria": [
+        {
+          "id": "criterion-design-capabilities",
+          "description": "States for each study what its design can and cannot establish about the driving force, distinguishing a measured correlation between rates from a direct measurement of force.",
+          "maxPoints": 3
+        },
+        {
+          "id": "criterion-opposite-signs",
+          "description": "Explains that the disagreement is not a matter of degree because compression and tension assign opposite signs to the same region.",
+          "maxPoints": 2
+        },
+        {
+          "id": "criterion-author-limitations",
+          "description": "Reports at least one limitation stated by each study's own authors, accurately and without invention.",
+          "maxPoints": 2
+        },
+        {
+          "id": "criterion-discriminating-measurement",
+          "description": "Names a direct tension or traction measurement in intact three-dimensional tissue as the step that would discriminate, and does not offer replication or sample size in its place.",
+          "maxPoints": 1
+        }
+      ]
+    }
+  ]
+}
