@@ -45,14 +45,6 @@ Arithmetic being defined is a separate question from the sentence being clinical
 
 Read the table downward and each row inherits everything above it. Read it across and every *no* marks an operation whose answer would be a fact about the coding scheme rather than about the sixty people.
 
-## The same rule chooses the picture
-
-Displays follow the level for the same reason summaries do.
-
-A categorical column is usually shown as a bar for each group, with a gap between the bars, because there is nothing between *female* and *male* for a bar to occupy. For a nominal column you may sort those bars however you like, tallest first if that helps. For an ordinal column the bars must stay in rating order, since the order is data.
-
-A continuous column is usually shown as a histogram, where the horizontal axis is a measured scale and neighbouring bins are genuinely adjacent stretches of that scale. A box plot or a dot plot would also respect the measured scale; what the level rules out is a picture that invents spacing the data does not have. Putting the sex codes 1 and 2 on a histogram axis invents a scale that was never measured, and the picture then implies a midpoint at 1.5 that no participant can occupy.
-
 :::{check}
 :id: check-permission-reasoning
 :kind: retrieval
@@ -73,5 +65,5 @@ Nights recorded sits on the ratio rung. The step from 9 nights to 10 is one nigh
 :claims: claim-variable-type-taxonomy, claim-level-constrains-summary
 :sources: source-ali-bhaskar, source-mishra-descriptive, source-sullivan-artino
 
-Three methods papers from clinical research and medical education support the four measurement scales, the use of frequency summaries for categorical data against central-tendency and dispersion summaries for quantitative data, and the point that a mean requires measurable distances while ordered categories do not supply them. Read the permission table for what is interpretable rather than for what is best: a mean can be available and still describe a lopsided column poorly, which the third lesson of this block takes up. The ladder, the table, and the display rules are this lesson's own arrangement.
+Three methods papers from clinical research and medical education support the four measurement scales, the use of frequency summaries for categorical data against central-tendency and dispersion summaries for quantitative data, and the point that a mean requires measurable distances while ordered categories do not supply them. Read the permission table for what is interpretable rather than for what is best: a mean can be available and still describe a lopsided column poorly, which the third lesson of this block takes up. The ladder and the table are this lesson's own arrangement.
 :::
