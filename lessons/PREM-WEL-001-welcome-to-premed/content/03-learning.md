@@ -9,11 +9,11 @@ Before you preview how the course will work, retrieve one reason for its order.
 Pause here. Without looking back, cover the following text and commit a one-sentence answer before continuing: why does organic chemistry come before much of biochemistry, and why do inquiry and quantitative reasoning begin before both?
 :::
 
-Once you have answered, compare: organic chemistry prepares you to reason about carbon-based structures and reactions, while inquiry and quantitative reasoning provide methods for testing, measuring, and interpreting claims. If you repeated only the order, add why each step helps.
+Once you have answered, compare. Organic chemistry prepares you to reason about carbon-based structures and reactions. Inquiry and quantitative reasoning give you methods for testing, measuring, and interpreting claims. If you repeated only the order, add why each step helps.
 
 You will learn by meeting an explanation, retrieving it without looking, solving or modelling something, inspecting evidence, receiving feedback, and trying again with less support.
 
-Practical work may be a **physical investigation**, **simulation**, or supplied **dataset or observation**. All can build question-design and analysis skills, but only physical work shows a hands-on action. Your record will name the kind completed; this welcome requires no physical work.
+Practical work may be a **physical investigation**, **simulation**, or supplied **dataset or observation**. All can build question-design and analysis skills, but only physical work shows a hands-on action. This welcome asks for no practical work.
 
 Here is a preview using a fictional training dataset. It requires no prior science. This previews the course's reasoning style; the welcome check does not score it.
 

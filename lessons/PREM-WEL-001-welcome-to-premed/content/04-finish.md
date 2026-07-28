@@ -25,7 +25,9 @@ A friend asks, “Why isn't Premed just biology?” Without looking back, give a
 You do not need to explain any science you have not learned yet.
 :::
 
-Compare: begin with inquiry and quantitative work; develop chemical, physical, biological, human, microbial, behavioural, social, and population subjects; and end with capstone work. Include four preparation links from four different subjects, such as pressure and flow preparing circulation, or gene expression preparing how cells come to differ. Name all four capabilities—explain, model, investigate, and integrate—and one action for each, such as explaining a relationship, modelling it and saying what the model omits, investigating a question with a fair comparison, and integrating subjects on an unfamiliar problem. Add one completion boundary, such as “Premed does not authorize diagnosis or treatment.” If you only listed subjects, add why a transition matters; if you omitted a capability, an action, or the boundary, add it before moving on.
+Compare: begin with inquiry and quantitative work; develop chemical, physical, biological, human, microbial, behavioural, social, and population subjects; and end with capstone work. Include four preparation links from four different subjects, such as pressure and flow preparing circulation, or gene expression preparing how cells come to differ. Name all four capabilities: explain, model, investigate, integrate. Give one action for each. Explaining a relationship. Modelling it and saying what the model omits. Investigating a question with a fair comparison. Integrating subjects on an unfamiliar problem. Add one boundary, such as “Premed does not authorize diagnosis or treatment.”
+
+If you only listed subjects, add why one stage prepares the next. If you left out a capability, an action, or the boundary, add it before moving on.
 
 :::{misconception}
 :id: misconception-prior-science-gate
@@ -46,33 +48,39 @@ Compare: name a different term, its teaching subject, and a later explanation—
 
 ## The welcome check
 
-The welcome check has three untimed responses worth ten points. The interactive page does not automatically score or record your open responses. After each response, select **Compare reasoning**, mark each visible item-specific criterion for yourself as **met** or **not yet**, and count one point per met criterion. Complete the check only when all ten criteria are met for **10 out of 10**. If any criterion is not yet met, use the matching recovery route below and take an untimed retry. Retakes are unlimited and untimed; the check measures your orientation, not your prior science.
+The check has three written responses, worth ten points between them, and nothing is timed. Write your answer first. Then select **Compare reasoning**, and mark yourself honestly against each criterion you see there. Count one point for each one you met.
 
-The item-specific criteria are visible after you select **Compare reasoning**:
+Treat the check as done when you have met all ten, for **10 out of 10**. Where a criterion is not met yet, the matching recovery route below tells you what to do, and you can retry as often as you like. Nothing is recorded or scored for you. This measures whether you have your bearings, not what science you already know.
 
-- The journey response has four one-point criteria: the opening work; the required middle breadth; the later destination plus integration or capstone as final; and at least two accurate because/how preparation links.
-- The relevance response has three one-point criteria: four concepts from four different subjects; a specific later-study link for every concept; and plain orientation-level language without unsupported clinical claims.
-- The capabilities response has three one-point criteria: all four capabilities; an observable action for each; and one accurate completion boundary.
+What a full answer covers:
 
-On a retry, use different prompts:
+- **The journey.** Where the course opens. The breadth it covers in the middle. Where it ends, with integration and capstone work. And two links saying why one part prepares another.
+- **Relevance.** Four concepts from four different subjects, a specific later link for each, and plain language with no clinical claim you cannot yet support.
+- **Capabilities.** All four of them, an action that would show each one, and one accurate statement of what finishing does not give you.
 
-- advise an incoming learner how to travel from trustworthy evidence to the capstone, naming representative subject areas at each stage;
-- choose different subjects or concepts and explain what each unlocks;
-- apply the four capabilities to a new non-diagnostic capstone scenario.
+On a retry, use a different prompt:
+
+- Advise a new learner how to travel from trustworthy evidence to the capstone. Name a subject area at each stage.
+- Choose different subjects or concepts. Explain what each one unlocks.
+- Apply the four capabilities to a fresh capstone problem that is not a diagnosis.
 
 ## Accessibility and alternatives
 
-Choose paragraphs, bullets, or an outline. Type, paste from assistive technology, or use device dictation; audio upload is unavailable. No task requires personal health information, speed, sight alone, or physical work. Headings and lists preserve reading order for keyboard, screen-reader, reflow, zoom, narrow-screen, and print use; words explain the table.
+Answer in paragraphs, in bullets, or as an outline, whichever suits you. You can type, paste from assistive technology, or dictate. Nothing here is timed, nothing needs personal health information, and nothing depends on being able to see an image.
 
 ## Recovery route
 
-If names blur, use three stages: **evidence and measurement; matter and living systems; people, populations, and capstone work**. Return to the complete subject list in **Welcome to Premed** and complete: “I will learn ___ in ___ because it helps me later explain or evaluate ___.” Then try again from memory.
+If names blur, use three stages: **evidence and measurement; matter and living systems; people, populations, and capstone work**. Go back to the subject list in **Welcome to Premed**. Complete this line: “I will learn ___ in ___ because it helps me later explain or evaluate ___.” Then try again from memory.
 
 If a concept-to-purpose link or its wording blurs, choose one subject and name one concept it will teach. Complete: “___ in ___ will later help me explain or evaluate ___.” Make the later-study purpose specific, use ordinary orientation-level language, and remove any unsupported clinical claim. Repeat with four different subjects, then cover the lines and reconstruct them with different concepts.
 
-If the completion capabilities blur, use the four verbs as prompts: **explain** a relationship and why it holds; **model** a relationship and name what the model leaves out; **investigate** with a fair comparison, an auditable record, and a bounded conclusion; **integrate** several subjects in an unfamiliar problem. Write one action for each verb, then cover the list and reconstruct all four.
+If the four capabilities blur, use the verbs as prompts. **Explain** a relationship and why it holds. **Model** it, and name what your model leaves out. **Investigate** with a fair comparison, a record someone could audit, and a conclusion no stronger than the evidence. **Integrate** several subjects on an unfamiliar problem.
 
-If the completion boundary blurs, reread the boundary sentence above and complete: “Premed prepares me for ___, but course completion does not ___.” Check that your ending does not claim diagnosis, treatment, credit, admission, a professional licence, or professional authority, then try a different ending from memory.
+Write one action for each verb. Then cover the list and rebuild all four from memory.
+
+If the boundary blurs, reread the boundary sentence above. Then complete this: “Premed prepares me for ___, but finishing it does not ___.”
+
+Your ending must claim none of these: diagnosis, treatment, university credit, admission, a professional licence, or professional authority. Then try a different ending from memory.
 
 :::{source-note}
 :claims: claim-subject-scope, claim-learning-practice, claim-completion-capabilities, claim-orientation-boundary
