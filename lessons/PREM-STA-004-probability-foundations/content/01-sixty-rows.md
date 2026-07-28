@@ -38,7 +38,7 @@ Answer from the table, from memory of part-to-whole fractions, before reading on
 Work all four before checking the routing below.
 :::
 
-The answers are 33/60 = 0.55, then 21/30 = 0.70, then 21/33 = 0.64 to two decimal places. They differ because each divides the same 21 people by a different whole. Question 2 asks about late diners; question 3 asks about high readings. If that landed, you are ready. If question 4 felt like a trick, it was not, and the distinction it points at is the single most consequential idea in this lesson.
+The answers are 33/60 = 0.55, then 21/30 = 0.70, then 21/33 = 0.64 to two decimal places. They differ because each divides the same 21 people by a different whole. Question 2 asks about late diners; question 3 asks about high readings. If that landed, you are ready. If question 4 felt like a trick, it was not, and the distinction it points at is the one this lesson is built around.
 
 ## Recovery route
 
@@ -52,7 +52,7 @@ Nothing here is punitive and nothing is timed. Do not move on until you can prod
 
 ## Scope for this lesson
 
-You will work with finitely many outcomes you can count. You will not meet probability density, expectation and variance of a random variable, Bayes' theorem in its general form, combinations and permutations beyond simple counting, or the axioms in their measure-theoretic dress. Lesson 05 takes up distributions; lesson 10 develops the diagnostic measures this lesson only borrows as an example. The lesson is educational and confers no clinical authority.
+You will work with finitely many outcomes you can count. In the screening example you will use natural-frequency Bayes reasoning and calculate sensitivity, specificity, and both predictive values from a two-by-two table. You will not meet probability density, expectation and variance of a random variable, Bayes' theorem in its general algebraic form, combinations and permutations beyond simple counting, or the axioms in their measure-theoretic dress. Lesson 05 takes up distributions; lesson 10 develops how diagnostic measures are estimated and used in practice. The lesson is educational and confers no clinical authority.
 
 :::{source-note}
 :claims: claim-probability-as-long-run-frequency

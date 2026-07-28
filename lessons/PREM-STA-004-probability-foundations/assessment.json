@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "format": "embeddedknowledge-assessment-v1",
   "lessonId": "PREM-STA-004",
-  "lessonVersion": "0.1.0",
+  "lessonVersion": "0.2.0",
   "assessmentId": "assessment-probability-foundations-mastery",
-  "title": "Counting, combining, and conditioning mastery check",
+  "title": "Counting, combining, conditioning, and screening-measure mastery check",
   "purpose": "mastery-gate",
   "attemptPolicy": {
     "retakeable": true,
@@ -149,7 +149,8 @@
       "type": "single-choice",
       "sceneId": "scene-mastery-and-spacing",
       "objectiveIds": [
-        "objective-separate-the-conditionals"
+        "objective-separate-the-conditionals",
+        "objective-screening-natural-frequencies"
       ],
       "outcomeIds": [
         "topic-statistics-data-probability"
@@ -184,10 +185,10 @@
       },
       "answer": {
         "correct": "option-different-conditionals-need-prevalence",
-        "summary": "Detection conditions on the condition; the patient's question conditions on the result, and moving between them needs how common the condition is in the group screened.",
-        "reasoning": "Award 1 point for naming what the 92 per cent conditions on, 1 point for stating that the colleague's sentence conditions on the test result instead, and 1 point for identifying how common the condition is in the screened group as the missing quantity. The second option is the inversion itself. The third option sounds quantitative but is false: with a 92 per cent detection rate, a 5 per cent positive rate among people without the condition, and 2 in 100 having the condition, 10,000 people yield 184 true positives against 490 false positives, and the probability of the condition given a positive result is 184/674, about 0.273. The fourth option asserts a direction that has no general basis; the same test can give a value far below its detection rate in a low-prevalence group and far above it in a high-prevalence one. On retry, rebuild the two clinic tables from scene 4 with a detection rate of 92 per cent and check both answers.",
+        "summary": "Detection conditions on the condition; the patient's question conditions on the result, and moving between them needs both how common the condition is in the group screened and how often the test is positive in people without it.",
+        "reasoning": "Award 1 point for naming what the 92 per cent conditions on, 1 point for stating that the colleague's sentence conditions on the test result instead, and 1 point for identifying both missing quantities: how common the condition is in the screened group, and how often the test is positive in people without it. Prevalence alone is not enough -- the worked figures below use the false-positive rate as well, and a model without it cannot produce them. The second option is the inversion itself. The third option sounds quantitative but is false: with a 92 per cent detection rate, a 5 per cent positive rate among people without the condition, and 2 in 100 having the condition, 10,000 people yield 184 true positives against 490 false positives, and the probability of the condition given a positive result is 184/674, about 0.273. The fourth option asserts a direction that has no general basis; the same test can give a value far below its detection rate in a low-prevalence group and far above it in a high-prevalence one. On retry, rebuild the two clinic tables from scene 4 with a detection rate of 92 per cent and check both answers.",
         "acceptableResponses": [
-          "The option stating that detection conditions on the condition while the colleague's claim conditions on the result, and that how common the condition is in the screened group is required to move between them."
+          "The option stating that detection conditions on the condition while the colleague's claim conditions on the result, and that both prevalence and the positive-result rate among people without the condition are required to move between them."
         ],
         "commonErrors": [
           "Treating the two conditional probabilities as one quantity",
@@ -196,6 +197,163 @@
         ]
       },
       "rubricId": "rubric-screening-inversion",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-screening-sensitivity",
+      "type": "numeric",
+      "sceneId": "scene-mastery-and-spacing",
+      "objectiveIds": [
+        "objective-screening-natural-frequencies"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-probability"
+      ],
+      "prompt": "From the invented natural-frequency table, calculate the sensitivity of the screen. Give a decimal to three places.",
+      "stimulus": "Invented screen applied to 2,000 people. Screens positive: 340 people with the condition and 80 without it, 420 total. Screens negative: 60 people with the condition and 1,520 without it, 1,580 total. Column totals: 400 with the condition, 1,600 without it, 2,000 people. Illustrative teaching example, not medical advice.",
+      "points": 2,
+      "responseSpec": {
+        "mode": "number",
+        "units": null,
+        "tolerance": 0.002,
+        "maxSelections": null,
+        "maxLength": null
+      },
+      "answer": {
+        "correct": 0.85,
+        "summary": "0.850, because sensitivity is the 340 positive results among the 400 people who have the condition.",
+        "reasoning": "Award 1 point for using everyone with the condition as the denominator and 1 point for computing 340/400 = 0.850. The result row total of 420 would answer a predictive-value question instead. On retry, state the conditioning phrase first: among people with the condition, what share screen positive?",
+        "acceptableResponses": [
+          "0.85",
+          "0.850",
+          "340/400",
+          "17/20"
+        ],
+        "commonErrors": [
+          "Dividing 340 by the 420 positive results, which computes positive predictive value",
+          "Dividing 340 by all 2,000 people, which conditions on no true-state group",
+          "Using the negative results among people without the condition, which computes specificity"
+        ]
+      },
+      "rubricId": "rubric-screening-sensitivity",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-screening-specificity",
+      "type": "numeric",
+      "sceneId": "scene-mastery-and-spacing",
+      "objectiveIds": [
+        "objective-screening-natural-frequencies"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-probability"
+      ],
+      "prompt": "From the same invented natural-frequency table, calculate the specificity of the screen. Give a decimal to three places.",
+      "stimulus": "Invented screen applied to 2,000 people. Screens positive: 340 people with the condition and 80 without it, 420 total. Screens negative: 60 people with the condition and 1,520 without it, 1,580 total. Column totals: 400 with the condition, 1,600 without it, 2,000 people. Illustrative teaching example, not medical advice.",
+      "points": 2,
+      "responseSpec": {
+        "mode": "number",
+        "units": null,
+        "tolerance": 0.002,
+        "maxSelections": null,
+        "maxLength": null
+      },
+      "answer": {
+        "correct": 0.95,
+        "summary": "0.950, because specificity is the 1,520 negative results among the 1,600 people who do not have the condition.",
+        "reasoning": "Award 1 point for using everyone without the condition as the denominator and 1 point for computing 1,520/1,600 = 0.950. The complement, 80/1,600 = 0.050, is the false-positive rate rather than specificity. On retry, name the no-condition column before dividing.",
+        "acceptableResponses": [
+          "0.95",
+          "0.950",
+          "1520/1600",
+          "19/20"
+        ],
+        "commonErrors": [
+          "Reporting 0.050, the false-positive rate, without taking its complement",
+          "Dividing 1,520 by the 1,580 negative results, which computes negative predictive value",
+          "Dividing by all 2,000 people, which conditions on no true-state group"
+        ]
+      },
+      "rubricId": "rubric-screening-specificity",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-screening-positive-predictive-value",
+      "type": "numeric",
+      "sceneId": "scene-mastery-and-spacing",
+      "objectiveIds": [
+        "objective-separate-the-conditionals",
+        "objective-screening-natural-frequencies"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-probability"
+      ],
+      "prompt": "From the same invented natural-frequency table, calculate the positive predictive value of the screen. Give a decimal to three places.",
+      "stimulus": "Invented screen applied to 2,000 people. Screens positive: 340 people with the condition and 80 without it, 420 total. Screens negative: 60 people with the condition and 1,520 without it, 1,580 total. Column totals: 400 with the condition, 1,600 without it, 2,000 people. Illustrative teaching example, not medical advice.",
+      "points": 2,
+      "responseSpec": {
+        "mode": "number",
+        "units": null,
+        "tolerance": 0.002,
+        "maxSelections": null,
+        "maxLength": null
+      },
+      "answer": {
+        "correct": 0.81,
+        "summary": "0.810, because positive predictive value is the 340 people with the condition among all 420 positive results.",
+        "reasoning": "Award 1 point for switching the denominator to everyone who screened positive and 1 point for computing 340/420 = 0.8095, or 0.810 to three places. An answer of 0.850 is sensitivity and reuses the true-state denominator instead of performing the Bayes reversal. On retry, circle the positive-result row before dividing.",
+        "acceptableResponses": [
+          "0.81",
+          "0.810",
+          "340/420",
+          "17/21"
+        ],
+        "commonErrors": [
+          "Reporting sensitivity, 0.850, after failing to switch from the condition column to the positive-result row",
+          "Dividing by all 2,000 screened people",
+          "Using 80 in the numerator, which gives the share of positive results that are false positives"
+        ]
+      },
+      "rubricId": "rubric-screening-positive-predictive-value",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-screening-negative-predictive-value",
+      "type": "numeric",
+      "sceneId": "scene-mastery-and-spacing",
+      "objectiveIds": [
+        "objective-separate-the-conditionals",
+        "objective-screening-natural-frequencies"
+      ],
+      "outcomeIds": [
+        "topic-statistics-data-probability"
+      ],
+      "prompt": "From the same invented natural-frequency table, calculate the negative predictive value of the screen. Give a decimal to three places.",
+      "stimulus": "Invented screen applied to 2,000 people. Screens positive: 340 people with the condition and 80 without it, 420 total. Screens negative: 60 people with the condition and 1,520 without it, 1,580 total. Column totals: 400 with the condition, 1,600 without it, 2,000 people. Illustrative teaching example, not medical advice.",
+      "points": 2,
+      "responseSpec": {
+        "mode": "number",
+        "units": null,
+        "tolerance": 0.002,
+        "maxSelections": null,
+        "maxLength": null
+      },
+      "answer": {
+        "correct": 0.962,
+        "summary": "0.962, because negative predictive value is the 1,520 people without the condition among all 1,580 negative results.",
+        "reasoning": "Award 1 point for switching the denominator to everyone who screened negative and 1 point for computing 1,520/1,580 = 0.9620, or 0.962 to three places. An answer of 0.950 is specificity and conditions on true state instead of the result. On retry, circle the negative-result row and say the fraction in words before dividing.",
+        "acceptableResponses": [
+          "0.962",
+          "1520/1580",
+          "76/79"
+        ],
+        "commonErrors": [
+          "Reporting specificity, 0.950, after failing to switch from the no-condition column to the negative-result row",
+          "Using the 60 missed cases as the numerator, which gives the complement of negative predictive value",
+          "Dividing by all 2,000 screened people"
+        ]
+      },
+      "rubricId": "rubric-screening-negative-predictive-value",
       "safetyCritical": false
     },
     {
@@ -324,7 +482,71 @@
         },
         {
           "id": "criterion-name-missing-quantity",
-          "description": "Award 1 point only when how common the condition is in the screened group is named as required to move between the two.",
+          "description": "Award 1 point only when both quantities required to move between the two conditionals are named: how common the condition is in the screened group, and how often the test is positive in people without it. Prevalence alone does not earn the point.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-screening-sensitivity",
+      "title": "Sensitivity from natural frequencies",
+      "criteria": [
+        {
+          "id": "criterion-sensitivity-denominator",
+          "description": "Award 1 point only when all 400 people with the condition supply the denominator.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-sensitivity-value",
+          "description": "Award 1 point only when 340/400 is computed as 0.850 or an equivalent value.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-screening-specificity",
+      "title": "Specificity from natural frequencies",
+      "criteria": [
+        {
+          "id": "criterion-specificity-denominator",
+          "description": "Award 1 point only when all 1,600 people without the condition supply the denominator.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-specificity-value",
+          "description": "Award 1 point only when 1,520/1,600 is computed as 0.950 or an equivalent value.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-screening-positive-predictive-value",
+      "title": "Positive predictive value from natural frequencies",
+      "criteria": [
+        {
+          "id": "criterion-positive-predictive-denominator",
+          "description": "Award 1 point only when all 420 positive results supply the denominator.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-positive-predictive-value",
+          "description": "Award 1 point only when 340/420 is computed as 0.810 to three places or an equivalent value.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-screening-negative-predictive-value",
+      "title": "Negative predictive value from natural frequencies",
+      "criteria": [
+        {
+          "id": "criterion-negative-predictive-denominator",
+          "description": "Award 1 point only when all 1,580 negative results supply the denominator.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-negative-predictive-value",
+          "description": "Award 1 point only when 1,520/1,580 is computed as 0.962 to three places or an equivalent value.",
           "maxPoints": 1
         }
       ]

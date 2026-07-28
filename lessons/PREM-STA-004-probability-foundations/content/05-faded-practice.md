@@ -1,6 +1,6 @@
 # Practice with the scaffolding taken away
 
-Five tasks, on a second column of the same invented study. Each one hands you less than the last. Work each fully before reading its feedback, and write down which rule you reached for before you compute anything.
+Six tasks, mostly on a second column of the same invented study. Each one hands you less than the last. Work each fully before reading its feedback, and write down which rule you reached for before you compute anything.
 
 The study also recorded how closely each participant kept to their assigned dinner schedule, on a 1 to 4 rating. Group the ratings into high adherence, 3 or 4, and low adherence, 1 or 2.
 
@@ -51,9 +51,23 @@ For the second, the answer is 0.08. The four unflagged readings are independent 
 
 ## Task 5
 
-A colleague reads a report on a different invented screen and says: "It misses only 4 per cent of cases, so a negative result means a 96 per cent probability of being clear." State what the 4 per cent is conditioned on, what the colleague's sentence is conditioned on, and what further quantity you would need before the second number could be computed.
+A colleague reads a report on a different invented screen and says: "It misses only 4 per cent of cases, so a negative result means a 96 per cent probability of being clear." State what the 4 per cent is conditioned on, what the colleague's sentence is conditioned on, and what further quantities you would need before the second number could be computed.
 
-**Feedback.** The 4 per cent is conditioned on having the condition: among people who have it, 4 per cent screen negative, which makes the detection rate 96 per cent. The colleague's sentence is conditioned on the test result: among people who screen negative, what share is clear. To move from the first to the second you need how common the condition is in the group being screened, plus the false-positive behaviour of the test. Without those two quantities the second number simply cannot be computed, and quoting 96 per cent in its place states something the report never measured. This is the inversion from scene 4 in its negative-result form, and it is the error the block returns to in lesson 10.
+**Feedback.** The 4 per cent is conditioned on having the condition: among people who have it, 4 per cent screen negative, which makes the sensitivity 96 per cent. The colleague's sentence asks for the negative predictive value: among people who screen negative, what share has no condition. To move from the first to the second you need how common the condition is in the group being screened, plus the specificity or its complement, the false-positive rate. Without those quantities the second number simply cannot be computed, and quoting 96 per cent in its place states something the report never measured. This is the inversion from scene 4 in its negative-result form.
+
+## Task 6
+
+An invented screening exercise produces this natural-frequency table:
+
+| | Has the condition | Does not have it | All |
+| --- | ---: | ---: | ---: |
+| Screens positive | 80 | 90 | 170 |
+| Screens negative | 20 | 810 | 830 |
+| All | 100 | 900 | 1,000 |
+
+Without looking back at scene 4, calculate the sensitivity, specificity, positive predictive value, and negative predictive value. For each fraction, name the group that supplies the denominator before dividing.
+
+**Feedback.** Read down the true-state columns for the first two measures: sensitivity is $80/100 = 0.80$, and specificity is $810/900 = 0.90$. Read across the result rows for the predictive values: positive predictive value is $80/170 \approx 0.471$, and negative predictive value is $810/830 \approx 0.976$. If you reported 0.80 as the positive predictive value or 0.90 as the negative predictive value, you reused a true-state denominator after the question had switched to a result denominator. Rebuild the table by saying each fraction aloud, then try the assessment table without copying these numbers.
 
 ## Accessibility and alternatives
 
