@@ -1,0 +1,542 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-assessment-v1",
+  "lessonId": "PREM-BIO-009",
+  "lessonVersion": "0.1.0",
+  "assessmentId": "assessment-prem-bio-009-meiosis",
+  "title": "Meiosis, countable variation, and which division failed",
+  "purpose": "mixed",
+  "attemptPolicy": {
+    "retakeable": true,
+    "timeLimitMinutes": null,
+    "feedback": "after-attempt"
+  },
+  "items": [
+    {
+      "id": "item-assortment-count",
+      "type": "numeric",
+      "sceneId": "scene-count-the-variation",
+      "objectiveIds": [
+        "objective-compute-meiotic-variation"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-meiosis"
+      ],
+      "prompt": "A human diploid cell holds 23 homologous pairs. Counting only which member of each pair a gamete receives, and ignoring crossing over entirely, how many distinct combinations can independent assortment alone produce among one person's gametes? Give the exact whole number.",
+      "points": 2,
+      "responseSpec": {
+        "mode": "number",
+        "units": "distinct combinations",
+        "tolerance": 0
+      },
+      "answer": {
+        "correct": 8388608,
+        "summary": "8,388,608, which is 2 to the power 23.",
+        "reasoning": "Each pair contributes one of its two members, and the choice is independent for every pair, so the count is 2 multiplied by itself once per pair: 2 to the 23. Building it up, 2 to the 10 is 1024, so 2 to the 20 is 1024 squared, or 1,048,576, and multiplying by 2 to the 3 gives 8,388,608.\n\nThe exponent is the number of pairs, which is 23, and not the number of chromosomes, which is 46. Both numbers appear in the stem and only one of them belongs in the exponent.\n\nMarkers should note what this number is and is not. It is an exact count of the patterns of parental origin across the 23 centromeres, because a reciprocal exchange swaps material beyond the point of exchange and leaves each chromatid's own centromere in place. It is not an estimate of total gamete diversity, since it ignores crossing over. Do not withhold credit from a learner who adds that caveat, and do not require it: the item asks for a number.",
+        "acceptableResponses": [
+          "8388608",
+          "8,388,608",
+          "2^23",
+          "2 to the 23",
+          "8.388608 million"
+        ],
+        "commonErrors": [
+          "Answering 2 to the 46, about 7.0 x 10^13, by using the diploid chromosome number as the exponent instead of the number of pairs. That figure is the count for a couple's zygotes, not for one person's gametes.",
+          "Answering 46 or 23 by multiplying instead of exponentiating.",
+          "Adding crossovers into this count. The stem excludes them explicitly."
+        ]
+      },
+      "rubricId": "rubric-exact-count",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-crossovers-per-pair",
+      "type": "numeric",
+      "sceneId": "scene-count-the-variation",
+      "objectiveIds": [
+        "objective-compute-meiotic-variation"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-meiosis"
+      ],
+      "prompt": "A cytological study measured a mean of 49.09 crossover foci per cell in human male meiosis. A human cell has 23 chromosome pairs. Compute the mean number of crossovers per chromosome pair, to two decimal places.",
+      "points": 2,
+      "responseSpec": {
+        "mode": "number",
+        "units": "crossovers per chromosome pair",
+        "tolerance": 0.05
+      },
+      "answer": {
+        "correct": 2.13,
+        "summary": "2.13. The genome-wide mean divided by the number of pairs: 49.09 divided by 23.",
+        "reasoning": "The 49.09 is a whole-genome count per cell, and the 23 pairs share it, so the per-pair mean is 49.09 divided by 23, which is 2.134 and rounds to 2.13. Both numbers are supplied in the stem and the division is the whole of the required work.\n\nWhat the number is good for is worth stating for the marker. An average above 1 per pair is consistent with almost every pair receiving at least one crossover, which matters because a pair with no crossover has no chiasma holding it together. What the average does not do is tell you the failure rate: the measured frequency of bivalents with no crossover marker is 0.38 per cent in males and 2.60 per cent in females, and the female has both the higher average and the higher failure rate. Do not award or withhold credit for any claim about that; the item asks for a division.",
+        "acceptableResponses": [
+          "2.13",
+          "2.134",
+          "about 2.1",
+          "49.09/23 = 2.13"
+        ],
+        "commonErrors": [
+          "Dividing by 46 instead of 23 and answering about 1.07. That would be crossovers per chromosome rather than per pair, and the foci are counted per bivalent.",
+          "Inverting the division and answering about 0.47.",
+          "Treating 2.13 as a guarantee that every pair receives a crossover. It is a mean, and the measured proportion of bivalents with none is small but not zero."
+        ]
+      },
+      "rubricId": "rubric-calculation",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-order-the-events",
+      "type": "ordering",
+      "sceneId": "scene-two-divisions-two-connections",
+      "objectiveIds": [
+        "objective-trace-what-separates-when"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-meiosis"
+      ],
+      "prompt": "Put these five stages of one meiosis into the order in which they occur, beginning with the earliest.",
+      "points": 5,
+      "responseSpec": {
+        "mode": "ordered-ids",
+        "options": [
+          {
+            "id": "option-centromere-cohesion",
+            "text": "Centromeric cohesion is released, and the sister chromatids of each chromosome move apart."
+          },
+          {
+            "id": "option-bivalent",
+            "text": "Each replicated chromosome pairs with its replicated homolog, forming a bivalent of four chromatids."
+          },
+          {
+            "id": "option-four-products",
+            "text": "Four products exist, each holding 23 chromosomes of one chromatid each."
+          },
+          {
+            "id": "option-replication",
+            "text": "The DNA is replicated, so each chromosome becomes two sister chromatids joined at the centromere."
+          },
+          {
+            "id": "option-arm-cohesion",
+            "text": "Cohesion along the chromatid arms is released, and the two homologs move to opposite poles."
+          }
+        ]
+      },
+      "answer": {
+        "correct": [
+          "option-replication",
+          "option-bivalent",
+          "option-arm-cohesion",
+          "option-centromere-cohesion",
+          "option-four-products"
+        ],
+        "summary": "Replication, then pairing into a bivalent, then arm cohesion released with homologs separating, then centromeric cohesion released with sister chromatids separating, then four haploid products.",
+        "reasoning": "Replication comes first, because a bivalent is defined as two *replicated* homologs paired and so cannot form before the copying has happened. Pairing follows.\n\nThe two cohesion steps are in a fixed order and that order is the substance of the lesson. Arm cohesion is degraded at the start of the first anaphase, which lets the homologs move to opposite poles; centromeric cohesion is held by cohesins specific to meiosis and is degraded only at the second division, which is when sister chromatids finally come apart. Reversing those two would separate copies before partners had been sorted, and would sort nothing.\n\nThe four products come last. Note that four products is the count of what the two divisions yield; in oogenesis only one of them becomes the functional gamete and the others are polar bodies, which does not change the order of the stages.\n\nThe options are deliberately presented out of order in the option list, so a learner cannot recover the answer from the order they are displayed in.",
+        "acceptableResponses": [
+          "option-replication, option-bivalent, option-arm-cohesion, option-centromere-cohesion, option-four-products",
+          "replication; bivalent; arm cohesion and homologs separate; centromeric cohesion and sisters separate; four products"
+        ],
+        "commonErrors": [
+          "Swapping the two cohesion steps, so that sister chromatids separate at the first division. That is the single most common error in this material and it makes the first division equational, which would leave the chromosome number unhalved.",
+          "Placing pairing before replication. A bivalent contains four chromatids, so replication has already happened by the time it forms.",
+          "Placing the four products immediately after the first division. The first division yields two products, each still holding two chromatids per chromosome."
+        ]
+      },
+      "rubricId": "rubric-ordered-sequence",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-which-division-from-marker",
+      "type": "single-choice",
+      "sceneId": "scene-which-division-failed",
+      "objectiveIds": [
+        "objective-predict-nondisjunction-products"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-meiosis"
+      ],
+      "prompt": "Reason inside the two-case model this lesson built, in which exactly one chromosome pair fails to separate at exactly one of the two meiotic divisions, no other error occurs, and the sequence marker examined lies at the centromere. A trisomic individual carries, at the centromere of the tripled chromosome, two different sequence variants inherited from the mother together with one from the father. Within that model, which division failed?",
+      "points": 3,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-maternal-mi",
+            "text": "Maternal meiosis I"
+          },
+          {
+            "id": "option-maternal-mii",
+            "text": "Maternal meiosis II"
+          },
+          {
+            "id": "option-paternal-mii",
+            "text": "Paternal meiosis II"
+          },
+          {
+            "id": "option-indeterminate",
+            "text": "The result cannot distinguish between the two maternal divisions"
+          }
+        ]
+      },
+      "answer": {
+        "correct": "option-maternal-mi",
+        "summary": "Maternal meiosis I. Two different maternal centromere variants mean the extra chromosome came from two different maternal homologs, and only a first-division failure sends both homologs into one product.",
+        "reasoning": "The mother's two homologs differ in sequence, because they came from her two parents. Her two sister chromatids of either homolog are identical to each other, because one was copied from the other.\n\nSo: a first-division failure sends both maternal homologs into the same product, and that product carries two chromosomes with different centromere sequence. A second-division failure sends two sister copies of a single homolog into one product, and that product carries two chromosomes with identical centromere sequence. The individual described has two different maternal variants, which matches the first case.\n\nThe extra chromosome is maternal, since it is the mother's contribution that is doubled and only one paternal variant is present, so the paternal option is excluded. The indeterminate option is wrong within the stated model, because within that model the two cases give different marker results, and this is the method published studies use: origin is assigned by centromeric heterozygosity or homozygosity.\n\nThree limits the marker should hold in mind, none of which changes the key. The marker has to be centromeric: crossing over exchanges material along the arms, so a marker further out may have moved between homologs and would no longer report where the centromere came from. The stem stipulates a centromeric marker for that reason. Second, the model is a simplification of human oogenesis, where patterns exist in which sister chromatids separate at the first division; the stem confines the question to the model. Third, a trisomy can also arise from a mitotic error after fertilisation, which the stem excludes by stipulating a meiotic failure. Award full credit for the keyed option; treat a learner who names any of these three limits as showing additional understanding rather than as hedging.",
+        "acceptableResponses": [
+          "option-maternal-mi",
+          "Maternal meiosis I",
+          "meiosis I",
+          "the first meiotic division, in the mother"
+        ],
+        "commonErrors": [
+          "Choosing maternal meiosis II by associating 'two copies' with sister chromatids without checking whether the two centromere variants are the same or different. Two copies of one homolog would be identical at the centromere.",
+          "Choosing the indeterminate option on the grounds that human oocytes show more than two error patterns. That is true of real oocytes and is discussed in the lesson, but the stem restricts the question to the two-case model.",
+          "Choosing a paternal origin. Only one paternal variant is present, so the paternal contribution is not the doubled one."
+        ]
+      },
+      "rubricId": "rubric-single-selection",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-count-abnormal-products-mi",
+      "type": "numeric",
+      "sceneId": "scene-which-division-failed",
+      "objectiveIds": [
+        "objective-predict-nondisjunction-products"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-meiosis"
+      ],
+      "prompt": "In a spermatogenesis, one chromosome pair fails to separate at the first meiotic division, so both of its homologs pass into the same daughter cell. The second division then proceeds normally in both daughter cells, and no other chromosome pair is affected. Of the four products, how many carry an abnormal number of that chromosome?",
+      "points": 3,
+      "responseSpec": {
+        "mode": "number",
+        "units": "products out of four",
+        "tolerance": 0
+      },
+      "answer": {
+        "correct": 4,
+        "summary": "All four. Two products carry two copies of that chromosome and two carry none.",
+        "reasoning": "Label the maternal homolog's sister chromatids M1 and M2 and the paternal homolog's P1 and P2.\n\nThe first division sends both homologs one way, so one daughter cell holds M1, M2, P1 and P2, and the other holds no copy of that chromosome. The second division then separates sister chromatids normally in both. In the first daughter cell that gives one product with M1 and P1 and another with M2 and P2, each carrying two copies. In the second daughter cell there is nothing of that chromosome to separate, so both of its products carry none.\n\nTwo products with two copies and two with none is four abnormal products out of four. The contrast with a second-division failure, which leaves two entirely normal products, is the point of the pair of items.\n\nThe stem specifies spermatogenesis so that all four products are countable gametes. In oogenesis the same divisions occur but only one product becomes the egg and the rest are polar bodies, so the number of abnormal *products* would be unchanged while the number of abnormal gametes would depend on which product was retained. Accept 4 on the stated stem; a learner who notes that distinction has understood more, not less.",
+        "acceptableResponses": [
+          "4",
+          "four",
+          "all four",
+          "4 of 4"
+        ],
+        "commonErrors": [
+          "Answering 2 by counting only the products that gained a chromosome and forgetting that the products which received none are also abnormal.",
+          "Answering 2 by importing the result for a second-division failure, where two products are normal.",
+          "Answering 1, which would require the failure to affect only one of the two daughter cells; a first-division failure affects both, because whatever one cell gains the other lacks."
+        ]
+      },
+      "rubricId": "rubric-exact-count",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-count-abnormal-products-mii",
+      "type": "numeric",
+      "sceneId": "scene-which-division-failed",
+      "objectiveIds": [
+        "objective-predict-nondisjunction-products"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-meiosis"
+      ],
+      "prompt": "In a spermatogenesis, the first meiotic division separates one chromosome pair correctly, but in one of the two daughter cells the sister chromatids of that chromosome fail to separate at the second division. The other daughter cell divides normally, and no other chromosome pair is affected. Of the four products, how many carry an abnormal number of that chromosome?",
+      "points": 3,
+      "responseSpec": {
+        "mode": "number",
+        "units": "products out of four",
+        "tolerance": 0
+      },
+      "answer": {
+        "correct": 2,
+        "summary": "Two. One product carries two copies of the same homolog and one carries none; the other two products are normal.",
+        "reasoning": "Using the same labels, the first division works, so one daughter cell holds M1 and M2 and the other holds P1 and P2.\n\nIn the cell where the second division fails, both M1 and M2 pass into one product and the other product receives none. That is one product with two copies and one with none. The cell holding P1 and P2 divides normally and yields two products with one copy each.\n\nSo two of the four products are abnormal and two are entirely normal. This is the structural difference from a first-division failure, where all four products are affected, and it follows from what each division separates: a second-division failure can only spoil the output of the one daughter cell in which it happens.\n\nThe two copies in the abnormal product are M1 and M2, which are identical to each other, and that is why a second-division failure leaves a homozygous signature at the centromere while a first-division failure leaves a heterozygous one.",
+        "acceptableResponses": [
+          "2",
+          "two",
+          "2 of 4"
+        ],
+        "commonErrors": [
+          "Answering 4 by importing the result for a first-division failure. A second-division failure is confined to one of the two daughter cells.",
+          "Answering 1 by counting only the product that gained a chromosome and not the one that received none.",
+          "Answering 2 but describing the extra copies as two different homologs. They are sister chromatids of one homolog, and that difference is what a centromere marker reads."
+        ]
+      },
+      "rubricId": "rubric-exact-count",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-audit-age-claims",
+      "type": "multiple-choice",
+      "sceneId": "scene-age-and-the-unfinished-explanation",
+      "objectiveIds": [
+        "objective-bound-age-effect-evidence"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-meiosis"
+      ],
+      "prompt": "Select every statement that the evidence cited in this lesson supports as written. Do not select a statement that claims more than the cited sources do.",
+      "points": 6,
+      "responseSpec": {
+        "mode": "multiple-choice",
+        "maxSelections": 6,
+        "options": [
+          {
+            "id": "option-age-association",
+            "text": "Aneuploidy in human eggs and in human conceptions rises with maternal age."
+          },
+          {
+            "id": "option-cohesion-proposed",
+            "text": "Weakening of sister-chromatid cohesion during the long prophase arrest has been proposed as a contributor, and one study reports a correlation between loss of centromeric cohesion and an error pattern that rises with age."
+          },
+          {
+            "id": "option-cohesion-established-cause",
+            "text": "Cohesion weakening is now established as the cause of the maternal age effect."
+          },
+          {
+            "id": "option-recombination-contributor",
+            "text": "Failure to recombine has been identified as a contributor to human trisomy."
+          },
+          {
+            "id": "option-young-age-explained",
+            "text": "The raised rate of first-division non-disjunction seen in young women is explained by cohesion weakening."
+          },
+          {
+            "id": "option-single-mechanism",
+            "text": "A single mechanism accounts for the whole shape of the maternal age curve."
+          }
+        ]
+      },
+      "answer": {
+        "correct": [
+          "option-age-association",
+          "option-cohesion-proposed",
+          "option-recombination-contributor"
+        ],
+        "summary": "The association with age, the cohesion account stated as a proposal with a supporting correlation, and recombination failure as a contributor. The other three claim more than the cited sources do.",
+        "reasoning": "Taking the three keyed options first. The rise with maternal age is documented by several independent designs cited in the lesson, including a retrospective population study and a study of 218 oocytes that found a U-shaped relation with age. The cohesion option is worded as a proposal with a reported correlation, which is exactly what the 2019 study offers: it proposes cohesion weakening as a molecular clock and reports a correlation with the error pattern that rises with age. Recombination failure is identified as a prominent contributor to human trisomy by the 2012 review, which also gives the figure of over 10 per cent of oocytes carrying at least one crossover-less bivalent.\n\nNow the three that must not be selected. That cohesion weakening is the established cause is contradicted by the reviewing authors of the 2012 paper, who conclude that loss of cohesin seems unlikely to be the only force driving the rise before menopause; a proposal with a supporting correlation is not an established cause. That the young-age pattern is explained by cohesion weakening is contradicted directly by the 2019 authors, who state that a separate and currently unclear mechanism causes the elevated first-division non-disjunction in young females. That a single mechanism accounts for the whole curve is contradicted by the J-shaped curve having effects at both extremes and by the age curves differing between individual chromosomes, which the review reads as pointing to multiple mechanisms.\n\nThe discrimination this item tests is between a proposal and a finding. The two wordings differ only in their epistemic verb, and a learner who selects the strong version has read the mechanism as settled when the literature does not.",
+        "acceptableResponses": [
+          "option-age-association, option-cohesion-proposed, option-recombination-contributor"
+        ],
+        "commonErrors": [
+          "Selecting the statement that cohesion weakening is the established cause. It is the leading candidate and it is not established; one cited review explicitly doubts that it is sufficient on its own.",
+          "Selecting the statement about young women. The study that reports that pattern says the mechanism behind it is currently unclear.",
+          "Selecting the single-mechanism statement. The curve rises at both extremes of reproductive life and differs between chromosomes, which is the reviewing authors' reason for inferring more than one mechanism.",
+          "Declining to select the cohesion proposal because it is not settled. It is worded as a proposal with a reported correlation, and that is supported as written."
+        ]
+      },
+      "rubricId": "rubric-evidence-audit",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-four-gametes-qualifier",
+      "type": "short-answer",
+      "sceneId": "scene-four-products-one-egg",
+      "objectiveIds": [
+        "objective-trace-what-separates-when"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-meiosis"
+      ],
+      "prompt": "A revision card reads: \"One meiosis produces four gametes.\" Name the process for which that is accurate, say what happens instead in the other, and give the number of functional gametes one meiosis yields there.",
+      "points": 3,
+      "responseSpec": {
+        "mode": "text",
+        "maxLength": 700
+      },
+      "answer": {
+        "correct": "Accurate for spermatogenesis, where both divisions are symmetrical and one meiosis yields four functional gametes. In oogenesis both divisions are asymmetric: half the genome is segregated into polar bodies, so one meiosis yields one functional gamete.",
+        "summary": "True of spermatogenesis, which gives four. Oogenesis divides asymmetrically into polar bodies and gives one.",
+        "reasoning": "Full credit requires three things: naming spermatogenesis as the accurate case, identifying the asymmetric division into polar bodies as what happens in oogenesis, and giving one as the number of functional gametes from a female meiosis.\n\nThe number of functional gametes is the load-bearing part. Award the mark for one. Do not require a specific number of polar bodies: the source this lesson follows describes two, one per division, while other accounts give three, and the lesson records that disagreement rather than settling it. A learner who says two, three, or simply 'the rest are polar bodies' should not lose credit on that point.\n\nAccept 'sperm production' or 'the male' for spermatogenesis and 'egg production' or 'the female' for oogenesis. Do not accept an answer that says four in both cases, and do not accept one that says the female produces four gametes of which some die: the polar bodies are products of the divisions and are not functional gametes.",
+        "acceptableResponses": [
+          "Accurate for spermatogenesis, which gives four functional gametes. Oogenesis divides asymmetrically, discarding half the genome into polar bodies, and yields one functional gamete.",
+          "True in the male: four sperm. In the female, the divisions are lopsided and produce polar bodies, so only one egg results from each meiosis.",
+          "Spermatogenesis, four. Oogenesis produces one egg plus polar bodies."
+        ],
+        "commonErrors": [
+          "Saying four in both cases, which is the error the card contains.",
+          "Saying the female also makes four gametes but three of them die. The polar bodies are not gametes that then die; the divisions are asymmetric and only one product is a functional gamete.",
+          "Naming the right numbers without naming which process each belongs to, which leaves the card uncorrected."
+        ]
+      },
+      "rubricId": "rubric-short-answer-three-parts",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-crypt-has-no-use-for-meiosis",
+      "type": "open-response",
+      "sceneId": "scene-clinical-wrap-up",
+      "objectiveIds": [
+        "objective-explain-somatic-tissue-has-no-meiosis"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-meiosis"
+      ],
+      "prompt": "A colleague argues that because meiosis produces such large numbers of genetically distinct gametes, a tissue that divides as often as the colonic crypt must be generating comparable genetic diversity among its own cells over a lifetime. In four or five sentences, say whether the conclusion follows, identify the step at which the reasoning fails, and contrast what new genetic combinations mean in the germ line with what new genetic differences mean in a crypt.",
+      "points": 6,
+      "responseSpec": {
+        "mode": "text",
+        "maxLength": 2000
+      },
+      "answer": {
+        "correct": "The conclusion does not follow. It assumes that any frequently dividing tissue runs the process that generates the diversity, but a crypt divides mitotically and mitosis neither pairs homologs nor recombines them: it separates sister chromatids and produces daughters carrying what the parent carried. Meiosis, which does pair and recombine, happens only in the germ line, and no crypt cell is on the path to becoming a gamete. So in the germ line new combinations are the product, generated deliberately, while in a crypt a new genetic difference can only be an error in copying, and the tissue works because its cells are the same. That is why division load in a somatic tissue is discussed as a route to accumulating random mutations rather than as a source of useful variety.",
+        "summary": "It does not follow. Frequent division is mitotic, and mitosis copies rather than recombining; meiosis is confined to the germ line. Variation is the germ line's product and a crypt's defect.",
+        "reasoning": "The reasoning fails at a specific step, and credit should turn on whether the learner locates it: the argument treats 'divides a lot' as though it implied 'runs meiosis'. Frequency of division says nothing about which kind of division.\n\nA full answer names what mitosis does and does not do. It separates sister chromatids, which are identical copies, so its output is two cells carrying what the parent carried; it does not bring homologs together, so it cannot assort them independently and it does not recombine them. Both mechanisms this lesson counted, independent assortment and crossing over, act on paired homologs at the first meiotic division and have no counterpart in a mitotic division.\n\nA full answer also names the germ-line restriction: meiosis is specialised for producing gametes and occurs only in the lineage that makes them, and crypt cells are somatic.\n\nThe contrast should come out as an asymmetry of purpose rather than of chromosomes. In the germ line, novelty is the product; a meiosis producing a gamete identical to the parent cell would have failed. In a crypt, the cells work because they are alike, so a new genetic difference is damage. Accept an answer that connects the crypt's division load to accumulating random mutation, which is how the cited review frames the correlation with cancer risk across tissues, provided the learner keeps it as a correlation across tissues and does not turn it into a risk claim about a person.\n\nDo not require the learner to discuss cancer at all; the outcome being assessed is the somatic-versus-germ-line contrast. Do not credit an answer that agrees with the colleague, and do not credit one that rejects the conclusion only by asserting that crypt cells 'do not do meiosis' without saying what mitosis does instead.",
+        "acceptableResponses": [
+          "No. The crypt divides mitotically, and mitosis separates sister chromatids rather than pairing and recombining homologs, so it copies instead of reassorting. Meiosis is confined to the germ line and no crypt cell becomes a gamete. New combinations are the germ line's whole product; in a crypt a new genetic difference is a copying error, and the tissue depends on its cells being alike.",
+          "The conclusion fails because it confuses how often a tissue divides with which division it performs. Independent assortment and crossing over both act on paired homologs at meiosis I, and mitosis never pairs homologs. So the crypt's many divisions generate no reassortment by design; any genetic difference there is damage rather than variety."
+        ],
+        "commonErrors": [
+          "Agreeing that many divisions must yield much diversity. Division count is unrelated to whether homologs are paired and recombined.",
+          "Rejecting the conclusion by asserting that somatic cells do not undergo meiosis, without saying what mitosis separates and therefore why no reassortment occurs.",
+          "Claiming a crypt generates no genetic differences at all. Mitotic errors and random mutations do occur; the point is that they are errors rather than a designed product.",
+          "Turning the tissue-level correlation between stem-cell division load and cancer risk into a statement about an individual's risk. It is a correlation across tissue types."
+        ]
+      },
+      "rubricId": "rubric-explanation",
+      "safetyCritical": false
+    }
+  ],
+  "rubrics": [
+    {
+      "id": "rubric-exact-count",
+      "title": "Exact count, with the affected products identified correctly",
+      "criteria": [
+        {
+          "id": "criterion-count-correct",
+          "description": "Reports the exact number required by the stem.",
+          "maxPoints": 2
+        },
+        {
+          "id": "criterion-both-directions-counted",
+          "description": "Where the item concerns non-disjunction products, counts both the products that gained a chromosome and those that received none, rather than only the gains.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-calculation",
+      "title": "Division carried out in the correct orientation",
+      "criteria": [
+        {
+          "id": "criterion-value-within-tolerance",
+          "description": "Reports the quotient within the stated tolerance.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-correct-denominator",
+          "description": "Divides the genome-wide count by the number of chromosome pairs rather than by the number of chromosomes, and does not invert the ratio.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-ordered-sequence",
+      "title": "Correct sequence, with the two cohesion steps in the right order",
+      "criteria": [
+        {
+          "id": "criterion-replication-before-pairing",
+          "description": "Places replication before the formation of the bivalent.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-cohesion-order",
+          "description": "Places the release of arm cohesion, with homologs separating, before the release of centromeric cohesion, with sister chromatids separating.",
+          "maxPoints": 3
+        },
+        {
+          "id": "criterion-products-last",
+          "description": "Places the four single-chromatid products at the end rather than after the first division.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-single-selection",
+      "title": "Correct division identified from the marker result",
+      "criteria": [
+        {
+          "id": "criterion-selects-mi",
+          "description": "Selects the first meiotic division.",
+          "maxPoints": 2
+        },
+        {
+          "id": "criterion-excludes-paternal",
+          "description": "Does not select a paternal origin, given that only one paternal variant is present.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-evidence-audit",
+      "title": "Supported statements selected and overstated ones rejected",
+      "criteria": [
+        {
+          "id": "criterion-selects-supported",
+          "description": "Selects all three statements that the cited sources support as written, including the cohesion account in its proposal form.",
+          "maxPoints": 3
+        },
+        {
+          "id": "criterion-rejects-settled-mechanism",
+          "description": "Does not select either statement that treats a proposed mechanism as an established cause, namely cohesion weakening as the cause and the young-age pattern as explained.",
+          "maxPoints": 2
+        },
+        {
+          "id": "criterion-rejects-single-mechanism",
+          "description": "Does not select the statement that one mechanism accounts for the whole age curve.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-short-answer-three-parts",
+      "title": "Both processes named and the number of functional gametes correct",
+      "criteria": [
+        {
+          "id": "criterion-names-spermatogenesis",
+          "description": "Identifies spermatogenesis, or the male, as the case in which four gametes is accurate.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-names-asymmetry",
+          "description": "Identifies the asymmetric division into polar bodies as what happens in oogenesis. Any polar-body count, or none, is acceptable.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-one-functional-gamete",
+          "description": "Gives one as the number of functional gametes from a female meiosis.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-explanation",
+      "title": "Faulty step located and the two roles of variation contrasted",
+      "criteria": [
+        {
+          "id": "criterion-rejects-conclusion",
+          "description": "States that the conclusion does not follow.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-locates-failure",
+          "description": "Locates the failure at the step that treats frequent division as implying meiotic division, and says what a mitotic division separates instead.",
+          "maxPoints": 2
+        },
+        {
+          "id": "criterion-germline-restriction",
+          "description": "States that meiosis is confined to the germ line and that crypt cells are somatic.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-contrasts-roles",
+          "description": "Contrasts new combinations as the germ line's product with new genetic differences in a crypt being errors, without converting a tissue-level correlation into an individual risk claim.",
+          "maxPoints": 2
+        }
+      ]
+    }
+  ]
+}
