@@ -45,13 +45,15 @@ Check it the other way to make sure the division went the right way up: 1.75 cel
 
 **Step 5: state the assumption that is doing the most work, and which way it errs.**
 
-This treats the accumulating cells as inert, contributing nothing to production. That is almost certainly wrong: if the retained cells divide like the rest, production rises as the population rises, and growth becomes exponential instead of steady. So 400 days is a slow estimate, and the real behaviour of such a population would be faster. The model is a floor, not a forecast.
+This treats the accumulating cells as inert, contributing nothing to production. That is almost certainly wrong: if the retained cells divide like the rest, production rises as the population rises, and growth becomes exponential instead of steady. So 400 days is an estimate under a fixed rate, and the real behaviour of such a population could differ in either direction. The model is an illustration, not a forecast, and it is worth being exact about why rather than calling it a floor.
+
+Calling it a floor would assume the retained cells divide, and that further divisions only add. Neither is safe. A retained cell may not divide at all. And as cells accumulate, production, extrusion, differentiation, death and the geometry of the space all change with density, which can accelerate the accumulation, slow it, stop it, or reverse it. So the arithmetic shows what a small persistent mismatch is capable of over a year. It does not predict what a real crypt would do.
 
 Two further limits. The figure of 175 cells a day is itself lesson 01's steady-state estimate rather than a measurement of one crypt. And a real crypt is not a well-mixed population; its cells occupy positions, which is precisely what the rest of this lesson is about. The model deliberately ignores position in order to isolate the rate question.
 
 **Step 6: interpret the result in its original context.**
 
-The answer is that the failure does not have to be dramatic. It has to be persistent. A one per cent standing mismatch, invisible in any single snapshot, is enough to change a structure over about a year, and the real growth would be faster than that.
+The answer is that the failure does not have to be dramatic. It has to be persistent. A one per cent standing mismatch, invisible in any single snapshot, is enough to change a structure over about a year at that fixed rate. What a real crypt would do depends on how its rates respond to the crowding, which this model sets aside.
 
 Now put that beside what the cancer genomics says about time. Developing a full-blown metastatic cancer takes decades. A colorectal tumour in a 90-year-old patient carries nearly twice as many mutations as a tumour in a 45-year-old that looks identical under a microscope. The genomic account and the arithmetic account point at the same shape: a small, sustained, cumulative departure from balance running over a very long time.
 

@@ -78,3 +78,57 @@ Which of p53's three responses carries its tumour-suppressing effect is unresolv
 The per-villus shedding estimate and the gap-sealing interval are small-intestinal figures, used for the mechanism and the sense of scale they give, and not transferred to the colon.
 
 The rate arithmetic in scene 5 and in the practice scene is the lesson's own illustration of what a balance relation implies. No source calculates a tolerable mismatch between production and loss, and the example states its assumptions, names the one doing the most work, and says which direction its estimate errs in.
+
+## Adjudication repairs to the 0.1.0 candidate
+
+The academic review returned request-changes with six major findings and three minor, one of which was a
+verification note confirming every calculation in the pack; the learning-design review approved with
+five notes. All eight actionable findings were repaired in one pass and none was declined.
+
+**A logic error at the centre of an objective.** The objective required the learner to explain why a
+driver mutation is "necessary and not sufficient" for cancer. The evidence — driver mutations under
+positive selection in normal, working tissue — refutes sufficiency and says nothing about necessity.
+The pack's own assessment already said necessity was untouched, which is a different statement from
+necessity being shown. The objective now asks the learner to state what the evidence does and does not
+settle, which is the harder and the correct question.
+
+**Three claims reached past their sources**, and all three are the same failure in different places.
+
+- The APC claim built a chain from a measured result to an unmeasured outcome. What the sources show is
+  that reorientation of the destruction complex towards a Wnt cue needs full-length APC in cultured
+  colon epithelial cells, so a damaged-APC cell's readout is decoupled from the gradient. That such a
+  cell divides at every height, never differentiates, and fails to depart was not measured. The claim
+  is narrowed to the decoupling, its support downgraded to inference, and the rest is stated as this
+  lesson's reading wherever it appears.
+- The concept map asserted that attachment, the death programme and the crowding response were intact
+  and were what kept a clone benign. The normal-skin study measured mutation and clonal selection and
+  found gross tissue function preserved; it did not measure those three controls. The map now says the
+  tissue still works and that which controls held was not measured, and it names the context it does
+  not draw: immune surveillance, stroma, lineage, and which variant.
+- The clinical case concluded that the removal control had failed because density was raised and no
+  extrusion event was visible. A fixed section cannot measure a rate, and an unobserved event is
+  consistent with a failed mechanism and with a working one too slow to catch. The case now concludes
+  one control demonstrably given way, one under suspicion, and two holding, and says what a
+  demonstration would need.
+
+**A linear illustration was turned into a forecast.** The rate model was described as a floor because
+retained cells would divide and make real growth faster. Retained cells may not divide, and as cells
+accumulate, production, extrusion, differentiation, death and the geometry all change with density,
+which can accelerate the accumulation, slow it, stop it or reverse it. The model now shows what a small
+persistent mismatch is capable of over a year and explicitly does not predict what a crypt would do.
+
+**An answer key marked a defensible answer wrong.** The senescence item required every senescent cell
+to be secreting the listed programme. The secretion varies with cell type, with the cause of the
+arrest, and with time since it began. The option now says many senescent cells, and the marker is told
+that a learner who notes the heterogeneity has given the better answer.
+
+Three smaller corrections: the direction of population change was inverted, so fewer departures were
+said to shrink the crypt when they make it grow; the climb rate of about four micrometres an hour was
+asserted in the renewal diagram with no claim behind it, and now carries one, with the reference record
+brought forward from the merged PREM-BIO-006 pack that established it; and the twenty-minute gap-sealing
+interval is small-intestinal, so the learner-facing sentence now says so instead of transferring it to
+the colon silently.
+
+The reviewer also independently recomputed every figure in the pack — 700 over 4 days giving 175 a day,
+the 1.75 and 400-day results, and the 0.19 cells a day at 0.11 per cent — and confirmed all of them
+under their stated assumptions. That is recorded as verification rather than as a change.

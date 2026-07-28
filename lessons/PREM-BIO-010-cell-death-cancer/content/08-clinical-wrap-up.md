@@ -50,7 +50,9 @@ What will happen next. Progression from normal epithelium to carcinoma is descri
 
 **Step 5: what may be concluded.**
 
-That the imbalance is real and that at least two controls have given way, one on the differentiation side and one on the removal side, while attachment and epithelial organisation are still holding. That is a genuine and useful reading, and it comes entirely from the loop.
+That the imbalance is real, and that the differentiation control has given way, while attachment and epithelial organisation are still holding. That much is a genuine and useful reading, and it comes entirely from the loop.
+
+Removal needs more care than that. A single fixed section cannot measure a rate. Extrusion is an event, so not seeing one in a section is consistent with a mechanism that has failed and equally consistent with one working too slowly to catch in a snapshot. The raised density is a reason to suspect removal is not keeping pace, and the reduced extrusion reported in colonic polyps is an association, which this lesson said when it introduced it. Showing that the removal control had failed would take a measurement over time, which this case does not have. So the reading is: one control demonstrably given way, one under suspicion, two still holding.
 
 What may not be concluded is anything about a person. The reading describes a tissue's control state. It does not name a disease, predict a course, or bear on what anyone should do, and this lesson stops where that boundary is.
 
@@ -63,7 +65,7 @@ Almost everyone skips step 3. The trained instinct is to catalogue what has brok
 
 Lesson 01 of this block opened with a question about architecture. Why is the lining of the colon built from an enormous number of small units instead of a few large ones?
 
-This lesson supplies half of the answer that lesson could not give. A tissue made of small, individually replaceable units can be maintained by replacing units one at a time, continuously, without ever taking the sheet out of service. Removal is per cell. Manufacture is per cell. The barrier stays sealed throughout, because the gap a departing cell leaves is closed by its neighbours within about twenty minutes.
+This lesson supplies half of the answer that lesson could not give. A tissue made of small, individually replaceable units can be maintained by replacing units one at a time, continuously, without ever taking the sheet out of service. Removal is per cell. Manufacture is per cell. The barrier stays sealed throughout, because neighbours close the gap a departing cell leaves. The interval measured for that closing, about twenty minutes, comes from work on the small-intestinal villus tip rather than the colon, so read it as the order of magnitude for how fast the sealing is and not as a colonic figure.
 
 The cost arrives with the benefit and is not separable from it. A tissue that maintains itself by continuous replacement is a tissue running division continuously, in one of the fastest-renewing structures the body has, for a lifetime. About 175 divisions a day per crypt, every day, for decades. Each of those divisions is an opportunity for the control on division to fail, and the arithmetic in scene 5 showed how small a standing failure has to be before it matters. Lesson 01's closing observation was that everything about the arrangement depends on division being started, stopped and positioned correctly over decades. This lesson is what that sentence means.
 

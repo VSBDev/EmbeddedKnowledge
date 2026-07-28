@@ -6,7 +6,7 @@ It has also replaced all of them, roughly every four days, for as long as you ha
 
 Lesson 01 of this block (PREM-05.01) did that arithmetic and then left it standing. Seven hundred cells over four days is about 175 new cells a day from one crypt, as a steady-state estimate, and not a statement that every crypt cell lives exactly four days. And it drew the consequence that this lesson exists to explain: for the population to stay constant, cells must leave at the same average rate they are made.
 
-So about 175 cells a day leave one crypt. Not fewer, on average, or the crypt would be shrinking. Not more, or it would be too. Where do they go, and what makes them go?
+So about 175 cells a day leave one crypt. Not fewer, on average, or cells would accumulate and the crypt would grow. Not more, or it would shrink. Where do they go, and what makes them go?
 
 ## The half of the loop nobody has explained yet
 
@@ -67,10 +67,12 @@ The last third of this lesson is about cancer, and colorectal cancer specificall
 :::
 
 :::{source-note}
-:claims: claim-crypt-population, claim-colon-renewal-interval, claim-crypt-homeostatic-balance, claim-crypt-integrin-attachment, claim-ps-eat-me-signal, claim-damage-checkpoint-minimum
-:sources: source-vanderwath-crypt-model, source-nguyen-colonic-crypt, source-benoit-crypt-integrins, source-segawa-flippases, source-bieging-p53-suppression
+:claims: claim-crypt-population, claim-colon-renewal-interval, claim-crypt-homeostatic-balance, claim-crypt-integrin-attachment, claim-ps-eat-me-signal, claim-damage-checkpoint-minimum, claim-crypt-migration-speed
+:sources: source-vanderwath-crypt-model, source-nguyen-colonic-crypt, source-benoit-crypt-integrins, source-segawa-flippases, source-bieging-p53-suppression, source-baker-crypt-dynamics
 
 A 2013 modelling study of the colonic crypt supplies the count of approximately 700 cells in a crypt of the human descending colon, arranged about 32 along its length and about 22 around its circumference, and the replacement of the human intestinal epithelium every 3 to 5 days. A 2025 review of the colonic crypt supplies the same 3-to-5-day renewal interval for the colon with enterocytes replaced every 4 to 5 days, the statement that mature differentiated cells continue moving upward until they undergo apoptosis and are replaced, and the statement that maintaining crypt homeostasis requires a balance of proliferation, differentiation, apoptosis and extrusion. A 2012 review of the human intestinal crypt supplies the integrin attachment to a basement membrane of laminins and fibronectin. A 2014 review of flippases and scramblases supplies the exposure of phosphatidylserine on an apoptotic cell as an eat-me signal for macrophages, which is the fact lesson 04 established and handed forward. A 2014 review of p53 supplies the minimum checkpoint statement borrowed above, that arrest in response to DNA-damage signals allows a cell to repair its genome before continuing through the cycle.
 
 The figure of about 175 cells a day is lesson 01's steady-state estimate, restated here with its original caveat: it is a population rate for one crypt and not the lifetime of any individual cell. The renewal interval is a population figure, and the 2025 review notes that some cell types in the same tissue persist far longer than enterocytes, so no claim is made that every crypt cell is replaced on one schedule. The four-place reading of the loop in the diagram description is this lesson's own analysis and is not taken from any source.
+
+The pace of the climb, about four micrometres an hour in the lower crypt, is carried forward from PREM-BIO-006 with the source it used. The renewal diagram states it, so it is mapped here rather than left resting on the earlier lesson.
 :::
