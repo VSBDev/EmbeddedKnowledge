@@ -49,9 +49,9 @@ Read the table downward and each row inherits everything above it. Read it acros
 
 Displays follow the level for the same reason summaries do.
 
-A categorical column is shown as a bar for each group, with a gap between the bars, because there is nothing between *female* and *male* for a bar to occupy. For a nominal column you may sort those bars however you like, tallest first if that helps. For an ordinal column the bars must stay in rating order, since the order is data.
+A categorical column is usually shown as a bar for each group, with a gap between the bars, because there is nothing between *female* and *male* for a bar to occupy. For a nominal column you may sort those bars however you like, tallest first if that helps. For an ordinal column the bars must stay in rating order, since the order is data.
 
-A continuous column is shown as a histogram, where the horizontal axis is a measured scale and neighbouring bins are genuinely adjacent stretches of that scale. Putting the sex codes 1 and 2 on a histogram axis invents a scale that was never measured, and the picture then implies a midpoint at 1.5 that no participant can occupy.
+A continuous column is usually shown as a histogram, where the horizontal axis is a measured scale and neighbouring bins are genuinely adjacent stretches of that scale. A box plot or a dot plot would also respect the measured scale; what the level rules out is a picture that invents spacing the data does not have. Putting the sex codes 1 and 2 on a histogram axis invents a scale that was never measured, and the picture then implies a midpoint at 1.5 that no participant can occupy.
 
 :::{check}
 :id: check-permission-reasoning
