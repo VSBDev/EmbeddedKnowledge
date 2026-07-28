@@ -8,6 +8,7 @@ Close the lesson and try to complete these sentences from memory:
 4. The four scope-test questions ask…
 5. Academic learning can prepare me to…, but it does not authorize me to…
 
+
 Now compare your reconstruction with this compact map:
 
 - **Mind, brain, person, relationship, culture, and system** keep six kinds of question available.

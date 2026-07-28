@@ -41,7 +41,7 @@ The test is not a licensing code. Its job is to expose why an action belongs on 
 **Self-explanation.** Which part of the scope test—not which mental-health topic—most strongly determines why Ana and Ben fall on different sides of the boundary?
 :::
 
-A strong answer names at least the real-versus-fictional target and the proposed action. Ben is not outside scope merely because diagnosis is “advanced.” He is outside scope because he applies a clinical conclusion to a real person without the evidence, supervision, and authority that action requires.
+A strong answer names at least the real-versus-fictional target and the proposed action. Ben is not outside scope because diagnosis is “advanced.” He is outside scope for a different reason. He applies a clinical conclusion to a real person, without the evidence, the supervision, and authority that action requires.
 
 :::{source-note}
 :claims: claim-authority-requires-governed-practice, claim-routes-vary-by-jurisdiction

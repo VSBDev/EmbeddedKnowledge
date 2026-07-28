@@ -43,12 +43,12 @@ Mina is fictional. A student group wants to build a classroom presentation about
 
 Create a new fictional situation in two sentences, without borrowing from a real person's private experience. Then:
 
-- write one question for each of the six lenses;
-- identify the two lenses you would investigate first and explain why, without declaring the others irrelevant;
-- propose one academic task and one action that would require a separate clinical route;
+- write one question for each of the six lenses.
+- identify the two lenses you would investigate first and explain why, without declaring the others irrelevant.
+- propose one academic task and one action that would require a separate clinical route.
 - justify both classifications with the four-question scope test.
 
-Use this quality check: each lens should change the question being asked; each boundary decision should name the target and action; and at least one possible finding should be able to change your priorities.
+Use this quality check. Each lens should change the question being asked. Each boundary decision should name the target and the action. And at least one possible finding should be able to change your priorities.
 
 :::{source-note}
 :claims: claim-integrated-field-model, claim-lenses-are-question-generators, claim-authority-requires-governed-practice, claim-personal-stories-require-governance
