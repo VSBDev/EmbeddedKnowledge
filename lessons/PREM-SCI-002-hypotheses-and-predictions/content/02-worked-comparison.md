@@ -1,6 +1,6 @@
 # Make two explanations disagree
 
-Return to the apple question. The case and numerical results below are fictional. You do not need apples, laboratory access, or personal experience with browning to follow the reasoning.
+Return to the apple question in its timing form. The case and numerical results below are fictional. You do not need apples, laboratory access, or personal experience with browning to follow the reasoning.
 
 :::{worked-example}
 :id: worked-example-apple-comparison
