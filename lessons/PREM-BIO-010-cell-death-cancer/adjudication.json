@@ -1,0 +1,175 @@
+{
+  "schemaVersion": 1,
+  "adjudicationId": "ADJ-PREM-BIO-010-87C6D7EE",
+  "lessonId": "PREM-BIO-010",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "2a22dceb44dde64a657b6a65d8a5c6f43ae73fbd",
+  "finalCommit": "3cfbd191b5a8c8689095d842b953791f9b5b6f73",
+  "riskTier": "standard",
+  "policyId": "standard-lesson-v3",
+  "reviewIds": [
+    "REV-PREM-BIO-010-ACADEMIC-8CFAB05C",
+    "REV-PREM-BIO-010-D037B825-9DD8-41A9-B863-B64E57B1EC70"
+  ],
+  "quorum": {
+    "satisfied": true,
+    "approvals": 1,
+    "reviewInputs": 2,
+    "changeRequests": 1,
+    "roleCounts": {
+      "academic": 1,
+      "learningDesign": 1,
+      "accessibilityRights": 0
+    },
+    "distinctPrincipals": 1,
+    "distinctAgentRuns": 2,
+    "distinctAgentModelFamilies": 2
+  },
+  "decision": "merge",
+  "rationale": "Both role-isolated advisory inputs were present from distinct runs and model families, pinned to the same frozen candidate. The learning-design review approved with five notes; the academic review returned request-changes with six major findings and three minor, one of which was a verification of every calculation in the pack. None carries blocking severity and all eight actionable findings were correctable in this pass, so all were disposed here. The most important was a logic error in an objective: evidence that normal working tissue carries driver mutations under positive selection refutes sufficiency and establishes nothing about necessity, and the objective required the learner to state necessity as fact while the pack's own assessment already conceded it was untouched. Three further findings were the same over-reach in different places, and all three are the characteristic failure of a lesson about cancer: an APC claim running from a measured decoupling to unmeasured outcomes, a concept map asserting that three named controls were intact when the study measured tissue function rather than those controls, and a clinical case concluding a removal mechanism had failed from a fixed section, which cannot measure a rate. Since this is the most health-sensitive pack in the block, narrowing each of those to what its evidence carries matters more here than anywhere else in the module. The academic verdict stands as dissent and no reviewer has seen the repaired text.",
+  "dissent": [
+    "The academic review's request-changes verdict stands as material dissent from the candidate as reviewed. Its findings were incorporated by the maintainer afterwards; no reviewer has approved the repaired text.",
+    "The tissue-context evidence remains eyelid epidermis from four donors, because no colon-specific normal-tissue mutation dataset was reachable within this project's permitted routes. The transfer to the colon is stated as a use of the model in the prose, the claim and the retrieval check, and it is the pack's largest evidential limitation.",
+    "Whether the colonic crypt shows senescence at all is not addressed by the sources used, so the pack teaches senescence without claiming it occurs in the tissue the block follows.",
+    "PREM-BIO-008 was being authored in parallel and could not be read. One statement about arrest on DNA damage is borrowed and sourced independently; if the two packs disagree once both are published, this one changes."
+  ],
+  "conditions": [
+    "The repaired content is committed first and that commit is stamped as finalCommit, with no teaching-content change afterward.",
+    "Strict source preflight and full validation must pass on the final content before merge.",
+    "The publication transition is the maintainer's separate act and is not authorised by this decision."
+  ],
+  "adjudicator": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable maintainer and adjudicator",
+    "agent": {
+      "system": "Claude Code",
+      "provider": "Anthropic",
+      "model": "claude-opus-5",
+      "version": "2.1.215",
+      "runId": "claude-adjudicator-PREM-BIO-010-898545119D28",
+      "instructionsDigest": "sha256:44ffb6149fd85410c75cffd23a5b33b5c5241e7bd1a0fa7378ef6f4b881a901d"
+    }
+  },
+  "adjudicatedAt": "2026-07-28T00:04:54Z",
+  "finalization": {
+    "materialChanges": [
+      "Corrected the direction of population change under a production and loss imbalance.",
+      "Turned the rate model from a claimed floor into an illustration, naming the density-dependent effects that could move it either way.",
+      "Narrowed the APC claim to the decoupling its sources measured and downgraded its support to inference.",
+      "Rewrote the mutation objective so the learner states what the evidence does and does not settle about necessity.",
+      "Removed the concept map's assertions about which controls held, and named the context it does not draw.",
+      "Rewrote the clinical conclusion as one control given way, one suspected and two holding, with what a demonstration would require.",
+      "Made the senescence secretion option and its marker guidance reflect the heterogeneity of the programme.",
+      "Gave the climb rate a claim and carried its reference forward from the merged PREM-BIO-006 pack.",
+      "Attributed the gap-sealing interval to small-intestinal work in the learner-facing sentence."
+    ],
+    "reviewDispositions": [
+      {
+        "reviewId": "REV-PREM-BIO-010-ACADEMIC-8CFAB05C",
+        "findingIndex": 0,
+        "action": "incorporated",
+        "rationale": "content/01-where-the-cells-go.md: the direction is corrected, so fewer departures accumulate and more shrink the crypt, which agrees with the balance equation and the keyed item."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-010-ACADEMIC-8CFAB05C",
+        "findingIndex": 1,
+        "action": "incorporated",
+        "rationale": "content/05-climb-stops-ending.md: the rate model is an illustration and no longer a floor, with retained cells possibly not dividing and density-dependent changes in production, extrusion, differentiation, death and geometry named as able to move the outcome either way."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-010-ACADEMIC-8CFAB05C",
+        "findingIndex": 2,
+        "action": "incorporated",
+        "rationale": "claims.json: claim-apc-loss-decouples-position is narrowed to the decoupling the sources measured, its support downgraded to inference, and the unmeasured outcomes named in its uncertainty as this lesson's reading."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-010-ACADEMIC-8CFAB05C",
+        "findingIndex": 3,
+        "action": "incorporated",
+        "rationale": "lesson.json: objective-explain-mutation-insufficiency now requires the learner to state what the normal-tissue evidence does and does not settle, since refuting sufficiency establishes nothing about necessity."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-010-ACADEMIC-8CFAB05C",
+        "findingIndex": 4,
+        "action": "incorporated",
+        "rationale": "diagrams/one-driver-many-outcomes.diagram.json: the map no longer asserts which controls held or that they explain the benign outcome, says the study measured tissue function rather than those controls, and names the immune, stromal, lineage and variant context it does not draw."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-010-ACADEMIC-8CFAB05C",
+        "findingIndex": 5,
+        "action": "incorporated",
+        "rationale": "content/08-clinical-wrap-up.md: the case concludes one control given way, one under suspicion and two holding, and states that a fixed section cannot measure a rate and what a demonstration of failed removal would need."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-010-ACADEMIC-8CFAB05C",
+        "findingIndex": 6,
+        "action": "incorporated",
+        "rationale": "assessment.json: item-senescence-properties says many senescent cells secrete the programme rather than all, and the marker is told that noting the heterogeneity is the better answer."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-010-ACADEMIC-8CFAB05C",
+        "findingIndex": 7,
+        "action": "incorporated",
+        "rationale": "claims.json, references.json and content/01-where-the-cells-go.md: the climb rate now carries claim-crypt-migration-speed, exposed in the scene that asserts it, with the reference record brought forward from the merged PREM-BIO-006 pack."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-010-ACADEMIC-8CFAB05C",
+        "findingIndex": 8,
+        "action": "incorporated",
+        "rationale": "content/08-clinical-wrap-up.md: the twenty-minute sealing interval is attributed to small-intestinal villus-tip work in the learner-facing sentence rather than transferred to the colon silently."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-010-ACADEMIC-8CFAB05C",
+        "findingIndex": 9,
+        "action": "no-change-required",
+        "rationale": "An independent recomputation of every figure in the pack, confirming all of them under their stated assumptions. Recorded as verification."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-010-D037B825-9DD8-41A9-B863-B64E57B1EC70",
+        "findingIndex": 0,
+        "action": "no-change-required",
+        "rationale": "Recorded as a strength of the candidate; nothing to change."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-010-D037B825-9DD8-41A9-B863-B64E57B1EC70",
+        "findingIndex": 1,
+        "action": "no-change-required",
+        "rationale": "Recorded as a strength of the candidate; nothing to change."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-010-D037B825-9DD8-41A9-B863-B64E57B1EC70",
+        "findingIndex": 2,
+        "action": "no-change-required",
+        "rationale": "Recorded as a strength of the candidate; nothing to change."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-010-D037B825-9DD8-41A9-B863-B64E57B1EC70",
+        "findingIndex": 3,
+        "action": "no-change-required",
+        "rationale": "Recorded as a strength of the candidate; nothing to change."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-010-D037B825-9DD8-41A9-B863-B64E57B1EC70",
+        "findingIndex": 4,
+        "action": "no-change-required",
+        "rationale": "Recorded as a strength of the candidate; nothing to change."
+      }
+    ],
+    "accessibilityRightsAudit": {
+      "satisfied": true,
+      "evidenceChecked": [
+        "All eight scenes keep one level-one heading, semantic Markdown, linear reading order and text-first instruction, with no raw HTML, embeds or executable content.",
+        "Both diagrams' alt text and long descriptions were rewritten with the concept-map repair and describe the graph the renderer draws from the edges.",
+        "Every source is used facts-only from pmc.ncbi.nlm.nih.gov, which the ledger records as allowed; two access refusals encountered during authoring are recorded and neither was circumvented.",
+        "The health-sensitive material carries its boundary in three scenes, names no diagnosis, prognosis, staging, treatment, screening or oncology management, and uses no war metaphor.",
+        "Every repair narrows a claim to its evidence, which in the most health-sensitive pack of the block is the change that matters most."
+      ],
+      "limitations": [
+        "A maintainer reading of the repaired text, not an independent accessibility or rights review; the accessibility-rights role was not staffed for this tier.",
+        "No screen-reader run was performed against the rendered lesson.",
+        "The tissue-context evidence is eyelid epidermis rather than colon.",
+        "The concept map was rewritten after review and has been seen only by the maintainer."
+      ]
+    }
+  }
+}
