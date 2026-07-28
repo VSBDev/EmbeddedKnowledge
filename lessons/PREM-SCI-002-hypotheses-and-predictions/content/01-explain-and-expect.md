@@ -48,7 +48,7 @@ Suppose a second student proposes:
 
 That is a different hypothesis. It leads to a different expectation: lemon-coated and water-coated slices should reach level 3 at about the same time. Now the same record can separate two explanations because the explanations do not expect the same outcome.
 
-The strongest comparison is not “Did my preferred result occur?” It is “Which result should occur under each plausible hypothesis, and where do their expectations differ?”
+The comparison worth making here is not “Did my preferred result occur?” It is “Which result should occur under each plausible hypothesis, and where do their expectations differ?”
 
 :::{check}
 :id: check-role-retrieval
