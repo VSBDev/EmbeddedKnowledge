@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-diagram-v1",
+  "id": "diagram-one-driver-many-outcomes",
+  "type": "concept-map",
+  "direction": "left-to-right",
+  "alt": "A driver mutation gives a clone in tissue that is still working; further drivers over decades, together with controls giving way, give growth that does not end.",
+  "longDescription": "A driver mutation contributes a growth advantage and gives a clone within working tissue. That the tissue is still working is an observation from the normal-skin study, which measured mutation and clonal selection and found gross tissue function preserved; which particular controls were holding, and whether they are what kept the clone benign, that study did not measure and this map does not claim. Over decades the clone may acquire further drivers, a typical tumour carrying two to eight, and growth that does not end follows from those accumulated drivers together with the giving way of the tissue's own controls. Other context matters and is not drawn here: immune surveillance, the surrounding stroma, which lineage the cell belongs to, and which particular variant it carries. The map's point is that one driver is not sufficient, and that what happens next depends on the tissue as well as on the mutation.",
+  "nodes": [
+    {
+      "id": "node-driver",
+      "label": "A driver mutation",
+      "shape": "pill",
+      "group": "genome"
+    },
+    {
+      "id": "node-controls-hold",
+      "label": "Tissue still working",
+      "shape": "rounded-box",
+      "group": "context"
+    },
+    {
+      "id": "node-clone",
+      "label": "A clone in working tissue",
+      "shape": "box",
+      "group": "outcome"
+    },
+    {
+      "id": "node-more-drivers",
+      "label": "More drivers over decades",
+      "shape": "pill",
+      "group": "genome"
+    },
+    {
+      "id": "node-controls-fail",
+      "label": "Controls give way too",
+      "shape": "rounded-box",
+      "group": "context"
+    },
+    {
+      "id": "node-unending",
+      "label": "Growth that does not end",
+      "shape": "box",
+      "group": "outcome"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-driver-clone",
+      "from": "node-driver",
+      "to": "node-clone",
+      "kind": "directed",
+      "label": "one driver contributes a growth advantage"
+    },
+    {
+      "id": "edge-controls-hold-clone",
+      "from": "node-controls-hold",
+      "to": "node-clone",
+      "kind": "directed",
+      "label": "the tissue still works; which controls held was not measured"
+    },
+    {
+      "id": "edge-clone-more-drivers",
+      "from": "node-clone",
+      "to": "node-more-drivers",
+      "kind": "directed",
+      "label": "over decades; a typical tumour carries two to eight drivers"
+    },
+    {
+      "id": "edge-more-drivers-unending",
+      "from": "node-more-drivers",
+      "to": "node-unending",
+      "kind": "directed",
+      "label": "the accumulated drivers contribute to this outcome"
+    },
+    {
+      "id": "edge-controls-fail-unending",
+      "from": "node-controls-fail",
+      "to": "node-unending",
+      "kind": "directed",
+      "label": "and so does the giving way of controls, with immune and stromal context"
+    }
+  ]
+}
