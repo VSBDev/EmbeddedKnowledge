@@ -22,16 +22,16 @@ A mind-lens question could ask how the reporting requirement changes attention, 
 
 Your evidence plan should distinguish the initial observation—lower completion—from a causal explanation. It should also include outcomes that could reveal harm, not only the outcome the administrator hopes to improve.
 
-The work remains academic when you compare evidence, assumptions, rights, and possible system effects. It would cross into a different governed route if you used the policy exercise to assess a named student's mental state, direct that student's treatment, or claim professional authority over an individual decision.
+The work remains academic when you compare evidence, assumptions, rights, and possible system effects. It would cross into a different governed route in three cases. If you used the policy exercise to assess a named student's mental state. If you directed that student's treatment. Or if you claimed professional authority over an individual decision.
 
 ## What successful transfer looks like
 
 You have transferred the model if you can:
 
-- select rather than mechanically list lenses;
-- show how a policy changes the questions each selected lens asks;
-- keep affected people's goals and system power visible;
-- identify evidence that would change your conclusion;
+- select rather than mechanically list lenses.
+- show how a policy changes the questions each selected lens asks.
+- keep affected people's goals and system power visible.
+- identify evidence that would change your conclusion.
 - state the boundary between policy analysis and individual clinical judgment.
 
 If your plan simply says “consider all factors,” revise it. Name the factor, the lens, the question, the evidence, and the limit.

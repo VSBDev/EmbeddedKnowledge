@@ -12,8 +12,8 @@ That breadth is what makes psychiatry demanding and worth studying. You will mov
 
 By the end of this lesson, you should be able to:
 
-- reconstruct six lenses—mind, brain, person, relationship, culture, and system—and explain the question each adds;
-- explain why using several lenses does not mean declaring six equal causes;
+- reconstruct six lenses—mind, brain, person, relationship, culture, and system—and explain the question each adds.
+- explain why using several lenses does not mean declaring six equal causes.
 - decide whether a task belongs to academic or simulated learning, or instead requires clinical authority.
 
 You need no prior psychiatry study. No personal disclosure is required. Every example is fictional, and you may answer in writing, by speech-to-text, in a transcribed recording, or with a tutor.
