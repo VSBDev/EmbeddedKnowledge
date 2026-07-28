@@ -36,11 +36,14 @@ if [ "$PRIMARY_BRANCH" = "HEAD" ]; then
   exit 1
 fi
 WT="$WORK/final-$PR-$$"
+KEEP_WORKTREE=0
 restore_primary() {
   local now
   now=$(git -C "$ROOT" rev-parse --abbrev-ref HEAD)
   [ "$now" = "$PRIMARY_BRANCH" ] || git -C "$ROOT" checkout -q "$PRIMARY_BRANCH"
-  rm -rf "$WT" 2>/dev/null || true
+  # An adjudication run costs a quarter of a million tokens. Discarding one over a schema slip an
+  # operator could fix in a minute is the expensive kind of tidiness.
+  [ "$KEEP_WORKTREE" = "1" ] || rm -rf "$WT" 2>/dev/null || true
 }
 trap 'restore_primary; rmdir "$LOCK" 2>/dev/null || true' EXIT
 
@@ -86,7 +89,11 @@ You are the FRESH FINALIZER / ADJUDICATOR for one EmbeddedKnowledge lesson, per
 did not write any review. Follow that skill.
 
 SCOPE: work only inside lessons/$PACK/ . Do NOT read or modify scripts/, site/, workflows, or any
-other lesson pack. Consult CONTENT-STANDARD.md and RIGHTS-POLICY.md at most once each.
+other lesson pack, with one exception: you MUST read site/schemas/adjudication.schema.json, because
+task 4 requires your output to conform to it. It sets additionalProperties false on every
+reviewDisposition, so a disposition carries exactly reviewId, findingIndex, action, and rationale --
+put anything else in the rationale text. Consult CONTENT-STANDARD.md and RIGHTS-POLICY.md at most
+once each.
 
 CONTEXT
 - Lesson pack: lessons/$PACK    Lesson ID: $LESSON    Version: $VERSION
@@ -152,22 +159,31 @@ adjudication.json against reviewed candidate $REVIEW_CANDIDATE."
   FINAL=$(git -C "$WT" rev-parse HEAD)
 fi
 
+# Stamp BEFORE validating. The stamp writes the real finalCommit and the runtime provenance, and
+# validate-lessons.mjs checks for exactly those: an unstamped artifact fails on the placeholder every
+# time, so validating first could only ever report the two things the next line was about to fix.
+node "$ROOT/scripts/stamp-agent-provenance.mjs" "$WT/lessons/$PACK/adjudication.json" \
+  --system="OpenAI Codex" --provider="OpenAI" --model="$MODEL" --version="$VER" --final-commit="$FINAL"
+
 # Validate the finalizer's content revision before trusting it. The finalizer runs in a clone
 # without node_modules and its prompt forbids npm, so it cannot self-validate; a schema violation
 # (e.g. an over-long field) would otherwise reach CI. Symlink deps and validate here.
 ln -sfn "$ROOT/node_modules" "$WT/node_modules"
 EXC_F=$(git -C "$WT" rev-parse --git-path info/exclude); echo node_modules >> "$EXC_F"
-( cd "$WT" && npm run --silent site:build >/dev/null 2>&1 && npm run validate ) > "$WORK/finalvalidate-$PR.log" 2>&1
-if [ "${PIPESTATUS:-$?}" -ne 0 ] && ! grep -q "packs valid" "$WORK/finalvalidate-$PR.log"; then
+# `|| true` because set -e would otherwise kill the script on the failing subshell and take every
+# diagnostic below it with it. A run that failed here reported nothing but its exit code, which is
+# the opposite of what this block was written to do.
+VALIDATE_STATUS=0
+( cd "$WT" && npm run --silent site:build >/dev/null 2>&1 && npm run validate ) > "$WORK/finalvalidate-$PR.log" 2>&1 || VALIDATE_STATUS=$?
+if [ "$VALIDATE_STATUS" -ne 0 ]; then
   echo "[$PR/finalizer] FAILED: finalizer output does not validate; see $WORK/finalvalidate-$PR.log"
   grep -iE "must NOT|error|invalid|required" "$WORK/finalvalidate-$PR.log" | head -5
+  echo "[$PR/finalizer] the worktree is kept at $WT so the adjudication can be repaired rather than rerun"
+  KEEP_WORKTREE=1
   exit 1
 fi
 # discard the site rebuild from the clone; site output is regenerated on the branch by finish-pr
 git -C "$WT" checkout -- site/ 2>/dev/null || true
-
-node "$ROOT/scripts/stamp-agent-provenance.mjs" "$WT/lessons/$PACK/adjudication.json" \
-  --system="OpenAI Codex" --provider="OpenAI" --model="$MODEL" --version="$VER" --final-commit="$FINAL"
 
 DECISION=$(python3 -c 'import json,sys;print(json.load(open(sys.argv[1]))["decision"])' "$WT/lessons/$PACK/adjudication.json")
 git -C "$WT" add "lessons/$PACK/adjudication.json"
