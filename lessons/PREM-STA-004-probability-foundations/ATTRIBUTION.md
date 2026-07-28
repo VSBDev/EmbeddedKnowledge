@@ -4,7 +4,7 @@
 
 - Lesson: **PREM-STA-004 — What chance alone would produce**
 - Graph outcome: `topic-statistics-data-probability` (PREM-04.04, "Probability foundations")
-- Version and state: **0.2.0 / draft / pending review**
+- Version and state as received by this finalization run: **0.2.0 / published / medium-high source confidence**
 - Accountable principal: **VSBDev** (`github:VSBDev`), confirmed through the authenticated GitHub CLI session on 25 July 2026
 - Course-content license: **Creative Commons Attribution 4.0 International (CC BY 4.0)**
 
@@ -30,9 +30,9 @@ The following material is original, created for this pack, and offered under CC 
 - the sixty-row dinner-timing table and its 21 / 9 / 12 / 18 split;
 - the forty-night running-share record and the declarative chart derived from it;
 - the two invented screening clinics, their 2 in 100 and 20 in 100 compositions, and every cell in both tables;
-- the adherence-rating practice table, the automated-meter flag scenario, and all five practice tasks;
+- the adherence-rating practice table, the automated-meter flag scenario, the natural-frequency screening practice table, and all six practice tasks;
 - the stipulated single-gene transfer case and its counselling framing;
-- the eighty-adult clinic audit used for the mastery check, and every assessment item, distractor, rubric criterion, and feedback route;
+- the eighty-adult clinic audit and the two-thousand-person natural-frequency screening table used for the mastery check, and every assessment item, distractor, rubric criterion, and feedback route;
 - the registrar wrap-up case and the four sentences it tests;
 - the instructional sequence, headings, accessibility equivalents, and recovery route.
 
@@ -60,7 +60,7 @@ No login, paywall, rate limit, or technical control was bypassed, and no source 
 
 ## Terminology handling
 
-`site/data/premed-terminology.json` was read before the glossary was designed. Thirteen terms are defined here; twelve are new to the course. The exception is declared:
+The authoring record states that `site/data/premed-terminology.json` was read before the glossary was designed; this scope-limited finalization run did not reopen it. Twenty terms are now defined here. The original declared exception is preserved:
 
 - **proportion** carries an `alignment` block with relation `distinct-sense` naming **PREM-QNT-003**, which owns the equal-ratios-equation sense. This lesson introduces the part-to-whole sense, and the opening scene bridges the two before the word is used.
 
@@ -81,4 +81,4 @@ None. The chart under `charts/` is declarative JSON authored for this pack and i
 
 ## Finalization boundary
 
-This pack remains a draft. Every claim in `claims.json` remains `pending-review` and the lesson's `sourceConfidence` remains `pending-review`. The eligible advisory reviews are preserved under `reviews/`, and the fresh finalization record is preserved in `adjudication.json` with its final-commit and runtime identity values reserved for operator stamping. No publication transition has occurred, and none may be inferred from this file.
+This finalization run did not alter publication-state fields. The pack arrived with `lesson.json.status` set to `published`, `sourceConfidence` set to `medium-high`, and every claim in `claims.json` marked `reviewed`; those values remain as received because the operator reserved publication transitions to the maintainer. The eligible advisory reviews are preserved unchanged under `reviews/`, and the fresh finalization record is preserved in `adjudication.json` with its final-commit and runtime identity values reserved for operator stamping. This attribution record does not itself authorize or perform a publication transition.

@@ -52,7 +52,7 @@ Nothing here is punitive and nothing is timed. Do not move on until you can prod
 
 ## Scope for this lesson
 
-You will work with finitely many outcomes you can count. You will not meet probability density, expectation and variance of a random variable, Bayes' theorem in its general form, combinations and permutations beyond simple counting, or the axioms in their measure-theoretic dress. Lesson 05 takes up distributions; lesson 10 develops the diagnostic measures this lesson only borrows as an example. The lesson is educational and confers no clinical authority.
+You will work with finitely many outcomes you can count. In the screening example you will use natural-frequency Bayes reasoning and calculate sensitivity, specificity, and both predictive values from a two-by-two table. You will not meet probability density, expectation and variance of a random variable, Bayes' theorem in its general algebraic form, combinations and permutations beyond simple counting, or the axioms in their measure-theoretic dress. Lesson 05 takes up distributions; lesson 10 develops how diagnostic measures are estimated and used in practice. The lesson is educational and confers no clinical authority.
 
 :::{source-note}
 :claims: claim-probability-as-long-run-frequency
