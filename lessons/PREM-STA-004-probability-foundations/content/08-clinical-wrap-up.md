@@ -40,7 +40,7 @@ About a 23 per cent probability that something in the report looks interesting w
 
 ## 5. Keep the $p$ pointing the right way
 
-The report will carry $p = 0.029$. From scene 4, its conditioning event is the hypothesis and the model, not the data. So the registrar may think: if dinner timing made no difference and the model held, a difference at least this large would arise about 3 times in 100 studies run this way. She may not think: there is a 3 per cent probability that dinner timing makes no difference. Lesson 08 does the rest of this work.
+The report will carry $p = 0.029$, the figure stipulated in scene 4 rather than one computed here. From scene 4, its conditioning event is the hypothesis and the model, not the data. So the registrar may think: if dinner timing made no difference and the model held, a difference at least this large would arise about 3 times in 100 studies run this way. She may not think: there is a 3 per cent probability that dinner timing makes no difference. Lesson 08 does the rest of this work.
 
 ## 6. What she actually says
 

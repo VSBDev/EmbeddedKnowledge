@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-STA-004-LD-772BF4EA-72A0-4406-93F4-DFBB6C44F475",
+  "lessonId": "PREM-STA-004",
+  "lessonVersion": "0.2.0",
+  "candidateCommit": "aab2602be3c70b463aea5cda13142287ddf9501e",
+  "role": "learning-design",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev (learning-design reviewer)",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.8",
+      "runId": "agy-learning-design-PREM-STA-004-772BF4EA-72A0-4406-93F4-DFBB6C44F475",
+      "instructionsDigest": "sha256:77df622f3cd459e01e52a4da66b51a9f965aedc411880ea749c6e5729a348a50"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Founding-stage isolation check: the accountable principal VSBDev operates the authoring and review runs, so principal-level independence is absent. Agent-level role isolation was strictly maintained: no authoring history, other review output, or adjudication draft was read, and no other EmbeddedKnowledge role script was run during this review execution."
+  },
+  "evidenceChecked": [
+    "lessons/PREM-STA-004-probability-foundations/lesson.json",
+    "lessons/PREM-STA-004-probability-foundations/claims.json",
+    "lessons/PREM-STA-004-probability-foundations/references.json",
+    "lessons/PREM-STA-004-probability-foundations/glossary.json",
+    "lessons/PREM-STA-004-probability-foundations/ATTRIBUTION.md",
+    "lessons/PREM-STA-004-probability-foundations/assessment.json",
+    "lessons/PREM-STA-004-probability-foundations/content/01-sixty-rows.md",
+    "lessons/PREM-STA-004-probability-foundations/content/02-long-run-and-counting.md",
+    "lessons/PREM-STA-004-probability-foundations/content/03-combining-events.md",
+    "lessons/PREM-STA-004-probability-foundations/content/04-inverted-conditional.md",
+    "lessons/PREM-STA-004-probability-foundations/content/05-faded-practice.md",
+    "lessons/PREM-STA-004-probability-foundations/content/06-carry-to-counselling.md",
+    "lessons/PREM-STA-004-probability-foundations/content/07-mastery-and-spacing.md",
+    "lessons/PREM-STA-004-probability-foundations/content/08-clinical-wrap-up.md",
+    "CONTENT-STANDARD.md",
+    "RIGHTS-POLICY.md"
+  ],
+  "findings": [
+    {
+      "severity": "note",
+      "target": "lessons/PREM-STA-004-probability-foundations/content/01-sixty-rows.md#L1",
+      "finding": "The lesson opener successfully passes the first-read gate. It uses a concrete, intuitive study table of sixty fasting glucose readings sorted by dinner timing to anchor part-to-whole fractions and diagnostic prompts. The prose is clean, natural, and free from administrative or metadata-facing jargon. Em-dash density is zero, marker words are absent, and the language is natural to read aloud.",
+      "resolution": "No change required"
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-STA-004-probability-foundations/content/03-combining-events.md#worked-example-two-draws",
+      "finding": "The worked example 'worked-example-two-draws' cleanly illustrates the difference between plain and conditional multiplication rules using two draws without replacement. The addition of the self-explanation prompt ('Explain the key decision to yourself. Why did drawing without replacement require the conditional form of the multiplication rule instead of the plain product?') successfully encourages learners to reflect on the core conceptual distinction rather than just copying arithmetic steps, conforming to Section 5.1 of CONTENT-STANDARD.md.",
+      "resolution": "No change required"
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-STA-004-probability-foundations/assessment.json#assessment-probability-foundations-mastery",
+      "finding": "The assessment items in assessment.json show rigorous alignment with the lesson's four learning objectives. Each of the five items (union from audit, conditional probability, independence check, screening inversion, and gambler's fallacy run of mornings) maps to a distinct cognitive performance taught in the scenes. The rubrics reward logical reasoning (identifying correct denominators, applying correct rules) rather than just correct numerical values.",
+      "resolution": "No change required"
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-STA-004-probability-foundations/content/06-carry-to-counselling.md#L1",
+      "finding": "The transfer scene carries the probability concepts into a completely separate genetics counselling scenario involving single-gene recessive inheritance. The task requires selecting and adapting the complement, multiplication, and conditional probability rules to determine carrier probabilities among unaffected children, which constitutes a genuine transfer task rather than a superficial change of numbers.",
+      "resolution": "No change required"
+    }
+  ],
+  "limitations": [
+    "Expert-simulation review: This review represents a single-pass evaluation by a simulated learning-design expert under standard-lesson-v3 guidelines. No real learner testing or user studies were conducted.",
+    "Conflict of interest: The same GitHub principal (VSBDev) is responsible for the authoring and review runs, meaning principal-level independence is absent.",
+    "Scope restriction: Evaluated solely for learning-design criteria (clarity, instructional alignment, retrieval, practice, transfer, misconception repair, and assessment). Scientific accuracy of clinical details, rights audits, and final typesetting checks are excluded.",
+    "Technical verification limits: No screen reader, keyboard navigation, zoom/reflow, or device-specific layout testing was performed. Review was conducted entirely on the static Markdown and JSON source files.",
+    "Unreachable schemas and scripts: In compliance with the user's scope restrictions, the directories site/ and scripts/ were not opened, and validation was performed only via the overall npm run validate execution."
+  ],
+  "signedAt": "2026-07-28T18:52:00Z"
+}

@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-STA-004-ACADEMIC-C3A3065B",
+  "lessonId": "PREM-STA-004",
+  "lessonVersion": "0.2.0",
+  "candidateCommit": "aab2602be3c70b463aea5cda13142287ddf9501e",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable academic reviewer",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-STA-004-C3A3065B-BE77-4488-B75D-6C3B702D5570",
+      "instructionsDigest": "sha256:c8b3ac431707791fbc03c7cbe06d0b47163e538a9d5576854f89b763a4b026ec"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "The accountable reviewer principal is also the lesson's accountable author principal. Founding-stage policy permits one principal to operate isolated agents, but this removes principal-level independence. This review used the distinct run ID disclosed above and reached its own academic verdict."
+  },
+  "evidenceChecked": [
+    "lesson.json#complete identity, outcomes, prerequisites, objectives, scenes, status, provenance, and source-confidence record",
+    "ATTRIBUTION.md#complete attribution, original-synthesis, source-use, terminology, and boundary record",
+    "adjudication.json#complete artifact, read because the operator required every pack file; prior dispositions were not treated as evidence of correctness",
+    "assessment.json#all five items, answer keys, distractors, feedback, and rubrics",
+    "charts/running-share-of-high-nights.chart.json#all points, labels, markers, alt text, and long description",
+    "claims.json#all seven claims, scopes, uncertainties, risks, scene mappings, and source mappings",
+    "content/01-sixty-rows.md#complete scene",
+    "content/02-long-run-and-counting.md#complete scene",
+    "content/03-combining-events.md#complete scene",
+    "content/04-inverted-conditional.md#complete scene",
+    "content/05-faded-practice.md#complete scene",
+    "content/06-carry-to-counselling.md#complete scene",
+    "content/07-mastery-and-spacing.md#complete scene",
+    "content/08-clinical-wrap-up.md#complete scene",
+    "glossary.json#all thirteen terms and proportion alignment",
+    "references.json#all eight source records, locators, uses, rights bases, and agent-access declarations",
+    "reviews/REV-PREM-STA-004-ACADEMIC-791A9D01.json#complete artifact, read because the operator required every pack file; its conclusions were not adopted as verification",
+    "reviews/REV-PREM-STA-004-LD-6B4EA9BA.json#complete artifact, read because the operator required every pack file; its conclusions were not adopted as verification",
+    "course/PREMED-SYLLABUS.md#QRS-107 probability outcome",
+    "references.json#source-sep-probability-interpretations, checked against https://plato.stanford.edu/entries/probability-interpret/",
+    "references.json#source-gum-statistical-terms, checked against https://www.bipm.org/documents/20126/2071204/JCGM_100_2008_E.pdf",
+    "references.json#source-eom-conditional-probability, checked against https://encyclopediaofmath.org/wiki/Conditional_probability",
+    "references.json#source-eom-independence, checked against https://encyclopediaofmath.org/wiki/Independence",
+    "references.json#source-eom-law-of-large-numbers, checked against https://encyclopediaofmath.org/wiki/Law_of_large_numbers",
+    "references.json#source-screening-predictive-values, checked against https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2017.00307/full",
+    "references.json#source-p-value-misinterpretations, checked against https://link.springer.com/article/10.1007/s10654-016-0149-3",
+    "references.json#source-resident-probability-biases, metadata and reported results checked against the accessible institutional publication record and indexed article text",
+    "Independent recomputation of every displayed table fraction, complement, union, conditional probability, product, screening table, without-replacement calculation, genetics calculation, assessment key, chart count, and multiplicity example"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "lesson.json#outcomes[topic-statistics-data-probability]",
+      "finding": "The mapped QRS-107 probability outcome requires learners to use complements, conditional probability, independence, counting, Bayes reasoning with natural frequencies, sensitivity, specificity, and predictive values. The lesson teaches the first four well and demonstrates one natural-frequency screening calculation, but content/01-sixty-rows.md explicitly defers the diagnostic measures, the lesson never names sensitivity, specificity, or predictive value as knowledge learners must use, and assessment.json#item-screening-inversion tests recognition of required inputs rather than construction or calculation from natural frequencies. The objectives and mastery evidence therefore do not establish the full performance represented by the single mapped outcome. Under the project's outcome-first rule, mapping the full atomic outcome while deferring part of it is outcome-defeating.",
+      "resolution": "Either map the lesson to a narrower existing graph outcome that exactly matches the taught foundations, or add observable objectives, instruction, practice, and assessment requiring learners to use natural frequencies and the sensitivity, specificity, and predictive-value quantities at the full QRS-107 scope."
+    },
+    {
+      "severity": "minor",
+      "target": "content/04-inverted-conditional.md#the-inversion-this-block-is-really-aiming-at",
+      "finding": "The exact two-sided p value of 0.029 is not reproducible from any stated test statistic, analysis model, or supplied continuous data. If it is intended to arise from the displayed 2-by-2 table, common two-sided procedures do not give 0.029: the Pearson chi-square approximation gives about 0.0195, Fisher's exact test about 0.0370, and the continuity-corrected chi-square about 0.0379. The cited p-value source supports the interpretation of a p value, not this invented numerical result. The same unsupported value recurs in content/08-clinical-wrap-up.md.",
+      "resolution": "Label 0.029 explicitly as a stipulated result from a named later analysis, supply the analysis and inputs that reproduce it, or remove the exact value and teach the conditional direction with a clearly hypothetical p value."
+    },
+    {
+      "severity": "minor",
+      "target": "assessment.json#item-screening-inversion",
+      "finding": "The keyed option correctly says that computing the probability of the condition given a positive result needs both prevalence and the positive-result rate among people without the condition. The answer summary, scoring reasoning, and rubric criterion then identify only prevalence as the missing quantity. Detection rate plus prevalence is still insufficient without the false-positive rate or equivalent specificity, so the feedback and rubric reward an incomplete computational model.",
+      "resolution": "Revise the summary, reasoning, and rubric to require both prevalence and the false-positive rate or specificity, matching the keyed option and the calculation used in its distractor feedback."
+    },
+    {
+      "severity": "minor",
+      "target": "content/01-sixty-rows.md#what-you-already-need",
+      "finding": "Calling the reversed-denominator distinction the lesson's \"single most consequential idea\" is an unsupported superlative. The mapped sources establish the mathematical distinction and its applications but do not rank its consequence above every other idea in the lesson.",
+      "resolution": "Replace the superlative with a plain scoped description, such as \"the central distinction used throughout this lesson.\""
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#all-items-and-answer-keys",
+      "finding": "Independent recomputation confirmed the principal assessment values and the lesson's other worked arithmetic: 68/80 = 0.85, 15/43 = 0.348837, 0.50 times 0.5375 = 0.26875 versus the observed joint probability 0.1875, 184/674 = 0.272997, and 0.625 to the sixth power = 0.059605. The without-replacement, screening, complement, genetics, chart, and five-comparison calculations also agree with their stated assumptions.",
+      "resolution": "No change required to these numerical keys; preserve them while resolving the findings above."
+    }
+  ],
+  "limitations": [
+    "Per the operator's scope, site/, scripts/, workflows, and other lesson packs were not read. The generated graph node, terminology ledger, review schema, and repository validation output were therefore not independently inspected; QRS-107 was checked in the canonical course syllabus, and the candidate's explicit terminology bridges were inspected.",
+    "No npm validation or rendered-environment testing was performed because doing so would traverse excluded scripts and site materials. This limitation concerns structural validation, not the academic verdict.",
+    "The official PubMed display routes returned access challenges. The mathematical sources, BIPM standard, Frontiers article, and Springer article were checked directly; the medical-resident result was checked through accessible indexed article text and an institutional publication record.",
+    "This review covers probability, introductory statistics, calculations, source interpretation, and the boundaries of stipulated clinical and genetics examples. It does not claim specialist clinical-genetics or diagnostic-practice expertise.",
+    "The candidate commit exists, contains the stated pack, and the working-tree version of that pack has no differences from the candidate commit."
+  ],
+  "signedAt": "2026-07-28T18:49:41Z"
+}

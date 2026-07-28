@@ -38,7 +38,7 @@ Answer from the table, from memory of part-to-whole fractions, before reading on
 Work all four before checking the routing below.
 :::
 
-The answers are 33/60 = 0.55, then 21/30 = 0.70, then 21/33 = 0.64 to two decimal places. They differ because each divides the same 21 people by a different whole. Question 2 asks about late diners; question 3 asks about high readings. If that landed, you are ready. If question 4 felt like a trick, it was not, and the distinction it points at is the single most consequential idea in this lesson.
+The answers are 33/60 = 0.55, then 21/30 = 0.70, then 21/33 = 0.64 to two decimal places. They differ because each divides the same 21 people by a different whole. Question 2 asks about late diners; question 3 asks about high readings. If that landed, you are ready. If question 4 felt like a trick, it was not, and the distinction it points at is the one this lesson is built around.
 
 ## Recovery route
 

@@ -73,7 +73,7 @@ and $P(\text{condition} \mid \text{positive}) = 0.018 / 0.067 \approx 0.269$. In
 
 ## The inversion this block is really aiming at
 
-The dinner-timing study will report a two-sided $p$ of 0.029. Lesson 08 unpacks what that number is; here, only its direction matters.
+The dinner-timing study will report a two-sided $p$ of 0.029. That figure is stipulated for this teaching thread, not computed from any table in this lesson; lesson 08 supplies the analysis it comes from and unpacks what it means. Here only its direction matters.
 
 A $p$ value is computed by assuming the tested hypothesis and the rest of the statistical model are correct, then asking how extreme the observed result is under that assumption. Its conditioning event is the hypothesis. It is therefore not the probability that the hypothesis is true given the data, and reading it that way inverts the conditional exactly as the screening sentence did.
 
