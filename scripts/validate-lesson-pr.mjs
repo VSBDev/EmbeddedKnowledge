@@ -4,7 +4,7 @@ import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import { claimsChangeIsGovernanceOnly, lessonMetadataChangeIsGovernanceOnly } from "./lib/candidate-governance.mjs";
 import { lessonPrOutsideFiles, validateFullLessonPackRemoval } from "./lib/lesson-pr-file-scope.mjs";
-import { calibrationProblems } from "./lib/calibration-gate.mjs";
+import { calibrationProblems, isCalibrationPath } from "./lib/calibration-gate.mjs";
 import { lessonPrStage } from "./lib/lesson-pr-stage.mjs";
 import { applySourcePreflightExemptions, preflightSourceAccess } from "./lib/source-access-preflight.mjs";
 import { finalCommitLineageRequired, finalizationRequired, resolveRule } from "./lib/quorum-policy.mjs";
@@ -39,10 +39,6 @@ const errors = [];
 // and one pull request per integer is not review, it is paperwork. The class is allowed to span packs
 // on the same terms the rephrasing tier gets: everything except the duration fields must be
 // bit-identical, and calibration-gate.mjs proves it rather than trusting the claim.
-// Only two shapes of path may appear: the pack metadata a calibration edits, and the generated
-// detail the trusted site build derives from it.
-const isCalibrationPath = (file) =>
-  /^lessons\/[^/]+\/lesson\.json$/.test(file) || /^site\/data\/lessons\/[A-Z0-9-]+\.json$/.test(file);
 const calibrationOnly = changedFiles.every(isCalibrationPath);
 let calibration = false;
 if (calibrationOnly && packPaths.length) {
