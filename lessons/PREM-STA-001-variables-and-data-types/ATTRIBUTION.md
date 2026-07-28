@@ -3,7 +3,7 @@
 ## Lesson identity
 
 - Lesson: **PREM-STA-001 — Variables and data types: what kind of thing is each column?**
-- Version: `0.1.0`
+- Version: `0.2.0`
 - Outcome: `topic-statistics-data-data-types` / PREM-04.01
 - Accountable principal: VSBDev (`github:VSBDev`)
 - Course-content licence: [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/)

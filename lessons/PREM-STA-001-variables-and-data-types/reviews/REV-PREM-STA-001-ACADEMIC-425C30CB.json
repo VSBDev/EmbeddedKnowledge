@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-STA-001-ACADEMIC-425C30CB",
+  "lessonId": "PREM-STA-001",
+  "lessonVersion": "0.2.0",
+  "candidateCommit": "6908a1de035c86a6899c999de2b88398ec526bbf",
+  "role": "academic",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable academic reviewer",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-STA-001-425C30CB-EED8-49BD-8CA3-4B404E569C91",
+      "instructionsDigest": "sha256:e3f8f742babf11d9a5b05f7e7f42475421ca4fcc2529a3528c42f6560b843533"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "The accountable reviewer principal is also the lesson's accountable author principal, so principal-level independence is absent. The founding-stage policy permits one disclosed principal to operate role-isolated runs; this academic run made no edits and performed only the assigned review role."
+  },
+  "evidenceChecked": [
+    "candidateCommit:6908a1de035c86a6899c999de2b88398ec526bbf#pack-tree-and-working-tree-equivalence",
+    "lesson.json#full-file",
+    "content/01-column-kinds.md#full-scene",
+    "content/02-what-the-level-permits.md#full-scene",
+    "content/03-worked-audit.md#full-scene",
+    "content/04-mean-of-a-code.md#full-scene",
+    "content/05-practice-fading.md#full-scene",
+    "content/06-transfer-triage.md#full-scene",
+    "content/07-clinical-wrap-up.md#full-scene",
+    "assessment.json#all-items-rubrics-and-answer-logic",
+    "claims.json#all-claims",
+    "references.json#all-source-records",
+    "glossary.json#all-terms",
+    "ATTRIBUTION.md#full-record",
+    "reviews/REV-PREM-STA-001-ACADEMIC-169C1096.json#full-file",
+    "reviews/REV-PREM-STA-001-LD-4C77903A.json#full-file",
+    "adjudication.json#full-file",
+    "CONTENT-STANDARD.md#accuracy-epistemics-and-assessment-gates",
+    "FORMAT.md#claims-sources-assessment-and-glossary",
+    "lessons/README.md#lesson-must-haves-and-source-expectations",
+    "RIGHTS-POLICY.md#agent-access-and-facts-only-reuse",
+    "external:PMC5037948#indexed-variable-taxonomy-and-measurement-scale-passages",
+    "external:PMC3886444#indexed-ordinal-response-summary-and-controversy-passages",
+    "external:PMC6350423#indexed-descriptive-summary-and-dispersion-passages"
+  ],
+  "findings": [
+    {
+      "severity": "minor",
+      "target": "content/01-column-kinds.md#The test is not \"does it look like a number\"",
+      "finding": "The scene first correctly states that five of the six columns hold digits, but this section says that four of the six columns store digits. Sex, dinner time, fasting glucose, adherence, and nights recorded are five digit-stored columns; they represent four distinct data kinds because dinner time and fasting glucose share the continuous-quantitative kind.",
+      "resolution": "Change the sentence to state that five columns store digits and that those digits represent four different data kinds."
+    },
+    {
+      "severity": "minor",
+      "target": "content/02-what-the-level-permits.md#The same rule chooses the picture",
+      "finding": "Bar charts for categorical distributions and histograms for continuous distributions are academically conventional choices, but the absolute wording that each column \"is shown\" in that form implies exclusivity; categorical dot charts and continuous box plots or dot plots can also be valid. The display rule is also a material teaching statement covered by objective-match-summary-to-level, yet no claim statement or exact reference locator explicitly supports display selection.",
+      "resolution": "Describe bar charts and histograms as common univariate defaults rather than the only valid displays, name at least one valid alternative where useful, and add an explicit mapped display claim with an exact supporting source locator or narrow the objective and scene to the sourced scope."
+    },
+    {
+      "severity": "minor",
+      "target": "claims.json#claim-paired-versus-independent",
+      "finding": "The claim includes repeated measurements from the same case or sample, and content/05-practice-fading.md applies it to one blood sample measured by two methods. That extension is correct, but the retained source-ali-bhaskar locator documents repeated measurements on the same subjects and does not explicitly cover repeated measurements on the same specimen or sample.",
+      "resolution": "Add an authoritative paired-data source and exact locator covering repeated measurements on the same specimen or sample, mapping it into the applicable source notes, or narrow the claim and practice example to the same-subject scope directly documented by the retained source."
+    },
+    {
+      "severity": "note",
+      "target": "content/04-mean-of-a-code.md#The average that moves when nothing moves",
+      "finding": "Independent recomputation confirms the adherence results: the codings 1,2,3,4; 1,2,3,3.2; and 1,2,3,10 produce means of 2.7, 2.5, and 4.2 respectively. The median category is usually in every coding, and 37 of 60 participants equals approximately 61.7 percent.",
+      "resolution": "No change required for these calculations or the recoding argument."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#all-items-rubrics-and-answer-logic",
+      "finding": "The four answer keys correctly classify the supplied nominal, ordinal, discrete-ratio, and continuous-ratio variables; distinguish paired repeated measurements from independent groups; reject arithmetic on nominal and ordinal codes for the stated reasons; and preserve units. Item points total 12, and each rubric total matches its linked item.",
+      "resolution": "No change required to the assessment classifications, calculations, point totals, or paired-data answer key."
+    }
+  ],
+  "limitations": [
+    "The assigned scope prohibited reading site/ and scripts/, so the graph node, course terminology ledger, quorum-policy source, review schema, and automated validators were not independently inspected. Outcome identity, terminology continuity, and artifact shape were assessed from the candidate pack, supplied governance instructions, and academic review template.",
+    "Direct opening of the three PMC article pages encountered an automated-access challenge. Indexed PMC and PubMed text exposed the passages relevant to the taxonomy, ordinal-summary controversy, and descriptive statistics, but complete page-level inspection of each article was unavailable.",
+    "The required full-pack inspection included the two earlier review artifacts and adjudication.json, so this was not a blind review of the learner content. The verdict and findings were nevertheless based on independent recalculation, source-scope checks, and inspection of version 0.2.0 at the stated commit.",
+    "The pack contains no diagrams, images, datasets, structured molecule records, or other media requiring academic inspection."
+  ],
+  "signedAt": "2026-07-28T15:06:08Z"
+}

@@ -41,11 +41,11 @@ Pain score itself deserves a sentence. Zero to ten from a patient is a set of or
 
 ## What this lesson set up
 
-The route through the file was short: name what each column is, then let that decide what may be computed and drawn.
+The route through the file was short: name what each column is, then let that decide what may be computed.
 
 [Measurement, reliability, and validity (PREM-SCI-006)](https://embeddedknowledge.io/premed/lessons/read/?lesson=PREM-SCI-006) asked whether a recorded value deserves to stand for the thing you meant to capture. This lesson asks the next question about the same value: given how it was produced, what arithmetic will it hold still under. A column can be reliable, valid, and still not add up.
 
-Everything after this inherits the answer. Tables and displays choose a shape from the column's type; centre and spread only exist for the columns that permit them; and the intervals, tests, and models later in the block all run on quantitative columns whose distances are real. Getting a column wrong here is not caught downstream, because every downstream step will run happily on the wrong classification and return a number.
+Everything after this inherits the answer. Centre and spread only exist for the columns that permit them, and the intervals, tests, and models later in the block all run on quantitative columns whose distances are real. Getting a column wrong here is not caught downstream, because every downstream step will run happily on the wrong classification and return a number.
 
 ## Mastery check
 

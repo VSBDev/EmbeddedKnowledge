@@ -68,7 +68,7 @@ A **quantitative** column holds a number on a measurement scale, so the gap betw
 
 ## The test is not "does it look like a number"
 
-Four of the six columns store digits, and the digits mean four different things.
+Five of the six columns store digits, and those digits mean four different things.
 
 Ask what happens when someone changes the code. Recoding sex as 0 and 1 rather than 1 and 2 changes nothing about any patient, and it changes the average. Recoding adherence as 1, 2, 3, 10 leaves every person ranked exactly where they were, and it also changes the average. Recoding nights as anything other than the actual count is not recoding at all; it is an error, because 9 means nine nights and the gap from 9 to 10 is one night no matter who reads the file.
 

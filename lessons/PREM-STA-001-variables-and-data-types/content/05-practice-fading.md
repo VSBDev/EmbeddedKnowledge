@@ -76,16 +76,16 @@ Structure, not columns, this time. For each description, decide whether the two 
 
 1. Serum sodium is recorded for forty patients on admission and again for the same forty on discharge.
 2. Serum sodium is recorded once for forty patients taking drug A and once for forty different patients taking drug B.
-3. The same blood sample from each of forty patients is measured once by laboratory method A and once by laboratory method B.
+3. Each of forty patients has their blood pressure measured once with device A and once with device B at the same visit.
 :::
 
 ### Self-check after your attempt
 
 1. Paired. Each admission value has a partner: the discharge value from the same patient.
 2. Independent. Nobody appears in both sets and no value in one set is tied to a particular value in the other.
-3. Paired. Each result from method A has one partner: the method B result from the same patient's sample. The two values are paired by their shared source even though the methods differ.
+3. Paired. Each result from device A has one partner: the device B result from the same patient. The two values are paired by patient identity even though the devices differ.
 
-If you answered 3 as independent, the repair is to ask whether the file could be written with one row per patient's sample. When one row naturally holds both method results, the values are paired.
+If you answered 3 as independent, the repair is to ask whether the file could be written with one row per patient. When one row naturally holds both device results, the values are paired.
 
 ## Where to go next
 
