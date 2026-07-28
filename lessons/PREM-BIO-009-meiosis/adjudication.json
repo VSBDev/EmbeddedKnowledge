@@ -1,0 +1,157 @@
+{
+  "schemaVersion": 1,
+  "adjudicationId": "ADJ-PREM-BIO-009-3DA58460",
+  "lessonId": "PREM-BIO-009",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "9fd94e99d31a427cb5921a6eb4885f98517ae944",
+  "finalCommit": "da7ac227ea22d3d91b0104540586a9af2b7b4614",
+  "riskTier": "standard",
+  "policyId": "standard-lesson-v3",
+  "reviewIds": [
+    "REV-PREM-BIO-009-ACADEMIC-8FBDE7D4",
+    "REV-PREM-BIO-009-LEARNING-AGY-LEARNING-DESIGN-PREM-BIO-009-0E7FBF9C-F016-40D4-8C1E-0FFDAE09F86B"
+  ],
+  "quorum": {
+    "satisfied": true,
+    "approvals": 1,
+    "reviewInputs": 2,
+    "changeRequests": 1,
+    "roleCounts": {
+      "academic": 1,
+      "learningDesign": 1,
+      "accessibilityRights": 0
+    },
+    "distinctPrincipals": 1,
+    "distinctAgentRuns": 2,
+    "distinctAgentModelFamilies": 2
+  },
+  "decision": "merge",
+  "rationale": "Both role-isolated advisory inputs were present from distinct runs and model families, pinned to the same frozen candidate. The learning-design review approved with four notes; the academic review returned request-changes with seven major findings and one minor, and it was the most technically searching review any pack in this block received. None carries blocking severity and all eight were correctable in this pass, so all were disposed here. The first went to the centre of the lesson: the scene taught that a crossover leaves two chromatids as one continuous molecule and that this covalent join is the chiasma. A reciprocal crossover resolves into two separate recombinant molecules, and what holds the homologs together is the configuration the crossover leaves, maintained by cohesion distal to it. That correction also repairs the release order the next paragraph teaches, which only makes sense once the link runs through cohesion. Three further findings were quantitative or logical rather than factual: a figure presented as an upper bound that variable breakpoints put a lower bound on, sister chromatids treated as identical whole chromosomes when identity survives only where recombination has not intervened, and an item built to test epistemic restraint that keyed a monotonic rise where its own sources describe a U-shape. The academic verdict stands as dissent and no reviewer has seen the repaired text.",
+  "dissent": [
+    "The academic review's request-changes verdict stands as material dissent from the candidate as reviewed. Its findings were incorporated by the maintainer afterwards; no reviewer has approved the repaired text.",
+    "The crossover mechanism was rewritten during finalization and is the pack's central explanation. It is now consistent with the sources and with the release order the scene teaches, but a fresh academic read of that scene specifically would be worth having before this pack leaves 0.1.0.",
+    "The arithmetic discrepancy between a compounded per-bivalent figure of about 45 per cent of oocytes and a review's figure of over 10 per cent is recorded in the pack and not resolved. No assessment item depends on it.",
+    "Whether first-division non-disjunction rises or falls with maternal age is left unresolved, with the conflicting designs described. The pack teaches the conflict rather than choosing a side.",
+    "PREM-BIO-008 was authored in parallel and could not be read. The mitotic facts this pack states are sourced independently and its statements change if the two disagree once both are published."
+  ],
+  "conditions": [
+    "The repaired content is committed first and that commit is stamped as finalCommit, with no teaching-content change afterward.",
+    "Strict source preflight and full validation must pass on the final content before merge.",
+    "The publication transition is the maintainer's separate act and is not authorised by this decision."
+  ],
+  "adjudicator": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable maintainer and adjudicator",
+    "agent": {
+      "system": "Claude Code",
+      "provider": "Anthropic",
+      "model": "claude-opus-5",
+      "version": "2.1.215",
+      "runId": "claude-adjudicator-PREM-BIO-009-288A37CB386C",
+      "instructionsDigest": "sha256:4c241c23b473c7428eb6b8fb4c255b75cfbf683dad7c1d595a5af6d472c14b07"
+    }
+  },
+  "adjudicatedAt": "2026-07-28T00:33:29Z",
+  "finalization": {
+    "materialChanges": [
+      "Replaced the covalent-continuity account of the chiasma with the crossover configuration held by cohesion distal to the exchange.",
+      "Withdrew the upper-bound framing of 2^47 and stated why the true count exceeds it.",
+      "Limited sister-chromatid identity to unrecombined regions and restated the two failure cases as claims about centromeric identity.",
+      "Rewrote the age-claims item so the monotonic rise is the distractor and the shape of the evidence is in the marker note.",
+      "Withdrew the claim that a retrospective association locates a mechanism in time.",
+      "Rewrote the clinical step so distribution supports constitutional against clonal rather than deciding which division erred.",
+      "Corrected the gamete entry for polar bodies and spermatids, and the spermatogenesis passage for four haploid products.",
+      "Corrected the centimorgan explanation to the genome-wide conversion the study used."
+    ],
+    "reviewDispositions": [
+      {
+        "reviewId": "REV-PREM-BIO-009-ACADEMIC-8FBDE7D4",
+        "findingIndex": 0,
+        "action": "incorporated",
+        "rationale": "content/02-two-divisions-two-connections.md: the covalent-continuity account is replaced by the correct one, a reciprocal crossover resolving into two separate recombinant molecules with the homologs held by the crossover configuration and cohesion distal to it, and the release order is tied back to that."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-009-ACADEMIC-8FBDE7D4",
+        "findingIndex": 1,
+        "action": "incorporated",
+        "rationale": "content/03-count-the-variation.md: 2^47 is no longer called an upper bound; the expectation-not-a-count objection, the female mean, the alternation of origin along a chromatid, and the variable breakpoints that put the true number above it are all stated."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-009-ACADEMIC-8FBDE7D4",
+        "findingIndex": 2,
+        "action": "incorporated",
+        "rationale": "content/05-which-division-failed.md: sister identity is limited to the regions recombination has not touched, and the two cases are restated as one parental centromeric identity twice against both parental centromeric identities, which is why the marker is centromere-proximal."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-009-ACADEMIC-8FBDE7D4",
+        "findingIndex": 3,
+        "action": "incorporated",
+        "rationale": "assessment.json: item-audit-age-claims replaces the monotonic-rise option with one saying higher at older ages than in the middle, adds the steady-rise version as the distractor, and records the U-shaped and J-shaped evidence in the marker note."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-009-ACADEMIC-8FBDE7D4",
+        "findingIndex": 4,
+        "action": "incorporated",
+        "rationale": "content/06-age-and-the-unfinished-explanation.md: the claim to locate a mechanism in time is withdrawn, and the authors' inference that a mechanism must act near conception is presented as an interpretation of an association."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-009-ACADEMIC-8FBDE7D4",
+        "findingIndex": 5,
+        "action": "incorporated",
+        "rationale": "content/08-clinical-wrap-up.md: patch distribution now supports constitutional against clonal rather than deciding which division erred, with postzygotic rescue and early embryonic mitotic error named as why."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-009-ACADEMIC-8FBDE7D4",
+        "findingIndex": 6,
+        "action": "incorporated",
+        "rationale": "glossary.json and content/04-four-products-one-egg.md: the gamete entry records polar bodies as meiotic products and spermatids as needing differentiation, and the spermatogenesis passage says four haploid products rather than four finished gametes."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-009-ACADEMIC-8FBDE7D4",
+        "findingIndex": 7,
+        "action": "incorporated",
+        "rationale": "content/03-count-the-variation.md: the unit explanation states the genome-wide conversion the study used instead of equating a recombination fraction with a map distance."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-009-LEARNING-AGY-LEARNING-DESIGN-PREM-BIO-009-0E7FBF9C-F016-40D4-8C1E-0FFDAE09F86B",
+        "findingIndex": 0,
+        "action": "no-change-required",
+        "rationale": "Recorded as a strength of the candidate; nothing to change."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-009-LEARNING-AGY-LEARNING-DESIGN-PREM-BIO-009-0E7FBF9C-F016-40D4-8C1E-0FFDAE09F86B",
+        "findingIndex": 1,
+        "action": "no-change-required",
+        "rationale": "Recorded as a strength of the candidate; nothing to change."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-009-LEARNING-AGY-LEARNING-DESIGN-PREM-BIO-009-0E7FBF9C-F016-40D4-8C1E-0FFDAE09F86B",
+        "findingIndex": 2,
+        "action": "no-change-required",
+        "rationale": "Recorded as a strength of the candidate; nothing to change."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-009-LEARNING-AGY-LEARNING-DESIGN-PREM-BIO-009-0E7FBF9C-F016-40D4-8C1E-0FFDAE09F86B",
+        "findingIndex": 3,
+        "action": "no-change-required",
+        "rationale": "Recorded as a strength of the candidate; nothing to change."
+      }
+    ],
+    "accessibilityRightsAudit": {
+      "satisfied": true,
+      "evidenceChecked": [
+        "All eight scenes keep one level-one heading, semantic Markdown, linear reading order and text-first instruction, with no raw HTML, embeds or executable content.",
+        "The original diagram carries alt text and a long description whose unit was corrected before review and which describe the graph the renderer draws from the edges.",
+        "Sources are used facts-only from domains the access ledger records as allowed; one source served a reCAPTCHA during authoring and was not circumvented and is cited for nothing.",
+        "Reproductive and prenatal material carries the teaching-example boundary, thirteen claims are marked health-sensitive, and no screening, risk counselling or reproductive recommendation appears.",
+        "Every repair narrows a claim to its evidence or corrects a mechanism, which lowers the pack's accuracy exposure."
+      ],
+      "limitations": [
+        "A maintainer reading of the repaired text, not an independent accessibility or rights review; the accessibility-rights role was not staffed for this tier.",
+        "No screen-reader run was performed against the rendered lesson.",
+        "The central crossover scene was rewritten after review and has been seen only by the maintainer.",
+        "Two prerequisites are unavailable: chromosomes and genomes has no lesson, and the cell-cycle lesson was written in parallel."
+      ]
+    }
+  }
+}
