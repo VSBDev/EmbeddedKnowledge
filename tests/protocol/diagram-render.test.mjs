@@ -178,3 +178,49 @@ test("the terminator follows the relation the edge declares", () => {
   assert.match(svg, /<line class="ek-diagram-head ek-diagram-head--bar"/);
 });
 
+
+// A guard on geometry rather than on counts. An edge that joins two nodes more than one layer apart
+// used to be drawn straight through every box between them: PREM-BIO-007's tight-junction-to-actin
+// edge crossed four layers and ran through the middle of the basal-integrin box, over its label. The
+// data was valid and the schema was satisfied; only the picture was wrong, which is this renderer's
+// recurring failure. So this samples each drawn path and asserts it stays out of every box that is
+// not one of its own endpoints — which the renderer makes checkable by naming both.
+function sampleCubic(d) {
+  const nums = d.match(/-?[\d.]+/g).map(Number);
+  if (nums.length < 8) return [];
+  const [x0, y0, x1, y1, x2, y2, x3, y3] = nums;
+  const points = [];
+  for (let i = 1; i < 24; i += 1) {
+    const t = i / 24;
+    const u = 1 - t;
+    points.push([
+      u * u * u * x0 + 3 * u * u * t * x1 + 3 * u * t * t * x2 + t * t * t * x3,
+      u * u * u * y0 + 3 * u * u * t * y1 + 3 * u * t * t * y2 + t * t * t * y3
+    ]);
+  }
+  return points;
+}
+
+for (const { file, diagram } of diagrams) {
+  test(`${path.basename(file)} routes every edge clear of the boxes it does not touch`, () => {
+    const svg = renderDiagramSvg(diagram, diagram.alt);
+    const boxes = [...svg.matchAll(/data-node="([^"]+)"><rect x="([\d.-]+)" y="([\d.-]+)" width="([\d.-]+)" height="([\d.-]+)"/g)]
+      .map((m) => ({ node: m[1], rect: m.slice(2).map(Number) }));
+    const paths = [...svg.matchAll(/<path class="ek-diagram-edge[^"]*" data-from="([^"]+)" data-to="([^"]+)" d="([^"]+)"/g)]
+      .map((m) => ({ from: m[1], to: m[2], d: m[3] }));
+    assert.equal(boxes.length, diagram.nodes.length, "every box must be findable by its node id");
+    assert.equal(paths.length, diagram.edges.length, "every edge must be findable by its endpoints");
+
+    const intrusions = [];
+    for (const edge of paths) {
+      for (const { node, rect: [x, y, w, h] } of boxes) {
+        // The edge's own endpoints sit on their boxes' faces, so they are not pass-throughs.
+        if (node === edge.from || node === edge.to) continue;
+        const inside = sampleCubic(edge.d).filter(([px, py]) =>
+          px > x + 4 && px < x + w - 4 && py > y + 4 && py < y + h - 4);
+        if (inside.length) intrusions.push(`${edge.from} -> ${edge.to} passes through ${node}`);
+      }
+    }
+    assert.deepEqual(intrusions, [], intrusions.join("; "));
+  });
+}
