@@ -129,3 +129,38 @@ test("a missing manifest is not classified as removal while the pack directory r
     changedEntries: [{ status: "D", path: `${packPath}/lesson.json` }]
   }), { removed: false, errors: [] });
 });
+
+test("a duration calibration may span packs, and only durations may move", async () => {
+  // estimatedMinutes is one learner-facing integer that was wrong across sixteen published lessons by
+  // up to six times. One pull request per integer is paperwork, not review, so the calibration class
+  // is allowed to span packs — on the condition that a machine can prove nothing else changed.
+  const { calibrationProblems, withoutDurations } = await import("../../scripts/lib/calibration-gate.mjs");
+  const published = {
+    id: "PREM-QNT-008", version: "0.2.0", status: "published", estimatedMinutes: 250,
+    scenes: [{ id: "a", estimatedMinutes: 150 }, { id: "b", estimatedMinutes: 100 }]
+  };
+  const calibrated = {
+    id: "PREM-QNT-008", version: "0.2.0", status: "published", estimatedMinutes: 40,
+    scenes: [{ id: "a", estimatedMinutes: 24 }, { id: "b", estimatedMinutes: 16 }]
+  };
+  assert.deepEqual(calibrationProblems({ packs: [{ packPath: "lessons/x", base: published, head: calibrated }] }), []);
+
+  // The durations are the only thing the gate ignores. Anything a reviewer would read still counts.
+  const alsoPublishes = { ...calibrated, status: "draft" };
+  assert.equal(calibrationProblems({ packs: [{ packPath: "lessons/x", base: published, head: alsoPublishes }] }).length, 1);
+
+  // The existing invariant survives: the parts must still agree with the whole.
+  const staleScenes = { ...calibrated, estimatedMinutes: 40, scenes: published.scenes };
+  assert.equal(calibrationProblems({ packs: [{ packPath: "lessons/x", base: published, head: staleScenes }] }).length, 1);
+
+  // Nothing outside a lesson.json rides along.
+  assert.equal(calibrationProblems({
+    packs: [{ packPath: "lessons/x", base: published, head: calibrated }],
+    otherChangedFiles: ["scripts/validate-lessons.mjs"]
+  }).length, 1);
+
+  // A new lesson cannot arrive by this route.
+  assert.equal(calibrationProblems({ packs: [{ packPath: "lessons/x", base: null, head: calibrated }] }).length, 1);
+
+  assert.deepEqual(withoutDurations(published), withoutDurations(calibrated));
+});
