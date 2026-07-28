@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-BIO-008-ACADEMIC-155E3FCA-0C3C-4875-8EFF-995472D2A5D4",
+  "lessonId": "PREM-BIO-008",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "5ba19ec3b356447ae80cd668fb9379d36a24d880",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable academic reviewer",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-BIO-008-155E3FCA-0C3C-4875-8EFF-995472D2A5D4",
+      "instructionsDigest": "sha256:b435ade36e1960ff517a87aa30a2e99c0ba5a1838f357f37d2bff1cbcd34bc59"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "The accountable reviewer principal is also the candidate's disclosed accountable author. Founding-stage governance permits one principal to operate isolated role runs, but this artifact is not an independent human review."
+  },
+  "evidenceChecked": [
+    "lesson.json#PREM-BIO-008",
+    "content/01-division-budget.md#two-hundred-divisions-a-day-in-one-crypt",
+    "content/02-condition-not-clock.md#definition-checkpoint",
+    "content/03-how-long-one-turn.md#worked-example-crypt-cycle-time",
+    "content/04-one-kinetochore.md#the-step-that-cannot-be-undone",
+    "content/05-where-the-cut-goes.md#when-the-cut-fails",
+    "content/06-wrong-answer-satisfies.md#the-same-pattern-outside-mitosis",
+    "content/07-practice-and-recovery.md#pass-three-no-scaffolding",
+    "content/08-clinical-wrap-up.md#what-the-drugs-are-aimed-at",
+    "diagrams/checkpoint-blind-spot.diagram.json#diagram-checkpoint-blind-spot",
+    "assessment.json#item-derive-cycle-time",
+    "assessment.json#item-checkpoint-not-clock",
+    "assessment.json#item-merotely-escapes",
+    "assessment.json#item-which-errors-pass",
+    "assessment.json#item-why-upstream-of-apcc",
+    "assessment.json#item-rate-units",
+    "assessment.json#item-neutral-drift",
+    "assessment.json#item-dispute-open-response",
+    "claims.json#claim-checkpoints-not-foolproof",
+    "claims.json#claim-no-tetraploidy-checkpoint",
+    "claims.json#claim-cohesin-separase-securin-apcc",
+    "claims.json#claim-mitotic-slippage",
+    "claims.json#claim-dna-synthesis-drugs",
+    "claims.json#claim-antimicrotubule-sac-arrest",
+    "references.json#source-deckbar-checkpoint-limits",
+    "references.json#source-brito-rieder-slippage",
+    "references.json#source-brooker-cohesins",
+    "references.json#source-uetake-sluder-tetraploidy",
+    "references.json#source-dahlgren-mucositis",
+    "references.json#source-balachandran-kipreos-slippage",
+    "glossary.json#term-checkpoint",
+    "glossary.json#term-securin",
+    "glossary.json#term-mitotic-slippage",
+    "glossary.json#term-tetraploid",
+    "ATTRIBUTION.md#original-reasoning",
+    "external primary source DOI 10.1016/j.cell.2014.06.029 on Hippo-LATS2-p53 arrest after cytokinesis failure",
+    "external primary source PMCID PMC8612166 on clinically relevant paclitaxel producing multipolar divisions without mitotic arrest"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "content/06-wrong-answer-satisfies.md#the-same-pattern-outside-mitosis",
+      "finding": "The G2/M DNA-damage threshold is interpreted backwards. The cited Deckbar review says heavily damaged cells arrest and that arrest duration increases with dose; cells are released when repair has reduced the residual damage below an insensitive threshold of roughly 10–20 double-strand breaks. The lesson instead says that more damage does not produce a longer hold and that past the threshold the checkpoint stops holding. The same reversed interpretation is encoded in claims.json#claim-checkpoints-not-foolproof.",
+      "resolution": "Revise the scene and claim to state that the radiation-induced G2/M checkpoint fails to detect or maintain arrest below roughly 10–20 residual breaks, not above that number; retain the human-fibroblast and ionising-radiation scope and remove the assertion that increasing damage shortens the hold."
+    },
+    {
+      "severity": "major",
+      "target": "assessment.json#item-why-upstream-of-apcc",
+      "finding": "The keyed answer presents APC/C-mediated securin ubiquitination as the last reversible step and claims the checkpoint must target APC/C rather than separase because only cohesin cleavage is irreversible. The cited pathway source establishes the order of APC/C, securin, separase and cohesin but does not establish that teleological design claim. Securin and cyclin-B proteolysis are themselves effectively irreversible commitment events on the transition timescale, separase is directly inhibited by securin and other controls, and APC/C inhibition coordinates both chromatid separation and mitotic exit. The current answer therefore rewards a scientifically false exclusivity claim.",
+      "resolution": "Replace the item and the corresponding reasoning in scenes 4 and 7 and glossary terms cohesin, securin and separase with the supported mechanism: unattached kinetochores generate MCC, MCC inhibits APC/C-CDC20, and this preserves securin and cyclin B until attachment is satisfactory. Do not claim that biology could not control separase directly or that APC/C ubiquitination is the last reversible step."
+    },
+    {
+      "severity": "major",
+      "target": "content/05-where-the-cut-goes.md#when-the-cut-fails",
+      "finding": "The universal statement that normal mammalian somatic cells possess no tetraploidy checkpoint, that nothing detects the post-cytokinesis-failure state, and that such cells are held by nothing is not supported by one 2004 primary-fibroblast experiment and is no longer an academically adequate account. Later primary work shows context-dependent Hippo-LATS2-p53 growth arrest after cytokinesis failure in tetraploid RPE cells and reduced proliferation of tetraploid hepatocytes. The field distinguishes the absence of a simple DNA-content or nucleus-count sensor from stress-, centrosome- and p53-dependent suppression of tetraploid proliferation.",
+      "resolution": "Retain the exact Uetake and Sluder result for its cell type and conditions, but present the existence and meaning of a dedicated tetraploidy checkpoint as controversial and context-dependent. Update claims.json#claim-no-tetraploidy-checkpoint, the tetraploid and cytokinesis glossary entries, scene 6, practice pass two, assessment.json#item-which-errors-pass and its rubric so they do not require the absolute 'nothing detects it' answer."
+    },
+    {
+      "severity": "major",
+      "target": "content/02-condition-not-clock.md#definition-checkpoint",
+      "finding": "The useful dependency model is made falsely absolute by saying checkpoint-hold duration depends only on the detected state and that nothing in the mechanism measures duration. The pack's own slippage source shows that cyclin B continues to be degraded over time while the spindle checkpoint remains active and the unsatisfied kinetochore state persists. Thus time-dependent downstream dynamics can determine exit even though checkpoint activation and satisfaction are state-dependent.",
+      "resolution": "Distinguish the physical condition that activates or silences checkpoint signalling from the time-dependent dynamics and competing fates of an arrested cell. Remove 'only', 'nothing measures duration' and equivalent absolutes from scene 2, glossary.json#term-checkpoint and assessment.json#item-checkpoint-not-clock; key the item to condition-dependent activation rather than to the claim that elapsed time cannot affect the outcome."
+    },
+    {
+      "severity": "major",
+      "target": "assessment.json#item-which-errors-pass",
+      "finding": "Mitotic slippage is classified as a case in which no checkpoint holds the cell and as a detector that gives up, while the answer itself and source-brito-rieder-slippage state that BubR1, Mad1 and Mad2 remain at kinetochores and the spindle checkpoint remains active. The cell bypasses an unsatisfied functional checkpoint through residual cyclin-B proteolysis; the detector has neither been satisfied nor switched off. The diagram compounds this by grouping slippage as 'surveillance-failure' and describing the detector as being outlasted.",
+      "resolution": "Classify slippage as bypass of an active, unsatisfied spindle checkpoint rather than checkpoint satisfaction or detector failure. Revise the misconception box, four-route summary, item stem and answer, glossary.json#term-mitotic-slippage, and diagram-checkpoint-blind-spot labels and long description so detection, signalling and downstream escape remain mechanistically distinct."
+    },
+    {
+      "severity": "major",
+      "target": "content/08-clinical-wrap-up.md#what-the-drugs-are-aimed-at",
+      "finding": "The health-sensitive transfer overstates drug phase specificity. It equates interrupting DNA synthesis with acting only in S phase, groups fluorouracil, methotrexate, irinotecan and doxorubicin under one mechanism, and says such drugs can only affect cells currently in S or M phase. Doxorubicin also acts through topoisomerase-II poisoning, intercalation and oxidative mechanisms and can injure non-dividing cells. The claim that paclitaxel works by keeping the spindle checkpoint unsatisfied is likewise not general at clinically relevant exposure: primary tumour and cell data show multipolar division without prolonged mitotic arrest. These errors undermine the quantitative exposure argument and clinical interpretation.",
+      "resolution": "Narrow the scene to explicitly sourced, agent- and exposure-specific mechanisms. Remove the assertion that the named agents can affect only cells currently in S or M phase, distinguish antimetabolites from topoisomerase poisons and anthracyclines, and distinguish high-dose checkpoint arrest from clinically relevant paclitaxel effects. Reassess or remove the calculated 8–10 per cent S-phase exposure as an explanation of mucositis unless a source supports that causal use."
+    },
+    {
+      "severity": "major",
+      "target": "content/03-how-long-one-turn.md#worked-example-crypt-cycle-time",
+      "finding": "Several central quantitative and mechanistic conclusions have no claim records even though learners must accept and use them: the derivation Tc=fTt, the 19–31-hour and approximately 25-hour crypt estimates, the transit-amplifying rate inference, the six- or eight-division amplification estimates, the asserted APC/C design rationale, and the clinical S-phase and mitotic fractions. Their source notes list only input claims and call the outputs lesson-created arithmetic or reasoning. Original inference remains a material claim and must be mapped, scoped and exposed through a same-scene source note, especially when it supplies an assessment key.",
+      "resolution": "Add stable inference claim records for each retained load-bearing derivation, with the exact input sources, assumptions, scope and uncertainty; include those claim IDs in the relevant scenes' source notes and map every assessed conclusion. Remove any derived conclusion that cannot be defended after the factual corrections above."
+    },
+    {
+      "severity": "minor",
+      "target": "content/01-division-budget.md#the-question-this-lesson-answers",
+      "finding": "The scene says a dividing human cell copies three billion base pairs, while scene 2 says G1 DNA is 'single-copy'. Three billion base pairs describes an approximately haploid reference genome; a diploid somatic cell contains about twice that amount before S phase and duplicates that diploid DNA content. 'Single-copy' also risks confusing unreplicated chromosomes with haploidy.",
+      "resolution": "Describe chromosomes as unreplicated or single-chromatid in G1 and replicated as sister chromatids after S phase, or introduce 2C-to-4C DNA content explicitly. Correct the three-billion-base-pair replication statement and map the retained quantitative genome claim in this scene."
+    }
+  ],
+  "limitations": [
+    "The operator prohibited reading site/, so the review schema, quorum-policy JSON, graph-node record and cross-lesson terminology ledger were not inspected, and repository validation was not run. The artifact follows the supplied academic template and the candidate's declared outcome, but cross-les...",
+    "Direct browser opening of four target PMC pages returned a CAPTCHA. Load-bearing Deckbar and Brito passages were checked through accessible indexed full text, and the tetraploidy and paclitaxel objections were checked against accessible primary-study text. The remaining references were assessed f...",
+    "This was a document and source-analysis review; no experimental results were independently replicated.",
+    "The complete frozen candidate pack was read at commit 5ba19ec3b356447ae80cd668fb9379d36a24d880, and no post-candidate pack differences were present."
+  ],
+  "signedAt": "2026-07-28T00:15:41Z"
+}

@@ -1,0 +1,467 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-assessment-v1",
+  "lessonId": "PREM-BIO-008",
+  "lessonVersion": "0.1.0",
+  "assessmentId": "assessment-prem-bio-008-cell-cycle-mitosis",
+  "title": "Conditions, segregation, and the divisions a crypt gets wrong",
+  "purpose": "mixed",
+  "attemptPolicy": {
+    "retakeable": true,
+    "timeLimitMinutes": null,
+    "feedback": "after-attempt"
+  },
+  "items": [
+    {
+      "id": "item-derive-cycle-time",
+      "type": "numeric",
+      "sceneId": "scene-how-long-one-turn",
+      "objectiveIds": [
+        "objective-derive-compartment-cycle-time"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-cell-cycle-mitosis"
+      ],
+      "prompt": "In a renewing tissue at steady state, the average cycle time of the proliferating cells equals the proliferative fraction multiplied by the tissue's turnover time. Ki-67 counts of human colonic crypts give a proliferative fraction of 0.257, and this block takes the epithelium's turnover time as 4 days. Using only those two numbers, compute the average cycle time of the crypt's proliferative compartment in hours.",
+      "points": 3,
+      "responseSpec": {
+        "mode": "number",
+        "units": "hours",
+        "tolerance": 1.5
+      },
+      "answer": {
+        "correct": 24.7,
+        "summary": "About 24.7 hours, which should be read as roughly a day. Four days is 96 hours, and 0.257 multiplied by 96 gives 24.7. This is a derived estimate for a compartment, not a measured cycle time for any individual crypt cell.",
+        "reasoning": "Convert the turnover time to hours first: 4 days is 96 hours. Then multiply by the proliferative fraction, 0.257 times 96, which gives 24.672, or about 24.7 hours.\n\nMarkers should note two things about what this number can and cannot carry. First, it is a compartment average derived from a steady-state argument, and nobody has timed a human colonic crypt cell through a division; do not award or withhold credit for any claim that this is a measured value. Second, the result does not depend on the number of cells in a crypt, because the total cancels when production is set equal to loss. That cancellation is why the item supplies a fraction rather than a cell count, and it is the reason the calculation survives the genuine disagreement in the literature between a modelled 700-cell crypt and directly counted crypts averaging about 2428 cells.\n\nA response of about 25 hours, or any value inside the stated tolerance, is fully correct. Learners who carry the three-to-five-day turnover band through instead of the single four-day figure will obtain roughly 19 to 31 hours; if they state that range and identify 24.7 hours as the value for four days, award full credit, since carrying the band is better practice than the item requires.",
+        "acceptableResponses": [
+          "24.7",
+          "24.67",
+          "about 25 hours",
+          "25",
+          "0.257 x 96 = 24.7 hours",
+          "roughly a day"
+        ],
+        "commonErrors": [
+          "Multiplying by 4 instead of 96 and answering about 1, which is the cycle time in days rather than hours. The value is right; the unit asked for was hours.",
+          "Dividing rather than multiplying, giving about 374 hours. The proliferative fraction is less than one, so the cycle time must be shorter than the turnover time, not longer.",
+          "Trying to use a crypt cell count. No count is needed, and supplying one does not change the answer, because the crypt's total size cancels out of the steady-state relation."
+        ]
+      },
+      "rubricId": "rubric-numeric-derivation",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-checkpoint-not-clock",
+      "type": "single-choice",
+      "sceneId": "scene-condition-not-clock",
+      "objectiveIds": [
+        "objective-name-what-is-sensed"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-cell-cycle-mitosis"
+      ],
+      "prompt": "Two cells of the same type are each held at the same cell-cycle transition. One is released after about 30 minutes; the other is still held 11 hours later. Which statement best accounts for the difference?",
+      "points": 2,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-different-timers",
+            "text": "The two cells are running checkpoint timers set to different durations."
+          },
+          {
+            "id": "option-state-differed",
+            "text": "The physical state each checkpoint was detecting differed, because a checkpoint contains no clock and holds the transition only while what it detects remains unsatisfactory."
+          },
+          {
+            "id": "option-cyclin-speed",
+            "text": "The first cell degrades its cyclins faster, so it reached the next phase sooner."
+          },
+          {
+            "id": "option-g0",
+            "text": "The second cell has entered quiescence, which is why it is no longer progressing."
+          }
+        ]
+      },
+      "answer": {
+        "correct": "option-state-differed",
+        "summary": "The state being detected differed. A checkpoint is a condition rather than a clock, so the length of a hold is set by what is detected and not by elapsed time.",
+        "reasoning": "This item tests the lesson's central definition. A checkpoint is a surveillance mechanism that makes a later step conditional on an earlier one having completed correctly; it detects a specified physical state and holds the transition while that state is unsatisfactory. Nothing in the mechanism measures duration, so two cells at the same transition can be held for wildly different times, and the difference reflects what each one's detector is reading.\n\nThe timer option is the misconception the whole scene is built to remove. The cyclin option describes the actuator rather than the surveillance: cyclin-CDK activity drives transitions, but the item asks what accounts for the difference in how long each cell was held, which is a question about the detector. The quiescence option confuses being held at a transition with having exited the cycle; a quiescent cell is not a cell arrested at a checkpoint.",
+        "acceptableResponses": [
+          "option-state-differed"
+        ],
+        "commonErrors": [
+          "Choosing the timer option, which is the road-checkpoint picture the lesson rejects: a checkpoint is not a place you arrive at after a set interval.",
+          "Choosing the cyclin option, which confuses the actuator that drives the cycle with the surveillance that decides whether it may fire."
+        ]
+      },
+      "rubricId": "rubric-single-select",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-merotely-escapes",
+      "type": "single-choice",
+      "sceneId": "scene-wrong-answer-satisfies",
+      "objectiveIds": [
+        "objective-predict-checkpoint-detection"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-cell-cycle-mitosis"
+      ],
+      "prompt": "A single kinetochore is attached to microtubules coming from both spindle poles at once. The spindle assembly checkpoint does not delay anaphase. Which statement gives the reason?",
+      "points": 3,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-both-conditions-met",
+            "text": "The attachment generates tension across the sister kinetochores and leaves no kinetochore unattached, so both conditions the checkpoint tests are satisfied."
+          },
+          {
+            "id": "option-checkpoint-degraded",
+            "text": "The checkpoint proteins have been degraded by the time this configuration arises, so no signal can be generated."
+          },
+          {
+            "id": "option-aurora-already-fixed",
+            "text": "Aurora B has already corrected the attachment, so there is nothing left for the checkpoint to report."
+          },
+          {
+            "id": "option-too-few-chromosomes",
+            "text": "One misattached chromosome is too small a fraction of the set to generate a detectable checkpoint signal."
+          }
+        ]
+      },
+      "answer": {
+        "correct": "option-both-conditions-met",
+        "summary": "Both of the conditions the checkpoint tests are genuinely satisfied: tension is present across the sister kinetochores, and no kinetochore is left unattached. The checkpoint is working correctly and is passing a configuration that is nonetheless wrong.",
+        "reasoning": "This is merotelic attachment, and the published reason it escapes surveillance is exactly the conjunction in the correct option: merotelic and amphitelic attachments both generate tension across sister kinetochores and neither produces an unattached kinetochore. Nothing is broken. The detector's conditions are met by a configuration that will nevertheless mis-segregate mechanically, because the chromatid is being pulled toward both poles and lags at anaphase.\n\nMarkers should note that the two-part reason is deliberate. What the checkpoint reads, whether microtubule occupancy or mechanical tension, is an unresolved question in the literature, so an answer resting on only one of the two variables is less complete than the option given. Do not require a learner to commit to occupancy or to tension as the signal, and do not treat either as the settled mechanism.\n\nThe Aurora B option is wrong as stated but touches a real fact worth crediting in discussion: Aurora B is enriched at merotelic sites and does correct many such attachments. That is a separate correction system operating independently of the checkpoint, and its existence is why merotely is not catastrophic. The option is false because if the attachment had already been corrected, the configuration in the stem would not be present. The last option inverts the checkpoint's known sensitivity: a single unattached kinetochore is sufficient to hold an entire cell, so a signal from one chromosome is not too small to matter.",
+        "acceptableResponses": [
+          "option-both-conditions-met"
+        ],
+        "commonErrors": [
+          "Choosing the Aurora B option, which conflates correction with detection. Aurora B corrects merotelic attachments; the checkpoint never reported them.",
+          "Choosing the option about one chromosome being too small a fraction, which contradicts the finding that a single unattached kinetochore sustains the arrest of a whole cell."
+        ]
+      },
+      "rubricId": "rubric-single-select",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-which-errors-pass",
+      "type": "multiple-choice",
+      "sceneId": "scene-wrong-answer-satisfies",
+      "objectiveIds": [
+        "objective-predict-checkpoint-detection"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-cell-cycle-mitosis"
+      ],
+      "prompt": "Select every situation below in which a cell with fully functional checkpoints will nonetheless proceed, so that no checkpoint holds it.",
+      "points": 4,
+      "responseSpec": {
+        "mode": "multiple-choice",
+        "options": [
+          {
+            "id": "option-merotelic",
+            "text": "One kinetochore is attached to both spindle poles, with tension present across the sister kinetochores."
+          },
+          {
+            "id": "option-slippage",
+            "text": "A cell has been held in a spindle-checkpoint arrest for about 14 hours while cyclin B has been slowly destroyed."
+          },
+          {
+            "id": "option-binucleate",
+            "text": "A cell became binucleate when its cytokinesis failed, and it is now entering the next cycle with twice the normal DNA content."
+          },
+          {
+            "id": "option-monotelic",
+            "text": "One of a pair of sister kinetochores has no microtubules attached to it at all."
+          },
+          {
+            "id": "option-chromatin-bridge",
+            "text": "A piece of chromatin is caught in the intercellular bridge between two daughter cells that have not yet completed abscission."
+          }
+        ],
+        "maxSelections": 5
+      },
+      "answer": {
+        "correct": [
+          "option-merotelic",
+          "option-slippage",
+          "option-binucleate"
+        ],
+        "summary": "The merotelic attachment, the long arrest ending in slippage, and the binucleate cell all proceed with working checkpoints. The unattached kinetochore and the trapped chromatin are both detected and both produce a delay.",
+        "reasoning": "Three of the five pass, each by a different route, and naming the route is the point of the item.\n\nThe merotelic attachment passes because it satisfies the conditions the spindle assembly checkpoint tests: tension is present and no kinetochore is unattached. This is a wrong state that looks like the right one.\n\nThe long arrest passes because the checkpoint's hold is finite. Cyclin B is slowly destroyed throughout an arrest even while the checkpoint remains demonstrably active, with its proteins still present at kinetochores, and once too little cyclin B remains the cell exits mitosis without dividing. Measured arrests in human retinal pigment epithelial cells ran on the order of nine to fifteen hours before this happened, so 14 hours is inside the observed range.\n\nThe binucleate cell passes because nothing detects it. Binucleate primary human cells produced by cleavage failure replicated their DNA at over 94 per cent, close to the rate for normal neighbours, and most re-entered mitosis within 36 hours; the published conclusion is that normal mammalian somatic cells have no tetraploidy checkpoint.\n\nThe two that are held: an unattached kinetochore is precisely what the spindle assembly checkpoint detects, and one is sufficient to arrest the whole cell. Chromatin caught in the intercellular bridge triggers the abscission checkpoint, which delays the final cut in order to avoid breaking the DNA or fusing the daughters back together; that delay is large, with bridges taking around 576 minutes to resolve against about 93 minutes for an unobstructed abscission.\n\nMarkers should award credit per correctly classified option rather than requiring the exact set, since the item tests five independent judgements.\n\nOne correction for the marker, because the obvious description of slippage is wrong. Slippage is not a case of no checkpoint holding the cell, and not a detector giving up or being satisfied. BubR1, Mad1 and Mad2 remain at the unattached kinetochores and the spindle checkpoint stays active throughout: the cell leaves anyway because cyclin B continues to be degraded while the hold persists, until there is too little left to keep it in mitosis. The detector is neither switched off nor satisfied; it is outlasted by a process downstream of it. An answer that says the checkpoint failed to detect the problem has the mechanism backwards and should be marked as such even though the option itself is correctly selected.",
+        "acceptableResponses": [
+          "option-merotelic, option-slippage, option-binucleate",
+          "the merotelic attachment, the prolonged arrest, and the binucleate cell"
+        ],
+        "commonErrors": [
+          "Including the unattached kinetochore. This is the one state the spindle assembly checkpoint is built to detect, and a single one holds the entire cell.",
+          "Including the trapped chromatin. This triggers the abscission checkpoint, which produces a substantial delay rather than allowing the cut to proceed.",
+          "Omitting the binucleate cell, usually on the assumption that so obvious an abnormality must be caught. No checkpoint reads DNA content or nucleus number."
+        ]
+      },
+      "rubricId": "rubric-multi-select",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-why-upstream-of-apcc",
+      "type": "single-choice",
+      "sceneId": "scene-one-kinetochore",
+      "objectiveIds": [
+        "objective-order-mitosis-by-dependency"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-cell-cycle-mitosis"
+      ],
+      "prompt": "According to the argument developed in this lesson, why does the spindle assembly checkpoint act by blocking APC/C rather than by inhibiting separase or by intervening later?",
+      "points": 3,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-irreversible-cut",
+            "text": "Separase's cleavage of cohesin cannot be undone, so APC/C's ubiquitination of securin is the last step at which a division can still be held."
+          },
+          {
+            "id": "option-apcc-abundant",
+            "text": "APC/C is present at much higher concentration than separase, so blocking it is more efficient."
+          },
+          {
+            "id": "option-separase-inaccessible",
+            "text": "Separase is inside the nucleus and the checkpoint proteins cannot reach it."
+          },
+          {
+            "id": "option-apcc-first",
+            "text": "APC/C acts before the chromosomes have attached to the spindle, so it is the only component available to the checkpoint at that time."
+          }
+        ]
+      },
+      "answer": {
+        "correct": "option-irreversible-cut",
+        "summary": "Because cutting cohesin is irreversible. The chain runs APC/C ubiquitinates securin, securin is destroyed, separase is released, separase cleaves cohesin, and only the last step cannot be reversed, so surveillance has to act upstream of it.",
+        "reasoning": "The sourced order of events is that cohesin holds sister chromatids together from S phase until the metaphase-to-anaphase transition, separase is held inactive by securin, securin is destroyed by APC/C-mediated ubiquitination, and separase then cleaves cohesin's RAD21 subunit so the ring opens. Once that cut is made there is no mechanism to rejoin the sisters and try again.\n\nA control system whose last usable intervention point is the last reversible step will place its brake there, and APC/C's ubiquitination of securin is that step. This is the reasoning the lesson develops from the sourced sequence; markers should credit an answer that identifies irreversibility as the constraint, whether or not the learner names every intermediate.\n\nThe abundance option is invented and is not a consideration the sources raise. The localisation option is false as a reason. The last option inverts the timing: APC/C is what the checkpoint holds off until attachment is complete, so it does not act before attachment.\n\nMark the reasoning, not the teleology. The source establishes the order — APC/C, then securin, then separase, then cohesin — and that cohesin cleavage is what physically commits the cell. It does not establish that the checkpoint targets APC/C *because* only that cut is irreversible, and an answer built on that design rationale is going beyond the evidence. Securin and cyclin B proteolysis are themselves effectively irreversible on the timescale of the transition, separase is restrained by securin and by other controls, and inhibiting APC/C holds several outputs at once rather than one. Credit an answer that identifies APC/C as the point where the checkpoint acts and that cohesin cleavage is the committing step; do not require, and do not penalise the absence of, a claim about why the system is arranged that way.",
+        "acceptableResponses": [
+          "option-irreversible-cut",
+          "because cleaving cohesin is irreversible, so the brake must sit at the last reversible step"
+        ],
+        "commonErrors": [
+          "Choosing the timing option, which reverses the relationship: the checkpoint's whole function is to keep APC/C inactive until attachment is complete.",
+          "Answering that the checkpoint does inhibit separase directly. It does not; it acts on APC/C, and the reason is that separase's action is already past the point of no return."
+        ]
+      },
+      "rubricId": "rubric-single-select",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-rate-units",
+      "type": "single-choice",
+      "sceneId": "scene-wrong-answer-satisfies",
+      "objectiveIds": [
+        "objective-predict-checkpoint-detection",
+        "objective-derive-compartment-cycle-time"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-cell-cycle-mitosis"
+      ],
+      "prompt": "A paper reports a chromosome missegregation rate of 0.5 per cent. Before you can compare that figure with any other published rate, what must you establish first, and why?",
+      "points": 3,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-per-chromosome-or-division",
+            "text": "Whether the rate is per chromosome or per division, because the two differ by roughly the number of chromosomes in the cell and the same figure means opposite things in each unit."
+          },
+          {
+            "id": "option-which-chromosome",
+            "text": "Which individual chromosome was scored, because missegregation rates are established to differ severalfold between specific chromosomes."
+          },
+          {
+            "id": "option-mitotic-index",
+            "text": "The mitotic index of the culture, because the rate cannot be interpreted without knowing what fraction of cells were dividing."
+          },
+          {
+            "id": "option-passage-number",
+            "text": "The passage number of the cells, because missegregation rates rise predictably with time in culture."
+          }
+        ]
+      },
+      "answer": {
+        "correct": "option-per-chromosome-or-division",
+        "summary": "Whether it is per chromosome or per division. Cultured near-diploid stable human cells sit at about 0.025 per cent per chromosome, which the authors converted to roughly one missegregation per 100 divisions, so 0.5 per cent reads as unstable in one unit and better than normal in the other.",
+        "reasoning": "The measured quantity in the published work is per chromosome: about 0.025 per cent per chromosome in untreated near-diploid chromosomally stable human cells, 0.6 to 0.8 per cent per chromosome when merotely is induced, and 0.3 to 1.0 per cent per chromosome in chromosomally unstable tumour lines. The per-division figure is the authors' own conversion, made under the explicit assumption that all chromosomes behave equivalently, and stated as roughly one missegregation every 100 divisions, or about one per cent per division.\n\nSo 0.5 per cent per chromosome would place the cells among the chromosomally unstable lines, while 0.5 per cent per division would make them somewhat better than a stable near-diploid line. The unit inverts the interpretation, which is why it must be established first.\n\nThe option about individual chromosomes is rejected because the item asks what must be established before any comparison is possible, and because the published conversion rests on assuming chromosomes behave equivalently rather than on their differing; markers should not credit it. The mitotic-index and passage-number options describe quantities that are not required to interpret the unit of a missegregation rate.\n\nA learner who additionally notes that all published rates are from cultured cells, and that no rate has been established for tissue in a person, has understood more than the item asks and should be commended in feedback.",
+        "acceptableResponses": [
+          "option-per-chromosome-or-division",
+          "whether it is per chromosome or per division"
+        ],
+        "commonErrors": [
+          "Treating 0.5 per cent as directly comparable with the 0.025 per cent figure without checking units, which understates the reported instability by roughly the number of chromosomes in a cell.",
+          "Quoting the derived one-in-100-divisions figure as though it were the measured quantity. It is a conversion resting on a stated assumption, and the measurement was per chromosome."
+        ]
+      },
+      "rubricId": "rubric-single-select",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-neutral-drift",
+      "type": "single-choice",
+      "sceneId": "scene-division-budget",
+      "objectiveIds": [
+        "objective-explain-crypt-renewal"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-cell-cycle-mitosis"
+      ],
+      "prompt": "A mutation arises in one of the roughly seven active stem cells at the base of a human colonic crypt. On the neutral-drift account of crypt stem-cell renewal, what happens to that lineage?",
+      "points": 3,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-chance-fixation",
+            "text": "Its descendants expand or disappear by chance, with no advantage required; all but one lineage is eventually lost, and a single lineage comes to occupy the whole crypt with a median time of about 6.3 years."
+          },
+          {
+            "id": "option-needs-advantage",
+            "text": "The lineage can only spread if the mutation gives its cells a growth advantage over their neighbours."
+          },
+          {
+            "id": "option-immediately-removed",
+            "text": "The mutant stem cell is detected and removed, so the lineage cannot persist."
+          },
+          {
+            "id": "option-stable-coexistence",
+            "text": "All the original stem lineages persist side by side indefinitely, so the mutant lineage stays a fixed minority."
+          }
+        ]
+      },
+      "answer": {
+        "correct": "option-chance-fixation",
+        "summary": "By chance, with no advantage needed. Stem-lineage competition in human colonic crypts behaves as a neutral random walk, all but one lineage is eventually lost, and monoclonal conversion has a median of about 6.3 years.",
+        "reasoning": "Clone-tracing of human colonic epithelium found that the evolution of crypt-base stem cells constitutes a neutral drift process, following a one-dimensional random walk. Stem cells are replaced at about 1.3 replacements per crypt per year, and when one is lost a neighbour's daughter fills the vacancy without regard to merit. The measured consequence is that a crypt becomes the descendant of a single stem cell, with a median of about 6.3 years and 13 years for 90 per cent conversion.\n\nThe option requiring a growth advantage is the one most learners reach for, and it is what makes neutral drift worth teaching: a mutation can come to occupy an entire crypt through chance alone. With about seven equivalent stem cells, any one lineage has roughly a one-in-seven prospect of being the one that fixes.\n\nMarkers should credit the correct option on the chance-and-no-advantage reasoning even if the learner does not recall the 6.3-year figure. Note also what this item does not ask: nothing here concerns whether such a lineage goes on to cause disease, which is PREM-BIO-010's material, and no credit depends on any claim about that.",
+        "acceptableResponses": [
+          "option-chance-fixation",
+          "it expands or is lost by chance; one lineage eventually takes the whole crypt"
+        ],
+        "commonErrors": [
+          "Choosing the growth-advantage option, which imports selection into a process the evidence describes as neutral.",
+          "Choosing indefinite coexistence, which is ruled out by the observation that crypts do become monoclonal over years."
+        ]
+      },
+      "rubricId": "rubric-single-select",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-dispute-open-response",
+      "type": "open-response",
+      "sceneId": "scene-wrong-answer-satisfies",
+      "objectiveIds": [
+        "objective-predict-checkpoint-detection",
+        "objective-name-what-is-sensed"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-cell-cycle-mitosis"
+      ],
+      "prompt": "A study group concludes: \"Merotelic attachment escapes the spindle assembly checkpoint, so merotely is the main cause of aneuploidy in human cells, and this proves the checkpoint reads microtubule occupancy rather than tension.\" Identify what is well supported in this statement and what is not, and say for each unsupported part what the evidence actually shows. Write about 150 to 250 words.",
+      "points": 6,
+      "responseSpec": {
+        "mode": "text",
+        "maxLength": 3000
+      },
+      "answer": {
+        "correct": "The escape is well supported; the claim about being the main cause of aneuploidy is disputed; and the claim about what the checkpoint reads does not follow at all, because merotely satisfies both candidate conditions and so cannot discriminate between them.",
+        "summary": "One of the three claims stands. Merotely does escape the checkpoint. That it is the main cause of aneuploidy is disputed, with measurements finding that laggards rarely missegregate and arguing for syntely instead. And merotely cannot settle the occupancy-versus-tension question, because a merotelic attachment presents tension and full occupancy at once, so it is consistent with either mechanism.",
+        "reasoning": "A strong response separates three claims and treats them differently.\n\nWell supported: merotelic attachments do not trigger a checkpoint-dependent delay of anaphase onset, and they produce lagging chromatids because one chromatid is pulled toward both poles. This is established.\n\nDisputed: that merotely is the main cause of aneuploidy. Measurements in human cells found that lagging chromosomes, while symptomatic of attachment defects, rarely went on to missegregate, and the authors argued that syntelic attachments account for most missegregation. A learner should say that which error dominates is an open question and that escaping the checkpoint is a smaller claim than being the principal cause of aneuploidy.\n\nDoes not follow: the inference about what the checkpoint reads. The published reason merotely escapes surveillance is that it both generates tension across the sister kinetochores and leaves no kinetochore unattached. Because both candidate conditions are satisfied, the case is consistent with either mechanism and discriminates between neither. The question of whether occupancy or tension is the signal is separately unresolved: work in human cells concluded that tension in itself is not read, while other work argues that attachment-generated intrakinetochore stretch is precisely what silences the checkpoint. A response that picks a side and defends it as settled has made the same error as the study group.\n\nDo not require the learner to name specific papers or figures. Award the reasoning, not the recall. A response that resolves either open question in either direction should not receive full marks on the corresponding criterion, however fluently it is argued.",
+        "acceptableResponses": [
+          "The escape from the checkpoint is established. Whether merotely is the main cause of aneuploidy is disputed: one study found laggards rarely missegregate and argued syntely dominates. And merotely cannot show what the checkpoint reads, because it satisfies both occupancy and tension, so it is compatible with either account; that question is itself unresolved."
+        ],
+        "commonErrors": [
+          "Accepting all three claims because the first is true, which is the error of treating a supported premise as licensing whatever is attached to it.",
+          "Rejecting all three, including the escape from the checkpoint, which is well established.",
+          "Resolving the occupancy-versus-tension question in either direction. Both positions are argued in the current literature and the lesson deliberately leaves it open.",
+          "Treating lagging and missegregation as the same event. A laggard can form a micronucleus and still end up in the correct daughter cell."
+        ]
+      },
+      "rubricId": "rubric-open-response-evidence",
+      "safetyCritical": false
+    }
+  ],
+  "rubrics": [
+    {
+      "id": "rubric-numeric-derivation",
+      "title": "Derived quantity with correct unit and correct interpretation",
+      "criteria": [
+        {
+          "id": "criterion-correct-value",
+          "description": "Reports a value within the stated tolerance of 24.7 hours, or reports the 19-to-31-hour band and identifies 24.7 hours as the four-day figure.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-correct-unit-conversion",
+          "description": "Converts the turnover time from days to hours before multiplying, rather than reporting a value in days when hours were asked for.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-treats-as-estimate",
+          "description": "Does not present the result as a measured cycle time for an individual crypt cell. No credit is withheld for omitting caveats the item did not ask for, but a response asserting this is a measured value loses this point.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-single-select",
+      "title": "Single best answer with sound justification",
+      "criteria": [
+        {
+          "id": "criterion-selects-correct-option",
+          "description": "Selects the option that the lesson's sourced evidence supports.",
+          "maxPoints": 2
+        },
+        {
+          "id": "criterion-avoids-overreach",
+          "description": "Where the item's reasoning notes an unresolved question, the response does not depend on having resolved it.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-multi-select",
+      "title": "Independent classification of each case",
+      "criteria": [
+        {
+          "id": "criterion-identifies-passing-cases",
+          "description": "Identifies the merotelic attachment, the prolonged arrest ending in slippage, and the binucleate cell as proceeding despite functional checkpoints. One point per correct identification, to a maximum of three.",
+          "maxPoints": 3
+        },
+        {
+          "id": "criterion-excludes-detected-cases",
+          "description": "Excludes both the unattached kinetochore and the trapped chromatin, each of which is detected and produces a delay.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-open-response-evidence",
+      "title": "Separating supported claims from disputed and unsupported ones",
+      "criteria": [
+        {
+          "id": "criterion-identifies-supported",
+          "description": "Identifies that merotelic attachment escaping the spindle assembly checkpoint is well supported, and states the mechanical consequence of a lagging chromatid.",
+          "maxPoints": 2
+        },
+        {
+          "id": "criterion-identifies-dispute",
+          "description": "Identifies that merotely being the main cause of aneuploidy is disputed, and gives the substance of the counter-evidence, that laggards were found rarely to missegregate and that syntely has been argued to dominate.",
+          "maxPoints": 2
+        },
+        {
+          "id": "criterion-rejects-non-sequitur",
+          "description": "Explains that merotely cannot discriminate between occupancy and tension because it satisfies both, and does not resolve that question in either direction. A response that picks a side and defends it as settled scores zero on this criterion regardless of fluency.",
+          "maxPoints": 2
+        }
+      ]
+    }
+  ]
+}

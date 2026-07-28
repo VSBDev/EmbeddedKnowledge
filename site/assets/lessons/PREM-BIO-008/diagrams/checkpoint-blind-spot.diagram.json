@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-diagram-v1",
+  "id": "diagram-checkpoint-blind-spot",
+  "type": "concept-map",
+  "direction": "left-to-right",
+  "alt": "Three kinetochore states feed the anaphase decision: an unattached kinetochore sustains the checkpoint complex that blocks APC/C, while amphitelic and merotelic attachments both satisfy the checkpoint and let anaphase run, so only merotely produces a lagging chromatid. A separate route shows the checkpoint itself failing over time into mitotic slippage and an undivided tetraploid cell.",
+  "longDescription": "The map has eight nodes and seven relationships, and it contrasts what the spindle assembly checkpoint detects with what it lets through. Three nodes on the left are the possible states of a kinetochore. First, an unattached kinetochore: this activates the node for the mitotic checkpoint complex blocking APC/C-CDC20, and the relationship is labelled that one unattached kinetochore is enough to sustain the signal. That checkpoint node in turn inhibits the node for anaphase with cohesin cut, because securin survives and separase stays switched off. So an unattached kinetochore stops anaphase, by two steps. Second, an amphitelic attachment, the correct configuration in which sister kinetochores face opposite poles: this leads directly to anaphase with cohesin cut, and the relationship is labelled that tension is present and there is no unattached kinetochore. Third, a merotelic attachment, in which one single kinetochore is attached to microtubules from both poles: this also leads directly to anaphase with cohesin cut, and its relationship carries the same label, that tension is also present and there is also no unattached kinetochore. Amphitelic and merotelic attachments therefore reach the same anaphase outcome by satisfying the same two conditions, which is the point of the map: the checkpoint's conditions do not distinguish a correct attachment from this particular wrong one. The merotelic node has a second relationship, leading to a node for a lagging chromatid, labelled that the chromatid is pulled toward both poles at once. No such relationship leaves the amphitelic node, and that difference in consequence, despite the identical checkpoint verdict, is the asymmetry the map exists to show. Two further relationships describe the checkpoint failing rather than being fooled. The checkpoint node leads to a node for mitotic slippage, labelled that cyclin B decays over hours regardless of the checkpoint being active, and mitotic slippage leads to a node for an undivided tetraploid cell, labelled that mitosis was exited without division. The conclusion carried by the whole map is that a division can go wrong in two distinct ways: by presenting a wrong state that satisfies the detector, or by outlasting the detector's ability to hold.",
+  "nodes": [
+    {
+      "id": "node-unattached",
+      "label": "Unattached kinetochore",
+      "shape": "box",
+      "group": "kinetochore-state"
+    },
+    {
+      "id": "node-amphitelic",
+      "label": "Amphitelic attachment",
+      "shape": "box",
+      "group": "kinetochore-state"
+    },
+    {
+      "id": "node-merotelic",
+      "label": "Merotelic attachment",
+      "shape": "box",
+      "group": "kinetochore-state"
+    },
+    {
+      "id": "node-mcc",
+      "label": "MCC blocks APC/C-CDC20",
+      "shape": "rounded-box",
+      "group": "surveillance"
+    },
+    {
+      "id": "node-anaphase",
+      "label": "Anaphase: cohesin cut",
+      "shape": "rounded-box",
+      "group": "outcome"
+    },
+    {
+      "id": "node-lagging",
+      "label": "Lagging chromatid",
+      "shape": "pill",
+      "group": "error"
+    },
+    {
+      "id": "node-slippage",
+      "label": "Mitotic slippage",
+      "shape": "diamond",
+      "group": "surveillance-failure"
+    },
+    {
+      "id": "node-tetraploid",
+      "label": "Undivided 4N cell",
+      "shape": "pill",
+      "group": "error"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-unattached-mcc",
+      "from": "node-unattached",
+      "to": "node-mcc",
+      "kind": "activates",
+      "label": "one unattached kinetochore is enough to sustain the signal"
+    },
+    {
+      "id": "edge-mcc-anaphase",
+      "from": "node-mcc",
+      "to": "node-anaphase",
+      "kind": "inhibits",
+      "label": "securin survives, so separase stays switched off"
+    },
+    {
+      "id": "edge-amphitelic-anaphase",
+      "from": "node-amphitelic",
+      "to": "node-anaphase",
+      "kind": "directed",
+      "label": "tension present, no unattached kinetochore"
+    },
+    {
+      "id": "edge-merotelic-anaphase",
+      "from": "node-merotelic",
+      "to": "node-anaphase",
+      "kind": "directed",
+      "label": "also tension, also no unattached kinetochore"
+    },
+    {
+      "id": "edge-merotelic-lagging",
+      "from": "node-merotelic",
+      "to": "node-lagging",
+      "kind": "directed",
+      "label": "chromatid pulled toward both poles at once"
+    },
+    {
+      "id": "edge-mcc-slippage",
+      "from": "node-mcc",
+      "to": "node-slippage",
+      "kind": "directed",
+      "label": "cyclin B decays over hours regardless"
+    },
+    {
+      "id": "edge-slippage-tetraploid",
+      "from": "node-slippage",
+      "to": "node-tetraploid",
+      "kind": "directed",
+      "label": "mitosis exited without division"
+    }
+  ]
+}
