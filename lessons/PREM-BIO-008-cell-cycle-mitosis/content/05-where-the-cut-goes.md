@@ -36,7 +36,11 @@ Cytokinesis can fail outright. The furrow ingresses and then regresses, or absci
 
 Here is the part worth pausing on. A cell in that state has clearly made a serious mistake, and you might expect a surveillance mechanism to catch it. There is not one. Work on primary human fibroblasts found that binucleate cells produced by cleavage failure went on to replicate their DNA at almost the same frequency as their normal neighbours, with over 94 per cent of binucleate cells incorporating a DNA-synthesis label, and most of them entered mitosis again within 36 hours. The authors' conclusion was blunt: a tetraploidy checkpoint does not exist in normal mammalian somatic cells. Nothing in a cell reads its own DNA content and objects.
 
-So the cell has an elaborate checkpoint for a chromatin bridge in the intercellular canal, and no checkpoint at all for having ended up with two nuclei. Surveillance in the cell cycle is not a general audit. It is a collection of specific detectors for specific physical states, and a failure mode that no detector was built for passes through unremarked.
+So the cell has an elaborate checkpoint for a chromatin bridge in the intercellular canal, and in that experiment nothing stopped a binucleate cell from cycling.
+
+State the scope carefully, because the authors' sentence is broader than what one experiment can carry and later work has narrowed it. What that study shows is that primary human fibroblasts made binucleate by cleavage failure replicated their DNA and entered mitosis, so there is no simple sensor of DNA content or nucleus number that arrests such a cell. It does not show that nothing responds. Later work in other primary cells reports a Hippo-LATS2-p53 route producing growth arrest after cytokinesis failure in tetraploid retinal epithelial cells, and reduced proliferation of tetraploid hepatocytes. The field's position is the narrower one: no dedicated tetraploidy detector, and context-dependent responses that can arrest such a cell in some tissues and not others.
+
+The teaching point survives intact, and is in fact sharper for being scoped. Surveillance is a set of specific detectors, not a general audit. A cell can end up with the wrong number of nuclei and find that nothing was watching for exactly that. Surveillance in the cell cycle is not a general audit. It is a collection of specific detectors for specific physical states, and a failure mode that no detector was built for passes through unremarked.
 
 That observation is the bridge into the next scene.
 

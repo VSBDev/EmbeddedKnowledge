@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "adjudicationId": "ADJ-PREM-BIO-008-BA232138",
+  "lessonId": "PREM-BIO-008",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "5ba19ec3b356447ae80cd668fb9379d36a24d880",
+  "finalCommit": "da0b33f36e0893b7a0cd5550aa3d149b6c711d7c",
+  "riskTier": "standard",
+  "policyId": "standard-lesson-v3",
+  "reviewIds": [
+    "REV-PREM-BIO-008-ACADEMIC-155E3FCA-0C3C-4875-8EFF-995472D2A5D4",
+    "REV-PREM-BIO-008-CF4706A9-1B94-4DE8-A022-C67857A032C6"
+  ],
+  "quorum": {
+    "satisfied": true,
+    "approvals": 1,
+    "reviewInputs": 2,
+    "changeRequests": 1,
+    "roleCounts": {
+      "academic": 1,
+      "learningDesign": 1,
+      "accessibilityRights": 0
+    },
+    "distinctPrincipals": 1,
+    "distinctAgentRuns": 2,
+    "distinctAgentModelFamilies": 2
+  },
+  "decision": "merge",
+  "rationale": "Both role-isolated advisory inputs were present from distinct runs and model families, pinned to the same frozen candidate. The learning-design review approved with two notes; the academic review returned request-changes with seven major findings and one minor. None carries blocking severity and all eight were correctable in this pass, so all were disposed here. Three were mechanisms taught the wrong way round, which is the most serious kind of finding for a lesson whose whole subject is what a control system can and cannot detect. A damage threshold was read as a breaking point when the source describes a detection floor and arrest that lengthens with dose. Slippage was described as a detector giving up when the pack's own source has the checkpoint active and unsatisfied throughout, the cell leaving because cyclin B keeps being degraded. And a definition asserting that nothing measures duration was falsely absolute, since that is precisely how slippage escapes. Two more narrowed over-broad claims: a universal absence of a tetraploidy checkpoint resting on one experiment, and drug phase specificity overstated in the health-sensitive scene. The last major finding is the one with the widest implication: four derived conclusions a learner must accept and use carried no claim record, on the grounds that they were the lesson's own arithmetic. Original inference is still a material claim, and it is now recorded as one. The academic verdict stands as dissent and no reviewer has seen the repaired text.",
+  "dissent": [
+    "The academic review's request-changes verdict stands as material dissent from the candidate as reviewed. Its findings were incorporated by the maintainer afterwards; no reviewer has approved the repaired text.",
+    "The haploid-for-diploid genome size corrected here was also found in PREM-BIO-002 earlier in this block. Two independent occurrences in one module is a pattern rather than a slip, and a corpus-wide check for it is recorded as outstanding work rather than done in this pass.",
+    "Three questions are left open with sources on both sides and no assessment item depending on them: what the spindle checkpoint reads, whether merotely or syntely dominates missegregation, and how the abscission checkpoint senses a bridge.",
+    "PREM-BIO-009 and PREM-BIO-010 were authored in parallel and could not be read. Both borrow from this lesson's territory with independent sourcing; if any of the three disagree once published, this pack owns cell-cycle control and the others change."
+  ],
+  "conditions": [
+    "The repaired content is committed first and that commit is stamped as finalCommit, with no teaching-content change afterward.",
+    "Strict source preflight and full validation must pass on the final content before merge.",
+    "The publication transition is the maintainer's separate act and is not authorised by this decision."
+  ],
+  "adjudicator": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable maintainer and adjudicator",
+    "agent": {
+      "system": "Claude Code",
+      "provider": "Anthropic",
+      "model": "claude-opus-5",
+      "version": "2.1.215",
+      "runId": "claude-adjudicator-PREM-BIO-008-445CB9722E40",
+      "instructionsDigest": "sha256:f74c994324ac38b8702d010e950ade1d5ece9f516f5abb348d15f861698572d4"
+    }
+  },
+  "adjudicatedAt": "2026-07-28T00:40:18Z",
+  "finalization": {
+    "materialChanges": [
+      "Corrected the G2/M damage threshold from a breaking point to a detection floor, in the scene and in the claim.",
+      "Recorded that the spindle checkpoint stays active and unsatisfied through slippage and that cyclin B degradation is what releases the cell.",
+      "Narrowed the duration claim to the detector and stated that exit is not always state-dependent.",
+      "Scoped the tetraploidy finding to the absence of a dedicated detector and named the later context-dependent responses.",
+      "Removed the APC/C design rationale from the marking requirement.",
+      "Separated the four chemotherapy mechanisms, named doxorubicin's other actions and its effect on non-dividing cells, and bounded the paclitaxel account.",
+      "Added four claims for the derived cycle time, estimate, amplification argument and clinical fractions, each exposed in its scene.",
+      "Corrected the replication amount to the diploid figure and reworded single-copy DNA as unreplicated."
+    ],
+    "reviewDispositions": [
+      {
+        "reviewId": "REV-PREM-BIO-008-ACADEMIC-155E3FCA-0C3C-4875-8EFF-995472D2A5D4",
+        "findingIndex": 0,
+        "action": "incorporated",
+        "rationale": "content/06-wrong-answer-satisfies.md and claims.json: the G2/M threshold is read the right way round, with arrest duration rising with dose and release once repair brings residual damage below an insensitive detection floor; the reversed reading is corrected in claim-checkpoints-not-foolproof and named as corrected in its uncertainty."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-008-ACADEMIC-155E3FCA-0C3C-4875-8EFF-995472D2A5D4",
+        "findingIndex": 1,
+        "action": "incorporated",
+        "rationale": "assessment.json: item-why-upstream-of-apcc credits identifying APC/C as where the checkpoint acts and cohesin cleavage as the committing step, and instructs the marker neither to require nor to penalise a design rationale the source does not establish."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-008-ACADEMIC-155E3FCA-0C3C-4875-8EFF-995472D2A5D4",
+        "findingIndex": 2,
+        "action": "incorporated",
+        "rationale": "content/05-where-the-cut-goes.md and claims.json: the absence is scoped to no simple sensor of DNA content or nucleus number, with the later Hippo-LATS2-p53 and hepatocyte findings named as context-dependent responses, and claim-no-tetraploidy-checkpoint records that its authors' conclusion is broader than one experiment can carry."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-008-ACADEMIC-155E3FCA-0C3C-4875-8EFF-995472D2A5D4",
+        "findingIndex": 3,
+        "action": "incorporated",
+        "rationale": "content/02-condition-not-clock.md: the claim is narrowed to the detector, and the scene states that activation and satisfaction are state-dependent while exit is not always, pointing forward to slippage."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-008-ACADEMIC-155E3FCA-0C3C-4875-8EFF-995472D2A5D4",
+        "findingIndex": 4,
+        "action": "incorporated",
+        "rationale": "assessment.json: item-which-errors-pass records that the spindle checkpoint remains active and unsatisfied through slippage, that the cell leaves because cyclin B continues to be degraded, and that an answer describing a detection failure has the mechanism backwards."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-008-ACADEMIC-155E3FCA-0C3C-4875-8EFF-995472D2A5D4",
+        "findingIndex": 5,
+        "action": "incorporated",
+        "rationale": "content/08-clinical-wrap-up.md: the four drugs are no longer one mechanism, doxorubicin's topoisomerase, intercalation and oxidative actions and its effect on non-dividing cells are named, the phase dependence is a matter of degree rather than a rule, and the paclitaxel spindle-checkpoint account is bounded to cell culture."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-008-ACADEMIC-155E3FCA-0C3C-4875-8EFF-995472D2A5D4",
+        "findingIndex": 6,
+        "action": "incorporated",
+        "rationale": "claims.json, references.json and the source-notes in content/03-how-long-one-turn.md and content/08-clinical-wrap-up.md: four claims added for the cycle-time derivation, the crypt cycle estimate, the amplification argument and the clinical cycling fractions, each at support inference with its own scope and uncertainty and exposed in the scene that asserts it."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-008-ACADEMIC-155E3FCA-0C3C-4875-8EFF-995472D2A5D4",
+        "findingIndex": 7,
+        "action": "incorporated",
+        "rationale": "content/01-division-budget.md, content/02-condition-not-clock.md and content/04-one-kinetochore.md: the replication amount is the diploid figure of about six billion base pairs, and single-copy DNA in G1 is reworded as unreplicated rather than haploid."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-008-CF4706A9-1B94-4DE8-A022-C67857A032C6",
+        "findingIndex": 0,
+        "action": "no-change-required",
+        "rationale": "Recorded as a strength of the candidate; nothing to change."
+      },
+      {
+        "reviewId": "REV-PREM-BIO-008-CF4706A9-1B94-4DE8-A022-C67857A032C6",
+        "findingIndex": 1,
+        "action": "no-change-required",
+        "rationale": "Recorded as a strength of the candidate; nothing to change."
+      }
+    ],
+    "accessibilityRightsAudit": {
+      "satisfied": true,
+      "evidenceChecked": [
+        "All eight scenes keep one level-one heading, semantic Markdown, linear reading order and text-first instruction, with no raw HTML, embeds or executable content.",
+        "The original diagram carries alt text and a long description; the author verified it as rendered rather than as source, and the slippage grouping it encoded was corrected with the item.",
+        "Every source is used facts-only from domains the ledger records as allowed, and the author recorded using the permitted PMC route where search offered a disallowed legacy path.",
+        "The clinical scene carries the teaching-example boundary, names no dose, regimen or recommendation, and its overstated phase specificity has been narrowed, which lowers the pack's clinical exposure.",
+        "The four new claims are marked with their risk, including the clinical fractions as health-sensitive."
+      ],
+      "limitations": [
+        "A maintainer reading of the repaired text, not an independent accessibility or rights review; the accessibility-rights role was not staffed for this tier.",
+        "No screen-reader run was performed against the rendered lesson.",
+        "The tetraploidy and chemotherapy passages were rewritten after review and have been seen only by the maintainer.",
+        "No in-vivo human colonic crypt cycle time was reachable, which is why the pack derives one; and no per-division cytokinesis-failure rate for normal human cells was available."
+      ]
+    }
+  }
+}

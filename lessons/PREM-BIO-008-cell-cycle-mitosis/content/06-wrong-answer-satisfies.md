@@ -43,7 +43,7 @@ A cell arrested by the spindle assembly checkpoint is not frozen. Cyclin B1 deca
 
 The timescale is hours. Human retinal pigment epithelial cells held with a microtubule poison stayed arrested for around 546 to 875 minutes on average, depending on the dose, before slipping. So the checkpoint buys somewhere between nine and fifteen hours of delay in these cells, and then stops buying.
 
-The threshold idea is a model and not a measurement, and it should be held as one: cyclin B1 has been observed to ramp down roughly linearly until the cell exits, and the existence of a level below which arrest cannot be sustained is inferred from that behaviour. No numeric value for the threshold has been established.
+The threshold idea is a model and not a measurement, and it should be held as one: cyclin B1 has been observed to ramp down roughly linearly until the cell exits, and the existence of a level below which arrest cannot be sustained is inferred from that behaviour. The ten-to-twenty figure is the detection floor reported in that work rather than a constant of the checkpoint.
 
 ## Waiting has its own cost
 
@@ -53,9 +53,9 @@ Put that next to the slippage figures and the shape of the problem emerges. The 
 
 ## The same pattern outside mitosis
 
-The DNA damage checkpoints behave the same way, and have been studied precisely for their limits. In human fibroblasts the G1/S checkpoint is slowly activated and lets cells enter S phase while double-strand breaks are still unrepaired. The G2/M checkpoint stops holding in the majority of cells once they carry somewhere between 10 and 20 unrepaired breaks, and cells are released into mitosis before repair is complete. The reviewers' summary of their own field is that checkpoints are not foolproof but carry inherent limitations.
+The DNA damage checkpoints behave the same way, and have been studied precisely for their limits. In human fibroblasts the G1/S checkpoint is slowly activated and lets cells enter S phase while double-strand breaks are still unrepaired. The G2/M checkpoint holds longer the more damage a cell has taken, and it releases the cell once repair has brought the remaining breaks below a threshold of roughly ten to twenty double-strand breaks. Cells therefore enter mitosis before repair is complete, carrying that residual load. The reviewers' summary of their own field is that checkpoints are not foolproof but carry inherent limitations.
 
-Notice that the G2/M figure runs the opposite way to intuition. More damage does not mean a longer hold. Past a threshold the checkpoint stops holding at all.
+Read that threshold the right way round, because the tempting reading is the opposite one. It is not that heavy damage overwhelms the checkpoint and it gives up: heavy damage produces a *longer* arrest, and arrest duration rises with dose. What the threshold describes is the checkpoint's insensitivity at the bottom end. Below about ten to twenty breaks it can no longer tell that anything is wrong, so it releases a cell that is still damaged. The limitation is a detection floor, not a breaking point.
 
 ## Two more mechanical routes to a wrong daughter
 

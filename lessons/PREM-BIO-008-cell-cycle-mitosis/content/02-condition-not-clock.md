@@ -16,7 +16,7 @@ Read the definition once more and notice what it does not say. It does not say t
 
 A dividing cell alternates between a long period of preparation and a short period of physical division.
 
-**Interphase** is the preparation, and it has three parts. In **G1** the cell grows and makes protein, and its DNA is still single-copy. In **S phase** the DNA is replicated, so every chromosome ends the phase as two identical copies held together. In **G2** the cell continues growing and readies the machinery of division. **M phase** is the division itself: mitosis sorts the copies into two sets, and cytokinesis cuts the cell in two.
+**Interphase** is the preparation, and it has three parts. In **G1** the cell grows and makes protein, and each chromosome is still one chromatid: unreplicated, not haploid. The cell holds its full diploid complement throughout. In **S phase** the DNA is replicated, so every chromosome ends the phase as two identical copies held together. In **G2** the cell continues growing and readies the machinery of division. **M phase** is the division itself: mitosis sorts the copies into two sets, and cytokinesis cuts the cell in two.
 
 PREM-BIO-002 of this block quoted a figure for a cultured human cell and promised that this lesson would explain it: a cycle of about 24 hours, of which mitosis and the division occupy about an hour, leaving roughly 95 per cent of the time in interphase. That is a textbook illustration rather than a measurement, and single-cell imaging of named human cell lines gives a sharper and less tidy picture. Following individual cells through the cycle with a replication reporter, S phase ran 7.6 to 10.1 hours and G2 ran 3.4 to 4.0 hours across three human lines, while mitosis took around half an hour. G1 was the variable one, ranging from 2.1 hours in a human embryonic stem line to 7.9 hours in retinal pigment epithelium.
 
@@ -68,7 +68,9 @@ Answer these from this scene before reading on.
 
 1. Damaged DNA, most specifically double-strand breaks detected by ATM or single-stranded DNA detected by ATR. The withheld activity is that of a cyclin-dependent kinase; the checkpoint kinases suppress CDC25, so the inhibitory phosphate is never removed from the CDK.
 2. The p53 arm. ATM and CHK2 stabilise p53, p53 induces p21, and p21 inhibits cyclin E-CDK2 and cyclin A-CDK2 directly, without needing CDC25 to be involved.
-3. Because a checkpoint is a condition rather than a place. The same checkpoint releases one cell immediately and holds another for hours, and what differs is the state being detected, not the time elapsed. Nothing in the mechanism measures duration.
+3. Because a checkpoint is a condition rather than a place. The same checkpoint releases one cell immediately and holds another for hours, and what differs is the state being detected rather than the time elapsed. Nothing in the *detector* measures duration.
+
+That is narrower than saying nothing about the system is time-dependent, and the difference matters in scene 6. Whether the checkpoint is satisfied is a question about state. What happens downstream while it stays unsatisfied is not: cyclin B continues to be degraded through a sustained hold, so a cell can leave mitosis with the detector still active and still unsatisfied. Activation and satisfaction are state-dependent. Exit is not always.
 :::
 
 :::{source-note}

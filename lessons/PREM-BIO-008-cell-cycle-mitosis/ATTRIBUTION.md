@@ -147,3 +147,55 @@ Scene 8 discusses cancer chemotherapy because the cell cycle explains a pattern 
 ## Governance
 
 This run authored only. No review artifact, adjudication, or publication decision was produced, and `reviews/` and `adjudication.json` are deliberately absent. All claims are `pending-review` and lesson `sourceConfidence` is `pending-review`, as authorship requires. The pack is a candidate and is not a published lesson; validation establishes structural integrity and says nothing about whether the teaching is correct or the sourcing sufficient. Those are for independent review to determine.
+
+## Adjudication repairs to the 0.1.0 candidate
+
+The academic review returned request-changes with seven major findings and one minor; the
+learning-design review approved with two notes. All eight were repaired in one pass and none was
+declined.
+
+**A threshold was read backwards.** The scene said that more DNA damage does not mean a longer hold and
+that past a threshold the G2/M checkpoint stops holding at all. The cited review reports the opposite:
+arrest duration rises with dose, and cells are released once repair has brought the residual damage
+*below* an insensitive threshold of roughly ten to twenty double-strand breaks. The limitation is a
+detection floor, not a breaking point, and the claim ledger carried the reversed reading too.
+
+**Two accounts of slippage and of APC/C were teaching the wrong mechanism.** Mitotic slippage was
+described as a case where no checkpoint holds the cell and the detector gives up. The pack's own source
+says BubR1, Mad1 and Mad2 stay at the unattached kinetochores and the spindle checkpoint remains
+active: the cell leaves because cyclin B keeps being degraded through the hold until too little
+remains. The detector is outlasted, neither satisfied nor switched off. And an item keyed a design
+rationale — that the checkpoint must act on APC/C because only cohesin cleavage is irreversible — which
+the pathway source does not establish; securin and cyclin B proteolysis are themselves effectively
+irreversible on that timescale, and separase is restrained by more than securin.
+
+**A definition was made falsely absolute.** Saying that nothing in the mechanism measures duration
+overstates a true point. Whether the checkpoint is satisfied is a question about state; what happens
+downstream during a sustained hold is not, and that is exactly how slippage works. The claim is now
+about the detector, and the scene says plainly that exit is not always state-dependent.
+
+**A universal absence rested on one experiment.** The pack said normal mammalian somatic cells have no
+tetraploidy checkpoint and that nothing detects the post-cytokinesis-failure state. One 2004 primary
+fibroblast study supports the narrower finding that there is no simple sensor of DNA content or nucleus
+number. Later primary work reports context-dependent responses, including a Hippo-LATS2-p53 arrest in
+tetraploid retinal epithelial cells and reduced proliferation of tetraploid hepatocytes. The teaching
+point is sharper for being scoped: surveillance is a set of specific detectors, not a general audit.
+
+**The clinical scene overstated drug phase specificity**, which matters most because it is the
+health-sensitive part. Four drugs were grouped under one mechanism and described as acting only on S
+phase. Doxorubicin also poisons topoisomerase II, intercalates and generates oxidative damage, and can
+injure cells that are not dividing. Paclitaxel's spindle-checkpoint account does not generalise at
+clinically relevant exposure. The argument is now about why the crypt is hit hardest, which is what the
+lesson needs, rather than about why other tissues are spared.
+
+**The derived conclusions had no claim records.** The T_cycle = f × T_turnover derivation, the 25-hour
+estimate and its 19-to-31-hour band, the amplification argument, and the clinical cycling fractions were
+all things a learner must accept and use, and their source notes listed only the inputs. Original
+inference is still a material claim. Four claims now carry them, each at `support: inference` with its
+own scope and uncertainty, and each exposed in the scene that asserts it.
+
+One minor correction with a history: the pack quoted three billion base pairs as what a dividing human
+cell copies. That is one haploid genome; a diploid cell copies about six billion. The same error was
+found in PREM-BIO-002 earlier in this block, which suggests it is worth a corpus-wide check rather than
+a per-pack fix. "Single-copy" DNA in G1 has also been reworded, since it risked reading as haploid when
+it means unreplicated.

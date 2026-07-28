@@ -658,7 +658,7 @@
       "support": "direct",
       "confidence": "high",
       "scope": "Cell-cycle progression after experimentally induced cleavage failure in primary human foreskin fibroblasts.",
-      "uncertainty": "Cleavage failure was induced experimentally rather than observed arising spontaneously, and the cells are cultured primary fibroblasts rather than colonic epithelium. No per-division spontaneous rate of cytokinesis failure in normal human cells was found during research for this lesson, and none is asserted. The generalisation this lesson draws, that cell-cycle surveillance is a set of specific detectors rather than a general audit, is its own inference from contrasting this result with the sourced abscission checkpoint.",
+      "uncertainty": "The authors' conclusion is broader than one experiment in one cell type can establish. Later primary work reports context-dependent responses to cytokinesis failure, including a Hippo-LATS2-p53 arrest in tetraploid retinal epithelial cells and reduced proliferation of tetraploid hepatocytes. What the evidence supports is the absence of a dedicated tetraploidy detector rather than the absence of any response, and the scene states it that way.",
       "risk": "routine",
       "reviewStatus": "pending-review"
     },
@@ -814,7 +814,7 @@
     },
     {
       "id": "claim-checkpoints-not-foolproof",
-      "statement": "DNA damage checkpoints are not absolute: in human fibroblasts the G1/S checkpoint is slowly activated and allows cells to enter S phase in the presence of unrepaired double-strand breaks, the G2/M checkpoint is abrogated in the majority of cells when they harbour between 10 and 20 unrepaired breaks, cells are released into mitosis before repair is complete, and the reviewers summarise that checkpoints are not foolproof but carry inherent limitations.",
+      "statement": "Checkpoints are not foolproof and carry inherent limitations. In human fibroblasts the G1/S checkpoint activates slowly and lets cells enter S phase with unrepaired double-strand breaks. At G2/M, arrest duration increases with the dose of damage, and cells are released once repair has reduced the residual damage below an insensitive threshold of roughly 10 to 20 double-strand breaks, so they enter mitosis before repair is complete.",
       "sceneIds": [
         "scene-wrong-answer-satisfies",
         "scene-practice-and-recovery"
@@ -825,7 +825,7 @@
       "support": "direct",
       "confidence": "high",
       "scope": "The limitations of radiation-induced cell-cycle checkpoints, largely established in human fibroblasts, from a 2011 review devoted to that question.",
-      "uncertainty": "The damage in these studies was induced by ionising radiation, so the numbers describe response to radiation-induced breaks rather than to breaks from any other cause. The G2/M figure of 10 to 20 unrepaired breaks is a threshold above which the checkpoint stops holding in most cells, which runs counter to the intuition that more damage produces a longer arrest; the lesson points that out as its own comment.",
+      "uncertainty": "The threshold is the detection floor reported in that work rather than a constant of the checkpoint. The earlier reading of this claim, that heavy damage causes the checkpoint to stop holding, is the reverse of what the source reports and is corrected here.",
       "risk": "routine",
       "reviewStatus": "pending-review"
     },
@@ -991,6 +991,74 @@
       "scope": "The chromosome complement of a normal human somatic cell and the definition of aneuploidy, from a 2020 educational case in cytogenetics.",
       "uncertainty": "This lesson takes only the count and the definition of aneuploidy from this source, and takes nothing about homologues, karyotype notation, sex-chromosome variation or chromatin organisation, all of which belong to the unbuilt outcome PREM-06.02. The count is used to make the published per-chromosome to per-division conversion checkable by the learner and to let the ploidy vocabulary be glossed in plain terms; it is not used to assert anything further about genome architecture, and it is consistent with PREM-BIO-002's figure of more than twenty linear molecules per genome.",
       "risk": "routine",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-cycle-time-derivation",
+      "statement": "In a steady-state renewing compartment the proliferative fraction f and the tissue turnover time T_t fix the average cycle time as T_cycle = f x T_t, because N_p/T_c must equal N/T_t. Compartment size cancels, so the result does not depend on how many cells the crypt holds.",
+      "sceneIds": [
+        "scene-how-long-one-turn"
+      ],
+      "sourceIds": [
+        "source-chao-uncoupled-phases"
+      ],
+      "support": "inference",
+      "confidence": "high",
+      "scope": "The lesson's own derivation from the steady-state condition, stated algebraically in the worked example. Its value is that it is insensitive to the disagreement between the sources about crypt size.",
+      "uncertainty": "Holds only in steady state and for an average over the proliferative compartment. It says nothing about the spread of cycle times between cells.",
+      "risk": "routine",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-crypt-cycle-estimate",
+      "statement": "Applying that derivation to a proliferative fraction of 0.257 and a turnover time of 96 hours gives an average cycle time of about 25 hours, with a band of roughly 19 to 31 hours across a 3 to 5 day turnover.",
+      "sceneIds": [
+        "scene-how-long-one-turn"
+      ],
+      "sourceIds": [
+        "source-chao-uncoupled-phases",
+        "source-nguyen-colonic-crypt"
+      ],
+      "support": "inference",
+      "confidence": "medium-high",
+      "scope": "This lesson's arithmetic from the sourced proliferative fraction and turnover interval. It is an estimate for the compartment average, not a measurement of any cell, and it is offered in place of an in-vivo human colonic figure, which was not reachable.",
+      "uncertainty": "Inherits the uncertainty of both inputs and assumes steady state. The band reflects only the turnover range, not error in the fraction.",
+      "risk": "routine",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-amplification-rounds",
+      "statement": "Given the measured stem-cell number and division interval, the stem compartment alone supplies far fewer divisions per day than the crypt requires, so the transit-amplifying compartment must cycle faster than the stem cells feeding it and several rounds of amplifying division are arithmetically necessary.",
+      "sceneIds": [
+        "scene-how-long-one-turn"
+      ],
+      "sourceIds": [
+        "source-nicholson-somatic-mutations",
+        "source-baker-crypt-dynamics",
+        "source-sumigray-crypt-compartments"
+      ],
+      "support": "inference",
+      "confidence": "medium",
+      "scope": "This lesson's reasoning from the sourced stem-cell count, stem division interval and crypt output. The number of rounds depends on which crypt size is used, and both are given.",
+      "uncertainty": "A steady-state accounting argument, not a measurement of amplifying-compartment cycle time in human colon. The comparison figure available is mouse small intestine and is carried at low confidence elsewhere in the pack.",
+      "risk": "routine",
+      "reviewStatus": "pending-review"
+    },
+    {
+      "id": "claim-clinical-cycling-fractions",
+      "statement": "From the derived cycle time and the measured phase durations, the fraction of crypt cells in S phase and in mitosis at any instant can be estimated, and the mitotic estimate is consistent with the measured number of mitoses seen per crypt section.",
+      "sceneIds": [
+        "scene-clinical-wrap-up"
+      ],
+      "sourceIds": [
+        "source-chao-uncoupled-phases",
+        "source-boman-fields-crypt-axis"
+      ],
+      "support": "inference",
+      "confidence": "medium",
+      "scope": "This lesson's arithmetic, used to argue why a fast-cycling tissue is hit hardest. It is a compartment average at an instant and carries no clinical implication for any person.",
+      "uncertainty": "Depends on the derived cycle time and on phase durations measured in cultured cells rather than in human colon. The agreement with the measured mitotic count is a consistency check, not an independent confirmation.",
+      "risk": "health-sensitive",
       "reviewStatus": "pending-review"
     }
   ]

@@ -28,7 +28,7 @@ Sit with that for a moment. Any mutation that arises in one stem cell has roughl
 
 ## The question this lesson answers
 
-A tissue running 175 divisions a day cannot treat division as routine. Copying three billion base pairs and sorting them into two equal sets is a large mechanical operation, and a cell that begins it at the wrong moment, or with the wrong things true about itself, produces a daughter that is wrong in a way that persists.
+A tissue running 175 divisions a day cannot treat division as routine. Copying about six billion base pairs, being two copies of a roughly three-billion-base-pair genome, and sorting them into two equal sets is a large mechanical operation, and a cell that begins it at the wrong moment, or with the wrong things true about itself, produces a daughter that is wrong in a way that persists.
 
 So what decides that a cell may divide?
 
