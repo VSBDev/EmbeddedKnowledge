@@ -182,3 +182,39 @@ test("both gates recognise a calibration by the same rule", async () => {
     );
   }
 });
+
+test("a finding against the adjudication itself is not asked for a diff that cannot exist", () => {
+  // A re-versioned lesson carries a stale adjudication until the finalization writes a new one, and
+  // reviewers file that: it is why validate-lessons.mjs fails on the candidate. But the finalization
+  // ordering puts the content revision in the final commit and the adjudication in the commit AFTER
+  // it, so adjudication.json is never inside the range this check reads. Demanding a diff there would
+  // force a true disposition to be recorded as no-change-required -- a false statement in the record,
+  // written to satisfy a check that cannot see the true one.
+  assert.deepEqual(
+    scenario({
+      dispositions: [{ reviewId: "REV-ACADEMIC", findingIndex: 0, action: "incorporated" }],
+      findings: [{ target: `${packPath}/adjudication.json#L5` }],
+      changedFiles: ["content/010.md"]
+    }).length,
+    0
+  );
+
+  // The exemption is that one file and no other. A finding naming the adjudication AND a content file
+  // still has to show the content repair, because that one lands inside the range.
+  assert.equal(
+    scenario({
+      dispositions: [{ reviewId: "REV-ACADEMIC", findingIndex: 0, action: "incorporated" }],
+      findings: [{ target: "adjudication.json#L5; content/020.md#intro" }],
+      changedFiles: ["content/010.md"]
+    }).length,
+    1
+  );
+  assert.equal(
+    scenario({
+      dispositions: [{ reviewId: "REV-ACADEMIC", findingIndex: 0, action: "incorporated" }],
+      findings: [{ target: "lesson.json#prerequisites" }],
+      changedFiles: ["content/010.md"]
+    }).length,
+    1
+  );
+});
