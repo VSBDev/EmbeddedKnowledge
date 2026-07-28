@@ -11,7 +11,9 @@ The two processes need names. **Spermatogenesis** is the production of sperm cel
 
 **The claim.** One meiosis produces four gametes.
 
-**Where it holds.** In spermatogenesis it is accurate. Both divisions are symmetrical, the cytoplasm is split roughly evenly each time, and four viable gametes result from one starting cell.
+**Where it holds.** In spermatogenesis it is accurate. Both divisions are symmetrical, the cytoplasm is split roughly evenly each time, and four haploid products result from one starting cell.
+
+One qualification, because it is the same kind of precision this scene is about. Those four products are spermatids. Meiosis has finished with them and they are not yet sperm cells; differentiation follows, and a mammalian sperm cell has only begun that process when meiosis ends. So even in the sex where the count is four, meiosis does not hand over four finished gametes. It hands over four cells that go on to become them.
 
 **Where it fails.** In oogenesis both divisions are deliberately lopsided. The first division produces one large cell and a much smaller **first polar body**. The second division produces the egg and a **second polar body**. Half the genome is segregated into the polar bodies, and only a single viable gamete comes out of the whole process.
 

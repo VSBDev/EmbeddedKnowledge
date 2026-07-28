@@ -81,7 +81,7 @@ Two lessons from this step. A mean and a rate of failure are different questions
 
 ## Step 4: checking a number against itself
 
-Genetic distances are quoted in **centimorgans**, a unit of how often two positions on a chromosome are separated by crossing over, and not a unit of physical distance. A single crossover in a meiosis separates the positions on either side of it in half the resulting gametes, and 50 per cent recombination is defined as 50 cM, so one crossover contributes about 50 cM to a map. The focus counts therefore predict total map lengths of
+Genetic distances are quoted in **centimorgans**, a unit of how often two positions on a chromosome are separated by crossing over, and not a unit of physical distance. A single crossover in a meiosis separates the positions on either side of it in half the resulting gametes, and a genome-wide conversion is being used here: the study counts one cytologically visible crossover per meiosis as contributing an expected 50 cM, so one crossover contributes about 50 cM to a map. The focus counts therefore predict total map lengths of
 
 :::{equation}
 :label: equation-map-length-check
@@ -109,7 +109,11 @@ That figure is wrong, and it is worth taking apart because every one of its four
 
 Objection 1 is the only one that can be corrected by arithmetic, so correct it. If each of about 49 crossovers has an even chance of being on the inherited chromatid, a gamete carries about 24 switch points, spread over 23 chromosomes: roughly one per chromosome. That is a defensible and useful figure. The typical chromosome you pass on is not either of the two you received; it is one of them with about one join in it.
 
-Push that back into a count and you would get something like $2^{23+24} = 2^{47} \approx 1.4 \times 10^{14}$. That is larger than assortment alone by a factor of $2^{24}$, which is about 17 million. Objections 2 to 4 still apply to it, so treat it as an upper bound with its assumption named and not as a result.
+Push that back into a count and you would get something like $2^{23+24} = 2^{47} \approx 1.4 \times 10^{14}$. That is larger than assortment alone by a factor of $2^{24}$, which is about 17 million. Objections 2 to 4 still apply, and there is a fourth problem with the number that matters more than any of them: calling it an upper bound is the wrong way round.
+
+An upper bound would require the 24 to be a fixed count of independent binary choices. It is neither. It is an expectation derived from the male mean of 49.09, and the female mean would give about 34.6. Crossover number varies between meioses, which chromatids take part is constrained, and once the starting homolog and the breakpoints are fixed the parental origin alternates along the chromatid rather than being chosen afresh at each switch.
+
+And the breakpoints themselves are not a fixed set of positions. They fall at variable places along the chromosome, so the number of distinguishable mosaic chromatids is far larger than any count built from a fixed number of switch points. So 2 to the 47 is an illustration of the direction crossing over pushes the count, and the true number of distinguishable gametes exceeds it rather than falling under it. Treat it as neither a result nor a bound.
 
 :::{callout}
 :kind: note
@@ -152,5 +156,5 @@ A 2017 study of crossover maturation supplies the higher break estimates of abou
 
 A focus count is a count of labelled sites, so it can undercount events the marker misses; that is one reason two studies of the same quantity differ, and it is a reason to read the 2.60 per cent as a marker-based figure rather than a direct count of chiasmata.
 
-Every calculation here is the lesson's own: the 2-to-the-46 figure for a couple, the comparison with lesson 01's body cell count, the per-bivalent divisions, the 50 cM conversion applied as a check, the resolution of step 3's failed prediction using the variability and maturation figures, the estimate of about 24 switch points per gamete from an even-chance assumption, and the 2-to-the-47 upper bound. The argument that a reciprocal exchange leaves each chromatid's own centromere in place, so that 2 to the 23 counts centromere-origin patterns exactly, is the lesson's reasoning from the sourced description of reciprocal exchange and is not a sentence taken from a source. No source presents 2 to the 72, 2 to the 47, or the 24-switch-point figure, and none should be cited for them.
+Every calculation here is the lesson's own: the 2-to-the-46 figure for a couple, the comparison with lesson 01's body cell count, the per-bivalent divisions, the 50 cM conversion applied as a check, the resolution of step 3's failed prediction using the variability and maturation figures, the estimate of about 24 switch points per gamete from an even-chance assumption, and the 2-to-the-47 figure, which the scene treats as an illustration rather than a bound. The argument that a reciprocal exchange leaves each chromatid's own centromere in place, so that 2 to the 23 counts centromere-origin patterns exactly, is the lesson's reasoning from the sourced description of reciprocal exchange and is not a sentence taken from a source. No source presents 2 to the 72, 2 to the 47, or the 24-switch-point figure, and none should be cited for them.
 :::

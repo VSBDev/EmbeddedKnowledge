@@ -19,7 +19,11 @@ You can answer that with scene 1 alone, and the answer is no.
 
 Either the error happened in a meiosis in a parent, or at fertilisation, in which case it is present in every cell of the body and the biopsy is showing you something constitutional that happens also to be in the colon. Or it happened in a mitotic division somewhere in that person's own lineage of crypt cells, in which case it is confined to the cells descended from the one that made the mistake.
 
-**Step 3. What would distinguish them?** Whether the abnormal count is confined to a patch. A meiotic or fertilisation-stage error is in the whole person; a mitotic error in a crypt is in a clone. The reasoning is entirely from the lesson: meiosis happens once, before the individual exists, and everything after that is mitosis.
+**Step 3. What would distinguish them?** Whether the abnormal count is confined to a patch, and how far that gets you is worth stating carefully, because the clean version of this step is too clean.
+
+The clean version says a meiotic or fertilisation-stage error is in every cell and a mitotic error is in one clone, so the distribution decides it. Two things break that. An abnormality that began in meiosis can be lost from some cells afterwards, by a postzygotic rescue or by a further mitotic error, and the result is a mosaic rather than a whole-body finding. And a mitotic error early in embryonic development lands in many tissues rather than one crypt patch, because everything descended from that cell carries it.
+
+So distribution is real evidence and it is evidence about something slightly different: it supports constitutional against clonal, which is the useful clinical distinction. It does not by itself establish which division made the mistake. The reasoning that does hold entirely from this lesson is the narrower part: meiosis happens once, before the individual exists, and everything after that is mitosis, so a crypt cell cannot have done it.
 
 **Step 4. Is the mitotic route actually real?** It is, and scene 5 already showed the evidence in passing. In that population study of trisomy 21, 5 per cent of cases arose neither in maternal nor in paternal meiosis but by a mitotic error after fertilisation. Mitotic divisions do miscount chromosomes. The crypt performs an enormous number of them.
 

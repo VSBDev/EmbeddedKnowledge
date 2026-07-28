@@ -39,7 +39,13 @@ Two things hold that structure together, and both need naming before the argumen
 
 **The exchange between homologs.** **Meiotic recombination** is the process in which meiosis deliberately breaks its own DNA and repairs each break using the homolog as the template. Most breaks are repaired with no exchange of arms. Where a repair does end with the two homologs having swapped the segments beyond the break, the outcome is **crossing over**, and one such reciprocal exchange is a **crossover**.
 
-A swap sounds like something that would let two chromosomes come apart, so be explicit about why it does the opposite. The exchange is physical. Afterwards the DNA of one homolog's chromatid runs continuously into what was the other homolog's chromatid; along that chromatid they have become one molecule with a join in it. The visible connection this produces is a **chiasma**, and the chiasmata created by crossing over hold the maternal and paternal homologs together until the spindle separates them at anaphase I.
+A swap sounds like something that would let two chromosomes come apart, so be explicit about why it does the opposite. And be exact about the mechanism, because the obvious guess is wrong.
+
+The obvious guess is that the two chromatids are left joined to each other, one continuous molecule with a join in it. They are not. A reciprocal crossover resolves into two separate DNA molecules, each a recombinant chromatid carrying material from both homologs. Nothing is left welded across the pair.
+
+What holds the homologs together is the *arrangement* the crossover leaves behind, and the glue that arrangement needs. Beyond the crossover point, each recombinant chromatid is still bound to its own sister by cohesion. So a chromatid of the maternal homolog now runs into material that continues past the crossover, and that material is held to the paternal sister beyond it. Follow the connection and it passes through cohesion, not through a covalent join. That configuration is a **chiasma**, and it holds the maternal and paternal homologs together until anaphase I.
+
+This is why the release order in the next paragraph does what it does. Cutting arm cohesion is what dismantles the chiasma, because cohesion distal to the crossover is the thing making the crossover into a link at all.
 
 **The glue between sister chromatids.** **Cohesion** is a protein glue holding sister chromatids together, running along the chromatid arms and also through the centromere. It is one substance in two locations, and the cell releases it in two stages. Where the two need distinguishing, this scene calls them arm cohesion and centromeric cohesion.
 

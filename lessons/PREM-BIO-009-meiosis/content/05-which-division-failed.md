@@ -8,10 +8,14 @@ Now, scene 2 established that the two divisions separate different things. So a 
 
 Follow chromosome 21 through a single meiosis, in spermatogenesis, so that all four products survive and can be counted. Take one pair:
 
-- **M** is the homolog inherited from the mother. Replication has made it two sister chromatids, **M₁** and **M₂**, which are identical to each other.
+- **M** is the homolog inherited from the mother. Replication has made it two sister chromatids, **M₁** and **M₂**, identical to each other *at the moment of copying*.
 - **P** is the homolog inherited from the father, replicated into **P₁** and **P₂**, identical to each other.
 
-M and P are similar in sequence without being identical, because they came from different people. M₁ and M₂ *are* identical, because one was copied from the other. That distinction is the whole of what follows.
+M and P are similar in sequence without being identical, because they came from different people. M₁ and M₂ started identical, because one was copied from the other, and near the centromere they stay that way.
+
+Along the arms they need not. A crossover with a non-sister chromatid swaps material into one sister and not the other, so after recombination two sisters can differ over any stretch beyond the exchange. The textbook this lesson cites limits sister identity to the regions where recombination has not occurred, and that limit is the reason the whole inference below is built on a centromere-proximal marker rather than any marker on the arm.
+
+So state the two cases in the form the evidence supports. A first-division failure delivers a cell holding the centromeric identity of *both* parental homologs. A second-division failure delivers a cell holding *one* homolog's centromeric identity twice over. That is a difference about centromeres, and it survives recombination because recombination near the centromere is rare. Read as a claim about whole chromosomes it would not survive at all. That distinction is the whole of what follows.
 
 A normal meiosis gives four products: M₁, M₂, P₁, P₂. Each carries exactly one chromosome 21.
 
@@ -37,7 +41,7 @@ The second division now proceeds normally in both. In the first cell, sisters se
 
 **Four of four products are abnormal.** Two carry an extra copy and two carry none.
 
-And note *what* the two-copy products carry: one maternal homolog and one paternal homolog. Two chromosomes that are **not identical to each other**.
+And note *what* the two-copy products carry: one maternal homolog and one paternal homolog. Two chromosomes carrying **different parental centromeric identities**, one from each homolog.
 :::
 
 ## Case B: the second division fails
@@ -60,7 +64,7 @@ At the second division, suppose the sisters fail to separate in the cell holding
 
 **Two of four products are abnormal.** One carries an extra copy, one carries none, and two are entirely normal.
 
-And *what* the two-copy product carries: M₁ and M₂, which are copies of the same homolog. Two chromosomes that **are identical to each other**.
+And *what* the two-copy product carries: M₁ and M₂, which are copies of the same homolog. Two chromosomes carrying **the same parental centromeric identity**, copied from one homolog.
 :::
 
 ## The two differences, stated plainly

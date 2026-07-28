@@ -239,3 +239,56 @@ are in `references.json`. In short:
 is an authoring candidate and nothing more. It has not been reviewed, adjudicated, approved, published
 or merged, it carries no `reviews/` directory and no `adjudication.json`, and it makes no claim to
 outcome coverage, clinical sufficiency or academic credit.
+
+## Adjudication repairs to the 0.1.0 candidate
+
+The academic review returned request-changes with seven major findings and one minor; the
+learning-design review approved with four notes. All eight were repaired in one pass and none was
+declined. This was the most technically searching review any pack in this block received, and the
+first finding went to the centre of the lesson.
+
+**The mechanism holding the homologs together was wrong.** The scene said that after a crossover the
+two chromatids "have become one molecule with a join in it", and that this covalent continuity is the
+chiasma. A reciprocal crossover resolves into two separate recombinant DNA molecules; nothing is left
+welded across the pair. What holds the homologs together is the configuration the crossover leaves,
+maintained by sister-chromatid cohesion *distal* to the exchange. The correction matters twice over,
+because the release order the scene teaches next only makes sense once it is right: cutting arm
+cohesion dismantles the chiasma precisely because cohesion beyond the crossover is what made the
+crossover into a link.
+
+**A number presented as an upper bound was the wrong way round.** Building 2^47 from 23 assortment
+choices plus about 24 crossover switch points assumes the 24 is a fixed count of independent binary
+choices. It is an expectation from the male mean, the female mean would give about 34.6, and once the
+starting homolog and breakpoints are fixed the parental origin alternates rather than being chosen
+afresh. More decisively, breakpoints fall at variable positions, so the number of distinguishable
+mosaic chromatids *exceeds* 2^47 rather than falling under it. The figure is now an illustration of
+direction and is called neither a result nor a bound.
+
+**Sister chromatids were treated as identical whole chromosomes.** They are identical only where no
+recombination has intervened, which is why the two-case model works on a centromere-proximal marker
+and not on any marker along the arm. The cases are now stated as they can be supported: a
+first-division failure delivers both parental centromeric identities, a second-division failure
+delivers one identity twice. Read as a claim about whole chromosomes the inference does not survive
+recombination at all.
+
+**An item testing epistemic restraint rewarded an overstatement.** Its keyed option said aneuploidy
+"rises with maternal age", while the pack's own sources describe a U-shaped relation in oocytes and a
+J-shaped one in conceptions: elevated at the youngest ages, lowest in the middle, rising again at the
+oldest. The option now says higher at older ages than in the middle, and the steady-rise version is
+the distractor.
+
+**A retrospective association was said to locate a mechanism in time.** It cannot. The authors reason
+from the meiosis-II association that at least one mechanism must act near conception, which is an
+interpretation of an association and a reasonable one; no timing was measured.
+
+**A clinical dichotomy was too clean.** Patch distribution was treated as deciding which division
+erred. A meiotic abnormality can become mosaic through postzygotic rescue or a later mitotic error,
+and an early embryonic mitotic error lands in many tissues rather than one crypt patch. Distribution
+now supports constitutional against clonal, which is the useful distinction, and the narrower claim
+that a crypt cell cannot have performed meiosis is what carries the argument.
+
+Two smaller corrections: the glossary said gametes are the only cells meiosis produces and the only
+job it does, when polar bodies are meiotic products and meiosis yields spermatids that differentiate
+afterwards, so even in the sex where the count is four it does not hand over four finished gametes; and
+"50 per cent recombination is defined as 50 cM" conflated recombination fraction with map distance, and
+now states the genome-wide conversion the study actually used.

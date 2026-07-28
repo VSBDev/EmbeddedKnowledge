@@ -38,7 +38,7 @@ That study assigned 170 trisomy 21 cases to a parental origin and a meiotic divi
 
 **What does the study's own conclusion claim?** The authors state that the results support an association between advanced maternal age and errors at both divisions, that the association with the first division does not pinpoint when the error happened, and that the association with the second division implies at least one age-related mechanism acting around the time of conception.
 
-Notice how carefully that is phrased. "Supports an association." "Does not pinpoint." "Implies at least one mechanism." The design can establish that age and stage travel together and can locate a mechanism in time. It cannot say what the mechanism is.
+Notice how carefully that is phrased. "Supports an association." "Does not pinpoint." "Implies at least one mechanism." The design can establish that age and stage travel together. It cannot locate a mechanism in time, and the difference is worth holding onto. What it has is an association between maternal age bands and a meiotic stage inferred retrospectively from markers. The authors reason from the meiosis-II association that at least one mechanism must act near conception, which is an interpretation of the association and a reasonable one. It is not a mechanism observed, and no timing was measured. It cannot say what the mechanism is.
 :::
 
 ## Three candidate mechanisms, and where each one stands
