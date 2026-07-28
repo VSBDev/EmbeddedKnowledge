@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-SCI-002-LEARNING-DESIGN-53754AAA",
+  "lessonId": "PREM-SCI-002",
+  "lessonVersion": "0.3.0",
+  "candidateCommit": "300195b9114714724f88ab953237e4e0a54ffe34",
+  "role": "learning-design",
+  "verdict": "approve",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev (learning-design reviewer)",
+    "agent": {
+      "system": "Agy",
+      "provider": "Google",
+      "model": "gemini-3.5-flash-high",
+      "version": "Agy 1.1.8",
+      "runId": "agy-learning-design-PREM-SCI-002-53754AAA-4BFF-44FB-9D96-020BB744256D",
+      "instructionsDigest": "sha256:5686b6c44adbc7412a6802e127b718ea3b4d78f3bc7945be369b3385928e632d"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "Founding-stage isolation check: the accountable principal VSBDev operates the authoring, review, and finalization agents, so principal-level independence is absent. Agent-level role isolation was strictly maintained: no authoring history, other review output, or adjudication draft was read, and no other EmbeddedKnowledge role script was run during this review execution."
+  },
+  "evidenceChecked": [
+    "lessons/PREM-SCI-002-hypotheses-and-predictions/lesson.json",
+    "lessons/PREM-SCI-002-hypotheses-and-predictions/claims.json",
+    "lessons/PREM-SCI-002-hypotheses-and-predictions/references.json",
+    "lessons/PREM-SCI-002-hypotheses-and-predictions/glossary.json",
+    "lessons/PREM-SCI-002-hypotheses-and-predictions/ATTRIBUTION.md",
+    "lessons/PREM-SCI-002-hypotheses-and-predictions/content/01-explain-and-expect.md",
+    "lessons/PREM-SCI-002-hypotheses-and-predictions/content/02-worked-comparison.md",
+    "lessons/PREM-SCI-002-hypotheses-and-predictions/content/03-practise-and-repair.md",
+    "lessons/PREM-SCI-002-hypotheses-and-predictions/content/04-transfer.md",
+    "lessons/PREM-SCI-002-hypotheses-and-predictions/content/05-clinical-wrap-up.md",
+    "lessons/PREM-SCI-002-hypotheses-and-predictions/assessment.json",
+    "CONTENT-STANDARD.md",
+    "RIGHTS-POLICY.md"
+  ],
+  "findings": [
+    {
+      "severity": "note",
+      "target": "lessons/PREM-SCI-002-hypotheses-and-predictions/content/01-explain-and-expect.md#L3-L13",
+      "finding": "First-read gate and narrative transition: The introductory section successfully resolves the previous transition gap by quoting the exact ordinal browning-level question from PREM-SCI-001 (recorded after 60 minutes) and then explaining the pivot to the timing-based outcome variable (time to reach level 3). This prevents reader confusion and explicitly teaches how questions and their records travel together.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-SCI-002-hypotheses-and-predictions/assessment.json#item-distinguish-roles",
+      "finding": "Item role-distinction resolution: The voltage-to-power statement (2) in the lamp classification item has been updated to incorporate a clear explanatory mechanism, successfully separating the hypothesis from the conditional prediction (3) and ensuring the rubric is logically aligned.",
+      "resolution": null
+    },
+    {
+      "severity": "note",
+      "target": "lessons/PREM-SCI-002-hypotheses-and-predictions/content/02-worked-comparison.md#worked-example-apple-comparison",
+      "finding": "Worked example self-explanation: The self-explanation prompt appended to step 6 of the worked example effectively prompts learners to reflect on the core logical requirement of discrimination (why predicting identical outcomes under competing hypotheses would fail to discriminate between them).",
+      "resolution": null
+    },
+    {
+      "severity": "minor",
+      "target": "lessons/PREM-SCI-002-hypotheses-and-predictions/adjudication.json",
+      "finding": "Stale metadata files: The lesson pack directory contains stale v0.2.0 review files and adjudication.json (targeting candidate commit '0befc8a448596559073a5502a123930f5eaceb42' and declaring version '0.2.0'), which mismatches with the current v0.3.0 version and candidate commit '300195b9114714724f88ab953237e4e0a54ffe34', causing repository validation scripts to exit with code 1.",
+      "resolution": "The stale v0.2.0 files in the 'reviews/' directory and the 'adjudication.json' file should be removed from the candidate directory or updated by the finalizer script to refer to version '0.3.0' and candidate commit '300195b9114714724f88ab953237e4e0a54ffe34' to satisfy the repository validation."
+    }
+  ],
+  "limitations": [
+    "Expert-simulation review: This review represents a single-pass advisory input by a simulated learning-design expert under standard-lesson-v3 guidelines. No real learner testing was conducted.",
+    "Conflict of interest: The same GitHub principal (VSBDev) is responsible for the authoring and review run operators. Agent-level isolation was maintained, but principal-level independence is absent.",
+    "Scope restriction: The review is strictly bounded to learning-design metrics (e.g., clarity, coherence, practice, alignment, and transfer). Scientific accuracy, rights audits, and final typesetting checks are excluded.",
+    "Technical verification limits: No rendered build environment, screen reader, or keyboard navigation pathways were evaluated physically; findings are based solely on the static Markdown and JSON source files."
+  ],
+  "signedAt": "2026-07-28T16:16:25Z"
+}

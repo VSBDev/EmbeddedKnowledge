@@ -2,9 +2,9 @@
 
 ## Lesson content
 
-**Hypotheses, predictions, and discriminating comparisons**, version 0.2.0, is original course content contributed by VSBDev with disclosed Codex assistance. It is licensed under [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0).
+**Hypotheses, predictions, and discriminating comparisons**, version 0.3.0, is original course content contributed by VSBDev with disclosed Codex assistance. It is licensed under [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0).
 
-Suggested attribution: “Hypotheses, predictions, and discriminating comparisons” by VSBDev for EmbeddedKnowledge, version 0.2.0, CC BY 4.0.
+Suggested attribution: “Hypotheses, predictions, and discriminating comparisons” by VSBDev for EmbeddedKnowledge, version 0.3.0, CC BY 4.0.
 
 ## Sources and reuse
 

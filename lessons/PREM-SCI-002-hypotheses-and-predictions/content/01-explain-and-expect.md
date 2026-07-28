@@ -1,10 +1,16 @@
 # From what you want to know to what you expect to see
 
-Imagine that you have already asked this bounded question:
+The preceding lesson, *From an observation to a testable question*, ended with this question:
+
+> For freshly cut Granny Smith apple slices kept at 22–24 °C, how do browning levels recorded after 60 minutes compare between lemon-juice-coated and water-coated slices?
+
+If you cannot yet identify the observation, comparison, and conditions in it, pause and complete that lesson before continuing.
+
+One change before we go on. That question records a level on a 0-to-5 card at a fixed moment. The same comparison can be turned around: fix the level and record the time it takes to get there. Both are legitimate, and the second is easier to reason about here, because a difference in minutes is easier to state a prediction about than a difference between two card readings. So from here the question is:
 
 > For freshly cut Granny Smith apple slices kept at 22–24 °C, what is the difference in time to reach browning level 3 between lemon-juice-coated and water-coated slices during the first 60 minutes?
 
-If you cannot yet identify the observation, comparison, and conditions in that question, pause and complete the preceding lesson, *From an observation to a testable question*, before continuing.
+Nothing about the comparison or the boundary moved. Only the record did, and naming that swap out loud is the habit: a question and its record travel together, and changing one silently is how two people end up believing they investigated the same thing.
 
 The question tells you what you want to find out. It does not yet say why the coatings might differ or what record you expect.
 
@@ -42,7 +48,7 @@ Suppose a second student proposes:
 
 That is a different hypothesis. It leads to a different expectation: lemon-coated and water-coated slices should reach level 3 at about the same time. Now the same record can separate two explanations because the explanations do not expect the same outcome.
 
-The strongest comparison is not “Did my preferred result occur?” It is “Which result should occur under each plausible hypothesis, and where do their expectations differ?”
+The comparison worth making here is not “Did my preferred result occur?” It is “Which result should occur under each plausible hypothesis, and where do their expectations differ?”
 
 :::{check}
 :id: check-role-retrieval

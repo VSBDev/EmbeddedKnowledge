@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-SCI-002-ACADEMIC-B52EE351-1CC8-498E-98A2-8CD6BB1217C2",
+  "lessonId": "PREM-SCI-002",
+  "lessonVersion": "0.3.0",
+  "candidateCommit": "300195b9114714724f88ab953237e4e0a54ffe34",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable operator, academic reviewer",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-SCI-002-B52EE351-1CC8-498E-98A2-8CD6BB1217C2",
+      "instructionsDigest": "sha256:5b6024454e1b7887fa652116e26818c9ba850d04183983f6798b19acbd9422ac"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": true,
+    "details": "The accountable principal github:VSBDev is also identified as the lesson author. In addition, the task required reading every committed pack file, including prior review and adjudication artifacts. Those governance artifacts were inspected only after the current candidate's teaching content, assessment, claims, references, and glossary had been independently examined, but principal-level independence and complete isolation from earlier conclusions cannot be claimed."
+  },
+  "evidenceChecked": [
+    "lesson.json#id,version,outcomes,prerequisites,objectives,scenes",
+    "content/01-explain-and-expect.md#question-hypothesis-prediction-chain",
+    "content/02-worked-comparison.md#worked-example-apple-comparison",
+    "content/03-practise-and-repair.md#mystery-box-greenhouse-cup-jar-and-independent-practice",
+    "content/04-transfer.md#frog-audio-archive-synthesis-and-mastery-check",
+    "content/05-clinical-wrap-up.md#diabetes-teaching-example",
+    "assessment.json#item-distinguish-roles,item-derive-prediction,item-discriminate-archive",
+    "assessment.json#rubric-distinguish-roles,rubric-derive-prediction,rubric-discriminate-archive",
+    "claims.json#claim-role-distinctions,claim-conditional-prediction,claim-discriminating-comparison,claim-before-inspection,claim-evidence-boundary",
+    "references.json#source-usgs-rigor,source-epa-causal-assessment",
+    "glossary.json#term-empirical-question,term-hypothesis,term-prediction,term-condition,term-competing-hypotheses,term-discriminating-prediction",
+    "ATTRIBUTION.md#lesson-content,sources-and-reuse,agent-disclosure",
+    "reviews/REV-PREM-SCI-002-ACADEMIC-55205947-21D2-4695-A42F-29A06D3BB702.json",
+    "reviews/REV-PREM-SCI-002-LEARNING-DESIGN-368A9DCD.json",
+    "adjudication.json",
+    "[USGS official publication abstract](https://www.usgs.gov/publications/increased-scientific-rigor-will-improve-reliability-research-and-effectiveness)",
+    "[EPA About Causal Assessment: comparison of candidate causes and predictive performance](https://www.epa.gov/caddis/about-causal-assessment)"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "content/05-clinical-wrap-up.md#derive-an-observable-prediction",
+      "finding": "The bounded question is population-level and associative ('In adults with type 2 diabetes...'), and the candidate hypothesis is population-level, probabilistic, and causal ('eating dinner later tends to raise...'), but the derived prediction and proposed contrary result are deterministic claims about one adult on otherwise-similar days. A population tendency does not entail that a particular adult's later-dinner reading must be higher, and consistently same-or-lower readings in one adult would not by themselves count against a tendency across the stated population. The scene therefore changes both level of analysis and logical strength at the exact hypothesis-to-prediction step it is intended to teach. Labeling the medical relationship fictional avoids a clinical factual claim but does not repair the invalid inference.",
+      "resolution": "Keep the population, causal status, and stochastic form aligned. Either make the question, hypothesis, prediction, and contrary evidence population/distributional within a prespecified fictional record, using associative language unless a design warrants causation, or explicitly scope the entire exercise to one fictional adult and state that the simplified hypothesis is a deterministic rule for that case. Do not present one individual's paired reading as entailed by, or sufficient counterevidence to, a population-level 'tends' hypothesis."
+    },
+    {
+      "severity": "minor",
+      "target": "content/01-explain-and-expect.md#one-question-can-have-competing-answers",
+      "finding": "The sentence calling this 'the strongest comparison' uses unearned universal-strength language. Deriving observations on which stated alternatives disagree is more discriminating than comparing an observation they all predict, but neither mapped source establishes that it is universally the strongest comparison across study designs, measurements, uncertainties, and bodies of evidence. The EPA source instead emphasizes comparison using the totality of relevant evidence.",
+      "resolution": "Replace 'The strongest comparison' with a scoped formulation such as 'A more discriminating comparison here' or 'The useful comparison for these hypotheses.'"
+    },
+    {
+      "severity": "note",
+      "target": "content/02-worked-comparison.md#worked-example-apple-comparison",
+      "finding": "The apple comparison's evidential direction is internally correct under its stated idealization. The scene explicitly treats supplied group medians as exact underlying patterns and defines 'about the same time' as equal medians; 41 minutes versus 23 minutes therefore agrees with Hypothesis A and conflicts with the equal-median Hypothesis B, while 27 minutes versus 27 minutes reverses that relative support. The conclusion also correctly stops short of proving a mechanism or eliminating untested alternatives.",
+      "resolution": "No change required."
+    },
+    {
+      "severity": "note",
+      "target": "references.json#source-usgs-rigor,source-epa-causal-assessment",
+      "finding": "The accessible official evidence supports the lesson's bounded methodological claims. The USGS abstract explicitly presents a question–hypothesis–prediction–data–evaluation–inference sequence and reduction of plausible explanations. The EPA page supports comparing alternate candidate causes, judging relative support from the totality of evidence, treating novel predictions as less vulnerable to after-the-fact adjustment, and avoiding claims that one result proves a cause. These sources support the five claim-ledger entries within their recorded scopes and uncertainties.",
+      "resolution": "No change required."
+    }
+  ],
+  "limitations": [
+    "The task prohibited inspection of site/ files, so the exact graph-node wording, cross-lesson terminology ledger, current review schema, and machine-readable quorum policy were not independently inspected. Outcome and prerequisite mappings were evaluated only from the permitted lesson metadata and project-level documents.",
+    "The references.json USGS Publications Warehouse URL returned HTTP 403. The current official USGS publication page and its complete displayed abstract were accessible and checked, but the publisher-hosted article full text was not accessed or relied upon.",
+    "All numerical records and cases are declared fictional, so there was no empirical dataset to reanalyse. Quantitative and evidential conclusions were checked against the assumptions expressly stated in each exercise.",
+    "No endocrinology evidence was consulted because the diabetes relationship is expressly fictional and unsupported as a medical fact. The major clinical-scene finding concerns the internal logic of population, probabilistic, causal, and individual-level propositions rather than the truth of any dinner-time effect.",
+    "Because the required full-pack inspection included earlier review and adjudication artifacts operated by the same accountable principal, this artifact is an academically reasoned advisory judgment but should not be represented as independent human verification."
+  ],
+  "signedAt": "2026-07-28T16:15:13Z"
+}
