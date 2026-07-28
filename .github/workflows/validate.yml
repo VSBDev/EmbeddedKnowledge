@@ -81,6 +81,8 @@ jobs:
       - name: Verify lesson candidate or merge readiness
         if: github.event_name == 'pull_request' || github.event_name == 'pull_request_review'
         run: node scripts/validate-lesson-pr.mjs
+      - name: Refuse a lesson duration that is out by a factor
+        run: npm run lesson:time:strict
       - name: Prove every incorporated repair actually changed a file
         if: github.event_name == 'pull_request' || github.event_name == 'pull_request_review'
         run: node scripts/validate-adjudication-dispositions.mjs

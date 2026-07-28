@@ -4,6 +4,7 @@ import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import { claimsChangeIsGovernanceOnly, lessonMetadataChangeIsGovernanceOnly } from "./lib/candidate-governance.mjs";
 import { lessonPrOutsideFiles, validateFullLessonPackRemoval } from "./lib/lesson-pr-file-scope.mjs";
+import { calibrationProblems } from "./lib/calibration-gate.mjs";
 import { lessonPrStage } from "./lib/lesson-pr-stage.mjs";
 import { applySourcePreflightExemptions, preflightSourceAccess } from "./lib/source-access-preflight.mjs";
 import { finalCommitLineageRequired, finalizationRequired, resolveRule } from "./lib/quorum-policy.mjs";
@@ -32,6 +33,51 @@ if (!packPaths.length) {
 }
 
 const errors = [];
+
+// A duration calibration is the one change that legitimately spans packs. estimatedMinutes is a
+// single learner-facing integer, it was wrong across sixteen published lessons by up to six times,
+// and one pull request per integer is not review, it is paperwork. The class is allowed to span packs
+// on the same terms the rephrasing tier gets: everything except the duration fields must be
+// bit-identical, and calibration-gate.mjs proves it rather than trusting the claim.
+// Only two shapes of path may appear: the pack metadata a calibration edits, and the generated
+// detail the trusted site build derives from it.
+const isCalibrationPath = (file) =>
+  /^lessons\/[^/]+\/lesson\.json$/.test(file) || /^site\/data\/lessons\/[A-Z0-9-]+\.json$/.test(file);
+const calibrationOnly = changedFiles.every(isCalibrationPath);
+let calibration = false;
+if (calibrationOnly && packPaths.length) {
+  const packs = packPaths.map((pack) => {
+    const read = (sha) => {
+      try { return JSON.parse(git("show", `${sha}:${pack}/lesson.json`)); } catch { return null; }
+    };
+    return { packPath: pack, base: read(baseSha), head: read(headSha) };
+  });
+  const problems = calibrationProblems({
+    packs,
+    otherChangedFiles: changedFiles.filter((file) => !isCalibrationPath(file))
+  });
+  if (!problems.length) {
+    calibration = true;
+    console.log(`Duration calibration verified across ${packs.length} pack(s); nothing but estimatedMinutes moved.`);
+  } else if (packPaths.length > 1) {
+    // It looked like a calibration and is not one. Say why, rather than falling back to the generic
+    // one-pack message, which would send the contributor looking for the wrong problem.
+    errors.push(...problems);
+  }
+}
+
+if (calibration) {
+  // Everything below is about one pack's governance: its file scope, its adjudication, its candidate
+  // commit, its accountable author. A verified calibration has none of those to check, because it
+  // changed no claim, published nothing and touched no scene. The gate above is the whole review.
+  if (errors.length) {
+    console.error(errors.join("\n"));
+    process.exit(1);
+  }
+  console.log(`Duration calibration valid: ${packPaths.length} pack(s), estimatedMinutes only.`);
+  process.exit(0);
+}
+
 if (packPaths.length !== 1) errors.push(`A lesson PR must change exactly one lesson pack; found ${packPaths.length}.`);
 const packPath = packPaths[0];
 const metadataPath = path.join(root, packPath, "lesson.json");
