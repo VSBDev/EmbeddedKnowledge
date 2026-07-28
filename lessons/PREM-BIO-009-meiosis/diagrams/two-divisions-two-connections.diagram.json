@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-diagram-v1",
+  "id": "diagram-two-divisions-two-connections",
+  "type": "process",
+  "direction": "top-to-bottom",
+  "alt": "Following one chromosome pair, the cell count doubles at each of the two divisions while the chromatids of that pair held by each cell fall from four to two to one, so reaching a gamete takes two divisions and not one.",
+  "longDescription": "The diagram is a single chain of five stages, and the numbers in the stage labels carry the argument. Follow one chromosome pair. The chain begins with one cell holding four chromatids of that pair, which is four copies of the chromosome's DNA, two from the maternal homolog and two from the paternal one. The first stage change is anaphase I, the pulling stage of the first division, reached along an edge recording what is released to allow it: cohesion along the chromatid arms is cut, and the chiasma made by the crossover gives way. Anaphase I leads to the next state, two cells that each hold two chromatids of the pair, because each cell received one whole homolog which still consists of two chromatids joined at its centromere. That state leads to anaphase II, along an edge recording that centromeric cohesion is cut only at this point and not earlier, which is what keeps the two separations in a fixed order. Anaphase II leads to the final state, four cells that each hold one chromatid of the pair. The edge into that final state carries the counting reason the chain has two divisions rather than one: one spindle has two poles, so a division yields two cells, and getting from one cell to four therefore takes two divisions. Read the three state labels in sequence and the two counts move in opposite directions: cells go one, two, four, while the chromatids of the pair held by each cell go four, two, one. The chromosome number per cell falls only at the first division, because that is the division which separates homologs rather than copies, and the number of DNA copies per chromosome falls only at the second.",
+  "nodes": [
+    {
+      "id": "node-one-cell",
+      "label": "1 cell: 4 chromatids",
+      "shape": "box",
+      "group": "state"
+    },
+    {
+      "id": "node-anaphase-one",
+      "label": "Anaphase I: homologs part",
+      "shape": "rounded-box",
+      "group": "division"
+    },
+    {
+      "id": "node-two-cells",
+      "label": "2 cells: 2 chromatids",
+      "shape": "box",
+      "group": "state"
+    },
+    {
+      "id": "node-anaphase-two",
+      "label": "Anaphase II: sisters part",
+      "shape": "rounded-box",
+      "group": "division"
+    },
+    {
+      "id": "node-four-cells",
+      "label": "4 cells: 1 chromatid",
+      "shape": "box",
+      "group": "state"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-one-cell-anaphase-one",
+      "from": "node-one-cell",
+      "to": "node-anaphase-one",
+      "kind": "directed",
+      "label": "arm cohesion is cut, and the chiasma gives way"
+    },
+    {
+      "id": "edge-anaphase-one-two-cells",
+      "from": "node-anaphase-one",
+      "to": "node-two-cells",
+      "kind": "directed",
+      "label": "each cell gets one whole homolog, still two chromatids"
+    },
+    {
+      "id": "edge-two-cells-anaphase-two",
+      "from": "node-two-cells",
+      "to": "node-anaphase-two",
+      "kind": "directed",
+      "label": "centromeric cohesion is cut only now, not earlier"
+    },
+    {
+      "id": "edge-anaphase-two-four-cells",
+      "from": "node-anaphase-two",
+      "to": "node-four-cells",
+      "kind": "directed",
+      "label": "one spindle has two poles, so reaching four cells takes two divisions"
+    }
+  ]
+}
