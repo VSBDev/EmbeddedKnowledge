@@ -1293,7 +1293,7 @@ test("the graph page renders every node and relationship", async ({ page }) => {
   await page.goto(route("premed/graph/"), { waitUntil: "networkidle" });
 
   await expect(page.locator(".graph-node")).toHaveCount(444);
-  await expect(page.locator(".graph-link")).toHaveCount(1058);
+  await expect(page.locator(".graph-link")).toHaveCount(1060);
   await expect(page.locator("[data-graph-status]")).toContainText("444 of 444 nodes");
   const viewportLayout = await page.evaluate(() => ({
     documentHeight: document.documentElement.scrollHeight,
@@ -1317,7 +1317,7 @@ test("the graph page renders every node and relationship", async ({ page }) => {
   const graphResponse = await page.request.get(route("data/premed-graph.json"));
   expect(graphResponse.ok()).toBeTruthy();
   const graph = await graphResponse.json();
-  expect(graph.metrics).toMatchObject({ domains: 10, modules: 46, topics: 388, links: 1058 });
+  expect(graph.metrics).toMatchObject({ domains: 10, modules: 46, topics: 388, links: 1060 });
   expect(errors).toEqual([]);
 });
 

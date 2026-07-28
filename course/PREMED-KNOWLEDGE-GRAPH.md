@@ -20,9 +20,9 @@ It is deliberately more granular than the teaching syllabus. The syllabus's stab
 | Topics | 388 | Observable learning outcomes and mastery units |
 | All nodes | 444 | Domains + modules + topics |
 | Hierarchy links | 434 | Domain → module and module → topic containment |
-| Prerequisite links | 590 | Directed learning dependencies |
+| Prerequisite links | 592 | Directed learning dependencies |
 | Cross-links | 34 | High-value conceptual connections that do not impose order |
-| All links | 1,058 | The complete interactive graph |
+| All links | 1,060 | The complete interactive graph |
 
 The sum of every topic estimate is **1,551 hours**. That number is an all-branches graph inventory, not a completion promise: it includes the welcome, every route-specific topic, broad biology, calculus, and the entire medicine bridge. A learner follows a selected subgraph. The syllabus defines the official workload and completion rules; the graph's `estimatedHours` is for planning, progress, and relative scope.
 
