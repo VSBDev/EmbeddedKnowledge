@@ -138,3 +138,47 @@ test("a finding pinned to a renamed file is backed by the rename", () => {
     changedFiles
   }).length, 1);
 });
+
+test("a durations-only change is not asked to answer for the packs it brushes against", async () => {
+  // The guard checks every pack a pull request touches. A calibration touches lesson.json in sixteen
+  // packs and no content anywhere, which drags sixteen closed adjudications into scope and blocks on
+  // any that were already unbacked — attaching a historical finding to a pull request that has nothing
+  // to do with it. A calibration can neither create a disposition nor repair one, so the guard has
+  // nothing to say about it.
+  const { isCalibrationChange, isCalibrationPath } =
+    await import("../../scripts/lib/calibration-gate.mjs");
+
+  assert.equal(isCalibrationChange([
+    "lessons/PREM-QNT-008-uncertainty/lesson.json",
+    "lessons/PREM-STA-004-probability-foundations/lesson.json",
+    "site/data/lessons/PREM-QNT-008.json"
+  ]), true);
+
+  // One content file in the set and it is an ordinary lesson change again, adjudication and all.
+  assert.equal(isCalibrationChange([
+    "lessons/PREM-QNT-008-uncertainty/lesson.json",
+    "lessons/PREM-QNT-008-uncertainty/content/030-worked.md"
+  ]), false);
+  assert.equal(isCalibrationPath("lessons/PREM-BIO-010-cell-death/claims.json"), false);
+  assert.equal(isCalibrationPath("lessons/PREM-BIO-010-cell-death/adjudication.json"), false);
+
+  // An empty diff is not a calibration; it must not open the skip by vacuous truth.
+  assert.equal(isCalibrationChange([]), false);
+});
+
+test("both gates recognise a calibration by the same rule", async () => {
+  // validate-lesson-pr.mjs admits the change and validate-adjudication-dispositions.mjs steps aside
+  // for it. If the two ever drift, a change is a calibration to one and a content edit to the other,
+  // and the contributor gets a failure nobody can act on. So neither may carry its own copy of the
+  // rule.
+  const fs = await import("node:fs");
+  for (const script of ["validate-lesson-pr.mjs", "validate-adjudication-dispositions.mjs"]) {
+    const source = fs.readFileSync(new URL(`../../scripts/${script}`, import.meta.url), "utf8");
+    assert.match(source, /from "\.\/lib\/calibration-gate\.mjs"/, `${script} must share the predicate`);
+    assert.doesNotMatch(
+      source,
+      /\/\^lessons\\\/\[\^\/\]\+\\\/lesson\\\.json\$\//,
+      `${script} declares its own calibration path rule instead of importing it`
+    );
+  }
+});

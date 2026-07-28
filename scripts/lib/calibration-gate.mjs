@@ -20,6 +20,21 @@
  * a claim. It can only change how long the course says a lesson takes.
  */
 
+/**
+ * The only two shapes of path a calibration may touch: the pack metadata it edits, and the generated
+ * detail the trusted site build derives from it.
+ *
+ * Shared, because more than one gate has to recognise a calibration and they must agree. If they
+ * drift, a change is a calibration to one gate and a content edit to another, and the pull request
+ * fails a check nobody can act on.
+ */
+export const isCalibrationPath = (file) =>
+  /^lessons\/[^/]+\/lesson\.json$/.test(file) || /^site\/data\/lessons\/[A-Z0-9-]+\.json$/.test(file);
+
+/** Whether a whole changed-file list is a calibration and nothing else. */
+export const isCalibrationChange = (changedFiles) =>
+  changedFiles.length > 0 && changedFiles.every(isCalibrationPath);
+
 /** Strip the duration fields so what remains is everything a reviewer would have examined. */
 export function withoutDurations(lesson) {
   const copy = JSON.parse(JSON.stringify(lesson ?? {}));

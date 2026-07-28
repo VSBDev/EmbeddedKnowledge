@@ -14,6 +14,7 @@ import path from "node:path";
 import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import { unbackedIncorporations } from "./lib/adjudication-dispositions.mjs";
+import { isCalibrationChange } from "./lib/calibration-gate.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const packArgument = process.argv[2];
@@ -51,6 +52,19 @@ function packsChangedInPullRequest() {
     ["diff", "--name-only", `${event.pull_request.base.sha}...${event.pull_request.head.sha}`],
     { cwd: root, encoding: "utf8" }
   ).split("\n").filter(Boolean);
+
+  // A duration calibration touches lesson.json in many packs and no content anywhere. It can neither
+  // create a disposition nor repair one, so checking every pack it brushes against only re-litigates
+  // history: a pack with an old unbacked disposition would block a change that had nothing to do with
+  // it, and the finding would arrive attached to the wrong pull request. Historical defects are worth
+  // fixing on their own terms, which is why this says what it skipped rather than skipping silently.
+  //
+  // This is the same predicate validate-lesson-pr.mjs uses to admit the change in the first place, so
+  // the two gates cannot disagree about what a calibration is.
+  if (isCalibrationChange(changed)) {
+    console.log("Adjudication dispositions skipped: this change moves lesson durations only and repairs no finding.");
+    return [];
+  }
 
   const packs = new Set();
   for (const file of changed) {
