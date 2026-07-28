@@ -4,7 +4,7 @@
 
 - Lesson: **PREM-STA-004 — What chance alone would produce**
 - Graph outcome: `topic-statistics-data-probability` (PREM-04.04, "Probability foundations")
-- Version and state: **0.1.0 / draft / pending review**
+- Version and state: **0.2.0 / draft / pending review**
 - Accountable principal: **VSBDev** (`github:VSBDev`), confirmed through the authenticated GitHub CLI session on 25 July 2026
 - Course-content license: **Creative Commons Attribution 4.0 International (CC BY 4.0)**
 
