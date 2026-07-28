@@ -1,0 +1,385 @@
+{
+  "schemaVersion": 1,
+  "format": "embeddedknowledge-assessment-v1",
+  "lessonId": "PREM-BIO-010",
+  "lessonVersion": "0.1.0",
+  "assessmentId": "assessment-cell-death-senescence-cancer",
+  "title": "Cell death, senescence, and the failure of a renewal loop",
+  "purpose": "mixed",
+  "attemptPolicy": {
+    "retakeable": true,
+    "timeLimitMinutes": null,
+    "feedback": "after-attempt"
+  },
+  "items": [
+    {
+      "id": "item-crypt-loss-rate",
+      "type": "numeric",
+      "sceneId": "scene-where-the-cells-go",
+      "objectiveIds": [
+        "objective-compute-renewal-balance"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-cell-death-cancer"
+      ],
+      "prompt": "A crypt of the human descending colon holds about 700 cells. Treat its renewal as complete replacement of that population over 4 days, and treat the crypt's cell number as steady. How many cells must leave that one crypt per day? Give your answer in cells per day, to the nearest 5.",
+      "stimulus": null,
+      "points": 2,
+      "responseSpec": {
+        "mode": "number",
+        "units": "cells per day",
+        "tolerance": 5,
+        "maxSelections": null,
+        "maxLength": null
+      },
+      "answer": {
+        "correct": 175,
+        "summary": "About 175 cells per day.",
+        "reasoning": "Complete replacement of 700 cells over 4 days means about 700 / 4 = 175 cells produced per day. The crypt's number is steady, and a steady population requires loss to match production on average, so about 175 cells must also leave per day. Both halves of the answer are needed: the division gives the production rate, and the balance condition transfers it to the loss rate. Note what the figure is and is not. It is a population rate for one crypt under the stated assumptions, and it is not a claim that each crypt cell lives exactly 4 days; the renewal interval reported for the colon is a range of 3 to 5 days, and 4 is the working value the stem supplies.",
+        "acceptableResponses": [
+          "175",
+          "175 cells per day",
+          "about 175",
+          "approximately 175 cells/day",
+          "170 to 180 cells per day"
+        ],
+        "commonErrors": [
+          "Answering 700 by giving the population instead of a rate; the question asks how many cells leave per day, which is a rate, and the population is the quantity that stays constant.",
+          "Answering 2800 by multiplying 700 by 4 instead of dividing; check the direction by confirming that 175 x 4 = 700, which is the whole population replaced in the stated interval.",
+          "Answering 0 on the grounds that the crypt's cell number does not change; a constant population means production and loss are equal, not that either is zero.",
+          "Giving a production figure but not connecting it to loss; the balance condition is the step that answers the question as asked."
+        ]
+      },
+      "rubricId": "rubric-quantitative-balance",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-distinguish-apoptosis-necrosis",
+      "type": "single-choice",
+      "sceneId": "scene-taking-itself-apart",
+      "objectiveIds": [
+        "objective-distinguish-apoptosis-necrosis"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-cell-death-cancer"
+      ],
+      "prompt": "A colonic epithelial cell has died. Which single observation best distinguishes apoptosis from a death in which the cell lost plasma membrane integrity?",
+      "stimulus": null,
+      "points": 2,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-stopped-dividing",
+            "text": "The cell had permanently stopped dividing before it died."
+          },
+          {
+            "id": "option-contents-contained",
+            "text": "The cell's contents stayed inside membrane-bounded fragments, and neighbouring cells cleared them with no inflammatory infiltrate present."
+          },
+          {
+            "id": "option-detached",
+            "text": "The cell had detached from the basement membrane before it died."
+          },
+          {
+            "id": "option-dna-damaged",
+            "text": "The cell's DNA was damaged."
+          }
+        ],
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "maxLength": null
+      },
+      "answer": {
+        "correct": "option-contents-contained",
+        "summary": "The contents stayed inside membrane-bounded fragments and were cleared without inflammation.",
+        "reasoning": "This is the discriminating observation because it names the two consequences that differ. An apoptotic cell retains an intact plasma membrane, so its cytoplasmic contents are not released into the interstitium, and essentially no inflammatory reaction accompanies the process. Where membrane integrity is lost instead, contents go out into the surrounding tissue, chemotactic signals follow, inflammatory cells are recruited, and inflammation is usually present. Containment and the absence of an infiltrate therefore separate the two, and they are the pair of features that matters to a sheet whose job is to stay sealed.",
+        "acceptableResponses": [
+          "option-contents-contained"
+        ],
+        "commonErrors": [
+          "Choosing permanent arrest before death confuses senescence with apoptosis. A senescent cell has stopped dividing and has not died or been removed, so this observation belongs to a different state entirely.",
+          "Choosing prior detachment confuses the trigger with the mode of death. Detachment can start apoptosis, which is anoikis, but detachment does not tell you whether the death that followed contained the cell's contents, and whether death precedes or follows detachment at an intestinal surface is not settled.",
+          "Choosing DNA damage names a possible cause of either outcome and so discriminates between neither."
+        ]
+      },
+      "rubricId": "rubric-single-best-discrimination",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-senescence-properties",
+      "type": "multiple-choice",
+      "sceneId": "scene-arrest-that-stays",
+      "objectiveIds": [
+        "objective-hold-senescence-tension"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-cell-death-cancer"
+      ],
+      "prompt": "A cell in a tissue has entered cellular senescence. Select every statement this lesson's sources support.",
+      "stimulus": null,
+      "points": 3,
+      "responseSpec": {
+        "mode": "multiple-choice",
+        "options": [
+          {
+            "id": "option-permanent-arrest",
+            "text": "Its arrest of proliferation is essentially irreversible."
+          },
+          {
+            "id": "option-removed-from-tissue",
+            "text": "It has been removed from the tissue."
+          },
+          {
+            "id": "option-active-and-secreting",
+            "text": "It remains viable and metabolically active, and many senescent cells secrete a programme of proinflammatory cytokines, chemokines, growth factors and proteases."
+          },
+          {
+            "id": "option-both-directions",
+            "text": "The response it has entered can both constrain the development of malignant tumours and contribute to age-related pathology."
+          },
+          {
+            "id": "option-simply-old",
+            "text": "It is simply a cell that has aged and worn out."
+          }
+        ],
+        "units": null,
+        "tolerance": null,
+        "maxSelections": 5,
+        "maxLength": null
+      },
+      "answer": {
+        "correct": [
+          "option-permanent-arrest",
+          "option-active-and-secreting",
+          "option-both-directions"
+        ],
+        "summary": "The arrest is essentially irreversible; the cell stays active and secreting; and the response works in both directions.",
+        "reasoning": "Cellular senescence is defined as the essentially irreversible arrest of cell proliferation entered when a cell experiences potentially oncogenic stress, and senescent cells remain viable and metabolically active. They display the senescence-associated secretory phenotype, secreting proinflammatory cytokines, chemokines, growth factors and proteases. The permanence of the arrest is why the response is read as suppressing cancer development, while the same response may act as a basic ageing process driving age-related pathology later in life, and its secretions can make a local environment permissive for cancer. All three of those are supported and the tension between the last two is not a contradiction to be resolved.\n\nNote for the marker on the secretion option. Viability and metabolic activity are defining features within this lesson's model. The secretory programme is not: its composition varies with cell type, with what caused the arrest, and with time since it began, so an answer that treats it as a guaranteed identical property of every senescent cell is overstating it. The option is worded as many senescent cells for that reason, and a learner who selects it while noting the heterogeneity has given the better answer.",
+        "acceptableResponses": [
+          "option-permanent-arrest, option-active-and-secreting, option-both-directions"
+        ],
+        "commonErrors": [
+          "Selecting that the cell has been removed from the tissue confuses senescence with apoptosis. Removal is what apoptosis achieves; senescence leaves the cell in place, which is the whole reason its secretions matter.",
+          "Selecting that it is simply an aged, worn-out cell is the most common error and the one the scene was written against. The triggers are damage and inappropriate signalling, including oncogene activation, and elapsed time is not the definition. Telomere shortening is one trigger on a list of several.",
+          "Selecting only the arrest and omitting the secretory phenotype gets the definition and misses the consequence, which is where both halves of the senescence account come from.",
+          "Declining to select the two-directional statement because it seems self-contradictory. Both effects are supported, and the framework for holding them together is that a response beneficial at one stage of life can carry costs at another."
+        ]
+      },
+      "rubricId": "rubric-multiple-selection",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-normal-tissue-drivers",
+      "type": "short-answer",
+      "sceneId": "scene-mutation-is-not-the-tumour",
+      "objectiveIds": [
+        "objective-explain-mutation-insufficiency"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-cell-death-cancer"
+      ],
+      "prompt": "In the 2015 study this lesson uses, about a quarter of the cells in normal, visibly unremarkable, functioning eyelid epidermis carried a NOTCH driver mutation, and some clones carried two or three driver mutations without having acquired malignant potential. In two or three sentences, state what this result rules out, and then state one thing it does not establish.",
+      "stimulus": null,
+      "points": 4,
+      "responseSpec": {
+        "mode": "text",
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "maxLength": 900
+      },
+      "answer": {
+        "correct": "It rules out the claim that carrying a driver mutation is sufficient to make a cell a cancer cell, because a quarter of a functioning epidermis carried one and that tissue was not cancer. It does not establish that driver mutations are unnecessary, and it does not establish anything about the colon, since the study sampled sun-exposed eyelid skin from four donors.",
+        "summary": "It rules out sufficiency, not necessity; and it is skin from four donors, not colon.",
+        "reasoning": "The result is a counterexample to one proposition and to no others. If a driver mutation were sufficient for a cell to be a cancer cell, then a tissue in which about a quarter of cells carried one could not be normal, functioning epidermis free of visible lesions. It was, so sufficiency fails. Necessity is untouched: the same body of work has a typical tumour carrying two to eight driver mutations, so drivers remain part of the account. And the scope limits are real. Four donors, one heavily sun-exposed site, and skin rather than colon, so the numbers should not be read as general values for human tissue and this lesson holds no colonic dataset of the same kind. Any one of those three limits is a correct answer to the second half.",
+        "acceptableResponses": [
+          "It rules out that a driver mutation is enough on its own to produce cancer; it does not show drivers are unnecessary.",
+          "Carrying a cancer driver mutation is not sufficient for cancer. It does not tell you the same fractions apply to the colon, because the study was eyelid skin.",
+          "A driver mutation alone does not make a tumour, since the epidermis worked normally. The study cannot establish general mutant-cell fractions from four donors.",
+          "It rules out mutation being sufficient. It does not establish what the tissue contributes, only that something besides the mutation must be involved."
+        ],
+        "commonErrors": [
+          "Concluding that driver mutations do not matter, or that mutation is irrelevant to cancer. The result bears on sufficiency and leaves necessity intact; a typical tumour carries two to eight drivers.",
+          "Concluding that the donors were developing cancer or were at stated risk. The study describes what the sampled tissue contained and supports no statement about any person's risk, and this lesson makes none.",
+          "Transferring the quarter-of-cells figure to the colon or to skin generally. It comes from sun-exposed eyelid epidermis in four donors aged 55 to 73.",
+          "Stating only what the result rules out and omitting a limit, which answers half the question."
+        ]
+      },
+      "rubricId": "rubric-scoped-conclusion",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-extrusion-inference-limits",
+      "type": "single-choice",
+      "sceneId": "scene-attachment-as-permission",
+      "objectiveIds": [
+        "objective-explain-anoikis-and-its-limits"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-cell-death-cancer"
+      ],
+      "prompt": "A study reported three things. Most cells extruded from epithelia during ordinary homeostasis were caspase-negative, so still alive as they left. Blocking stretch-activated channels or knocking down Piezo1 in zebrafish reduced extrusion and produced epidermal cell masses, with cell density staying elevated. And colon polyp sections showed increased cell density with no clearly identified extrusion events, compared with control sections. Which conclusion do these results support?",
+      "stimulus": null,
+      "points": 2,
+      "responseSpec": {
+        "mode": "single-choice",
+        "options": [
+          {
+            "id": "option-extrusion-failure-causes-cancer",
+            "text": "Failure of crowding-induced extrusion causes colorectal cancer."
+          },
+          {
+            "id": "option-extrusion-controls-number",
+            "text": "Crowding-induced extrusion removes cells from an epithelium, and preventing it allowed cells to accumulate in zebrafish epidermis."
+          },
+          {
+            "id": "option-polyps-lack-piezo1",
+            "text": "Colon polyps form because their cells lack Piezo1."
+          },
+          {
+            "id": "option-only-dead-cells-extruded",
+            "text": "Only cells that have already died are extruded from an epithelium."
+          }
+        ],
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "maxLength": null
+      },
+      "answer": {
+        "correct": "option-extrusion-controls-number",
+        "summary": "Extrusion removes cells, and blocking it let cells accumulate in zebrafish.",
+        "reasoning": "This is the conclusion the described results actually license. The mechanical role of extrusion in controlling cell number is what the crowding experiments demonstrate, and the cell masses with sustained elevated density are the demonstrated consequence of blocking it in zebrafish. Both statements stay inside what was measured and inside the system it was measured in.",
+        "acceptableResponses": [
+          "option-extrusion-controls-number"
+        ],
+        "commonErrors": [
+          "Choosing that extrusion failure causes colorectal cancer overreads the polyp observation. That observation is a difference in density and in identified extrusions between polyp and control sections, examined once, which is an association. The authors themselves offer the tumour connection as a suggestion rather than a result, and a demonstrated causal chain would need the order of events and an intervention.",
+          "Choosing that polyps form because their cells lack Piezo1 imports the zebrafish manipulation into human tissue as an explanation. Piezo1 was knocked down experimentally in zebrafish; nothing described here measured Piezo1 in a polyp.",
+          "Choosing that only already-dead cells are extruded contradicts the first result. Most extrusions during homeostasis were caspase-negative, meaning the cells were alive as they left, which is the finding that makes extrusion separable from death."
+        ]
+      },
+      "rubricId": "rubric-single-best-discrimination",
+      "safetyCritical": false
+    },
+    {
+      "id": "item-read-the-tissue",
+      "type": "open-response",
+      "sceneId": "scene-clinical-wrap-up",
+      "objectiveIds": [
+        "objective-read-tissue-controls",
+        "objective-explain-anoikis-and-its-limits"
+      ],
+      "outcomeIds": [
+        "topic-cell-biology-cell-death-cancer"
+      ],
+      "prompt": "A research preparation of colonic epithelium has cell density above its control. Apoptotic cells are present at the surface at the usual frequency, with condensed nuclei and intact membranes, and they are being cleared with no inflammatory infiltrate. Every cell in the sheet is still attached to its basement membrane. Name the controls of the renewal loop that appear to be operating, name every part of the loop where the imbalance could still sit, and state one thing this description does not let you decide.",
+      "stimulus": null,
+      "points": 5,
+      "responseSpec": {
+        "mode": "text",
+        "units": null,
+        "tolerance": null,
+        "maxSelections": null,
+        "maxLength": 1500
+      },
+      "answer": {
+        "correct": "The apoptotic programme and the clearance of apoptotic cells are operating, shown by cells with condensed nuclei and intact membranes being removed without an inflammatory infiltrate. Attachment is intact, so nothing has detached and attachment-dependent death is untested here. The imbalance could still sit in raised production at the base, in cells failing to stop dividing and differentiate on the climb, or in failed extrusion of live cells, because the description reports no extrusion events and extrusion is separable from apoptosis. What it does not let you decide is which of those three, because a density is a state and the imbalance is a rate.",
+        "summary": "Apoptosis, clearance and attachment are intact; the imbalance could still be raised production, a climb that does not end, or failed live-cell extrusion; the snapshot cannot separate them.",
+        "reasoning": "Three moves. First, identify the intact controls from what is stated: the apoptotic morphology with the absence of an inflammatory infiltrate shows the programme running and the clearance working, and every cell being attached shows the basal adhesion is in place, which also means attachment-dependent survival has not been tested here. Second, apply the balance relation: cell number rises exactly as fast as production exceeds loss, so something is out of balance. Third, and this is the step the item is really testing, do not narrow it further than the description allows. Apoptosis is not the whole of removal. Scene 3 established that extrusion is separable from death, so a sheet can fail to extrude live cells when it becomes crowded while its apoptotic machinery works perfectly, and this description reports no extrusion events at all. Raised production, a climb that does not end, and failed live-cell extrusion are therefore all consistent with what is stated. Any genuine limit earns the last mark: that a density is a state while the imbalance is a rate and so cannot be attributed from one snapshot; that attachment-dependent survival is untested because nothing has detached; or that the description contains no genomic information and so supports no statement about mutations.",
+        "acceptableResponses": [
+          "Apoptosis, clearance and attachment are all operating. The imbalance could be raised production, a climb that does not end, or failed extrusion of live cells, and the description cannot separate them because a density is a state and the imbalance is a rate.",
+          "The death programme and its clearance work, and the cells are still attached so anoikis is untested. Removal by apoptosis looks fine but extrusion is unreported, so the excess could be on either side of the loop.",
+          "Apoptotic removal is intact, so a failure of the death programme is what this argues against. It does not narrow the imbalance further, since failed live-cell extrusion is still consistent with everything described."
+        ],
+        "commonErrors": [
+          "Concluding that the imbalance must be on the production side. This is the most instructive wrong answer in the lesson and it comes from treating apoptosis as the whole of removal. Extrusion is a separate removal route, the description reports none, and a sheet can fail to extrude live cells while its apoptotic machinery works perfectly.",
+          "Concluding that the apoptotic programme has failed. The description says apoptotic cells are present at the usual frequency and are being cleared normally, which is evidence that it is operating.",
+          "Concluding that anoikis has been lost. Nothing in the sheet has detached, so attachment-dependent survival has not been put to the test here; this is a control that is untested rather than intact or broken, and saying so earns credit.",
+          "Naming a mutation as the answer. The description contains no genomic information at all, and the point of the misconception scene is that a mutation is neither readable from nor sufficient for a tissue-level finding.",
+          "Giving the intact controls and the candidate locations but no limit. The limit is a third of the question and is the part that separates a reading of a tissue from a claim about it."
+        ]
+      },
+      "rubricId": "rubric-scoped-conclusion",
+      "safetyCritical": false
+    }
+  ],
+  "rubrics": [
+    {
+      "id": "rubric-quantitative-balance",
+      "title": "Rate arithmetic and the balance condition",
+      "criteria": [
+        {
+          "id": "criterion-correct-rate",
+          "description": "Divides the population by the replacement interval to obtain the production rate, with the arithmetic correct and the units given as cells per day.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-balance-transfer",
+          "description": "Applies the steady-population condition to transfer the production rate to the loss rate, rather than reporting a population or a single rate without connecting the two.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-single-best-discrimination",
+      "title": "Selecting the observation or conclusion the evidence supports",
+      "criteria": [
+        {
+          "id": "criterion-selects-supported-option",
+          "description": "Selects the option that the stated evidence actually licenses, and not one that overreads an association or contradicts a stated result.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-rejects-overreach",
+          "description": "On review of feedback, can say why each rejected option fails: which one confuses two states, which imports a manipulation from one system into another, and which contradicts a result given in the stem.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-multiple-selection",
+      "title": "Holding a two-directional account without resolving it",
+      "criteria": [
+        {
+          "id": "criterion-definition-properties",
+          "description": "Selects the essentially irreversible arrest and the continued viability with secretion, showing the definition is held rather than half-held.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-two-directional",
+          "description": "Selects the statement that the same response can both constrain tumour development and contribute to age-related pathology, rather than rejecting it as contradictory.",
+          "maxPoints": 1
+        },
+        {
+          "id": "criterion-rejects-distractors",
+          "description": "Rejects both removal from the tissue and the worn-out-with-age description, distinguishing senescence from apoptosis and from elapsed time.",
+          "maxPoints": 1
+        }
+      ]
+    },
+    {
+      "id": "rubric-scoped-conclusion",
+      "title": "Stating a conclusion and its limits",
+      "criteria": [
+        {
+          "id": "criterion-identifies-intact-and-failed",
+          "description": "Identifies correctly which controls or propositions the evidence bears on, distinguishing the intact from the failed and, where applicable, from the untested.",
+          "maxPoints": 2
+        },
+        {
+          "id": "criterion-draws-supported-conclusion",
+          "description": "Draws the conclusion the evidence licenses, using the balance relation or the sufficiency-versus-necessity distinction as the reasoning step rather than asserting the result.",
+          "maxPoints": 2
+        },
+        {
+          "id": "criterion-states-a-real-limit",
+          "description": "States at least one genuine limit of the evidence, such as a state carrying no rate, an untested control, or the tissue and sample size the finding came from.",
+          "maxPoints": 1
+        }
+      ]
+    }
+  ]
+}

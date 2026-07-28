@@ -178,6 +178,20 @@
       "evidence": "robots.txt permits the record paths this project reads and disallows bulk retrieval paths; no account is required to read an abstract record. NCBI's usage policy asks that scripted access run outside peak US hours and stay under three requests per second, and that a tool and contact be identified.",
       "checked": "2026-07-25",
       "notes": "Abstract records only, and one at a time. Read it as a bibliographic check — a title, journal, year, DOI and abstract — not as the source of a claim: the abstract is a summary written to persuade a reader to open the paper, and figures quoted there are sometimes uncorrected. Where a record carries a correction notice, the corrected values live in the publisher's text, so prefer pmc.ncbi.nlm.nih.gov for anything a lesson will assert. Never use it to retrieve an illustration; it hosts none that are ours to reuse."
+    },
+    {
+      "domain": "europepmc.org",
+      "verdict": "excluded",
+      "evidence": "A request for /robots.txt returned HTTP 403 Forbidden, with the error document itself also failing, so no robots file could be read and no access terms could be established.",
+      "checked": "2026-07-27",
+      "notes": "Excluded because unverified, not because terms were found wanting, following the precedent already recorded here for visualsonline.cancer.gov. Consequence recorded for the next author: Lee-Six et al., The landscape of somatic mutation in normal colorectal epithelial cells, Nature 574:532-537 (2019), is the colon counterpart of the normal-tissue mutation work and is not deposited in PMC, so its full text is unreachable under these rules. PREM-BIO-010 wanted it to keep its tissue-context argument inside the colon, could not read it, and used Martincorena et al. 2015 on normal human skin instead while stating in prose, in its claim uncertainty and in ATTRIBUTION.md that the evidence is skin rather than colon. Re-check before use and record the result."
+    },
+    {
+      "domain": "eutils.ncbi.nlm.nih.gov",
+      "verdict": "restricted",
+      "evidence": "A request for /robots.txt was answered with an HTTP 302 redirect to misuse.ncbi.nlm.nih.gov/error/abuse.shtml, so the robots file could not be read and the host's automated-access terms could not be established from it. NCBI's published usage policy for E-utilities asks that scripted access identify a tool and contact, stay under three requests per second, and run outside peak US hours.",
+      "checked": "2026-07-27",
+      "notes": "Used by PREM-BIO-010 for two esummary requests that mapped PubMed identifiers to PMC identifiers, with a tool name and contact supplied, before its robots file had been requested. It is the source of no claim in that pack: every identifier it returned was confirmed by opening the article on pmc.ncbi.nlm.nih.gov, which is the allowed route. Because the robots response was an abuse-notice redirect, treat this host as not verified and prefer pubmed.ncbi.nlm.nih.gov for bibliographic checks, one record at a time, which the ledger already records as allowed. Do not use it in bulk."
     }
   ]
 }

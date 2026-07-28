@@ -1,0 +1,129 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-BIO-010-ACADEMIC-8CFAB05C",
+  "lessonId": "PREM-BIO-010",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "2a22dceb44dde64a657b6a65d8a5c6f43ae73fbd",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable academic reviewer",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-BIO-010-8CFAB05C-F3EE-474C-BF85-5DF836A8648C",
+      "instructionsDigest": "sha256:37ab7a2844beae821bb3bb69e89350adf9aaadbd9c263075ea304d1b5f07620e"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#PREM-BIO-010",
+    "content/01-where-the-cells-go.md#where-a-hundred-and-seventy-five-cells-a-day-go",
+    "content/02-taking-itself-apart.md#a-cell-that-takes-itself-apart",
+    "content/03-attachment-as-permission.md#attachment-as-permission-to-stay-alive",
+    "content/04-arrest-that-stays.md#the-cells-that-stop-and-stay",
+    "content/05-climb-stops-ending.md#worked-example-how-small-a-mismatch",
+    "content/06-mutation-is-not-the-tumour.md#misconception-mutation-equals-cancer",
+    "content/07-practice-and-recovery.md#task-1-with-the-steps-supplied",
+    "content/08-clinical-wrap-up.md#worked-example-reading-the-growth",
+    "assessment.json#item-crypt-loss-rate",
+    "assessment.json#item-distinguish-apoptosis-necrosis",
+    "assessment.json#item-senescence-properties",
+    "assessment.json#item-normal-tissue-drivers",
+    "assessment.json#item-extrusion-inference-limits",
+    "assessment.json#item-read-the-tissue",
+    "claims.json#claims",
+    "claims.json#claim-apc-loss-decouples-position",
+    "claims.json#claim-drivers-in-normal-tissue",
+    "claims.json#claim-crowding-extrusion",
+    "claims.json#claim-blocked-extrusion-masses",
+    "claims.json#claim-senescence-sasp",
+    "references.json#sources",
+    "references.json#source-parker-apc-recruitment",
+    "references.json#source-eisenhoffer-crowding-extrusion",
+    "references.json#source-martincorena-normal-skin",
+    "references.json#source-vogelstein-cancer-genome-landscapes",
+    "references.json#source-campisi-senescence-cancer",
+    "glossary.json#terms",
+    "glossary.json#term-driver-mutation",
+    "glossary.json#term-cellular-senescence",
+    "diagrams/renewal-loop.diagram.json#diagram-renewal-loop",
+    "diagrams/one-driver-many-outcomes.diagram.json#diagram-one-driver-many-outcomes",
+    "ATTRIBUTION.md#attribution-and-rights",
+    "course/PREMED-SYLLABUS.md#BIO-125"
+  ],
+  "findings": [
+    {
+      "severity": "minor",
+      "target": "content/01-where-the-cells-go.md#where-a-hundred-and-seventy-five-cells-a-day-go",
+      "finding": "The direction of population change is reversed in the sentence following the 175-cells-per-day estimate. With production held near 175 cells per day, fewer departures produce accumulation, whereas more departures produce shrinkage. This contradicts the later equation dN/dt = P - L and the correctly keyed item-crypt-loss-rate.",
+      "resolution": "Reverse the two consequences and audit dependent summaries so that loss below production means growth and loss above production means shrinkage."
+    },
+    {
+      "severity": "major",
+      "target": "content/05-climb-stops-ending.md#worked-example-how-small-a-mismatch",
+      "finding": "The arithmetic is correct only for the declared constant-rate model, but the lesson then claims that 400 days is a floor and real growth would be faster because retained cells would divide. That direction does not follow. Retained cells may be non-dividing, and density-dependent changes in production, extrusion, differentiation, geometry, or death can accelerate, slow, halt, or reverse accumulation. The example therefore turns a linear illustration into an unsupported biological forecast and teaches a misleading model boundary.",
+      "resolution": "Keep the correct fixed-rate arithmetic but remove the claim that real growth must be faster or that 400 days is a floor. State that the model cannot predict the direction or magnitude of feedback once population, geometry, production, and loss change, and revise dependent statements in scene 7 and ATTRIBUTION.md."
+    },
+    {
+      "severity": "major",
+      "target": "claims.json#claim-apc-loss-decouples-position",
+      "finding": "The mapped sources do not establish the full claimed causal chain. Parker and Neufeld measured APC-dependent reorientation of destruction-complex components toward localized Wnt in cultured colon epithelial models. That result does not demonstrate that an APC-mutant cell reports crypt-base position at every height, divides at every height, never differentiates, or fails to become a departing cell. The claim's own uncertainty admits that departure failure was not measured, while scenes 5, 7, and 8 treat the inference as an established outcome and even assert that nothing about removal has broken.",
+      "resolution": "Narrow the claim and learner-facing prose to the directly supported effects on Wnt-pathway regulation and destruction-complex localization. If spatial proliferation, failed differentiation, or departure failure remains central, add evidence that directly supports each step and preserve alternatives; otherwise re-key the dependent practice and transfer reasoning."
+    },
+    {
+      "severity": "major",
+      "target": "lesson.json#objective-explain-mutation-insufficiency",
+      "finding": "The normal-skin evidence can refute the proposition that one cancer-associated driver mutation is sufficient for cancer, but it cannot establish that a driver mutation is necessary. The assessment itself says necessity is untouched, which is logically different from necessity being demonstrated. The objective, scene 6, and term-driver-mutation nevertheless require the learner to state necessity as fact, while the cited tumour driver counts establish typical frequency rather than universal necessity.",
+      "resolution": "Rewrite the objective and dependent prose, glossary, and assessment feedback to teach the supported conclusion that cancer-associated driver mutations can be positively selected in normal tissue and are not sufficient for malignancy. If a necessity claim is retained, define the relevant class of genetic or epigenetic driver alterations precisely and provide evidence adequate to support a universal claim."
+    },
+    {
+      "severity": "major",
+      "target": "diagrams/one-driver-many-outcomes.diagram.json#diagram-one-driver-many-outcomes",
+      "finding": "The concept map presents an unsupported deterministic model: one driver produces a clone, attachment/death/crowding controls are asserted to be intact and to explain why that clone is not cancer, and the clone then acquires more drivers before failed controls produce unending growth. The normal-skin study measured mutation, clonal selection, and preserved gross tissue function; it did not measure those three controls or establish that they caused the non-malignant outcome. The map also omits other relevant contexts such as immune, stromal, lineage, and variant-specific effects while claiming that the listed controls distinguish the outcomes.",
+      "resolution": "Remove the unmeasured control-state and deterministic trajectory claims, or redraw the map as explicitly hypothetical candidate mechanisms. Separate what the skin study observed from the lesson's proposed explanatory model and avoid presenting selected mechanisms as an exhaustive account."
+    },
+    {
+      "severity": "major",
+      "target": "content/08-clinical-wrap-up.md#worked-example-reading-the-growth",
+      "finding": "The case concludes that extrusion has failed because density is raised and no extrusion events are clearly identifiable in a section. A static section cannot establish an extrusion rate or distinguish a rare unobserved event from a failed mechanism. The cited colon-polyp observation is associative, and the pack correctly identifies it as such in scene 3 and item-extrusion-inference-limits, yet this worked example upgrades it to a demonstrated failed control. The final claim that both differentiation and removal controls have given way is therefore not licensed.",
+      "resolution": "Classify extrusion as suspected or untested rather than failed, require rate, sampling, longitudinal, or intervention evidence before concluding failure, and update the worked conclusion and any rubric that rewards the stronger inference."
+    },
+    {
+      "severity": "major",
+      "target": "assessment.json#item-senescence-properties",
+      "finding": "The item requires every senescent cell to be viable, metabolically active, and actively secreting the listed SASP classes. Growth arrest and viability are defining features within the lesson's model, but SASP is heterogeneous and context-dependent rather than a guaranteed identical property of every senescent cell. The claim's uncertainty only allows composition to vary and does not repair the universal keyed answer, so a scientifically defensible response can currently be marked wrong.",
+      "resolution": "Change the option and reasoning from universal secretion to the capacity to develop a context-dependent SASP, or specify in the stem that this cell has a documented SASP. Align claim-senescence-sasp, the scene, and the glossary with that boundary."
+    },
+    {
+      "severity": "minor",
+      "target": "content/01-where-the-cells-go.md#source-note",
+      "finding": "The scene and renewal-loop diagram make the material quantitative claim that daughters move at about four micrometres per hour, but the scene's source-note, claims.json, and references mapped there contain no supporting claim or source for that number. Referring to an earlier lesson in prose does not satisfy this pack's same-scene evidence trace.",
+      "resolution": "Add a mapped claim and complete source record supporting the rate in this scene, or remove the quantitative rate from the prose and diagram."
+    },
+    {
+      "severity": "minor",
+      "target": "content/08-clinical-wrap-up.md#what-the-loop-bought-and-what-it-cost",
+      "finding": "The statement that a departing-cell gap closes within about twenty minutes is used while discussing the colonic lining, although the registered evidence is a small-intestinal villus-tip review drawing substantially on non-colonic work. The scene's source note and ATTRIBUTION.md say the timing is not transferred to the colon, but the learner-facing sentence performs that transfer without a scope qualifier.",
+      "resolution": "Identify the interval explicitly as a small-intestinal example whose applicability to the colon is not established, or replace it with colon-specific evidence."
+    },
+    {
+      "severity": "note",
+      "target": "assessment.json#item-crypt-loss-rate",
+      "finding": "The core steady-state calculation is correct: 700 cells divided by 4 days gives 175 cells per day, and steady population requires average production and loss rates to be equal. The scene-5 calculations of 1.75 cells per day and 400 days, and the scene-7 calculation of approximately 0.19 cells per day or 0.11 percent, are also arithmetically correct under their fixed-rate assumptions.",
+      "resolution": "No correction to the arithmetic is required; preserve it while repairing the sign error and the unsupported biological extrapolation identified above."
+    }
+  ],
+  "limitations": [
+    "Direct PMC retrieval returned a reCAPTCHA page in this environment. The publisher full text for Parker and Neufeld 2020 and the publisher record and abstract for Eisenhoffer et al. 2012 were independently checked; remaining source checks used the complete candidate records, locators, and accessib...",
+    "Per the explicit review scope, no other lesson pack, site data, workflow, or script was read. Consequently, the claimed inherited conclusions from PREM-BIO-006 and PREM-BIO-007 and cross-lesson terminology collisions could not be independently verified. The BIO-125 syllabus outcome was checked, b...",
+    "The reviewer did not reproduce experimental work or perform a clinical pathology assessment. The verdict is limited to premedical-level academic accuracy, evidence interpretation, quantitative reasoning, model boundaries, and assessment correctness."
+  ],
+  "signedAt": "2026-07-27T23:36:43Z"
+}
