@@ -82,6 +82,16 @@ export function unbackedIncorporations({ adjudication, reviews, changedFiles, pa
     const files = targetFiles(finding.target, packPath);
     if (!files.length) continue;
 
+    // A finding may name adjudication.json itself, and reviewers do: a re-versioned lesson carries a
+    // stale adjudication that fails validation until the finalization writes a new one. But the
+    // finalization ordering puts the content revision in the final commit and the adjudication in the
+    // commit after it, so adjudication.json is never inside the range this check reads. An
+    // incorporated disposition against it is therefore unprovable here in every case -- not because
+    // the repair is missing, but because the artifact making the claim is the repair. Forcing such a
+    // finding to no-change-required would put a false statement in the record to satisfy a check that
+    // cannot see the true one.
+    if (files.every((file) => file === "adjudication.json")) continue;
+
     if (!files.some((file) => changed.has(file))) {
       problems.push(
         `${disposition.reviewId} finding ${disposition.findingIndex} is recorded as incorporated, but ` +
