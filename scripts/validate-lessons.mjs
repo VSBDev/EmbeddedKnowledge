@@ -6,6 +6,7 @@ import addFormats from "ajv-formats";
 import { principalKey, modelFamilyKey, reviewerAuthorConflict, unstampedProvenanceFields } from "./lib/provenance.mjs";
 import { validateLessonEvidenceContract } from "./lib/lesson-evidence.mjs";
 import { validateLessonRightsContract } from "./lib/lesson-rights.mjs";
+import { prerequisiteGaps } from "./lib/lesson-graph-prerequisites.mjs";
 import {
   eligibleReviewVerdicts,
   resolveRule,
@@ -372,6 +373,9 @@ function validateFormatPack(packName, packPath, lesson, { specimen = false } = {
 }
 
 const packDirectories = fs.readdirSync(lessonsRoot, { withFileTypes: true }).filter((entry) => entry.isDirectory());
+// Gathered across the loop because the prerequisite check is a corpus property, not a pack one: it
+// compares each lesson against the shared graph and has to see every pack before it can run.
+const collectedLessons = [];
 for (const entry of packDirectories) {
   const packName = entry.name;
   const packPath = path.join(lessonsRoot, packName);
@@ -390,6 +394,7 @@ for (const entry of packDirectories) {
   }
   validateSchema("lesson", lesson, "lesson.json", packName);
   validateFormatPack(packName, packPath, lesson);
+  if (lesson.status !== "specimen") collectedLessons.push(lesson);
 
   const courseTopicIds = [...topicIdsByCourse.entries()].find(([prefix]) => lesson.id?.startsWith(prefix))?.[1];
   for (const outcomeId of [...(lesson.outcomes || []), ...(lesson.prerequisites || [])]) {
@@ -557,6 +562,20 @@ if (!fs.existsSync(specimenLessonPath)) {
     error("examples/lesson-pack", `lesson.json is not valid JSON: ${parseError.message}`);
   }
 }
+
+// prerequisites in lesson.json is a hand-written copy of a fact the graph owns, and until this ran
+// nothing compared the two. PREM-STA-001 declared none while its first scene opened with a retrieval
+// check on another lesson, and the graph agreed with it -- both copies wrong together, which is why
+// it went unnoticed. Coverage, not equality: a lesson may declare more than the graph draws, because
+// an author knows what their scenes lean on, but never fewer.
+errors.push(...prerequisiteGaps({
+  lessons: collectedLessons,
+  graph: readProjectJson("site/data/premed-graph.json")
+}).map((problem) => `prerequisites: ${problem}`));
+errors.push(...prerequisiteGaps({
+  lessons: collectedLessons,
+  graph: readProjectJson("site/data/psychiatry-graph.json")
+}).map((problem) => `prerequisites: ${problem}`));
 
 if (errors.length) {
   console.error(errors.join("\n"));

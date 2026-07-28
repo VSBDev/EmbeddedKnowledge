@@ -236,7 +236,8 @@ add("quantitative-foundations", [
 ]);
 
 add("statistics-data", [
-  ["data-types", "Variables and data types", "Distinguish categorical, ordinal, discrete, continuous, paired, and independent data.", 2],
+  ["data-types", "Variables and data types", "Distinguish categorical, ordinal, discrete, continuous, paired, and independent data.", 2,
+    [R("scientific-inquiry", "variables-controls"), R("quantitative-foundations", "ratios-proportions")]],
   ["graphs-tables", "Tables and graphical displays", "Choose and critique plots that reveal distribution, comparison, association, or change.", 3, [R("statistics-data", "data-types"), R("quantitative-foundations", "functions-graphs")]],
   ["center-spread", "Center, spread, and distribution shape", "Calculate and interpret mean, median, range, variance, standard deviation, and skew.", 4, [R("statistics-data", "data-types")]],
   ["probability", "Probability foundations", "Use complements, conditional probability, independence, and counting for simple events.", 4, [R("quantitative-foundations", "ratios-proportions")]],
