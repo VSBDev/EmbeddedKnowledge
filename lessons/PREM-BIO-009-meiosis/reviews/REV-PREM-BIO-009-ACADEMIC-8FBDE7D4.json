@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "REV-PREM-BIO-009-ACADEMIC-8FBDE7D4",
+  "lessonId": "PREM-BIO-009",
+  "lessonVersion": "0.1.0",
+  "candidateCommit": "9fd94e99d31a427cb5921a6eb4885f98517ae944",
+  "role": "academic",
+  "verdict": "request-changes",
+  "reviewer": {
+    "principalId": "github:VSBDev",
+    "displayName": "VSBDev — accountable academic reviewer",
+    "agent": {
+      "system": "OpenAI Codex",
+      "provider": "OpenAI",
+      "model": "gpt-5.6-sol",
+      "version": "codex-cli 0.144.6",
+      "runId": "codex-academic-PREM-BIO-009-8FBDE7D4-2BF4-4A2F-8AC0-DC5AE1F9B87F",
+      "instructionsDigest": "sha256:4d4ad501ece42aafb2d1b31a1d4fb6c2981a0607cee294f6fa7ab5c54a60a095"
+    }
+  },
+  "conflictOfInterest": {
+    "declared": false,
+    "details": null
+  },
+  "evidenceChecked": [
+    "lesson.json#PREM-BIO-009@0.1.0",
+    "content/01-division-the-crypt-never-makes.md#entire-file",
+    "content/02-two-divisions-two-connections.md#entire-file",
+    "content/03-count-the-variation.md#entire-file",
+    "content/04-four-products-one-egg.md#entire-file",
+    "content/05-which-division-failed.md#entire-file",
+    "content/06-age-and-the-unfinished-explanation.md#entire-file",
+    "content/07-practice-and-recovery.md#entire-file",
+    "content/08-clinical-wrap-up.md#entire-file",
+    "assessment.json#entire-file",
+    "claims.json#entire-file",
+    "references.json#entire-file",
+    "glossary.json#entire-file",
+    "diagrams/two-divisions-two-connections.diagram.json#entire-file",
+    "ATTRIBUTION.md#entire-file",
+    "references.json#source-alberts-meiosis: duplicated homologs, recombined sister chromatids, chiasmata, cohesion release, assortment and genetic-map definitions",
+    "references.json#source-gruhn-cytological: MLH1 means, sample sizes and zero-focus frequencies",
+    "references.json#source-wang-crossover-maturation: maturation-efficiency model, zero-crossover bivalents and nucleus-level coefficient of variation",
+    "references.json#source-yoon-down-syndrome: cohort design, stage-specific odds ratios and confidence intervals",
+    "references.json#source-gruhn-egg-errors: U-shaped oocyte-aneuploidy relation and age-dependent error classes"
+  ],
+  "findings": [
+    {
+      "severity": "major",
+      "target": "content/02-two-divisions-two-connections.md#what-is-there-to-separate",
+      "finding": "The crossover explanation says that two nonsister chromatids become one molecule with a join and that this covalent continuity is the visible connection called a chiasma. A reciprocal crossover instead resolves into separate recombinant chromatid DNA molecules. The persistent mechanical link between homologs is the crossover/chiasma configuration maintained by sister-chromatid cohesion distal to the crossover; the nonsister chromatids are not left covalently joined. Because this is the lesson's central explanation of why homologs remain connected until anaphase I, the present wording teaches the wrong mechanism and propagates into the diagram, claim ledger and glossary.",
+      "resolution": "Rewrite the mechanism so that recombination produces separate recombinant chromatids, while the chiasma is maintained by distal sister-chromatid cohesion and is released when arm cohesion is removed. Make the same correction in diagrams/two-divisions-two-connections.diagram.json, claims.json#claim-crossing-over-swaps-segments and #claim-chiasma-resolution-reading, and glossary.json#term-crossing-over and #term-chiasma."
+    },
+    {
+      "severity": "major",
+      "target": "content/03-count-the-variation.md#step-5-what-crossing-over-does-to-the-count-and-what-it-does-not",
+      "finding": "The proposed 2^(23+24) = 2^47 total does not count a defined sample space and is not an upper bound. The approximately 24 inherited crossover points are an expectation derived from the male mean of 49.09, not a fixed number of independent binary choices; the female mean would imply about 34.6. Crossover number and position vary, chromatid participation is constrained, and origins alternate along a chromatid once the starting homolog and breakpoints are fixed. Variable breakpoint positions can create far more mosaics than 2^47, so calling that number an upper bound is mathematically reversed. The claims ledger itself records that no source supports it, yet it is a material quantitative teaching claim central to objective-compute-meiotic-variation.",
+      "resolution": "Remove 2^47 and the upper-bound claim, or define a biologically defensible finite model and derive its count without treating each crossover as an independent binary choice. State male and female expected inherited-crossover counts separately, map any retained quantitative claim in claims.json, and align the objective and assessment language with the corrected boundary."
+    },
+    {
+      "severity": "major",
+      "target": "content/05-which-division-failed.md#setting-up-the-notation",
+      "finding": "The two-case model repeatedly treats M1 and M2 (and P1 and P2) as identical whole chromosomes after meiotic recombination. The cited textbook explicitly limits sister identity to regions where recombination has not occurred. Sister chromatids can differ along their arms after a nonsister crossover, so meiosis-II disomy is not generally two identical chromosomes. The centromere-marker inference can still work, but only by tracking informative centromere-proximal parental alleles: meiosis I retains both parental homolog identities there, whereas meiosis II duplicates the centromeric identity of one homolog. The current prose also calls the trisomic individual homozygous or heterozygous without consistently restricting the comparison to the two same-parent copies, even though the third copy can carry another allele.",
+      "resolution": "Rebuild the notation around informative centromere-proximal markers and distinguish heterodisomy from isodisomy at that marker; state that arm sequences may differ after recombination. Propagate the correction to the product descriptions, assessment.json#item-which-division-from-marker and #item-count-abnormal-products-mii, glossary.json#term-sister-chromatids and #term-heterozygous-and-homozygous, and claims.json#claim-bivalent-four-chromatids and #claim-centromere-marker-inference."
+    },
+    {
+      "severity": "major",
+      "target": "assessment.json#item-audit-age-claims/option-age-association",
+      "finding": "The item asks learners to select only statements supported as written, but keys 'Aneuploidy in human eggs and in human conceptions rises with maternal age.' The lesson's cited 2019 oocyte study and claims.json#claim-cohesion-clock-unsettled describe a U-shaped relation across ages, with elevated aneuploidy at both the youngest and oldest ends and a minimum near the middle; that is not a monotonic rise with age. The conception literature cited in the lesson is likewise described as J-shaped. The keyed option therefore rewards an overstatement in the very item meant to test epistemic restraint.",
+      "resolution": "Rewrite the option and key to distinguish the well-supported advanced-maternal-age rise from the full U/J-shaped age relation, for example by specifying the older-age arm or by stating the U-shaped pattern explicitly. Align the summary and reasoning with the revised wording."
+    },
+    {
+      "severity": "major",
+      "target": "content/06-age-and-the-unfinished-explanation.md#what-that-study-can-and-cannot-establish",
+      "finding": "After accurately describing the 1996 study as retrospective, the scene concludes that its design 'can locate a mechanism in time.' A population-based case-control association between maternal age bands and a retrospectively inferred meiotic category does not causally locate a mechanism. The paper's authors infer that the meiosis-II association implies at least one mechanism acting near conception; that remains an interpretation, not a mechanism directly observed or temporally established by the design. This overclaim conflicts with objective-bound-age-effect-evidence. The uncertainty discussion also omits the reported very wide confidence intervals (MI 1.0–27.4; MII 2.3–999.0), which communicate imprecision more directly than the approximate total subgroup size.",
+      "resolution": "Replace the causal/timing claim with a bounded statement that the study supports an association with inferred stage and that its authors infer a near-conception mechanism, while the design neither observes nor identifies that mechanism. Include or otherwise accurately convey the published confidence intervals when interpreting the odds ratios."
+    },
+    {
+      "severity": "major",
+      "target": "content/08-clinical-wrap-up.md#working-it",
+      "finding": "Steps 2 and 3 present a false dichotomy: a meiotic or fertilisation-stage trisomy is said to be present in every cell, whereas a mitotic error is said to be confined to a crypt clone, and patch distribution is treated as decisive. Postzygotic chromosome rescue or further mitotic error can make a meiotically initiated abnormality mosaic, and an early embryonic mitotic error can involve multiple tissues rather than one crypt patch. A biopsy's spatial distribution can support constitutional-versus-clonal reasoning but cannot by itself prove the original division. The statement that meiosis occurs only before the individual exists is also incompatible with human oocyte meiosis II completing after fertilisation. This is a health-sensitive transfer task, so categorical diagnostic reasoning is not acceptable even with the general boundary callout.",
+      "resolution": "Keep the sound conclusion that a crypt cell itself divides mitotically, but recast origin from tissue distribution as a bounded inference rather than a proof. Add mosaicism, postzygotic rescue and early embryonic mitotic error as counterexamples, and revise assessment.json#item-crypt-has-no-use-for-meiosis so it does not reward the false dichotomy."
+    },
+    {
+      "severity": "major",
+      "target": "glossary.json#term-gamete",
+      "finding": "The glossary says gametes are the only cells meiosis produces and that producing them is the only job meiosis does. The pack itself describes polar bodies, which are meiotic products, and the cited textbook notes that a mammalian sperm cell has only begun differentiation when meiosis ends. Meiosis directly yields haploid spermatids in the male, followed by spermiogenesis, while human oocyte meiosis II completes only with fertilisation. Therefore the repeated claim that one meiosis directly produces four viable or functional male gametes is too strong and makes objective-trace-what-separates-when and item-four-gametes-qualifier scientifically imprecise.",
+      "resolution": "Distinguish products of meiosis from mature functional gametes and distinguish meiosis from the broader processes of spermatogenesis and oogenesis. Revise content/04-four-products-one-egg.md, lesson.json#objective-trace-what-separates-when, assessment.json#item-four-gametes-qualifier, claims.json#claim-oogenesis-one-gamete, and glossary.json#term-oogenesis-and-spermatogenesis consistently."
+    },
+    {
+      "severity": "minor",
+      "target": "content/03-count-the-variation.md#step-4-checking-a-number-against-itself",
+      "finding": "The sentence '50 per cent recombination is defined as 50 cM' conflates recombination fraction with map distance. A pairwise recombination fraction approaches a maximum of 0.5 for unlinked or sufficiently distant loci, while map distance can exceed 50 cM after accounting for multiple crossovers. The study's genome-wide conversion of one cytologically counted crossover per meiosis to an expected 50 cM contribution is a different statement. The reported products 49.09×50=2454.5 cM and 69.25×50=3462.5 cM are arithmetically correct, but the explanation of the unit is not.",
+      "resolution": "Define the one-crossover-to-50-cM aggregate conversion using the fact that a crossover involves two of four chromatids, and remove the claim that 50% recombination is generally identical to a 50-cM map distance."
+    }
+  ],
+  "limitations": [
+    "The explicit task scope prohibited reading site/, so the course terminology ledger, public review schema, quorum-policy file and site-hosted graph node were not inspected. Cross-lesson terminology continuity and authoritative graph-outcome wording therefore remain unverified; the artifact shape f...",
+    "Several PMC full-text routes for source-gruhn-cytological, source-nagaoka-aneuploidy, source-yoon-down-syndrome and source-gruhn-egg-errors intermittently returned a reCAPTCHA page. I checked accessible indexed primary-record text, abstracts, exact bibliographic records and quoted statistics, but...",
+    "This is an academic literature and assessment review, not a clinical-genetics consultation. No patient-level diagnosis, risk estimate or management recommendation was evaluated."
+  ],
+  "signedAt": "2026-07-28T00:26:27Z"
+}
